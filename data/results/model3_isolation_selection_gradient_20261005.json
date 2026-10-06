@@ -1,0 +1,6297 @@
+{
+  "classification": "exploratory diagnostic of local selection along visitor-arrival distance; no evolution rerun",
+  "status": "complete",
+  "histories": 832,
+  "gradient_values": 449280,
+  "rows": [
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.2,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.2,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.2,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.2,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.2,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.2,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.2,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.2,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.2,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.35,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.35,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.35,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.35,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.35,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.35,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.35,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.35,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.35,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.5,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.5,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.5,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.5,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.5,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.5,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.5,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.5,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.65,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.65,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.65,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.65,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.65,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.65,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.65,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.65,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.65,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.8,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.8,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.8,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.8,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.8,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.8,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.8,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.8,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 0,
+      "state": [
+        0.8,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.2,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.5,
+        "entry_brackets": [
+          [
+            1.25,
+            1.5
+          ],
+          [
+            1.75,
+            2.0
+          ]
+        ],
+        "exit_brackets": [
+          [
+            1.5,
+            1.75
+          ]
+        ]
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.2,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.0,
+        "entry_brackets": [
+          [
+            0.75,
+            1.0
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.2,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.2,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.0,
+        "entry_brackets": [
+          [
+            0.75,
+            1.0
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.2,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.2,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.2,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.2,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.2,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.35,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.5,
+        "entry_brackets": [
+          [
+            1.25,
+            1.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.35,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.25,
+        "entry_brackets": [
+          [
+            1.0,
+            1.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.35,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.75,
+        "entry_brackets": [
+          [
+            0.5,
+            0.75
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.35,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.0,
+        "entry_brackets": [
+          [
+            0.75,
+            1.0
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.35,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.35,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.25,
+        "entry_brackets": [
+          [
+            0.0,
+            0.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.35,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.35,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.35,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.5,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.75,
+        "entry_brackets": [
+          [
+            1.5,
+            1.75
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.5,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.25,
+        "entry_brackets": [
+          [
+            1.0,
+            1.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.5,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ],
+          [
+            0.75,
+            1.0
+          ]
+        ],
+        "exit_brackets": [
+          [
+            0.5,
+            0.75
+          ]
+        ]
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.5,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.25,
+        "entry_brackets": [
+          [
+            1.0,
+            1.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.5,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.25,
+        "entry_brackets": [
+          [
+            0.0,
+            0.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.5,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.5,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.5,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.65,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.5,
+        "entry_brackets": [
+          [
+            1.25,
+            1.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.65,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.0,
+        "entry_brackets": [
+          [
+            0.75,
+            1.0
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.65,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.65,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.0,
+        "entry_brackets": [
+          [
+            0.75,
+            1.0
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.65,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.65,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.25,
+        "entry_brackets": [
+          [
+            0.0,
+            0.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.65,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.65,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.65,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.8,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.25,
+        "entry_brackets": [
+          [
+            1.0,
+            1.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.8,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.75,
+        "entry_brackets": [
+          [
+            0.5,
+            0.75
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.8,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.8,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.75,
+        "entry_brackets": [
+          [
+            0.5,
+            0.75
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.8,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.8,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.25,
+        "entry_brackets": [
+          [
+            0.0,
+            0.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.8,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.8,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 200,
+      "state": [
+        0.8,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.2,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.5,
+        "entry_brackets": [
+          [
+            1.25,
+            1.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.2,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.25,
+        "entry_brackets": [
+          [
+            1.0,
+            1.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.2,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.75,
+        "entry_brackets": [
+          [
+            0.5,
+            0.75
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.2,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.25,
+        "entry_brackets": [
+          [
+            1.0,
+            1.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.2,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.75,
+        "entry_brackets": [
+          [
+            0.5,
+            0.75
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.2,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.2,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.75,
+        "entry_brackets": [
+          [
+            0.5,
+            0.75
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.2,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.2,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.35,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.5,
+        "entry_brackets": [
+          [
+            1.25,
+            1.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.35,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.25,
+        "entry_brackets": [
+          [
+            1.0,
+            1.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.35,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.0,
+        "entry_brackets": [
+          [
+            0.75,
+            1.0
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.35,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.25,
+        "entry_brackets": [
+          [
+            1.0,
+            1.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.35,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.0,
+        "entry_brackets": [
+          [
+            0.75,
+            1.0
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.35,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.25,
+        "entry_brackets": [
+          [
+            0.0,
+            0.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.35,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.0,
+        "entry_brackets": [
+          [
+            0.75,
+            1.0
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.35,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.25,
+        "entry_brackets": [
+          [
+            0.0,
+            0.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.35,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.5,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.5,
+        "entry_brackets": [
+          [
+            1.25,
+            1.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.5,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.25,
+        "entry_brackets": [
+          [
+            1.0,
+            1.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.5,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.0,
+        "entry_brackets": [
+          [
+            0.75,
+            1.0
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.5,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.25,
+        "entry_brackets": [
+          [
+            1.0,
+            1.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ],
+          [
+            0.75,
+            1.0
+          ]
+        ],
+        "exit_brackets": [
+          [
+            0.5,
+            0.75
+          ]
+        ]
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.5,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.25,
+        "entry_brackets": [
+          [
+            0.0,
+            0.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.5,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ],
+          [
+            0.75,
+            1.0
+          ]
+        ],
+        "exit_brackets": [
+          [
+            0.5,
+            0.75
+          ]
+        ]
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.5,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.25,
+        "entry_brackets": [
+          [
+            0.0,
+            0.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.5,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.65,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.5,
+        "entry_brackets": [
+          [
+            1.25,
+            1.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.65,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.25,
+        "entry_brackets": [
+          [
+            1.0,
+            1.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.65,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.75,
+        "entry_brackets": [
+          [
+            0.5,
+            0.75
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.65,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.25,
+        "entry_brackets": [
+          [
+            1.0,
+            1.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.65,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.65,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.25,
+        "entry_brackets": [
+          [
+            0.0,
+            0.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.65,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.65,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.25,
+        "entry_brackets": [
+          [
+            0.0,
+            0.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.65,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.8,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.5,
+        "entry_brackets": [
+          [
+            1.25,
+            1.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.8,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.0,
+        "entry_brackets": [
+          [
+            0.75,
+            1.0
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.8,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.8,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.0,
+        "entry_brackets": [
+          [
+            0.75,
+            1.0
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.8,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.8,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.8,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.8,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "snapshot": 400,
+      "state": [
+        0.8,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.2,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.2,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.2,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.2,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.2,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.2,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.2,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.2,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.2,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.35,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.35,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.35,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.35,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.35,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.35,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.35,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.35,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.35,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.5,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.5,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.5,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.5,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.5,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.5,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.5,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.5,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.65,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.65,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.65,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.65,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.65,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.65,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.65,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.65,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.65,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.8,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.8,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.8,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.8,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.8,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.8,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.8,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": null,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.8,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 0,
+      "state": [
+        0.8,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.2,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.5,
+        "entry_brackets": [
+          [
+            1.25,
+            1.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.2,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.2,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.2,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.75,
+        "entry_brackets": [
+          [
+            0.5,
+            0.75
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.2,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.2,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.2,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.25,
+        "entry_brackets": [
+          [
+            0.0,
+            0.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.2,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.2,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.35,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.5,
+        "entry_brackets": [
+          [
+            1.25,
+            1.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.35,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.75,
+        "entry_brackets": [
+          [
+            0.5,
+            0.75
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.35,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.35,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.0,
+        "entry_brackets": [
+          [
+            0.75,
+            1.0
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.35,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.35,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.35,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.35,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.35,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.5,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.5,
+        "entry_brackets": [
+          [
+            1.25,
+            1.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.5,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ],
+          [
+            0.75,
+            1.0
+          ]
+        ],
+        "exit_brackets": [
+          [
+            0.5,
+            0.75
+          ]
+        ]
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.5,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.5,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.0,
+        "entry_brackets": [
+          [
+            0.75,
+            1.0
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.25,
+        "entry_brackets": [
+          [
+            0.0,
+            0.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.5,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.5,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.25,
+        "entry_brackets": [
+          [
+            0.0,
+            0.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.5,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.5,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.65,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.25,
+        "entry_brackets": [
+          [
+            1.0,
+            1.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.65,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.65,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.65,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.75,
+        "entry_brackets": [
+          [
+            0.5,
+            0.75
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.65,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.65,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.65,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.25,
+        "entry_brackets": [
+          [
+            0.0,
+            0.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.65,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.65,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.8,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.25,
+        "entry_brackets": [
+          [
+            1.0,
+            1.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.8,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.8,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.8,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.75,
+        "entry_brackets": [
+          [
+            0.5,
+            0.75
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.8,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.8,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.8,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.25,
+        "entry_brackets": [
+          [
+            0.0,
+            0.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.8,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 200,
+      "state": [
+        0.8,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.2,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.5,
+        "entry_brackets": [
+          [
+            1.25,
+            1.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.2,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.75,
+        "entry_brackets": [
+          [
+            0.5,
+            0.75
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.2,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.2,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.0,
+        "entry_brackets": [
+          [
+            0.75,
+            1.0
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.2,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.2,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.2,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.25,
+        "entry_brackets": [
+          [
+            0.0,
+            0.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.2,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.2,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.35,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.25,
+        "entry_brackets": [
+          [
+            1.0,
+            1.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.35,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.0,
+        "entry_brackets": [
+          [
+            0.75,
+            1.0
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.35,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.35,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.0,
+        "entry_brackets": [
+          [
+            0.75,
+            1.0
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.35,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.25,
+        "entry_brackets": [
+          [
+            0.0,
+            0.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.35,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.35,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.35,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.35,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.5,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.5,
+        "entry_brackets": [
+          [
+            1.25,
+            1.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.5,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.0,
+        "entry_brackets": [
+          [
+            0.75,
+            1.0
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.5,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.5,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.0,
+        "entry_brackets": [
+          [
+            0.75,
+            1.0
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.25,
+        "entry_brackets": [
+          [
+            0.0,
+            0.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.5,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.5,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.5,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.5,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.65,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.5,
+        "entry_brackets": [
+          [
+            1.25,
+            1.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.65,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.75,
+        "entry_brackets": [
+          [
+            0.5,
+            0.75
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.65,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.65,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.0,
+        "entry_brackets": [
+          [
+            0.75,
+            1.0
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.65,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.25,
+        "entry_brackets": [
+          [
+            0.0,
+            0.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.65,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.65,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.25,
+        "entry_brackets": [
+          [
+            0.0,
+            0.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.65,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.65,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.8,
+        0.3,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 1.25,
+        "entry_brackets": [
+          [
+            1.0,
+            1.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.8,
+        0.3,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.8,
+        0.3,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.8,
+        0.5,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.5,
+        "entry_brackets": [
+          [
+            0.25,
+            0.5
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.8,
+        0.5,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.8,
+        0.5,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.8,
+        0.7,
+        0.3
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": false,
+        "first_target_distance": 0.25,
+        "entry_brackets": [
+          [
+            0.0,
+            0.25
+          ]
+        ],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.8,
+        0.7,
+        0.5
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "snapshot": 400,
+      "state": [
+        0.8,
+        0.7,
+        0.7
+      ],
+      "investment_decrease": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      },
+      "capacity_increase": {
+        "already_favoured_at_zero": true,
+        "first_target_distance": 0.0,
+        "entry_brackets": [],
+        "exit_brackets": []
+      }
+    }
+  ],
+  "source_design_sha256": "8c5a2e8f505fac0289a89808667ba02193c74ac95dadaeae951477245da3784e",
+  "arrays_sha256": "66074c4077ab4d0529707a410ed8f0218dd6e13926d0f7f08c87596396d6b1cd",
+  "scope": "distance not km; snapshot rather than time-averaged growth exponent; no plant feedback, genetic covariance or realized evolution; same RNG seed is paired blocking, not identical visitor identities across distances",
+  "uncertainty": "1999 paired history-bootstrap replicates, seed105760; pointwise95% intervals; not simultaneous threshold certainty"
+}

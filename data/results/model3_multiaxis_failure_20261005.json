@@ -1,0 +1,9 @@
+{
+  "input_sha256": "c556b9512a95363b033b399c2b73c983f233b9e22c4aac7ae3c23152ac917392",
+  "tolerance": 3.3538949820031467e-15,
+  "status": "failed",
+  "error": "no bounded binary final contraction path",
+  "seconds": 344.68699999991804,
+  "archive": "outputs/model3_precision_feasibility/multiaxis_failure_verified.zip",
+  "archive_sha256": "0ba4e97c74980642e01dfb632d58002fa1eac1d52e450f2af8e33b40727777fa"
+}

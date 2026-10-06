@@ -1,0 +1,369 @@
+{
+  "status": "verified_complete",
+  "cases": 768,
+  "records_sha256": "7e67e2ef2c8b5526595bab59302c2c704bde66fc8acaa5c1cc89c25c594aa853",
+  "analysis_sha256": "1d05f0a0d25d694e331f3ade8ac5b53efaac38622953fe2c0c6f52c0ab6ac43f",
+  "summaries": [
+    {
+      "setting": "assurance_cost",
+      "period": 0,
+      "metrics": {
+        "mean_gradient": {
+          "near_mean": 0.23193996081488766,
+          "far_mean": 0.23193996081488766,
+          "far_minus_near": 0.0,
+          "interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "negative_fraction": {
+          "near_mean": 0.3505859375,
+          "far_mean": 0.3505859375,
+          "far_minus_near": 0.0,
+          "interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "mean_outcross_gradient": {
+          "near_mean": 1.237402717400015,
+          "far_mean": 1.237402717400015,
+          "far_minus_near": 0.0,
+          "interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "received_pollen": {
+          "near_mean": 17.153055128248397,
+          "far_mean": 17.153055128248397,
+          "far_minus_near": 0.0,
+          "interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "raw_deficit": {
+          "near_mean": 0.42139268617528636,
+          "far_mean": 0.42139268617528636,
+          "far_minus_near": 0.0,
+          "interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "viable_deficit": {
+          "near_mean": 0.6320890292629295,
+          "far_mean": 0.6320890292629295,
+          "far_minus_near": 0.0,
+          "interval": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "period": 200,
+      "metrics": {
+        "mean_gradient": {
+          "near_mean": 0.5051033483046816,
+          "far_mean": -0.722353347582359,
+          "far_minus_near": -1.2274566958870408,
+          "interval": [
+            -1.4038136174062887,
+            -1.0407593176107135
+          ]
+        },
+        "negative_fraction": {
+          "near_mean": 0.26302083333333337,
+          "far_mean": 0.9716796875,
+          "far_minus_near": 0.7086588541666666,
+          "interval": [
+            0.603515625,
+            0.8030680338541666
+          ]
+        },
+        "mean_outcross_gradient": {
+          "near_mean": 1.5604147074602093,
+          "far_mean": 0.057806586995278325,
+          "far_minus_near": -1.5026081204649309,
+          "interval": [
+            -1.714881987508753,
+            -1.2779170779014477
+          ]
+        },
+        "received_pollen": {
+          "near_mean": 24.211478252171986,
+          "far_mean": 0.7342107306391147,
+          "far_minus_near": -23.477267521532873,
+          "interval": [
+            -27.651150448372118,
+            -19.33382856720152
+          ]
+        },
+        "raw_deficit": {
+          "near_mean": 0.3956833914897755,
+          "far_mean": 0.4964710669532032,
+          "far_minus_near": 0.10078767546342768,
+          "interval": [
+            0.08459746441610357,
+            0.11645454207937297
+          ]
+        },
+        "viable_deficit": {
+          "near_mean": 0.5935250872346632,
+          "far_mean": 0.7447066004298047,
+          "far_minus_near": 0.15118151319514153,
+          "interval": [
+            0.12689619662415536,
+            0.17468181311905948
+          ]
+        }
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "period": 400,
+      "metrics": {
+        "mean_gradient": {
+          "near_mean": 0.5792668427532845,
+          "far_mean": -0.7004220663917028,
+          "far_minus_near": -1.2796889091449875,
+          "interval": [
+            -1.4353050266569212,
+            -1.1230673039372572
+          ]
+        },
+        "negative_fraction": {
+          "near_mean": 0.205078125,
+          "far_mean": 0.9775390625,
+          "far_minus_near": 0.7724609375,
+          "interval": [
+            0.6927001953124999,
+            0.8466796875
+          ]
+        },
+        "mean_outcross_gradient": {
+          "near_mean": 1.6522808942944505,
+          "far_mean": 0.08536173864193325,
+          "far_minus_near": -1.5669191556525175,
+          "interval": [
+            -1.752353082478731,
+            -1.379320764006853
+          ]
+        },
+        "received_pollen": {
+          "near_mean": 25.379283297613746,
+          "far_mean": 1.0533990369684634,
+          "far_minus_near": -24.32588426064528,
+          "interval": [
+            -28.076620460550576,
+            -20.70847972940024
+          ]
+        },
+        "raw_deficit": {
+          "near_mean": 0.39014861544866286,
+          "far_mean": 0.4948351849471593,
+          "far_minus_near": 0.10468656949849642,
+          "interval": [
+            0.09087467842120527,
+            0.11861606606977716
+          ]
+        },
+        "viable_deficit": {
+          "near_mean": 0.5852229231729942,
+          "far_mean": 0.7422527774207389,
+          "far_minus_near": 0.15702985424774463,
+          "interval": [
+            0.13631201763180786,
+            0.17792409910466578
+          ]
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "period": 0,
+      "metrics": {
+        "mean_gradient": {
+          "near_mean": -0.17007594367983417,
+          "far_mean": -0.17007594367983417,
+          "far_minus_near": 0.0,
+          "interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "negative_fraction": {
+          "near_mean": 0.6686197916666666,
+          "far_mean": 0.6686197916666666,
+          "far_minus_near": 0.0,
+          "interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "mean_outcross_gradient": {
+          "near_mean": 0.7010804875212586,
+          "far_mean": 0.7010804875212586,
+          "far_minus_near": 0.0,
+          "interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "received_pollen": {
+          "near_mean": 17.153055128248397,
+          "far_mean": 17.153055128248397,
+          "far_minus_near": 0.0,
+          "interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "raw_deficit": {
+          "near_mean": 0.4213926861752863,
+          "far_mean": 0.4213926861752863,
+          "far_minus_near": 0.0,
+          "interval": [
+            0.0,
+            0.0
+          ]
+        },
+        "viable_deficit": {
+          "near_mean": 0.5618569149003818,
+          "far_mean": 0.5618569149003818,
+          "far_minus_near": 0.0,
+          "interval": [
+            0.0,
+            0.0
+          ]
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "period": 200,
+      "metrics": {
+        "mean_gradient": {
+          "near_mean": 0.012934324749543653,
+          "far_mean": -0.8384047088857028,
+          "far_minus_near": -0.8513390336352467,
+          "interval": [
+            -0.9716079356688538,
+            -0.7240348799858565
+          ]
+        },
+        "negative_fraction": {
+          "near_mean": 0.5198567708333334,
+          "far_mean": 0.9931640625,
+          "far_minus_near": 0.47330729166666663,
+          "interval": [
+            0.3876953125,
+            0.5566487630208332
+          ]
+        },
+        "mean_outcross_gradient": {
+          "near_mean": 0.8840907559506355,
+          "far_mean": 0.03275172231538667,
+          "far_minus_near": -0.8513390336352489,
+          "interval": [
+            -0.9716079356688597,
+            -0.7240348799858551
+          ]
+        },
+        "received_pollen": {
+          "near_mean": 24.211478252171986,
+          "far_mean": 0.7342107306391147,
+          "far_minus_near": -23.477267521532873,
+          "interval": [
+            -27.651150448372118,
+            -19.33382856720152
+          ]
+        },
+        "raw_deficit": {
+          "near_mean": 0.3956833914897755,
+          "far_mean": 0.4964710669532032,
+          "far_minus_near": 0.10078767546342772,
+          "interval": [
+            0.0845974644161036,
+            0.11645454207937304
+          ]
+        },
+        "viable_deficit": {
+          "near_mean": 0.5275778553197007,
+          "far_mean": 0.661961422604271,
+          "far_minus_near": 0.13438356728457035,
+          "interval": [
+            0.11279661922147154,
+            0.1552727227724974
+          ]
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "period": 400,
+      "metrics": {
+        "mean_gradient": {
+          "near_mean": 0.06498333849972757,
+          "far_mean": -0.822792670154491,
+          "far_minus_near": -0.8877760086542186,
+          "interval": [
+            -0.9928380923188268,
+            -0.7814875950086662
+          ]
+        },
+        "negative_fraction": {
+          "near_mean": 0.4781901041666667,
+          "far_mean": 0.9947916666666666,
+          "far_minus_near": 0.5166015625,
+          "interval": [
+            0.4361979166666667,
+            0.5947265625
+          ]
+        },
+        "mean_outcross_gradient": {
+          "near_mean": 0.9361397697008202,
+          "far_mean": 0.0483637610466013,
+          "far_minus_near": -0.887776008654219,
+          "interval": [
+            -0.9928380923188319,
+            -0.7814875950086664
+          ]
+        },
+        "received_pollen": {
+          "near_mean": 25.379283297613746,
+          "far_mean": 1.0533990369684634,
+          "far_minus_near": -24.32588426064528,
+          "interval": [
+            -28.076620460550576,
+            -20.70847972940024
+          ]
+        },
+        "raw_deficit": {
+          "near_mean": 0.39014861544866275,
+          "far_mean": 0.4948351849471593,
+          "far_minus_near": 0.10468656949849646,
+          "interval": [
+            0.09087467842120528,
+            0.1186160660697772
+          ]
+        },
+        "viable_deficit": {
+          "near_mean": 0.5201981539315504,
+          "far_mean": 0.6597802465962125,
+          "far_minus_near": 0.13958209266466198,
+          "interval": [
+            0.12116623789494041,
+            0.15815475475970298
+          ]
+        }
+      }
+    }
+  ],
+  "claim_ceiling": "Paired visitor histories at identical plant state and capacity0.5; instantaneous contribution gradient, not realized evolution. Visitor richness and composition change together. Descriptive intervals, no multiplicity correction."
+}

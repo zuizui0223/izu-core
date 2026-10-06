@@ -7,24 +7,27 @@ README = ROOT / "README.md"
 def test_readme_is_model3_first():
     text = README.read_text(encoding="utf-8")
     lower = text.lower()
-    assert text.startswith("# Izu Core — Model 3 island pollination-to-evolution")
-    assert "chapter 2 is scientifically closed at the declared synthetic claim ceiling" in lower
-    assert "pollinator functional environment" in lower
-    assert "reproductive selection" in lower
-    assert "expected inherited evolution" in lower
-    assert "finite-population realization" in lower
+    assert text.startswith("# Izu Core — Model 3 island reproductive economics")
+    assert "2026-10-05 ecological process mainline" in lower
+    assert "independently confirmed" in lower
+    assert "13 rates at fixed plant capacity 48" in lower
+    assert "sequence ≠ necessity" in lower
+    assert "64 new visitor histories" in lower
+    assert "prior-selfing positive-mutation cell did not show an assurance-first majority" in lower
 
 
 def test_readme_routes_to_current_submission_surface():
     text = README.read_text(encoding="utf-8")
     for token in (
         "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md",
+        "docs/CHAPTER2_PROCESS_MAINLINE_20261005.md",
         "docs/CHAPTER2_CANONICAL_STORY_20260927.md",
         "docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md",
         "data/design/chapter2_unified_model3_lock_20260927.json",
         "data/design/chapter2_oikos_submission_manifest_20260927.json",
         "scripts/model3_island/",
         "scripts/render_chapter2_oikos_generality_overlay.py",
+        "scripts/render_chapter2_process_manuscript.py",
     ):
         assert token in text
 

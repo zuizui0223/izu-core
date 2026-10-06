@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-06",
+  "status": "established_bounded",
+  "primary_cell": {
+    "reproductive_setting": "delayed_selfing",
+    "assurance_cost": 0.5,
+    "mutation_probability": 0.01
+  },
+  "frozen_statement": "Under sustained visitor-replenishment limitation, realized reproductive-assurance change can precede floral-investment decline, but assurance evolution is not required for that decline. Isolation can lower the reproductive return to attraction directly.",
+  "establishment_criteria": {
+    "novelty": {
+      "status": "pass",
+      "boundary": "Selfing-first is precedented; novelty is separation of temporal order from causal necessity by a matched intervention."
+    },
+    "independent_confirmation": {
+      "status": "pass",
+      "sequence_assurance_first": "51/64",
+      "sequence_bootstrap95": [
+        0.6875,
+        0.890625
+      ],
+      "fixed_assurance_far_change": -0.30602115590337237,
+      "fixed_assurance_far_change_bootstrap95": [
+        -0.3180538379758027,
+        -0.2941114139044992
+      ],
+      "fixed_assurance_far_minus_near": -0.43538938011716005,
+      "fixed_assurance_far_minus_near_bootstrap95": [
+        -0.4533304896960724,
+        -0.4171906485389262
+      ]
+    },
+    "threshold_robustness": {
+      "status": "pass",
+      "thresholds": [
+        0.025,
+        0.05,
+        0.1
+      ],
+      "assurance_first_counts": [
+        48,
+        51,
+        59
+      ]
+    },
+    "scope_generality": {
+      "status": "pass_bounded",
+      "boundary": "Prior selfing with positive mutation gives 30/64 assurance-first at threshold 0.05; no universal sequence claim."
+    },
+    "claim_boundary_reproducibility": {
+      "status": "pass",
+      "independent_visitor_histories": 64,
+      "nested_demographic_repeats": 8,
+      "declared_confirmatory_cases": 4096
+    }
+  },
+  "passes": 5,
+  "total": 5,
+  "complementary_not_primary": [
+    "assurance-evolution attenuation of geographic divergence",
+    "13-rate replenishment surface",
+    "pollen-deficit versus viable-offspring contrast as novelty",
+    "full mutation/history interpretation",
+    "finite-versus-deterministic attribution",
+    "natural-island causal transport"
+  ],
+  "unresolved_but_not_blocking": [
+    "sequence generality across reproductive settings",
+    "natural longitudinal validation",
+    "calibrated geographic/evolutionary rates",
+    "full mediation through realized selfing",
+    "evolving genetic load/purging",
+    "positive-mutation high-resolution deterministic/PDE comparison"
+  ],
+  "sources": {
+    "confirmatory_design": "data/design/chapter2_1005_confirmatory_replication_20261006.json",
+    "confirmatory_result": "data/results/chapter2_1005_confirmatory_replication_20261006.json",
+    "five_criteria_audit": "docs/CHAPTER2_1005_FIVE_CRITERIA_AUDIT_20261006.md",
+    "closeout": "docs/CHAPTER2_1005_ESTABLISHMENT_CLOSEOUT_20261006.md",
+    "manuscript": "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md",
+    "controlling_narrative": "docs/CHAPTER2_PROCESS_MAINLINE_20261005.md"
+  }
+}

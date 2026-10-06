@@ -1,0 +1,9 @@
+{
+  "status": "integrity_passed",
+  "checked_cases": 390,
+  "declared_cases": 8192,
+  "zero_mutation_matched_pairs_identical": 195,
+  "source_manifest_sha256": "b891e07c6b335687039f088873dfed8518a846c87a54df3cfba4c2296e1a0c8a",
+  "complete_marker_present": false,
+  "claim_ceiling": "Integrity only; partial campaigns do not authorize biological comparisons."
+}

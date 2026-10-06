@@ -1,0 +1,270 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-06",
+  "status": "confirmed",
+  "workflow_run": 37390991122,
+  "workflow_result_artifact": {
+    "artifact_id": 11381590034,
+    "artifact_name": "chapter2-1005-confirmatory-result",
+    "artifact_zip_sha256": "7c5c252cf559067f218bbd9f37b74b00c5d9c52fe30f25bb0196c9bfb9cb4872",
+    "full_result_json_sha256": "1951af2f2d5a8be883eae514aa84dce7d6a40407201c9a8cce501d4502773900",
+    "console_sha256": "7351d08f7ced7b3916428314940d86260d3f119fbd516d6ea7772d44836adb59"
+  },
+  "design_sha256": "0ea4cc4129b2ee97a1ed1ffb2295348e0628cf0f0a1b0d0694a3b78befb4f9d0",
+  "declared_cases": 4096,
+  "independent_visitor_histories": 64,
+  "nested_demographic_repeats": 8,
+  "adjudication": {
+    "status": "confirmed",
+    "sequence_success": true,
+    "fixed_assurance_success": true
+  },
+  "primary_sequence": {
+    "setting": "assurance_cost",
+    "mutation_rate": 0.01,
+    "threshold": 0.05,
+    "counts": {
+      "assurance_first": 51,
+      "near_simultaneous": 13
+    },
+    "assurance_first_proportion_all_histories": 0.796875,
+    "assurance_first_bootstrap95": [
+      0.6875,
+      0.890625
+    ]
+  },
+  "threshold_sensitivity": [
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0,
+      "threshold": 0.025,
+      "counts": {
+        "assurance_first": 42,
+        "near_simultaneous": 14,
+        "assurance_only": 8
+      },
+      "proportion": 0.65625,
+      "bootstrap95": [
+        0.53125,
+        0.765625
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0,
+      "threshold": 0.05,
+      "counts": {
+        "assurance_first": 42,
+        "assurance_only": 16,
+        "near_simultaneous": 6
+      },
+      "proportion": 0.65625,
+      "bootstrap95": [
+        0.53125,
+        0.765625
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0,
+      "threshold": 0.1,
+      "counts": {
+        "assurance_first": 37,
+        "assurance_only": 25,
+        "near_simultaneous": 2
+      },
+      "proportion": 0.578125,
+      "bootstrap95": [
+        0.453125,
+        0.703125
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.01,
+      "threshold": 0.025,
+      "counts": {
+        "assurance_first": 48,
+        "near_simultaneous": 16
+      },
+      "proportion": 0.75,
+      "bootstrap95": [
+        0.640625,
+        0.8445312499999886
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.01,
+      "threshold": 0.05,
+      "counts": {
+        "assurance_first": 51,
+        "near_simultaneous": 13
+      },
+      "proportion": 0.796875,
+      "bootstrap95": [
+        0.6875,
+        0.890625
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.01,
+      "threshold": 0.1,
+      "counts": {
+        "assurance_first": 59,
+        "near_simultaneous": 5
+      },
+      "proportion": 0.921875,
+      "bootstrap95": [
+        0.84375,
+        0.984375
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0,
+      "threshold": 0.025,
+      "counts": {
+        "assurance_first": 26,
+        "near_simultaneous": 38
+      },
+      "proportion": 0.40625,
+      "bootstrap95": [
+        0.28125,
+        0.53125
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0,
+      "threshold": 0.05,
+      "counts": {
+        "assurance_first": 40,
+        "near_simultaneous": 24
+      },
+      "proportion": 0.625,
+      "bootstrap95": [
+        0.5,
+        0.734375
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0,
+      "threshold": 0.1,
+      "counts": {
+        "assurance_first": 47,
+        "near_simultaneous": 13,
+        "assurance_only": 4
+      },
+      "proportion": 0.734375,
+      "bootstrap95": [
+        0.625,
+        0.84375
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.01,
+      "threshold": 0.025,
+      "counts": {
+        "assurance_first": 20,
+        "near_simultaneous": 44
+      },
+      "proportion": 0.3125,
+      "bootstrap95": [
+        0.203125,
+        0.421875
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.01,
+      "threshold": 0.05,
+      "counts": {
+        "assurance_first": 30,
+        "near_simultaneous": 34
+      },
+      "proportion": 0.46875,
+      "bootstrap95": [
+        0.34375,
+        0.59375
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.01,
+      "threshold": 0.1,
+      "counts": {
+        "assurance_first": 52,
+        "near_simultaneous": 12
+      },
+      "proportion": 0.8125,
+      "bootstrap95": [
+        0.71875,
+        0.90625
+      ]
+    }
+  ],
+  "fixed_assurance": [
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.01,
+      "fixed_assurance": 0.5,
+      "occupancy": {
+        "near": 1,
+        "far": 1
+      },
+      "eligible_histories_far": 64,
+      "eligible_histories_paired": 64,
+      "admissible": true,
+      "far_investment_change": {
+        "mean": -0.30602115590337237,
+        "bootstrap95": [
+          -0.3180538379758027,
+          -0.2941114139044992
+        ]
+      },
+      "far_minus_near_investment": {
+        "mean": -0.43538938011716005,
+        "bootstrap95": [
+          -0.4533304896960724,
+          -0.4171906485389262
+        ]
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.01,
+      "fixed_assurance": 0.5,
+      "occupancy": {
+        "near": 1,
+        "far": 1
+      },
+      "eligible_histories_far": 64,
+      "eligible_histories_paired": 64,
+      "admissible": true,
+      "far_investment_change": {
+        "mean": -0.33160038863036195,
+        "bootstrap95": [
+          -0.3417817150639618,
+          -0.3209891262920956
+        ]
+      },
+      "far_minus_near_investment": {
+        "mean": -0.3093761040132805,
+        "bootstrap95": [
+          -0.32463034040049316,
+          -0.2941769361914946
+        ]
+      }
+    }
+  ],
+  "interpretation": {
+    "confirmed_scope": "The preregistered primary cell, delayed selfing with assurance cost 0.5 and mutation probability 0.01, independently reproduces assurance-first realized change while fixed assurance still permits a negative investment response.",
+    "generality_boundary": "The assurance-first majority is not universal across reproductive settings or thresholds. Prior-selfing with positive mutation at threshold 0.05 gives 30/64 assurance-first and does not satisfy the primary confirmation criterion.",
+    "causal_boundary": "Confirmation separates realized temporal order from necessity of assurance evolution. Fixed assurance is not absence of realized selfing and is not a full mediation partition.",
+    "inference_unit": "64 independent visitor histories; eight demographic repeats are nested."
+  }
+}

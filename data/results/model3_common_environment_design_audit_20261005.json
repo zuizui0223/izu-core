@@ -1,0 +1,414 @@
+{
+  "status": "passed",
+  "histories": 64,
+  "rows": [
+    {
+      "seed": 76001,
+      "first_phase_different_snapshots": 193,
+      "common_phase_temporal_changes": 323,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76002,
+      "first_phase_different_snapshots": 199,
+      "common_phase_temporal_changes": 289,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76003,
+      "first_phase_different_snapshots": 197,
+      "common_phase_temporal_changes": 295,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76004,
+      "first_phase_different_snapshots": 199,
+      "common_phase_temporal_changes": 284,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76005,
+      "first_phase_different_snapshots": 194,
+      "common_phase_temporal_changes": 325,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76006,
+      "first_phase_different_snapshots": 190,
+      "common_phase_temporal_changes": 305,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76007,
+      "first_phase_different_snapshots": 199,
+      "common_phase_temporal_changes": 287,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76008,
+      "first_phase_different_snapshots": 193,
+      "common_phase_temporal_changes": 286,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76009,
+      "first_phase_different_snapshots": 189,
+      "common_phase_temporal_changes": 284,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76010,
+      "first_phase_different_snapshots": 181,
+      "common_phase_temporal_changes": 278,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76011,
+      "first_phase_different_snapshots": 195,
+      "common_phase_temporal_changes": 338,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76012,
+      "first_phase_different_snapshots": 192,
+      "common_phase_temporal_changes": 312,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76013,
+      "first_phase_different_snapshots": 193,
+      "common_phase_temporal_changes": 296,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76014,
+      "first_phase_different_snapshots": 198,
+      "common_phase_temporal_changes": 266,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76015,
+      "first_phase_different_snapshots": 196,
+      "common_phase_temporal_changes": 325,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76016,
+      "first_phase_different_snapshots": 193,
+      "common_phase_temporal_changes": 290,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76017,
+      "first_phase_different_snapshots": 199,
+      "common_phase_temporal_changes": 317,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76018,
+      "first_phase_different_snapshots": 189,
+      "common_phase_temporal_changes": 317,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76019,
+      "first_phase_different_snapshots": 192,
+      "common_phase_temporal_changes": 312,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76020,
+      "first_phase_different_snapshots": 196,
+      "common_phase_temporal_changes": 323,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76021,
+      "first_phase_different_snapshots": 188,
+      "common_phase_temporal_changes": 323,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76022,
+      "first_phase_different_snapshots": 198,
+      "common_phase_temporal_changes": 302,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76023,
+      "first_phase_different_snapshots": 198,
+      "common_phase_temporal_changes": 311,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76024,
+      "first_phase_different_snapshots": 199,
+      "common_phase_temporal_changes": 292,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76025,
+      "first_phase_different_snapshots": 197,
+      "common_phase_temporal_changes": 314,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76026,
+      "first_phase_different_snapshots": 198,
+      "common_phase_temporal_changes": 317,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76027,
+      "first_phase_different_snapshots": 199,
+      "common_phase_temporal_changes": 266,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76028,
+      "first_phase_different_snapshots": 194,
+      "common_phase_temporal_changes": 311,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76029,
+      "first_phase_different_snapshots": 191,
+      "common_phase_temporal_changes": 314,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76030,
+      "first_phase_different_snapshots": 195,
+      "common_phase_temporal_changes": 336,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76031,
+      "first_phase_different_snapshots": 194,
+      "common_phase_temporal_changes": 305,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76032,
+      "first_phase_different_snapshots": 188,
+      "common_phase_temporal_changes": 316,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76033,
+      "first_phase_different_snapshots": 190,
+      "common_phase_temporal_changes": 305,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76034,
+      "first_phase_different_snapshots": 197,
+      "common_phase_temporal_changes": 296,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76035,
+      "first_phase_different_snapshots": 197,
+      "common_phase_temporal_changes": 292,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76036,
+      "first_phase_different_snapshots": 190,
+      "common_phase_temporal_changes": 329,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76037,
+      "first_phase_different_snapshots": 190,
+      "common_phase_temporal_changes": 284,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76038,
+      "first_phase_different_snapshots": 193,
+      "common_phase_temporal_changes": 275,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76039,
+      "first_phase_different_snapshots": 196,
+      "common_phase_temporal_changes": 326,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76040,
+      "first_phase_different_snapshots": 199,
+      "common_phase_temporal_changes": 316,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76041,
+      "first_phase_different_snapshots": 197,
+      "common_phase_temporal_changes": 308,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76042,
+      "first_phase_different_snapshots": 165,
+      "common_phase_temporal_changes": 297,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76043,
+      "first_phase_different_snapshots": 198,
+      "common_phase_temporal_changes": 307,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76044,
+      "first_phase_different_snapshots": 196,
+      "common_phase_temporal_changes": 286,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76045,
+      "first_phase_different_snapshots": 193,
+      "common_phase_temporal_changes": 296,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76046,
+      "first_phase_different_snapshots": 189,
+      "common_phase_temporal_changes": 319,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76047,
+      "first_phase_different_snapshots": 199,
+      "common_phase_temporal_changes": 283,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76048,
+      "first_phase_different_snapshots": 198,
+      "common_phase_temporal_changes": 287,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76049,
+      "first_phase_different_snapshots": 199,
+      "common_phase_temporal_changes": 291,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76050,
+      "first_phase_different_snapshots": 188,
+      "common_phase_temporal_changes": 274,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76051,
+      "first_phase_different_snapshots": 198,
+      "common_phase_temporal_changes": 324,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76052,
+      "first_phase_different_snapshots": 194,
+      "common_phase_temporal_changes": 288,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76053,
+      "first_phase_different_snapshots": 193,
+      "common_phase_temporal_changes": 296,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76054,
+      "first_phase_different_snapshots": 195,
+      "common_phase_temporal_changes": 299,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76055,
+      "first_phase_different_snapshots": 199,
+      "common_phase_temporal_changes": 284,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76056,
+      "first_phase_different_snapshots": 181,
+      "common_phase_temporal_changes": 272,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76057,
+      "first_phase_different_snapshots": 194,
+      "common_phase_temporal_changes": 262,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76058,
+      "first_phase_different_snapshots": 196,
+      "common_phase_temporal_changes": 295,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76059,
+      "first_phase_different_snapshots": 190,
+      "common_phase_temporal_changes": 304,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76060,
+      "first_phase_different_snapshots": 196,
+      "common_phase_temporal_changes": 333,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76061,
+      "first_phase_different_snapshots": 196,
+      "common_phase_temporal_changes": 294,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76062,
+      "first_phase_different_snapshots": 193,
+      "common_phase_temporal_changes": 318,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76063,
+      "first_phase_different_snapshots": 199,
+      "common_phase_temporal_changes": 316,
+      "common_phase_identical_snapshots": 800
+    },
+    {
+      "seed": 76064,
+      "first_phase_different_snapshots": 198,
+      "common_phase_temporal_changes": 313,
+      "common_phase_identical_snapshots": 800
+    }
+  ],
+  "common_phase_matched_fields": [
+    "ids",
+    "optima",
+    "breadths",
+    "effectiveness"
+  ],
+  "initialization": "same four visitor types and same plant founder specification",
+  "mean_established_arrivals_first_phase": {
+    "near": 0.24,
+    "far": 0.011948896408287345
+  },
+  "interpretation": "controlled visitor-history equalization after 200 updates; not continuous isolation or natural reconnection",
+  "excluded_claims": [
+    "geologically calibrated duration",
+    "equilibrium",
+    "irreversibility",
+    "oceanic versus continental island contrast"
+  ],
+  "sources": {
+    "scripts/run_model3_full_mutation.py": "55238a6a5f78cde306950ac17f5e2dd370e366d062481722b0b3c68b457051d8",
+    "scripts/model3_island/history.py": "87407dd301ee7c9c793ff5fd25963b470ebf4674a61a0385ab7adcca8d354d04",
+    "scripts/audit_model3_common_environment_design.py": "c3411703eb1a8f09c26bd955d3d3038c5b14de52c4f1e440d674766c17449c8f",
+    "data/design/model3_ch2_bridge_20260927.json": "ee11a074da98460839b6ffe3e0e34c106400b54309b865b794bdb2d4fe856ee0"
+  }
+}

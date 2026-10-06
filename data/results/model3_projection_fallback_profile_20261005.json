@@ -1,0 +1,75 @@
+{
+  "timestamp": "2026-10-05T09:01:12.347069",
+  "profiler": "py-spy 0.4.2 nonblocking snapshot; no source edits",
+  "rows": [
+    {
+      "pid": 12160,
+      "frames": [
+        {
+          "name": "einsum",
+          "locals": {
+            "contraction_list": "[((3, 0), <set at 0x1898e8f2500>, \"jbe,abc->jcae\", [\"def\", \"iad\", \"kcf\", \"jcae\"], True), ((3, 2, 1, 0), ...)]",
+            "einsum_str": "\"jcae,kcf,iad,def->ijk\""
+          }
+        },
+        {
+          "name": "contract",
+          "locals": {
+            "path": "[\"einsum_path\", (0, 3), (0, 1, 2, 3)]"
+          }
+        },
+        {
+          "name": "read",
+          "locals": {
+            "start": "0",
+            "stop": "5556"
+          }
+        },
+        {
+          "name": "project_basis",
+          "locals": {
+            "shape": "(2145, 2979405)",
+            "rank": "128",
+            "start": "0",
+            "stop": "5556"
+          }
+        }
+      ]
+    },
+    {
+      "pid": 33292,
+      "frames": [
+        {
+          "name": "einsum",
+          "locals": {
+            "contraction_list": "[((3, 0), <set at 0x1aafd366ce0>, \"jbe,abc->jcae\", [\"def\", \"iad\", \"kcf\", \"jcae\"], True), ((3, 2, 1, 0), ...)]",
+            "einsum_str": "\"jcae,kcf,iad,def->ijk\""
+          }
+        },
+        {
+          "name": "contract",
+          "locals": {
+            "path": "[\"einsum_path\", (0, 3), (0, 1, 2, 3)]"
+          }
+        },
+        {
+          "name": "read",
+          "locals": {
+            "start": "0",
+            "stop": "5556"
+          }
+        },
+        {
+          "name": "project_basis",
+          "locals": {
+            "shape": "(2145, 2979405)",
+            "rank": "128",
+            "start": "0",
+            "stop": "5556"
+          }
+        }
+      ]
+    }
+  ],
+  "interpretation": "Block reader contract accepts a four-operand fallback after first binary step. This is the diagnosed high-cost path. Existing tiled_child_contract prevents such fallbacks but currently only runs during final assembly."
+}

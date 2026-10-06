@@ -1,0 +1,40 @@
+{
+  "scope": "failed Gram actual-input projection and controlled conditioning comparison",
+  "actual": {
+    "input_sha256": "5eb8e04e54613210f7d931032d28d2b33723723a71bd8191027d7ee2888f9731",
+    "shape": [
+      844,
+      34245
+    ],
+    "tolerance": 1e-14,
+    "status": "failed",
+    "error": "residual 3.7830547558745465e-09 exceeds 1e-14 at maximum admissible rank 467",
+    "seconds": 109.40599999995902
+  },
+  "control": [
+    {
+      "method": "gram",
+      "status": "failed",
+      "error": "residual 8.189899102215343e-10 exceeds 1e-13 at maximum admissible rank 15"
+    },
+    {
+      "method": "direct",
+      "status": "passed",
+      "residual": 8.235843880598382e-16,
+      "receipt": {
+        "residual_frobenius": 8.235843880598382e-16,
+        "rank": 8,
+        "attempts": [
+          {
+            "rank": 8,
+            "residual_frobenius": 8.235843880598382e-16
+          }
+        ],
+        "block_reads": 57,
+        "seed": 997,
+        "method": "direct Gaussian sketch plus QR; acceptance by full block residual",
+        "scope": "directly measured projection residual; excludes floating-point roundoff"
+      }
+    }
+  ]
+}

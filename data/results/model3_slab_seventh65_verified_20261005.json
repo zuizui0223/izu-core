@@ -1,0 +1,10 @@
+{
+  "status": "verified_local_step7_and_restart_state",
+  "source_files_checked": 128,
+  "state_sha256": "121ba0faaf38ae2cd702568fe1a1ab94ed07c2b5b8c099b8b1b9f0c1823baffd",
+  "checkpoint_sha256": "708e66c2e1ec34ec9b7e4f021069c0bd0107d878f3616954ae6510f44b4c9966",
+  "relative_marginal_l1": 1.6886121851900711e-12,
+  "trait_gap": 7.810418978237976e-14,
+  "checkpoint_arrays_exactly_equal": true,
+  "scope": "Reconstruction of saved marginals and checkpoint identity; does not independently rerun reference operator or certify accumulated joint error, positivity, grid convergence or long-run completion."
+}

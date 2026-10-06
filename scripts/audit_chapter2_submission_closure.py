@@ -13,6 +13,7 @@ from scripts.build_island_ecology_submission_bundle import (
 )
 from scripts.build_island_ecology_submission_metadata import load_metadata, validate_metadata
 from scripts.render_oikos_submission_rtf import render_manuscript_rtf, render_supporting_information_rtf
+from scripts.render_chapter2_oikos_generality_overlay import historical_provenance
 
 DEFAULT_METADATA = ROOT / "data/design/island_ecology_submission_metadata_template.json"
 DEFAULT_OUTPUT = ROOT / "data/results/chapter2_submission_closure_audit_20260927.json"
@@ -120,8 +121,12 @@ def build_audit(metadata_path: Path = DEFAULT_METADATA) -> dict:
 
     package_blockers: list[str] = []
     if manifest:
-        if manifest.get("active_manuscript") != SOURCE_MANUSCRIPT:
-            nonmetadata_errors.append("active manifest manuscript does not match bundle source manuscript")
+        try:
+            provenance = historical_provenance()
+            if manifest.get("active_manuscript") != provenance.get("source_path"):
+                nonmetadata_errors.append("historical manifest manuscript does not match snapshot original path")
+        except (ValueError, OSError) as exc:
+            nonmetadata_errors.append(f"historical manuscript provenance: {exc}")
         if manifest.get("submission_ready") is not False:
             nonmetadata_errors.append("active manifest must remain submission_ready=false before final QA and author metadata")
         if manifest.get("scientific_state") != "unified_model3_bridge_complete_with_real_island_layer_confrontation":
@@ -175,6 +180,8 @@ def build_audit(metadata_path: Path = DEFAULT_METADATA) -> dict:
 
     return {
         "schema_version": "2.0",
+        "scope": "historical_bridge_submission_only_not_current_process_manuscript",
+        "current_process_goal_completion_assessed": False,
         "audited_on": "2026-09-27",
         "journal": metadata.get("journal"),
         "article_type": metadata.get("article_type"),

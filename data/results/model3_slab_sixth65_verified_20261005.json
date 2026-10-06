@@ -1,0 +1,9 @@
+{
+  "status": "verified_local_marginals",
+  "source_count": 126,
+  "state_sha256": "1591b92ff50103d87dc1dfda8604074e9b94b17f15d66b7b694dde3d35db5502",
+  "relative_marginal_l1": 1.3640670861351964e-12,
+  "trait_gap": 1.2101430968414206e-14,
+  "seconds": 1109.5779999999795,
+  "claim_ceiling": "Local marginals only; no full joint positivity, accumulated error, grid convergence or long-run admission."
+}

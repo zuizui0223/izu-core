@@ -1,0 +1,19 @@
+{
+  "scope": "65-node second complete step resource/local marginal diagnostic",
+  "input_sha256": "e4546036e979c124ea7a1f047687c8a1e3e8f38de0de113e222d4c337f0bde7b",
+  "status": "passed_marginals",
+  "relative_marginal_l1": 4.4160254379746036e-13,
+  "trait_gap": 2.1760371282653068e-14,
+  "ranks": [
+    98,
+    79,
+    39
+  ],
+  "npz_sha256": "a04e3707ad1c1f30a670c8c755366d05cbab009bdf1ec94c7212fc131589ecf9",
+  "seconds": 334.0779999999795,
+  "verified_source_hashes": true,
+  "verified_saved_marginal_l1": 4.4160254379746036e-13,
+  "archive": "outputs/model3_precision_feasibility/stream_second65_verified.zip",
+  "archive_sha256": "4c9f7d0c9793bc209443ed17bee60f39861b7014a5991a74c646c73e74c4fb3e",
+  "claim_ceiling": "one second-step marginal/resource diagnostic; no long-path full-joint or grid convergence"
+}

@@ -1,30 +1,40 @@
 # Chapter 2 submission-route firewall — Model 3 mainline
 
-Updated: 2026-09-28
+Updated: 2026-10-06
 
 ## Current paper
 
-The only active Chapter 2 scientific object is:
+The only active Chapter 2 manuscript is the **2026-10-05 process paper**:
 
-> **one ecologically explicit Model 3 + prospective isolation bridge + layer-specific real-island confrontation**
+> **reduced visitor replenishment → changed reproductive return to attraction and assurance → realized sequence → causal-necessity intervention → viable reproductive consequences**
 
 Current manuscript: `docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md`.
+Controlling narrative: `docs/CHAPTER2_PROCESS_MAINLINE_20261005.md`.
 
-Current mechanism:
+The paper-level claim is that reproductive assurance can change before floral
+investment declines, yet assurance evolution is not required for that decline.
+A fixed-plant assay places the upstream mechanism in reduced outcross returns,
+and the fixed-versus-evolving-assurance intervention separates temporal order
+from causal necessity.
 
-`pollinator functional environment → reproductive selection → expected inherited change → finite-population realization`
+Current boundaries:
 
-The current paper retains these boundaries:
+- the primary ecological denominator is **64 independent visitor histories**; eight demographic repeats are nested;
+- the 51/64 delayed/costly positive-mutation sequence result is independently confirmed on 64 new visitor histories (95% history-bootstrap 0.6875–0.8906);
+- the confirmed sequence claim is restricted to delayed selfing with assurance cost 0.5 and positive mutation; the prior-selfing positive-mutation cell did not show an assurance-first majority at the primary threshold;
+- all four setting-by-mutation sequence cells must be reported;
+- the 13-rate extension is exploratory and cannot rescue a failed confirmation;
+- the full-mutation common-environment experiment is complementary genetic/history evidence, not the paper spine;
+- stable latent branch prevalence is not identified by the finite mixed-label counts or repeatability analyses and is not a target of the active process claim;
+- the unresolved high-resolution positive-mutation deterministic/PDE comparison is excluded from the biological headline;
+- pollen-deficit magnitude is not treated as equivalent to viable reproductive output;
+- Model 3 remains uncalibrated to natural kilometres, named island histories or Chapter 1 regional cells.
 
-- 24,576 computational cases are not independent replicates; inference is organized around 128 independent visitor histories;
-- realized visitor amount strongly positions the coarse mean response;
-- finite visitor-environment sampling and finite plant demography are distinct manipulated axes;
-- reproductive assurance can preserve population persistence without prescribing one floral endpoint;
-- chronology can retain different inherited endpoints under a common final environment;
-- stable latent branch prevalence, calibrated natural rates, named historical causes and region-to-model-cell assignments are not identified;
-- the inherited longitudinal **B layer** remains the principal natural-data gap.
-
-Scientific completion does not depend on Chapter 3 data. Chapter 3 or other future field data can test transport/falsification prospectively, but cannot retrospectively tune or validate the frozen Model 3.
+The former Evolution Letters repeatability manuscript
+`CHAPTER2_MANUSCRIPT_EL_REPEATABILITY_20261003.md` is **retired as a standalone
+submission route**. Its distinct repeatability analyses may be retained in SI or
+future work only with explicit overlap disclosure. The historical Oikos bundle
+remains a frozen submission snapshot, not the active manuscript.
 
 ## Prospective empirical test
 

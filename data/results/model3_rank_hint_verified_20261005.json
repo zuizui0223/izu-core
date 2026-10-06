@@ -1,0 +1,29 @@
+{
+  "input_sha256": "5eb8e04e54613210f7d931032d28d2b33723723a71bd8191027d7ee2888f9731",
+  "shape": [
+    844,
+    34245
+  ],
+  "tolerance": 1e-14,
+  "status": "passed",
+  "receipt": {
+    "residual_frobenius": 4.900986611762565e-16,
+    "rank": 128,
+    "attempts": [
+      {
+        "rank": 128,
+        "residual_frobenius": 4.900986611762565e-16
+      }
+    ],
+    "block_reads": 573,
+    "seed": 997,
+    "initial_rank": 128,
+    "method": "direct Gaussian sketch plus QR; acceptance by full block residual",
+    "scope": "directly measured projection residual; excludes floating-point roundoff"
+  },
+  "sha256": "71badfcdae51d13cc895339bc3363f225a4fc61deb6d7c06150b7bd5402ca669",
+  "seconds": 20.0,
+  "previous_seconds": 73.04700000002049,
+  "bitwise_archive_equal": true,
+  "scope": "single captured contraction timing; not complete solver speedup"
+}

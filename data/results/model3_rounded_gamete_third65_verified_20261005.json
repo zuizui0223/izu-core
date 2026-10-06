@@ -1,0 +1,784 @@
+{
+  "input_sha256": "ee034e57681cf9b9b651ef28ff11bcfd78580628e5027f5fd6c36ef5e8aef29d",
+  "scope": "third step from captured previous state; local marginal/resource probe only",
+  "status": "passed_marginals",
+  "relative_marginal_l1": 9.577181938527958e-13,
+  "trait_gap": 2.375877272697835e-14,
+  "ranks": [
+    131,
+    103,
+    66
+  ],
+  "records": [
+    {
+      "stage": "weight_factor:self:None",
+      "absolute_l1_bound": 2.941941548633769e-07,
+      "ranks": [
+        462,
+        474,
+        39
+      ],
+      "prefactor": 21347335.68534698,
+      "weight_rank": 6,
+      "weight_l1_bound": 1.7278601402408666e-09,
+      "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+    },
+    {
+      "stage": "weight:self:None",
+      "absolute_l1_bound": 7.28080709525852e-08,
+      "mass_before": 62.39665279065346,
+      "ranks": [
+        113,
+        94,
+        38
+      ],
+      "relative_l1_bound": 1.1668586005224192e-09,
+      "norm_bounds": {
+        "cauchy": 1008196.0191369038,
+        "triangle": 154.89433312306653
+      },
+      "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+    },
+    {
+      "stage": "selfed_birth",
+      "absolute_l1_bound": 7.064705440767715e-08,
+      "mass_before": 62.39665279065341,
+      "ranks": [
+        100,
+        82,
+        36
+      ],
+      "relative_l1_bound": 1.1322250673398236e-09,
+      "norm_bounds": {
+        "cauchy": 1269771.9004280264,
+        "triangle": 107.25117801237573
+      },
+      "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+    },
+    {
+      "stage": "weight_factor:donor:0",
+      "absolute_l1_bound": 6.292400348002792e-08,
+      "ranks": [
+        347,
+        316,
+        39
+      ],
+      "prefactor": 8759558.998616306,
+      "weight_rank": 4,
+      "weight_l1_bound": 1.1660535115811172e-08,
+      "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+    },
+    {
+      "stage": "weight:donor:0",
+      "absolute_l1_bound": 1.4485205400813078e-08,
+      "mass_before": 12.347496582612694,
+      "ranks": [
+        97,
+        84,
+        38
+      ],
+      "relative_l1_bound": 1.1731289256812293e-09,
+      "norm_bounds": {
+        "cauchy": 167319.31935210948,
+        "triangle": 36.46695137830836
+      },
+      "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+    },
+    {
+      "stage": "weight_factor:recipient:0",
+      "absolute_l1_bound": 1.8464785363387515e-09,
+      "ranks": [
+        413,
+        395,
+        39
+      ],
+      "prefactor": 306801.45450401737,
+      "weight_rank": 5,
+      "weight_l1_bound": 4.650056023491149e-10,
+      "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+    },
+    {
+      "stage": "weight:recipient:0",
+      "absolute_l1_bound": 3.9175610615904586e-10,
+      "mass_before": 0.3297126003017095,
+      "ranks": [
+        102,
+        88,
+        38
+      ],
+      "relative_l1_bound": 1.1881745065264788e-09,
+      "norm_bounds": {
+        "cauchy": 4504.6091925483715,
+        "triangle": 0.9820691759646014
+      },
+      "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+    },
+    {
+      "stage": "child_factor:0",
+      "absolute_l1_bound": 1.093699787524101e-09,
+      "streamed": true,
+      "factor_receipt": {
+        "absolute_l1_bound": 1.6906613463456002e-10,
+        "ranks": [
+          649,
+          361,
+          208
+        ],
+        "exact_square_modes": [],
+        "prefactor": 86732.3435056553,
+        "spectral_tail_ratios": [
+          1.3441576614283983e-15,
+          0.0,
+          0.0
+        ],
+        "bound_scope": "exact square basis plus rectangular factor truncation; excludes roundoff",
+        "gamete_receipt": {
+          "absolute_l1_bound": 5.248419061779386e-11,
+          "parent_receipts": [
+            {
+              "absolute_l1_bound": 7.35554790953924e-11,
+              "mass_before": 12.34749658261272,
+              "ranks": [
+                25,
+                19,
+                13
+              ],
+              "relative_l1_bound": 5.957116780981374e-12,
+              "norm_bounds": {
+                "cauchy": 1779.5456495037163,
+                "triangle": 18.93246290048028
+              },
+              "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+            },
+            {
+              "absolute_l1_bound": 2.2864571899189236e-12,
+              "mass_before": 0.329712600301707,
+              "ranks": [
+                26,
+                19,
+                16
+              ],
+              "relative_l1_bound": 6.9346976361433464e-12,
+              "norm_bounds": {
+                "cauchy": 47.634990141785785,
+                "triangle": 0.5106092271187396
+              },
+              "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+            }
+          ],
+          "bound_scope": "joint gamete truncation transported through mating; excludes roundoff"
+        }
+      },
+      "projection_receipt": {
+        "residual_frobenius_upper": 9.307407980064833e-15,
+        "projections": [
+          {
+            "axis": 0,
+            "residual_frobenius": 9.307407980064833e-15,
+            "rank": 128,
+            "attempts": [
+              {
+                "rank": 128,
+                "residual_frobenius": 9.307407980064833e-15
+              }
+            ],
+            "block_reads": 182,
+            "seed": 997,
+            "initial_rank": 128,
+            "method": "direct Gaussian sketch plus QR; acceptance by full block residual",
+            "scope": "directly measured projection residual; excludes floating-point roundoff"
+          }
+        ],
+        "assembly": {
+          "tiles": 1,
+          "max_intermediate_values": 9611264,
+          "output_values": 9611264,
+          "scope": "exact tiled algebra; floating point roundoff not bounded"
+        },
+        "scope": "sum of direct orthogonal projection residuals; roundoff excluded"
+      },
+      "bound_scope": "factor truncation plus directly measured projection residual; excludes roundoff"
+    },
+    {
+      "stage": "outcross_birth:0",
+      "absolute_l1_bound": 4.801668571286288e-09,
+      "mass_before": 4.071125205469695,
+      "ranks": [
+        102,
+        78,
+        53
+      ],
+      "relative_l1_bound": 1.1794450745054667e-09,
+      "norm_bounds": {
+        "cauchy": 48624.3561767549,
+        "triangle": 7.397143419954976
+      },
+      "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+    },
+    {
+      "stage": "sum:0",
+      "absolute_l1_bound": 7.392954932604498e-08,
+      "mass_before": 66.46777799612316,
+      "ranks": [
+        128,
+        104,
+        64
+      ],
+      "relative_l1_bound": 1.1122614830054503e-09,
+      "norm_bounds": {
+        "cauchy": 1289674.053812776,
+        "triangle": 129.8911370248078
+      },
+      "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+    },
+    {
+      "stage": "weight_factor:donor:1",
+      "absolute_l1_bound": 2.49100926499051e-08,
+      "ranks": [
+        344,
+        316,
+        39
+      ],
+      "prefactor": 8962066.482720952,
+      "weight_rank": 4,
+      "weight_l1_bound": 1.9397054727308313e-09,
+      "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+    },
+    {
+      "stage": "weight:donor:1",
+      "absolute_l1_bound": 5.5249489511995245e-09,
+      "mass_before": 5.237222602625369,
+      "ranks": [
+        97,
+        81,
+        38
+      ],
+      "relative_l1_bound": 1.0549387281017845e-09,
+      "norm_bounds": {
+        "cauchy": 98223.74702014956,
+        "triangle": 12.082108370238267
+      },
+      "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+    },
+    {
+      "stage": "weight_factor:recipient:1",
+      "absolute_l1_bound": 8.411868244738133e-10,
+      "ranks": [
+        405,
+        395,
+        39
+      ],
+      "prefactor": 343365.68324745743,
+      "weight_rank": 5,
+      "weight_l1_bound": 2.4547372441189493e-10,
+      "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+    },
+    {
+      "stage": "weight:recipient:1",
+      "absolute_l1_bound": 1.6752817594356914e-10,
+      "mass_before": 0.15097454234598692,
+      "ranks": [
+        100,
+        85,
+        38
+      ],
+      "relative_l1_bound": 1.1096451980602558e-09,
+      "norm_bounds": {
+        "cauchy": 2926.8665849749664,
+        "triangle": 0.3433802428911954
+      },
+      "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+    },
+    {
+      "stage": "child_factor:1",
+      "absolute_l1_bound": 4.21276626600926e-10,
+      "streamed": true,
+      "factor_receipt": {
+        "absolute_l1_bound": 3.1493699930254057e-10,
+        "ranks": [
+          597,
+          342,
+          182
+        ],
+        "exact_square_modes": [],
+        "prefactor": 21526.696869380652,
+        "spectral_tail_ratios": [
+          1.4044560550704956e-14,
+          0.0,
+          0.0
+        ],
+        "bound_scope": "exact square basis plus rectangular factor truncation; excludes roundoff",
+        "gamete_receipt": {
+          "absolute_l1_bound": 1.2604001663853186e-11,
+          "parent_receipts": [
+            {
+              "absolute_l1_bound": 4.7638465865672495e-11,
+              "mass_before": 5.2372226026253275,
+              "ranks": [
+                24,
+                18,
+                13
+              ],
+              "relative_l1_bound": 9.096131572064966e-12,
+              "norm_bounds": {
+                "cauchy": 846.8080491539877,
+                "triangle": 6.749994058893296
+              },
+              "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+            },
+            {
+              "absolute_l1_bound": 1.0333351267149685e-12,
+              "mass_before": 0.15097454234598676,
+              "ranks": [
+                25,
+                19,
+                14
+              ],
+              "relative_l1_bound": 6.844432913377444e-12,
+              "norm_bounds": {
+                "cauchy": 24.84543183063575,
+                "triangle": 0.19410752803993228
+              },
+              "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+            }
+          ],
+          "bound_scope": "joint gamete truncation transported through mating; excludes roundoff"
+        }
+      },
+      "projection_receipt": {
+        "residual_frobenius_upper": 1.0704199361780641e-15,
+        "projections": [
+          {
+            "axis": 0,
+            "residual_frobenius": 1.0704199361780641e-15,
+            "rank": 128,
+            "attempts": [
+              {
+                "rank": 128,
+                "residual_frobenius": 1.0704199361780641e-15
+              }
+            ],
+            "block_reads": 172,
+            "seed": 997,
+            "initial_rank": 128,
+            "method": "direct Gaussian sketch plus QR; acceptance by full block residual",
+            "scope": "directly measured projection residual; excludes floating-point roundoff"
+          }
+        ],
+        "assembly": {
+          "tiles": 1,
+          "max_intermediate_values": 7967232,
+          "output_values": 7967232,
+          "scope": "exact tiled algebra; floating point roundoff not bounded"
+        },
+        "scope": "sum of direct orthogonal projection residuals; roundoff excluded"
+      },
+      "bound_scope": "factor truncation plus directly measured projection residual; excludes roundoff"
+    },
+    {
+      "stage": "outcross_birth:1",
+      "absolute_l1_bound": 8.945033702671248e-10,
+      "mass_before": 0.7906872855954067,
+      "ranks": [
+        99,
+        76,
+        54
+      ],
+      "relative_l1_bound": 1.1312985380731677e-09,
+      "norm_bounds": {
+        "cauchy": 10744.614455804505,
+        "triangle": 1.1667554792897799
+      },
+      "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+    },
+    {
+      "stage": "sum:1",
+      "absolute_l1_bound": 8.079962752422054e-08,
+      "mass_before": 67.25846528171809,
+      "ranks": [
+        134,
+        105,
+        65
+      ],
+      "relative_l1_bound": 1.2013302293738652e-09,
+      "norm_bounds": {
+        "cauchy": 1292043.6844706314,
+        "triangle": 132.8905692219281
+      },
+      "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+    },
+    {
+      "stage": "weight_factor:donor:2",
+      "absolute_l1_bound": 8.301797237853416e-09,
+      "ranks": [
+        331,
+        316,
+        39
+      ],
+      "prefactor": 8820380.553793082,
+      "weight_rank": 4,
+      "weight_l1_bound": 7.542466309248371e-10,
+      "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+    },
+    {
+      "stage": "weight:donor:2",
+      "absolute_l1_bound": 1.6692518916297947e-09,
+      "mass_before": 1.7005900052590996,
+      "ranks": [
+        93,
+        82,
+        38
+      ],
+      "relative_l1_bound": 9.815722110959188e-10,
+      "norm_bounds": {
+        "cauchy": 25713.307969908645,
+        "triangle": 6.3259541794435314
+      },
+      "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+    },
+    {
+      "stage": "weight_factor:recipient:2",
+      "absolute_l1_bound": 3.230933579910147e-10,
+      "ranks": [
+        397,
+        395,
+        39
+      ],
+      "prefactor": 356855.44558974623,
+      "weight_rank": 5,
+      "weight_l1_bound": 1.411266205280606e-10,
+      "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+    },
+    {
+      "stage": "weight:recipient:2",
+      "absolute_l1_bound": 5.310547614737644e-11,
+      "mass_before": 0.05197728976549504,
+      "ranks": [
+        97,
+        86,
+        38
+      ],
+      "relative_l1_bound": 1.0217053714607172e-09,
+      "norm_bounds": {
+        "cauchy": 807.776105635866,
+        "triangle": 0.19079649401380253
+      },
+      "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+    },
+    {
+      "stage": "child_factor:2",
+      "absolute_l1_bound": 3.3395660569762314e-11,
+      "streamed": true,
+      "factor_receipt": {
+        "absolute_l1_bound": 2.4643401106508558e-11,
+        "ranks": [
+          597,
+          361,
+          182
+        ],
+        "exact_square_modes": [],
+        "prefactor": 1812.1844400602,
+        "spectral_tail_ratios": [
+          1.2906474109228323e-14,
+          0.0,
+          0.0
+        ],
+        "bound_scope": "exact square basis plus rectangular factor truncation; excludes roundoff",
+        "gamete_receipt": {
+          "absolute_l1_bound": 1.2544895497251632e-12,
+          "parent_receipts": [
+            {
+              "absolute_l1_bound": 1.0245416065149973e-11,
+              "mass_before": 1.700590005259103,
+              "ranks": [
+                24,
+                19,
+                13
+              ],
+              "relative_l1_bound": 6.024624414741856e-12,
+              "norm_bounds": {
+                "cauchy": 239.0409276245252,
+                "triangle": 3.352424642457291
+              },
+              "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+            },
+            {
+              "absolute_l1_bound": 4.245353600257113e-13,
+              "mass_before": 0.0519772897654953,
+              "ranks": [
+                25,
+                19,
+                14
+              ],
+              "relative_l1_bound": 8.167708665478276e-12,
+              "norm_bounds": {
+                "cauchy": 7.409420853104441,
+                "triangle": 0.10180736943534967
+              },
+              "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+            }
+          ],
+          "bound_scope": "joint gamete truncation transported through mating; excludes roundoff"
+        }
+      },
+      "projection_receipt": {
+        "residual_frobenius_upper": 8.810067567551264e-17,
+        "projections": [
+          {
+            "axis": 0,
+            "residual_frobenius": 8.810067567551264e-17,
+            "rank": 128,
+            "attempts": [
+              {
+                "rank": 128,
+                "residual_frobenius": 8.810067567551264e-17
+              }
+            ],
+            "block_reads": 182,
+            "seed": 997,
+            "initial_rank": 128,
+            "method": "direct Gaussian sketch plus QR; acceptance by full block residual",
+            "scope": "directly measured projection residual; excludes floating-point roundoff"
+          }
+        ],
+        "assembly": {
+          "tiles": 1,
+          "max_intermediate_values": 8409856,
+          "output_values": 8409856,
+          "scope": "exact tiled algebra; floating point roundoff not bounded"
+        },
+        "scope": "sum of direct orthogonal projection residuals; roundoff excluded"
+      },
+      "bound_scope": "factor truncation plus directly measured projection residual; excludes roundoff"
+    },
+    {
+      "stage": "outcross_birth:2",
+      "absolute_l1_bound": 1.0352696582493463e-10,
+      "mass_before": 0.08839205947565777,
+      "ranks": [
+        96,
+        79,
+        54
+      ],
+      "relative_l1_bound": 1.1712247280927405e-09,
+      "norm_bounds": {
+        "cauchy": 962.2703455164464,
+        "triangle": 0.24177547113242784
+      },
+      "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+    },
+    {
+      "stage": "sum:2",
+      "absolute_l1_bound": 7.276078094572016e-08,
+      "mass_before": 67.34685734119391,
+      "ranks": [
+        132,
+        103,
+        64
+      ],
+      "relative_l1_bound": 1.0803886598167175e-09,
+      "norm_bounds": {
+        "cauchy": 1292172.609575986,
+        "triangle": 133.52507582204072
+      },
+      "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+    },
+    {
+      "stage": "weight_factor:donor:3",
+      "absolute_l1_bound": 2.3175154087821212e-07,
+      "ranks": [
+        352,
+        316,
+        39
+      ],
+      "prefactor": 8924511.70892493,
+      "weight_rank": 4,
+      "weight_l1_bound": 3.51273677020599e-08,
+      "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+    },
+    {
+      "stage": "weight:donor:3",
+      "absolute_l1_bound": 4.672513439970229e-08,
+      "mass_before": 43.67115315467119,
+      "ranks": [
+        100,
+        81,
+        38
+      ],
+      "relative_l1_bound": 1.0699313167713876e-09,
+      "norm_bounds": {
+        "cauchy": 906379.3803019788,
+        "triangle": 79.79631078672968
+      },
+      "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+    },
+    {
+      "stage": "weight_factor:recipient:3",
+      "absolute_l1_bound": 4.33789338771554e-09,
+      "ranks": [
+        417,
+        395,
+        39
+      ],
+      "prefactor": 223161.67778186876,
+      "weight_rank": 5,
+      "weight_l1_bound": 2.4749093143121984e-10,
+      "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+    },
+    {
+      "stage": "weight:recipient:3",
+      "absolute_l1_bound": 8.888046173009504e-10,
+      "mass_before": 0.8779145134344246,
+      "ranks": [
+        105,
+        86,
+        38
+      ],
+      "relative_l1_bound": 1.0124045151320297e-09,
+      "norm_bounds": {
+        "cauchy": 18203.996448555637,
+        "triangle": 1.6240697219381879
+      },
+      "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+    },
+    {
+      "stage": "child_factor:3",
+      "absolute_l1_bound": 2.422560671921981e-08,
+      "streamed": true,
+      "factor_receipt": {
+        "absolute_l1_bound": 1.876088938738619e-08,
+        "ranks": [
+          599,
+          342,
+          182
+        ],
+        "exact_square_modes": [],
+        "prefactor": 1455282.6446486185,
+        "spectral_tail_ratios": [
+          1.2443477201507788e-14,
+          0.0,
+          0.0
+        ],
+        "bound_scope": "exact square basis plus rectangular factor truncation; excludes roundoff",
+        "gamete_receipt": {
+          "absolute_l1_bound": 6.521129769511449e-10,
+          "parent_receipts": [
+            {
+              "absolute_l1_bound": 3.3686843161421777e-10,
+              "mass_before": 43.67115315467146,
+              "ranks": [
+                24,
+                18,
+                13
+              ],
+              "relative_l1_bound": 7.713751693735234e-12,
+              "norm_bounds": {
+                "cauchy": 8414.169401129428,
+                "triangle": 49.353274188666475
+              },
+              "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+            },
+            {
+              "absolute_l1_bound": 8.160336193939294e-12,
+              "mass_before": 0.8779145134344245,
+              "ranks": [
+                25,
+                19,
+                14
+              ],
+              "relative_l1_bound": 9.29513758921224e-12,
+              "norm_bounds": {
+                "cauchy": 169.04029049804728,
+                "triangle": 0.9994577436739136
+              },
+              "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+            }
+          ],
+          "bound_scope": "joint gamete truncation transported through mating; excludes roundoff"
+        }
+      },
+      "projection_receipt": {
+        "residual_frobenius_upper": 5.50081143425384e-14,
+        "projections": [
+          {
+            "axis": 0,
+            "residual_frobenius": 5.50081143425384e-14,
+            "rank": 128,
+            "attempts": [
+              {
+                "rank": 128,
+                "residual_frobenius": 5.50081143425384e-14
+              }
+            ],
+            "block_reads": 172,
+            "seed": 997,
+            "initial_rank": 128,
+            "method": "direct Gaussian sketch plus QR; acceptance by full block residual",
+            "scope": "directly measured projection residual; excludes floating-point roundoff"
+          }
+        ],
+        "assembly": {
+          "tiles": 1,
+          "max_intermediate_values": 7967232,
+          "output_values": 7967232,
+          "scope": "exact tiled algebra; floating point roundoff not bounded"
+        },
+        "scope": "sum of direct orthogonal projection residuals; roundoff excluded"
+      },
+      "bound_scope": "factor truncation plus directly measured projection residual; excludes roundoff"
+    },
+    {
+      "stage": "outcross_birth:3",
+      "absolute_l1_bound": 4.517470199960333e-08,
+      "mass_before": 38.339539172902256,
+      "ranks": [
+        97,
+        73,
+        48
+      ],
+      "relative_l1_bound": 1.178279733511561e-09,
+      "norm_bounds": {
+        "cauchy": 662709.418448385,
+        "triangle": 48.66710566536432
+      },
+      "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+    },
+    {
+      "stage": "sum:3",
+      "absolute_l1_bound": 1.2563302682114647e-07,
+      "mass_before": 105.686396514097,
+      "ranks": [
+        135,
+        105,
+        67
+      ],
+      "relative_l1_bound": 1.1887341319692822e-09,
+      "norm_bounds": {
+        "cauchy": 1804862.750860252,
+        "triangle": 229.61036664070673
+      },
+      "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+    },
+    {
+      "stage": "retained",
+      "absolute_l1_bound": 5.138999030553201e-08,
+      "mass_before": 48.00000000000007,
+      "ranks": [
+        131,
+        103,
+        66
+      ],
+      "relative_l1_bound": 1.0706247980319153e-09,
+      "norm_bounds": {
+        "cauchy": 819721.505309664,
+        "triangle": 104.28302943111939
+      },
+      "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+    }
+  ],
+  "npz_sha256": "84c2b01d3512cb88d9acb56e24444228933acf7129745b4bec4debb2f20fa192",
+  "seconds": 113.53200000000652,
+  "verified_source_files": 104,
+  "sources_manifest_sha256": "c6e1be06e6970f92a9bf258984f3a4a6749610edb47dc3f0c20f8464794a31ab",
+  "source_zip_sha256": "487d8074151ae131b3002bc55f53273f24640eddfedf638e66843b40342dc479"
+}

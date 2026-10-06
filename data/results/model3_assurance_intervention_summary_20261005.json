@@ -1,0 +1,2645 @@
+{
+  "status": "completed_verified_summary",
+  "integrity": {
+    "status": "integrity_passed",
+    "checked_cases": 8192,
+    "declared_cases": 8192,
+    "zero_mutation_matched_pairs_identical": 2048,
+    "source_manifest_sha256": "b891e07c6b335687039f088873dfed8518a846c87a54df3cfba4c2296e1a0c8a",
+    "complete_marker_present": true,
+    "claim_ceiling": "Integrity only; partial campaigns do not authorize biological comparisons."
+  },
+  "results": [
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.0,
+      "period": 200,
+      "modes": {
+        "fixed": {
+          "occupancy": {
+            "near": 1.0,
+            "far": 1.0
+          },
+          "change_from_founders": {
+            "near": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.019320846988053295,
+                  "interval": [
+                    -0.007224739448378418,
+                    0.044957822555443436
+                  ]
+                },
+                "investment": {
+                  "mean": 0.08068041724063219,
+                  "interval": [
+                    0.06424735095630776,
+                    0.09731927839731132
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "far": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.02710588998665209,
+                  "interval": [
+                    0.0007310724797532939,
+                    0.0522390522314122
+                  ]
+                },
+                "investment": {
+                  "mean": -0.09166999034046772,
+                  "interval": [
+                    -0.11050542877488685,
+                    -0.07340219043613266
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            }
+          },
+          "far_minus_near": {
+            "histories": 64,
+            "eligible_replicates": 512,
+            "missing_histories": 0,
+            "traits": {
+              "matching": {
+                "mean": 0.007785042998598801,
+                "interval": [
+                  -0.012103769527476682,
+                  0.02728120653104047
+                ]
+              },
+              "investment": {
+                "mean": -0.17235040758109987,
+                "interval": [
+                  -0.1931508999006722,
+                  -0.15132021197473058
+                ]
+              },
+              "capacity": {
+                "mean": 0.0,
+                "interval": [
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        },
+        "evolving": {
+          "occupancy": {
+            "near": 1.0,
+            "far": 1.0
+          },
+          "change_from_founders": {
+            "near": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.019320846988053295,
+                  "interval": [
+                    -0.007224739448378418,
+                    0.044957822555443436
+                  ]
+                },
+                "investment": {
+                  "mean": 0.08068041724063219,
+                  "interval": [
+                    0.06424735095630776,
+                    0.09731927839731132
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "far": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.02710588998665209,
+                  "interval": [
+                    0.0007310724797532939,
+                    0.0522390522314122
+                  ]
+                },
+                "investment": {
+                  "mean": -0.09166999034046772,
+                  "interval": [
+                    -0.11050542877488685,
+                    -0.07340219043613266
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            }
+          },
+          "far_minus_near": {
+            "histories": 64,
+            "eligible_replicates": 512,
+            "missing_histories": 0,
+            "traits": {
+              "matching": {
+                "mean": 0.007785042998598801,
+                "interval": [
+                  -0.012103769527476682,
+                  0.02728120653104047
+                ]
+              },
+              "investment": {
+                "mean": -0.17235040758109987,
+                "interval": [
+                  -0.1931508999006722,
+                  -0.15132021197473058
+                ]
+              },
+              "capacity": {
+                "mean": 0.0,
+                "interval": [
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        }
+      },
+      "isolation_effect_evolving_minus_fixed": {
+        "histories": 64,
+        "eligible_replicates": 512,
+        "missing_histories": 0,
+        "traits": {
+          "matching": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "investment": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "capacity": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.0,
+      "period": 400,
+      "modes": {
+        "fixed": {
+          "occupancy": {
+            "near": 1.0,
+            "far": 1.0
+          },
+          "change_from_founders": {
+            "near": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.019091744834763804,
+                  "interval": [
+                    -0.007410369182743924,
+                    0.04479842317581979
+                  ]
+                },
+                "investment": {
+                  "mean": 0.08206722563533311,
+                  "interval": [
+                    0.06556947828475482,
+                    0.09853582446222066
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "far": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.027201020170770092,
+                  "interval": [
+                    0.0008392382091577456,
+                    0.05226125398641958
+                  ]
+                },
+                "investment": {
+                  "mean": -0.09139580108944029,
+                  "interval": [
+                    -0.11024536198576979,
+                    -0.07315431586252208
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            }
+          },
+          "far_minus_near": {
+            "histories": 64,
+            "eligible_replicates": 512,
+            "missing_histories": 0,
+            "traits": {
+              "matching": {
+                "mean": 0.008109275336006295,
+                "interval": [
+                  -0.012060494129148816,
+                  0.02777105332421918
+                ]
+              },
+              "investment": {
+                "mean": -0.17346302672477337,
+                "interval": [
+                  -0.19383493302117746,
+                  -0.15267024624973746
+                ]
+              },
+              "capacity": {
+                "mean": 0.0,
+                "interval": [
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        },
+        "evolving": {
+          "occupancy": {
+            "near": 1.0,
+            "far": 1.0
+          },
+          "change_from_founders": {
+            "near": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.019091744834763804,
+                  "interval": [
+                    -0.007410369182743924,
+                    0.04479842317581979
+                  ]
+                },
+                "investment": {
+                  "mean": 0.08206722563533311,
+                  "interval": [
+                    0.06556947828475482,
+                    0.09853582446222066
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "far": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.027201020170770092,
+                  "interval": [
+                    0.0008392382091577456,
+                    0.05226125398641958
+                  ]
+                },
+                "investment": {
+                  "mean": -0.09139580108944029,
+                  "interval": [
+                    -0.11024536198576979,
+                    -0.07315431586252208
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            }
+          },
+          "far_minus_near": {
+            "histories": 64,
+            "eligible_replicates": 512,
+            "missing_histories": 0,
+            "traits": {
+              "matching": {
+                "mean": 0.008109275336006295,
+                "interval": [
+                  -0.012060494129148816,
+                  0.02777105332421918
+                ]
+              },
+              "investment": {
+                "mean": -0.17346302672477337,
+                "interval": [
+                  -0.19383493302117746,
+                  -0.15267024624973746
+                ]
+              },
+              "capacity": {
+                "mean": 0.0,
+                "interval": [
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        }
+      },
+      "isolation_effect_evolving_minus_fixed": {
+        "histories": 64,
+        "eligible_replicates": 512,
+        "missing_histories": 0,
+        "traits": {
+          "matching": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "investment": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "capacity": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.0,
+      "period": 1000,
+      "modes": {
+        "fixed": {
+          "occupancy": {
+            "near": 1.0,
+            "far": 1.0
+          },
+          "change_from_founders": {
+            "near": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.019149226761343265,
+                  "interval": [
+                    -0.007408985422558212,
+                    0.044818743672726105
+                  ]
+                },
+                "investment": {
+                  "mean": 0.08206761763825142,
+                  "interval": [
+                    0.06557293537163184,
+                    0.09853525350204684
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "far": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.027201020170770092,
+                  "interval": [
+                    0.0008392382091577456,
+                    0.05226125398641958
+                  ]
+                },
+                "investment": {
+                  "mean": -0.09139580108944029,
+                  "interval": [
+                    -0.11024536198576979,
+                    -0.07315431586252208
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            }
+          },
+          "far_minus_near": {
+            "histories": 64,
+            "eligible_replicates": 512,
+            "missing_histories": 0,
+            "traits": {
+              "matching": {
+                "mean": 0.00805179340942683,
+                "interval": [
+                  -0.012120830220848103,
+                  0.027708792421338637
+                ]
+              },
+              "investment": {
+                "mean": -0.1734634187276917,
+                "interval": [
+                  -0.19384299648446782,
+                  -0.15268692386082522
+                ]
+              },
+              "capacity": {
+                "mean": 0.0,
+                "interval": [
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        },
+        "evolving": {
+          "occupancy": {
+            "near": 1.0,
+            "far": 1.0
+          },
+          "change_from_founders": {
+            "near": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.019149226761343265,
+                  "interval": [
+                    -0.007408985422558212,
+                    0.044818743672726105
+                  ]
+                },
+                "investment": {
+                  "mean": 0.08206761763825142,
+                  "interval": [
+                    0.06557293537163184,
+                    0.09853525350204684
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "far": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.027201020170770092,
+                  "interval": [
+                    0.0008392382091577456,
+                    0.05226125398641958
+                  ]
+                },
+                "investment": {
+                  "mean": -0.09139580108944029,
+                  "interval": [
+                    -0.11024536198576979,
+                    -0.07315431586252208
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            }
+          },
+          "far_minus_near": {
+            "histories": 64,
+            "eligible_replicates": 512,
+            "missing_histories": 0,
+            "traits": {
+              "matching": {
+                "mean": 0.00805179340942683,
+                "interval": [
+                  -0.012120830220848103,
+                  0.027708792421338637
+                ]
+              },
+              "investment": {
+                "mean": -0.1734634187276917,
+                "interval": [
+                  -0.19384299648446782,
+                  -0.15268692386082522
+                ]
+              },
+              "capacity": {
+                "mean": 0.0,
+                "interval": [
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        }
+      },
+      "isolation_effect_evolving_minus_fixed": {
+        "histories": 64,
+        "eligible_replicates": 512,
+        "missing_histories": 0,
+        "traits": {
+          "matching": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "investment": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "capacity": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.01,
+      "period": 200,
+      "modes": {
+        "fixed": {
+          "occupancy": {
+            "near": 1.0,
+            "far": 1.0
+          },
+          "change_from_founders": {
+            "near": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.012171223903784228,
+                  "interval": [
+                    -0.019903988798731214,
+                    0.0430390995966695
+                  ]
+                },
+                "investment": {
+                  "mean": 0.09067343322662612,
+                  "interval": [
+                    0.07332568807901331,
+                    0.10847317399080039
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "far": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.04030472469205311,
+                  "interval": [
+                    0.012166697438774516,
+                    0.06801759551158397
+                  ]
+                },
+                "investment": {
+                  "mean": -0.13887976717132952,
+                  "interval": [
+                    -0.15775563183645694,
+                    -0.12055763415926414
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            }
+          },
+          "far_minus_near": {
+            "histories": 64,
+            "eligible_replicates": 512,
+            "missing_histories": 0,
+            "traits": {
+              "matching": {
+                "mean": 0.028133500788268873,
+                "interval": [
+                  0.00151350778066305,
+                  0.055051148681304826
+                ]
+              },
+              "investment": {
+                "mean": -0.22955320039795565,
+                "interval": [
+                  -0.2557430992632677,
+                  -0.20365648744902504
+                ]
+              },
+              "capacity": {
+                "mean": 0.0,
+                "interval": [
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        },
+        "evolving": {
+          "occupancy": {
+            "near": 1.0,
+            "far": 1.0
+          },
+          "change_from_founders": {
+            "near": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.01863418292135865,
+                  "interval": [
+                    -0.010779509345644549,
+                    0.04651677909150919
+                  ]
+                },
+                "investment": {
+                  "mean": 0.09097477763359432,
+                  "interval": [
+                    0.07245148077977386,
+                    0.10937825298422545
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.07111828721299737,
+                  "interval": [
+                    0.06282568838595473,
+                    0.0794849249545654
+                  ]
+                }
+              }
+            },
+            "far": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.033916451449756975,
+                  "interval": [
+                    0.006432587726730778,
+                    0.06173286992313168
+                  ]
+                },
+                "investment": {
+                  "mean": -0.12893915328571542,
+                  "interval": [
+                    -0.14631864504814876,
+                    -0.1115437773846054
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.1448043827237358,
+                  "interval": [
+                    0.13869862614828896,
+                    0.15065935722787735
+                  ]
+                }
+              }
+            }
+          },
+          "far_minus_near": {
+            "histories": 64,
+            "eligible_replicates": 512,
+            "missing_histories": 0,
+            "traits": {
+              "matching": {
+                "mean": 0.01528226852839833,
+                "interval": [
+                  -0.010018540017361783,
+                  0.04014063834256375
+                ]
+              },
+              "investment": {
+                "mean": -0.21991393091930975,
+                "interval": [
+                  -0.2406060204891976,
+                  -0.1991578004315309
+                ]
+              },
+              "capacity": {
+                "mean": 0.07368609551073843,
+                "interval": [
+                  0.0638832103752716,
+                  0.08310798618424152
+                ]
+              }
+            }
+          }
+        }
+      },
+      "isolation_effect_evolving_minus_fixed": {
+        "histories": 64,
+        "eligible_replicates": 512,
+        "missing_histories": 0,
+        "traits": {
+          "matching": {
+            "mean": -0.012851232259870539,
+            "interval": [
+              -0.0323586892896527,
+              0.006719864259652824
+            ]
+          },
+          "investment": {
+            "mean": 0.009639269478645913,
+            "interval": [
+              -0.008064854053820129,
+              0.027850028767951212
+            ]
+          },
+          "capacity": {
+            "mean": 0.07368609551073843,
+            "interval": [
+              0.0638832103752716,
+              0.08310798618424152
+            ]
+          }
+        }
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.01,
+      "period": 400,
+      "modes": {
+        "fixed": {
+          "occupancy": {
+            "near": 1.0,
+            "far": 1.0
+          },
+          "change_from_founders": {
+            "near": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.01678967649891148,
+                  "interval": [
+                    -0.016772965794654864,
+                    0.048866395120948695
+                  ]
+                },
+                "investment": {
+                  "mean": 0.1008410858028442,
+                  "interval": [
+                    0.08352848273039606,
+                    0.11734526512011303
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "far": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.03797403285495691,
+                  "interval": [
+                    0.009756690727980388,
+                    0.06529752415649717
+                  ]
+                },
+                "investment": {
+                  "mean": -0.19067029837168786,
+                  "interval": [
+                    -0.2063958840646951,
+                    -0.17499702053853453
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            }
+          },
+          "far_minus_near": {
+            "histories": 64,
+            "eligible_replicates": 512,
+            "missing_histories": 0,
+            "traits": {
+              "matching": {
+                "mean": 0.021184356356045424,
+                "interval": [
+                  -0.007069747192167182,
+                  0.04991620362672269
+                ]
+              },
+              "investment": {
+                "mean": -0.29151138417453204,
+                "interval": [
+                  -0.3136212069073719,
+                  -0.27027379617109065
+                ]
+              },
+              "capacity": {
+                "mean": 0.0,
+                "interval": [
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        },
+        "evolving": {
+          "occupancy": {
+            "near": 0.998046875,
+            "far": 1.0
+          },
+          "change_from_founders": {
+            "near": {
+              "histories": 64,
+              "eligible_replicates": 511,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.019724540494329146,
+                  "interval": [
+                    -0.009916543869526093,
+                    0.04795011310437077
+                  ]
+                },
+                "investment": {
+                  "mean": 0.08569682250824542,
+                  "interval": [
+                    0.06872333059434774,
+                    0.10294544298521821
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.1421029251241392,
+                  "interval": [
+                    0.13200393363901425,
+                    0.15188628457463732
+                  ]
+                }
+              }
+            },
+            "far": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.03911611040774644,
+                  "interval": [
+                    0.010504304779266697,
+                    0.0674012760199762
+                  ]
+                },
+                "investment": {
+                  "mean": -0.17356275327142973,
+                  "interval": [
+                    -0.18963089752903073,
+                    -0.15747758439257667
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.25940724952926053,
+                  "interval": [
+                    0.25197403624029,
+                    0.2667465734275599
+                  ]
+                }
+              }
+            }
+          },
+          "far_minus_near": {
+            "histories": 64,
+            "eligible_replicates": 511,
+            "missing_histories": 0,
+            "traits": {
+              "matching": {
+                "mean": 0.019372256851403223,
+                "interval": [
+                  -0.007742913764179178,
+                  0.04699285062433985
+                ]
+              },
+              "investment": {
+                "mean": -0.25897504950627304,
+                "interval": [
+                  -0.2782474481761747,
+                  -0.24028412712749428
+                ]
+              },
+              "capacity": {
+                "mean": 0.11725350671752556,
+                "interval": [
+                  0.10446997116458641,
+                  0.12953701525164968
+                ]
+              }
+            }
+          }
+        }
+      },
+      "isolation_effect_evolving_minus_fixed": {
+        "histories": 64,
+        "eligible_replicates": 511,
+        "missing_histories": 0,
+        "traits": {
+          "matching": {
+            "mean": -0.0019000753100757422,
+            "interval": [
+              -0.025579793494584255,
+              0.022196632604429466
+            ]
+          },
+          "investment": {
+            "mean": 0.0325163352334647,
+            "interval": [
+              0.01708426441883365,
+              0.04803106047493394
+            ]
+          },
+          "capacity": {
+            "mean": 0.11725350671752556,
+            "interval": [
+              0.10446997116458641,
+              0.12953701525164968
+            ]
+          }
+        }
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.01,
+      "period": 1000,
+      "modes": {
+        "fixed": {
+          "occupancy": {
+            "near": 1.0,
+            "far": 1.0
+          },
+          "change_from_founders": {
+            "near": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.015157450891564722,
+                  "interval": [
+                    -0.014933771249613838,
+                    0.04431091648388879
+                  ]
+                },
+                "investment": {
+                  "mean": 0.12093107728005167,
+                  "interval": [
+                    0.1053544713201589,
+                    0.13554230812785845
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "far": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.04746375924083729,
+                  "interval": [
+                    0.019918032111831175,
+                    0.07361773785952183
+                  ]
+                },
+                "investment": {
+                  "mean": -0.309902397804349,
+                  "interval": [
+                    -0.3219591211643814,
+                    -0.29724475297147357
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            }
+          },
+          "far_minus_near": {
+            "histories": 64,
+            "eligible_replicates": 512,
+            "missing_histories": 0,
+            "traits": {
+              "matching": {
+                "mean": 0.03230630834927256,
+                "interval": [
+                  0.0020006501698562607,
+                  0.06275042516108127
+                ]
+              },
+              "investment": {
+                "mean": -0.4308334750844007,
+                "interval": [
+                  -0.4485051843064393,
+                  -0.4129861385470268
+                ]
+              },
+              "capacity": {
+                "mean": 0.0,
+                "interval": [
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        },
+        "evolving": {
+          "occupancy": {
+            "near": 0.998046875,
+            "far": 1.0
+          },
+          "change_from_founders": {
+            "near": {
+              "histories": 64,
+              "eligible_replicates": 511,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.0031477490566793036,
+                  "interval": [
+                    -0.024349985255491587,
+                    0.030482229062426352
+                  ]
+                },
+                "investment": {
+                  "mean": 0.04091739998377328,
+                  "interval": [
+                    0.025246281774744483,
+                    0.05728630326005641
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.26984334556193235,
+                  "interval": [
+                    0.25854587480665664,
+                    0.2809392899244994
+                  ]
+                }
+              }
+            },
+            "far": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.036246200314468464,
+                  "interval": [
+                    0.006127228605192308,
+                    0.06570737971562585
+                  ]
+                },
+                "investment": {
+                  "mean": -0.3058004229045578,
+                  "interval": [
+                    -0.3182341211771317,
+                    -0.2930756842933905
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.3996191276117883,
+                  "interval": [
+                    0.39400755394604964,
+                    0.4053206118564537
+                  ]
+                }
+              }
+            }
+          },
+          "far_minus_near": {
+            "histories": 64,
+            "eligible_replicates": 511,
+            "missing_histories": 0,
+            "traits": {
+              "matching": {
+                "mean": 0.03326232254547733,
+                "interval": [
+                  0.002558985325589585,
+                  0.0629112543500184
+                ]
+              },
+              "investment": {
+                "mean": -0.3467124876214568,
+                "interval": [
+                  -0.36592116685485265,
+                  -0.3283275586027431
+                ]
+              },
+              "capacity": {
+                "mean": 0.12977430143433938,
+                "interval": [
+                  0.11778307797669943,
+                  0.1421042967566941
+                ]
+              }
+            }
+          }
+        }
+      },
+      "isolation_effect_evolving_minus_fixed": {
+        "histories": 64,
+        "eligible_replicates": 511,
+        "missing_histories": 0,
+        "traits": {
+          "matching": {
+            "mean": 0.0009851548308512587,
+            "interval": [
+              -0.022475607913810335,
+              0.024327049306028012
+            ]
+          },
+          "investment": {
+            "mean": 0.0846800101569598,
+            "interval": [
+              0.06781539780672385,
+              0.10265239530531767
+            ]
+          },
+          "capacity": {
+            "mean": 0.12977430143433938,
+            "interval": [
+              0.11778307797669943,
+              0.1421042967566941
+            ]
+          }
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.0,
+      "period": 200,
+      "modes": {
+        "fixed": {
+          "occupancy": {
+            "near": 1.0,
+            "far": 1.0
+          },
+          "change_from_founders": {
+            "near": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.013068941734332148,
+                  "interval": [
+                    -0.009007390863513478,
+                    0.03511740645961921
+                  ]
+                },
+                "investment": {
+                  "mean": -0.012115152122731279,
+                  "interval": [
+                    -0.026876235005172385,
+                    0.003147372575435467
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "far": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.009727971374766416,
+                  "interval": [
+                    -0.010408975763055169,
+                    0.0296804667445842
+                  ]
+                },
+                "investment": {
+                  "mean": -0.13641878255277867,
+                  "interval": [
+                    -0.15170937905540227,
+                    -0.12092503347187213
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            }
+          },
+          "far_minus_near": {
+            "histories": 64,
+            "eligible_replicates": 512,
+            "missing_histories": 0,
+            "traits": {
+              "matching": {
+                "mean": -0.0033409703595657274,
+                "interval": [
+                  -0.019653533956707284,
+                  0.012011496285845764
+                ]
+              },
+              "investment": {
+                "mean": -0.12430363043004738,
+                "interval": [
+                  -0.1446607817026214,
+                  -0.10371374913022208
+                ]
+              },
+              "capacity": {
+                "mean": 0.0,
+                "interval": [
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        },
+        "evolving": {
+          "occupancy": {
+            "near": 1.0,
+            "far": 1.0
+          },
+          "change_from_founders": {
+            "near": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.013068941734332148,
+                  "interval": [
+                    -0.009007390863513478,
+                    0.03511740645961921
+                  ]
+                },
+                "investment": {
+                  "mean": -0.012115152122731279,
+                  "interval": [
+                    -0.026876235005172385,
+                    0.003147372575435467
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "far": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.009727971374766416,
+                  "interval": [
+                    -0.010408975763055169,
+                    0.0296804667445842
+                  ]
+                },
+                "investment": {
+                  "mean": -0.13641878255277867,
+                  "interval": [
+                    -0.15170937905540227,
+                    -0.12092503347187213
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            }
+          },
+          "far_minus_near": {
+            "histories": 64,
+            "eligible_replicates": 512,
+            "missing_histories": 0,
+            "traits": {
+              "matching": {
+                "mean": -0.0033409703595657274,
+                "interval": [
+                  -0.019653533956707284,
+                  0.012011496285845764
+                ]
+              },
+              "investment": {
+                "mean": -0.12430363043004738,
+                "interval": [
+                  -0.1446607817026214,
+                  -0.10371374913022208
+                ]
+              },
+              "capacity": {
+                "mean": 0.0,
+                "interval": [
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        }
+      },
+      "isolation_effect_evolving_minus_fixed": {
+        "histories": 64,
+        "eligible_replicates": 512,
+        "missing_histories": 0,
+        "traits": {
+          "matching": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "investment": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "capacity": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.0,
+      "period": 400,
+      "modes": {
+        "fixed": {
+          "occupancy": {
+            "near": 1.0,
+            "far": 1.0
+          },
+          "change_from_founders": {
+            "near": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.013490690374704285,
+                  "interval": [
+                    -0.008695584430225852,
+                    0.03569444968696371
+                  ]
+                },
+                "investment": {
+                  "mean": -0.011780634277253524,
+                  "interval": [
+                    -0.026907463291560983,
+                    0.0037466502925859817
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "far": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.009787058261335004,
+                  "interval": [
+                    -0.010380366026659264,
+                    0.029845942548247864
+                  ]
+                },
+                "investment": {
+                  "mean": -0.1367007603777995,
+                  "interval": [
+                    -0.15189731284068853,
+                    -0.12124428353526247
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            }
+          },
+          "far_minus_near": {
+            "histories": 64,
+            "eligible_replicates": 512,
+            "missing_histories": 0,
+            "traits": {
+              "matching": {
+                "mean": -0.0037036321133692754,
+                "interval": [
+                  -0.02035116806265035,
+                  0.011951983959325448
+                ]
+              },
+              "investment": {
+                "mean": -0.12492012610054594,
+                "interval": [
+                  -0.14552493813276116,
+                  -0.10409658082013393
+                ]
+              },
+              "capacity": {
+                "mean": 0.0,
+                "interval": [
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        },
+        "evolving": {
+          "occupancy": {
+            "near": 1.0,
+            "far": 1.0
+          },
+          "change_from_founders": {
+            "near": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.013490690374704285,
+                  "interval": [
+                    -0.008695584430225852,
+                    0.03569444968696371
+                  ]
+                },
+                "investment": {
+                  "mean": -0.011780634277253524,
+                  "interval": [
+                    -0.026907463291560983,
+                    0.0037466502925859817
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "far": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.009787058261335004,
+                  "interval": [
+                    -0.010380366026659264,
+                    0.029845942548247864
+                  ]
+                },
+                "investment": {
+                  "mean": -0.1367007603777995,
+                  "interval": [
+                    -0.15189731284068853,
+                    -0.12124428353526247
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            }
+          },
+          "far_minus_near": {
+            "histories": 64,
+            "eligible_replicates": 512,
+            "missing_histories": 0,
+            "traits": {
+              "matching": {
+                "mean": -0.0037036321133692754,
+                "interval": [
+                  -0.02035116806265035,
+                  0.011951983959325448
+                ]
+              },
+              "investment": {
+                "mean": -0.12492012610054594,
+                "interval": [
+                  -0.14552493813276116,
+                  -0.10409658082013393
+                ]
+              },
+              "capacity": {
+                "mean": 0.0,
+                "interval": [
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        }
+      },
+      "isolation_effect_evolving_minus_fixed": {
+        "histories": 64,
+        "eligible_replicates": 512,
+        "missing_histories": 0,
+        "traits": {
+          "matching": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "investment": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "capacity": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.0,
+      "period": 1000,
+      "modes": {
+        "fixed": {
+          "occupancy": {
+            "near": 1.0,
+            "far": 1.0
+          },
+          "change_from_founders": {
+            "near": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.013490690374704285,
+                  "interval": [
+                    -0.008695584430225852,
+                    0.03569444968696371
+                  ]
+                },
+                "investment": {
+                  "mean": -0.011558289423790058,
+                  "interval": [
+                    -0.02666765191981635,
+                    0.004028502709406747
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "far": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.009787058261335004,
+                  "interval": [
+                    -0.010380366026659264,
+                    0.029845942548247864
+                  ]
+                },
+                "investment": {
+                  "mean": -0.1367007603777995,
+                  "interval": [
+                    -0.15189731284068853,
+                    -0.12124428353526247
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            }
+          },
+          "far_minus_near": {
+            "histories": 64,
+            "eligible_replicates": 512,
+            "missing_histories": 0,
+            "traits": {
+              "matching": {
+                "mean": -0.0037036321133692754,
+                "interval": [
+                  -0.02035116806265035,
+                  0.011951983959325448
+                ]
+              },
+              "investment": {
+                "mean": -0.1251424709540094,
+                "interval": [
+                  -0.14573313706526328,
+                  -0.10435889079389976
+                ]
+              },
+              "capacity": {
+                "mean": 0.0,
+                "interval": [
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        },
+        "evolving": {
+          "occupancy": {
+            "near": 1.0,
+            "far": 1.0
+          },
+          "change_from_founders": {
+            "near": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.013490690374704285,
+                  "interval": [
+                    -0.008695584430225852,
+                    0.03569444968696371
+                  ]
+                },
+                "investment": {
+                  "mean": -0.011558289423790058,
+                  "interval": [
+                    -0.02666765191981635,
+                    0.004028502709406747
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "far": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.009787058261335004,
+                  "interval": [
+                    -0.010380366026659264,
+                    0.029845942548247864
+                  ]
+                },
+                "investment": {
+                  "mean": -0.1367007603777995,
+                  "interval": [
+                    -0.15189731284068853,
+                    -0.12124428353526247
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            }
+          },
+          "far_minus_near": {
+            "histories": 64,
+            "eligible_replicates": 512,
+            "missing_histories": 0,
+            "traits": {
+              "matching": {
+                "mean": -0.0037036321133692754,
+                "interval": [
+                  -0.02035116806265035,
+                  0.011951983959325448
+                ]
+              },
+              "investment": {
+                "mean": -0.1251424709540094,
+                "interval": [
+                  -0.14573313706526328,
+                  -0.10435889079389976
+                ]
+              },
+              "capacity": {
+                "mean": 0.0,
+                "interval": [
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        }
+      },
+      "isolation_effect_evolving_minus_fixed": {
+        "histories": 64,
+        "eligible_replicates": 512,
+        "missing_histories": 0,
+        "traits": {
+          "matching": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "investment": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "capacity": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.01,
+      "period": 200,
+      "modes": {
+        "fixed": {
+          "occupancy": {
+            "near": 1.0,
+            "far": 1.0
+          },
+          "change_from_founders": {
+            "near": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.005458880007428866,
+                  "interval": [
+                    -0.018961833200456957,
+                    0.029910682227356666
+                  ]
+                },
+                "investment": {
+                  "mean": -0.006448295099709395,
+                  "interval": [
+                    -0.022575873362222207,
+                    0.009538325987979806
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "far": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.016959893735216655,
+                  "interval": [
+                    -0.00622509282940158,
+                    0.039556482563336146
+                  ]
+                },
+                "investment": {
+                  "mean": -0.17175179574951205,
+                  "interval": [
+                    -0.18606383599579246,
+                    -0.15735444982915903
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            }
+          },
+          "far_minus_near": {
+            "histories": 64,
+            "eligible_replicates": 512,
+            "missing_histories": 0,
+            "traits": {
+              "matching": {
+                "mean": 0.01150101372778779,
+                "interval": [
+                  -0.011681166100514156,
+                  0.034099983844709435
+                ]
+              },
+              "investment": {
+                "mean": -0.16530350064980265,
+                "interval": [
+                  -0.18359998562660704,
+                  -0.14790200939283482
+                ]
+              },
+              "capacity": {
+                "mean": 0.0,
+                "interval": [
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        },
+        "evolving": {
+          "occupancy": {
+            "near": 1.0,
+            "far": 1.0
+          },
+          "change_from_founders": {
+            "near": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.01380533056814335,
+                  "interval": [
+                    -0.006466107978923964,
+                    0.033019992639857026
+                  ]
+                },
+                "investment": {
+                  "mean": -0.03701776607659698,
+                  "interval": [
+                    -0.053186496655458035,
+                    -0.02083239357722593
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.15867623693458077,
+                  "interval": [
+                    0.1495441147114432,
+                    0.16792297124575653
+                  ]
+                }
+              }
+            },
+            "far": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.020247957049949826,
+                  "interval": [
+                    -0.0015431798730155555,
+                    0.04219070117432745
+                  ]
+                },
+                "investment": {
+                  "mean": -0.15633547275253848,
+                  "interval": [
+                    -0.16843406352035284,
+                    -0.14431135506523288
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.22265666497886644,
+                  "interval": [
+                    0.21307580825210531,
+                    0.2318034624570668
+                  ]
+                }
+              }
+            }
+          },
+          "far_minus_near": {
+            "histories": 64,
+            "eligible_replicates": 512,
+            "missing_histories": 0,
+            "traits": {
+              "matching": {
+                "mean": 0.006442626481806478,
+                "interval": [
+                  -0.014339341665746153,
+                  0.025792171833199807
+                ]
+              },
+              "investment": {
+                "mean": -0.11931770667594149,
+                "interval": [
+                  -0.13634335716309423,
+                  -0.10250627416888204
+                ]
+              },
+              "capacity": {
+                "mean": 0.06398042804428566,
+                "interval": [
+                  0.05183865550885153,
+                  0.07617772067539808
+                ]
+              }
+            }
+          }
+        }
+      },
+      "isolation_effect_evolving_minus_fixed": {
+        "histories": 64,
+        "eligible_replicates": 512,
+        "missing_histories": 0,
+        "traits": {
+          "matching": {
+            "mean": -0.005058387245981309,
+            "interval": [
+              -0.02417882368730418,
+              0.013818598764881184
+            ]
+          },
+          "investment": {
+            "mean": 0.045985793973861135,
+            "interval": [
+              0.028605917674633448,
+              0.06370916554283435
+            ]
+          },
+          "capacity": {
+            "mean": 0.06398042804428566,
+            "interval": [
+              0.05183865550885153,
+              0.07617772067539808
+            ]
+          }
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.01,
+      "period": 400,
+      "modes": {
+        "fixed": {
+          "occupancy": {
+            "near": 1.0,
+            "far": 1.0
+          },
+          "change_from_founders": {
+            "near": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.009483648741313907,
+                  "interval": [
+                    -0.016306430224065686,
+                    0.033820410058370824
+                  ]
+                },
+                "investment": {
+                  "mean": -0.011661657029465892,
+                  "interval": [
+                    -0.02664158719664418,
+                    0.0038408594020341255
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "far": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.01702216377490179,
+                  "interval": [
+                    -0.006758363912674294,
+                    0.0401548978753675
+                  ]
+                },
+                "investment": {
+                  "mean": -0.22243465930618644,
+                  "interval": [
+                    -0.23681352169136996,
+                    -0.20776587343970798
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            }
+          },
+          "far_minus_near": {
+            "histories": 64,
+            "eligible_replicates": 512,
+            "missing_histories": 0,
+            "traits": {
+              "matching": {
+                "mean": 0.007538515033587885,
+                "interval": [
+                  -0.018050117943395748,
+                  0.03220919413815977
+                ]
+              },
+              "investment": {
+                "mean": -0.21077300227672055,
+                "interval": [
+                  -0.22850981155731453,
+                  -0.1931515642343571
+                ]
+              },
+              "capacity": {
+                "mean": 0.0,
+                "interval": [
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        },
+        "evolving": {
+          "occupancy": {
+            "near": 1.0,
+            "far": 1.0
+          },
+          "change_from_founders": {
+            "near": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.01754962400486101,
+                  "interval": [
+                    -0.0043485229134325966,
+                    0.03848218424602163
+                  ]
+                },
+                "investment": {
+                  "mean": -0.08016333426648287,
+                  "interval": [
+                    -0.09508274382692398,
+                    -0.06474214779184886
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.3137131615817178,
+                  "interval": [
+                    0.3026403366034303,
+                    0.3248263427991297
+                  ]
+                }
+              }
+            },
+            "far": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.020416885966544313,
+                  "interval": [
+                    -0.002740443776671689,
+                    0.04317765234364983
+                  ]
+                },
+                "investment": {
+                  "mean": -0.19774284541965087,
+                  "interval": [
+                    -0.20943474775794188,
+                    -0.18574888064822018
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.3895850726557804,
+                  "interval": [
+                    0.38144530268301985,
+                    0.3973801811625149
+                  ]
+                }
+              }
+            }
+          },
+          "far_minus_near": {
+            "histories": 64,
+            "eligible_replicates": 512,
+            "missing_histories": 0,
+            "traits": {
+              "matching": {
+                "mean": 0.0028672619616833053,
+                "interval": [
+                  -0.01902233675928298,
+                  0.02366182874101
+                ]
+              },
+              "investment": {
+                "mean": -0.117579511153168,
+                "interval": [
+                  -0.13411626791507372,
+                  -0.10158145404238328
+                ]
+              },
+              "capacity": {
+                "mean": 0.07587191107406255,
+                "interval": [
+                  0.06278013704780462,
+                  0.08968170640840392
+                ]
+              }
+            }
+          }
+        }
+      },
+      "isolation_effect_evolving_minus_fixed": {
+        "histories": 64,
+        "eligible_replicates": 512,
+        "missing_histories": 0,
+        "traits": {
+          "matching": {
+            "mean": -0.004671253071904578,
+            "interval": [
+              -0.027116808593395155,
+              0.01658567315345543
+            ]
+          },
+          "investment": {
+            "mean": 0.09319349112355255,
+            "interval": [
+              0.07433959941319968,
+              0.1118273228152179
+            ]
+          },
+          "capacity": {
+            "mean": 0.07587191107406255,
+            "interval": [
+              0.06278013704780462,
+              0.08968170640840392
+            ]
+          }
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.01,
+      "period": 1000,
+      "modes": {
+        "fixed": {
+          "occupancy": {
+            "near": 1.0,
+            "far": 1.0
+          },
+          "change_from_founders": {
+            "near": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.005774028387482424,
+                  "interval": [
+                    -0.022522228157074883,
+                    0.03357342541650188
+                  ]
+                },
+                "investment": {
+                  "mean": -0.01317712408372763,
+                  "interval": [
+                    -0.02705228510208108,
+                    0.0007588500053128943
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            },
+            "far": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.020183123503228872,
+                  "interval": [
+                    -0.006822405088420264,
+                    0.04624530940402151
+                  ]
+                },
+                "investment": {
+                  "mean": -0.33160324007268205,
+                  "interval": [
+                    -0.3410711748179248,
+                    -0.32173091179114643
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.0,
+                  "interval": [
+                    0.0,
+                    0.0
+                  ]
+                }
+              }
+            }
+          },
+          "far_minus_near": {
+            "histories": 64,
+            "eligible_replicates": 512,
+            "missing_histories": 0,
+            "traits": {
+              "matching": {
+                "mean": 0.014409095115746458,
+                "interval": [
+                  -0.015480617603121225,
+                  0.04401820579466224
+                ]
+              },
+              "investment": {
+                "mean": -0.31842611598895443,
+                "interval": [
+                  -0.3334452703432661,
+                  -0.3036117216654795
+                ]
+              },
+              "capacity": {
+                "mean": 0.0,
+                "interval": [
+                  0.0,
+                  0.0
+                ]
+              }
+            }
+          }
+        },
+        "evolving": {
+          "occupancy": {
+            "near": 1.0,
+            "far": 1.0
+          },
+          "change_from_founders": {
+            "near": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.018211543183139788,
+                  "interval": [
+                    -0.005431392258290907,
+                    0.041395652305292865
+                  ]
+                },
+                "investment": {
+                  "mean": -0.24468926388445067,
+                  "interval": [
+                    -0.25731506730946013,
+                    -0.23147093916268943
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.4731665999735727,
+                  "interval": [
+                    0.47047080336089314,
+                    0.47556794745333864
+                  ]
+                }
+              }
+            },
+            "far": {
+              "histories": 64,
+              "eligible_replicates": 512,
+              "missing_histories": 0,
+              "traits": {
+                "matching": {
+                  "mean": 0.02115506639442561,
+                  "interval": [
+                    -0.0020634471903990727,
+                    0.043060234448819394
+                  ]
+                },
+                "investment": {
+                  "mean": -0.31806180009570234,
+                  "interval": [
+                    -0.3278681808756825,
+                    -0.3083092838353883
+                  ]
+                },
+                "capacity": {
+                  "mean": 0.48018623221981305,
+                  "interval": [
+                    0.4789013815699303,
+                    0.48146421409181206
+                  ]
+                }
+              }
+            }
+          },
+          "far_minus_near": {
+            "histories": 64,
+            "eligible_replicates": 512,
+            "missing_histories": 0,
+            "traits": {
+              "matching": {
+                "mean": 0.002943523211285817,
+                "interval": [
+                  -0.02250391167987947,
+                  0.027016924700438
+                ]
+              },
+              "investment": {
+                "mean": -0.0733725362112517,
+                "interval": [
+                  -0.08839985645560833,
+                  -0.05961130424084928
+                ]
+              },
+              "capacity": {
+                "mean": 0.0070196322462403715,
+                "interval": [
+                  0.004604070022429675,
+                  0.009569712796690198
+                ]
+              }
+            }
+          }
+        }
+      },
+      "isolation_effect_evolving_minus_fixed": {
+        "histories": 64,
+        "eligible_replicates": 512,
+        "missing_histories": 0,
+        "traits": {
+          "matching": {
+            "mean": -0.011465571904460636,
+            "interval": [
+              -0.043270180809191996,
+              0.018510701225070193
+            ]
+          },
+          "investment": {
+            "mean": 0.2450535797777027,
+            "interval": [
+              0.22522546908750876,
+              0.26543366195163104
+            ]
+          },
+          "capacity": {
+            "mean": 0.0070196322462403715,
+            "interval": [
+              0.004604070022429675,
+              0.009569712796690198
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "design_sha256": "00cec59c4c28bf82ae7068c135071a1bd183e3f61fe6e5ede38905e942072387",
+  "analysis_sha256": "30b41b43b90a8a21405f7df16e872dfe18bb56e5e3730f4b33abbe5b32ee4b13",
+  "claim_ceiling": "Single fixed capacity0.5 and matched zero-assurance-variance founders. Conditional-survival contrasts, descriptive history bootstrap, no mediation fraction. Interaction uses same four surviving cells. Zero mutation is a structural negative control."
+}

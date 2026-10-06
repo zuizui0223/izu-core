@@ -1,0 +1,11 @@
+{
+  "status": "verified_and_render_reviewed",
+  "mean_interval_rows": 24,
+  "mutation_repeat_points": 128,
+  "raw_mutation_cases": 64,
+  "existing_mutation_means_max_difference": 0.0,
+  "pdf_sha256": "23d58065310393bc7995ab6720aa7d6166af57e882e7c3c3b284a7a391b0440f",
+  "variability_sha256": "468d92a2458414c30af21cb22d928a7eb535b1810ab07f4af4fa980e00c44ac0",
+  "visual_review": "Poppler PDF render inspected; legend and notes separated, all individual values visible, no forced nonnegative change axis.",
+  "scope": "Mutation summary from archived raw trajectories; descriptive eight-repeat intervals, no new simulation or formal hypothesis test."
+}

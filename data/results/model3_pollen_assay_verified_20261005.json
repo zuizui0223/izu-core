@@ -1,0 +1,320 @@
+{
+  "status": "verified",
+  "records": 12288,
+  "summary_sha256": "224ea82151197d7ac757cdad8fdb456ea1ead70b2978bf56b6da7f64cdccf7d1",
+  "contrasts": [
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.0,
+      "period": 0,
+      "metric": "raw_deficit",
+      "far_minus_near": 0.0,
+      "paired_replicates": 512,
+      "excluded_pairs": 0,
+      "interval": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.0,
+      "period": 0,
+      "metric": "viable_deficit",
+      "far_minus_near": 0.0,
+      "paired_replicates": 512,
+      "excluded_pairs": 0,
+      "interval": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.0,
+      "period": 200,
+      "metric": "raw_deficit",
+      "far_minus_near": 0.04597902518538798,
+      "paired_replicates": 512,
+      "excluded_pairs": 0,
+      "interval": [
+        0.029988795596209875,
+        0.06085242964921762
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.0,
+      "period": 200,
+      "metric": "viable_deficit",
+      "far_minus_near": 0.14266131985116753,
+      "paired_replicates": 512,
+      "excluded_pairs": 0,
+      "interval": [
+        0.11765021992654126,
+        0.167097307583047
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.0,
+      "period": 400,
+      "metric": "raw_deficit",
+      "far_minus_near": 0.05047014940618524,
+      "paired_replicates": 511,
+      "excluded_pairs": 1,
+      "interval": [
+        0.03735143989727963,
+        0.06331147935316253
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.0,
+      "period": 400,
+      "metric": "viable_deficit",
+      "far_minus_near": 0.14946607450316807,
+      "paired_replicates": 511,
+      "excluded_pairs": 1,
+      "interval": [
+        0.12864265915301615,
+        0.17069569546338068
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.01,
+      "period": 0,
+      "metric": "raw_deficit",
+      "far_minus_near": 0.0,
+      "paired_replicates": 512,
+      "excluded_pairs": 0,
+      "interval": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.01,
+      "period": 0,
+      "metric": "viable_deficit",
+      "far_minus_near": 0.0,
+      "paired_replicates": 512,
+      "excluded_pairs": 0,
+      "interval": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.01,
+      "period": 200,
+      "metric": "raw_deficit",
+      "far_minus_near": 0.0028953536262473793,
+      "paired_replicates": 512,
+      "excluded_pairs": 0,
+      "interval": [
+        -0.01314445012117436,
+        0.018496885690089965
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.01,
+      "period": 200,
+      "metric": "viable_deficit",
+      "far_minus_near": 0.12256829950151378,
+      "paired_replicates": 512,
+      "excluded_pairs": 0,
+      "interval": [
+        0.099509871138669,
+        0.14581224840523427
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.01,
+      "period": 400,
+      "metric": "raw_deficit",
+      "far_minus_near": -0.025075594275890012,
+      "paired_replicates": 512,
+      "excluded_pairs": 0,
+      "interval": [
+        -0.03624245692402093,
+        -0.013573086958009486
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.01,
+      "period": 400,
+      "metric": "viable_deficit",
+      "far_minus_near": 0.11100473250949336,
+      "paired_replicates": 512,
+      "excluded_pairs": 0,
+      "interval": [
+        0.09399482946782853,
+        0.1282675578954632
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.0,
+      "period": 0,
+      "metric": "raw_deficit",
+      "far_minus_near": 0.0,
+      "paired_replicates": 512,
+      "excluded_pairs": 0,
+      "interval": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.0,
+      "period": 0,
+      "metric": "viable_deficit",
+      "far_minus_near": 0.0,
+      "paired_replicates": 512,
+      "excluded_pairs": 0,
+      "interval": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.0,
+      "period": 200,
+      "metric": "raw_deficit",
+      "far_minus_near": 0.03524324630783117,
+      "paired_replicates": 512,
+      "excluded_pairs": 0,
+      "interval": [
+        0.028573150486645684,
+        0.04182196331178676
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.0,
+      "period": 200,
+      "metric": "viable_deficit",
+      "far_minus_near": 0.05767336759501313,
+      "paired_replicates": 512,
+      "excluded_pairs": 0,
+      "interval": [
+        0.048058529971902214,
+        0.06733651913676836
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.0,
+      "period": 400,
+      "metric": "raw_deficit",
+      "far_minus_near": 0.03659762387331787,
+      "paired_replicates": 512,
+      "excluded_pairs": 0,
+      "interval": [
+        0.029875295549350613,
+        0.04349827045833721
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.0,
+      "period": 400,
+      "metric": "viable_deficit",
+      "far_minus_near": 0.0597634010839251,
+      "paired_replicates": 512,
+      "excluded_pairs": 0,
+      "interval": [
+        0.050366189352155415,
+        0.06964722653893007
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.01,
+      "period": 0,
+      "metric": "raw_deficit",
+      "far_minus_near": 0.0,
+      "paired_replicates": 512,
+      "excluded_pairs": 0,
+      "interval": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.01,
+      "period": 0,
+      "metric": "viable_deficit",
+      "far_minus_near": 0.0,
+      "paired_replicates": 512,
+      "excluded_pairs": 0,
+      "interval": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.01,
+      "period": 200,
+      "metric": "raw_deficit",
+      "far_minus_near": -0.0016025750087021846,
+      "paired_replicates": 512,
+      "excluded_pairs": 0,
+      "interval": [
+        -0.009042093406939731,
+        0.005879921601311131
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.01,
+      "period": 200,
+      "metric": "viable_deficit",
+      "far_minus_near": 0.0009020409420640659,
+      "paired_replicates": 512,
+      "excluded_pairs": 0,
+      "interval": [
+        -0.010738385173901162,
+        0.012708800944568818
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.01,
+      "period": 400,
+      "metric": "raw_deficit",
+      "far_minus_near": -0.008649094653371308,
+      "paired_replicates": 512,
+      "excluded_pairs": 0,
+      "interval": [
+        -0.012797214293493758,
+        -0.004293397446043755
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.01,
+      "period": 400,
+      "metric": "viable_deficit",
+      "far_minus_near": -0.01373150851337714,
+      "paired_replicates": 512,
+      "excluded_pairs": 0,
+      "interval": [
+        -0.020328996416080828,
+        -0.006575053225520866
+      ]
+    }
+  ],
+  "claim_ceiling": "Descriptive history bootstrap, exploratory snapshot diagnostics; no multiplicity adjustment, no mediation attribution."
+}

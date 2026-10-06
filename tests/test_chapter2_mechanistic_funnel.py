@@ -1,7 +1,7 @@
 import json
 from pathlib import Path
 
-from scripts.render_chapter2_oikos_generality_overlay import render_submission_manuscript
+from scripts.render_chapter2_process_manuscript import render_manuscript as render_submission_manuscript
 from scripts.render_chapter2_supporting_information import render_supporting_information
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -14,14 +14,15 @@ MANIFEST = ROOT / "data/design/chapter2_oikos_submission_manifest_20260927.json"
 def test_active_submission_uses_one_model3_ecological_pathway():
     manuscript = MANUSCRIPT.read_text(encoding="utf-8")
     submission = render_submission_manuscript()
-    lower = submission.lower()
-    assert manuscript.startswith("# From pollination ecology to realized floral evolution")
-    assert "reproductive selection before demographic change" in lower
-    assert "conditional deterministic genotype-density propagation without demographic sampling" in lower
-    assert "realized evolution in finite populations" in lower
-    assert "annual response-blind richness matching" in lower
-    assert "pooling eight independent visitor histories" in lower
-    assert "principal natural-data gap" in lower
+    lower = " ".join(submission.lower().split())
+    assert manuscript.startswith("# How island isolation generates floral change: selection conditions, evolutionary sequence and finite realization")
+    assert "64 independent visitor histories" in lower
+    assert "64 independent visitor histories" in lower
+    assert "51/64" in lower
+    assert "95% history-bootstrap 0.688–0.891" in lower
+    assert "far change −0.3060" in lower
+    assert "far-minus-near −0.4354" in lower
+    assert "temporal precedence is not causal necessity" in lower
 
 
 def test_canonical_story_and_chapter1_bridge_match_model3_mainline():

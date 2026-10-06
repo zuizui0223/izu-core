@@ -1,0 +1,13 @@
+{
+  "status": "passed",
+  "command": "python -m pytest tests/test_model3_syndrome_thresholds.py tests/test_model3_joint_syndrome_vector.py tests/test_model3_multivariate_price.py tests/test_model3_joint_G_beta_response.py --basetemp=.pytest-process-integration-20261005 -q",
+  "exit_code": 0,
+  "session_id": 14846,
+  "scope": "existing local threshold, mutant fitness, Price accounting and G-beta tests; not a full repository regression or ecological generality test",
+  "source_sha256": {
+    "tests/test_model3_syndrome_thresholds.py": "9c13b15205193ee9afdf8aec9a25aa8e75520975556c3d071b96380aab396d2b",
+    "tests/test_model3_joint_syndrome_vector.py": "ab270b309ec41e90af391ef94163471756b58422a40eb7f010e966913db47d9c",
+    "tests/test_model3_multivariate_price.py": "4124e54b3aa8d445280d5b5846f1961c038595bc21ca3587dbafcd78f53c4032",
+    "tests/test_model3_joint_G_beta_response.py": "fd30164cc00feb86c6330eb380e2b70abae2a939b4916ec399732dde2da15a21"
+  }
+}

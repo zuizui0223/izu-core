@@ -1,10 +1,22 @@
 from __future__ import annotations
 
 from pathlib import Path
+import hashlib
+import json
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
+SOURCE = ROOT / "legacy/submission-history/model3_bridge_20261004/MANUSCRIPT.md"
 NEW_TITLE = "From pollination ecology to realized floral evolution in finite island populations"
+
+
+def historical_provenance() -> dict:
+    """Validate the immutable manuscript before using its original routing identity."""
+    provenance = json.loads(SOURCE.with_name('PROVENANCE.json').read_text(encoding='utf-8'))
+    if provenance.get('status') != 'historical_submission_snapshot_not_current_manuscript':
+        raise ValueError('Historical manuscript provenance status is missing')
+    if hashlib.sha256(SOURCE.read_bytes()).hexdigest() != provenance.get('sha256'):
+        raise ValueError('Historical manuscript snapshot hash mismatch')
+    return provenance
 
 _INTERNAL_PREFIXES = (
     "**Status:**",
@@ -21,7 +33,12 @@ def _strip_repository_metadata(text: str) -> str:
 
 
 def render_submission_manuscript() -> str:
-    """Render the active Model 3 manuscript and fail closed on its claim boundary."""
+    """Reproduce the historical bridge submission; not the current process paper.
+
+    Current manuscript delivery uses render_chapter2_process_manuscript.py.
+    Keep this snapshot coupled to the legacy figure/SI builders and claim gate.
+    """
+    historical_provenance()
     text = _strip_repository_metadata(SOURCE.read_text(encoding="utf-8"))
     first_line = text.splitlines()[0]
     if NEW_TITLE not in first_line:

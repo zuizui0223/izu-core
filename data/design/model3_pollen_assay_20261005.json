@@ -1,0 +1,11 @@
+{
+  "status": "declared_before_assay_readout",
+  "type": "exploratory_snapshot_counterfactual",
+  "scope": "Saved sustained-isolation plants, same investment and capacity, natural visitors versus saturating outcross pollen; no evolutionary rules changed.",
+  "snapshots": [0, 200, 400],
+  "exposure": "Use visitor snapshot indexed by plant state time; state1000 excluded because the frozen history contains only snapshots0..999.",
+  "sampling": "All64 histories x8 demographic repeats x2 arms x2 settings x2 mutation rates; validate raw hashes before assays. No outcome-based selection.",
+  "saturation": "Delayed: all ovules outcross and residual selfing zero. Prior: only ovules not already selfed can outcross; retain prior selfing and its depression.",
+  "outputs": ["raw seed deficit relative to saturated pollen", "viable offspring deficit relative to saturated pollen", "viable selfed contribution", "received outcross pollen", "natural ovules and outcross offspring"],
+  "limits": "No resource reallocation, future recruitment or donor feedback. Counterfactual is an instantaneous female-function upper-bound assay, not a full experimental pollen-addition protocol or an estimate of actual Q1 effect size. Zero denominator is undefined. Selfing capacity is not realized selfing. No time-order or causal-mediation claim from three snapshots."
+}

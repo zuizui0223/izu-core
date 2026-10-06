@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-06",
+  "status": "active_scientific_mainline",
+  "source_date": "2026-10-05",
+  "controlling_document": "docs/CHAPTER2_PROCESS_MAINLINE_20261005.md",
+  "result_priority_document": "docs/MODEL3_RESULT_PRIORITY_AND_PRESENTATION_20261005.md",
+  "active_manuscript": "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md",
+  "title": "How island isolation generates floral change: selection conditions, evolutionary sequence and finite realization",
+  "central_claim": "In the delayed-selfing, assurance-cost 0.5, positive-mutation setting, reproductive assurance can change before floral investment declines, yet assurance evolution is not required for that investment decline.",
+  "primary_evidence": {
+    "independent_visitor_histories": 64,
+    "nested_demographic_repeats": 8,
+    "fixedplant_delayed_investment_derivative_near": 0.5793,
+    "fixedplant_delayed_investment_derivative_far": -0.7004,
+    "fixedplant_outcross_component_near": 1.6523,
+    "fixedplant_outcross_component_far": 0.0854,
+    "delayed_assurance_first_histories": 51,
+    "delayed_near_simultaneous_histories": 13,
+    "fixed_assurance_far_investment_change_delayed": -0.3099,
+    "fixed_assurance_far_investment_change_prior": -0.3316,
+    "assurance_evolution_interaction_delayed": 0.08468,
+    "assurance_evolution_interaction_prior": 0.24505,
+    "trait_pollen_far_deficit_change_delayed": -0.0104,
+    "trait_pollen_far_viable_offspring_change_delayed": -15.72
+  },
+  "complementary_not_spine": [
+    "full-mutation common-environment history experiment",
+    "finite-versus-deterministic bridge",
+    "high-resolution mutation/PDE comparison",
+    "natural-island confrontation ledger"
+  ],
+  "excluded_claims": [
+    "assurance evolution is required for investment decline",
+    "temporal order proves mediation",
+    "the replenishment axis is calibrated natural distance",
+    "pollen deficit is interchangeable with viable fitness",
+    "the model reconstructs a named island history"
+  ],
+  "confirmatory_status": {
+    "status": "confirmed",
+    "design": "data/design/chapter2_1005_confirmatory_replication_20261006.json",
+    "result": "data/results/chapter2_1005_confirmatory_replication_20261006.json",
+    "workflow_run": 37390991122,
+    "declared_cases": 4096,
+    "independent_visitor_histories": 64,
+    "nested_demographic_repeats": 8,
+    "primary_sequence": {
+      "assurance_first_histories": 51,
+      "near_simultaneous_histories": 13,
+      "proportion": 0.796875,
+      "bootstrap95": [
+        0.6875,
+        0.890625
+      ]
+    },
+    "primary_fixed_assurance": {
+      "far_investment_change": {
+        "mean": -0.30602115590337237,
+        "bootstrap95": [
+          -0.3180538379758027,
+          -0.2941114139044992
+        ]
+      },
+      "far_minus_near_investment": {
+        "mean": -0.43538938011716005,
+        "bootstrap95": [
+          -0.4533304896960724,
+          -0.4171906485389262
+        ]
+      }
+    },
+    "generality_boundary": "Prior selfing with positive mutation gives 30/64 assurance-first histories at threshold 0.05; confirmed sequence is setting-specific."
+  },
+  "claim_scope": {
+    "primary_reproductive_setting": "delayed selfing with assurance cost 0.5",
+    "primary_mutation_probability": 0.01,
+    "generality": "The primary claim is restricted to this cell. Other setting-by-mutation cells are reported as scope/sensitivity and cannot rescue a failed primary confirmation."
+  },
+  "establishment": {
+    "status": "established_bounded",
+    "five_criteria_audit": "docs/CHAPTER2_1005_FIVE_CRITERIA_AUDIT_20261006.md",
+    "establishment_closeout": "docs/CHAPTER2_1005_ESTABLISHMENT_CLOSEOUT_20261006.md",
+    "criteria": [
+      "novelty",
+      "independent_confirmation",
+      "robustness_sensitivity",
+      "scope_generality",
+      "claim_boundary_reproducibility"
+    ],
+    "passes": 5,
+    "total": 5
+  }
+}

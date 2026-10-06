@@ -1,0 +1,79 @@
+{
+  "scope": "Current Model3 claim inventory; not full repository CI or systematic priority proof",
+  "base_commit": "4638d5a43f5492daf2f3371ac0081715de0c75b4",
+  "sources": [
+    {
+      "path": "data/results/model3_persistent_isolation_summary_20261005.json",
+      "sha256": "159b28051658e08265958805f6a898e72f2c9cb9c78b329cb6c0f98ff364fa32",
+      "status": "completed_summary"
+    },
+    {
+      "path": "data/results/model3_assurance_intervention_summary_20261005.json",
+      "sha256": "1c8c34e2adb58a372873a2cb4985234555ebc7c2dafd8e176f8ad2cff01e5a91",
+      "status": "completed_verified_summary"
+    },
+    {
+      "path": "data/results/model3_trait_pollen_intervention_summary_20261005.json",
+      "sha256": "9dda1e85563d4a12dee4c08ae8e48237814cb0eb5812f4f0f3fa99fec0d409da",
+      "status": "complete_exploratory_summary"
+    },
+    {
+      "path": "data/results/model3_return_components_20261005.json",
+      "sha256": "2f75c24c6c79a77d1f59e481d98bd6602f259a057e3104309dee91b39a66a87c",
+      "status": "complete"
+    },
+    {
+      "path": "data/results/model3_joint_thresholds_20261004.json",
+      "sha256": "15587415d00e9adbc37cf5ed28a3411d7696740240d2ae09ee9a1d3b43d7ca0d",
+      "status": "passed"
+    },
+    {
+      "path": "data/results/model3_repair_price_recheck_20261004.json",
+      "sha256": "04efd302750e3de354a1ad2bd1307c53f4c0a0fd47d247e9ea4476c57e56c10a",
+      "status": "exact_multivariate_price_identity_passed"
+    },
+    {
+      "path": "data/results/model3_repair_joint_vector_recheck_20261004.json",
+      "sha256": "0bb88433dd31f6fa036e11a2488f83160f8633b1fe13cdced924d88bf6b5cbcc",
+      "status": "rare_mutant_joint_selection_complete"
+    },
+    {
+      "path": "data/results/model3_corrected_adjudication_20261004.json",
+      "sha256": "76da46298f9f1a64d38aca3123966c503f39bf04ac4f2b50d084e7b706fc2c02",
+      "status": "joint_syndrome_extension_adjudicated"
+    },
+    {
+      "path": "data/results/model3_corrected_invasion_bridge_20261004.json",
+      "sha256": "db1a80db629b2c5e97fef2abac771f659b65b6d8e1ef9168404195029635ac09",
+      "status": "fixed_resident_isolation_gradient_audit_complete"
+    },
+    {
+      "path": "data/results/model3_pde_closeout_20261004.json",
+      "sha256": "374431095e3c9eb8651502aa2afc9b6168fb5f71719dfce0898415b806aa4c09",
+      "status": "completed_posthoc_approximation_audit"
+    },
+    {
+      "path": "data/results/model3_mutation_memory_20261004.json",
+      "sha256": "c0c54dae356e3d139b0cacc5a1c4c640f3cfd4f0200f717314c06354c791af99",
+      "status": "completed_diagnostic_not_attractor_test"
+    },
+    {
+      "path": "data/results/model3_grid13_verified_20261005.json",
+      "sha256": "05186ce680e41739871446a3c2456d6e26ae3e88ef0c920d138953d9a4e40571",
+      "status": "see_nested_summary"
+    },
+    {
+      "path": "data/results/model3_long_run_user_stop_20261005.json",
+      "sha256": "8039269d1e8d33d0d1877ef761d3991de9a06516fe559167d2f09897f30b1c01",
+      "status": "stopped_at_user_request"
+    }
+  ],
+  "fresh_checks": {
+    "temporal_events": 2304,
+    "temporal_endpoint_rows": 8,
+    "capacity_raw_cases": 8192,
+    "capacity_estimates": 84,
+    "pollen_raw_cases": 6912,
+    "pollen_contrasts": 84
+  }
+}

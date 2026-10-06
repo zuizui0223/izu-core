@@ -1,0 +1,686 @@
+{
+  "status": "completed_snapshot_assay",
+  "records": 12288,
+  "summaries": [
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.0,
+      "arm": "near",
+      "period": 0,
+      "metrics": {
+        "raw_deficit": {
+          "mean": 0.43715539230026623,
+          "defined": 512
+        },
+        "viable_deficit": {
+          "mean": 0.6397813168196718,
+          "defined": 512
+        },
+        "viable_selfed": {
+          "mean": 60.36735218103746,
+          "defined": 512
+        },
+        "natural_viable": {
+          "mean": 107.31819317450604,
+          "defined": 512
+        },
+        "received_pollen": {
+          "mean": 17.153055128248397,
+          "defined": 512
+        }
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.0,
+      "arm": "near",
+      "period": 200,
+      "metrics": {
+        "raw_deficit": {
+          "mean": 0.24484069587546364,
+          "defined": 512
+        },
+        "viable_deficit": {
+          "mean": 0.4989803969789699,
+          "defined": 512
+        },
+        "viable_selfed": {
+          "mean": 66.53953159517118,
+          "defined": 512
+        },
+        "natural_viable": {
+          "mean": 130.1515780602807,
+          "defined": 512
+        },
+        "received_pollen": {
+          "mean": 30.049947420133684,
+          "defined": 512
+        }
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.0,
+      "arm": "near",
+      "period": 400,
+      "metrics": {
+        "raw_deficit": {
+          "mean": 0.23903690232949995,
+          "defined": 511
+        },
+        "viable_deficit": {
+          "mean": 0.4891840039945846,
+          "defined": 511
+        },
+        "viable_selfed": {
+          "mean": 65.30712247081571,
+          "defined": 512
+        },
+        "natural_viable": {
+          "mean": 132.6269959815022,
+          "defined": 512
+        },
+        "received_pollen": {
+          "mean": 31.30246356386664,
+          "defined": 512
+        }
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.0,
+      "arm": "far",
+      "period": 0,
+      "metrics": {
+        "raw_deficit": {
+          "mean": 0.43715539230026623,
+          "defined": 512
+        },
+        "viable_deficit": {
+          "mean": 0.6397813168196718,
+          "defined": 512
+        },
+        "viable_selfed": {
+          "mean": 60.36735218103746,
+          "defined": 512
+        },
+        "natural_viable": {
+          "mean": 107.31819317450604,
+          "defined": 512
+        },
+        "received_pollen": {
+          "mean": 17.153055128248397,
+          "defined": 512
+        }
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.0,
+      "arm": "far",
+      "period": 200,
+      "metrics": {
+        "raw_deficit": {
+          "mean": 0.29081972106085163,
+          "defined": 512
+        },
+        "viable_deficit": {
+          "mean": 0.6416417168301374,
+          "defined": 512
+        },
+        "viable_selfed": {
+          "mean": 95.22148370430018,
+          "defined": 512
+        },
+        "natural_viable": {
+          "mean": 97.26957323272107,
+          "defined": 512
+        },
+        "received_pollen": {
+          "mean": 0.7732713766047474,
+          "defined": 512
+        }
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.0,
+      "arm": "far",
+      "period": 400,
+      "metrics": {
+        "raw_deficit": {
+          "mean": 0.2895370349044041,
+          "defined": 512
+        },
+        "viable_deficit": {
+          "mean": 0.6387623854922673,
+          "defined": 512
+        },
+        "viable_selfed": {
+          "mean": 94.8307880688737,
+          "defined": 512
+        },
+        "natural_viable": {
+          "mean": 98.00681291148004,
+          "defined": 512
+        },
+        "received_pollen": {
+          "mean": 1.2445549518042,
+          "defined": 512
+        }
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.01,
+      "arm": "near",
+      "period": 0,
+      "metrics": {
+        "raw_deficit": {
+          "mean": 0.43715539230026623,
+          "defined": 512
+        },
+        "viable_deficit": {
+          "mean": 0.6397813168196718,
+          "defined": 512
+        },
+        "viable_selfed": {
+          "mean": 60.36735218103746,
+          "defined": 512
+        },
+        "natural_viable": {
+          "mean": 107.31819317450604,
+          "defined": 512
+        },
+        "received_pollen": {
+          "mean": 17.153055128248397,
+          "defined": 512
+        }
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.01,
+      "arm": "near",
+      "period": 200,
+      "metrics": {
+        "raw_deficit": {
+          "mean": 0.21467170164282104,
+          "defined": 512
+        },
+        "viable_deficit": {
+          "mean": 0.4826970903232499,
+          "defined": 512
+        },
+        "viable_selfed": {
+          "mean": 68.01854369092261,
+          "defined": 512
+        },
+        "natural_viable": {
+          "mean": 130.48637221743473,
+          "defined": 512
+        },
+        "received_pollen": {
+          "mean": 30.56822837580076,
+          "defined": 512
+        }
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.01,
+      "arm": "near",
+      "period": 400,
+      "metrics": {
+        "raw_deficit": {
+          "mean": 0.18220885460512842,
+          "defined": 512
+        },
+        "viable_deficit": {
+          "mean": 0.463458861730498,
+          "defined": 512
+        },
+        "viable_selfed": {
+          "mean": 69.62578424425226,
+          "defined": 512
+        },
+        "natural_viable": {
+          "mean": 132.1066431461107,
+          "defined": 512
+        },
+        "received_pollen": {
+          "mean": 30.591430228747477,
+          "defined": 512
+        }
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.01,
+      "arm": "far",
+      "period": 0,
+      "metrics": {
+        "raw_deficit": {
+          "mean": 0.43715539230026623,
+          "defined": 512
+        },
+        "viable_deficit": {
+          "mean": 0.6397813168196718,
+          "defined": 512
+        },
+        "viable_selfed": {
+          "mean": 60.36735218103746,
+          "defined": 512
+        },
+        "natural_viable": {
+          "mean": 107.31819317450604,
+          "defined": 512
+        },
+        "received_pollen": {
+          "mean": 17.153055128248397,
+          "defined": 512
+        }
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.01,
+      "arm": "far",
+      "period": 200,
+      "metrics": {
+        "raw_deficit": {
+          "mean": 0.2175670552690684,
+          "defined": 512
+        },
+        "viable_deficit": {
+          "mean": 0.6052653898247637,
+          "defined": 512
+        },
+        "viable_selfed": {
+          "mean": 101.40146291479391,
+          "defined": 512
+        },
+        "natural_viable": {
+          "mean": 103.22648748847479,
+          "defined": 512
+        },
+        "received_pollen": {
+          "mean": 0.7151420835372255,
+          "defined": 512
+        }
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.01,
+      "arm": "far",
+      "period": 400,
+      "metrics": {
+        "raw_deficit": {
+          "mean": 0.1571332603292384,
+          "defined": 512
+        },
+        "viable_deficit": {
+          "mean": 0.5744635942399914,
+          "defined": 512
+        },
+        "viable_selfed": {
+          "mean": 105.85295616647025,
+          "defined": 512
+        },
+        "natural_viable": {
+          "mean": 107.89370264079074,
+          "defined": 512
+        },
+        "received_pollen": {
+          "mean": 0.8308919574455125,
+          "defined": 512
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.0,
+      "arm": "near",
+      "period": 0,
+      "metrics": {
+        "raw_deficit": {
+          "mean": 0.43218326275719976,
+          "defined": 512
+        },
+        "viable_deficit": {
+          "mean": 0.5710343437634939,
+          "defined": 512
+        },
+        "viable_selfed": {
+          "mean": 81.93736447996568,
+          "defined": 512
+        },
+        "natural_viable": {
+          "mean": 109.40147881632998,
+          "defined": 512
+        },
+        "received_pollen": {
+          "mean": 17.153055128248397,
+          "defined": 512
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.0,
+      "arm": "near",
+      "period": 200,
+      "metrics": {
+        "raw_deficit": {
+          "mean": 0.18988655361224446,
+          "defined": 512
+        },
+        "viable_deficit": {
+          "mean": 0.3030247369776977,
+          "defined": 512
+        },
+        "viable_selfed": {
+          "mean": 136.61437537015266,
+          "defined": 512
+        },
+        "natural_viable": {
+          "mean": 150.42301698549113,
+          "defined": 512
+        },
+        "received_pollen": {
+          "mean": 19.292258815318498,
+          "defined": 512
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.0,
+      "arm": "near",
+      "period": 400,
+      "metrics": {
+        "raw_deficit": {
+          "mean": 0.18749526196340816,
+          "defined": 512
+        },
+        "viable_deficit": {
+          "mean": 0.2992765548206171,
+          "defined": 512
+        },
+        "viable_selfed": {
+          "mean": 136.6077208674501,
+          "defined": 512
+        },
+        "natural_viable": {
+          "mean": 151.2652686776466,
+          "defined": 512
+        },
+        "received_pollen": {
+          "mean": 20.273813927245754,
+          "defined": 512
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.0,
+      "arm": "far",
+      "period": 0,
+      "metrics": {
+        "raw_deficit": {
+          "mean": 0.43218326275719976,
+          "defined": 512
+        },
+        "viable_deficit": {
+          "mean": 0.5710343437634939,
+          "defined": 512
+        },
+        "viable_selfed": {
+          "mean": 81.93736447996568,
+          "defined": 512
+        },
+        "natural_viable": {
+          "mean": 109.40147881632998,
+          "defined": 512
+        },
+        "received_pollen": {
+          "mean": 17.153055128248397,
+          "defined": 512
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.0,
+      "arm": "far",
+      "period": 200,
+      "metrics": {
+        "raw_deficit": {
+          "mean": 0.22512979992007562,
+          "defined": 512
+        },
+        "viable_deficit": {
+          "mean": 0.3606981045727109,
+          "defined": 512
+        },
+        "viable_selfed": {
+          "mean": 138.51389707200184,
+          "defined": 512
+        },
+        "natural_viable": {
+          "mean": 139.00050110783343,
+          "defined": 512
+        },
+        "received_pollen": {
+          "mean": 0.5905529777418129,
+          "defined": 512
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.0,
+      "arm": "far",
+      "period": 400,
+      "metrics": {
+        "raw_deficit": {
+          "mean": 0.22409288583672604,
+          "defined": 512
+        },
+        "viable_deficit": {
+          "mean": 0.35903995590454224,
+          "defined": 512
+        },
+        "viable_selfed": {
+          "mean": 138.55319139037414,
+          "defined": 512
+        },
+        "natural_viable": {
+          "mean": 139.3281353735391,
+          "defined": 512
+        },
+        "received_pollen": {
+          "mean": 1.0610719492225216,
+          "defined": 512
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.01,
+      "arm": "near",
+      "period": 0,
+      "metrics": {
+        "raw_deficit": {
+          "mean": 0.43218326275719976,
+          "defined": 512
+        },
+        "viable_deficit": {
+          "mean": 0.5710343437634939,
+          "defined": 512
+        },
+        "viable_selfed": {
+          "mean": 81.93736447996568,
+          "defined": 512
+        },
+        "natural_viable": {
+          "mean": 109.40147881632998,
+          "defined": 512
+        },
+        "received_pollen": {
+          "mean": 17.153055128248397,
+          "defined": 512
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.01,
+      "arm": "near",
+      "period": 200,
+      "metrics": {
+        "raw_deficit": {
+          "mean": 0.0958118928229244,
+          "defined": 512
+        },
+        "viable_deficit": {
+          "mean": 0.1630714252729369,
+          "defined": 512
+        },
+        "viable_selfed": {
+          "mean": 159.30429766748142,
+          "defined": 512
+        },
+        "natural_viable": {
+          "mean": 166.01651596442645,
+          "defined": 512
+        },
+        "received_pollen": {
+          "mean": 16.867142448303625,
+          "defined": 512
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.01,
+      "arm": "near",
+      "period": 400,
+      "metrics": {
+        "raw_deficit": {
+          "mean": 0.042536825313209695,
+          "defined": 512
+        },
+        "viable_deficit": {
+          "mean": 0.07705992548339176,
+          "defined": 512
+        },
+        "viable_selfed": {
+          "mean": 173.40712587521705,
+          "defined": 512
+        },
+        "natural_viable": {
+          "mean": 176.00383441578379,
+          "defined": 512
+        },
+        "received_pollen": {
+          "mean": 14.08524145478094,
+          "defined": 512
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.01,
+      "arm": "far",
+      "period": 0,
+      "metrics": {
+        "raw_deficit": {
+          "mean": 0.43218326275719976,
+          "defined": 512
+        },
+        "viable_deficit": {
+          "mean": 0.5710343437634939,
+          "defined": 512
+        },
+        "viable_selfed": {
+          "mean": 81.93736447996568,
+          "defined": 512
+        },
+        "natural_viable": {
+          "mean": 109.40147881632998,
+          "defined": 512
+        },
+        "received_pollen": {
+          "mean": 17.153055128248397,
+          "defined": 512
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.01,
+      "arm": "far",
+      "period": 200,
+      "metrics": {
+        "raw_deficit": {
+          "mean": 0.09420931781422222,
+          "defined": 512
+        },
+        "viable_deficit": {
+          "mean": 0.16397346621500092,
+          "defined": 512
+        },
+        "viable_selfed": {
+          "mean": 164.28334092367928,
+          "defined": 512
+        },
+        "natural_viable": {
+          "mean": 164.45223440483204,
+          "defined": 512
+        },
+        "received_pollen": {
+          "mean": 0.5197036120156526,
+          "defined": 512
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.01,
+      "arm": "far",
+      "period": 400,
+      "metrics": {
+        "raw_deficit": {
+          "mean": 0.03388773065983838,
+          "defined": 512
+        },
+        "viable_deficit": {
+          "mean": 0.06332841697001462,
+          "defined": 512
+        },
+        "viable_selfed": {
+          "mean": 177.312571011756,
+          "defined": 512
+        },
+        "natural_viable": {
+          "mean": 177.3923008359176,
+          "defined": 512
+        },
+        "received_pollen": {
+          "mean": 0.6943566233232443,
+          "defined": 512
+        }
+      }
+    }
+  ],
+  "records_sha256": "26a9e30b05271be3bb47878fe7117fa4d3572c667dcc44b78b338d66b69ce901",
+  "plan_sha256": "b65942b30ed444f406b72e40cdd0e9fc1ec621e49dd14f570eb45c835d05696b",
+  "source_hashes": {
+    "scripts/run_model3_pollen_assay.py": "a427375e87f461f3f8168676260de582e7af5a6cbbcd56e80da94b7268c9ae48",
+    "scripts/model3_pollen_assay.py": "45453e47b825a956ca62072c6dd9eb6a9aee0629034d9eef80a64ac535e638aa",
+    "scripts/model3_island/reproduction.py": "a1d2ad76a2b0d22cda19606fd7d115c3a0506c6dad05e49f3177cbd13ee51c82"
+  },
+  "claim_ceiling": "No resource reallocation, future recruitment or donor feedback. Counterfactual is an instantaneous female-function upper-bound assay, not a full experimental pollen-addition protocol or an estimate of actual Q1 effect size. Zero denominator is undefined. Selfing capacity is not realized selfing. No time-order or causal-mediation claim from three snapshots."
+}

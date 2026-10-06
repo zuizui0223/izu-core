@@ -1,0 +1,19 @@
+from pathlib import Path
+import json,hashlib,time,numpy as np
+from scripts.model3_streamed_sum import streamed_sum as bounded_sum
+from scripts.model3_compressed_step import mass
+c=Path.cwd();d=c/'sum_strict_second65';out=c/'streamed_sum_probe';out.mkdir(exist_ok=True)
+if (out/'summary.json').exists():raise ValueError('preserve evidence')
+inputs=[];states=[]
+for i in range(2):
+ p=d/f'failed_sum_{i}.npz';inputs.append(hashlib.sha256(p.read_bytes()).hexdigest())
+ with np.load(p) as z:states.append((z['core'],tuple(z[f'factor{k}'] for k in range(3))))
+allowed=sum(mass(s) for s in states)*5e-11;start=time.monotonic();v=dict(inputs=inputs,allowed=allowed)
+try:
+ state,receipt=bounded_sum(states,absolute_l1=allowed,budget=16_000_000)
+ p=out/'state.npz';np.savez_compressed(p,core=state[0],**{f'factor{k}':f for k,f in enumerate(state[1])})
+ v.update(status='passed_projection',receipt=receipt,npz_sha256=hashlib.sha256(p.read_bytes()).hexdigest(),mass_before=sum(mass(s) for s in states),mass_after=mass(state))
+except (MemoryError,ValueError,ArithmeticError) as e:v.update(status='failed',error=str(e))
+v['seconds']=time.monotonic()-start
+v['source_sha256']=hashlib.sha256((c/'scripts/model3_streamed_sum.py').read_bytes()).hexdigest()
+(out/'summary.json').write_text(json.dumps(v,indent=2));print(v)

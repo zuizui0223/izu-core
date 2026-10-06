@@ -1,0 +1,70 @@
+{
+  "scope": "ten-step65-node resource and local marginal checks only",
+  "summary_sha256": "0c5989f507392ac152ff0fd171922b6bc9f0d2304aa5f0c6f3da4f305eae4137",
+  "rows": [
+    {
+      "key": "assurance_cost_near_jump",
+      "status": "failed",
+      "failure_period": 4,
+      "error": "explicit array size 24840816 exceeds budget 16000000",
+      "seconds": 136.84400000004098,
+      "npz_sha256": "6bfcb1c095526add49010378f256e371f3498e682d03018f74000a53a512e013"
+    },
+    {
+      "key": "assurance_cost_near_heat_fv",
+      "status": "failed",
+      "failure_period": 4,
+      "error": "explicit array size 23822540 exceeds budget 16000000",
+      "seconds": 125.07900000002701,
+      "npz_sha256": "8bc64225a0ccf061f4cca189bf1050173238b97465bb5e0c444cea2d52f14534"
+    },
+    {
+      "key": "assurance_cost_far_jump",
+      "status": "failed",
+      "failure_period": 4,
+      "error": "explicit array size 24840816 exceeds budget 16000000",
+      "seconds": 133.204000000027,
+      "npz_sha256": "6bfcb1c095526add49010378f256e371f3498e682d03018f74000a53a512e013"
+    },
+    {
+      "key": "assurance_cost_far_heat_fv",
+      "status": "failed",
+      "failure_period": 4,
+      "error": "explicit array size 23822540 exceeds budget 16000000",
+      "seconds": 122.15600000007544,
+      "npz_sha256": "8bc64225a0ccf061f4cca189bf1050173238b97465bb5e0c444cea2d52f14534"
+    },
+    {
+      "key": "prior_selfing_near_jump",
+      "status": "failed",
+      "failure_period": 5,
+      "error": "explicit array size 23691030 exceeds budget 16000000",
+      "seconds": 342.125,
+      "npz_sha256": "1160eb584d846a7be308e2e8bcbf6514af3a9fc5651f0f1bf6dc004cb29e2634"
+    },
+    {
+      "key": "prior_selfing_near_heat_fv",
+      "status": "failed",
+      "failure_period": 3,
+      "error": "SVD did not converge",
+      "seconds": 46.70299999997951,
+      "npz_sha256": "ce301d50d0f91d065ae4456ecb3df24860ad00bc172657659613b18ca3b5c59d"
+    },
+    {
+      "key": "prior_selfing_far_jump",
+      "status": "failed",
+      "failure_period": 5,
+      "error": "explicit array size 23691030 exceeds budget 16000000",
+      "seconds": 337.4530000000959,
+      "npz_sha256": "1160eb584d846a7be308e2e8bcbf6514af3a9fc5651f0f1bf6dc004cb29e2634"
+    },
+    {
+      "key": "prior_selfing_far_heat_fv",
+      "status": "failed",
+      "failure_period": 3,
+      "error": "SVD did not converge",
+      "seconds": 42.26600000006147,
+      "npz_sha256": "ce301d50d0f91d065ae4456ecb3df24860ad00bc172657659613b18ca3b5c59d"
+    }
+  ]
+}

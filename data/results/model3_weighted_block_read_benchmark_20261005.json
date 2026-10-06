@@ -1,0 +1,39 @@
+{
+  "scope": "synthetic signed input at observed dimensions; exact block arithmetic timing only",
+  "seed": 517,
+  "core_shape": [
+    131,
+    103,
+    66
+  ],
+  "left_shape": [
+    611,
+    131,
+    6
+  ],
+  "right_shape": [
+    8,
+    103,
+    6
+  ],
+  "seconds": {
+    "rowwise": [
+      0.4792000000597909,
+      0.4495251999469474,
+      0.4586187999229878
+    ],
+    "batched": [
+      0.1895039000082761,
+      0.19329570000991225,
+      0.19477649999316782
+    ]
+  },
+  "speedup": 2.37262805069885,
+  "relative_frobenius_difference": 0.0,
+  "max_absolute_difference": 0.0,
+  "sources": {
+    "scripts/audit_weighted_block_read.py": "f5ea1dbcab00adb618e02c76b875e4a089673c42f3fd5453a82eba6ac4d61d4b",
+    "scripts/model3_weighted_block_read.py": "c1146bcb4378fc34f37d65e31ca3560c47edc1ec437b871d5fac467a99c8475e",
+    "scripts/model3_weighted_core_stream.py": "89405029a78541866cf98593a6a176d6bcb42c5d635c901306c4018a0584f015"
+  }
+}

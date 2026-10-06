@@ -1,0 +1,9 @@
+{
+  "status": "all_plotted_coordinates_match_sources",
+  "investment_coordinates": 512512,
+  "temporal_events": 128,
+  "pdf_sha256": "2095236aba8b985ab3cebbdd6e5b4107c73fdb9c5f2edd7b949db9b6bd1db47a",
+  "visual_review": "Poppler-rendered PDF inspected after spacing repair; labels, axes, legend and cohort notes legible without overlap.",
+  "scope": "Exact identity against previously verified stored means and events; not independent reimplementation of biology.",
+  "script_sha256": "081fc0e226f21d9883688081d9877f28dbca58fac4c352d6a3ecaaec02b82e7f"
+}

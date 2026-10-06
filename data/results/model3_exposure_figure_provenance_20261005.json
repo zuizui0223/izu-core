@@ -1,0 +1,11 @@
+{
+  "source": "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\model3-selection-repair\\data\\results\\model3_exposure_experiment_comparison_20261005.json",
+  "source_sha256": "87e9e921fcc8a753e4a17c99c94c69aef9d55da971983421eaebd4f22cd8c68e",
+  "plotted_estimates": 72,
+  "files": {
+    "exposure_comparison.pdf": "be073bdfa00a1f04293808718a7c0e6b72cceb0f9f04e4e16096d9673109c97a",
+    "exposure_comparison.png": "fabbff4579883396009deae7d51f0daf93539e96d4cd7f0389ae9d6d23f02c3e",
+    "exposure_comparison.svg": "649da29e81d0d39b9cdec0ba9996023338afac3394391f75e2e5458c108dc750",
+    "plotted_values.csv": "6f531d7d2523cda6f9cee2c9c19f23ca31101c3848ba4c7a0c3f2f856861e333"
+  }
+}

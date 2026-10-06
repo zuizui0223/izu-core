@@ -1,0 +1,43 @@
+{
+  "status": "built_verified_and_render_reviewed",
+  "files": [
+    {
+      "path": "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\outputs\\Island_Biology_2026_A0_processes_v6_20261005.pptx",
+      "sha256": "ba777de98ea7db1b71af8f7b505420b1232626f145d7c282edd41ebf6a7d8da0",
+      "bytes": 59153208
+    },
+    {
+      "path": "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\outputs\\Island_Biology_2026_A0_processes_v6_20261005.pdf",
+      "sha256": "e987446030a154607de723c86db25c8bf08a99741f7b132c7653f9161259ee09",
+      "bytes": 2807479
+    },
+    {
+      "path": "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\outputs\\Island_Biology_2026_A0_processes_v6_20261005.png",
+      "sha256": "806a725c9c955ea1c6b0b006d4382864edfde9b344eafce39c92fd4a75a0e05c",
+      "bytes": 2444463
+    },
+    {
+      "path": "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\outputs\\Island_Biology_2026_processes_v6_build_sources.zip",
+      "sha256": "c677e6ac62e7f0cb36e42f3db3faaad09c8495148c8b26721da7e3035e7e3822",
+      "bytes": 115390233
+    }
+  ],
+  "numeric": {
+    "status": "verified_chart_coordinates_and_Q1_preservation",
+    "file": "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\outputs\\Island_Biology_2026_A0_processes_v6_20261005.pptx",
+    "sha256": "ba777de98ea7db1b71af8f7b505420b1232626f145d7c282edd41ebf6a7d8da0",
+    "numeric_coordinates_checked": 105946,
+    "local_selection_charts": 2,
+    "evolution_gradient_charts": 2,
+    "mutation_repeat_points": 64,
+    "unchanged_other_charts": 7,
+    "Q1_upper_shapes_identical": 144,
+    "Q1_media_identical": 18,
+    "display_rounding_absolute_tolerance": 5.1e-11,
+    "source_array_sha256": "66074c4077ab4d0529707a410ed8f0218dd6e13926d0f7f08c87596396d6b1cd",
+    "claim_boundary": "Numerical package verification; visual render separately required."
+  },
+  "render": "PowerPoint COM PNG/PDF; Q2 PDF region visually inspected, source whole-poster viewed; unchanged Q1 verified byte-for-byte at shape/media level.",
+  "sources_archive_members_verified": 18,
+  "limits": "No full positive-mutation PDE corroboration; fixed settings; mutation panel is a separate one-locus diagnostic."
+}

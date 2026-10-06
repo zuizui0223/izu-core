@@ -1,0 +1,55 @@
+{
+  "classification": "exploratory parameter sensitivity, design recorded before execution; no natural calibration or confirmatory claim",
+  "created_utc": "2026-10-05T11:14:11.193573+00:00",
+  "question": "Which local selection directions and cross-trait effects survive independent changes to reproductive tradeoffs?",
+  "assurance_timing": [
+    "delayed",
+    "prior"
+  ],
+  "depression": [
+    0,
+    0.25,
+    0.5,
+    0.75,
+    0.9
+  ],
+  "investment_cost": [
+    0,
+    0.25,
+    0.5,
+    1,
+    2
+  ],
+  "assurance_cost": [
+    0,
+    0.25,
+    0.5,
+    1,
+    2
+  ],
+  "pollen_discount": [
+    0,
+    1
+  ],
+  "communities": "all five from unified reduction design",
+  "states": "all 45 from rare-mutant design",
+  "source_hashes": {
+    "scripts/model3_island/selection.py": "27d55ecedadf3259351eae4d52c955d61e9ab287a047472dfc057ce3383d0064",
+    "scripts/audit_model3_joint_syndrome_vector.py": "3078461bf60547692c4492d71153af53f5df7d1b5a5dfbf3636be33570c240d5",
+    "data/design/model3_ch2_bridge_20260927.json": "ee11a074da98460839b6ffe3e0e34c106400b54309b865b794bdb2d4fe856ee0",
+    "data/design/model3_unified_reduction_audit_20260927.json": "64fbf5e6ae6a21075fc3c7939257da48b31c91fa345acfb396f50a831769c8fc",
+    "data/design/model3_joint_syndrome_rare_mutant_20261004.json": "84c0c50165ac2e7df040cbda322c23107665305acb0ba1e7063ef60970e0a0f8"
+  },
+  "rationale": "Depression spans zero to strong viability loss, excluding singular complete loss; costs bracket existing 0 and 0.5, with doubled/quadrupled positive baseline. Existing male discount endpoints and both timing rules are crossed independently. These are designed model ranges, not empirical parameter distributions.",
+  "readout": {
+    "gradient_deadband": 1e-07,
+    "cross_derivative_steps": [
+      0.0001,
+      5e-05
+    ],
+    "independent_gradient_step": 1e-05,
+    "independent_gradient_max_abs_error": 1e-06,
+    "retain": "all four direction regimes, neutral states, both cross derivatives, and both finite-difference steps; no pruning"
+  },
+  "scope": "fixed monomorphic residents and controlled communities; no histories, no evolutionary order, no demographic survival inference, no new parameter tuning or long-run restart"
+}

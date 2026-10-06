@@ -1,0 +1,64 @@
+{
+  "scope": "completed n9/1000 integrated solver cases; not grid convergence",
+  "completed": 7,
+  "planned": 8,
+  "source_hashes_verified": 34,
+  "rows": [
+    {
+      "key": "assurance_cost_far_heat_fv",
+      "max_l1": 6.600926782425181e-07,
+      "max_trait": 5.4633607082799074e-08,
+      "max_negative": 4.737907782969066e-12,
+      "npz_sha256": "22d136bdbce1293c3fc5e59517d02a0bae57c49c96dac6f87f52be5b8313c0f1",
+      "seconds": 474.4070000000065
+    },
+    {
+      "key": "assurance_cost_far_jump",
+      "max_l1": 1.8728492523965875e-07,
+      "max_trait": 1.1530491339506455e-08,
+      "max_negative": 4.5084785690573234e-12,
+      "npz_sha256": "f5c59755ff3d010c08d6c9db15d3aa31beecbc2a44781ee8298f76ac6b169707",
+      "seconds": 508.18699999991804
+    },
+    {
+      "key": "assurance_cost_near_heat_fv",
+      "max_l1": 2.5091121032210438e-08,
+      "max_trait": 1.5596530178463297e-09,
+      "max_negative": 2.1937855398762115e-12,
+      "npz_sha256": "b78b21820b5a75334d50c7f380a2f647255c99b6418323ddc67fd86cd4d5d3c8",
+      "seconds": 685.8439999999246
+    },
+    {
+      "key": "assurance_cost_near_jump",
+      "max_l1": 5.468997119532346e-09,
+      "max_trait": 2.9839342108317624e-10,
+      "max_negative": 1.7149650756072403e-12,
+      "npz_sha256": "59e58ea471ea1edb6dab865088a44faec30ba00c09fb8172b35e7b5293faa89c",
+      "seconds": 695.3280000000959
+    },
+    {
+      "key": "prior_selfing_far_jump",
+      "max_l1": 4.842569879623918e-07,
+      "max_trait": 4.5935967682431134e-08,
+      "max_negative": 4.340489729188543e-12,
+      "npz_sha256": "aec7c810f1963c10bea241cddf74096e3bf203d9a215228c4524b2be89902ee0",
+      "seconds": 319.68800000008196
+    },
+    {
+      "key": "prior_selfing_near_heat_fv",
+      "max_l1": 9.004905690414568e-07,
+      "max_trait": 9.351037938420959e-08,
+      "max_negative": 5.051263395438866e-12,
+      "npz_sha256": "025de04f7df3e03d45a6a6b203cef66b388f022538a70ea20e6237a04b3bf92d",
+      "seconds": 402.155999999959
+    },
+    {
+      "key": "prior_selfing_near_jump",
+      "max_l1": 4.069865638611382e-07,
+      "max_trait": 4.324282903978016e-08,
+      "max_negative": 3.709679700811145e-12,
+      "npz_sha256": "c0668473124b0631db298739f65d661bdf580ae3e905c5055f776907ef2d9bd6",
+      "seconds": 423.75
+    }
+  ]
+}

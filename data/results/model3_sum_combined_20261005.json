@@ -1,0 +1,40 @@
+{
+  "status": "passed",
+  "allowed": 6.619543380939491e-09,
+  "combined_bound": 1.1839225962829357e-09,
+  "projection": {
+    "absolute_l1_bound": 7.874181685223706e-10,
+    "axis_bounds": [
+      0.0,
+      0.0,
+      7.874181685223706e-10
+    ],
+    "ranks": [
+      333,
+      301,
+      154
+    ],
+    "scope": "orthogonal factor projections with telescoping bound; roundoff excluded"
+  },
+  "rounding": {
+    "absolute_l1_bound": 3.965044277605651e-10,
+    "mass_before": 66.19543380939523,
+    "ranks": [
+      327,
+      296,
+      150
+    ],
+    "relative_l1_bound": 5.9899060243682335e-12,
+    "norm_bounds": {
+      "cauchy": 1218469.4338464697,
+      "triangle": 154.3929463418304
+    },
+    "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+  },
+  "ranks": [
+    327,
+    296,
+    150
+  ],
+  "seconds": 18.625
+}

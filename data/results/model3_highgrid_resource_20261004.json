@@ -1,0 +1,328 @@
+{
+  "scope": "one-step resource screen from embedded n9 snapshots; not full high-grid solver",
+  "script_sha256": "50122f56cb3adfd73fb4d2ad49fe8ea2bcaedd8953bf88698f4b92d6b7b3e8a9",
+  "rows": [
+    {
+      "key": "assurance_cost_near_jump",
+      "input_sha256": "70f27e8b9d8c67348da3683064cd831a1daf26330ece53416d5ec81e9913400d",
+      "nodes": 65,
+      "channel_mass": 0.9542576705697949,
+      "raw_factor_values": [
+        694980,
+        1450020,
+        1038180
+      ],
+      "donor_ranks": [
+        18,
+        26,
+        22
+      ],
+      "recipient_ranks": [
+        18,
+        26,
+        22
+      ],
+      "status": "measured",
+      "bound": {
+        "absolute_l1_bound": 1.049466267720145e-09,
+        "ranks": [
+          45,
+          45,
+          45
+        ],
+        "prefactor": 431853.9841772744,
+        "spectral_tail_ratios": [
+          7.496852619561887e-16,
+          9.37193793948297e-16,
+          7.432623950757217e-16
+        ],
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "child_core_values": 91125,
+      "child_core_gib": 0.0006789341568946838,
+      "seconds": 0.7809999999590218
+    },
+    {
+      "key": "assurance_cost_near_heat_fv",
+      "input_sha256": "67b5481f980507700949bb6ab9a0df67b30dd7c846400c27300c5e93032b3cb8",
+      "nodes": 65,
+      "channel_mass": 0.9327229361856463,
+      "raw_factor_values": [
+        694980,
+        1450020,
+        1038180
+      ],
+      "donor_ranks": [
+        18,
+        26,
+        22
+      ],
+      "recipient_ranks": [
+        18,
+        26,
+        22
+      ],
+      "status": "measured",
+      "bound": {
+        "absolute_l1_bound": 8.953626965384821e-10,
+        "ranks": [
+          45,
+          45,
+          45
+        ],
+        "prefactor": 355196.5873887708,
+        "spectral_tail_ratios": [
+          7.443956912497335e-16,
+          8.881784197001252e-16,
+          8.881784197001252e-16
+        ],
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "child_core_values": 91125,
+      "child_core_gib": 0.0006789341568946838,
+      "seconds": 0.6879999999655411
+    },
+    {
+      "key": "assurance_cost_far_jump",
+      "input_sha256": "b9bee9ff914d335a2e6f8891e7fe074bbb246a07819d6d9988bf361eb0eaed12",
+      "nodes": 65,
+      "channel_mass": 0.4317201313746708,
+      "raw_factor_values": [
+        193050,
+        105105,
+        34320
+      ],
+      "donor_ranks": [
+        10,
+        7,
+        4
+      ],
+      "recipient_ranks": [
+        9,
+        7,
+        4
+      ],
+      "status": "measured",
+      "bound": {
+        "absolute_l1_bound": 2.597959969453528e-10,
+        "ranks": [
+          45,
+          30,
+          15
+        ],
+        "prefactor": 26047.496138295646,
+        "spectral_tail_ratios": [
+          6.350971323479763e-16,
+          6.671439890875128e-15,
+          2.667396577381009e-15
+        ],
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "child_core_values": 20250,
+      "child_core_gib": 0.00015087425708770752,
+      "seconds": 0.2970000000204891
+    },
+    {
+      "key": "assurance_cost_far_heat_fv",
+      "input_sha256": "09fa4b5828efaa9e2112536e330a349f8a1f6ad2d50482bdfcd801f4725b8ed5",
+      "nodes": 65,
+      "channel_mass": 0.4093754652614925,
+      "raw_factor_values": [
+        173745,
+        105105,
+        34320
+      ],
+      "donor_ranks": [
+        9,
+        7,
+        4
+      ],
+      "recipient_ranks": [
+        9,
+        7,
+        4
+      ],
+      "status": "measured",
+      "bound": {
+        "absolute_l1_bound": 1.3663836603494974e-09,
+        "ranks": [
+          45,
+          33,
+          15
+        ],
+        "prefactor": 18063.44971698334,
+        "spectral_tail_ratios": [
+          6.137883840812932e-16,
+          7.472403113734521e-14,
+          3.057414681898511e-16
+        ],
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "child_core_values": 22275,
+      "child_core_gib": 0.00016596168279647827,
+      "seconds": 0.062000000034458935
+    },
+    {
+      "key": "prior_selfing_near_jump",
+      "input_sha256": "0c8ad8fa7836dca8bf356f6925d8f1eacb1169b6d782eac8a7da93af259e8a87",
+      "nodes": 65,
+      "channel_mass": 0.00210580030726995,
+      "raw_factor_values": [
+        855855,
+        306735,
+        77220
+      ],
+      "donor_ranks": [
+        19,
+        11,
+        6
+      ],
+      "recipient_ranks": [
+        21,
+        13,
+        6
+      ],
+      "status": "measured",
+      "bound": {
+        "absolute_l1_bound": 3.0623469831479488e-12,
+        "ranks": [
+          45,
+          39,
+          28
+        ],
+        "prefactor": 1271.6299483804441,
+        "spectral_tail_ratios": [
+          8.881784197001252e-16,
+          1.2696252416556717e-15,
+          2.5040242646729415e-16
+        ],
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "child_core_values": 49140,
+      "child_core_gib": 0.0003661215305328369,
+      "seconds": 0.21899999992456287
+    },
+    {
+      "key": "prior_selfing_near_heat_fv",
+      "input_sha256": "3fe5eaa2dd06702c5e31cc96ce53e47118d4996bf0bf4151c79cc0ba35be7252",
+      "nodes": 65,
+      "channel_mass": 0.0014924545898719111,
+      "raw_factor_values": [
+        772200,
+        306735,
+        77220
+      ],
+      "donor_ranks": [
+        18,
+        11,
+        6
+      ],
+      "recipient_ranks": [
+        20,
+        13,
+        6
+      ],
+      "status": "measured",
+      "bound": {
+        "absolute_l1_bound": 6.392234240192646e-12,
+        "ranks": [
+          45,
+          39,
+          27
+        ],
+        "prefactor": 637.032763566059,
+        "spectral_tail_ratios": [
+          8.881784197001252e-16,
+          2.681626053039343e-15,
+          6.464584032506989e-15
+        ],
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "child_core_values": 47385,
+      "child_core_gib": 0.0003530457615852356,
+      "seconds": 0.1720000000204891
+    },
+    {
+      "key": "prior_selfing_far_jump",
+      "input_sha256": "7d45215688ef5bfe4d1197737d9bc43d8a6378adb9d4eb9ed8ffd34a4e0e7c2b",
+      "nodes": 65,
+      "channel_mass": 0.002513396677085315,
+      "raw_factor_values": [
+        90090,
+        77220,
+        8580
+      ],
+      "donor_ranks": [
+        6,
+        6,
+        2
+      ],
+      "recipient_ranks": [
+        7,
+        6,
+        2
+      ],
+      "status": "measured",
+      "bound": {
+        "absolute_l1_bound": 1.08146461069396e-12,
+        "ranks": [
+          36,
+          29,
+          4
+        ],
+        "prefactor": 215.40830893954035,
+        "spectral_tail_ratios": [
+          4.4002246211213607e-16,
+          4.580510942648493e-15,
+          0.0
+        ],
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "child_core_values": 4176,
+      "child_core_gib": 3.1113624572753906e-05,
+      "seconds": 0.062000000034458935
+    },
+    {
+      "key": "prior_selfing_far_heat_fv",
+      "input_sha256": "404992be5cb45b28bbdd95601c79929a3cdd83cab2e66abb909731479c59d6e9",
+      "nodes": 65,
+      "channel_mass": 0.0018003731987968536,
+      "raw_factor_values": [
+        90090,
+        77220,
+        8580
+      ],
+      "donor_ranks": [
+        6,
+        6,
+        2
+      ],
+      "recipient_ranks": [
+        7,
+        6,
+        2
+      ],
+      "status": "measured",
+      "bound": {
+        "absolute_l1_bound": 4.944512615136192e-12,
+        "ranks": [
+          36,
+          29,
+          4
+        ],
+        "prefactor": 110.47202585812262,
+        "spectral_tail_ratios": [
+          4.419124132364729e-16,
+          4.43161390185925e-14,
+          0.0
+        ],
+        "bound_scope": "exact-arithmetic factor truncation; excludes roundoff"
+      },
+      "child_core_values": 4176,
+      "child_core_gib": 3.1113624572753906e-05,
+      "seconds": 0.0470000000204891
+    }
+  ],
+  "archive": "outputs/model3_precision_feasibility/highgrid_resource_verified.zip",
+  "archive_sha256": "11515f58d30f6dd3994173e5dd5ccb76b4dd5bc7634f9e8f78301edb07a43fb8"
+}

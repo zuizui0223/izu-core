@@ -1,0 +1,60 @@
+"""Ten 65-node periods across eight frozen cases; local resource/marginal admission only."""
+import hashlib,json,time,zipfile
+from pathlib import Path
+from itertools import combinations_with_replacement
+import numpy as np
+from scripts.run_model3_full_mutation import config,exposure,atomic_json
+from scripts.audit_model3_rounded_integration_fast_reconstruct import initial_density
+from scripts.model3_core_rounding import rounded
+from scripts.model3_rounded_gamete_integration import bounded_step
+from scripts.model3_birth_marginal_reference import exact_next_marginals
+c=Path(__file__).resolve().parents[1];gate=c/'bounded_n9_40'
+s=json.loads((gate/'summary.json').read_text());assert len(s['results'])==8 and all(x['passed'] for x in s['results'])
+for p,h in json.loads((gate/'sources.json').read_text()).items():assert hashlib.sha256((c/p).read_bytes()).hexdigest()==h
+first=json.loads((c/'first65/summary.json').read_text());assert len(first['rows'])==8 and all(x['status']=='passed_marginals' for x in first['rows'])
+strict=c/'sum_checkpoint_finish'
+check=json.loads((strict/'summary.json').read_text())
+assert check['status']=='passed_marginals' and check['normalized_joint_l1_upper']<=1e-5
+assert check['relative_marginal_l1']<=1e-5 and check['trait_gap']<=1e-6
+assert hashlib.sha256((strict/'state.npz').read_bytes()).hexdigest()==check['npz_sha256']
+for p,h in json.loads((strict/'sources.json').read_text()).items():assert hashlib.sha256((c/p).read_bytes()).hexdigest()==h
+out=c/'rounded_gamete_ten65';out.mkdir(exist_ok=True)
+if (out/'sources.json').exists():raise ValueError('preserve prior evidence')
+files=sorted(set(list((c/'scripts').glob('*.py'))+list((c/'scripts/model3_island').glob('*.py'))+[c/'data/design/model3_ch2_bridge_20260927.json',c/'docs/superpowers/plans/2026-10-04-model3-highgrid-tenstep.md']))
+atomic_json(out/'sources.json',{p.relative_to(c).as_posix():hashlib.sha256(p.read_bytes()).hexdigest() for p in files})
+with zipfile.ZipFile(out/'sources.zip','w',zipfile.ZIP_DEFLATED) as z:
+ for p in files:z.write(p,p.relative_to(c).as_posix())
+_,counts=initial_density(5);(core,fs),_=rounded((counts.reshape(15,15,15),[np.eye(15)]*3))
+axis=np.linspace(0,1,65);pairs=list(combinations_with_replacement(range(65),2));lookup={p:i for i,p in enumerate(pairs)};positions=[lookup[(a*16,b*16)] for a,b in combinations_with_replacement(range(5),2)]
+embedded=[]
+for f in fs:
+ e=np.zeros((len(pairs),f.shape[1]));e[positions]=f;embedded.append(e)
+initial=(core,embedded);means=np.array([(axis[a]+axis[b])/2 for a,b in pairs]);rows=[]
+for setting in ['assurance_cost','prior_selfing']:
+ for arm in ['near','far']:
+  for scheme in ['jump','heat_fv']:
+   key=f'{setting}_{arm}_{scheme}';row=dict(key=key,records=[],status='running');start=time.monotonic();state=initial
+   cfg=config(setting,.01);history=exposure(76001,arm)
+   for t in range(10):
+    step_start=time.monotonic()
+    try:
+     visitors=history.visitors[t]
+     expected=exact_next_marginals(state,(axis,)*3,visitors,cfg,scheme=scheme)
+     candidate,receipts=bounded_step(state,(axis,)*3,visitors,cfg,scheme=scheme,budget=16_000_000)
+     nc,nf=candidate;sums=[f.sum(axis=0) for f in nf];actual=[]
+     for k in range(3):
+      v=np.einsum('abc,'+','.join('abc'[j] for j in range(3) if j!=k)+'->'+'abc'[k],nc,*[sums[j] for j in range(3) if j!=k],optimize=True);actual.append(nf[k]@v)
+     l1=max(float(np.abs(a-b).sum()/b.sum()) for a,b in zip(actual,expected));trait=max(float(abs(a@means/a.sum()-b@means/b.sum())) for a,b in zip(actual,expected))
+     ok=np.isfinite(l1) and np.isfinite(trait) and l1<=1e-5 and trait<=1e-6
+     row['records'].append(dict(period=t+1,relative_marginal_l1=l1,trait_gap=trait,ranks=list(nc.shape),receipts=receipts,seconds=time.monotonic()-step_start,passed=bool(ok)))
+     if not ok:raise ArithmeticError('marginal threshold failure')
+     state=candidate
+     print(key,t+1,'ranks',nc.shape,'error',l1,'seconds',time.monotonic()-step_start,flush=True)
+    except (ArithmeticError,ValueError,MemoryError) as e:
+     row.update(status='failed',failure_period=t+1,error=str(e));break
+    atomic_json(out/(key+'.json'),row)
+   if len(row['records'])==10 and row['status']=='running':row['status']='passed_marginals'
+   path=out/(key+'.npz');np.savez_compressed(path,core=state[0],**{f'factor{k}':f for k,f in enumerate(state[1])})
+   row.update(seconds=time.monotonic()-start,npz_sha256=hashlib.sha256(path.read_bytes()).hexdigest());rows.append(row);atomic_json(out/(key+'.json'),row)
+   print(key,row['status'],row.get('error'),flush=True)
+atomic_json(out/'summary.json',dict(scope='ten-step65-node resource and local marginal checks only',rows=rows))

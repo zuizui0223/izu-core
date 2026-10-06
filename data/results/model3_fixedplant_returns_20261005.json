@@ -1,0 +1,9 @@
+{
+  "status": "precision_passed",
+  "cases": 768,
+  "failed_cases": 0,
+  "sources_sha256": "d840f2574dbe5b70b6de7cfd40414b688fbc93ef81f5de04bc47a94f3878a93c",
+  "records_sha256": "7e67e2ef2c8b5526595bab59302c2c704bde66fc8acaa5c1cc89c25c594aa853",
+  "arrays_sha256": "5669f96bbf4fc99276afa41edcd6183f6a1fbafb0e998a60b1413afc40d3d66e",
+  "claim_ceiling": "Fixed-state local contribution diagnostic, no realized evolution or field effect estimate. Require full precision pass before readout."
+}

@@ -1,0 +1,45 @@
+"""Resource diagnostic only: coarse snapshot embedded at required resolution."""
+import hashlib,json,time
+from pathlib import Path
+from itertools import combinations_with_replacement
+import numpy as np
+from scripts.audit_child_snapshot_probe import config,exposure,rounded,ecological_weights,weighted,mass,birth_mutation_matrix,reduce_child_factors,atomic_json
+c=Path(__file__).resolve().parents[1];root=c.parents[2]
+source=root/'outputs/model3_precision_feasibility/propagation1000'
+out=c/'resource65';out.mkdir(exist_ok=True)
+if (out/'summary.json').exists():raise ValueError('preserve existing diagnostic')
+rows=[];small=tuple(np.linspace(0,1,9));axis=np.linspace(0,1,65)
+pairs=np.array(list(combinations_with_replacement(range(65),2)));oldpairs=np.array(list(combinations_with_replacement(range(9),2)))
+lookup={tuple(p):i for i,p in enumerate(pairs)};positions=np.array([lookup[tuple(p*8)] for p in oldpairs])
+assert np.array_equal(axis[oldpairs*8],np.asarray(small)[oldpairs])
+for setting in ['assurance_cost','prior_selfing']:
+ for arm in ['near','far']:
+  for scheme in ['jump','heat_fv']:
+   key=f'{setting}_{arm}_{scheme}';start=time.monotonic();file=source/(key+'.npz');receipt=json.loads((source/(key+'.json')).read_text())
+   assert hashlib.sha256(file.read_bytes()).hexdigest()==receipt['checkpoint_sha256']
+   row=dict(key=key,input_sha256=receipt['checkpoint_sha256'],nodes=65)
+   try:
+    with np.load(file) as a:counts=a['baseline_200'].copy()
+    cfg=config(setting,.01);visitors=exposure(76001,arm).visitors[200]
+    if not len(visitors.ids):raise ValueError('no visitor channel')
+    state,_=rounded((counts.reshape(45,45,45),[np.eye(45)]*3))
+    weights=ecological_weights(*state,(small,)*3,visitors,cfg)
+    parents=[]
+    for name in ['donor','recipient']:
+     parents.append(rounded(weighted(state,weights[name+'_xy'][:,:,0],weights[name+'_a'],weights['maps'],budget=16_000_000),budget=16_000_000)[0])
+    (dc,df),(rc,rf)=parents;channel=mass(parents[0])*mass(parents[1]);assert channel>0
+    raw=[len(pairs)*dc.shape[k]*rc.shape[k] for k in range(3)]
+    row.update(channel_mass=channel,raw_factor_values=raw,donor_ranks=list(dc.shape),recipient_ranks=list(rc.shape))
+    if max(raw)>2_000_000:raise MemoryError('declared raw factor cap')
+    kernel=birth_mutation_matrix(axis,.01,.05,scheme);gametes=(kernel[oldpairs[:,0]*8]+kernel[oldpairs[:,1]*8])/2
+    child=[]
+    for k in range(3):
+     d=gametes.T@df[k];r=gametes.T@rf[k]
+     f=d[pairs[:,0],:,None]*r[pairs[:,1],None,:]
+     f+=(pairs[:,0]!=pairs[:,1])[:,None,None]*(d[pairs[:,1],:,None]*r[pairs[:,0],None,:])
+     child.append(f.reshape(len(pairs),-1))
+    q,transforms,bound=reduce_child_factors(dc,rc,child,absolute_l1=channel*1e-8,max_values=2_000_000)
+    row.update(status='measured',bound=bound,child_core_values=int(np.prod(bound['ranks'])),child_core_gib=int(np.prod(bound['ranks']))*8/2**30)
+   except (ValueError,MemoryError,ArithmeticError) as e:row.update(status='not_evaluable',reason=str(e))
+   row['seconds']=time.monotonic()-start;rows.append(row);atomic_json(out/(key+'.json'),row);print(json.dumps(row),flush=True)
+atomic_json(out/'summary.json',dict(scope='one-step resource screen from embedded n9 snapshots; not full high-grid solver',script_sha256=hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),rows=rows))

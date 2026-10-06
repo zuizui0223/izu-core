@@ -3,6 +3,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MANUSCRIPT = ROOT / "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
+COMPLEMENT = ROOT / "docs/CHAPTER2_COMPLEMENTARY_EVIDENCE_20261005.md"
 MANIFEST = ROOT / "data/design/chapter2_oikos_submission_manifest_20260927.json"
 WORLD_VALUE = ROOT / "data/results/chapter2_global_master_manuscript_value_review_audit_20260906.json"
 IZU_FINAL = ROOT / "data/results/chapter2_izu_final_mechanistic_zoom_audit_20260906.json"
@@ -11,7 +12,7 @@ THESIS = ROOT / "THESIS_CHAPTER_POSITIONING.md"
 
 
 def test_world_program_is_preserved_as_layer_specific_claim_ceiling_not_model_fit():
-    text = MANUSCRIPT.read_text(encoding="utf-8").lower()
+    text = (MANUSCRIPT.read_text(encoding="utf-8") + COMPLEMENT.read_text(encoding="utf-8")).lower()
     manifest = json.loads(MANIFEST.read_text(encoding="utf-8"))
 
     assert "layer-specific confrontation with real island systems" in text
@@ -38,7 +39,7 @@ def test_world_saturation_assets_remain_frozen_for_reviewer_audit():
     assert natural["complete_A_to_B_to_C_contracts"] == "0_of_25"
 
 def test_izu_empirical_assets_remain_boundary_evidence_not_completion_gate():
-    text = MANUSCRIPT.read_text(encoding="utf-8").lower()
+    text = (MANUSCRIPT.read_text(encoding="utf-8") + COMPLEMENT.read_text(encoding="utf-8")).lower()
     thesis = THESIS.read_text(encoding="utf-8").lower()
     izu = json.loads(IZU_FINAL.read_text(encoding="utf-8"))
     rationale = json.loads(IZU_RATIONALE.read_text(encoding="utf-8"))

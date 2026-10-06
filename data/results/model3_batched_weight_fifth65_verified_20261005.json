@@ -1,0 +1,18 @@
+{
+  "input_sha256": "3650a2c049fb3feb976cc452cd212fe53ba459e4e6c6234dc8828b684ccfbfdf",
+  "scope": "fifth step from verified fourth-step state; local marginal/resource probe only",
+  "status": "passed_marginals",
+  "relative_marginal_l1": 1.3089417905155345e-12,
+  "trait_gap": 2.3869795029440866e-14,
+  "ranks": [
+    147,
+    120,
+    90
+  ],
+  "npz_sha256": "3395c8bb503e9de353e2b613ab4c2f835c5004f47d968c6a0b3f306d6258422b",
+  "seconds": 860.155999999959,
+  "source_current_archive_verified": true,
+  "source_files": 124,
+  "core_factors_reconstructed": true,
+  "claim_ceiling": "Single local update, not global error, positivity or long-run/grid admission."
+}

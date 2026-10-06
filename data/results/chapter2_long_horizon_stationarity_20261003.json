@@ -1,0 +1,221 @@
+{
+  "schema_version": "1.0",
+  "status": "complete_prospective_long_horizon_stationarity_with_density_mass_diagnostic",
+  "date": "2026-10-03",
+  "workflow": {
+    "run_id": 37115353393,
+    "head_sha": "d155c6c347fd46b563b3e00d7dda07a78e982b90",
+    "summary_artifact_id": 11271610311,
+    "summary_artifact_sha256": "daca2670a0c06a362079b4aa53cc901655dce4fc1a4bb8e18b226c009508f58b"
+  },
+  "design": "data/design/chapter2_long_horizon_stationarity_20261003.json",
+  "checkpoints": [
+    200,
+    400,
+    800,
+    1600,
+    3200,
+    6400
+  ],
+  "backbone": {
+    "depression": 0.75,
+    "deterministic_only": true,
+    "finite_horizon_stationary_by_6400": false,
+    "reports": [
+      {
+        "year": 200,
+        "mean": -0.41423024895210353,
+        "labels_eps_0_01": {
+          "negative": 122,
+          "mixed": 2,
+          "positive": 1,
+          "neutral": 3
+        }
+      },
+      {
+        "year": 400,
+        "mean": -0.31860688509497,
+        "labels_eps_0_01": {
+          "negative": 117,
+          "mixed": 4,
+          "positive": 3,
+          "neutral": 4
+        }
+      },
+      {
+        "year": 800,
+        "mean": -0.17944087637312353,
+        "labels_eps_0_01": {
+          "negative": 109,
+          "mixed": 0,
+          "positive": 1,
+          "neutral": 18
+        }
+      },
+      {
+        "year": 1600,
+        "mean": -0.07739710689306284,
+        "labels_eps_0_01": {
+          "negative": 70,
+          "mixed": 0,
+          "positive": 0,
+          "neutral": 58
+        }
+      },
+      {
+        "year": 3200,
+        "mean": -0.018145915131617212,
+        "labels_eps_0_01": {
+          "negative": 27,
+          "mixed": 0,
+          "positive": 0,
+          "neutral": 101
+        }
+      },
+      {
+        "year": 6400,
+        "mean": -0.0019486117213283326,
+        "labels_eps_0_01": {
+          "negative": 3,
+          "mixed": 0,
+          "positive": 0,
+          "neutral": 125
+        }
+      }
+    ],
+    "late_stationarity": {
+      "1600_to_3200": {
+        "history_label_agreement": 0.6640625,
+        "mean_abs_change": 0.059251191761445623,
+        "mean_relative_change": 0.7655478885446085
+      },
+      "3200_to_6400": {
+        "history_label_agreement": 0.8125,
+        "mean_abs_change": 0.01619730341028888,
+        "mean_relative_change": 0.8926143042555569
+      }
+    },
+    "density_mass_diagnostic": [
+      {
+        "year": 200,
+        "near_mean": 24.09023188425404,
+        "near_median": 24.189561503609045,
+        "far_mean": 0.05887515834934918,
+        "far_median": 0.00030143676679168514,
+        "near_fraction_below_1": 0.4791666666666667,
+        "far_fraction_below_1": 0.9817708333333334
+      },
+      {
+        "year": 400,
+        "near_mean": 11.175740043214281,
+        "near_median": 1.3401189091637907e-8,
+        "far_mean": 0.049422760382033436,
+        "far_median": 7.598687352058799e-7,
+        "near_fraction_below_1": 0.7604166666666666,
+        "far_fraction_below_1": 0.9869791666666666
+      },
+      {
+        "year": 800,
+        "near_mean": 1.2734103344396661,
+        "near_median": 3.482547945086196e-17,
+        "far_mean": 0.053099834318338646,
+        "far_median": 3.787928910385935e-8,
+        "near_fraction_below_1": 0.96875,
+        "far_fraction_below_1": 0.9869791666666666
+      },
+      {
+        "year": 1600,
+        "near_mean": 0.000012167090400097834,
+        "near_median": 3.235013364502836e-27,
+        "far_mean": 0.06109493466898888,
+        "far_median": 3.787311491305262e-8,
+        "near_fraction_below_1": 1,
+        "far_fraction_below_1": 0.9869791666666666
+      },
+      {
+        "year": 3200,
+        "near_mean": 0.000012210301237281886,
+        "near_median": 5.514685162496236e-44,
+        "far_mean": 0.13937869681322693,
+        "far_median": 3.787311504392654e-8,
+        "near_fraction_below_1": 1,
+        "far_fraction_below_1": 0.9869791666666666
+      },
+      {
+        "year": 6400,
+        "near_mean": 0.000012298872801648516,
+        "near_median": 3.225277681137425e-44,
+        "far_mean": 0.34642941456031345,
+        "far_median": 3.787311558581772e-8,
+        "near_fraction_below_1": 1,
+        "far_fraction_below_1": 0.9869791666666666
+      }
+    ],
+    "interpretation": "The far-minus-near effect decays toward zero, but this is not evidence of a clean adaptive equilibrium. The deterministic closure enters sub-individual expected-mass regimes: already at year 200, 98.18% of far start×history density trajectories have expected mass <1, and by year 1600 all near trajectories also have mass <1. Long-horizon convergence is therefore confounded with quasi-extinction in the density closure."
+  },
+  "original_finite_bridge_context": {
+    "source": "data/results/model3_ch2_bridge_summary_20260927/summary.json",
+    "horizon": 200,
+    "depression": 0.5,
+    "near_occupancy": 1,
+    "far_occupancy": 1,
+    "n_observations_per_arm": 3072,
+    "note": "The original finite ABM survives through 200 reproductive seasons in all natural near/far cases, so the 200-season finite result is not itself an extinction artifact."
+  },
+  "mutation_accessibility": {
+    "finite_horizon_stationary_by_6400": false,
+    "reports": [
+      {
+        "year": 200,
+        "high_abs_response": 0.17942098992151767,
+        "low_with_central_mutation_abs_response": 0.040174438551091984,
+        "high_low_ratio": 4.466048472422045
+      },
+      {
+        "year": 400,
+        "high_abs_response": 0.19681115744633806,
+        "low_with_central_mutation_abs_response": 0.07693682899578189,
+        "high_low_ratio": 2.558087719694405
+      },
+      {
+        "year": 800,
+        "high_abs_response": 0.20149923730850158,
+        "low_with_central_mutation_abs_response": 0.13535270174260444,
+        "high_low_ratio": 1.488697563582334
+      },
+      {
+        "year": 1600,
+        "high_abs_response": 0.203889698983131,
+        "low_with_central_mutation_abs_response": 0.22520895201896066,
+        "high_low_ratio": 0.9053356767361772
+      },
+      {
+        "year": 3200,
+        "high_abs_response": 0.203889698983131,
+        "low_with_central_mutation_abs_response": 0.3014338777973743,
+        "high_low_ratio": 0.6763994162599962
+      },
+      {
+        "year": 6400,
+        "high_abs_response": 0.203889698983131,
+        "low_with_central_mutation_abs_response": 0.36590523376583073,
+        "high_low_ratio": 0.5572199579785589
+      }
+    ],
+    "interpretation": "Standing variation gives an early response advantage, but the central mutation-input low-standing treatment catches and overtakes the high-standing no-mutation reference after roughly 800–1600 seasons. The standing-variation ranking is therefore a finite-horizon speed effect, not a persistent accessibility hierarchy."
+  },
+  "decisions": {
+    "stationary_backbone_claim": false,
+    "stationary_history_nonparallelism_claim": false,
+    "persistent_standing_variation_dominance_claim": false,
+    "retain_finite_horizon_directional_results": true,
+    "new_finite_population_long_horizon_persistence_diagnostic": "data/design/chapter2_finite_long_horizon_persistence_20261003.json"
+  },
+  "claim_boundary": [
+    "6400 reproductive seasons are a stationary-environment stress test, not geological time or a named-island history.",
+    "The deterministic density closure can represent expected mass below one individual and must not be interpreted as finite-population persistence.",
+    "The long-horizon result does not invalidate the audited 200-season finite ABM result, for which all natural near/far populations remained occupied.",
+    "No further horizon extension is authorized by this result.",
+    "Natural evolutionary rates, equilibrium times and route prevalences remain unidentified."
+  ]
+}

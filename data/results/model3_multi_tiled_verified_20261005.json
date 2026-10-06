@@ -1,0 +1,95 @@
+{
+  "result": {
+    "input_sha256": "c556b9512a95363b033b399c2b73c983f233b9e22c4aac7ae3c23152ac917392",
+    "tolerance": 3.3538949820031467e-15,
+    "status": "passed",
+    "shape": [
+      128,
+      128,
+      100
+    ],
+    "receipt": {
+      "residual_frobenius_upper": 7.775451753295329e-16,
+      "projections": [
+        {
+          "axis": 1,
+          "residual_frobenius": 3.44534057259762e-16,
+          "rank": 128,
+          "attempts": [
+            {
+              "rank": 128,
+              "residual_frobenius": 3.44534057259762e-16
+            }
+          ],
+          "block_reads": 700,
+          "seed": 997,
+          "initial_rank": 128,
+          "method": "direct Gaussian sketch plus QR; acceptance by full block residual",
+          "scope": "directly measured projection residual; excludes floating-point roundoff"
+        },
+        {
+          "axis": 0,
+          "residual_frobenius": 4.3301111806977097e-16,
+          "rank": 128,
+          "attempts": [
+            {
+              "rank": 128,
+              "residual_frobenius": 4.3301111806977097e-16
+            }
+          ],
+          "block_reads": 1074,
+          "seed": 997,
+          "initial_rank": 128,
+          "method": "direct Gaussian sketch plus QR; acceptance by full block residual",
+          "scope": "directly measured projection residual; excludes floating-point roundoff"
+        }
+      ],
+      "assembly": {
+        "tiles": 2,
+        "max_intermediate_values": 2252800,
+        "output_values": 1638400,
+        "scope": "exact tiled algebra; floating point roundoff not bounded"
+      },
+      "scope": "sum of direct orthogonal projection residuals; roundoff excluded"
+    },
+    "npz_sha256": "1f901ca6fb81e9566fefd618341a9c4475deab9877d737e81e521f0f4b2513e3",
+    "seconds": 197.9529999999795
+  },
+  "source_hashes_verified": 6,
+  "independent_entries": [
+    {
+      "index": [
+        0,
+        0,
+        0
+      ],
+      "error": 1.6653345369377348e-16
+    },
+    {
+      "index": [
+        127,
+        127,
+        99
+      ],
+      "error": 0.0
+    },
+    {
+      "index": [
+        63,
+        44,
+        17
+      ],
+      "error": 1.1754943508222875e-38
+    },
+    {
+      "index": [
+        29,
+        71,
+        51
+      ],
+      "error": 1.7516230804060213e-45
+    }
+  ],
+  "archive_sha256": "9704daa72fede556b0f2091d30094c8755f43a1f1b00a1c539b47249252c3559",
+  "scope": "actual captured contraction only; projection residual excludes roundoff; not full-step admission"
+}

@@ -206,3 +206,11 @@ class Ledger:
                              shape=shape,kind='fiu',low=0))
         if np.any(np.diag(self.outcross)!=0) or np.any(np.diag(self.delivered)!=0):
             raise ValueError('selfing must be separate from outcross pollen')
+
+
+def mutation_trait_mask(value):
+    """Explicit trait-freezing intervention; defaults preserve old mutation draws."""
+    a=np.asarray(value)
+    if a.shape!=(3,) or a.dtype.kind!='b':
+        raise ValueError('mutation_traits must be three booleans')
+    return tuple(bool(x) for x in a)

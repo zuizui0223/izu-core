@@ -1,0 +1,19 @@
+{
+  "status": "stopped_at_user_request",
+  "stopped_process_id": 23688,
+  "last_verified_completed_period": 7,
+  "unfinished_period": 8,
+  "target_was": 1000,
+  "checkpoint_preserved": "period0007",
+  "previous_progress": {
+    "case": "assurance_cost_near_jump",
+    "target_period": 1000,
+    "status": "running",
+    "producer_pid": 20152,
+    "records": [],
+    "interpretation": "unadmitted long validation",
+    "completed_period": 7
+  },
+  "reason": "User requested stopping the 1000-update run and evaluating alternatives before closing the long comparison as unresolved. No automatic restart authorized by this amendment.",
+  "recorded_at": "2026-10-05T19:12:37.135267+09:00"
+}

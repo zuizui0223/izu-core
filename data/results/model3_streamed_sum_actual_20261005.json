@@ -1,0 +1,60 @@
+{
+  "inputs": [
+    "dc1e1581e1149d2a7b6cbf6c6ecd858fb9bbf0e1d426f7d02b51ef2fd5242eb9",
+    "22c0ce6179f98eee0ac8277cb884a830515536f18710114c8cc0bec1c2db0ced"
+  ],
+  "allowed": 5.2461128021780855e-09,
+  "status": "passed_projection",
+  "receipt": {
+    "absolute_l1_bound": 1.1850566034309311e-09,
+    "ranks": [
+      256,
+      128,
+      230
+    ],
+    "projections": [
+      {
+        "axis": 0,
+        "residual_frobenius": 5.090216914739475e-15,
+        "rank": 256,
+        "attempts": [
+          {
+            "rank": 128,
+            "residual_frobenius": 6.703492884830842e-14
+          },
+          {
+            "rank": 256,
+            "residual_frobenius": 5.090216914739475e-15
+          }
+        ],
+        "block_reads": 1616,
+        "seed": 997,
+        "initial_rank": 128,
+        "method": "direct Gaussian sketch plus QR; acceptance by full block residual",
+        "scope": "directly measured projection residual; excludes floating-point roundoff"
+      },
+      {
+        "axis": 1,
+        "residual_frobenius": 6.838621337180848e-15,
+        "rank": 128,
+        "attempts": [
+          {
+            "rank": 128,
+            "residual_frobenius": 6.838621337180848e-15
+          }
+        ],
+        "block_reads": 880,
+        "seed": 997,
+        "initial_rank": 128,
+        "method": "direct Gaussian sketch plus QR; acceptance by full block residual",
+        "scope": "directly measured projection residual; excludes floating-point roundoff"
+      }
+    ],
+    "scope": "sum of measured orthogonal projection residuals; roundoff excluded"
+  },
+  "npz_sha256": "c96274a06d6cbb32e4d5d1307b39de3b393e472c40f18722ddf46c49b01eb55f",
+  "mass_before": 104.9222560435617,
+  "mass_after": 104.922256043562,
+  "seconds": 3838.6870000000345,
+  "source_sha256": "f4bf11f0639c3e3edefceaff5dd13fe9934f28985c73eee3c938853e088e83d1"
+}

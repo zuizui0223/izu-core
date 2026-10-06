@@ -1,0 +1,30 @@
+{
+  "result": {
+    "scope": "65-node second complete step resource/local marginal diagnostic",
+    "input_sha256": "e4546036e979c124ea7a1f047687c8a1e3e8f38de0de113e222d4c337f0bde7b",
+    "status": "failed",
+    "error": "explicit array size 39010400 exceeds budget 16000000",
+    "seconds": 898.811999999918
+  },
+  "inputs": [
+    {
+      "name": "failed_sum_0.npz",
+      "shape": [
+        327,
+        296,
+        150
+      ],
+      "sha256": "dc1e1581e1149d2a7b6cbf6c6ecd858fb9bbf0e1d426f7d02b51ef2fd5242eb9"
+    },
+    {
+      "name": "failed_sum_1.npz",
+      "shape": [
+        113,
+        108,
+        80
+      ],
+      "sha256": "22c0ce6179f98eee0ac8277cb884a830515536f18710114c8cc0bec1c2db0ced"
+    }
+  ],
+  "source_hashes_verified": 82
+}

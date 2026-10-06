@@ -1,0 +1,1073 @@
+{
+  "status": "completed_diagnostic_not_attractor_test",
+  "abm": [
+    {
+      "capacity": 48,
+      "mutation_rate": 0.0,
+      "common_environment_periods": 0,
+      "n_pairs": 8,
+      "occupied_pairs": 8,
+      "mean_past_present": 0.575,
+      "mean_past_absent": 0.39999999999999997,
+      "paired_mean_gap": 0.17500000000000002,
+      "descriptive_paired_bootstrap_95": [
+        0.125,
+        0.2
+      ],
+      "individual_paired_gaps": [
+        0.0,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "mean_allele_counts": [
+        1.0,
+        1.0
+      ],
+      "last100_mean_change": [
+        0.010937500000000003,
+        0.0
+      ]
+    },
+    {
+      "capacity": 48,
+      "mutation_rate": 0.0,
+      "common_environment_periods": 200,
+      "n_pairs": 8,
+      "occupied_pairs": 8,
+      "mean_past_present": 0.575,
+      "mean_past_absent": 0.39999999999999997,
+      "paired_mean_gap": 0.17500000000000002,
+      "descriptive_paired_bootstrap_95": [
+        0.125,
+        0.2
+      ],
+      "individual_paired_gaps": [
+        0.0,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "mean_allele_counts": [
+        1.0,
+        1.0
+      ],
+      "last100_mean_change": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "capacity": 48,
+      "mutation_rate": 0.0,
+      "common_environment_periods": 800,
+      "n_pairs": 8,
+      "occupied_pairs": 8,
+      "mean_past_present": 0.575,
+      "mean_past_absent": 0.39999999999999997,
+      "paired_mean_gap": 0.17500000000000002,
+      "descriptive_paired_bootstrap_95": [
+        0.125,
+        0.2
+      ],
+      "individual_paired_gaps": [
+        0.0,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2,
+        0.2
+      ],
+      "mean_allele_counts": [
+        1.0,
+        1.0
+      ],
+      "last100_mean_change": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "capacity": 48,
+      "mutation_rate": 0.01,
+      "common_environment_periods": 0,
+      "n_pairs": 8,
+      "occupied_pairs": 8,
+      "mean_past_present": 0.6343985463822006,
+      "mean_past_absent": 0.3973429477588506,
+      "paired_mean_gap": 0.23705559862335,
+      "descriptive_paired_bootstrap_95": [
+        0.18710584603601857,
+        0.28737540075510765
+      ],
+      "individual_paired_gaps": [
+        0.16240467803783204,
+        0.31211302689631987,
+        0.22873605804736047,
+        0.18622568136191847,
+        0.12582957063227768,
+        0.22923382968676326,
+        0.33436144959452946,
+        0.3175404947297987
+      ],
+      "mean_allele_counts": [
+        7.25,
+        5.875
+      ],
+      "last100_mean_change": [
+        0.01683663287637402,
+        0.011468790031572397
+      ]
+    },
+    {
+      "capacity": 48,
+      "mutation_rate": 0.01,
+      "common_environment_periods": 200,
+      "n_pairs": 8,
+      "occupied_pairs": 8,
+      "mean_past_present": 0.680504837825129,
+      "mean_past_absent": 0.4568665676083876,
+      "paired_mean_gap": 0.22363827021674149,
+      "descriptive_paired_bootstrap_95": [
+        0.13617176300023626,
+        0.30808386729854004
+      ],
+      "individual_paired_gaps": [
+        0.12834113269194858,
+        0.4010844455575177,
+        0.27880548210887907,
+        -0.004350627102643001,
+        0.1092905288900965,
+        0.23954415405056595,
+        0.3292076860275514,
+        0.30718335951001574
+      ],
+      "mean_allele_counts": [
+        8.25,
+        7.75
+      ],
+      "last100_mean_change": [
+        0.023613980482663763,
+        0.019020974565414593
+      ]
+    },
+    {
+      "capacity": 48,
+      "mutation_rate": 0.01,
+      "common_environment_periods": 800,
+      "n_pairs": 8,
+      "occupied_pairs": 8,
+      "mean_past_present": 0.8202743371545296,
+      "mean_past_absent": 0.6470149342918706,
+      "paired_mean_gap": 0.17325940286265903,
+      "descriptive_paired_bootstrap_95": [
+        0.11922875657767593,
+        0.2245387599496572
+      ],
+      "individual_paired_gaps": [
+        0.2587850329044329,
+        0.22330028700024607,
+        0.105769465402892,
+        0.09566132494821555,
+        0.04140988721598826,
+        0.1859745755569967,
+        0.23750931971847944,
+        0.23766533015402136
+      ],
+      "mean_allele_counts": [
+        7.75,
+        6.5
+      ],
+      "last100_mean_change": [
+        0.0027424303723578014,
+        0.004916555207156045
+      ]
+    },
+    {
+      "capacity": 192,
+      "mutation_rate": 0.0,
+      "common_environment_periods": 0,
+      "n_pairs": 8,
+      "occupied_pairs": 8,
+      "mean_past_present": 0.5999999999999999,
+      "mean_past_absent": 0.39999999999999997,
+      "paired_mean_gap": 0.1999999999999999,
+      "descriptive_paired_bootstrap_95": [
+        0.1999999999999999,
+        0.1999999999999999
+      ],
+      "individual_paired_gaps": [
+        0.1999999999999999,
+        0.1999999999999999,
+        0.1999999999999999,
+        0.1999999999999999,
+        0.1999999999999999,
+        0.1999999999999999,
+        0.1999999999999999,
+        0.1999999999999999
+      ],
+      "mean_allele_counts": [
+        1.0,
+        1.0
+      ],
+      "last100_mean_change": [
+        0.00305989583333334,
+        0.0
+      ]
+    },
+    {
+      "capacity": 192,
+      "mutation_rate": 0.0,
+      "common_environment_periods": 200,
+      "n_pairs": 8,
+      "occupied_pairs": 8,
+      "mean_past_present": 0.5999999999999999,
+      "mean_past_absent": 0.39999999999999997,
+      "paired_mean_gap": 0.1999999999999999,
+      "descriptive_paired_bootstrap_95": [
+        0.1999999999999999,
+        0.1999999999999999
+      ],
+      "individual_paired_gaps": [
+        0.1999999999999999,
+        0.1999999999999999,
+        0.1999999999999999,
+        0.1999999999999999,
+        0.1999999999999999,
+        0.1999999999999999,
+        0.1999999999999999,
+        0.1999999999999999
+      ],
+      "mean_allele_counts": [
+        1.0,
+        1.0
+      ],
+      "last100_mean_change": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "capacity": 192,
+      "mutation_rate": 0.0,
+      "common_environment_periods": 800,
+      "n_pairs": 8,
+      "occupied_pairs": 8,
+      "mean_past_present": 0.5999999999999999,
+      "mean_past_absent": 0.39999999999999997,
+      "paired_mean_gap": 0.1999999999999999,
+      "descriptive_paired_bootstrap_95": [
+        0.1999999999999999,
+        0.1999999999999999
+      ],
+      "individual_paired_gaps": [
+        0.1999999999999999,
+        0.1999999999999999,
+        0.1999999999999999,
+        0.1999999999999999,
+        0.1999999999999999,
+        0.1999999999999999,
+        0.1999999999999999,
+        0.1999999999999999
+      ],
+      "mean_allele_counts": [
+        1.0,
+        1.0
+      ],
+      "last100_mean_change": [
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "capacity": 192,
+      "mutation_rate": 0.01,
+      "common_environment_periods": 0,
+      "n_pairs": 8,
+      "occupied_pairs": 8,
+      "mean_past_present": 0.662934418634197,
+      "mean_past_absent": 0.30716784639497285,
+      "paired_mean_gap": 0.35576657223922403,
+      "descriptive_paired_bootstrap_95": [
+        0.301392506284325,
+        0.4181120057688028
+      ],
+      "individual_paired_gaps": [
+        0.303005890358679,
+        0.29473659151451415,
+        0.27162050800301724,
+        0.35314514802837405,
+        0.4400302239358873,
+        0.2663096344127396,
+        0.4033537129298191,
+        0.5139308687307621
+      ],
+      "mean_allele_counts": [
+        26.75,
+        18.0
+      ],
+      "last100_mean_change": [
+        0.04656395415890019,
+        -0.05168031293128013
+      ]
+    },
+    {
+      "capacity": 192,
+      "mutation_rate": 0.01,
+      "common_environment_periods": 200,
+      "n_pairs": 8,
+      "occupied_pairs": 8,
+      "mean_past_present": 0.7488248785996545,
+      "mean_past_absent": 0.4919889694661316,
+      "paired_mean_gap": 0.25683590913352294,
+      "descriptive_paired_bootstrap_95": [
+        0.18722000385474058,
+        0.3398069905108325
+      ],
+      "individual_paired_gaps": [
+        0.1399946817890878,
+        0.25395656631501873,
+        0.2089937934445409,
+        0.32352118892533266,
+        0.3017847378615494,
+        0.19783176976928035,
+        0.1370259051185969,
+        0.49157862984477657
+      ],
+      "mean_allele_counts": [
+        29.75,
+        28.125
+      ],
+      "last100_mean_change": [
+        0.04896809970618017,
+        0.09966991191647258
+      ]
+    },
+    {
+      "capacity": 192,
+      "mutation_rate": 0.01,
+      "common_environment_periods": 800,
+      "n_pairs": 8,
+      "occupied_pairs": 8,
+      "mean_past_present": 0.8672699575365785,
+      "mean_past_absent": 0.7553620443288134,
+      "paired_mean_gap": 0.11190791320776514,
+      "descriptive_paired_bootstrap_95": [
+        0.05304058611079383,
+        0.18134158606380188
+      ],
+      "individual_paired_gaps": [
+        0.04660665318486057,
+        0.044238449331508334,
+        0.08255236994125958,
+        -0.01580127307050605,
+        0.19168466005336537,
+        0.14396774427354053,
+        0.10073896385042813,
+        0.3012757380976646
+      ],
+      "mean_allele_counts": [
+        32.125,
+        30.625
+      ],
+      "last100_mean_change": [
+        0.022390175671044274,
+        0.025964528026271777
+      ]
+    }
+  ],
+  "density": [
+    {
+      "nodes": 11,
+      "scheme": "jump",
+      "mutation_rate": 0.0,
+      "past": "present",
+      "means": [
+        0.5999874286517404,
+        0.5999999990480593,
+        0.6000000000000001
+      ],
+      "variances": [
+        1.462782856774728e-06,
+        1.1077324431224723e-10,
+        4.809068002056721e-23
+      ],
+      "last100_mean_change": 0.0,
+      "minimum_mass": 47.999999999999986
+    },
+    {
+      "nodes": 11,
+      "scheme": "jump",
+      "mutation_rate": 0.0,
+      "past": "absent",
+      "means": [
+        0.4000000004410946,
+        0.40005514577729695,
+        0.5999999999388768
+      ],
+      "variances": [
+        8.821891837960263e-11,
+        6.456114763123917e-06,
+        7.112665257631734e-12
+      ],
+      "last100_mean_change": 6.963176812924132e-09,
+      "minimum_mass": 47.999999999999986
+    },
+    {
+      "nodes": 11,
+      "scheme": "jump",
+      "mutation_rate": 0.01,
+      "past": "present",
+      "means": [
+        0.7311852888564547,
+        0.8530100244688761,
+        0.891728575683706
+      ],
+      "variances": [
+        0.005989140595277272,
+        0.005388756692386558,
+        0.003951096067107842
+      ],
+      "last100_mean_change": 0.0008093930207014877,
+      "minimum_mass": 47.999999999999986
+    },
+    {
+      "nodes": 11,
+      "scheme": "jump",
+      "mutation_rate": 0.01,
+      "past": "absent",
+      "means": [
+        0.14639374279921505,
+        0.7281999588741512,
+        0.8901044493984585
+      ],
+      "variances": [
+        0.006665732861490422,
+        0.007921932605307007,
+        0.004055132519415535
+      ],
+      "last100_mean_change": 0.0022258409765497644,
+      "minimum_mass": 47.99999999999998
+    },
+    {
+      "nodes": 11,
+      "scheme": "heat",
+      "mutation_rate": 0.0,
+      "past": "present",
+      "means": [
+        0.5999874286517404,
+        0.5999999990480593,
+        0.6000000000000001
+      ],
+      "variances": [
+        1.462782856774728e-06,
+        1.1077324431224723e-10,
+        4.809068002056721e-23
+      ],
+      "last100_mean_change": 0.0,
+      "minimum_mass": 47.999999999999986
+    },
+    {
+      "nodes": 11,
+      "scheme": "heat",
+      "mutation_rate": 0.0,
+      "past": "absent",
+      "means": [
+        0.4000000004410946,
+        0.40005514577729695,
+        0.5999999999388768
+      ],
+      "variances": [
+        8.821891837960263e-11,
+        6.456114763123917e-06,
+        7.112665257631734e-12
+      ],
+      "last100_mean_change": 6.963176812924132e-09,
+      "minimum_mass": 47.999999999999986
+    },
+    {
+      "nodes": 11,
+      "scheme": "heat",
+      "mutation_rate": 0.01,
+      "past": "present",
+      "means": [
+        0.5999874286517404,
+        0.5999999990480593,
+        0.6000000000000001
+      ],
+      "variances": [
+        1.462782856774728e-06,
+        1.1077324431224933e-10,
+        5.018151400033492e-23
+      ],
+      "last100_mean_change": 0.0,
+      "minimum_mass": 47.999999999999986
+    },
+    {
+      "nodes": 11,
+      "scheme": "heat",
+      "mutation_rate": 0.01,
+      "past": "absent",
+      "means": [
+        0.4000000004410946,
+        0.40005514577729695,
+        0.5999999999388768
+      ],
+      "variances": [
+        8.821891838187226e-11,
+        6.456114763123917e-06,
+        7.112665257633825e-12
+      ],
+      "last100_mean_change": 6.963176812924132e-09,
+      "minimum_mass": 47.999999999999986
+    },
+    {
+      "nodes": 21,
+      "scheme": "jump",
+      "mutation_rate": 0.0,
+      "past": "present",
+      "means": [
+        0.5999874286517404,
+        0.5999999990480593,
+        0.6000000000000001
+      ],
+      "variances": [
+        1.462782856774728e-06,
+        1.1077324431224723e-10,
+        4.809068002056721e-23
+      ],
+      "last100_mean_change": 0.0,
+      "minimum_mass": 47.999999999999986
+    },
+    {
+      "nodes": 21,
+      "scheme": "jump",
+      "mutation_rate": 0.0,
+      "past": "absent",
+      "means": [
+        0.4000000004410946,
+        0.40005514577729695,
+        0.5999999999388768
+      ],
+      "variances": [
+        8.821891837960263e-11,
+        6.456114763123917e-06,
+        7.112665257631734e-12
+      ],
+      "last100_mean_change": 6.963176812924132e-09,
+      "minimum_mass": 47.999999999999986
+    },
+    {
+      "nodes": 21,
+      "scheme": "jump",
+      "mutation_rate": 0.01,
+      "past": "present",
+      "means": [
+        0.711033086818953,
+        0.841366531874368,
+        0.8915572819329579
+      ],
+      "variances": [
+        0.005027895108026218,
+        0.005025555542806085,
+        0.0033976510145713092
+      ],
+      "last100_mean_change": 0.001353455803110526,
+      "minimum_mass": 47.99999999999996
+    },
+    {
+      "nodes": 21,
+      "scheme": "jump",
+      "mutation_rate": 0.01,
+      "past": "absent",
+      "means": [
+        0.16478720001362948,
+        0.7014308149026618,
+        0.8889293003437753
+      ],
+      "variances": [
+        0.006386786733405234,
+        0.007275242582330332,
+        0.0035284998179130928
+      ],
+      "last100_mean_change": 0.003282058568594315,
+      "minimum_mass": 47.99999999999997
+    },
+    {
+      "nodes": 21,
+      "scheme": "heat",
+      "mutation_rate": 0.0,
+      "past": "present",
+      "means": [
+        0.5999874286517404,
+        0.5999999990480593,
+        0.6000000000000001
+      ],
+      "variances": [
+        1.462782856774728e-06,
+        1.1077324431224723e-10,
+        4.809068002056721e-23
+      ],
+      "last100_mean_change": 0.0,
+      "minimum_mass": 47.999999999999986
+    },
+    {
+      "nodes": 21,
+      "scheme": "heat",
+      "mutation_rate": 0.0,
+      "past": "absent",
+      "means": [
+        0.4000000004410946,
+        0.40005514577729695,
+        0.5999999999388768
+      ],
+      "variances": [
+        8.821891837960263e-11,
+        6.456114763123917e-06,
+        7.112665257631734e-12
+      ],
+      "last100_mean_change": 6.963176812924132e-09,
+      "minimum_mass": 47.999999999999986
+    },
+    {
+      "nodes": 21,
+      "scheme": "heat",
+      "mutation_rate": 0.01,
+      "past": "present",
+      "means": [
+        0.5999941386505697,
+        0.6000536678297144,
+        0.6103397039586259
+      ],
+      "variances": [
+        1.7208118155926373e-06,
+        1.5799965983463268e-06,
+        0.00025852495764284777
+      ],
+      "last100_mean_change": 0.005742626900838821,
+      "minimum_mass": 47.99999999999998
+    },
+    {
+      "nodes": 21,
+      "scheme": "heat",
+      "mutation_rate": 0.01,
+      "past": "absent",
+      "means": [
+        0.3999698104378021,
+        0.4000983207166089,
+        0.6047467337121408
+      ],
+      "variances": [
+        1.5765201855881267e-06,
+        7.84115235808214e-06,
+        0.00012670959240743772
+      ],
+      "last100_mean_change": 0.0027315283999176376,
+      "minimum_mass": 47.99999999999998
+    },
+    {
+      "nodes": 41,
+      "scheme": "jump",
+      "mutation_rate": 0.0,
+      "past": "present",
+      "means": [
+        0.5999874286517405,
+        0.5999999990480593,
+        0.6000000000000001
+      ],
+      "variances": [
+        1.4627828567747265e-06,
+        1.1077324431224723e-10,
+        4.809068002056698e-23
+      ],
+      "last100_mean_change": 0.0,
+      "minimum_mass": 47.99999999999999
+    },
+    {
+      "nodes": 41,
+      "scheme": "jump",
+      "mutation_rate": 0.0,
+      "past": "absent",
+      "means": [
+        0.4000000004410946,
+        0.40005514577729695,
+        0.5999999999388766
+      ],
+      "variances": [
+        8.821891837960263e-11,
+        6.456114763123927e-06,
+        7.1126652576317104e-12
+      ],
+      "last100_mean_change": 6.96317670190183e-09,
+      "minimum_mass": 47.999999999999986
+    },
+    {
+      "nodes": 41,
+      "scheme": "jump",
+      "mutation_rate": 0.01,
+      "past": "present",
+      "means": [
+        0.7055814179679154,
+        0.8375686345885356,
+        0.8914785649329287
+      ],
+      "variances": [
+        0.004759505750019201,
+        0.004925191313693225,
+        0.0032516655824290992
+      ],
+      "last100_mean_change": 0.0015549134319013946,
+      "minimum_mass": 47.999999999999964
+    },
+    {
+      "nodes": 41,
+      "scheme": "jump",
+      "mutation_rate": 0.01,
+      "past": "absent",
+      "means": [
+        0.17060673215888741,
+        0.6930595175494456,
+        0.8884872951199994
+      ],
+      "variances": [
+        0.006309834736155113,
+        0.007070164356212472,
+        0.003393165040445432
+      ],
+      "last100_mean_change": 0.0036491968817541354,
+      "minimum_mass": 47.999999999999964
+    },
+    {
+      "nodes": 41,
+      "scheme": "heat",
+      "mutation_rate": 0.0,
+      "past": "present",
+      "means": [
+        0.5999874286517405,
+        0.5999999990480593,
+        0.6000000000000001
+      ],
+      "variances": [
+        1.4627828567747265e-06,
+        1.1077324431224723e-10,
+        4.809068002056698e-23
+      ],
+      "last100_mean_change": 0.0,
+      "minimum_mass": 47.99999999999999
+    },
+    {
+      "nodes": 41,
+      "scheme": "heat",
+      "mutation_rate": 0.0,
+      "past": "absent",
+      "means": [
+        0.4000000004410946,
+        0.40005514577729695,
+        0.5999999999388766
+      ],
+      "variances": [
+        8.821891837960263e-11,
+        6.456114763123927e-06,
+        7.1126652576317104e-12
+      ],
+      "last100_mean_change": 6.96317670190183e-09,
+      "minimum_mass": 47.999999999999986
+    },
+    {
+      "nodes": 41,
+      "scheme": "heat",
+      "mutation_rate": 0.01,
+      "past": "present",
+      "means": [
+        0.6283201036984741,
+        0.7001230068479734,
+        0.8624266258076543
+      ],
+      "variances": [
+        0.0009250669125039027,
+        0.0018863468212828303,
+        0.0027724686587541417
+      ],
+      "last100_mean_change": 0.013646769257971147,
+      "minimum_mass": 47.999999999999964
+    },
+    {
+      "nodes": 41,
+      "scheme": "heat",
+      "mutation_rate": 0.01,
+      "past": "absent",
+      "means": [
+        0.3355818559413234,
+        0.4904855298087769,
+        0.8317998020873428
+      ],
+      "variances": [
+        0.0019484497219296086,
+        0.0017850151981050456,
+        0.003099632584499518
+      ],
+      "last100_mean_change": 0.027236200046137138,
+      "minimum_mass": 47.99999999999998
+    },
+    {
+      "nodes": 11,
+      "scheme": "heat_fv",
+      "mutation_rate": 0.0,
+      "past": "present",
+      "means": [
+        0.5999874286517404,
+        0.5999999990480593,
+        0.6000000000000001
+      ],
+      "variances": [
+        1.462782856774728e-06,
+        1.1077324431224723e-10,
+        4.809068002056721e-23
+      ],
+      "last100_mean_change": 0.0,
+      "minimum_mass": 47.999999999999986
+    },
+    {
+      "nodes": 11,
+      "scheme": "heat_fv",
+      "mutation_rate": 0.0,
+      "past": "absent",
+      "means": [
+        0.4000000004410946,
+        0.40005514577729695,
+        0.5999999999388768
+      ],
+      "variances": [
+        8.821891837960263e-11,
+        6.456114763123917e-06,
+        7.112665257631734e-12
+      ],
+      "last100_mean_change": 6.963176812924132e-09,
+      "minimum_mass": 47.999999999999986
+    },
+    {
+      "nodes": 11,
+      "scheme": "heat_fv",
+      "mutation_rate": 0.01,
+      "past": "present",
+      "means": [
+        0.710245779550512,
+        0.8420602295499907,
+        0.8933191274347544
+      ],
+      "variances": [
+        0.005058147276649421,
+        0.005270597748628634,
+        0.0037221304462238002
+      ],
+      "last100_mean_change": 0.0013539988372280876,
+      "minimum_mass": 47.99999999999998
+    },
+    {
+      "nodes": 11,
+      "scheme": "heat_fv",
+      "mutation_rate": 0.01,
+      "past": "absent",
+      "means": [
+        0.16731020630278656,
+        0.6967638940513371,
+        0.8906705258479124
+      ],
+      "variances": [
+        0.006513867026024262,
+        0.0071587607234787284,
+        0.0038734788017598418
+      ],
+      "last100_mean_change": 0.003353519310763109,
+      "minimum_mass": 47.99999999999998
+    },
+    {
+      "nodes": 21,
+      "scheme": "heat_fv",
+      "mutation_rate": 0.0,
+      "past": "present",
+      "means": [
+        0.5999874286517404,
+        0.5999999990480593,
+        0.6000000000000001
+      ],
+      "variances": [
+        1.462782856774728e-06,
+        1.1077324431224723e-10,
+        4.809068002056721e-23
+      ],
+      "last100_mean_change": 0.0,
+      "minimum_mass": 47.999999999999986
+    },
+    {
+      "nodes": 21,
+      "scheme": "heat_fv",
+      "mutation_rate": 0.0,
+      "past": "absent",
+      "means": [
+        0.4000000004410946,
+        0.40005514577729695,
+        0.5999999999388768
+      ],
+      "variances": [
+        8.821891837960263e-11,
+        6.456114763123917e-06,
+        7.112665257631734e-12
+      ],
+      "last100_mean_change": 6.963176812924132e-09,
+      "minimum_mass": 47.999999999999986
+    },
+    {
+      "nodes": 21,
+      "scheme": "heat_fv",
+      "mutation_rate": 0.01,
+      "past": "present",
+      "means": [
+        0.6851103630810285,
+        0.8127293023692769,
+        0.8903709999025177
+      ],
+      "variances": [
+        0.0032107839325520126,
+        0.0046757166686658795,
+        0.0034180507437305578
+      ],
+      "last100_mean_change": 0.0023606499713683116,
+      "minimum_mass": 47.999999999999964
+    },
+    {
+      "nodes": 21,
+      "scheme": "heat_fv",
+      "mutation_rate": 0.01,
+      "past": "absent",
+      "means": [
+        0.22007803215500907,
+        0.6230186633251958,
+        0.8850126009336368
+      ],
+      "variances": [
+        0.005528845189900454,
+        0.0049639535559776364,
+        0.0036356171509856223
+      ],
+      "last100_mean_change": 0.0061754481773057535,
+      "minimum_mass": 47.99999999999997
+    },
+    {
+      "nodes": 41,
+      "scheme": "heat_fv",
+      "mutation_rate": 0.0,
+      "past": "present",
+      "means": [
+        0.5999874286517405,
+        0.5999999990480593,
+        0.6000000000000001
+      ],
+      "variances": [
+        1.4627828567747265e-06,
+        1.1077324431224723e-10,
+        4.809068002056698e-23
+      ],
+      "last100_mean_change": 0.0,
+      "minimum_mass": 47.99999999999999
+    },
+    {
+      "nodes": 41,
+      "scheme": "heat_fv",
+      "mutation_rate": 0.0,
+      "past": "absent",
+      "means": [
+        0.4000000004410946,
+        0.40005514577729695,
+        0.5999999999388766
+      ],
+      "variances": [
+        8.821891837960263e-11,
+        6.456114763123927e-06,
+        7.1126652576317104e-12
+      ],
+      "last100_mean_change": 6.96317670190183e-09,
+      "minimum_mass": 47.999999999999986
+    },
+    {
+      "nodes": 41,
+      "scheme": "heat_fv",
+      "mutation_rate": 0.01,
+      "past": "present",
+      "means": [
+        0.678065495658206,
+        0.7974580805863946,
+        0.8888798995677103
+      ],
+      "variances": [
+        0.002673109847831651,
+        0.004220158432801369,
+        0.003357113264480057
+      ],
+      "last100_mean_change": 0.00301881258618808,
+      "minimum_mass": 47.999999999999964
+    },
+    {
+      "nodes": 41,
+      "scheme": "heat_fv",
+      "mutation_rate": 0.01,
+      "past": "absent",
+      "means": [
+        0.24813310574916117,
+        0.5915492204462639,
+        0.880880001752717
+      ],
+      "variances": [
+        0.004430951998153336,
+        0.003913879391140545,
+        0.0036482541926791123
+      ],
+      "last100_mean_change": 0.008639545718154285,
+      "minimum_mass": 47.99999999999997
+    }
+  ],
+  "precision": {
+    "present": {
+      "exact_grid_21_to_41": 7.87170000292603e-05,
+      "fv_grid_21_to_41": 0.0014911003348073715,
+      "point_heat_grid_21_to_41": 0.25208692184902837,
+      "fv_vs_jump_41": 0.0025986653652183556
+    },
+    "absent": {
+      "exact_grid_21_to_41": 0.0004420052237759098,
+      "fv_grid_21_to_41": 0.004132599180919794,
+      "point_heat_grid_21_to_41": 0.227053068375202,
+      "fv_vs_jump_41": 0.007607293367282386
+    },
+    "continuation_rows": [],
+    "gates": {
+      "point_heat_grid_pass": false,
+      "finite_volume_grid_pass": true,
+      "jump_grid_pass": true,
+      "exact_vs_diffusion_pass": false
+    }
+  },
+  "claim_boundary": [
+    "one evolving investment locus; access and assurance fixed",
+    "synthetic rate .01 and width .05, not natural mutation estimates",
+    "eight paired repeats; exploratory intervals, not confirmatory power or attractor evidence",
+    "present-versus-absent200period past, followed by identical800period environment",
+    "persistence of a gap at finite time does not establish alternative equilibria",
+    "point-projected diffusion failure retained; finite-volume approximation not declared exactly equivalent to jump model"
+  ],
+  "source_sha256": {
+    "scripts/summarize_model3_mutation_memory.py": "83eab5b45d466e436581b2f95e8fc8ba29ca2d5fc265cf0b646fff57478ddbc7"
+  },
+  "archive_sha256": "1bb184ed451f4dec1eadd20562cdc9adb3e3b6f615b94646d024154633b7ad79",
+  "original_source_commit": "877f213"
+}

@@ -1,0 +1,18 @@
+{
+  "status": "interrupted_processes_absent",
+  "observed_utc": "2026-10-05 09:49:41 UTC",
+  "missing_pids": [
+    22816,
+    16720
+  ],
+  "missing_sessions": [
+    86825,
+    71151
+  ],
+  "original_gate_last_recorded_period": 8,
+  "original_gate_checkpoint_available": false,
+  "candidate_recovery_period": 6,
+  "candidate_state_sha256": "1591b92ff50103d87dc1dfda8604074e9b94b17f15d66b7b694dde3d35db5502",
+  "cause": "unknown; no terminal failure receipt",
+  "action": "preserve all outputs; restart only incomplete candidate update7 from verified6 in separate output directory"
+}

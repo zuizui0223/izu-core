@@ -1,0 +1,9 @@
+{
+  "status": "passed",
+  "gradient_values": 449280,
+  "crossing_summaries_checked": 540,
+  "bootstrap_intervals_independently_checked": 52,
+  "bootstrap_max_error": 1.3322676295501878e-15,
+  "all_source_hashes_unchanged": true,
+  "scope": "saved arrays and summaries; no full raw-history replay"
+}

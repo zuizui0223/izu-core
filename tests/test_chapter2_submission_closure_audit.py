@@ -3,6 +3,8 @@ from scripts.audit_chapter2_submission_closure import build_audit
 
 def test_submission_closure_tracks_bridge_complete_science_and_open_package_qa():
     audit = build_audit()
+    assert audit["scope"] == "historical_bridge_submission_only_not_current_process_manuscript"
+    assert audit["current_process_goal_completion_assessed"] is False
     assert audit["scientific_gate_complete"] is True
     assert audit["unified_model3_locked"] is True
     assert audit["real_island_abc_confrontation_locked"] is True

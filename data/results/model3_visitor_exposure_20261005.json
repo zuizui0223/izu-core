@@ -1,0 +1,1357 @@
+{
+  "status": "verified_frozen_histories",
+  "histories_per_arm": 64,
+  "snapshots_per_history": 1000,
+  "summaries": {
+    "near": {
+      "mean_visitor_types": {
+        "mean": 4.848890625,
+        "minimum": 3.715,
+        "maximum": 6.484
+      },
+      "absent_fraction": {
+        "mean": 0.007296875,
+        "minimum": 0.0,
+        "maximum": 0.043
+      },
+      "longest_absence_periods": {
+        "mean": 4.484375,
+        "minimum": 0.0,
+        "maximum": 23.0
+      },
+      "established_additions_999_transitions": {
+        "mean": 237.625,
+        "minimum": 204.0,
+        "maximum": 274.0
+      },
+      "losses_999_transitions": {
+        "mean": 236.859375,
+        "minimum": 203.0,
+        "maximum": 271.0
+      },
+      "final_used_count": {
+        "mean": 4.765625,
+        "minimum": 0.0,
+        "maximum": 12.0
+      }
+    },
+    "far": {
+      "mean_visitor_types": {
+        "mean": 0.3048125,
+        "minimum": 0.154,
+        "maximum": 0.644
+      },
+      "absent_fraction": {
+        "mean": 0.758734375,
+        "minimum": 0.517,
+        "maximum": 0.881
+      },
+      "longest_absence_periods": {
+        "mean": 218.65625,
+        "minimum": 121.0,
+        "maximum": 431.0
+      },
+      "established_additions_999_transitions": {
+        "mean": 11.78125,
+        "minimum": 6.0,
+        "maximum": 18.0
+      },
+      "losses_999_transitions": {
+        "mean": 15.6875,
+        "minimum": 10.0,
+        "maximum": 22.0
+      },
+      "final_used_count": {
+        "mean": 0.09375,
+        "minimum": 0.0,
+        "maximum": 1.0
+      }
+    }
+  },
+  "history_records": [
+    {
+      "history_seed": 76001,
+      "arm": "near",
+      "mean_visitor_types": 5.246,
+      "absent_fraction": 0.0,
+      "longest_absence_periods": 0,
+      "established_additions_999_transitions": 255,
+      "losses_999_transitions": 256,
+      "final_used_count": 3
+    },
+    {
+      "history_seed": 76001,
+      "arm": "far",
+      "mean_visitor_types": 0.251,
+      "absent_fraction": 0.802,
+      "longest_absence_periods": 220,
+      "established_additions_999_transitions": 10,
+      "losses_999_transitions": 14,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76002,
+      "arm": "near",
+      "mean_visitor_types": 4.404,
+      "absent_fraction": 0.043,
+      "longest_absence_periods": 14,
+      "established_additions_999_transitions": 236,
+      "losses_999_transitions": 236,
+      "final_used_count": 4
+    },
+    {
+      "history_seed": 76002,
+      "arm": "far",
+      "mean_visitor_types": 0.193,
+      "absent_fraction": 0.845,
+      "longest_absence_periods": 202,
+      "established_additions_999_transitions": 10,
+      "losses_999_transitions": 14,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76003,
+      "arm": "near",
+      "mean_visitor_types": 4.724,
+      "absent_fraction": 0.003,
+      "longest_absence_periods": 3,
+      "established_additions_999_transitions": 240,
+      "losses_999_transitions": 242,
+      "final_used_count": 2
+    },
+    {
+      "history_seed": 76003,
+      "arm": "far",
+      "mean_visitor_types": 0.228,
+      "absent_fraction": 0.824,
+      "longest_absence_periods": 297,
+      "established_additions_999_transitions": 13,
+      "losses_999_transitions": 17,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76004,
+      "arm": "near",
+      "mean_visitor_types": 4.437,
+      "absent_fraction": 0.02,
+      "longest_absence_periods": 17,
+      "established_additions_999_transitions": 220,
+      "losses_999_transitions": 216,
+      "final_used_count": 8
+    },
+    {
+      "history_seed": 76004,
+      "arm": "far",
+      "mean_visitor_types": 0.302,
+      "absent_fraction": 0.741,
+      "longest_absence_periods": 192,
+      "established_additions_999_transitions": 10,
+      "losses_999_transitions": 14,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76005,
+      "arm": "near",
+      "mean_visitor_types": 5.226,
+      "absent_fraction": 0.0,
+      "longest_absence_periods": 0,
+      "established_additions_999_transitions": 251,
+      "losses_999_transitions": 250,
+      "final_used_count": 5
+    },
+    {
+      "history_seed": 76005,
+      "arm": "far",
+      "mean_visitor_types": 0.25,
+      "absent_fraction": 0.809,
+      "longest_absence_periods": 300,
+      "established_additions_999_transitions": 8,
+      "losses_999_transitions": 12,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76006,
+      "arm": "near",
+      "mean_visitor_types": 5.131,
+      "absent_fraction": 0.001,
+      "longest_absence_periods": 1,
+      "established_additions_999_transitions": 248,
+      "losses_999_transitions": 248,
+      "final_used_count": 4
+    },
+    {
+      "history_seed": 76006,
+      "arm": "far",
+      "mean_visitor_types": 0.514,
+      "absent_fraction": 0.693,
+      "longest_absence_periods": 327,
+      "established_additions_999_transitions": 11,
+      "losses_999_transitions": 15,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76007,
+      "arm": "near",
+      "mean_visitor_types": 4.441,
+      "absent_fraction": 0.002,
+      "longest_absence_periods": 2,
+      "established_additions_999_transitions": 224,
+      "losses_999_transitions": 224,
+      "final_used_count": 4
+    },
+    {
+      "history_seed": 76007,
+      "arm": "far",
+      "mean_visitor_types": 0.335,
+      "absent_fraction": 0.709,
+      "longest_absence_periods": 144,
+      "established_additions_999_transitions": 15,
+      "losses_999_transitions": 19,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76008,
+      "arm": "near",
+      "mean_visitor_types": 4.233,
+      "absent_fraction": 0.01,
+      "longest_absence_periods": 4,
+      "established_additions_999_transitions": 218,
+      "losses_999_transitions": 222,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76008,
+      "arm": "far",
+      "mean_visitor_types": 0.324,
+      "absent_fraction": 0.71,
+      "longest_absence_periods": 139,
+      "established_additions_999_transitions": 12,
+      "losses_999_transitions": 16,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76009,
+      "arm": "near",
+      "mean_visitor_types": 3.715,
+      "absent_fraction": 0.011,
+      "longest_absence_periods": 8,
+      "established_additions_999_transitions": 204,
+      "losses_999_transitions": 205,
+      "final_used_count": 3
+    },
+    {
+      "history_seed": 76009,
+      "arm": "far",
+      "mean_visitor_types": 0.231,
+      "absent_fraction": 0.813,
+      "longest_absence_periods": 195,
+      "established_additions_999_transitions": 13,
+      "losses_999_transitions": 17,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76010,
+      "arm": "near",
+      "mean_visitor_types": 4.459,
+      "absent_fraction": 0.022,
+      "longest_absence_periods": 5,
+      "established_additions_999_transitions": 215,
+      "losses_999_transitions": 214,
+      "final_used_count": 5
+    },
+    {
+      "history_seed": 76010,
+      "arm": "far",
+      "mean_visitor_types": 0.269,
+      "absent_fraction": 0.809,
+      "longest_absence_periods": 224,
+      "established_additions_999_transitions": 10,
+      "losses_999_transitions": 14,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76011,
+      "arm": "near",
+      "mean_visitor_types": 5.284,
+      "absent_fraction": 0.002,
+      "longest_absence_periods": 2,
+      "established_additions_999_transitions": 259,
+      "losses_999_transitions": 256,
+      "final_used_count": 7
+    },
+    {
+      "history_seed": 76011,
+      "arm": "far",
+      "mean_visitor_types": 0.325,
+      "absent_fraction": 0.733,
+      "longest_absence_periods": 130,
+      "established_additions_999_transitions": 16,
+      "losses_999_transitions": 20,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76012,
+      "arm": "near",
+      "mean_visitor_types": 5.203,
+      "absent_fraction": 0.0,
+      "longest_absence_periods": 0,
+      "established_additions_999_transitions": 234,
+      "losses_999_transitions": 235,
+      "final_used_count": 3
+    },
+    {
+      "history_seed": 76012,
+      "arm": "far",
+      "mean_visitor_types": 0.397,
+      "absent_fraction": 0.704,
+      "longest_absence_periods": 155,
+      "established_additions_999_transitions": 15,
+      "losses_999_transitions": 19,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76013,
+      "arm": "near",
+      "mean_visitor_types": 4.96,
+      "absent_fraction": 0.0,
+      "longest_absence_periods": 0,
+      "established_additions_999_transitions": 234,
+      "losses_999_transitions": 231,
+      "final_used_count": 7
+    },
+    {
+      "history_seed": 76013,
+      "arm": "far",
+      "mean_visitor_types": 0.258,
+      "absent_fraction": 0.769,
+      "longest_absence_periods": 146,
+      "established_additions_999_transitions": 12,
+      "losses_999_transitions": 16,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76014,
+      "arm": "near",
+      "mean_visitor_types": 4.689,
+      "absent_fraction": 0.024,
+      "longest_absence_periods": 13,
+      "established_additions_999_transitions": 223,
+      "losses_999_transitions": 223,
+      "final_used_count": 4
+    },
+    {
+      "history_seed": 76014,
+      "arm": "far",
+      "mean_visitor_types": 0.286,
+      "absent_fraction": 0.768,
+      "longest_absence_periods": 220,
+      "established_additions_999_transitions": 9,
+      "losses_999_transitions": 13,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76015,
+      "arm": "near",
+      "mean_visitor_types": 5.134,
+      "absent_fraction": 0.001,
+      "longest_absence_periods": 1,
+      "established_additions_999_transitions": 254,
+      "losses_999_transitions": 255,
+      "final_used_count": 3
+    },
+    {
+      "history_seed": 76015,
+      "arm": "far",
+      "mean_visitor_types": 0.154,
+      "absent_fraction": 0.881,
+      "longest_absence_periods": 190,
+      "established_additions_999_transitions": 10,
+      "losses_999_transitions": 14,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76016,
+      "arm": "near",
+      "mean_visitor_types": 4.907,
+      "absent_fraction": 0.0,
+      "longest_absence_periods": 0,
+      "established_additions_999_transitions": 239,
+      "losses_999_transitions": 240,
+      "final_used_count": 3
+    },
+    {
+      "history_seed": 76016,
+      "arm": "far",
+      "mean_visitor_types": 0.32,
+      "absent_fraction": 0.767,
+      "longest_absence_periods": 146,
+      "established_additions_999_transitions": 13,
+      "losses_999_transitions": 17,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76017,
+      "arm": "near",
+      "mean_visitor_types": 5.076,
+      "absent_fraction": 0.0,
+      "longest_absence_periods": 0,
+      "established_additions_999_transitions": 247,
+      "losses_999_transitions": 246,
+      "final_used_count": 5
+    },
+    {
+      "history_seed": 76017,
+      "arm": "far",
+      "mean_visitor_types": 0.26,
+      "absent_fraction": 0.797,
+      "longest_absence_periods": 241,
+      "established_additions_999_transitions": 14,
+      "losses_999_transitions": 18,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76018,
+      "arm": "near",
+      "mean_visitor_types": 5.084,
+      "absent_fraction": 0.006,
+      "longest_absence_periods": 5,
+      "established_additions_999_transitions": 230,
+      "losses_999_transitions": 230,
+      "final_used_count": 4
+    },
+    {
+      "history_seed": 76018,
+      "arm": "far",
+      "mean_visitor_types": 0.213,
+      "absent_fraction": 0.825,
+      "longest_absence_periods": 204,
+      "established_additions_999_transitions": 9,
+      "losses_999_transitions": 13,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76019,
+      "arm": "near",
+      "mean_visitor_types": 4.973,
+      "absent_fraction": 0.027,
+      "longest_absence_periods": 14,
+      "established_additions_999_transitions": 246,
+      "losses_999_transitions": 247,
+      "final_used_count": 3
+    },
+    {
+      "history_seed": 76019,
+      "arm": "far",
+      "mean_visitor_types": 0.229,
+      "absent_fraction": 0.867,
+      "longest_absence_periods": 232,
+      "established_additions_999_transitions": 12,
+      "losses_999_transitions": 16,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76020,
+      "arm": "near",
+      "mean_visitor_types": 5.709,
+      "absent_fraction": 0.0,
+      "longest_absence_periods": 0,
+      "established_additions_999_transitions": 274,
+      "losses_999_transitions": 271,
+      "final_used_count": 7
+    },
+    {
+      "history_seed": 76020,
+      "arm": "far",
+      "mean_visitor_types": 0.311,
+      "absent_fraction": 0.768,
+      "longest_absence_periods": 171,
+      "established_additions_999_transitions": 14,
+      "losses_999_transitions": 18,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76021,
+      "arm": "near",
+      "mean_visitor_types": 5.062,
+      "absent_fraction": 0.005,
+      "longest_absence_periods": 4,
+      "established_additions_999_transitions": 245,
+      "losses_999_transitions": 242,
+      "final_used_count": 7
+    },
+    {
+      "history_seed": 76021,
+      "arm": "far",
+      "mean_visitor_types": 0.466,
+      "absent_fraction": 0.649,
+      "longest_absence_periods": 144,
+      "established_additions_999_transitions": 15,
+      "losses_999_transitions": 19,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76022,
+      "arm": "near",
+      "mean_visitor_types": 5.036,
+      "absent_fraction": 0.02,
+      "longest_absence_periods": 10,
+      "established_additions_999_transitions": 247,
+      "losses_999_transitions": 249,
+      "final_used_count": 2
+    },
+    {
+      "history_seed": 76022,
+      "arm": "far",
+      "mean_visitor_types": 0.275,
+      "absent_fraction": 0.816,
+      "longest_absence_periods": 287,
+      "established_additions_999_transitions": 9,
+      "losses_999_transitions": 13,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76023,
+      "arm": "near",
+      "mean_visitor_types": 5.082,
+      "absent_fraction": 0.001,
+      "longest_absence_periods": 1,
+      "established_additions_999_transitions": 236,
+      "losses_999_transitions": 234,
+      "final_used_count": 6
+    },
+    {
+      "history_seed": 76023,
+      "arm": "far",
+      "mean_visitor_types": 0.36,
+      "absent_fraction": 0.691,
+      "longest_absence_periods": 164,
+      "established_additions_999_transitions": 14,
+      "losses_999_transitions": 18,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76024,
+      "arm": "near",
+      "mean_visitor_types": 4.431,
+      "absent_fraction": 0.0,
+      "longest_absence_periods": 0,
+      "established_additions_999_transitions": 234,
+      "losses_999_transitions": 234,
+      "final_used_count": 4
+    },
+    {
+      "history_seed": 76024,
+      "arm": "far",
+      "mean_visitor_types": 0.312,
+      "absent_fraction": 0.791,
+      "longest_absence_periods": 350,
+      "established_additions_999_transitions": 13,
+      "losses_999_transitions": 17,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76025,
+      "arm": "near",
+      "mean_visitor_types": 4.932,
+      "absent_fraction": 0.011,
+      "longest_absence_periods": 10,
+      "established_additions_999_transitions": 255,
+      "losses_999_transitions": 252,
+      "final_used_count": 7
+    },
+    {
+      "history_seed": 76025,
+      "arm": "far",
+      "mean_visitor_types": 0.403,
+      "absent_fraction": 0.723,
+      "longest_absence_periods": 213,
+      "established_additions_999_transitions": 18,
+      "losses_999_transitions": 22,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76026,
+      "arm": "near",
+      "mean_visitor_types": 4.313,
+      "absent_fraction": 0.023,
+      "longest_absence_periods": 23,
+      "established_additions_999_transitions": 223,
+      "losses_999_transitions": 220,
+      "final_used_count": 7
+    },
+    {
+      "history_seed": 76026,
+      "arm": "far",
+      "mean_visitor_types": 0.189,
+      "absent_fraction": 0.833,
+      "longest_absence_periods": 221,
+      "established_additions_999_transitions": 8,
+      "losses_999_transitions": 12,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76027,
+      "arm": "near",
+      "mean_visitor_types": 4.136,
+      "absent_fraction": 0.001,
+      "longest_absence_periods": 1,
+      "established_additions_999_transitions": 215,
+      "losses_999_transitions": 215,
+      "final_used_count": 4
+    },
+    {
+      "history_seed": 76027,
+      "arm": "far",
+      "mean_visitor_types": 0.331,
+      "absent_fraction": 0.72,
+      "longest_absence_periods": 186,
+      "established_additions_999_transitions": 14,
+      "losses_999_transitions": 18,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76028,
+      "arm": "near",
+      "mean_visitor_types": 5.205,
+      "absent_fraction": 0.0,
+      "longest_absence_periods": 0,
+      "established_additions_999_transitions": 242,
+      "losses_999_transitions": 242,
+      "final_used_count": 4
+    },
+    {
+      "history_seed": 76028,
+      "arm": "far",
+      "mean_visitor_types": 0.325,
+      "absent_fraction": 0.757,
+      "longest_absence_periods": 238,
+      "established_additions_999_transitions": 8,
+      "losses_999_transitions": 12,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76029,
+      "arm": "near",
+      "mean_visitor_types": 4.285,
+      "absent_fraction": 0.015,
+      "longest_absence_periods": 5,
+      "established_additions_999_transitions": 239,
+      "losses_999_transitions": 241,
+      "final_used_count": 2
+    },
+    {
+      "history_seed": 76029,
+      "arm": "far",
+      "mean_visitor_types": 0.246,
+      "absent_fraction": 0.784,
+      "longest_absence_periods": 204,
+      "established_additions_999_transitions": 12,
+      "losses_999_transitions": 16,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76030,
+      "arm": "near",
+      "mean_visitor_types": 4.9,
+      "absent_fraction": 0.0,
+      "longest_absence_periods": 0,
+      "established_additions_999_transitions": 253,
+      "losses_999_transitions": 251,
+      "final_used_count": 6
+    },
+    {
+      "history_seed": 76030,
+      "arm": "far",
+      "mean_visitor_types": 0.279,
+      "absent_fraction": 0.775,
+      "longest_absence_periods": 235,
+      "established_additions_999_transitions": 7,
+      "losses_999_transitions": 11,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76031,
+      "arm": "near",
+      "mean_visitor_types": 4.662,
+      "absent_fraction": 0.009,
+      "longest_absence_periods": 6,
+      "established_additions_999_transitions": 235,
+      "losses_999_transitions": 237,
+      "final_used_count": 2
+    },
+    {
+      "history_seed": 76031,
+      "arm": "far",
+      "mean_visitor_types": 0.404,
+      "absent_fraction": 0.67,
+      "longest_absence_periods": 198,
+      "established_additions_999_transitions": 17,
+      "losses_999_transitions": 21,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76032,
+      "arm": "near",
+      "mean_visitor_types": 4.904,
+      "absent_fraction": 0.007,
+      "longest_absence_periods": 5,
+      "established_additions_999_transitions": 245,
+      "losses_999_transitions": 241,
+      "final_used_count": 8
+    },
+    {
+      "history_seed": 76032,
+      "arm": "far",
+      "mean_visitor_types": 0.504,
+      "absent_fraction": 0.598,
+      "longest_absence_periods": 121,
+      "established_additions_999_transitions": 16,
+      "losses_999_transitions": 20,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76033,
+      "arm": "near",
+      "mean_visitor_types": 5.0,
+      "absent_fraction": 0.0,
+      "longest_absence_periods": 0,
+      "established_additions_999_transitions": 246,
+      "losses_999_transitions": 240,
+      "final_used_count": 10
+    },
+    {
+      "history_seed": 76033,
+      "arm": "far",
+      "mean_visitor_types": 0.21,
+      "absent_fraction": 0.82,
+      "longest_absence_periods": 253,
+      "established_additions_999_transitions": 7,
+      "losses_999_transitions": 11,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76034,
+      "arm": "near",
+      "mean_visitor_types": 4.69,
+      "absent_fraction": 0.013,
+      "longest_absence_periods": 5,
+      "established_additions_999_transitions": 240,
+      "losses_999_transitions": 237,
+      "final_used_count": 7
+    },
+    {
+      "history_seed": 76034,
+      "arm": "far",
+      "mean_visitor_types": 0.219,
+      "absent_fraction": 0.805,
+      "longest_absence_periods": 268,
+      "established_additions_999_transitions": 10,
+      "losses_999_transitions": 14,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76035,
+      "arm": "near",
+      "mean_visitor_types": 4.885,
+      "absent_fraction": 0.003,
+      "longest_absence_periods": 3,
+      "established_additions_999_transitions": 243,
+      "losses_999_transitions": 240,
+      "final_used_count": 7
+    },
+    {
+      "history_seed": 76035,
+      "arm": "far",
+      "mean_visitor_types": 0.316,
+      "absent_fraction": 0.775,
+      "longest_absence_periods": 346,
+      "established_additions_999_transitions": 12,
+      "losses_999_transitions": 16,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76036,
+      "arm": "near",
+      "mean_visitor_types": 6.484,
+      "absent_fraction": 0.0,
+      "longest_absence_periods": 0,
+      "established_additions_999_transitions": 272,
+      "losses_999_transitions": 269,
+      "final_used_count": 7
+    },
+    {
+      "history_seed": 76036,
+      "arm": "far",
+      "mean_visitor_types": 0.315,
+      "absent_fraction": 0.765,
+      "longest_absence_periods": 258,
+      "established_additions_999_transitions": 12,
+      "losses_999_transitions": 16,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76037,
+      "arm": "near",
+      "mean_visitor_types": 5.047,
+      "absent_fraction": 0.009,
+      "longest_absence_periods": 9,
+      "established_additions_999_transitions": 215,
+      "losses_999_transitions": 216,
+      "final_used_count": 3
+    },
+    {
+      "history_seed": 76037,
+      "arm": "far",
+      "mean_visitor_types": 0.324,
+      "absent_fraction": 0.716,
+      "longest_absence_periods": 201,
+      "established_additions_999_transitions": 17,
+      "losses_999_transitions": 21,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76038,
+      "arm": "near",
+      "mean_visitor_types": 4.116,
+      "absent_fraction": 0.022,
+      "longest_absence_periods": 13,
+      "established_additions_999_transitions": 204,
+      "losses_999_transitions": 203,
+      "final_used_count": 5
+    },
+    {
+      "history_seed": 76038,
+      "arm": "far",
+      "mean_visitor_types": 0.295,
+      "absent_fraction": 0.754,
+      "longest_absence_periods": 181,
+      "established_additions_999_transitions": 13,
+      "losses_999_transitions": 17,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76039,
+      "arm": "near",
+      "mean_visitor_types": 5.412,
+      "absent_fraction": 0.007,
+      "longest_absence_periods": 7,
+      "established_additions_999_transitions": 263,
+      "losses_999_transitions": 262,
+      "final_used_count": 5
+    },
+    {
+      "history_seed": 76039,
+      "arm": "far",
+      "mean_visitor_types": 0.365,
+      "absent_fraction": 0.731,
+      "longest_absence_periods": 177,
+      "established_additions_999_transitions": 14,
+      "losses_999_transitions": 18,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76040,
+      "arm": "near",
+      "mean_visitor_types": 5.397,
+      "absent_fraction": 0.0,
+      "longest_absence_periods": 0,
+      "established_additions_999_transitions": 256,
+      "losses_999_transitions": 258,
+      "final_used_count": 2
+    },
+    {
+      "history_seed": 76040,
+      "arm": "far",
+      "mean_visitor_types": 0.228,
+      "absent_fraction": 0.806,
+      "longest_absence_periods": 196,
+      "established_additions_999_transitions": 13,
+      "losses_999_transitions": 17,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76041,
+      "arm": "near",
+      "mean_visitor_types": 4.68,
+      "absent_fraction": 0.0,
+      "longest_absence_periods": 0,
+      "established_additions_999_transitions": 244,
+      "losses_999_transitions": 245,
+      "final_used_count": 3
+    },
+    {
+      "history_seed": 76041,
+      "arm": "far",
+      "mean_visitor_types": 0.193,
+      "absent_fraction": 0.844,
+      "longest_absence_periods": 334,
+      "established_additions_999_transitions": 8,
+      "losses_999_transitions": 12,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76042,
+      "arm": "near",
+      "mean_visitor_types": 5.088,
+      "absent_fraction": 0.005,
+      "longest_absence_periods": 5,
+      "established_additions_999_transitions": 245,
+      "losses_999_transitions": 237,
+      "final_used_count": 12
+    },
+    {
+      "history_seed": 76042,
+      "arm": "far",
+      "mean_visitor_types": 0.355,
+      "absent_fraction": 0.716,
+      "longest_absence_periods": 224,
+      "established_additions_999_transitions": 13,
+      "losses_999_transitions": 16,
+      "final_used_count": 1
+    },
+    {
+      "history_seed": 76043,
+      "arm": "near",
+      "mean_visitor_types": 4.995,
+      "absent_fraction": 0.003,
+      "longest_absence_periods": 2,
+      "established_additions_999_transitions": 246,
+      "losses_999_transitions": 241,
+      "final_used_count": 9
+    },
+    {
+      "history_seed": 76043,
+      "arm": "far",
+      "mean_visitor_types": 0.374,
+      "absent_fraction": 0.695,
+      "longest_absence_periods": 255,
+      "established_additions_999_transitions": 13,
+      "losses_999_transitions": 16,
+      "final_used_count": 1
+    },
+    {
+      "history_seed": 76044,
+      "arm": "near",
+      "mean_visitor_types": 5.459,
+      "absent_fraction": 0.0,
+      "longest_absence_periods": 0,
+      "established_additions_999_transitions": 228,
+      "losses_999_transitions": 230,
+      "final_used_count": 2
+    },
+    {
+      "history_seed": 76044,
+      "arm": "far",
+      "mean_visitor_types": 0.482,
+      "absent_fraction": 0.561,
+      "longest_absence_periods": 146,
+      "established_additions_999_transitions": 13,
+      "losses_999_transitions": 17,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76045,
+      "arm": "near",
+      "mean_visitor_types": 4.967,
+      "absent_fraction": 0.0,
+      "longest_absence_periods": 0,
+      "established_additions_999_transitions": 242,
+      "losses_999_transitions": 238,
+      "final_used_count": 8
+    },
+    {
+      "history_seed": 76045,
+      "arm": "far",
+      "mean_visitor_types": 0.208,
+      "absent_fraction": 0.807,
+      "longest_absence_periods": 223,
+      "established_additions_999_transitions": 8,
+      "losses_999_transitions": 11,
+      "final_used_count": 1
+    },
+    {
+      "history_seed": 76046,
+      "arm": "near",
+      "mean_visitor_types": 5.063,
+      "absent_fraction": 0.011,
+      "longest_absence_periods": 6,
+      "established_additions_999_transitions": 251,
+      "losses_999_transitions": 249,
+      "final_used_count": 6
+    },
+    {
+      "history_seed": 76046,
+      "arm": "far",
+      "mean_visitor_types": 0.283,
+      "absent_fraction": 0.768,
+      "longest_absence_periods": 319,
+      "established_additions_999_transitions": 7,
+      "losses_999_transitions": 11,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76047,
+      "arm": "near",
+      "mean_visitor_types": 4.413,
+      "absent_fraction": 0.0,
+      "longest_absence_periods": 0,
+      "established_additions_999_transitions": 229,
+      "losses_999_transitions": 226,
+      "final_used_count": 7
+    },
+    {
+      "history_seed": 76047,
+      "arm": "far",
+      "mean_visitor_types": 0.224,
+      "absent_fraction": 0.833,
+      "longest_absence_periods": 431,
+      "established_additions_999_transitions": 9,
+      "losses_999_transitions": 13,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76048,
+      "arm": "near",
+      "mean_visitor_types": 4.229,
+      "absent_fraction": 0.019,
+      "longest_absence_periods": 9,
+      "established_additions_999_transitions": 221,
+      "losses_999_transitions": 222,
+      "final_used_count": 3
+    },
+    {
+      "history_seed": 76048,
+      "arm": "far",
+      "mean_visitor_types": 0.292,
+      "absent_fraction": 0.729,
+      "longest_absence_periods": 140,
+      "established_additions_999_transitions": 12,
+      "losses_999_transitions": 16,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76049,
+      "arm": "near",
+      "mean_visitor_types": 4.36,
+      "absent_fraction": 0.007,
+      "longest_absence_periods": 2,
+      "established_additions_999_transitions": 217,
+      "losses_999_transitions": 218,
+      "final_used_count": 3
+    },
+    {
+      "history_seed": 76049,
+      "arm": "far",
+      "mean_visitor_types": 0.361,
+      "absent_fraction": 0.762,
+      "longest_absence_periods": 201,
+      "established_additions_999_transitions": 10,
+      "losses_999_transitions": 14,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76050,
+      "arm": "near",
+      "mean_visitor_types": 4.41,
+      "absent_fraction": 0.025,
+      "longest_absence_periods": 16,
+      "established_additions_999_transitions": 208,
+      "losses_999_transitions": 209,
+      "final_used_count": 3
+    },
+    {
+      "history_seed": 76050,
+      "arm": "far",
+      "mean_visitor_types": 0.197,
+      "absent_fraction": 0.809,
+      "longest_absence_periods": 313,
+      "established_additions_999_transitions": 6,
+      "losses_999_transitions": 10,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76051,
+      "arm": "near",
+      "mean_visitor_types": 5.141,
+      "absent_fraction": 0.002,
+      "longest_absence_periods": 2,
+      "established_additions_999_transitions": 252,
+      "losses_999_transitions": 251,
+      "final_used_count": 5
+    },
+    {
+      "history_seed": 76051,
+      "arm": "far",
+      "mean_visitor_types": 0.427,
+      "absent_fraction": 0.659,
+      "longest_absence_periods": 146,
+      "established_additions_999_transitions": 18,
+      "losses_999_transitions": 22,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76052,
+      "arm": "near",
+      "mean_visitor_types": 5.257,
+      "absent_fraction": 0.011,
+      "longest_absence_periods": 6,
+      "established_additions_999_transitions": 239,
+      "losses_999_transitions": 237,
+      "final_used_count": 6
+    },
+    {
+      "history_seed": 76052,
+      "arm": "far",
+      "mean_visitor_types": 0.425,
+      "absent_fraction": 0.637,
+      "longest_absence_periods": 135,
+      "established_additions_999_transitions": 10,
+      "losses_999_transitions": 14,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76053,
+      "arm": "near",
+      "mean_visitor_types": 5.31,
+      "absent_fraction": 0.002,
+      "longest_absence_periods": 2,
+      "established_additions_999_transitions": 231,
+      "losses_999_transitions": 231,
+      "final_used_count": 4
+    },
+    {
+      "history_seed": 76053,
+      "arm": "far",
+      "mean_visitor_types": 0.644,
+      "absent_fraction": 0.517,
+      "longest_absence_periods": 137,
+      "established_additions_999_transitions": 16,
+      "losses_999_transitions": 20,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76054,
+      "arm": "near",
+      "mean_visitor_types": 5.187,
+      "absent_fraction": 0.014,
+      "longest_absence_periods": 11,
+      "established_additions_999_transitions": 243,
+      "losses_999_transitions": 242,
+      "final_used_count": 5
+    },
+    {
+      "history_seed": 76054,
+      "arm": "far",
+      "mean_visitor_types": 0.246,
+      "absent_fraction": 0.821,
+      "longest_absence_periods": 240,
+      "established_additions_999_transitions": 11,
+      "losses_999_transitions": 14,
+      "final_used_count": 1
+    },
+    {
+      "history_seed": 76055,
+      "arm": "near",
+      "mean_visitor_types": 4.025,
+      "absent_fraction": 0.015,
+      "longest_absence_periods": 10,
+      "established_additions_999_transitions": 221,
+      "losses_999_transitions": 223,
+      "final_used_count": 2
+    },
+    {
+      "history_seed": 76055,
+      "arm": "far",
+      "mean_visitor_types": 0.229,
+      "absent_fraction": 0.822,
+      "longest_absence_periods": 139,
+      "established_additions_999_transitions": 12,
+      "losses_999_transitions": 16,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76056,
+      "arm": "near",
+      "mean_visitor_types": 4.164,
+      "absent_fraction": 0.015,
+      "longest_absence_periods": 11,
+      "established_additions_999_transitions": 217,
+      "losses_999_transitions": 216,
+      "final_used_count": 5
+    },
+    {
+      "history_seed": 76056,
+      "arm": "far",
+      "mean_visitor_types": 0.156,
+      "absent_fraction": 0.872,
+      "longest_absence_periods": 289,
+      "established_additions_999_transitions": 9,
+      "losses_999_transitions": 13,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76057,
+      "arm": "near",
+      "mean_visitor_types": 3.905,
+      "absent_fraction": 0.007,
+      "longest_absence_periods": 3,
+      "established_additions_999_transitions": 210,
+      "losses_999_transitions": 213,
+      "final_used_count": 1
+    },
+    {
+      "history_seed": 76057,
+      "arm": "far",
+      "mean_visitor_types": 0.252,
+      "absent_fraction": 0.768,
+      "longest_absence_periods": 338,
+      "established_additions_999_transitions": 11,
+      "losses_999_transitions": 15,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76058,
+      "arm": "near",
+      "mean_visitor_types": 4.784,
+      "absent_fraction": 0.001,
+      "longest_absence_periods": 1,
+      "established_additions_999_transitions": 228,
+      "losses_999_transitions": 229,
+      "final_used_count": 3
+    },
+    {
+      "history_seed": 76058,
+      "arm": "far",
+      "mean_visitor_types": 0.307,
+      "absent_fraction": 0.768,
+      "longest_absence_periods": 205,
+      "established_additions_999_transitions": 12,
+      "losses_999_transitions": 15,
+      "final_used_count": 1
+    },
+    {
+      "history_seed": 76059,
+      "arm": "near",
+      "mean_visitor_types": 4.657,
+      "absent_fraction": 0.006,
+      "longest_absence_periods": 5,
+      "established_additions_999_transitions": 237,
+      "losses_999_transitions": 236,
+      "final_used_count": 5
+    },
+    {
+      "history_seed": 76059,
+      "arm": "far",
+      "mean_visitor_types": 0.349,
+      "absent_fraction": 0.734,
+      "longest_absence_periods": 321,
+      "established_additions_999_transitions": 11,
+      "losses_999_transitions": 15,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76060,
+      "arm": "near",
+      "mean_visitor_types": 5.144,
+      "absent_fraction": 0.002,
+      "longest_absence_periods": 2,
+      "established_additions_999_transitions": 261,
+      "losses_999_transitions": 260,
+      "final_used_count": 5
+    },
+    {
+      "history_seed": 76060,
+      "arm": "far",
+      "mean_visitor_types": 0.389,
+      "absent_fraction": 0.719,
+      "longest_absence_periods": 260,
+      "established_additions_999_transitions": 13,
+      "losses_999_transitions": 16,
+      "final_used_count": 1
+    },
+    {
+      "history_seed": 76061,
+      "arm": "near",
+      "mean_visitor_types": 5.2,
+      "absent_fraction": 0.0,
+      "longest_absence_periods": 0,
+      "established_additions_999_transitions": 249,
+      "losses_999_transitions": 248,
+      "final_used_count": 5
+    },
+    {
+      "history_seed": 76061,
+      "arm": "far",
+      "mean_visitor_types": 0.225,
+      "absent_fraction": 0.813,
+      "longest_absence_periods": 149,
+      "established_additions_999_transitions": 10,
+      "losses_999_transitions": 14,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76062,
+      "arm": "near",
+      "mean_visitor_types": 4.655,
+      "absent_fraction": 0.003,
+      "longest_absence_periods": 2,
+      "established_additions_999_transitions": 226,
+      "losses_999_transitions": 225,
+      "final_used_count": 5
+    },
+    {
+      "history_seed": 76062,
+      "arm": "far",
+      "mean_visitor_types": 0.349,
+      "absent_fraction": 0.712,
+      "longest_absence_periods": 143,
+      "established_additions_999_transitions": 12,
+      "losses_999_transitions": 16,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76063,
+      "arm": "near",
+      "mean_visitor_types": 5.032,
+      "absent_fraction": 0.0,
+      "longest_absence_periods": 0,
+      "established_additions_999_transitions": 253,
+      "losses_999_transitions": 253,
+      "final_used_count": 4
+    },
+    {
+      "history_seed": 76063,
+      "arm": "far",
+      "mean_visitor_types": 0.254,
+      "absent_fraction": 0.794,
+      "longest_absence_periods": 181,
+      "established_additions_999_transitions": 13,
+      "losses_999_transitions": 17,
+      "final_used_count": 0
+    },
+    {
+      "history_seed": 76064,
+      "arm": "near",
+      "mean_visitor_types": 5.19,
+      "absent_fraction": 0.001,
+      "longest_absence_periods": 1,
+      "established_additions_999_transitions": 251,
+      "losses_999_transitions": 250,
+      "final_used_count": 5
+    },
+    {
+      "history_seed": 76064,
+      "arm": "far",
+      "mean_visitor_types": 0.271,
+      "absent_fraction": 0.786,
+      "longest_absence_periods": 209,
+      "established_additions_999_transitions": 12,
+      "losses_999_transitions": 16,
+      "final_used_count": 0
+    }
+  ],
+  "source_manifest_sha256": "7264e8a236ed02ba49b1d0e3c3380d4e919336c3c0942ee6e5023cfb2ee58cb6",
+  "analysis_source_sha256": "385bcb9d802258988f402b25ccc677e4f8debabea2daabee5584565dcd5343aa",
+  "activity_mode": "count_scaled",
+  "claim_ceiling": "Descriptive exposure audit, not independent replication across settings or demographic repeats. Visitor types are model entities, not calibrated field species counts. Loss hazard is identical between arms. Initial community has four types in both arms. No causal mediation estimate or real-world decline rate."
+}

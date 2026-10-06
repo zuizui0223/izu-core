@@ -1,0 +1,1004 @@
+{
+  "status": "verified_paired_experiment_comparison",
+  "first_phase_pairs_verified": 2048,
+  "results": [
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.0,
+      "period": 200,
+      "eligible_triplets": 512,
+      "missing_triplets": 0,
+      "occupancy": {
+        "sustained_far": 1.0,
+        "equalized_far": 1.0,
+        "near": 1.0
+      },
+      "comparisons": {
+        "sustained_far_minus_near": {
+          "matching": {
+            "mean": 0.00402130024950888,
+            "interval": [
+              -0.017258414138860808,
+              0.0260162065688715
+            ]
+          },
+          "investment": {
+            "mean": -0.14194052252456185,
+            "interval": [
+              -0.1658693492418548,
+              -0.11851178884714776
+            ]
+          },
+          "capacity": {
+            "mean": 0.03534634013471835,
+            "interval": [
+              0.024848837460346544,
+              0.046333233210963685
+            ]
+          }
+        },
+        "equalized_far_minus_near": {
+          "matching": {
+            "mean": 0.00402130024950888,
+            "interval": [
+              -0.017258414138860808,
+              0.0260162065688715
+            ]
+          },
+          "investment": {
+            "mean": -0.14194052252456185,
+            "interval": [
+              -0.1658693492418548,
+              -0.11851178884714776
+            ]
+          },
+          "capacity": {
+            "mean": 0.03534634013471835,
+            "interval": [
+              0.024848837460346544,
+              0.046333233210963685
+            ]
+          }
+        },
+        "sustained_minus_equalized": {
+          "matching": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "investment": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "capacity": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.0,
+      "period": 400,
+      "eligible_triplets": 511,
+      "missing_triplets": 1,
+      "occupancy": {
+        "sustained_far": 1.0,
+        "equalized_far": 1.0,
+        "near": 0.998046875
+      },
+      "comparisons": {
+        "sustained_far_minus_near": {
+          "matching": {
+            "mean": 0.0038516788951019395,
+            "interval": [
+              -0.01730276787309589,
+              0.025777216883610253
+            ]
+          },
+          "investment": {
+            "mean": -0.14069541646606978,
+            "interval": [
+              -0.16423089774959412,
+              -0.11712363231201522
+            ]
+          },
+          "capacity": {
+            "mean": 0.03400889582381619,
+            "interval": [
+              0.02346576538648096,
+              0.045060161039133004
+            ]
+          }
+        },
+        "equalized_far_minus_near": {
+          "matching": {
+            "mean": 0.004308855804568003,
+            "interval": [
+              -0.016712658884435065,
+              0.02616216253770498
+            ]
+          },
+          "investment": {
+            "mean": -0.14038190604153222,
+            "interval": [
+              -0.16390832723189247,
+              -0.11701161990590146
+            ]
+          },
+          "capacity": {
+            "mean": 0.034123737213817056,
+            "interval": [
+              0.023539732411071924,
+              0.0451820222570378
+            ]
+          }
+        },
+        "sustained_minus_equalized": {
+          "matching": {
+            "mean": -0.00045717690946606073,
+            "interval": [
+              -0.0011309605532031362,
+              -1.6650416484930526e-05
+            ]
+          },
+          "investment": {
+            "mean": -0.0003135104245375614,
+            "interval": [
+              -0.0009405312736126841,
+              0.0
+            ]
+          },
+          "capacity": {
+            "mean": -0.00011484139000086198,
+            "interval": [
+              -0.00036742875202864047,
+              4.580916405210909e-05
+            ]
+          }
+        }
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.0,
+      "period": 1000,
+      "eligible_triplets": 511,
+      "missing_triplets": 1,
+      "occupancy": {
+        "sustained_far": 1.0,
+        "equalized_far": 1.0,
+        "near": 0.998046875
+      },
+      "comparisons": {
+        "sustained_far_minus_near": {
+          "matching": {
+            "mean": 0.0037821192385220524,
+            "interval": [
+              -0.017350383409417455,
+              0.025738516495834942
+            ]
+          },
+          "investment": {
+            "mean": -0.14072143175144924,
+            "interval": [
+              -0.16423089774959412,
+              -0.1171416875926188
+            ]
+          },
+          "capacity": {
+            "mean": 0.03393518485062287,
+            "interval": [
+              0.023396792802815192,
+              0.044959935576891145
+            ]
+          }
+        },
+        "equalized_far_minus_near": {
+          "matching": {
+            "mean": 0.004239296147988116,
+            "interval": [
+              -0.016771176724434244,
+              0.026095714891911388
+            ]
+          },
+          "investment": {
+            "mean": -0.14040792132691168,
+            "interval": [
+              -0.16393369213513742,
+              -0.11703770326966859
+            ]
+          },
+          "capacity": {
+            "mean": 0.03405002624062374,
+            "interval": [
+              0.0234156488613401,
+              0.04514752209513587
+            ]
+          }
+        },
+        "sustained_minus_equalized": {
+          "matching": {
+            "mean": -0.00045717690946606073,
+            "interval": [
+              -0.0011309605532031362,
+              -1.6650416484930526e-05
+            ]
+          },
+          "investment": {
+            "mean": -0.0003135104245375614,
+            "interval": [
+              -0.0009405312736126841,
+              0.0
+            ]
+          },
+          "capacity": {
+            "mean": -0.00011484139000086198,
+            "interval": [
+              -0.00036742875202864047,
+              4.580916405210909e-05
+            ]
+          }
+        }
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.01,
+      "period": 200,
+      "eligible_triplets": 512,
+      "missing_triplets": 0,
+      "occupancy": {
+        "sustained_far": 1.0,
+        "equalized_far": 1.0,
+        "near": 1.0
+      },
+      "comparisons": {
+        "sustained_far_minus_near": {
+          "matching": {
+            "mean": 0.01687641443527624,
+            "interval": [
+              -0.004131466575928214,
+              0.03689289441996559
+            ]
+          },
+          "investment": {
+            "mean": -0.19450763822038214,
+            "interval": [
+              -0.21469783996023514,
+              -0.17402777926580582
+            ]
+          },
+          "capacity": {
+            "mean": 0.07263001539569361,
+            "interval": [
+              0.05882103351869382,
+              0.0867087134444441
+            ]
+          }
+        },
+        "equalized_far_minus_near": {
+          "matching": {
+            "mean": 0.01687641443527624,
+            "interval": [
+              -0.004131466575928214,
+              0.03689289441996559
+            ]
+          },
+          "investment": {
+            "mean": -0.19450763822038214,
+            "interval": [
+              -0.21469783996023514,
+              -0.17402777926580582
+            ]
+          },
+          "capacity": {
+            "mean": 0.07263001539569361,
+            "interval": [
+              0.05882103351869382,
+              0.0867087134444441
+            ]
+          }
+        },
+        "sustained_minus_equalized": {
+          "matching": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "investment": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "capacity": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.01,
+      "period": 400,
+      "eligible_triplets": 512,
+      "missing_triplets": 0,
+      "occupancy": {
+        "sustained_far": 1.0,
+        "equalized_far": 1.0,
+        "near": 1.0
+      },
+      "comparisons": {
+        "sustained_far_minus_near": {
+          "matching": {
+            "mean": 0.01054356757356705,
+            "interval": [
+              -0.012892680786207214,
+              0.03302344903729785
+            ]
+          },
+          "investment": {
+            "mean": -0.2341696512492591,
+            "interval": [
+              -0.25502896308416056,
+              -0.21325118250548963
+            ]
+          },
+          "capacity": {
+            "mean": 0.0911000159327773,
+            "interval": [
+              0.07933176120964437,
+              0.10358532160995447
+            ]
+          }
+        },
+        "equalized_far_minus_near": {
+          "matching": {
+            "mean": 0.016422627389168488,
+            "interval": [
+              -0.004747389982354699,
+              0.03679783253557064
+            ]
+          },
+          "investment": {
+            "mean": -0.18233264659557702,
+            "interval": [
+              -0.2044037337884971,
+              -0.16032347403526526
+            ]
+          },
+          "capacity": {
+            "mean": 0.06959398810212322,
+            "interval": [
+              0.05702310267020648,
+              0.08229708025927121
+            ]
+          }
+        },
+        "sustained_minus_equalized": {
+          "matching": {
+            "mean": -0.005879059815601438,
+            "interval": [
+              -0.01345615631777118,
+              0.0015794276999159648
+            ]
+          },
+          "investment": {
+            "mean": -0.051837004653682066,
+            "interval": [
+              -0.06008784160276178,
+              -0.043378215716130736
+            ]
+          },
+          "capacity": {
+            "mean": 0.021506027830654084,
+            "interval": [
+              0.014954909070645374,
+              0.028107750577349693
+            ]
+          }
+        }
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "mutation_rate": 0.01,
+      "period": 1000,
+      "eligible_triplets": 512,
+      "missing_triplets": 0,
+      "occupancy": {
+        "sustained_far": 1.0,
+        "equalized_far": 1.0,
+        "near": 1.0
+      },
+      "comparisons": {
+        "sustained_far_minus_near": {
+          "matching": {
+            "mean": 0.010679345105185464,
+            "interval": [
+              -0.01222700048569133,
+              0.03369607193706001
+            ]
+          },
+          "investment": {
+            "mean": -0.3133050746500421,
+            "interval": [
+              -0.33102389831748347,
+              -0.29544512195541034
+            ]
+          },
+          "capacity": {
+            "mean": 0.10031505836538268,
+            "interval": [
+              0.08988588899144047,
+              0.11082440424673211
+            ]
+          }
+        },
+        "equalized_far_minus_near": {
+          "matching": {
+            "mean": 0.012495518322497307,
+            "interval": [
+              -0.0071972773128140865,
+              0.0323153278347805
+            ]
+          },
+          "investment": {
+            "mean": -0.13010633372444197,
+            "interval": [
+              -0.14924085819513272,
+              -0.11238518480114404
+            ]
+          },
+          "capacity": {
+            "mean": 0.05575534993308923,
+            "interval": [
+              0.04551719031655914,
+              0.06640580372378863
+            ]
+          }
+        },
+        "sustained_minus_equalized": {
+          "matching": {
+            "mean": -0.001816173217311842,
+            "interval": [
+              -0.01918448700643383,
+              0.015298970511619336
+            ]
+          },
+          "investment": {
+            "mean": -0.18319874092560012,
+            "interval": [
+              -0.19781008554824253,
+              -0.16883628008579515
+            ]
+          },
+          "capacity": {
+            "mean": 0.04455970843229346,
+            "interval": [
+              0.0372812171185911,
+              0.05220290937508186
+            ]
+          }
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.0,
+      "period": 200,
+      "eligible_triplets": 512,
+      "missing_triplets": 0,
+      "occupancy": {
+        "sustained_far": 1.0,
+        "equalized_far": 1.0,
+        "near": 1.0
+      },
+      "comparisons": {
+        "sustained_far_minus_near": {
+          "matching": {
+            "mean": 0.0037197340676079363,
+            "interval": [
+              -0.007773732367653579,
+              0.014983374896674251
+            ]
+          },
+          "investment": {
+            "mean": -0.030125810810342036,
+            "interval": [
+              -0.0424258246760885,
+              -0.017556569432863045
+            ]
+          },
+          "capacity": {
+            "mean": 0.003333994751305159,
+            "interval": [
+              -0.0022275896534545195,
+              0.009037209904044307
+            ]
+          }
+        },
+        "equalized_far_minus_near": {
+          "matching": {
+            "mean": 0.0037197340676079363,
+            "interval": [
+              -0.007773732367653579,
+              0.014983374896674251
+            ]
+          },
+          "investment": {
+            "mean": -0.030125810810342036,
+            "interval": [
+              -0.0424258246760885,
+              -0.017556569432863045
+            ]
+          },
+          "capacity": {
+            "mean": 0.003333994751305159,
+            "interval": [
+              -0.0022275896534545195,
+              0.009037209904044307
+            ]
+          }
+        },
+        "sustained_minus_equalized": {
+          "matching": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "investment": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "capacity": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.0,
+      "period": 400,
+      "eligible_triplets": 512,
+      "missing_triplets": 0,
+      "occupancy": {
+        "sustained_far": 1.0,
+        "equalized_far": 1.0,
+        "near": 1.0
+      },
+      "comparisons": {
+        "sustained_far_minus_near": {
+          "matching": {
+            "mean": 0.0036893484278527244,
+            "interval": [
+              -0.007775995363116383,
+              0.015025191674788607
+            ]
+          },
+          "investment": {
+            "mean": -0.030355701363449374,
+            "interval": [
+              -0.042998877655691804,
+              -0.017631872599365824
+            ]
+          },
+          "capacity": {
+            "mean": 0.003515254985487853,
+            "interval": [
+              -0.0019740151867481837,
+              0.009134416365949801
+            ]
+          }
+        },
+        "equalized_far_minus_near": {
+          "matching": {
+            "mean": 0.0036993956034675466,
+            "interval": [
+              -0.007769974566452586,
+              0.015035826753079887
+            ]
+          },
+          "investment": {
+            "mean": -0.030531665732790213,
+            "interval": [
+              -0.043070079977553265,
+              -0.01775706790738776
+            ]
+          },
+          "capacity": {
+            "mean": 0.003515254985487853,
+            "interval": [
+              -0.0019740151867481837,
+              0.009134416365949801
+            ]
+          }
+        },
+        "sustained_minus_equalized": {
+          "matching": {
+            "mean": -1.0047175614822062e-05,
+            "interval": [
+              -2.932291019390335e-05,
+              0.0
+            ]
+          },
+          "investment": {
+            "mean": 0.0001759643693408368,
+            "interval": [
+              0.0,
+              0.0005278931080225104
+            ]
+          },
+          "capacity": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.0,
+      "period": 1000,
+      "eligible_triplets": 512,
+      "missing_triplets": 0,
+      "occupancy": {
+        "sustained_far": 1.0,
+        "equalized_far": 1.0,
+        "near": 1.0
+      },
+      "comparisons": {
+        "sustained_far_minus_near": {
+          "matching": {
+            "mean": 0.0036893484278527244,
+            "interval": [
+              -0.007775995363116383,
+              0.015025191674788607
+            ]
+          },
+          "investment": {
+            "mean": -0.030355701363449374,
+            "interval": [
+              -0.042998877655691804,
+              -0.017631872599365824
+            ]
+          },
+          "capacity": {
+            "mean": 0.003515254985487853,
+            "interval": [
+              -0.0019740151867481837,
+              0.009134416365949801
+            ]
+          }
+        },
+        "equalized_far_minus_near": {
+          "matching": {
+            "mean": 0.003698576986816984,
+            "interval": [
+              -0.007770077315114734,
+              0.015034189519778765
+            ]
+          },
+          "investment": {
+            "mean": -0.030531665732790213,
+            "interval": [
+              -0.043070079977553265,
+              -0.01775706790738776
+            ]
+          },
+          "capacity": {
+            "mean": 0.003515254985487853,
+            "interval": [
+              -0.0019740151867481837,
+              0.009134416365949801
+            ]
+          }
+        },
+        "sustained_minus_equalized": {
+          "matching": {
+            "mean": -9.228558964259224e-06,
+            "interval": [
+              -2.7685676892777672e-05,
+              0.0
+            ]
+          },
+          "investment": {
+            "mean": 0.0001759643693408368,
+            "interval": [
+              0.0,
+              0.0005278931080225104
+            ]
+          },
+          "capacity": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.01,
+      "period": 200,
+      "eligible_triplets": 512,
+      "missing_triplets": 0,
+      "occupancy": {
+        "sustained_far": 1.0,
+        "equalized_far": 1.0,
+        "near": 1.0
+      },
+      "comparisons": {
+        "sustained_far_minus_near": {
+          "matching": {
+            "mean": -0.001553441069266027,
+            "interval": [
+              -0.015187888853121535,
+              0.01187640768790738
+            ]
+          },
+          "investment": {
+            "mean": -0.030099279602697208,
+            "interval": [
+              -0.044616868698716575,
+              -0.016131065405323077
+            ]
+          },
+          "capacity": {
+            "mean": 0.020453576466416698,
+            "interval": [
+              0.01270804378094127,
+              0.02861066123007199
+            ]
+          }
+        },
+        "equalized_far_minus_near": {
+          "matching": {
+            "mean": -0.001553441069266027,
+            "interval": [
+              -0.015187888853121535,
+              0.01187640768790738
+            ]
+          },
+          "investment": {
+            "mean": -0.030099279602697208,
+            "interval": [
+              -0.044616868698716575,
+              -0.016131065405323077
+            ]
+          },
+          "capacity": {
+            "mean": 0.020453576466416698,
+            "interval": [
+              0.01270804378094127,
+              0.02861066123007199
+            ]
+          }
+        },
+        "sustained_minus_equalized": {
+          "matching": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "investment": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          },
+          "capacity": {
+            "mean": 0.0,
+            "interval": [
+              0.0,
+              0.0
+            ]
+          }
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.01,
+      "period": 400,
+      "eligible_triplets": 512,
+      "missing_triplets": 0,
+      "occupancy": {
+        "sustained_far": 1.0,
+        "equalized_far": 1.0,
+        "near": 1.0
+      },
+      "comparisons": {
+        "sustained_far_minus_near": {
+          "matching": {
+            "mean": -0.0020579320585977245,
+            "interval": [
+              -0.017343631055176178,
+              0.012750058296320872
+            ]
+          },
+          "investment": {
+            "mean": -0.024094658050585756,
+            "interval": [
+              -0.03722561429076797,
+              -0.010840654036441017
+            ]
+          },
+          "capacity": {
+            "mean": 0.0158236876026766,
+            "interval": [
+              0.010865015877728016,
+              0.02101329418439387
+            ]
+          }
+        },
+        "equalized_far_minus_near": {
+          "matching": {
+            "mean": -0.00130951889993902,
+            "interval": [
+              -0.017870610312195997,
+              0.014852345194527392
+            ]
+          },
+          "investment": {
+            "mean": -0.026414089895527997,
+            "interval": [
+              -0.04005220996817454,
+              -0.013060510619816753
+            ]
+          },
+          "capacity": {
+            "mean": 0.009121649515498504,
+            "interval": [
+              0.003598505531310032,
+              0.014828999270632416
+            ]
+          }
+        },
+        "sustained_minus_equalized": {
+          "matching": {
+            "mean": -0.0007484131586587054,
+            "interval": [
+              -0.006665854104034345,
+              0.005330515735091298
+            ]
+          },
+          "investment": {
+            "mean": 0.002319431844942239,
+            "interval": [
+              -0.003309104873424986,
+              0.007964486295924757
+            ]
+          },
+          "capacity": {
+            "mean": 0.006702038087178095,
+            "interval": [
+              0.0036684966882657246,
+              0.009544958054461235
+            ]
+          }
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "mutation_rate": 0.01,
+      "period": 1000,
+      "eligible_triplets": 512,
+      "missing_triplets": 0,
+      "occupancy": {
+        "sustained_far": 1.0,
+        "equalized_far": 1.0,
+        "near": 1.0
+      },
+      "comparisons": {
+        "sustained_far_minus_near": {
+          "matching": {
+            "mean": -0.00931930198863187,
+            "interval": [
+              -0.025680900372319144,
+              0.006620110802541753
+            ]
+          },
+          "investment": {
+            "mean": -0.0200905358556642,
+            "interval": [
+              -0.03061104498915014,
+              -0.010099941211937835
+            ]
+          },
+          "capacity": {
+            "mean": 0.0018315126823732356,
+            "interval": [
+              0.0005176189520847423,
+              0.003169271882088244
+            ]
+          }
+        },
+        "equalized_far_minus_near": {
+          "matching": {
+            "mean": -0.005870261502866011,
+            "interval": [
+              -0.026379303985619038,
+              0.014903632620110343
+            ]
+          },
+          "investment": {
+            "mean": -0.016544855414459176,
+            "interval": [
+              -0.027004399652527992,
+              -0.006641119727558887
+            ]
+          },
+          "capacity": {
+            "mean": 0.0014444746612786515,
+            "interval": [
+              -1.2447275810710952e-05,
+              0.002913391395431591
+            ]
+          }
+        },
+        "sustained_minus_equalized": {
+          "matching": {
+            "mean": -0.003449040485765859,
+            "interval": [
+              -0.016212029663816904,
+              0.009557112466394247
+            ]
+          },
+          "investment": {
+            "mean": -0.0035456804412050237,
+            "interval": [
+              -0.011859556904761006,
+              0.005297285476805383
+            ]
+          },
+          "capacity": {
+            "mean": 0.0003870380210945841,
+            "interval": [
+              -0.0007594007198186342,
+              0.001590113004375348
+            ]
+          }
+        }
+      }
+    }
+  ],
+  "analysis_sha256": "d781440cc1907a4894ebf0cba67943f951f36cb76973af8af11c9132e4aacf37",
+  "claim_ceiling": "Exploratory paired comparison of completed frozen exposures; descriptive history-bootstrap intervals, no multiplicity adjustment. Shared-survivor estimand, no equilibrium or irreversibility inference. Equalization is an intervention, not spontaneous recovery."
+}

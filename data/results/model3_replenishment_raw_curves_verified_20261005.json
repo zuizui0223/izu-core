@@ -1,0 +1,9 @@
+{
+  "status": "verified_all_raw_case_to_curve_mappings",
+  "cases": 13312,
+  "trait_coordinates": 9993984,
+  "max_numeric_difference": 0.0,
+  "curves_sha256": "3c217335b57831a60b4257410acfa82a9e32ef1f8190da63300790eabd63ac31",
+  "verifier_sha256": "cc01460d958dcfafae2ae3e4c63ac30edb8822be0eb484e8a758319e1d60f7e5",
+  "scope": "Independent live-repeat reconstruction, per-case hashes and condition identities. No independent reimplementation of the biological simulator."
+}

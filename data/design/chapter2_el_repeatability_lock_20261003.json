@@ -1,0 +1,330 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-04",
+  "status": "repeatability_candidate_evolution_letters_preferred_separate_from_active_oikos",
+  "parent_commit": "6e7372301d58af9fbbfa21e41f76fe6b41bd2042",
+  "active_oikos_submission_replaced": false,
+  "editorial_question": "When does greater directional similarity reflect greater evolutionary repeatability, and when can it mask a persistent historical imprint?",
+  "framing": {
+    "upper_level": "evolutionary repeatability / nonparallel evolution",
+    "biological_testbed": "pollination-mediated plant island syndrome",
+    "stage_decomposition": [
+      "recurrent_ecological_problem",
+      "immediate_reproductive_selection",
+      "conditional_deterministic_closure",
+      "occupied_finite_population_realization",
+      "genetic_accessibility_and_persistence"
+    ]
+  },
+  "safe_claim": "Within the occupied depression-0.50 finite ABM, capacity scaling and visitor-history pooling both increase directional sign uniformity but move reproducibility of history-specific magnitude in opposite directions; this ordering passed prospectively frozen validation under both new demographic seeds and an entirely new synthetic visitor-history ensemble.",
+  "prohibited_claims": [
+    "first connection between island syndrome and parallel evolution",
+    "first mechanism for nonparallel evolution",
+    "literal named-island phenotype prediction",
+    "universal assurance-by-cost floral reduction",
+    "single scalar repeatability parameter across unlike biological stages",
+    "first evidence that island-syndrome phenotypic parallelism can coexist with nonparallel genomic change",
+    "natural island systems generally follow the modeled stage ordering",
+    "the model estimates natural prevalence of each evolutionary route",
+    "the model identifies the dominant cause of any named island syndrome",
+    "the negative deterministic isolation backbone is a stationary long-run island syndrome",
+    "history-level nonparallelism observed at the focal horizon necessarily persists indefinitely",
+    "standing genetic variation is a persistent dominant accessibility filter",
+    "6400 reproductive seasons approximate geological or million-year island evolution",
+    "depression 0.75 deterministic history labels as evidence about repeatability among persisting populations",
+    "deterministic genotype density as the stochastic mean of the finite ABM",
+    "41.5 percent gap closure as a finite-population attenuation or convergence coefficient",
+    "level-by-time repeatability as established from the depression 0.75 long-horizon density stress test",
+    "deterministic history-level nonparallelism among persisting isolation-assembly populations",
+    "mixed-sign history counts as a complete measure of evolutionary repeatability",
+    "the finite-history signal diagnostic as preregistered or confirmatory",
+    "larger plant capacity as a pure statistical noise-reduction manipulation",
+    "visitor-history pooling as a pure statistical noise-reduction manipulation",
+    "first distinction between direction and magnitude as dimensions of evolutionary parallelism",
+    "first claim that different parallelism metrics measure different trajectory properties",
+    "directional sign similarity as identical to geometric parallelism",
+    "first demonstration that environmental or demographic heterogeneity changes evolutionary repeatability",
+    "the original posthoc finite-history discovery as preregistered or confirmatory",
+    "new demographic seed validation as independent environmental-history replication",
+    "new demographic seed validation as natural-island validation",
+    "new visitor-history validation as natural-island validation",
+    "new visitor-history validation as transfer to a different ecological-history generator",
+    "absolute history-variance paired comparison as a preregistered primary validation criterion"
+  ],
+  "key_literature": [
+    {
+      "citation": "Bolnick et al. 2018",
+      "doi": "10.1146/annurev-ecolsys-110617-062240",
+      "role": "nonparallel continuum and causes"
+    },
+    {
+      "citation": "Stuart et al. 2017",
+      "doi": "10.1038/s41559-017-0158",
+      "role": "environment and genetics jointly explain deviations"
+    },
+    {
+      "citation": "Thompson et al. 2017",
+      "doi": "10.1111/evo.13357",
+      "role": "many-to-one function can weaken morphological parallelism"
+    },
+    {
+      "citation": "Hetherington-Rauth & Johnson 2020",
+      "doi": "10.1086/709018",
+      "role": "heterogeneous floral island response across 136 contrasts"
+    },
+    {
+      "citation": "Ciarle & Burns 2025",
+      "doi": "10.1080/0028825X.2024.2377418",
+      "role": "multitrait plant island-syndrome review"
+    },
+    {
+      "citation": "Jezierski et al. 2026",
+      "doi": "10.1093/evolinnean/kzag008",
+      "role": "direct precedent for parallel island-syndrome phenotype with largely population-specific genomic differentiation"
+    },
+    {
+      "citation": "Matuszewski et al. 2015",
+      "doi": null,
+      "role": "theoretical precedent that standing variation dominates early adaptation while de novo mutation contribution increases through time; used to bound novelty of the long-horizon mutation result"
+    },
+    {
+      "citation": "Oke et al. 2017",
+      "doi": "10.1086/691989",
+      "role": "direction and magnitude are distinct measures of phenotypic parallelism"
+    },
+    {
+      "citation": "Venkataram & Kryazhimskiy 2023",
+      "doi": "10.1098/rstb.2022.0047",
+      "role": "repeatability is an ensemble property and directional similarity captures only one aspect"
+    },
+    {
+      "citation": "Arendt et al. 2025",
+      "doi": "10.1086/736845",
+      "role": "parallelism metrics measure different trajectory properties; be explicit about angle, direction and length"
+    },
+    {
+      "citation": "Bisschop et al. 2026",
+      "doi": "10.1093/evlett/qrag017",
+      "role": "direct Evolution Letters precedent that environmental and demographic heterogeneity alter evolutionary repeatability; narrows novelty to opposite mechanisms hidden by similar directional uniformity"
+    }
+  ],
+  "format_target": {
+    "journal_preferred": "Evolution Letters",
+    "journal_fallback": "Ecology Letters only after ecological recast",
+    "submission_action_taken": false,
+    "evolution_letters": {
+      "main_text_guide_words": 5000,
+      "abstract_words_max": 300,
+      "current_main_text_words": 4905,
+      "current_abstract_words": 252,
+      "fit": "within current official Letter guide",
+      "current_title_words": 14,
+      "official_guide_checked_on": "2026-10-03",
+      "official_requirements_source": "Evolution Letters OUP Author Guidelines: typical Letter approximately 5,000 words excluding display items; title <=30 words; abstract <=300 words"
+    },
+    "ecology_letters": {
+      "main_text_words_max": 5000,
+      "abstract_words_max": 150,
+      "current_main_text_words": 4905,
+      "current_abstract_words": 252,
+      "fit": "abstract compression required for Ecology Letters"
+    }
+  },
+  "general_logical_implication": "Greater directional similarity does not, by itself, identify weaker historical contingency or a more repeatable evolutionary mechanism.",
+  "empirical_prediction": "Repeated-population studies should estimate both response direction and reproducibility of effect magnitude; genetic-accessibility rankings may additionally change as new variation accumulates.",
+  "claim_levels": {
+    "model_established": [
+      "a prospectively frozen validation on entirely new synthetic visitor histories 75001-75128 reproduced the reliability ordering large-capacity > natural > visitor-pooled, with both paired bootstrap contrasts excluding zero and complete terminal occupancy",
+      "a prospectively frozen validation using new demographic seeds 201-204 reproduced the discovery ordering large-capacity > natural > visitor-pooled for history-specific response predictability, with both paired bootstrap contrasts excluding zero",
+      "at depression 0.50 and season 200, all frozen natural near and far finite cases are occupied",
+      "the natural finite bridge contains a reproducible continuous visitor-history component despite demographic-repeat noise",
+      "functional visitor composition, reproductive context, genetic accessibility and finite demography alter model responses within the declared operator",
+      "standing variation provides an early response advantage that continuing mutation can erase and reverse",
+      "within the tested pre-quasi-extinction depression range, the isolation-driven deterministic closure remained negative-only across histories"
+    ],
+    "general_implication": [
+      "directional similarity is insufficient to identify whether reproducible historical structure has weakened, strengthened relative to demographic noise, or been averaged away"
+    ],
+    "natural_prediction_not_result": [
+      "biological-level ordering of repeatability in real islands",
+      "natural branch prevalence",
+      "natural equilibrium or attractor time",
+      "natural effect sizes and evolutionary rates",
+      "dominant mechanism in any named archipelago"
+    ]
+  },
+  "long_horizon_result": {
+    "result": "data/results/chapter2_long_horizon_stationarity_20261003.json",
+    "depression_0_75_density_stress_test": "crosses quasi-extinction boundary by the focal season and cannot identify syndrome-level temporal repeatability",
+    "standing_variation_dominance_persistent": false,
+    "mutation_catches_and_overtakes_high_standing_reference_between_800_and_1600": true,
+    "interpretation": "temporal claim retained for genetic accessibility speed, not for long-run syndrome repeatability"
+  },
+  "population_scale_diagnostic": {
+    "result": "data/results/chapter2_bridge_population_scale_diagnostic_20261003.json",
+    "depression_0_50": {
+      "far_density_mass_median_200": 48,
+      "finite_far_population_demo101_mean": 47.9921875,
+      "frozen_far_occupancy_all_repeats": 1,
+      "decision": "population-scale concern does not apply to original focal headline"
+    },
+    "depression_0_75": {
+      "far_density_mass_median_200": 0.0003014367667916852,
+      "far_density_mass_below_1_fraction": 0.9817708333333334,
+      "finite_demo101_far_occupancy_200": 0,
+      "median_extinction_season_demo101": 61,
+      "decision": "closure sensitivity only; not population-level repeatability evidence"
+    }
+  },
+  "persistence_boundary_scan": {
+    "stage1_result": "data/results/chapter2_deterministic_persistence_boundary_stage1_20261003.json",
+    "refinement_result": "data/results/chapter2_deterministic_persistence_boundary_refinement_20261003.json",
+    "tested_depressions": [
+      0.5,
+      0.55,
+      0.6,
+      0.65,
+      0.7,
+      0.71,
+      0.72,
+      0.73,
+      0.74,
+      0.75
+    ],
+    "result": "No mixed or positive deterministic history label was observed among histories whose three starts and both near/far arms all retained terminal density mass >=1. Mixed labels appeared only after at least one endpoint entered sub-individual expected mass.",
+    "headline_action": "exclude deterministic history-level nonparallelism from the persisting-population repeatability claim"
+  },
+  "finite_history_signal_diagnostic": {
+    "status": "posthoc exploratory exact-source diagnostic",
+    "design": "data/design/chapter2_finite_history_signal_diagnostic_20261003.json",
+    "result": "data/results/chapter2_finite_history_signal_diagnostic_20261003.json",
+    "natural": {
+      "mixed_eps0": 12,
+      "repeat_disagreement_eps0": 97,
+      "eight_repeat_reliability": 0.621123099130166,
+      "split_half_r": 0.689658686195989
+    },
+    "large_capacity": {
+      "mixed_eps0": 1,
+      "repeat_disagreement_eps0": 31,
+      "eight_repeat_reliability": 0.8246529353907934,
+      "split_half_r": 0.8517982916805625
+    },
+    "visitor_pooled": {
+      "mixed_eps0": 0,
+      "repeat_disagreement_eps0": 77,
+      "eight_repeat_reliability": 0.10291763944166836,
+      "split_half_r": 0.21407060656596144
+    },
+    "interpretation": "The same reduction in mixed-sign labels can occur while reproducible history structure strengthens relative to demographic noise or while that history structure is erased by environmental averaging."
+  },
+  "novelty_boundary": "Direction-versus-magnitude multidimensionality, historical contingency and environmental/demographic effects on repeatability are established. The candidate contribution is a model-internal mechanistic counterexample—same directional sign uniformity with opposite preservation of history-specific magnitude—followed by prospectively frozen validation across both new demographic realizations and an out-of-history-sample synthetic visitor ensemble.",
+  "journal_fit_rationale": {
+    "evolution_letters": "Current central question concerns evolutionary repeatability, parallelism, historical contingency and mechanistic evolutionary trajectories; island pollination is the biological testbed.",
+    "ecology_letters": "Current manuscript is not centered on a new general ecological principle strongly enough for the journal's stated ecology nexus; a fallback would require recentering on ecological history averaging and community composition."
+  },
+  "finite_history_signal_validation": {
+    "status": "prospective_new_demographic_seed_validation_complete_strong_success",
+    "design": "data/design/chapter2_finite_history_signal_validation_20261003.json",
+    "result": "data/results/chapter2_finite_history_signal_validation_20261003.json",
+    "receipt": "data/results/chapter2_finite_history_signal_validation_receipt_20261003.json",
+    "discovery_status": "posthoc exploratory",
+    "validation_scope": "same 128 frozen visitor histories; new demographic seeds 201-204",
+    "trajectories": 9216,
+    "correlations": {
+      "large_plant_capacity": 0.91832741451686,
+      "natural": 0.7321619738226453,
+      "visitor_pooled": 0.1654626963685096
+    },
+    "paired_bootstrap": {
+      "large_minus_natural": [
+        0.11977869113100571,
+        0.2825517167353619
+      ],
+      "pooled_minus_natural": [
+        -0.7321159171320919,
+        -0.4013656494929009
+      ]
+    },
+    "strong_success": true,
+    "interpretation": "The exploratory mechanism generated a fixed prediction that was reproduced across new demographic stochastic realizations; validation does not extend to new environmental histories."
+  },
+  "finite_history_signal_environment_validation": {
+    "status": "prospective_new_visitor_history_validation_complete_strong_success",
+    "design": "data/design/chapter2_finite_history_signal_environment_validation_20261004.json",
+    "result": "data/results/chapter2_finite_history_signal_environment_validation_20261004.json",
+    "receipt": "data/results/chapter2_finite_history_signal_environment_validation_receipt_20261004.json",
+    "validation_scope": "new synthetic visitor histories 75001-75128 from the same frozen history-generating process; demographic seeds 301-304",
+    "trajectories": 9216,
+    "reliability": {
+      "large_plant_capacity": 0.7217688849932009,
+      "natural": 0.4169402438063488,
+      "visitor_pooled": 0.15403351483184766
+    },
+    "paired_bootstrap": {
+      "large_minus_natural": [
+        0.22244323917981762,
+        0.37549139757224376
+      ],
+      "pooled_minus_natural": [
+        -0.3793769998530452,
+        -0.15449478388085502
+      ]
+    },
+    "all_arm_terminal_occupancy": 1,
+    "strong_success": true,
+    "interpretation": "The opposite history-reliability ordering transfers to new stochastic visitor histories generated independently by the same frozen ecological-history process; this is not natural-island or new-process validation.",
+    "canonical_design": "data/design/chapter2_finite_history_signal_environment_validation_20261004.json",
+    "superseded_preexecution_design": "data/design/chapter2_new_history_generalization_validation_20261003.json",
+    "freeze_provenance": {
+      "earlier_design_commit": "6898a0954b36a03e6839985cfd7649a27b93f6d6",
+      "canonical_design_commit": "6bac0410e4459e391dd5fba02bd9b63bed8d4fb9",
+      "canonical_design_commit_utc": "2026-10-03T21:32:52Z",
+      "workflow_started_utc": "2026-10-03T21:35:35Z",
+      "outcomes_generated_under_earlier_design": false
+    }
+  },
+  "promotion_readiness": {
+    "scientific_gates_complete": true,
+    "population_scale_audit_propagated": true,
+    "figure1_regenerated_and_tested": true,
+    "figure3_uses_prospective_new_history_validation": true,
+    "citation_audit": "docs/CHAPTER2_REPEATABILITY_CITATION_AUDIT_20261004.md",
+    "failed_routes_visible": true,
+    "preferred_journal": "Evolution Letters",
+    "full_ci_required_after_latest_commit": true,
+    "active_oikos_surface_replaced": false,
+    "explicit_promotion_decision_required": true,
+    "submission_metadata_not_inferred": [
+      "final author list and affiliations",
+      "CRediT author contributions",
+      "funding and grant declarations",
+      "conflict-of-interest declaration",
+      "acknowledgements",
+      "final archival DOI or repository location if minted"
+    ],
+    "figure2_regenerated_and_tested": true,
+    "figure4_regenerated_and_tested": true,
+    "all_four_main_figures_regenerated_and_tested": true
+  },
+  "finite_history_absolute_variance_secondary": {
+    "status": "posthoc secondary analysis of predeclared validation variance endpoint",
+    "result": "data/results/chapter2_environment_validation_absolute_history_variance_20261004.json",
+    "large_capacity_minus_natural_history_variance": {
+      "estimate": 0.004112148448694875,
+      "bootstrap95": [
+        0.0019445763187386086,
+        0.005950845492232042
+      ]
+    },
+    "visitor_pooled_minus_natural_history_variance": {
+      "estimate": -0.003479965729384406,
+      "bootstrap95": [
+        -0.005388528861266249,
+        -0.0018710627318389034
+      ]
+    },
+    "interpretation": "Opposite intervention effects persist in absolute history-structured variance, not only in reliability ratios.",
+    "headline_status": "supporting mechanism evidence only; not a frozen primary success criterion"
+  }
+}

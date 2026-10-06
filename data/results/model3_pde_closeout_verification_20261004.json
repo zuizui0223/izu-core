@@ -1,0 +1,27 @@
+{
+  "status": "completed",
+  "base_commit": "4b7d7bc7c0d6cd9b87e38150c55dfa99fd9b0556",
+  "controlled_cells": 25,
+  "horizons": [
+    60,
+    200,
+    800
+  ],
+  "joint_threshold_cells": 900,
+  "earlier_continuum_bridge_tests": 12,
+  "final_focused_tests": 36,
+  "full_repository_ci": false,
+  "independent_review": "no numerical or algebraic blocker; all provenance findings addressed",
+  "evidence_sha256": {
+    "model3_pde_closeout_20261004.json": "374431095e3c9eb8651502aa2afc9b6168fb5f71719dfce0898415b806aa4c09",
+    "model3_joint_thresholds_20261004.json": "15587415d00e9adbc37cf5ed28a3411d7696740240d2ae09ee9a1d3b43d7ca0d",
+    "model3_mutation_limit_closeout_20261004.json": "cc26b6536ad4b0f1f68b52a9abbb4c37cfc87661b62c06019210ed82f6fa3c1a"
+  },
+  "not_tested": [
+    "full positive-mutation phenotype PDE",
+    "empirical Chapter1 calibration",
+    "common-environment persistent historical memory",
+    "alternative stable attractors"
+  ],
+  "source_hash_convention": "CRLF normalized to LF; no numerical operator changes"
+}

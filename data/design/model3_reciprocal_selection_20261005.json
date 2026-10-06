@@ -1,0 +1,33 @@
+{
+  "classification": "exploratory mechanistic diagnostic declared before this calculation; not prospective confirmation",
+  "question": "How does changing either resident trait alter the selection gradient on the other?",
+  "settings": "all four existing rare-mutant settings, unchanged",
+  "communities": "all five existing controlled communities, unchanged",
+  "matching": [
+    0.2,
+    0.5,
+    0.8
+  ],
+  "investment_and_capacity_grid": {
+    "minimum": 0.02,
+    "maximum": 0.98,
+    "count": 49
+  },
+  "derivative_steps": [
+    0.0001,
+    5e-05
+  ],
+  "derivatives": [
+    "d investment_gradient / d resident capacity",
+    "d capacity_gradient / d resident investment"
+  ],
+  "checks": "finite values, central-difference step agreement, independent invasion-gradient checks at central states",
+  "interpretation": "local monomorphic resident gradients; no genetic covariance; no claim that arrows are evolutionary velocity or distance-gradient crossing order",
+  "display": "all settings and communities; no result-based selection; no evolved mean trajectory over unrelated fixed environments",
+  "sources": {
+    "data/design/model3_ch2_bridge_20260927.json": "ee11a074da98460839b6ffe3e0e34c106400b54309b865b794bdb2d4fe856ee0",
+    "data/design/model3_joint_syndrome_rare_mutant_20261004.json": "84c0c50165ac2e7df040cbda322c23107665305acb0ba1e7063ef60970e0a0f8",
+    "data/design/model3_unified_reduction_audit_20260927.json": "64fbf5e6ae6a21075fc3c7939257da48b31c91fa345acfb396f50a831769c8fc",
+    "scripts/model3_island/selection.py": "27d55ecedadf3259351eae4d52c955d61e9ab287a047472dfc057ce3383d0064"
+  }
+}

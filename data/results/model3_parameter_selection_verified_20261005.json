@@ -1,0 +1,515 @@
+{
+  "status": "verified_stored_counts_and_all_positive_cross_exceptions",
+  "array_sha256": "9af89f44c3d6da0a813158a5693a1e9b0b56dcdac8fce1c2146aa26fd796be9e",
+  "shape": [
+    500,
+    5,
+    45,
+    4
+  ],
+  "positive_cross_exceptions": 25,
+  "max_independent_cross_error": 3.324451824937569e-08,
+  "exceptions": [
+    {
+      "parameters": [
+        "delayed",
+        "0.9",
+        "0",
+        "0",
+        "1"
+      ],
+      "community": "leftdup8",
+      "state": [
+        0.2,
+        0.7,
+        0.3
+      ],
+      "stored_cross": 0.03189042942053355,
+      "independent_cross": [
+        0.031890406981816,
+        0.03189042363516137
+      ]
+    },
+    {
+      "parameters": [
+        "delayed",
+        "0.9",
+        "0",
+        "0",
+        "1"
+      ],
+      "community": "leftdup8",
+      "state": [
+        0.35,
+        0.7,
+        0.3
+      ],
+      "stored_cross": 0.05436862065555381,
+      "independent_cross": [
+        0.05436857630769509,
+        0.054368598512155586
+      ]
+    },
+    {
+      "parameters": [
+        "delayed",
+        "0.9",
+        "0",
+        "0.25",
+        "1"
+      ],
+      "community": "leftdup8",
+      "state": [
+        0.2,
+        0.7,
+        0.3
+      ],
+      "stored_cross": 0.031890429422753996,
+      "independent_cross": [
+        0.031890406981816,
+        0.03189045694185211
+      ]
+    },
+    {
+      "parameters": [
+        "delayed",
+        "0.9",
+        "0",
+        "0.25",
+        "1"
+      ],
+      "community": "leftdup8",
+      "state": [
+        0.35,
+        0.7,
+        0.3
+      ],
+      "stored_cross": 0.05436862065444359,
+      "independent_cross": [
+        0.05436859296104046,
+        0.054368631818846325
+      ]
+    },
+    {
+      "parameters": [
+        "delayed",
+        "0.9",
+        "0",
+        "0.5",
+        "1"
+      ],
+      "community": "leftdup8",
+      "state": [
+        0.2,
+        0.7,
+        0.3
+      ],
+      "stored_cross": 0.03189042941942333,
+      "independent_cross": [
+        0.03189039587958575,
+        0.03189042363516137
+      ]
+    },
+    {
+      "parameters": [
+        "delayed",
+        "0.9",
+        "0",
+        "0.5",
+        "1"
+      ],
+      "community": "leftdup8",
+      "state": [
+        0.35,
+        0.7,
+        0.3
+      ],
+      "stored_cross": 0.05436862065777426,
+      "independent_cross": [
+        0.05436857630769509,
+        0.05436862071661608
+      ]
+    },
+    {
+      "parameters": [
+        "delayed",
+        "0.9",
+        "0",
+        "1",
+        "1"
+      ],
+      "community": "leftdup8",
+      "state": [
+        0.2,
+        0.7,
+        0.3
+      ],
+      "stored_cross": 0.03189042942164377,
+      "independent_cross": [
+        0.031890401430700877,
+        0.03189042363516137
+      ]
+    },
+    {
+      "parameters": [
+        "delayed",
+        "0.9",
+        "0",
+        "1",
+        "1"
+      ],
+      "community": "leftdup8",
+      "state": [
+        0.35,
+        0.7,
+        0.3
+      ],
+      "stored_cross": 0.05436862065555381,
+      "independent_cross": [
+        0.05436859296104046,
+        0.05436860961438583
+      ]
+    },
+    {
+      "parameters": [
+        "delayed",
+        "0.9",
+        "0",
+        "2",
+        "1"
+      ],
+      "community": "leftdup8",
+      "state": [
+        0.2,
+        0.7,
+        0.3
+      ],
+      "stored_cross": 0.03189042942164377,
+      "independent_cross": [
+        0.031890401430700877,
+        0.031890434737391615
+      ]
+    },
+    {
+      "parameters": [
+        "delayed",
+        "0.9",
+        "0",
+        "2",
+        "1"
+      ],
+      "community": "leftdup8",
+      "state": [
+        0.35,
+        0.7,
+        0.3
+      ],
+      "stored_cross": 0.05436862065444359,
+      "independent_cross": [
+        0.05436858185881022,
+        0.05436858740992534
+      ]
+    },
+    {
+      "parameters": [
+        "delayed",
+        "0.9",
+        "0.25",
+        "0",
+        "1"
+      ],
+      "community": "leftdup8",
+      "state": [
+        0.2,
+        0.7,
+        0.3
+      ],
+      "stored_cross": 0.015720506630900744,
+      "independent_cross": [
+        0.015720474921820937,
+        0.015720491575166307
+      ]
+    },
+    {
+      "parameters": [
+        "delayed",
+        "0.9",
+        "0.25",
+        "0",
+        "1"
+      ],
+      "community": "leftdup8",
+      "state": [
+        0.35,
+        0.7,
+        0.3
+      ],
+      "stored_cross": 0.03985029311648347,
+      "independent_cross": [
+        0.0398502564280534,
+        0.03985027863251389
+      ]
+    },
+    {
+      "parameters": [
+        "delayed",
+        "0.9",
+        "0.25",
+        "0.25",
+        "1"
+      ],
+      "community": "leftdup8",
+      "state": [
+        0.2,
+        0.7,
+        0.3
+      ],
+      "stored_cross": 0.015720506628680297,
+      "independent_cross": [
+        0.015720474921820937,
+        0.0157205137796268
+      ]
+    },
+    {
+      "parameters": [
+        "delayed",
+        "0.9",
+        "0.25",
+        "0.25",
+        "1"
+      ],
+      "community": "leftdup8",
+      "state": [
+        0.35,
+        0.7,
+        0.3
+      ],
+      "stored_cross": 0.03985029311648347,
+      "independent_cross": [
+        0.039850250876938276,
+        0.039850267530283645
+      ]
+    },
+    {
+      "parameters": [
+        "delayed",
+        "0.9",
+        "0.25",
+        "0.5",
+        "1"
+      ],
+      "community": "leftdup8",
+      "state": [
+        0.2,
+        0.7,
+        0.3
+      ],
+      "stored_cross": 0.01572050662979052,
+      "independent_cross": [
+        0.015720474921820937,
+        0.0157205137796268
+      ]
+    },
+    {
+      "parameters": [
+        "delayed",
+        "0.9",
+        "0.25",
+        "0.5",
+        "1"
+      ],
+      "community": "leftdup8",
+      "state": [
+        0.35,
+        0.7,
+        0.3
+      ],
+      "stored_cross": 0.039850293117593694,
+      "independent_cross": [
+        0.039850250876938276,
+        0.03985027863251389
+      ]
+    },
+    {
+      "parameters": [
+        "delayed",
+        "0.9",
+        "0.25",
+        "1",
+        "1"
+      ],
+      "community": "leftdup8",
+      "state": [
+        0.2,
+        0.7,
+        0.3
+      ],
+      "stored_cross": 0.015720506630900744,
+      "independent_cross": [
+        0.015720474921820937,
+        0.015720502677396553
+      ]
+    },
+    {
+      "parameters": [
+        "delayed",
+        "0.9",
+        "0.25",
+        "1",
+        "1"
+      ],
+      "community": "leftdup8",
+      "state": [
+        0.35,
+        0.7,
+        0.3
+      ],
+      "stored_cross": 0.03985029311648347,
+      "independent_cross": [
+        0.0398502564280534,
+        0.03985027863251389
+      ]
+    },
+    {
+      "parameters": [
+        "delayed",
+        "0.9",
+        "0.25",
+        "2",
+        "1"
+      ],
+      "community": "leftdup8",
+      "state": [
+        0.2,
+        0.7,
+        0.3
+      ],
+      "stored_cross": 0.01572050663312119,
+      "independent_cross": [
+        0.015720474921820937,
+        0.0157205137796268
+      ]
+    },
+    {
+      "parameters": [
+        "delayed",
+        "0.9",
+        "0.25",
+        "2",
+        "1"
+      ],
+      "community": "leftdup8",
+      "state": [
+        0.35,
+        0.7,
+        0.3
+      ],
+      "stored_cross": 0.03985029311648347,
+      "independent_cross": [
+        0.0398502564280534,
+        0.03985027863251389
+      ]
+    },
+    {
+      "parameters": [
+        "delayed",
+        "0.9",
+        "0.5",
+        "0",
+        "1"
+      ],
+      "community": "leftdup8",
+      "state": [
+        0.35,
+        0.7,
+        0.3
+      ],
+      "stored_cross": 0.02533196557741313,
+      "independent_cross": [
+        0.025331914343951212,
+        0.025331969855102443
+      ]
+    },
+    {
+      "parameters": [
+        "delayed",
+        "0.9",
+        "0.5",
+        "0.25",
+        "1"
+      ],
+      "community": "leftdup8",
+      "state": [
+        0.35,
+        0.7,
+        0.3
+      ],
+      "stored_cross": 0.02533196557796824,
+      "independent_cross": [
+        0.025331919895066335,
+        0.025331969855102443
+      ]
+    },
+    {
+      "parameters": [
+        "delayed",
+        "0.9",
+        "0.5",
+        "0.5",
+        "1"
+      ],
+      "community": "leftdup8",
+      "state": [
+        0.35,
+        0.7,
+        0.3
+      ],
+      "stored_cross": 0.02533196557741313,
+      "independent_cross": [
+        0.02533190879283609,
+        0.025331936548411704
+      ]
+    },
+    {
+      "parameters": [
+        "delayed",
+        "0.9",
+        "0.5",
+        "1",
+        "1"
+      ],
+      "community": "leftdup8",
+      "state": [
+        0.35,
+        0.7,
+        0.3
+      ],
+      "stored_cross": 0.025331965579078464,
+      "independent_cross": [
+        0.025331914343951212,
+        0.02533194765064195
+      ]
+    },
+    {
+      "parameters": [
+        "delayed",
+        "0.9",
+        "0.5",
+        "2",
+        "1"
+      ],
+      "community": "leftdup8",
+      "state": [
+        0.35,
+        0.7,
+        0.3
+      ],
+      "stored_cross": 0.025331965575192683,
+      "independent_cross": [
+        0.025331914343951212,
+        0.025331936548411704
+      ]
+    }
+  ],
+  "scope": "No independent full trajectory or biological calibration claimed."
+}

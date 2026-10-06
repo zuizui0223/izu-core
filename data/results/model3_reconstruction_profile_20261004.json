@@ -1,0 +1,7 @@
+{
+  "scope": "diagnostic reconstruction only",
+  "seconds_default": 0.5869689000537619,
+  "seconds_optimized": 0.0008237999863922596,
+  "max_difference": 8.526512829121202e-13,
+  "relative_l1": 8.956285942903433e-16
+}

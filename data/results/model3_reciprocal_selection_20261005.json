@@ -1,0 +1,1155 @@
+{
+  "classification": "exploratory mechanistic diagnostic declared before this calculation; not prospective confirmation",
+  "n_fields": 60,
+  "n_states": 144060,
+  "derivative_step_max_difference": 0.0008281101671059332,
+  "independent_gradient_max_error": 2.7288993287299945e-10,
+  "derivative_sign_disagreements": 0,
+  "max_relative_step_error": 1.872967374927995e-05,
+  "rows": [
+    {
+      "setting": "delayed_control",
+      "community": "reference8",
+      "matching": 0.2,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.13369429404414826,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -84.88405669626609,
+        "maximum": -0.35654470954216144,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -160.56499263370938,
+        "maximum": -0.3512252910775615,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "delayed_control",
+      "community": "reference8",
+      "matching": 0.5,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.12453144523115368,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -79.88701962298173,
+        "maximum": -0.3268730083749727,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -151.3611347114363,
+        "maximum": -0.3239772710914024,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "delayed_control",
+      "community": "reference8",
+      "matching": 0.8,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.13369429404414826,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -84.88405669626609,
+        "maximum": -0.35654470954216144,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -160.56499263369162,
+        "maximum": -0.3512252910783942,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "delayed_control",
+      "community": "left4",
+      "matching": 0.2,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.13369429404414826,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -84.89540948151131,
+        "maximum": -0.35647923709303253,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -160.58520469822923,
+        "maximum": -0.35133360755668086,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "delayed_control",
+      "community": "left4",
+      "matching": 0.5,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.2303206997084548,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -101.0524586510897,
+        "maximum": -0.24330548177936562,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -192.19975689932056,
+        "maximum": -0.42797991749443653,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "delayed_control",
+      "community": "left4",
+      "matching": 0.8,
+      "n_states": 2401,
+      "joint_direction_fraction": 1.0,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -3.7556410498396087,
+        "maximum": -0.00013064286603914343,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -4.852101710639545,
+        "maximum": -0.0002606182736286655,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "delayed_control",
+      "community": "right4",
+      "matching": 0.2,
+      "n_states": 2401,
+      "joint_direction_fraction": 1.0,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -3.7556410498396087,
+        "maximum": -0.00013064286603914343,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -4.852101710639545,
+        "maximum": -0.0002606182736286655,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "delayed_control",
+      "community": "right4",
+      "matching": 0.5,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.2303206997084548,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -101.0524586510897,
+        "maximum": -0.24330548177964317,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -192.1997568992495,
+        "maximum": -0.4279799174927712,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "delayed_control",
+      "community": "right4",
+      "matching": 0.8,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.13369429404414826,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -84.89540948151131,
+        "maximum": -0.3564792370924774,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -160.5852046981937,
+        "maximum": -0.3513336075583462,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "delayed_control",
+      "community": "center4",
+      "matching": 0.2,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.6214077467721782,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -82.15566660255024,
+        "maximum": -0.06313703502756896,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -159.5893155396766,
+        "maximum": -0.12264558927554958,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "delayed_control",
+      "community": "center4",
+      "matching": 0.5,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.12119950020824656,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -80.687341039134,
+        "maximum": -0.3311897177665779,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -152.78648778743076,
+        "maximum": -0.32831570405456034,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "delayed_control",
+      "community": "center4",
+      "matching": 0.8,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.6214077467721782,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -82.15566660254581,
+        "maximum": -0.06313703502749957,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -159.58931553960554,
+        "maximum": -0.12264558927332914,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "delayed_control",
+      "community": "leftdup8",
+      "matching": 0.2,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.11786755518533944,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -58.057231884296456,
+        "maximum": -0.20942643050192444,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -109.0972528113987,
+        "maximum": -0.20179251380841867,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "delayed_control",
+      "community": "leftdup8",
+      "matching": 0.5,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.12453144523115368,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -79.88701962296396,
+        "maximum": -0.3268730083749727,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -151.36113471141854,
+        "maximum": -0.3239772710914024,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "delayed_control",
+      "community": "leftdup8",
+      "matching": 0.8,
+      "n_states": 2401,
+      "joint_direction_fraction": 1.0,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -6.726483337891054,
+        "maximum": -0.0002612218286124346,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -8.688247313628494,
+        "maximum": -0.0005211079900924176,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "community": "reference8",
+      "matching": 0.2,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.3977509371095377,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -86.12159150233722,
+        "maximum": -0.43083458841422506,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -161.2767170178664,
+        "maximum": -0.4156284995660009,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "community": "reference8",
+      "matching": 0.5,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.3885880882965431,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -81.09091188589268,
+        "maximum": -0.4879051007615834,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -152.11046240834136,
+        "maximum": -0.4664291852446434,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "community": "reference8",
+      "matching": 0.8,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.3977509371095377,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -86.12159150233722,
+        "maximum": -0.43083458841422506,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -161.27671701783086,
+        "maximum": -0.4156284995660009,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "community": "left4",
+      "matching": 0.2,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.3973344439816743,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -86.13321958692133,
+        "maximum": -0.4308068123616733,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -161.29692457921507,
+        "maximum": -0.4155976640018988,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "community": "left4",
+      "matching": 0.5,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.4648063306955435,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -102.26852284580978,
+        "maximum": -0.2504348754081738,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -192.56730402194222,
+        "maximum": -0.24292419198435056,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "community": "left4",
+      "matching": 0.8,
+      "n_states": 2401,
+      "joint_direction_fraction": 1.0,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -3.760641553142152,
+        "maximum": -0.00013064483200125876,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -4.808986039321894,
+        "maximum": -0.00013291731715270316,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "community": "right4",
+      "matching": 0.2,
+      "n_states": 2401,
+      "joint_direction_fraction": 1.0,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -3.760641553142152,
+        "maximum": -0.00013064483200125876,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -4.80898603925084,
+        "maximum": -0.00013291731715270316,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "community": "right4",
+      "matching": 0.5,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.4648063306955435,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -102.26852284579202,
+        "maximum": -0.25043487540815645,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -192.5673040219067,
+        "maximum": -0.24292419198435056,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "community": "right4",
+      "matching": 0.8,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.3973344439816743,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -86.13321958692133,
+        "maximum": -0.43080681236165597,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -161.29692457921507,
+        "maximum": -0.4155976640018988,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "community": "center4",
+      "matching": 0.2,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.6992919616826322,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -82.60002373830844,
+        "maximum": -0.06360157350070866,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -158.84789938382937,
+        "maximum": -0.06300943800274794,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "community": "center4",
+      "matching": 0.5,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.3885880882965431,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -81.89934119876341,
+        "maximum": -0.47946945103058414,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -153.53159605128397,
+        "maximum": -0.4630345417877546,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "community": "center4",
+      "matching": 0.8,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.6992919616826322,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -82.60002373830399,
+        "maximum": -0.06360157350067397,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -158.84789938375832,
+        "maximum": -0.06300943800274794,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "community": "leftdup8",
+      "matching": 0.2,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.3748438150770512,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -59.038670828961415,
+        "maximum": -0.5990392808324918,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -109.83852317048459,
+        "maximum": -0.2409409327736034,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "community": "leftdup8",
+      "matching": 0.5,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.3885880882965431,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -81.0909118858838,
+        "maximum": -0.487905100761566,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -152.1104624083236,
+        "maximum": -0.4664291852446434,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "community": "leftdup8",
+      "matching": 0.8,
+      "n_states": 2401,
+      "joint_direction_fraction": 1.0,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -6.743584760636745,
+        "maximum": -0.00026122968895675447,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -8.619689047435486,
+        "maximum": -0.0002657730657773527,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "pollen_discount",
+      "community": "reference8",
+      "matching": 0.2,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.28987921699291963,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -87.245913154268,
+        "maximum": -0.24043535651233072,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -163.57454079484413,
+        "maximum": -0.4549400440123641,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "pollen_discount",
+      "community": "reference8",
+      "matching": 0.5,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.2569762598917118,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -82.18119041640826,
+        "maximum": -0.2718754166042281,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -154.35614111749985,
+        "maximum": -0.4870209000301662,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "pollen_discount",
+      "community": "reference8",
+      "matching": 0.8,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.28987921699291963,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -87.245913154268,
+        "maximum": -0.24043535651260828,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -163.57454079487965,
+        "maximum": -0.4549400440123641,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "pollen_discount",
+      "community": "left4",
+      "matching": 0.2,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.2886297376093295,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -87.25750330637716,
+        "maximum": -0.2404256264688931,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -163.59494220251847,
+        "maximum": -0.45490639426937207,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "pollen_discount",
+      "community": "left4",
+      "matching": 0.5,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.4177426072469804,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -103.38956865338034,
+        "maximum": -0.14026954287406357,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -194.8287993407405,
+        "maximum": -0.2660878052895832,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "pollen_discount",
+      "community": "left4",
+      "matching": 0.8,
+      "n_states": 2401,
+      "joint_direction_fraction": 1.0,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -3.7627353737879066,
+        "maximum": -7.356520136114764e-05,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -4.814242429773685,
+        "maximum": -0.0001457433773666139,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "pollen_discount",
+      "community": "right4",
+      "matching": 0.2,
+      "n_states": 2401,
+      "joint_direction_fraction": 1.0,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -3.7627353737879066,
+        "maximum": -7.356520136114764e-05,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -4.814242429773685,
+        "maximum": -0.0001457433773666139,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "pollen_discount",
+      "community": "right4",
+      "matching": 0.5,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.4177426072469804,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -103.38956865337146,
+        "maximum": -0.14026954287399418,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -194.82879934070496,
+        "maximum": -0.2660878052895832,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "pollen_discount",
+      "community": "right4",
+      "matching": 0.8,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.2886297376093295,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -87.25750330637716,
+        "maximum": -0.24042562646917065,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -163.59494220253623,
+        "maximum": -0.45490639426937207,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "pollen_discount",
+      "community": "center4",
+      "matching": 0.2,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.7072053311120367,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -82.99552299797507,
+        "maximum": -0.03575683242098768,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -159.68370694395162,
+        "maximum": -0.06907086159912978,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "pollen_discount",
+      "community": "center4",
+      "matching": 0.5,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.25864223240316536,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -82.99453247427202,
+        "maximum": -0.2672945427099893,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -155.78696826288763,
+        "maximum": -0.49757628875934934,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "pollen_discount",
+      "community": "center4",
+      "matching": 0.8,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.7072053311120367,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -82.99552299797064,
+        "maximum": -0.03575683242097033,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -159.68370694395162,
+        "maximum": -0.06907086159912978,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "pollen_discount",
+      "community": "leftdup8",
+      "matching": 0.2,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.09870887130362349,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -59.87335255860593,
+        "maximum": -0.07309441448333232,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -111.6624614809858,
+        "maximum": -0.24842807001101974,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "pollen_discount",
+      "community": "leftdup8",
+      "matching": 0.5,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.2569762598917118,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -82.18119041640826,
+        "maximum": -0.271875416603673,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -154.3561411175176,
+        "maximum": -0.4870209000312764,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "pollen_discount",
+      "community": "leftdup8",
+      "matching": 0.8,
+      "n_states": 2401,
+      "joint_direction_fraction": 1.0,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -6.752511373480097,
+        "maximum": -0.0001470928398875082,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -8.637529674686562,
+        "maximum": -0.0002914190777580927,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "community": "reference8",
+      "matching": 0.2,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.0049979175343606835,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -84.8840566962572,
+        "maximum": -0.3565447095443819,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -160.5328796351735,
+        "maximum": -0.1825669063032498,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "community": "reference8",
+      "matching": 0.5,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.0020824656393169513,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -79.88701962296396,
+        "maximum": -0.3268730083755278,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -151.3308624844889,
+        "maximum": -0.16840338551260547,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "community": "reference8",
+      "matching": 0.8,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.0049979175343606835,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -84.8840566962572,
+        "maximum": -0.3565447095443819,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -160.53287963515572,
+        "maximum": -0.1825669063032498,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "community": "left4",
+      "matching": 0.2,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.0049979175343606835,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -84.89540948151131,
+        "maximum": -0.35647923709414275,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -160.5530876572736,
+        "maximum": -0.1826232092078106,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "community": "left4",
+      "matching": 0.5,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.09454394002498959,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -101.05245865109858,
+        "maximum": -0.24330548177992073,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -192.1613169479386,
+        "maximum": -0.2224639611131396,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "community": "left4",
+      "matching": 0.8,
+      "n_states": 2401,
+      "joint_direction_fraction": 1.0,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -3.755641049841829,
+        "maximum": -0.00013064286600444897,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -4.851131290237731,
+        "maximum": -0.00013546937870090314,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "community": "right4",
+      "matching": 0.2,
+      "n_states": 2401,
+      "joint_direction_fraction": 1.0,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -3.755641049841829,
+        "maximum": -0.00013064286600444897,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -4.851131290237731,
+        "maximum": -0.00013546937870090314,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "community": "right4",
+      "matching": 0.5,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.09454394002498959,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -101.05245865109858,
+        "maximum": -0.24330548177992073,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -192.16131694790306,
+        "maximum": -0.2224639611131396,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "community": "right4",
+      "matching": 0.8,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.0049979175343606835,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -84.89540948150243,
+        "maximum": -0.35647923709414275,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -160.55308765725584,
+        "maximum": -0.18262320920892083,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "community": "center4",
+      "matching": 0.2,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.5864223240316535,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -82.15566660254581,
+        "maximum": -0.06313703502763834,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -159.55739767655075,
+        "maximum": -0.06375117730550439,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "community": "center4",
+      "matching": 0.5,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.0012494793835901709,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -80.68734103914288,
+        "maximum": -0.33118971776879835,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -152.75593048986735,
+        "maximum": -0.17065850296815732,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "community": "center4",
+      "matching": 0.8,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.5864223240316535,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -82.15566660255024,
+        "maximum": -0.06313703502763834,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -159.5573976764797,
+        "maximum": -0.063751177305435,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "community": "leftdup8",
+      "matching": 0.2,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.0024989587671803417,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -58.057231884296456,
+        "maximum": -0.20942643050358978,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -109.07543336083236,
+        "maximum": -0.10489174867678308,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "community": "leftdup8",
+      "matching": 0.5,
+      "n_states": 2401,
+      "joint_direction_fraction": 0.0020824656393169513,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -79.88701962298173,
+        "maximum": -0.3268730083755278,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -151.33086248447114,
+        "maximum": -0.16840338551260547,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "community": "leftdup8",
+      "matching": 0.8,
+      "n_states": 2401,
+      "joint_direction_fraction": 1.0,
+      "capacity_effect_on_investment_selection": {
+        "minimum": -6.726483337891054,
+        "maximum": -0.00026122182864712906,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      },
+      "investment_effect_on_capacity_selection": {
+        "minimum": -8.686509664102005,
+        "maximum": -0.00027087193314734304,
+        "negative_grid_fraction": 1.0,
+        "positive_grid_fraction": 0.0
+      }
+    }
+  ],
+  "claim_boundary": "local monomorphic resident gradients; no genetic covariance; no claim that arrows are evolutionary velocity or distance-gradient crossing order",
+  "array_sha256": "34ea29ea2623c1ec80a1b0045c9ce9ecf31cd09e6f4808c3797bd735bc379b2c",
+  "design_sha256": "b6cc798fef64c72e6edbd681bb6a6ee57dbb614ff5da826d0469aed90cf226c3",
+  "status": "passed_diagnostic_checks"
+}

@@ -1,0 +1,4539 @@
+{
+  "classification": "exploratory parameter sensitivity, design recorded before execution; no natural calibration or confirmatory claim",
+  "status": "passed_gradient_checks",
+  "parameter_combinations": 500,
+  "state_community_parameter_cases": 112500,
+  "independent_gradients_checked": 225000,
+  "independent_max_abs_error": 1.2553593720099343e-09,
+  "cross_step_max_abs_difference": 1.401111169307967e-07,
+  "cross_step_sign_disagreements": 0,
+  "regime_counts": {
+    "investment_-1_capacity_-1": 15586,
+    "investment_-1_capacity_0": 0,
+    "investment_-1_capacity_1": 36779,
+    "investment_0_capacity_-1": 0,
+    "investment_0_capacity_0": 0,
+    "investment_0_capacity_1": 0,
+    "investment_1_capacity_-1": 25024,
+    "investment_1_capacity_0": 0,
+    "investment_1_capacity_1": 35111
+  },
+  "cross_derivative_sign_counts": {
+    "capacity_on_investment": {
+      "-1": 112475,
+      "0": 0,
+      "1": 25
+    },
+    "investment_on_capacity": {
+      "-1": 112500,
+      "0": 0,
+      "1": 0
+    }
+  },
+  "rows": [
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0.25,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 84,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0.25,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 127,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 84,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 127,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 84,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 125,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0.25,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 58,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0.25,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 68,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0.25,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 20,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0.25,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 24,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0.5,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 139,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0.5,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 161,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 139,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 161,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 137,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 157,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0.5,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 74,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0.5,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 87,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0.5,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 24,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 0.5,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 26,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 1,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 197,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 1,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 208,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 1,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 197,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 1,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 207,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 1,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 195,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 1,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 202,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 1,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 124,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 1,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 130,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 1,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 40,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 1,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 45,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 2,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 223,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 2,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 224,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 2,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 223,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 2,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 223,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 2,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 221,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 2,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 218,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 2,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 150,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 2,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 146,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 2,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 62,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0,
+      "investment_cost": 2,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 59,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0.25,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 64,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0.25,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 88,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 64,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 88,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 64,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 81,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0.25,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 51,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0.25,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 54,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0.25,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 16,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0.25,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 19,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0.5,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 98,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0.5,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 140,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 98,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 138,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 90,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 129,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0.5,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 61,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0.5,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 65,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0.5,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 24,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 0.5,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 24,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 1,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 174,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 1,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 191,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 1,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 174,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 1,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 187,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 1,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 161,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 1,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 178,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 1,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 95,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 1,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 106,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 1,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 30,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 1,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 30,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 2,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 211,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 2,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 221,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 2,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 211,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 2,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 217,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 2,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 198,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 2,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 208,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 2,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 128,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 2,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 134,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 2,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 47,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.25,
+      "investment_cost": 2,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 51,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0.25,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 52,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0.25,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 61,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 52,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 61,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 52,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 61,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0.25,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 41,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0.25,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 48,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0.25,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 13,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0.25,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 15,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0.5,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 69,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0.5,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 93,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 69,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 93,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 69,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 80,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0.5,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 54,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0.5,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 57,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0.5,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 19,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 0.5,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 22,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 1,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 142,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 1,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 168,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 1,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 140,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 1,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 166,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 1,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 125,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 1,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 133,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 1,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 76,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 1,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 67,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 1,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 26,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 1,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 24,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 2,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 197,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 2,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 204,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 2,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 195,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 2,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 199,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 2,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 178,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 2,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 165,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 2,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 102,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 2,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 97,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 2,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 30,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.5,
+      "investment_cost": 2,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 28,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0.25,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 35,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0.25,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 44,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 35,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 44,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 35,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 44,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0.25,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 29,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0.25,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 33,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0.25,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 9,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0.25,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 9,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0.5,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 51,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0.5,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 61,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 51,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 61,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 51,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 61,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0.5,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 38,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0.5,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 46,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0.5,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 13,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 0.5,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 15,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 1,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 90,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 1,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 93,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 1,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 79,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 1,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 78,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 1,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 69,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 1,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 72,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 1,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 52,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 1,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 55,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 1,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 19,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 1,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 22,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 2,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 161,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 2,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 148,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 2,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 148,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 2,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 125,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 2,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 110,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 2,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 99,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 2,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 61,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 2,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 61,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 2,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 24,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.75,
+      "investment_cost": 2,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 24,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0.25,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 27,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0.25,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 29,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 27,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 29,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 27,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 29,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0.25,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 27,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0.25,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 27,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0.25,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 9,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0.25,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 9,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0.5,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 29,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0.5,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 39,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 29,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 39,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 29,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 39,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0.5,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 27,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0.5,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 31,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0.5,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 9,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 0.5,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 9,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 1,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 48,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 1,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 59,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 1,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 48,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 1,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 59,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 1,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 48,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 1,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 57,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 1,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 36,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 1,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 41,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 1,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 11,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 1,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 13,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 2,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 120,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 2,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 76,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 2,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 86,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 2,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 70,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 2,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 69,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 2,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 68,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 2,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 50,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 2,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 52,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 2,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 19,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "delayed",
+      "depression": 0.9,
+      "investment_cost": 2,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 19,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0.25,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 104,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0.25,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 138,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 104,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 138,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 104,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 138,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0.25,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 60,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0.25,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 83,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0.25,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 20,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0.25,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 24,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0.5,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 160,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0.5,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 180,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 160,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 180,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 160,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 180,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0.5,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 98,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0.5,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 121,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0.5,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 28,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 0.5,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 39,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 1,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 206,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 1,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 210,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 1,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 206,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 1,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 210,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 1,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 206,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 1,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 210,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 1,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 143,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 1,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 151,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 1,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 56,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 1,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 58,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 2,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 223,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 2,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 225,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 2,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 223,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 2,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 225,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 2,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 223,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 2,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 225,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 2,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 160,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 2,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 166,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 2,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 71,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0,
+      "investment_cost": 2,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 73,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0.25,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 86,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0.25,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 113,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 86,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 113,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 84,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 113,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0.25,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 52,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0.25,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 60,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0.25,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 17,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0.25,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 20,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0.5,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 142,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0.5,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 159,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 142,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 159,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 140,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 159,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0.5,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 71,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0.5,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 92,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0.5,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 24,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 0.5,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 26,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 1,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 193,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 1,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 205,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 1,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 193,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 1,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 205,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 1,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 191,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 1,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 205,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 1,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 118,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 1,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 134,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 1,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 36,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 1,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 43,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 2,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 223,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 2,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 223,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 2,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 223,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 2,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 223,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 2,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 221,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 2,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 223,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 2,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 148,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 2,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 152,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 2,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 62,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.25,
+      "investment_cost": 2,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 58,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0.25,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 65,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0.25,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 91,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 65,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 91,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 63,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 89,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0.25,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 48,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0.25,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 51,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0.25,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 15,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0.25,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 16,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0.5,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 123,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0.5,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 140,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 121,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 139,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 104,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 135,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0.5,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 57,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0.5,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 63,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0.5,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 22,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 0.5,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 24,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 1,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 176,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 1,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 189,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 1,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 174,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 1,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 188,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 1,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 157,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 1,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 184,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 1,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 80,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 1,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 90,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 1,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 26,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 1,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 26,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 2,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 210,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 2,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 210,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 2,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 208,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 2,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 209,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 2,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 191,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 2,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 204,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 2,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 111,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 2,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 109,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 2,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 32,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.5,
+      "investment_cost": 2,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 32,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0.25,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 48,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0.25,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 57,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 48,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 57,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 48,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 55,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0.25,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 33,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0.25,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 40,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0.25,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 9,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0.25,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 11,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0.5,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 70,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0.5,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 100,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 64,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 89,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 62,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 72,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0.5,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 47,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0.5,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 51,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0.5,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 16,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 0.5,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 18,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 1,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 115,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 1,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 135,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 1,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 86,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 1,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 120,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 1,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 78,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 1,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 95,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 1,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 55,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 1,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 57,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 1,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 22,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 1,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 24,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 2,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 162,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 2,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 165,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 2,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 127,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 2,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 146,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 2,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 96,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 2,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 114,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 2,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 61,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 2,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 63,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 2,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 24,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.75,
+      "investment_cost": 2,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 24,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 0,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0.25,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 33,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0.25,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 44,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 33,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 44,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 33,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0.25,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 44,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0.25,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 27,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0.25,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 31,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0.25,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 9,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0.25,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 9,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0.5,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 46,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0.5,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 54,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 46,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 54,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 43,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0.5,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 54,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0.5,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 33,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0.5,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 36,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0.5,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 9,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 0.5,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 11,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 1,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 62,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 1,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 70,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 1,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 62,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 1,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 68,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 1,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 59,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 1,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 68,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 1,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 40,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 1,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 46,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 1,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 13,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 1,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 15,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 2,
+      "assurance_cost": 0,
+      "pollen_discount": 0,
+      "joint_direction_count": 72,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 2,
+      "assurance_cost": 0,
+      "pollen_discount": 1,
+      "joint_direction_count": 89,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 2,
+      "assurance_cost": 0.25,
+      "pollen_discount": 0,
+      "joint_direction_count": 72,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 2,
+      "assurance_cost": 0.25,
+      "pollen_discount": 1,
+      "joint_direction_count": 80,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 2,
+      "assurance_cost": 0.5,
+      "pollen_discount": 0,
+      "joint_direction_count": 67,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 2,
+      "assurance_cost": 0.5,
+      "pollen_discount": 1,
+      "joint_direction_count": 74,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 2,
+      "assurance_cost": 1,
+      "pollen_discount": 0,
+      "joint_direction_count": 48,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 2,
+      "assurance_cost": 1,
+      "pollen_discount": 1,
+      "joint_direction_count": 52,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 2,
+      "assurance_cost": 2,
+      "pollen_discount": 0,
+      "joint_direction_count": 17,
+      "states_communities": 225
+    },
+    {
+      "assurance_timing": "prior",
+      "depression": 0.9,
+      "investment_cost": 2,
+      "assurance_cost": 2,
+      "pollen_discount": 1,
+      "joint_direction_count": 19,
+      "states_communities": 225
+    }
+  ],
+  "design_sha256": "314f2c0ede36aef414ecefdbe4d09a7e0617cc2311bde0cb1fcaa8e5f962d00f",
+  "array_sha256": "9af89f44c3d6da0a813158a5693a1e9b0b56dcdac8fce1c2146aa26fd796be9e",
+  "script_sha256": "eb3b0254a5dd13e8e7eae8c4cb0759e1ab601982a3b16d37db30245f7e37f6f9",
+  "scope": "Designed grid counts, not probability or natural prevalence. No evolution trajectory or order tested."
+}

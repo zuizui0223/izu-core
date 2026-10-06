@@ -1,0 +1,334 @@
+{
+  "single_step": {
+    "initial_ranks": [
+      6,
+      9,
+      5
+    ],
+    "final_ranks": [
+      10,
+      15,
+      10
+    ],
+    "visitors": 4,
+    "profiled_seconds": 13.974488600040786,
+    "reference_seconds": 0.004448899999260902,
+    "relative_l1": 3.535441841443691e-15,
+    "local_receipts": [
+      {
+        "stage": "weight:self:None",
+        "absolute_l1_bound": 1.119276229239756e-13,
+        "mass_before": 59.848114518245076,
+        "ranks": [
+          6,
+          9,
+          5
+        ],
+        "relative_l1_bound": 1.8701946389614955e-15,
+        "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+      },
+      {
+        "stage": "selfed_birth",
+        "absolute_l1_bound": 1.3774025611147855e-12,
+        "mass_before": 59.84811451824506,
+        "ranks": [
+          6,
+          9,
+          5
+        ],
+        "relative_l1_bound": 2.3014970015385797e-14,
+        "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+      },
+      {
+        "stage": "weight:donor:0",
+        "absolute_l1_bound": 2.80841518356156e-13,
+        "mass_before": 10.159605260233118,
+        "ranks": [
+          6,
+          9,
+          5
+        ],
+        "relative_l1_bound": 2.7642955721461952e-14,
+        "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+      },
+      {
+        "stage": "weight:recipient:0",
+        "absolute_l1_bound": 4.82939322249328e-15,
+        "mass_before": 0.2802290850870326,
+        "ranks": [
+          6,
+          9,
+          5
+        ],
+        "relative_l1_bound": 1.723373296884363e-14,
+        "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+      },
+      {
+        "stage": "outcross_birth:0",
+        "absolute_l1_bound": 4.20639485381519e-14,
+        "mass_before": 2.8470168869205255,
+        "ranks": [
+          10,
+          15,
+          10
+        ],
+        "relative_l1_bound": 1.4774745008151446e-14,
+        "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+      },
+      {
+        "stage": "sum:0",
+        "absolute_l1_bound": 1.4825472214410158e-12,
+        "mass_before": 62.69513140516562,
+        "ranks": [
+          10,
+          15,
+          10
+        ],
+        "relative_l1_bound": 2.3646927412275348e-14,
+        "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+      },
+      {
+        "stage": "weight:donor:1",
+        "absolute_l1_bound": 3.33258816897525e-14,
+        "mass_before": 4.0343794564654525,
+        "ranks": [
+          6,
+          9,
+          5
+        ],
+        "relative_l1_bound": 8.260472781345545e-15,
+        "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+      },
+      {
+        "stage": "weight:recipient:1",
+        "absolute_l1_bound": 2.2510758294503358e-15,
+        "mass_before": 0.11615178743320867,
+        "ranks": [
+          6,
+          9,
+          5
+        ],
+        "relative_l1_bound": 1.938046653603831e-14,
+        "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+      },
+      {
+        "stage": "outcross_birth:1",
+        "absolute_l1_bound": 7.15038209150853e-15,
+        "mass_before": 0.4686003850522764,
+        "ranks": [
+          10,
+          15,
+          10
+        ],
+        "relative_l1_bound": 1.5259018813462655e-14,
+        "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+      },
+      {
+        "stage": "sum:1",
+        "absolute_l1_bound": 1.5713793657067782e-13,
+        "mass_before": 63.16373179021796,
+        "ranks": [
+          10,
+          15,
+          10
+        ],
+        "relative_l1_bound": 2.487787407694196e-15,
+        "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+      },
+      {
+        "stage": "weight:donor:2",
+        "absolute_l1_bound": 8.063165426566468e-15,
+        "mass_before": 0.508876708972812,
+        "ranks": [
+          6,
+          9,
+          5
+        ],
+        "relative_l1_bound": 1.5845027458305744e-14,
+        "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+      },
+      {
+        "stage": "weight:recipient:2",
+        "absolute_l1_bound": 7.185241542279564e-16,
+        "mass_before": 0.015581323661535062,
+        "ranks": [
+          6,
+          9,
+          5
+        ],
+        "relative_l1_bound": 4.6114448928478765e-14,
+        "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+      },
+      {
+        "stage": "outcross_birth:2",
+        "absolute_l1_bound": 2.917151217610369e-17,
+        "mass_before": 0.007928972706322123,
+        "ranks": [
+          10,
+          15,
+          10
+        ],
+        "relative_l1_bound": 3.6791036186622184e-15,
+        "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+      },
+      {
+        "stage": "sum:2",
+        "absolute_l1_bound": 1.0169084082756725e-12,
+        "mass_before": 63.1716607629242,
+        "ranks": [
+          10,
+          15,
+          10
+        ],
+        "relative_l1_bound": 1.6097541144153387e-14,
+        "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+      },
+      {
+        "stage": "weight:donor:3",
+        "absolute_l1_bound": 1.6434773217632268e-12,
+        "mass_before": 46.84478223111253,
+        "ranks": [
+          6,
+          9,
+          5
+        ],
+        "relative_l1_bound": 3.508346593767899e-14,
+        "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+      },
+      {
+        "stage": "weight:recipient:3",
+        "absolute_l1_bound": 1.786339440983081e-14,
+        "mass_before": 0.93929838391614,
+        "ranks": [
+          6,
+          9,
+          5
+        ],
+        "relative_l1_bound": 1.9017805966358018e-14,
+        "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+      },
+      {
+        "stage": "outcross_birth:3",
+        "absolute_l1_bound": 3.454315460008779e-13,
+        "mass_before": 44.00122824458748,
+        "ranks": [
+          10,
+          15,
+          10
+        ],
+        "relative_l1_bound": 7.85049781066893e-15,
+        "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+      },
+      {
+        "stage": "sum:3",
+        "absolute_l1_bound": 3.6286096742976045e-12,
+        "mass_before": 107.17288900751201,
+        "ranks": [
+          10,
+          15,
+          10
+        ],
+        "relative_l1_bound": 3.385753344806508e-14,
+        "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+      },
+      {
+        "stage": "retained",
+        "absolute_l1_bound": 5.037557489825877e-13,
+        "mass_before": 47.99999999999994,
+        "ranks": [
+          10,
+          15,
+          10
+        ],
+        "relative_l1_bound": 1.0494911437137256e-14,
+        "bound_scope": "truncation and mass rescaling; excludes floating-point roundoff"
+      }
+    ]
+  },
+  "path_comparison": {
+    "shape": {
+      "parent_rank": 12,
+      "child_rank": 15
+    },
+    "results": [
+      {
+        "name": "default",
+        "path": [
+          "einsum_path",
+          [
+            0,
+            1,
+            2,
+            3,
+            4
+          ]
+        ],
+        "seconds": 82.70096259994898,
+        "details": "  Complete contraction:  abc,def,iad,jbe,kcf->ijk\n         Naive scaling:  9\n     Optimized scaling:  9\n      Naive FLOP count:  5.039e+10\n  Optimized FLOP count:  5.039e+10\n   Theoretical speedup:  1.000\n  Largest intermediate:  3.375e+03 elements\n--------------------------------------------------------------------------\nscaling                  current                                remaining\n--------------------------------------------------------------------------\n   9    kcf,jbe,iad,def,abc->ijk                                 ijk->ijk"
+      },
+      {
+        "name": "explicit_budget",
+        "path": [
+          "einsum_path",
+          [
+            0,
+            2
+          ],
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            2
+          ],
+          [
+            0,
+            1
+          ]
+        ],
+        "seconds": 0.0012881000293418765,
+        "details": "  Complete contraction:  abc,def,iad,jbe,kcf->ijk\n         Naive scaling:  9\n     Optimized scaling:  6\n      Naive FLOP count:  5.039e+10\n  Optimized FLOP count:  1.155e+07\n   Theoretical speedup:  4363.636\n  Largest intermediate:  3.240e+04 elements\n--------------------------------------------------------------------------\nscaling                  current                                remaining\n--------------------------------------------------------------------------\n   5               iad,abc->bcdi                    def,jbe,kcf,bcdi->ijk\n   5               jbe,def->bdfj                       kcf,bcdi,bdfj->ijk\n   6             bdfj,bcdi->cfij                            kcf,cfij->ijk\n   5               cfij,kcf->ijk                                 ijk->ijk"
+      }
+    ],
+    "max_absolute_difference": 1.7763568394002505e-14
+  },
+  "candidate": {
+    "seed": 124,
+    "rank": 12,
+    "output_rank": 15,
+    "seconds": 0.0012713000178337097,
+    "default_path": [
+      "einsum_path",
+      [
+        0,
+        1,
+        2,
+        3,
+        4
+      ]
+    ],
+    "budgeted_path": [
+      "einsum_path",
+      [
+        0,
+        2
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        2
+      ],
+      [
+        0,
+        1
+      ]
+    ],
+    "default_info": "  Complete contraction:  abc,def,iad,jbe,kcf->ijk\n         Naive scaling:  9\n     Optimized scaling:  9\n      Naive FLOP count:  5.039e+10\n  Optimized FLOP count:  5.039e+10\n   Theoretical speedup:  1.000\n  Largest intermediate:  3.375e+03 elements\n--------------------------------------------------------------------------\nscaling                  current                                remaining\n--------------------------------------------------------------------------\n   9    kcf,jbe,iad,def,abc->ijk                                 ijk->ijk",
+    "budgeted_info": "  Complete contraction:  abc,def,iad,jbe,kcf->ijk\n         Naive scaling:  9\n     Optimized scaling:  6\n      Naive FLOP count:  5.039e+10\n  Optimized FLOP count:  1.155e+07\n   Theoretical speedup:  4363.636\n  Largest intermediate:  3.240e+04 elements\n--------------------------------------------------------------------------\nscaling                  current                                remaining\n--------------------------------------------------------------------------\n   5               iad,abc->bcdi                    def,jbe,kcf,bcdi->ijk\n   5               jbe,def->bdfj                       kcf,bcdi,bdfj->ijk\n   6             bdfj,bcdi->cfij                            kcf,cfij->ijk\n   5               cfij,kcf->ijk                                 ijk->ijk"
+  },
+  "scope": "single deterministic diagnostic; profiled current step and fixed-rank contraction benchmark, not full solver speedup"
+}

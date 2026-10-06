@@ -1,0 +1,10 @@
+{
+  "status": "specified_before_completed_campaign_readout",
+  "script_sha256": "1e8f01eaa998e6a50194fe2ad8e95b830a1c587e77430c44bc7d9be17e1b8982",
+  "design_sha256": "7125a67af2cb3836526f54f7c466a6e7e9abae9d0dba294ca8618deb84fe4b05",
+  "completion_guard": "requires complete marker and11264 new cases; deliberate call on running campaign raised RuntimeError before outcome reads",
+  "readout": "all13rates; both settings; endpoints200/400/1000; from-founders and paired high-supply contrasts; history-cluster intervals; three crossing thresholds; missing and extinction retained",
+  "expected_full_cases": 13312,
+  "expected_endpoint_rows": 156,
+  "expected_temporal_records": 9984
+}

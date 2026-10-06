@@ -1,0 +1,169 @@
+{
+  "schema_version": "1.0",
+  "workflow_run": 37390991122,
+  "result_artifact": {
+    "artifact_id": 11381590034,
+    "file_name": "chapter2-1005-confirmatory-result.zip",
+    "bytes": 8297,
+    "sha256": "7c5c252cf559067f218bbd9f37b74b00c5d9c52fe30f25bb0196c9bfb9cb4872",
+    "github_actions_expires_at": "2027-01-03T23:52:59Z"
+  },
+  "shard_artifacts": [
+    {
+      "artifact_id": 11381221933,
+      "shard": 0,
+      "file_name": "chapter2-1005-confirmatory-shard-00.zip",
+      "bytes": 8790387,
+      "sha256": "176e143f96173798c304545e32900898330f0fa4573be3a4ae8dc6ea01bdefe6",
+      "github_actions_expires_at": "2026-11-04T23:54:58Z"
+    },
+    {
+      "artifact_id": 11380299610,
+      "shard": 1,
+      "file_name": "chapter2-1005-confirmatory-shard-01.zip",
+      "bytes": 8734300,
+      "sha256": "3a968e2f8a8feb9d8584b9081eb55c1ae87a9f80be5a0a1595cee99164384d79",
+      "github_actions_expires_at": "2026-11-04T23:54:31Z"
+    },
+    {
+      "artifact_id": 11380853633,
+      "shard": 2,
+      "file_name": "chapter2-1005-confirmatory-shard-02.zip",
+      "bytes": 8789078,
+      "sha256": "f533e629940f3397f668d89466cc29c5904497dd5e0fd600ddeae248547a6299",
+      "github_actions_expires_at": "2026-11-04T23:56:02Z"
+    },
+    {
+      "artifact_id": 11380309897,
+      "shard": 3,
+      "file_name": "chapter2-1005-confirmatory-shard-03.zip",
+      "bytes": 8751040,
+      "sha256": "17b1fa5c4b6ad4a7f3f62a69a207d6611072fa3e065ad777946d1fa62fbb44e9",
+      "github_actions_expires_at": "2026-11-04T23:56:06Z"
+    },
+    {
+      "artifact_id": 11380619458,
+      "shard": 4,
+      "file_name": "chapter2-1005-confirmatory-shard-04.zip",
+      "bytes": 8805543,
+      "sha256": "1474f8459533ef00a0a9d99a9c9dc1f7707c1f2e38c88576ed5f781940cbc59f",
+      "github_actions_expires_at": "2026-11-04T23:56:00Z"
+    },
+    {
+      "artifact_id": 11380699306,
+      "shard": 5,
+      "file_name": "chapter2-1005-confirmatory-shard-05.zip",
+      "bytes": 8726701,
+      "sha256": "700ab871f9315f175b18aad17caeffd20ab8b27d674dfecd0512bbc0e553c712",
+      "github_actions_expires_at": "2026-11-04T23:54:31Z"
+    },
+    {
+      "artifact_id": 11380838613,
+      "shard": 6,
+      "file_name": "chapter2-1005-confirmatory-shard-06.zip",
+      "bytes": 8790768,
+      "sha256": "a2b80b05350f5029d98d3204d3b913ece51321240d7457f771b885f2e0dec602",
+      "github_actions_expires_at": "2026-11-04T23:56:26Z"
+    },
+    {
+      "artifact_id": 11380504445,
+      "shard": 7,
+      "file_name": "chapter2-1005-confirmatory-shard-07.zip",
+      "bytes": 8738241,
+      "sha256": "76940ae1c7a02f0ca671ae7e3b472bb7bdc2e326b8f648e4dffdb672c1d57c39",
+      "github_actions_expires_at": "2026-11-04T23:55:06Z"
+    },
+    {
+      "artifact_id": 11381482009,
+      "shard": 8,
+      "file_name": "chapter2-1005-confirmatory-shard-08.zip",
+      "bytes": 8788063,
+      "sha256": "da2e8a5a5c3067228a0d9dd58c907447a5a0f7688fd93a642a55db83cb6b8b43",
+      "github_actions_expires_at": "2026-11-04T23:56:06Z"
+    },
+    {
+      "artifact_id": 11381540018,
+      "shard": 9,
+      "file_name": "chapter2-1005-confirmatory-shard-09.zip",
+      "bytes": 8722374,
+      "sha256": "777773aaec4495befb8c79977d34538436a6ddbf562657d9078ce11dc507b7d7",
+      "github_actions_expires_at": "2026-11-04T23:56:04Z"
+    },
+    {
+      "artifact_id": 11381382104,
+      "shard": 10,
+      "file_name": "chapter2-1005-confirmatory-shard-10.zip",
+      "bytes": 8781953,
+      "sha256": "f5ee0aad99a400cc010d62248fdf2b32160b18ffb9ac4f3af7d5eadb23451812",
+      "github_actions_expires_at": "2026-11-04T23:56:05Z"
+    },
+    {
+      "artifact_id": 11381102203,
+      "shard": 11,
+      "file_name": "chapter2-1005-confirmatory-shard-11.zip",
+      "bytes": 8727865,
+      "sha256": "39ec74fcab0236bc992578f30882ee5c279c00e9ba1955d8796404ad2843ee36",
+      "github_actions_expires_at": "2026-11-04T23:56:03Z"
+    },
+    {
+      "artifact_id": 11381506870,
+      "shard": 12,
+      "file_name": "chapter2-1005-confirmatory-shard-12.zip",
+      "bytes": 8783990,
+      "sha256": "68fb69cbd5a4800582cf38aba5a42a1417e9d0ad9c7d4a3e51fa7e666474a22e",
+      "github_actions_expires_at": "2026-11-04T23:55:14Z"
+    },
+    {
+      "artifact_id": 11380384653,
+      "shard": 13,
+      "file_name": "chapter2-1005-confirmatory-shard-13.zip",
+      "bytes": 8731153,
+      "sha256": "5bceb43b753df9e1513265d73614e9a18ab5dce49b4280ec136c1486b481200a",
+      "github_actions_expires_at": "2026-11-04T23:55:08Z"
+    },
+    {
+      "artifact_id": 11380714344,
+      "shard": 14,
+      "file_name": "chapter2-1005-confirmatory-shard-14.zip",
+      "bytes": 8789338,
+      "sha256": "2c73fcb2135c2bd74ff1ed266021ac24830ebb79191a362285e71972a304314f",
+      "github_actions_expires_at": "2026-11-04T23:55:14Z"
+    },
+    {
+      "artifact_id": 11380908751,
+      "shard": 15,
+      "file_name": "chapter2-1005-confirmatory-shard-15.zip",
+      "bytes": 8735083,
+      "sha256": "a75461952a41cc54a2f522fb7afc9ba83f17fd2fe7d1950e795037b30379d2b7",
+      "github_actions_expires_at": "2026-11-04T23:56:19Z"
+    }
+  ],
+  "preservation_note": "The primary history-level statistical verification surface is now durable in-repository. Raw shard ZIPs are preserved privately outside Actions; a public DOI-backed deposit remains the publication delivery task.",
+  "durable_history_level_exports": [
+    {
+      "path": "data/results/chapter2_1005_confirmatory_primary_sequence_history_20261006.csv",
+      "bytes": 2015,
+      "sha256": "a9d30ee968ec6cc5a50aab2edd4f2128af1d2b9e9586f623458864cabb450fad",
+      "reproduces": "51 assurance-first and 13 near-simultaneous histories in the preregistered primary temporal-order cell"
+    },
+    {
+      "path": "data/results/chapter2_1005_confirmatory_primary_fixed_assurance_history_20261006.csv",
+      "bytes": 3623,
+      "sha256": "85e8675e21780b8d90c28c244b9140a11258d174d511dd98d52a14e028f81433",
+      "reproduces": "Primary fixed-assurance history-level means for far investment change and far-minus-near investment"
+    }
+  ],
+  "private_preservation": {
+    "status": "copied",
+    "destination": "ChatGPT persistent Library /izu-core/chapter2-1005-confirmatory-20261006",
+    "contents": "result ZIP plus all 16 shard ZIPs",
+    "note": "This removes dependence on GitHub Actions retention but is not a public DOI-backed deposit."
+  },
+  "prepared_deposit_bundle": {
+    "file_name": "chapter2-1005-confirmatory-deposit-20261006.zip",
+    "bytes": 140213355,
+    "sha256": "0735bac647bd288f9badfa28b61e44d0724d661550a018a1efa5eae6dfe42f96",
+    "private_preservation_path": "/izu-core/chapter2-1005-confirmatory-20261006/chapter2-1005-confirmatory-deposit-20261006.zip",
+    "public_doi_status": "pending"
+  }
+}

@@ -1,0 +1,47 @@
+{
+  "schema_version": "1.0",
+  "status": "diagnostic_locked_before_population_scale_rerun",
+  "date": "2026-10-03",
+  "parent_design": "data/design/model3_ch2_bridge_execution_20260927.json",
+  "exact_source_snapshot": "data/results/model3_ch2_bridge_resource_pilot_v2_20260927.sources.zip",
+  "question": "At the frozen 200-season natural near/far bridge, does deterministic density mass approximate the finite-ABM population scale?",
+  "scope": {
+    "arms": [
+      "near",
+      "far"
+    ],
+    "histories": 128,
+    "starts": [
+      0.3,
+      0.5,
+      0.7
+    ],
+    "demographic_repeats": 8,
+    "depression": 0.5,
+    "horizon": 200,
+    "capacity": 48,
+    "expected_finite_trajectories": 6144
+  },
+  "endpoints": [
+    "finite terminal population",
+    "deterministic terminal density mass",
+    "finite terminal occupancy",
+    "individual inherited-investment change",
+    "deterministic inherited-investment change"
+  ],
+  "verification": [
+    "reproduce prior finite mean far-minus-near effect near -0.1446",
+    "reproduce prior deterministic mean far-minus-near effect near -0.4510",
+    "verify deterministic endpoint is invariant across demographic replicate within history/start/arm"
+  ],
+  "interpretation_rule": {
+    "strong_scale_disagreement": "finite far occupancy is 1.0 while median deterministic far density mass is <1 and paired finite mean population is orders of magnitude larger",
+    "consequence": "do not interpret ABM-versus-density trait difference or capacity movement toward density as a pure finite-population attenuation or convergence to a stochastic expectation"
+  },
+  "claim_boundary": [
+    "This is a diagnostic rerun of already inspected frozen bridge conditions, not a fresh confirmatory experiment.",
+    "The diagnostic tests population-scale comparability of two model layers; it does not change biological parameters or select histories.",
+    "The deterministic genotype-density implementation is documented in code as a conditional deterministic closure, not the stochastic mean.",
+    "All 128 histories, three starts, eight demographic repeats, and both natural arms are retained."
+  ]
+}

@@ -1,0 +1,105 @@
+{
+  "schema_version": "1.0",
+  "date_frozen": "2026-10-06",
+  "status": "frozen_before_confirmatory_execution",
+  "relation_to_discovery": "Prospective replication of the 2026-10-05 maintained-isolation temporal-order and fixed-assurance findings. Discovery seeds 76001-76064 and demographic repeats 7101-7108 are not reused.",
+  "frozen_claim": "Under sustained visitor-replenishment limitation, realized reproductive-assurance change can precede floral-investment decline, but assurance evolution is not required for investment decline. Reduced outcross returns provide an upstream route by which isolation lowers the marginal reproductive value of attraction; pollen-deficit magnitude is not treated as equivalent to viable reproductive output.",
+  "primary_cell": {
+    "reproductive_setting": "assurance_cost",
+    "assurance_timing": "delayed",
+    "assurance_cost": 0.5,
+    "mutation_probability": 0.01,
+    "rationale": "This is the cell in which the 51/64 discovery was defined; it is frozen before confirmatory outcomes are generated."
+  },
+  "new_randomization": {
+    "visitor_history_seeds": {
+      "first": 26100601,
+      "last": 26100664,
+      "count": 64
+    },
+    "demographic_repeat_seeds": {
+      "first": 26101601,
+      "last": 26101608,
+      "count": 8
+    },
+    "founder_seed": 74001,
+    "note": "Visitor-history and demographic seeds are new. The founder seed/specification is intentionally held fixed to replicate the original biological starting distribution rather than introduce a third stochastic factor."
+  },
+  "sequence_campaign": {
+    "arms": [
+      "far"
+    ],
+    "reproductive_settings": [
+      "assurance_cost",
+      "prior_selfing"
+    ],
+    "mutation_probabilities": [
+      0,
+      0.01
+    ],
+    "histories": 64,
+    "repeats": 8,
+    "total_cases": 2048,
+    "periods": 1000,
+    "thresholds": [
+      0.025,
+      0.05,
+      0.1
+    ],
+    "primary_threshold": 0.05,
+    "sustained_periods": 20,
+    "tie_tolerance_periods": 5,
+    "denominator": "all 64 independent visitor histories; each history is first averaged over its eight demographic repeats. Near-simultaneous, investment-first and censored histories count as not assurance-first for the primary binary success proportion.",
+    "primary_success_rule": "In assurance_cost with mutation 0.01 at threshold 0.05, assurance_first proportion >0.50 and the 95% visitor-history bootstrap interval lower bound >0.50.",
+    "sensitivity_rule": "Report the same ordering counts and bootstrap intervals at thresholds 0.025, 0.05 and 0.10 for all four setting-by-mutation cells. Sensitivity outcomes do not alter the primary success rule.",
+    "bootstrap": {
+      "draws": 9999,
+      "seed": 2610062026,
+      "unit": "visitor_history"
+    }
+  },
+  "fixed_assurance_campaign": {
+    "arms": [
+      "near",
+      "far"
+    ],
+    "reproductive_settings": [
+      "assurance_cost",
+      "prior_selfing"
+    ],
+    "mutation_probabilities": [
+      0.01
+    ],
+    "assurance_mode": "fixed",
+    "fixed_assurance": 0.5,
+    "histories": 64,
+    "repeats": 8,
+    "total_cases": 2048,
+    "periods": 1000,
+    "primary_estimands": [
+      "far investment change from the matched founder mean at period 1000",
+      "far-minus-near investment difference at period 1000"
+    ],
+    "primary_success_rule": "For assurance_cost with mutation 0.01, both investment estimands must be negative and both 95% visitor-history bootstrap interval upper bounds must be <0.",
+    "admissibility": "At least 90% of the 512 trajectories in each near/far arm must be occupied at period 1000 and at least 60/64 histories must have one or more occupied replicates for the far change and paired near/far contrast; otherwise the confirmatory intervention result is inconclusive, not successful.",
+    "secondary_scope": "Report the same fixed-assurance estimates for prior_selfing, but do not use that cell to rescue or overturn the frozen primary success decision.",
+    "bootstrap": {
+      "draws": 9999,
+      "seed": 2610062027,
+      "unit": "visitor_history"
+    }
+  },
+  "reporting_rules": {
+    "independent_n": "64 visitor histories. The 8 demographic repeats are nested and never counted as independent ecological replication.",
+    "no_partial_readout": "No biological result may be summarized until all 4096 declared trajectories and receipts are present and verified.",
+    "extinction": "Trait endpoints after extinction are undefined, never coded as zero. Occupancy and eligible histories are reported explicitly.",
+    "no_retuning": "No seed extension, threshold change, tie-window change, outcome substitution, or model-parameter adjustment after execution begins.",
+    "all_cells": "All four sequence cells are reported regardless of direction. The main claim is explicitly restricted to the predeclared delayed-selfing/costly positive-mutation primary cell unless a future separately preregistered generality test is performed."
+  },
+  "excluded_from_confirmation": [
+    "13-rate intermediate replenishment outcomes",
+    "full positive-mutation deterministic/PDE high-resolution comparison",
+    "common-environment mutation-memory outcomes",
+    "natural-island calibration or region-to-model-cell assignment"
+  ]
+}

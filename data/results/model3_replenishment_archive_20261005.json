@@ -1,0 +1,9 @@
+{
+  "status": "all_archive_members_read_back_and_hash_verified",
+  "cases": 13312,
+  "members": 26671,
+  "archive": "outputs/archives/model3_replenishment_evolution_20261005.zip",
+  "bytes": 763914318,
+  "sha256": "37bd0bd312734715392add19f424696121fbe88517dfa784d8e702173ec71b6c",
+  "scope": "Local complete archive; not uploaded or a public persistent identifier."
+}

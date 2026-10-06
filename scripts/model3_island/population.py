@@ -2,7 +2,7 @@
 from dataclasses import replace
 import numpy as np
 
-from .types import PlantState, _integer
+from .types import PlantState, _integer, mutation_trait_mask
 from .history import reflect_unit
 
 
@@ -16,7 +16,8 @@ def concatenate(states):
         for name in ('alleles','allele_origin','mutation_flags','ids','birth_years')})
 
 
-def inherit(state, mothers, fathers, config, *, segregation_rng, mutation_rng, year: int) -> PlantState:
+def inherit(state, mothers, fathers, config, *, segregation_rng, mutation_rng, year: int, mutation_traits=(True,True,True)) -> PlantState:
+    mutation_traits=mutation_trait_mask(mutation_traits)
     _integer(year,'birth year',1)
     mothers=np.asarray(mothers); fathers=np.asarray(fathers)
     n=len(mothers) if mothers.ndim==1 else -1
@@ -38,6 +39,7 @@ def inherit(state, mothers, fathers, config, *, segregation_rng, mutation_rng, y
     flags=transmit(state.mutation_flags)
     if config.mutation_rate and config.mutation_sd:
         mutations=mutation_rng.random(alleles.shape)<config.mutation_rate
+        mutations &= np.asarray(mutation_traits)[None,:,None]
         # Fixed-capacity assurance is an intervention, not an evolving third trait.
         if config.assurance_mode=='fixed':
             mutations[:,2,:]=False
@@ -48,7 +50,8 @@ def inherit(state, mothers, fathers, config, *, segregation_rng, mutation_rng, y
     return PlantState(alleles,origins,flags,ids,np.full(n,year,dtype=np.int64))
 
 
-def advance(state, ledger, seed_candidates, config, streams, *, year: int):
+def advance(state, ledger, seed_candidates, config, streams, *, year: int, mutation_traits=(True,True,True)):
+    mutation_traits=mutation_trait_mask(mutation_traits)
     _integer(year,'year')
     n=len(state.ids)
     if n>config.capacity or len(ledger.ovules)!=n:
@@ -81,7 +84,7 @@ def advance(state, ledger, seed_candidates, config, streams, *, year: int):
     else:
         fathers=mothers=np.empty(0,dtype=int)
     children=inherit(state,mothers,fathers,config,segregation_rng=streams['segregation'],
-                     mutation_rng=streams['mutation'],year=year+1)
+                     mutation_rng=streams['mutation'],year=year+1,mutation_traits=mutation_traits)
     immigrant_indices=streams['recruitment'].choice(immigrant_potential,size=immigrant_count,replace=False)
     incoming=subset(immigrants,immigrant_indices)
     result=concatenate([adults,children,incoming])

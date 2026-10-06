@@ -1,0 +1,105 @@
+name: Chapter 2 long-horizon stationarity
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: chapter2-long-horizon-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  backbone:
+    name: backbone shard ${{ matrix.shard }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 16
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e '.[dev]'
+      - name: Validate frozen long-horizon design
+        run: |
+          python - <<'PY'
+          import json
+          d=json.load(open('data/design/chapter2_long_horizon_stationarity_20261003.json'))
+          assert d['status']=='prospective_frozen_before_execution'
+          assert d['max_horizon']==6400
+          assert d['checkpoints']==[200,400,800,1600,3200,6400]
+          assert d['no_outcome_dependent_stopping'] is True
+          assert d['backbone']['depression']==0.75
+          PY
+      - name: Run deterministic long-horizon shard
+        run: |
+          mkdir -p long-horizon
+          SHARD=$(printf "%02d" "${{ matrix.shard }}")
+          python -m scripts.run_chapter2_long_horizon_stationarity             --component backbone             --shard-index "${{ matrix.shard }}"             --shard-count 16             --out "long-horizon/backbone-shard-${SHARD}.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: long-horizon-backbone-${{ matrix.shard }}
+          retention-days: 30
+          if-no-files-found: error
+          path: long-horizon/backbone-shard-*.json
+
+  mutation:
+    name: mutation shard ${{ matrix.shard }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        shard: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e '.[dev]'
+      - name: Run mutation-accessibility long-horizon shard
+        run: |
+          mkdir -p long-horizon
+          SHARD=$(printf "%02d" "${{ matrix.shard }}")
+          python -m scripts.run_chapter2_long_horizon_stationarity             --component mutation             --shard-index "${{ matrix.shard }}"             --shard-count 4             --out "long-horizon/mutation-shard-${SHARD}.json"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: long-horizon-mutation-${{ matrix.shard }}
+          retention-days: 30
+          if-no-files-found: error
+          path: long-horizon/mutation-shard-*.json
+
+  summarize:
+    name: summarize long-horizon stationarity
+    needs: [backbone, mutation]
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e '.[dev]'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: long-horizon-*
+          path: long-horizon-shards
+          merge-multiple: true
+      - name: Aggregate and apply frozen stationarity rules
+        run: |
+          python -m scripts.summarize_chapter2_long_horizon_stationarity             --design data/design/chapter2_long_horizon_stationarity_20261003.json             --input-dir long-horizon-shards             --out chapter2_long_horizon_stationarity_20261003.json             | tee chapter2_long_horizon_stationarity_console.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-long-horizon-stationarity-result
+          retention-days: 90
+          if-no-files-found: error
+          path: |
+            chapter2_long_horizon_stationarity_20261003.json
+            chapter2_long_horizon_stationarity_console.txt

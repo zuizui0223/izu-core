@@ -1,0 +1,18 @@
+import json,hashlib,time,numpy as np
+from pathlib import Path
+from scripts.model3_streamed_projection import project_columns
+from scripts.model3_compressed_step import contract
+out=Path('stream_probe');p=out/'failed_child.npz';info=json.loads((out/'input.json').read_text());assert hashlib.sha256(p.read_bytes()).hexdigest()==info['sha256']
+with np.load(p) as z:arrays=[z[f'a{k}'] for k in range(5)]
+shape=(arrays[2].shape[0],arrays[3].shape[0]*arrays[4].shape[0]);k=arrays[4].shape[0]
+def read(start,stop):
+ assert start%k==0 and stop%k==0
+ args=arrays.copy();args[3]=args[3][start//k:stop//k]
+ return contract('abc,def,iad,jbe,kcf->ijk',*args,budget=16_000_000).reshape(shape[0],stop-start)
+start=time.monotonic();result=dict(input_sha256=info['sha256'],shape=shape,tolerance=1e-14)
+try:
+ q,b,receipt=project_columns(read,shape,absolute_frobenius=1e-14,budget=16_000_000,block_columns=4*k)
+ np.savez_compressed(out/'projected.npz',q=q,core=b.reshape(b.shape[0],arrays[3].shape[0],k))
+ result.update(status='passed',receipt=receipt,sha256=hashlib.sha256((out/'projected.npz').read_bytes()).hexdigest())
+except (MemoryError,ValueError,ArithmeticError) as e:result.update(status='failed',error=str(e))
+result['seconds']=time.monotonic()-start;(out/'projection.json').write_text(json.dumps(result,indent=2));print(json.dumps(result),flush=True)

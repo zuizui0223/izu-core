@@ -1,0 +1,233 @@
+{
+  "schema_version": "1.0",
+  "status": "complete_posthoc_history_demography_repeatability_audit",
+  "date": "2026-10-03",
+  "provenance": {
+    "bridge_workflow_run": 36311030639,
+    "cases_verified": 24576,
+    "shards": 16,
+    "histories": 128,
+    "starts": [
+      0.3,
+      0.5,
+      0.7
+    ],
+    "demographic_repeats": 8,
+    "endpoint": "finite-ABM paired far-minus-near terminal-minus-initial investment response"
+  },
+  "analysis_status": "exploratory posthoc diagnostic motivated after persistence-boundary audit; not preregistered and not a new execution success criterion",
+  "method": {
+    "model": "balanced two-way mixed ANOVA with start treated as fixed, visitor history as random, history-by-start random, demographic repeat as residual",
+    "variance_component_formulas": {
+      "sigma_demo": "MS_error",
+      "sigma_history_by_start": "(MS_history_by_start - MS_error) / 8",
+      "sigma_history": "(MS_history - MS_history_by_start) / (3*8)"
+    },
+    "negative_component_rule": "negative method-of-moments components are reported raw and truncated to zero only for ICC/reliability summaries",
+    "split_half": "correlation across 128 visitor histories between first-four and last-four demographic-repeat means after averaging the three starts",
+    "bootstrap": "2000 history-cluster resamples",
+    "permutation": "3000 permutations independently shuffle history labels within each start x repeat; one-sided correlation test",
+    "categorical_reference": "existing mean-of-eight history sign labels at epsilon 0 and 0.01"
+  },
+  "reports": {
+    "natural": {
+      "mean_effect": -0.1446356879340278,
+      "variance_components_method_of_moments": {
+        "history": 0.005486218868538884,
+        "history_by_start": -0.00018386281531676584,
+        "demographic_residual": 0.026772169385637572,
+        "history_nonnegative": 0.005486218868538884,
+        "history_by_start_nonnegative": 0
+      },
+      "single_trajectory_structured_icc": 0.17007107811186412,
+      "eight_repeat_mean_reliability": 0.621123099130166,
+      "history_main_share_single_trajectory": 0.17007107811186412,
+      "history_by_start_share_single_trajectory": 0,
+      "demographic_share_single_trajectory": 0.8299289218881358,
+      "mean_pairwise_repeat_correlation_within_start": 0.16292010881284802,
+      "split_half_history_mean_correlation": 0.689658686195989,
+      "split_half_history_mean_bootstrap95": [
+        0.5956810708440946,
+        0.692302080460876,
+        0.7717103236453411
+      ],
+      "split_half_history_mean_permutation": {
+        "observed": 0.689658686195989,
+        "p_one_sided": 0.0003332222592469177,
+        "null_q95": 0.14380585203719337,
+        "null_q99": 0.20407910732981663
+      },
+      "history_labels_eps0": {
+        "negative": 116,
+        "mixed": 12,
+        "positive": 0,
+        "neutral": 0
+      },
+      "history_labels_eps0_01": {
+        "negative": 120,
+        "mixed": 8,
+        "positive": 0,
+        "neutral": 0
+      }
+    },
+    "richness_matched": {
+      "mean_effect": 0.0333226521809896,
+      "variance_components_method_of_moments": {
+        "history": 0.0015445461957021521,
+        "history_by_start": 0.000333159939848335,
+        "demographic_residual": 0.025730247384025955,
+        "history_nonnegative": 0.0015445461957021521,
+        "history_by_start_nonnegative": 0.000333159939848335
+      },
+      "single_trajectory_structured_icc": 0.06801323155731301,
+      "eight_repeat_mean_reliability": 0.3686122704998782,
+      "history_main_share_single_trajectory": 0.05594569675752802,
+      "history_by_start_share_single_trajectory": 0.012067534799784983,
+      "demographic_share_single_trajectory": 0.931986768442687,
+      "mean_pairwise_repeat_correlation_within_start": 0.0649737292454698,
+      "split_half_history_mean_correlation": 0.42415580430257954,
+      "split_half_history_mean_bootstrap95": [
+        0.27666877888188773,
+        0.4286229284556547,
+        0.5590691985085507
+      ],
+      "split_half_history_mean_permutation": {
+        "observed": 0.42415580430257954,
+        "p_one_sided": 0.0003332222592469177,
+        "null_q95": 0.1473832777158375,
+        "null_q99": 0.20720941762304235
+      },
+      "history_labels_eps0": {
+        "negative": 8,
+        "mixed": 68,
+        "positive": 52,
+        "neutral": 0
+      },
+      "history_labels_eps0_01": {
+        "negative": 9,
+        "mixed": 59,
+        "positive": 59,
+        "neutral": 1
+      }
+    },
+    "visitor_pooled": {
+      "mean_effect": -0.22594960530598965,
+      "variance_components_method_of_moments": {
+        "history": 0.0004181066672563475,
+        "history_by_start": -0.00012012661759895019,
+        "demographic_residual": 0.02915543870320397,
+        "history_nonnegative": 0.0004181066672563475,
+        "history_by_start_nonnegative": 0
+      },
+      "single_trajectory_structured_icc": 0.01413786078127702,
+      "eight_repeat_mean_reliability": 0.10291763944166836,
+      "history_main_share_single_trajectory": 0.01413786078127702,
+      "history_by_start_share_single_trajectory": 0,
+      "demographic_share_single_trajectory": 0.9858621392187229,
+      "mean_pairwise_repeat_correlation_within_start": 0.008441434254863076,
+      "split_half_history_mean_correlation": 0.21407060656596144,
+      "split_half_history_mean_bootstrap95": [
+        0.043754908470437316,
+        0.2131154763921847,
+        0.376508902143686
+      ],
+      "split_half_history_mean_permutation": {
+        "observed": 0.21407060656596144,
+        "p_one_sided": 0.009996667777407531,
+        "null_q95": 0.1501450470573117,
+        "null_q99": 0.21278462788311361
+      },
+      "history_labels_eps0": {
+        "negative": 128,
+        "mixed": 0,
+        "positive": 0,
+        "neutral": 0
+      },
+      "history_labels_eps0_01": {
+        "negative": 128,
+        "mixed": 0,
+        "positive": 0,
+        "neutral": 0
+      }
+    },
+    "large_capacity": {
+      "mean_effect": -0.27164972093370177,
+      "variance_components_method_of_moments": {
+        "history": 0.008005620834957303,
+        "history_by_start": 0.0007480036211876249,
+        "demographic_residual": 0.01489035968663829,
+        "history_nonnegative": 0.008005620834957303,
+        "history_by_start_nonnegative": 0.0007480036211876249
+      },
+      "single_trajectory_structured_icc": 0.3702262868763076,
+      "eight_repeat_mean_reliability": 0.8246529353907934,
+      "history_main_share_single_trajectory": 0.338590179498189,
+      "history_by_start_share_single_trajectory": 0.03163610737811867,
+      "demographic_share_single_trajectory": 0.6297737131236925,
+      "mean_pairwise_repeat_correlation_within_start": 0.37020904622787243,
+      "split_half_history_mean_correlation": 0.8517982916805625,
+      "split_half_history_mean_bootstrap95": [
+        0.78888012919893,
+        0.8533534259167124,
+        0.8988600417027353
+      ],
+      "split_half_history_mean_permutation": {
+        "observed": 0.8517982916805625,
+        "p_one_sided": 0.0003332222592469177,
+        "null_q95": 0.1439390701705215,
+        "null_q99": 0.20762376022543083
+      },
+      "history_labels_eps0": {
+        "negative": 127,
+        "mixed": 1,
+        "positive": 0,
+        "neutral": 0
+      },
+      "history_labels_eps0_01": {
+        "negative": 127,
+        "mixed": 1,
+        "positive": 0,
+        "neutral": 0
+      }
+    }
+  },
+  "paired_split_half_differences_vs_natural": {
+    "richness_matched": {
+      "observed_difference": -0.2655028818934095,
+      "bootstrap95": [
+        -0.42107690111420265,
+        -0.2644605426403217,
+        -0.11740548533768858
+      ]
+    },
+    "visitor_pooled": {
+      "observed_difference": -0.4755880796300276,
+      "bootstrap95": [
+        -0.666795180234648,
+        -0.4772311265174838,
+        -0.2871105510406559
+      ]
+    },
+    "large_capacity": {
+      "observed_difference": 0.1621396054845735,
+      "bootstrap95": [
+        0.07041247892370385,
+        0.16198878612560552,
+        0.2619593471834677
+      ]
+    }
+  },
+  "interpretation": {
+    "natural": "Visitor history contributes reproducible continuous response structure despite substantial single-trajectory demographic noise.",
+    "large_capacity": "Increasing plant capacity reduces demographic residual and increases continuous history reliability even while mixed-sign history counts nearly disappear.",
+    "visitor_pooled": "Pooling visitor histories nearly removes the reproducible history signal while also eliminating mixed-sign history labels.",
+    "core": "The same categorical increase in apparent parallelism (fewer mixed-sign histories) can arise by opposite mechanisms: reducing demographic noise can reveal a stronger history signal, whereas averaging visitor histories erases that signal."
+  },
+  "claim_boundary": [
+    "This diagnostic was designed after the focal bridge outcomes and persistence-boundary problem were known.",
+    "It is an explanatory audit, not preregistered confirmation.",
+    "Variance components are model-conditional and not natural population parameters.",
+    "Sign-label counts are threshold-sensitive and are not latent branch prevalence.",
+    "Correlation/reliability does not identify a natural causal history variable beyond the simulated visitor-history treatment."
+  ]
+}

@@ -10,6 +10,7 @@ from types import MappingProxyType
 
 import numpy as np
 from scipy.special import ndtr
+from .types import mutation_trait_mask
 
 
 def _readonly(array):
@@ -84,10 +85,31 @@ def mutation_matrix(nodes, rate, sd):
     return (1-rate)*np.eye(len(nodes))+rate*raw
 
 
+def birth_mutation_matrix(nodes, rate, sd, scheme='jump'):
+    """Mutation of a transmitted allele, before pairing gametes into offspring.
+
+    jump: (1-u)I + u H(sigma^2/2), the original biological kernel.
+    heat: H(u sigma^2/2), a small-jump diffusion approximation, not identical.
+    The H kernel solves the reflecting heat PDE during mutation, not adult life.
+    """
+    if scheme not in ('jump','heat','heat_fv'):
+        raise ValueError('unknown mutation scheme')
+    if scheme=='jump':
+        return mutation_matrix(nodes,rate,sd)
+    # Validate even when the effective diffusion time vanishes.
+    _rate = float(rate)
+    if not np.isfinite(_rate) or not 0<=_rate<=1 or not np.isfinite(sd) or sd<0:
+        raise ValueError('invalid mutation rate')
+    if scheme=='heat_fv':
+        from .birth_diffusion import reflecting_heat_matrix
+        return reflecting_heat_matrix(nodes,_rate*sd*sd/2)
+    return mutation_matrix(nodes,1.,np.sqrt(_rate)*sd)
+
+
 @lru_cache(maxsize=3)
-def _mutated_gametes(axes,rate,sd,mode):
+def _mutated_gametes(axes,rate,sd,mode,mutation_traits=(True,True,True),scheme="jump"):
     grid=_make_grid(axes)
-    kernels=[mutation_matrix(a,0 if k==2 and mode=='fixed' else rate,sd) for k,a in enumerate(axes)]
+    kernels=[birth_mutation_matrix(a,0 if not mutation_traits[k] or (k==2 and mode=="fixed") else rate,sd,scheme) for k,a in enumerate(axes)]
     mutation=np.kron(np.kron(kernels[0],kernels[1]),kernels[2])
     return _readonly(grid.gamete_probabilities @ mutation)
 
@@ -141,7 +163,9 @@ class DensityLedger:
     control_undefined: bool = False
 
 
-def density_step(counts, grid, visitors, immigrants, config, *, immigration_mode='source'):
+def density_step(counts, grid, visitors, immigrants, config, *, immigration_mode='source',
+                 mutation_traits=(True,True,True), mutation_scheme='jump', inheritance_backend='dense'):
+    mutation_traits=mutation_trait_mask(mutation_traits)
     if immigration_mode not in ('source','resident_matched'):
         raise ValueError('unknown density immigration intervention')
     counts=np.asarray(counts,dtype=float)
@@ -171,11 +195,17 @@ def density_step(counts, grid, visitors, immigrants, config, *, immigration_mode
     outcross=FactorizedMatrix(donors,recipient*conversion[:,None])
     self_raw=counts*(ovules*a if config.assurance_timing=='prior' else a*(ovules-female))
     self_viable=self_raw*(1-config.depression)
-    axes=tuple(tuple(a) for a in grid.axes)
-    gametes=_mutated_gametes(axes,config.mutation_rate,config.mutation_sd,config.assurance_mode)
-    child_gametes=(gametes.T@outcross.donors)@(outcross.recipients.T@gametes)
-    child_gametes+=gametes.T@(self_viable[:,None]*gametes)
-    births=np.bincount(grid.child_lookup.ravel(),weights=child_gametes.ravel(),minlength=len(counts))
+    if inheritance_backend=='tensor':
+        from .tensor_density import tensor_births
+        births=tensor_births(grid,outcross,self_viable,config,mutation_traits,mutation_scheme)
+    elif inheritance_backend=='dense':
+        axes=tuple(tuple(a) for a in grid.axes)
+        gametes=_mutated_gametes(axes,config.mutation_rate,config.mutation_sd,config.assurance_mode,mutation_traits,mutation_scheme)
+        child_gametes=(gametes.T@outcross.donors)@(outcross.recipients.T@gametes)
+        child_gametes+=gametes.T@(self_viable[:,None]*gametes)
+        births=np.bincount(grid.child_lookup.ravel(),weights=child_gametes.ravel(),minlength=len(counts))
+    else:
+        raise ValueError('unknown inheritance backend')
     undefined=False
     if immigration_mode=='resident_matched':
         # Expected immigrant genotype counts under this model's own residents.

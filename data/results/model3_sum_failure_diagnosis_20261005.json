@@ -1,0 +1,60 @@
+{
+  "status": "failed_sum_allocation",
+  "inputs": [
+    {
+      "name": "failed_sum_0.npz",
+      "core_shape": [
+        228,
+        213,
+        116
+      ],
+      "factor_shapes": [
+        [
+          2145,
+          228
+        ],
+        [
+          2145,
+          213
+        ],
+        [
+          2145,
+          116
+        ]
+      ],
+      "sha256": "168a1643e20f89a237145115a5ad51042f3a8c4b9c8a208c735c21dd3962fc7b"
+    },
+    {
+      "name": "failed_sum_1.npz",
+      "core_shape": [
+        105,
+        88,
+        48
+      ],
+      "factor_shapes": [
+        [
+          2145,
+          105
+        ],
+        [
+          2145,
+          88
+        ],
+        [
+          2145,
+          48
+        ]
+      ],
+      "sha256": "74c0e99ae623792db624737952f6df2ed688142bafa6429e162cb2d9de5003a9"
+    }
+  ],
+  "source_hashes_verified": 77,
+  "traceback": "Traceback (most recent call last):\n  File \"C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\model3-selection-repair\\outputs\\model3_precision_feasibility\\fastpath_candidate\\scripts\\audit_sharp_resource_diagnostic.py\", line 35, in watch_sum\n    try:return original_sum(states,**kwargs)\n  File \"C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\model3-selection-repair\\outputs\\model3_precision_feasibility\\fastpath_candidate\\scripts\\model3_compressed_step.py\", line 63, in summed\n    shape=tuple(b.shape[1] for b in bases);check_size(prod(shape),budget)\n  File \"C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\model3-selection-repair\\outputs\\model3_precision_feasibility\\fastpath_candidate\\scripts\\model3_compressed_step.py\", line 17, in check_size\n    raise MemoryError(f'explicit array size {size} exceeds budget {budget}')\nMemoryError: explicit array size 16438212 exceeds budget 16000000\n",
+  "result": {
+    "scope": "65-node second complete step resource/local marginal diagnostic",
+    "input_sha256": "e4546036e979c124ea7a1f047687c8a1e3e8f38de0de113e222d4c337f0bde7b",
+    "status": "failed",
+    "error": "explicit array size 16438212 exceeds budget 16000000",
+    "seconds": 616.7660000000615
+  }
+}
