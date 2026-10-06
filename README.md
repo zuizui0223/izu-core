@@ -175,26 +175,48 @@ The independent ecological denominator is therefore **128 visitor histories**, n
 
 ## Current scientific result
 
-Model 3 separates three biological objects that should not be collapsed:
+The active process paper separates four biological objects that should not be
+collapsed:
 
-1. **reproductive selection** — what floral investment is favoured before demographic change;
-2. **expected inherited evolution** — what the same reproduction and Mendelian inheritance rules produce without demographic sampling;
-3. **finite-population realization** — which trajectories persist when recruitment, extinction, ancestry and standing-variation loss are restored.
+1. **current reproductive return** — what additional floral investment yields at
+   a fixed plant state;
+2. **realized evolutionary order** — which inherited trait reaches a declared
+   change threshold first;
+3. **causal necessity** — whether evolution of the first-changing trait is
+   required for the second response;
+4. **reproductive consequence** — whether pollen-deficit metrics track absolute
+   viable offspring.
 
-The completed prospective isolation bridge contains **24,576 computational cases** but **128 independent visitor histories**. Eight demographic repeats are nested within histories and do not increase the independent denominator.
+The primary process result is now independently confirmed. In the preregistered
+delayed-selfing, assurance-cost 0.5, positive-mutation cell, 64 new visitor
+histories again produced **51/64 assurance-first histories** at the primary 0.05
+threshold (95% history-bootstrap **0.6875–0.8906**). A separate new-history
+fixed-assurance replication retained a negative far investment change
+(**−0.3060 [−0.3181, −0.2941]**) and negative far-minus-near effect
+(**−0.4354 [−0.4533, −0.4172]**).
 
 The supported synthesis is:
 
-- controlled visitor compositions show state-dependent reproductive-selection capacity;
-- isolation-driven deterministic inherited response is one-directional in the frozen near/far bridge;
-- response-blind annual visitor-count matching reverses the coarse mean isolation effect;
-- pooling independent visitor histories removes mixed directional labels in the frozen diagnostic;
-- increasing plant capacity from 48 to 192 nearly removes finite-population mixed labels and moves the mean toward the deterministic counterpart;
-- reproductive assurance can determine persistence under severe visitor absence without prescribing one floral endpoint;
-- different visitor-loss histories can retain different inherited states under a common final environment;
-- seed connectivity and pollinator connectivity are biologically distinct isolation channels.
+- visitor limitation can lower the marginal reproductive return to attraction
+  before plant traits evolve;
+- reproductive assurance can reach a realized change threshold before floral
+  investment in the confirmed delayed/costly regime;
+- **temporal precedence is not causal necessity**: investment still declines
+  when assurance capacity cannot evolve;
+- assurance evolution can narrow the observed near-far investment contrast even
+  when both environments undergo substantial within-population evolution;
+- a smaller fractional pollen deficit can coexist with fewer viable offspring;
+- the assurance-first sequence is **not universal** across reproductive
+  settings: prior selfing with positive mutation gave 30/64 assurance-first
+  histories at the same primary threshold;
+- the effective ecological sample size is 64 visitor histories; eight
+  demographic repeats are nested and are not independent ecological replicates.
 
-Stable latent branch prevalence, calibrated natural evolutionary rates, named historical causes and region-to-model-cell assignments are **not** identified.
+The 13-rate extension, mutation/history experiments, finite-versus-deterministic
+bridge and unresolved high-resolution positive-mutation numerical comparison are
+supporting evidence rather than confirmatory substitutes for this process claim.
+Stable latent branch prevalence, calibrated natural rates, named historical
+causes and region-to-model-cell assignments remain unidentified.
 
 ## Active paper surface
 
