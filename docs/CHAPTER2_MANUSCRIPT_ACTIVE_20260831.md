@@ -514,16 +514,25 @@ The panel is a same-plant-state reproductive assay, not an evolutionary
 trajectory or richness-only manipulation.
 
 **Main Figure 2. Assurance can change first without being necessary for
-investment decline.** Panel A shows one paired crossing-time point per visitor
-history for the maintained-isolation cohort. Panel B shows matched investment
-trajectories with assurance fixed at 0.5 versus allowed to evolve. The figure
-places temporal order and the necessity intervention side by side so that
-sequence is not misread as mediation.
+investment decline.** Panel A shows history-level crossing order for both the
+original maintained-isolation cohort and the preregistered independent
+replication. The delayed/costly positive-mutation cell is 51/64 assurance-first
+in both cohorts; the replication interval is 0.6875–0.8906. The alternative
+prior-selfing cell is shown as a generality boundary rather than pooled with the
+primary result. Panel B shows the original fixed/evolving-assurance intervention
+together with the independent fixed-assurance replication
+(−0.3060 [−0.3181, −0.2941] far change; −0.4354
+[−0.4533, −0.4172] far-minus-near). The figure places temporal order and the
+necessity intervention side by side so that sequence is not misread as
+mediation.
 
-**Main Figure 3. Assurance evolution can hide evolution by narrowing geographic
-divergence.** Plot near and far investment changes under fixed and evolving
-assurance, together with the four-cell interaction: +0.08468 in the delayed
-setting and +0.24505 under prior selfing. The visual target is the distinction
+**Main Figure 3. Secondary exploratory result: assurance evolution can hide
+evolution by narrowing geographic divergence.** Plot near and far investment
+changes under fixed and evolving assurance, together with the four-cell
+interaction: +0.08468 in the delayed setting and +0.24505 under prior selfing.
+This interaction was not part of the new-history confirmatory campaign and is
+therefore presented as a secondary exploratory consequence rather than a
+confirmed component of the central claim. The visual target is the distinction
 between within-environment evolution and the smaller between-environment
 contrast.
 
