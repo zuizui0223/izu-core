@@ -50,6 +50,19 @@ and a 95% interval of 0.344–0.594. The manuscript must therefore restrict the
 confirmed sequence claim to the delayed-selfing, assurance-cost setting unless a
 separate preregistered generality test broadens it.
 
+All four setting-by-mutation cells at the primary 0.05 threshold were reported:
+
+| setting | mutation | assurance first | near-simultaneous / assurance-only | proportion | bootstrap 95% |
+|---|---:|---:|---:|---:|---:|
+| delayed + assurance cost | 0 | 42 | 6 near-simultaneous + 16 assurance-only | 0.656 | 0.531–0.766 |
+| delayed + assurance cost | 0.01 | 51 | 13 near-simultaneous | 0.797 | 0.688–0.891 |
+| prior selfing + no assurance cost | 0 | 40 | 24 near-simultaneous | 0.625 | 0.500–0.734 |
+| prior selfing + no assurance cost | 0.01 | 30 | 34 near-simultaneous | 0.469 | 0.344–0.594 |
+
+Only the predeclared delayed/costly positive-mutation cell determines the
+confirmatory success decision. The remaining cells define generality limits and
+cannot rescue or overturn that frozen primary test.
+
 ## Primary fixed-assurance result
 
 The separate preregistered intervention held assurance capacity at 0.5 and used
