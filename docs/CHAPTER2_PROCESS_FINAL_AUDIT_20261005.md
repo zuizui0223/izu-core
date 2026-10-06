@@ -5,6 +5,22 @@ not a claim that every biological hypothesis was supported or every numerical
 extension succeeded. The explicit user stop closes the high-resolution branch
 as unresolved; it is not counted as PDE validation.
 
+## Post-audit confirmatory amendment — 2026-10-06
+
+The central sequence/necessity statement was prospectively re-tested after this
+10-05 audit. The design was frozen before execution and used 64 new visitor
+histories plus eight new demographic repeats. All 4,096 declared trajectories
+completed. The delayed-selfing/costly positive-mutation primary sequence repeated
+at 51/64 assurance-first histories (95% bootstrap 0.6875–0.8906), and the
+fixed-assurance primary intervention remained negative for both far change
+(−0.3060 [−0.3181, −0.2941]) and far-minus-near
+(−0.4354 [−0.4533, −0.4172]). Both frozen success rules passed.
+
+This upgrades the bounded delayed/costly sequence-versus-necessity result from
+exploratory to confirmed model-level evidence. It does **not** establish a
+universal sequence: the prior-selfing positive-mutation cell gave 30/64
+assurance-first histories at the primary threshold.
+
 ## Requirement-by-requirement disposition
 
 | Requirement | Inspected evidence | Disposition |
