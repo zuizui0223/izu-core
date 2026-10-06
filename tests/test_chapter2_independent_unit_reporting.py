@@ -8,8 +8,8 @@ def test_active_manuscript_reports_cases_and_independent_histories_together() ->
     abstract = text.split("## Abstract", 1)[1].split("## Keywords", 1)[0]
     normalized = " ".join(abstract.split())
     assert "64 independent visitor histories" in normalized
-    assert "eight nested demographic repeats per setting" in normalized
-    assert "8,192 matched fixed-versus-evolving-assurance trajectories" in normalized
+    assert "eight new nested demographic repeats" in normalized
+    assert "64 new visitor histories" in normalized
 
 
 def test_canonical_story_keeps_independent_history_denominator_visible() -> None:
