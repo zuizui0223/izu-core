@@ -87,9 +87,9 @@ jobs:
       - run: python -m pip install -e '.[dev]'
       - name: Regenerate the four current main figures from stored evidence
         run: |
-          python -m scripts.figure_model3_selection_process
-          python -m scripts.figure_model3_sequence_necessity
           python -m scripts.figure_model3_return_components
+          python -m scripts.figure_model3_sequence_necessity
+          python -m scripts.figure_model3_trait_pollen
           python -m scripts.figure_model3_genetic_realization
       - name: Build confirmed process review package
         run: python -m scripts.build_chapter2_process_review
