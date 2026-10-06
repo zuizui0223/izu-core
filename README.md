@@ -29,7 +29,9 @@ assurance-first histories at threshold 0.05 (95% history-bootstrap
 change was −0.3060 [−0.3181, −0.2941] and far-minus-near investment was
 −0.4354 [−0.4533, −0.4172]. The confirmed temporal sequence is setting-specific:
 the prior-selfing positive-mutation cell did not show an assurance-first
-majority at the same threshold.
+majority at the same threshold. The criterion-by-criterion establishment
+decision is frozen in
+[the 2026-10-05 establishment closeout](docs/CHAPTER2_1005_ESTABLISHMENT_CLOSEOUT_20261006.md).
 
 ### Current ecological focus (2026-10-05)
 
