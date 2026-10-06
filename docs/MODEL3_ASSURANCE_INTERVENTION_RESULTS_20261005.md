@@ -53,3 +53,49 @@ selfing and is not a complete mediation analysis.
 
 Design: `data/design/chapter2_1005_confirmatory_replication_20261006.json`.
 Result: `data/results/chapter2_1005_confirmatory_replication_20261006.json`.
+
+
+## Four-setting preregistered generality confirmation — 2026-10-06
+
+A separate prospective campaign tested whether the two-setting attenuation pattern
+generalized to all four pre-existing reproductive settings without reusing the
+discovery visitor histories or demographic repeats. The design was frozen before
+execution in `data/design/chapter2_assurance_generality_20261006.json`.
+
+The biological campaign used 64 new visitor histories (26110601–26110664) and
+eight new demographic repeats (26111601–26111608), crossed with near/far,
+fixed/evolving assurance and the four existing settings. This yielded 8,192
+positive-mutation trajectories. A separate 256-trajectory zero-mutation
+structural audit required fixed and evolving traces to be exactly identical;
+all 128 matched trace pairs passed.
+
+At period 1000, all four settings passed the frozen rule:
+
+| Setting | Fixed far-minus-near investment | Evolving far-minus-near | Evolving-minus-fixed interaction |
+|---|---:|---:|---:|
+| Delayed control | −0.4413 [−0.4564, −0.4262] | −0.2807 [−0.3010, −0.2601] | +0.1605 [+0.1418, +0.1789] |
+| Prior selfing | −0.3018 [−0.3172, −0.2866] | −0.0818 [−0.0971, −0.0656] | +0.2200 [+0.2025, +0.2383] |
+| Pollen discount | −0.3305 [−0.3461, −0.3151] | −0.1390 [−0.1544, −0.1247] | +0.1915 [+0.1762, +0.2069] |
+| Assurance cost | −0.4337 [−0.4501, −0.4171] | −0.3330 [−0.3480, −0.3174] | +0.1007 [+0.0842, +0.1177] |
+
+Every fixed/evolving × near/far arm had terminal occupancy 1.0, and 64/64
+visitor histories were eligible for both the fixed contrast and common-four-cell
+interaction in every setting. Thus the result is not created by unmatched
+survivor sets.
+
+The prospective conclusion is now broader than the original two-setting
+exploration: **investment reduction under sustained visitor-replenishment
+limitation does not require assurance-capacity evolution in any of the four
+declared reproductive settings, and allowing assurance to evolve consistently
+narrows the near–far investment contrast.** The temporal-order result is not
+broadened by this campaign and remains setting-specific.
+
+This interaction is not a mediation fraction. Fixed assurance retains realized
+selfing opportunities, and a smaller near–far contrast can coexist with large
+within-environment evolutionary change. The result is model-conditional and does
+not by itself establish an empirical flower-size effect in natural island
+populations.
+
+Result:
+`data/results/chapter2_assurance_generality_20261006.json`.
+Workflow run: 37458098483; result artifact: 11411525163.
