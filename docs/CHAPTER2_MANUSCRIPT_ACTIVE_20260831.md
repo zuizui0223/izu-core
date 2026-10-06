@@ -1,7 +1,7 @@
 # How island isolation generates floral change: selection conditions, evolutionary sequence and finite realization
 
 **Status:** active Chapter 2 scientific manuscript — 2026-10-05 process result independently confirmed on new visitor histories and demographic repeats; mutation/history analyses are complementary
-**Updated:** 2026-10-06 — the preregistered 4,096-case independent replication confirmed the primary delayed-selfing/costly sequence and fixed-assurance results. The claim remains restricted to its declared reproductive setting.
+**Updated:** 2026-10-06 — the preregistered 4,096-case replication confirmed the delayed-selfing/costly temporal-order result, and a separate preregistered 8,448-trajectory campaign confirmed four-setting non-necessity and attenuation. Temporal order remains setting-specific.
 **Inference architecture:** sustained visitor replenishment limitation → altered pollen transfer and reproductive returns → local selection on attraction and assurance → inherited responses and finite realization. Temporal order is tested separately from causal necessity.
 **Controlling state:** `docs/CHAPTER2_PROCESS_MAINLINE_20261005.md`, with result priority governed by `docs/MODEL3_RESULT_PRIORITY_AND_PRESENTATION_20261005.md`. The full-mutation common-environment experiment remains complementary evidence.
 
@@ -287,10 +287,21 @@ secondary prior-selfing cell also remained negative
 (−0.3316 [−0.3418, −0.3210] from founders; far-minus-near
 −0.3094 [−0.3246, −0.2942]).
 
-In the original cohort, an exploratory secondary interaction indicated that allowing assurance to evolve could also narrow the near-far investment contrast.
-The four-cell interaction was +0.08468 (0.06782–0.10265) in the delayed setting
-and +0.24505 (0.22523–0.26543) under prior selfing. Both environments can evolve
-substantially while their difference becomes smaller.
+We next preregistered a separate four-setting generality test before generating
+new outcomes. Across 64 additional visitor histories and eight additional
+demographic repeats, fixed assurance retained a negative far-minus-near
+investment contrast in every reproductive setting: −0.4413
+[−0.4564, −0.4262] for delayed control, −0.3018 [−0.3172, −0.2866] for prior
+selfing, −0.3305 [−0.3461, −0.3151] with pollen discount and −0.4337
+[−0.4501, −0.4171] with assurance cost. Allowing assurance to evolve attenuated
+that contrast in all four settings; the common-four-cell evolving-minus-fixed
+interactions were +0.1605 [+0.1418, +0.1789], +0.2200
+[+0.2025, +0.2383], +0.1915 [+0.1762, +0.2069] and +0.1007
+[+0.0842, +0.1177], respectively. All terminal occupancies were 1.0 and all
+64 histories were eligible in every setting. Thus assurance evolution is not
+required for the isolation response and, when available, systematically buffers
+between-environment investment divergence in this model. This does not imply a
+complete mediation fraction or absence of large within-environment evolution.
 
 ## Lower pollen deficit does not necessarily mean greater viable reproduction
 
