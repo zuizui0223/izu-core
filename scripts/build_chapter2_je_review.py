@@ -5,6 +5,7 @@ import hashlib, json, zipfile
 ROOT=Path(__file__).resolve().parents[1]
 OUT=ROOT/"outputs/chapter2_je_delivery"
 MANUSCRIPT=ROOT/"docs/CHAPTER2_MANUSCRIPT_JE_20261006.md"
+SI=ROOT/"docs/CHAPTER2_SUPPORTING_INFORMATION_JE_20261006.md"
 FIGDIR=ROOT/"outputs/figures/chapter2_je_20261006"
 MAIN={
     "Figure1.pdf":"figure1_return_components.pdf",
@@ -38,7 +39,7 @@ EXPORTS=[
 
 def build():
     OUT.mkdir(parents=True,exist_ok=True)
-    members={"MANUSCRIPT.md":MANUSCRIPT.read_bytes()}
+    members={"MANUSCRIPT.md":MANUSCRIPT.read_bytes(), "SUPPORTING_INFORMATION.md":SI.read_bytes()}
     for name,rel in MAIN.items():
         members[name]=(FIGDIR/rel).read_bytes()
     for rel in SUPPORT+INPUTS:
@@ -49,6 +50,7 @@ def build():
         "JOURNAL OF ECOLOGY REVIEW PACKAGE — CONFIRMED CHAPTER 2 PROCESS RESULT\n"
         "Primary inference unit: 64 independent visitor histories; eight demographic repeats are nested.\n"
         "Main paper contains three figures: ecological return, confirmed sequence/scope, and fixed-assurance necessity.\n"
+        "Submission-facing Supporting Information is included as SUPPORTING_INFORMATION.md.\n"
         "The DOI-ready raw confirmatory bundle is prepared but public DOI deposition remains external and pending.\n"
         "To redraw the three figures from included committed evidence:\n"
         "python -m scripts.figure_chapter2_je_return_components\n"
