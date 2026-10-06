@@ -1,6 +1,6 @@
 # Reproductive assurance compresses floral-investment divergence under pollinator limitation
 
-**Status:** active Chapter 2 scientific manuscript — 2026-10-05 process result independently confirmed on new visitor histories and demographic repeats; mutation/history analyses are complementary
+**Status:** long-form Chapter 2 process/provenance manuscript — the active submission surface is `CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md`; 2026-10-05 process results remain independently confirmed and mutation/history analyses remain complementary
 **Updated:** 2026-10-06 — the preregistered 4,096-case replication confirmed the delayed-selfing/costly temporal-order result, and a separate preregistered 8,448-trajectory campaign confirmed four-setting non-necessity and attenuation. Temporal order remains setting-specific.
 **Inference architecture:** sustained visitor replenishment limitation → altered pollen transfer and reproductive returns → local selection on attraction and assurance → inherited responses and finite realization. Temporal order is tested separately from causal necessity.
 **Controlling state:** `docs/CHAPTER2_PROCESS_MAINLINE_20261005.md`, with result priority governed by `docs/MODEL3_RESULT_PRIORITY_AND_PRESENTATION_20261005.md`. The full-mutation common-environment experiment remains complementary evidence.
