@@ -1,0 +1,77 @@
+name: Chapter 2 public archive bundle
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - 'data/design/chapter2_public_archive_manifest_20261006.json'
+      - 'scripts/build_chapter2_public_archive.py'
+      - '.github/workflows/chapter2-public-archive.yml'
+
+permissions:
+  contents: read
+  actions: read
+
+jobs:
+  build-public-archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Download exact historical artifact ZIP bytes and verify API digests
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+        run: |
+          python - <<'PY'
+          import hashlib, json, os, pathlib, urllib.request
+          root = pathlib.Path(".")
+          repo = os.environ["REPO"]
+          manifest = json.loads((root / "data/design/chapter2_public_archive_manifest_20261006.json").read_text())
+          for campaign, block in manifest["campaigns"].items():
+              dest = root / "public-archive-artifacts" / campaign
+              dest.mkdir(parents=True, exist_ok=True)
+              for rec in block["artifacts"]:
+                  out = dest / (rec["name"] + ".zip")
+                  req = urllib.request.Request(
+                      f"https://api.github.com/repos/{repo}/actions/artifacts/{rec['id']}/zip",
+                      headers={
+                          "Authorization": f"Bearer {os.environ['GH_TOKEN']}",
+                          "Accept": "application/vnd.github+json",
+                          "X-GitHub-Api-Version": "2022-11-28",
+                      },
+                  )
+                  with urllib.request.urlopen(req) as response, out.open("wb") as handle:
+                      while True:
+                          chunk = response.read(1024 * 1024)
+                          if not chunk:
+                              break
+                          handle.write(chunk)
+                  h = hashlib.sha256()
+                  with out.open("rb") as handle:
+                      for chunk in iter(lambda: handle.read(1024 * 1024), b""):
+                          h.update(chunk)
+                  got = h.hexdigest()
+                  expected = rec["digest"].removeprefix("sha256:")
+                  if got != expected:
+                      raise SystemExit(f"digest mismatch {rec['name']}: {got} != {expected}")
+                  print(rec["name"], out.stat().st_size, got)
+          PY
+      - name: Build deposition-ready ZIP
+        run: |
+          python scripts/build_chapter2_public_archive.py \
+            --artifact-dir public-archive-artifacts \
+            --out outputs/chapter2_public_archive/chapter2_public_archive_20261006.zip
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-public-archive-20261006
+          retention-days: 90
+          if-no-files-found: error
+          compression-level: 0
+          path: |
+            outputs/chapter2_public_archive/chapter2_public_archive_20261006.zip
+            outputs/chapter2_public_archive/chapter2_public_archive_20261006.zip.receipt.json

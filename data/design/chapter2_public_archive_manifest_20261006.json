@@ -1,0 +1,492 @@
+{
+  "schema_version": "chapter2-public-archive-manifest-v1",
+  "date": "2026-10-06",
+  "status": "deposition_source_manifest",
+  "repository": "zuizui0223/izu-core",
+  "source_main_sha": "982e55e80e4ca1e880edf089c3a06ce6bebce61f",
+  "purpose": "Preserve the exact GitHub Actions artifact ZIP bytes underlying the independent confirmation and four-setting assurance generality campaigns before third-party DOI deposition.",
+  "campaigns": {
+    "confirmatory": {
+      "workflow_run_id": 37390991122,
+      "declared_cases": 4096,
+      "design_sha256": "0ea4cc4129b2ee97a1ed1ffb2295348e0628cf0f0a1b0d0694a3b78befb4f9d0",
+      "expected_shards": 16,
+      "design_file": "data/design/chapter2_1005_confirmatory_replication_20261006.json",
+      "committed_result_file": "data/results/chapter2_1005_confirmatory_replication_20261006.json",
+      "artifacts": [
+        {
+          "id": 11381221933,
+          "name": "chapter2-1005-confirmatory-shard-0",
+          "size_in_bytes": 8790387,
+          "digest": "sha256:176e143f96173798c304545e32900898330f0fa4573be3a4ae8dc6ea01bdefe6",
+          "created_at": "2026-10-05T23:54:59Z",
+          "expires_at": "2026-11-04T23:54:58Z",
+          "expired": false
+        },
+        {
+          "id": 11380299610,
+          "name": "chapter2-1005-confirmatory-shard-1",
+          "size_in_bytes": 8734300,
+          "digest": "sha256:3a968e2f8a8feb9d8584b9081eb55c1ae87a9f80be5a0a1595cee99164384d79",
+          "created_at": "2026-10-05T23:54:32Z",
+          "expires_at": "2026-11-04T23:54:31Z",
+          "expired": false
+        },
+        {
+          "id": 11380853633,
+          "name": "chapter2-1005-confirmatory-shard-2",
+          "size_in_bytes": 8789078,
+          "digest": "sha256:f533e629940f3397f668d89466cc29c5904497dd5e0fd600ddeae248547a6299",
+          "created_at": "2026-10-05T23:56:04Z",
+          "expires_at": "2026-11-04T23:56:02Z",
+          "expired": false
+        },
+        {
+          "id": 11380309897,
+          "name": "chapter2-1005-confirmatory-shard-3",
+          "size_in_bytes": 8751040,
+          "digest": "sha256:17b1fa5c4b6ad4a7f3f62a69a207d6611072fa3e065ad777946d1fa62fbb44e9",
+          "created_at": "2026-10-05T23:56:07Z",
+          "expires_at": "2026-11-04T23:56:06Z",
+          "expired": false
+        },
+        {
+          "id": 11380619458,
+          "name": "chapter2-1005-confirmatory-shard-4",
+          "size_in_bytes": 8805543,
+          "digest": "sha256:1474f8459533ef00a0a9d99a9c9dc1f7707c1f2e38c88576ed5f781940cbc59f",
+          "created_at": "2026-10-05T23:56:02Z",
+          "expires_at": "2026-11-04T23:56:00Z",
+          "expired": false
+        },
+        {
+          "id": 11380699306,
+          "name": "chapter2-1005-confirmatory-shard-5",
+          "size_in_bytes": 8726701,
+          "digest": "sha256:700ab871f9315f175b18aad17caeffd20ab8b27d674dfecd0512bbc0e553c712",
+          "created_at": "2026-10-05T23:54:32Z",
+          "expires_at": "2026-11-04T23:54:31Z",
+          "expired": false
+        },
+        {
+          "id": 11380838613,
+          "name": "chapter2-1005-confirmatory-shard-6",
+          "size_in_bytes": 8790768,
+          "digest": "sha256:a2b80b05350f5029d98d3204d3b913ece51321240d7457f771b885f2e0dec602",
+          "created_at": "2026-10-05T23:56:28Z",
+          "expires_at": "2026-11-04T23:56:26Z",
+          "expired": false
+        },
+        {
+          "id": 11380504445,
+          "name": "chapter2-1005-confirmatory-shard-7",
+          "size_in_bytes": 8738241,
+          "digest": "sha256:76940ae1c7a02f0ca671ae7e3b472bb7bdc2e326b8f648e4dffdb672c1d57c39",
+          "created_at": "2026-10-05T23:55:08Z",
+          "expires_at": "2026-11-04T23:55:06Z",
+          "expired": false
+        },
+        {
+          "id": 11381482009,
+          "name": "chapter2-1005-confirmatory-shard-8",
+          "size_in_bytes": 8788063,
+          "digest": "sha256:da2e8a5a5c3067228a0d9dd58c907447a5a0f7688fd93a642a55db83cb6b8b43",
+          "created_at": "2026-10-05T23:56:08Z",
+          "expires_at": "2026-11-04T23:56:06Z",
+          "expired": false
+        },
+        {
+          "id": 11381540018,
+          "name": "chapter2-1005-confirmatory-shard-9",
+          "size_in_bytes": 8722374,
+          "digest": "sha256:777773aaec4495befb8c79977d34538436a6ddbf562657d9078ce11dc507b7d7",
+          "created_at": "2026-10-05T23:56:06Z",
+          "expires_at": "2026-11-04T23:56:04Z",
+          "expired": false
+        },
+        {
+          "id": 11381382104,
+          "name": "chapter2-1005-confirmatory-shard-10",
+          "size_in_bytes": 8781953,
+          "digest": "sha256:f5ee0aad99a400cc010d62248fdf2b32160b18ffb9ac4f3af7d5eadb23451812",
+          "created_at": "2026-10-05T23:56:06Z",
+          "expires_at": "2026-11-04T23:56:05Z",
+          "expired": false
+        },
+        {
+          "id": 11381102203,
+          "name": "chapter2-1005-confirmatory-shard-11",
+          "size_in_bytes": 8727865,
+          "digest": "sha256:39ec74fcab0236bc992578f30882ee5c279c00e9ba1955d8796404ad2843ee36",
+          "created_at": "2026-10-05T23:56:04Z",
+          "expires_at": "2026-11-04T23:56:03Z",
+          "expired": false
+        },
+        {
+          "id": 11381506870,
+          "name": "chapter2-1005-confirmatory-shard-12",
+          "size_in_bytes": 8783990,
+          "digest": "sha256:68fb69cbd5a4800582cf38aba5a42a1417e9d0ad9c7d4a3e51fa7e666474a22e",
+          "created_at": "2026-10-05T23:55:16Z",
+          "expires_at": "2026-11-04T23:55:14Z",
+          "expired": false
+        },
+        {
+          "id": 11380384653,
+          "name": "chapter2-1005-confirmatory-shard-13",
+          "size_in_bytes": 8731153,
+          "digest": "sha256:5bceb43b753df9e1513265d73614e9a18ab5dce49b4280ec136c1486b481200a",
+          "created_at": "2026-10-05T23:55:10Z",
+          "expires_at": "2026-11-04T23:55:08Z",
+          "expired": false
+        },
+        {
+          "id": 11380714344,
+          "name": "chapter2-1005-confirmatory-shard-14",
+          "size_in_bytes": 8789338,
+          "digest": "sha256:2c73fcb2135c2bd74ff1ed266021ac24830ebb79191a362285e71972a304314f",
+          "created_at": "2026-10-05T23:55:15Z",
+          "expires_at": "2026-11-04T23:55:14Z",
+          "expired": false
+        },
+        {
+          "id": 11380908751,
+          "name": "chapter2-1005-confirmatory-shard-15",
+          "size_in_bytes": 8735083,
+          "digest": "sha256:a75461952a41cc54a2f522fb7afc9ba83f17fd2fe7d1950e795037b30379d2b7",
+          "created_at": "2026-10-05T23:56:21Z",
+          "expires_at": "2026-11-04T23:56:19Z",
+          "expired": false
+        },
+        {
+          "id": 11381590034,
+          "name": "chapter2-1005-confirmatory-result",
+          "size_in_bytes": 8297,
+          "digest": "sha256:7c5c252cf559067f218bbd9f37b74b00c5d9c52fe30f25bb0196c9bfb9cb4872",
+          "created_at": "2026-10-05T23:57:17Z",
+          "expires_at": "2027-01-03T23:52:59Z",
+          "expired": false
+        }
+      ]
+    },
+    "assurance_generality": {
+      "workflow_run_id": 37458098483,
+      "declared_cases": 8448,
+      "design_sha256": "c050c94eb385a9ab6beb48388f5ec96177c0540e22da53924b02eca19b824119",
+      "expected_shards": 32,
+      "design_file": "data/design/chapter2_assurance_generality_20261006.json",
+      "committed_result_file": "data/results/chapter2_assurance_generality_20261006.json",
+      "artifacts": [
+        {
+          "id": 11411031490,
+          "name": "chapter2-assurance-generality-shard-0",
+          "size_in_bytes": 9911019,
+          "digest": "sha256:6e9ab6e3d354bba2cffd6ce960fc49a4dca0c2c84ae4b6f6ad9397e822041420",
+          "created_at": "2026-10-06T11:43:11Z",
+          "expires_at": "2026-11-05T11:43:09Z",
+          "expired": false
+        },
+        {
+          "id": 11410452132,
+          "name": "chapter2-assurance-generality-shard-1",
+          "size_in_bytes": 13867343,
+          "digest": "sha256:594516e1af6784c1c3642452a70dd03b1bc9853146812c1ea042e2b418e440be",
+          "created_at": "2026-10-06T11:44:35Z",
+          "expires_at": "2026-11-05T11:44:34Z",
+          "expired": false
+        },
+        {
+          "id": 11411051762,
+          "name": "chapter2-assurance-generality-shard-2",
+          "size_in_bytes": 9773996,
+          "digest": "sha256:1fef68e29a5686c13398be36f9a96c8a6fdf337218e29258e8e06c78a48aebfa",
+          "created_at": "2026-10-06T11:44:44Z",
+          "expires_at": "2026-11-05T11:44:43Z",
+          "expired": false
+        },
+        {
+          "id": 11411155493,
+          "name": "chapter2-assurance-generality-shard-3",
+          "size_in_bytes": 13682396,
+          "digest": "sha256:67134b4789702be88a02b356fd56a0252c31af6ae0ef6fa06e043037798bd241",
+          "created_at": "2026-10-06T11:43:19Z",
+          "expires_at": "2026-11-05T11:43:17Z",
+          "expired": false
+        },
+        {
+          "id": 11410121937,
+          "name": "chapter2-assurance-generality-shard-4",
+          "size_in_bytes": 9914176,
+          "digest": "sha256:7a91b554775e5e2e1faccf1acf34d11b98ef5e6b7cececa90810905660fb4b6d",
+          "created_at": "2026-10-06T11:44:45Z",
+          "expires_at": "2026-11-05T11:44:44Z",
+          "expired": false
+        },
+        {
+          "id": 11410061954,
+          "name": "chapter2-assurance-generality-shard-5",
+          "size_in_bytes": 13873310,
+          "digest": "sha256:91276f75178afc9b4aa58dc0840f1ed2a2286dd97c4bd7e5bf1727bfd4292299",
+          "created_at": "2026-10-06T11:43:42Z",
+          "expires_at": "2026-11-05T11:43:41Z",
+          "expired": false
+        },
+        {
+          "id": 11410412318,
+          "name": "chapter2-assurance-generality-shard-6",
+          "size_in_bytes": 9781298,
+          "digest": "sha256:d301bb428777a9ad7843802961d4c70700d9beb3533367c832c93c1a3181c696",
+          "created_at": "2026-10-06T11:44:46Z",
+          "expires_at": "2026-11-05T11:44:45Z",
+          "expired": false
+        },
+        {
+          "id": 11410497209,
+          "name": "chapter2-assurance-generality-shard-7",
+          "size_in_bytes": 13685599,
+          "digest": "sha256:de91ba59dccfd9b7eeabb8038e34a3f8f95991eaf453570bb8583085f9f0c7cf",
+          "created_at": "2026-10-06T11:44:48Z",
+          "expires_at": "2026-11-05T11:44:45Z",
+          "expired": false
+        },
+        {
+          "id": 11410332394,
+          "name": "chapter2-assurance-generality-shard-8",
+          "size_in_bytes": 9915777,
+          "digest": "sha256:14b2cae6ff72a1b19069080eb9194e9109bdd891c516b64853bb163e8cbe5906",
+          "created_at": "2026-10-06T11:44:41Z",
+          "expires_at": "2026-11-05T11:44:40Z",
+          "expired": false
+        },
+        {
+          "id": 11410867009,
+          "name": "chapter2-assurance-generality-shard-9",
+          "size_in_bytes": 13870510,
+          "digest": "sha256:c72f3f3ad518cfa1a45ab20608a445ca4d9840f020db10ebd78d3a5b540d4649",
+          "created_at": "2026-10-06T11:44:41Z",
+          "expires_at": "2026-11-05T11:44:39Z",
+          "expired": false
+        },
+        {
+          "id": 11411101359,
+          "name": "chapter2-assurance-generality-shard-10",
+          "size_in_bytes": 9779729,
+          "digest": "sha256:e8990c53af696eeeabf3443d27d91af72d210e2e2dfefb20e73f13a6ec996727",
+          "created_at": "2026-10-06T11:43:21Z",
+          "expires_at": "2026-11-05T11:43:20Z",
+          "expired": false
+        },
+        {
+          "id": 11410056930,
+          "name": "chapter2-assurance-generality-shard-11",
+          "size_in_bytes": 13689259,
+          "digest": "sha256:f7758eadac3587b51846c5943c533674f057f4d45dc48960811bfd73398f3fbb",
+          "created_at": "2026-10-06T11:43:50Z",
+          "expires_at": "2026-11-05T11:43:48Z",
+          "expired": false
+        },
+        {
+          "id": 11410846956,
+          "name": "chapter2-assurance-generality-shard-12",
+          "size_in_bytes": 9909087,
+          "digest": "sha256:b97d77150e305544948cd9903f607adba6b8649823fd5698c4e93f7bfcbbcdf7",
+          "created_at": "2026-10-06T11:44:41Z",
+          "expires_at": "2026-11-05T11:44:39Z",
+          "expired": false
+        },
+        {
+          "id": 11410442219,
+          "name": "chapter2-assurance-generality-shard-13",
+          "size_in_bytes": 13863228,
+          "digest": "sha256:f665bc5727624b7dc1576d68381a15550f4befb0eab544c4aae7d5c3c18dd367",
+          "created_at": "2026-10-06T11:44:41Z",
+          "expires_at": "2026-11-05T11:44:38Z",
+          "expired": false
+        },
+        {
+          "id": 11410137017,
+          "name": "chapter2-assurance-generality-shard-14",
+          "size_in_bytes": 9778201,
+          "digest": "sha256:07dda97c654380a8eb9837a2f4e37d5962f3670a1a8ffa3727cc885b7e5d9707",
+          "created_at": "2026-10-06T11:44:45Z",
+          "expires_at": "2026-11-05T11:44:44Z",
+          "expired": false
+        },
+        {
+          "id": 11410761709,
+          "name": "chapter2-assurance-generality-shard-15",
+          "size_in_bytes": 13679873,
+          "digest": "sha256:ef8182b120a6d4c4cd5d6c97902d7bfbaa09b375dec46856f4487de56e96e003",
+          "created_at": "2026-10-06T11:43:55Z",
+          "expires_at": "2026-11-05T11:43:53Z",
+          "expired": false
+        },
+        {
+          "id": 11410397435,
+          "name": "chapter2-assurance-generality-shard-16",
+          "size_in_bytes": 9915294,
+          "digest": "sha256:afc5d81ba52e74833c7f800ae2bfdfa0d4220f0cb4e32974f18a31f5a9028c33",
+          "created_at": "2026-10-06T11:46:01Z",
+          "expires_at": "2026-11-05T11:46:00Z",
+          "expired": false
+        },
+        {
+          "id": 11411066909,
+          "name": "chapter2-assurance-generality-shard-17",
+          "size_in_bytes": 13874852,
+          "digest": "sha256:a616702e68214b7f2ecede78138be5d5db3d0c8fadc9daf8293b74f5974769d9",
+          "created_at": "2026-10-06T11:46:15Z",
+          "expires_at": "2026-11-05T11:46:13Z",
+          "expired": false
+        },
+        {
+          "id": 11410297181,
+          "name": "chapter2-assurance-generality-shard-18",
+          "size_in_bytes": 9778962,
+          "digest": "sha256:7b704e67744ad427fb3d3fb8fc2d953300f088069156171a9de4d26e9e7d3d97",
+          "created_at": "2026-10-06T11:46:26Z",
+          "expires_at": "2026-11-05T11:46:24Z",
+          "expired": false
+        },
+        {
+          "id": 11410832384,
+          "name": "chapter2-assurance-generality-shard-19",
+          "size_in_bytes": 13689843,
+          "digest": "sha256:c4fcb78f1e44f5d5a8d424c071484379b3b74cd880b5d268840aee39a97fe1ce",
+          "created_at": "2026-10-06T11:46:26Z",
+          "expires_at": "2026-11-05T11:46:24Z",
+          "expired": false
+        },
+        {
+          "id": 11410037383,
+          "name": "chapter2-assurance-generality-shard-20",
+          "size_in_bytes": 9913445,
+          "digest": "sha256:aed045d6df7554dec2e5f41118d031df990e7835777a1446bf5225eccada957c",
+          "created_at": "2026-10-06T11:46:43Z",
+          "expires_at": "2026-11-05T11:46:42Z",
+          "expired": false
+        },
+        {
+          "id": 11411006977,
+          "name": "chapter2-assurance-generality-shard-21",
+          "size_in_bytes": 13873529,
+          "digest": "sha256:48b88a74bbf418cc80eb98e2a5da69db4fce06f4da683b4ba9129c07f4582933",
+          "created_at": "2026-10-06T11:45:38Z",
+          "expires_at": "2026-11-05T11:45:37Z",
+          "expired": false
+        },
+        {
+          "id": 11410512576,
+          "name": "chapter2-assurance-generality-shard-22",
+          "size_in_bytes": 9786420,
+          "digest": "sha256:1980fb87253ebe5609b254fbb63c4dec24bd07e2648f900202c45fff5c861613",
+          "created_at": "2026-10-06T11:46:05Z",
+          "expires_at": "2026-11-05T11:46:03Z",
+          "expired": false
+        },
+        {
+          "id": 11410902311,
+          "name": "chapter2-assurance-generality-shard-23",
+          "size_in_bytes": 13692348,
+          "digest": "sha256:e6699597c0def14b80f466bdba5d23c1f9e89a0516a405c1a0fbf32db6243ee4",
+          "created_at": "2026-10-06T11:46:08Z",
+          "expires_at": "2026-11-05T11:46:06Z",
+          "expired": false
+        },
+        {
+          "id": 11410907380,
+          "name": "chapter2-assurance-generality-shard-24",
+          "size_in_bytes": 9905267,
+          "digest": "sha256:d41acc85eb162e48aaad55c91756d5a82b4f9cad41314459c96980d95c9f18ba",
+          "created_at": "2026-10-06T11:47:32Z",
+          "expires_at": "2026-11-05T11:47:30Z",
+          "expired": false
+        },
+        {
+          "id": 11410807349,
+          "name": "chapter2-assurance-generality-shard-25",
+          "size_in_bytes": 13862881,
+          "digest": "sha256:1183be94f8223a9ed80f6149908a889fcebe1749f95cdc153dba8715772eaaa8",
+          "created_at": "2026-10-06T11:47:31Z",
+          "expires_at": "2026-11-05T11:47:30Z",
+          "expired": false
+        },
+        {
+          "id": 11410802290,
+          "name": "chapter2-assurance-generality-shard-26",
+          "size_in_bytes": 9777805,
+          "digest": "sha256:391ffdf914682e1930b40e0c4d02070e15c674b313927e9639ba801c55d37578",
+          "created_at": "2026-10-06T11:46:58Z",
+          "expires_at": "2026-11-05T11:46:56Z",
+          "expired": false
+        },
+        {
+          "id": 11410097253,
+          "name": "chapter2-assurance-generality-shard-27",
+          "size_in_bytes": 13676712,
+          "digest": "sha256:e8128060dcd5db79f605dd8a7689b58591439d35f9e5aaf64d9493151b194001",
+          "created_at": "2026-10-06T11:46:08Z",
+          "expires_at": "2026-11-05T11:46:07Z",
+          "expired": false
+        },
+        {
+          "id": 11410897020,
+          "name": "chapter2-assurance-generality-shard-28",
+          "size_in_bytes": 9904631,
+          "digest": "sha256:2df1c4ec81411b47b928548ec4001029fdc9d13f43e487b36aaafbf8258d00f8",
+          "created_at": "2026-10-06T11:46:05Z",
+          "expires_at": "2026-11-05T11:46:03Z",
+          "expired": false
+        },
+        {
+          "id": 11410957432,
+          "name": "chapter2-assurance-generality-shard-29",
+          "size_in_bytes": 13852969,
+          "digest": "sha256:b8999ed7351ce73c12b46e9a15a85f96fe74fb533a755ba96b91950318a4bb38",
+          "created_at": "2026-10-06T11:47:36Z",
+          "expires_at": "2026-11-05T11:47:34Z",
+          "expired": false
+        },
+        {
+          "id": 11410062427,
+          "name": "chapter2-assurance-generality-shard-30",
+          "size_in_bytes": 9775245,
+          "digest": "sha256:981a2e1da3ec2cdd81242ba85bb2d76e17ac0b9c037ef52f77cc3b5032e28107",
+          "created_at": "2026-10-06T11:46:52Z",
+          "expires_at": "2026-11-05T11:46:52Z",
+          "expired": false
+        },
+        {
+          "id": 11411270015,
+          "name": "chapter2-assurance-generality-shard-31",
+          "size_in_bytes": 13677055,
+          "digest": "sha256:8f78b75aca345e42306bde3cd6bcfa3df7b129f76262cfe7ad804aa68f36b2f0",
+          "created_at": "2026-10-06T11:47:55Z",
+          "expires_at": "2026-11-05T11:47:54Z",
+          "expired": false
+        },
+        {
+          "id": 11411525163,
+          "name": "chapter2-assurance-generality-result",
+          "size_in_bytes": 2849,
+          "digest": "sha256:34bedf03e6cde0b3d7f5140b7f352227b5dd1550c097e66e42022aa9830d3d8c",
+          "created_at": "2026-10-06T11:49:56Z",
+          "expires_at": "2027-01-04T11:41:39Z",
+          "expired": false
+        }
+      ]
+    }
+  },
+  "derived_committed_results": [
+    "data/results/chapter2_assurance_attenuation_decomposition_20261006.json",
+    "data/results/chapter2_assurance_gradient_components_20261006.json"
+  ],
+  "manuscript": "docs/CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md",
+  "archive_contract": {
+    "preserve_original_artifact_zip_bytes": true,
+    "verify_every_artifact_digest": true,
+    "include_committed_designs_results_and_manuscript": true,
+    "doi_not_assigned_here": true,
+    "external_deposition_required": true
+  }
+}
