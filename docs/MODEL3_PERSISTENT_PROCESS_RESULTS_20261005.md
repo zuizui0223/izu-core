@@ -67,3 +67,29 @@ Thus this strong isolation contrast creates prolonged visitor absence, not merel
 - Six tests passed in `test_model3_temporal_order.py` and `test_model3_persistent_isolation.py` on 2026-10-05.
 
 These are finite-ABM results. The separate 65-node fifth-update probe passed local marginal accuracy (relative L1 1.31e-12). Long-run accumulated accuracy, grid convergence, positivity and positive-mutation deterministic/diffusion ecological comparison remain incomplete. Overall closure remains open.
+
+## Independent confirmatory replication — 2026-10-06
+
+A prospectively frozen replication used 64 new visitor-history seeds
+(`26100601–26100664`) and eight new demographic-repeat seeds
+(`26101601–26101608`), distinct from the discovery cohort. All declared
+sequence trajectories completed before biological readout.
+
+For the primary delayed-selfing, assurance-cost 0.5, mutation-0.01 cell at the
+0.05 threshold sustained for 20 updates, the new cohort again produced
+**51/64 assurance-first histories** and 13 near-simultaneous histories. The
+assurance-first proportion was 0.796875 with a 95% visitor-history bootstrap
+interval of **0.6875–0.890625**, passing the frozen criterion that both the point
+estimate and interval lower bound exceed 0.5.
+
+Predeclared threshold sensitivity in this cell retained the direction:
+48/64 assurance-first at 0.025 and 59/64 at 0.10. The result is not universal
+across reproductive settings: prior selfing with positive mutation yielded
+30/64 assurance-first at the 0.05 threshold (95% interval 0.34375–0.59375).
+
+The confirmed claim is therefore restricted to the delayed-selfing,
+costly-assurance setting. It concerns realized threshold-crossing order, not the
+onset of selection or a universal sequence.
+
+Design: `data/design/chapter2_1005_confirmatory_replication_20261006.json`.
+Result: `data/results/chapter2_1005_confirmatory_replication_20261006.json`.
