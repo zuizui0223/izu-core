@@ -13,11 +13,12 @@ def test_readme_separates_current_process_work_from_historical_bridge():
     assert "all 13,312 cases" in lower
     assert "24,576 computational cases" in lower
     assert "128 independent visitor histories" in lower
+    assert "docs/chapter2_manuscript_ecology_letters_20261006.md" in lower
     assert "docs/chapter2_manuscript_active_20260831.md" in lower
     assert "docs/chapter2_canonical_story_20260927.md" in lower
     assert "docs/chapter1_chapter2_canonical_bridge_20260927.md" in lower
     assert "data/design/chapter2_unified_model3_lock_20260927.json" in lower
-    assert "sequence ≠ necessity" in lower
+    assert "temporal precedence is not causal necessity" in lower
     assert "independently confirmed" in lower
 
 
