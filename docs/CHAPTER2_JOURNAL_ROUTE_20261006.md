@@ -177,9 +177,14 @@ Keep the temporal result separate:
 4. **DONE — novelty/claim boundary.** The manuscript does not sell
    selfing-first as novel or universal, and separates the confirmed four-setting
    result from the setting-specific temporal sequence.
-5. **PENDING EXTERNAL DEPENDENCY — public archive.** Deposit the
-   confirmatory/generalization raw bundles in a permanent public repository and
-   add DOI(s) to Data Accessibility before submission.
+5. **INTERNAL ARCHIVE READY / EXTERNAL DOI PENDING.** The exact 50 GitHub
+   Actions artifacts underlying the confirmatory and four-setting campaigns are
+   indexed with SHA-256 digests in
+   `data/design/chapter2_public_archive_manifest_20261006.json`, and
+   `.github/workflows/chapter2-public-archive.yml` builds a verified
+   deposition-ready ZIP. A permanent third-party deposit still has to mint the
+   DOI, after which the DOI must be inserted into Data Accessibility before
+   submission.
 
 This journal decision follows the preregistered promotion rule; it does not
 raise the scientific claim ceiling beyond the evidence above.
