@@ -10,6 +10,20 @@ recorded separately after commit and remote verification.
 
 Updated 2026-10-05 after completion and independent verification of the 13-rate replenishment extension and processes-v6 poster. This replaces the earlier dated runtime checkpoint in this file. The goal remains active pending the final whole-manuscript/source audit; scientific completion is not inferred from a passing subset of checks.
 
+## Confirmatory amendment — 2026-10-06
+
+A separate prospectively frozen new-history experiment now closes the main
+sequence/necessity evidence gate. The primary delayed-selfing/costly
+positive-mutation cell confirmed assurance-first realized order (51/64; 95%
+history-bootstrap 0.6875–0.8906), while the fixed-assurance replication confirmed
+negative investment change without assurance evolution. The result is
+setting-specific and must not be generalized to prior selfing, where the
+positive-mutation primary-threshold sequence was 30/64 assurance-first.
+
+Design and compact result:
+`data/design/chapter2_1005_confirmatory_replication_20261006.json`;
+`data/results/chapter2_1005_confirmatory_replication_20261006.json`.
+
 ## Ecological evidence and remaining requirements
 
 | Goal requirement | Evidence and current disposition | Remaining scope |
