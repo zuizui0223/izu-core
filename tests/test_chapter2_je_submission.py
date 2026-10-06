@@ -2,6 +2,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 MANUSCRIPT = ROOT / "docs/CHAPTER2_MANUSCRIPT_JE_20261006.md"
+SI = ROOT / "docs/CHAPTER2_SUPPORTING_INFORMATION_JE_20261006.md"
 
 
 def test_je_manuscript_keeps_confirmed_process_claim_and_scope():
@@ -52,3 +53,17 @@ def test_je_manuscript_has_no_repository_internal_labels():
     assert "bridge-state" not in main
     assert "MODEL3_" not in main
     assert "2026-10-05" not in main
+
+
+def test_je_supporting_information_preserves_scope_and_numerical_limits():
+    text = SI.read_text(encoding="utf-8")
+    assert "## S1. Model structure" in text
+    assert "## S2. Confirmatory sequence and necessity design" in text
+    assert "## S3. Selection conditions" in text
+    assert "## S4. Finite realization" in text
+    assert "## S5. Pollen limitation" in text
+    assert "## S6. Natural-island confrontation and reproducibility" in text
+    assert "30/64 assurance-first" in text
+    assert "31 of 32" in text
+    assert "numerically\nunresolved" in text
+    assert "Public DOI deposition is\nstill external and pending" in text
