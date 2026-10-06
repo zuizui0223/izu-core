@@ -99,3 +99,62 @@ populations.
 Result:
 `data/results/chapter2_assurance_generality_20261006.json`.
 Workflow run: 37458098483; result artifact: 11411525163.
+
+
+## Why assurance evolution narrows the near–far contrast
+
+Two post-confirmation diagnostics localize the already confirmed interaction without
+rerunning or retuning the biological campaign.
+
+First, the same 8,448 hash-verified trajectories were decomposed on common
+four-cell replicates. In every setting, allowing assurance to evolve pushes
+investment lower on the near side but leaves investment slightly higher on the
+far side than under fixed assurance:
+
+| Setting | Evolving−fixed investment, near | Evolving−fixed investment, far | Near-side share of attenuation |
+|---|---:|---:|---:|
+| Delayed control | −0.1253 [−0.1395, −0.1112] | +0.0352 [+0.0233, +0.0471] | 78.1% |
+| Prior selfing | −0.1985 [−0.2137, −0.1838] | +0.0215 [+0.0116, +0.0315] | 90.2% |
+| Pollen discount | −0.1699 [−0.1831, −0.1563] | +0.0216 [+0.0110, +0.0327] | 88.7% |
+| Assurance cost | −0.0789 [−0.0931, −0.0646] | +0.0218 [+0.0120, +0.0312] | 78.3% |
+
+Thus the positive interaction is not mainly a rescue of far-side investment.
+It is primarily a **near-side convergence effect**: when assurance can evolve,
+high-replenishment populations lose more investment than they do when assurance
+is fixed, while low-replenishment populations show a much smaller offset in the
+opposite direction. The algebraic identity was exact to <2.3e-16, all 64
+histories retained all eight common four-cell repeats, and no survivor-set
+mismatch is involved.
+
+Second, a fixed-resident diagnostic used the corrected rare-mutant invasion
+gradient at matching=0.5 and investment=0.5. Increasing assurance from 0.25 to
+0.75 at visitor snapshot400 made investment selection more negative in both arms,
+but much more strongly under near than far histories:
+
+| Setting | Assurance effect on investment gradient, near | Far | Near−far |
+|---|---:|---:|---:|
+| Delayed control | −0.4343 | −0.0549 | −0.3794 |
+| Prior selfing | −0.5886 | −0.0655 | −0.5231 |
+| Pollen discount | −0.5251 | −0.0590 | −0.4661 |
+| Assurance cost | −0.4343 | −0.0549 | −0.3794 |
+
+At snapshot400, the female outcross and paternal export components together
+account for most of this near-minus-far local effect; the selfing-displacement
+and ovule-allocation-cost terms contribute in the same direction except that the
+prior-selfing displacement term is structurally zero. The biological reading is
+that low visitor replenishment has already removed most of the attraction return
+available to lose. Under high replenishment, outcross return is still substantial,
+so increasing assurance more strongly erodes the marginal value of attraction.
+
+This explains why assurance evolution can compress geographic divergence without
+being required for far-side investment decline. It does **not** identify a natural
+direct/indirect mediation fraction. The fixed-resident calculation is a local
+selection diagnostic, whereas the finite trajectories also contain evolving
+population state, genetic covariance, demographic sampling and feedback. The
+broader 500-combination parameter diagnostic contains rare sign exceptions, so
+the direct coupling is not claimed as universal outside the four baseline
+reproductive settings.
+
+Evidence:
+`data/results/chapter2_assurance_attenuation_decomposition_20261006.json`;
+`data/results/chapter2_assurance_gradient_components_20261006.json`.
