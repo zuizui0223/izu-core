@@ -394,3 +394,53 @@ jobs:
           path: |
             chapter2_assurance_generality_20261006.json
             chapter2_assurance_generality_console.txt
+
+
+  assurance-attenuation-decomposition:
+    if: github.event_name == 'pull_request' && github.head_ref == 'chapter2/assurance-generality-20261006'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - id: plan
+        name: Check whether the arm decomposition is already recorded
+        run: |
+          if test -f data/results/chapter2_assurance_attenuation_decomposition_20261006.json; then
+            echo "needs_run=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "needs_run=true" >> "$GITHUB_OUTPUT"
+          fi
+      - uses: actions/setup-python@v5
+        if: steps.plan.outputs.needs_run == 'true'
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --upgrade pip
+        if: steps.plan.outputs.needs_run == 'true'
+      - run: python -m pip install -e '.[dev]'
+        if: steps.plan.outputs.needs_run == 'true'
+      - uses: actions/download-artifact@v4
+        if: steps.plan.outputs.needs_run == 'true'
+        with:
+          pattern: chapter2-assurance-generality-shard-*
+          path: assurance-generality-shards
+          repository: ${{ github.repository }}
+          run-id: 37458098483
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Decompose the confirmed interaction by arm
+        if: steps.plan.outputs.needs_run == 'true'
+        run: |
+          python -m scripts.summarize_chapter2_assurance_attenuation_decomposition \
+            --source-design data/design/chapter2_assurance_generality_20261006.json \
+            --decomposition-design data/design/chapter2_assurance_attenuation_decomposition_20261006.json \
+            --input-root assurance-generality-shards \
+            --out chapter2_assurance_attenuation_decomposition_20261006.json \
+            | tee chapter2_assurance_attenuation_decomposition_console.txt
+      - uses: actions/upload-artifact@v4
+        if: steps.plan.outputs.needs_run == 'true'
+        with:
+          name: chapter2-assurance-attenuation-decomposition
+          retention-days: 90
+          if-no-files-found: error
+          path: |
+            chapter2_assurance_attenuation_decomposition_20261006.json
+            chapter2_assurance_attenuation_decomposition_console.txt
