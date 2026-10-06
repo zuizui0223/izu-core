@@ -8,18 +8,24 @@ The only active Chapter 2 manuscript is the **2026-10-05 process paper**:
 
 > **reduced visitor replenishment → changed reproductive return to attraction and assurance → realized sequence → causal-necessity intervention → viable reproductive consequences**
 
-Current manuscript: `docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md`.
+Current submission manuscript: `docs/CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md`.
+Long-form process/provenance manuscript: `docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md`.
 Controlling narrative: `docs/CHAPTER2_PROCESS_MAINLINE_20261005.md`.
 
-The paper-level claim is that reproductive assurance can change before floral
-investment declines, yet assurance evolution is not required for that decline.
-A fixed-plant assay places the upstream mechanism in reduced outcross returns,
-and the fixed-versus-evolving-assurance intervention separates temporal order
-from causal necessity.
+The paper-level claim is that reproductive-assurance evolution is not required
+for pollinator-limitation-driven investment decline, yet allowing assurance to
+evolve consistently compresses the near–far investment contrast across all four
+declared reproductive settings. Post-confirmation decomposition localizes most
+of that attenuation to additional decline in the high-replenishment arm, and a
+corrected rare-mutant diagnostic links the asymmetry mainly to maternal outcross
+and paternal pollen-export returns. Temporal order is a separate,
+setting-specific result rather than evidence of causal necessity.
 
 Current boundaries:
 
 - the primary ecological denominator is **64 independent visitor histories**; eight demographic repeats are nested;
+- the prospectively frozen four-setting generality campaign passed 4/4 settings; evolving-minus-fixed attenuation was +0.1007 to +0.2200 with all visitor-history bootstrap intervals above zero;
+- 78–90% of the confirmed attenuation was localized to additional near/high-replenishment investment decline, with smaller far-side relief;
 - the 51/64 delayed/costly positive-mutation sequence result is independently confirmed on 64 new visitor histories (95% history-bootstrap 0.6875–0.8906);
 - the confirmed sequence claim is restricted to delayed selfing with assurance cost 0.5 and positive mutation; the prior-selfing positive-mutation cell did not show an assurance-first majority at the primary threshold;
 - all four setting-by-mutation sequence cells must be reported;
