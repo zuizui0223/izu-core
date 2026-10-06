@@ -9,14 +9,13 @@ import json
 import re
 import zipfile
 
-from scripts.render_chapter2_process_manuscript import ROOT, render_manuscript
+from scripts.render_chapter2_submission_manuscript import ROOT, render_manuscript
 
 OUT = ROOT / 'outputs/chapter2_process_delivery'
 MAIN = {
     'Figure1.pdf': 'model3_return_components_20261005/return_components.pdf',
     'Figure2.pdf': 'model3_sequence_necessity_20261005/sequence_necessity.pdf',
     'Figure3.pdf': 'model3_trait_pollen_20261005/trait_pollen_snapshot400.pdf',
-    'Figure4.pdf': 'model3_genetic_realization_20261005/genetic_realization.pdf',
 }
 SUPPORT = [
     'CHAPTER2_PROCESS_FINAL_AUDIT_20261005.md',
@@ -36,6 +35,7 @@ SUPPORT = [
     'CHAPTER2_1005_FIVE_CRITERIA_AUDIT_20261006.md',
     'CHAPTER2_1005_NOVELTY_AND_LITERATURE_POSITION_20261006.md',
     'CHAPTER2_SUBMISSION_ROUTE_FIREWALL_20260927.md',
+    'CHAPTER2_SUBMISSION_MAIN_SI_MAP_20261006.md',
 ]
 FIGURE_INPUTS = [
     'data/results/model3_return_components_20261005.json',
@@ -87,17 +87,17 @@ def build() -> dict:
     members['READ_ME.txt'] = (
         'CURRENT PROCESS MANUSCRIPT — CONFIRMED REVIEW PACKAGE\n'
         'Primary 2026-10-05 sequence/necessity result is established, bounded, and independently confirmed.\n'
-        'Figures 1–4 are separate experiments, not a single shared campaign.\n'
+        'Figures 1–3 carry the paper-level process claim; finite-genetic realization is Supporting Information.\n'
         'Companion PDFs retain all sampled conditions. Each file has a SHA-256 below.\n'
         'This is not a journal submission or complete raw-data deposit.\n'
         'The complete 13-rate raw archive is separately identified in '
         'data/results/model3_replenishment_archive_20261005.json.\n'
-        'Inputs for regenerating the four main figures are included at their original paths.\n'
+        'Inputs for regenerating the three main figures and supporting diagnostics are included at their original paths.\n'
         'From the extracted root, with the declared Python dependencies installed, run:\n'
         'python -m scripts.figure_model3_return_components\n'
         'python -m scripts.figure_model3_sequence_necessity\n'
         'python -m scripts.figure_model3_trait_pollen\n'
-        'python -m scripts.figure_model3_genetic_realization\n'
+        'python -m scripts.figure_model3_genetic_realization  # Supporting Figure S1\n'
         'This redraws completed results; it does not rerun ecological simulations.\n'
         'Figure 2 reads the frozen 2026-10-06 confirmatory result; no confirmatory simulation is rerun during redraw.\n'
         'The stopped high-resolution positive-mutation comparison remains unresolved.\n'
