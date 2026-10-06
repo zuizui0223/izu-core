@@ -58,6 +58,8 @@ The strongest completed results are:
   (**-15.72 per 48 plants** in the delayed setting), showing that pollen shortage
   and reproductive return are not interchangeable readouts.
 
+The prior-selfing positive-mutation cell did not show an assurance-first majority.
+
 The ecological synthesis is therefore **sequence ≠ necessity**: a trait that
 changes first is not automatically the cause of a later trait change. Isolation
 changes the reproductive economics facing both traits, and their realized
