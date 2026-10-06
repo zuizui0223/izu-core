@@ -167,7 +167,7 @@ def main():
     plt.close(fig)
 
     (out/"plotted_events.json").write_text(json.dumps(event_records, indent=2)+"\n", encoding="utf-8")
-    with (out/"plotted_endpoints.csv").open("w", newline="", encoding="utf-8") as handle:
+    with (out/"plotted_estimates.csv").open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=list(endpoint_records[0]))
         writer.writeheader()
         writer.writerows(endpoint_records)
