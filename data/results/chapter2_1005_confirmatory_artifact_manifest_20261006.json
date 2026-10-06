@@ -158,5 +158,12 @@
     "destination": "ChatGPT persistent Library /izu-core/chapter2-1005-confirmatory-20261006",
     "contents": "result ZIP plus all 16 shard ZIPs",
     "note": "This removes dependence on GitHub Actions retention but is not a public DOI-backed deposit."
+  },
+  "prepared_deposit_bundle": {
+    "file_name": "chapter2-1005-confirmatory-deposit-20261006.zip",
+    "bytes": 140213355,
+    "sha256": "0735bac647bd288f9badfa28b61e44d0724d661550a018a1efa5eae6dfe42f96",
+    "private_preservation_path": "/izu-core/chapter2-1005-confirmatory-20261006/chapter2-1005-confirmatory-deposit-20261006.zip",
+    "public_doi_status": "pending"
   }
 }
