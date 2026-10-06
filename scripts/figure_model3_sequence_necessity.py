@@ -21,6 +21,14 @@ def main():
     order_receipt = ROOT/'outputs/figures/model3_temporal_order_20261005/provenance.json'
     assert digest(order_path) == json.loads(order_receipt.read_text())['source_sha256']
     order = json.loads(order_path.read_text())
+    confirm_path = ROOT/'data/results/chapter2_1005_confirmatory_replication_20261006.json'
+    confirm = json.loads(confirm_path.read_text())
+    assert confirm['status'] == 'confirmed'
+    confirm_sequence = {
+        (r['setting'], r['mutation_rate'], r['threshold']): r
+        for r in confirm['threshold_sensitivity']
+    }
+    confirm_fixed = {r['setting']: r for r in confirm['fixed_assurance']}
     folder = ROOT/'outputs/figures/model3_capacity_intervention_20261005'
     provenance = json.loads((folder/'provenance.json').read_text())
     series_path = folder/'plotted_series.npz'
@@ -60,9 +68,13 @@ def main():
         ax.set_xticks([1,10,100,1000]);ax.set_yticks([1,10,100,1000])
         ax.text(.04,.95,'Above diagonal: capacity crosses earlier',
                 transform=ax.transAxes,va='top',fontsize=9)
-        ax.text(.53,.05,f"Capacity first: {row['counts'].get('assurance_first',0)}/64\n"
-                f"Within 5 updates: {row['counts'].get('near_simultaneous',0)}/64",
-                transform=ax.transAxes,fontsize=9)
+        replication = confirm_sequence[(setting, .01, .05)]
+        ci = replication['bootstrap95']
+        ax.text(.49,.035,
+                f"Discovery: {row['counts'].get('assurance_first',0)}/64 capacity first\n"
+                f"Independent replication: {replication['counts'].get('assurance_first',0)}/64 "
+                f"[{ci[0]:.3f}, {ci[1]:.3f}]",
+                transform=ax.transAxes,fontsize=8.5)
         ax.spines[['top','right']].set_visible(False)
     plotted = {}
     for row,setting in enumerate(settings):
@@ -82,6 +94,14 @@ def main():
             ax.set_xticks([0,200,400,600,800,1000]);ax.set_yticks([0,.25,.5,.75,1])
             ax.set_title(('Capacity fixed at 0.5' if mode=='fixed' else 'Capacity can evolve')
                          +'\n'+labels[row],fontsize=10)
+            if mode == 'fixed':
+                rep = confirm_fixed[setting]
+                far = rep['far_investment_change']
+                pair = rep['far_minus_near_investment']
+                ax.text(.03,.04,
+                        f"Independent fixed-capacity replication\n"
+                        f"far ΔI={far['mean']:.3f}; far−near={pair['mean']:.3f}",
+                        transform=ax.transAxes,fontsize=8)
             ax.spines[['top','right']].set_visible(False);ax.grid(axis='y',alpha=.12)
     fig.text(.095,.975,'Sequence and necessity are different questions',fontsize=19,weight='bold')
     fig.text(.095,.938,'A  Which trait reaches a declared change first?',fontsize=14,weight='bold')
@@ -105,7 +125,9 @@ def main():
                  intervention_series_sha256=digest(series_path),event_points=len(event_records),
                  investment_coordinates=sum(v.size for v in plotted.values()),
                  plotted_series_sha256=digest(out/'plotted_investment.npz'),
-                 scope='No new estimates. Two distinct verified cohorts assembled; timing is not causal necessity.')
+                 confirm_result_sha256=digest(confirm_path),
+                 confirmation_status=confirm['status'],
+                 scope='Discovery trajectories plus independently confirmed sequence and fixed-assurance summaries; timing is not causal necessity.')
     (out/'provenance.json').write_text(json.dumps(receipt,indent=2)+'\n')
     print(json.dumps(receipt))
 
