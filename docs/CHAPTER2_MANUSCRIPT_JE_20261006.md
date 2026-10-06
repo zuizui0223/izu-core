@@ -54,10 +54,10 @@ The mechanistic control variable is expected successful visitor establishment pe
 
 Plant capacity is a separate model condition. Capacity 48 does not correspond to a declared island area; the ABM represents finite plants and their inheritance rather than island geometry. The primary contrast isolates visitor replenishment at fixed plant capacity and no plant immigration. Population-size comparisons belong to separate, explicitly labelled experiments. The model has a common external source, not inter-island stepping-stone dispersal. Its relevance to islands is the mechanism of replenishment limitation; the model does not claim to recreate every physical consequence of island size or geography.
 
-The primary experiment starts an established plant population and prevents plant immigration. It therefore investigates within-population evolutionary response to ongoing visitor supply, not filtering among plant species during island colonization. Self-compatibility in comparative floras, autonomous capacity in the model, and the realized fraction of selfed offspring are different quantities. Their possible association motivates Q1–Q2 comparison but does not make the model a direct causal explanation of assemblage-level patterns.
+The primary experiment starts an established plant population and prevents plant immigration. It therefore investigates within-population evolutionary response to ongoing visitor supply, not filtering among plant species during island colonization. Self-compatibility in comparative floras, autonomous capacity in the model, and the realized fraction of selfed offspring are different quantities. Their possible association motivates comparison but does not make the model a direct causal explanation of assemblage-level patterns.
 
 
-## Current primary experiments and their causal contrasts
+## Primary experiments and causal contrasts
 | Question | Experiment | Held fixed / varied | Interpretation |
 |---|---|---|---|
 | Does visitor limitation change investment returns? | 768 fixed-plant assays | Same 48 plants and capacity 0.5; near/far visitor exposures at indices 0,200,400 | Local reproductive contribution derivative, before plant evolution; visitor composition and amount vary together |
@@ -71,15 +71,11 @@ The maintained-isolation experiment starts 48 plants and four visitor types, use
 
 Temporal events use a declared 0.05 change sustained for 20 updates, with crossings within five updates treated as near-simultaneous; thresholds 0.025 and 0.1 are sensitivity analyses. Unreached events are censored. Counts refer to history means over demographic repeats. Equal changes on abstract axes are not assumed to have equivalent natural biological magnitude. Estimates and descriptive intervals preserve the independent visitor-history unit, and extinction is reported separately rather than represented as a zero trait value.
 
-Natural evidence enters only after the synthetic objects and claim boundaries are defined. The confrontation layer combines a formal source audit of 25 research entries across 21 exact geographic labels, a broader source-verified descriptive programme that reached its geography-first stopping rule, source-native secondary reanalyses of compositional change, and existing Izu functional-network / pollen secondary analyses. The formal audit records whether each system directly observes comparable plant response, partner loss or arrival/replacement, realized community change and other mechanism-relevant coordinates without imputing missing axes from outcomes. The broader programme is used to assess biological vocabulary and search saturation, not to estimate natural prevalence.
-
-The Izu secondary-data stress test is likewise deliberately asymmetric. We retain support when functional exposure predicts corrected trait matching, but also retain instability or failure when matching-to-pollen effects are not leave-one-island sign stable, historical signed-position projections fail null correction, or a bridge-state geographic contrast is not independently identified. The natural layer therefore constrains interpretation rather than selecting synthetic parameters.
-
-The natural evidence is therefore a confrontation layer rather than a calibration layer. A future same-unit transition-linked study could directly test the full ecological chain, but current cross-sectional evidence cannot retrospectively identify the historical mechanism that generated a named island phenotype.
+Natural evidence is treated as a confrontation layer rather than a calibration layer. Existing island studies establish the biological plausibility of visitor limitation, mating-system change and variable floral responses, but they are not used to choose model parameters or assign named islands to synthetic conditions. Detailed source audits and secondary-data checks are reported in Supporting Information.
 
 
 ## Prospectively frozen independent confirmation
-After the 2026-10-05 sequence and fixed-assurance results were known, but before
+After the discovery sequence and fixed-assurance results were known, but before
 any confirmatory outcomes were generated, we froze an independent replication
 design. Discovery visitor histories 76001–76064 and demographic repeats
 7101–7108 were not reused. The confirmation used 64 new visitor histories
@@ -122,15 +118,13 @@ not increase the independent ecological denominator beyond 64.
 ## Ecologically explicit reproductive and inheritance pathway
 The model represents a focal plant population embedded in an externally supported visitor environment. Plants carry additive diploid loci for an abstract access/matching trait and floral investment, with reproductive assurance fixed or inherited depending on the declared experiment. Visitor functional types determine finite compatible pollen delivery. Outcrossing contributes maternal and paternal gametes; delayed selfing can fertilize remaining ovules; inbreeding depression reduces viable selfed offspring; and Mendelian inheritance precedes recruitment, density regulation and adult survival. No rule directly moves a floral trait toward an environmental optimum or toward the best visitor.
 
-The earlier complementary island campaign crossed predeclared families for visitor-history transport, fixed-state reproductive assays, reproductive assurance, seed and pollinator connectivity, founding state, trait-grid representation, population scaling, life history, disturbance chronology and recovery. That campaign contains 19,968 audited cases across 80 production cells plus six held-out transport rows. It is a distinct cohort from the current sustained-isolation experiments above. All cases passed state/receipt audit and 80 predeclared deterministic replay checks. Extinct endpoints remained undefined rather than coded as zero.
-
-Model3 is interpreted at a bounded level. The code's reproductive-year label denotes a reproductive update, not a calibrated calendar year. Distances are standardized dispersal coordinates rather than kilometres, visitors are functional types, and investment is not calibrated to flower colour, size or nectar guides. Numerical resolution and approximation are separate from biological uncertainty. Unadmitted positive-mutation deterministic results cannot be promoted as ecological evidence merely because their qualitative directions look plausible.
+The model is interpreted at a bounded level. The code's reproductive-year label denotes a reproductive update, not a calibrated calendar year. Distances are standardized dispersal coordinates rather than kilometres, visitors are functional types, and investment is not calibrated to flower colour, size or nectar guides. Numerical resolution and approximation are separate from biological uncertainty. Unadmitted positive-mutation deterministic results cannot be promoted as ecological evidence merely because their qualitative directions look plausible.
 
 
 
 ## Supporting analyses and claim separation
 
-The 13-rate replenishment surface, reciprocal-selection atlas, broad parameter sensitivity, finite-versus-deterministic bridge, common-environment mutation-history experiment, mutation/PDE diagnostics, repeatability analyses and detailed natural-island confrontation are reported in Supporting Information. They do not enter the confirmatory success rule and cannot rescue or overturn the preregistered primary sequence or fixed-assurance decisions. The positive-mutation high-resolution deterministic/PDE comparison remains numerically unresolved and is not used as biological evidence.
+The 13-rate replenishment surface, reciprocal-selection atlas, broad parameter sensitivity, finite-versus-deterministic comparison, common-environment mutation-history experiment, mutation/PDE diagnostics, repeatability analyses and detailed natural-island confrontation are reported in Supporting Information. They do not enter the confirmatory success rule and cannot rescue or overturn the preregistered primary sequence or fixed-assurance decisions. The positive-mutation high-resolution deterministic/PDE comparison remains numerically unresolved and is not used as biological evidence.
 
 
 # Results
@@ -207,7 +201,7 @@ viable pollen deficit by 0.0104 but reduced viable maternal offspring by 15.72
 per 48 plants. Pollen shortage, compensation and absolute viable offspring are
 therefore not interchangeable readouts.
 
-The earlier bridge and common-environment mutation diagnostics remain
+Complementary finite-versus-deterministic and common-environment mutation diagnostics remain
 complementary evidence on genetic realization and history dependence; they do
 not define the primary paper question.
 
@@ -291,7 +285,7 @@ The strongest empirical test is therefore not another broad compilation but a tr
 
 
 ## Ecological validity and limits
-Parameter uncertainty is distinct from repeat-to-repeat stochasticity. The primary 64-history, eight-repeat design estimates the latter conditional on synthetic settings; it does not establish robustness to alternative reproductive costs, inbreeding depression, genetic architecture or arrival functions. The two primary reproductive settings jointly change selfing timing and capacity cost. Mutation rates 0 and 0.01 and alternative temporal thresholds reveal substantial changes in effect magnitude and classified order. The replenishment extension supplies trajectories across 13 arrival rates at fixed remaining parameters; the reciprocal and cost/depression grid broadens local selection coverage but does not supply evolutionary trajectories over all those parameter combinations. Consequently, the ecological result is conditional process decomposition, not a universal claim that selfing initiates before investment decline. Detailed coverage and unresolved sensitivities are recorded in MODEL3_ASSUMPTION_SENSITIVITY_SCOPE_20261005.md.
+Parameter uncertainty is distinct from repeat-to-repeat stochasticity. The primary 64-history, eight-repeat design estimates the latter conditional on synthetic settings; it does not establish robustness to alternative reproductive costs, inbreeding depression, genetic architecture or arrival functions. The two primary reproductive settings jointly change selfing timing and capacity cost. Mutation rates 0 and 0.01 and alternative temporal thresholds reveal substantial changes in effect magnitude and classified order. The replenishment extension supplies trajectories across 13 arrival rates at fixed remaining parameters; the reciprocal and cost/depression grid broadens local selection coverage but does not supply evolutionary trajectories over all those parameter combinations. Consequently, the ecological result is conditional process decomposition, not a universal claim that selfing initiates before investment decline. Detailed coverage and unresolved sensitivities are reported in Supporting Information.
 
 The model is ecologically explicit but not system calibrated. Its strengths come from preserving the causal order of pollination, mating, inheritance and demography, from separating seed and pollinator connectivity, and from keeping extinction distinct from trait change. Its limitations are equally important. Visitor types are functional agents rather than measured species abundances; background flora supports visitors rather than being coevolved explicitly; floral investment and access are abstract traits rather than named colours, corolla dimensions or nectar guides; inbreeding depression is fixed rather than dynamically purged; and time and distance are model coordinates rather than years and kilometres for a particular archipelago.
 
