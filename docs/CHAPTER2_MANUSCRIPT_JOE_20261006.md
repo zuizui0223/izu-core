@@ -1,4 +1,4 @@
-# Reproductive assurance can precede without causing reduced floral attraction under pollinator isolation
+# Reproductive assurance can precede reduced floral attraction without causing it under pollinator isolation
 
 
 
@@ -137,6 +137,10 @@ adjudication. No seed extension, threshold retuning, tie-window change, outcome
 substitution or biological parameter adjustment was allowed after execution
 began. Eight demographic repeats were nested within visitor histories and did
 not increase the independent ecological denominator beyond 64.
+
+## Fixed-plant reproductive-return assay
+
+Local reproductive return was evaluated before plant evolution by holding the resident plant state and pollen environment fixed and perturbing floral investment at an interior resident state. The fitness accounting includes one half of maternal outcross production, one half of paternal outcross success and the full viable selfed contribution. We report the derivative of total reproductive contribution with respect to investment together with its outcross and viable-selfed components. Finite differences of independently calculated mutant fitness verified the derivative calculation. This assay diagnoses the immediate reproductive value of attraction under a given visitor environment; it is not an evolutionary trajectory and does not isolate visitor abundance from visitor composition.
 
 ## Reproduction and inheritance
 
