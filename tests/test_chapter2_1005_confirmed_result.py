@@ -1,8 +1,10 @@
+import hashlib
 import json
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 RESULT = ROOT / "data/results/chapter2_1005_confirmatory_replication_20261006.json"
+DESIGN = ROOT / "data/design/chapter2_1005_confirmatory_replication_20261006.json"
 
 
 def test_confirmatory_result_passes_frozen_primary_rules():
@@ -44,6 +46,10 @@ def test_sequence_generalization_boundary_is_preserved():
     prior = rows[("prior_selfing", 0.01, 0.05)]
     assert delayed["proportion"] == 51 / 64
     assert delayed["bootstrap95"][0] > 0.5
+    for threshold in (0.025, 0.05, 0.1):
+        row = rows[("assurance_cost", 0.01, threshold)]
+        assert row["proportion"] > 0.5
+        assert row["bootstrap95"][0] > 0.5
     assert prior["proportion"] == 30 / 64
     assert prior["bootstrap95"][0] < 0.5 < prior["bootstrap95"][1]
     assert "not universal" in result["interpretation"]["generality_boundary"].lower()
@@ -51,7 +57,11 @@ def test_sequence_generalization_boundary_is_preserved():
 
 def test_result_is_tied_to_frozen_design_and_action_artifact():
     result = json.loads(RESULT.read_text(encoding="utf-8"))
+    assert result["design_sha256"] == hashlib.sha256(DESIGN.read_bytes()).hexdigest()
     assert result["design_sha256"] == "0ea4cc4129b2ee97a1ed1ffb2295348e0628cf0f0a1b0d0694a3b78befb4f9d0"
     assert result["workflow_run"] == 37390991122
-    assert result["workflow_result_artifact"]["artifact_id"] == 11381590034
-    assert result["workflow_result_artifact"]["full_result_json_sha256"] == "1951af2f2d5a8be883eae514aa84dce7d6a40407201c9a8cce501d4502773900"
+    artifact = result["workflow_result_artifact"]
+    assert artifact["artifact_id"] == 11381590034
+    assert artifact["artifact_zip_sha256"] == "7c5c252cf559067f218bbd9f37b74b00c5d9c52fe30f25bb0196c9bfb9cb4872"
+    assert artifact["full_result_json_sha256"] == "1951af2f2d5a8be883eae514aa84dce7d6a40407201c9a8cce501d4502773900"
+    assert artifact["console_sha256"] == "7351d08f7ced7b3916428314940d86260d3f119fbd516d6ea7772d44836adb59"
