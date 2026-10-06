@@ -48,5 +48,5 @@ def test_primary_process_claim_does_not_depend_on_unresolved_continuum_route():
     assert "same plant state" in abstract
     assert "maintained-isolation" in abstract
     assert "fixed-assurance replication" in abstract
-    assert "mutation/history" in figures
+    assert "full-mutation common-environment" in figures
     assert "supporting information" in figures
