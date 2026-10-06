@@ -65,3 +65,17 @@ def test_confirmatory_methods_are_explicit_in_active_manuscript():
     assert "lower bound of a 95% visitor-history bootstrap interval to exceed 0.50" in normalized
     assert "secondary cells could not rescue or overturn the primary adjudication" in normalized
     assert "did not increase the independent ecological denominator beyond 64" in normalized
+
+
+def test_machine_readable_establishment_audit_is_closed():
+    audit = json.loads(
+        (ROOT / "data/results/chapter2_1005_establishment_audit_20261006.json").read_text(
+            encoding="utf-8"
+        )
+    )
+    assert audit["status"] == "established_bounded"
+    assert audit["passes"] == audit["total"] == 5
+    assert audit["establishment_criteria"]["independent_confirmation"]["status"] == "pass"
+    assert audit["establishment_criteria"]["threshold_robustness"]["assurance_first_counts"] == [48, 51, 59]
+    assert audit["establishment_criteria"]["scope_generality"]["status"] == "pass_bounded"
+    assert audit["establishment_criteria"]["claim_boundary_reproducibility"]["independent_visitor_histories"] == 64
