@@ -27,6 +27,7 @@ Current boundaries:
 - the full-mutation common-environment experiment is complementary genetic/history evidence, not the paper spine;
 - stable latent branch prevalence remains unidentified and is not a target of the active process claim;
 - the unresolved high-resolution positive-mutation deterministic/PDE comparison is excluded from the biological headline;
+- stable latent branch prevalence is not identified by the finite mixed-label counts or repeatability analyses;
 - pollen-deficit magnitude is not treated as equivalent to viable reproductive output;
 - Model 3 remains uncalibrated to natural kilometres, named island histories or Chapter 1 regional cells.
 
