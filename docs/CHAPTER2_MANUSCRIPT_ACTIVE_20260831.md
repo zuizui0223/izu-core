@@ -556,8 +556,10 @@ validated long-run continuum result.
 The 13-rate replenishment surface, full local-selection atlas, reciprocal-
 selection parameter grid, assurance-evolution attenuation interaction,
 full-mutation common-environment experiment and natural-island confrontation
-remain Supporting Information. These analyses define scope and mechanism but do
-not compete with the confirmed sequence-versus-necessity result as the
+remain Supporting Information. Mutation/history analyses therefore remain
+supporting evidence on genetic accessibility and historical persistence, not
+part of the primary causal claim. These analyses define scope and mechanism but
+do not compete with the confirmed sequence-versus-necessity result as the
 paper-level headline.
 
 # References
