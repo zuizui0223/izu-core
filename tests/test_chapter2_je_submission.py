@@ -42,3 +42,13 @@ def test_je_data_availability_does_not_pretend_doi_is_public():
     assert "chapter2_1005_confirmatory_primary_sequence_history_20261006.csv" in section
     assert "chapter2_1005_confirmatory_primary_fixed_assurance_history_20261006.csv" in section
     assert "public DOI will be inserted" in section
+
+
+def test_je_manuscript_has_no_repository_internal_labels():
+    text = MANUSCRIPT.read_text(encoding="utf-8")
+    main = text.split("# Data Availability", 1)[0]
+    assert "Q1" not in main
+    assert "Q2" not in main
+    assert "bridge-state" not in main
+    assert "MODEL3_" not in main
+    assert "2026-10-05" not in main
