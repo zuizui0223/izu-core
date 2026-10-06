@@ -7,13 +7,13 @@ README = ROOT / "README.md"
 def test_readme_is_model3_first():
     text = README.read_text(encoding="utf-8")
     lower = text.lower()
-    assert text.startswith("# Izu Core — Model 3 island pollination-to-evolution")
-    assert "positive-mutation genotype-grid fidelity remains unresolved" in lower
-    assert "the older oikos bridge submission is a historical snapshot" in lower
+    assert text.startswith("# Izu Core — Model 3 island reproductive economics")
+    assert "2026-10-05 ecological process mainline" in lower
+    assert "independently confirmed" in lower
     assert "13 rates at fixed plant capacity 48" in lower
-    assert "reproductive contributions and local selection" in lower
-    assert "shared reproduction and inheritance" in lower
-    assert "the abm and deterministic genotype model are parallel implementations" in lower
+    assert "sequence ≠ necessity" in lower
+    assert "64 new visitor histories" in lower
+    assert "prior-selfing positive-mutation cell did not show an assurance-first majority" in lower
 
 
 def test_readme_routes_to_current_submission_surface():
