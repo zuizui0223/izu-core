@@ -15,17 +15,20 @@ def test_current_and_historical_manuscripts_cannot_be_confused():
     assert '13,312' in current and '9,984' in current
     assert '**Controlling state:**' not in current
     assert '## Numerical scope amendment' not in current
-    assert 'stopped high-resolution positive-mutation comparison remains unresolved' in current
-    assert 'propagate shared biological rules in parallel' in current
+    assert 'temporal precedence is not causal necessity' in current
+    assert '51/64' in current
+    assert '−0.4354' in current
+    assert 'not calibrated reconstructions of natural island histories' in current
 
 
 def test_current_render_keeps_primary_denominator_and_pde_limit():
     text = render_manuscript()
     abstract = text.split('## Abstract',1)[1].split('## Keywords',1)[0]
     assert '64 independent visitor histories' in abstract
-    assert 'eight demographic repeats' in abstract
+    assert 'eight new nested demographic repeats' in abstract
     assert 180 <= len(abstract.split()) <= 300
-    assert 'mutation diffusion approximates mutation within the deterministic branch' in abstract
+    assert 'temporal precedence is not causal necessity' in abstract
+    assert 'confirmed assurance-first sequence is setting-specific' in abstract
 
 
 def test_incomplete_manuscript_is_not_rendered_as_final(tmp_path):
