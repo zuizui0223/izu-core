@@ -15,7 +15,7 @@ def test_active_submission_uses_one_model3_ecological_pathway():
     manuscript = MANUSCRIPT.read_text(encoding="utf-8")
     submission = render_submission_manuscript()
     lower = " ".join(submission.lower().split())
-    assert manuscript.startswith("# Reproductive assurance can evolve first without causing floral attraction loss under pollinator isolation")
+    assert manuscript.startswith("# How island isolation generates floral change: selection conditions, evolutionary sequence and finite realization")
     assert "64 independent visitor histories" in lower
     assert "8,192 matched fixed-versus-evolving-assurance trajectories" in lower
     assert "temporal precedence is not causal necessity" in lower
