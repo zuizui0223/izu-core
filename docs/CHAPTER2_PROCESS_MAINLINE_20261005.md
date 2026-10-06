@@ -1,10 +1,12 @@
 # Current Ch2: ecological process decomposition
 
 > **Routing decision, 2026-10-06:** the 2026-10-05 ecological results below are
-> the paper-level controlling narrative on
-> `codex/model3-full-mutation-closeout-20261004`. The full-mutation
+> the paper-level controlling narrative on `main`. The full-mutation
 > common-environment history experiment is retained as complementary genetic/
-> history evidence, not the paper spine.
+> history evidence, not the paper spine. Scientific establishment is closed as
+> **ESTABLISHED, BOUNDED** in
+> `CHAPTER2_1005_FIVE_CRITERIA_AUDIT_20261006.md` and
+> `CHAPTER2_1005_ESTABLISHMENT_CLOSEOUT_20261006.md`.
 
 The primary sequence/necessity claim is restricted to the **delayed-selfing, assurance-cost 0.5, positive-mutation setting** unless a separately preregistered generality test broadens it. Other setting-by-mutation cells are reported as scope and sensitivity and cannot rescue the primary result.
 

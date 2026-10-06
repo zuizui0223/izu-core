@@ -65,3 +65,18 @@ def test_result_is_tied_to_frozen_design_and_action_artifact():
     assert artifact["artifact_zip_sha256"] == "7c5c252cf559067f218bbd9f37b74b00c5d9c52fe30f25bb0196c9bfb9cb4872"
     assert artifact["full_result_json_sha256"] == "1951af2f2d5a8be883eae514aa84dce7d6a40407201c9a8cce501d4502773900"
     assert artifact["console_sha256"] == "7351d08f7ced7b3916428314940d86260d3f119fbd516d6ea7772d44836adb59"
+
+
+def test_established_route_surfaces_are_post_confirmation():
+    novelty = (ROOT / "docs/CHAPTER2_1005_NOVELTY_AND_LITERATURE_POSITION_20261006.md").read_text(
+        encoding="utf-8"
+    )
+    route = (ROOT / "docs/CHAPTER2_JOURNAL_ROUTE_20261006.md").read_text(encoding="utf-8")
+    process = (ROOT / "docs/CHAPTER2_PROCESS_MAINLINE_20261005.md").read_text(encoding="utf-8")
+
+    assert "post-confirmation literature-position note" in novelty
+    assert "before the new-history confirmatory\noutcome is available" not in novelty
+    assert "PR #402 is merged" in route
+    assert "Merge PR #402" not in route
+    assert "paper-level controlling narrative on `main`" in process
+    assert "ESTABLISHED, BOUNDED" in process
