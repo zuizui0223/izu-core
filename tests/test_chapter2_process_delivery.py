@@ -18,7 +18,7 @@ def test_current_and_historical_manuscripts_cannot_be_confused():
     assert 'not required for pollinator-limitation-driven investment decline' in current
     assert '78–90%' in current
     assert '−0.4413' in current
-    assert 'model-level mechanisms' in current
+    assert 'not calibrated to a named island' in current
 
 
 def test_current_render_keeps_primary_denominator_and_pde_limit():
