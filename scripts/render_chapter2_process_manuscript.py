@@ -7,8 +7,8 @@ from pathlib import Path
 import argparse
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / 'docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md'
-TITLE = 'How island isolation generates floral change: selection conditions, evolutionary sequence and finite realization'
+SOURCE = ROOT / 'docs/CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md'
+TITLE = 'Reproductive assurance compresses floral-investment divergence under pollinator limitation'
 
 
 def render_manuscript(source: Path | None = None) -> str:
