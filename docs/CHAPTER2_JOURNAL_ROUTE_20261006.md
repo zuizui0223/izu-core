@@ -159,12 +159,21 @@ not assurance itself.
 
 ## Pre-submission gates
 
-1. Publicly deposit the prepared confirmatory bundle and obtain a DOI.
-2. Add the DOI to Data Availability and the preservation manifest.
-3. Compress the active manuscript to the Journal of Ecology architecture above.
-4. Keep the former Evolution Letters repeatability manuscript retired as a
-   standalone submission route.
-5. Merge PR #402 after explicit repository-write approval.
+Current status after PR #402 merged on 2026-10-06:
+
+1. **DONE — scientific establishment.** The 2026-10-05 process result is
+   ESTABLISHED, BOUNDED (5/5 criteria passed).
+2. **DONE — manuscript conversion started.** The anonymous Journal of Ecology
+   draft is `docs/JOE_MANUSCRIPT_ANONYMOUS_20261006.md`; its current main-text
+   architecture is deliberately shorter than the journal's typical 8,000-word
+   Research Article length rather than padded with supporting analyses.
+3. **DONE — route overlap closed.** The former Evolution Letters repeatability
+   manuscript remains retired as a standalone submission route.
+4. **PENDING — public archive.** Deposit the prepared confirmatory bundle and
+   obtain a DOI.
+5. **PENDING — delivery metadata.** Add the DOI to Data Availability and the
+   preservation manifest, then prepare the separate identifying title page and
+   cover letter.
 
 Official pages checked 2026-10-06:
 - Journal of Ecology aims/scope and author guidance:
