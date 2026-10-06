@@ -18,7 +18,7 @@
 
 ## Keywords
 
-autonomous selfing; floral evolution; island ecology; plant–pollinator interactions; pollen limitation; reproductive assurance; reproductive allocation; visitor replenishment
+autonomous selfing; floral evolution; island ecology; plant–pollinator interactions; pollen limitation; reproductive allocation; reproductive assurance; visitor replenishment
 
 
 
