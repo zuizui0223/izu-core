@@ -20,8 +20,8 @@ from causal necessity.
 Current boundaries:
 
 - the primary ecological denominator is **64 independent visitor histories**; eight demographic repeats are nested;
-- the 51/64 sequence result remains exploratory until the separately frozen new-history confirmation is read out;
-- the main claim is restricted to delayed selfing with assurance cost 0.5 and positive mutation unless future preregistered generality tests broaden it;
+- the 51/64 delayed/costly positive-mutation sequence result is independently confirmed on 64 new visitor histories (95% history-bootstrap 0.6875–0.8906);
+- the confirmed sequence claim is restricted to delayed selfing with assurance cost 0.5 and positive mutation; the prior-selfing positive-mutation cell did not show an assurance-first majority at the primary threshold;
 - all four setting-by-mutation sequence cells must be reported;
 - the 13-rate extension is exploratory and cannot rescue a failed confirmation;
 - the full-mutation common-environment experiment is complementary genetic/history evidence, not the paper spine;
