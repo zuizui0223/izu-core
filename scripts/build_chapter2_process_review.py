@@ -13,9 +13,9 @@ from scripts.render_chapter2_process_manuscript import ROOT, render_manuscript
 
 OUT = ROOT / 'outputs/chapter2_process_delivery'
 MAIN = {
-    'Figure1.pdf': 'model3_selection_process_20261005/selection_process.pdf',
+    'Figure1.pdf': 'model3_return_components_20261005/return_components.pdf',
     'Figure2.pdf': 'model3_sequence_necessity_20261005/sequence_necessity.pdf',
-    'Figure3.pdf': 'model3_return_components_20261005/return_components.pdf',
+    'Figure3.pdf': 'model3_trait_pollen_20261005/trait_pollen_snapshot400.pdf',
     'Figure4.pdf': 'model3_genetic_realization_20261005/genetic_realization.pdf',
 }
 SUPPORT = [
@@ -38,15 +38,17 @@ SUPPORT = [
     'CHAPTER2_SUBMISSION_ROUTE_FIREWALL_20260927.md',
 ]
 FIGURE_INPUTS = [
-    'outputs/model3_isolation_selection_gradient_20261005/gradients.npz',
-    'outputs/model3_fixedplant_returns_20261005/individual_arrays.npz',
-    'outputs/figures/model3_capacity_intervention_20261005/plotted_series.npz',
+    'data/results/model3_return_components_20261005.json',
+    'data/results/model3_persistent_isolation_summary_20261005.json',
+    'data/results/model3_assurance_intervention_summary_20261005.json',
+    'data/results/model3_trait_pollen_intervention_summary_20261005.json',
     'data/results/model3_ch2_bridge_summary_20260927/summary.json',
     'data/results/model3_mutation_memory_20261004.json',
-    'docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md',
-    'data/design/chapter2_1005_confirmatory_replication_20261006.json',
+    'data/results/model3_mutation_variability_20261005.json',
     'data/results/chapter2_1005_confirmatory_replication_20261006.json',
+    'data/design/chapter2_1005_confirmatory_replication_20261006.json',
     'data/design/chapter2_1005_ecological_mainline_lock_20261006.json',
+    'docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md',
 ]
 
 
@@ -92,9 +94,9 @@ def build() -> dict:
         'data/results/model3_replenishment_archive_20261005.json.\n'
         'Inputs for regenerating the four main figures are included at their original paths.\n'
         'From the extracted root, with the declared Python dependencies installed, run:\n'
-        'python -m scripts.figure_model3_selection_process\n'
-        'python -m scripts.figure_model3_sequence_necessity\n'
         'python -m scripts.figure_model3_return_components\n'
+        'python -m scripts.figure_model3_sequence_necessity\n'
+        'python -m scripts.figure_model3_trait_pollen\n'
         'python -m scripts.figure_model3_genetic_realization\n'
         'This redraws completed results; it does not rerun ecological simulations.\n'
         'Figure 2 reads the frozen 2026-10-06 confirmatory result; no confirmatory simulation is rerun during redraw.\n'
