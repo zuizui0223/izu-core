@@ -40,3 +40,10 @@ def test_review_archive_is_versioned_after_confirmation():
     assert "chapter2_process_review_20261006.zip" in build_source
     assert "chapter2_process_review_20261006.zip" in verify_source
     assert "chapter2_process_review_20261005.zip" not in build_source
+
+
+def test_figure_inputs_are_repository_committed_paths():
+    assert builder.FIGURE_INPUTS
+    assert all(not path.startswith("outputs/") for path in builder.FIGURE_INPUTS)
+    for rel in builder.FIGURE_INPUTS:
+        assert (ROOT / rel).is_file(), rel
