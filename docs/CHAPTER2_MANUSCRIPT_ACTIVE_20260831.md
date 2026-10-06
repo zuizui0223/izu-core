@@ -503,60 +503,62 @@ historical reconstruction of any named island system.
 
 # Primary figure assembly and captions
 
-The main figures follow the confirmed 2026-10-05 ecological process spine.
-The independent confirmation enters Figure 2 directly. Mutation/history and
-high-resolution numerical diagnostics remain bounded supporting evidence.
+The four main figures now use only repository-committed result summaries as
+numerical sources. The independent confirmation enters Figure 2 directly.
+Unresolved high-resolution numerical work remains outside the main figures.
 
-**Main Figure 1. Isolation changes selection through reproductive returns.**
-Asset: `outputs/figures/model3_selection_process_20261005/selection_process.pdf`.
-Panel A shows the ecological pathway from visitor replenishment through pollen
-transfer and reproductive contribution to finite and deterministic propagation.
-Panels B–E show fixed-plant local selection gradients across the sampled
-replenishment axis for both reproductive settings. These are selection
-diagnostics before plant evolution, not evolutionary trajectories or calibrated
-distance thresholds. The companion fixed-plant return decomposition supplies
-the more concrete result that, in the delayed setting at snapshot 400, total
-investment contribution shifts from +0.5793 to −0.7004 as the outcross
-component falls from +1.6523 to +0.0854.
+**Main Figure 1. Visitor limitation reduces the reproductive return to
+attraction.** Asset:
+`outputs/figures/model3_return_components_20261005/return_components.pdf`.
+At the same fixed plant state and assurance capacity 0.5, near and far visitor
+exposures are compared for outcross, viable-selfed and total contribution
+slopes. In the delayed setting at snapshot 400, total investment contribution
+changes from +0.5793 to −0.7004 as the outcross component falls from +1.6523 to
++0.0854; the viable-selfed component partly offsets that decline. Points are
+means across 64 paired visitor histories, and the displayed interval is for the
+paired far-minus-near difference. These are reproductive-return diagnostics
+before plant evolution.
 
-**Main Figure 2. Sequence and necessity are different questions.**
-Asset: `outputs/figures/model3_sequence_necessity_20261005/sequence_necessity.pdf`.
-Panel A plots one crossing-time point per discovery visitor history and reports
-the prospectively frozen independent replication alongside it. In the primary
+**Main Figure 2. Sequence and necessity are different questions.** Asset:
+`outputs/figures/model3_sequence_necessity_20261005/sequence_necessity.pdf`.
+Panel A retains discovery history-level crossing times and reports the
+prospectively frozen new-history replication beside them. In the primary
 delayed/costly positive-mutation cell, assurance is first in 51/64 histories in
-both discovery and replication; the replication 95% history-bootstrap interval
-is 0.6875–0.8906. The prior-selfing positive-mutation cell is shown as a scope
-boundary rather than pooled with the primary result. Panel B shows the distinct
-fixed-versus-evolving-assurance intervention; the independent fixed-assurance
-replication gives far investment change −0.3060
-[−0.3181, −0.2941] and far-minus-near −0.4354
-[−0.4533, −0.4172]. Fixed assurance does not mean absence of realized selfing,
-and the separate cohorts are not a mediation fraction.
+both cohorts; the replication 95% history-bootstrap interval is
+0.6875–0.8906. The prior-selfing positive-mutation cell is displayed as a scope
+boundary rather than pooled with the primary result. Panel B compares the
+original fixed-assurance result with the independent replication. In the latter,
+far investment change is −0.3060 [−0.3181, −0.2941] and far-minus-near
+investment is −0.4354 [−0.4533, −0.4172]. Fixed assurance does not imply absence
+of realized selfing, and the intervention does not estimate a full mediation
+fraction.
 
-**Main Figure 3. Visitor limitation reduces the outcross return on attraction.**
-Asset: `outputs/figures/model3_return_components_20261005/return_components.pdf`.
-At the same fixed plant state, the investment derivative of viable parental
-contribution is separated into outcross, viable-selfed and total components.
-Thin lines pair the 64 visitor histories; thick lines show history means. The
-outcross component carries the main near-to-far decline while the selfed
-component partly offsets it. Components include allocation effects and must not
-be relabelled pure benefits or pure costs.
+**Main Figure 3. Lower pollen deficit need not mean greater viable
+reproduction.** Asset:
+`outputs/figures/model3_trait_pollen_20261005/trait_pollen_snapshot400.pdf`.
+For both reproductive settings and near/far visitor exposure, the
+whole-population investment intervention compares change in fractional viable
+pollen deficit with change in viable maternal offspring. In the delayed/far
+comparison, increasing investment from 0.25 to 0.75 at assurance capacity 0.5
+reduces the fractional viable deficit by 0.0104 while reducing viable maternal
+offspring by 15.72 per 48 plants. These are fixed-trait reproductive assays, not
+evolutionary trajectories.
 
-**Main Figure 4. Finite genetic realization bounds the process interpretation.**
-Asset: `outputs/figures/model3_genetic_realization_20261005/genetic_realization.pdf`.
-This supporting main panel separates expected inherited response from finite
-realization and displays the scoped genetic-accessibility diagnostics. Density
-is not assumed to be the exact stochastic expectation of the finite ABM, and
-the stopped high-resolution positive-mutation comparison contributes no
+**Main Figure 4. Finite genetic realization bounds the process
+interpretation.** Asset:
+`outputs/figures/model3_genetic_realization_20261005/genetic_realization.pdf`.
+This supporting main figure separates ecological intervention effects from
+finite genetic realization and the scoped one-locus mutation diagnostic.
+Density is not treated as the exact stochastic expectation of the finite ABM,
+and the stopped high-resolution positive-mutation comparison contributes no
 validated long-run continuum result.
 
-The pollen-deficit versus viable-offspring intervention remains a companion
-reproductive-consequence figure in Supporting Information. At delayed/far
-snapshot 400, increasing investment from 0.25 to 0.75 reduces fractional viable
-pollen deficit by 0.0104 while reducing viable maternal offspring by 15.72 per
-48 plants. The 13-rate replenishment surface, reciprocal-selection atlas,
-full-mutation history experiments and natural-island confrontation likewise
-remain supporting evidence rather than competing paper-level headlines.
+The 13-rate replenishment surface, full local-selection atlas, reciprocal-
+selection parameter grid, assurance-evolution attenuation interaction,
+full-mutation common-environment experiment and natural-island confrontation
+remain Supporting Information. These analyses define scope and mechanism but do
+not compete with the confirmed sequence-versus-necessity result as the
+paper-level headline.
 
 # References
 
