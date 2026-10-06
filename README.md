@@ -225,7 +225,8 @@ causes and region-to-model-cell assignments remain unidentified.
 
 Scientific narrative:
 
-- `docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md` — active manuscript.
+- `docs/CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md` — active Ecology Letters submission manuscript.
+- `docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md` — long-form process/provenance manuscript.
 - `docs/CHAPTER2_PROCESS_MAINLINE_20261005.md` — current claim spine and parallel-model structure.
 - `docs/CHAPTER2_CANONICAL_STORY_20260927.md` — historical bridge narrative.
 - `docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md` — why Model 3 is the only active mechanistic model.
@@ -253,7 +254,7 @@ Implementation:
 - `scripts/model3_island/` — finite-population and deterministic Model 3 implementation.
 - `scripts/model3_island_bridge_ops.py` — prospective bridge interventions.
 - `scripts/render_chapter2_process_manuscript.py` — current process manuscript renderer.
-- `scripts/figure_model3_selection_process.py`, `scripts/figure_model3_sequence_necessity.py`, `scripts/figure_model3_return_components.py`, `scripts/figure_model3_genetic_realization.py` — current primary figures.
+- `scripts/figure_model3_return_components.py`, `scripts/figure_model3_assurance_compression.py`, `scripts/figure_model3_trait_pollen.py`, `scripts/figure_model3_genetic_realization.py` — current primary figures.
 - `scripts/figure_model3_replenishment_evolution.py` — complete replenishment-gradient panels.
 - `scripts/generate_chapter2_unified_model3_figures.py` — historical bridge Figures 1–4.
 - `scripts/render_chapter2_oikos_generality_overlay.py` — historical snapshot renderer.
