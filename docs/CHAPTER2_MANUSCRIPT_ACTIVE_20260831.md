@@ -204,6 +204,23 @@ threshold before investment in 51/64 far-history means; the other 13 were within
 five updates. Under prior selfing with zero assurance cost, assurance was first
 in 38/64 histories and 26 were near-simultaneous.
 
+This temporal result was then tested prospectively with 64 new visitor histories
+and eight new demographic repeats, using the same frozen 0.05 threshold,
+20-update persistence rule and five-update tie window. The delayed/costly,
+positive-mutation cell again produced **51/64 assurance-first histories** and
+13 near-simultaneous histories; the assurance-first proportion was 0.7969 with
+a 95% visitor-history bootstrap interval of **0.6875–0.8906**. The declared
+success criterion therefore passed. The direction also persisted at the two
+predeclared sensitivity thresholds: 48/64 assurance-first at 0.025 and 59/64 at
+0.10.
+
+The ordering is not universal across reproductive settings. In the independent
+positive-mutation prior-selfing cell, the primary 0.05 threshold gave
+30/64 assurance-first and 34/64 near-simultaneous histories
+(95% interval for the assurance-first proportion 0.3438–0.5938). The confirmed
+sequence claim is therefore restricted to the delayed-selfing, assurance-cost
+setting.
+
 Founder-relative order did not equal the order of additional isolation
 divergence. In the delayed setting, far-minus-near investment divergence crossed
 first in 32 histories, assurance divergence in 10, 20 were near-simultaneous and
@@ -217,6 +234,16 @@ investment by 0.3099 (descriptive 95% interval 0.2972–0.3220) under delayed
 selfing and by 0.3316 (0.3217–0.3411) under prior selfing. Thus an
 assurance-first sequence does not establish that assurance evolution is required
 for attraction investment to decline.
+
+The preregistered new-history replication independently confirmed this
+intervention result. With assurance fixed at 0.5 in the delayed/costly cell,
+far investment change was **−0.3060 [−0.3181, −0.2941]** and far-minus-near
+investment was **−0.4354 [−0.4533, −0.4172]**; all 64 histories were eligible
+and both arms had 100% terminal occupancy. The frozen criterion required both
+means and both upper interval bounds to remain below zero, and it passed. The
+secondary prior-selfing cell also remained negative
+(−0.3316 [−0.3418, −0.3210] from founders; far-minus-near
+−0.3094 [−0.3246, −0.2942]).
 
 Allowing assurance to evolve could also narrow the near-far investment contrast.
 The four-cell interaction was +0.08468 (0.06782–0.10265) in the delayed setting
