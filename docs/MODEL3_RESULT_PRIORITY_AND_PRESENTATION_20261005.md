@@ -6,6 +6,17 @@ active manuscript. It does not certify every historical repository file or claim
 priority over all literature. Numerical verification and literature novelty are
 separate judgements. Q1 remains independent and unchanged.
 
+## Confirmatory update — 2026-10-06
+
+The paper-level sequence/necessity result is no longer supported only by the
+exploratory 2026-10-05 cohort. A frozen 4,096-case replication with 64 new
+visitor histories and eight new demographic repeats confirmed both primary
+components: delayed/costly positive-mutation assurance-first order was 51/64
+(95% history-bootstrap 0.6875–0.8906), and fixed-assurance investment decline
+remained negative with its full interval below zero. The sequence claim remains
+setting-specific because prior selfing with positive mutation gave 30/64
+assurance-first histories at the same threshold.
+
 ## Main contribution
 
 Isolation changes the returns to autonomous reproduction and floral attraction
@@ -23,7 +34,7 @@ causal pathway, and weak geographic divergence need not indicate weak evolution.
 | Corrected invasion selection survives repair |All15 access/investment states and128 natural/pooled histories have negative isolation shifts. Richness matching breaks universal negativity. `MODEL3_SELECTION_REPAIR_20261004.md` | Important island-process control: environmental assembly changes marginal returns. The former population derivative is not invasion selection. Matching changes identity persistence too. |
 | Joint-vector and exact Price bridge |45/45 states per setting pass joint-shift gate; at least127/128 histories. Exact Price identity48 cells, but full-G signs46/48. `model3_repair_joint_vector_recheck_20261004.json`, `model3_repair_price_recheck_20261004.json` | Mathematical consistency and conditional process connection. Price identity is established theory; two response failures remain. Relative shift is not absolute sign reversal. |
 | Sustained isolation produces joint trait differences |Delayed/costly, positive mutation: investment far-minus-near−.313; capacity+.100 at1000. Prior/no-cost much smaller. Matching intervals include zero. `model3_persistent_isolation_summary_20261005.json` | Main ecological outcome, conditional on severe uncalibrated isolation. Do not label abstract investment as colour, or matching as accessibility. |
-| Capacity often changes first |Delayed51/64, prior38/64 capacity-first at.05 held20 updates; others within5. All64 reach both events. Lower thresholds alter near-simultaneity. Same summary | Main sequence result; quantitative and falsifiable. Selfing-first already has precedent. Show history-paired crossing times alongside trajectories, not a grand-mean crossing used as evidence for all histories. |
+| Capacity often changes first | Discovery delayed51/64; preregistered new-history replication delayed51/64 at .05 held20 updates, 95% bootstrap .6875–.8906. Sensitivity: 48/64 at .025 and 59/64 at .10. Prior-selfing positive-mutation replication is 30/64 at .05. | **Confirmed, setting-specific sequence result.** Selfing-first already has precedent; novelty is the separate necessity intervention. Show history-paired crossings and the reproductive-setting boundary. |
 | Geographic separation has a different order |Delayed far-minus-near:32 investment-first,10 capacity-first,20 ties,2 investment-only at the same threshold | Underused insight. Within-population change and between-environment divergence answer different questions. Show as a clearly separated secondary panel, not a contradictory headline or universal reversal. |
 | Capacity evolution is not necessary |Fixed-capacity far investment changes−.3099 delayed and−.3316 prior. `model3_assurance_intervention_summary_20261005.json` | Central mechanism control. Capacity=.5, not no selfing; realized mating changes. Cohort starts without capacity variance, unlike main sequence cohort. |
 | Capacity evolution can narrow geographic divergence |Common four-cell interaction+.08468 [.06782,.10265] delayed;+.24505 [.22523,.26543] prior. Same intervention summary | Strong unexpected result worth promoting. Show near AND far changes under fixed/evolving capacity: both environments can reduce investment. Do not interpret small geographic contrast as little evolution or compare unmatched survivor sets. |
