@@ -73,6 +73,39 @@ jobs:
 
 
 
+  confirmed-process-review-package:
+    needs: scientific-gate
+    if: needs.scientific-gate.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e '.[dev]'
+      - name: Regenerate the four current main figures from stored evidence
+        run: |
+          python -m scripts.figure_model3_selection_process
+          python -m scripts.figure_model3_sequence_necessity
+          python -m scripts.figure_model3_return_components
+          python -m scripts.figure_model3_genetic_realization
+      - name: Build confirmed process review package
+        run: python -m scripts.build_chapter2_process_review
+      - name: Verify isolated package redraw
+        run: python -m scripts.verify_chapter2_process_review
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-process-review-confirmed-20261006
+          retention-days: 90
+          if-no-files-found: error
+          path: |
+            outputs/chapter2_process_delivery/chapter2_process_review_20261006.zip
+            outputs/chapter2_process_delivery/receipt.json
+            outputs/chapter2_process_delivery/isolated_redraw.json
+
+
   process-confirmation-plan:
     if: github.event_name == 'pull_request' && github.head_ref == 'codex/model3-full-mutation-closeout-20261004'
     runs-on: ubuntu-latest
