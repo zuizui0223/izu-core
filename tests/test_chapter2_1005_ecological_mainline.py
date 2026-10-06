@@ -50,3 +50,18 @@ def test_primary_process_claim_does_not_depend_on_unresolved_continuum_route():
     assert "fixed-assurance replication" in abstract
     assert "full-mutation common-environment" in figures
     assert "supporting information" in figures
+
+
+def test_confirmatory_methods_are_explicit_in_active_manuscript():
+    manuscript = (ROOT / "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md").read_text(
+        encoding="utf-8"
+    )
+    methods = manuscript.split("# Materials and Methods", 1)[1].split("# Results", 1)[0]
+    normalized = " ".join(methods.split())
+    assert "Prospectively frozen independent confirmation" in methods
+    assert "4,096 finite-population trajectories" in normalized
+    assert "26100601–26100664" in normalized
+    assert "26101601–26101608" in normalized
+    assert "lower bound of a 95% visitor-history bootstrap interval to exceed 0.50" in normalized
+    assert "secondary cells could not rescue or overturn the primary adjudication" in normalized
+    assert "did not increase the independent ecological denominator beyond 64" in normalized
