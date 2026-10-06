@@ -641,19 +641,22 @@ means across 64 paired visitor histories, and the displayed interval is for the
 paired far-minus-near difference. These are reproductive-return diagnostics
 before plant evolution.
 
-**Main Figure 2. Sequence and necessity are different questions.** Asset:
-`outputs/figures/model3_sequence_necessity_20261005/sequence_necessity.pdf`.
-Panel A retains discovery history-level crossing times and reports the
-prospectively frozen new-history replication beside them. In the primary
-delayed/costly positive-mutation cell, assurance is first in 51/64 histories in
-both cohorts; the replication 95% history-bootstrap interval is
-0.6875–0.8906. The prior-selfing positive-mutation cell is displayed as a scope
-boundary rather than pooled with the primary result. Panel B compares the
-original fixed-assurance result with the independent replication. In the latter,
-far investment change is −0.3060 [−0.3181, −0.2941] and far-minus-near
-investment is −0.4354 [−0.4533, −0.4172]. Fixed assurance does not imply absence
-of realized selfing, and the intervention does not estimate a full mediation
-fraction.
+**Main Figure 2. Reproductive assurance compresses floral-investment divergence without causing the initial decline.** Asset:
+`outputs/figures/model3_assurance_compression_20261006/assurance_compression.pdf`.
+Panel A shows the prospectively confirmed fixed-assurance far-minus-near
+investment contrasts in all four reproductive settings; every interval remains
+below zero, demonstrating that assurance-capacity evolution is not required.
+Panel B shows the positive evolving-minus-fixed isolation interactions, which
+confirm that allowing assurance to evolve narrows the environmental contrast in
+all four settings. Panel C decomposes those interactions on the same surviving
+four-cell replicates: 78–90% of attenuation arises from additional investment
+decline in the near/high-replenishment arm, with smaller far-side relief.
+Panel D gives the corrected fixed-resident rare-mutant mechanism at snapshot 400.
+Increasing assurance from 0.25 to 0.75 weakens investment selection much more
+near than far, with maternal outcross and paternal pollen-export components
+providing most of the difference. Panels A–C use 64 independent visitor histories
+with eight nested demographic repeats; Panel D is a local selection diagnostic,
+not a dynamic mediation estimate.
 
 **Main Figure 3. Lower pollen deficit need not mean greater viable
 reproduction.** Asset:
