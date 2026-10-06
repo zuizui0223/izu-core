@@ -6,6 +6,8 @@
 > common-environment history experiment is retained as complementary genetic/
 > history evidence, not the paper spine.
 
+The primary sequence/necessity claim is restricted to the **delayed-selfing, assurance-cost 0.5, positive-mutation setting** unless a separately preregistered generality test broadens it. Other setting-by-mutation cells are reported as scope and sensitivity and cannot rescue the primary result.
+
 The central result is not merely that reproductive assurance often changes
 before floral investment. The key causal distinction is that **assurance can
 change first without being required for investment decline**. At an identical
