@@ -1,0 +1,49 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-06",
+  "status": "active_journal_of_ecology_submission_route",
+  "journal": "Journal of Ecology",
+  "manuscript": "docs/CHAPTER2_MANUSCRIPT_JOE_20261006.md",
+  "scientific_source": "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md",
+  "title": "Reproductive assurance can precede reduced floral attraction without causing it under pollinator isolation",
+  "primary_claim": "In the delayed-selfing, assurance-cost 0.5, positive-mutation setting, reproductive assurance can precede floral-investment decline, but assurance evolution is not required for that decline.",
+  "independent_unit": "64 visitor histories; eight demographic repeats are nested",
+  "confirmatory_evidence": {
+    "assurance_first": "51/64",
+    "bootstrap95": [
+      0.6875,
+      0.890625
+    ],
+    "fixed_assurance_far_investment_change": -0.30602115590337237,
+    "fixed_assurance_far_minus_near_investment": -0.43538938011716005,
+    "prior_selfing_primary_threshold_assurance_first": "30/64"
+  },
+  "main_figures": [
+    "fixed-plant reproductive-return decomposition",
+    "sequence plus fixed-assurance necessity intervention",
+    "pollen-deficit versus viable-offspring consequence"
+  ],
+  "supporting_information": [
+    "13-rate replenishment surface",
+    "local-selection atlas and broad parameter grid",
+    "reciprocal-selection diagnostics",
+    "finite-versus-deterministic bridge",
+    "full-mutation common-environment history experiment",
+    "mutation/PDE diagnostics and unresolved high-resolution branch",
+    "repeatability-route analyses",
+    "detailed natural-island confrontation ledger",
+    "exploratory attenuation of geographic divergence when assurance evolves"
+  ],
+  "prohibited_claims": [
+    "assurance itself is unnecessary",
+    "assurance-first is universal",
+    "temporal order proves mediation",
+    "model distance or time is calibrated natural geography or evolutionary time",
+    "pollen deficit is interchangeable with viable fitness",
+    "positive-mutation deterministic/PDE equivalence is converged"
+  ],
+  "submission_blockers": [
+    "public DOI for prepared confirmatory raw-data deposit",
+    "insert DOI into Data Availability and preservation manifest"
+  ]
+}
