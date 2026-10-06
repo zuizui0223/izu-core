@@ -30,8 +30,10 @@ def main():
             destination.write_bytes(data)
     # Remove the generated numerical exports to rule out merely reading copies.
     exports = [
-        'model3_selection_process_20261005/plotted_values.csv',
+        'model3_return_components_20261005/plotted_values.csv',
         'model3_sequence_necessity_20261005/plotted_events.json',
+        'model3_sequence_necessity_20261005/plotted_estimates.csv',
+        'model3_trait_pollen_20261005/plotted_values.csv',
         'model3_genetic_realization_20261005/plotted_values.csv',
     ]
     originals = {rel: (target/'outputs/figures'/rel).read_bytes() for rel in exports}
@@ -39,7 +41,7 @@ def main():
         (target/'outputs/figures'/rel).unlink()
     environment = dict(os.environ, PYTHONPATH=str(target/'src'), PYTHONUTF8='1')
     commands = []
-    for stem in ['selection_process', 'sequence_necessity', 'return_components', 'genetic_realization']:
+    for stem in ['return_components', 'sequence_necessity', 'trait_pollen', 'genetic_realization']:
         command = [sys.executable, '-m', 'scripts.figure_model3_'+stem]
         result = subprocess.run(command, cwd=target, env=environment, capture_output=True,
                                 text=True, encoding='utf-8', check=True)
@@ -47,21 +49,13 @@ def main():
     for rel, original in originals.items():
         if (target/'outputs/figures'/rel).read_bytes() != original:
             raise ValueError('Redrawn numerical export mismatch: '+rel)
-    rel = Path('outputs/figures/model3_sequence_necessity_20261005/plotted_investment.npz')
-    with np.load(ROOT/rel) as expected, np.load(target/rel) as actual:
-        if set(expected.files) != set(actual.files):
-            raise ValueError('Sequence series keys mismatch')
-        coordinates = 0
-        for key in expected.files:
-            np.testing.assert_array_equal(expected[key], actual[key])
-            coordinates += actual[key].size
     confirm = json.loads((target/'data/results/chapter2_1005_confirmatory_replication_20261006.json').read_text())
     if confirm['status'] != 'confirmed':
         raise ValueError('Confirmatory result not frozen as confirmed in review package')
     receipt = {'status': 'four_main_figures_redrawn_from_isolated_package',
                'archive_sha256': hashlib.sha256(archive.read_bytes()).hexdigest(),
                'extraction': target.relative_to(ROOT).as_posix(), 'commands': commands,
-               'identical_export_files': exports, 'identical_trajectory_coordinates': coordinates,
+               'identical_export_files': exports,
                'confirmatory_status': confirm['status'],
                'confirmatory_design_sha256': confirm['design_sha256'],
                'scope': 'Figure reproducibility from supplied arrays and frozen confirmatory summary, not new biological validation.'}
