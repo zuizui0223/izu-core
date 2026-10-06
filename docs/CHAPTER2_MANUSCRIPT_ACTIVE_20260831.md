@@ -514,13 +514,13 @@ The panel is a same-plant-state reproductive assay, not an evolutionary
 trajectory or richness-only manipulation.
 
 **Main Figure 2. Assurance can change first without being necessary for
-investment decline.** Panel A shows history-level crossing order for both the
-original maintained-isolation cohort and the preregistered independent
-replication. The delayed/costly positive-mutation cell is 51/64 assurance-first
-in both cohorts; the replication interval is 0.6875–0.8906. The alternative
-prior-selfing cell is shown as a generality boundary rather than pooled with the
-primary result. Panel B shows the original fixed/evolving-assurance intervention
-together with the independent fixed-assurance replication
+investment decline.** Panel A retains the original history-level crossing-time
+scatter and annotates the preregistered independent replication beside it. The
+delayed/costly positive-mutation cell is 51/64 assurance-first in both cohorts;
+the replication interval is 0.6875–0.8906. The alternative prior-selfing cell is
+shown as a generality boundary rather than pooled with the primary result.
+Panel B retains the original fixed/evolving-assurance trajectories and annotates
+the independent fixed-assurance replication
 (−0.3060 [−0.3181, −0.2941] far change; −0.4354
 [−0.4533, −0.4172] far-minus-near). The figure places temporal order and the
 necessity intervention side by side so that sequence is not misread as
