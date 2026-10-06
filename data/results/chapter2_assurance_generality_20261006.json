@@ -1,0 +1,101 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-06",
+  "status": "complete_generality_readout",
+  "design_sha256": "c050c94eb385a9ab6beb48388f5ec96177c0540e22da53924b02eca19b824119",
+  "declared_cases": 8448,
+  "independent_visitor_histories": 64,
+  "nested_demographic_repeats": 8,
+  "structural_control": {
+    "status": "passed",
+    "matched_pairs_checked": 128,
+    "mismatches": []
+  },
+  "settings": [
+    {
+      "setting": "delayed_control",
+      "role": "structural reproductive control",
+      "mutation_rate": 0.01,
+      "occupancy": {"fixed": {"near": 1.0, "far": 1.0}, "evolving": {"near": 1.0, "far": 1.0}},
+      "eligible_histories_fixed_far": 64,
+      "eligible_histories_fixed_pair": 64,
+      "eligible_histories_four_cell": 64,
+      "admissible": true,
+      "fixed_far_change_from_founders": {"mean": -0.31934810946086467, "bootstrap95": [-0.3304668622606291, -0.3073469098015144]},
+      "fixed_far_minus_near": {"mean": -0.44128242582930155, "bootstrap95": [-0.45637264680001927, -0.42619382796662975]},
+      "evolving_far_minus_near": {"mean": -0.28074304670666633, "bootstrap95": [-0.30099331680152736, -0.2600777281240495]},
+      "attenuation_evolving_minus_fixed": {"mean": 0.16053937912263527, "bootstrap95": [0.14182360363683624, 0.17886069341313543]},
+      "passes_frozen_rule": true
+    },
+    {
+      "setting": "prior_selfing",
+      "role": "seed-discounting tradeoff",
+      "mutation_rate": 0.01,
+      "occupancy": {"fixed": {"near": 1.0, "far": 1.0}, "evolving": {"near": 1.0, "far": 1.0}},
+      "eligible_histories_fixed_far": 64,
+      "eligible_histories_fixed_pair": 64,
+      "eligible_histories_four_cell": 64,
+      "admissible": true,
+      "fixed_far_change_from_founders": {"mean": -0.331631067600059, "bootstrap95": [-0.3406965934607362, -0.32230020599675213]},
+      "fixed_far_minus_near": {"mean": -0.3017682772560246, "bootstrap95": [-0.31716277080639255, -0.286648903532111]},
+      "evolving_far_minus_near": {"mean": -0.08175277674901858, "bootstrap95": [-0.0970941412648009, -0.06564717388816216]},
+      "attenuation_evolving_minus_fixed": {"mean": 0.22001550050700608, "bootstrap95": [0.20252593015115306, 0.23825568991764065]},
+      "passes_frozen_rule": true
+    },
+    {
+      "setting": "pollen_discount",
+      "role": "male-function tradeoff",
+      "mutation_rate": 0.01,
+      "occupancy": {"fixed": {"near": 1.0, "far": 1.0}, "evolving": {"near": 1.0, "far": 1.0}},
+      "eligible_histories_fixed_far": 64,
+      "eligible_histories_fixed_pair": 64,
+      "eligible_histories_four_cell": 64,
+      "admissible": true,
+      "fixed_far_change_from_founders": {"mean": -0.3347342602636082, "bootstrap95": [-0.3445588798205342, -0.32454156231730724]},
+      "fixed_far_minus_near": {"mean": -0.3305353881101559, "bootstrap95": [-0.34608415575972307, -0.31514430511656755]},
+      "evolving_far_minus_near": {"mean": -0.1390345813575783, "bootstrap95": [-0.15441586379857072, -0.12468499028631932]},
+      "attenuation_evolving_minus_fixed": {"mean": 0.19150080675257763, "bootstrap95": [0.176167693432592, 0.20685212769417097]},
+      "passes_frozen_rule": true
+    },
+    {
+      "setting": "assurance_cost",
+      "role": "direct assurance-allocation cost",
+      "mutation_rate": 0.01,
+      "occupancy": {"fixed": {"near": 1.0, "far": 1.0}, "evolving": {"near": 1.0, "far": 1.0}},
+      "eligible_histories_fixed_far": 64,
+      "eligible_histories_fixed_pair": 64,
+      "eligible_histories_four_cell": 64,
+      "admissible": true,
+      "fixed_far_change_from_founders": {"mean": -0.3145668892391059, "bootstrap95": [-0.3257255666098675, -0.3031553073824159]},
+      "fixed_far_minus_near": {"mean": -0.433700386719742, "bootstrap95": [-0.4501496413405144, -0.41710334196857973]},
+      "evolving_far_minus_near": {"mean": -0.3329515119189244, "bootstrap95": [-0.34803776455991287, -0.31743850802585144]},
+      "attenuation_evolving_minus_fixed": {"mean": 0.10074887480081751, "bootstrap95": [0.0841941106536984, 0.11773260968028547]},
+      "passes_frozen_rule": true
+    }
+  ],
+  "adjudication": {
+    "status": "all_four_confirmed",
+    "passed_settings": ["delayed_control", "prior_selfing", "pollen_discount", "assurance_cost"],
+    "n_passed": 4,
+    "journal_route": "Ecology Letters first; Journal of Ecology backup.",
+    "frozen_rule": {
+      "per_setting": "Admissible AND fixed far-minus-near investment mean < 0 with its 95% visitor-history bootstrap upper bound < 0 AND attenuation mean > 0 with its 95% visitor-history bootstrap lower bound > 0.",
+      "all_four": "All four settings pass the per-setting rule.",
+      "partial": "One to three settings pass; retain JE as the primary target and report attenuation as setting-dependent secondary evidence.",
+      "none": "No setting passes; retain the existing JE claim without the general attenuation statement.",
+      "journal_decision": "all_four -> Ecology Letters first / Journal of Ecology backup; partial or none -> Journal of Ecology first."
+    }
+  },
+  "claim_boundary": {
+    "no_partial_readout": "No biological summary until all 8448 declared trajectories and receipts are present and verified.",
+    "no_retuning": "No seed extension, threshold change, outcome substitution, model-parameter adjustment or setting exclusion after execution begins.",
+    "all_settings": "Report all four settings regardless of direction, including failed or inadmissible cells.",
+    "claim_boundary": "A positive attenuation interaction means assurance evolution narrows the near-far investment difference in this model. It is not a mediation fraction, does not imply selfing itself is absent, and does not establish an empirical flower-size causal effect.",
+    "selection_gradient_boundary": "Mechanistic interpretation must use the corrected fixed-resident rare-mutant invasion gradient, not the retired whole-population derivative."
+  },
+  "workflow_provenance": {
+    "run_id": 37458098483,
+    "artifact_id": 11411525163,
+    "artifact_sha256": "34bedf03e6cde0b3d7f5140b7f352227b5dd1550c097e66e42022aa9830d3d8c"
+  }
+}
