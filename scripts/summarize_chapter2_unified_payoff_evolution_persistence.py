@@ -35,8 +35,13 @@ def load_and_audit(pre_dir: Path, post_dir: Path, d: dict):
         file_pre = pre_dir / f"{k}.json"
         file_post = post_dir / f"{k}.json"
         state_file = pre_dir / f"{k}.npz"
-        if not file_pre.is_file() or not file_post.is_file() or not state_file.is_file():
-            raise FileNotFoundError("missing matched cohort or full genotype state " + k)
+        post_receipt = post_dir / f"{k}.sha256"
+        if (not file_pre.is_file() or not file_post.is_file()
+                or not state_file.is_file() or not post_receipt.is_file()):
+            raise FileNotFoundError("missing matched cohort, genotype or post receipt " + k)
+        if (hashlib.sha256(file_post.read_bytes()).hexdigest()
+                != post_receipt.read_text().strip()):
+            raise AssertionError("postshock 42-cell raw receipt changed " + k)
         old = json.loads(file_pre.read_text(encoding="utf-8"))
         if hashlib.sha256(state_file.read_bytes()).hexdigest() != old["state_sha256"]:
             raise AssertionError("prehistory full genotype hash changed after future forks " + k)
