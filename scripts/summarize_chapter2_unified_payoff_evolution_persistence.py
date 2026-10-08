@@ -20,6 +20,48 @@ from scripts.run_chapter2_unified_payoff_prehistories import (
 )
 
 
+def validate_postshock_cell(cell: dict, *, pre_n: int, capacity: int,
+                            updates: int) -> None:
+    """Check demographic facts independently of the case-file hash receipt.
+
+    A valid checksum proves transport integrity, not that a reported extinction
+    or bottleneck population is logically consistent with the frozen protocol.
+    """
+    regime = cell["regime"]
+    expected_t0 = pre_n if regime == "fecundity_only" else min(8, pre_n)
+    t0 = cell["t0_population"]
+    final = cell["end_population"]
+    occupied = cell["occupied"]
+    extinction = cell["first_extinction"]
+    if (not isinstance(t0, int) or not isinstance(final, int)
+            or not isinstance(occupied, int) or isinstance(t0, bool)
+            or isinstance(final, bool) or isinstance(occupied, bool)
+            or t0 != expected_t0 or t0 < 0 or t0 > capacity
+            or final < 0 or final > capacity
+            or occupied not in (0, 1) or occupied != int(final > 0)):
+        raise AssertionError("inconsistent matched prehistory, population or occupancy")
+    if (extinction != (0 if t0 == 0 else None) if t0 == 0
+            else (extinction is not None) == bool(occupied)):
+        raise AssertionError("inconsistent first-extinction status")
+    if extinction is not None and (
+        isinstance(extinction, bool) or not isinstance(extinction, int)
+        or not 0 <= extinction <= updates
+        or (t0 > 0 and extinction == 0)
+    ):
+        raise AssertionError("first extinction outside the prospective horizon")
+    initial_output = cell["t0_reproductive_output"]
+    genetic = cell["post_genetic_outcome"]
+    if ((initial_output is None) != (t0 == 0)
+            or (genetic is None) != (final == 0)):
+        raise AssertionError("reproductive/genetic endpoints contradict occupancy")
+    for name in ("realized_selfed_recruits", "realized_outcross_recruits"):
+        count = cell[name]
+        if isinstance(count, bool) or not isinstance(count, int) or count < 0:
+            raise AssertionError("invalid realized recruit count")
+        if t0 == 0 and count:
+            raise AssertionError("extinct source population generated recruits")
+
+
 def load_and_audit(pre_dir: Path, post_dir: Path, d: dict):
     expected_hash = hashlib.sha256(DESIGN.read_bytes()).hexdigest()
     hashes = source_hashes()
@@ -63,12 +105,17 @@ def load_and_audit(pre_dir: Path, post_dir: Path, d: dict):
                     for r in row["postshock"]}
         if observed != expected_grid:
             raise AssertionError("missing/repeated postshock cell " + k)
+        source_n = snaps[d["prehistory"]["updates"]]["n"]
+        if [s["t"] for s in old["snapshots"]] != d["prehistory"]["occupancy_census_times"]:
+            raise AssertionError("unordered or repeated prehistory censuses " + k)
+        caps = {r["id"]: r["capacity"] for r in d["postshock"]["regimes"]}
         for c in row["postshock"]:
-            if (c["occupied"] != int(c["end_population"] > 0)
-                    or c["future_assurance_mode"] != "evolving"
-                    or c["first_extinction"] is not None and
-                       c["occupied"] != 0):
-                raise AssertionError("bad postshock occupancy or treatment " + k)
+            if c["future_assurance_mode"] != "evolving":
+                raise AssertionError("unmatched future evolution policy " + k)
+            validate_postshock_cell(
+                c, pre_n=source_n, capacity=caps[c["regime"]],
+                updates=d["postshock"]["updates"],
+            )
         pres[task] = old
         post[task] = {(c["regime"], c["future_environment"], c["ovule_budget"]): c
                       for c in row["postshock"]}
