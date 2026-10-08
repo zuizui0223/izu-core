@@ -1,0 +1,145 @@
+name: Chapter 2 unified payoff evolution persistence new cohort
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: unified-payoff-evolution-persistence-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate-and-cost-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Verify complete frozen 86,016-case plan without generating cohort outcomes
+        run: |
+          pytest -q tests/test_chapter2_unified_payoff_evolution_persistence.py \
+            tests/test_chapter2_unified_payoff_runner_smoke.py
+          python -m scripts.plan_chapter2_unified_payoff_evolution_persistence \
+            --receipt outputs/unified-cohort/design_receipt.json
+          python -m scripts.run_chapter2_unified_payoff_prehistories \
+            --out outputs/unified-cohort/prehistory --shard-index 0 \
+            --shard-count 64 --dry-run
+          python -m scripts.run_chapter2_unified_payoff_postshock \
+            --prehistory outputs/unified-cohort/prehistory \
+            --out outputs/unified-cohort/postshock \
+            --shard-index 0 --shard-count 64 --dry-run
+
+  prehistory-shards:
+    needs: validate-and-cost-gate
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    strategy:
+      fail-fast: false
+      max-parallel: 16
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Evolve and save frozen t400 full diploid plant states
+        run: |
+          python -m scripts.run_chapter2_unified_payoff_prehistories \
+            --out outputs/prehistories \
+            --shard-index ${{ matrix.shard }} \
+            --shard-count 64 --workers 2
+      - uses: actions/upload-artifact@v4
+        with:
+          name: unified-prehistory-shard-${{ matrix.shard }}
+          retention-days: 90
+          if-no-files-found: error
+          path: outputs/prehistories/*
+
+  postshock-shards:
+    needs: prehistory-shards
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 16
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - uses: actions/download-artifact@v4
+        with:
+          name: unified-prehistory-shard-${{ matrix.shard }}
+          path: outputs/prehistories
+      - name: Fork only hash-verified inherited state into all 42 future treatments
+        run: |
+          python -m scripts.run_chapter2_unified_payoff_postshock \
+            --prehistory outputs/prehistories \
+            --out outputs/postshock \
+            --shard-index ${{ matrix.shard }} \
+            --shard-count 64 --workers 2
+      - uses: actions/upload-artifact@v4
+        with:
+          name: unified-postshock-shard-${{ matrix.shard }}
+          retention-days: 90
+          if-no-files-found: error
+          path: outputs/postshock/*
+
+  scientific-readout:
+    needs: postshock-shards
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: unified-prehistory-shard-*
+          merge-multiple: true
+          path: outputs/prehistories
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: unified-postshock-shard-*
+          merge-multiple: true
+          path: outputs/postshock
+      - name: Count, verify genotype hashes and apply both frozen visitor-history gates
+        run: |
+          python -m scripts.summarize_chapter2_unified_payoff_evolution_persistence \
+            --prehistory outputs/prehistories \
+            --postshock outputs/postshock \
+            --out outputs/unified-cohort/complete_readout.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path("outputs/unified-cohort/complete_readout.json").read_text())
+          assert r["independent_visitor_histories"]==64
+          assert r["nested_demographic_repeats"]==2
+          assert r["prehistories"]==2048
+          assert r["postshock_trajectories"]==86016
+          assert len(r["stage1"]["setting_results"])==4
+          assert len(r["stage2"]["all_regimes"])==3
+          print("COMPLETE_RAW_VALIDATED",json.dumps({
+              "stage1":r["stage1"]["all_four_pass"],
+              "stage2":r["stage2"]["primary_gate"]["passes_frozen_rule"],
+              "joint":r["joint_pass"]
+          }))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: unified-payoff-evolution-persistence-verified-readout
+          retention-days: 90
+          if-no-files-found: error
+          path: outputs/unified-cohort/complete_readout.json
