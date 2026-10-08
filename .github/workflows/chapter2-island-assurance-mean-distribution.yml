@@ -1,0 +1,100 @@
+name: Chapter 2 island assurance mean-distribution explanatory replay
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: island-assurance-mean-replay-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - run: pytest -q tests/test_chapter2_island_assurance_donor_mean_distribution.py
+      - run: |
+          python -m scripts.run_chapter2_island_assurance_donor_mean_distribution \
+            --out outputs/assurance-mean-distribution --dry-run
+
+  historical-shards:
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - run: |
+          python -m scripts.run_chapter2_island_assurance_donor_mean_distribution \
+            --out outputs/assurance-mean-distribution \
+            --shard-index ${{ matrix.shard }} \
+            --shard-count 8 --workers 2
+      - uses: actions/upload-artifact@v4
+        with:
+          name: assurance-mean-distribution-shard-${{ matrix.shard }}
+          retention-days: 90
+          if-no-files-found: error
+          path: outputs/assurance-mean-distribution/*
+
+  readout:
+    needs: historical-shards
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: assurance-mean-distribution-shard-*
+          merge-multiple: true
+          path: outputs/assurance-mean-distribution
+      - run: |
+          python -m scripts.summarize_chapter2_island_assurance_donor_mean_distribution \
+            --input outputs/assurance-mean-distribution \
+            --out outputs/assurance-mean-distribution/explanatory_readout.json
+      - name: Require complete model-state grid and bounded original failure
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          summary=json.loads(Path("outputs/assurance-mean-distribution/explanatory_readout.json").read_text())
+          fixed=json.loads(Path("data/results/chapter2_island_assurance_donor_mean_distribution_20261008.json").read_text())
+          prior=json.loads(Path("data/results/chapter2_island_genetic_state_transplant_independent16_20261008.json").read_text())
+          assert summary["independent_visitor_histories"]==16
+          assert summary["genetic_states"]==512 and summary["postshock_cases"]==2048
+          assert prior["frozen_primary"]["passed"] is False
+          for row in fixed["results"]:
+              for result_key,metric in (("viable_maternal","viable_maternal"),("occupancy","occupied")):
+                  for variant,expected in row[result_key].items():
+                      got=next(x for x in summary["results"]
+                               if (x["setting"],x["background"],x["outcome"],x["variant"])
+                               ==(row["setting"],row["background"],metric,variant))
+                      tol=1e-6 if metric=="viable_maternal" else 1e-12
+                      assert abs(got["mean"]-expected)<tol, (row["setting"],metric,variant,got["mean"],expected)
+          print("512 states and complete explanatory results match; previous frozen gate remains failed")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: assurance-mean-distribution-explanatory-readout
+          retention-days: 90
+          if-no-files-found: error
+          path: outputs/assurance-mean-distribution/explanatory_readout.json
