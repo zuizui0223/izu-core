@@ -6,6 +6,7 @@ from pathlib import Path
 
 WORKFLOW_DIR = Path(".github/workflows")
 AUTOMATIC_WORKFLOWS = {"ci.yml", "chapter2-scientific-gate.yml"}
+MAIN_ARCHIVE_WORKFLOWS = {"chapter2-public-archive.yml"}
 EVENT_RE = re.compile(r"\b(push|pull_request|workflow_dispatch|schedule|workflow_call|workflow_run)\b")
 TOP_LEVEL_EVENT_RE = re.compile(r"^  ([A-Za-z0-9_-]+)\s*:")
 
