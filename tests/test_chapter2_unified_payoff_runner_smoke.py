@@ -22,6 +22,7 @@ from scripts.run_chapter2_unified_payoff_postshock import (
 from scripts.summarize_chapter2_unified_payoff_evolution_persistence import (
     bootstrap_summary
 )
+from scripts.model3_island.randomness import STREAM_IDS
 
 
 def miniature(d):
@@ -99,6 +100,20 @@ def test_future_rules_equalize_a_evolution_and_preserve_the_bottleneck():
     b = common_streams(other_mode, 0, 2, 0, 3)
     assert a["recruitment"].random() == b["recruitment"].random()
     assert a["parents"].random() == b["parents"].random()
+    # The founder bottleneck and maintained-small-capacity regimes use
+    # the same eight ancestors AND matched future demographic streams.
+    bottleneck_large = common_streams(t, 0, 1, 0, 3)
+    bottleneck_small = common_streams(t, 0, 2, 0, 3)
+    for stream_name in STREAM_IDS:
+        assert bottleneck_large[stream_name].random() == (
+            bottleneck_small[stream_name].random()
+        )
+    # Changing the historical treatment alone must also leave RNG matched.
+    comparison = common_streams(other_mode, 0, 1, 0, 3)
+    for stream_name in STREAM_IDS:
+        assert comparison[stream_name].random() == (
+            common_streams(t, 0, 2, 0, 3)[stream_name].random()
+        )
 
 
 def test_60_history_admission_uses_independent_visitor_not_nested_repeats():
