@@ -193,7 +193,7 @@
   },
   "threshold_and_pde": {
     "threshold": "Measure corrected fixed-resident rare-mutant marginal payoff zero crossings separately and label them local selection thresholds, not population trait change-points.",
-    "realized_order": "Classify first unforced t>=300 inherited population-mean A/I changes at a prespecified absolute 0.05-from-founder threshold, including ties and neither; do not condition primary ITT on this post-treatment variable.",
+    "realized_order": "Record inherited (not expression-offset) population-mean A and I at every reproductive update t0-400; classify first |genetic mean minus actual t0 founder mean|>=0.05 crossing as A_first, I_first, tie, A_only, I_only or neither. Assigned offsets are NEVER counted as inherited threshold crossings. Post-treatment crossing status must not condition primary ITT.",
     "pde": "Optional only after separately admitted full-genotype numerical fidelity against exact no-perturbation ABM; not required for order-protocol scientific gate and not asserted validated."
   },
   "counts": {
