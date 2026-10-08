@@ -52,6 +52,11 @@ def test_persist_and_restore_400_inherited_updates_old_history(tmp_path, protoco
     assert len(metadata["annual_inherited_censuses"]) == 401
     assert metadata["annual_inherited_censuses"][-1]["n"] == len(state.ids)
     assert metadata["realized_genetic_order"]["expression_offsets_not_used"] is True
+    with np.load(pre / f"{name}.npz", allow_pickle=False) as archive:
+        genealogy = archive["parentage_edges"]
+        assert genealogy.ndim == 2 and genealogy.shape[1] == 4
+        assert len(genealogy) == metadata["parentage_link_count"]
+        assert genealogy.dtype.kind in "iu"
 
     persist_post(future, pre, task, protocol, biology, hashes)
     row = json.loads((future / f"{name}.json").read_text())
@@ -65,6 +70,14 @@ def test_persist_and_restore_400_inherited_updates_old_history(tmp_path, protoco
     )
     assert len(pre_results) == len(post_results) == 1
     assert len(post_results[task]) == 28
+
+    # The parentage chronology is revalidated independently of NPZ checksum.
+    pedigree_corrupt = json.loads((pre / f"{name}.json").read_text())
+    pedigree_corrupt["parentage_link_count"] += 1
+    (pre / f"{name}.json").write_text(json.dumps(pedigree_corrupt))
+    with pytest.raises(AssertionError, match="parentage archive"):
+        admit_all(pre, future, protocol, tasks=[task], require_full=False)
+    (pre / f"{name}.json").write_text(json.dumps(metadata))
 
     # SHA protects content, but the auditor must independently catch a changed
     # t400 genotype or an impossible fork even if a JSON receipt is recomputed.
