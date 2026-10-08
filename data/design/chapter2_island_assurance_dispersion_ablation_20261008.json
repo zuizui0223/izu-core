@@ -53,8 +53,8 @@
   "randomization": "All q and mutation treatments within setting/history/background/postvisitor/budget/repeat receive same deterministic postshock RNG streams; the post mutation mask keeps assurance mutable when rate 0.01 and disables all mutation when rate 0.0.",
   "n_historical_populations": 32,
   "n_genetic_states": 96,
-  "n_matched_stress_cells": 512,
-  "n_poststress_trajectories": 1536,
+  "n_matched_stress_cells": 1024,
+  "n_poststress_trajectories": 3072,
   "descriptive_primary": "For each setting and recipient background separately, report q=0 minus q=1 occupancy averaged over all four histories, both post visitor environments, both budgets and four postshock random streams, for mutation 0 and 0.01 separately. Also report q=.5. No pass/fail threshold or post-hoc omission.",
   "readouts": [
     "A mean and allele variance at switch",
