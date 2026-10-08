@@ -20,7 +20,7 @@ from scripts.run_chapter2_unified_payoff_postshock import (
     recover_state, shock_ancestors, one_future, common_streams
 )
 from scripts.summarize_chapter2_unified_payoff_evolution_persistence import (
-    bootstrap_summary, evaluate
+    bootstrap_summary, evaluate, validate_postshock_cell
 )
 from scripts.model3_island.randomness import STREAM_IDS
 
@@ -176,3 +176,50 @@ def test_synthetic_joint_gate_cannot_substitute_a_favourable_other_regime():
     ]
     assert all(x["all_setting_equal_weight_pooled"]["passes_frozen_rule"]
                for x in others)
+
+def test_postshock_admission_checks_transfer_and_extinction_logic():
+    """Receipt integrity is not enough: reject biologically impossible rows."""
+    good = {
+        "regime": "bottleneck_small_capacity",
+        "t0_population": 8, "end_population": 5, "occupied": 1,
+        "first_extinction": None,
+        "t0_reproductive_output": {"maternal_viable_per_plant": 0.2},
+        "post_genetic_outcome": {"means": [0.5, 0.4, 0.5]},
+        "realized_selfed_recruits": 2,
+        "realized_outcross_recruits": 3,
+    }
+    validate_postshock_cell(good, pre_n=48, capacity=8, updates=80)
+    impossible = [
+        {"t0_population": 9},
+        {"end_population": 9},
+        {"occupied": 0},
+        {"first_extinction": 12},
+        {"t0_reproductive_output": None},
+        {"post_genetic_outcome": None},
+        {"realized_selfed_recruits": -1},
+    ]
+    for alteration in impossible:
+        with pytest.raises(AssertionError):
+            validate_postshock_cell(
+                {**good, **alteration}, pre_n=48, capacity=8, updates=80
+            )
+
+    empty = {
+        **good, "t0_population": 0, "end_population": 0, "occupied": 0,
+        "first_extinction": 0, "t0_reproductive_output": None,
+        "post_genetic_outcome": None,
+        "realized_selfed_recruits": 0, "realized_outcross_recruits": 0,
+    }
+    validate_postshock_cell(empty, pre_n=0, capacity=8, updates=80)
+    with pytest.raises(AssertionError):
+        validate_postshock_cell(
+            {**empty, "first_extinction": None}, pre_n=0, capacity=8, updates=80
+        )
+    later_loss = {**good, "end_population": 0, "occupied": 0,
+                  "post_genetic_outcome": None, "first_extinction": 80}
+    validate_postshock_cell(later_loss, pre_n=48, capacity=8, updates=80)
+    with pytest.raises(AssertionError):
+        validate_postshock_cell(
+            {**later_loss, "first_extinction": 81},
+            pre_n=48, capacity=8, updates=80,
+        )
