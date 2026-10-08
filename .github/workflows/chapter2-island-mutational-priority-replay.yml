@@ -20,7 +20,7 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m pip install -e '.[dev]'
-      - run: pytest -q tests/test_chapter2_island_mutational_priority.py
+      - run: pytest -q tests/test_chapter2_island_mutational_priority.py tests/test_chapter2_island_mutational_order_realization.py
       - run: |
           python -m scripts.run_chapter2_island_mutational_priority_independent16 \
             --out outputs/priority-indep16 --dry-run
@@ -86,9 +86,35 @@ jobs:
             --input outputs/island-priority/${{ matrix.variant }} \
             --out outputs/island-priority/${{ matrix.variant }}/verified_readout.json \
             --shard-count 4
+      - name: Validate realized phenotype-order compliance on every historical group
+        run: |
+          python -m scripts.audit_chapter2_island_mutational_order_realization \
+            --variant ${{ matrix.variant }} \
+            --input outputs/island-priority/${{ matrix.variant }} \
+            --out outputs/island-priority/${{ matrix.variant }}/order_audit.json \
+            --shard-count 4
+          python - <<'PY'
+          import json, os
+          from pathlib import Path
+          variant=os.environ["VARIANT"]
+          raw=json.loads(Path(f"outputs/island-priority/{variant}/order_audit.json").read_text())
+          fixed=json.loads(Path("data/results/chapter2_island_mutational_order_realization_audit_20261008.json").read_text())
+          for schedule in ("assurance_first","investment_first"):
+              measured=raw["pooled_by_schedule"][schedule]
+              prior=fixed["pooled_order_counts"][variant][schedule]
+              assert measured["historical_groups"] == prior["n"]
+              assert measured["intended_trait_preceded_or_only"] == prior["intended_first_or_only"]
+              for field in ("A_before_I","I_before_A","A_only","I_only","tie","neither"):
+                  assert measured[field] == prior[field]
+          print("full real-order accounting agrees with offline raw audit:",variant)
+          PY
+        env:
+          VARIANT: ${{ matrix.variant }}
       - uses: actions/upload-artifact@v4
         with:
           name: island-priority-${{ matrix.variant }}-verified
           retention-days: 90
           if-no-files-found: error
-          path: outputs/island-priority/${{ matrix.variant }}/verified_readout.json
+          path: |
+            outputs/island-priority/${{ matrix.variant }}/verified_readout.json
+            outputs/island-priority/${{ matrix.variant }}/order_audit.json
