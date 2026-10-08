@@ -126,7 +126,7 @@ def run_pair(args):
             post_c = replace(
                 c, capacity=d["post_capacity"], ovule_budget=float(budget)
             )
-            future = exposure(history + d["post_visitor_seed_offset"], post)
+            future = exposure(history + biology["post_visitor_seed_offset"], post)
             ledger = reproduce(state, future.visitors[0], post_c)
             master = int(np.random.SeedSequence([
                 history, repeat, d["settings"].index(setting),
