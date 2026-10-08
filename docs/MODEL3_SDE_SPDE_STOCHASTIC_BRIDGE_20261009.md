@@ -61,6 +61,33 @@ The off-diagonal correlations are in general **negative**; the covariance rows s
 - **NOT YET ADMISSIBLE, full trait-space SPDE:** stochastic field equations must preserve normalization/nonnegativity and full nonlocal sexual inheritance, retain cross-locus correlations, handle extinction and finite populations, and match the ABM in a population-size-refinement experiment. A first/second-moment Gaussian field with unconstrained additive noise is insufficient. Positive-mutation 3-locus deterministic grid fidelity must also be resolved or separately bounded.
 - **STOP:** no automatic extension to geographical space, no INLA data fit, no publication claim of a complete Model 3 SDE/SPDE, no post-outcome relaxation of numerical thresholds and no updating already frozen ecological outcomes.
 
+## Additional three-update validation: genotype-count Markov reference
+
+`genotype_counts_to_canonical_state` reconstructs distinct diploid individuals
+from their full-joint three-locus genotype **counts** on exactly the original
+allele support; it never computes only three trait means or imposes linkage
+equilibrium. `genotype_count_markov_step` then calls the **unmodified** Model 3
+`reproduce()` to preserve individual-level self-pollen exclusion, obtains
+the exact Mendelian offspring genotype law (q), samples the correct
+capped-Poisson recruited census and multinomial offspring counts, and allows
+extinction to be absorbing (no untracked immigrants).
+
+Because there is no survival, mutation, immigration or individual-specific
+fitness beyond genotype, genotype counts are a *sufficient Markov state* for
+this restricted experiment. The new three-update test independently
+compares its endpoint recruitment, extinction and surviving phenotype means
+with repeated canonical `advance()` rollouts. This is an exact stochastic
+**discrete-time alternative realization of the restricted Model 3**, not an
+independently supported ecological mechanism and not an SDE or SPDE.
+The comparison is invalid once age structure, new mutation or immigration is
+turned on unless corresponding state variables/transitions are explicitly added.
+
+This prevents a misleading shortcut: a mean-trait-only SDE would lose
+diploid variation and parentage information, so matching a one-step mean
+alone cannot certify its multi-generation validity. A full stochastic
+genotype-frequency limit must preserve the complete offspring distribution
+and the nonlinear reproductive map.
+
 ## What this actually tests
 
 The new result can establish a *consistent stochastic-noise construction under restrictive assumptions*, including uncertainty and extinction probability missing from a deterministic density model. It cannot automatically attribute the existing finite-versus-density gap to drift: the full Model 3 pair additionally differs in pollen self-exclusion and density regulation. Nor would a future SPDE be an external independent biological-model validation if it inherits Model 3's same mating kernel.
