@@ -1,0 +1,157 @@
+name: Chapter 2 independent budget-window confirmatory cohort
+
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'OLD-history-independent plan preflight or explicitly approved full new cohort'
+        required: true
+        type: choice
+        default: preflight_only
+        options:
+          - preflight_only
+          - full_cohort
+      full_cohort_launch_approved:
+        description: 'Explicit launch of 64 newly frozen visitor histories'
+        required: true
+        type: boolean
+        default: false
+      source_commit_sha:
+        description: 'Exact reviewed main commit'
+        required: true
+        type: string
+
+permissions:
+  contents: read
+
+concurrency:
+  group: independent-budget-window-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  preflight:
+    if: ${{ github.ref == 'refs/heads/main' && (inputs.mode == 'preflight_only' || (inputs.mode == 'full_cohort' && inputs.full_cohort_launch_approved == true)) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Require explicit reviewed main source SHA before any biological histories
+        env:
+          REVIEWED_SHA: ${{ inputs.source_commit_sha }}
+          CHECKED_OUT_SHA: ${{ github.sha }}
+        run: |
+          test "$REVIEWED_SHA" = "$CHECKED_OUT_SHA"
+          test "$GITHUB_REF" = "refs/heads/main"
+          echo "Approved exact source: $CHECKED_OUT_SHA"
+      - name: Validate non-peeking independent plan and synthetic scientific gates
+        run: |
+          pytest -q tests/test_chapter2_order_budget_window_followup.py \
+            tests/test_chapter2_order_expression_identification.py \
+            tests/test_chapter2_order_full_archive_smoke.py \
+            tests/test_chapter2_order_itt_synthetic.py
+          python -m scripts.chapter2_order_budget_window_followup \
+            --mode plan --out outputs/window-cohort/plan.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: budget-window-independent-plan-only
+          path: outputs/window-cohort/plan.json
+          retention-days: 90
+          if-no-files-found: error
+
+  prehistory:
+    needs: preflight
+    if: ${{ inputs.mode == 'full_cohort' && inputs.full_cohort_launch_approved == true }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 16
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Produce complete t400 diploid sources for one wholly new visitor history
+        run: |
+          python -m scripts.chapter2_order_budget_window_followup \
+            --mode pre --shard ${{ matrix.shard }} --workers 2 \
+            --out outputs/window-pre --execute-frozen-cohort
+      - uses: actions/upload-artifact@v4
+        with:
+          name: budget-window-pre-shard-${{ matrix.shard }}
+          path: outputs/window-pre/*
+          retention-days: 90
+          if-no-files-found: error
+
+  postshock:
+    needs: prehistory
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 16
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - uses: actions/download-artifact@v4
+        with:
+          name: budget-window-pre-shard-${{ matrix.shard }}
+          path: outputs/window-pre
+      - name: Fork only verified diploid states into full 28-cell resource stress grid
+        run: |
+          python -m scripts.chapter2_order_budget_window_followup \
+            --mode post --shard ${{ matrix.shard }} --workers 2 \
+            --prehistory outputs/window-pre --out outputs/window-post \
+            --execute-frozen-cohort
+      - uses: actions/upload-artifact@v4
+        with:
+          name: budget-window-post-shard-${{ matrix.shard }}
+          path: outputs/window-post/*
+          retention-days: 90
+          if-no-files-found: error
+
+  final-readout:
+    needs: postshock
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: budget-window-pre-shard-*
+          merge-multiple: true
+          path: outputs/window-pre
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: budget-window-post-shard-*
+          merge-multiple: true
+          path: outputs/window-post
+      - name: Audit all 2048 sources, 57344 forks and calculate preregistered window versus cubic smooth
+        run: |
+          python -m scripts.chapter2_order_budget_window_followup \
+            --mode readout --prehistory outputs/window-pre \
+            --postshock outputs/window-post \
+            --out outputs/window-final/independent_window_confirmation.json \
+            --execute-frozen-cohort
+      - uses: actions/upload-artifact@v4
+        with:
+          name: budget-window-independent-confirmatory-readout
+          path: outputs/window-final/independent_window_confirmation.json
+          retention-days: 90
+          if-no-files-found: error
