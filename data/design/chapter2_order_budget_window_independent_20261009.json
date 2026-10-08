@@ -1,0 +1,104 @@
+{
+  "schema_version": "1.0",
+  "declaration_date": "2026-10-09",
+  "status": "PROSPECTIVE_DESIGN_ONLY_NO_NEW_OUTCOMES",
+  "title": "Independent fixed-budget window confirmation of Chapter 2 assigned expression-order effects",
+  "motivation": "Previous 64-history expression-order full-grid primary was practically equivalent; budget 3-4 localization was discovered after outcome exposure and is NOT confirmation.",
+  "frozen_source": {
+    "old_protocol": "data/design/chapter2_order_expression_identification_20261008.json",
+    "old_protocol_sha256": "b6f6336875b04a131434ef35d6ec42b59dc14a1e4c59e7e4d6f2513e24a04fdd",
+    "prior_result": "results/chapter2/order_expression_full_cohort_20261009.json",
+    "prior_result_sha256": "188ecf42f96b53d985bac2bd0a236956cb6b37518b54ec67bff4686cd4583ccb",
+    "prior_result_status": "equivalent_within_predeclared_ROPE",
+    "calibration_only": true
+  },
+  "cohort": {
+    "first_history": 38110901,
+    "last_history": 38110964,
+    "n_histories": 64,
+    "demographic_repeats": [
+      38111901,
+      38111902
+    ],
+    "previous_history_interval": [
+      37110801,
+      37110864
+    ],
+    "archival_old_history": 26110601,
+    "unit": "visitor_history",
+    "allowed_arms": [
+      "assurance_first",
+      "investment_first"
+    ],
+    "outcomes_exposed": false
+  },
+  "future": {
+    "regimes": [
+      "eight_founders_capacity8",
+      "unbottlenecked_capacity48"
+    ],
+    "budgets": [
+      0.5,
+      1,
+      2,
+      3,
+      4,
+      5,
+      8
+    ],
+    "visitor_environments": [
+      "near",
+      "far"
+    ],
+    "primary_regime": "eight_founders_capacity8",
+    "keep_all_original_7_budgets": true
+  },
+  "estimand": {
+    "type": "two-sided visitor-history paired window residual in far-minus-near A-first-minus-I-first occupancy difference-in-differences",
+    "low_flank": 2,
+    "window": [
+      3,
+      4
+    ],
+    "high_flank": 5,
+    "interpolation": "linear interpolation of DID on log(budget) between budgets 2 and 5, subtract from mean of window budgets 3 and 4",
+    "settings_pool": "four reproductive settings equally weighted within each visitor history",
+    "future_pool": "both future environments and both nested demographic repeats",
+    "primary_min_abs_effect": 0.05,
+    "bootstrap": {
+      "unit": "visitor_history",
+      "n_draws": 9999,
+      "seed": 3811092026,
+      "interval": "percentile95",
+      "sign": "two-sided"
+    },
+    "gate": "supported_only_if_bootstrap95_excludes_zero_AND_abs_history_mean>=0.05_AND_smooth_cv_criterion_passes",
+    "equivalent": "full bootstrap95 lies strictly inside [-0.05,+0.05], otherwise inconclusive unless supported",
+    "smooth_comparator": {
+      "basis": "cubic polynomial in centered natural-log ovule budget",
+      "alternative": "same cubic basis plus one prespecified budget-3-or-4 indicator",
+      "validation": "8-fold holdout by visitor-history identity, all 7 budgets carried together",
+      "loss": "per-history mean squared error of DID across 7 budgets",
+      "ridge": 0.0001,
+      "minimum_mean_improvement": 0.0005,
+      "criterion": "95% history-bootstrap interval of held-out (smooth loss minus smooth-plus-window loss) entirely above zero and mean >=0.0005"
+    }
+  },
+  "declared_counts": {
+    "prehistories": 2048,
+    "postshock_branches_per_source": 28,
+    "postshock_trajectories": 57344,
+    "independent_histories": 64
+  },
+  "guards": [
+    "No simulation of new history IDs in PR tests, manual preflight, or cost engineering.",
+    "Both expression-order arms retain exactly the old frozen assignments and equal doses; biological source modules untouched.",
+    "The previous 64 exposed histories are used ONLY for hypothesis generation; independent IDs are mandatory.",
+    "All 2048 complete founder-genotype states and 57344 full 28-fork futures required before adjudication.",
+    "Never treat nested repeats, future branches, or budgets as independent ecological replicates.",
+    "A cubic smooth comparator is not a fully general ecological smooth-null; passing is evidence of localized predictive improvement relative to this specified comparator, not proof of a discontinuity.",
+    "Intermediate-window evidence can remain inconclusive even when a selected single budget exceeds 0.05.",
+    "Retain failed independent16 mutation-priority result and prior pooled practical-equivalence result without retrospective reinterpretation.",
+    "Historical plant-island generalization is not identifiable from synthetic stress tests."
+  ]
+}
