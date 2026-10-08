@@ -157,7 +157,12 @@ def run_one(task, d, biology, prepath, postpath, hashes):
     out = Path(postpath)
     name = key(task)
     path = out / f"{name}.json"
+    receipt_path = out / f"{name}.sha256"
     if path.exists():
+        if (not receipt_path.exists() or
+                hashlib.sha256(path.read_bytes()).hexdigest() !=
+                receipt_path.read_text().strip()):
+            raise ValueError("postshock case receipt missing or invalid: " + name)
         row = json.loads(path.read_text())
         if (row["task"] != asdict(task)
                 or row["source_hashes"] != hashes
@@ -194,6 +199,11 @@ def run_one(task, d, biology, prepath, postpath, hashes):
     tmp = path.with_suffix(path.suffix + ".tmp")
     tmp.write_bytes(raw)
     os.replace(tmp, path)
+    # Independent raw-content checksum for the entire 42-cell postshock fork.
+    checksum = hashlib.sha256(raw).hexdigest() + "\n"
+    receipt_tmp = receipt_path.with_suffix(".sha256.tmp")
+    receipt_tmp.write_text(checksum)
+    os.replace(receipt_tmp, receipt_path)
     return name
 
 
