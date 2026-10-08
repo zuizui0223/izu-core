@@ -122,3 +122,49 @@ def test_payoff_factorial_is_fixed_state_and_additive_by_identity():
             if mode == "fixed":
                 assert row["assurance_mean_shift"] == pytest.approx(0.0)
                 assert row["interaction"] == pytest.approx(0.0)
+
+
+
+def test_independent_payoff_confirmation_design_is_frozen_and_new():
+    from scripts.run_chapter2_island_payoff_confirmation import (
+        groups, load_frozen, case_key,
+    )
+
+    d, _ = load_frozen()
+    tasks = groups(d)
+    assert len(tasks) == 1024
+    assert len(set(case_key(t) for t in tasks)) == 1024
+    assert {t[1] for t in tasks} == set(range(28100801, 28100865))
+    assert {t[2] for t in tasks} == {28101801, 28101802}
+    assert {t[0] for t in tasks} == set(d["settings"])
+    assert {t[3] for t in tasks} == {"fixed", "evolving"}
+    assert not (set(range(28100801, 28100865)) &
+                set(range(27120701, 27120705)))
+
+
+def test_independent_payoff_joint_decision_requires_all_five():
+    from scripts.summarize_chapter2_island_payoff_confirmation import decide
+
+    d, _ = __import__(
+        "scripts.run_chapter2_island_payoff_confirmation",
+        fromlist=["load_frozen"]
+    ).load_frozen()
+    rows = [
+        dict(setting=setting, mode="evolving", metric=metric,
+             admissible=True, mean=sign*0.3,
+             bootstrap95=[0.1, 0.5] if sign == 1 else [-0.5, -0.1])
+        for setting, metric, sign in [
+            ("prior_selfing", "viable_maternal", 1),
+            ("pollen_discount", "viable_maternal", 1),
+            ("assurance_cost", "viable_maternal", -1),
+            ("prior_selfing", "female_outcross", -1),
+            ("pollen_discount", "female_outcross", -1),
+        ]
+    ]
+    yes = decide(d, rows)
+    assert yes["status"] == "all_five_confirmed"
+    assert yes["n_passed"] == 5
+    rows[1]["bootstrap95"] = [-0.01, 0.5]
+    no = decide(d, rows)
+    assert no["status"] == "at_least_one_frozen_rule_failed"
+    assert no["n_passed"] == 4
