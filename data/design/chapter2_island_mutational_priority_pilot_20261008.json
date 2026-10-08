@@ -1,0 +1,121 @@
+{
+  "schema_version": "1.0",
+  "declared_on": "2026-10-08",
+  "status": "exploratory_mutational_access_order_protocol_preoutcome",
+  "scientific_question": "Does the order in which heritable variation for reproductive assurance versus floral investment first becomes available redirect subsequent evolution and small-population persistence under identical historical and future visitor sequences?",
+  "source_biology": "data/design/chapter2_assurance_generality_20261006.json",
+  "relation_to_previous": "PR413 independently froze pooled assurance-evolution effect on persistence after outcome-informed demographic grids. This is a separate question and new cohort, not a rescue of failed 64-history first-generation payoff test.",
+  "founders": "Same 48-source distribution for matching/access, but both investment and assurance loci of every founder clamped exactly at 0.5. New source state prevents selection on locked trait via pre-existing standing variation; mutation is the only initial source of variation in these two traits.",
+  "settings": [
+    "delayed_control",
+    "prior_selfing",
+    "pollen_discount",
+    "assurance_cost"
+  ],
+  "pre_visitor_environments": [
+    "near",
+    "far"
+  ],
+  "post_visitor_environments": [
+    "near",
+    "far"
+  ],
+  "initial_phase_generations": 150,
+  "total_prehistory_generations": 400,
+  "post_stress_generations": 80,
+  "schedules": {
+    "assurance_first": {
+      "phase1_mutation_mask": [
+        true,
+        false,
+        true
+      ],
+      "phase2_mutation_mask": [
+        true,
+        true,
+        true
+      ]
+    },
+    "investment_first": {
+      "phase1_mutation_mask": [
+        true,
+        true,
+        false
+      ],
+      "phase2_mutation_mask": [
+        true,
+        true,
+        true
+      ]
+    },
+    "both_early": {
+      "phase1_mutation_mask": [
+        true,
+        true,
+        true
+      ],
+      "phase2_mutation_mask": [
+        true,
+        true,
+        true
+      ]
+    },
+    "both_delayed": {
+      "phase1_mutation_mask": [
+        true,
+        false,
+        false
+      ],
+      "phase2_mutation_mask": [
+        true,
+        true,
+        true
+      ]
+    }
+  },
+  "matching_mutates_in_all_schedules": true,
+  "assurance_mode": "evolving",
+  "mutation_rate": 0.01,
+  "mutation_sd": 0.05,
+  "new_visitor_history_seeds": [
+    31100801,
+    31100802,
+    31100803,
+    31100804
+  ],
+  "nested_demographic_repeat_seeds": [
+    31101801,
+    31101802
+  ],
+  "post_bottleneck_capacity": 8,
+  "post_bottleneck_n": 8,
+  "post_ovule_budgets": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "post_visitor_seed_offset": 1000000,
+  "total_prehistory_groups": 256,
+  "total_post_stress_trajectories": 2048,
+  "post_shock_protocol": "Independently bottleneck each realized t400 genetic population using the same subset RNG for all schedules at matching setting/history/repeat/prehistory; pair future near/far visitor sequences and demographic RNG by setting/history/repeat/destination/budget, NEVER by schedule or prehistory. No plant immigration.",
+  "primary_pilot_estimand": "For each history and setting, integrate terminal occupancy over 2 post visitor environments ×4 prespecified ovule budgets (eight equally weighted conditions). Compare (far-pre minus near-pre) between assurance_first and investment_first. Report all settings and the equally weighted four-setting descriptive mean. Historical-schedule contrasts are paired at visitor-history level.",
+  "secondary_readouts": [
+    "At generation 150 verify no mutant alleles exist at intentionally locked locus",
+    "At generation 150 and 400 mean and variance of I and A",
+    "First generation when population mean of I or A deviates from 0.5 by at least 0.05",
+    "At generation 400 immediate viable maternal output under a shared post visitor environment",
+    "Poststress occupancy and first-extinction time",
+    "Both-early and both-delayed schedule controls, reported not cherry-picked"
+  ],
+  "inference": "Only 4 independent visitor histories with 2 nested repeats. This is an exploratory mechanism pilot; no success gate or confidence interval inferred from demographic pseudo-replication.",
+  "claim_boundary": [
+    "This manipulates the TIME OF MUTATIONAL ACCESS, not directly the observed phenotypic order and not matched total mutational opportunity.",
+    "Because initial I and A standing variation are forcibly removed, this is a new founder-genetics scope and cannot be numerically equated to previous 32-history persistence estimates.",
+    "Early-access trait has 150 more reproductive updates with mutational supply than late-access trait. Any contrast combines priority and duration of mutational access.",
+    "Mutation masks are applied to offspring transmitted alleles, not to reproduction, fitness or expression of existing variants.",
+    "No distinct PDE route is claimed and no natural island predictions are calibrated.",
+    "Selection, segregation, drift and visitor histories remain active and can produce identical or reversed response even with different mutational access.",
+    "All four settings and four schedules must be reported including null/sign-reversed outcomes. No changes to PR411, to failed 64-history 5-condition gate, or to 32-history prior result."
+  ]
+}
