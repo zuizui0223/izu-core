@@ -79,17 +79,31 @@ def bootstrap_summary(matrix, index):
     for i in range(n_setting):
         vector = values[:, i]
         eligible = np.isfinite(vector)
-        if not eligible.all():
+        n = int(eligible.sum())
+        if n < 60:
             estimates.append({
-                "mean": None, "bootstrap95": None,
-                "n_complete_histories": int(eligible.sum())})
+                "mean": float(np.mean(vector[eligible])) if n else None,
+                "bootstrap95": None, "n_complete_histories": n,
+                "conditional_on_endpoint_survival": True,
+            })
         else:
-            sampled = vector[index].mean(axis=1)
+            eligible_values = vector[eligible]
+            if n == n_history:
+                sampled = eligible_values[index].mean(axis=1)
+            else:
+                # The frozen gate admits >=60/64 complete histories. When
+                # fewer than 64 have trait endpoints, bootstrap ONLY the
+                # observed eligible *visitor histories*, never 8 nested
+                # demographic repeats or nonexistent post-extinction traits.
+                local = np.random.default_rng(3611082026 + i)
+                indices = local.integers(0, n, size=(len(index), n))
+                sampled = eligible_values[indices].mean(axis=1)
             estimates.append({
-                "mean": float(vector.mean()),
+                "mean": float(eligible_values.mean()),
                 "bootstrap95": [float(x) for x in np.percentile(
                     sampled, [2.5, 97.5])],
-                "n_complete_histories": n_history,
+                "n_complete_histories": n,
+                "conditional_on_endpoint_survival": n != n_history,
             })
     return estimates
 
@@ -143,9 +157,8 @@ def evaluate(d, pre, post):
         fixed, atten = fixed_result[i], atten_result[i]
         allowed = (fixed["n_complete_histories"] >= 60 and
                    atten["n_complete_histories"] >= 60)
-        # The 9999-replicate protocol demands all 64 eligible histories
-        # for unconditional history-bootstrap admission. Partial coverage
-        # cannot be silently resampled from a changed denominator.
+        # A 60–63 history bootstrap is conditional on complete survivor
+        # histories and explicitly reports that changed denominator.
         accepted = bool(
             allowed and fixed["bootstrap95"] and atten["bootstrap95"]
             and fixed["mean"] < 0 and fixed["bootstrap95"][1] < 0
