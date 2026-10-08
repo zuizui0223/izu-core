@@ -187,6 +187,18 @@ def test_markov_frequency_kernel_reports_extinction_as_missing():
             assert (q>=0).all()
 
 
+def test_old_history_preflight_reports_restricted_gate_without_new_visitors():
+    from scripts.run_model3_sde_spde_preflight import audit_old_history
+    receipt = audit_old_history(n_draws=128)
+    assert receipt["status"].endswith("GATE_PASS")
+    assert receipt["visitor_history"] == 26110601
+    assert receipt["new_independent_visitor_histories_sampled"] == 0
+    assert receipt["natural_island_data_used"] is False
+    assert receipt["full_continuous_time_SDE_validated"] is False
+    assert receipt["full_trait_space_SPDE_validated"] is False
+    assert receipt["demographic_draws"] == 128
+
+
 def test_fail_closed_when_assumptions_do_not_hold():
     plant,ledger,config,grid=reference_case()
     for wrong in (
