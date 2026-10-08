@@ -18,6 +18,9 @@ from scripts.plan_chapter2_unified_payoff_evolution_persistence import (
 from scripts.run_chapter2_unified_payoff_prehistories import (
     key, source_hashes,
 )
+from scripts.run_chapter2_unified_payoff_postshock import (
+    recover_state, shock_ancestors,
+)
 
 
 def validate_postshock_cell(cell: dict, *, pre_n: int, capacity: int,
@@ -65,6 +68,13 @@ def validate_postshock_cell(cell: dict, *, pre_n: int, capacity: int,
             raise AssertionError("extinct source population generated recruits")
 
 
+def verify_bottleneck_state(task, state, recorded_sha: str) -> None:
+    """Bind the claimed forked eight-parent genotype subset to archived t400."""
+    expected = hashlib.sha256(shock_ancestors(task, state).alleles.tobytes()).hexdigest()
+    if recorded_sha != expected:
+        raise AssertionError("postshock bottleneck genotype receipt differs from source")
+
+
 def load_and_audit(pre_dir: Path, post_dir: Path, d: dict):
     expected_hash = hashlib.sha256(DESIGN.read_bytes()).hexdigest()
     hashes = source_hashes()
@@ -102,6 +112,13 @@ def load_and_audit(pre_dir: Path, post_dir: Path, d: dict):
         snaps = {r["t"]: r for r in old["snapshots"]}
         if set(snaps) != set(d["prehistory"]["occupancy_census_times"]):
             raise AssertionError("missing investment checkpoint " + k)
+        # The source NPZ SHA protects the full inherited population. Rebuild
+        # the actual seeded eight-parent bottleneck and verify the fork's
+        # separately reported genotype receipt, not just its JSON checksum.
+        source_state, recovered_sha = recover_state(pre_dir, task, d, hashes)
+        if recovered_sha != old["state_sha256"]:
+            raise AssertionError("prehistory full-state recovery changed " + k)
+        verify_bottleneck_state(task, source_state, row["bottleneck_state_sha256"])
         if len(row["postshock"]) != 42:
             raise AssertionError("incomplete postshock group " + k)
         observed = {(r["regime"], r["future_environment"], r["ovule_budget"])
