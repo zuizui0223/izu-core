@@ -116,6 +116,33 @@ def exact_one_step_trait_moments(state: PlantState, ledger: Ledger,
     }
 
 
+def draw_gaussian_trait_surrogate(one_step: dict,
+                                  rng: np.random.Generator
+                                  ) -> tuple[int, np.ndarray | None]:
+    """Candidate Euler-style Gaussian diffusion step, NOT exact Model 3.
+
+    N is sampled from the exact capped Poisson distribution. Given N>0,
+    a Gaussian offspring-mean approximation uses the *derived* Mendelian
+    covariance Sigma/N. Unlike the true ABM it need not preserve trait
+    bounds [0,1]; callers must measure and report that violation.
+    """
+    cap = one_step["capacity"]
+    intensity = one_step["recruitment_intensity"]
+    if not isinstance(rng, np.random.Generator):
+        raise TypeError("numpy random generator required")
+    if one_step["continuous_time_sde_validated"] is not False:
+        raise ValueError("only unvalidated one-step surrogate is supported")
+    n = min(int(rng.poisson(intensity)),cap)
+    if n==0:
+        return 0,None
+    mu=np.asarray(one_step["offspring_mean"],dtype=float)
+    cov=np.asarray(one_step["offspring_covariance"],dtype=float)
+    if mu.shape!=(3,) or cov.shape!=(3,3):
+        raise ValueError("wrong Model 3 trait moment dimensions")
+    sample=rng.multivariate_normal(mu,cov/n,check_valid="raise",method="svd")
+    return n,sample
+
+
 def offspring_genotype_distribution(state: PlantState, pair_probs: np.ndarray,
                                     grid: GeneticGrid) -> np.ndarray:
     """Exact unlinked-genotype offspring law on a fixed finite allele support.
