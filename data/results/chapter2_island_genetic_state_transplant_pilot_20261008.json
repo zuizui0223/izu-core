@@ -1,0 +1,161 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-08",
+  "status": "completed_exploratory_allele_distribution_transplant_not_confirmatory",
+  "design": "data/design/chapter2_island_genetic_state_transplant_pilot_20261008.json",
+  "source": "archived 2026-10-06 biological source, 25 files",
+  "independent_visitor_histories": 4,
+  "nested_demographic_repeats": 1,
+  "genetic_background_groups": 32,
+  "genetic_factorial_states": 128,
+  "post_stress_trajectories": 512,
+  "metrics": "A/I effects are marginal factorial means of far-donor versus near-donor locus-pair substitution averaged over two levels of the other donor; viability per resident plant at first common visitor exposure; occupancy binary at 80 updates averaged over budgets 3/4 and post near/far.",
+  "factorial_summary": [
+    {
+      "setting": "delayed_control",
+      "background": "near",
+      "viable": {
+        "investment": -0.028829,
+        "assurance": 0.127154,
+        "interaction": 0.036741
+      },
+      "occupancy": {
+        "investment": -0.0625,
+        "assurance": 0.0625,
+        "interaction": 0
+      }
+    },
+    {
+      "setting": "delayed_control",
+      "background": "far",
+      "viable": {
+        "investment": -0.0157,
+        "assurance": 0.131,
+        "interaction": 0.0329
+      },
+      "occupancy": {
+        "investment": -0.03125,
+        "assurance": 0.15625,
+        "interaction": -0.0625
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "background": "near",
+      "viable": {
+        "investment": 0.0709,
+        "assurance": 0.076,
+        "interaction": 0.0097
+      },
+      "occupancy": {
+        "investment": 0.0625,
+        "assurance": -0.0625,
+        "interaction": 0.125
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "background": "far",
+      "viable": {
+        "investment": 0.0626,
+        "assurance": 0.057,
+        "interaction": 0.0167
+      },
+      "occupancy": {
+        "investment": 0.1875,
+        "assurance": 0.0625,
+        "interaction": 0
+      }
+    },
+    {
+      "setting": "pollen_discount",
+      "background": "near",
+      "viable": {
+        "investment": 0.0213,
+        "assurance": 0.152,
+        "interaction": 0.0131
+      },
+      "occupancy": {
+        "investment": -0.03125,
+        "assurance": 0.21875,
+        "interaction": -0.0625
+      }
+    },
+    {
+      "setting": "pollen_discount",
+      "background": "far",
+      "viable": {
+        "investment": 0.0105,
+        "assurance": 0.1532,
+        "interaction": 0.0163
+      },
+      "occupancy": {
+        "investment": 0.03125,
+        "assurance": 0.21875,
+        "interaction": 0.0625
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "background": "near",
+      "viable": {
+        "investment": -0.0369,
+        "assurance": 0.0577,
+        "interaction": 0.0392
+      },
+      "occupancy": {
+        "investment": 0,
+        "assurance": 0,
+        "interaction": 0
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "background": "far",
+      "viable": {
+        "investment": -0.025,
+        "assurance": 0.0684,
+        "interaction": 0.037
+      },
+      "occupancy": {
+        "investment": 0,
+        "assurance": 0.0625,
+        "interaction": 0.125
+      }
+    }
+  ],
+  "native_history_far_minus_near": {
+    "delayed_control": {
+      "viable": 0.07046,
+      "occupancy": 0.0625
+    },
+    "prior_selfing": {
+      "viable": 0.15687,
+      "occupancy": 0.0625
+    },
+    "pollen_discount": {
+      "viable": 0.16294,
+      "occupancy": 0.1875
+    },
+    "assurance_cost": {
+      "viable": -0.01191,
+      "occupancy": 0.125
+    }
+  },
+  "provenance": {
+    "local_zip": "izu_core_island_genetic_state_transplant_pilot_20261008.zip",
+    "zip_sha256": "6b4416515cf8eb3048ecf4ee1ae87e51ebaa76d5759275471adba2df15397c04",
+    "raw_sha256": "81136d059dc80c4974007a6da98c16ed88620c7a8f2cff11e856836045038f40",
+    "summary_sha256": "982e4d5ef7288855e66a4208b161b0492c3978ccaa1aa706e1d8e1afb06415d1",
+    "biological_source_archive_sha256": "71a1b1d9c4d683b874c989fa7768a14e72c5353063d8213cbe42f42cd37473d4",
+    "github_actions_replay": false
+  },
+  "claim_bounds": [
+    "Only four independent visitor histories; descriptive, no statistical gate",
+    "Whole diploid allele-pair distributions transplanted rank-wise; donor genotype correlations and genetic ancestry can change",
+    "Poststress budgets 3 and 4 chosen after earlier exploratory demographic stress, not natural calibration",
+    "Immediate viable maternal output does not imply finite-population rescue",
+    "No phenotypic-order intervention or dynamic mediation fraction",
+    "Previously failed independent16 mutational-priority test and prior failed independent64 5-condition payoff gate remain failed"
+  ]
+}
