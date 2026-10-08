@@ -90,9 +90,14 @@ def test_production_is_workflow_dispatch_only_and_default_is_plan_preflight():
 
 
 def test_new_visitor_histories_not_in_existing_science_tests():
+    import ast
     p = Path("tests/test_chapter2_order_budget_window_followup.py").read_text()
-    assert "simulate_prehistory(" not in p
-    assert "one_future(" not in p
+    parsed = ast.parse(p)
+    invoked = {
+        node.func.id for node in ast.walk(parsed)
+        if isinstance(node, ast.Call) and isinstance(node.func, ast.Name)
+    }
+    assert not {"simulate_prehistory", "one_future"} & invoked
     d = json.loads(Path("data/design/chapter2_order_budget_window_independent_20261009.json").read_text())
     assert not d["cohort"]["outcomes_exposed"]
     assert d["frozen_source"]["prior_result_status"] == "equivalent_within_predeclared_ROPE"
