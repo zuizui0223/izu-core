@@ -75,3 +75,41 @@ def test_independent16_randomization_is_new_and_contrast_is_locked():
     assert not (set(hist) & set(d["new_visitor_history_seeds"]))
     assert "prior_selfing" in new["primary_estimand"]
     assert "pollen_discount" in new["primary_estimand"]
+
+
+
+def test_failed_independent16_is_retained_and_cannot_be_promoted():
+    d = json.loads((ROOT /
+        "data/results/chapter2_island_mutational_priority_independent16_20261008.json"
+    ).read_text())
+    primary = d["frozen_primary"]
+    assert d["n_independent_histories"] == 16
+    assert d["poststress_cases"] == 4096
+    assert primary["passed"] is False
+    assert primary["mean"] == -0.0859375
+    assert primary["bootstrap95"][0] < 0 < primary["bootstrap95"][1]
+    assert len(d["per_setting"]) == 4
+    assert all(a["bootstrap95"][0] <= 0 <= a["bootstrap95"][1]
+               for a in d["per_setting"])
+
+
+def test_balanced_schedule_has_equal_mutational_supply_and_no_promoted_gate():
+    from scripts.run_chapter2_island_mutational_priority_balanced import (
+        load_balanced, declared_groups
+    )
+    p, d, _ = load_balanced()
+    assert p["status"] == "balanced_mutational_opportunity_exploratory_before_execution"
+    assert len(declared_groups(d)) == 256
+    assert p["mutation_access_generations_per_trait"] == 250
+    for name, masks in p["schedules"].items():
+        for locus in (1, 2):
+            assert sum(length * int(mask[locus]) for length, mask in
+                       zip((150, 150, 100), masks)) == 250
+    record = json.loads((ROOT /
+        "data/results/chapter2_island_mutational_priority_balanced_20261008.json"
+    ).read_text())
+    assert record["independent_histories"] == 4
+    assert record["pooled_descriptive_priority_interaction"] == 0.0
+    assert len(record["per_setting"]) == 4
+    assert any(r["priority_interaction"] < 0 for r in record["per_setting"])
+    assert any(r["priority_interaction"] > 0 for r in record["per_setting"])
