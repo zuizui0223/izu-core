@@ -9,6 +9,7 @@ from scripts.chapter2_order_expression_schedule import (
 from scripts.chapter2_order_expression_payoff import (
     reproduce_with_order_expression,
 )
+from scripts.chapter2_order_genetic_realization import GeneticOrderRecorder
 from scripts.model3_island.reproduction import reproduce
 from scripts.model3_island.population import advance
 from scripts.model3_island.randomness import stream, STREAM_IDS
@@ -54,6 +55,7 @@ def test_legacy_two_year_payoff_to_mendelian_recruitment_is_opt_in(setting, arm)
     visitors = exposure(26110601, "near")  # OLD; never use 37110801-64.
     state = founders(biology)
     original_initial = state.alleles.tobytes()
+    genetic_recorder = GeneticOrderRecorder(state)
     master = int(np.random.SeedSequence([26110601, 26111601]).generate_state(1)[0])
     streams = {name: stream(master, name, 0) for name in STREAM_IDS}
     assert state.alleles.shape == (48, 3, 2)
@@ -73,7 +75,13 @@ def test_legacy_two_year_payoff_to_mendelian_recruitment_is_opt_in(setting, arm)
         assert len(state.ids) <= cfg.capacity
         assert state.alleles.shape[1:] == (3, 2)
         assert info["resident_recruits"] >= 0
+        genetic_recorder.observe(year + 1, state)
     assert original_initial == founders(biology).alleles.tobytes()
+    assert len(genetic_recorder.observations) == 3
+    assert genetic_recorder.observations[0]["inherited_means"] == (
+        founders(biology).alleles.mean(axis=(0, 2)).tolist()
+    )
+    assert genetic_recorder.observations[2]["n"] == len(state.ids)
     # All temporary perturbations must be absent on the shared release phase.
     a, i = assigned_offsets(protocol, arm, 300)
     reference = reproduce(state, visitors.visitors[2], cfg)
