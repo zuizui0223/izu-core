@@ -60,10 +60,10 @@ def independent_history_summary(d, cases):
                 vals = []
                 for rep in repeats:
                     row = cases[setting, history, rep, mode]
-                    n_seen_near += int(metric == "viable_maternal")
-                    n_seen_far += int(metric == "viable_maternal")
-                    n_occupied_near += int(metric == "viable_maternal" and row["near_population"] > 0)
-                    n_occupied_far += int(metric == "viable_maternal" and row["far_population"] > 0)
+                    n_seen_near += 1
+                    n_seen_far += 1
+                    n_occupied_near += int(row["near_population"] > 0)
+                    n_occupied_far += int(row["far_population"] > 0)
                     if row["admissible"]:
                         vals.append(row["observed_far_minus_near"][metric])
                 if len(vals) == len(repeats):
