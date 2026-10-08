@@ -1,0 +1,69 @@
+{
+  "schema_version": "1.0",
+  "date_frozen": "2026-10-08",
+  "status": "independent_16history_allele_transplant_gate_frozen_before_new_outcomes",
+  "source_biology": "data/design/chapter2_assurance_generality_20261006.json",
+  "exploratory_source": "data/results/chapter2_island_genetic_state_transplant_pilot_20261008.json",
+  "new_visitor_history_seeds": {
+    "first": 35100801,
+    "last": 35100816,
+    "count": 16
+  },
+  "new_nested_demographic_repeat_seeds": [
+    35101801
+  ],
+  "settings": [
+    "delayed_control",
+    "prior_selfing",
+    "pollen_discount",
+    "assurance_cost"
+  ],
+  "pre_updates": 400,
+  "post_updates": 80,
+  "post_bottleneck_n": 8,
+  "post_capacity": 8,
+  "post_ovule_budgets": [
+    3,
+    4
+  ],
+  "post_visitor_arms": [
+    "near",
+    "far"
+  ],
+  "pre_visitor_arms": [
+    "near",
+    "far"
+  ],
+  "genetic_backgrounds": [
+    "near",
+    "far"
+  ],
+  "locus_donors": [
+    "near",
+    "far"
+  ],
+  "post_visitor_seed_offset": 1000000,
+  "expected_historical_pairs": 64,
+  "expected_recipient_backgrounds": 128,
+  "expected_genetic_factorial_states": 512,
+  "expected_post_stress_trajectories": 2048,
+  "genotype_intervention": "Full paired-allele donor distribution ranked by locus-specific mean transferred after exact 8-individual bottleneck; recipient matching locus unchanged. Transfer allele_origin and mutation_flags with both donor allele copies. Four factorial I_donor/A_donor cells within each background. Native/native must match original recipient state bitwise.",
+  "shared_randomness": "Post visitor histories and demographic stream seeds identical across four genetic-factorial treatments and paired historical backgrounds at matched history, setting, future environment and stress budget",
+  "primary_estimand": "Within each visitor history, at near-history recipient background, calculate the average marginal occupancy effect of moving both assurance alleles from matched far-history donor into recipient (averaging over near/far investment donor and 2 post visitor regimes × budgets 3/4). Compare pollen_discount minus prior_selfing. Mean visitor-history effect must be positive with 95% visitor-history bootstrap lower endpoint above zero.",
+  "bootstrap": {
+    "draws": 9999,
+    "seed": 3510082026,
+    "unit": "independent_visitor_history",
+    "interval": "percentile95"
+  },
+  "global_success_rule": "All 2048 post-stress cases admissible with 128 exact native/native genetic controls; primary pollen-discount-minus-prior near-recipient assurance-donor occupancy interaction has positive mean and positive lower history-bootstrap95. Otherwise global FAIL. Do not change settings, threshold, histories or budget grid after execution.",
+  "secondary": "Report all four settings, two recipient backgrounds, both allele-donor marginal effects on viable maternal output, female outcross, pollen export and terminal occupancy; interaction and near-vs-far baseline. Never pool 2048 outcomes as 2048 independent histories.",
+  "claim_limit": [
+    "Independent new randomization but test hypothesis selected after four-history exploration; valid narrow conditional replication only.",
+    "Historical bottleneck and fecundity stress grid were chosen from prior exposed pilot.",
+    "Changing donor allele pairs also changes allele ancestry, genetic covariance, and possible linkage; effects are not pure causal mediation fractions.",
+    "Initial donor populations share founding genetic states but differ after 400 updates.",
+    "No direct intervention on observed evolution order or natural-island extinction rates.",
+    "Earlier failed 16-history mutation priority and earlier failed 64-history payoff all-five gate remain failures."
+  ]
+}
