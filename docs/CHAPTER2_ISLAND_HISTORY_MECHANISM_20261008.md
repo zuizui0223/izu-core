@@ -8,6 +8,14 @@ Why do islands with different pollinator replenishment regimes sometimes show si
 
 A post-establishment feedback already supported by the independent four-setting campaign: assurance-capacity evolution was not necessary for reduced floral investment in low replenishment, but it consistently narrowed the high–low investment contrast. The post-confirmation arm decomposition attributes 78–90% of this compression to additional declines in the **high-replenishment** populations. A corrected fixed-resident rare-mutant calculation implicates lost marginal maternal outcross and paternal export benefit, not a calibrated effect in a named island species.
 
+## Closest island-biogeography comparators (preoutcome)
+
+- Zell et al. (2025, *New Phytologist*, DOI 10.1111/nph.20234; published online 2024-11-08): 3,222 species across 169 families; island occurrence reflects self-compatibility and especially arrival opportunity. This concerns **which taxa establish**, not the inherited response of a deliberately identical post-establishment population.
+- Ciarle et al. (2025, *Annals of Botany*, DOI 10.1093/aob/mcaf005): 129 inferred colonization events across ten Southwest Pacific archipelagos. Animal-pollinated flower size followed an island-rule-like relationship, whereas wind-pollinated flowers showed enlargement. The authors identify the ecological causes as unresolved. This is a direct motivation for separating starting state, pollination function and post-establishment response, **not** an empirical prediction already reproduced by our abstract floral-investment trait. Our ABM only models animal-visitor pollen transfer, not wind pollination or ancestral size allometry.
+- Island-rule-like convergence and the modelled attenuation of high–low investment difference are **different statistical patterns**. Neither is evidence of the other without matching ancestral reference states and observational traits.
+
+This literature makes a simple selfing-first explanation or a general rescue claim insufficient for Ecology Letters; the prospective value is in demonstrating how the same current ecology yields distinct *future* evolutionary capacity due to historical payoff-driven genetic change.
+
 ## New falsifiable prediction: island evolutionary memory
 
 After the same plant founders have experienced contrasting pollinator histories for 400 reproductive updates, transplant their populations into the **same newly generated pollinator community**. If historical evolution and finite genetic realization matter, they should respond differently despite the same current visitors. We expect three possibilities, all admissible:
