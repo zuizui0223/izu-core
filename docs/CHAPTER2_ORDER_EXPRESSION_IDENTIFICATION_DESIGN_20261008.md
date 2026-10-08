@@ -26,7 +26,7 @@ Do **not** reuse the previously failed mutation-access order as if it directly c
 Instead, explicitly intervene on **transient expressed phenotype**, while allowing the *underlying inherited A and I loci to mutate and segregate identically in all arms*. At each reproductive update, the payoff operator must use
 
 ```text
-expressed_z = logistic(logit(clip(mean_inherited_diploid_alleles, 1e-8, 1-1e-8)) + assigned_logit_offset)
+expressed_z = inherited_mean EXACTLY if assigned_logit_offset == 0\nexpressed_z = logistic(logit(clip(inherited_mean, 1e-8, 1-1e-8)) + assigned_logit_offset) otherwise
 ```
 
 for each target axis, with no mutation, inheritance, overwriting, replacing or resetting of actual diploid allele states by the assigned offset. Matching X is not directly perturbed. The clamped endpoint numerics must be tested independently before any biological run. All arms share the source founders, visitor sequences and nested demographic random-number identifiers.
