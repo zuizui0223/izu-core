@@ -45,6 +45,7 @@ FROZEN_SOURCE_FILES = (
     "scripts/chapter2_order_genetic_realization.py",
     "scripts/chapter2_order_prehistory_runner.py",
     "scripts/chapter2_order_postshock_runner.py",
+    "scripts/chapter2_order_confirmatory_readout.py",
     "scripts/run_chapter2_assurance_generality.py",
     "scripts/run_model3_persistent_isolation.py",
     "scripts/model3_island/reproduction.py",
