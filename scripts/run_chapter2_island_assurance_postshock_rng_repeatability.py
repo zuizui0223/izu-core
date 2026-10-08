@@ -100,7 +100,10 @@ def simulate_pair(group, d, parent, biology, source):
                 "assurance_mean": float(state.alleles[:, 2, :].mean()),
                 "assurance_variance": float(state.alleles[:, 2, :].var()),
             })
-    if len(rows) != 128:
+    expected = (len(d["backgrounds"]) * len(d["treatments"]) *
+                len(d["future_visitor_environments"]) * len(d["post_ovule_budgets"]) *
+                len(d["new_postshock_demographic_repeat_ids"]))
+    if len(rows) != expected:
         raise RuntimeError("incomplete technical repeat grid")
     return rows
 
