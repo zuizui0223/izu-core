@@ -56,6 +56,16 @@ jobs:
             --prehistory outputs/order-cohort/pre \
             --shard-index 0 --shard-count 64 \
             --out outputs/order-cohort/post --dry-run
+          python -m scripts.audit_chapter2_order_engineering_cost \
+            --out outputs/order-cohort/old_history_cost_receipt.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: order-cohort-preflight-old-history-receipts
+          retention-days: 90
+          if-no-files-found: error
+          path: |
+            outputs/order-cohort/plan.json
+            outputs/order-cohort/old_history_cost_receipt.json
 
   prehistory:
     needs: preflight
