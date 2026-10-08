@@ -125,6 +125,10 @@ The frozen protocol is now **implemented**, rather than merely outlined, in sepa
 
 A locally available copy of the pre-confirmation frozen biological source was tested using **OLD** visitor seed `26110601`. For one historical simulated plant population (400 reproductive updates), elapsed wall time was **0.2257 s**; for the same legacy evolved state forked to the 42 future stress conditions (each 80 updates), **0.9189 s**. This gives a purely illustrative **0.65 hours serial runtime** by scaling the measured case to 2,048 prehistories, excluding packaging/GitHub setup and history/setting variability. The measured old-seed population had 48 surviving plants. This is **not a source-locked production speed guarantee** and uses no new cohort history or scientific outcome. Larger/other configurations and CI runners may differ materially.
 
+### GitHub manual launch constraint
+
+The production workflow is intentionally `workflow_dispatch` only. **GitHub requires a manually dispatched workflow file to exist on the default branch.** Therefore a brand-new workflow file that exists only on this Draft PR branch is not directly dispatchable in the GitHub Actions UI. The technical path is: (1) pass existing PR scientific-gate/CI tests, (2) review and merge the **design + implementation only**, (3) manually launch the frozen workflow from `main`. A failed or queued PR CI must not be hidden by a premature merge. A manual Actions launch also has repository compute-cost implications, and only a completed 86,016-case artifact gives a new scientific answer. This PR is not an already running experiment.
+
 ### Reproducibility and launch guard
 
 Do **not** start or interpret partial production without the source-hash/CI admission, because the previous Draft PR #413 contained many source-specific post-outcome explorations. The new protocol's population histories cannot be interchanged with those prior archives: this one additionally fixes postshock **future A evolution equal across historical modes**, and broadens the demographic risk domain and two independent nested demographic repeats.
