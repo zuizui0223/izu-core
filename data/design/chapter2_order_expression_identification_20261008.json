@@ -1,0 +1,212 @@
+{
+  "schema_version": "1.0",
+  "declaration_date": "2026-10-08",
+  "status": "PROSPECTIVE_DESIGN_ONLY_NO_BIOLOGICAL_OUTCOMES",
+  "title": "Ecological order of expression, inherited evolution and finite persistence",
+  "question": "Does temporal order of identical cumulative assurance and floral-investment expression perturbations alter inherited evolution and later persistence under the same future pollinator community?",
+  "source": {
+    "repo": "zuizui0223/izu-core",
+    "base": "main",
+    "frozen_design": "data/design/chapter2_assurance_generality_20261006.json",
+    "frozen_result": "data/results/chapter2_assurance_generality_20261006.json",
+    "verified_source_confirmation": "all_four_confirmed",
+    "earlier_failure": "PR #413 independent16 mutation-access-order gate FAILED; balanced-duration four-history pilot pooled effect 0; not superseded",
+    "parallel_protocol": "PR #414 past-assurance-access 400-update future-common-evolution experiment; do not conflate or reuse cohorts"
+  },
+  "axes": {
+    "assurance": "A, autonomous reproductive-assurance capacity",
+    "investment": "I, attraction-facing floral investment",
+    "matching": "X, visitor match (no assigned expression perturbation)"
+  },
+  "environmental_settings": [
+    "near",
+    "far"
+  ],
+  "reproductive_settings": [
+    "delayed_control",
+    "prior_selfing",
+    "pollen_discount",
+    "assurance_cost"
+  ],
+  "independent_histories": {
+    "first": 37110801,
+    "last": 37110864,
+    "count": 64,
+    "unit": "visitor_history",
+    "new_not_reused": true
+  },
+  "nested_demographic_repeats": [
+    37111801,
+    37111802
+  ],
+  "prehistory": {
+    "updates": 400,
+    "release_start": 300,
+    "snapshot_times": [
+      0,
+      100,
+      200,
+      300,
+      400
+    ],
+    "genetic_mutation_probability": 0.01,
+    "founder_policy": "identical 48-plant full diploid founders across randomized treatment arms per history/setting/repeat",
+    "no_immigrant_seed": true
+  },
+  "path_perturbation": {
+    "type": "transient phenotype-only logit offset applied inside reproductive payoff function",
+    "size_logit": 0.45,
+    "mapping": "phenotype=logistic(logit(clip(mean_diploid_alleles,epsilon,1-epsilon))+offset), epsilon=1e-8; do not overwrite genotype or inherited alleles",
+    "genetic_rule": "Both A and I genetic loci retain IDENTICAL mutation opportunities from t0 in all arms. Expression offset is never inherited. Matching X unchanged.",
+    "caution": "Equal prescribed logit-offset dose, not equal realized phenotype or equal accumulated selection across evolving genotypes",
+    "arms": {
+      "assurance_first": [
+        {
+          "from": 0,
+          "to": 100,
+          "A": 0.45,
+          "I": 0
+        },
+        {
+          "from": 100,
+          "to": 200,
+          "A": 0.45,
+          "I": -0.45
+        },
+        {
+          "from": 200,
+          "to": 300,
+          "A": 0,
+          "I": -0.45
+        },
+        {
+          "from": 300,
+          "to": 400,
+          "A": 0,
+          "I": 0
+        }
+      ],
+      "investment_first": [
+        {
+          "from": 0,
+          "to": 100,
+          "A": 0,
+          "I": -0.45
+        },
+        {
+          "from": 100,
+          "to": 200,
+          "A": 0.45,
+          "I": -0.45
+        },
+        {
+          "from": 200,
+          "to": 300,
+          "A": 0.45,
+          "I": 0
+        },
+        {
+          "from": 300,
+          "to": 400,
+          "A": 0,
+          "I": 0
+        }
+      ],
+      "synchronous_time_control": [
+        {
+          "from": 0,
+          "to": 100,
+          "A": 0.45,
+          "I": -0.45
+        },
+        {
+          "from": 100,
+          "to": 200,
+          "A": 0,
+          "I": 0
+        },
+        {
+          "from": 200,
+          "to": 300,
+          "A": 0.45,
+          "I": -0.45
+        },
+        {
+          "from": 300,
+          "to": 400,
+          "A": 0,
+          "I": 0
+        }
+      ]
+    },
+    "dose_contract": "Each arm imposes A=+0.45 logit offset in exactly 200 prehistory updates and I=-0.45 in exactly 200 updates, released identically at 300. All share same final schedule and mutation rule.",
+    "randomization": "Every history × nested repeat × mating setting × near/far has all 3 arms; same visitor and demographic seed identifiers are paired, not extra independent histories."
+  },
+  "postshock": {
+    "updates": 80,
+    "arms": [
+      "unbottlenecked_capacity48",
+      "eight_founders_capacity8"
+    ],
+    "budgets": [
+      0.5,
+      1,
+      2,
+      3,
+      4,
+      5,
+      8
+    ],
+    "future_environments": [
+      "near",
+      "far"
+    ],
+    "no_immigration": true,
+    "schedule": "all three prehistory treatments have identical unrestricted genetic mutation and zero expression offset",
+    "primary_regime": "eight_founders_capacity8",
+    "sampling": "sample min(8,n_alive) actual full diploid genotypes without resetting alleles; use source-history paired random streams",
+    "primary_outcome": "binary occupancy after 80 updates including zero for groups extinct before transfer"
+  },
+  "estimation": {
+    "independent_unit": "visitor_history, n=64",
+    "nested_handling": "average nested demographic repeat, both future visitor environments and all 7 log-budget weights within each history and mating setting; do not bootstrap 86,016 trajectories",
+    "primary": "Within each history and setting: [(S_Afirst_far-S_Ifirst_far)-(S_Afirst_near-S_Ifirst_near)] in eight_founders_capacity8, equal weighted over 4 mating settings.",
+    "contrast_type": "intention-to-treat effect of randomized expression-order protocol, not causal effect of observed spontaneous genetic threshold crossing",
+    "bootstrap": {
+      "draws": 9999,
+      "seed": 3711082026,
+      "interval": "percentile95",
+      "unit": "visitor_history",
+      "shared_index_all_settings": true
+    },
+    "meaningful_difference_absolute": 0.05,
+    "primary_decision": "Nonzero order-protocol effect supported only if 95% visitor-history bootstrap interval excludes 0 and |pooled mean| >=0.05; either sign allowed, no post-outcome preference.",
+    "equivalence": "Only if the full 95% interval lies within [-0.05,+0.05] can a bounded near-zero effect be called equivalent under this synthetic setting. Otherwise inconclusive.",
+    "mandatory": [
+      "all four mating settings and history-level contrasts",
+      "absolute far and near occupancies",
+      "synchronous control",
+      "full 7-budget and both future-visitor sensitivity",
+      "pre-extinction counts, inherited genotype mean/variance, mutation availability, realized trait-threshold order",
+      "immediate maternal viable, female outcross and paternal export, never interchangeable with survival"
+    ]
+  },
+  "threshold_and_pde": {
+    "threshold": "Measure corrected fixed-resident rare-mutant marginal payoff zero crossings separately and label them local selection thresholds, not population trait change-points.",
+    "realized_order": "Classify first unforced t>=300 inherited population-mean A/I changes at a prespecified absolute 0.05-from-founder threshold, including ties and neither; do not condition primary ITT on this post-treatment variable.",
+    "pde": "Optional only after separately admitted full-genotype numerical fidelity against exact no-perturbation ABM; not required for order-protocol scientific gate and not asserted validated."
+  },
+  "counts": {
+    "prehistories": 3072,
+    "branches_per_prehistory": 28,
+    "postshock_trajectories": 86016
+  },
+  "stop_conditions": [
+    "Design-only compiler may enumerate metadata but must not sample visitors or produce biological outcomes.",
+    "No biological production until source module and transient-expression implementation are frozen and paired tests pass.",
+    "Failure of historical independent16 confirmation remains FAIL even if this different perturbation shows an effect.",
+    "Do not merge this design into PR #414, which estimates a different historical-assurance-access treatment.",
+    "Synthetic ecological regimes and extinction stress are not natural Izu island calibration.",
+    "No claim of natural evolutionary order causality, genetic mediation or validated PDE from randomized expression protocols."
+  ]
+}
