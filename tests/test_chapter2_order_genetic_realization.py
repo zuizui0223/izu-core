@@ -67,8 +67,10 @@ def test_absent_genetics_after_extinction_stay_missing_not_zero():
     assert outcome.summary()["first_extinction_year"]==3
     assert outcome.summary()["extinct_by_t400"] is True
     assert outcome.summary()["inherited_A_first_crossing"] == 1
-    with pytest.raises(AssertionError,match="revived"):
-        outcome.observe(401,genotype_state())
+    early = GeneticOrderRecorder(genotype_state())
+    early.observe(1, genotype_state(n=0))
+    with pytest.raises(AssertionError, match="revived"):
+        early.observe(2, genotype_state())
 
 
 def test_skip_or_repeat_census_is_rejected():
