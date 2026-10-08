@@ -132,7 +132,9 @@
     ],
     "evolutionary_mask_rule": "For the PREHISTORY, mode=fixed blocks A mutation and holds its alleles at 0.5 while mode=evolving allows A mutation; matching and I evolve in both. After the switch, both historical groups use mode=evolving, mutation_traits=(True,True,True), and A alleles evolve from their actually inherited t400 state. No genotype resetting or restoration of founders occurs.",
     "config_mutation_rate": 0.01,
-    "evolutionary_access_rule": "At the t400 fork, BOTH prior fixed-A and prior evolving-A histories switch to the identical assurance_mode=evolving for the next 80 updates. All traits inherit and mutate at the same positive postshock mutation rate (0.01). This isolates effects of the inherited historical genotype states under a common future evolutionary policy, not a cumulative fixed-versus-evolving policy over all 480 updates."
+    "evolutionary_access_rule": "At the t400 fork, BOTH prior fixed-A and prior evolving-A histories switch to the identical assurance_mode=evolving for the next 80 updates. All traits inherit and mutate at the same positive postshock mutation rate (0.01). This isolates effects of the inherited historical genotype states under a common future evolutionary policy, not a cumulative fixed-versus-evolving policy over all 480 updates.",
+    "future_visitor_seed_offset": 1000000,
+    "future_visitor_randomization_note": "Use visitor history seed = historical visitor history seed + 1000000, with a fresh near/far process. Exactly the same future-visitor seed and near/far process must be shared by all four historical near/far × fixed/evolving counterparts of each setting, history and demographic repeat."
   },
   "estimated_run_size": {
     "prehistory_groups": 2048,
