@@ -11,7 +11,7 @@ permissions:
   contents: read
 jobs:
   dispatch-old-history-only:
-    if: ${{ github.event.head_commit.message == 'ops(chapter2): launch OLD-history preflight-only audit' }}
+    if: github.event.head_commit.message == 'ops-chapter2-launch-old-history-preflight'
     runs-on: ubuntu-latest
     steps:
       - name: Dispatch reviewed Chapter 2 OLD-history preflight (no new cohort)
