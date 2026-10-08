@@ -192,13 +192,17 @@ def bootstrap_summary(matrix, index):
             if n == n_history:
                 sampled = eligible_values[index].mean(axis=1)
             else:
-                # The frozen gate admits >=60/64 complete histories. When
-                # fewer than 64 have trait endpoints, bootstrap ONLY the
-                # observed eligible *visitor histories*, never 8 nested
-                # demographic repeats or nonexistent post-extinction traits.
-                local = np.random.default_rng(3611082026 + i)
-                indices = local.integers(0, n, size=(len(index), n))
-                sampled = eligible_values[indices].mean(axis=1)
+                # Always use the same predeclared 64-history bootstrap index
+                # across settings and endpoints. Conditionally omit missing
+                # trait endpoints *within each resampled history draw*, not
+                # by generating independent, setting-specific indices.
+                # This preserves pairing of the original visitor histories.
+                selected = vector[index]
+                complete = np.isfinite(selected)
+                counts = complete.sum(axis=1)
+                if np.any(counts == 0):
+                    raise AssertionError("bootstrap replicate with no eligible history")
+                sampled = np.where(complete, selected, 0.0).sum(axis=1) / counts
             estimates.append({
                 "mean": float(eligible_values.mean()),
                 "bootstrap95": [float(x) for x in np.percentile(
