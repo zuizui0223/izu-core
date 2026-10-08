@@ -2,6 +2,16 @@ name: Chapter 2 assigned-expression order prospectively frozen cohort
 
 on:
   workflow_dispatch:
+    inputs:
+      full_cohort_launch_approved:
+        description: 'Explicit approval to execute the complete new cohort on main'
+        required: true
+        type: boolean
+        default: false
+      source_commit_sha:
+        description: 'Exact commit SHA reviewed for this new-cohort execution'
+        required: true
+        type: string
 
 permissions:
   contents: read
@@ -12,6 +22,7 @@ concurrency:
 
 jobs:
   preflight:
+    if: ${{ github.ref == 'refs/heads/main' && inputs.full_cohort_launch_approved == true }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -20,6 +31,14 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m pip install -e '.[dev]'
+      - name: Require reviewed exact source commit before new biological outcomes
+        env:
+          REVIEWED_SHA: ${{ inputs.source_commit_sha }}
+          CHECKED_OUT_SHA: ${{ github.sha }}
+        run: |
+          test "$REVIEWED_SHA" = "$CHECKED_OUT_SHA"
+          test "$GITHUB_REF" = "refs/heads/main"
+          echo "Production source SHA admitted: $CHECKED_OUT_SHA"
       - name: Verify frozen plan, archive contracts and OLD history engineering smoke
         run: |
           pytest -q tests/test_chapter2_order_expression_identification.py \
