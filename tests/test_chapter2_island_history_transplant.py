@@ -6,7 +6,7 @@ import json
 import pytest
 
 from scripts.run_chapter2_island_history_transplant import (
-    case_id, census, declared_groups, load_design, snapshot_digest,
+    case_id, census, declared_groups, load_design, run_group, snapshot_digest,
 )
 from scripts.summarize_chapter2_island_history_transplant import (
     investment, mean_or_none, paired_difference, summarize,
@@ -77,3 +77,23 @@ def test_pilot_statistical_guard_preserves_history_level_units():
         assert row["end_investment_far_history_minus_near_history"] == pytest.approx(-.1)
         assert row["immediate_maternal_viable_far_history_minus_near_history"] == -1
     assert all(r["identical_switch_pairs"] == 8 for r in output["post_mutation_contrast"])
+
+
+
+def test_one_update_reciprocal_fork_smoke(tmp_path):
+    """Real ABM/reproduction smoke; not a scientific result or full pilot."""
+    d, source = load_design()
+    mini = dict(d, pre_periods=1, post_periods=1)
+    group = declared_groups(d)[0]
+    run_group(mini, source, group, tmp_path)
+    rows = [
+        json.loads((tmp_path / (case_id(group, post, mu) + ".json")).read_text())
+        for post in d["post_environments"]
+        for mu in d["post_mutation_probabilities"]
+    ]
+    assert len(rows) == 4
+    assert len({row["switch_genetic_snapshot_sha256"] for row in rows}) == 1
+    assert len({tuple(row["switch"]["traits"]) for row in rows}) == 1
+    assert all(row["pre_occupied_censuses"] <= 2 for row in rows)
+    assert all(row["post_occupied_censuses"] <= 2 for row in rows)
+    assert all(0 <= row["end"]["count"] <= 48 for row in rows)
