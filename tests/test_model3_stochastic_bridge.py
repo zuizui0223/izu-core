@@ -224,7 +224,10 @@ def test_three_update_exact_genotype_markov_matches_canonical_abm_distribution()
         np.sort(regenerated.alleles.mean(axis=2)[:,1]),
         np.sort(plant.alleles.mean(axis=2)[:,1]),
     )
-    n_reps=256
+    # Keep the original >=80 occupied-endpoint gate while increasing
+    # unconditional demographic repeats: the first 256 had 57 survivors.
+    # This is a precision repair, NOT a change to biological parameters.
+    n_reps=1024
     abm_n=[]; markov_n=[]; abm_traits=[]; markov_traits=[]
     for j in range(n_reps):
         current=plant
