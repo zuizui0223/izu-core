@@ -56,7 +56,7 @@
   "path_perturbation": {
     "type": "transient phenotype-only logit offset applied inside reproductive payoff function",
     "size_logit": 0.45,
-    "mapping": "phenotype=logistic(logit(clip(mean_diploid_alleles,epsilon,1-epsilon))+offset), epsilon=1e-8; do not overwrite genotype or inherited alleles",
+    "mapping": "If offset == 0 return original diploid mean EXACTLY (no clipping); otherwise phenotype=logistic(logit(clip(mean_diploid_alleles,epsilon,1-epsilon))+offset), epsilon=1e-8; do not overwrite genotype or inherited alleles",
     "genetic_rule": "Both A and I genetic loci retain IDENTICAL mutation opportunities from t0 in all arms. Expression offset is never inherited. Matching X unchanged.",
     "caution": "Equal prescribed logit-offset dose, not equal realized phenotype or equal accumulated selection across evolving genotypes",
     "arms": {
