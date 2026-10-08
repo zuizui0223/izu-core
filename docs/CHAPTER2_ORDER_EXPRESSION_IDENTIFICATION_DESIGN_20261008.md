@@ -70,6 +70,14 @@ The preregistered test is **two-sided**. We do not choose a favourable A-first d
 
 **No redefinition of the 0.05 effect threshold, stress budgets, comparison arms or independent-history denominator after new outcomes.** Secondary post-outcome threshold-crossing categories do not enter the primary randomized intention-to-treat analysis.
 
+## Annual inherited realization audit (implemented; not yet production-wired)
+
+The independent recorder in `scripts/chapter2_order_genetic_realization.py` now takes a **real diploid `PlantState` at every annual census t0–400** and detects each locus's first absolute departure of at least 0.05 from its actual founder mean. It records six descriptive categories: A before I, I before A, A only, I only, tie and neither. After extinction, genetic trait values are **missing**, not zero; the first extinction census is separately retained. Offset phenotypes never enter the genetic crossing calculation. A skipped, duplicated or out-of-order annual observation is rejected. See `tests/test_chapter2_order_genetic_realization.py` for constructed edge cases.
+
+The recorder is a **measurement component**, not a new inferential treatment or confirmation. In particular, the randomized primary intention-to-treat persistence contrast must include all 64 histories whether A or I ever crosses the genetic threshold, and regardless of extinction. Actual historical order is a post-treatment variable and may not be used to select or reweight the primary survival sample.
+
+The existing two-year legacy smoke and all annual-crossing tests are non-prospective engineering tests; there is still **no production runner** writing this information for the new 3,072 ancestry groups.
+
 ## The identification line that must not be crossed
 
 Randomized phase assignment makes the **effect of the expression-order protocol** identifiable within this model under successful pairing. Separately, record the inherited diploid A and I population means **at every update t0–400** and classify the first absolute 0.05 departure from each arm's actual t0 founder means, distinguishing A first, I first, one only, ties and neither. No transient imposed phenotype shift is permitted to count as a genetic crossing. The five coarse checkpoints alone are insufficient to recover first-crossing order. It does not identify the causal effect of an *observed naturally evolved trait order*. The latter is a post-treatment realized property of mutation, standing variation, selection and demographic noise. Conditioning on “A actually crossed first” would select survivors and favorable histories.
