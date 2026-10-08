@@ -234,12 +234,55 @@ def evaluate(d: dict, post: dict) -> dict:
             "Historic failed mutation-access priority confirmation remains FAILED.",
         ],
     }
+    # Mandatory all-budget / all-future-visitor sensitivity. Retain each
+    # visitor history as the ecological unit and average only two nested
+    # demographic repeats; these are descriptive, not alternative main gates.
+    result["sensitivity_by_regime_budget_future"] = {}
+    af, ii = treatments.index("assurance_first"), treatments.index("investment_first")
+    for regime in regimes:
+        by_budget = {}
+        for budget in d["postshock"]["budgets"]:
+            by_future = {}
+            for future in d["postshock"]["future_environments"]:
+                per_history_setting = np.empty((64,4))
+                for hi,h in enumerate(histories):
+                    for si,setting in enumerate(settings):
+                        averages = np.zeros((2,2))
+                        for ei,env in enumerate(preenvs):
+                            for ai,tidx in enumerate((af,ii)):
+                                task_arm = treatments[tidx]
+                                v = [
+                                    post[Prehistory(setting,env,task_arm,h,rep)][
+                                        (regime,float(budget),future)
+                                    ]["occupied"] for rep in repeats
+                                ]
+                                averages[ei,ai] = float(np.mean(v))
+                        per_history_setting[hi,si] = (
+                            (averages[1,0]-averages[1,1]) -
+                            (averages[0,0]-averages[0,1])
+                        )
+                by_future[future] = {
+                    "pooled_mean": float(per_history_setting.mean()),
+                    "setting_means": {
+                        setting: float(per_history_setting[:,si].mean())
+                        for si,setting in enumerate(settings)
+                    },
+                }
+            by_budget[str(budget)] = by_future
+        result["sensitivity_by_regime_budget_future"][regime] = by_budget
+
     for regime, r in summaries.items():
         contrasts = r["history_setting_order_contrast"]
         result["all_regime_aggregate"][regime] = {
             "setting_order_effects": {
-                setting: float(contrasts[:, i].mean())
-                for i,setting in enumerate(settings)
+                setting: {
+                    "mean": float(contrasts[:, i].mean()),
+                    "bootstrap95": [
+                        float(x) for x in np.percentile(
+                            contrasts[:,i][draws].mean(axis=1), [2.5,97.5]
+                        )
+                    ],
+                } for i,setting in enumerate(settings)
             },
             "pooled_order_effect": float(r["history_averaged"].mean()),
             "mean_occupancy_by_setting_pre_environment_treatment": {
