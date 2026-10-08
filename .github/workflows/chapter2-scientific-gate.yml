@@ -61,6 +61,7 @@ jobs:
             tests/test_chapter2_1005_confirmed_result.py \
             tests/test_chapter2_assurance_generality.py \
             tests/test_chapter2_assurance_generality_result.py \
+            tests/test_chapter2_unified_payoff_evolution_persistence.py \
             tests/test_chapter2_process_review_confirmed.py \
             tests/test_chapter2_public_archive_manifest.py \
             tests/test_chapter2_branch_identifiability_boundary.py \
