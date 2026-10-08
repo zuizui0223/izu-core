@@ -10,11 +10,17 @@
 
 The central unanswered mechanism is not merely which response is favoured or which allele is first detected. It is whether **experimentally ordered changes in the reproductive phenotype**, with equal prescribed cumulative expression exposure and a common future, causally change (i) inherited evolution and (ii) finite population persistence.
 
+
+
+### Joint investment and assurance threshold diagnostics
+
+The unforced t300/t400 snapshot function now records **both** investment and assurance local gradients and the analytic investment-cost and assurance-cost sign-change thresholds from the original fixed-monomorphic-resident rare-mutant formulation. The investment decomposition is checked against its total; these are local counterfactual benefits at a resident mean, not direct estimates of selection across the segregating finite population. At trait boundaries or nonpositive monomorphic invasion fitness, the interior threshold values are **null with an explicit reason**, never automatically set to zero. These records do not gate or retune the preregistered primary assigned-order survival contrast. Synthetic old-history tests are in `tests/test_chapter2_order_local_thresholds.py` and have not sampled the new independent visitor cohort.
+
 ## The four connected stages
 
 | Stage | Observable quantity | What a positive result would — and would not — mean |
 |---|---|---|
-| **Threshold / 閾値** | Corrected local rare-mutant marginal investment gradient, separated into maternal outcross, paternal export, selfing displacement and cost, across synthetic visitor environments | Selection-benefit sign change; **not** an automatic population change point or calibrated Izu threshold |
+| **Threshold / 閾値** | Corrected fixed-resident rare-mutant marginal investment **and assurance** gradients, investment/assurance cost thresholds and decomposed maternal/paternal/selfing returns across synthetic visitor environments | Local selection-benefit sign change; **not** an automatic population change point, an observed finite-population selection coefficient or a calibrated Izu threshold |
 | **Order / 順序** | Randomly assigned transient expression schedule for A and I, plus separately recorded spontaneous genotype-change order | Identification of the *assigned schedule* effect; **not** manipulation of naturally realized genetic order |
 | **Realization / 実現** | Diploid allele means, variances, threshold-crossing time after release, and extinction before the future stress test | Whether evolution actually occurred within surviving finite histories; avoid survivor-only bias |
 | **Consequence / 帰結** | 80-update occupancy, first extinction, viable maternal outcross, viable selfed contribution, paternal export and retained genetic variance | Bounded model-specific consequences of expression-order assignment; not proof of a general natural-island rescue law |
