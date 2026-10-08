@@ -97,3 +97,28 @@ def test_one_update_reciprocal_fork_smoke(tmp_path):
     assert all(row["pre_occupied_censuses"] <= 2 for row in rows)
     assert all(row["post_occupied_censuses"] <= 2 for row in rows)
     assert all(0 <= row["end"]["count"] <= 48 for row in rows)
+
+
+
+def test_payoff_factorial_is_fixed_state_and_additive_by_identity():
+    """A very short live model check; not an outcome from the full pilot."""
+    from scripts.diagnose_chapter2_island_history_payoff import run_pair
+
+    d, source = load_design()
+    setting = "prior_selfing"
+    seed = d["visitor_history_seeds"][0]
+    rep = d["demographic_repeat_seeds"][0]
+    for mode in ("fixed", "evolving"):
+        result = run_pair(
+            (setting, seed, rep, mode), source,
+            pre_years=1, post_seed_offset=d["post_visitor_seed_offset"]
+        )
+        assert result["admissible"]
+        assert len(result["factors"]) == 6
+        for row in result["factors"]:
+            assert row["clamped_total"] == pytest.approx(
+                row["investment_mean_shift"] + row["assurance_mean_shift"]
+            )
+            if mode == "fixed":
+                assert row["assurance_mean_shift"] == pytest.approx(0.0)
+                assert row["interaction"] == pytest.approx(0.0)
