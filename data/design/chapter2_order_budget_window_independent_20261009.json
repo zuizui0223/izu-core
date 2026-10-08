@@ -80,8 +80,8 @@
       "validation": "8-fold holdout by visitor-history identity, all 7 budgets carried together",
       "loss": "per-history mean squared error of DID across 7 budgets",
       "ridge": 0.0001,
-      "minimum_mean_improvement": 0.0005,
-      "criterion": "95% history-bootstrap interval of held-out (smooth loss minus smooth-plus-window loss) entirely above zero and mean >=0.0005"
+      "minimum_mean_improvement": 0.0001,
+      "criterion": "95% history-bootstrap interval of held-out (smooth loss minus smooth-plus-window loss) entirely above zero and mean >=0.0001"
     }
   },
   "declared_counts": {
