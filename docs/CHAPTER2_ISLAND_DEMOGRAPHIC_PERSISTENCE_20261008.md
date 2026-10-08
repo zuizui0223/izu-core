@@ -1,6 +1,8 @@
 # Island reproductive payoff → demographic persistence — 2026-10-08
 
-**Status:** Independent-new-history, targeted model confirmation **passed its one predeclared pooled interaction gate**, following two explicitly outcome-informed exploratory screens. It is **not** a natural-island inference, a general parameter-space theorem, or a temporal-order intervention. No previous four-setting Chapter 2 confirmation or failed 64-history payoff gate was revised.
+**Status:** Independent-new-history, targeted model confirmation **passed its one predeclared pooled interaction gate**, following two explicitly outcome-informed exploratory screens.
+
+**Evidence-rank clarification:** This is **established as a conditional, independently confirmed simulation result**. It is **not discarded or downgraded** by failures of later experiments addressing temporal priority or genetic mediation. Distinguish this scientific promotion from adding a co-primary claim to the active Ecology Letters manuscript. See `CHAPTER2_ISLAND_PERSISTENCE_PROMOTION_DECISION_20261008.md`. It is **not** a natural-island inference, a general parameter-space theorem, or a temporal-order intervention. No previous four-setting Chapter 2 confirmation or failed 64-history payoff gate was revised.
 
 ## Why this test exists
 
