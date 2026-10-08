@@ -20,7 +20,8 @@ from scripts.run_chapter2_unified_payoff_postshock import (
     recover_state, shock_ancestors, one_future, common_streams
 )
 from scripts.summarize_chapter2_unified_payoff_evolution_persistence import (
-    bootstrap_summary, evaluate, validate_postshock_cell
+    bootstrap_summary, evaluate, validate_postshock_cell,
+    verify_bottleneck_state,
 )
 from scripts.model3_island.randomness import STREAM_IDS
 
@@ -82,6 +83,10 @@ def test_future_rules_equalize_a_evolution_and_preserve_the_bottleneck():
     bottled = shock_ancestors(t, state)
     assert len(bottled.ids) == min(8, len(state.ids))
     assert set(bottled.ids).issubset(set(state.ids))
+    expected_fork_sha = hashlib.sha256(bottled.alleles.tobytes()).hexdigest()
+    verify_bottleneck_state(t, state, expected_fork_sha)
+    with pytest.raises(AssertionError, match="bottleneck genotype"):
+        verify_bottleneck_state(t, state, "0" * 64)
     assert np.all(state.alleles[:, 2, :] == 0.5)
     # Even the historical FIXED-A population enters an EVOLVING-A future.
     near = one_future(t, state, d, biology,
