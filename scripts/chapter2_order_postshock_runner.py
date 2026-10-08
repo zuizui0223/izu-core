@@ -53,6 +53,38 @@ def restore_prehistory(root: Path, task, d: dict, hashes: dict):
         raise AssertionError("prehistory source receipt does not match protocol")
     with np.load(npz, allow_pickle=False) as archive:
         state = PlantState(**{field: archive[field] for field in STATE_FIELDS})
+        parentage = archive["parentage_edges"]
+    # Independently reject impossible or silently dropped parent–offspring
+    # relationships; checksums alone only prove byte integrity.
+    if (parentage.ndim != 2 or parentage.shape[1] != 4
+            or parentage.dtype.kind not in "iu"
+            or raw["parentage_link_count"] != len(parentage)
+            or raw["parentage_sha256"] != hashlib.sha256(
+                parentage.tobytes()).hexdigest()):
+        raise AssertionError("invalid full-source parentage archive")
+    initial = raw["founder_ids"]
+    if (len(set(initial)) != len(initial)
+            or len(initial) != 48
+            or not all(isinstance(i, int) for i in initial)):
+        raise AssertionError("invalid original founder IDs")
+    known = set(initial)
+    last_year = 0
+    for year, child, mother, father in parentage:
+        year, child, mother, father = map(int, (year,child,mother,father))
+        if (not last_year <= year <= 400 or year < 1
+                or not 48*year <= child < 48*(year+1)
+                or child in known
+                or mother not in known or father not in known):
+            raise AssertionError("chronologically impossible parentage")
+        known.add(child)
+        last_year = year
+    if any(int(i) not in known for i in state.ids):
+        raise AssertionError("untracked genotype appeared after reproduction")
+    if (len(parentage) and raw["parentage_year_bounds"]
+            != [int(parentage[:,0].min()),int(parentage[:,0].max())]):
+        raise AssertionError("inconsistent pedigree year bounds")
+    if not len(parentage) and raw["parentage_year_bounds"] is not None:
+        raise AssertionError("false pedigree times for empty genealogy")
     if (len(raw["annual_inherited_censuses"]) != 401
             or raw["annual_inherited_censuses"][-1]["n"] != len(state.ids)
             or raw["annual_inherited_censuses"][-1]["year"] != 400):
