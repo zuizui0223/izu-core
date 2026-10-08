@@ -3,7 +3,7 @@ import numpy as np
 import pytest
 
 from scripts.model3_island.types import PlantState
-from scripts.model3_island.expression_override import expressed_traits
+from scripts.chapter2_order_expression_phenotype import expressed_traits
 
 
 def sample_state():
