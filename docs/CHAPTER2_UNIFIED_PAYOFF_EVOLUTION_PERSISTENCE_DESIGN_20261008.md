@@ -1,6 +1,6 @@
 # One-process Chapter 2: ecological payoff → selection → evolution → feedback → persistence
 
-**2026-10-08 status: DESIGN-ONLY prospective new-cohort protocol.** No new biological trajectories have been executed or adjudicated under this protocol. This is a **clean branch off main**, separated from the 80+ file exploratory Draft PR #413. The merged #411 four-setting result and PR #413 independent32 *conditional* survival confirmation are the **motivation**, not new-cohort outcomes.
+**2026-10-08 status: DESIGN FROZEN + IMPLEMENTED, NEW COHORT NOT EXECUTED.** No new 64-history biological trajectories have been executed or adjudicated under this protocol. This is a **clean branch off main**, separated from the 80+ file exploratory Draft PR #413. The merged #411 four-setting result and PR #413 independent32 *conditional* survival confirmation are the **motivation**, not new-cohort outcomes.
 
 ## One biological question
 
@@ -109,3 +109,26 @@ The corresponding island-empirical test still needs effective visitation/pollen 
 - Manifest/cost-only compiler: `scripts/plan_chapter2_unified_payoff_evolution_persistence.py`
 - Automated non-peeking design tests: `tests/test_chapter2_unified_payoff_evolution_persistence.py`
 - **Scientific outcomes: NONE yet.** This branch is design-only and is deliberately separate from the large Draft PR #413; existing failed exploratory routes are neither rewritten nor deleted.
+
+
+## Execution implementation and pre-production engineering checks (2026-10-08)
+
+The frozen protocol is now **implemented**, rather than merely outlined, in separate state-preserving stages:
+
+1. `scripts/run_chapter2_unified_payoff_prehistories.py`: evolves each historical group using the frozen, unmodified Model 3 reproductive/inheritance functions. Saves the complete t400 diploid genotype/ancestry/mutation-flag/individual-ID state as `.npz`, plus an explicit JSON receipt containing the exact source-file hashes and census/payoff/rare-mutant-gradient diagnostics.
+2. `scripts/run_chapter2_unified_payoff_postshock.py`: loads **only the hash-admitted full t400 genotype**, uses common future visitor realizations and matched demographic RNG streams, forks it into all 42 stress arms, and preserves a **per-file SHA-256 receipt**. Every branch uses the *identical A-evolving future policy* regardless of historical A-fixed/A-evolving assignment.
+3. `scripts/summarize_chapter2_unified_payoff_evolution_persistence.py`: demands all **2,048** prehistory states and all **86,016** postshock cases, rechecks both genotype and postshock file hashes, and then applies the predeclared two-stage history-bootstrap gates. Neither historical repeats nor the 42 nested postshock conditions are treated as independent ecological histories.
+4. `tests/test_chapter2_unified_payoff_runner_smoke.py`: engineering-only two-reproductive-update smokes use **OLD visitor seeds 26110601** (not the 64 new cohort seeds), check additive corrected rare-mutant gradient accounting, exact genotype round-trip, identical shared future streams, and the 60-of-64 admissibility rule.
+5. `.github/workflows/chapter2-unified-payoff-evolution-persistence.yml`: manual-only 64-shard workflow with admission before calculation, hash-verified prehistory/postshock artifacts, and an all-case final readout. It has **not been triggered** and a new biological result must not be reported before a completed verified workflow.
+
+### Engineering-only wall-time sample (not a scientific outcome)
+
+A locally available copy of the pre-confirmation frozen biological source was tested using **OLD** visitor seed `26110601`. For one historical simulated plant population (400 reproductive updates), elapsed wall time was **0.2257 s**; for the same legacy evolved state forked to the 42 future stress conditions (each 80 updates), **0.9189 s**. This gives a purely illustrative **0.65 hours serial runtime** by scaling the measured case to 2,048 prehistories, excluding packaging/GitHub setup and history/setting variability. The measured old-seed population had 48 surviving plants. This is **not a source-locked production speed guarantee** and uses no new cohort history or scientific outcome. Larger/other configurations and CI runners may differ materially.
+
+### Reproducibility and launch guard
+
+Do **not** start or interpret partial production without the source-hash/CI admission, because the previous Draft PR #413 contained many source-specific post-outcome explorations. The new protocol's population histories cannot be interchanged with those prior archives: this one additionally fixes postshock **future A evolution equal across historical modes**, and broadens the demographic risk domain and two independent nested demographic repeats.
+
+The original base-source commit is pinned to `94c051850a43b89047e78e653edae25b043624ab`, the prospectively confirmed four-setting source artifact digest is pinned to `34bedf03e6cde0b3d7f5140b7f352227b5dd1550c097e66e42022aa9830d3d8c`, and new-run receipts hash every model/execution source used. If the numerical model or outcome definition changes after production begins, stop and create a separate version rather than modifying the frozen cohort.
+
+**Result status remains: NO new 400+80 generation biological findings.** The existing #411 and #413 conclusions keep their original, different scientific scopes.
