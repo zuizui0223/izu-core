@@ -112,6 +112,7 @@ def simulate_prehistory(task: Prehistory, d: dict, biology: dict,
     visitor = exposure(task.visitor_history, task.environment)
     state = founders(biology)
     founder_allele_sha = hashlib.sha256(state.alleles.tobytes()).hexdigest()
+    founder_ids = [int(x) for x in state.ids]
     seed = int(np.random.SeedSequence(
         [task.visitor_history, task.demographic_repeat]).generate_state(1)[0])
     rng = {name: stream(seed, name, 0) for name in STREAM_IDS}
@@ -183,12 +184,14 @@ def simulate_prehistory(task: Prehistory, d: dict, biology: dict,
         "status": "raw_prehistory_unadjudicated",
         "completed_updates": periods,
         "founder_allele_sha256": founder_allele_sha,
+        "founder_ids": founder_ids,
         "checkpoints": checkpoints,
         "annual_inherited_censuses": annual,
         "realized_genetic_order": realization,
         "reproductive_checkpoints": payoff_snapshots,
         "no_future_outcomes_exposed": True,
         "parentage_link_count": int(len(pedigree)),
+        "parentage_sha256": hashlib.sha256(pedigree.tobytes()).hexdigest(),
         "parentage_year_bounds": [
             int(pedigree[:,0].min()), int(pedigree[:,0].max())
         ] if len(pedigree) else None,
