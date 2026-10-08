@@ -34,13 +34,13 @@ def test_both_local_threshold_axes_are_recorded_from_old_history():
         "investment_cost_threshold", "assurance_cost_threshold",
     ):
         assert np.isfinite(result[name]), name
-    assert result["gradient"] == np.testing.assert_allclose(
+    np.testing.assert_allclose(
         result["gradient"],
         sum(result[name] for name in (
             "maternal_outcross_component", "paternal_export_component",
             "selfing_displacement_component", "ovule_allocation_cost_component",
         )), rtol=0, atol=1e-10,
-    ) or np.isfinite(result["gradient"])
+    )
 
 
 def test_interior_threshold_failure_is_missing_not_zero():
