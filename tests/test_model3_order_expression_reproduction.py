@@ -8,7 +8,7 @@ import numpy as np
 import pytest
 
 from scripts.model3_island.reproduction import reproduce
-from scripts.model3_island.order_expression_reproduction import (
+from scripts.chapter2_order_expression_payoff import (
     reproduce_with_order_expression,
 )
 from scripts.model3_island.types import Ledger
