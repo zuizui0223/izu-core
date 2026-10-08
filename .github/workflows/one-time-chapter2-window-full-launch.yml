@@ -1,0 +1,45 @@
+name: One-time Chapter 2 independent window full cohort launch
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/one-time-chapter2-window-full-launch.yml
+permissions:
+  actions: write
+  contents: read
+jobs:
+  dispatch-approved-cohort:
+    if: github.event.head_commit.message == 'ops-chapter2-launch-independent-full-cohort'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      - name: Confirm the frozen independent-window source remains unchanged after merge
+        run: |
+          set -euo pipefail
+          git diff --exit-code 706f0e3af03cca7e6af510a42b57a865991155c0 "$GITHUB_SHA" -- \
+            scripts data tests .github/workflows/chapter2-order-budget-window-independent.yml
+          echo "Reviewed prospective biology, frozen protocol and test contract unchanged."
+      - name: Dispatch 64 newly frozen independent histories (explicitly approved)
+        env:
+          GH_TOKEN: ${{ github.token }}
+          REPO: ${{ github.repository }}
+          SOURCE_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          python - <<'PY' > /tmp/dispatch.json
+          import os, json
+          print(json.dumps({"ref": "main", "inputs": {
+              "mode": "full_cohort",
+              "full_cohort_launch_approved": "true",
+              "source_commit_sha": os.environ["SOURCE_SHA"]
+          }}))
+          PY
+          curl --fail-with-body --silent --show-error -X POST \
+            -H "Accept: application/vnd.github+json" \
+            -H "Authorization: Bearer $GH_TOKEN" \
+            -H "X-GitHub-Api-Version: 2022-11-28" \
+            "https://api.github.com/repos/$REPO/actions/workflows/chapter2-order-budget-window-independent.yml/dispatches" \
+            --data-binary @/tmp/dispatch.json
+          echo "Dispatched independent full_cohort on main at $SOURCE_SHA."
