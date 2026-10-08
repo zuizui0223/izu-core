@@ -76,6 +76,7 @@ def test_two_stage_gate_preserves_statistical_and_scientific_boundaries():
     assert d["inference"]["bootstrap"]["unit"] == "independent visitor history"
     assert d["inference"]["bootstrap"]["draws"] == 9999
     assert d["postshock"]["no_plant_immigration"] is True
+    assert d["postshock"]["future_visitor_seed_offset"] == 1000000
     assert d["fixed_assurance_allele_value"] == 0.5
     assert "mode=fixed blocks A mutation" in d["postshock"]["evolutionary_mask_rule"]
     assert "both historical groups use mode=evolving" in d["postshock"]["evolutionary_mask_rule"]
