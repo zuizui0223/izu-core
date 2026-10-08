@@ -67,6 +67,7 @@ jobs:
             tests/test_chapter2_island_genetic_state_transplant.py \
             tests/test_chapter2_island_assurance_donor_mean_distribution.py \
             tests/test_chapter2_island_assurance_postshock_rng_repeatability.py \
+            tests/test_chapter2_island_assurance_dispersion_ablation.py \
             tests/test_chapter2_process_review_confirmed.py \
             tests/test_chapter2_public_archive_manifest.py \
             tests/test_chapter2_branch_identifiability_boundary.py \
