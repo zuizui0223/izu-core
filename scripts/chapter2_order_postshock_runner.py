@@ -25,7 +25,7 @@ from scripts.chapter2_order_prehistory_runner import (
 )
 from scripts.run_chapter2_assurance_generality import (
     DEFAULT_DESIGN, config as source_config,
-    load_design as source_biology,
+    load_design as source_biology, founders as source_founders,
 )
 from scripts.run_model3_persistent_isolation import exposure
 from scripts.model3_island.population import subset, advance
@@ -67,18 +67,26 @@ def restore_prehistory(root: Path, task, d: dict, hashes: dict):
             or len(initial) != 48
             or not all(isinstance(i, int) for i in initial)):
         raise AssertionError("invalid original founder IDs")
-    known = set(initial)
+    # The source founders must agree with the deterministic frozen biological
+    # starting state, not merely with a caller-controlled receipt.
+    expected_founders = source_founders(source_biology(DEFAULT_DESIGN))
+    if (initial != [int(x) for x in expected_founders.ids]
+            or raw["founder_allele_sha256"] != hashlib.sha256(
+                expected_founders.alleles.tobytes()).hexdigest()):
+        raise AssertionError("founder genotype differs from frozen source biology")
+    birth_year = {int(i): 0 for i in initial}
     last_year = 0
     for year, child, mother, father in parentage:
         year, child, mother, father = map(int, (year,child,mother,father))
         if (not last_year <= year <= 400 or year < 1
                 or not 48*year <= child < 48*(year+1)
-                or child in known
-                or mother not in known or father not in known):
+                or child in birth_year
+                or mother not in birth_year or father not in birth_year
+                or birth_year[mother] >= year or birth_year[father] >= year):
             raise AssertionError("chronologically impossible parentage")
-        known.add(child)
+        birth_year[child] = year
         last_year = year
-    if any(int(i) not in known for i in state.ids):
+    if any(int(i) not in birth_year for i in state.ids):
         raise AssertionError("untracked genotype appeared after reproduction")
     if (len(parentage) and raw["parentage_year_bounds"]
             != [int(parentage[:,0].min()),int(parentage[:,0].max())]):
