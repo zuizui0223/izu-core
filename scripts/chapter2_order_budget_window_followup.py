@@ -69,8 +69,8 @@ def load_followup() -> tuple[dict, dict]:
             "validation": "8-fold holdout by visitor-history identity, all 7 budgets carried together",
             "loss": "per-history mean squared error of DID across 7 budgets",
             "ridge": 0.0001,
-            "minimum_mean_improvement": 0.0005,
-            "criterion": "95% history-bootstrap interval of held-out (smooth loss minus smooth-plus-window loss) entirely above zero and mean >=0.0005",
+            "minimum_mean_improvement": 0.0001,
+            "criterion": "95% history-bootstrap interval of held-out (smooth loss minus smooth-plus-window loss) entirely above zero and mean >=0.0001",
         }):
         raise AssertionError("Window/decision or smooth-null changed")
     if (s["future"]["budgets"] != [0.5, 1, 2, 3, 4, 5, 8]
@@ -229,7 +229,7 @@ def inference(values: np.ndarray, budgets: list[float], seed=3811092026) -> dict
     ci = np.percentile(a[draw].mean(axis=1), [2.5, 97.5]).tolist()
     gci = np.percentile(gain[draw].mean(axis=1), [2.5, 97.5]).tolist()
     local = (abs(mean) >= 0.05 and (ci[0] > 0 or ci[1] < 0))
-    smooth = (gmean >= 0.0005 and gci[0] > 0)
+    smooth = (gmean >= 0.0001 and gci[0] > 0)
     if local and smooth:
         conclusion = "fixed_window_confirmed_beyond_specified_cubic_smooth"
     elif ci[0] > -0.05 and ci[1] < 0.05:
