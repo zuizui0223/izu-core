@@ -1,0 +1,84 @@
+{
+  "schema_version": "1.0",
+  "date_declared": "2026-10-08",
+  "status": "exploratory_allele_distribution_transplant_protocol_before_outcomes",
+  "question": "Which inherited floral-investment and reproductive-assurance allele distributions explain post-history fitness and persistence differences under identical future pollination and demographic stress?",
+  "motivation": "The frozen prior-vs-discount mutation-access priority test failed on independent16 histories although realized threshold orders largely tracked manipulation. This addresses inherited state effects rather than temporal order.",
+  "frozen_sources": [
+    "data/design/chapter2_assurance_generality_20261006.json",
+    "data/design/chapter2_island_demographic_independent32_20261008.json"
+  ],
+  "four_settings": [
+    "delayed_control",
+    "prior_selfing",
+    "pollen_discount",
+    "assurance_cost"
+  ],
+  "assurance_mode": "evolving",
+  "history_seeds": [
+    34100801,
+    34100802,
+    34100803,
+    34100804
+  ],
+  "nested_demographic_repeats": [
+    34101801
+  ],
+  "genetic_founders": "exact generality founders, including original standing variation in matching and investment and assurance fixed at 0.5; all settings share same founder genotype distribution",
+  "historical_arms": [
+    "near",
+    "far"
+  ],
+  "prehistory_updates": 400,
+  "shock_n": 8,
+  "post_capacity": 8,
+  "post_updates": 80,
+  "ovule_budgets": [
+    3,
+    4
+  ],
+  "post_visitor_arms": [
+    "near",
+    "far"
+  ],
+  "post_visitor_seed_offset": 1000000,
+  "recipient_genetic_backgrounds": [
+    "near",
+    "far"
+  ],
+  "factorial_donor_labels": [
+    "near",
+    "far"
+  ],
+  "intervention": "After a common deterministic random eight-plant bottleneck per history and historical arm, construct 2x2 full-allele-distribution factorial in EACH recipient background. Retain recipient matching/access alleles and individual ancestry, replace the two transmitted allele columns and corresponding allele_origin and mutation_flags for investment and/or assurance from near/far history donors, aligned by stable within-locus recipient/donor phenotype rank. This carries actual donor alleles and standing variance rather than replacing each individual's locus with a donor mean. Within-background native/native treatment must reproduce the exact unmodified bottleneck state. Cross-locus linkage/covariance may change and is explicitly part of the intervention.",
+  "outcome_metrics": [
+    "immediate per-resident viable maternal output",
+    "immediate outcross female seed output",
+    "immediate pollen exported per plant",
+    "terminal occupancy",
+    "first extinction update",
+    "terminal evolved floral investment/assurance conditional on occupancy"
+  ],
+  "post_state_rnd": "Common future visitor process, post demographic RNG and bottleneck sample seed at matched history/setting/background/visitor/budget across all factorial treatments; no plant immigration; germline modification occurs at the switch only.",
+  "n_original_prehistory_states": 32,
+  "n_recipient_background_groups": 32,
+  "n_factorial_genetic_states": 128,
+  "n_postshock_trajectories": 512,
+  "statistical_units": "4 independent visitor histories; one demographic repeat each; pilot descriptive, NEVER treat 512 trajectories as independent ecological replications",
+  "analysis": "For each reproductive setting/recipient background evaluate main effects of donor far vs near investment distribution and donor far vs near assurance distribution on both immediate payoff and postshock occupancy. Use average of the two simple contrasts for each factorial main effect and report interaction and non-additivity. Also retain far recipient versus near recipient native/native counterfactual; no mediation or individual effect-parameter identification.",
+  "controls": [
+    "native/native allele arrays and origin/flags bitwise identical to unmodified bottleneck recipient",
+    "every donor is a paired *post-bottleneck* population with the same n=8",
+    "fixed common-random future visitor states across factorial arms",
+    "every 2x2 arm and all two budgets and two post regimes reported",
+    "four reproductive settings included regardless of sign"
+  ],
+  "claim_boundary": [
+    "This allele-distribution replacement can alter linkage disequilibrium, genotype covariances, pedigree allele identity and compatibility with the recipient, not merely trait mean. No isolated direct-effect or mediation claim.",
+    "The manipulation does not replay 400 years of evolution and is not temporal-order intervention.",
+    "Cost and discount settings define fixed biological rules; treatment effects may interact with evolved matching and population history.",
+    "Stress budgets 3/4 were selected after earlier disclosed outcomes; all findings exploratory, not independent confirmatory.",
+    "The 32-history pooled persistence result and failed independent16 sequence sign test are not modified.",
+    "No calibration to natural island distances, species, real survival probability, or ecological rescue."
+  ]
+}
