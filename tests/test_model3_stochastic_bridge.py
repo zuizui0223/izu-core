@@ -20,6 +20,8 @@ from scripts.audit_model3_stochastic_bridge import (
     exact_one_step_trait_moments,
     frequency_noise_covariance,
     gaussian_frequency_boundary_risk,
+    genotype_counts_to_canonical_state,
+    genotype_count_markov_step,
     offspring_genotype_distribution,
     parent_pair_probabilities,
 )
@@ -197,6 +199,79 @@ def test_old_history_preflight_reports_restricted_gate_without_new_visitors():
     assert receipt["full_continuous_time_SDE_validated"] is False
     assert receipt["full_trait_space_SPDE_validated"] is False
     assert receipt["demographic_draws"] == 128
+
+
+def test_three_update_exact_genotype_markov_matches_canonical_abm_distribution():
+    # This is an exact restricted discrete-state comparator, not an SDE proof.
+    plant, _, config, grid = reference_case(2.0)
+    visitor = VisitorState(
+        np.array([1, 2], dtype=np.int64), np.array([.25, .75]),
+        np.array([.2, .2]), np.array([.8, .8]),
+    )
+    # Explicitly preserve the ancestral genotype support; no projection.
+    start_counts=np.zeros(len(grid.genotypes),dtype=np.int64)
+    for genotype in plant.alleles:
+        indices=[]
+        for k in range(3):
+            indices.append(tuple(
+                sorted(int(np.flatnonzero(grid.axes[k]==v)[0])
+                       for v in genotype[k])
+            ))
+        start_counts[grid.genotype_lookup[tuple(indices)]]+=1
+    regenerated=genotype_counts_to_canonical_state(start_counts,grid,0,8)
+    assert len(regenerated.ids)==len(plant.ids)
+    np.testing.assert_array_equal(
+        np.sort(regenerated.alleles.mean(axis=2)[:,1]),
+        np.sort(plant.alleles.mean(axis=2)[:,1]),
+    )
+    n_reps=256
+    abm_n=[]; markov_n=[]; abm_traits=[]; markov_traits=[]
+    for j in range(n_reps):
+        current=plant
+        counts=start_counts.copy()
+        streams={name:stream(950000+j,name,0) for name in STREAM_IDS}
+        markov_rng=np.random.default_rng(970000+j)
+        for year in range(3):
+            l=reproduce(current,visitor,config)
+            empty=subset(current,np.empty(0,dtype=int))
+            current,_=advance(current,l,empty,config,streams,year=year)
+            counts=genotype_count_markov_step(
+                counts,grid,visitor,config,markov_rng,year=year)
+            assert int(counts.sum())<=config.capacity
+        abm_n.append(len(current.ids))
+        markov_n.append(int(counts.sum()))
+        if len(current.ids):
+            abm_traits.append(current.alleles.mean(axis=(0,2)))
+        if counts.sum():
+            markov_traits.append(
+                counts@grid.genotypes.mean(axis=2)/counts.sum())
+    assert abs(np.mean(abm_n)-np.mean(markov_n))<.4
+    assert abs(np.mean(np.array(abm_n)==0)-np.mean(np.array(markov_n)==0))<.12
+    assert len(abm_traits)>80 and len(markov_traits)>80
+    np.testing.assert_allclose(np.mean(abm_traits,axis=0),
+                               np.mean(markov_traits,axis=0),
+                               atol=.065,rtol=0)
+
+
+def test_genotype_markov_fails_closed_on_mutation_and_survival():
+    plant,_,config,grid=reference_case(2.0)
+    visitor=VisitorState(np.array([1],dtype=np.int64),
+                         np.array([.5]),np.array([.2]),np.array([.8]))
+    counts=np.zeros(len(grid.genotypes),dtype=np.int64)
+    counts[0]=1
+    for bad in (replace(config,survival=.25),
+                replace(config,mutation_rate=.01),
+                replace(config,seed_arrival=replace(config.seed_arrival,supply=.1))):
+        with pytest.raises(ValueError,match="restricted genotype Markov"):
+            genotype_count_markov_step(
+                counts,grid,visitor,bad,np.random.default_rng(2),year=0)
+    with pytest.raises(ValueError,match="bounded integers"):
+        genotype_counts_to_canonical_state(
+            counts.astype(float),grid,0,8)
+    zero=np.zeros(len(grid.genotypes),dtype=np.int64)
+    result=genotype_count_markov_step(
+        zero,grid,visitor,config,np.random.default_rng(2),year=0)
+    assert np.array_equal(result,zero)
 
 
 def test_fail_closed_when_assumptions_do_not_hold():
