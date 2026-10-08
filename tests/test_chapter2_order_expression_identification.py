@@ -18,6 +18,14 @@ def test_exact_three_arm_exposure_balance_and_release():
         assert phases[-1]["A"] == phases[-1]["I"] == 0
         assert sum((x["to"] - x["from"]) for x in phases if x["A"]) == 200
         assert sum((x["to"] - x["from"]) for x in phases if x["I"]) == 200
+    assert d["path_perturbation"]["joint_exposure_update_counts"] == {
+        "assurance_first": 100,
+        "investment_first": 100,
+        "synchronous_time_control": 200,
+    }
+    assert "NOT a matched overlap negative control" in (
+        d["path_perturbation"]["control_caveat"]
+    )
     # The first 100 updates uniquely determine assigned temporal precedence.
     assert d["path_perturbation"]["arms"]["assurance_first"][0]["A"] > 0
     assert d["path_perturbation"]["arms"]["assurance_first"][0]["I"] == 0
