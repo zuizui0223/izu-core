@@ -68,6 +68,31 @@ def validate_postshock_cell(cell: dict, *, pre_n: int, capacity: int,
             raise AssertionError("extinct source population generated recruits")
 
 
+def verify_prehistory_endpoint(state, snapshot: dict) -> None:
+    """Bind Stage-1 investment outcomes to the archived diploid t400 alleles.
+
+    JSON receipt integrity alone cannot prove that a recorded mean or sample
+    count came from the verified full-genotype NPZ.
+    """
+    traits = state.alleles.mean(axis=2)
+    n = len(state.ids)
+    if (snapshot["n"] != n or isinstance(snapshot["n"], bool)
+            or not isinstance(snapshot["n"], int)):
+        raise AssertionError("t400 census count differs from genotype archive")
+    if n == 0:
+        if snapshot["means"] is not None or snapshot["variances"] is not None:
+            raise AssertionError("extinct t400 source carries invented trait results")
+        return
+    means = np.asarray(snapshot["means"], dtype=float)
+    variances = np.asarray(snapshot["variances"], dtype=float)
+    if (means.shape != (3,) or variances.shape != (3,)
+            or not np.isfinite(means).all()
+            or not np.isfinite(variances).all()
+            or not np.allclose(means, traits.mean(axis=0), rtol=0, atol=1e-12)
+            or not np.allclose(variances, traits.var(axis=0), rtol=0, atol=1e-12)):
+        raise AssertionError("t400 phenotype summary differs from genotype archive")
+
+
 def verify_bottleneck_state(task, state, recorded_sha: str) -> None:
     """Bind the claimed forked eight-parent genotype subset to archived t400."""
     expected = hashlib.sha256(shock_ancestors(task, state).alleles.tobytes()).hexdigest()
@@ -118,6 +143,7 @@ def load_and_audit(pre_dir: Path, post_dir: Path, d: dict):
         source_state, recovered_sha = recover_state(pre_dir, task, d, hashes)
         if recovered_sha != old["state_sha256"]:
             raise AssertionError("prehistory full-state recovery changed " + k)
+        verify_prehistory_endpoint(source_state, snaps[d["prehistory"]["updates"]])
         verify_bottleneck_state(task, source_state, row["bottleneck_state_sha256"])
         if len(row["postshock"]) != 42:
             raise AssertionError("incomplete postshock group " + k)
