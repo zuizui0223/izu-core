@@ -21,7 +21,7 @@ from scripts.run_chapter2_unified_payoff_postshock import (
 )
 from scripts.summarize_chapter2_unified_payoff_evolution_persistence import (
     bootstrap_summary, evaluate, validate_postshock_cell,
-    verify_bottleneck_state,
+    verify_bottleneck_state, verify_prehistory_endpoint,
 )
 from scripts.model3_island.randomness import STREAM_IDS
 
@@ -66,6 +66,21 @@ def test_old_history_2_update_biology_and_selection_gradient_identity(tmp_path):
             assert np.all(state.alleles[:, 2, :] == 0.5)
         modes.append((t, state))
     task, pre_state = modes[0]
+    source_record = run_one(task, d, biology)[1]["snapshots"][-1]
+    verify_prehistory_endpoint(pre_state, source_record)
+    with pytest.raises(AssertionError, match="phenotype summary"):
+        verify_prehistory_endpoint(
+            pre_state,
+            {**source_record, "means": [
+                source_record["means"][0],
+                source_record["means"][1] + 0.01,
+                source_record["means"][2],
+            ]},
+        )
+    with pytest.raises(AssertionError, match="census count"):
+        verify_prehistory_endpoint(
+            pre_state, {**source_record, "n": source_record["n"] + 1},
+        )
     # Byte-audited round trip: postshock must recover EXACT diploid metadata.
     hashes = source_hashes()
     persist_one(tmp_path, task, d, biology, hashes)
