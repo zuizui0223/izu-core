@@ -1,0 +1,499 @@
+{
+  "status": "all_full_raw_cases_admitted_and_frozen_itt_adjudicated",
+  "n_independent_visitor_histories": 64,
+  "n_nested_demographic_repeats": 2,
+  "declared_prehistories": 3072,
+  "declared_postshock_trajectories": 86016,
+  "main_order_history_DID": {
+    "pooled_mean": -0.013589137072344082,
+    "history_bootstrap95": [
+      -0.022811888595303833,
+      -0.004302445152193567
+    ],
+    "decision": "equivalent_within_predeclared_ROPE"
+  },
+  "all_regime_aggregate": {
+    "unbottlenecked_capacity48": {
+      "setting_order_effects": {
+        "delayed_control": {
+          "mean": 0.0018742476391272848,
+          "bootstrap95": [
+            -0.014851092528944742,
+            0.018994245533851855
+          ]
+        },
+        "prior_selfing": {
+          "mean": -0.01041109770258172,
+          "bootstrap95": [
+            -0.022304541018442016,
+            0.0016307861342210062
+          ]
+        },
+        "pollen_discount": {
+          "mean": -0.005622511215521837,
+          "bootstrap95": [
+            -0.01806970511021406,
+            0.00703708892737785
+          ]
+        },
+        "assurance_cost": {
+          "mean": -0.008635169907632339,
+          "bootstrap95": [
+            -0.020562292336988735,
+            0.0030338100935822865
+          ]
+        }
+      },
+      "pooled_order_effect": -0.005698632796652152,
+      "mean_occupancy_by_setting_pre_environment_treatment": {
+        "delayed_control": {
+          "near": {
+            "assurance_first": 0.38420746777376086,
+            "investment_first": 0.3819265518365566,
+            "synchronous_time_control": 0.3825024613790686
+          },
+          "far": {
+            "assurance_first": 0.4400823729651813,
+            "investment_first": 0.43592720938884977,
+            "synchronous_time_control": 0.43979674674412594
+          }
+        },
+        "prior_selfing": {
+          "near": {
+            "assurance_first": 0.41133765860196553,
+            "investment_first": 0.4017834395625496,
+            "synchronous_time_control": 0.4031653121204391
+          },
+          "far": {
+            "assurance_first": 0.4262717223230208,
+            "investment_first": 0.42712860098618655,
+            "synchronous_time_control": 0.4280221922940761
+          }
+        },
+        "pollen_discount": {
+          "near": {
+            "assurance_first": 0.40674047232302085,
+            "investment_first": 0.39285389250222275,
+            "synchronous_time_control": 0.40201155241538855
+          },
+          "far": {
+            "assurance_first": 0.43286829214935246,
+            "investment_first": 0.4246042235440761,
+            "synchronous_time_control": 0.42394999990985505
+          }
+        },
+        "assurance_cost": {
+          "near": {
+            "assurance_first": 0.25322403893209977,
+            "investment_first": 0.239576476106991,
+            "synchronous_time_control": 0.24075899249614982
+          },
+          "far": {
+            "assurance_first": 0.2943229112977993,
+            "investment_first": 0.28931051838032307,
+            "synchronous_time_control": 0.29470821560322
+          }
+        }
+      }
+    },
+    "eight_founders_capacity8": {
+      "setting_order_effects": {
+        "delayed_control": {
+          "mean": -0.008121430833738216,
+          "bootstrap95": [
+            -0.02788425748980185,
+            0.01233045149363025
+          ]
+        },
+        "prior_selfing": {
+          "mean": -0.012233634722897017,
+          "bootstrap95": [
+            -0.030508597926895382,
+            0.005910290647788253
+          ]
+        },
+        "pollen_discount": {
+          "mean": -0.029272562825108754,
+          "bootstrap95": [
+            -0.04749528020767401,
+            -0.010921410674069985
+          ]
+        },
+        "assurance_cost": {
+          "mean": -0.0047289199076323354,
+          "bootstrap95": [
+            -0.018970059081542368,
+            0.009484900416374897
+          ]
+        }
+      },
+      "pooled_order_effect": -0.013589137072344082,
+      "mean_occupancy_by_setting_pre_environment_treatment": {
+        "delayed_control": {
+          "near": {
+            "assurance_first": 0.3020843575632166,
+            "investment_first": 0.2938057352768966,
+            "synchronous_time_control": 0.3005907571291084
+          },
+          "far": {
+            "assurance_first": 0.3697274765471722,
+            "investment_first": 0.36957028509459044,
+            "synchronous_time_control": 0.36676903236306396
+          }
+        },
+        "prior_selfing": {
+          "near": {
+            "assurance_first": 0.32785927930642883,
+            "investment_first": 0.31028000865742594,
+            "synchronous_time_control": 0.319121132454217
+          },
+          "far": {
+            "assurance_first": 0.3634794983815374,
+            "investment_first": 0.35813386245543155,
+            "synchronous_time_control": 0.36394232180764335
+          }
+        },
+        "pollen_discount": {
+          "near": {
+            "assurance_first": 0.3320223988433758,
+            "investment_first": 0.3041117028236878,
+            "synchronous_time_control": 0.314443128194373
+          },
+          "far": {
+            "assurance_first": 0.36360793315001105,
+            "investment_first": 0.3649697999554316,
+            "synchronous_time_control": 0.3705468475945904
+          }
+        },
+        "assurance_cost": {
+          "near": {
+            "assurance_first": 0.15276626002698424,
+            "investment_first": 0.14487624090629894,
+            "synchronous_time_control": 0.146022044650734
+          },
+          "far": {
+            "assurance_first": 0.20212927550235005,
+            "investment_first": 0.19896817628929706,
+            "synchronous_time_control": 0.20112725517845592
+          }
+        }
+      }
+    }
+  },
+  "claim_boundaries": [
+    "The randomized intervention is assigned transient phenotype-expression order, NOT realized inherited first-crossing order.",
+    "No post-treatment survival selection or genotype mediation is inferred.",
+    "Stress envelopes are synthetic and do not identify natural island extinction probability.",
+    "Historic failed mutation-access priority confirmation remains FAILED."
+  ],
+  "sensitivity_by_regime_budget_future": {
+    "unbottlenecked_capacity48": {
+      "0.5": {
+        "near": {
+          "pooled_mean": 0.0,
+          "setting_means": {
+            "delayed_control": 0.0,
+            "prior_selfing": 0.0,
+            "pollen_discount": 0.0,
+            "assurance_cost": 0.0
+          }
+        },
+        "far": {
+          "pooled_mean": 0.0,
+          "setting_means": {
+            "delayed_control": 0.0,
+            "prior_selfing": 0.0,
+            "pollen_discount": 0.0,
+            "assurance_cost": 0.0
+          }
+        }
+      },
+      "1": {
+        "near": {
+          "pooled_mean": 0.0,
+          "setting_means": {
+            "delayed_control": 0.0,
+            "prior_selfing": 0.0,
+            "pollen_discount": 0.0,
+            "assurance_cost": 0.0
+          }
+        },
+        "far": {
+          "pooled_mean": 0.0,
+          "setting_means": {
+            "delayed_control": 0.0,
+            "prior_selfing": 0.0,
+            "pollen_discount": 0.0,
+            "assurance_cost": 0.0
+          }
+        }
+      },
+      "2": {
+        "near": {
+          "pooled_mean": 0.009765625,
+          "setting_means": {
+            "delayed_control": 0.0390625,
+            "prior_selfing": -0.015625,
+            "pollen_discount": 0.015625,
+            "assurance_cost": 0.0
+          }
+        },
+        "far": {
+          "pooled_mean": 0.0078125,
+          "setting_means": {
+            "delayed_control": 0.0234375,
+            "prior_selfing": 0.0078125,
+            "pollen_discount": 0.0,
+            "assurance_cost": 0.0
+          }
+        }
+      },
+      "3": {
+        "near": {
+          "pooled_mean": -0.04296875,
+          "setting_means": {
+            "delayed_control": -0.046875,
+            "prior_selfing": -0.0859375,
+            "pollen_discount": -0.03125,
+            "assurance_cost": -0.0078125
+          }
+        },
+        "far": {
+          "pooled_mean": -0.05078125,
+          "setting_means": {
+            "delayed_control": -0.0859375,
+            "prior_selfing": -0.0625,
+            "pollen_discount": -0.046875,
+            "assurance_cost": -0.0078125
+          }
+        }
+      },
+      "4": {
+        "near": {
+          "pooled_mean": 0.009765625,
+          "setting_means": {
+            "delayed_control": 0.015625,
+            "prior_selfing": -0.0078125,
+            "pollen_discount": 0.0,
+            "assurance_cost": 0.03125
+          }
+        },
+        "far": {
+          "pooled_mean": -0.017578125,
+          "setting_means": {
+            "delayed_control": 0.0390625,
+            "prior_selfing": 0.0,
+            "pollen_discount": -0.0390625,
+            "assurance_cost": -0.0703125
+          }
+        }
+      },
+      "5": {
+        "near": {
+          "pooled_mean": -0.001953125,
+          "setting_means": {
+            "delayed_control": 0.0078125,
+            "prior_selfing": 0.0,
+            "pollen_discount": 0.0,
+            "assurance_cost": -0.015625
+          }
+        },
+        "far": {
+          "pooled_mean": -0.017578125,
+          "setting_means": {
+            "delayed_control": 0.015625,
+            "prior_selfing": 0.0,
+            "pollen_discount": -0.0078125,
+            "assurance_cost": -0.078125
+          }
+        }
+      },
+      "8": {
+        "near": {
+          "pooled_mean": 0.0,
+          "setting_means": {
+            "delayed_control": 0.0,
+            "prior_selfing": 0.0,
+            "pollen_discount": 0.0,
+            "assurance_cost": 0.0
+          }
+        },
+        "far": {
+          "pooled_mean": 0.0,
+          "setting_means": {
+            "delayed_control": 0.0,
+            "prior_selfing": 0.0,
+            "pollen_discount": 0.0,
+            "assurance_cost": 0.0
+          }
+        }
+      }
+    },
+    "eight_founders_capacity8": {
+      "0.5": {
+        "near": {
+          "pooled_mean": 0.0,
+          "setting_means": {
+            "delayed_control": 0.0,
+            "prior_selfing": 0.0,
+            "pollen_discount": 0.0,
+            "assurance_cost": 0.0
+          }
+        },
+        "far": {
+          "pooled_mean": 0.0,
+          "setting_means": {
+            "delayed_control": 0.0,
+            "prior_selfing": 0.0,
+            "pollen_discount": 0.0,
+            "assurance_cost": 0.0
+          }
+        }
+      },
+      "1": {
+        "near": {
+          "pooled_mean": 0.0,
+          "setting_means": {
+            "delayed_control": 0.0,
+            "prior_selfing": 0.0,
+            "pollen_discount": 0.0,
+            "assurance_cost": 0.0
+          }
+        },
+        "far": {
+          "pooled_mean": 0.0,
+          "setting_means": {
+            "delayed_control": 0.0,
+            "prior_selfing": 0.0,
+            "pollen_discount": 0.0,
+            "assurance_cost": 0.0
+          }
+        }
+      },
+      "2": {
+        "near": {
+          "pooled_mean": 0.001953125,
+          "setting_means": {
+            "delayed_control": 0.0078125,
+            "prior_selfing": 0.0,
+            "pollen_discount": 0.0,
+            "assurance_cost": 0.0
+          }
+        },
+        "far": {
+          "pooled_mean": 0.0,
+          "setting_means": {
+            "delayed_control": 0.0,
+            "prior_selfing": 0.0,
+            "pollen_discount": 0.0,
+            "assurance_cost": 0.0
+          }
+        }
+      },
+      "3": {
+        "near": {
+          "pooled_mean": -0.07421875,
+          "setting_means": {
+            "delayed_control": -0.078125,
+            "prior_selfing": -0.1015625,
+            "pollen_discount": -0.109375,
+            "assurance_cost": -0.0078125
+          }
+        },
+        "far": {
+          "pooled_mean": -0.0546875,
+          "setting_means": {
+            "delayed_control": -0.0078125,
+            "prior_selfing": -0.0078125,
+            "pollen_discount": -0.203125,
+            "assurance_cost": 0.0
+          }
+        }
+      },
+      "4": {
+        "near": {
+          "pooled_mean": -0.052734375,
+          "setting_means": {
+            "delayed_control": -0.03125,
+            "prior_selfing": -0.046875,
+            "pollen_discount": -0.078125,
+            "assurance_cost": -0.0546875
+          }
+        },
+        "far": {
+          "pooled_mean": -0.046875,
+          "setting_means": {
+            "delayed_control": -0.03125,
+            "prior_selfing": -0.0703125,
+            "pollen_discount": -0.1015625,
+            "assurance_cost": 0.015625
+          }
+        }
+      },
+      "5": {
+        "near": {
+          "pooled_mean": 0.00390625,
+          "setting_means": {
+            "delayed_control": -0.03125,
+            "prior_selfing": -0.0078125,
+            "pollen_discount": 0.015625,
+            "assurance_cost": 0.0390625
+          }
+        },
+        "far": {
+          "pooled_mean": -0.0234375,
+          "setting_means": {
+            "delayed_control": 0.015625,
+            "prior_selfing": 0.0078125,
+            "pollen_discount": -0.0390625,
+            "assurance_cost": -0.078125
+          }
+        }
+      },
+      "8": {
+        "near": {
+          "pooled_mean": -0.001953125,
+          "setting_means": {
+            "delayed_control": 0.0,
+            "prior_selfing": 0.0,
+            "pollen_discount": 0.0,
+            "assurance_cost": -0.0078125
+          }
+        },
+        "far": {
+          "pooled_mean": 0.00390625,
+          "setting_means": {
+            "delayed_control": 0.0078125,
+            "prior_selfing": 0.0,
+            "pollen_discount": 0.0,
+            "assurance_cost": 0.0078125
+          }
+        }
+      }
+    }
+  },
+  "source_hashes": {
+    "data/design/chapter2_assurance_generality_20261006.json": "c050c94eb385a9ab6beb48388f5ec96177c0540e22da53924b02eca19b824119",
+    "data/results/chapter2_assurance_generality_20261006.json": "c0f21756ebc7b49bc41ed5196915a05e15a7c1f688c622714e22ad2407f77f6e",
+    "data/design/model3_ch2_bridge_20260927.json": "0ca971aa9a453ab00a6e36fa9f2a99df3b36a8b13cda1cb48ea420556d3ff18a",
+    "data/design/chapter2_order_expression_identification_20261008.json": "b6f6336875b04a131434ef35d6ec42b59dc14a1e4c59e7e4d6f2513e24a04fdd",
+    "scripts/plan_chapter2_order_expression_identification.py": "825436797d97e2262357b0da5ca2c17feafc3f375e7852753cc97470fe850ccc",
+    "scripts/chapter2_order_expression_phenotype.py": "7c14f6e7a83569bd13df58a9c5ea68e95ba937a5c2e1fdb4d76d6a379affa903",
+    "scripts/chapter2_order_expression_payoff.py": "113e759870f4e6387e821678066ac432423a9ceae8b3c66b2ec76acc20b2f59c",
+    "scripts/chapter2_order_expression_schedule.py": "84b104e01b33716e2d8062113eb4fded8681bd14a8c965547957ba42019925f8",
+    "scripts/chapter2_order_genetic_realization.py": "e81d7d5249816fa95bbaa91be0e8570d00b12f6308e56b38df75cfd30e5085ad",
+    "scripts/chapter2_order_prehistory_runner.py": "0dd60fc31f89b9b41aec3f8c1a6351f1cefb0413b061094b519114da7a9fb32b",
+    "scripts/chapter2_order_postshock_runner.py": "5f8abecc9458342b25340e339993a09ca5d1d764b3c60a1ad9652073067d7700",
+    "scripts/chapter2_order_confirmatory_readout.py": "620f277c30f6204af50299445d5cd8ffdf088a7f6b5b66d475f695aa52dfdc1c",
+    "scripts/run_chapter2_assurance_generality.py": "88e7aef1ee559885559e63b46d3dcb76808981d7a787440693f836f3fafea924",
+    "scripts/run_model3_persistent_isolation.py": "d573ffa85b7a1fef3f4619862cf00ab40cfc465d3ba4563df6504e0eea968e6e",
+    "scripts/model3_island/reproduction.py": "885957edb8a165ee8528781ed1d2574c44143c608496b505f9663cbfac2c4081",
+    "scripts/model3_island/population.py": "c959d18816da6666dbfb4e91bd9582c94af5453b25498d033f5747305b05fe0f",
+    "scripts/model3_island/types.py": "a572e1e7f4fded181585871a63582b16f40292bd07b13e8efc9d6b6234eb21c5",
+    "scripts/model3_island/randomness.py": "63522ae3c5ff8e11f114b5649a989945fa4ba2480fdca0f74857601b0e4b211f",
+    "scripts/model3_island/selection.py": "fc2d7354aadbf293c84c7ecab5c1d5b20cd702f850081e2d2d1df35539e32f5e",
+    "scripts/model3_island/history.py": "28d22c7fde81d9be6a604fa9dd4cb6b48d78d388d4db85f798a935cf81415488",
+    "scripts/model3_island/run.py": "094f8ed635f13b3ff5809b721f1d11f78f89d7cc414f503805b007e436878743"
+  },
+  "protocol_sha256": "b6f6336875b04a131434ef35d6ec42b59dc14a1e4c59e7e4d6f2513e24a04fdd"
+}
