@@ -76,7 +76,7 @@ def test_two_sided_adjudication_and_equivalence_are_distinct():
     assert decision(0.07, (-0.01, 0.15)) == "inconclusive"
     assert decision(0.04, (0.01, 0.09)) == "inconclusive"
     with pytest.raises(ValueError):
-        decision(0.1, (0.2, 0.3))
+        decision(0.1, (0.3, 0.2))
 
 
 def test_claim_firewall_and_not_previously_failed_gate():
