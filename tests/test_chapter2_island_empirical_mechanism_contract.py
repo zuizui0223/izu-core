@@ -20,7 +20,7 @@ def test_empirical_contract_is_unfitted_and_has_all_island_evidence_levels():
     need=c["new_data_requirements"]
     assert {"visit_effectiveness","mating_and_reproductive_assurance",
             "floral_investment","paternal_component","demography_and_history"}==set(need)
-    assert "paternal" in c["candidate_primary_test"]["measure"]
+    assert any("paternal" in item.lower() for item in need["paternal_component"])
     assert len(c["minimum_analysis_gates"])>=9
 
 
