@@ -87,13 +87,13 @@ def immediate_reproduction(state, visitors, cfg):
     if not len(state.ids):
         return {"maternal_viable_per_plant": None,
                 "outcross_female_per_plant": None,
-                "paternal_outcross_per_plant": None}
+                "pollen_export_per_plant": None}
     ledger = reproduce(state, visitors, cfg)
     n = len(state.ids)
     return {
         "maternal_viable_per_plant": float(ledger.maternal.sum() / n),
         "outcross_female_per_plant": float(ledger.outcross.sum() / n),
-        "paternal_outcross_per_plant": float(ledger.outcross.sum() / n),
+        "pollen_export_per_plant": float(ledger.exported.sum() / n),
     }
 
 
