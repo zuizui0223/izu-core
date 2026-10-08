@@ -37,4 +37,4 @@ def test_later_failure_does_not_reverse_different_independent32_inference():
     assert "not discarded or downgraded" in (ROOT/"docs/CHAPTER2_ISLAND_DEMOGRAPHIC_PERSISTENCE_20261008.md").read_text(encoding="utf-8")
     assert "Pilot-informed stress range" in status
     assert "one demographic realization per history" in status
-    assert "not a general island-biogeographic law" in status
+    assert "DO NOT automatically promote to a general island-biogeographic law" in status
