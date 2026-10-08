@@ -1,0 +1,83 @@
+{
+  "schema_version": "1.0",
+  "result_date": "2026-10-08",
+  "status": "independent_new_history_targeted_gate_passed_pilot_informed_grid",
+  "design": "data/design/chapter2_island_demographic_independent32_20261008.json",
+  "declared_antecedents": [
+    "data/design/chapter2_island_demographic_stress_pilot_20261008.json",
+    "data/design/chapter2_island_demographic_midrange_followup_20261008.json"
+  ],
+  "independent_histories": 32,
+  "per_history_demographic_repeats": 1,
+  "historical_pre_groups": 512,
+  "post_switch_trajectories": 4096,
+  "bootstrap_seed": 3010082026,
+  "bootstrap_draws": 9999,
+  "predeclared_pooled_primary": {
+    "mean": 0.1083984375,
+    "bootstrap95": [
+      0.0654296875,
+      0.1513671875
+    ],
+    "pass": true,
+    "interpretation": "Probability-point effect on eight-condition integrated occupancy interaction; equal four-setting weights and independent-history bootstrap"
+  },
+  "per_setting": [
+    {
+      "setting": "delayed_control",
+      "fixed_delta": 0.0390625,
+      "evolving_delta": 0.19140625,
+      "interaction": 0.15234375,
+      "bootstrap95": [
+        0.05859375,
+        0.24609375
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "fixed_delta": 0.01171875,
+      "evolving_delta": 0.0625,
+      "interaction": 0.05078125,
+      "bootstrap95": [
+        -0.01953125,
+        0.12109375
+      ]
+    },
+    {
+      "setting": "pollen_discount",
+      "fixed_delta": 0.0546875,
+      "evolving_delta": 0.15234375,
+      "interaction": 0.09765625,
+      "bootstrap95": [
+        0.01953125,
+        0.171875
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "fixed_delta": -0.0078125,
+      "evolving_delta": 0.125,
+      "interaction": 0.1328125,
+      "bootstrap95": [
+        0.07421875,
+        0.19140625
+      ]
+    }
+  ],
+  "archive": {
+    "file": "izu_core_island_demographic_stress_20261008.zip",
+    "sha256": "cd9f998e38ec51e747c4495dbe94b1fe1168d48d31ef54a438250bfa0ace5a21",
+    "sha256_of_independent_summary": "7b725616470d4118fcfb5a6908d27d3cc8569a616242ba8083b42c9103f33e5f",
+    "archive_contains_complete_raw": true,
+    "github_actions_confirmation": false,
+    "public_doi_deposit": false
+  },
+  "scientific_boundary": [
+    "Independent32 gate is independent randomization conditional on a pilot-informed stress grid, not an unconditional generality claim",
+    "Prior selfing setting 95% interval overlaps zero",
+    "No direct temporal order manipulation or natural-island extinction calibration",
+    "Carrying capacity and fecundity changed together",
+    "One demographic repeat per independent history"
+  ],
+  "decision": "Do not merge Draft PR or alter #411 established journal manuscript without independent technical verification and tighter causal identification."
+}
