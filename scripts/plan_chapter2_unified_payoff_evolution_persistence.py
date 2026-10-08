@@ -68,6 +68,14 @@ def load_design(path: Path = DESIGN) -> dict:
     if (prior["adjudication"]["status"] != "all_four_confirmed"
             or prior["declared_cases"] != 8448):
         raise AssertionError("wrong source model confirmation")
+    if prior["workflow_provenance"]["artifact_sha256"] != (
+        d["source_biology"]["confirmed_artifact_sha256"]
+    ):
+        raise AssertionError("different historic biology/provenance artifact")
+    if d["source_biology"]["source_commit_at_design"] != (
+        "94c051850a43b89047e78e653edae25b043624ab"
+    ):
+        raise AssertionError("source-commit reference changed; re-audit required")
     if not d["postshock"]["no_plant_immigration"]:
         raise ValueError("cannot mix migration into declared counterfactual")
     if d["estimated_run_size"]["suggested_worker_shards"] != 64:
