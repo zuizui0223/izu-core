@@ -29,7 +29,7 @@ from scripts.run_chapter2_assurance_generality import (
 from scripts.run_model3_persistent_isolation import exposure
 from scripts.model3_island.randomness import stream, STREAM_IDS
 from scripts.model3_island.population import advance
-from scripts.model3_island.selection import investment_invasion_terms
+from scripts.model3_island.selection import investment_invasion_terms, syndrome_thresholds
 
 ROOT = Path(__file__).resolve().parents[1]
 STATE_FIELDS = ("alleles", "allele_origin", "mutation_flags", "ids", "birth_years")
@@ -92,6 +92,24 @@ def unforced_selection_gradient(state, visitors, cfg) -> dict | None:
     result = {name: float(np.asarray(terms[name])) for name in names}
     if abs(result["gradient"] - sum(result[x] for x in names[1:])) > 1e-10:
         raise AssertionError("nonadditive local investment gradient")
+    # The rare-mutant thresholds concern a fixed monomorphic resident.
+    # At trait boundaries or zero invasion fitness, one-sided conditions
+    # are not identified by the interior analytic formula; never impute 0.
+    result["diagnostic_scope"] = "monomorphic_fixed_resident_not_realized_finite_selection"
+    try:
+        thresholds = syndrome_thresholds(mean, visitors, cfg)
+    except (ValueError, ArithmeticError) as exc:
+        result["assurance_gradient"] = None
+        result["investment_cost_threshold"] = None
+        result["assurance_cost_threshold"] = None
+        result["local_syndrome_direction"] = None
+        result["interior_threshold_status"] = "inadmissible_boundary_or_fitness:" + type(exc).__name__
+    else:
+        result["assurance_gradient"] = float(np.asarray(thresholds["assurance_gradient"]))
+        result["investment_cost_threshold"] = float(np.asarray(thresholds["investment_cost_threshold"]))
+        result["assurance_cost_threshold"] = float(np.asarray(thresholds["assurance_cost_threshold"]))
+        result["local_syndrome_direction"] = bool(np.asarray(thresholds["local_syndrome_direction"]))
+        result["interior_threshold_status"] = "valid_local_interior_diagnostic"
     return result
 
 
