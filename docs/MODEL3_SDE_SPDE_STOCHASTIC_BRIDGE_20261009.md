@@ -69,7 +69,8 @@ The new result can establish a *consistent stochastic-noise construction under r
 
 - Canonical source: `scripts/model3_island/reproduction.py`, `population.py`, `density.py`, `types.py`, `randomness.py` — **unchanged**.
 - New diagnostic: `scripts/audit_model3_stochastic_bridge.py`.
-- Tests: `tests/test_model3_stochastic_bridge.py`, including real `advance()` sampling, genotype-cross-covariance checks, a mass-preserving stochastic frequency sampler, strict rejection of missing support, nonzero survival, mutation and immigration.
+- **Executable old-history benchmark:** `scripts/run_model3_sde_spde_preflight.py --out <path> --draws 512` evaluates the same frozen founder subset and **archived visitor history 26110601**, compares canonical `advance()` against analytically predicted occupied mean, covariance and extinction probability, and measures the Gaussian SDE candidate's conditional moment error. It reports that only ONE visitor-history condition is used, that all sampled replicates are nested demographic draws, and that full SDE/SPDE is not yet validated. The acceptance thresholds are conservative **engineering precision bounds**, not inferential confirmation of model transfer.
+- Tests: `tests/test_model3_stochastic_bridge.py`, including real `advance()` sampling, genotype-cross-covariance checks, a mass-preserving stochastic frequency sampler, Gaussian negative-frequency boundary risk, and strict rejection of missing support, nonzero survival, mutation and immigration.
 - All tests are **engineering validations only**, not independent biological visitor-history confirmation. No new 37110801–37110864 visitor history is run.
 - Distinguish source-code/test completion from empirical test success until the branch CI reports final results.
 
