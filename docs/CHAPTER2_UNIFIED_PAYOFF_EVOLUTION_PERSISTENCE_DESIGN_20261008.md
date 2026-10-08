@@ -107,6 +107,7 @@ The corresponding island-empirical test still needs effective visitation/pollen 
 
 Before any new-cohort simulation or inference, the independent summary reader now verifies more than the recorded file SHA-256:
 
+- Recompute the t400 **trait means, variances and census count** from the full hash-verified diploid genotype archive; reject fabricated, stale or inconsistent Stage-1 phenotype JSON before its effect enters the confirmatory gate.
 - Reconstruct the seeded eight-parent bottleneck from the full hash-verified t400 diploid plant-state archive; reject any different fork genotype digest.
 - Match each postshock t0 population to the recorded t400 census (all surviving plants in fecundity-only; min(8, survivors) in both bottleneck regimes).
 - Require reported terminal occupancy, terminal population size and first-extinction step to agree and respect the 80-update horizon and regime capacity.
