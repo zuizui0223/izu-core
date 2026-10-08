@@ -77,9 +77,12 @@ def test_two_stage_gate_preserves_statistical_and_scientific_boundaries():
     assert d["inference"]["bootstrap"]["draws"] == 9999
     assert d["postshock"]["no_plant_immigration"] is True
     assert d["fixed_assurance_allele_value"] == 0.5
-    assert "no A mutation" in d["postshock"]["evolutionary_mask_rule"] or (
-        "only evolving-assurance mode allows assurance alleles to mutate"
-        in d["postshock"]["evolutionary_mask_rule"]
+    assert "mode=fixed blocks A mutation" in d["postshock"]["evolutionary_mask_rule"]
+    assert "both historical groups use mode=evolving" in d["postshock"]["evolutionary_mask_rule"]
+    assert "mutation_traits=(True,True,True)" in d["postshock"]["evolutionary_mask_rule"]
+    assert "BOTH prior fixed-A and prior evolving-A histories" in d["postshock"]["evolutionary_access_rule"]
+    assert "identical POSTSHOCK A-evolving rules" in (
+        d["causal_estimates"]["primary_stage2_persistence"]["history_delta"]
     )
     assert d["causal_estimates"]["optional_density_model"]["status"] == "not_part_of_primary_gate"
     assert d["execution_rule"].startswith("DESIGN ONLY")
