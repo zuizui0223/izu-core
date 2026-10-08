@@ -15,6 +15,7 @@ import pytest
 from scripts.audit_model3_stochastic_bridge import (
     capped_poisson_distribution,
     draw_exact_frequency,
+    draw_gaussian_trait_surrogate,
     draw_one_step_census,
     exact_one_step_trait_moments,
     frequency_noise_covariance,
@@ -114,6 +115,30 @@ def test_restricted_analytic_moments_against_actual_canonical_abm():
     empirical = np.cov(np.asarray(observed).T)
     predicted = np.array(expected["occupied_trait_mean_covariance"])
     np.testing.assert_allclose(empirical,predicted,rtol=0,atol=0.020)
+
+
+def test_candidate_gaussian_sde_matches_only_moments_not_exact_recruitment_law():
+    plant, ledger, config, grid = reference_case(0.25)
+    exact = exact_one_step_trait_moments(plant, ledger, config)
+    rng = np.random.default_rng(20261009)
+    sampled = [
+        draw_gaussian_trait_surrogate(exact, rng)
+        for _ in range(2048)
+    ]
+    occupied = np.array([z for n, z in sampled if n], dtype=float)
+    assert abs(sum(n==0 for n,_ in sampled)/2048 -
+               exact["probability_extinct"]) < 0.05
+    assert len(occupied)>100
+    np.testing.assert_allclose(
+        occupied.mean(axis=0), exact["offspring_mean"],
+        rtol=0, atol=0.035,
+    )
+    np.testing.assert_allclose(
+        np.cov(occupied.T),
+        exact["occupied_trait_mean_covariance"],
+        rtol=0, atol=0.025,
+    )
+    assert exact["continuous_time_sde_validated"] is False
 
 
 def test_spde_noise_precursor_conserves_mass_and_allele_covariance():
