@@ -40,7 +40,7 @@ Shared genetically identical 48-plant founders + fixed mating-system rule
          expected payoff + genetic state + extinction
 ```
 
-There is **no separate response-rule layer** and no manual evolutionary trajectory prescription. For each source cohort, the shock runs fork the realised **finite inherited genotype state**. Fixed and evolving A capacity remain matched throughout both stages; a fixed capacity never means zero selfing.
+There is **no separate response-rule layer** and no manual evolutionary trajectory prescription. For each source cohort, the shock runs fork the realised **finite inherited genotype state**. Fixed and evolving A capacity are matched interventions **only in the first 400 updates**. At the t400 fork, **both historical arms switch to the same A-evolving future rules**. A fixed capacity in the prehistory never means zero realised selfing.
 
 ## What is genuinely new compared with the two prior positive findings?
 
@@ -66,7 +66,7 @@ All three regimes use **every declared** budget 0.5, 1, 2, 3, 4, 5, 8 and both n
 
 When a prehistory is extinct, every planned future arm has occupancy 0 and missing trait endpoints, **not** silently excluded from the survival comparison. When a prehistory has fewer than eight plants, transfer only available plants and explicitly report the bottleneck shortfall.
 
-Postshock mode rules: the A-fixed arm remains A=0.5 with no A mutation, even when pollen shortage causes actual realized selfing; the A-evolving arm continues to inherit/mutate A. Matching and I mutation remain allowed in both arms.
+**Common-future mode rule (identification correction before any new outcomes):** at t400 **both** previously A-fixed and previously A-evolving histories enter the same future `assurance_mode=evolving` and `mutation_traits=(True,True,True)` at rate 0.01. Historical A-fixed plants start the future at their inherited A=0.5, but may subsequently evolve; historical A-evolving plants begin from their t400 evolved genotype distribution. Neither state is reset. This contrasts *past evolutionary opportunity* under identical subsequent opportunity, rather than a combined 480-update fixed-versus-evolving policy.
 
 ## Selection and evolution are not the same measurement
 
@@ -83,7 +83,7 @@ That ordering prevents the previous mistake of interpreting a pointwise payoff a
 
 **Gate 2 — Subsequent persistence, all settings pooled:** For every visitor history and setting, average the two nested demographic repeats and both common future visitor environments. Over **all seven** ovule-budget points, compute trapezoidal area weighted by **log ovule budget**, normalised over 0.5–8. In the `bottleneck_small_capacity` regime calculate `[(S_farPre−S_nearPre)_A-evolving−(S_farPre−S_nearPre)_A-fixed]`. Pool all four settings equally **within history**, then bootstrap the 64 history-level values 9,999 times. Pass only if pooled mean and bootstrap95 lower endpoint are positive. All four setting-specific estimates are mandatory even if some intervals include zero.
 
-Stage 2 is reported even when Stage 1 fails, but the single **payoff → evolution → survival chain** is said to pass only when **both** rules pass. Compulsory secondary results: the other two demographic regimes, all budgets, both post visitor arms, extinction timing and initial viable maternal output, even if opposing the primary effect.
+This postshock contrast tests an **inherited-history legacy**, not the original #413 cumulative fixed/evolving policy over the whole period. Stage 2 is reported even when Stage 1 fails, but the single **payoff → evolution → survival chain** is said to pass only when **both** rules pass. Compulsory secondary results: the other two demographic regimes, all budgets, both post visitor arms, extinction timing and initial viable maternal output, even if opposing the primary effect.
 
 ### Why the broad budget grid matters
 
