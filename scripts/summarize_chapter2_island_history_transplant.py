@@ -58,40 +58,45 @@ def summarize(d, records):
         for mode in d["modes"]:
             for post in d["post_environments"]:
                 for mu in d["post_mutation_probabilities"]:
-                    delta_end = []
-                    delta_immediate = []
-                    delta_response = []
+                    history_end = []
+                    history_response = []
+                    history_immediate = []
                     occupied = []
+                    total_eligible_repeats = 0
                     for h in d["visitor_history_seeds"]:
+                        repeat_end = []
+                        repeat_response = []
+                        repeat_immediate = []
                         for rep in d["demographic_repeat_seeds"]:
                             near = records[case_id((setting, h, rep, mode, "near"), post, mu)]
                             far = records[case_id((setting, h, rep, mode, "far"), post, mu)]
-                            # Same realised switch state must fork identically
-                            # into every post environment and mutation treatment.
-                            for row in (near, far):
-                                key = (row["setting"], row["visitor_history_seed"],
-                                       row["demographic_repeat_seed"],
-                                       row["assurance_mode"], row["pre_environment"])
-                                previous = occupied
-                                # Explicitly count survival on all pairs, not only
-                                # trait-defined surviving pairs.
-                                occupied.append(int(row["end"]["count"] > 0))
-                            en = paired_difference(investment(far, "end"), investment(near, "end"))
-                            sn = paired_difference(investment(far, "switch"), investment(near, "switch"))
-                            delta_end.append(en)
-                            delta_response.append(paired_difference(en, sn))
+                            occupied.extend([int(near["end"]["count"] > 0),
+                                             int(far["end"]["count"] > 0)])
+                            en = paired_difference(investment(far, "end"),
+                                                   investment(near, "end"))
+                            sn = paired_difference(investment(far, "switch"),
+                                                   investment(near, "switch"))
+                            repeat_end.append(en)
+                            repeat_response.append(paired_difference(en, sn))
                             fv = far["immediate_post_switch_reproduction"]["maternal_viable_per_plant"]
                             nv = near["immediate_post_switch_reproduction"]["maternal_viable_per_plant"]
-                            delta_immediate.append(paired_difference(fv, nv))
+                            repeat_immediate.append(paired_difference(fv, nv))
+                            total_eligible_repeats += int(en is not None)
+                        # The visitor history, not the nested demographic repeat,
+                        # is the independent ecological unit.
+                        history_end.append(mean_or_none(repeat_end))
+                        history_response.append(mean_or_none(repeat_response))
+                        history_immediate.append(mean_or_none(repeat_immediate))
                     results.append({
                         "setting": setting, "assurance_mode": mode,
                         "post_environment": post, "post_mutation_probability": mu,
                         "independent_histories": len(d["visitor_history_seeds"]),
-                        "nested_pairs": len(delta_end),
-                        "end_investment_far_history_minus_near_history": mean_or_none(delta_end),
-                        "post_response_far_history_minus_near_history": mean_or_none(delta_response),
-                        "immediate_maternal_viable_far_history_minus_near_history": mean_or_none(delta_immediate),
-                        "eligible_end_pairs": sum(v is not None for v in delta_end),
+                        "nested_pairs": len(d["visitor_history_seeds"]) * len(d["demographic_repeat_seeds"]),
+                        "end_investment_far_history_minus_near_history": mean_or_none(history_end),
+                        "post_response_far_history_minus_near_history": mean_or_none(history_response),
+                        "immediate_maternal_viable_far_history_minus_near_history": mean_or_none(history_immediate),
+                        "eligible_history_means": sum(v is not None for v in history_end),
+                        "eligible_end_pairs": total_eligible_repeats,
                         "occupied_terminal_cases": sum(occupied),
                         "total_terminal_cases": len(occupied),
                     })
