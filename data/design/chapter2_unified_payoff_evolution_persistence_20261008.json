@@ -127,7 +127,9 @@
       "paternal pollen export component",
       "time-to-extinction",
       "genetic variance and mean of surviving plant traits, with structural missingness after extinction"
-    ]
+    ],
+    "evolutionary_mask_rule": "Across all postshock branches, both modes keep matching and investment mutation enabled; only evolving-assurance mode allows assurance alleles to mutate and inherit changes. Fixed mode retains assurance=0.5 while realized selfing may vary with visitors.",
+    "config_mutation_rate": 0.01
   },
   "estimated_run_size": {
     "prehistory_groups": 2048,
@@ -206,5 +208,6 @@
     "No wild-island field fitness, colour, corolla size or evolutionary rescue is claimed.",
     "Null or negative outcomes are valid and will be archived; no on-the-fly parameter rescue.",
     "Current PR #411 and PR #413 frozen conclusions retain separate status and provenance."
-  ]
+  ],
+  "execution_rule": "DESIGN ONLY. Biological execution and outcome readout require a separate audited runner after source-hash freeze and cost test. Do not mark stages passed from previously observed PR411/PR413 cohorts."
 }
