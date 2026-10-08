@@ -34,9 +34,12 @@ def load_and_audit(pre_dir: Path, post_dir: Path, d: dict):
         k = key(task)
         file_pre = pre_dir / f"{k}.json"
         file_post = post_dir / f"{k}.json"
-        if not file_pre.is_file() or not file_post.is_file():
-            raise FileNotFoundError("missing matched cohort " + k)
+        state_file = pre_dir / f"{k}.npz"
+        if not file_pre.is_file() or not file_post.is_file() or not state_file.is_file():
+            raise FileNotFoundError("missing matched cohort or full genotype state " + k)
         old = json.loads(file_pre.read_text(encoding="utf-8"))
+        if hashlib.sha256(state_file.read_bytes()).hexdigest() != old["state_sha256"]:
+            raise AssertionError("prehistory full genotype hash changed after future forks " + k)
         row = json.loads(file_post.read_text(encoding="utf-8"))
         if (old["task"] != asdict(task) or row["task"] != asdict(task)
             or old["source_hashes"] != hashes or row["source_hashes"] != hashes
