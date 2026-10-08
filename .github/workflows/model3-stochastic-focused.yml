@@ -25,3 +25,11 @@ jobs:
       - run: python -m pip install -e '.[dev]'
       - name: Test exact finite noise and three-generation stochastic bridge
         run: pytest -q tests/test_model3_stochastic_bridge.py tests/test_model3_stochastic_multistep.py tests/test_model3_tensor_density.py
+      - name: Run old-history stochastic moment preflight (engineering only)
+        run: python -m scripts.run_model3_sde_spde_preflight --out stochastic-preflight.json --draws 1024
+      - name: Archive engineering moment receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: model3-stochastic-preflight
+          path: stochastic-preflight.json
+          retention-days: 90
