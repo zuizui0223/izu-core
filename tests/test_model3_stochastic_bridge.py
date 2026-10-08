@@ -18,6 +18,7 @@ from scripts.audit_model3_stochastic_bridge import (
     draw_one_step_census,
     exact_one_step_trait_moments,
     frequency_noise_covariance,
+    gaussian_frequency_boundary_risk,
     offspring_genotype_distribution,
     parent_pair_probabilities,
 )
@@ -130,6 +131,22 @@ def test_spde_noise_precursor_conserves_mass_and_allele_covariance():
     np.testing.assert_allclose(samples.sum(axis=1),1,rtol=0,atol=1e-12)
     np.testing.assert_allclose(samples.mean(axis=0),q,rtol=0,atol=.025)
     np.testing.assert_allclose(np.cov(samples.T),cov,rtol=0,atol=.006)
+
+
+def test_unconstrained_gaussian_spde_fails_near_frequency_boundary():
+    # Same finite multinomial covariance cannot prevent Gaussian negatives.
+    q = np.array([0.02, 0.98])
+    low = gaussian_frequency_boundary_risk(q, 8)
+    high = gaussian_frequency_boundary_risk(q, 192)
+    assert 0 < low["negative_frequency_probability_lower_bound"] < 1
+    assert low["negative_frequency_probability_lower_bound"] > (
+        high["negative_frequency_probability_lower_bound"]
+    )
+    assert high["negative_frequency_probability_lower_bound"] > 0
+    assert low["gaussian_noise_alone_admissible_as_frequency_process"] is False
+    assert low["negative_frequency_probability_union_upper_bound"] >= (
+        low["negative_frequency_probability_lower_bound"]
+    )
 
 
 def test_markov_frequency_kernel_reports_extinction_as_missing():
