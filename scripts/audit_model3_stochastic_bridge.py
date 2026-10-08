@@ -169,6 +169,34 @@ def frequency_noise_covariance(q: np.ndarray, recruits: int) -> np.ndarray:
     return cov
 
 
+def gaussian_frequency_boundary_risk(q: np.ndarray, recruits: int) -> dict:
+    """Rigorous marginal risks for an unconstrained Gaussian frequency step.
+
+    If independent *or correlated* Gaussian noise has the exact multinomial
+    covariance, each component marginal is N(q_i,q_i(1-q_i)/N). It can become
+    negative. The probability of ANY negative component is at least the max
+    individual marginal failure probability and at most their sum (union
+    bound). This is a diagnostic, NOT an admissible SPDE transition law.
+    """
+    from scipy.special import ndtr
+
+    cov = frequency_noise_covariance(q, recruits)
+    q = np.asarray(q, dtype=float)
+    stdev = np.sqrt(np.maximum(np.diag(cov), 0.))
+    probs = np.zeros(len(q))
+    active = stdev > 0
+    probs[active] = ndtr(-q[active] / stdev[active])
+    return {
+        "n_recruits": recruits,
+        "negative_frequency_probability_lower_bound":
+            float(probs.max()),
+        "negative_frequency_probability_union_upper_bound":
+            float(min(1., probs.sum())),
+        "n_active_genotype_classes": int(np.count_nonzero(q)),
+        "gaussian_noise_alone_admissible_as_frequency_process": False,
+    }
+
+
 def draw_exact_frequency(q: np.ndarray, recruits: int,
                          rng: np.random.Generator) -> np.ndarray:
     """Nonnegative, mass-conserving finite frequency sample (not an SPDE)."""
