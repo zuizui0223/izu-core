@@ -100,6 +100,21 @@ def validate_protocol(d: dict) -> None:
             )
             if exposed != 200:
                 raise AssertionError("Unequal focal exposure dose")
+    overlap_counts = {
+        name: sum(
+            step["to"] - step["from"]
+            for step in d["path_perturbation"]["arms"][name]
+            if step["A"] != 0 and step["I"] != 0
+        )
+        for name in expected_phases
+    }
+    if (overlap_counts != {
+        "assurance_first": 100, "investment_first": 100,
+        "synchronous_time_control": 200,
+    } or treatment["joint_exposure_update_counts"] != overlap_counts):
+        raise AssertionError("Co-expression window changed")
+    if "NOT a matched overlap negative control" not in treatment["control_caveat"]:
+        raise AssertionError("Synchronous comparator scope expanded")
     future = d["postshock"]
     if (future["updates"] != 80 or future["arms"] !=
         ["unbottlenecked_capacity48", "eight_founders_capacity8"]
