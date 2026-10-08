@@ -6,7 +6,7 @@
 - **Successful complete-production run:** https://github.com/zuizui0223/izu-core/actions/runs/37856410822
 - **Exact source commit executed:** `6d9a2686359a2be131370d48300f9165c72844ce` (`main` at dispatch). A temporary workflow-dispatch bridge was removed after launching; no frozen biological source or analysis script was changed.
 - Final artifact: [`order-expression-complete-audited-readout`](https://github.com/zuizui0223/izu-core/actions/runs/37856410822/artifacts/11583968991).
-- Canonical result snapshot committed alongside this note: [`results/chapter2/order_expression_full_cohort_20261009.json`](../../results/chapter2/order_expression_full_cohort_20261009.json); exact SHA-256 of the original readout JSON: `188ecf42f96b53d985bac2bd0a236956cb6b37518b54ec67bff4686cd4583ccb`.
+- Canonical result snapshot committed alongside this note: [`results/chapter2/order_expression_full_cohort_20261009.json`](../results/chapter2/order_expression_full_cohort_20261009.json); exact SHA-256 of the original readout JSON: `188ecf42f96b53d985bac2bd0a236956cb6b37518b54ec67bff4686cd4583ccb`.
 - Frozen protocol SHA-256: `b6f6336875b04a131434ef35d6ec42b59dc14a1e4c59e7e4d6f2513e24a04fdd`.
 - Workflow outcome: **success**; preflight 1/1, t400 source shards 64/64, future shards 64/64, final readout 1/1.
 - Final reader admitted **3,072 complete t400 diploid sources**, **86,016 verified future trajectories**, **64 independent visitor histories**, and two nested demographic repeats per source/history setting. It independently rechecked the annual inherited-trait order against source summaries, genotype/source hashes, pedigree provenance, and the complete 28-fork grid for each source.
