@@ -8,7 +8,9 @@
     "repository": "zuizui0223/izu-core",
     "base_ref": "main",
     "model_module": "scripts/model3_island",
-    "baseline_result": "data/results/chapter2_assurance_generality_20261006.json"
+    "baseline_result": "data/results/chapter2_assurance_generality_20261006.json",
+    "source_commit_at_design": "94c051850a43b89047e78e653edae25b043624ab",
+    "confirmed_artifact_sha256": "34bedf03e6cde0b3d7f5140b7f352227b5dd1550c097e66e42022aa9830d3d8c"
   },
   "previous_evidence": {
     "previously_confirmed": "four-setting 1000-update assurance non-necessity and divergence compression from merged PR #411",
