@@ -51,10 +51,23 @@ def exact_markov_step(state: PlantState, visitor: VisitorState,
     total = float(parents.sum())
     if total<=0:
         next_n=0
+        # Even without births, a nonempty state must lie on the exact
+        # finite support. Never silently accept a misspecified test grid.
+        for k, axis in enumerate(grid.axes):
+            if not np.isclose(
+                state.alleles[:,k,:,None],axis[None,None,:],
+                atol=1e-12,rtol=0
+            ).any(axis=-1).all():
+                raise ValueError(
+                    "offspring support cannot silently project alleles"
+                )
     else:
+        # Strict support check precedes recruitment sampling, so a sampled
+        # extinction cannot conceal an invalid genotype grid.
+        genotype_prob = offspring_genotype_distribution(
+            state,parents/total,grid)
         next_n=min(config.capacity,int(rng.poisson(total)))
     if next_n:
-        genotype_prob = offspring_genotype_distribution(state,parents/total,grid)
         offspring_counts = rng.multinomial(next_n,genotype_prob)
         genotypes = np.repeat(np.arange(len(genotype_prob)),offspring_counts)
         alleles = grid.genotypes[genotypes].copy()
