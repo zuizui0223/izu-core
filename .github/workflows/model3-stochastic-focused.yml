@@ -1,0 +1,25 @@
+name: Model3 stochastic focused
+on:
+  pull_request:
+    paths:
+      - 'scripts/audit_model3_stochastic_bridge.py'
+      - 'scripts/run_model3_sde_spde_preflight.py'
+      - 'tests/test_model3_stochastic_bridge.py'
+      - '.github/workflows/model3-stochastic-focused.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  scoped:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Test exact finite noise and three-generation stochastic bridge
+        run: pytest -q tests/test_model3_stochastic_bridge.py tests/test_model3_tensor_density.py
