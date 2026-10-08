@@ -113,6 +113,7 @@ Before any new-cohort simulation or inference, the independent summary reader no
 - Require reported terminal occupancy, terminal population size and first-extinction step to agree and respect the 80-update horizon and regime capacity.
 - An extinct source must have extinction at transfer (step 0), zero realized recruits and no invented reproductive/genetic endpoints; surviving outcomes must keep their declared genetic endpoint.
 - Reject missing or reordered t400 prehistory census checkpoints.
+- For 60–63 surviving complete visitor histories, keep the **same original 64-history resampling indices across settings and gate components**, dropping structurally missing trait endpoints within each bootstrap draw. This preserves matched history resampling; it does not impute extinct traits or change the frozen 60/64 admission threshold.
 
 These are admission checks, not a new ecological result. The old-history smoke tests and intentionally corrupted synthetic records cover hash, branch alignment and extinction integrity. All **64 new visitor histories remain unexecuted** at this checkpoint. GitHub-hosted checks must still report a completed result before any production-merge decision.
 
