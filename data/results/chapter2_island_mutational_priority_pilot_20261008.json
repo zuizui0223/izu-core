@@ -1,0 +1,94 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-08",
+  "status": "completed_exploratory_mutational_access_pilot_not_confirmatory",
+  "design": "data/design/chapter2_island_mutational_priority_pilot_20261008.json",
+  "independent_visitor_histories": 4,
+  "nested_demographic_repeats": 2,
+  "prehistories": 256,
+  "poststress_trajectories": 2048,
+  "locked_locus_checks_passed": 256,
+  "historical_mechanism": "Same founders with both I and A starting at 0.5 and no standing variation; 150-update mutation access gate, both traits mutable afterward; all genotypes inherit under finite ABM.",
+  "estimand": "[(far-pre minus near-pre) integrated terminal occupancy under assurance_first] - same under investment_first, 2 post visitor environments × budgets [2,3,4,5] at N=8, 80 updates",
+  "pooled_descriptive_interaction": 0.03125,
+  "settings": [
+    {
+      "setting": "delayed_control",
+      "priority_interaction": 0.09375,
+      "sign_counts": {
+        "positive": 3,
+        "negative": 1,
+        "zero": 0
+      },
+      "far_minus_near": {
+        "assurance_first": 0.21875,
+        "investment_first": 0.125,
+        "both_early": 0.1875,
+        "both_delayed": 0.28125
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "priority_interaction": 0.15625,
+      "sign_counts": {
+        "positive": 3,
+        "negative": 0,
+        "zero": 1
+      },
+      "far_minus_near": {
+        "assurance_first": 0.15625,
+        "investment_first": 0,
+        "both_early": 0.15625,
+        "both_delayed": 0.21875
+      }
+    },
+    {
+      "setting": "pollen_discount",
+      "priority_interaction": -0.09375,
+      "sign_counts": {
+        "positive": 1,
+        "negative": 3,
+        "zero": 0
+      },
+      "far_minus_near": {
+        "assurance_first": 0.109375,
+        "investment_first": 0.203125,
+        "both_early": 0.140625,
+        "both_delayed": 0.203125
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "priority_interaction": -0.03125,
+      "sign_counts": {
+        "positive": 2,
+        "negative": 2,
+        "zero": 0
+      },
+      "far_minus_near": {
+        "assurance_first": 0.109375,
+        "investment_first": 0.140625,
+        "both_early": 0.09375,
+        "both_delayed": 0
+      }
+    }
+  ],
+  "provenance": {
+    "local_artifact": "izu_core_mutational_priority_pilot_20261008.zip",
+    "artifact_sha256": "b95e6a798d45d0034c947ac59df7b5a32029d08174f8078d28bc797948957e94",
+    "raw_result_sha256": "d6c97bb3f3f4fdc050d2bde040cdcf1e7cc4bd28f705f5e8d591d208160665ba",
+    "readout_sha256": "7ac76302fb5dd2609729ad9622791dbde04bbf6b063ebac262744171e8d5c02a",
+    "archived_source_sha256": "71a1b1d9c4d683b874c989fa7768a14e72c5353063d8213cbe42f42cd37473d4",
+    "github_actions_replay": false
+  },
+  "bounds": [
+    "No scientific generality from n=4 histories",
+    "Only age of mutational access manipulated, not actual temporal order",
+    "Early trait mutational supply lasts 150 more updates",
+    "I and A initial standing variation removed; differs from previous PR413 independent32",
+    "Four reproductive settings include opposite signed point estimates; pooled near zero",
+    "Fixed stress grid was outcome-informed in previous demographic pilot and is not calibrated to natural islands",
+    "No claim that order-specific persistence is observed in wild populations",
+    "Previously failed 64-history first-generation payoff global gate is not revised"
+  ]
+}
