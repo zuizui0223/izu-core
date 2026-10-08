@@ -73,8 +73,13 @@ def shock_ancestors(task, state, n_limit=8):
 def common_streams(task, setting_index, regime_index, future_index,
                    budget_index):
     # MUST not include historical near/far or past fixed/evolving mode.
+    # The two bottleneck regimes inherit the same eight plants. Match their
+    # future demographic streams too, so their only specified intervention is
+    # subsequent carrying capacity; do not count them as independent replicates.
+    # Fecundity-only remains a separate no-bottleneck intervention.
+    paired_regime_index = 0 if regime_index == 0 else 1
     seed = int(np.random.SeedSequence([
-        task.history, task.repeat, setting_index, regime_index,
+        task.history, task.repeat, setting_index, paired_regime_index,
         future_index, budget_index, 3611082026
     ]).generate_state(1)[0])
     return {k: stream(seed, k, 0) for k in STREAM_IDS}
