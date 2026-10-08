@@ -171,7 +171,14 @@
     "schedule": "all three prehistory treatments have identical unrestricted genetic mutation and zero expression offset",
     "primary_regime": "eight_founders_capacity8",
     "sampling": "sample min(8,n_alive) actual full diploid genotypes without resetting alleles; use source-history paired random streams",
-    "primary_outcome": "binary occupancy after 80 updates including zero for groups extinct before transfer"
+    "primary_outcome": "binary occupancy after 80 updates including zero for groups extinct before transfer",
+    "future_visitor_seed_offset": 1000000,
+    "post_mutation_rate": 0.01,
+    "future_assurance_mode": "evolving",
+    "future_expression_offsets": [
+      0,
+      0
+    ]
   },
   "estimation": {
     "independent_unit": "visitor_history, n=64",
