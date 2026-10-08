@@ -10,7 +10,7 @@ import numpy as np
 import pytest
 
 from scripts.plan_chapter2_unified_payoff_evolution_persistence import (
-    Prehistory, load_design
+    Prehistory, load_design, prehistory_tasks
 )
 from scripts.run_chapter2_assurance_generality import load_design as source_design
 from scripts.run_chapter2_unified_payoff_prehistories import (
@@ -20,7 +20,7 @@ from scripts.run_chapter2_unified_payoff_postshock import (
     recover_state, shock_ancestors, one_future, common_streams
 )
 from scripts.summarize_chapter2_unified_payoff_evolution_persistence import (
-    bootstrap_summary
+    bootstrap_summary, evaluate
 )
 from scripts.model3_island.randomness import STREAM_IDS
 
@@ -132,3 +132,47 @@ def test_60_history_admission_uses_independent_visitor_not_nested_repeats():
     result2 = bootstrap_summary(baseline, indices)
     assert result2[0]["n_complete_histories"] == 58
     assert result2[0]["bootstrap95"] is None
+
+def test_synthetic_joint_gate_cannot_substitute_a_favourable_other_regime():
+    """Algebraic unit fixture ONLY: no new-history biological simulation."""
+    d = load_design()
+    pre, post = {}, {}
+    regimes = [r["id"] for r in d["postshock"]["regimes"]]
+    futures = d["postshock"]["visitor_environments"]
+    budgets = d["postshock"]["budgets"]
+    for task in prehistory_tasks(d):
+        far = task.environment == "far"
+        evolved = task.mode == "evolving"
+        investment = 0.7 - 0.3 * far + 0.1 * (far and evolved)
+        pre[task] = {"snapshots": [{"n": 48, "means": [0.5, investment, 0.5]}]}
+        # Matched hypothetical occupancies are deliberately constructed,
+        # not sampled or measured; all four settings have identical signs.
+        occupied = int(far and evolved)
+        post[task] = {
+            (regime, future, float(budget)): {"occupied": occupied}
+            for regime in regimes for future in futures for budget in budgets
+        }
+    positive = evaluate(d, pre, post)
+    assert positive["stage1"]["all_four_pass"] is True
+    assert positive["stage2"]["primary_gate"]["passes_frozen_rule"] is True
+    assert positive["joint_pass"] is True
+    assert positive["stage2"]["primary_gate"]["mean"] == pytest.approx(1.0)
+
+    # Remove effects ONLY in the preregistered primary small-capacity arm.
+    # Positive results in the other two regimes MUST NOT rescue this gate.
+    for cells in post.values():
+        for future in futures:
+            for budget in budgets:
+                cells[("bottleneck_small_capacity", future, float(budget))][
+                    "occupied"
+                ] = 0
+    negative = evaluate(d, pre, post)
+    assert negative["stage1"]["all_four_pass"] is True
+    assert negative["stage2"]["primary_gate"]["passes_frozen_rule"] is False
+    assert negative["joint_pass"] is False
+    others = [
+        x for x in negative["stage2"]["all_regimes"]
+        if x["regime"] != "bottleneck_small_capacity"
+    ]
+    assert all(x["all_setting_equal_weight_pooled"]["passes_frozen_rule"]
+               for x in others)
