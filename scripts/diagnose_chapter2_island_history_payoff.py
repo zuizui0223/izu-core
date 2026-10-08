@@ -69,7 +69,8 @@ def run_pair(group, source, pre_years, post_seed_offset):
     actual = {k: payoff(v, c, visitor) for k, v in (("near", near), ("far", far))}
     factors = []
     if not all(actual.values()):
-        return {"group": group, "admissible": False}
+        return {"group": group, "admissible": False,
+                "near_population": len(near.ids), "far_population": len(far.ids)}
     for background, state in (("near", near), ("far", far)):
         outcomes = {}
         for invest, assurance in product(("near", "far"), repeat=2):
@@ -93,6 +94,7 @@ def run_pair(group, source, pre_years, post_seed_offset):
             })
     return {
         "group": group, "admissible": True,
+        "near_population": len(near.ids), "far_population": len(far.ids),
         "switch_mean_traits": {k: v.tolist() for k, v in means.items()},
         "observed_far_minus_near": {
             k: actual["far"][k] - actual["near"][k] for k in actual["near"]
