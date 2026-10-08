@@ -40,9 +40,12 @@ def validate_postshock_cell(cell: dict, *, pre_n: int, capacity: int,
             or final < 0 or final > capacity
             or occupied not in (0, 1) or occupied != int(final > 0)):
         raise AssertionError("inconsistent matched prehistory, population or occupancy")
-    if (extinction != (0 if t0 == 0 else None) if t0 == 0
-            else (extinction is not None) == bool(occupied)):
-        raise AssertionError("inconsistent first-extinction status")
+    if t0 == 0 and extinction != 0:
+        raise AssertionError("empty prehistory must be extinct at transfer")
+    if t0 > 0 and occupied and extinction is not None:
+        raise AssertionError("occupied endpoint cannot have an extinction event")
+    if t0 > 0 and not occupied and extinction is None:
+        raise AssertionError("extinct endpoint must record when loss occurred")
     if extinction is not None and (
         isinstance(extinction, bool) or not isinstance(extinction, int)
         or not 0 <= extinction <= updates
