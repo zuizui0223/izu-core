@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0",
+  "created": "2026-10-08",
+  "status": "prospective_empirical_measurement_contract_no_field_outcomes",
+  "question": "Does evolved reproductive assurance more strongly reduce the marginal maternal+paternal return to floral investment where effective pollination remains high than where it is already constrained?",
+  "theoretical_source": "PR #411 confirmed four-setting assurance non-necessity and divergence attenuation; explanatory fixed-resident rare-mutant gradient is not field-calibrated.",
+  "independent_empirical_resources": [
+    {
+      "repository": "zuizui0223/island",
+      "evidence": "species-level island flora reproductive traits and independent GloPL pollen-supplementation experiments",
+      "role": "broad ecological context, NOT same-site longitudinal inherited response"
+    },
+    {
+      "repository": "zuizui0223/shimahotarubukuro",
+      "evidence": "125 unique plants and 218 measured C. microdonta corollas across five Izu Islands",
+      "role": "existing within-lineage phenotype, NOT independent pollinator or reproductive output observations"
+    }
+  ],
+  "islands_with_existing_flower_phenotype": [
+    "Oshima",
+    "Toshima",
+    "Niijima",
+    "Shikinejima",
+    "Kozushima"
+  ],
+  "unit_hierarchy": [
+    "island",
+    "independent site",
+    "repeated monitoring visit",
+    "tagged mother/father plant",
+    "flower",
+    "seed family / germinated offspring"
+  ],
+  "observational_data_status": "Unknown/missing until raw joint visitor→fitness→genotype files are verified. Never count existing corolla measurements as new pollination or fitness observations.",
+  "new_data_requirements": {
+    "visit_effectiveness": [
+      "calendar date and flowering stage",
+      "legitimate contact with stigma and anthers per observed visit",
+      "visitor taxon/functional guild and body size when measurable",
+      "paired pollen receipt/deposition evidence",
+      "visitor richness and raw encounter rate as secondary, not service surrogate"
+    ],
+    "mating_and_reproductive_assurance": [
+      "tagged plant identity stable across treatments",
+      "natural open seed set",
+      "pollen supplemented viable seed set",
+      "isolated/bagged autonomous selfing estimate",
+      "controlled-self and controlled-cross treatments with offspring viability",
+      "selfed-vs-outcrossed progeny genetic assignment or verified breeding evidence",
+      "self-compatibility separate from realized autonomous selfing"
+    ],
+    "floral_investment": [
+      "matching field-measured corolla dimensions and guide coverage by tagged plant",
+      "measured cost proxy or measured energetic reproductive allocation; no automatic mapping from morphology to Model I",
+      "mouth/throat geometry and reproductive-organ length separately; size-corrected traits not collapsed into generalized attraction"
+    ],
+    "paternal_component": [
+      "donor-assigned siring from progeny, or a validated pollen export proxy with known limitations",
+      "maternal and paternal contributions kept separate in readout"
+    ],
+    "demography_and_history": [
+      "plant census/survival and tagged mother recruitment across repeated seasons",
+      "population origin/native status and island colonization history where independently known",
+      "repeat years and/or pedigrees to distinguish selection from among-species sorting",
+      "seed immigration and pollinator recolonization documented separately"
+    ]
+  },
+  "candidate_primary_test": {
+    "measure": "On the same tagged-plant observation units, compare the slope of realized lifetime viable genetic contribution against a predeclared plant-investment proxy at measured high versus low effective visitor service, conditional on reproductive assurance A.",
+    "formulation": "Let beta_I(A,V) be the partial slope of inclusive parental output (0.5 viable female outcross + 0.5 assigned paternal outcross + viable selfed) with respect to I. Candidate interaction [beta_I(A_high,V_high)-beta_I(A_low,V_high)] - [beta_I(A_high,V_low)-beta_I(A_low,V_low)] is negative in the model baseline settings.",
+    "nature": "Observational selection-gradient confrontation, not automatic causal identification. Experimental manipulation/parentage needed for causal transport.",
+    "must_not_use": "Isolation-distance threshold as substitute for measured visitor service, self-compatibility as realized selfing, flower size as full Model I, population seed-set alone as both sexes' genetic fitness."
+  },
+  "assembly_vs_evolution": {
+    "assembly_estimand": "Composition of newly arriving/establishing species by self-compatibility/assurance controlling source pool (Chapter1-style); NO within-lineage transformation claim.",
+    "within_lineage_estimand": "Repeated genetic/phenotypic state and selection within existing plant lineage/populations over time (Izu system if eventually measured).",
+    "survivor_filter": "Account for disappearances/censoring without replacing missing trait endpoints with zero."
+  },
+  "minimum_analysis_gates": [
+    "Treat flower records as nested within tagged plants and sites; never use 218 flowers as 218 independent plants.",
+    "Never fit the proposed interaction if any of A, I, validated visitor effectiveness or maternal and paternal fitness contributions remain unmeasured.",
+    "Predeclare I proxy and A assay before reading future reproductive outcomes.",
+    "Separate self-incompatible, self-compatible, autonomous and realized selfing categories.",
+    "Preserve all observed sites, islands, flowering stages and unmatched records in an exclusion ledger.",
+    "Use site/population replication for selection inference; no ecological inference from five island labels alone.",
+    "Do not infer causation from contemporaneous island syndrome or transfer coefficients from synthetic coordinates to natural units.",
+    "Null or opposite observed interactions count as falsification/transport failure; do not retune the model.",
+    "Any no-data status is not evidence of model support."
+  ],
+  "current_decision": "NOT_READY_FOR_EMPIRICAL_SIGN_TEST",
+  "next_available_action": "Build a joint plant-level cross-repository data inventory and mark measured vs missing fields. Do not fabricate observations.",
+  "journal_boundary": "The active Ecology Letters four-setting simulated contrast is independent; the field bridge is a separate prospective claim, not a retroactive validation."
+}

@@ -1,0 +1,98 @@
+name: Chapter 2 island assurance dispersion technical replay
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: chapter2-assurance-dispersion-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - run: pytest -q tests/test_chapter2_island_assurance_dispersion_ablation.py
+      - run: |
+          python -m scripts.run_chapter2_island_assurance_dispersion_ablation \
+            --out outputs/assurance-dispersion --dry-run
+
+  shards:
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        shard: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - run: |
+          python -m scripts.run_chapter2_island_assurance_dispersion_ablation \
+            --out outputs/assurance-dispersion \
+            --shard-index ${{ matrix.shard }} \
+            --shard-count 4 --workers 2
+      - uses: actions/upload-artifact@v4
+        with:
+          name: assurance-dispersion-shard-${{ matrix.shard }}
+          retention-days: 90
+          if-no-files-found: error
+          path: outputs/assurance-dispersion/*
+
+  readout:
+    needs: shards
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: assurance-dispersion-shard-*
+          merge-multiple: true
+          path: outputs/assurance-dispersion
+      - run: |
+          python -m scripts.summarize_chapter2_island_assurance_dispersion_ablation \
+            --input outputs/assurance-dispersion \
+            --out outputs/assurance-dispersion/recomputed.json
+      - name: Validate every setting, background, mutation and dispersion scale
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          actual=json.loads(Path("outputs/assurance-dispersion/recomputed.json").read_text())
+          original=json.loads(Path("data/results/chapter2_island_assurance_dispersion_ablation_20261008.json").read_text())
+          assert actual["n_postshock_trajectories"]==3072
+          assert actual["n_matched_condition_sets"]==1024
+          assert len(actual["result"])==len(original["per_setting_background_mutation"])==16
+          for r in actual["result"]:
+              prior=next(x for x in original["per_setting_background_mutation"]
+                         if (x["setting"],x["recipient_background"],x["post_mutation_rate"])==
+                            (r["setting"],r["recipient_background"],r["post_mutation_rate"]))
+              for label,k in (("0","0.0"),("0.5","0.5"),("1","1.0")):
+                  assert abs(r["treatments"][k]["terminal_occupancy"]-
+                             prior["terminal_occupancy_by_dispersion_scale"][label])<1e-12
+          print("all 3072 trajectories and 16 ablation groups verified; no confirmatory claim")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: assurance-dispersion-readout
+          retention-days: 90
+          if-no-files-found: error
+          path: outputs/assurance-dispersion/recomputed.json

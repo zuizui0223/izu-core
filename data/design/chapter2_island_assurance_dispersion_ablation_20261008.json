@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "declared_on": "2026-10-08",
+  "status": "post_outcome_allelic_dispersion_ablation_exploratory_before_execution",
+  "question": "At exactly identical posthistory population mean of reproductive assurance, how does shrinking the transmitted diploid assurance-locus dispersion affect immediate payoff and finite persistence, with/without new postshock mutation?",
+  "parent": "data/design/chapter2_island_assurance_donor_mean_distribution_20261008.json",
+  "source": "data/design/chapter2_assurance_generality_20261006.json",
+  "history_seeds": [
+    35100801,
+    35100802,
+    35100803,
+    35100804
+  ],
+  "historical_demographic_repeat": 35101801,
+  "settings": [
+    "delayed_control",
+    "prior_selfing",
+    "pollen_discount",
+    "assurance_cost"
+  ],
+  "backgrounds": [
+    "near",
+    "far"
+  ],
+  "historical_updates": 400,
+  "post_capacity": 8,
+  "post_updates": 80,
+  "assurance_dispersion_scale": [
+    0,
+    0.5,
+    1
+  ],
+  "post_mutation_rate": [
+    0,
+    0.01
+  ],
+  "post_visitor_environments": [
+    "near",
+    "far"
+  ],
+  "post_ovule_budgets": [
+    3,
+    4
+  ],
+  "post_rng_repeats": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "post_visitor_seed_offset": 1000000,
+  "genetic_intervention": "For each of the eight recipient assurance allele copies pairs at time400, write A_new = mean(A_original) + q*(A_original - mean(A_original)) for q=0,.5,1. Mean is preserved exactly (floating arithmetic tol 1e-12). Variance becomes q^2 times original. Other loci, allele_origin, mutation flags and individual IDs are unchanged. q=1 bitwise identity. Genetic covariance of assurance with matching/investment also scales q, so this is NOT a pure variance intervention.",
+  "randomization": "All q and mutation treatments within setting/history/background/postvisitor/budget/repeat receive same deterministic postshock RNG streams; the post mutation mask keeps assurance mutable when rate 0.01 and disables all mutation when rate 0.0.",
+  "n_historical_populations": 32,
+  "n_genetic_states": 96,
+  "n_matched_stress_cells": 1024,
+  "n_poststress_trajectories": 3072,
+  "descriptive_primary": "For each setting and recipient background separately, report q=0 minus q=1 occupancy averaged over all four histories, both post visitor environments, both budgets and four postshock random streams, for mutation 0 and 0.01 separately. Also report q=.5. No pass/fail threshold or post-hoc omission.",
+  "readouts": [
+    "A mean and allele variance at switch",
+    "initial maternal viable output per resident",
+    "terminal occupancy after 80 updates",
+    "first extinction",
+    "t80 A genotype variance conditional on survival"
+  ],
+  "boundaries": [
+    "This is an exploratory *post-outcome* test on four exposed historical visitor seeds; no independent generality.",
+    "q=0 destroys assurance standing variance but also removes its linkage/cross-locus genotype covariance; effects cannot uniquely be attributed to variance.",
+    "Post-mutation 0 also freezes new variants at all three loci, not only assurance; distinguish from actual assurance-locus isolation.",
+    "Outcome-informed bottleneck (N=8), budget 3/4 are not calibrated natural-island levels.",
+    "This is an inherited-state intervention, not a manipulation of realized evolutionary-order timing.",
+    "Do not relabel the previously failed independent16 donor-transfer gate or mutational-priority gate."
+  ]
+}

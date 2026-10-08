@@ -61,6 +61,15 @@ jobs:
             tests/test_chapter2_1005_confirmed_result.py \
             tests/test_chapter2_assurance_generality.py \
             tests/test_chapter2_assurance_generality_result.py \
+            tests/test_chapter2_island_demographic_independent32.py \
+            tests/test_chapter2_island_mutational_priority.py \
+            tests/test_chapter2_island_mutational_order_realization.py \
+            tests/test_chapter2_island_genetic_state_transplant.py \
+            tests/test_chapter2_island_assurance_donor_mean_distribution.py \
+            tests/test_chapter2_island_assurance_postshock_rng_repeatability.py \
+            tests/test_chapter2_island_assurance_dispersion_ablation.py \
+            tests/test_chapter2_island_empirical_mechanism_contract.py \
+            tests/test_chapter2_island_persistence_evidence_rank.py \
             tests/test_chapter2_process_review_confirmed.py \
             tests/test_chapter2_public_archive_manifest.py \
             tests/test_chapter2_branch_identifiability_boundary.py \

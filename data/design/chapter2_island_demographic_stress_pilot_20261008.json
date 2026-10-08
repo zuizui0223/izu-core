@@ -1,0 +1,76 @@
+{
+  "schema_version": "1.0",
+  "date_declared": "2026-10-08",
+  "status": "exploratory_demographic_stress_design_fixed_before_new_screen",
+  "purpose": "Test whether historically evolved reproductive states alter persistence under the SAME post-switch visitor exposure and demographic bottleneck, and separate viability from realized persistence.",
+  "relation_to_precedents": "Prompted by the completed four-history common-environment pilot with 512/512 survival and the independent 64-history first-generation viable-output sign switch (global 4/5 gate FAILED). This is a new exploratory stress screen, not a post-hoc revision of the 64-history gate.",
+  "source_biology": "data/design/chapter2_assurance_generality_20261006.json",
+  "settings": [
+    "delayed_control",
+    "prior_selfing",
+    "pollen_discount",
+    "assurance_cost"
+  ],
+  "modes": [
+    "fixed",
+    "evolving"
+  ],
+  "pre_environments": [
+    "near",
+    "far"
+  ],
+  "post_environments": [
+    "near",
+    "far"
+  ],
+  "pre_updates": 400,
+  "post_updates": 80,
+  "mutation_pre": 0.01,
+  "mutation_post": 0.01,
+  "post_demographic_cap": 8,
+  "post_bottleneck_sample_size": 8,
+  "stress_ovule_budgets": [
+    0.25,
+    0.5,
+    1,
+    8
+  ],
+  "baseline_ovule_budget": 8,
+  "post_visitor_seed_offset": 1000000,
+  "visitor_history_seeds": [
+    29100801,
+    29100802,
+    29100803,
+    29100804,
+    29100805,
+    29100806,
+    29100807,
+    29100808
+  ],
+  "nested_demographic_repeats": [
+    29101801,
+    29101802
+  ],
+  "expected_groups_before_switch": 256,
+  "expected_post_case_count": 2048,
+  "switch_protocol": "At t=400 sample exactly 8 individuals without replacement from each resident population; apply new capacity 8 and ovule-budget stress for 80 generations, while keeping each plant's full inherited genotype and allowing Mendelian inheritance and mutation. The matched near-history and far-history populations see exactly the same NEW visitor histories for each post near/far arm. No external plant immigration.",
+  "readouts": [
+    "first post-switch expected viable maternal output per plant at bottleneck",
+    "terminal occupancy at 80 post generations",
+    "first post-switch extinction time; distinguish extinction from endpoint phenotype",
+    "mean floral investment and assurance conditional on occupancy",
+    "by-environment survival probability and history-paired far-history minus near-history contrast",
+    "history-level contrast of evolving vs fixed assurance mode conditional on identical settings"
+  ],
+  "inference": "8 independent visitor histories, two nested demographic repeats; exploratory descriptive with no significance or submission gate. Always report the full 4×2×2×2×4 stress grid, not selected stress slices.",
+  "boundaries": [
+    "Demographic shock is investigator-defined, not a natural disturbance calibrated to an island",
+    "New smaller carrying capacity changes density-dependent pollen transfer as well as population size; results are effects of the joint declared switch, not pure carrying capacity",
+    "Post-switch ovule_budget is an imposed fecundity cost, not empirically calibrated inbreeding depression",
+    "Population disappearance is not rescued by seed immigration (seed supply zero)",
+    "Differences arise from historical genotype states and demographic stochasticity; no direct manipulation of which trait evolved first",
+    "Any observed difference under the same population bottleneck cannot be called general island rescue without independent confirmation",
+    "The 64-history immediate payoff gate failed 1 of 5 predefined tests and remains failed",
+    "Never infer future genetic adaptive capacity solely from terminal standing variance"
+  ]
+}

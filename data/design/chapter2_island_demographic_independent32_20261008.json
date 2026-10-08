@@ -1,0 +1,66 @@
+{
+  "schema_version": "1.0",
+  "frozen_date": "2026-10-08",
+  "status": "frozen_before_new_history_demographic_confirmation",
+  "relation_to_discovery": "Outcome-informed 8-history stress screen (budget 0.25/0.5/1/8) and outcome-informed middle-range screen (budgets 2/3/4/5) motivated this independent-history confirmation. Those 8 histories are EXCLUDED. Freeze applies only to this new cohort, not the original scientific idea.",
+  "source_design": "data/design/chapter2_island_demographic_midrange_followup_20261008.json",
+  "source_biology": "data/design/chapter2_assurance_generality_20261006.json",
+  "settings": [
+    "delayed_control",
+    "prior_selfing",
+    "pollen_discount",
+    "assurance_cost"
+  ],
+  "modes": [
+    "fixed",
+    "evolving"
+  ],
+  "pre_environments": [
+    "near",
+    "far"
+  ],
+  "post_environments": [
+    "near",
+    "far"
+  ],
+  "prehistories": 400,
+  "post_updates": 80,
+  "source_bottleneck_n": 8,
+  "post_capacity": 8,
+  "stress_ovule_budgets": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "post_seed_offset": 1000000,
+  "pre_mutation_rate": 0.01,
+  "post_mutation_rate": 0.01,
+  "independent_visitor_histories": {
+    "first": 30100801,
+    "last": 30100832,
+    "count": 32
+  },
+  "demographic_repeat_seeds": [
+    30101801
+  ],
+  "total_groups": 512,
+  "total_post_trajectories": 4096,
+  "randomization": "Each independent history uses identical original founder state within its near/far pre arms. At t400 sample the same 8 individual indices with a separate matched RNG across pre-history arms; the different inherited genotypes remain intact. After switch, common new visitor histories and common random numbers are matched across histories within setting/mode/destination/budget. No plant arrival.",
+  "estimand": "For each visitor history and reproductive setting: sum occupancy indicators over 4 frozen budgets and 2 post destinations, divided by 8. Compute a far-pre minus near-pre difference under evolving assurance, and subtract the corresponding fixed-assurance difference. This is the matched difference in integrated persistence across the full fixed stress grid, not best-case survival at a selected budget.",
+  "frozen_primary_rule": "Pooled over all four settings, the mean of the 32 visitor-history means for (evolving far-minus-near AUC) - (fixed far-minus-near AUC) must be > 0 and its 95% history-bootstrap lower bound > 0. No setting may be omitted. Four separate setting estimates and their 95% history-bootstrap intervals are mandatory secondary results regardless of sign.",
+  "bootstrap": {
+    "seed": 3010082026,
+    "draws": 9999,
+    "unit": "visitor_history",
+    "interval": "percentile95"
+  },
+  "admissibility": "Require all 4096 post trajectories; missing/invalid case fails the test, extinct populations have zero occupancy but undefined trait endpoints. No survivor-only conditioning for persistence.",
+  "claim_limits": [
+    "The stress grid was outcome-informed by previous exploratory work; this is an independent-new-randomization test of a narrowly targeted hypothesis, not a global universal model claim.",
+    "No direct experimental control of temporal-order trait shifts",
+    "No natural island calibration or ecological rescue rate",
+    "Post-switch n and density pollen transfer and ovule budget jointly change by construction",
+    "This tests effect of allowing assurance evolution over 400 prehistory updates, not the isolated causal contribution of assurance alleles"
+  ]
+}

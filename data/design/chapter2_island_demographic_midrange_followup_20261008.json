@@ -1,0 +1,59 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-08",
+  "status": "post_outcome_exploratory_followup_declared_before_midrange_execution",
+  "why": "Initial exploratory stress grid ovule_budget=[0.25,0.5,1,8] at post-switch cap=8 and 80 updates placed essentially all outcomes at extinction and survival extremes. This middle grid is selected AFTER looking at those outcomes and can never be labelled independent or confirmatory.",
+  "parent_design": "data/design/chapter2_island_demographic_stress_pilot_20261008.json",
+  "source_settings": [
+    "delayed_control",
+    "prior_selfing",
+    "pollen_discount",
+    "assurance_cost"
+  ],
+  "post_ovule_budgets": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "same_history_seed_cohort": [
+    29100801,
+    29100802,
+    29100803,
+    29100804,
+    29100805,
+    29100806,
+    29100807,
+    29100808
+  ],
+  "same_demographic_repeats": [
+    29101801,
+    29101802
+  ],
+  "same_two_assurance_modes": [
+    "fixed",
+    "evolving"
+  ],
+  "same_pre_environments": [
+    "near",
+    "far"
+  ],
+  "same_post_environments": [
+    "near",
+    "far"
+  ],
+  "pre_updates": 400,
+  "post_updates": 80,
+  "carrying_capacity_after_bottleneck": 8,
+  "bottleneck_n": 8,
+  "expected_prehistory_groups": 256,
+  "expected_post_trajectories": 2048,
+  "statistical_reporting": "Report all 4 budgets ×4 settings ×2 modes ×2 pre ×2 post combinations with history-level paired occupancy contrasts. Descriptive only. Never pick successful threshold ex post and claim preregistered result.",
+  "interpretive_guards": [
+    "No independent external confirmation: histories repeated from first grid",
+    "A transition in survival is not automatically adaptive genetic rescue",
+    "Each paired history has two demographic replicates, not 16 independent histories",
+    "A benefit to viable maternal seed output is not automatically a benefit to long-term population survival",
+    "Do not change the previously failed five-condition independent first-generation payoff gate"
+  ]
+}

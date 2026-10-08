@@ -1,0 +1,71 @@
+{
+  "schema_version": "1.0",
+  "declared_date": "2026-10-08",
+  "status": "post_outcome_explanatory_mean_vs_distribution_pilot_before_execution",
+  "question": "Does the far-history assurance-locus transplant effect on immediate payoff and finite persistence mainly follow the donor's population mean, or require the donor's within-locus distribution and rank-matched genetic states?",
+  "origin": "Independent16 full-diploid-allele transplant was completed and its preregistered pollen-discount minus prior-selfing survival gate FAILED. After observing that full-donor effect correlates with donor-mean differences, this new experiment is explanatory and not an independent confirmation.",
+  "source_design": "data/design/chapter2_island_genetic_state_transplant_independent16_20261008.json",
+  "source_biology": "data/design/chapter2_assurance_generality_20261006.json",
+  "settings": [
+    "delayed_control",
+    "prior_selfing",
+    "pollen_discount",
+    "assurance_cost"
+  ],
+  "visitor_history_range": [
+    35100801,
+    35100816
+  ],
+  "demographic_repeat_seed": 35101801,
+  "historical_environments": [
+    "near",
+    "far"
+  ],
+  "recipient_backgrounds": [
+    "near",
+    "far"
+  ],
+  "pre_updates": 400,
+  "post_updates": 80,
+  "bottleneck_n": 8,
+  "post_capacity": 8,
+  "budgets": [
+    3,
+    4
+  ],
+  "post_visitor_environments": [
+    "near",
+    "far"
+  ],
+  "treatments": {
+    "native": "Unmodified recipient; preserves its original investment, matching and assurance diploid alleles.",
+    "full_donor": "Transfer the paired donor assurance alleles from the opposite historical background to recipients by within-locus phenotype rank, including matched lineage metadata.",
+    "recipient_mean_target": "Leave recipient assurance relative rank and original allele identities/markers in place, but transform both assurance alleles by a monotone bounded affine mapping so the recipient allele mean equals the opposite-history donor's mean. This DOES alter allele variance deterministically and is NOT a truly pure mean effect.",
+    "donor_distribution_centered": "Transfer ranked paired donor assurance alleles and provenance to recipients, then bounded-affine transform the transferred alleles to restore the recipient's original assurance population mean. This isolates the effect of rank/provenance/variance only imperfectly, because the scaling changes donor variance and allele values."
+  },
+  "rank_mapping": "Within each locus, align donor and recipient plant rows by stable order of their mean two-allele assurance genotype.",
+  "bounded_affine": "For current mean m and target t in [0,1], if t >= m: x_new=x+(t-m)*(1-x)/(1-m); if t < m: x_new=x-(m-t)*x/m. Handles degenerate means with explicit guards, maps allele values to [0,1] and target mean exactly.",
+  "outcome_metrics": [
+    "post-switch immediate viable maternal seed output per resident",
+    "post-switch female outcross seed output per resident",
+    "post-switch pollen export per resident",
+    "postshock occupancy after 80 generations"
+  ],
+  "common_randomization": "All treatments share identical future visitor trajectories and corresponding demographic random streams for each setting/history/recipient/postvisitor/budget.",
+  "grid_counts": {
+    "historical_pairs": 64,
+    "recipient_backgrounds": 128,
+    "genetic_states": 512,
+    "postshock_cases": 2048
+  },
+  "analysis": "Within each setting, visitor history and recipient background, compare full_donor-native, recipient_mean_target-native and donor_distribution_centered-native effects separately. Compare whether the bounded mean-targeted intervention reproduces magnitude/sign of full donor effects; do not treat 2048 outcomes as independent histories. Report all settings and both recipient backgrounds.",
+  "interpretive_guards": [
+    "Outcomes and predictor were already inspected before this explanatory design.",
+    "No hypothesis gate and no generality claim.",
+    "The bounded shift changes allelic variance and is not strictly a mean-only change.",
+    "The centered donor changes variance and covariance with recipient matching/investment; it is not pure distribution only.",
+    "The genotype interventions are synthetic; not biological allele editing feasible at this scale in wild island systems.",
+    "The failed independent16 between-setting preregistered donor-effect test remains FAILED.",
+    "No direct test of temporal trait-change order or natural-island demography."
+  ]
+}
