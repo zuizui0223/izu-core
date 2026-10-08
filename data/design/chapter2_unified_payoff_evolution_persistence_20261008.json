@@ -1,0 +1,210 @@
+{
+  "schema_version": "1.0",
+  "declared_date": "2026-10-08",
+  "status": "prospective_new_cohort_protocol_design_only_not_executed",
+  "title": "One-process island reproductive payoff, evolutionary feedback and persistence",
+  "main_question": "Does pollinator replenishment change maternal, paternal and selfing payoffs so that evolved reproductive assurance modifies both floral-investment divergence and future population persistence within the same inherited plant cohorts?",
+  "source_biology": {
+    "repository": "zuizui0223/izu-core",
+    "base_ref": "main",
+    "model_module": "scripts/model3_island",
+    "baseline_result": "data/results/chapter2_assurance_generality_20261006.json"
+  },
+  "previous_evidence": {
+    "previously_confirmed": "four-setting 1000-update assurance non-necessity and divergence compression from merged PR #411",
+    "previously_conditionally_confirmed": "32 independent-history postshock persistence interaction in Draft PR #413; mean 0.1083984375, history bootstrap95 [0.0654296875,0.1513671875]",
+    "observed_pilot_selection": "the demographic shock budget region 2-5 was motivated by observed outcomes in prior 8-history pilots",
+    "known_failed_tests": [
+      "independent64 five-part first-generation payoff conjunction",
+      "independent16 mutation-access sequence-effect contrast",
+      "independent16 between-setting diploid assurance-donor transplant contrast"
+    ],
+    "no_reuse": "No previous visitor history seeds or demographic seeds will be recycled as independent confirmations"
+  },
+  "reproductive_settings": [
+    "delayed_control",
+    "prior_selfing",
+    "pollen_discount",
+    "assurance_cost"
+  ],
+  "evolutionary_access_modes": [
+    "fixed",
+    "evolving"
+  ],
+  "pre_visitor_environments": [
+    "near",
+    "far"
+  ],
+  "histories": {
+    "first": 36110801,
+    "last": 36110864,
+    "count": 64,
+    "independent_unit": "visitor history"
+  },
+  "nested_demographic_repeat_seeds": [
+    36111801,
+    36111802
+  ],
+  "fixed_assurance_allele_value": 0.5,
+  "founder_policy": "Same genotypes and 48-source genetic initial distribution for every paired ecological and evolutionary-access comparison; assurance initial alleles forced to 0.5 in BOTH fixed and evolving modes; no initial A variance. Realized selfing is not forced to zero in fixed mode.",
+  "prehistory": {
+    "updates": 400,
+    "mutation_rate": 0.01,
+    "mutation_sd": "unchanged from 2026-10-06 frozen generality model unless the source configuration explicitly specifies otherwise",
+    "occupancy_census_times": [
+      0,
+      100,
+      200,
+      300,
+      400
+    ],
+    "local_diagnostic_times": [
+      0,
+      200,
+      400
+    ],
+    "outcome_components": [
+      "maternal viable outcross",
+      "paternal pollen export",
+      "viable selfed maternal offspring",
+      "genotype-count and mean/variance for matching, investment, assurance",
+      "realized selfing and pollen receipt",
+      "current carrying capacity and extinction status"
+    ],
+    "mechanism_diagnostic": "At each selected time use corrected fixed-resident rare-mutant W=0.5F+0.5P+S investment gradient at resident mean; decompose maternal outcross, paternal export, selfing displacement and ovule cost. This surrogate is not the exact selection gradient of a polymorphic finite population.",
+    "response_metrics": [
+      "investment change since source founder",
+      "assurance change since founder",
+      "near-minus-far investment contrast within fixed and evolving modes",
+      "evolving-minus-fixed change in that environmental investment contrast"
+    ],
+    "no_post_exposure": "Prehistory data and plan are fixed first. Do not inspect any new postshock outcomes before predeclared main contrasts and stress weights are recorded."
+  },
+  "postshock": {
+    "updates": 80,
+    "visitor_environments": [
+      "near",
+      "far"
+    ],
+    "budgets": [
+      0.5,
+      1,
+      2,
+      3,
+      4,
+      5,
+      8
+    ],
+    "budget_weighting": "Trapezoidal integration on log(budget), normalized across log(0.5) to log(8). Each log interval has geometric width; end weights half intervals. Treat as predeclared synthetic sensitivity aggregate, NOT a natural frequency distribution of fecundity shocks.",
+    "regimes": [
+      {
+        "id": "fecundity_only",
+        "sampling": "retain all living plants at t400",
+        "capacity": 48,
+        "budgets": "all"
+      },
+      {
+        "id": "founder_bottleneck",
+        "sampling": "randomly sample min(8,n_live) plants at t400",
+        "capacity": 48,
+        "budgets": "all"
+      },
+      {
+        "id": "bottleneck_small_capacity",
+        "sampling": "randomly sample min(8,n_live) plants at t400",
+        "capacity": 8,
+        "budgets": "all"
+      }
+    ],
+    "fork_policy": "Within each t400 plant state fork the actual finite genotypes and matching allele metadata unchanged to all 42 postshock branches. The same future visitor sequences and matched demographic RNG (not depending on pre near/far or assurance access mode) are used within each history, repeat, setting, regimen, budget and future visitor environment. Bottleneck sample indices are paired by visitor-history and repeat; never draw independent source founders post-history.",
+    "if_pre_extinct": "If a prehistory has no living plants, record all planned postshock terminal occupancies as zero and descendant trait endpoints null. Never drop or impute plant traits. A prehistory with 1–7 plants enters bottleneck with all survivors and explicit shortfall.",
+    "post_mutation_rate": 0.01,
+    "no_plant_immigration": true,
+    "primary_outcome": "occupancy (binary N>0) at postshock update80, plus first-extinction step. No survivor-only selection in occupancy estimands.",
+    "secondary_outcomes": [
+      "immediate viable maternal reproduction per plant",
+      "female viable outcross component",
+      "paternal pollen export component",
+      "time-to-extinction",
+      "genetic variance and mean of surviving plant traits, with structural missingness after extinction"
+    ]
+  },
+  "estimated_run_size": {
+    "prehistory_groups": 2048,
+    "shock_regimes": 3,
+    "budgets_per_regime": 7,
+    "future_environment_arms": 2,
+    "postshock_cases_per_prehistory": 42,
+    "postshock_trajectories": 86016,
+    "total_independent_visitor_histories": 64,
+    "demographic_repeats_within_history": 2,
+    "suggested_worker_shards": 64,
+    "budget": "Do not launch 86,016 full postshock simulations without first checking finite execution cost, memory and source-hash provenance; predeclared cohort stays unchanged in an engineering dry run."
+  },
+  "causal_estimates": {
+    "primary_stage1_evolution": {
+      "label": "4-setting necessity-and-attenuation re-challenge at update 400",
+      "fixed_far_minus_near": "investment_far_fixed - investment_near_fixed",
+      "attenuation": "(investment_far_evolving-investment_near_evolving) - (investment_far_fixed-investment_near_fixed)",
+      "rule": "All four settings need fixed_far_minus_near mean<0 with 95% visitor-history upper<0, AND attenuation mean>0 with lower>0. This is a NEW 400-update cohort and must not be called a replication of the old 1000-update gate if the new rule fails.",
+      "demographic_handling": "History-level mean over paired viable repeats; report all missing/early extinctions and fail admission if fewer than 60 of 64 histories have both evolutionary modes x near/far endpoints."
+    },
+    "primary_stage2_persistence": {
+      "label": "history-conditioned persistence modifier from enabling assurance evolution",
+      "history_delta": "[S_farPre-S_nearPre]_evolving - [S_farPre-S_nearPre]_fixed",
+      "integration": "For each history, setting, demographic repeat, regime and future visitor environment, integrate binary occupancy across the entire log-budget grid with predeclared normalized trapezoid weights. Average future visitor environments, then repeats WITHIN history. Pool four reproductive settings equally within each independent history.",
+      "primary_regime": "bottleneck_small_capacity",
+      "success_rule": "Pooled mean history_delta>0 and history-bootstrap95 lower>0. Report effect in other regimes as mandatory full-grid sensitivity, even if they reverse or fail.",
+      "claim_if_passed": "Conditional historical persistence modification under one synthetic bottleneck+capacity+fecundity shock regime; no universal evolutionary rescue claim.",
+      "missingness": "Pre-extinction contributes zero to occupancy; no loss of history denominators."
+    },
+    "secondary_cross_regime": {
+      "contrasts": [
+        "bottleneck_small_capacity versus founder_bottleneck: additional small-capacity/density impact",
+        "founder_bottleneck versus fecundity_only: numerical effect of seed-population sampling shock"
+      ],
+      "interpretation": "Effects of compound interventions, not clean mediation; cap effects can change functional pollen transfer."
+    },
+    "secondary_process": {
+      "contrasts": [
+        "rare-mutant investment gradient by A and visitor history",
+        "reproductive ledger female outcross/paternal export/selfing and costs",
+        "individual history genomic mean/variance and order threshold",
+        "phenotype convergence and functional compensation"
+      ],
+      "reporting": "Descriptive process paths, not formal natural direct/indirect effects. The timing at a finite threshold cannot prove evolutionary necessity."
+    },
+    "optional_density_model": {
+      "status": "not_part_of_primary_gate",
+      "rule": "Only apply an admitted finite genotype-density / nonlocal inheritance comparator on a small frozen set of common-visitor trajectories. Do not describe PDE or heat approximation as validated for positive-mutation 400+80 population trajectories; preserve prior numerical non-closure."
+    }
+  },
+  "inference": {
+    "bootstrap": {
+      "draws": 9999,
+      "seed": 3611082026,
+      "unit": "independent visitor history",
+      "interval": "percentile 95",
+      "replicate_hierarchy": "average two demographic repeats before any history resampling"
+    },
+    "multiple_claims": "Hierarchical two-stage gate: test stage1 four-setting evolution first, then stage2 positive pooled persistence. Report both results even if stage1 fails, but the UNIFIED CHAIN is supported only if both pass. Secondary estimates are not substitute success criteria.",
+    "admissibility": [
+      "All 2,048 prehistory cases and all 86,016 postshock branch outcomes required before any primary readout.",
+      "Verify zero-mutation structural identity of A-fixed/evolving modes only if a separately declared zero-mutation control is run; do not quietly infer it from positive-mutation data.",
+      "No redefinition of post budget range after outcomes.",
+      "No use of all postshock cases as independent ecological replicates.",
+      "Full effect across two future visitor environments and all reproductive settings must be shown, not best shock slice.",
+      "Track CPU/memory runtime, source commit and exact task hashes separately from scientific success."
+    ]
+  },
+  "interpretation_ceiling": [
+    "The near/far axis changes functional-type visitor replenishment, not island distance, area, actual pollinator abundance or realised visit rate.",
+    "Fixed assurance capacity does not mean realised selfing is absent.",
+    "Enabling assurance evolution changes many inherited traits and demographic trajectories; positive stage2 does not isolate A-allele mediation.",
+    "Trait-change temporal order is not experimentally prescribed or co-primary.",
+    "The chosen demographic risk grid is explicitly derived from exposed pilots; independent new histories enable conditional validation, not a general natural-shock distribution.",
+    "No wild-island field fitness, colour, corolla size or evolutionary rescue is claimed.",
+    "Null or negative outcomes are valid and will be archived; no on-the-fly parameter rescue.",
+    "Current PR #411 and PR #413 frozen conclusions retain separate status and provenance."
+  ]
+}
