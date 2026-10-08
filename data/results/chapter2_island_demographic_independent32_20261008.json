@@ -70,7 +70,17 @@
     "sha256_of_independent_summary": "7b725616470d4118fcfb5a6908d27d3cc8569a616242ba8083b42c9103f33e5f",
     "archive_contains_complete_raw": true,
     "github_actions_confirmation": false,
-    "public_doi_deposit": false
+    "public_doi_deposit": false,
+    "offline_shard_sha256": {
+      "demographic_independent32_shard_00.json": "a3c4abb97172569ab49a6f4ac517470ec3ffed3db7fb17a85199f254ad2e04c8",
+      "demographic_independent32_shard_01.json": "aec270829c17f55adc6707ad65c63972b1722ae642973e55a64005388c951e96",
+      "demographic_independent32_shard_02.json": "1feba5b72a393ddd0c2c941f3d4f68dc78eb1566218c6e18be9bfaf3540f7e92",
+      "demographic_independent32_shard_03.json": "4ac96f4ca8b25848dc1b546f46a4090b5af1697d1f6a8e87fc9875c85841b4ff",
+      "demographic_independent32_shard_04.json": "f22b8029dca9a92f8df7aace305a2087c10b0d942be78ce4978f41429a0ec0b5",
+      "demographic_independent32_shard_05.json": "7d1f1bc751c1e134dc85bccfb041207f266e9aff0774e164edb8044fd9df25db",
+      "demographic_independent32_shard_06.json": "1c4205964ace429af3c360200344690ffc115cb9b95a75b9626f3f9a360bc748",
+      "demographic_independent32_shard_07.json": "81afee9e054c7fbf5c0a0b03808acaf04b1d8bb78b1d4fb9c528c224b21c31f1"
+    }
   },
   "scientific_boundary": [
     "Independent32 gate is independent randomization conditional on a pilot-informed stress grid, not an unconditional generality claim",
