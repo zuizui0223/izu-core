@@ -196,6 +196,68 @@ def frequency_noise_covariance(q: np.ndarray, recruits: int) -> np.ndarray:
     return cov
 
 
+def genotype_counts_to_canonical_state(counts: np.ndarray,
+                                       grid: GeneticGrid,
+                                       year: int,
+                                       capacity: int) -> PlantState:
+    """Reconstruct individual genotypes WITHOUT discarding self-pollen exclusion.
+
+    Exact restricted sufficiency of genotype counts assumes no adult survival,
+    incoming seed genotypes, mutation, age effects or individual identity-based
+    trait effects. Every genotype copy becomes a distinct canonical individual.
+    """
+    if type(year) is not int or year < 0 or type(capacity) is not int or capacity < 1:
+        raise ValueError("invalid genotype reconstruction horizon")
+    counts = np.asarray(counts)
+    if (counts.shape != (len(grid.genotypes),) or counts.dtype.kind not in "iu"
+            or (counts < 0).any() or counts.sum() > capacity):
+        raise ValueError("genotype counts must be nonnegative bounded integers")
+    alleles = np.repeat(grid.genotypes, counts, axis=0).copy()
+    n = len(alleles)
+    return PlantState(
+        alleles=alleles,
+        allele_origin=np.zeros((n, 3, 2), dtype=np.int64),
+        mutation_flags=np.zeros((n, 3, 2), dtype=bool),
+        ids=year * capacity + np.arange(n, dtype=np.int64),
+        birth_years=np.full(n, year, dtype=np.int64),
+    )
+
+
+def genotype_count_markov_step(counts: np.ndarray,
+                               grid: GeneticGrid,
+                               visitors,
+                               config: Config,
+                               rng: np.random.Generator,
+                               *, year: int) -> np.ndarray:
+    """An EXACT genotype-count Markov law for the declared restricted ABM.
+
+    Calls unmodified canonical reproduction on reconstructed individuals,
+    preserving each plant's self-pollen exclusion. Samples capped Poisson
+    reproduction and categorical Mendelian diploid offspring genotypes. This
+    is an independent numerical realization of the restricted finite ABM
+    transition kernel, NOT a new biology, SDE, or SPDE.
+    """
+    if (config.survival != 0 or config.mutation_rate != 0
+            or config.seed_arrival.supply != 0):
+        raise ValueError("restricted genotype Markov needs no survival/mutation/seeds")
+    if not isinstance(rng, np.random.Generator):
+        raise TypeError("numpy random generator required")
+    s = genotype_counts_to_canonical_state(counts, grid, year, config.capacity)
+    result = np.zeros(len(grid.genotypes), dtype=np.int64)
+    if len(s.ids)==0:
+        return result
+    from scripts.model3_island.reproduction import reproduce
+    ledger = reproduce(s, visitors, config)
+    parents = ledger.outcross.copy()
+    parents[np.diag_indices(len(s.ids))] += ledger.self_viable
+    intensity = float(parents.sum())
+    n = min(int(rng.poisson(intensity)), config.capacity)
+    if not n or intensity <= 0:
+        return result
+    q = offspring_genotype_distribution(s, parents / intensity, grid)
+    return rng.multinomial(n, q)
+
+
 def gaussian_frequency_boundary_risk(q: np.ndarray, recruits: int) -> dict:
     """Rigorous marginal risks for an unconstrained Gaussian frequency step.
 
