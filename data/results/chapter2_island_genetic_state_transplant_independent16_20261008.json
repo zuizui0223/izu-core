@@ -1,0 +1,333 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-08",
+  "status": "independent16_allele_transplant_main_gate_failed",
+  "design": "data/design/chapter2_island_genetic_state_transplant_independent16_20261008.json",
+  "independent_visitor_histories": 16,
+  "nested_demographic_repeats": 1,
+  "historical_pairs": 64,
+  "recipient_backgrounds": 128,
+  "genetic_factorial_states": 512,
+  "poststress_trajectories": 2048,
+  "bootstrap": {
+    "unit": "visitor_history",
+    "draws": 9999,
+    "seed": 3510082026,
+    "percentile95": true
+  },
+  "frozen_primary": {
+    "comparison": "pollen_discount minus prior_selfing assurance-donor marginal occupancy effect in near recipient",
+    "mean": 0.140625,
+    "bootstrap95": [
+      -0.078125,
+      0.359375
+    ],
+    "passed": false
+  },
+  "secondary_by_setting_and_background": [
+    {
+      "setting": "delayed_control",
+      "recipient_background": "near",
+      "viable_maternal": {
+        "investment_effect": {
+          "mean": -0.004296,
+          "bootstrap95": [
+            -0.047686,
+            0.04522
+          ]
+        },
+        "assurance_effect": {
+          "mean": 0.161581,
+          "bootstrap95": [
+            0.056656,
+            0.262288
+          ]
+        }
+      },
+      "terminal_occupancy": {
+        "investment_effect": {
+          "mean": 0.078125,
+          "bootstrap95": [
+            0.015625,
+            0.140625
+          ]
+        },
+        "assurance_effect": {
+          "mean": 0.296875,
+          "bootstrap95": [
+            0.132812,
+            0.460938
+          ]
+        }
+      }
+    },
+    {
+      "setting": "delayed_control",
+      "recipient_background": "far",
+      "viable_maternal": {
+        "investment_effect": {
+          "mean": 0.012039,
+          "bootstrap95": [
+            -0.036119,
+            0.065245
+          ]
+        },
+        "assurance_effect": {
+          "mean": 0.165999,
+          "bootstrap95": [
+            0.057794,
+            0.269153
+          ]
+        }
+      },
+      "terminal_occupancy": {
+        "investment_effect": {
+          "mean": 0.09375,
+          "bootstrap95": [
+            0.015625,
+            0.171875
+          ]
+        },
+        "assurance_effect": {
+          "mean": 0.28125,
+          "bootstrap95": [
+            0.09375,
+            0.46875
+          ]
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "recipient_background": "near",
+      "viable_maternal": {
+        "investment_effect": {
+          "mean": 0.026359,
+          "bootstrap95": [
+            -0.001593,
+            0.051931
+          ]
+        },
+        "assurance_effect": {
+          "mean": 0.136218,
+          "bootstrap95": [
+            0.066192,
+            0.209547
+          ]
+        }
+      },
+      "terminal_occupancy": {
+        "investment_effect": {
+          "mean": 0.023438,
+          "bootstrap95": [
+            -0.078125,
+            0.132812
+          ]
+        },
+        "assurance_effect": {
+          "mean": 0.179688,
+          "bootstrap95": [
+            0.070312,
+            0.297266
+          ]
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "recipient_background": "far",
+      "viable_maternal": {
+        "investment_effect": {
+          "mean": 0.027898,
+          "bootstrap95": [
+            -0.000478,
+            0.053999
+          ]
+        },
+        "assurance_effect": {
+          "mean": 0.140671,
+          "bootstrap95": [
+            0.069919,
+            0.214195
+          ]
+        }
+      },
+      "terminal_occupancy": {
+        "investment_effect": {
+          "mean": 0.046875,
+          "bootstrap95": [
+            -0.007812,
+            0.109375
+          ]
+        },
+        "assurance_effect": {
+          "mean": 0.234375,
+          "bootstrap95": [
+            0.085938,
+            0.382812
+          ]
+        }
+      }
+    },
+    {
+      "setting": "pollen_discount",
+      "recipient_background": "near",
+      "viable_maternal": {
+        "investment_effect": {
+          "mean": 0.002884,
+          "bootstrap95": [
+            -0.032097,
+            0.037686
+          ]
+        },
+        "assurance_effect": {
+          "mean": 0.231473,
+          "bootstrap95": [
+            0.147673,
+            0.316326
+          ]
+        }
+      },
+      "terminal_occupancy": {
+        "investment_effect": {
+          "mean": 0.039062,
+          "bootstrap95": [
+            -0.023438,
+            0.101562
+          ]
+        },
+        "assurance_effect": {
+          "mean": 0.320312,
+          "bootstrap95": [
+            0.15625,
+            0.492188
+          ]
+        }
+      }
+    },
+    {
+      "setting": "pollen_discount",
+      "recipient_background": "far",
+      "viable_maternal": {
+        "investment_effect": {
+          "mean": 0.024524,
+          "bootstrap95": [
+            -0.009133,
+            0.059151
+          ]
+        },
+        "assurance_effect": {
+          "mean": 0.251246,
+          "bootstrap95": [
+            0.156264,
+            0.348338
+          ]
+        }
+      },
+      "terminal_occupancy": {
+        "investment_effect": {
+          "mean": -0.015625,
+          "bootstrap95": [
+            -0.09375,
+            0.0625
+          ]
+        },
+        "assurance_effect": {
+          "mean": 0.296875,
+          "bootstrap95": [
+            0.140625,
+            0.445312
+          ]
+        }
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "recipient_background": "near",
+      "viable_maternal": {
+        "investment_effect": {
+          "mean": -0.028649,
+          "bootstrap95": [
+            -0.062772,
+            0.002419
+          ]
+        },
+        "assurance_effect": {
+          "mean": 0.040488,
+          "bootstrap95": [
+            0.018541,
+            0.062913
+          ]
+        }
+      },
+      "terminal_occupancy": {
+        "investment_effect": {
+          "mean": 0,
+          "bootstrap95": [
+            -0.054688,
+            0.054688
+          ]
+        },
+        "assurance_effect": {
+          "mean": 0.046875,
+          "bootstrap95": [
+            0,
+            0.09375
+          ]
+        }
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "recipient_background": "far",
+      "viable_maternal": {
+        "investment_effect": {
+          "mean": -0.008039,
+          "bootstrap95": [
+            -0.061941,
+            0.046801
+          ]
+        },
+        "assurance_effect": {
+          "mean": 0.041729,
+          "bootstrap95": [
+            0.016542,
+            0.067782
+          ]
+        }
+      },
+      "terminal_occupancy": {
+        "investment_effect": {
+          "mean": -0.023438,
+          "bootstrap95": [
+            -0.070312,
+            0.023438
+          ]
+        },
+        "assurance_effect": {
+          "mean": 0.039062,
+          "bootstrap95": [
+            -0.007812,
+            0.085938
+          ]
+        }
+      }
+    }
+  ],
+  "provenance": {
+    "local_archive": "izu_core_island_genetic_state_transplant_independent16_20261008.zip",
+    "archive_sha256": "0213d9ca1a39cd49891bf71706230942b1095d1f62b9bd1cfe1549c00c8fb442",
+    "raw_sha256": "44a00313654d347bb29c0500e5f562472adec9b6cd74441c57c8d6cef1ac3fd6",
+    "full_summary_sha256": "a69a61f4e2cf275cf92959179d26e6e285b8e2822a897348d3661697637eaddb",
+    "biology_source_sha256": "71a1b1d9c4d683b874c989fa7768a14e72c5353063d8213cbe42f42cd37473d4",
+    "github_actions_replay": false
+  },
+  "claim_bounds": [
+    "The preregistered comparison across reproductive modes did not pass and may not be replaced by positive secondary settings",
+    "Secondary positive assurance-donor effects are within the chosen visitor histories and budgets 3/4, conditional on the synthetic stress model",
+    "Allele substitution modifies genetic covariance and allele identity, not just a single trait's mean",
+    "No direct intervention on evolutionary temporal order or causal mediation fraction",
+    "All 2048 stress arms are nested within 16 independent histories",
+    "The independent16 mutation-priority gate and independent64 all-five maternal-output gate remain failures"
+  ]
+}
