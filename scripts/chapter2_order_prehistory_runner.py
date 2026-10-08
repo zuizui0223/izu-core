@@ -118,6 +118,7 @@ def simulate_prehistory(task: Prehistory, d: dict, biology: dict,
     recorder = GeneticOrderRecorder(state)
     checkpoints = []
     payoff_snapshots = []
+    ancestry_by_year = []
     for t in range(periods + 1):
         if t in d["prehistory"]["snapshot_times"] or t == periods:
             checkpoint = {"t": t, **genetic_summary(state)}
@@ -158,13 +159,25 @@ def simulate_prehistory(task: Prehistory, d: dict, biology: dict,
         candidates = visitor.seed_candidates[t]
         if len(candidates.ids):
             raise AssertionError("plant immigrant candidates in zero-immigration model")
-        state, _ = advance(
+        state, info = advance(
             state, ledger, candidates, cfg, rng, year=t,
             mutation_traits=(True, True, True),
         )
+        # Audit all recruited parent–offspring links without constructing
+        # the genealogy from terminal genetic means or inferred origin.
+        parentage = info["parentage"]
+        if parentage.ndim != 2 or parentage.shape[1] != 3:
+            raise AssertionError("invalid parentage array")
+        if len(parentage):
+            ancestry_by_year.append(np.column_stack([
+                np.full(len(parentage), t + 1, dtype=np.int64),
+                parentage.astype(np.int64),
+            ]))
         recorder.observe(t + 1, state)
     annual = recorder.observations
     realization = recorder.summary() if periods == 400 else None
+    pedigree = (np.concatenate(ancestry_by_year, axis=0)
+                if ancestry_by_year else np.empty((0, 4), dtype=np.int64))
     return state, {
         "task": asdict(task),
         "status": "raw_prehistory_unadjudicated",
@@ -175,7 +188,11 @@ def simulate_prehistory(task: Prehistory, d: dict, biology: dict,
         "realized_genetic_order": realization,
         "reproductive_checkpoints": payoff_snapshots,
         "no_future_outcomes_exposed": True,
-    }
+        "parentage_link_count": int(len(pedigree)),
+        "parentage_year_bounds": [
+            int(pedigree[:,0].min()), int(pedigree[:,0].max())
+        ] if len(pedigree) else None,
+    }, pedigree
 
 
 def _atomic_bytes(path: Path, raw: bytes) -> None:
@@ -202,12 +219,13 @@ def persist_one(out: Path, task: Prehistory, d: dict, biology: dict,
                     state_file.read_bytes()).hexdigest()):
             raise AssertionError("existing source state receipt incompatible")
         return key
-    state, payload = simulate_prehistory(task, d, biology)
+    state, payload, pedigree = simulate_prehistory(task, d, biology)
     temp = state_file.with_suffix(".npz.tmp")
     with temp.open("wb") as handle:
-        np.savez_compressed(handle, **{
-            field: getattr(state, field) for field in STATE_FIELDS
-        })
+        np.savez_compressed(handle,
+            **{field: getattr(state, field) for field in STATE_FIELDS},
+            parentage_edges=pedigree,
+        )
     os.replace(temp, state_file)
     payload["source_hashes"] = hashes
     payload["protocol_sha256"] = dsha
