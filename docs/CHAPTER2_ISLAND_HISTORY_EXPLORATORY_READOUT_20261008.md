@@ -1,0 +1,54 @@
+# Island pollinator-history reciprocal transplant — exploratory 2026-10-08 readout
+
+**Inference status:** exploratory, NOT confirmatory; 4 independently generated visitor histories with 2 nested demographic repeats. No inference on natural-island fitness, causal temporal ordering, or evolutionary rescue.
+
+## Executed screen and provenance
+
+The protocol was declared on this branch before running the screen (see `data/design/chapter2_island_history_transplant_20261008.json`). A local 512-case replication used the archived biological source package (`sources.zip`) recovered from the hash-recorded **2026-10-06 generality campaign, shard 31**, along with the predeclared branch parameters. The isolated branch runner/summary, which is intended to reexecute the same biological rules, still requires separate CI-backed execution. Accordingly, these outcomes are labelled an **offline exploratory run**, not a CI-verified branch-result file.
+
+- 128 common pre-switch populations; each forked at update 400 into four post-switch treatments, yielding **512/512 completed cases**.
+- Four histories × two nested repeats; the 512 cases are **not independent experimental replicates**.
+- All stored 128 group JSON cases and their SHA-256 receipts verified. Each group's four post treatments had identical switch-time population genotype snapshot hashes.
+- All 512 post-switch populations were occupied at update 800. Minimum post-switch population size was positive in every case. Thus **no extinction or demographic rescue contrast is identified**.
+- No new mutation after switch does **not** freeze inheritance or selection. The initial standing genetic variation and segregation remain active; mutation=0 merely suppresses new mutational input.
+- The zipped run outputs and raw receipts have SHA-256 `9492d1448f7a26bb00d4aab23ada4375805ad9254470a4ff490b4223e39b37f8` (local review artifact, not an externally deposited DOI).
+
+## The two inherited histories remain phenotypically different
+
+Within each setting/mode/history/repeat, the founders were identical before selection and the newly generated visitor process for a given post environment was shared. The table below shows **far-pre minus near-pre** floral investment under common post=near conditions, in the evolving-assurance arm. Each cell is a mean of four history means (two nested demographic repeats per history).
+
+| Reproductive setting | Difference at switch 400 | Endpoint with post mutation=0 | Endpoint with post mutation=.01 |
+|---|---:|---:|---:|
+| Delayed control | -0.1954 | -0.1948 | -0.1780 |
+| Prior selfing | -0.2138 | -0.2008 | -0.1329 |
+| Pollen discount | -0.1848 | -0.1901 | -0.1119 |
+| Direct assurance cost | -0.2366 | -0.2313 | -0.2168 |
+
+The corresponding common post=far treatments also retained negative endpoint history contrasts. Across all 16 setting × assurance mode × post-environment combinations, adding new mutation reduced the **magnitude** of the endpoint inherited-history contrast in 15 and increased it slightly in one (prior-selfing, fixed assurance, post-near). This is a descriptive count of model cells, not independent confirmation or proof of a universal mutation-mediated increase in evolvability.
+
+The endpoint gap could reflect inherited starting differences rather than divergent ongoing selection; these data do **not** identify a unique path-dependent adaptive basin or selection mechanism.
+
+## Payoff consequence: viability and outcross need not rank histories the same way
+
+Immediately at the switch, both historical populations encountered the same first post-switch visitor community. The following common-environment outcomes are **far-history minus near-history per resident plant**, evolving assurance only:
+
+| Setting | Difference in viable maternal output | Difference in female outcross output | Difference in pollen export |
+|---|---:|---:|---:|
+| Delayed control | -0.069 | -0.722 | -0.732 |
+| Prior selfing | **+0.378** | -0.072 | -0.533 |
+| Pollen discount | **+0.261** | -0.344 | -0.344 |
+| Assurance cost | -0.362 | -1.026 | -1.272 |
+
+Prior-selfing viable maternal contrast was positive in all four independently generated visitor histories (history means +0.400, +0.292, +0.774, +0.043); pollen-discount was positive in three of four. These are 4-history descriptive replicates; do **not** report confidence intervals or sign-test evidence.
+
+In these rules, the formerly low-replenishment population can produce **more viable maternal offspring through elevated assurance while providing less outcross function** under the same contemporary visitor regime. This is the precise payoff trade-off potentially worth prospectively confirming. Pollen export is not equivalent to total male genetic fitness, because selfed offspring contribute both parental genome copies. Immediate viable maternal output is not extinction probability or later population growth at a fixed carrying capacity.
+
+## What this does and does not resolve for island ecology
+
+This screen isolates selection *after* establishment and holds plant immigration absent; it does not model Baker's-law arrival filtering, real island distances, geological times, empirical pollinator populations, wind-pollinated floral evolution or the distribution of natural island traits. The trait is abstract floral investment, not measured corolla area. The two pre-environments are visitor-functional-type replenishment levels, not actual island identities.
+
+**Candidate mechanistic claim for next independent test:** different ancestral pollination histories can create a latent **female viable-output versus outcross-transfer trade-off** under identical current pollination, and the sign of the viable-output contrast depends on how selfing is implemented (prior, delayed, discounted or costly). This prediction is more specific and falsifiable than generic eco-evolutionary feedback or “island syndrome causes smaller flowers.”
+
+**Next falsification tests:** (i) rerun the exact protocol on independent histories at sufficient history-level n; (ii) factorially clamp inherited investment and assurance states to test which trait changes the immediate payoff contrast while controlling matching; (iii) modify demographic risk **prospectively** if extinction/persistence is to be a claim; (iv) independently contrast post-establishment adaptation with founding/arrival filters. Direct intervention on *trait-change order* is still required before stating that order itself causes persistence or changes future adaptive capacity.
+
+All outcomes are outside the frozen four-setting causal-necessity/attenuation confirmation used by the current Ecology Letters manuscript.
