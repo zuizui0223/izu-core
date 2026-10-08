@@ -43,7 +43,7 @@ A **history-out-of-fold** predictive test compares:
 - **Smooth:** degree-3 polynomial in centered log(budget) for `D_h(b)`, fitted with fixed ridge = 0.0001.
 - **Fixed window:** the same cubic smooth predictors **plus one prechosen budget-3/4 indicator**.
 
-Partition the 64 histories into eight deterministic folds by history index mod 8. Fit on 56 entire histories and predict all seven budgets for each heldout set of eight histories. The outcome is the **per-history seven-budget mean-squared-error reduction** from adding the fixed window indicator. Bootstrap these 64 held-out improvements (using the same 9,999 history draws). The positive improvement interval must exclude zero and the average improvement must be at least **0.0005 occupancy²**.
+Partition the 64 histories into eight deterministic folds by history index mod 8. Fit on 56 entire histories and predict all seven budgets for each heldout set of eight histories. The outcome is the **per-history seven-budget mean-squared-error reduction** from adding the fixed window indicator. Bootstrap these 64 held-out improvements (using the same 9,999 history draws). The positive improvement interval must exclude zero and the average improvement must be at least **0.0001 occupancy²**.
 
 **Confirm** only if the independent `R` magnitude/uncertainty gate **and** the out-of-history smooth-comparator gate both pass. A full R interval strictly inside (−0.05,+0.05) is a bounded practical-equivalence result; all other cases are inconclusive/not distinguishable from the declared smooth model.
 
