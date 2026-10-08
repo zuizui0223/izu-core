@@ -1,15 +1,6 @@
 name: Chapter 2 island-history exploratory pilot
 
 on:
-  push:
-    branches:
-      - chapter2/island-history-transplant-20261008
-    paths:
-      - '.github/workflows/chapter2-island-history-pilot.yml'
-      - 'data/design/chapter2_island_history_transplant_20261008.json'
-      - 'scripts/run_chapter2_island_history_transplant.py'
-      - 'scripts/summarize_chapter2_island_history_transplant.py'
-      - 'tests/test_chapter2_island_history_transplant.py'
   workflow_dispatch:
 
 concurrency:
