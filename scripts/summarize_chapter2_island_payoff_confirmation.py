@@ -76,19 +76,30 @@ def independent_history_summary(d, cases):
             admission = eligible >= d["admission"]["minimum_complete_independent_histories"]
             if eligible == len(histories):
                 boot = valid[indexes].mean(axis=1)
-            elif eligible >= 1:
-                # Null bootstrap for censored histories: never silently
-                # drop history rows from the frozen 64-unit index.
-                boot = None
+            elif eligible >= d["admission"]["minimum_complete_independent_histories"]:
+                # Conditional survivor analysis, explicitly labelled by the
+                # eligible history count. Never fill extinction endpoints with 0.
+                local_rng = np.random.default_rng(
+                    d["bootstrap"]["seed"] + settings.index(setting) * 10
+                    + modes.index(mode) * 3 + metrics.index(metric)
+                )
+                valid_draws = local_rng.integers(
+                    0, eligible, size=(d["bootstrap"]["draws"], eligible)
+                )
+                boot = valid[valid_draws].mean(axis=1)
             else:
                 boot = None
             mean = float(valid.mean()) if eligible else None
             interval = [float(x) for x in np.percentile(boot, [2.5, 97.5])] if boot is not None else None
+            occupancy_ok = (
+                n_occupied_near / n_seen_near >= d["admission"]["minimum_terminal_occupancy_per_cell"]
+                and n_occupied_far / n_seen_far >= d["admission"]["minimum_terminal_occupancy_per_cell"]
+            )
             table.append({
                 "setting": setting, "mode": mode, "metric": metric,
                 "independent_histories": len(histories),
                 "eligible_complete_histories": eligible,
-                "admissible": admission and interval is not None,
+                "admissible": admission and occupancy_ok and interval is not None,
                 "mean": mean, "bootstrap95": interval,
                 "history_positive_count": int((valid > 0).sum()),
                 "history_negative_count": int((valid < 0).sum()),
