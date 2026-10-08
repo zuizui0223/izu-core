@@ -191,8 +191,8 @@ collapsed:
    viable offspring.
 
 The primary process result is now independently confirmed. In the preregistered
-delayed-selfing, assurance-cost 0.5, positive-mutation cell, 64 new visitor
-histories again produced **51/64 assurance-first histories** at the primary 0.05
+delayed-selfing, assurance-cost 0.5, positive-mutation cell, 64 new visitor histories
+again produced **51/64 assurance-first histories** at the primary 0.05
 threshold (95% history-bootstrap **0.6875–0.8906**). A separate new-history
 fixed-assurance replication retained a negative far investment change
 (**−0.3060 [−0.3181, −0.2941]**) and negative far-minus-near effect
