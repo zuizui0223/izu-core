@@ -41,7 +41,7 @@ Given (N=n>0), the variance of the recruited population's trait mean is (Sigma_{
 
 The extinction probability is exactly (e^{-R}), given the stated restricted case. Trait means are **undefined following extinction** and are not assigned numeric zero.
 
-The module `scripts/audit_model3_stochastic_bridge.py` computes this kernel analytically; `tests/test_model3_stochastic_bridge.py` calls the **original** Model 3 `advance()` to test it with independent seeded draws. This is a discrete-time stochastic one-step reference for any proposed SDE, *not yet a calibrated continuous-time diffusion*.
+The module `scripts/audit_model3_stochastic_bridge.py` computes this kernel analytically; `tests/test_model3_stochastic_bridge.py` calls the **original** Model 3 `advance()` to test it with independent seeded draws. `draw_gaussian_trait_surrogate` additionally samples an **Euler-style, conditional Gaussian one-step candidate** using the derived covariance divided by the actual sampled number of offspring and preserving explicit `N=0` extinction. The test checks its matched moments against the derived target. It is *not yet a calibrated continuous-time SDE*, nor does moment agreement validate distributional tails or guarantee shape-bounded states.
 
 ## Stage 2: genotype-frequency noise and trait-space SPDE feasibility
 
@@ -52,7 +52,7 @@ On a small **exact fixed allele support**, canonical parents and Mendelian gamet
 =\frac{q_i\mathbf1_{i=j}-q_iq_j}{n}.
 \]
 
-The off-diagonal correlations are in general **negative**; the covariance rows sum to zero and conserve total mass. Independent white noise on each genotype would violate this constraint. `draw_exact_frequency` provides a nonnegative multinomial representation of this *restricted* stochastic genotype-density step. It is not an SPDE solver, and must not be labelled an independent biological model.
+The off-diagonal correlations are in general **negative**; the covariance rows sum to zero and conserve total mass. Independent white noise on each genotype would violate this constraint. `draw_exact_frequency` provides a nonnegative multinomial representation of this *restricted* stochastic genotype-density step. In contrast, `gaussian_frequency_boundary_risk` computes rigorous lower and union-bound upper probabilities that unconstrained Gaussian noise with exactly that covariance yields a **negative genotype frequency**. This boundary diagnostic tests one necessary SPDE feasibility condition; it is **not** an SPDE solver and is not an independent biological model.
 
 ### Feasibility verdict criteria
 
