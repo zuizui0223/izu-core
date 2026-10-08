@@ -72,3 +72,39 @@ This screen isolates selection *after* establishment and holds plant immigration
 **Next falsification tests:** (i) rerun the exact protocol on independent histories at sufficient history-level n; (ii) factorially clamp inherited investment and assurance states to test which trait changes the immediate payoff contrast while controlling matching; (iii) modify demographic risk **prospectively** if extinction/persistence is to be a claim; (iv) independently contrast post-establishment adaptation with founding/arrival filters. Direct intervention on *trait-change order* is still required before stating that order itself causes persistence or changes future adaptive capacity.
 
 All outcomes are outside the frozen four-setting causal-necessity/attenuation confirmation used by the current Ecology Letters manuscript.
+
+
+## Independently frozen 64-history payoff test (separate from the four-history exploratory screen)
+
+After the first four visitor-history results were observed, the **new 64-history cohort, two nested repeats, four settings, two assurance modes, paired near/far prehistories and five primary sign/interval criteria were frozen before inspecting the new cohort** in `data/design/chapter2_island_payoff_confirmation_20261008.json`. The new cohort was then independently run from the archived biology source as 1,024 paired cases / 2,048 prehistories. Its local offline readout is recorded in `data/results/chapter2_island_payoff_independent_offline_20261008.json`; the separate GitHub Actions workflow rerun is not yet the provenance of these numerical values.
+
+**Outcome: 4 of 5 preregistered criteria passed; the global all-five gate FAILED.** Do not reclassify it as all-confirmed or rewrite the fifth criterion.
+
+| Predeclared sign at identical post-switch visitors, far-pre minus near-pre | History-level mean | 95% bootstrap | Pass |
+|---|---:|---:|:---:|
+| Prior selfing, evolving assurance, viable maternal > 0 | +0.3292 | [+0.2589, +0.4011] | yes |
+| Pollen discount, evolving assurance, viable maternal > 0 | +0.3533 | [+0.2742, +0.4366] | yes |
+| Assurance cost, evolving assurance, viable maternal < 0 | **−0.0131** | **[−0.1080, +0.0833]** | **NO** |
+| Prior selfing, evolving assurance, female outcross < 0 | −0.1413 | [−0.1782, −0.1044] | yes |
+| Pollen discount, evolving assurance, female outcross < 0 | −0.2774 | [−0.3835, −0.1740] | yes |
+
+All estimates average the two repeats within each of the **64 independent visitor histories**, then bootstrap histories 9,999 times with the frozen seed 2810082026. The cost-setting sign prediction from the four-history exploratory sample did not generalize.
+
+A different, **post-outcome explanatory** comparison shows that for every setting, the far-history minus near-history viable-maternal contrast was negative with fixed assurance but less negative or positive with assurance allowed to evolve:
+
+| Reproductive setting | Fixed assurance: viable difference | Evolving assurance: viable difference | Evolving-minus-fixed interaction (exploratory) |
+|---|---:|---:|---:|
+| Delayed control | −0.3098 | +0.2891 | +0.5989 [0.4723, 0.7251] |
+| Prior selfing | −0.1241 | +0.3292 | +0.4533 [0.3536, 0.5507] |
+| Pollen discount | −0.1191 | +0.3533 | +0.4725 [0.3783, 0.5700] |
+| Assurance cost | −0.2926 | −0.0131 | +0.2795 [0.1476, 0.4116] |
+
+The delayed-control positive viability contrast is **new secondary evidence**, not one of the frozen five tests. The explanatory mean-clamping diagnostic also changes relative to the tiny exploratory cohort: at a near-history matching background, the viable-output shift attributed to changing assurance means is +0.335 delayed, +0.258 prior, +0.307 pollen discount, +0.050 costly; the corresponding investment-mean shifts are −0.059, +0.074, +0.040 and −0.083. These are fixed-state counterfactuals in a variance-clamped artificial population, **not** dynamic causal mediation.
+
+### Island-ecological implication and stop line
+
+The biologically testable distinction is between **female viable-output compensation** and **loss of outcross pollen transfer**. A formerly low-pollinator population can have greater maternal viable seed potential under the same present pollinator community even while delivering less outcross reproduction. But direct assurance costs can prevent a clear viability rank advantage; the frozen assay does not establish a general negative cost-setting contrast.
+
+A single present-day flower phenotype or seed-set snapshot cannot, on its own, reconstruct which mating strategy or historic pollinator environment produced it. The observation is model-only and must not be translated into universal island-plant fitness or real-island extinction without empirical measures. This independent experiment ends at a **common-community immediate reproductive assay**, not a 400-year post-switch persistence assay; the earlier 512-case pilot had no extinction at all. Neither experiment establishes evolutionary rescue, an effect of trait-change temporal order itself, or long-term adaptive capacity.
+
+Next manuscript test is an independently specified observation/field comparison that resolves maternal seed viability, realized selfing and outcross male function separately, not just flower size or a single seed-set metric. No current Ecology Letters manuscript claim is silently broadened by the 4/5 gate.
