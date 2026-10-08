@@ -99,7 +99,7 @@ def one_future(task, state, d, biology, regime, budget, future, bottleneck):
     )
     if cfg.seed_arrival.supply != 0:
         raise AssertionError("postshock immigrant seeds not declared")
-    visitors = exposure(task.history + 1000000, future)
+    visitors = exposure(task.history + d["postshock"]["future_visitor_seed_offset"], future)
     rng = common_streams(task, setting_idx, regime_idx,
                          future_idx, budget_idx)
     first_output = None
