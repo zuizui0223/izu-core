@@ -71,6 +71,15 @@ def test_persist_and_restore_400_inherited_updates_old_history(tmp_path, protoco
     assert len(pre_results) == len(post_results) == 1
     assert len(post_results[task]) == 28
 
+    # A matching state-file checksum alone cannot authenticate an altered
+    # founder declaration: verify against the reproducible frozen founder state.
+    founder_corrupt = json.loads((pre / f"{name}.json").read_text())
+    founder_corrupt["founder_allele_sha256"] = "0" * 64
+    (pre / f"{name}.json").write_text(json.dumps(founder_corrupt))
+    with pytest.raises(AssertionError, match="founder genotype differs"):
+        restore_prehistory(pre, task, protocol, hashes)
+    (pre / f"{name}.json").write_text(json.dumps(metadata))
+
     # The parentage chronology is revalidated independently of NPZ checksum.
     pedigree_corrupt = json.loads((pre / f"{name}.json").read_text())
     pedigree_corrupt["parentage_link_count"] += 1
