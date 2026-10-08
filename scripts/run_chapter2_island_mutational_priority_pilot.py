@@ -80,9 +80,13 @@ def simulate_group(group, d, source):
                     np.full_like(resident.alleles[:, k, :], 0.5)
                 ):
                     raise AssertionError("locked locus acquired mutations: " + str(group))
-        mask = (d["schedules"][schedule]["phase1_mutation_mask"]
-                if t < d["initial_phase_generations"]
-                else d["schedules"][schedule]["phase2_mutation_mask"])
+        mask = (
+            d["schedules"][schedule]["phase1_mutation_mask"]
+            if t < d["initial_phase_generations"]
+            else d["schedules"][schedule]["phase2_mutation_mask"]
+            if t < d.get("second_phase_generations", d["total_prehistory_generations"])
+            else d["schedules"][schedule]["phase3_mutation_mask"]
+        )
         ledger = reproduce(resident, history.visitors[t], cfg)
         resident, _ = advance(
             resident, ledger, history.seed_candidates[t], cfg, streams, year=t,
