@@ -3,6 +3,14 @@ name: Chapter 2 assigned-expression order prospectively frozen cohort
 on:
   workflow_dispatch:
     inputs:
+      mode:
+        description: 'Preflight-only old-history audit, or explicitly approved full new cohort'
+        required: true
+        type: choice
+        default: preflight_only
+        options:
+          - preflight_only
+          - full_cohort
       full_cohort_launch_approved:
         description: 'Explicit approval to execute the complete new cohort on main'
         required: true
@@ -22,7 +30,7 @@ concurrency:
 
 jobs:
   preflight:
-    if: ${{ github.ref == 'refs/heads/main' && inputs.full_cohort_launch_approved == true }}
+    if: ${{ github.ref == 'refs/heads/main' && (inputs.mode == 'preflight_only' || (inputs.mode == 'full_cohort' && inputs.full_cohort_launch_approved == true)) }}
     runs-on: ubuntu-latest
     timeout-minutes: 30
     steps:
@@ -69,6 +77,7 @@ jobs:
 
   prehistory:
     needs: preflight
+    if: ${{ inputs.mode == 'full_cohort' && inputs.full_cohort_launch_approved == true }}
     runs-on: ubuntu-latest
     timeout-minutes: 90
     strategy:
