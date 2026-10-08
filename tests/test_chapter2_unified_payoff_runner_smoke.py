@@ -153,6 +153,25 @@ def test_60_history_admission_uses_independent_visitor_not_nested_repeats():
     assert result2[0]["n_complete_histories"] == 58
     assert result2[0]["bootstrap95"] is None
 
+def test_missing_trait_histories_preserve_shared_bootstrap_pairing():
+    """Synthetic 60/64-history fixture; never run the new biological cohort."""
+    rng = np.random.default_rng(3611082026)
+    indices = rng.integers(0, 64, size=(9999, 64))
+    # Identical effects/missing histories must have identical intervals.
+    # Re-drawing independently per setting breaks the paired design.
+    value = np.linspace(-0.5, 0.5, 64)
+    value[60:] = np.nan
+    matrix = np.column_stack([value, value])
+    result = bootstrap_summary(matrix, indices)
+    assert [r["n_complete_histories"] for r in result] == [60, 60]
+    assert all(r["conditional_on_endpoint_survival"] for r in result)
+    assert result[0]["bootstrap95"] == pytest.approx(result[1]["bootstrap95"])
+    sampled = value[indices]
+    expected = np.nanmean(sampled, axis=1)
+    expected95 = np.percentile(expected, [2.5, 97.5])
+    assert result[0]["bootstrap95"] == pytest.approx(expected95)
+
+
 def test_synthetic_joint_gate_cannot_substitute_a_favourable_other_regime():
     """Algebraic unit fixture ONLY: no new-history biological simulation."""
     d = load_design()
