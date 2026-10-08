@@ -89,5 +89,7 @@ def test_claim_firewall_and_not_previously_failed_gate():
         d["estimation"]["contrast_type"]
     )
     assert "not required" in d["threshold_and_pde"]["pde"]
+    assert "every reproductive update t0-400" in d["threshold_and_pde"]["realized_order"]
+    assert "NEVER counted" in d["threshold_and_pde"]["realized_order"]
     assert d["estimation"]["bootstrap"]["unit"] == "visitor_history"
     assert d["estimation"]["bootstrap"]["shared_index_all_settings"] is True
