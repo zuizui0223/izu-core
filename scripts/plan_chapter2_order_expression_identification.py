@@ -160,7 +160,7 @@ def decision(mean: float, confidence_interval: tuple[float, float],
     """Interpret only a supplied estimate; generate no synthetic outcome."""
     low, high = confidence_interval
     if not (math.isfinite(mean) and math.isfinite(low)
-            and math.isfinite(high) and low <= mean <= high):
+            and math.isfinite(high) and low <= high):
         raise ValueError("Invalid estimate or interval")
     if abs(mean) >= minimum and (low > 0 or high < 0):
         return "nonzero_order_protocol_effect"
