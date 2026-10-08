@@ -43,6 +43,26 @@ Prior-selfing viable maternal contrast was positive in all four independently ge
 
 In these rules, the formerly low-replenishment population can produce **more viable maternal offspring through elevated assurance while providing less outcross function** under the same contemporary visitor regime. This is the precise payoff trade-off potentially worth prospectively confirming. Pollen export is not equivalent to total male genetic fitness, because selfed offspring contribute both parental genome copies. Immediate viable maternal output is not extinction probability or later population growth at a fixed carrying capacity.
 
+
+## Post-outcome fixed-state payoff intervention: investment versus assurance
+
+After inspecting the viable-maternal sign differences above, we executed a **new, explicitly post-outcome diagnostic**. For each setting/history/repeat/mode pair, the complete finite population was evolved independently for 400 reproductive updates in both historical environments. At the switch, for each resident matching background we clamped *both inherited alleles* for investment and assurance to either the near-history or far-history **population mean**, in a 2 × 2 factorial, using the **same visitor community**. The effects are the average of the two simple changes at the other trait level, and their factorial interaction. Clamping changes trait variance and the observed history effect also includes matching and covariance; these effects are *not* causal dynamic mediation fractions.
+
+In the **near-history matching background**, evolving-assurance mode, differences in viable maternal output after switching population mean values from near-history to far-history were:
+
+| Setting | Change from investment mean | Change from assurance mean | I × A factorial interaction | Observed whole-population history contrast |
+|---|---:|---:|---:|---:|
+| Delayed control | -0.063 | +0.083 | +0.028 | -0.069 |
+| Prior selfing | **+0.194** | **+0.168** | +0.026 | **+0.378** |
+| Pollen discount | +0.029 | **+0.264** | +0.022 | **+0.261** |
+| Assurance cost | **-0.302** | +0.055 | +0.137 | -0.362 |
+
+The **far-history matching background** produced the same broad reading for the two positive viability settings: prior-selfing investment +0.214, assurance +0.160; pollen-discount investment +0.103, assurance +0.274. The cost setting remained negative for the investment change (-0.121), while the assurance change was positive (+0.103). All are uncalibrated, model-unit, descriptive four-history means.
+
+Interpretation: similar low floral investment and high assurance states can correspond to *distinct underlying payoff balances*. In prior selfing, reduced investment allocation and assurance both raise immediate viable maternal output in the fixed-state counterfactual; under pollen discount, assurance dominates that direct change. In the costly-assurance setting, investment decrease has the opposite immediate maternal-output effect in this matched background. This is a stronger falsifiable mechanistic prediction than simple co-occurrence of a small floral phenotype and selfing. It does **not** demonstrate an increase in demographic rescue or prove that the same factorial attribution holds under natural island conditions.
+
+Reproducible branch runner: `scripts/diagnose_chapter2_island_history_payoff.py`; source-archived offline exploratory counterpart: `payoff_factorial.py`, `payoff_factorial_raw.json`, and `payoff_factorial.log` in the separately maintained local review artifact.
+
 ## What this does and does not resolve for island ecology
 
 This screen isolates selection *after* establishment and holds plant immigration absent; it does not model Baker's-law arrival filtering, real island distances, geological times, empirical pollinator populations, wind-pollinated floral evolution or the distribution of natural island traits. The trait is abstract floral investment, not measured corolla area. The two pre-environments are visitor-functional-type replenishment levels, not actual island identities.
