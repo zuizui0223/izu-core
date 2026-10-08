@@ -103,6 +103,18 @@ A joint positive result would show that **ecological payoff changes can be reali
 
 The corresponding island-empirical test still needs effective visitation/pollen deposition, autonomous selfing, viable outcross maternal and paternal fitness, allocation cost and inherited changes through time. Present Chapter 1 and 3 cross-sectional results are not a complete joint selection-fitness transition dataset.
 
+### Pre-outcome raw-admission hardening (2026-10-08)
+
+Before any new-cohort simulation or inference, the independent summary reader now verifies more than the recorded file SHA-256:
+
+- Reconstruct the seeded eight-parent bottleneck from the full hash-verified t400 diploid plant-state archive; reject any different fork genotype digest.
+- Match each postshock t0 population to the recorded t400 census (all surviving plants in fecundity-only; min(8, survivors) in both bottleneck regimes).
+- Require reported terminal occupancy, terminal population size and first-extinction step to agree and respect the 80-update horizon and regime capacity.
+- An extinct source must have extinction at transfer (step 0), zero realized recruits and no invented reproductive/genetic endpoints; surviving outcomes must keep their declared genetic endpoint.
+- Reject missing or reordered t400 prehistory census checkpoints.
+
+These are admission checks, not a new ecological result. The old-history smoke tests and intentionally corrupted synthetic records cover hash, branch alignment and extinction integrity. All **64 new visitor histories remain unexecuted** at this checkpoint. GitHub-hosted checks must still report a completed result before any production-merge decision.
+
 ## Files / state
 
 - Frozen design: `data/design/chapter2_unified_payoff_evolution_persistence_20261008.json`
