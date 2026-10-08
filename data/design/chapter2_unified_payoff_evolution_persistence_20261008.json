@@ -128,8 +128,9 @@
       "time-to-extinction",
       "genetic variance and mean of surviving plant traits, with structural missingness after extinction"
     ],
-    "evolutionary_mask_rule": "Across all postshock branches, both modes keep matching and investment mutation enabled; only evolving-assurance mode allows assurance alleles to mutate and inherit changes. Fixed mode retains assurance=0.5 while realized selfing may vary with visitors.",
-    "config_mutation_rate": 0.01
+    "evolutionary_mask_rule": "For the PREHISTORY, mode=fixed blocks A mutation and holds its alleles at 0.5 while mode=evolving allows A mutation; matching and I evolve in both. After the switch, both historical groups use mode=evolving, mutation_traits=(True,True,True), and A alleles evolve from their actually inherited t400 state. No genotype resetting or restoration of founders occurs.",
+    "config_mutation_rate": 0.01,
+    "evolutionary_access_rule": "At the t400 fork, BOTH prior fixed-A and prior evolving-A histories switch to the identical assurance_mode=evolving for the next 80 updates. All traits inherit and mutate at the same positive postshock mutation rate (0.01). This isolates effects of the inherited historical genotype states under a common future evolutionary policy, not a cumulative fixed-versus-evolving policy over all 480 updates."
   },
   "estimated_run_size": {
     "prehistory_groups": 2048,
@@ -153,11 +154,11 @@
     },
     "primary_stage2_persistence": {
       "label": "history-conditioned persistence modifier from enabling assurance evolution",
-      "history_delta": "[S_farPre-S_nearPre]_evolving - [S_farPre-S_nearPre]_fixed",
+      "history_delta": "[S_farPre−S_nearPre]_prior-A-evolving − [S_farPre−S_nearPre]_prior-A-fixed, under identical POSTSHOCK A-evolving rules in both arms",
       "integration": "For each history, setting, demographic repeat, regime and future visitor environment, integrate binary occupancy across the entire log-budget grid with predeclared normalized trapezoid weights. Average future visitor environments, then repeats WITHIN history. Pool four reproductive settings equally within each independent history.",
       "primary_regime": "bottleneck_small_capacity",
       "success_rule": "Pooled mean history_delta>0 and history-bootstrap95 lower>0. Report effect in other regimes as mandatory full-grid sensitivity, even if they reverse or fail.",
-      "claim_if_passed": "Conditional historical persistence modification under one synthetic bottleneck+capacity+fecundity shock regime; no universal evolutionary rescue claim.",
+      "claim_if_passed": "Conditional historical LEGACY effect of permitting A evolution in the 400-update past on later survival, when future A evolutionary opportunity and visitor/demographic processes are identical. Not mediation via A alone.",
       "missingness": "Pre-extinction contributes zero to occupancy; no loss of history denominators."
     },
     "secondary_cross_regime": {
@@ -207,7 +208,8 @@
     "The chosen demographic risk grid is explicitly derived from exposed pilots; independent new histories enable conditional validation, not a general natural-shock distribution.",
     "No wild-island field fitness, colour, corolla size or evolutionary rescue is claimed.",
     "Null or negative outcomes are valid and will be archived; no on-the-fly parameter rescue.",
-    "Current PR #411 and PR #413 frozen conclusions retain separate status and provenance."
+    "Current PR #411 and PR #413 frozen conclusions retain separate status and provenance.",
+    "Unlike the earlier #413 cumulative fixed/evolving persistence comparison, the postshock evolutionary regime is identical and A-evolving in both historical arms. Never claim that its estimand numerically replicates that prior test."
   ],
   "execution_rule": "DESIGN ONLY. Biological execution and outcome readout require a separate audited runner after source-hash freeze and cost test. Do not mark stages passed from previously observed PR411/PR413 cohorts."
 }
