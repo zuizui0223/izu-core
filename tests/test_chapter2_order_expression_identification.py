@@ -101,3 +101,16 @@ def test_claim_firewall_and_not_previously_failed_gate():
     assert "NEVER counted" in d["threshold_and_pde"]["realized_order"]
     assert d["estimation"]["bootstrap"]["unit"] == "visitor_history"
     assert d["estimation"]["bootstrap"]["shared_index_all_settings"] is True
+
+def test_full_campaign_requires_main_and_exact_approved_commit():
+    from pathlib import Path
+    raw = Path(".github/workflows/chapter2-order-expression-cohort.yml").read_text()
+    assert raw.count("workflow_dispatch:") == 1
+    assert "full_cohort_launch_approved:" in raw
+    assert "source_commit_sha:" in raw
+    assert "default: false" in raw
+    assert "github.ref == 'refs/heads/main'" in raw
+    assert 'test "$REVIEWED_SHA" = "$CHECKED_OUT_SHA"' in raw
+    assert "schedule:" not in raw
+    assert "pull_request:" not in raw
+    assert "push:" not in raw
