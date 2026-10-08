@@ -56,3 +56,12 @@ def test_recorded_ablation_remains_an_exploratory_heterogeneous_effect():
     ).read_text())
     assert prior["frozen_primary"]["passed"] is False
     assert any("covariance" in s.lower() for s in result["boundaries"])
+    # The equally weighted pooled contrast is descriptive over four reused histories.
+    effects=result["per_setting_background_mutation"]
+    occupancy_0=sum(x["terminal_occupancy_by_dispersion_scale"]["0"] for x in effects)/16
+    occupancy_1=sum(x["terminal_occupancy_by_dispersion_scale"]["1"] for x in effects)/16
+    assert abs((occupancy_0-occupancy_1)-0.0048828125) < 1e-12
+    pollen=[x for x in effects if x["setting"]=="pollen_discount"]
+    assert abs(sum(x["q0_minus_q1"] for x in pollen)) < 1e-12
+    assert any(x["q0_minus_q1"]>0 for x in pollen)
+    assert any(x["q0_minus_q1"]<0 for x in pollen)
