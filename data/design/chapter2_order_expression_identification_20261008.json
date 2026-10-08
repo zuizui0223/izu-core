@@ -140,7 +140,13 @@
       ]
     },
     "dose_contract": "Each arm imposes A=+0.45 logit offset in exactly 200 prehistory updates and I=-0.45 in exactly 200 updates, released identically at 300. All share same final schedule and mutation rule.",
-    "randomization": "Every history × nested repeat × mating setting × near/far has all 3 arms; same visitor and demographic seed identifiers are paired, not extra independent histories."
+    "randomization": "Every history × nested repeat × mating setting × near/far has all 3 arms; same visitor and demographic seed identifiers are paired, not extra independent histories.",
+    "joint_exposure_update_counts": {
+      "assurance_first": 100,
+      "investment_first": 100,
+      "synchronous_time_control": 200
+    },
+    "control_caveat": "Primary assurance_first versus investment_first shares identical A-only, I-only, and A×I co-expression doses (100,100,100 updates) but differs in order. Synchronous_time_control has 200 A×I concurrent updates and zero single-trait exposure: it is an exploratory timing/profile comparator, NOT a matched overlap negative control and cannot isolate order versus co-expression."
   },
   "postshock": {
     "updates": 80,
@@ -189,7 +195,8 @@
       "full 7-budget and both future-visitor sensitivity",
       "pre-extinction counts, inherited genotype mean/variance, mutation availability, realized trait-threshold order",
       "immediate maternal viable, female outcross and paternal export, never interchangeable with survival"
-    ]
+    ],
+    "secondary_control_identification": "The synchronous arm differs in A×I co-expression duration (200 rather than 100) and is not an identified pure order-only control; interpret contrasts with it as combined schedule/overlap effects."
   },
   "threshold_and_pde": {
     "threshold": "Measure corrected fixed-resident rare-mutant marginal payoff zero crossings separately and label them local selection thresholds, not population trait change-points.",
