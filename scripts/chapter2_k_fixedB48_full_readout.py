@@ -53,7 +53,7 @@ def admit(root:Path,source_admission:Path):
             if (row.get("status")!=STATUS or row.get("task")!=vars(task)
                     or row.get("protocol_sha256")!=m["protocol_sha256"]
                     or row.get("source_hashes")!=source_hashes()
-                    or len(row.get("futures",[]))!=112):
+                    or len(row.get("futures",[]))!=56):
                 raise AssertionError("Unfrozen future provenance")
             seen=set()
             for x in row["futures"]:
