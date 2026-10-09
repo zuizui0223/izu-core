@@ -8,6 +8,7 @@ on:
       - 'scripts/run_model3_stochastic_measure_preflight.py'
       - 'scripts/audit_model3_stochastic_mutation_scaling.py'
       - 'scripts/audit_model3_stochastic_scaling_limit.py'
+      - 'scripts/audit_model3_discrete_linear_noise.py'
       - 'scripts/run_model3_mutation_multistep_preflight.py'
       - 'scripts/run_model3_sde_spde_preflight.py'
       - 'tests/test_model3_stochastic_bridge.py'
@@ -15,6 +16,7 @@ on:
       - 'tests/test_model3_stochastic_measure.py'
       - 'tests/test_model3_stochastic_mutation_scaling.py'
       - 'tests/test_model3_stochastic_scaling_limit.py'
+      - 'tests/test_model3_discrete_linear_noise.py'
       - '.github/workflows/model3-stochastic-focused.yml'
   workflow_dispatch:
 
@@ -32,7 +34,7 @@ jobs:
           python-version: '3.11'
       - run: python -m pip install -e '.[dev]'
       - name: Test exact finite noise and three-generation stochastic bridge
-        run: pytest -q tests/test_model3_stochastic_bridge.py tests/test_model3_stochastic_multistep.py tests/test_model3_stochastic_measure.py tests/test_model3_stochastic_mutation_scaling.py tests/test_model3_stochastic_scaling_limit.py tests/test_model3_tensor_density.py
+        run: pytest -q tests/test_model3_stochastic_bridge.py tests/test_model3_stochastic_multistep.py tests/test_model3_stochastic_measure.py tests/test_model3_stochastic_mutation_scaling.py tests/test_model3_stochastic_scaling_limit.py tests/test_model3_discrete_linear_noise.py tests/test_model3_tensor_density.py
       - name: Run old-history stochastic moment preflight (engineering only)
         run: python -m scripts.run_model3_sde_spde_preflight --out stochastic-preflight.json --draws 1024
       - name: Run mutation-aware three-update old-history preflight
@@ -49,6 +51,8 @@ jobs:
         run: python -m scripts.audit_model3_stochastic_scaling_limit --out finite-k-initial.json --snapshot-index 0 --near-only
       - name: Verify exact visitor-free counterexample to universal fast-time drift
         run: python -m scripts.audit_model3_stochastic_scaling_limit --out zero-visitor-sde-counterexample.json --zero-visitors-counterexample
+      - name: Audit exact discrete-generation investment CLT versus Gaussian normal
+        run: python -m scripts.audit_model3_discrete_linear_noise --out finite-offspring-clt.json
       - name: Archive engineering moment receipt
         uses: actions/upload-artifact@v4
         with:
@@ -62,4 +66,5 @@ jobs:
             finite-k-limit-screen.json
             finite-k-initial.json
             zero-visitor-sde-counterexample.json
+            finite-offspring-clt.json
           retention-days: 90
