@@ -1,0 +1,143 @@
+{
+  "schema": "model3_k32_three_way_old_history_source_locked_v1",
+  "status": "engineering_simulation_two_budgets_ci_success_not_biological_validation",
+  "evidence_type": "synthetic_Model3_simulation_not_natural_island_observation",
+  "provenance": {
+    "source_commit": "1634c7fbe4c8907434720f0f00f2a5b07206c5e7",
+    "workflow_run_id": 37870799736,
+    "workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/37870799736",
+    "workflow_conclusion": "success",
+    "artifact_id": 11590202019,
+    "artifact_name": "model3-k32-three-way-old-history",
+    "artifact_sha256": "265dd7814ef1ab84ee6019cc40a13c6639c0371b7ae1996d41b4935aa9c9a803"
+  },
+  "design": {
+    "K": 32,
+    "mutation_rate": 0,
+    "generations": 8,
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "setting": "canonical_chapter2_prior_selfing",
+    "visitor_history": 26110601,
+    "environment": "near",
+    "independent_visitor_histories": 1,
+    "demographic_draws_per_stochastic_arm": 512,
+    "founders": "engineered 4-genotype fixed support cloned to 32 (not historical natural founders)",
+    "genotype_classes": 27,
+    "confirmatory_history_reused": false,
+    "canonical_biological_code_edited": false
+  },
+  "cases": [
+    {
+      "ovule_budget": 8,
+      "exact_finite_markov": {
+        "n_survivors": 512,
+        "extinction_rate": 0,
+        "conditional_trait_mean": [
+          0.433868408203125,
+          0.35137939453125,
+          0.7393035888671875
+        ],
+        "genotype_richness_mean": 4.353515625,
+        "genotype_richness_mc_se": 0.07244226161481024,
+        "conditional_simpson_diversity": 0.5385627746582031,
+        "mean_allele_types_lost": 0.806640625,
+        "frequency_any_allele_loss": 0.66015625
+      },
+      "deterministic_expected_plugin": {
+        "approx_extinction_probability": 0,
+        "conditional_trait_mean": [
+          0.4325051525972395,
+          0.3329075893263766,
+          0.75
+        ],
+        "predicted_conditional_genotype_richness": 4.221679879422642,
+        "predicted_conditional_simpson_diversity": 0.6387834851406301,
+        "max_parent_integer_projection_L1": 7.81237665468477
+      },
+      "projected_gaussian": {
+        "n_survivors": 512,
+        "extinction_rate": 0,
+        "conditional_trait_mean": [
+          0.4395904541015625,
+          0.3678131103515625,
+          0.7266998291015625
+        ],
+        "genotype_richness_mean": 5.91015625,
+        "genotype_richness_mc_se": 0.08575157653279021,
+        "conditional_simpson_diversity": 0.6188125610351562,
+        "mean_allele_types_lost": 0.349609375,
+        "frequency_any_allele_loss": 0.322265625
+      },
+      "errors": {
+        "gaussian_minus_exact_richness": 1.556640625,
+        "gaussian_minus_exact_allele_types_lost": -0.45703125,
+        "max_absolute_gaussian_trait_mean_error": 0.0164337158203125,
+        "max_absolute_deterministic_trait_mean_error": 0.018471805204873404
+      }
+    },
+    {
+      "ovule_budget": 3,
+      "interpretation": "resource_stress_sensitivity_under_same_K_mutation_and_horizon",
+      "exact_finite_markov": {
+        "n_survivors": 508,
+        "extinction_rate": 0.0078125,
+        "extinction_rate_mc_se": 0.0038947666336542194,
+        "conditional_trait_mean": [
+          0.4421191617084867,
+          0.3346683479662927,
+          0.7424852347490479
+        ],
+        "genotype_richness_mean": 3.041015625,
+        "conditional_simpson_diversity": 0.4217682402412788,
+        "mean_allele_types_lost": 1.47265625,
+        "frequency_any_allele_loss": 0.869140625
+      },
+      "deterministic_expected_plugin": {
+        "approx_extinction_probability": 6.262441676341268e-10,
+        "conditional_trait_mean": [
+          0.4286795449975449,
+          0.3223281286816991,
+          0.75
+        ],
+        "predicted_conditional_genotype_richness": 4.028801731256863,
+        "predicted_conditional_simpson_diversity": 0.6159148189724802,
+        "max_parent_integer_projection_L1": 7.429124629885738
+      },
+      "projected_gaussian": {
+        "n_survivors": 498,
+        "extinction_rate": 0.02734375,
+        "extinction_rate_mc_se": 0.007214367776781579,
+        "conditional_trait_mean": [
+          0.4525825361823042,
+          0.36446218660223173,
+          0.7298329693082931
+        ],
+        "genotype_richness_mean": 3.939453125,
+        "conditional_simpson_diversity": 0.5142499953857177,
+        "mean_allele_types_lost": 1.0703125,
+        "frequency_any_allele_loss": 0.63671875
+      },
+      "errors": {
+        "gaussian_minus_exact_richness": 0.8984375,
+        "gaussian_minus_exact_allele_types_lost": -0.40234375,
+        "absolute_gaussian_extinction_rate_error": 0.01953125,
+        "absolute_deterministic_extinction_rate_error": 0.007812499373755832
+      }
+    }
+  ],
+  "numerical_precision": {
+    "max_integer_mass_conservation_error_in_exact_and_gaussian": 0,
+    "warning": "No mass error does not imply distributional genetic accuracy; deterministic parent projection L1 is not zero."
+  },
+  "interpretation_limits": [
+    "Exact means transition law exactly matches the restricted finite Model3; Monte Carlo summaries have sampling error.",
+    "Deterministic expected-value plug-in is NOT E[X_t] of the nonlinear stochastic source process.",
+    "Gaussian approximation is not an admitted SDE or SPDE.",
+    "Only one old visitor history; demographic repeats are nested and do not replicate independent island environments.",
+    "Neither source observations nor natural-island data are fitted.",
+    "Extinction comparisons at budget8 cannot establish fidelity because both stochastic arms had no observed extinctions.",
+    "Genotype-class absence is not irreversible allele loss.",
+    "No reuse of Chapter2 prospective confirmatory visitor histories."
+  ]
+}
