@@ -265,13 +265,13 @@ jobs:
           from pathlib import Path
           for budget in (8,3):
             for side,suffix in (("first",""),("second","-reverse")):
-                d=json.loads(Path(f"holdout-budget{budget}.json").read_text())
+                d=json.loads(Path(f"holdout-budget{budget}{suffix}.json").read_text())
                 assert d["status"]=="K32_HELDOUT_DEMOGRAPHIC_MEAN_MATCH_EVALUATED",d
                 c=d["conditions"]
                 assert (c["K"],c["mutation_rate"],c["generations"],c["ovule_budget"])==(32,0,8,budget)
                 assert c["old_history"]==26110601 and c["n_independent_visitor_histories"]==1
                 assert c["training_half"]==side
-              assert c["train_demographic_draws"]==256
+                assert c["train_demographic_draws"]==256
                 assert c["holdout_demographic_draws"]==256
                 assert c["holdout_outcomes_used_in_calibration"] is False
                 assert c["source_biology_unchanged"] is True
