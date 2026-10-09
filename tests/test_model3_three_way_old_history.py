@@ -43,6 +43,27 @@ def test_true_allele_loss_not_confused_with_genotype_class_absence():
     assert _allele_loss(np.zeros_like(first),grid)==6
 
 
+
+def test_source_kernel_agrees_with_existing_three_arm_code_at_same_old_history():
+    """Independent comparison implementations must not silently change biology."""
+    from dataclasses import replace
+    from scripts.compare_model3_three_k32_old_history import _kernel
+    from scripts.run_model3_three_arm_k32_old_history import canonical_conditional_kernel
+    from scripts.run_chapter2_assurance_generality import (
+        DEFAULT_DESIGN, config as source_config, load_design,
+    )
+    from scripts.run_model3_persistent_isolation import exposure
+    first,grid,_,_=fixed_support_problem(capacity=32,ovule_budget=8.)
+    d=load_design(DEFAULT_DESIGN)
+    source=source_config(d,"prior_selfing",0.,"evolving")
+    cfg=replace(source,capacity=32,survival=0.,mutation_rate=0.,
+                ovule_budget=8.,seed_arrival=replace(source.seed_arrival,supply=0.))
+    visitors=exposure(26110601,"near").visitors
+    x,q=_kernel(first,grid,visitors[0],cfg,0)
+    y,p=canonical_conditional_kernel(first,grid,visitors[0],cfg,0)
+    assert x==pytest.approx(y,rel=0,abs=1e-12)
+    np.testing.assert_allclose(q,p,rtol=0,atol=1e-12)
+
 def test_three_way_comparison_fixed_old_history_and_nonpromotion():
     r=compare_three(draws=16,seed=5213,budget=8.)
     c=r["conditions"]
@@ -54,6 +75,7 @@ def test_three_way_comparison_fixed_old_history_and_nonpromotion():
     assert c["confirmatory_cohorts_accessed"] is False
     assert c["independent_visitor_histories"]==1
     assert c["genotype_classes"]==27
+    assert c["reproductive_setting"]=="prior_selfing"
     assert r["evidence_type"].startswith("synthetic_")
     assert r["canonical_biology_modified"] is False
     assert r["numerical_precision"]["finite_markov_integer_mass_error"]==0
