@@ -1,0 +1,54 @@
+name: One-time archive completed postzygotic factorial readout
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/one-time-ch2-factorial-result-archive.yml
+permissions:
+  contents: write
+  actions: read
+jobs:
+  exact-artifact-archive:
+    if: github.event.head_commit.message == 'ops-ch2-factorial-archive-verified-artifact'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: chapter2/postzygotic-factorial-confirmatory-readout-20261009
+          persist-credentials: true
+      - name: Download complete and successful frozen factorial readout
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/ch2-factorial-archive
+          gh run download 37869990792 --repo "${{ github.repository }}" \
+            --name postzygotic-factorial-full-adjudication \
+            --dir /tmp/ch2-factorial-archive
+          echo '41b6513a762f8e1d1be7df8ec3533812abc1fc23dd0a37ea78f7c02c1f2826ca  /tmp/ch2-factorial-archive/final.json' | sha256sum -c -
+      - name: Reject incomplete cohorts or modified confirmation decision
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('/tmp/ch2-factorial-archive/final.json').read_text())
+          assert d['status']=='all_2048_diploid_sources_229376_future_cells_admitted'
+          assert (d['n_independent_visitor_histories'], d['n_archived_baseline_futures'], d['n_new_perturbed_futures'], d['n_all_future_cells']) == (64,57344,172032,229376)
+          p=d['primary']
+          assert p['decision']=='nonzero_controlled_self_viability_sensitivity'
+          assert p['predeclared_min_abs']==0.005
+          assert p['mean']>0.005 and p['bootstrap95'][0]>0
+          assert set(d['by_regime'])=={'eight_founders_capacity8','unbottlenecked_capacity48'}
+          print('Full exact source-linked positive/conditional factorial result authenticated.')
+          PY
+      - name: Commit exact original bytes to reviewed archive branch
+        run: |
+          set -euo pipefail
+          mkdir -p results/chapter2
+          cp /tmp/ch2-factorial-archive/final.json results/chapter2/postzygotic_factorial_full_readout_20261009.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add results/chapter2/postzygotic_factorial_full_readout_20261009.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'results(chapter2): archive verified full postzygotic factorial readout'
+          git push origin HEAD:chapter2/postzygotic-factorial-confirmatory-readout-20261009
