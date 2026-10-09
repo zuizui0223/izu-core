@@ -167,7 +167,7 @@ two-individual assurance heterozygote operations:
 | Year1 | 512/512 | 512/512 | 506/506 | 506/506 |
 | Year4 | 478/512 | 467/512 | 433/506 | 346/506 |
 | Year8 | **171/512** | **119/512** | **101/506** | **49/506** |
-| Year8 eligible for both | colspan | 86/512 | colspan | 33/506 |
+| Year8 eligible for both operations | 86/512 | 86/512 | 33/506 | 33/506 |
 
 Year8 HET_UP needs at least one *low-low AND high-high*
 assurance homozygote. Year8 HET_DOWN needs at least two
