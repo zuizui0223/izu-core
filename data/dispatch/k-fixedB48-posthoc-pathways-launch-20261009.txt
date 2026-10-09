@@ -1,7 +1,0 @@
-ONE-TIME READ-ONLY post-outcome diagnostic from ALREADY FULLY AUTHENTICATED data.
-Original fixed-B48 independent future Run 37896872795 SHA 2737736f1dca36c8b43e9ac6a9fbd862ca21165b.
-Original frozen primary readout Run 37900150213 SHA 592cdad7fa0442a26fd5e79a2fd94812d4515c5d.
-Original primary +0.007745713876893593 95% [0.002497158065469939,0.013015478808429596] SUPPORTED, NEVER relabel.
-Use all original 64 raw future shard artifacts and 114688 saved cell trajectories with no new stochastic simulation.
-Posthoc diagnostic: early extinction, restricted persistence duration, t0 reproductive parity, cumulative selfed and outcross recruits.
-These are exploratory and cannot identify mediation or new confirmatory evidence.
