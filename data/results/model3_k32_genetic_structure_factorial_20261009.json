@@ -1,0 +1,163 @@
+{
+  "schema": "k32_old_history_allelic_capacity_versus_realized_genotype_diversity_v1",
+  "status": "verified_exact_factorial_log_richness_identity_and_source_simulation",
+  "provenance": {
+    "source_commit": "2164eac18143d34d996a81c4b3a94c8dfedeceae",
+    "github_actions_run": 37900326737,
+    "dedicated_job": "model3-k32-full-factorial",
+    "dedicated_job_status": "success",
+    "raw_artifact_id": 11602765416,
+    "raw_artifact_url": "https://github.com/zuizui0223/izu-core/actions/runs/37900326737/artifacts/11602765416",
+    "raw_artifact_digest_sha256": "1452ea59c4d70723cc4c1aeb74236aee080759b0c2485ef1aafb85b091edeceb"
+  },
+  "study": {
+    "K": 32,
+    "mutation_rate": 0,
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "generations": 8,
+    "visitor_history": 26110601,
+    "visitor_environment": "near",
+    "independent_visitor_histories": 1,
+    "nested_demographic_paths_per_arm": 512,
+    "number_source_founder_joint_genotypes": 4,
+    "number_genetic_loci": 3,
+    "alleles_per_locus": 2,
+    "original_Model3_biological_code_edited": false,
+    "all_other_arms_deliberately_alter_reproductive_parent_weights": true,
+    "prospective_confirmatory_visitor_history_used": false,
+    "natural_plant_data_used": false,
+    "source_conditional_total_outcross_seed_mass_self_seed_mass_and_parent_support_retained": true,
+    "number_factorial_arms": 8
+  },
+  "exact_genetic_structure": {
+    "num_polymorphic_loci": "m = number of founder loci with both high and low ancestral alleles retained (0..3)",
+    "genotype_combinatorial_upper_bound": "P = 3^m, upper bound on unordered joint diploid genotype classes conditional on the surviving per-locus alleles, not necessarily achievable in one year under pollination",
+    "realized_genotype_coverage": "C = R/P for R realized joint genotype class count in a living population",
+    "pathwise_log_identity": "ln(R) = ln(P) + ln(C)",
+    "shannon_effective_genotypes": "exp(-sum_g p_g*ln(p_g))",
+    "simpson_effective_genotypes": "1/sum_g p_g^2",
+    "extinction_handling": "R and effective diversity are 0 for extinction only as unconditional census-like or occupancy-weighted products; trait means and log diversity undefined after extinction and reported conditioned on survival"
+  },
+  "year8": [
+    {
+      "budget": 8,
+      "original": {
+        "n_survivors": 512,
+        "mean_polymorphic_loci": 2.173828125,
+        "mean_combinatorial_upper_bound": 14.05078125,
+        "mean_genotype_class_richness_unconditional": 4.32421875,
+        "mean_genotype_coverage_given_survival": 0.4194155092592593,
+        "mean_effective_shannon_genotypes_given_survival": 2.9145408324485507,
+        "mean_effective_simpson_genotypes_given_survival": 2.435076471192463
+      },
+      "all_three": {
+        "n_survivors": 512,
+        "mean_polymorphic_loci": 1.8125,
+        "mean_combinatorial_upper_bound": 9.0703125,
+        "mean_genotype_class_richness_unconditional": 4.041015625,
+        "mean_genotype_coverage_given_survival": 0.5682146990740741,
+        "mean_effective_shannon_genotypes_given_survival": 2.649300176725254,
+        "mean_effective_simpson_genotypes_given_survival": 2.213171839110359
+      },
+      "all_three_minus_original": {
+        "genotype_class_richness": {
+          "mean": -0.283203125,
+          "mc_se": 0.07586784736743725
+        },
+        "combinatorial_upper_bound_occupancy_weighted": {
+          "mean": -4.98046875,
+          "mc_se": 0.45323013022069675
+        },
+        "genotype_coverage_occupancy_weighted": {
+          "mean": 0.14879918981481483,
+          "mc_se": 0.013467794459899965
+        },
+        "effective_shannon_genotypes_occupancy_weighted": {
+          "mean": -0.2652406557232966,
+          "mc_se": 0.04034900503771721
+        },
+        "effective_simpson_genotypes_occupancy_weighted": {
+          "mean": -0.22190463208210318,
+          "mc_se": 0.03091126785797271
+        },
+        "log_genotype_richness_occupancy_weighted": {
+          "mean": -0.06797034286552942,
+          "mc_se": 0.018387039539669418
+        },
+        "log_combinatorial_upper_bound_occupancy_weighted": {
+          "mean": -0.39695951836640675,
+          "mc_se": 0.03770362748866789
+        },
+        "log_genotype_coverage_occupancy_weighted": {
+          "mean": 0.3289891755008774,
+          "mc_se": 0.028979672040869757
+        }
+      }
+    },
+    {
+      "budget": 3,
+      "original": {
+        "n_survivors": 505,
+        "mean_polymorphic_loci": 1.6673267326732673,
+        "mean_combinatorial_upper_bound": 9.285148514851485,
+        "mean_genotype_class_richness_unconditional": 3.115234375,
+        "mean_genotype_coverage_given_survival": 0.52005867253392,
+        "mean_effective_shannon_genotypes_given_survival": 2.341478514364758,
+        "mean_effective_simpson_genotypes_given_survival": 2.0481173644707704
+      },
+      "all_three": {
+        "n_survivors": 507,
+        "mean_polymorphic_loci": 1.4102564102564104,
+        "mean_combinatorial_upper_bound": 6.16370808678501,
+        "mean_genotype_class_richness_unconditional": 3.109375,
+        "mean_genotype_coverage_given_survival": 0.6533713200379867,
+        "mean_effective_shannon_genotypes_given_survival": 2.2377181261002033,
+        "mean_effective_simpson_genotypes_given_survival": 1.93615275101752
+      },
+      "all_three_minus_original": {
+        "genotype_class_richness": {
+          "mean": -0.005859375,
+          "mc_se": 0.0629564551888868
+        },
+        "combinatorial_upper_bound_occupancy_weighted": {
+          "mean": -3.0546875,
+          "mc_se": 0.35514153149422295
+        },
+        "genotype_coverage_occupancy_weighted": {
+          "mean": 0.13404224537037038,
+          "mc_se": 0.014079115672828543
+        },
+        "effective_shannon_genotypes_occupancy_weighted": {
+          "mean": -0.09360070277617136,
+          "mc_se": 0.04011310081779429
+        },
+        "effective_simpson_genotypes_occupancy_weighted": {
+          "mean": -0.10287075057003199,
+          "mc_se": 0.033475659576335436
+        },
+        "log_genotype_richness_occupancy_weighted": {
+          "mean": 0.006307414794699888,
+          "mc_se": 0.019650669311606278
+        },
+        "log_combinatorial_upper_bound_occupancy_weighted": {
+          "mean": -0.2725073450407225,
+          "mc_se": 0.03851130110006606
+        },
+        "log_genotype_coverage_occupancy_weighted": {
+          "mean": 0.2788147598354224,
+          "mc_se": 0.02687246385605213
+        }
+      }
+    }
+  ],
+  "interpretation_limits": [
+    "The factor-combination intervention is an artificial, retrospectively motivated change to reproductive pairing laws; source Model3 original biology remains unchanged.",
+    "Upper bound P=3^m is a potential combinatorial genotype count given surviving alleles, NOT proof of one-step biological accessibility or actual diversity.",
+    "Coverage rises partly because its denominator falls as allele types disappear; coverage increase is NOT direct evidence of active adaptive compensation.",
+    "Stable class richness with declining Shannon and Simpson effective richness is consistent with increased genotype-frequency concentration. Magnitudes are conditional on fixed K32 old visitor history and engineered genetic founders.",
+    "The log richness = log combinatorial upper bound + log coverage identity holds exactly per living population, with occupancy-weighted version reported for factorial contrasts. It is an algebraic identity, not causal mechanism identification.",
+    "Only one archived ecological visitor history; demographic MC SE cannot be generalized to independent islands, environment or natural selection.",
+    "No field data, prospective confirmatory visitor histories, geographic INLA, or continuous SDE/SPDE validation."
+  ]
+}
