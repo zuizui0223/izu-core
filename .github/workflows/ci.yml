@@ -292,3 +292,51 @@ jobs:
           path: holdout-budget*.json
           if-no-files-found: warn
           retention-days: 90
+
+  model3-k32-same-parent-moments:
+    if: github.event_name == 'pull_request' && github.event.pull_request.number == 420
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Test exact Mendelian same-mean heterozygosity variance identity
+        run: pytest -q tests/test_model3_k32_same_parent_heterozygosity.py
+      - name: Audit eight-source states with same parental genotype census budget8
+        run: python -m scripts.audit_model3_k32_same_parent_heterozygosity --out same-parent-budget8.json --budget 8 --draws 512
+      - name: Audit eight-source states with same parental genotype census budget3
+        run: python -m scripts.audit_model3_k32_same_parent_heterozygosity --out same-parent-budget3.json --budget 3 --draws 512
+      - name: Enforce historical genetic source and exact matched-mean identity
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for budget in (8,3):
+              d=json.loads(Path(f"same-parent-budget{budget}.json").read_text())
+              c=d["conditions"]
+              assert d["status"]=="SOURCE_MATCHED_MOMENT_DIAGNOSTIC_COMPLETED",d["support_failures"]
+              assert (c["K"],c["mutation_rate"],c["generations"],c["budget"])==(32,0,8,budget)
+              assert c["old_visitor_history"]==26110601
+              assert c["independent_visitor_histories"]==1
+              assert c["confirmatory_cohorts_accessed"] is False
+              assert c["source_biology_edited"] is False
+              assert c["comparator_is_autonomous_eight_year_forecast"] is False
+              assert c["comparison_parent_state_identical_between_operators"] is True
+              assert c["comparison_offspring_mean_identical_between_operators"] is True
+              assert c["comparison_offspring_census_law_identical_between_operators"] is True
+              assert len(d["per_generation"])==8
+              for year in d["per_generation"]:
+                  assert year["exact_identity_max_absolute_error"] < 1e-11
+              print("same-parent analytical source and matched-mean variance PASS",budget)
+          PY
+      - name: Archive same-parent conditional moments, not observations
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: model3-k32-same-parent-heterozygosity
+          path: same-parent-budget*.json
+          if-no-files-found: warn
+          retention-days: 90
