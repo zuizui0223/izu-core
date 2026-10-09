@@ -4,6 +4,7 @@ import pytest
 
 from scripts.audit_model3_k32_mean_matched_ceiling import (
     tilted_offspring_law, calibrated_laws, variance_parts, run_mean_matched,
+    paired_bootstrap_spread,
 )
 
 
@@ -35,6 +36,29 @@ def test_calibrate_one_cohort_exact_mean_not_realized_sampling():
     assert blocked["admissible"] is False
     assert blocked["reason"]=="absorbing_allele_support_prevents_mean_matching"
 
+
+
+def test_paired_bootstrap_reports_conditional_precision_not_ecological_replication():
+    rng=np.random.default_rng(24)
+    s=rng.uniform(.7,1.,size=64)
+    c=np.minimum(1.,s+.02*rng.normal(size=64))
+    sd=.4*(s-.5)
+    sn=s-.5-sd
+    cd=.3*(c-.5)
+    cn=c-.5-cd
+    r=paired_bootstrap_spread(s,c,sd,sn,cd,cn,seed=777,bootstrap_draws=256)
+    assert r["paired_survivors"]==64
+    assert r["independent_ecological_replicates"]==1
+    for key in (
+        "source_minus_comparator_variance_mc_95_percentile",
+        "source_minus_comparator_twice_covariance_mc_95_percentile",
+        "source_minus_comparator_fixation_rate_mc_95_percentile",
+    ):
+        assert len(r[key])==2
+        assert r[key][0] <= r[key][1]
+    with pytest.raises(ValueError):
+        paired_bootstrap_spread(s[:4],c[:4],sd[:4],sn[:4],cd[:4],cn[:4],
+                                seed=3,bootstrap_draws=256)
 
 def test_cumulative_variance_has_required_feedback_covariance_term():
     d=np.array([.1,.3,.7,.5])
@@ -74,6 +98,8 @@ def test_source_mean_matching_does_not_claim_causal_mechanism(budget):
         assert year["source_allele_frequency_variance"]>=0
         assert year["mean_matched_comparator_frequency_variance"]>=0
         assert 0<=year["comparator_fixation_fraction"]<=1
+    assert r["paired_MC_precision"]["paired_demographic_bootstrap_resamples"]==1024
+    assert r["paired_MC_precision"]["independent_ecological_replicates"]==1
     for arm in ("source","mean_matched_comparator"):
         assert 0<=r[arm]["assurance_endpoint_mean"]<=1
         assert 0<=r[arm]["assurance_endpoint_variance"]<=.25
