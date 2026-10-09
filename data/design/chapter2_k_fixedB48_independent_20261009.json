@@ -1,0 +1,169 @@
+{
+  "schema_version": "1.0",
+  "declaration_date": "2026-10-09",
+  "status": "FROZEN_BEFORE_NEW_INDEPENDENT_OUTCOMES",
+  "title": "Prospective independent direct-demographic-capacity replication with fixed pollen-background dilution",
+  "motivation": {
+    "source": "Independent 40110901–40110964 2x2 K×B experiment completed and exposed",
+    "previous_full_run_id": 37893126472,
+    "previous_primary_verdict": "inconclusive",
+    "exposed_secondary_K_B48_mean": 0.013430012166239045,
+    "exposed_secondary_K_B48_bootstrap95": [
+      0.007513631050961346,
+      0.019361980338317365
+    ],
+    "previous_secondary_is_not_confirmatory": true,
+    "other_original_negative_verdicts_unchanged": true,
+    "hypothesis": "Reproductive expression-order sensitivity to the postzygotic viable-selfed seed gate is greater under K8 than K48 when pollen background dilution is held at B48"
+  },
+  "independent_cohort": {
+    "visitor_history_first": 41110901,
+    "visitor_history_last": 41110964,
+    "independent_history_clusters": 64,
+    "demographic_repeat_ids": [
+      41111901,
+      41111902
+    ],
+    "historical_visitor_environments": [
+      "near",
+      "far"
+    ],
+    "reproductive_settings": [
+      "delayed_control",
+      "prior_selfing",
+      "pollen_discount",
+      "assurance_cost"
+    ],
+    "assigned_equal_dose_expression_orders": [
+      "assurance_first",
+      "investment_first"
+    ],
+    "complete_diploid_t400_source_count": 2048,
+    "t400_updates": 400,
+    "exclude_early_extinction": false,
+    "no_outcome_based_selection": true,
+    "no_seed_reuse_or_prior_source_trajectories": true,
+    "previous_exposed_history_ranges": [
+      [
+        37110801,
+        37110864
+      ],
+      [
+        38110901,
+        38110964
+      ],
+      [
+        39110901,
+        39110964
+      ],
+      [
+        40110901,
+        40110964
+      ]
+    ]
+  },
+  "fixed_biological_model": {
+    "unchanged_original_prehistory_design": "data/design/chapter2_order_expression_identification_20261008.json",
+    "unchanged_biological_core": "scripts/model3_island",
+    "decoupled_reproduction": "scripts/chapter2_kb_reproduction.py",
+    "K_values": [
+      8,
+      48
+    ],
+    "fixed_B": 48,
+    "arm_names": [
+      "K8_B48",
+      "K48_B48"
+    ],
+    "eight_founder_selection_salt": 4111092026,
+    "same_eight_complete_diploid_founder_genotypes_per_source": true,
+    "shared_initial_future_random_streams_across_K_and_gate": true,
+    "future_seed_salt": 4111092048,
+    "future_seed_excludes": [
+      "K",
+      "B",
+      "gate",
+      "assigned_order",
+      "historical_near_far"
+    ],
+    "postshock_updates": 80,
+    "future_visitor_environments": [
+      "near",
+      "far"
+    ],
+    "budgets": [
+      0.5,
+      1,
+      2,
+      3,
+      4,
+      5,
+      8
+    ],
+    "log_budget_weights": "original_20261008_frozen",
+    "postzygotic_gates": [
+      {
+        "name": "baseline",
+        "selfed_fraction": 1,
+        "outcross_fraction": 1
+      },
+      {
+        "name": "self_half",
+        "selfed_fraction": 0.5,
+        "outcross_fraction": 1
+      }
+    ],
+    "no_plant_immigration": true,
+    "reproduction_equality_at_t0": "With matched F8 genotypes, same B48, same visitor and budget, every field of initial reproduction Ledger is identical across K8 versus K48",
+    "baseline_B_equal_K_parity": "K48_B48 matches canonical unmodified reproduction full Ledger"
+  },
+  "complete_grid": {
+    "n_histories": 64,
+    "n_t400_sources": 2048,
+    "futures_per_source": 56,
+    "total_postshock_futures": 114688,
+    "independent_inference_units": 64,
+    "nested_future_branches_are_not_independent": true
+  },
+  "primary": {
+    "terminal_outcome": "binary occupied after 80 updates",
+    "order_effect": "D(K) = average across settings, historical environments, nested demographic repeats, future visitors and original seven log-budget weights of occupancy(A-first)-occupancy(I-first)",
+    "self_viability_sensitivity": "tau(K)=D(K,baseline)-D(K,self_half)",
+    "contrast": "tau(K8,B48)-tau(K48,B48)",
+    "two_sided": true,
+    "n_visitor_history_clusters": 64,
+    "bootstrap": {
+      "draws": 9999,
+      "seed": 2026100967,
+      "percentile95": true,
+      "paired_by": "same visitor history across all K and gates"
+    },
+    "meaningful_mean_difference_absolute": 0.005,
+    "supported_if": "abs(mean)>=0.005 AND entire paired history bootstrap95 excludes zero",
+    "practically_equivalent_if": "entire paired history bootstrap95 strictly inside [-0.005,+0.005]",
+    "otherwise": "inconclusive",
+    "no_optional_stopping": true,
+    "freeze_before_new_outcome_exposure": true
+  },
+  "secondary_descriptive": [
+    "By-arm schedule effects under baseline and self_half",
+    "By-arm self viability sensitivity",
+    "Early extinction and recruited offspring totals are survival-dependent and not randomized mediators"
+  ],
+  "integrity_gates": [
+    "Exact old protocol/model code hash matching before and during all new source production",
+    "All 64 complete independent source history shards and 2048 full diploid t400 states including complete parentage",
+    "Same exact diploid sampled eight genotype IDs and alleles for both K arms; no survival conditioning",
+    "Same B48 at every generation in both K arms; identical initial reproduction Ledger with same gate",
+    "Source archive genetic/pedigree verification and SHA-256 per file before future simulation",
+    "All 114688 future cells and 64/64 history shards before one readout",
+    "Bootstrapping only 64 visitor-history clusters; no retrospective change to success criterion"
+  ],
+  "interpretation_limits": [
+    "Model-conditional intervention on demographic population capacity at fixed explicit pollen-background denominator; not field island size",
+    "Capacity also controls offspring namespace and vacancy competition, which are part of the manipulated demographic mechanism",
+    "Assigned transient phenotype expression order is not observed natural genetic emergence order",
+    "Previous secondary effect was chosen after outcome exposure; new cohort is required for confirmation",
+    "Do not claim genetic mediation, universal ecological rescue, natural island extinction risk or lifetime fitness"
+  ]
+}
