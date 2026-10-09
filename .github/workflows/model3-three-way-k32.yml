@@ -21,6 +21,10 @@ jobs:
         run: python -m scripts.compare_model3_three_k32_old_history --out model3-k32-three-way-old-history.json --draws 512 --budget 8
       - name: Repeat 8-year comparison under resource stress (extinction sensitivity)
         run: python -m scripts.compare_model3_three_k32_old_history --out model3-k32-three-way-old-history-budget3.json --draws 512 --budget 3
+      - name: Audit independent-simulation MC precision and rare extinction bounds
+        run: |
+          pytest -q tests/test_model3_k32_mc_uncertainty.py
+          python -m scripts.audit_model3_k32_mc_uncertainty --standard model3-k32-three-way-old-history.json --stress model3-k32-three-way-old-history-budget3.json --out model3-k32-mc-uncertainty.json
       - name: Check JSON provenance and non-promotion
         run: |
           python - <<'PY'
@@ -46,6 +50,8 @@ jobs:
         if: always()
         with:
           name: model3-k32-three-way-old-history
-          path: model3-k32-three-way-old-history*.json
+          path: |
+            model3-k32-three-way-old-history*.json
+            model3-k32-mc-uncertainty.json
           if-no-files-found: warn
           retention-days: 90
