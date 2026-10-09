@@ -219,6 +219,14 @@ jobs:
                   assert abs(row["calibrated_conditional_mean"]-row["source_mean"])<1e-7
               for arm in ("source","mean_matched_comparator"):
                   assert abs(r[arm]["cumulative_frequency_variance"]["covariance_identity_error"])<1e-10
+              b=r["paired_MC_precision"]
+              assert b["paired_demographic_bootstrap_resamples"]==1024
+              assert b["independent_ecological_replicates"]==1
+              assert b["paired_survivors"]==c["n_surviving"]
+              for name in ("source_minus_comparator_variance_mc_95_percentile",
+                           "source_minus_comparator_twice_covariance_mc_95_percentile",
+                           "source_minus_comparator_fixation_rate_mc_95_percentile"):
+                  assert len(b[name])==2 and b[name][0]<=b[name][1]
               print("Exploratory matched-mean comparator source/methodology integrity PASS",budget)
           PY
       - name: Archive source-conditioned mean-matched comparator, not field data
