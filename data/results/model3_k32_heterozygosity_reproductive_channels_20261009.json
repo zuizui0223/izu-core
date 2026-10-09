@@ -1,0 +1,196 @@
+{
+  "schema": "model3_k32_fixed_copy_assurance_heterozygosity_self_paternal_maternal_channels_v1",
+  "status": "dedicated_source_CI_passed_with_exact_three_channel_reconstruction",
+  "evidence_type": "original_Model3_exact_reproduction_on_hypothetical_two-parent_fixed-copy_allele_genotype_edits",
+  "source_provenance": {
+    "executed_commit": "97de249e0842e510e0154dc0754613d58e2cdad6",
+    "workflow_run_id": 37940242506,
+    "workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/37940242506",
+    "job_name": "model3-k32-heterozygosity-channels",
+    "job_status": "success",
+    "raw_artifact_id": 11621457300,
+    "raw_artifact_url": "https://github.com/zuizui0223/izu-core/actions/runs/37940242506/artifacts/11621457300",
+    "raw_artifact_digest_sha256": "6a9f1de0b011f64807f78d2c7888fe437e08b3b2bc18dec4fbc5dfca329668bb"
+  },
+  "source_scope": {
+    "K": 32,
+    "mutation_rate": 0,
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "ovule_budgets": [
+      8,
+      3
+    ],
+    "source_reproductive_setting": "canonical_Chapter2_prior_selfing",
+    "old_visitor_history": 26110601,
+    "old_visitor_environment": "near",
+    "independent_ecological_history_count": 1,
+    "source_demographic_replicates": 512,
+    "source_parent_start_years": [
+      1,
+      4,
+      8
+    ],
+    "visitor_snapshots": [
+      1,
+      8
+    ],
+    "locus_order": [
+      "pollinator_matching",
+      "floral_investment",
+      "reproductive_assurance"
+    ],
+    "sham_permutations_within_original_parent": 4,
+    "source_reproductive_code_modified": false,
+    "counterfactual_edits_only_two_parent_assurance_diplotypes": true,
+    "copy_count_conserved_at_all_three_loci": true,
+    "original_parent_census_conserved": true,
+    "assurance_diplotype_pairing_sham_shared_exactly": true,
+    "prospective_confirmatory_cohorts_accessed": false,
+    "natural_observations_used": false
+  },
+  "identity": "At current same parent high allele copy count, edited-minus-matched-sham one-step allele expected frequency direction = edited-minus-sham original viable-self contribution + outcross-father contribution + outcross-mother contribution (exact per path/per permutation/per visitor). Offspring intensity and capped-Poisson expected N are independently computed and may change.",
+  "eligibility_at_source_parent_start_year8": [
+    {
+      "budget": 8,
+      "cohort": 512,
+      "heterozygosity_up_eligible": 171,
+      "heterozygosity_down_eligible": 119
+    },
+    {
+      "budget": 3,
+      "cohort": 506,
+      "heterozygosity_up_eligible": 101,
+      "heterozygosity_down_eligible": 49
+    }
+  ],
+  "source_parent_year8_archived_visitor_year8": [
+    {
+      "budget": 8,
+      "operator": "heterozygosity_up",
+      "n_eligible": 171,
+      "assurance_next_expected_high_allele_direction_delta": -0.009202858848364439,
+      "viable_self_direction_delta": -0.010165658804967797,
+      "outcross_father_direction_delta": -0.000038258,
+      "outcross_mother_direction_delta": 0.001001058,
+      "matching_direction_delta": 0.00001843783411574202,
+      "total_viable_seed_intensity_delta": 0.006952096971803402,
+      "total_viable_seed_intensity_delta_mc_se": 0.008098655,
+      "expected_capped_recruits_delta": 0,
+      "expected_capped_recruits_delta_mc_se": 0
+    },
+    {
+      "budget": 8,
+      "operator": "heterozygosity_down",
+      "n_eligible": 119,
+      "assurance_next_expected_high_allele_direction_delta": 0.009062299684488458,
+      "viable_self_direction_delta": 0.01016892679013924,
+      "outcross_father_direction_delta": 0.000035808,
+      "outcross_mother_direction_delta": -0.001142435,
+      "matching_direction_delta": 0.0000718999384853844,
+      "total_viable_seed_intensity_delta": 0.0017904217040169063,
+      "total_viable_seed_intensity_delta_mc_se": 0.00940829,
+      "expected_capped_recruits_delta": 0,
+      "expected_capped_recruits_delta_mc_se": 0
+    },
+    {
+      "budget": 3,
+      "operator": "heterozygosity_up",
+      "n_eligible": 101,
+      "assurance_next_expected_high_allele_direction_delta": -0.01798587829088535,
+      "viable_self_direction_delta": -0.018959927798932612,
+      "outcross_father_direction_delta": -0.00007841710622338255,
+      "outcross_mother_direction_delta": 0.0010524666142706289,
+      "matching_direction_delta": -0.0004983041664527148,
+      "total_viable_seed_intensity_delta": 0.0032729956537994377,
+      "total_viable_seed_intensity_delta_mc_se": 0.0034953799817991817,
+      "expected_capped_recruits_delta": 0.0019514963051571672,
+      "expected_capped_recruits_delta_mc_se": 0.0023637786919136
+    },
+    {
+      "budget": 3,
+      "operator": "heterozygosity_down",
+      "n_eligible": 49,
+      "assurance_next_expected_high_allele_direction_delta": 0.013093063150643038,
+      "viable_self_direction_delta": 0.014332646611856705,
+      "outcross_father_direction_delta": 0.000013639081264177768,
+      "outcross_mother_direction_delta": -0.0012532225424778398,
+      "matching_direction_delta": 0.0008533231348558105,
+      "total_viable_seed_intensity_delta": 0.004673703003249726,
+      "total_viable_seed_intensity_delta_mc_se": 0.004759570204955189,
+      "expected_capped_recruits_delta": 0.003406286684487299,
+      "expected_capped_recruits_delta_mc_se": 0.003326343014425318
+    }
+  ],
+  "direction_over_source_parent_years": [
+    {
+      "budget": 8,
+      "year": 1,
+      "eligible_up": 512,
+      "eligible_down": 512,
+      "assurance_direction_up": -0.011807,
+      "assurance_self_direction_up": -0.013074,
+      "assurance_direction_down": 0.011811,
+      "assurance_self_direction_down": 0.013064
+    },
+    {
+      "budget": 8,
+      "year": 4,
+      "eligible_up": 478,
+      "eligible_down": 467,
+      "assurance_direction_up": -0.009827,
+      "assurance_self_direction_up": -0.010883,
+      "assurance_direction_down": 0.009807,
+      "assurance_self_direction_down": 0.010834
+    },
+    {
+      "budget": 8,
+      "year": 8,
+      "eligible_up": 171,
+      "eligible_down": 119,
+      "assurance_direction_up": -0.009203,
+      "assurance_self_direction_up": -0.010166,
+      "assurance_direction_down": 0.009062,
+      "assurance_self_direction_down": 0.010169
+    },
+    {
+      "budget": 3,
+      "year": 1,
+      "eligible_up": 506,
+      "eligible_down": 506,
+      "assurance_direction_up": -0.011804,
+      "assurance_self_direction_up": -0.013071,
+      "assurance_direction_down": 0.011811,
+      "assurance_self_direction_down": 0.013062
+    },
+    {
+      "budget": 3,
+      "year": 4,
+      "eligible_up": 433,
+      "eligible_down": 346,
+      "assurance_direction_up": -0.016484,
+      "assurance_self_direction_up": -0.01754,
+      "assurance_direction_down": 0.015012,
+      "assurance_self_direction_down": 0.016182
+    },
+    {
+      "budget": 3,
+      "year": 8,
+      "eligible_up": 101,
+      "eligible_down": 49,
+      "assurance_direction_up": -0.017986,
+      "assurance_self_direction_up": -0.01896,
+      "assurance_direction_down": 0.013093,
+      "assurance_self_direction_down": 0.014333
+    }
+  ],
+  "interpretive_limits": [
+    "Within declared original Model3 reproduction, the viable-self term dominates the exact assurance allele expected-direction response to a two-parent heterozygosity edit at fixed assurance high-copy count. The outcross mother marginal generally offsets it.",
+    "The matched parent allele count does NOT guarantee fixed offspring seed intensity, source selfing fraction, maternal/census distributions or genomic background associations of the two edited individuals.",
+    "At budget8 capped expected recruits remain exactly at the K=32 ceiling for all evaluated late assay paths; this is an engineered saturated regime, not evidence that biological recruitment is unaffected by assurance genotype.",
+    "At budget3 observed mean capped recruitment differences are small relative to their nested-demographic Monte Carlo SE; cannot reliably rank demographic risk effects.",
+    "HET_UP and HET_DOWN operate on DIFFERENT feasibility subsets at late fixation and cannot be combined without a common-support qualification.",
+    "All edited parental states are hypothetical, not generated by original no-mutation, no-immigration evolution. They preserve allele copies but change two individual assurance genotype pairings relative to a shuffled sham.",
+    "One archived old visitor history with nested demographic simulations, no independently confirmed ecological conditions, natural plant data or validated continuous-time SDE/SPDE."
+  ]
+}
