@@ -46,6 +46,9 @@ from scripts.run_model3_three_arm_k32_old_history import (
 from scripts.run_model3_k32_outcross_ablation import (
     reweighted_outcross, ARMS, _snapshot,
 )
+from scripts.audit_model3_k32_locus_architecture import (
+    LOCI, PAIR_NAMES, VECTOR_LABELS, architecture_vector, pattern_frequencies,
+)
 
 FACTOR_NAMES=("donor_export","visitor_routing","maternal_provisioning")
 MASK_LABELS={0:"original_canonical",1:"equal_donor",2:"equal_routing",
@@ -68,7 +71,7 @@ FACT_METRICS=(
     "log_genotype_richness_occupancy_weighted",
     "log_combinatorial_upper_bound_occupancy_weighted",
     "log_genotype_coverage_occupancy_weighted",
-)
+)+VECTOR_LABELS
 
 
 def combine_outcross_factors(ledger,mask):
@@ -222,6 +225,7 @@ def _row_values(c,basis,het):
         architecture["log_genotype_richness"] if alive else 0.,
         architecture["log_combinatorial_upper_bound"] if alive else 0.,
         architecture["log_genotype_coverage"] if alive else 0.,
+        *architecture_vector(c,basis),
     ],dtype=float)
     if not np.isclose(values[11],values[12]+values[13],atol=1e-12,rtol=0):
         raise ArithmeticError("occupancy-weighted log-diversity decomposition failed")
@@ -340,7 +344,13 @@ def run_factorial(*,budget=8.,draws=512,seed=420261017):
                 "fixation_given_survival":float(
                     rs[survivors,5].mean()) if survivors.any() else None,
             }
-        all_years[str(t+1)]={"arms":per_arm,"metrics":metric_results}
+        all_years[str(t+1)]={
+            "arms":per_arm,"metrics":metric_results,
+            "locus_loss_and_dominant_genotype_patterns":{
+                str(mask):pattern_frequencies(trajectory[mask],basis)
+                for mask in range(8)
+            },
+        }
     return {
         "status":"SOURCE_EXACT_K32_OLD_HISTORY_FULL_2x2x2_FACTORIAL",
         "evidence_type":"one_old_visitor_history_engineered_counterfactual_demographic_MC",
@@ -359,9 +369,16 @@ def run_factorial(*,budget=8.,draws=512,seed=420261017):
             "outcross_parent_pair_support_preserved":True,
             "prospective_confirmatory_cohorts_used":False,
             "same_seed_by_path_and_year_not_exact_offspring_coupling":True,
+            "all_3_loci_assayed":list(LOCI),
+            "diploid_genotype_dosage_pairwise_associations_not_phased_gametic_LD":True,
+            "locus_loss_patterns_no_reappearance_without_mutation":True,
         },
         "factors":FACTOR_NAMES,
         "masks":{str(m):MASK_LABELS[m] for m in range(8)},
+        "locus_order":list(LOCI),
+        "dosage_pair_order":list(PAIR_NAMES),
+        "locus_association_metric_names":list(VECTOR_LABELS),
+        "locus_association_interpretation":"Covariance/MI are within-population, unphased diploid genotype dosage associations with finite-sample bias, not haplotype linkage disequilibrium or causal epistasis",
         "factorial_order":"Möbius inclusion-exclusion on full 2^3 table; each component and interaction includes higher-order state feedback; do NOT interpret as one-step Shapley",
         "genetic_diversity_log_identity":"For every living path, log(R)=log(P)+log(R/P), where P=3^number_polymorphic_loci. For extinction, compare occupancy-weighted products (0) and never impute a fake genotype-frequency mean.",
         "metric_scopes":{
@@ -379,6 +396,10 @@ def run_factorial(*,budget=8.,draws=512,seed=420261017):
             "log_genotype_richness_occupancy_weighted":"occupancy times log(actual genotype class richness)",
             "log_combinatorial_upper_bound_occupancy_weighted":"occupancy times log(3**number polymorphic loci)",
             "log_genotype_coverage_occupancy_weighted":"occupancy times log(actual richness / combinatorial upper bound). Per path exact log richness=log upper bound+log coverage, even as occupancy weighted product",
+            "locus_specific_allele_frequencies_and_losses":"occupancy weighted: per locus high allele frequency, high allele absence, low allele absence, heterozygote plant fraction; extinct individuals have no allele-frequency mean",
+            "locus_pair_dosage_associations":"occupancy weighted unphased individual diploid dosage covariance and mutual information, NOT phased gametic LD; sampling bias expected for finite K",
+            "dominant_genotype_frequency":"occupancy weighted frequency of largest observed joint diploid genotype class",
+            "locus_loss_patterns":"for each of 8 arm-years, 3-symbol living-population P/L/H status and most frequent joint genotype dosage label counts",
         },
         "years":all_years,
         "interpretation_limits":[
@@ -411,6 +432,13 @@ def main():
         "log_upper_bound_all_three_minus_source":final["log_combinatorial_upper_bound_occupancy_weighted"]["all_three_minus_original"],
         "log_coverage_all_three_minus_source":final["log_genotype_coverage_occupancy_weighted"]["all_three_minus_original"],
         "effective_simpson_all_three_minus_source":final["genotype_effective_simpson_occupancy_weighted"]["all_three_minus_original"],
+        "locus_low_allele_loss_all_three_minus_source":{
+            name:final["locus_"+name+"_low_allele_lost_occ_weighted"]["all_three_minus_original"] for name in LOCI
+        },
+        "pairwise_dosage_covariance_all_three_minus_source":{
+            name:final["dosage_covariance_"+name+"_occ_weighted"]["all_three_minus_original"] for name in PAIR_NAMES
+        },
+        "most_frequent_genotype_share_all_three_minus_source":final["largest_genotype_frequency_occ_weighted"]["all_three_minus_original"],
     }))
 
 
