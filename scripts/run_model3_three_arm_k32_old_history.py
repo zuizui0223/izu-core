@@ -227,6 +227,11 @@ def compare(*, draws=256, budget=8.0, history_seed=OLD_HISTORY,
     )
     arms["deterministic_expected_integer_plug_in"]["plug_in_survival_product"] = risk
     arms["deterministic_expected_integer_plug_in"]["plug_in_extinction_risk"] = 1. - risk
+    arms["deterministic_expected_integer_plug_in"]["representative_extinct"] = bool(counts.sum() == 0)
+    # A deterministic path does not have an extinction PROBABILITY.
+    # Keep the path state separate from the survival-product heuristic.
+    arms["deterministic_expected_integer_plug_in"]["extinction_probability"] = None
+    arms["deterministic_expected_integer_plug_in"]["extinction_probability_mc_se"] = None
     arms["deterministic_expected_integer_plug_in"]["not_a_sampling_probability"] = True
     arms["deterministic_expected_integer_plug_in"]["n_draws"] = 0
     trajectories["deterministic"] = trajectory
@@ -237,8 +242,12 @@ def compare(*, draws=256, budget=8.0, history_seed=OLD_HISTORY,
         a = arms[name]
         both = ref["occupied_trait_mean"] is not None and a["occupied_trait_mean"] is not None
         distances[name] = {
+            "extinction_comparison_definition":
+                ("heuristic_survival_product_vs_exact_mc" if name.startswith("deterministic")
+                 else "independent_mc_extinction_rates"),
             "absolute_extinction_probability_difference":
-                abs(a["extinction_probability"] - ref["extinction_probability"]),
+                abs((a["plug_in_extinction_risk"] if name.startswith("deterministic")
+                     else a["extinction_probability"]) - ref["extinction_probability"]),
             "absolute_mean_genotype_classes_difference":
                 abs(a["mean_genotype_classes_unconditional"] -
                     ref["mean_genotype_classes_unconditional"]),
