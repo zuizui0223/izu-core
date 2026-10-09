@@ -19,6 +19,7 @@ import numpy as np
 from scripts.audit_model3_stochastic_mutation_scaling import (
     exact_mutation_one_step_trait_moments,
     population_size_noise_scaling,
+    dirichlet_simplex_boundary_diagnostic,
 )
 from scripts.model3_island.population import advance, subset
 from scripts.model3_island.randomness import STREAM_IDS, stream
@@ -127,6 +128,10 @@ def run_mutation_multistep_preflight(
         "founder_genotype_sha256":genotype_start_hash,
         "results":rows,
         "conditional_population_size_scaling":scaling,
+        "simplex_noise_genetic_loss_diagnostic":
+            dirichlet_simplex_boundary_diagnostic(
+                np.array([.02,.98]),8,draws=10000,seed=20261009
+            ),
         "canonical_Model3_modified":False,
         "full_multigeneration_SDE_validated":False,
         "full_trait_space_SPDE_validated":False,
