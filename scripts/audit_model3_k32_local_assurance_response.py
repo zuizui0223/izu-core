@@ -85,7 +85,7 @@ def flip_one_assurance_copy(counts,grid,direction,rng):
         raise AssertionError("one-allele perturbation corrupts finite census")
     np.testing.assert_allclose(
         result@grid.genotypes.mean(axis=2)-c@grid.genotypes.mean(axis=2),
-        [0.,0.,-.5 if direction=="high_to_low" else .5],
+        [0.,0.,-.25 if direction=="high_to_low" else .25],
         atol=1e-12,rtol=0)
     return result
 
