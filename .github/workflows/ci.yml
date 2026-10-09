@@ -1077,12 +1077,47 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m pip install -e '.[dev]'
-      - name: Verify exploratory vs prospectively frozen history seed firewall
-        run: pytest -q tests/test_model3_k32_exploratory_visitor_histories.py
+      - name: Verify original history firewall and leakage-free ecological predictors
+        run: pytest -q tests/test_model3_k32_exploratory_visitor_histories.py tests/test_model3_k32_visitor_environment_predictors.py
       - name: Eight newly generated exploratory near visitor histories budget8
         run: python -m scripts.audit_model3_k32_exploratory_visitor_histories --budget 8 --draws 128 --out exploratory-histories-budget8.json
       - name: Eight newly generated exploratory near visitor histories budget3
         run: python -m scripts.audit_model3_k32_exploratory_visitor_histories --budget 3 --draws 128 --out exploratory-histories-budget3.json
+      - name: Compare source visitor ecological signatures and early-only group-held-out prediction
+        run: python -m scripts.audit_model3_k32_visitor_environment_predictors --budget8 exploratory-histories-budget8.json --budget3 exploratory-histories-budget3.json --out exploratory-visitor-environment-prediction.json
+      - name: Verify whole-visitor-history holdout with no future-time leakage
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          x=json.loads(Path("exploratory-visitor-environment-prediction.json").read_text())
+          assert x["status"]=="MODEL3_K32_VISITOR_ECOLOGY_SIGNATURE_AND_GROUP_HELDOUT_EXPLORATORY_FORECAST_VERIFIED"
+          d=x["source_and_design"]
+          assert d["new_post_outcome_visitor_history_seeds"]==list(range(26110602,26110610))
+          assert d["old_discovery_reference_seed"]==26110601
+          assert d["number_simulated_independent_visitor_rng_histories"]==8
+          assert d["nested_demographic_paths_per_history"]==128
+          assert d["source_original_biology_modified"] is False
+          assert d["prospective_confirmatory_history_seeds_accessed"] is False
+          assert d["feature_selection_post_original_discovery"] is True
+          assert d["forecast_features_use_only_visitor_years_1_and_2"] is True
+          assert d["later_year_features_used_only_for_retrospective_description"] is True
+          assert d["test_split_holds_out_entire_visitor_seed"] is True
+          assert d["ridge_lambda_fixed_without_tuning"]==2
+          for budget in ("8","3"):
+              r=x["budget_results"][budget]
+              records=r["new_history_descriptive_records"]
+              assert [v["seed"] for v in records]==list(range(26110602,26110610))
+              model=r["leave_one_whole_visitor_history_out_early_only_prediction"]
+              assert model["n_evaluated_visitor_histories"]==8
+              assert model["n_training_visitor_histories_per_fold"]==7
+              assert model["ridge_early_only_mse"]>=0
+              assert model["train_only_intercept_baseline_mse"]>=0
+              assert len(model["held_out_predictions"])==8
+              assert all(p["n_training_visitor_histories"]==7
+                         for p in model["held_out_predictions"])
+          print("K32 model ecological predictors, early-only chronology and visitor-heldout test PASS")
+          PY
       - name: Strict source history and independent visitor RNG seed accounting
         run: |
           python - <<'PY'
@@ -1127,6 +1162,8 @@ jobs:
         if: always()
         with:
           name: model3-k32-new-visitor-history-stress
-          path: exploratory-histories-budget*.json
+          path: |
+            exploratory-histories-budget*.json
+            exploratory-visitor-environment-prediction.json
           if-no-files-found: warn
           retention-days: 90
