@@ -1,0 +1,56 @@
+name: Chapter 2 fixed-B48 posthoc pathway result original-byte archive once
+on:
+  push:
+    branches:
+      - chapter2/k-fixedB48-confirmed-pathways-posthoc-20261009
+    paths:
+      - data/dispatch/k-fixedB48-pathways-byteexact-archive-20261009.txt
+permissions:
+  contents: write
+  actions: read
+jobs:
+  archive-frozen-exploratory-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify original source-run identity and successful full replay
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          original=$(gh api "repos/$REPO/actions/runs/37918887205")
+          test "$(echo "$original" | jq -r .head_sha)" = "390da140f62cf41c87bf274b6b3b932834e53df9"
+          test "$(echo "$original" | jq -r .conclusion)" = "success"
+      - uses: actions/download-artifact@v4
+        with:
+          name: chapter2-fixedB48-independent-posthoc-demographic-pathways-20261009
+          path: original-readout
+          repository: ${{ github.repository }}
+          run-id: 37918887205
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Lock original JSON SHA-256 and unmodified registered primary
+        run: |
+          set -euo pipefail
+          mkdir -p results/chapter2
+          cp original-readout/posthoc-k-fixedB48-pathways-20261009.json \
+            results/chapter2/k_fixedB48_posthoc_pathways_20261009.json
+          echo "8fea4bd8c1858c445ba0eb57dfc038bac6819ed767932c596b79e4cd3ed6e542  results/chapter2/k_fixedB48_posthoc_pathways_20261009.json" | sha256sum -c -
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path("results/chapter2/k_fixedB48_posthoc_pathways_20261009.json").read_text())
+          assert d["status"]=="POST_OUTCOME_EXPLORATORY_SOURCE_ADMITTED_CHANNEL_AUDIT"
+          assert d["verified_raw_future_cells"]==114688
+          assert d["n_independent_histories"]==64
+          assert d["immutable_registered_primary"]["status"]=="supported_controlled_demographic_K_moderation_at_fixed_B48"
+          assert d["immutable_registered_primary"]["mean"]==0.007745713876893593
+          PY
+      - name: Commit original unchanged JSON, not new biology
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/chapter2/k_fixedB48_posthoc_pathways_20261009.json
+          git commit -m "Archive exact full-cohort K-at-B48 exploratory demographic-pathway JSON"
+          git push origin "HEAD:${{ github.ref_name }}"
