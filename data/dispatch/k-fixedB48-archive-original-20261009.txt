@@ -1,0 +1,5 @@
+ARCHIVE ONCE: successful independently confirmed K-at-fixed-B48 64-history readout.
+Original experiment Run 37896872795 SHA 2737736f1dca36c8b43e9ac6a9fbd862ca21165b.
+Original fully authenticating readout Run 37900150213 SHA 592cdad7fa0442a26fd5e79a2fd94812d4515c5d.
+Artifact 11601189449, JSON SHA256 a6f3aad995b561ef4613301857a4e92e24d2d2138d2c66d59a7a28e1bd902023.
+No new source histories, future trajectories or new inference. Only byte-identical original JSON copy.
