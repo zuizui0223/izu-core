@@ -1,0 +1,12 @@
+ONE-TIME PROSPECTIVE NEW 64-HISTORY K-B FACTORIAL LAUNCH — 2026-10-09
+Authorized by user: continue after explicit "実装しただけでなく走らせ" and "進めて".
+Study design: data/design/chapter2_kb_decoupled_20261009.json
+New independent histories: 40110901–40110964 (never used in old-history smoke).
+Four K/B treatments: K8_B8, K8_B48, K48_B8, K48_B48.
+Two selfed viable seed retention treatments: 1 and 0.5.
+T400 source count: 2048; full future count: 229376 (112 x 2048).
+The workflow MUST complete science/engineering preflight before it generates even one new source state.
+No interim peeking or source-outcome-dependent exclusions; 64 independent visitor histories.
+Frozen primary tau(K8,B8)-tau(K8,B48); cluster bootstrap 9999 seed 2026100957.
+Original 2026-10-09 capacity/founder moderator remains "inconclusive".
+Run exactly one full cohort on this frozen source SHA, never selectively regenerate failure.
