@@ -130,3 +130,86 @@ and mathematical identities before promoting any numerical
 contrast to evidence. All reference data remain one OLD ecological
 visitor history and nested demographic replicates, not natural
 island observations; no SDE/SPDE or INLA acceptance is claimed.
+
+
+## Source-locked 512-path numerical results
+
+Dedicated CI source-run [#37896524806](https://github.com/zuizui0223/izu-core/actions/runs/37896524806)
+completed successfully on source commit
+`9ebd6cb34235824b0e110a324d8774f9a2473f74`.
+The [raw two-case JSON archive, artifact 11600821192](https://github.com/zuizui0223/izu-core/actions/runs/37896524806/artifacts/11600821192)
+is source locked with SHA256
+`29e3c4342b9e588df16e8ba081762728871f792dc1121d70ef5ce087f310708c`.
+Permanent compact receipt:
+`data/results/model3_k32_outcross_factorial_20261009.json`.
+Both biological provenance and the exact 2×2×2 Möbius identities passed CI.
+
+### Eight-generation all-three intervention versus unchanged Model3
+
+| Metric | Budget 8 original | Budget 8 all three | Budget 3 original | Budget 3 all three |
+|---|---:|---:|---:|---:|
+| Surviving paths out of 512 | 512 | 512 | 505 | 507 |
+| Mean assurance high-allele frequency given survival | 0.97861 | **0.99521** | 0.98403 | **0.99646** |
+| Mean assurance heterozygote fraction given survival | 0.01898 | **0.00323** | 0.01193 | **0.00173** |
+| High-allele complete fixation fraction given survival | 0.63086 | **0.87305** | 0.80000 | **0.94477** |
+| Unconditional joint genotype richness | 4.32422 | 4.04102 | 3.11523 | 3.10938 |
+| Unconditional ancestral allele types lost | 0.82617 | **1.18750** | 1.39648 | **1.63281** |
+
+**Key distinction:** the combined intervention advances assurance-high
+allele fixation and founder-allele-type disappearance, yet in the
+resource-stress case retains approximately the same COUNT of occupied
+joint diploid genotype classes. Genotype richness and retained allelic
+types are not synonyms. The mechanism cannot be interpreted as new
+allele generation: mutation and immigration are zero.
+
+### Additivity and its Monte Carlo precision
+
+The following signed numbers are all-three-minus-original factorial
+effects, or aggregate pairwise-plus-three-way interaction contrasts.
+Each ± is one nested-demographic Monte Carlo standard error, computed
+from the COMPLETE per-path paired contrast rather than summing
+component SEs. They are NOT independent environment confidence
+intervals.
+
+| Factorial response | Budget 8 | Budget 3 |
+|---|---:|---:|
+| All-three joint genotype richness effect | -0.28320 ± 0.07587 | -0.00586 ± 0.06296 |
+| Sum of three individual richness effects | -0.50781 | -0.10547 |
+| **Aggregate richness non-additivity** | **+0.22461 ± 0.13270** | **+0.09961 ± 0.11975** |
+| All-three occupancy-weighted assurance frequency effect | +0.01660 ± 0.00181 | +0.01616 ± 0.00612 |
+| **Aggregate assurance frequency non-additivity** | **-0.00958 ± 0.00315** | -0.00560 ± 0.01217 |
+| All-three occupancy-weighted heterozygosity effect | -0.01575 ± 0.00171 | -0.01005 ± 0.00167 |
+| Sum of three individual heterozygosity effects | -0.02612 | -0.01899 |
+| **Aggregate heterozygosity non-additivity** | **+0.01038 ± 0.00322** | **+0.00894 ± 0.00348** |
+| All-three unconditional allele-types-lost effect | +0.36133 ± 0.03432 | +0.23633 ± 0.04093 |
+| Aggregate allele-loss non-additivity | -0.08594 ± 0.05807 | -0.05078 ± 0.08541 |
+
+The positive aggregate heterozygosity interaction at BOTH budgets
+means three separate heterozygosity-reducing interventions are not
+additively interchangeable. Their individual effects sum to a
+greater reduction than the actual combined effect. This is
+consistent with bounded-frequency saturation and genotype-dependent
+feedback, but neither is uniquely isolated as a causal mechanism.
+
+The positive **richness** aggregate non-additivity is LESS
+precisely identified: its MC SE is too large to certify a stable
+interaction difference in either budget. It would be misleading to
+turn a visible numerical nonadditivity into a robust ecological
+interaction claim. Similarly, the three-way single coefficient itself
+has limited precision, and the design generated multiple candidate
+endpoints after the earlier source outcomes were seen.
+
+### Biological and statistical caveats
+
+All eight arms are deliberately altered mating-weight counterfactuals,
+not eight independent natural histories. All paths use one archived
+near visitor environment 26110601 and artificial founders; random
+numbers differ by arm after genotype paths diverge. Total viable
+outcross seed intensity and selfed viable seed intensities are
+held constant conditional on the SAME arm's CURRENT parent state,
+but later parent genotype distributions can change subsequent
+fitness and recruitment. Extinction-conditioned allele means are
+reported separately from factorial occupancy-weighted products.
+The experiment cannot establish natural pollinator fitness, causal
+selection, island comparison, or a validated full SDE/SPDE. Keep
+PR #420 Draft until newest broad CI and Chapter 2 gate succeed.
