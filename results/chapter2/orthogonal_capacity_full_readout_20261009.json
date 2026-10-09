@@ -1,0 +1,75 @@
+{
+  "status": "ALL_64_NEW_HISTORIES_2048_SOURCES_172032_FUTURES_AUTHENTICATED",
+  "n_independent_visitor_histories": 64,
+  "n_t400_sources": 2048,
+  "n_future_trajectories": 172032,
+  "primary_decision": "inconclusive",
+  "inference": {
+    "status": "ALGEBRA_ONLY_NOT_AN_ADMITTED_SCIENTIFIC_RESULT",
+    "planned_histories": 64,
+    "planned_full_futures": 172032,
+    "independent_inference_unit": "visitor_history",
+    "bootstrap": {
+      "draws": 9999,
+      "seed": 2026100943,
+      "unit": "paired_visitor_history"
+    },
+    "by_arm_self_viability_sensitivity": {
+      "eight_founders_capacity8": {
+        "mean": 0.005770429913213521,
+        "history_bootstrap95": [
+          0.0019028546441866654,
+          0.009751482652476993
+        ],
+        "positive_histories": 38,
+        "negative_histories": 25,
+        "zero_histories": 1
+      },
+      "eight_founders_capacity48": {
+        "mean": 0.0039220110095941636,
+        "history_bootstrap95": [
+          0.00014333644425999336,
+          0.007779771868939798
+        ],
+        "positive_histories": 38,
+        "negative_histories": 26,
+        "zero_histories": 0
+      },
+      "all_available_founders_capacity48": {
+        "mean": 0.001121126800847059,
+        "history_bootstrap95": [
+          -0.0029149945265634246,
+          0.005121637325284059
+        ],
+        "positive_histories": 33,
+        "negative_histories": 31,
+        "zero_histories": 0
+      }
+    },
+    "contrasts": {
+      "primary_capacity_conditional_fixed_eight": {
+        "mean": 0.0018484189036193578,
+        "history_bootstrap95": [
+          -0.0034583914567777605,
+          0.007336769812294259
+        ],
+        "positive_histories": 31,
+        "negative_histories": 33,
+        "zero_histories": 0
+      },
+      "secondary_founder_abundance_and_sampling": {
+        "mean": 0.0028008842087471056,
+        "history_bootstrap95": [
+          -0.001618859742479836,
+          0.007327445997758439
+        ],
+        "positive_histories": 34,
+        "negative_histories": 30,
+        "zero_histories": 0
+      }
+    },
+    "primary_decision_if_and_only_if_complete_raw_archive_admitted": "inconclusive",
+    "critical_interpretation": "The fixed-eight capacity contrast is model-conditional; the secondary fixed-capacity contrast combines founder number and sampled genotypes. This arithmetic is not confirmation without a complete independently authenticated future archive."
+  },
+  "interpretation_limit": "This is model-conditional capacity moderation with identical eight founders; the founder-dose comparator still conflates founding abundance and genotype sampling. Not a field-calibrated Izu effect."
+}
