@@ -79,3 +79,33 @@ jobs:
           path: new-futures/*
           retention-days: 90
           if-no-files-found: error
+  audited-readout:
+    needs: new-futures
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Restore immutable original t400 and baseline archives
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run download 37862121201 --repo "${{ github.repository }}" --pattern 'budget-window-pre-shard-*' --dir old-pre
+          gh run download 37862121201 --repo "${{ github.repository }}" --pattern 'budget-window-post-shard-*' --dir old-post
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: factorial-shard-*
+          path: new-data
+          merge-multiple: false
+      - name: Audit all 2048 diploid sources and 229376 matched future cells
+        run: |
+          python -m scripts.chapter2_postzygotic_factorial_readout --prehistory old-pre --baseline old-post --perturbed new-data --out outputs/final.json --execute-frozen-cohort
+      - uses: actions/upload-artifact@v4
+        with:
+          name: postzygotic-factorial-full-adjudication
+          path: outputs/final.json
+          retention-days: 90
+          if-no-files-found: error
