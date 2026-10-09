@@ -110,12 +110,29 @@ def test_eight_year_factorial_source_scope_and_all_interaction_identities(budget
     assert c["prospective_confirmatory_cohorts_used"] is False
     assert c["self_seed_intensity_and_total_outcross_seed_intensity_preserved_at_each_current_parent"] is True
     assert len(r["years"])==8 and len(FACTOR_NAMES)==3
+    assert c["diploid_genotype_dosage_pairwise_associations_not_phased_gametic_LD"] is True
+    assert c["locus_loss_patterns_no_reappearance_without_mutation"] is True
+    assert len(r["locus_association_metric_names"])==19
     assert r["masks"]=={str(i):MASK_LABELS[i] for i in range(8)}
     for year in r["years"].values():
         assert len(year["arms"])==8
+        assert len(year["locus_loss_and_dominant_genotype_patterns"])==8
+        for mask in range(8):
+            signature=year["locus_loss_and_dominant_genotype_patterns"][str(mask)]
+            assert signature["n_living"]==year["arms"][str(mask)]["n_survivors"]
+            assert signature["n_extinct"]==year["arms"][str(mask)]["n_extinct"]
+            assert sum(signature["fixed_allele_pattern_counts"].values())==signature["n_living"]
+            assert sum(signature["dominant_genotype_dosage_label_counts"].values())==signature["n_living"]
         for arm in year["arms"].values():
             assert arm["n_survivors"]+arm["n_extinct"]==16
             assert 0<=arm["mean_lost_alleles_all"]<=6
+        for locus in r["locus_order"]:
+            for suffix in ("high_allele_lost_occ_weighted","low_allele_lost_occ_weighted",
+                           "high_frequency_occ_weighted","heterozygosity_occ_weighted"):
+                assert "locus_"+locus+"_"+suffix in year["metrics"]
+        for pair in r["dosage_pair_order"]:
+            assert "dosage_covariance_"+pair+"_occ_weighted" in year["metrics"]
+            assert "dosage_mutual_info_"+pair+"_occ_weighted" in year["metrics"]
         for metric in FACT_METRICS:
             row=year["metrics"][metric]
             assert row["max_additivity_identity_error"]<1e-10
