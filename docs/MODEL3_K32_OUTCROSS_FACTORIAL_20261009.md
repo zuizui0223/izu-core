@@ -433,3 +433,112 @@ until successful source-locked execution and inspection of raw JSON.**
 No new biological source functions under scripts/model3_island/ are
 edited, and no ecological confirmatory seeds, independent natural
 islands or continuous SDE/SPDE fitting are opened.
+
+
+## Validated locus-specific allele losses and unphased genotype associations
+
+Dedicated numerical tests, old-visitor provenance guards, pattern
+frequency reconstruction and eight-arm factorial identities all
+**PASSED** in
+[GitHub Actions #37901870989](https://github.com/zuizui0223/izu-core/actions/runs/37901870989),
+job `model3-k32-full-factorial` on source commit
+`1bbd161ff1cb4d53e00f0eef9877153810da83a5`.
+The [full raw two-budget archive](https://github.com/zuizui0223/izu-core/actions/runs/37901870989/artifacts/11602758871)
+has SHA256
+`46f05a2f60a66e2fefe77f6ec9d01acd9ab4ee98b473ebca90e221efd697b6db`.
+Machine-readable compact source-lock:
+`data/results/model3_k32_locus_architecture_20261009.json`.
+Compact frequency values below are rounded; exact values and full
+all-eight-arm-year series are in the archived original JSON.
+
+### Which ancestral alleles were lost at year eight?
+
+All percentages and means in the following table use the
+**occupancy-weighted** genotype-state statistics with denominator
+512 simulations per arm, not means with extinction imputed as a
+fake allele frequency. There were 505 source and 507 all-three
+survivors at budget3, and 512 each at budget8.
+
+| Locus-dependent event | Budget8 source → all-three | Budget3 source → all-three |
+|---|---:|---:|
+| Matching high allele lost (low genotype fixed) | 5.27% → **1.56%** | 13.09% → **7.62%** |
+| Matching low allele lost (high genotype fixed) | 0% → 0.59% | 5.47% → 6.05% |
+| Matching heterozygote genotype frequency | 0.79% → **3.92%** | 0.36% → **2.96%** |
+| Investment high allele lost (low genotype fixed) | 14.26% → **29.30%** | 32.62% → **49.61%** |
+| Investment low allele lost (high genotype fixed) | 0% → 0% | 1.17% → 0.59% |
+| Investment heterozygote genotype frequency | 4.75% → **2.19%** | 3.20% → **1.51%** |
+| Assurance low allele lost (high genotype fixed) | 63.09% → **87.30%** | 78.91% → **93.55%** |
+| Assurance high allele lost (low genotype fixed) | 0% → 0% | 0.20% → 0% |
+
+**Result:** the combined manipulation does not merely produce a
+single, uniform decrease in polymorphism. It strongly increases
+assurance-high fixation and investment-low fixation, while reducing
+loss of the matching-high allele and increasing matching-locus
+heterozygosity. The trait names refer to encoded Model3 loci;
+the experiment is not direct measurement of flower investment or
+pollinator choices in real populations.
+
+### Genotype combinations and population-state patterns
+
+The three-letter pattern is ordered matching/investment/assurance,
+with P = both alleles, L = low fixed (HIGH lost),
+H = high fixed (LOW lost). Counts are among 512 paths, excluding
+extinct paths:
+
+| Genetic state pattern | Budget8 original → all-three | Budget3 original → all-three |
+|---|---:|---:|
+| **PPP**: all three loci still polymorphic | **171 → 50** | **79 → 13** |
+| **PPH**: matching/investment polymorphic; assurance high fixed | 242 → 305 | 210 → 217 |
+| **PLH**: matching polymorphic; investment low fixed; assurance high fixed | **62 → 132** | **109 → 196** |
+
+The most frequent single joint-genotype dosage class also
+becomes more concentrated. The average frequency of each
+population's highest-frequency genotype class increases from
+0.58350 to 0.61835 at budget8, and 0.65381 to 0.67890
+at budget3. The identity of the dominant genotype varies:
+here the genotype label, distinct from fixation patterns,
+is L=low homozygous, H=heterozygote, U=high homozygous
+for each of the three loci. The code does NOT infer haplotype
+phasing from these dosage labels.
+
+These shifts concretely explain how losing founding alleles
+can coincide with little change in the raw number of genotype
+classes: more populations have a small, similar collection of
+genotypes under the two-locus fixation pattern PLH.
+This is a **descriptive reallocation**, not proof of adaptive
+recombination or active diversity rescue.
+
+### Cross-locus associations change too, but do not imply true LD
+
+Exact within-population covariance of individual diploid
+allele dosage for matching × investment is more negative in
+the original than under all-three manipulation:
+
+| Unphased dosage association | Budget8 original → all-three | Budget3 original → all-three |
+|---|---:|---:|
+| Cov(matching, investment) | -0.03325 → **-0.01343** | -0.02743 → **-0.00854** |
+| Cov(matching, assurance) | +0.00434 → +0.00023 | +0.00294 → -0.00010 |
+| Cov(investment, assurance) | -0.00624 → -0.00057 | -0.00339 → -0.00078 |
+| Empirical mutual information(matching, investment), nats | 0.08787 → 0.06838 | 0.08257 → 0.04925 |
+
+These associations depend on underlying per-locus allele
+marginals, especially near assurance fixation; their
+absolute magnitude can shrink mechanically even with
+unchanged mate preference. Unphased individual-dosage
+associations are **NOT** estimates of gametic linkage
+disequilibrium, cross-locus physical linkage, epistasis,
+or causal genotype interaction. Plug-in mutual information
+has finite-census sampling bias.
+
+**Biological interpretation boundary:** we have established
+how these three model-coded loci and their joint genotype
+distribution respond to three deliberately manipulated
+outcross mating-weight factors under one archived historical
+visitor sequence. Identifying whether the matching locus
+is maintained by balancing pollinator selection, drift,
+or its relationship with assurance would require explicit
+competing biological perturbations and genuinely independent
+ecological histories. Neither actual plant genotyping nor
+frozen prospective history cohorts were used. No general
+island-evolution mechanism or complete SDE/SPDE has been
+validated by this diagnosis.
