@@ -6,6 +6,7 @@ import pytest
 
 from scripts.audit_model3_stochastic_scaling_limit import (
     CAPACITIES, clone_existing_founder_pool, scaling_screen,
+    no_visitor_fast_time_counterexample,
 )
 from scripts.model3_island.population import subset
 from scripts.run_chapter2_assurance_generality import founders,load_design,DEFAULT_DESIGN
@@ -112,3 +113,24 @@ def test_initial_snapshot_is_explicit_shared_baseline_not_isolation_effect():
             settings=("prior_selfing",),environments=("near",),
             sizes=(8,32,128),snapshot_index=399
         )
+
+
+def test_absent_pollinators_produce_exact_nonvanishing_selection_under_cloning():
+    result=no_visitor_fast_time_counterexample(sizes=(8,16,32,64,128))
+    assert result["status"]=="EXACT_NO_VISITOR_ORDER_ONE_DRIFT_COUNTEREXAMPLE"
+    assert result["n_visitor_types"]==0
+    assert result["original_model3_reproductive_operator_unchanged"] is True
+    assert result["one_generation_drift_nonzero_and_capacity_invariant"] is True
+    assert result["continuous_time_finite_drift_SDE_limit_for_this_family_admissible"] is False
+    records=result["rows"]
+    base=np.asarray(records[0]["one_generation_drift"])
+    assert np.linalg.norm(base)>1e-6
+    for record in records:
+        np.testing.assert_allclose(
+            record["one_generation_drift"],base,
+            rtol=0,atol=1e-12
+        )
+        assert record["K_times_drift_l2"]==pytest.approx(
+            record["K"]*np.linalg.norm(base),rel=1e-12
+        )
+    assert records[-1]["K_times_drift_l2"]/records[0]["K_times_drift_l2"]==pytest.approx(16.)
