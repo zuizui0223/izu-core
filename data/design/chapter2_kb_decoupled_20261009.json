@@ -1,0 +1,164 @@
+{
+  "schema_version": "1.0",
+  "status": "FROZEN_PROSPECTIVE_DESIGN_NO_NEW_OUTCOMES",
+  "design_date": "2026-10-09",
+  "question": "Does pollen-background recipient dilution B, independently of demographic carrying-capacity ceiling K, moderate assigned expression-order sensitivity to viable selfed-seed retention?",
+  "motivated_by": [
+    "PR #437 read-only postoutcome discovery: canonical model capacity enters BOTH recruitment ceiling and recipient pollen denominator",
+    "Previously preregistered fixed-eight C8 vs C48 moderator on independent histories was INCONCLUSIVE, mean +0.0018484189 and bootstrap95 [-0.0034583915,0.0073367698]",
+    "Previous exploratory founder-capacity cochange contrast must NOT be treated as positive confirmation"
+  ],
+  "independent_cohort": {
+    "visitor_history_first": 40110901,
+    "visitor_history_last": 40110964,
+    "n_independent_history_clusters": 64,
+    "demographic_repeat_ids": [
+      40111901,
+      40111902
+    ],
+    "no_old_history_reuse": true,
+    "banned_earlier_ranges": [
+      [
+        37110801,
+        37110864
+      ],
+      [
+        38110901,
+        38110964
+      ],
+      [
+        39110901,
+        39110964
+      ]
+    ],
+    "historical_settings": [
+      "near",
+      "far"
+    ],
+    "reproductive_settings": [
+      "delayed_control",
+      "prior_selfing",
+      "pollen_discount",
+      "assurance_cost"
+    ],
+    "randomized_equal_dose_expression_orders": [
+      "assurance_first",
+      "investment_first"
+    ],
+    "full_diploid_t400_source_count": 2048,
+    "t400_updates": 400,
+    "include_extinct_t400_without_selection": true
+  },
+  "intervention": {
+    "true_demographic_capacity_K": [
+      8,
+      48
+    ],
+    "background_normalizer_B": [
+      8,
+      48
+    ],
+    "four_cells_ordered": [
+      "K8_B8",
+      "K8_B48",
+      "K48_B8",
+      "K48_B48"
+    ],
+    "exact_same_source_diploid_ids_and_alleles_four_cells": true,
+    "sampled_founders_max_n": 8,
+    "founder_subsample_seed_tag": 4011092026,
+    "source_full_founders": 48,
+    "background_denominator": "affinity.sum(axis=0, keepdims=True) + B*config.background_ratio",
+    "demographic_capacity_rule": "n<=K; replacement/vacancies/offspring identity always refer to K, NOT B",
+    "reproduction_reference_parity": "B==K must produce identical complete Ledger versus unmodified canonical reproduce()",
+    "no_canonical_biology_modification": true,
+    "same_exogenous_visitor_history_and_initial_demographic_stream_seeds_across_four_cells_and_gates": true,
+    "postshock_updates": 80,
+    "mutation_rate": "same as 2026-10-08 frozen postshock design",
+    "no_new_plant_immigration": true,
+    "viability_gates": [
+      {
+        "name": "baseline",
+        "selfed_fraction": 1,
+        "outcross_fraction": 1
+      },
+      {
+        "name": "self_half",
+        "selfed_fraction": 0.5,
+        "outcross_fraction": 1
+      }
+    ],
+    "budgets": [
+      0.5,
+      1,
+      2,
+      3,
+      4,
+      5,
+      8
+    ],
+    "budget_weight": "original frozen log-budget quadrature",
+    "future_visitors": [
+      "near",
+      "far"
+    ]
+  },
+  "full_grid": {
+    "n_t400_sources": 2048,
+    "n_futures_per_source": 112,
+    "n_raw_future_trajectories": 229376,
+    "inference_unit": "64 visitor histories; demographic repeats/budgets/futures are nested, not independent"
+  },
+  "primary_estimand": {
+    "assigned_expression_order": "A-first minus I-first terminal binary occupied at 80 updates",
+    "within_cell_viability_sensitivity": "tau(K,B)=D_baseline(K,B)-D_self_half(K,B)",
+    "focal_contrast": "tau(K8,B8)-tau(K8,B48)",
+    "interpretation": "controlled pollen-background recipient dilution effect on schedule self-viability sensitivity at the fixed demographic ceiling K=8",
+    "two_sided": true,
+    "cluster_bootstrap_draws": 9999,
+    "cluster_bootstrap_seed": 2026100957,
+    "unit": "visitor_history",
+    "decision_minimum_meaningful_absolute": 0.005,
+    "support_rule": "absolute_mean>=0.005 AND 95pct paired history percentile interval excludes zero",
+    "equivalence_rule": "entire 95pct interval strictly within (-0.005,+0.005)",
+    "otherwise": "inconclusive",
+    "history_count_fixed_before_new_outcomes": true,
+    "no_optional_stopping": true
+  },
+  "secondary_estimands": {
+    "capacity_at_B48": "tau(K8,B48)-tau(K48,B48)",
+    "capacity_at_B8": "tau(K8,B8)-tau(K48,B8)",
+    "pollen_dilution_at_K48": "tau(K48,B8)-tau(K48,B48)",
+    "K_by_B_interaction": "tau(K8,B8)-tau(K8,B48)-tau(K48,B8)+tau(K48,B48)",
+    "evidence": "all secondary/descriptive; no multiple-promoted significance claims"
+  },
+  "manipulation_checks": {
+    "exact_t400_fingerprint_four_arms": true,
+    "t0_pollen_export_B_independent_when_K_fixed": true,
+    "B_equal_K_complete_ledger_parity_to_canonical": true,
+    "viable_selfed_output_half_at_identical_initial_genotypes": true,
+    "early_population_extinction_included": true,
+    "future_seed_excludes": [
+      "K",
+      "B",
+      "viability_gate",
+      "assigned_expression_order",
+      "historical_environment"
+    ],
+    "note": "shared initial RNG streams do not enforce identical draws after trajectories diverge"
+  },
+  "admission": [
+    "All 64 independent new history-shards, 2048 t400 source states, full diploid arrays and complete parentage SHA verified",
+    "No reuse of 371..., 381... or 391... earlier exposed visitor-history ranges",
+    "Exact 229376 raw future cells, 112 per t400 source, 64 complete history shards, checksum and source chain",
+    "No outcomes exposed until all new future shards finish; one full-cohort primary adjudication",
+    "Failed/premature incomplete campaign is failure or inconclusive, never retroactive rule changes",
+    "All original negative and exploratory findings remain archived verbatim"
+  ],
+  "scope_limitations": [
+    "Synthetic pollinator and plant ABM, not calibrated to real Izu island geography or species",
+    "Phenotype-expression order assignment is not manipulated natural inherited mutation order",
+    "K and B are components of a specific mathematical model, not universally independent ecological controls",
+    "Cumulative recruits conditional on survival duration cannot identify mediation"
+  ]
+}
