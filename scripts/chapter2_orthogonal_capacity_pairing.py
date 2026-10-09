@@ -6,7 +6,6 @@ Only authenticated t400 PlantState objects may be supplied by a future runner.
 from __future__ import annotations
 
 import hashlib
-from pathlib import Path
 from typing import NamedTuple
 
 import numpy as np
@@ -14,7 +13,6 @@ import numpy as np
 from scripts.model3_island.population import subset
 from scripts.model3_island.types import PlantState
 from scripts.model3_island.randomness import STREAM_IDS, stream
-from scripts.plan_chapter2_orthogonal_founder_capacity import validate_protocol, PROTOCOL
 
 
 class PreparedArm(NamedTuple):
