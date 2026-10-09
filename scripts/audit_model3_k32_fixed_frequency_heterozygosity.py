@@ -135,7 +135,7 @@ def _summary(array):
         "mean":a.mean(axis=0).tolist() if len(a) else None,
         "nested_demographic_mc_se":(
             a.std(axis=0,ddof=1)/np.sqrt(len(a))).tolist()
-            if len(a)>1 else None),
+            if len(a)>1 else None,
     }
 
 
