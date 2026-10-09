@@ -176,7 +176,7 @@ def run_shard(pre,out,shard,workers):
     if records!=sorted(case_key(t) for t in group):
         raise AssertionError("Incomplete full future shard")
     receipt={
-        "status":"K_B_COMPLETE_32_SOURCES_1792_FUTURES_UNADJUDICATED",
+        "status":"K_FIXEDB48_COMPLETE_32_SOURCES_1792_FUTURES_UNADJUDICATED",
         "history":41110901+shard,"shard":shard,
         "n_sources":32,"n_futures":1792,
         "protocol_sha256":m["protocol_sha256"],
