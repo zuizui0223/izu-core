@@ -55,5 +55,5 @@ def test_manuscript_remains_flower_investment_first_and_companion_is_bounded():
     assert "separate" in route.lower() and "0.0077457139" in route
     assert "not" in companion.lower()
     for required in ("inconclusive","114,688","64 visitor-history clusters",
-                     "not a natural", "not a universal"):
+                     "not a natural", "not replicated across independent model families"):
         assert required.lower() in companion.lower()
