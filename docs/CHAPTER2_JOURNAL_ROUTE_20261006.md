@@ -188,3 +188,14 @@ Keep the temporal result separate:
 
 This journal decision follows the preregistered promotion rule; it does not
 raise the scientific claim ceiling beyond the evidence above.
+
+
+## Subsequent 2026-10-09 evidence: capacity-dependent persistence is a distinct companion
+
+This dated route remains controlling for the **four-setting floral-investment manuscript**. Later independent experiments address a *different response variable*: local occupancy after 80 updates under randomly assigned **transient reproductive phenotype-expression order** and an engineered 50% selfed-seed viability intervention. Those results do not alter this manuscript's primary estimand, Abstract, four-figure assembly, or original confirmed geographic-investment attenuation.
+
+After the original near/far DID equivalence and failed independent budget-window confirmation, a positive controlled selfed-seed-viability sensitivity emerged in the eight-founder stress test (PR #429). Its initial comparison across founder/capacity regimes was confounded; a matched-eight-founder test of the composite capacity parameter was **`inconclusive`** (PR #435). A source-backed follow-up showed this parameter changes both demographic capacity `K` and pollen delivery background `B` (PR #437). The independent 2×2 `K×B` study had an **`inconclusive`** preregistered B-at-K8 primary (PR #440); the K-at-B48 contrast there was **post-outcome secondary**.
+
+A separately preregistered replication then used **64 new visitor-history clusters, 2,048 diploid t400 sources and 114,688 authenticated 80-update futures** at a fixed pollen-background normalizer B48, with matched eight starting genotypes (PR #441; original Run #37896872795; readout Run #37900150213). Its frozen primary `tau(K8,B48) − tau(K48,B48)` was **+0.0077457139**, paired history-bootstrap95 **[+0.0024971581,+0.0130154788]**, passing its two-sided exclusion-of-zero and ≥0.005 effect-size gates. The original machine result is merged under PR #442; all earlier `inconclusive`, negative and equivalence verdicts remain unchanged.
+
+**Editorial action:** [keep this evidence as a separately framed bounded companion](CHAPTER2_PERSISTENCE_CAPACITY_COMPANION_POSITION_20261009.md), **not** as proof that the four-setting investment result causes, predicts or mediates natural island population rescue. The capacity experiment supports a model-conditional *moderator of an assigned expression-order effect's sensitivity to viable selfed-seed retention*; it does not identify spontaneous genetic mutation order, long-run absolute fitness, island size or empirically measured extinction. Full raw archived data still need durable external preservation, tracked in Issue #436.
