@@ -340,3 +340,52 @@ jobs:
           path: same-parent-budget*.json
           if-no-files-found: warn
           retention-days: 90
+
+  model3-k32-local-assurance-response:
+    if: github.event_name == 'pull_request' && github.event.pull_request.number == 420
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Test source-matched one-copy perturbations and fixed-state exclusion
+        run: pytest -q tests/test_model3_k32_local_assurance_response.py
+      - name: Compute original Model3 vs matched-baseline directional null budget8
+        run: python -m scripts.audit_model3_k32_local_assurance_response --out local-response-budget8.json --budget 8 --draws 128
+      - name: Compute original Model3 vs matched-baseline directional null budget3
+        run: python -m scripts.audit_model3_k32_local_assurance_response --out local-response-budget3.json --budget 3 --draws 128
+      - name: Audit checkpoint preservation and nonidentifiable fixation boundary
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for budget in (8,3):
+              d=json.loads(Path(f"local-response-budget{budget}.json").read_text())
+              assert d["status"]=="OLD_HISTORY_EXACT_SOURCE_LOCAL_ASSURANCE_PERTURBATION"
+              c=d["conditions"]
+              assert (c["K"],c["mutation_rate"],c["generations"],c["ovule_budget"])==(32,0,8,budget)
+              assert c["old_visitor_history"]==26110601
+              assert c["independent_visitor_histories"]==1
+              assert c["confirmatory_history_reused"] is False
+              assert c["canonical_model3_biology_modified"] is False
+              assert c["counterfactual_alters_reproductive_operator"] is True
+              assert c["boundary_states_excluded_from_matched_tilt"] is True
+              assert set(d["checkpoints"])=={"3","5","7","8"}
+              for row in d["checkpoints"].values():
+                  for key in ("assurance_high_to_low","assurance_low_to_high"):
+                      a=row[key]
+                      if a["n"]:
+                          assert abs(a["mean_source_minus_control"]-(a["mean_source_slope"]-a["mean_control_slope"]))<1e-10
+              print("K32 local assurance source-vs-baseline-matched perturbation PASS",budget)
+          PY
+      - name: Archive simulated one-copy response surfaces, not observed data
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: model3-k32-local-assurance-response
+          path: local-response-budget*.json
+          if-no-files-found: warn
+          retention-days: 90
