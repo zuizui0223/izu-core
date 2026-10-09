@@ -10,6 +10,8 @@
 - All **64 independent visitor histories**, **2,048 complete diploid t400 source states**, and **172,032 postshock futures** were admitted. Of the 64 histories, the full set is retained (including extinct sources). The 172,032 future cells are not independent statistical units.
 - The new source cohort is **independent** of the historical visitor IDs 37110801–37110864 and 38110901–38110964. The earlier intervention motivated the new primary test; it is not treated as a second confirmatory result.
 
+**Machine JSON status note:** The nested `inference.status = ALGEBRA_ONLY_NOT_AN_ADMITTED_SCIENTIFIC_RESULT` is the unchanged protective label returned by the reusable pure-algebra routine. It does **not** override the top-level `ALL_64_NEW_HISTORIES_2048_SOURCES_172032_FUTURES_AUTHENTICATED` status or the separately documented whole-cohort admission completed before inference. Both labels are preserved verbatim in the byte-identical archive.
+
 ## Frozen estimands and final quantitative results
 
 The common assignment contrast is `D = occupancy(A-first) − occupancy(I-first)` at 80 postshock updates, averaging the four mating settings, historical near/far, both nested demographic repeats, future visitor regimes and all seven originally log-weighted ovule budgets.
