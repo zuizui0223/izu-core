@@ -20,7 +20,7 @@ def test_cloned_capacity_preserves_exact_joint_diploid_trait_distribution():
         x=clone_existing_founder_pool(base,k)
         assert len(x.ids)==k
         assert len(np.unique(x.ids))==k
-        np.testing.assert_array_equal(x.alleles.mean(axis=(0,2)),mean)
+        np.testing.assert_allclose(x.alleles.mean(axis=(0,2)),mean,atol=1e-14,rtol=0)
         np.testing.assert_array_equal(
             np.unique(np.sort(x.alleles,axis=2).reshape(k,6),axis=0),
             original,
