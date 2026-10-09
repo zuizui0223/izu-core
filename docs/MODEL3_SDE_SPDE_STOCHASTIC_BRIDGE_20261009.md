@@ -217,7 +217,13 @@ they are. The plants have **not** undergone 400 reproductive updates:
 this is a fixed-founder × postassembly-visitor state intervention, not a
 co-evolutionary time series or newly calibrated island spatial distance.
 Adult survival, mutation and seed immigration are zero in this bounded
-necessary-condition screen; ovule budget is 8.
+necessary-condition screen; ovule budget is 8. **The source founder constructor
+forces both assurance alleles to 0.5**, so with mutation zero the assurance
+axis cannot evolve in this screen. Consequently, the measured drift is a
+restricted matching/investment response, **not** evidence for an unrestricted
+three-trait diffusion limit. A test with segregating standing assurance
+variation would be a separate initial-state sensitivity, not a new
+independent ecological replication.
 
 Let `Q_K(p,E)` denote the mean diploid-offspring distribution from the
 canonical sexual operator at finite census K, *with individual pollen
