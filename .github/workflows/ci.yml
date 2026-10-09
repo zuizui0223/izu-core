@@ -628,6 +628,10 @@ jobs:
                       assert row["max_additivity_identity_error"]<1e-10
                       total=sum(v["mean"] for v in row["factorial_components"].values())
                       assert abs(total-row["all_three_minus_original"]["mean"])<1e-10
+                      singles=row["sum_of_three_single_factor_effects"]["mean"]
+                      nonadd=row["aggregate_pairwise_and_three_way_interaction"]
+                      assert nonadd["demographic_mc_se"] is not None
+                      assert abs(singles+nonadd["mean"]-total)<1e-10
               print("Source K32 2x2x2 old-history factorial identity PASS",budget)
           PY
       - name: Archive full factorial engineering results
