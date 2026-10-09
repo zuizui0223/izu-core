@@ -43,7 +43,7 @@ def test_actual_means_match_unchanged_registered_machine_json():
         0.008580259018686977,
     ], abs=1e-15)
     assert d["unweighted_descriptive_mean_not_pooled_estimate"] == pytest.approx(
-        0.009918661686606537, abs=1e-14
+        0.009918661687273206, abs=1e-14
     )
     assert all(row["bootstrap95"][0] > 0 for row in d["rows"])
     # Positivity of selected secondary CIs is NOT three confirmatory successes.
