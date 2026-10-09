@@ -42,7 +42,7 @@ def test_unconstrained_tangent_noise_has_exact_multinomial_covariance():
 
 def test_restricted_diploid_problem_retains_three_locus_joint_genotypes():
     for k in (8,32):
-        first,grid,visitor,cfg=fixed_support_problem(capacity=k,budget=8.)
+        first,grid,visitor,cfg=fixed_support_problem(capacity=k,ovule_budget=8.)
         assert len(first)==27
         assert first.sum()==k
         assert grid.genotypes.shape==(27,3,2)
