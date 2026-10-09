@@ -1,0 +1,5 @@
+RUN one time, 2026-10-09: K×B reproduction + 80-update population smoke.
+Only previously exposed visitor history 39110901 is used.
+Run exactly 4 orthogonal K/B cells and 2 selfed-seed gates = 8 real future trajectories.
+Do not expose or generate the prospective new 40110901-40110964 cohort.
+Model status: old-history engineering pilot, NO confirmatory inference.
