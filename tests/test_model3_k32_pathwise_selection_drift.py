@@ -69,6 +69,14 @@ def test_eight_generation_nested_history_exact_telescoping(budget):
         v["total_allele_frequency_change_variance"],
         atol=1e-12,rtol=0)
     for step in r["per_generation"]:
+        v=np.asarray(step["cumulative_survivor_direction_variance"])
+        s=np.asarray(step["cumulative_survivor_sampling_variance"])
+        c=np.asarray(step["cumulative_survivor_twice_covariance"])
+        total=np.asarray(step["cumulative_survivor_total_variance"])
+        np.testing.assert_allclose(total,v+s+c,atol=1e-12,rtol=0)
+        if step["cumulative_survivor_allele_means"] is not None:
+            assert np.all(np.asarray(step["cumulative_survivor_allele_means"])>=0)
+            assert np.all(np.asarray(step["cumulative_survivor_allele_means"])<=1)
         assert step["single_step_source_identity_max_error"] is None or step["single_step_source_identity_max_error"]<1e-11
         assert step["new_extinctions"]>=0
         if step["n_occupied_end"]:
