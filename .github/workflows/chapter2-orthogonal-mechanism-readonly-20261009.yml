@@ -1,0 +1,77 @@
+name: Chapter 2 orthogonal read-only mechanism audit
+
+on:
+  push:
+    branches:
+      - chapter2/orthogonal-mechanism-readonly-20261009
+    paths:
+      - data/dispatch/orthogonal-mechanism-readonly-launch-20261009.txt
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: chapter2-orthogonal-mechanism-readonly-20261009
+  cancel-in-progress: false
+
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Lock the authentic completed raw source/future run SHAs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          s=$(gh api "repos/$REPO/actions/runs/37887039116")
+          f=$(gh api "repos/$REPO/actions/runs/37887290489")
+          test "$(echo "$s" | jq -r .head_sha)" = "c581d20313326b40233b438ca78fa1c55923b14c"
+          test "$(echo "$f" | jq -r .head_sha)" = "e29116f3c2fb062be3da3f3ed9b3ca869499e220"
+          test "$(echo "$s" | jq -r .conclusion)" = "success"
+          test "$(echo "$f" | jq -r .conclusion)" = "success"
+      - uses: actions/download-artifact@v4
+        with:
+          name: chapter2-orthogonal-t400-source-admission-20261009
+          path: source-admission
+          run-id: 37887039116
+          repository: ${{ github.repository }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: chapter2-orthogonal-future-shard-*
+          path: future-shard-archives
+          run-id: 37887290489
+          repository: ${{ github.repository }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/download-artifact@v4
+        with:
+          name: chapter2-orthogonal-64-history-confirmatory-readout-20261009
+          path: frozen-readout
+          run-id: 37887290489
+          repository: ${{ github.repository }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Reauthenticate all futures then audit early and cumulative channels
+        run: |
+          python -m scripts.chapter2_orthogonal_mechanism_posthoc \
+            --futures future-shard-archives \
+            --source-admission source-admission/orthogonal-source-admission.json \
+            --original-result frozen-readout/chapter2-orthogonal-full-scientific-readout.json \
+            --out chapter2-orthogonal-posthoc-mechanism-20261009.json \
+            --execute-readonly-audit \
+            | tee chapter2-orthogonal-posthoc-mechanism-console.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-orthogonal-posthoc-mechanism-audit-20261009
+          path: |
+            chapter2-orthogonal-posthoc-mechanism-20261009.json
+            chapter2-orthogonal-posthoc-mechanism-console.txt
+          retention-days: 90
+          if-no-files-found: error
