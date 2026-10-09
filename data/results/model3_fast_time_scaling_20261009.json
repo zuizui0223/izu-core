@@ -1,0 +1,111 @@
+{
+  "schema": "model3_fast_time_scaling_20261009_v1",
+  "status": "restricted_fast_time_scaling_screen_and_exact_absent_visitor_counterexample",
+  "provenance": {
+    "source_commit": "224dc932f0b49bb72ed427607e6c5cb2b4a6c165",
+    "workflow_run_id": 37866168832,
+    "workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/37866168832",
+    "workflow_conclusion": "success",
+    "archive_artifact_id": 11587584630,
+    "visitor_history_seed": 26110601,
+    "independent_visitor_histories": 1,
+    "biological_model3_source_modified": false
+  },
+  "conditions": {
+    "founders": "First 8 diploid Model3 #411 founders cloned K/8 times; both assurance alleles 0.5 in all founders",
+    "capacity_K": [
+      8,
+      16,
+      32,
+      64,
+      128
+    ],
+    "mutation_probability": 0,
+    "plant_immigration": 0,
+    "adult_survival": 0,
+    "ovule_budget": 8,
+    "t400_visitor_comparison": "after independent visitor assembly, plants remain baseline cloned founders (not 400 evolved generations)",
+    "t0_visitor_comparison": "only near shared initial community; no pseudo near-far difference",
+    "traces_are_finite_K_diagnostics_not_limit_theorems": true
+  },
+  "results": {
+    "postassembly_t400": {
+      "prior_selfing_near": [
+        0.001344629,
+        0.001080853,
+        0.000961253,
+        0.000904823,
+        0.000877506
+      ],
+      "prior_selfing_far": [
+        0.001725763,
+        0.001725763,
+        0.001725763,
+        0.001725763,
+        0.001725763
+      ],
+      "assurance_cost_near": [
+        0.002084944,
+        0.001790988,
+        0.001667221,
+        0.001611378,
+        0.001584999
+      ],
+      "assurance_cost_far": [
+        0.001725763,
+        0.001725763,
+        0.001725763,
+        0.001725763,
+        0.001725763
+      ],
+      "values": "l2 norm of one-generation expected change of 3 phenotype means",
+      "original_finite_K_heuristic_gt_0p005": false
+    },
+    "shared_initial_t0": {
+      "prior_selfing_near": [
+        0.004986773,
+        0.005221607,
+        0.005333584,
+        0.005388239,
+        0.005415238
+      ],
+      "assurance_cost_near": [
+        0.006818707,
+        0.007102977,
+        0.007236468,
+        0.00730115,
+        0.007332987
+      ],
+      "values": "l2 norm of one-generation expected change of 3 phenotype means",
+      "original_finite_K_heuristic_gt_0p005": true
+    },
+    "rigorous_structural_case": {
+      "reproductive_condition": "no functional visitor types; prior selfing; founder allele frequencies held equal by exact cloning",
+      "one_step_drift_l2": [
+        0.001725763048652381,
+        0.0017257630486524906,
+        0.0017257630486521938,
+        0.001725763048652336,
+        0.001725763048653056
+      ],
+      "K_times_drift_l2": [
+        0.013806104389219047,
+        0.02761220877843985,
+        0.0552244175568702,
+        0.1104488351137495,
+        0.22089767022759116
+      ],
+      "reason": "No outcrossing; normalized reproduction weights over genotype copies invariant to cloning K/8, so offspring phenotype expectation and nonzero mean shift are constant for every such K.",
+      "conclusion": "A finite-drift Ito SDE limit on accelerated dt=1/K using unscaled frozen source reproduction cannot cover this family of states.",
+      "scope": "Not a proof that other weak-selection or stochastic genotype measure/SPDE models are impossible."
+    }
+  },
+  "research_boundary": {
+    "complete_3trait_genetic_drift_examined": false,
+    "reason": "At zero mutation source founders have both assurance alleles fixed at 0.5; no initial assurance variation.",
+    "natural_island_validation": false,
+    "geo_INLA_performed": false,
+    "continuous_time_SPDE_constructed": false,
+    "preferred_mathematical_reference": "discrete-generation stochastic joint-diploid genotype measure"
+  }
+}
