@@ -1,0 +1,3580 @@
+{
+  "schema_version": "1.0",
+  "snapshot_date_utc": "2026-10-09",
+  "status": "COMPLETE_GITHUB_ACTIONS_METADATA_ONLY_NOT_RAW_BYTE_PRESERVATION",
+  "repository": "zuizui0223/izu-core",
+  "scope": "Four original 2026-10-09 full-cohort model-3 mechanism campaigns; 390 GitHub Actions artifacts enumerated via all API pages",
+  "limitations": [
+    "GitHub-reported digest and archive ZIP size are metadata captured from API, not an independent local re-download checksum",
+    "Artifact URLs and access may expire; storing identifiers or full scientific readout JSON does NOT preserve raw t400 diploid states or raw futures",
+    "Do not use this manifest as proof of durable external deposit or extra independent biological results",
+    "No simulator was executed or new outcomes were generated for the inventory"
+  ],
+  "expected_artifacts": 390,
+  "all_artifacts_unexpired_at_snapshot": true,
+  "total_stored_artifact_zip_bytes": 677782795,
+  "campaigns": [
+    {
+      "run_id": 37887039116,
+      "role": "orthogonal_fixed_founder_t400",
+      "expected_artifacts": 65,
+      "types": {
+        "diploid-t400-source": 64,
+        "source-admission": 1
+      },
+      "stored_artifact_zip_bytes": 216436830,
+      "artifacts": [
+        {
+          "id": 11595914259,
+          "name": "chapter2-orthogonal-t400-shard-0",
+          "artifact_zip_bytes": 3434131,
+          "github_archive_sha256": "557fca97016ec8fdbfc290379616469d3275dfa71554d7b7aab912693847e165",
+          "created_at": "2026-10-09T05:07:45Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596782015,
+          "name": "chapter2-orthogonal-t400-shard-1",
+          "artifact_zip_bytes": 3424602,
+          "github_archive_sha256": "b11ded21db772f90158aa3dbae5b7c85083b9f3ba3c19ce222f3c23241e97d15",
+          "created_at": "2026-10-09T05:07:34Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597135999,
+          "name": "chapter2-orthogonal-t400-shard-10",
+          "artifact_zip_bytes": 3365129,
+          "github_archive_sha256": "701882b7d55fe5824fd13bd84c56f71b45e6f0a53d6c376fc933178c53410613",
+          "created_at": "2026-10-09T05:08:19Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596519358,
+          "name": "chapter2-orthogonal-t400-shard-11",
+          "artifact_zip_bytes": 3483845,
+          "github_archive_sha256": "ba8e2abc33e50ddb0e8def4ca7ef616fd14a8b4efa661cb0540c6e0e44da0ded",
+          "created_at": "2026-10-09T05:08:32Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596504542,
+          "name": "chapter2-orthogonal-t400-shard-12",
+          "artifact_zip_bytes": 3378397,
+          "github_archive_sha256": "002c715bc85ad9da7d0ed7ab159fb3f1d6bba67f8c857497b7965caeee64cae3",
+          "created_at": "2026-10-09T05:08:19Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596479479,
+          "name": "chapter2-orthogonal-t400-shard-13",
+          "artifact_zip_bytes": 3385574,
+          "github_archive_sha256": "28cc75fddbf1087ffa995a7fb8260916bbd373cc2d2d7400ec249c4a04d05e13",
+          "created_at": "2026-10-09T05:08:35Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596373346,
+          "name": "chapter2-orthogonal-t400-shard-14",
+          "artifact_zip_bytes": 3277036,
+          "github_archive_sha256": "ae82e50a7becd5110696226770a5b4e2df9352a6c3ef5a929869c6265f0577e7",
+          "created_at": "2026-10-09T05:08:30Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596926726,
+          "name": "chapter2-orthogonal-t400-shard-15",
+          "artifact_zip_bytes": 3380613,
+          "github_archive_sha256": "487b2b5d0ce8c65575b341631c8c6618d682af158cf91e10f489fc4b036080c1",
+          "created_at": "2026-10-09T05:08:49Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597101210,
+          "name": "chapter2-orthogonal-t400-shard-16",
+          "artifact_zip_bytes": 3374388,
+          "github_archive_sha256": "8bad16776c9b1f032d7d96520a833c9bb4c615cffaab1afd313cb516b7aa0f5b",
+          "created_at": "2026-10-09T05:08:59Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11595919375,
+          "name": "chapter2-orthogonal-t400-shard-17",
+          "artifact_zip_bytes": 3397626,
+          "github_archive_sha256": "059f9e9dbd94fca3b12be75f8f707d6ab1b616824e5303227e0d8dc35b30228e",
+          "created_at": "2026-10-09T05:09:02Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596622334,
+          "name": "chapter2-orthogonal-t400-shard-18",
+          "artifact_zip_bytes": 3306345,
+          "github_archive_sha256": "9694c84a1dede92691d58cb9f8887aa97a82fc5f866577844592d31daca920a5",
+          "created_at": "2026-10-09T05:09:06Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597061477,
+          "name": "chapter2-orthogonal-t400-shard-19",
+          "artifact_zip_bytes": 3378953,
+          "github_archive_sha256": "a27e8743dbd9b1b2dc174053ca82ce01a9123d61215491402f94d28f072bfa8d",
+          "created_at": "2026-10-09T05:09:08Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596811997,
+          "name": "chapter2-orthogonal-t400-shard-2",
+          "artifact_zip_bytes": 3394501,
+          "github_archive_sha256": "dfbcbd0e9daf61830fab49ee3f069d78ce9661fcc7f4edc35fd5c5927c133fe6",
+          "created_at": "2026-10-09T05:07:46Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596861911,
+          "name": "chapter2-orthogonal-t400-shard-20",
+          "artifact_zip_bytes": 3290171,
+          "github_archive_sha256": "30039ffedeb6ea15927c65fd3e37726d3c9ff763575b4d24ea0477619eab6813",
+          "created_at": "2026-10-09T05:09:16Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596861917,
+          "name": "chapter2-orthogonal-t400-shard-21",
+          "artifact_zip_bytes": 3430657,
+          "github_archive_sha256": "dfb986a52e98ecdbd652ed53a0705a456d821ca7ca234264b883f6be01f36e67",
+          "created_at": "2026-10-09T05:09:19Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597365110,
+          "name": "chapter2-orthogonal-t400-shard-22",
+          "artifact_zip_bytes": 3441524,
+          "github_archive_sha256": "d6a7a7d219925c15e43390dbceafd9a0f260aa26849c0520f57240e383f084b8",
+          "created_at": "2026-10-09T05:09:20Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597081428,
+          "name": "chapter2-orthogonal-t400-shard-23",
+          "artifact_zip_bytes": 3340105,
+          "github_archive_sha256": "9af6576da8ebc6a984ca9e2cb97d89b3965210ddcce826299be48e2eca2a9056",
+          "created_at": "2026-10-09T05:09:33Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596891983,
+          "name": "chapter2-orthogonal-t400-shard-24",
+          "artifact_zip_bytes": 3339582,
+          "github_archive_sha256": "a3fe11d537ed320111cfb9b0dc580b1698833ffd91a27f42ad1d6a7663f6c25f",
+          "created_at": "2026-10-09T05:09:40Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596906886,
+          "name": "chapter2-orthogonal-t400-shard-25",
+          "artifact_zip_bytes": 3399085,
+          "github_archive_sha256": "4e0aa3567c294908f32be7acca5ab964e4f30261c43172f8826a5b47a169bf41",
+          "created_at": "2026-10-09T05:09:40Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596688035,
+          "name": "chapter2-orthogonal-t400-shard-26",
+          "artifact_zip_bytes": 3365214,
+          "github_archive_sha256": "61cc2936357fa77bbedd386b28a555afbdaa02faffe24b151a1335cb8901afa7",
+          "created_at": "2026-10-09T05:09:36Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596498033,
+          "name": "chapter2-orthogonal-t400-shard-27",
+          "artifact_zip_bytes": 3376035,
+          "github_archive_sha256": "85d8c1eeee68916d2e4dac69ab09b055e61323df00d5189ba926b5ecdf656340",
+          "created_at": "2026-10-09T05:09:52Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596597615,
+          "name": "chapter2-orthogonal-t400-shard-28",
+          "artifact_zip_bytes": 3348817,
+          "github_archive_sha256": "b8931c510776c58049fa0ad01f0a8720bf1ae254de3bd1d383488cd25a89c6e1",
+          "created_at": "2026-10-09T05:09:57Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596887062,
+          "name": "chapter2-orthogonal-t400-shard-29",
+          "artifact_zip_bytes": 3374421,
+          "github_archive_sha256": "f078e13d6c4f07b8ae208fcfe21ac590f3ddd7748b5e7bb9207cf98b1be9604d",
+          "created_at": "2026-10-09T05:10:03Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597101120,
+          "name": "chapter2-orthogonal-t400-shard-3",
+          "artifact_zip_bytes": 3354093,
+          "github_archive_sha256": "f7f5d1a556b619f9da612d05980e2bd20318ab6469fe70a8712f79aa1edd0273",
+          "created_at": "2026-10-09T05:08:19Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597181128,
+          "name": "chapter2-orthogonal-t400-shard-30",
+          "artifact_zip_bytes": 3378454,
+          "github_archive_sha256": "5bc4688a3ea98d4bb0163ff8d9cb3bb80c7510db1beeb355958a28178c85f2be",
+          "created_at": "2026-10-09T05:10:03Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597206086,
+          "name": "chapter2-orthogonal-t400-shard-31",
+          "artifact_zip_bytes": 3386926,
+          "github_archive_sha256": "d9ea10f2b2268167d8c655057b0695c644437e92f972a0b7ee963e6c85f57137",
+          "created_at": "2026-10-09T05:10:20Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597086554,
+          "name": "chapter2-orthogonal-t400-shard-32",
+          "artifact_zip_bytes": 3417450,
+          "github_archive_sha256": "0572708a98758d5b0fc09e3c1bd02cea724f6dea6acd2b13812d4b807d5d4857",
+          "created_at": "2026-10-09T05:10:18Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597235858,
+          "name": "chapter2-orthogonal-t400-shard-33",
+          "artifact_zip_bytes": 3432080,
+          "github_archive_sha256": "98329e0abbc81e06529f169358ff1e3bc412a55e7a11d1c67c2367807036f377",
+          "created_at": "2026-10-09T05:10:08Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597230919,
+          "name": "chapter2-orthogonal-t400-shard-34",
+          "artifact_zip_bytes": 3308676,
+          "github_archive_sha256": "8e33b4083825221ddd7b18e8d8253e664484d27c30aad9a49a0cbc7e4252d026",
+          "created_at": "2026-10-09T05:10:19Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596722643,
+          "name": "chapter2-orthogonal-t400-shard-35",
+          "artifact_zip_bytes": 3375581,
+          "github_archive_sha256": "839f04d33f8ca4ed80cb1783f92b392db5d36e16e89dfc23fb043707a27a0bba",
+          "created_at": "2026-10-09T05:10:33Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597001802,
+          "name": "chapter2-orthogonal-t400-shard-36",
+          "artifact_zip_bytes": 3447730,
+          "github_archive_sha256": "7026e9123cddf50c979d51bf6fc6b2f016dd634346608eb6b7d8ebd32a275997",
+          "created_at": "2026-10-09T05:10:45Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596927014,
+          "name": "chapter2-orthogonal-t400-shard-37",
+          "artifact_zip_bytes": 3435323,
+          "github_archive_sha256": "def5e528c5b06e2e156000e6c2a07a3125d345c803a9fcb03b49d184d42caf4f",
+          "created_at": "2026-10-09T05:10:48Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596463369,
+          "name": "chapter2-orthogonal-t400-shard-38",
+          "artifact_zip_bytes": 3347292,
+          "github_archive_sha256": "eb7491a3fae1326297b0e358095fd4bc673fdf485cb4dfd234d18cd87d4feb40",
+          "created_at": "2026-10-09T05:10:35Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597345373,
+          "name": "chapter2-orthogonal-t400-shard-39",
+          "artifact_zip_bytes": 3368222,
+          "github_archive_sha256": "f31180591d29111d2fac735b58ccefd3c137bab33eb440fc7f3b3e7e0e2c88e8",
+          "created_at": "2026-10-09T05:10:55Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596871802,
+          "name": "chapter2-orthogonal-t400-shard-4",
+          "artifact_zip_bytes": 3437216,
+          "github_archive_sha256": "8becf63cb272097251be36daeb5fbd03908e8cd9161ffe62dcdbe29a826e6dc5",
+          "created_at": "2026-10-09T05:07:54Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596837316,
+          "name": "chapter2-orthogonal-t400-shard-40",
+          "artifact_zip_bytes": 3325063,
+          "github_archive_sha256": "df8a2a33fb74b81a0a67e5c789e46712f05fe3f4e7a08a8763acf41bd3f52ea2",
+          "created_at": "2026-10-09T05:10:48Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597250847,
+          "name": "chapter2-orthogonal-t400-shard-41",
+          "artifact_zip_bytes": 3359904,
+          "github_archive_sha256": "a917e9020ee882748c927ae07c124f242ee3b7625e698775c8a1ef804f2f956f",
+          "created_at": "2026-10-09T05:10:50Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597275592,
+          "name": "chapter2-orthogonal-t400-shard-42",
+          "artifact_zip_bytes": 3423942,
+          "github_archive_sha256": "15bfdbae1a29401189ca7718821ecdba56b01aa7a83f64014103286cf7617ea7",
+          "created_at": "2026-10-09T05:11:02Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597196267,
+          "name": "chapter2-orthogonal-t400-shard-43",
+          "artifact_zip_bytes": 3387181,
+          "github_archive_sha256": "15ecf957ccafed0cd6a0e4c0176aaafcf7cac934f5e5011678824cf8032aeeca",
+          "created_at": "2026-10-09T05:11:05Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596139221,
+          "name": "chapter2-orthogonal-t400-shard-44",
+          "artifact_zip_bytes": 3458686,
+          "github_archive_sha256": "cd5c430664333485c7cbc30a58de1bd7c8579dc7c15488577f7060e5b678624b",
+          "created_at": "2026-10-09T05:11:16Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597196327,
+          "name": "chapter2-orthogonal-t400-shard-45",
+          "artifact_zip_bytes": 3399520,
+          "github_archive_sha256": "86801cff117769f93b857ca5c698d34425632ad4867ec0bcab99a728cb2c8c3f",
+          "created_at": "2026-10-09T05:11:28Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596697991,
+          "name": "chapter2-orthogonal-t400-shard-46",
+          "artifact_zip_bytes": 3359789,
+          "github_archive_sha256": "c9e20d520f0c078aa9444d31b14936ac8e6354b31bbabe9eead5aaf0a145d2f6",
+          "created_at": "2026-10-09T05:11:27Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596937203,
+          "name": "chapter2-orthogonal-t400-shard-47",
+          "artifact_zip_bytes": 3416311,
+          "github_archive_sha256": "bb7484d4fdf93fb1dbbce8f03fcd14438862bd0e24b6f6d43e3fb5c554628bf7",
+          "created_at": "2026-10-09T05:11:36Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596263907,
+          "name": "chapter2-orthogonal-t400-shard-48",
+          "artifact_zip_bytes": 3386234,
+          "github_archive_sha256": "e61b08fb17042372a43071801c259c26fb5c23bb64844bd28d42510c24b36011",
+          "created_at": "2026-10-09T05:11:32Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596154102,
+          "name": "chapter2-orthogonal-t400-shard-49",
+          "artifact_zip_bytes": 3394113,
+          "github_archive_sha256": "f2ac52078adf9595d094a4a3d381507be5df694f564fa8e1ca49bdd5bb3f6174",
+          "created_at": "2026-10-09T05:11:35Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596223572,
+          "name": "chapter2-orthogonal-t400-shard-5",
+          "artifact_zip_bytes": 3298439,
+          "github_archive_sha256": "2cdc430df4d6eaa64b91939e09ba2cd7675dd3cbcb177ba869b6a5355a50b74b",
+          "created_at": "2026-10-09T05:07:48Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597211147,
+          "name": "chapter2-orthogonal-t400-shard-50",
+          "artifact_zip_bytes": 3398935,
+          "github_archive_sha256": "92454384ae232ad3685b188258e29aa76062652a4984ced80ba6e35a87b922d7",
+          "created_at": "2026-10-09T05:11:42Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596942318,
+          "name": "chapter2-orthogonal-t400-shard-51",
+          "artifact_zip_bytes": 3454454,
+          "github_archive_sha256": "2f51b1c7d4e21d9df3d9fccbade16270f36a2e5a0f5b1c8d69f63fdae49826a3",
+          "created_at": "2026-10-09T05:11:58Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597280754,
+          "name": "chapter2-orthogonal-t400-shard-52",
+          "artifact_zip_bytes": 3424507,
+          "github_archive_sha256": "870de42562252a34132503e68c10a2754e0354505bf42dbbbaff70a243a10134",
+          "created_at": "2026-10-09T05:12:02Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596862268,
+          "name": "chapter2-orthogonal-t400-shard-53",
+          "artifact_zip_bytes": 3330444,
+          "github_archive_sha256": "20091a5fa47ff5c5890660c2b395072b83b428107623233d27abfc6a0e4b64d8",
+          "created_at": "2026-10-09T05:12:02Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596688419,
+          "name": "chapter2-orthogonal-t400-shard-54",
+          "artifact_zip_bytes": 3415869,
+          "github_archive_sha256": "0f801d7c24e6cf4c98d2c129d8f85b8caa5ea9bbd78231080d31eb24a4f62d77",
+          "created_at": "2026-10-09T05:12:13Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596947057,
+          "name": "chapter2-orthogonal-t400-shard-55",
+          "artifact_zip_bytes": 3411850,
+          "github_archive_sha256": "8c33782bdd6f6fad5951b9a46786ca84fc0dc75d672f88f82672f083358015f6",
+          "created_at": "2026-10-09T05:12:09Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11595939525,
+          "name": "chapter2-orthogonal-t400-shard-56",
+          "artifact_zip_bytes": 3377348,
+          "github_archive_sha256": "76f0b4af914b63ea303fd6be603f384379558a407051f91fdfd06b5be728e70f",
+          "created_at": "2026-10-09T05:12:03Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596703186,
+          "name": "chapter2-orthogonal-t400-shard-57",
+          "artifact_zip_bytes": 3384394,
+          "github_archive_sha256": "d3b504b4a6ccb908a9c85a5c46d19595a8fd46e540472baefa2ec62c2f81d738",
+          "created_at": "2026-10-09T05:12:26Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597285819,
+          "name": "chapter2-orthogonal-t400-shard-58",
+          "artifact_zip_bytes": 3400327,
+          "github_archive_sha256": "07f83eb24aaef4a23d109c540a031eb43296a2f7de8153ec1db3d64f460dd185",
+          "created_at": "2026-10-09T05:12:22Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596727939,
+          "name": "chapter2-orthogonal-t400-shard-59",
+          "artifact_zip_bytes": 3339071,
+          "github_archive_sha256": "a9ff9942bfcab29f91369e7b7c4a3a159c4594bd8eb162157ee106529da871c2",
+          "created_at": "2026-10-09T05:12:43Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596463086,
+          "name": "chapter2-orthogonal-t400-shard-6",
+          "artifact_zip_bytes": 3341378,
+          "github_archive_sha256": "504b69f140304fbb2fad167f748beff05ea960e519d837ebabb3742295e093a2",
+          "created_at": "2026-10-09T05:07:45Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596079324,
+          "name": "chapter2-orthogonal-t400-shard-60",
+          "artifact_zip_bytes": 3414475,
+          "github_archive_sha256": "7ffa02da33ed12adf06fada94f155458e10836970ff8188f09cb744c35c3a9dc",
+          "created_at": "2026-10-09T05:12:49Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596279023,
+          "name": "chapter2-orthogonal-t400-shard-61",
+          "artifact_zip_bytes": 3404495,
+          "github_archive_sha256": "f8db81028629673605afe4480a98fc75641c310c02dfa29f6020ba0e3e194905",
+          "created_at": "2026-10-09T05:12:45Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596852614,
+          "name": "chapter2-orthogonal-t400-shard-62",
+          "artifact_zip_bytes": 3418295,
+          "github_archive_sha256": "be9dfc4e41716b5a9b20e246db518e46afca1ef89c43b7143300119f6a1d1dcd",
+          "created_at": "2026-10-09T05:12:47Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597191492,
+          "name": "chapter2-orthogonal-t400-shard-63",
+          "artifact_zip_bytes": 3363809,
+          "github_archive_sha256": "8df37979229653d70ef97a0d77c1ecd383509939c1510e351b4978edce62011a",
+          "created_at": "2026-10-09T05:12:39Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596288429,
+          "name": "chapter2-orthogonal-t400-shard-7",
+          "artifact_zip_bytes": 3269087,
+          "github_archive_sha256": "2e0e5c2ea11ae0b812fe90f724a366aa7077a629a7fc5f3a7b4cc31ec3efa6ae",
+          "created_at": "2026-10-09T05:07:41Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597091142,
+          "name": "chapter2-orthogonal-t400-shard-8",
+          "artifact_zip_bytes": 3348448,
+          "github_archive_sha256": "066374857339499f7af2ca8a7f1ceaf190c60c92c134cfc444a3f3717ff5d59a",
+          "created_at": "2026-10-09T05:08:05Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596617320,
+          "name": "chapter2-orthogonal-t400-shard-9",
+          "artifact_zip_bytes": 3354325,
+          "github_archive_sha256": "5a9e0fbb738729e7dc7e5cc6bddbe9fb3209952c9f7fc502b39c3dc087f16f58",
+          "created_at": "2026-10-09T05:08:24Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596758100,
+          "name": "chapter2-orthogonal-t400-source-admission-20261009",
+          "artifact_zip_bytes": 343,
+          "github_archive_sha256": "7464934b035886e899b6cb86bad9f68d5c50783a0dbd245cee6736228000f8fa",
+          "created_at": "2026-10-09T05:14:01Z",
+          "expires_at": "2027-01-07T05:07:04Z",
+          "expired_as_of_inventory": false
+        }
+      ]
+    },
+    {
+      "run_id": 37887290489,
+      "role": "orthogonal_fixed_founder_futures",
+      "expected_artifacts": 65,
+      "types": {
+        "raw-future-shard": 64,
+        "other-result": 1
+      },
+      "stored_artifact_zip_bytes": 10801946,
+      "artifacts": [
+        {
+          "id": 11597083487,
+          "name": "chapter2-orthogonal-64-history-confirmatory-readout-20261009",
+          "artifact_zip_bytes": 1617,
+          "github_archive_sha256": "80d9fe488f98729d5a381657314c37389697a882856b2374ece2e5ffe76914c1",
+          "created_at": "2026-10-09T05:24:16Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596718282,
+          "name": "chapter2-orthogonal-future-shard-0",
+          "artifact_zip_bytes": 170070,
+          "github_archive_sha256": "65b7ff225545b5458942d85b2c816f25f56e355bf13649741bf5e774226e200d",
+          "created_at": "2026-10-09T05:15:13Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597380822,
+          "name": "chapter2-orthogonal-future-shard-1",
+          "artifact_zip_bytes": 169437,
+          "github_archive_sha256": "43a291e7594e4a044bc4957172ef376da40f9b85e95bfa9c61058456941da1bb",
+          "created_at": "2026-10-09T05:15:37Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596672676,
+          "name": "chapter2-orthogonal-future-shard-10",
+          "artifact_zip_bytes": 168016,
+          "github_archive_sha256": "549398cc16a1a20a11f57778c7bf6e5e21c9ebbcafa107eb6831d3c7be28298d",
+          "created_at": "2026-10-09T05:16:18Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596833153,
+          "name": "chapter2-orthogonal-future-shard-11",
+          "artifact_zip_bytes": 168373,
+          "github_archive_sha256": "73c6e92f3e504e2461120d3b8527e5978b49159c7f8af0113db8886b331fea38",
+          "created_at": "2026-10-09T05:16:18Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596632936,
+          "name": "chapter2-orthogonal-future-shard-12",
+          "artifact_zip_bytes": 169571,
+          "github_archive_sha256": "03f5eb3f5bf92eb5f7b8bc65ec07537cdbe99f061f3af331add81ab6b83159d1",
+          "created_at": "2026-10-09T05:16:49Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596568512,
+          "name": "chapter2-orthogonal-future-shard-13",
+          "artifact_zip_bytes": 168548,
+          "github_archive_sha256": "bce827dde7dfc160cda730149ad64b4a353f64d892746b1c81b6ad524db85393",
+          "created_at": "2026-10-09T05:16:58Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597002654,
+          "name": "chapter2-orthogonal-future-shard-14",
+          "artifact_zip_bytes": 168412,
+          "github_archive_sha256": "87e1fe3cfa31428ddc63ff1dfb657fe666e7cea98f714bfb837b98084f413aaa",
+          "created_at": "2026-10-09T05:16:55Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597455176,
+          "name": "chapter2-orthogonal-future-shard-15",
+          "artifact_zip_bytes": 168770,
+          "github_archive_sha256": "631ab9a16c459cb78fe198e71f2572c5730560227834e4ee9629910e4598c657",
+          "created_at": "2026-10-09T05:16:54Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596608348,
+          "name": "chapter2-orthogonal-future-shard-16",
+          "artifact_zip_bytes": 169035,
+          "github_archive_sha256": "da598fa1aafc2fd2e4942e72d0a2959efff1507c8ae0369e5941fc809b346aa4",
+          "created_at": "2026-10-09T05:17:02Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597222040,
+          "name": "chapter2-orthogonal-future-shard-17",
+          "artifact_zip_bytes": 167792,
+          "github_archive_sha256": "8e8d0e2957ffa042db9e48604b7a525d8a98f2be07ac16252ce386227ba66e95",
+          "created_at": "2026-10-09T05:17:27Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596184534,
+          "name": "chapter2-orthogonal-future-shard-18",
+          "artifact_zip_bytes": 168522,
+          "github_archive_sha256": "f679cd5241076792b2f3d3ada8f8a861b82b09d3ca1580e664bde5eb98a311c3",
+          "created_at": "2026-10-09T05:17:00Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597012727,
+          "name": "chapter2-orthogonal-future-shard-19",
+          "artifact_zip_bytes": 167500,
+          "github_archive_sha256": "e68dad6efee9701f901b05eddd677208f5f2289c639b5d1cacb79717380e62a7",
+          "created_at": "2026-10-09T05:17:36Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597330931,
+          "name": "chapter2-orthogonal-future-shard-2",
+          "artifact_zip_bytes": 167981,
+          "github_archive_sha256": "9b44e86714c7aa9d39c038073f3aee6b44cec8b1ab4335e2202e9c91b759cbfd",
+          "created_at": "2026-10-09T05:15:09Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597032724,
+          "name": "chapter2-orthogonal-future-shard-20",
+          "artifact_zip_bytes": 167457,
+          "github_archive_sha256": "d19c8f0a7a48451ba540fe9f4cafbe5212ad21d420e91176bef2921515e2e48e",
+          "created_at": "2026-10-09T05:18:05Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597067798,
+          "name": "chapter2-orthogonal-future-shard-21",
+          "artifact_zip_bytes": 168627,
+          "github_archive_sha256": "7f76dbd9d7ae6516f0b2a17ecd04d650f627d2263c42f3283034cbdfd976ac4f",
+          "created_at": "2026-10-09T05:18:14Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596703951,
+          "name": "chapter2-orthogonal-future-shard-22",
+          "artifact_zip_bytes": 170389,
+          "github_archive_sha256": "a0f0bbf99d99d460d21a01536af3845027ef6f78122d7c8b9dadbc70ffb8c024",
+          "created_at": "2026-10-09T05:18:10Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596763283,
+          "name": "chapter2-orthogonal-future-shard-23",
+          "artifact_zip_bytes": 169055,
+          "github_archive_sha256": "6e790e8b0007cea27f7303fa8fd08a3aa23a000de0edadcf61a5b877fc943aab",
+          "created_at": "2026-10-09T05:18:01Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597062750,
+          "name": "chapter2-orthogonal-future-shard-24",
+          "artifact_zip_bytes": 168099,
+          "github_archive_sha256": "b363efdcab1e65c8cf06abeee5d2abfc12c32f82928a385c6efb69296345848b",
+          "created_at": "2026-10-09T05:18:14Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596219619,
+          "name": "chapter2-orthogonal-future-shard-25",
+          "artifact_zip_bytes": 168872,
+          "github_archive_sha256": "ab70acf2b52df120f9c553d1643a6a049e5aeaf1224aceaacfef018278468eae",
+          "created_at": "2026-10-09T05:18:15Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596858280,
+          "name": "chapter2-orthogonal-future-shard-26",
+          "artifact_zip_bytes": 168476,
+          "github_archive_sha256": "5d423b62701555f52f2240e0b3866dd093d627e7079b1242908e18ebda1ca642",
+          "created_at": "2026-10-09T05:18:08Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597227133,
+          "name": "chapter2-orthogonal-future-shard-27",
+          "artifact_zip_bytes": 167699,
+          "github_archive_sha256": "7a5538b2cf28c01bffd0318e702cc109031defc0bf5b6e6f989bdf1a4300c3b7",
+          "created_at": "2026-10-09T05:18:41Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596963093,
+          "name": "chapter2-orthogonal-future-shard-28",
+          "artifact_zip_bytes": 168444,
+          "github_archive_sha256": "6af1c5e8373c00c5d06a69a311e258011842f0f9646050a5ff096929e7b0332f",
+          "created_at": "2026-10-09T05:18:47Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596943367,
+          "name": "chapter2-orthogonal-future-shard-29",
+          "artifact_zip_bytes": 169216,
+          "github_archive_sha256": "f8c1d799e779746743cddf10504f086d57b030db32920dfc1f86ba01efa708e9",
+          "created_at": "2026-10-09T05:19:07Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597172036,
+          "name": "chapter2-orthogonal-future-shard-3",
+          "artifact_zip_bytes": 168844,
+          "github_archive_sha256": "c7a3aed20eb6df67cd201c1be90a1851011c60455937b9008fb566cda6b5ba60",
+          "created_at": "2026-10-09T05:15:46Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597470453,
+          "name": "chapter2-orthogonal-future-shard-30",
+          "artifact_zip_bytes": 168574,
+          "github_archive_sha256": "f5cca715a9e47c5cc677c42cc9ed4e03286b2118d0c2a12b8c1e95ba1136b55d",
+          "created_at": "2026-10-09T05:19:55Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597525133,
+          "name": "chapter2-orthogonal-future-shard-31",
+          "artifact_zip_bytes": 169327,
+          "github_archive_sha256": "1559ac63caca20529c4438b632e296923c61e2fa60b3ba2cc0889b91bb2f0034",
+          "created_at": "2026-10-09T05:19:33Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596154896,
+          "name": "chapter2-orthogonal-future-shard-32",
+          "artifact_zip_bytes": 168536,
+          "github_archive_sha256": "0557528f941db30ed1c19f8a76ef6cd9dd174b00335c5df7d4f1197788116d80",
+          "created_at": "2026-10-09T05:19:29Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596454238,
+          "name": "chapter2-orthogonal-future-shard-33",
+          "artifact_zip_bytes": 168501,
+          "github_archive_sha256": "ed7fc5e480fbab56b107dc88b743cddec78728cafddf7de03e09a87960d1f673",
+          "created_at": "2026-10-09T05:19:26Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597391420,
+          "name": "chapter2-orthogonal-future-shard-34",
+          "artifact_zip_bytes": 168150,
+          "github_archive_sha256": "8bfc24e78b7b54048d1438accc4e10073f2247885b6d46af0a5dc988bdb8e1c1",
+          "created_at": "2026-10-09T05:19:28Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597361521,
+          "name": "chapter2-orthogonal-future-shard-35",
+          "artifact_zip_bytes": 168393,
+          "github_archive_sha256": "071fd82aa99e96d91400387cf485078408c3499fe71d43f193c3817d5e17e073",
+          "created_at": "2026-10-09T05:19:54Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597048044,
+          "name": "chapter2-orthogonal-future-shard-36",
+          "artifact_zip_bytes": 169655,
+          "github_archive_sha256": "8d208f9a7d96340e2f2036ba12bf2655a12d203fad0f30727fcbe0f89afa2242",
+          "created_at": "2026-10-09T05:19:31Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596988240,
+          "name": "chapter2-orthogonal-future-shard-37",
+          "artifact_zip_bytes": 168492,
+          "github_archive_sha256": "5f3113f75715033af8dbb4dcc108817f530355ea78652ff58b4d26d0e98a3c6c",
+          "created_at": "2026-10-09T05:19:51Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597063097,
+          "name": "chapter2-orthogonal-future-shard-38",
+          "artifact_zip_bytes": 168572,
+          "github_archive_sha256": "f632c640ecf595936dfdc9da036a087083445b05cd99e1dcd0d0c6e96af69d70",
+          "created_at": "2026-10-09T05:20:41Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597222430,
+          "name": "chapter2-orthogonal-future-shard-39",
+          "artifact_zip_bytes": 167847,
+          "github_archive_sha256": "1f3f2fd4f662977517b3aeb43f50c7ec24d9753dd0995ad054e15ee0abd833de",
+          "created_at": "2026-10-09T05:20:14Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596907793,
+          "name": "chapter2-orthogonal-future-shard-4",
+          "artifact_zip_bytes": 169477,
+          "github_archive_sha256": "a6eb99212ca35b3c8ce2166b3536884851cdb1a47249d935c3507d55e86076b9",
+          "created_at": "2026-10-09T05:15:43Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596489149,
+          "name": "chapter2-orthogonal-future-shard-40",
+          "artifact_zip_bytes": 168592,
+          "github_archive_sha256": "28c09b0254de2761d722329fab26b5f38be089e96be92c574fa24b0e8b9f596d",
+          "created_at": "2026-10-09T05:20:17Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597316949,
+          "name": "chapter2-orthogonal-future-shard-41",
+          "artifact_zip_bytes": 169866,
+          "github_archive_sha256": "79866812327289ceb7c458ea998a6334275039377f468316cc27610a314ae86f",
+          "created_at": "2026-10-09T05:20:52Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597436147,
+          "name": "chapter2-orthogonal-future-shard-42",
+          "artifact_zip_bytes": 169592,
+          "github_archive_sha256": "6fda54e8845e063d76773ddfd1110a17a33adfacd15d671a7cbc3e15c66b5308",
+          "created_at": "2026-10-09T05:20:35Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597202535,
+          "name": "chapter2-orthogonal-future-shard-43",
+          "artifact_zip_bytes": 169045,
+          "github_archive_sha256": "ba9e72bcff1df45b3ca55bd3336fc18e45ebcf66e293e234252b571c0454720b",
+          "created_at": "2026-10-09T05:20:35Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596724162,
+          "name": "chapter2-orthogonal-future-shard-44",
+          "artifact_zip_bytes": 168474,
+          "github_archive_sha256": "3c6eb4b8cfc58b0af42aa357da9796ec978e423e0f0bf05624974fd93ea3787a",
+          "created_at": "2026-10-09T05:20:38Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597426455,
+          "name": "chapter2-orthogonal-future-shard-45",
+          "artifact_zip_bytes": 169868,
+          "github_archive_sha256": "ebcdfa83a1fd87a83b880d0a5903e71fcafb3924c4095ab1d4f849d48fb7c2d5",
+          "created_at": "2026-10-09T05:20:46Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596794110,
+          "name": "chapter2-orthogonal-future-shard-46",
+          "artifact_zip_bytes": 167299,
+          "github_archive_sha256": "b7eb6f4dedaf50a025b3f829f58f080c225693ebee5ff1e4adbe3d758193c97f",
+          "created_at": "2026-10-09T05:21:23Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597157802,
+          "name": "chapter2-orthogonal-future-shard-47",
+          "artifact_zip_bytes": 169110,
+          "github_archive_sha256": "f8af8ea7ea7ac95047acf657c3867e5f65af348d04d39b9b5ba13dcce07ca074",
+          "created_at": "2026-10-09T05:21:26Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596593920,
+          "name": "chapter2-orthogonal-future-shard-48",
+          "artifact_zip_bytes": 168889,
+          "github_archive_sha256": "16bec866f24700baf754dbb6279ff4cce51dc0c720640de3116738eae39c0940",
+          "created_at": "2026-10-09T05:21:45Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597132923,
+          "name": "chapter2-orthogonal-future-shard-49",
+          "artifact_zip_bytes": 168937,
+          "github_archive_sha256": "5a5931ba0be01c8d77051a8e60ea4ff63b1158f11ac52a1142c641201d7badd0",
+          "created_at": "2026-10-09T05:21:49Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597166876,
+          "name": "chapter2-orthogonal-future-shard-5",
+          "artifact_zip_bytes": 167363,
+          "github_archive_sha256": "899afe295e388e302aedc984522fe929333a1a78a72cf2ca13cbc3fcead66d17",
+          "created_at": "2026-10-09T05:15:40Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597480563,
+          "name": "chapter2-orthogonal-future-shard-50",
+          "artifact_zip_bytes": 169367,
+          "github_archive_sha256": "cdc469b8f0c1afe58699a7f90426564db077fc7a2c347c872dbc4285627323fe",
+          "created_at": "2026-10-09T05:21:57Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596878812,
+          "name": "chapter2-orthogonal-future-shard-51",
+          "artifact_zip_bytes": 169894,
+          "github_archive_sha256": "85862707306c34ab2211eacdd67bcfde00704f8986279e0d854144bb8e3e387c",
+          "created_at": "2026-10-09T05:21:43Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597023370,
+          "name": "chapter2-orthogonal-future-shard-52",
+          "artifact_zip_bytes": 168961,
+          "github_archive_sha256": "64348eeb9d4f53f659e915b7ebc4386b299f28543eedc8ebead8df831bbeb4be",
+          "created_at": "2026-10-09T05:22:33Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596709358,
+          "name": "chapter2-orthogonal-future-shard-53",
+          "artifact_zip_bytes": 169923,
+          "github_archive_sha256": "aa8bcbcc6c690d20a61025b5ebe080783f1dd2d6e1e99f5fa02fa95509bea394",
+          "created_at": "2026-10-09T05:21:55Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597520427,
+          "name": "chapter2-orthogonal-future-shard-54",
+          "artifact_zip_bytes": 169002,
+          "github_archive_sha256": "c3e93d301fc42bcffe9d173b33a2f82faca290713c81737ebe42786bb3670de4",
+          "created_at": "2026-10-09T05:22:30Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597222727,
+          "name": "chapter2-orthogonal-future-shard-55",
+          "artifact_zip_bytes": 167132,
+          "github_archive_sha256": "bcb39a2a2e49576b38ff33049027810d2acda0c3489461cdbd6f4974337a02ec",
+          "created_at": "2026-10-09T05:22:23Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597252504,
+          "name": "chapter2-orthogonal-future-shard-56",
+          "artifact_zip_bytes": 168997,
+          "github_archive_sha256": "2f6a2ff0ea1d8714f3b254cbc1df44312b71e45c2c12a8c378e627e4f72c2bc2",
+          "created_at": "2026-10-09T05:23:07Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596789246,
+          "name": "chapter2-orthogonal-future-shard-57",
+          "artifact_zip_bytes": 169552,
+          "github_archive_sha256": "02f843cc782b5fedc1fc9b01a7c4b485be9ba17920f16b88086a98d0c7e9c5dc",
+          "created_at": "2026-10-09T05:23:05Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597302276,
+          "name": "chapter2-orthogonal-future-shard-58",
+          "artifact_zip_bytes": 168413,
+          "github_archive_sha256": "c76e3374f1f4375479d6115d3d59826df61ac83bbbe97c43fdf631a49ed957c6",
+          "created_at": "2026-10-09T05:22:53Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596908863,
+          "name": "chapter2-orthogonal-future-shard-59",
+          "artifact_zip_bytes": 169575,
+          "github_archive_sha256": "6d2963084158ac2995d630defc73f23d0dacdbcab5ff989457176763d0fe88c5",
+          "created_at": "2026-10-09T05:23:03Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596862785,
+          "name": "chapter2-orthogonal-future-shard-6",
+          "artifact_zip_bytes": 168979,
+          "github_archive_sha256": "11a03ca8c572f840eae1ad78778c89f3878587e825f4037dfaf00e6fb9feb218",
+          "created_at": "2026-10-09T05:15:30Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596963740,
+          "name": "chapter2-orthogonal-future-shard-60",
+          "artifact_zip_bytes": 169083,
+          "github_archive_sha256": "2b3a6f22a3181dd36146366836d44b1bedb6f07a812057a0f36e73f808951d25",
+          "created_at": "2026-10-09T05:23:10Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596799185,
+          "name": "chapter2-orthogonal-future-shard-61",
+          "artifact_zip_bytes": 169899,
+          "github_archive_sha256": "1363e1ec012eeb47d011e6aca8f271876412e277c4ab4ba13aba5cff7109135a",
+          "created_at": "2026-10-09T05:23:41Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596918845,
+          "name": "chapter2-orthogonal-future-shard-62",
+          "artifact_zip_bytes": 167985,
+          "github_archive_sha256": "9deb58917919161b1db66de0dfab72911de5d9ef4f73950d19e39dfa49040945",
+          "created_at": "2026-10-09T05:23:12Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596729466,
+          "name": "chapter2-orthogonal-future-shard-63",
+          "artifact_zip_bytes": 168709,
+          "github_archive_sha256": "8381046dc52fdc2ed4a20493f0e9e8e5fa8e2fe89f43cd2a982fedac14e0b07e",
+          "created_at": "2026-10-09T05:23:16Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597326227,
+          "name": "chapter2-orthogonal-future-shard-7",
+          "artifact_zip_bytes": 167214,
+          "github_archive_sha256": "19a5d5366285274169d6a99b9a27c369c629741c277f0a35b7b03aec4b717be7",
+          "created_at": "2026-10-09T05:15:35Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11597122232,
+          "name": "chapter2-orthogonal-future-shard-8",
+          "artifact_zip_bytes": 168830,
+          "github_archive_sha256": "55a005d817b15dc02064c365a0783583fcbe844a3620a93e6da9f42c76b481e2",
+          "created_at": "2026-10-09T05:15:55Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11596453876,
+          "name": "chapter2-orthogonal-future-shard-9",
+          "artifact_zip_bytes": 169050,
+          "github_archive_sha256": "493993e0ca708e8c30c7a68ed439e3ae93cdbe32add58ed821199795473ed225",
+          "created_at": "2026-10-09T05:16:26Z",
+          "expires_at": "2027-01-07T05:10:19Z",
+          "expired_as_of_inventory": false
+        }
+      ]
+    },
+    {
+      "run_id": 37893126472,
+      "role": "independent_demographic_K_pollen_background_B_factorial",
+      "expected_artifacts": 130,
+      "types": {
+        "other-result": 1,
+        "raw-future-shard": 64,
+        "diploid-t400-source": 64,
+        "source-admission": 1
+      },
+      "stored_artifact_zip_bytes": 226003482,
+      "artifacts": [
+        {
+          "id": 11600220519,
+          "name": "chapter2-kb-64-history-229376-full-readout",
+          "artifact_zip_bytes": 1508,
+          "github_archive_sha256": "353573ffca51dc55972037aa4e58ef7da6e355f837f0c9ecfb6f6ca79a57b40e",
+          "created_at": "2026-10-09T06:41:24Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598924293,
+          "name": "chapter2-kb-future-shard-0",
+          "artifact_zip_bytes": 163048,
+          "github_archive_sha256": "47a2f049dd62819e2b2480240ae8dcbf1e07d84e43ca5f6b62ce04b3b2d14b43",
+          "created_at": "2026-10-09T06:31:12Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599328472,
+          "name": "chapter2-kb-future-shard-1",
+          "artifact_zip_bytes": 163259,
+          "github_archive_sha256": "a04d265d026441b974d4d80a6fb04476aa28ad5c6ff9105f808297dcc3b8a42d",
+          "created_at": "2026-10-09T06:30:41Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599791158,
+          "name": "chapter2-kb-future-shard-10",
+          "artifact_zip_bytes": 163293,
+          "github_archive_sha256": "884beb81b2a70d2c5fb9dd11b8ca804cc6ebb5008ef535eac60f1c95ce57a03b",
+          "created_at": "2026-10-09T06:31:57Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599596794,
+          "name": "chapter2-kb-future-shard-11",
+          "artifact_zip_bytes": 161063,
+          "github_archive_sha256": "3784f6e604b785649ebb9153b90eebcd4fe47233483cfc1dcddc636884bcee9d",
+          "created_at": "2026-10-09T06:31:50Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599453265,
+          "name": "chapter2-kb-future-shard-12",
+          "artifact_zip_bytes": 163631,
+          "github_archive_sha256": "b730ae0c4fa268779a729d2b6b48b8234d515902b21807c6a3c60e0eb2963085",
+          "created_at": "2026-10-09T06:32:17Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599711406,
+          "name": "chapter2-kb-future-shard-13",
+          "artifact_zip_bytes": 161756,
+          "github_archive_sha256": "0154b0bbb9ecf138476b63a6d4d89db472538e582902f0caa14ccd518655c669",
+          "created_at": "2026-10-09T06:31:56Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599508130,
+          "name": "chapter2-kb-future-shard-14",
+          "artifact_zip_bytes": 162540,
+          "github_archive_sha256": "5990de5fe105cc474cb09a7a2b729aea55acbea7b92e4751f6bc61c316dd1548",
+          "created_at": "2026-10-09T06:32:00Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599348695,
+          "name": "chapter2-kb-future-shard-15",
+          "artifact_zip_bytes": 162413,
+          "github_archive_sha256": "2a6333f78335b2a38f82a6b28073d176e3647d987651c7d490bf87211817373f",
+          "created_at": "2026-10-09T06:32:45Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598768498,
+          "name": "chapter2-kb-future-shard-16",
+          "artifact_zip_bytes": 163957,
+          "github_archive_sha256": "f3baa911272c22aefd6bc7813edd5149497110de2624476dd58fd586fb2a3160",
+          "created_at": "2026-10-09T06:33:13Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599607835,
+          "name": "chapter2-kb-future-shard-17",
+          "artifact_zip_bytes": 163321,
+          "github_archive_sha256": "16a3c1fab2262e27f8d98611531d105213f7506e8a53afde908f10ff423f26ae",
+          "created_at": "2026-10-09T06:33:18Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599059394,
+          "name": "chapter2-kb-future-shard-18",
+          "artifact_zip_bytes": 163791,
+          "github_archive_sha256": "a404315a3b6adb64c3b533ed12b4b624b12d13f71a33cba5db868e2537e75d86",
+          "created_at": "2026-10-09T06:33:08Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598919731,
+          "name": "chapter2-kb-future-shard-19",
+          "artifact_zip_bytes": 164745,
+          "github_archive_sha256": "403e808bfd66231208febbf6a9aab55e288243d936c78ad90e10dd006737806f",
+          "created_at": "2026-10-09T06:33:17Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599757066,
+          "name": "chapter2-kb-future-shard-2",
+          "artifact_zip_bytes": 162286,
+          "github_archive_sha256": "c038ff578218dc5a2bdc2890ee1a0d94080d0dc7cf6a573d10cd6e6976fa6bf6",
+          "created_at": "2026-10-09T06:31:21Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598899699,
+          "name": "chapter2-kb-future-shard-20",
+          "artifact_zip_bytes": 160942,
+          "github_archive_sha256": "4a9bfd9605f1ea8ecff6657d15a74fb293c87252e787cb2d534a88e956291375",
+          "created_at": "2026-10-09T06:33:17Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599328951,
+          "name": "chapter2-kb-future-shard-21",
+          "artifact_zip_bytes": 162931,
+          "github_archive_sha256": "8b8acdece9970e47c4997a462c6ebc92763750ed6a66ef713e27cd8b0c5a4794",
+          "created_at": "2026-10-09T06:33:21Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599174332,
+          "name": "chapter2-kb-future-shard-22",
+          "artifact_zip_bytes": 164212,
+          "github_archive_sha256": "5eebf97e531012035796284fb3b0b3ae53eb4ccd99c63045d3afa637b1e06e5e",
+          "created_at": "2026-10-09T06:33:26Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598974878,
+          "name": "chapter2-kb-future-shard-23",
+          "artifact_zip_bytes": 163799,
+          "github_archive_sha256": "1aa80976d8bb812df312870b3627f92ccb35ec82495bf27932243ba6516c246c",
+          "created_at": "2026-10-09T06:34:13Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599905235,
+          "name": "chapter2-kb-future-shard-24",
+          "artifact_zip_bytes": 162683,
+          "github_archive_sha256": "a03285c9efb538a9d641b78cc42160df58cd73837ccdce817285c8df66dcc39a",
+          "created_at": "2026-10-09T06:34:12Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599731584,
+          "name": "chapter2-kb-future-shard-25",
+          "artifact_zip_bytes": 160494,
+          "github_archive_sha256": "05fd6204e0a088090d3d66e3f1af75f74132c7f444aa08c2f7d674a62f2ede9c",
+          "created_at": "2026-10-09T06:34:15Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599124543,
+          "name": "chapter2-kb-future-shard-26",
+          "artifact_zip_bytes": 163645,
+          "github_archive_sha256": "fef78fa03f3decb3e077834f782d225406c5785e52cc2b83260605af3de032a1",
+          "created_at": "2026-10-09T06:34:39Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599706852,
+          "name": "chapter2-kb-future-shard-27",
+          "artifact_zip_bytes": 160677,
+          "github_archive_sha256": "1da96a233677db8b0156d840236912a3f4ae3c4dfc8b007b346ccc025b6d4b3a",
+          "created_at": "2026-10-09T06:34:36Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599357619,
+          "name": "chapter2-kb-future-shard-28",
+          "artifact_zip_bytes": 165011,
+          "github_archive_sha256": "8952c2d39a15dc34cf90cb98ee13a3b479be219923b3f9578e60bcdef64bbaef",
+          "created_at": "2026-10-09T06:34:11Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599812346,
+          "name": "chapter2-kb-future-shard-29",
+          "artifact_zip_bytes": 163375,
+          "github_archive_sha256": "2ba4dc5106889c492523e0691c0fae557b3254ab4066d48d1a3c969ed6900910",
+          "created_at": "2026-10-09T06:34:41Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599343520,
+          "name": "chapter2-kb-future-shard-3",
+          "artifact_zip_bytes": 159070,
+          "github_archive_sha256": "458e82f09d5be4e44317aa6c3752706a095464e7b590cab115da7c790c5c09c3",
+          "created_at": "2026-10-09T06:30:57Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599801526,
+          "name": "chapter2-kb-future-shard-30",
+          "artifact_zip_bytes": 164075,
+          "github_archive_sha256": "aebaf21448075a2302e862c79edc86544d4337c61e81f22f0abd591432c833b4",
+          "created_at": "2026-10-09T06:34:55Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598934985,
+          "name": "chapter2-kb-future-shard-31",
+          "artifact_zip_bytes": 162853,
+          "github_archive_sha256": "c14ccac5716ba08ea371c48db8bc651797f380284781521400af93093e12b5a4",
+          "created_at": "2026-10-09T06:34:58Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599761786,
+          "name": "chapter2-kb-future-shard-32",
+          "artifact_zip_bytes": 162584,
+          "github_archive_sha256": "48d9a45f2d8476839eb0de4622aaa37cb3e26c8178edc18ddb83383be614cdde",
+          "created_at": "2026-10-09T06:35:32Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599568335,
+          "name": "chapter2-kb-future-shard-33",
+          "artifact_zip_bytes": 159273,
+          "github_archive_sha256": "30f4f1ed7e856520eb3fe672e9ef91b5e19c1e09741e691c307a104d1f91e869",
+          "created_at": "2026-10-09T06:35:12Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599503794,
+          "name": "chapter2-kb-future-shard-34",
+          "artifact_zip_bytes": 161197,
+          "github_archive_sha256": "cbb491099ac908cea8a69d2a2825c9ec6f5a95d7c53f9080b4143a100381a895",
+          "created_at": "2026-10-09T06:35:40Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599099835,
+          "name": "chapter2-kb-future-shard-35",
+          "artifact_zip_bytes": 163868,
+          "github_archive_sha256": "91ee4fefda8f2709ea4463861e74e378aa71f721c985dbe5b55a069329ae3191",
+          "created_at": "2026-10-09T06:36:01Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599039835,
+          "name": "chapter2-kb-future-shard-36",
+          "artifact_zip_bytes": 161910,
+          "github_archive_sha256": "7f75aa9557d3b3c8ad288489df2fffd6a737a4d84e3411a7b11846c7f1ac0db0",
+          "created_at": "2026-10-09T06:35:47Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599498748,
+          "name": "chapter2-kb-future-shard-37",
+          "artifact_zip_bytes": 159532,
+          "github_archive_sha256": "fa85eb536c8fb0b8e9f465fef84e7ee640f5a6e359d4b27b8a13e7c688979132",
+          "created_at": "2026-10-09T06:35:43Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599692059,
+          "name": "chapter2-kb-future-shard-38",
+          "artifact_zip_bytes": 164043,
+          "github_archive_sha256": "94bc920600b974115dc0db785fdc2ebb7b23271447f90840b314e3392b85642a",
+          "created_at": "2026-10-09T06:36:22Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599014857,
+          "name": "chapter2-kb-future-shard-39",
+          "artifact_zip_bytes": 160936,
+          "github_archive_sha256": "7d984e6f595cbafd493078d34ac3a3f6a0ce9b0ce3e1436a9efc85552dcfcb0c",
+          "created_at": "2026-10-09T06:36:18Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599706397,
+          "name": "chapter2-kb-future-shard-4",
+          "artifact_zip_bytes": 162536,
+          "github_archive_sha256": "1ee1afab93b6519ac2418d0da3fa9a9ae2d27e9c0a679c312e3ebc212722cdab",
+          "created_at": "2026-10-09T06:30:52Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599885786,
+          "name": "chapter2-kb-future-shard-40",
+          "artifact_zip_bytes": 164329,
+          "github_archive_sha256": "235ebc3644bf394445dba847098a1bc49f8604ee2642be435a9b12ea65cc02b7",
+          "created_at": "2026-10-09T06:36:41Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599453927,
+          "name": "chapter2-kb-future-shard-41",
+          "artifact_zip_bytes": 165735,
+          "github_archive_sha256": "c36fa8a9c95d4c52e18eee86499c6e4fe752560e0cd4d4dbde20f5955c9dbf21",
+          "created_at": "2026-10-09T06:36:25Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599801776,
+          "name": "chapter2-kb-future-shard-42",
+          "artifact_zip_bytes": 162204,
+          "github_archive_sha256": "54241d2d2b2c9dee066ec84b95f31b342325a554b951795f094e5e11d0e6c744",
+          "created_at": "2026-10-09T06:37:07Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599885766,
+          "name": "chapter2-kb-future-shard-43",
+          "artifact_zip_bytes": 165786,
+          "github_archive_sha256": "0ea6637308a3ba8d7b9e4131cf918d8bbfb9e324d0e1158a64494ea028fea01d",
+          "created_at": "2026-10-09T06:36:35Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600060203,
+          "name": "chapter2-kb-future-shard-44",
+          "artifact_zip_bytes": 161814,
+          "github_archive_sha256": "500dae6a7ec86b5c64f85f82fdbf7c1506cc1812682e234e01307464100f41f0",
+          "created_at": "2026-10-09T06:37:06Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599269665,
+          "name": "chapter2-kb-future-shard-45",
+          "artifact_zip_bytes": 161623,
+          "github_archive_sha256": "7adf6cd87c6a7c449006aaf4cc67e2f234c4f818004e70ef6cf20994c3c6d41b",
+          "created_at": "2026-10-09T06:37:03Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599950529,
+          "name": "chapter2-kb-future-shard-46",
+          "artifact_zip_bytes": 157831,
+          "github_archive_sha256": "10345031830bd570bd8356bb68c09050d3b8a15d5b97ddfa0be3225299056f42",
+          "created_at": "2026-10-09T06:37:38Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599826637,
+          "name": "chapter2-kb-future-shard-47",
+          "artifact_zip_bytes": 159203,
+          "github_archive_sha256": "a909269a89350b5aeb8d50fd977c30a0e2a44ea62449b0c9d18f28fb2b666eb6",
+          "created_at": "2026-10-09T06:37:38Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599154916,
+          "name": "chapter2-kb-future-shard-48",
+          "artifact_zip_bytes": 163100,
+          "github_archive_sha256": "1c4b02b565b2e15525b7ed40532acda45d1b252a2e781051e2caff2e712466d6",
+          "created_at": "2026-10-09T06:37:22Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599698464,
+          "name": "chapter2-kb-future-shard-49",
+          "artifact_zip_bytes": 162510,
+          "github_archive_sha256": "f440bc48f29baed071b96b994bc1fd4b10053b05beb292435319b318338c906e",
+          "created_at": "2026-10-09T06:38:07Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599642419,
+          "name": "chapter2-kb-future-shard-5",
+          "artifact_zip_bytes": 160325,
+          "github_archive_sha256": "2187f6978b6ca4d2098e89bdf22b6aef72c0f404b2df22641a46e8fd3974f5f7",
+          "created_at": "2026-10-09T06:31:04Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599846564,
+          "name": "chapter2-kb-future-shard-50",
+          "artifact_zip_bytes": 160145,
+          "github_archive_sha256": "44a2b08492f74cb97309009013b5f50eb0827a43aad446a4b34575d00a8bf003",
+          "created_at": "2026-10-09T06:38:00Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599547587,
+          "name": "chapter2-kb-future-shard-51",
+          "artifact_zip_bytes": 162908,
+          "github_archive_sha256": "0d46db00b84d0609a053ef6c5b317eebb280a6dab9b497ef72196e2dee647d68",
+          "created_at": "2026-10-09T06:38:14Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599688553,
+          "name": "chapter2-kb-future-shard-52",
+          "artifact_zip_bytes": 162129,
+          "github_archive_sha256": "535d41ec9eaea5eade5135e06f19ad45b3cd6fd76a18d88b8475690c08c5e895",
+          "created_at": "2026-10-09T06:38:12Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600055437,
+          "name": "chapter2-kb-future-shard-53",
+          "artifact_zip_bytes": 163190,
+          "github_archive_sha256": "69b8ea9a35beb5401f1cc4e85b47dd998a818b6e9ef4e198038096fc247a083f",
+          "created_at": "2026-10-09T06:38:34Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599678695,
+          "name": "chapter2-kb-future-shard-54",
+          "artifact_zip_bytes": 160725,
+          "github_archive_sha256": "627f6b437a1510acb9e376b871f8130faa9ca76eb737b440b8cfd56fd097ad77",
+          "created_at": "2026-10-09T06:39:13Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600020588,
+          "name": "chapter2-kb-future-shard-55",
+          "artifact_zip_bytes": 163559,
+          "github_archive_sha256": "3b353c56daf9f85ea36f6990d58c7b50e0ff35f4e39a5cd22f26fe337d23d38a",
+          "created_at": "2026-10-09T06:38:40Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599638737,
+          "name": "chapter2-kb-future-shard-56",
+          "artifact_zip_bytes": 162883,
+          "github_archive_sha256": "4c50c1571afc18c6597412965d695831bf4dc7e0949065c2cdb13547043521ac",
+          "created_at": "2026-10-09T06:38:29Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600070477,
+          "name": "chapter2-kb-future-shard-57",
+          "artifact_zip_bytes": 162632,
+          "github_archive_sha256": "0a4f1e05e3837afa328f993cbf274421050b64b3d341e2c3741345d2dcf8f400",
+          "created_at": "2026-10-09T06:38:52Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600125423,
+          "name": "chapter2-kb-future-shard-58",
+          "artifact_zip_bytes": 162705,
+          "github_archive_sha256": "ef980cbad9aafd30210b5d01c3c6649b0b8d81ec1bd279f40875be5c95c4fda6",
+          "created_at": "2026-10-09T06:39:35Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599093659,
+          "name": "chapter2-kb-future-shard-59",
+          "artifact_zip_bytes": 163790,
+          "github_archive_sha256": "656e599673f949a261765ae05b96d81696509e00e8e0f97e6820fb1645dec520",
+          "created_at": "2026-10-09T06:39:33Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598904457,
+          "name": "chapter2-kb-future-shard-6",
+          "artifact_zip_bytes": 162140,
+          "github_archive_sha256": "7a5e97591cf127b2762fc38840280fe9ee02c34d0609ea9cd7d8fdedd8da40ca",
+          "created_at": "2026-10-09T06:31:01Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599244845,
+          "name": "chapter2-kb-future-shard-60",
+          "artifact_zip_bytes": 164546,
+          "github_archive_sha256": "4c7e13c5042f6fecafd9bc4ad16ee032cf1ad02f5bd23e148ad64cfae40a1a92",
+          "created_at": "2026-10-09T06:39:07Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598779126,
+          "name": "chapter2-kb-future-shard-61",
+          "artifact_zip_bytes": 164174,
+          "github_archive_sha256": "9d57942efafa94f51da83a3e41e482614a714cbce1d8cebbed9582c902ef4b3e",
+          "created_at": "2026-10-09T06:39:15Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599273377,
+          "name": "chapter2-kb-future-shard-62",
+          "artifact_zip_bytes": 162893,
+          "github_archive_sha256": "aa9ab6ab2f116654947052ac51cf72ddcf2df9ed205b0fbab68a9ba0abbf08c3",
+          "created_at": "2026-10-09T06:39:51Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599529298,
+          "name": "chapter2-kb-future-shard-63",
+          "artifact_zip_bytes": 162451,
+          "github_archive_sha256": "e1095106b5f3ff25e30bde5263778669f9512efb8d70663e7b9b6b9d36e02618",
+          "created_at": "2026-10-09T06:40:42Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599776149,
+          "name": "chapter2-kb-future-shard-7",
+          "artifact_zip_bytes": 159509,
+          "github_archive_sha256": "1cc1c60fd4b1238fbaac2a54263f7ebd2c61cdd0be5170e961dc4531ea0d5942",
+          "created_at": "2026-10-09T06:31:10Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599243686,
+          "name": "chapter2-kb-future-shard-8",
+          "artifact_zip_bytes": 164643,
+          "github_archive_sha256": "cd419348e8449f01bfd7621839304bf36aebedfe5af6bac8ed47ffee3854efc3",
+          "created_at": "2026-10-09T06:32:02Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599757142,
+          "name": "chapter2-kb-future-shard-9",
+          "artifact_zip_bytes": 162741,
+          "github_archive_sha256": "81a7344753e19d018005abe2e2971f24f7b421d0baf72840ce1b4c70c99360f4",
+          "created_at": "2026-10-09T06:31:52Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599642237,
+          "name": "chapter2-kb-new64-t400-full-admission",
+          "artifact_zip_bytes": 1473,
+          "github_archive_sha256": "4ef22bb44d75d346b8333c21cabe9ee74cc770297b2b2a81842c9f30d6863033",
+          "created_at": "2026-10-09T06:29:55Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598697364,
+          "name": "chapter2-kb-t400-shard-0",
+          "artifact_zip_bytes": 3447490,
+          "github_archive_sha256": "f0af1e09c4c894f30ad69d3ca1545f39bd22ec8654934294820988277a788e65",
+          "created_at": "2026-10-09T06:22:50Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598997863,
+          "name": "chapter2-kb-t400-shard-1",
+          "artifact_zip_bytes": 3346627,
+          "github_archive_sha256": "6c726b15df68936626f881589bf642ad0ba370b5a8e776b4707961e6cee4f118",
+          "created_at": "2026-10-09T06:23:02Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599007921,
+          "name": "chapter2-kb-t400-shard-10",
+          "artifact_zip_bytes": 3369249,
+          "github_archive_sha256": "e859a75f267b2e6494f0cbe73dac0e340f243491eada046f2b93c54486010200",
+          "created_at": "2026-10-09T06:23:42Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598798472,
+          "name": "chapter2-kb-t400-shard-11",
+          "artifact_zip_bytes": 3371200,
+          "github_archive_sha256": "2787b0208f3244d7b1864425dca6dd296ba5e776c6a646dbf56efa3211af5547",
+          "created_at": "2026-10-09T06:23:45Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599765834,
+          "name": "chapter2-kb-t400-shard-12",
+          "artifact_zip_bytes": 3399525,
+          "github_archive_sha256": "7bbedc31aa195b5620916306f38da2e4022fb41bc5bf03312b3a026412b2293b",
+          "created_at": "2026-10-09T06:23:47Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599521740,
+          "name": "chapter2-kb-t400-shard-13",
+          "artifact_zip_bytes": 3340561,
+          "github_archive_sha256": "959d55d96898b1655ccec2225399e503cc5c214a4b95f0e7057a811755539ddc",
+          "created_at": "2026-10-09T06:23:43Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598384833,
+          "name": "chapter2-kb-t400-shard-14",
+          "artifact_zip_bytes": 3317779,
+          "github_archive_sha256": "3a8767f10e3a7ae47cc4bd6b963508c8306c05e2d29bf9ee7ba3cf68d227317e",
+          "created_at": "2026-10-09T06:23:50Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598918266,
+          "name": "chapter2-kb-t400-shard-15",
+          "artifact_zip_bytes": 3349478,
+          "github_archive_sha256": "5cb135f9e646f98e4a5dbb8c0d03a8ff1f549414c69fee36a784443b31d2849e",
+          "created_at": "2026-10-09T06:24:15Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599172758,
+          "name": "chapter2-kb-t400-shard-16",
+          "artifact_zip_bytes": 3407356,
+          "github_archive_sha256": "cabf1c6b005168eb1d705fb624a967df4bee2aabfe3b474442cabf9c6bb40a83",
+          "created_at": "2026-10-09T06:24:07Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599760432,
+          "name": "chapter2-kb-t400-shard-17",
+          "artifact_zip_bytes": 3315702,
+          "github_archive_sha256": "cc559f117b43d01bff2b5a86d4c4b109990989b0470f903815c5283d5c33a620",
+          "created_at": "2026-10-09T06:24:21Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599302529,
+          "name": "chapter2-kb-t400-shard-18",
+          "artifact_zip_bytes": 3478088,
+          "github_archive_sha256": "6049fb54f1d18d7b583bab1b75e63649c3a1c38bd3eabe1d5934a5769e96fa2a",
+          "created_at": "2026-10-09T06:24:23Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599008038,
+          "name": "chapter2-kb-t400-shard-19",
+          "artifact_zip_bytes": 3340641,
+          "github_archive_sha256": "b4ed5ab78d71f33cce237ba31dd97502a50d63770a1abd469efe669fc9cafbb7",
+          "created_at": "2026-10-09T06:24:25Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598752153,
+          "name": "chapter2-kb-t400-shard-2",
+          "artifact_zip_bytes": 3297056,
+          "github_archive_sha256": "d7a318cc18d5962613a99291c67457972bba2ba7d390ffb9d28e6349c30c7c4d",
+          "created_at": "2026-10-09T06:22:50Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598688959,
+          "name": "chapter2-kb-t400-shard-20",
+          "artifact_zip_bytes": 3316330,
+          "github_archive_sha256": "7535cf849605801388c8e3ef827bce61426a7dae8706fc9fda6a975fa19c5234",
+          "created_at": "2026-10-09T06:24:27Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598953074,
+          "name": "chapter2-kb-t400-shard-21",
+          "artifact_zip_bytes": 3420666,
+          "github_archive_sha256": "ab86b52392bacd4f99f074dfe3eb1ff2d43c0e8adcf8974f45d6e771cad1a0c8",
+          "created_at": "2026-10-09T06:24:30Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599630854,
+          "name": "chapter2-kb-t400-shard-22",
+          "artifact_zip_bytes": 3348036,
+          "github_archive_sha256": "5c2d9b5041a182570f42e747f0e707b3668e0cc203803cc7c7d155f7a386a923",
+          "created_at": "2026-10-09T06:24:39Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599621528,
+          "name": "chapter2-kb-t400-shard-23",
+          "artifact_zip_bytes": 3304375,
+          "github_archive_sha256": "2759c62cb5f2267edcbb32b2c777dbba57aba669178fcd896114373646675e35",
+          "created_at": "2026-10-09T06:24:47Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598878451,
+          "name": "chapter2-kb-t400-shard-24",
+          "artifact_zip_bytes": 3416596,
+          "github_archive_sha256": "fdc7b7bb2ec7b991425655a7c25872afc140eb8ea00ba3b0a00445fe388f6f10",
+          "created_at": "2026-10-09T06:24:45Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599392396,
+          "name": "chapter2-kb-t400-shard-25",
+          "artifact_zip_bytes": 3418747,
+          "github_archive_sha256": "f438fca70deedddec19c58e180eaa31a31a285fe69608582b33ea1378c09aa75",
+          "created_at": "2026-10-09T06:24:56Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599013074,
+          "name": "chapter2-kb-t400-shard-26",
+          "artifact_zip_bytes": 3353755,
+          "github_archive_sha256": "fd4237bc93ca8999f7e3c9853411fe4041e31a206e63140e4975bf7269781528",
+          "created_at": "2026-10-09T06:25:00Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599337493,
+          "name": "chapter2-kb-t400-shard-27",
+          "artifact_zip_bytes": 3293560,
+          "github_archive_sha256": "e74db257ab9058dac16bac547be8079c6bab2098b3aa2ee383a1b1501a1a0a82",
+          "created_at": "2026-10-09T06:25:08Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599716236,
+          "name": "chapter2-kb-t400-shard-28",
+          "artifact_zip_bytes": 3424678,
+          "github_archive_sha256": "5f365f3c28285a8fa17f3a66fd7d6334e3c0bb6b09fa40a6fc29744b76a12bea",
+          "created_at": "2026-10-09T06:25:04Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598798759,
+          "name": "chapter2-kb-t400-shard-29",
+          "artifact_zip_bytes": 3427101,
+          "github_archive_sha256": "fce5d2eb72b4eb4b60a94de04e1de5aca14533967eeb55f568da6f75aaab3db7",
+          "created_at": "2026-10-09T06:25:24Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598718701,
+          "name": "chapter2-kb-t400-shard-3",
+          "artifact_zip_bytes": 3373919,
+          "github_archive_sha256": "ef95a5d6136cd2d097695a592aa9c0e43c0fc0adaff0c2a78f8f617ba15e787c",
+          "created_at": "2026-10-09T06:23:04Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599143050,
+          "name": "chapter2-kb-t400-shard-30",
+          "artifact_zip_bytes": 3347194,
+          "github_archive_sha256": "f97969c7b90364c391b4da65cf64a59e8aee9f9c498244eb52fda283e1cc90f7",
+          "created_at": "2026-10-09T06:25:15Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599271668,
+          "name": "chapter2-kb-t400-shard-31",
+          "artifact_zip_bytes": 3379494,
+          "github_archive_sha256": "035d1519c977fe68162f5582d679268fa21f97e13eec602019e8c6088051f313",
+          "created_at": "2026-10-09T06:25:27Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599337530,
+          "name": "chapter2-kb-t400-shard-32",
+          "artifact_zip_bytes": 3451649,
+          "github_archive_sha256": "5c38bfc0a73cc289e0a75b2387e3c70733f2b4695b51c7ea019fd2cc5fd9bde5",
+          "created_at": "2026-10-09T06:25:22Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599083104,
+          "name": "chapter2-kb-t400-shard-33",
+          "artifact_zip_bytes": 3304084,
+          "github_archive_sha256": "f774049509c210b0c707ea9013c054fb4cd7eff6505afa3723a648e84f4a223e",
+          "created_at": "2026-10-09T06:25:38Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598928417,
+          "name": "chapter2-kb-t400-shard-34",
+          "artifact_zip_bytes": 3344859,
+          "github_archive_sha256": "a197dda214d0725c29f6e88b0d1d135003376864399ebf5cec92aa79360b2e88",
+          "created_at": "2026-10-09T06:25:42Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598993293,
+          "name": "chapter2-kb-t400-shard-35",
+          "artifact_zip_bytes": 3390771,
+          "github_archive_sha256": "a79c7df340470b2bc7e3cadd2e4e66bf9da632ae3afa1248ce101bef0ae526f3",
+          "created_at": "2026-10-09T06:25:48Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598958493,
+          "name": "chapter2-kb-t400-shard-36",
+          "artifact_zip_bytes": 3395251,
+          "github_archive_sha256": "767129c1285e3198d1a6d3490b0bfe05ce12c95d5245947e80623f66a4f28faf",
+          "created_at": "2026-10-09T06:25:47Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598702588,
+          "name": "chapter2-kb-t400-shard-37",
+          "artifact_zip_bytes": 3333781,
+          "github_archive_sha256": "9e36824bafe5d764fee0593d71ee36901e33e75f9d5f712777671f621a78a0e0",
+          "created_at": "2026-10-09T06:25:49Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599541898,
+          "name": "chapter2-kb-t400-shard-38",
+          "artifact_zip_bytes": 3384667,
+          "github_archive_sha256": "4e4a5f4975f92b1cefbaf919b6f438cdf6d9b900d7eda6d5ec387d97c8c6a1b2",
+          "created_at": "2026-10-09T06:25:53Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599830115,
+          "name": "chapter2-kb-t400-shard-39",
+          "artifact_zip_bytes": 3374346,
+          "github_archive_sha256": "fd08d31d3016fcc6ea3ae5dcffa960467a9e6d3bf2deb55584caca63136dd739",
+          "created_at": "2026-10-09T06:26:05Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598637891,
+          "name": "chapter2-kb-t400-shard-4",
+          "artifact_zip_bytes": 3372967,
+          "github_archive_sha256": "886ac0200803818d21917cfd61e1571f8090326e9eb64d62f24d7753e93416cd",
+          "created_at": "2026-10-09T06:23:41Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598998379,
+          "name": "chapter2-kb-t400-shard-40",
+          "artifact_zip_bytes": 3378212,
+          "github_archive_sha256": "c9a2fe0746d24fe404571b6c920974dee0f775019376cc2b89b28508e04a0e60",
+          "created_at": "2026-10-09T06:25:59Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599021987,
+          "name": "chapter2-kb-t400-shard-41",
+          "artifact_zip_bytes": 3391442,
+          "github_archive_sha256": "a6b5a08dad03d3527e2d215676804d60c8bde70ab59f747202c7c4d8156773a3",
+          "created_at": "2026-10-09T06:26:10Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598733926,
+          "name": "chapter2-kb-t400-shard-42",
+          "artifact_zip_bytes": 3352811,
+          "github_archive_sha256": "4ad05c302d239329df9c72f17ae3d910d03c0b70754e505aa4a4843a1e09bb11",
+          "created_at": "2026-10-09T06:26:23Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598898549,
+          "name": "chapter2-kb-t400-shard-43",
+          "artifact_zip_bytes": 3371631,
+          "github_archive_sha256": "ceddc0f9840e58139a46f3a8ab62fda9f01ddf463d27a491819061cfcb0ac891",
+          "created_at": "2026-10-09T06:26:26Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599186915,
+          "name": "chapter2-kb-t400-shard-44",
+          "artifact_zip_bytes": 3360717,
+          "github_archive_sha256": "4fb5c1c0c47f3d9d800be7278d598f30915234c91eb59d517587b80b02aaa244",
+          "created_at": "2026-10-09T06:26:21Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599835177,
+          "name": "chapter2-kb-t400-shard-45",
+          "artifact_zip_bytes": 3467638,
+          "github_archive_sha256": "875c2025ec15b86df4be73899cd008392ab94d0ac337d06aa9fc7bed30480b38",
+          "created_at": "2026-10-09T06:26:34Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599262956,
+          "name": "chapter2-kb-t400-shard-46",
+          "artifact_zip_bytes": 3330812,
+          "github_archive_sha256": "6fc860a02036c3d6787ced2b5ab4b266ec234d99280e8c5fe855264613003e95",
+          "created_at": "2026-10-09T06:26:34Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598733975,
+          "name": "chapter2-kb-t400-shard-47",
+          "artifact_zip_bytes": 3337079,
+          "github_archive_sha256": "4b5fe35f7e6e1b78b8ea74e6e9869cbd2e0bb646b0fe58b873f0adbcc35d7ead",
+          "created_at": "2026-10-09T06:26:39Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599271814,
+          "name": "chapter2-kb-t400-shard-48",
+          "artifact_zip_bytes": 3335136,
+          "github_archive_sha256": "e185f65c1b014fd25dc852b3e7ab81dca033fadcb4eb97ea93d97b67cec557e5",
+          "created_at": "2026-10-09T06:26:44Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599223099,
+          "name": "chapter2-kb-t400-shard-49",
+          "artifact_zip_bytes": 3272429,
+          "github_archive_sha256": "851f7ec7d57b7a9eea3ff12ed8c4b5d7d1231b8df8dbf33455d0536048bc2510",
+          "created_at": "2026-10-09T06:26:58Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599431879,
+          "name": "chapter2-kb-t400-shard-5",
+          "artifact_zip_bytes": 3349626,
+          "github_archive_sha256": "c6cc4364f3e905b590473c0ceabdfe276262f06b311c541279d61e74bfd5f21b",
+          "created_at": "2026-10-09T06:23:04Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599527075,
+          "name": "chapter2-kb-t400-shard-50",
+          "artifact_zip_bytes": 3389811,
+          "github_archive_sha256": "c25bee18e4838d1df97faf40e0a6a7b53c9034970e079d93664853c37efe7d8d",
+          "created_at": "2026-10-09T06:27:03Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599193205,
+          "name": "chapter2-kb-t400-shard-51",
+          "artifact_zip_bytes": 3375805,
+          "github_archive_sha256": "6d01e03e903949b161f11652470a9e61f504db0725b764a839d660f2320ff5f9",
+          "created_at": "2026-10-09T06:27:12Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599572011,
+          "name": "chapter2-kb-t400-shard-52",
+          "artifact_zip_bytes": 3331023,
+          "github_archive_sha256": "cf0cda495496103880f7ccf5d04ebbcb8304d7a6040477c393bc8110b7f68076",
+          "created_at": "2026-10-09T06:27:16Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599083398,
+          "name": "chapter2-kb-t400-shard-53",
+          "artifact_zip_bytes": 3349264,
+          "github_archive_sha256": "591f2563a82bf27134d08636350aacdb7a736417ca6ed5684f59233684b679ba",
+          "created_at": "2026-10-09T06:27:24Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599367727,
+          "name": "chapter2-kb-t400-shard-54",
+          "artifact_zip_bytes": 3366938,
+          "github_archive_sha256": "fc4e267ba5dea155a542b6bd5c51ddb4d7f42f13335f8b46f1004ea9e81c0b73",
+          "created_at": "2026-10-09T06:27:10Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599411589,
+          "name": "chapter2-kb-t400-shard-55",
+          "artifact_zip_bytes": 3368087,
+          "github_archive_sha256": "056305961b18200a506cac0ec66f368140842777baf01fc7564f7ca53ca941b4",
+          "created_at": "2026-10-09T06:27:34Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599577154,
+          "name": "chapter2-kb-t400-shard-56",
+          "artifact_zip_bytes": 3433914,
+          "github_archive_sha256": "8d51806bf8c4c03273cd6f4d84373053c4b7958d607b6a0264122394529d8bb2",
+          "created_at": "2026-10-09T06:27:25Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598852627,
+          "name": "chapter2-kb-t400-shard-57",
+          "artifact_zip_bytes": 3474216,
+          "github_archive_sha256": "f3a3157a1618e91c66cd620c11a180c91a4a34dd9a87e85f3f43e37fed846a6f",
+          "created_at": "2026-10-09T06:27:43Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599476499,
+          "name": "chapter2-kb-t400-shard-58",
+          "artifact_zip_bytes": 3312517,
+          "github_archive_sha256": "4a0104130c3436707113fe1ae0667ff9eebedfd554ca883c47578fe61baad883",
+          "created_at": "2026-10-09T06:27:38Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599287963,
+          "name": "chapter2-kb-t400-shard-59",
+          "artifact_zip_bytes": 3412630,
+          "github_archive_sha256": "14bc0a8ac8a153a763e47a74849c33b270155c0daf018b559b4957ae3ff2db77",
+          "created_at": "2026-10-09T06:27:55Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599091651,
+          "name": "chapter2-kb-t400-shard-6",
+          "artifact_zip_bytes": 3366851,
+          "github_archive_sha256": "5a7e6f1df90c57eca9610c122f2ade06502504adf1a277e01d393e9715f0b4f7",
+          "created_at": "2026-10-09T06:23:06Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599681116,
+          "name": "chapter2-kb-t400-shard-60",
+          "artifact_zip_bytes": 3351259,
+          "github_archive_sha256": "673ed566b2e9decde4b8a6a151cb69296033b73736242d5441753ba9a928788b",
+          "created_at": "2026-10-09T06:27:52Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599527186,
+          "name": "chapter2-kb-t400-shard-61",
+          "artifact_zip_bytes": 3358911,
+          "github_archive_sha256": "ccbf9777572c69846224255abd53d04600e68e55e086b238272ea2880866b908",
+          "created_at": "2026-10-09T06:27:45Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599726720,
+          "name": "chapter2-kb-t400-shard-62",
+          "artifact_zip_bytes": 3362552,
+          "github_archive_sha256": "a884ad291f3367d8f3461048e5bd92637394c2660c4100dddcb04779a5adb47f",
+          "created_at": "2026-10-09T06:28:12Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599367912,
+          "name": "chapter2-kb-t400-shard-63",
+          "artifact_zip_bytes": 3373554,
+          "github_archive_sha256": "e1804eaf366b7d8f2f6f3e04220944839866895693f2973014abe7344d6b193f",
+          "created_at": "2026-10-09T06:28:13Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599441098,
+          "name": "chapter2-kb-t400-shard-7",
+          "artifact_zip_bytes": 3333041,
+          "github_archive_sha256": "f367818fb8eff2b96caa27cfcd263ce019ce24fe598339569b2bea79e70441c0",
+          "created_at": "2026-10-09T06:23:00Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11598952918,
+          "name": "chapter2-kb-t400-shard-8",
+          "artifact_zip_bytes": 3363537,
+          "github_archive_sha256": "dab215a2b299b0e00bedc2c5c4d6d829675b4d0a28eec95a85d9dafeaec28a51",
+          "created_at": "2026-10-09T06:23:30Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599007879,
+          "name": "chapter2-kb-t400-shard-9",
+          "artifact_zip_bytes": 3370508,
+          "github_archive_sha256": "9b9d9e12251e7b34ed3cfbc5075ddcf0a604d9140490009232459556bc9e5b8b",
+          "created_at": "2026-10-09T06:23:28Z",
+          "expires_at": "2027-01-07T06:21:44Z",
+          "expired_as_of_inventory": false
+        }
+      ]
+    },
+    {
+      "run_id": 37896872795,
+      "role": "independent_fixed_B48_K_confirmation",
+      "expected_artifacts": 130,
+      "types": {
+        "raw-future-shard": 64,
+        "diploid-t400-source": 64,
+        "other-result": 1,
+        "source-admission": 1
+      },
+      "stored_artifact_zip_bytes": 224540537,
+      "artifacts": [
+        {
+          "id": 11600529086,
+          "name": "chapter2-fixedB48-64-history-114688-full-readout",
+          "artifact_zip_bytes": 176,
+          "github_archive_sha256": "ec116167ef0fdb2f23f4492b7c16cc6f8d1c26a041093859c734b2a775ef4867",
+          "created_at": "2026-10-09T07:19:19Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601141448,
+          "name": "chapter2-k48-future-shard-0",
+          "artifact_zip_bytes": 117897,
+          "github_archive_sha256": "faf0f4e2659644c19eac2382398323a06267e48c90072577c2bc2e537902ea2b",
+          "created_at": "2026-10-09T07:12:00Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601465688,
+          "name": "chapter2-k48-future-shard-1",
+          "artifact_zip_bytes": 116844,
+          "github_archive_sha256": "64d8dfab8bc318a138f9ffb3702df894e9f993d34c6402d59d86f1cdd1e7a05b",
+          "created_at": "2026-10-09T07:12:03Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600534709,
+          "name": "chapter2-k48-future-shard-10",
+          "artifact_zip_bytes": 118403,
+          "github_archive_sha256": "4af8db814dc0e466654d9427d0e72dbafc7d9955a763e7985ac42b25577ddbdf",
+          "created_at": "2026-10-09T07:13:00Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600702678,
+          "name": "chapter2-k48-future-shard-11",
+          "artifact_zip_bytes": 118140,
+          "github_archive_sha256": "156fc44bc4ddcd51a97329ecdd3b41b166dba8d4f81423c95af0edf744bb4e3a",
+          "created_at": "2026-10-09T07:12:46Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600877085,
+          "name": "chapter2-k48-future-shard-12",
+          "artifact_zip_bytes": 118362,
+          "github_archive_sha256": "9b23a08ba4b413408a4125f4a8813738917bb1176b335f69dfcb812439a1c7b0",
+          "created_at": "2026-10-09T07:13:12Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601145925,
+          "name": "chapter2-k48-future-shard-13",
+          "artifact_zip_bytes": 118028,
+          "github_archive_sha256": "50e5059279fd97d0270a079eed74dd40a17a770655ce099da5fe898d5bc39da8",
+          "created_at": "2026-10-09T07:13:08Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600986430,
+          "name": "chapter2-k48-future-shard-14",
+          "artifact_zip_bytes": 118215,
+          "github_archive_sha256": "143aeef2137d5b9b05304c63d78a7da8ae9bcfecb6821db92defec608b4b592c",
+          "created_at": "2026-10-09T07:12:56Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601131686,
+          "name": "chapter2-k48-future-shard-15",
+          "artifact_zip_bytes": 118295,
+          "github_archive_sha256": "8f268a4eb98397c67d1f7ca81845779f1a34b531a4779a4e7d64e6575d5abe9c",
+          "created_at": "2026-10-09T07:13:05Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601625149,
+          "name": "chapter2-k48-future-shard-16",
+          "artifact_zip_bytes": 117856,
+          "github_archive_sha256": "553604d45ee1cfc92b1e13a8737f4881297aef083a36f34c1815ee7f689040ce",
+          "created_at": "2026-10-09T07:13:36Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601081957,
+          "name": "chapter2-k48-future-shard-17",
+          "artifact_zip_bytes": 118396,
+          "github_archive_sha256": "2ba2726cc2f26d4a0a9884828ef5751937d25047962d318de1237f6e58678781",
+          "created_at": "2026-10-09T07:13:42Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600619779,
+          "name": "chapter2-k48-future-shard-18",
+          "artifact_zip_bytes": 118143,
+          "github_archive_sha256": "1b4c1450c387e24a844a97b25bcf01df20001ffe3afad64e2044e5d28cad3ff4",
+          "created_at": "2026-10-09T07:13:51Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601436004,
+          "name": "chapter2-k48-future-shard-19",
+          "artifact_zip_bytes": 117795,
+          "github_archive_sha256": "d2715d3a73491c6447391eb6fddd11d505729feb38810b0d4010ccaa539c030e",
+          "created_at": "2026-10-09T07:13:56Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600343614,
+          "name": "chapter2-k48-future-shard-2",
+          "artifact_zip_bytes": 117653,
+          "github_archive_sha256": "fee65051105b64ac8b108157b4d7df774b3f7297e619185eb6d8d959f40be11b",
+          "created_at": "2026-10-09T07:12:07Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600742940,
+          "name": "chapter2-k48-future-shard-20",
+          "artifact_zip_bytes": 117676,
+          "github_archive_sha256": "1127b1dd9b725d00240cea9289f18a348772dbafc46c2358cbfb04d88a823f15",
+          "created_at": "2026-10-09T07:13:55Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601072170,
+          "name": "chapter2-k48-future-shard-21",
+          "artifact_zip_bytes": 118120,
+          "github_archive_sha256": "59c238f38d207672d3832da28e8c2a1d131ad6b6e5d4052a2b9e6512adbf5ff1",
+          "created_at": "2026-10-09T07:14:07Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601520764,
+          "name": "chapter2-k48-future-shard-22",
+          "artifact_zip_bytes": 117954,
+          "github_archive_sha256": "536bcd819b6ee124531180b042a25c6a5150eeece3c7278073cd466dbb47553c",
+          "created_at": "2026-10-09T07:14:03Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601440974,
+          "name": "chapter2-k48-future-shard-23",
+          "artifact_zip_bytes": 118227,
+          "github_archive_sha256": "a7fc0bf4eb8f18cf7a95aae671ab1d0c76aa0434c7039e259c14f663316063d5",
+          "created_at": "2026-10-09T07:14:05Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601006626,
+          "name": "chapter2-k48-future-shard-24",
+          "artifact_zip_bytes": 118139,
+          "github_archive_sha256": "3ed3e6fcc6e8da2a75b474905df57569f1c7e68fe42e8ac5598527baa7a77a14",
+          "created_at": "2026-10-09T07:14:37Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600654605,
+          "name": "chapter2-k48-future-shard-25",
+          "artifact_zip_bytes": 117895,
+          "github_archive_sha256": "529ed1b8cc9fb73f1e62d32a48e502c5140870814abcd51af6959b81c18f5726",
+          "created_at": "2026-10-09T07:14:42Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601112012,
+          "name": "chapter2-k48-future-shard-26",
+          "artifact_zip_bytes": 118271,
+          "github_archive_sha256": "899d067a4061a11fccdd719115a38f4d571124ff1d8eb720dc3a50f7ee8495b7",
+          "created_at": "2026-10-09T07:14:31Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601296478,
+          "name": "chapter2-k48-future-shard-27",
+          "artifact_zip_bytes": 117489,
+          "github_archive_sha256": "2c0d282801653c32d22a5aac5a3db282a28814639cd285a156a4308156761acb",
+          "created_at": "2026-10-09T07:14:48Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600809179,
+          "name": "chapter2-k48-future-shard-28",
+          "artifact_zip_bytes": 117965,
+          "github_archive_sha256": "2deb7c41998e3a53317a36cb24b988bc249f7a687f9b4f60de1409c63f20d156",
+          "created_at": "2026-10-09T07:14:59Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600363903,
+          "name": "chapter2-k48-future-shard-29",
+          "artifact_zip_bytes": 117204,
+          "github_archive_sha256": "db0a8cf35d586ec3ac95f55df3b6e1a07866b751c3f87765177951e6bfe91da1",
+          "created_at": "2026-10-09T07:14:38Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601326066,
+          "name": "chapter2-k48-future-shard-3",
+          "artifact_zip_bytes": 117323,
+          "github_archive_sha256": "a491d987f18d90aae1b7fa9959debe2f9f82a7084ef850b8910fc9a96d01c758",
+          "created_at": "2026-10-09T07:12:14Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601585675,
+          "name": "chapter2-k48-future-shard-30",
+          "artifact_zip_bytes": 117593,
+          "github_archive_sha256": "809ad13672e1fe0c0c9f75edc85befa4e62f3a108c0c512770986f92c0687676",
+          "created_at": "2026-10-09T07:14:59Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600458713,
+          "name": "chapter2-k48-future-shard-31",
+          "artifact_zip_bytes": 118045,
+          "github_archive_sha256": "612808c6b819bcec5ef13c1d5276f889c94ab127ffa63b3cabbbd9c698469e27",
+          "created_at": "2026-10-09T07:15:08Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600614924,
+          "name": "chapter2-k48-future-shard-32",
+          "artifact_zip_bytes": 118076,
+          "github_archive_sha256": "6c9dffc140e668cdbdab1420a26de1aec6b9936f526266d7d6ccbc084f7ed621",
+          "created_at": "2026-10-09T07:15:24Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601510459,
+          "name": "chapter2-k48-future-shard-33",
+          "artifact_zip_bytes": 117953,
+          "github_archive_sha256": "fda154674776907543a07f9541c99f5e043a6a2f6299ba3242197f1e67f4a205",
+          "created_at": "2026-10-09T07:15:34Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600847617,
+          "name": "chapter2-k48-future-shard-34",
+          "artifact_zip_bytes": 117610,
+          "github_archive_sha256": "c5820259e152a066339040090e75efd85fa0b15fd3f8552aae52239ed12e6dd3",
+          "created_at": "2026-10-09T07:15:22Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600413840,
+          "name": "chapter2-k48-future-shard-35",
+          "artifact_zip_bytes": 118605,
+          "github_archive_sha256": "0889fa54d2052bf26dd176b26ef4cd8f5a86bad3e6ec1bdb0740d7166226bf36",
+          "created_at": "2026-10-09T07:15:40Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601585775,
+          "name": "chapter2-k48-future-shard-36",
+          "artifact_zip_bytes": 118467,
+          "github_archive_sha256": "a332389c1542b9d9bdb232e8ca5e950a652da100c730da7fea35868af1ca4731",
+          "created_at": "2026-10-09T07:15:37Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601142169,
+          "name": "chapter2-k48-future-shard-37",
+          "artifact_zip_bytes": 118101,
+          "github_archive_sha256": "2e86a9217929f90ad3373f3b2fefcef3a5b6a5f108afae3f318f8dbfc85a1091",
+          "created_at": "2026-10-09T07:16:02Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600689726,
+          "name": "chapter2-k48-future-shard-38",
+          "artifact_zip_bytes": 117692,
+          "github_archive_sha256": "3ba7692c98440d4ccff10726217a18ea26f36c0b0438f9c4b490aabbe2660a39",
+          "created_at": "2026-10-09T07:15:38Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601665306,
+          "name": "chapter2-k48-future-shard-39",
+          "artifact_zip_bytes": 118783,
+          "github_archive_sha256": "b305a5c63cf45ad5e4e54ede5ea932d8ef26dad03110181aaf49da0e7308fdf6",
+          "created_at": "2026-10-09T07:16:04Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601535334,
+          "name": "chapter2-k48-future-shard-4",
+          "artifact_zip_bytes": 118643,
+          "github_archive_sha256": "d317c9db10d2c1832ff3e194e834f49b364ba579aedd0dd877492791cb9584ef",
+          "created_at": "2026-10-09T07:12:06Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601710089,
+          "name": "chapter2-k48-future-shard-40",
+          "artifact_zip_bytes": 118800,
+          "github_archive_sha256": "21bc91a1f75958931d273b664509683f3e310961e87abfd09ad2e42dc14aec20",
+          "created_at": "2026-10-09T07:16:19Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601556053,
+          "name": "chapter2-k48-future-shard-41",
+          "artifact_zip_bytes": 117943,
+          "github_archive_sha256": "03164f61a2c5562ee5514639a06503ecf8bf9dd5446d7d6c89492ccb5028ce56",
+          "created_at": "2026-10-09T07:16:03Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600812895,
+          "name": "chapter2-k48-future-shard-42",
+          "artifact_zip_bytes": 117790,
+          "github_archive_sha256": "89855ee0c72e287466eb68b1c9308be24684a36bb65f336aed4c241edbc04338",
+          "created_at": "2026-10-09T07:16:28Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601615724,
+          "name": "chapter2-k48-future-shard-43",
+          "artifact_zip_bytes": 118520,
+          "github_archive_sha256": "301b1666323c908a4e9a3f26b27000639831ab824ff2ad9ccb2efd2205f2109d",
+          "created_at": "2026-10-09T07:16:40Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601003059,
+          "name": "chapter2-k48-future-shard-44",
+          "artifact_zip_bytes": 117224,
+          "github_archive_sha256": "5b9c2d8249b9d1f615c81b1032cee40fe046b6e84f92d76a8dd1c4002404747b",
+          "created_at": "2026-10-09T07:16:32Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601326818,
+          "name": "chapter2-k48-future-shard-45",
+          "artifact_zip_bytes": 118476,
+          "github_archive_sha256": "bc857ef2a24b7912348871382c632ec4316d0a7043ece7fe19bbeed1d384695a",
+          "created_at": "2026-10-09T07:16:37Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601291935,
+          "name": "chapter2-k48-future-shard-46",
+          "artifact_zip_bytes": 118053,
+          "github_archive_sha256": "62a2625d3f92cee03c62946f44273d05b6794554a5d6c9be0b7a3fa96fa232ce",
+          "created_at": "2026-10-09T07:17:06Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601586036,
+          "name": "chapter2-k48-future-shard-47",
+          "artifact_zip_bytes": 117599,
+          "github_archive_sha256": "1206cb71bf5877f10cc5cdb6b588e3f25483d724751198558f2072b5664ef1e1",
+          "created_at": "2026-10-09T07:16:51Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601715237,
+          "name": "chapter2-k48-future-shard-48",
+          "artifact_zip_bytes": 117749,
+          "github_archive_sha256": "0dcb4f5082823d0456e61b33971e8acb4cee8a4f8c56d258e890756d08cd5c7e",
+          "created_at": "2026-10-09T07:17:01Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600409128,
+          "name": "chapter2-k48-future-shard-49",
+          "artifact_zip_bytes": 118284,
+          "github_archive_sha256": "d449531aa6fb92164464e653cbb7aa419ff77a05c87e703d5589b600d7a8c926",
+          "created_at": "2026-10-09T07:17:07Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601106639,
+          "name": "chapter2-k48-future-shard-5",
+          "artifact_zip_bytes": 117730,
+          "github_archive_sha256": "4ff869ce707b27665e477cf2c752c7d4f0dd71a3f95bb4cd5f787d83f42d67ce",
+          "created_at": "2026-10-09T07:12:15Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601531334,
+          "name": "chapter2-k48-future-shard-50",
+          "artifact_zip_bytes": 117941,
+          "github_archive_sha256": "cb8b36126cfe8f21f34b262ec8e579d6c62c4fe314de8861ac562cee8a29fc28",
+          "created_at": "2026-10-09T07:17:31Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601695381,
+          "name": "chapter2-k48-future-shard-51",
+          "artifact_zip_bytes": 117079,
+          "github_archive_sha256": "1ea07d2aa5334838f46e99339262119fa19d5ed2967993ba46821944628b61e0",
+          "created_at": "2026-10-09T07:17:10Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601481689,
+          "name": "chapter2-k48-future-shard-52",
+          "artifact_zip_bytes": 117423,
+          "github_archive_sha256": "08e7acbd4f5c515290fa8d832ed79d01e4f7f94316a2586b4e9ac0581f2d137a",
+          "created_at": "2026-10-09T07:17:42Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600458973,
+          "name": "chapter2-k48-future-shard-53",
+          "artifact_zip_bytes": 117810,
+          "github_archive_sha256": "bff41a4f2d5237cc309ccd622965472bdfa26884540a247171f4397124db63a6",
+          "created_at": "2026-10-09T07:17:16Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601476646,
+          "name": "chapter2-k48-future-shard-54",
+          "artifact_zip_bytes": 117968,
+          "github_archive_sha256": "5f536653206d8325c41b1b043b5b9da0d3ff21b2c64431122b66db746a0ff3a5",
+          "created_at": "2026-10-09T07:17:39Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601062922,
+          "name": "chapter2-k48-future-shard-55",
+          "artifact_zip_bytes": 118534,
+          "github_archive_sha256": "40b13343f7ca60ed72c7168fee14ad7b23ac3bea8c6abfe0bdbf84660899ddfa",
+          "created_at": "2026-10-09T07:17:59Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601770080,
+          "name": "chapter2-k48-future-shard-56",
+          "artifact_zip_bytes": 117874,
+          "github_archive_sha256": "5c76c97bbf11b9c4c188485974c1d1c75a90f7460c36bdbacbcc7bc787d8a293",
+          "created_at": "2026-10-09T07:17:47Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600997008,
+          "name": "chapter2-k48-future-shard-57",
+          "artifact_zip_bytes": 118437,
+          "github_archive_sha256": "eec4e74be9a63cfa969a835e48cf1ab293164e1c4b18e292b36770ed9d83ba73",
+          "created_at": "2026-10-09T07:18:02Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600932427,
+          "name": "chapter2-k48-future-shard-58",
+          "artifact_zip_bytes": 116647,
+          "github_archive_sha256": "feded97ecd18bf0b20e894fd758339e6d4a22a3007cac55ce3aad41b592857c9",
+          "created_at": "2026-10-09T07:18:16Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600823145,
+          "name": "chapter2-k48-future-shard-59",
+          "artifact_zip_bytes": 118259,
+          "github_archive_sha256": "99ed81c68390502d5cfcc412c3ec36a1b9dd3d690d5a8ced0617556d914de984",
+          "created_at": "2026-10-09T07:18:10Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601061951,
+          "name": "chapter2-k48-future-shard-6",
+          "artifact_zip_bytes": 117869,
+          "github_archive_sha256": "379bba818395b3520722d916fcb5c5b42faeec55e950abf52923aa3ee4786660",
+          "created_at": "2026-10-09T07:12:16Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601227430,
+          "name": "chapter2-k48-future-shard-60",
+          "artifact_zip_bytes": 118176,
+          "github_archive_sha256": "ab7f3ba1a502522961c7c7d6d02d06dc45032696b508306d328663381095510b",
+          "created_at": "2026-10-09T07:18:30Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600703415,
+          "name": "chapter2-k48-future-shard-61",
+          "artifact_zip_bytes": 118153,
+          "github_archive_sha256": "fe447f25114e5c841b958601a44a1841eeac90e5f6e0c5dd6387b83b7d88a4e6",
+          "created_at": "2026-10-09T07:18:24Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600344439,
+          "name": "chapter2-k48-future-shard-62",
+          "artifact_zip_bytes": 118948,
+          "github_archive_sha256": "47e9689999ca039f17d18e9705df0e5af8df5fcc689f0fc9fb52a6607e25695d",
+          "created_at": "2026-10-09T07:18:40Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601021939,
+          "name": "chapter2-k48-future-shard-63",
+          "artifact_zip_bytes": 116867,
+          "github_archive_sha256": "0921dd614d1152398e6c5679df62d8fd750dda9b8e5eb3d2b611e82b4fd9f64f",
+          "created_at": "2026-10-09T07:18:41Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601051962,
+          "name": "chapter2-k48-future-shard-7",
+          "artifact_zip_bytes": 118165,
+          "github_archive_sha256": "55ea14c9dc9df74faa546dc5ac00845ab99316bc18cff7825a3275892168c70a",
+          "created_at": "2026-10-09T07:12:24Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600388627,
+          "name": "chapter2-k48-future-shard-8",
+          "artifact_zip_bytes": 117081,
+          "github_archive_sha256": "6d423a5472a08036ccf7886513f3dba55d5351d2a6ef62bb7c96ec392aea87b1",
+          "created_at": "2026-10-09T07:12:39Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600534704,
+          "name": "chapter2-k48-future-shard-9",
+          "artifact_zip_bytes": 117547,
+          "github_archive_sha256": "b1c1150aa81fcd714427dd49b2c25c12dd1b96c5cca52fc1ae7eb7c179a7fce0",
+          "created_at": "2026-10-09T07:12:58Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11599859900,
+          "name": "chapter2-k48-new64-t400-full-admission",
+          "artifact_zip_bytes": 1481,
+          "github_archive_sha256": "483d5e1f41ed2f3d1adf27c54817b6aba756ee481e29e45c68777aad6701a98b",
+          "created_at": "2026-10-09T07:11:17Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600752642,
+          "name": "chapter2-k48-t400-shard-0",
+          "artifact_zip_bytes": 3474107,
+          "github_archive_sha256": "d7efacd9daf7320f707c1865166e785bde1a8530080bc3dbe62dc5fcd4186afc",
+          "created_at": "2026-10-09T07:04:56Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600274307,
+          "name": "chapter2-k48-t400-shard-1",
+          "artifact_zip_bytes": 3402857,
+          "github_archive_sha256": "735c06114e4156f2e8aab38a2d7ef006a3f0db097b7efeaa529de89a517a6b55",
+          "created_at": "2026-10-09T07:04:52Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600159783,
+          "name": "chapter2-k48-t400-shard-10",
+          "artifact_zip_bytes": 3358361,
+          "github_archive_sha256": "7aedea1b353f63784df37e322beeb7a2ac2409c2409a4a9bef702713f548f260",
+          "created_at": "2026-10-09T07:05:28Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600945742,
+          "name": "chapter2-k48-t400-shard-11",
+          "artifact_zip_bytes": 3323658,
+          "github_archive_sha256": "353b10fc089b474f9fb8bd22515f3321977c613ce91824f39424511b8369af65",
+          "created_at": "2026-10-09T07:05:39Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600527341,
+          "name": "chapter2-k48-t400-shard-12",
+          "artifact_zip_bytes": 3419591,
+          "github_archive_sha256": "21d025e65656817c5ef3d713ea5e1d0701ef59804a36832d7f45ae6d9eab2ee0",
+          "created_at": "2026-10-09T07:05:39Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600428758,
+          "name": "chapter2-k48-t400-shard-13",
+          "artifact_zip_bytes": 3306414,
+          "github_archive_sha256": "baa092fb6616fe9fe622736403a7140c3b9d0482f305f544e01b9a28a8ddd355",
+          "created_at": "2026-10-09T07:05:39Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600618275,
+          "name": "chapter2-k48-t400-shard-14",
+          "artifact_zip_bytes": 3361632,
+          "github_archive_sha256": "267035a183bd8bb3b08dafedb56e9e7e176630b6a0429c3aacb7f1d144316bc7",
+          "created_at": "2026-10-09T07:05:34Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600766649,
+          "name": "chapter2-k48-t400-shard-15",
+          "artifact_zip_bytes": 3425011,
+          "github_archive_sha256": "e11ea6e240081cce6314c880a3ae4afe8fbbabe677023de2ce658b26f32bce33",
+          "created_at": "2026-10-09T07:05:39Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601090611,
+          "name": "chapter2-k48-t400-shard-16",
+          "artifact_zip_bytes": 3363519,
+          "github_archive_sha256": "d1d007c8ae4756c5c9b7ad24d69a3630a0d5aa2b6c3de0e7c80b576fdde042fe",
+          "created_at": "2026-10-09T07:05:59Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600339244,
+          "name": "chapter2-k48-t400-shard-17",
+          "artifact_zip_bytes": 3352285,
+          "github_archive_sha256": "da9d78bf3cdf95824f4d6636ba311d72c265bf59fd6f7467f31131aef8b8d1d4",
+          "created_at": "2026-10-09T07:05:49Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600448983,
+          "name": "chapter2-k48-t400-shard-18",
+          "artifact_zip_bytes": 3486412,
+          "github_archive_sha256": "cf4247636f3fae0240714ba1ac49888bbe1a7e6c8bdee4620f303c9e191c19ae",
+          "created_at": "2026-10-09T07:06:12Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600419267,
+          "name": "chapter2-k48-t400-shard-19",
+          "artifact_zip_bytes": 3425861,
+          "github_archive_sha256": "9b0daf4bcbcb648ef99d113db8ad761fd441b1e64011ad25802d2b64b25c4bf1",
+          "created_at": "2026-10-09T07:06:21Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600861246,
+          "name": "chapter2-k48-t400-shard-2",
+          "artifact_zip_bytes": 3342171,
+          "github_archive_sha256": "362fdf964107eeb93048fbb1949920abecafe8a544d66f691b70ecd04dcc51a1",
+          "created_at": "2026-10-09T07:04:55Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600219702,
+          "name": "chapter2-k48-t400-shard-20",
+          "artifact_zip_bytes": 3468410,
+          "github_archive_sha256": "41416d1144d18448a1d2e0491cbfc9abba9040226610eaf0fdd2992b833a13bf",
+          "created_at": "2026-10-09T07:06:22Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600762811,
+          "name": "chapter2-k48-t400-shard-21",
+          "artifact_zip_bytes": 3410190,
+          "github_archive_sha256": "ef2b8064653f360264504b5645819605175ad83ac6a34ea12cadb4a7c89f9939",
+          "created_at": "2026-10-09T07:06:20Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601150507,
+          "name": "chapter2-k48-t400-shard-22",
+          "artifact_zip_bytes": 3428795,
+          "github_archive_sha256": "9b7ee9e0b0ff8d38b9e8990d641c70142658acd0e6df6f3b97efb0d3b64a0590",
+          "created_at": "2026-10-09T07:06:22Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600648308,
+          "name": "chapter2-k48-t400-shard-23",
+          "artifact_zip_bytes": 3414430,
+          "github_archive_sha256": "4515cf55daf498b9fcd03ba50b08b984476a2163571eef930ecc360698814148",
+          "created_at": "2026-10-09T07:06:13Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601305087,
+          "name": "chapter2-k48-t400-shard-24",
+          "artifact_zip_bytes": 3474312,
+          "github_archive_sha256": "f3785066746da7ee9a7bc152bf0c592ab3855ff0fadd24d6f6478d8d6a05584d",
+          "created_at": "2026-10-09T07:06:27Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600578663,
+          "name": "chapter2-k48-t400-shard-25",
+          "artifact_zip_bytes": 3325236,
+          "github_archive_sha256": "2d5cd130f23ed30ec3b213ab6af5ae78ea2a90fd2e129d71e43fbb8e84177309",
+          "created_at": "2026-10-09T07:06:45Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600488837,
+          "name": "chapter2-k48-t400-shard-26",
+          "artifact_zip_bytes": 3384688,
+          "github_archive_sha256": "13acb7d8c0e1ddf72bf1e75d8b9e9bc678327236701ad41f37629312ca919dde",
+          "created_at": "2026-10-09T07:07:03Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600668329,
+          "name": "chapter2-k48-t400-shard-27",
+          "artifact_zip_bytes": 3397498,
+          "github_archive_sha256": "633039f197bf11a98021e2bd38bff1fb92bf7c28bc1858d25c03446e2308746d",
+          "created_at": "2026-10-09T07:06:56Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600753015,
+          "name": "chapter2-k48-t400-shard-28",
+          "artifact_zip_bytes": 3434781,
+          "github_archive_sha256": "dfc48ac7508e32a1adba32b1f6754648a28b3224abdc1cb3dee1034e1179661e",
+          "created_at": "2026-10-09T07:07:07Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601245387,
+          "name": "chapter2-k48-t400-shard-29",
+          "artifact_zip_bytes": 3387665,
+          "github_archive_sha256": "acf9f27cd59d20e15b9f78e9028e9c24f98778265ab1c744372420e73d80474f",
+          "created_at": "2026-10-09T07:07:11Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601125343,
+          "name": "chapter2-k48-t400-shard-3",
+          "artifact_zip_bytes": 3238721,
+          "github_archive_sha256": "5f1f74b8dc18bb73da68f92846c71c9fbbe910b72c8d8f5d39ae881ea3b1095f",
+          "created_at": "2026-10-09T07:05:00Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601370041,
+          "name": "chapter2-k48-t400-shard-30",
+          "artifact_zip_bytes": 3424150,
+          "github_archive_sha256": "da1971dadcba8547f8d238fa4e78783722ab98beb55c2dd795a8272b63cc30f6",
+          "created_at": "2026-10-09T07:07:14Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601270245,
+          "name": "chapter2-k48-t400-shard-31",
+          "artifact_zip_bytes": 3428254,
+          "github_archive_sha256": "25d6b438a0e5fb36b51bcd04fd5d72539ce0ff471f7ce88e4eee196397aa2dfd",
+          "created_at": "2026-10-09T07:07:17Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600618592,
+          "name": "chapter2-k48-t400-shard-32",
+          "artifact_zip_bytes": 3394490,
+          "github_archive_sha256": "8a31d12c75118c00c403fe32fee6c5bf9240fe3382257c99eb0a4d19f5f93beb",
+          "created_at": "2026-10-09T07:07:14Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601350169,
+          "name": "chapter2-k48-t400-shard-33",
+          "artifact_zip_bytes": 3374289,
+          "github_archive_sha256": "865f13728c82de561b764f5530b60dc84922c5fc8f5e708a3c10a515f81d3baf",
+          "created_at": "2026-10-09T07:07:30Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600239938,
+          "name": "chapter2-k48-t400-shard-34",
+          "artifact_zip_bytes": 3355570,
+          "github_archive_sha256": "77a123ceca13e84778f08a1f2f758b9c0ed95d320c9be3aadd1e178ec3e8ae87",
+          "created_at": "2026-10-09T07:07:37Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601425089,
+          "name": "chapter2-k48-t400-shard-35",
+          "artifact_zip_bytes": 3390722,
+          "github_archive_sha256": "8f83f474f0195c0229fdbf0cea71638917448eaf2d4767c36e696bfdccf2a7d1",
+          "created_at": "2026-10-09T07:08:19Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601095868,
+          "name": "chapter2-k48-t400-shard-36",
+          "artifact_zip_bytes": 3392247,
+          "github_archive_sha256": "146ddeb4bae7b1655391f0fa6aac06bdd33924e6785bfb96e6a6d14d7786c52b",
+          "created_at": "2026-10-09T07:07:50Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601375244,
+          "name": "chapter2-k48-t400-shard-37",
+          "artifact_zip_bytes": 3356762,
+          "github_archive_sha256": "7d0dd9572ccbd86475a3af9753131c555b28c093bfc5e7eda98a415781c6a842",
+          "created_at": "2026-10-09T07:07:56Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600707129,
+          "name": "chapter2-k48-t400-shard-38",
+          "artifact_zip_bytes": 3449304,
+          "github_archive_sha256": "1523041984555cc693847ab45fd44fc92b0f91b764dc46ec60a6d5ea5fb311d9",
+          "created_at": "2026-10-09T07:07:58Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600831753,
+          "name": "chapter2-k48-t400-shard-39",
+          "artifact_zip_bytes": 3393708,
+          "github_archive_sha256": "c0445e9a5c986c5af63713b3c80d3237668bcb2e95f6ff6e6359838bff64f9e6",
+          "created_at": "2026-10-09T07:07:58Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600174569,
+          "name": "chapter2-k48-t400-shard-4",
+          "artifact_zip_bytes": 3392191,
+          "github_archive_sha256": "f63359c9d0f9b6431639f0175eb6a38e24eab9307d05b7d008658e6b605da7b9",
+          "created_at": "2026-10-09T07:04:42Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600289941,
+          "name": "chapter2-k48-t400-shard-40",
+          "artifact_zip_bytes": 3430207,
+          "github_archive_sha256": "c3c233be1fdfb7ba36bbbf2f0755781241a2fd3428758fcb1d025cdc98ba015d",
+          "created_at": "2026-10-09T07:07:57Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600519053,
+          "name": "chapter2-k48-t400-shard-41",
+          "artifact_zip_bytes": 3332211,
+          "github_archive_sha256": "447f4215d4206f9fc796e074d8f24643f1d85f8ba7daafef08f7a291d17c30b1",
+          "created_at": "2026-10-09T07:08:18Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600369483,
+          "name": "chapter2-k48-t400-shard-42",
+          "artifact_zip_bytes": 3383346,
+          "github_archive_sha256": "ee69321b7da3087b759d782308a4f05537546e86ba12b56e6381dd6a507a408d",
+          "created_at": "2026-10-09T07:08:09Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601250161,
+          "name": "chapter2-k48-t400-shard-43",
+          "artifact_zip_bytes": 3367988,
+          "github_archive_sha256": "0cd0c3ef2f5a508b0b9238e997fd5c03c48141db473271d072f1c1c1179a1071",
+          "created_at": "2026-10-09T07:08:36Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600379673,
+          "name": "chapter2-k48-t400-shard-44",
+          "artifact_zip_bytes": 3345551,
+          "github_archive_sha256": "6269fd89aa1a11641ce44ea7fec34505e393e1e174d4cd3c2f1cb0f0535415ab",
+          "created_at": "2026-10-09T07:08:37Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601450117,
+          "name": "chapter2-k48-t400-shard-45",
+          "artifact_zip_bytes": 3363723,
+          "github_archive_sha256": "9a4cf48b0e71c3ca3f6dbc266c7c2a1ed38552ad1d00d328d2e62513c3e2aa78",
+          "created_at": "2026-10-09T07:08:42Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600537588,
+          "name": "chapter2-k48-t400-shard-46",
+          "artifact_zip_bytes": 3323079,
+          "github_archive_sha256": "bba27a3393628d14a5053e481973c8e920a6737d2abf5e5913a929989ce8bb9e",
+          "created_at": "2026-10-09T07:08:40Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601465114,
+          "name": "chapter2-k48-t400-shard-47",
+          "artifact_zip_bytes": 3437685,
+          "github_archive_sha256": "1f3618dd29c44b650b810426cafb73dbf8edea895696a7bf0d091fc10c7fab3f",
+          "created_at": "2026-10-09T07:08:44Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600911299,
+          "name": "chapter2-k48-t400-shard-48",
+          "artifact_zip_bytes": 3452213,
+          "github_archive_sha256": "b5517154afc8615b265fd3dd1f82a07336346e9d6e7bc0ee9eff9825feaadf65",
+          "created_at": "2026-10-09T07:08:48Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601490058,
+          "name": "chapter2-k48-t400-shard-49",
+          "artifact_zip_bytes": 3402820,
+          "github_archive_sha256": "1c1d77ad57c15db6b57761fc2858f2420609dbc27d9d47ae5e3f55c5ccad9517",
+          "created_at": "2026-10-09T07:08:47Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600244512,
+          "name": "chapter2-k48-t400-shard-5",
+          "artifact_zip_bytes": 3470644,
+          "github_archive_sha256": "281761449ca09ed6e8afbb773ad75fbfeaa1657bc24392904fd4d1813705971e",
+          "created_at": "2026-10-09T07:04:54Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601030744,
+          "name": "chapter2-k48-t400-shard-50",
+          "artifact_zip_bytes": 3372755,
+          "github_archive_sha256": "43174f64a1c1e79e7de1cd241e8b4e96026cb91e849b43f9a15a7e05c0de85ce",
+          "created_at": "2026-10-09T07:09:02Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600439500,
+          "name": "chapter2-k48-t400-shard-51",
+          "artifact_zip_bytes": 3443043,
+          "github_archive_sha256": "b5b6ecc4211951c386db5b5ddf49455cae56433d432060791456c6aa8a89d679",
+          "created_at": "2026-10-09T07:09:14Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600812026,
+          "name": "chapter2-k48-t400-shard-52",
+          "artifact_zip_bytes": 3366239,
+          "github_archive_sha256": "18b3f983da5dfdd8e959c9b52f87d41f19c8f1b852f634df55324fbe2a2cd4ba",
+          "created_at": "2026-10-09T07:09:18Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601375520,
+          "name": "chapter2-k48-t400-shard-53",
+          "artifact_zip_bytes": 3433067,
+          "github_archive_sha256": "d03b2e44de84b6b2842e8a4c135c4c51bfec69d2df3f541f49f8b68b30aceeb7",
+          "created_at": "2026-10-09T07:09:25Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600901564,
+          "name": "chapter2-k48-t400-shard-54",
+          "artifact_zip_bytes": 3291214,
+          "github_archive_sha256": "292744004120160495513edb608803cd700f417f196de29a43228a571292324a",
+          "created_at": "2026-10-09T07:09:25Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600891601,
+          "name": "chapter2-k48-t400-shard-55",
+          "artifact_zip_bytes": 3413881,
+          "github_archive_sha256": "999cb435a78caaa8460c6884dd605506b6b2a61becf8eddd0c14904f619f6cec",
+          "created_at": "2026-10-09T07:09:26Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600449567,
+          "name": "chapter2-k48-t400-shard-56",
+          "artifact_zip_bytes": 3447271,
+          "github_archive_sha256": "a720c430428bdeed9e47dc2c33225ac1ed91adbb4e5173a18eea32eb6d4d4332",
+          "created_at": "2026-10-09T07:09:22Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600921361,
+          "name": "chapter2-k48-t400-shard-57",
+          "artifact_zip_bytes": 3312430,
+          "github_archive_sha256": "7636e408982d848509112b7ad8c3daae391db6622cbe42d14ea83f1e0b5514c9",
+          "created_at": "2026-10-09T07:09:32Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600896723,
+          "name": "chapter2-k48-t400-shard-58",
+          "artifact_zip_bytes": 3395229,
+          "github_archive_sha256": "04d3c3f21146950e56392d97a4086c3ead1fd9b878cd7e11fa6b9a42010807a1",
+          "created_at": "2026-10-09T07:09:50Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600522724,
+          "name": "chapter2-k48-t400-shard-59",
+          "artifact_zip_bytes": 3400383,
+          "github_archive_sha256": "de66cccf8a524d2eb10a94a7c561328b00301164480e60ac9bd497a53ef7f061",
+          "created_at": "2026-10-09T07:09:59Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600428583,
+          "name": "chapter2-k48-t400-shard-6",
+          "artifact_zip_bytes": 3320659,
+          "github_archive_sha256": "9d365e1104a9f824675a3540bea419925caf6aa815ee22e989c6f5253d866905",
+          "created_at": "2026-10-09T07:04:40Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600482799,
+          "name": "chapter2-k48-t400-shard-60",
+          "artifact_zip_bytes": 3416120,
+          "github_archive_sha256": "ce5e85c45ae97de0ae35a3bbe525469f86dd421cb952fec85dc1105b97d73f69",
+          "created_at": "2026-10-09T07:10:03Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600728664,
+          "name": "chapter2-k48-t400-shard-61",
+          "artifact_zip_bytes": 3360969,
+          "github_archive_sha256": "8fd2e014c29bd6bbd3e291e90c68eb2e6f4d6267fd8c72323d41be6f3e6c592b",
+          "created_at": "2026-10-09T07:10:07Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600462985,
+          "name": "chapter2-k48-t400-shard-62",
+          "artifact_zip_bytes": 3359660,
+          "github_archive_sha256": "9e5631808ac788c51ac4924af65bb6f2311949292764bf42c0f19899adbd39db",
+          "created_at": "2026-10-09T07:10:06Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600359789,
+          "name": "chapter2-k48-t400-shard-63",
+          "artifact_zip_bytes": 3440550,
+          "github_archive_sha256": "2402f795574bd83366d900a6a4d3f738ed4bd173433e5008f6d6cad75e0d1c6f",
+          "created_at": "2026-10-09T07:09:57Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11601140200,
+          "name": "chapter2-k48-t400-shard-7",
+          "artifact_zip_bytes": 3334493,
+          "github_archive_sha256": "be6b351a7d0370d1949e1f909ebb1fa40711f572385452078b10bd5beb5db884",
+          "created_at": "2026-10-09T07:04:43Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600866202,
+          "name": "chapter2-k48-t400-shard-8",
+          "artifact_zip_bytes": 3447281,
+          "github_archive_sha256": "08003bce7c955b5bd6cd7f0fa36ce4d5bb4798e4f9489022853ae179f7980d37",
+          "created_at": "2026-10-09T07:05:19Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        },
+        {
+          "id": 11600274368,
+          "name": "chapter2-k48-t400-shard-9",
+          "artifact_zip_bytes": 3367073,
+          "github_archive_sha256": "368dc856c81bf34d19e320caede7bbe9354df7cb31ed432abafcb118e081afaf",
+          "created_at": "2026-10-09T07:05:12Z",
+          "expires_at": "2027-01-07T07:03:36Z",
+          "expired_as_of_inventory": false
+        }
+      ]
+    }
+  ]
+}
