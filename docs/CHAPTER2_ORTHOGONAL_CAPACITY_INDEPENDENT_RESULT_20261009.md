@@ -47,6 +47,14 @@ The first within-regime interval excludes zero, consistent with the earlier synt
 
 A cautious ecological interpretation is that **reproductive-assurance sensitivity of persistence is possible under severe finite-population stress, while the specific demographic mechanism causing between-regime heterogeneity remains unresolved**. This model does not directly demonstrate an Izu Islands field effect, extinction threshold, long-term fitness gain, or genetic mediation.
 
+## Post-outcome mechanistic interpretation correction (2026-10-09)
+
+An additional **read-only, fully source-authenticated** 172,032-future audit was executed successfully in [Run #37890907635](https://github.com/zuizui0223/izu-core/actions/runs/37890907635). This was performed **after** the frozen inconclusive decision; no original history, biological intervention, estimate or uncertainty bound was changed.
+
+The F8/C8 versus F8/C48 comparison matched the exact eight diploid founders and initial abundance, but the canonical pollen-transfer equation also depends **directly on `config.capacity`** through the recipient denominator `affinity.sum(axis=0, keepdims=True) + config.capacity * config.background_ratio` (`scripts/model3_island/reproduction.py`). Consequently, setting the capacity to 8 versus 48 changes both the *demographic ceiling* and the *background dilution of pollen delivery*. The authenticated t0 channel audit finds no initial pollen-export difference between those F8 arms, but the maximum case-level absolute difference in initial viable outcross seed production is **18.925**, and in viable selfed seeds **8.479**. These are maxima, not mean causal effects.
+
+**The registered primary remains `inconclusive`.** It cannot be described as identifying a pure demographic ceiling effect holding effective pollen-sharing conditions fixed. The new cumulative recruitment and early-extinction decompositions are exploratory, survival-duration-dependent descriptions, **not causal mediation**. See [the source-locked mechanism audit](CHAPTER2_ORTHOGONAL_MECHANISM_CHANNEL_AUDIT_20261009.md).
+
 ## Integrity and next decision
 
 The two production stages and whole-cohort statistical audit have **completed successfully**; the result should be archived as `inconclusive`, not rerun selectively. Further mechanism resolution would require a *new* independently justified design (e.g. measuring genotype composition and source population abundance separately); it should not retrospectively re-label the 2026-10-09 confirmatory comparison.
