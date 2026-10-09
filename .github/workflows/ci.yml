@@ -389,3 +389,49 @@ jobs:
           path: local-response-budget*.json
           if-no-files-found: warn
           retention-days: 90
+
+  model3-k32-symmetric-assurance:
+    if: github.event_name == 'pull_request' && github.event.pull_request.number == 420
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Validate same-background heterozygote bidirectional perturbations
+        run: pytest -q tests/test_model3_k32_symmetric_assurance_curvature.py
+      - name: Sample source assurance response curvature before years 3 5 7 8 budget8
+        run: python -m scripts.audit_model3_k32_symmetric_assurance_curvature --out symmetric-budget8.json --budget 8 --draws 128
+      - name: Sample source assurance response curvature before years 3 5 7 8 budget3
+        run: python -m scripts.audit_model3_k32_symmetric_assurance_curvature --out symmetric-budget3.json --budget 3 --draws 128
+      - name: Verify source and fixed-baseline matched comparison scope
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for budget in (8,3):
+              x=json.loads(Path(f"symmetric-budget{budget}.json").read_text())
+              c=x["conditions"]
+              assert x["status"]=="SOURCE_SAME_HETEROZYGOTE_SYMMETRIC_RESPONSE_AUDIT"
+              assert (c["K"],c["mutation_rate"],c["generations"],c["ovule_budget"])==(32,0,8,budget)
+              assert c["old_visitor_history"]==26110601 and c["independent_visitor_histories"]==1
+              assert c["new_confirmatory_cohorts_reused"] is False
+              assert c["original_model3_biology_modified"] is False
+              assert c["parent_genotype_identical_in_two_flip_orientations"] is True
+              assert c["baseline_comparator_tilt_frozen_under_both_flips"] is True
+              assert set(x["checkpoints"])=={"3","5","7","8"}
+              for row in x["checkpoints"].values():
+                  assert row["n_comparable_heterozygote_states"]+sum(row["ineligible_states"].values())==row["n_occupied"]
+                  assert row["same_genotype_bidirectional_summary"]["n"]==row["n_comparable_heterozygote_states"]
+              print("same heterozygote, same source biology, same old visitor history PASS",budget)
+          PY
+      - name: Archive symmetric same-genotype assay JSON, not plant observations
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: model3-k32-symmetric-assurance
+          path: symmetric-budget*.json
+          if-no-files-found: warn
+          retention-days: 90
