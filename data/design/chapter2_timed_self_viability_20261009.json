@@ -1,0 +1,181 @@
+{
+  "schema_version": "1.0",
+  "declaration_date": "2026-10-09",
+  "status": "FROZEN_BEFORE_NEW_INDEPENDENT_OUTCOMES",
+  "title": "Independent temporal localization of controlled selfed-seed viability sensitivity under fixed pollen background",
+  "provenance": {
+    "prior_fixed_B48_confirmed_K_run": 37900150213,
+    "prior_confirmed_K_moderation": 0.007745713876893593,
+    "prior_primary_registered_supported": true,
+    "postoutcome_exploratory_source_run": 37918887205,
+    "prior_late60_exploratory_pattern": true,
+    "adaptive_hypothesis_selection_explicit": true,
+    "previously_published_verdicts_frozen": true
+  },
+  "biological_scope": {
+    "original_prehistory_design": "data/design/chapter2_order_expression_identification_20261008.json",
+    "original_biological_core": "scripts/model3_island/",
+    "reproduction_helper": "scripts/chapter2_kb_reproduction.py",
+    "fixed_background_B": 48,
+    "demographic_K_values": [
+      8,
+      48
+    ],
+    "exact_same_full_diploid_F8_founder_genomes_across_K_and_all_gates": true,
+    "founding_population_sample_size_max": 8,
+    "founder_sample_seed_salt": 4211092026,
+    "same_initial_future_random_streams_across_K_and_gates": true,
+    "future_stream_seed_salt": 4211092048,
+    "future_visitor_environment": [
+      "near",
+      "far"
+    ],
+    "mutation_settings": "unchanged frozen postshock",
+    "budget_support": [
+      0.5,
+      1,
+      2,
+      3,
+      4,
+      5,
+      8
+    ],
+    "budget_weighting": "original_frozen_log_budget_weights",
+    "postshock_horizon_updates": 80,
+    "no_plant_immigration": true,
+    "same_B_means_same_initial_outcross_pollen_for_matched_founders": true,
+    "viability_gates": [
+      {
+        "name": "baseline",
+        "selfed_viability_multiplier": 1,
+        "apply_updates": []
+      },
+      {
+        "name": "self_half_early",
+        "selfed_viability_multiplier": 0.5,
+        "apply_updates": [
+          0,
+          39
+        ]
+      },
+      {
+        "name": "self_half_late",
+        "selfed_viability_multiplier": 0.5,
+        "apply_updates": [
+          40,
+          79
+        ]
+      },
+      {
+        "name": "self_half_full",
+        "selfed_viability_multiplier": 0.5,
+        "apply_updates": [
+          0,
+          79
+        ]
+      }
+    ],
+    "no_change_to_outcrossed_viability_or_pollen_export": true
+  },
+  "genuinely_new_cohort": {
+    "visitor_history_first": 42110901,
+    "visitor_history_last": 42110964,
+    "visitor_history_count": 64,
+    "old_exposed_ranges": [
+      [
+        37110801,
+        37110864
+      ],
+      [
+        38110901,
+        38110964
+      ],
+      [
+        39110901,
+        39110964
+      ],
+      [
+        40110901,
+        40110964
+      ],
+      [
+        41110901,
+        41110964
+      ]
+    ],
+    "demographic_repeat_ids": [
+      42111901,
+      42111902
+    ],
+    "reproductive_settings": [
+      "delayed_control",
+      "prior_selfing",
+      "pollen_discount",
+      "assurance_cost"
+    ],
+    "prehistory_visitor_environments": [
+      "near",
+      "far"
+    ],
+    "assigned_expression_histories": [
+      "assurance_first",
+      "investment_first"
+    ],
+    "source_t400_updates": 400,
+    "total_complete_diploid_t400_sources": 2048,
+    "include_t400_extinctions_without_filter": true,
+    "no_reuse_of_observed_histories": true
+  },
+  "complete_grid": {
+    "full_source_count": 2048,
+    "K_arms": 2,
+    "viability_gates": 4,
+    "future_environments": 2,
+    "resource_budgets": 7,
+    "future_conditions_per_source": 112,
+    "total_future_trajectories": 229376,
+    "independent_statistical_clusters": 64
+  },
+  "frozen_primary": {
+    "outcome": "binary occupied after 80 updates",
+    "D": "average A-first minus I-first terminal occupancy with 4 reproductive settings, 2 prehistory environments, 2 nested repeats, 2 future visitor environments, and original 7 log-budget weights",
+    "tau_early": "D_baseline(K)-D_self_half_early(K)",
+    "tau_late": "D_baseline(K)-D_self_half_late(K)",
+    "primary_contrast": "[tau_late(K8)-tau_late(K48)]-[tau_early(K8)-tau_early(K48)]",
+    "interpretation": "difference in controlled early-only versus late-only seed-viability timing influence on demographic K moderation of assigned expression-order occupancy, at B48",
+    "bootstrap_unit": "paired visitor history",
+    "bootstrap_draws": 9999,
+    "bootstrap_seed": 2026100981,
+    "two_sided": true,
+    "minimum_meaningful_absolute_probability": 0.005,
+    "support": "abs(mean)>=0.005 and 95% paired history percentile interval excludes 0",
+    "practical_equivalence": "95% interval strictly within +/-0.005",
+    "otherwise": "inconclusive",
+    "no_optional_stopping": true
+  },
+  "descriptive": {
+    "early_K_moderation": "tau_early(K8)-tau_early(K48)",
+    "late_K_moderation": "tau_late(K8)-tau_late(K48)",
+    "full_K_moderation": "[D_base(K8)-D_full(K8)]-[D_base(K48)-D_full(K48)]",
+    "nonadditivity": "full_K_moderation - early_K_moderation - late_K_moderation",
+    "note": "All are descriptive; no promotion based on observed significance; timing location does not identify genealogical mediation."
+  },
+  "fail_closed_gates": [
+    "Read source genomes and complete pedigrees from each of 64 new independent complete source shards with hashes",
+    "Reject old visitor IDs and any premature peek or alternate stochastic seeds",
+    "At each postshock update, only selfed viable seed multipliers change according to registered gate/time",
+    "Full and early have identical initial seed viability; baseline and late share identical t0 reproductive ledger",
+    "Every K arm begins from same at-most-eight complete diploid genomes with identical B48",
+    "Require 64 history shards, 2048 sources and 229376 SHA-checked futures before any analysis",
+    "All source-extinct and late-ineligible realized paths stay in the cohort",
+    "Paired history-cluster bootstrap resamples 64 independent visitor histories, not 229376 futures",
+    "Original 2026-10-09 confirmed demographic K result and prior inconclusive tests are preserved verbatim"
+  ],
+  "limitation": [
+    "A stage-specific seed gate can act only while population survives; this is a valid intervention-to-occupancy total effect but not a survival-conditioned mediator.",
+    "The outcome is local terminal occupancy after 80 updates, not lifetime fitness.",
+    "Transient assigned expression order is not natural genetic mutation arrival order.",
+    "This synthetic K/B parameter experiment is not calibrated to observed island size, pollen competition or extinction.",
+    "Early and late intervention windows have equal calendar duration, not equal realized survival-time exposure."
+  ]
+}
