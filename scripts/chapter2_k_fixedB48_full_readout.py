@@ -111,7 +111,7 @@ def summarize(cube,d):
                 "positive_histories":int((v>1e-12).sum()),
                 "negative_histories":int((v<-1e-12).sum())}
     estimates={name:estimate(x) for name,x in contrasts.items()}
-    arm_sensitivities={ARMS[i]:estimate(tau[:,i]) for i in range(4)}
+    arm_sensitivities={ARMS[i]:estimate(tau[:,i]) for i in range(len(ARMS))}
     main=estimates["primary_K_at_fixed_B48"]
     lo,hi=main["bootstrap95"]
     if abs(main["mean"])>=0.005 and (lo>0 or hi<0):
