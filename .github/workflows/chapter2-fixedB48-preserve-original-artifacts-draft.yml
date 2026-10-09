@@ -1,0 +1,96 @@
+name: Chapter 2 fixedB48 original raw artifact preservation draft
+on:
+  push:
+    branches:
+      - chapter2/fixedB48-durable-raw-draft-20261009
+    paths:
+      - data/dispatch/fixedB48-draft-archive-launch-20261009.txt
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: chapter2-fixedB48-original-raw-draft-preservation
+  cancel-in-progress: false
+jobs:
+  preserve-exact-131-original-artifacts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Produce 131-original-artifact digest manifest and raw tar
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          python -m scripts.archive_chapter2_fixedB48_original_assets --out preserved --execute-archive
+      - name: Create versioned PRIVATE DRAFT release (not published)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          TAG=chapter2-fixedB48-raw-20261009-v1
+          cat > preserved/release-notes.md <<'EOF'
+          Unpublished research-data preservation copy of the original independent
+          64-history, 2,048-source, 114,688-future synthetic Chapter 2 study.
+          Exact original Actions runs: 37896872795 and read-only audit 37900150213.
+          Includes original ZIP bytes, 131 artifact IDs, GitHub original digests,
+          independent SHA-256 verification, source/protocol provenance and
+          the preregistered fixed-B48 demographic-K result.
+          Scientific JSON is committed separately under PR #442.
+          This is a DRAFT release; it is not a DOI-backed public deposit.
+          EOF
+          main_sha=$(gh api "repos/$REPO/branches/main" --jq '.commit.sha')
+          gh release create "$TAG" --draft --target "$main_sha" --title "Chapter 2 fixed-B48 raw full cohort (unpublished preservation)" --notes-file preserved/release-notes.md
+      - name: Upload original bytes and SHA-256 inventory to draft
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          TAG=chapter2-fixedB48-raw-20261009-v1
+          gh release upload "$TAG" preserved/chapter2-fixedB48-all-original-131-artifacts.tar preserved/fixedB48-original-artifacts-manifest.json preserved/fixedB48-archive-receipt.json
+          gh release view "$TAG" --json isDraft,assets > preserved/draft-release-status.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('preserved/draft-release-status.json').read_text())
+          assert d['isDraft'] is True
+          expected={'chapter2-fixedB48-all-original-131-artifacts.tar','fixedB48-original-artifacts-manifest.json','fixedB48-archive-receipt.json'}
+          assert {a['name'] for a in d['assets']} == expected
+          assert len(d['assets']) == 3
+          print('Three original preservation assets uploaded; release remains unpublished draft')
+          PY
+      - name: Independently re-download release archive and verify SHA-256
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          TAG=chapter2-fixedB48-raw-20261009-v1
+          mkdir -p verified-draft
+          gh release download "$TAG" --pattern "chapter2-fixedB48-all-original-131-artifacts.tar" --dir verified-draft
+          python - <<'PY'
+          import hashlib,json,tarfile
+          from pathlib import Path
+          rec=json.loads(Path('preserved/fixedB48-archive-receipt.json').read_text())
+          path=Path('verified-draft/chapter2-fixedB48-all-original-131-artifacts.tar')
+          h=hashlib.sha256()
+          with path.open('rb') as f:
+              for chunk in iter(lambda:f.read(1024*1024),b''):h.update(chunk)
+          assert h.hexdigest()==rec['archive_sha256']
+          with tarfile.open(path) as tar:
+              assert len(tar.getmembers())==132
+          print('Independent draft-release download SHA-256 and 131 archived artifact ZIPs verified')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: fixedB48-permanent-draft-release-preservation-receipts
+          path: |
+            preserved/fixedB48-archive-receipt.json
+            preserved/fixedB48-original-artifacts-manifest.json
+            preserved/draft-release-status.json
+          if-no-files-found: warn
+          retention-days: 90
