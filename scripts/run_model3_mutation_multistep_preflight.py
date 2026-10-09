@@ -70,7 +70,7 @@ def run_mutation_multistep_preflight(
                 state,ledger,empty,c,sim_rng,year=t,
                 mutation_traits=(True,True,True),
             )
-            if len(offspring):
+            if len(offspring.ids):
                 observed.append(offspring.alleles.mean(axis=(0,2)))
             else:
                 extinct+=1
