@@ -664,3 +664,59 @@ engineered source-matching plant/visitor states, mutation=0,
 survival=0, immigration=0. In particular, neither candidate is a
 continuous-time SDE, a stochastic PDE, a model of novel allele birth,
 or a validated substitute for the source finite Model 3 process.
+
+
+### Verified post-outcome integerization comparison: no automatic fix
+
+Focused run [#37869332826](https://github.com/zuizui0223/izu-core/actions/runs/37869332826)
+completed successfully on source commit
+`b48fba21d69f34f0719cecd7ba689e111ec6476c`.
+The exact-source one-step and multigeneration values are archived at
+[`data/results/model3_stochastic_rounding_ablation_20261009.json`](../data/results/model3_stochastic_rounding_ablation_20261009.json).
+
+One-step analytical reference and projected candidates at the same
+Model 3 source-derived 27-class diploid child genotype law:
+
+| N | Canonical E[genotype classes] | Gaussian + largest remainder | Gaussian + extra multinomial sampling |
+|---:|---:|---:|---:|
+| 8 | 6.10638 | 7.00720 | 5.67756 |
+| 32 | 13.82804 | 15.22693 | 12.62166 |
+| 128 | 22.07253 | 22.56396 | 20.25256 |
+
+The extra multinomial readout **reverses** the richness bias instead of
+providing a source-equivalent finite stochastic law. It also adds
+sampling variance on top of the Gaussian simplex variation:
+
+| N | Exact multinomial genotype-frequency covariance trace | Gaussian + multinomial total covariance trace |
+|---:|---:|---:|
+| 8 | 0.114313 | 0.156951 |
+| 32 | 0.028599 | 0.049736 |
+| 128 | 0.007151 | 0.013839 |
+
+Independent multi-generation source-vs-approximate cohorts returned
+exploratory richness gaps of 0.0625 (K8, three updates), 0.08594
+(K8, eight updates), and 0.54688 (K32, three updates). However,
+the corresponding maximum occupied trait-mean gaps were 0.06013,
+0.04263 and 0.01897, respectively. Better *one* endpoint is not proof
+of overall process fidelity. These are noisy independent cohorts,
+not paired causal pathway attribution for the previous deterministic
+integerization result.
+
+**Feasibility decision:** Neither Gaussian integerization tested can be
+admitted as a replacement for the canonical finite diploid genotype
+transition. Largest remainder overcounts joint genotype classes
+in the tested one-step regimes, whereas extra multinomial resampling
+undercounts them and adds stochastic variance. The numerical
+demonstration is restricted to the stated source law, fixed support and
+finite census; it cannot invalidate every conceivable SDE or SPDE.
+
+**Next mathematically legitimate route, not yet implemented or validated:**
+if Gaussian approximation is needed for computational efficiency, restrict
+it to a clearly defined smooth, conditional **observable** (such as
+population mean investment) and retain exact atomic multinomial/
+Mendelian updates when fixation, new mutations, genotype richness,
+survival or extinction matter. An analytic variance approximation around
+the discrete nonlinear inheritance map would require a separate
+fluctuation-limit derivation and finite-census validation. The existing
+finite stochastic genotype measure is the reference. No INLA or
+geographical SPDE should be introduced under this project's frozen scope.
