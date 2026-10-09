@@ -1,0 +1,9 @@
+ONE-TIME PRODUCTION LAUNCH — 2026-10-09
+Protocol: data/design/chapter2_orthogonal_founder_capacity_20261009.json
+Independent visitor histories: 39110901–39110964 (64)
+Independent diploid t400 sources: 2,048, 32 per history
+This event runs ONLY the prehistory/source stage, not any future or scientific readout.
+User authorization: "実装しただけでなく走らせ" (execute, not merely implement).
+Production: explicit two-flag opt-in; no preview peeking or source-based selection.
+Workflow file: .github/workflows/chapter2-orthogonal-t400-production-20261009.yml
+Do not edit/relaunch this marker after outcome exposure.
