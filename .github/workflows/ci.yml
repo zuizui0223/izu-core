@@ -621,7 +621,16 @@ jobs:
               assert c["prospective_confirmatory_cohorts_used"] is False
               assert len(d["years"])==8
               assert len(d["masks"])==8
+              assert "log(R)" in d["genetic_diversity_log_identity"]
+              expected={"polymorphic_loci","allelic_combinatorial_upper_bound",
+                        "genotype_coverage_occupancy_weighted",
+                        "genotype_effective_shannon_occupancy_weighted",
+                        "genotype_effective_simpson_occupancy_weighted",
+                        "log_genotype_richness_occupancy_weighted",
+                        "log_combinatorial_upper_bound_occupancy_weighted",
+                        "log_genotype_coverage_occupancy_weighted"}
               for year in d["years"].values():
+                  assert expected <= set(year["metrics"])
                   assert len(year["arms"])==8
                   for row in year["metrics"].values():
                       assert len(row["factorial_components"])==7
@@ -632,7 +641,20 @@ jobs:
                       nonadd=row["aggregate_pairwise_and_three_way_interaction"]
                       assert nonadd["demographic_mc_se"] is not None
                       assert abs(singles+nonadd["mean"]-total)<1e-10
-              print("Source K32 2x2x2 old-history factorial identity PASS",budget)
+              log_r=year["metrics"]["log_genotype_richness_occupancy_weighted"]
+              log_b=year["metrics"]["log_combinatorial_upper_bound_occupancy_weighted"]
+              log_c=year["metrics"]["log_genotype_coverage_occupancy_weighted"]
+              for mask in range(8):
+                  key=str(mask)
+                  assert abs(log_r["each_arm"][key]["mean"]-
+                             log_b["each_arm"][key]["mean"]-
+                             log_c["each_arm"][key]["mean"])<1e-10
+              for mask in range(1,8):
+                  key=str(mask)
+                  assert abs(log_r["factorial_components"][key]["mean"]-
+                             log_b["factorial_components"][key]["mean"]-
+                             log_c["factorial_components"][key]["mean"])<1e-10
+              print("Source K32 2x2x2 old-history diversity ceiling, occupancy & factorial identities PASS",budget)
           PY
       - name: Archive full factorial engineering results
         uses: actions/upload-artifact@v4
