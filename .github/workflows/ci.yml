@@ -584,3 +584,57 @@ jobs:
           path: outcross-ablation-budget*.json
           if-no-files-found: warn
           retention-days: 90
+
+  model3-k32-full-factorial:
+    if: github.event_name == 'pull_request' && github.event.pull_request.number == 420
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Validate 8-arm source and counterfactual factorization
+        run: pytest -q tests/test_model3_k32_outcross_factorial.py
+      - name: Old near visitor K32 complete factorial budget8
+        run: python -m scripts.run_model3_k32_outcross_factorial --budget 8 --draws 512 --out factorial-budget8.json
+      - name: Old near visitor K32 complete factorial budget3
+        run: python -m scripts.run_model3_k32_outcross_factorial --budget 3 --draws 512 --out factorial-budget3.json
+      - name: Gate all factor interactions on fixed old visitors and complete conservation
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for budget in (8,3):
+              d=json.loads(Path(f"factorial-budget{budget}.json").read_text())
+              c=d["conditions"]
+              assert d["status"]=="SOURCE_EXACT_K32_OLD_HISTORY_FULL_2x2x2_FACTORIAL"
+              assert (c["K"],c["mutation_rate"],c["generations"],c["ovule_budget"])==(32,0,8,budget)
+              assert c["old_visitor_history"]==26110601
+              assert c["independent_visitor_histories"]==1
+              assert c["nested_demographic_paths_per_arm"]==512
+              assert c["canonical_source_biology_modified"] is False
+              assert c["alternative_reproductive_operators_intentionally_modified"] is True
+              assert c["self_seed_intensity_and_total_outcross_seed_intensity_preserved_at_each_current_parent"] is True
+              assert c["outcross_parent_pair_support_preserved"] is True
+              assert c["prospective_confirmatory_cohorts_used"] is False
+              assert len(d["years"])==8
+              assert len(d["masks"])==8
+              for year in d["years"].values():
+                  assert len(year["arms"])==8
+                  for row in year["metrics"].values():
+                      assert len(row["factorial_components"])==7
+                      assert row["max_additivity_identity_error"]<1e-10
+                      total=sum(v["mean"] for v in row["factorial_components"].values())
+                      assert abs(total-row["all_three_minus_original"]["mean"])<1e-10
+              print("Source K32 2x2x2 old-history factorial identity PASS",budget)
+          PY
+      - name: Archive full factorial engineering results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: model3-k32-full-factorial
+          path: factorial-budget*.json
+          if-no-files-found: warn
+          retention-days: 90
