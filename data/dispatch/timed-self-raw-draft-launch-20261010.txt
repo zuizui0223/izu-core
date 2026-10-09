@@ -1,0 +1,6 @@
+Execute one time: PRIVATE/DRAFT ONLY original raw 130-artifact ZIP preservation for independent timed-self-viability cohort.
+Original successful biological/full-readout Run 37944527799, SHA e679e0ee190fa02e0a9d60876cd1a3e9987a4c79.
+64 complete t400 sources/shards, 64 full raw future shards, two original receipts/results; 229376 model futures.
+Original registered result: INCONCLUSIVE timing difference. Original JSON SHA-256 42d90c17cef4be1643b987428d3a6367ba09dee6594055ae2d2b693ccb190a01.
+No experiment replay, no refit, no public GitHub release. Preserve original source ZIP bytes and independent second download hash check.
+External DOI deposit requires a separate decision.
