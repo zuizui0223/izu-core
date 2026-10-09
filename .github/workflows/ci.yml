@@ -1066,3 +1066,67 @@ jobs:
           path: self-curvature-budget*.json
           if-no-files-found: warn
           retention-days: 90
+
+  model3-k32-new-visitor-history-stress:
+    if: github.event_name == 'pull_request' && github.event.pull_request.number == 420
+    runs-on: ubuntu-latest
+    timeout-minutes: 28
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Verify exploratory vs prospectively frozen history seed firewall
+        run: pytest -q tests/test_model3_k32_exploratory_visitor_histories.py
+      - name: Eight newly generated exploratory near visitor histories budget8
+        run: python -m scripts.audit_model3_k32_exploratory_visitor_histories --budget 8 --draws 128 --out exploratory-histories-budget8.json
+      - name: Eight newly generated exploratory near visitor histories budget3
+        run: python -m scripts.audit_model3_k32_exploratory_visitor_histories --budget 3 --draws 128 --out exploratory-histories-budget3.json
+      - name: Strict source history and independent visitor RNG seed accounting
+        run: |
+          python - <<'PY'
+          import json
+          import numpy as np
+          from pathlib import Path
+          for budget in (8,3):
+              x=json.loads(Path(f"exploratory-histories-budget{budget}.json").read_text())
+              assert x["status"]=="MODEL3_K32_EXPLORATORY_NEW_VISITOR_SEED_STRESS_COMPLETE"
+              c=x["provenance"]
+              assert (c["K"],c["mutation_rate"],c["generations"],c["budget"])==(32,0,8,budget)
+              assert c["archived_discovery_history_seed"]==26110601
+              assert c["new_post_outcome_exploratory_history_seeds"]==list(range(26110602,26110610))
+              assert c["n_distinct_new_simulated_visitor_histories"]==8
+              assert c["n_nested_demographic_paths_per_history"]==128
+              assert c["original_assurance_cost"]==0
+              assert c["original_investment_cost"]==.5
+              assert c["source_biological_code_edited"] is False
+              assert c["prospectively_frozen_chapter2_confirmatory_seeds_used"] is False
+              assert c["new_histories_preregistered_before_prior_source_discovery"] is False
+              assert len(x["histories"])==9
+              assert len({r["source_visitor_sha256"] for r in x["histories"]})==9
+              for r in x["histories"]:
+                  assert len(r["original_source_parent_years"])==8
+                  assert r["same_surviving_source_paths_for_all_parent_years"] is True
+                  for row in r["original_source_parent_years"].values():
+                      assert row["common_late_survivor_parent_paths"]==r["n_occupied_at_start_of_year8"]
+                      terms=sum((np.asarray(row["original_reproductive_direction"][k]["mean"])
+                                 for k in ("viable_self_seed_allele_direction","outcross_paternal_allele_direction","outcross_maternal_allele_direction")
+                                 if row["original_reproductive_direction"][k]["mean"] is not None),np.zeros(3))
+                      y=row["original_reproductive_direction"]["expected_allele_direction"]["mean"]
+                      if y is not None:
+                          assert np.allclose(y,terms,atol=1e-12,rtol=0)
+              summary=x["new_histories_summary"]
+              assert summary["n_predeclared"]==8
+              assert 0<=summary["n_with_late_source_parent_survivors"]<=8
+              assert summary["n_negative_to_positive_matching_direction"]<=summary["n_with_late_source_parent_survivors"]
+              print("8 previously unobserved simulated visitor histories source and nesting verified",budget)
+          PY
+      - name: Archive complete per-history original K32 directions without scientific promotion
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: model3-k32-new-visitor-history-stress
+          path: exploratory-histories-budget*.json
+          if-no-files-found: warn
+          retention-days: 90
