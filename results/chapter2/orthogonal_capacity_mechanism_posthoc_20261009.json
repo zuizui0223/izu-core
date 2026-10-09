@@ -1,0 +1,1261 @@
+{
+  "status": "POST_OUTCOME_EXPLORATORY_RAW_AUTHENTICATED_CHANNEL_AUDIT",
+  "source_run": 37887039116,
+  "future_run": 37887290489,
+  "full_future_count": 172032,
+  "history_bootstrap": {
+    "unit": "visitor_history",
+    "n": 64,
+    "draws": 9999,
+    "seed": 2026100951
+  },
+  "frozen_primary_unchanged": {
+    "decision": "inconclusive",
+    "estimate": 0.0018484189036193578,
+    "bootstrap95": [
+      -0.0034583914567777605,
+      0.007336769812294259
+    ]
+  },
+  "initial_mechanical_checks": {
+    "identical_F8_starting_counts": true,
+    "F8_max_initial_payoff_abs_difference_capacity8_vs_capacity48": {
+      "t0_self_viable": 8.47887817567073,
+      "t0_outcross_viable": 18.924519967548637,
+      "t0_expected_pollen_export": 0.0
+    },
+    "viability_gate_preserves_outcross_and_pollen": true,
+    "viability_gate_halves_selfed_viable_seed": true
+  },
+  "outcomes": {
+    "initial_population": {
+      "A_first_minus_I_first": {
+        "eight_founders_capacity8": {
+          "baseline": {
+            "mean": 0.0,
+            "history_bootstrap95": [
+              0.0,
+              0.0
+            ],
+            "n_positive": 0,
+            "n_negative": 0,
+            "n_zero": 64
+          },
+          "self_half": {
+            "mean": 0.0,
+            "history_bootstrap95": [
+              0.0,
+              0.0
+            ],
+            "n_positive": 0,
+            "n_negative": 0,
+            "n_zero": 64
+          }
+        },
+        "eight_founders_capacity48": {
+          "baseline": {
+            "mean": 0.0,
+            "history_bootstrap95": [
+              0.0,
+              0.0
+            ],
+            "n_positive": 0,
+            "n_negative": 0,
+            "n_zero": 64
+          },
+          "self_half": {
+            "mean": 0.0,
+            "history_bootstrap95": [
+              0.0,
+              0.0
+            ],
+            "n_positive": 0,
+            "n_negative": 0,
+            "n_zero": 64
+          }
+        },
+        "all_available_founders_capacity48": {
+          "baseline": {
+            "mean": 0.0,
+            "history_bootstrap95": [
+              0.0,
+              0.0
+            ],
+            "n_positive": 0,
+            "n_negative": 0,
+            "n_zero": 64
+          },
+          "self_half": {
+            "mean": 0.0,
+            "history_bootstrap95": [
+              0.0,
+              0.0
+            ],
+            "n_positive": 0,
+            "n_negative": 0,
+            "n_zero": 64
+          }
+        }
+      },
+      "viability_sensitivity_baseline_minus_self_half": {
+        "eight_founders_capacity8": {
+          "mean": 0.0,
+          "history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "n_positive": 0,
+          "n_negative": 0,
+          "n_zero": 64
+        },
+        "eight_founders_capacity48": {
+          "mean": 0.0,
+          "history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "n_positive": 0,
+          "n_negative": 0,
+          "n_zero": 64
+        },
+        "all_available_founders_capacity48": {
+          "mean": 0.0,
+          "history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "n_positive": 0,
+          "n_negative": 0,
+          "n_zero": 64
+        }
+      },
+      "between_capacity_sensitivity_fixed_F8": {
+        "mean": 0.0,
+        "history_bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "n_positive": 0,
+        "n_negative": 0,
+        "n_zero": 64
+      },
+      "founder_dose_sensitivity_fixed_C48": {
+        "mean": 0.0,
+        "history_bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "n_positive": 0,
+        "n_negative": 0,
+        "n_zero": 64
+      }
+    },
+    "t0_self_viable": {
+      "A_first_minus_I_first": {
+        "eight_founders_capacity8": {
+          "baseline": {
+            "mean": 0.321240503154378,
+            "history_bootstrap95": [
+              0.2254283526497829,
+              0.41786025197262805
+            ],
+            "n_positive": 53,
+            "n_negative": 11,
+            "n_zero": 0
+          },
+          "self_half": {
+            "mean": 0.160620251577189,
+            "history_bootstrap95": [
+              0.11271417632489145,
+              0.20893012598631402
+            ],
+            "n_positive": 53,
+            "n_negative": 11,
+            "n_zero": 0
+          }
+        },
+        "eight_founders_capacity48": {
+          "baseline": {
+            "mean": 0.26977417946800963,
+            "history_bootstrap95": [
+              0.18377348561266937,
+              0.35581725775119877
+            ],
+            "n_positive": 51,
+            "n_negative": 13,
+            "n_zero": 0
+          },
+          "self_half": {
+            "mean": 0.13488708973400482,
+            "history_bootstrap95": [
+              0.09188674280633469,
+              0.17790862887559938
+            ],
+            "n_positive": 51,
+            "n_negative": 13,
+            "n_zero": 0
+          }
+        },
+        "all_available_founders_capacity48": {
+          "baseline": {
+            "mean": 1.986736632053454,
+            "history_bootstrap95": [
+              1.4070106785419902,
+              2.5731296537432824
+            ],
+            "n_positive": 53,
+            "n_negative": 11,
+            "n_zero": 0
+          },
+          "self_half": {
+            "mean": 0.993368316026727,
+            "history_bootstrap95": [
+              0.7035053392709951,
+              1.2865648268716412
+            ],
+            "n_positive": 53,
+            "n_negative": 11,
+            "n_zero": 0
+          }
+        }
+      },
+      "viability_sensitivity_baseline_minus_self_half": {
+        "eight_founders_capacity8": {
+          "mean": 0.160620251577189,
+          "history_bootstrap95": [
+            0.11271417632489145,
+            0.20893012598631402
+          ],
+          "n_positive": 53,
+          "n_negative": 11,
+          "n_zero": 0
+        },
+        "eight_founders_capacity48": {
+          "mean": 0.13488708973400482,
+          "history_bootstrap95": [
+            0.09188674280633469,
+            0.17790862887559938
+          ],
+          "n_positive": 51,
+          "n_negative": 13,
+          "n_zero": 0
+        },
+        "all_available_founders_capacity48": {
+          "mean": 0.993368316026727,
+          "history_bootstrap95": [
+            0.7035053392709951,
+            1.2865648268716412
+          ],
+          "n_positive": 53,
+          "n_negative": 11,
+          "n_zero": 0
+        }
+      },
+      "between_capacity_sensitivity_fixed_F8": {
+        "mean": 0.025733161843184194,
+        "history_bootstrap95": [
+          0.012361727639874405,
+          0.03879559154393767
+        ],
+        "n_positive": 44,
+        "n_negative": 20,
+        "n_zero": 0
+      },
+      "founder_dose_sensitivity_fixed_C48": {
+        "mean": -0.8584812262927223,
+        "history_bootstrap95": [
+          -1.1129648255274516,
+          -0.6075476519758505
+        ],
+        "n_positive": 12,
+        "n_negative": 52,
+        "n_zero": 0
+      }
+    },
+    "t0_outcross_viable": {
+      "A_first_minus_I_first": {
+        "eight_founders_capacity8": {
+          "baseline": {
+            "mean": -0.2629865112443464,
+            "history_bootstrap95": [
+              -0.36576131924656985,
+              -0.15692305142695812
+            ],
+            "n_positive": 19,
+            "n_negative": 45,
+            "n_zero": 0
+          },
+          "self_half": {
+            "mean": -0.2629865112443464,
+            "history_bootstrap95": [
+              -0.36576131924656985,
+              -0.15692305142695812
+            ],
+            "n_positive": 19,
+            "n_negative": 45,
+            "n_zero": 0
+          }
+        },
+        "eight_founders_capacity48": {
+          "baseline": {
+            "mean": -0.07771779299969295,
+            "history_bootstrap95": [
+              -0.10840629815993735,
+              -0.04663703712193981
+            ],
+            "n_positive": 17,
+            "n_negative": 47,
+            "n_zero": 0
+          },
+          "self_half": {
+            "mean": -0.07771779299969295,
+            "history_bootstrap95": [
+              -0.10840629815993735,
+              -0.04663703712193981
+            ],
+            "n_positive": 17,
+            "n_negative": 47,
+            "n_zero": 0
+          }
+        },
+        "all_available_founders_capacity48": {
+          "baseline": {
+            "mean": -1.7479057626930072,
+            "history_bootstrap95": [
+              -2.4143614433320546,
+              -1.0706028799112386
+            ],
+            "n_positive": 19,
+            "n_negative": 45,
+            "n_zero": 0
+          },
+          "self_half": {
+            "mean": -1.7479057626930072,
+            "history_bootstrap95": [
+              -2.4143614433320546,
+              -1.0706028799112386
+            ],
+            "n_positive": 19,
+            "n_negative": 45,
+            "n_zero": 0
+          }
+        }
+      },
+      "viability_sensitivity_baseline_minus_self_half": {
+        "eight_founders_capacity8": {
+          "mean": 0.0,
+          "history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "n_positive": 0,
+          "n_negative": 0,
+          "n_zero": 64
+        },
+        "eight_founders_capacity48": {
+          "mean": 0.0,
+          "history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "n_positive": 0,
+          "n_negative": 0,
+          "n_zero": 64
+        },
+        "all_available_founders_capacity48": {
+          "mean": 0.0,
+          "history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "n_positive": 0,
+          "n_negative": 0,
+          "n_zero": 64
+        }
+      },
+      "between_capacity_sensitivity_fixed_F8": {
+        "mean": 0.0,
+        "history_bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "n_positive": 0,
+        "n_negative": 0,
+        "n_zero": 64
+      },
+      "founder_dose_sensitivity_fixed_C48": {
+        "mean": 0.0,
+        "history_bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "n_positive": 0,
+        "n_negative": 0,
+        "n_zero": 64
+      }
+    },
+    "t0_expected_pollen_export": {
+      "A_first_minus_I_first": {
+        "eight_founders_capacity8": {
+          "baseline": {
+            "mean": -1.119142098045429,
+            "history_bootstrap95": [
+              -1.5689469124978332,
+              -0.6663165645425471
+            ],
+            "n_positive": 18,
+            "n_negative": 46,
+            "n_zero": 0
+          },
+          "self_half": {
+            "mean": -1.119142098045429,
+            "history_bootstrap95": [
+              -1.5689469124978332,
+              -0.6663165645425471
+            ],
+            "n_positive": 18,
+            "n_negative": 46,
+            "n_zero": 0
+          }
+        },
+        "eight_founders_capacity48": {
+          "baseline": {
+            "mean": -1.119142098045429,
+            "history_bootstrap95": [
+              -1.5689469124978332,
+              -0.6663165645425471
+            ],
+            "n_positive": 18,
+            "n_negative": 46,
+            "n_zero": 0
+          },
+          "self_half": {
+            "mean": -1.119142098045429,
+            "history_bootstrap95": [
+              -1.5689469124978332,
+              -0.6663165645425471
+            ],
+            "n_positive": 18,
+            "n_negative": 46,
+            "n_zero": 0
+          }
+        },
+        "all_available_founders_capacity48": {
+          "baseline": {
+            "mean": -6.786396634150844,
+            "history_bootstrap95": [
+              -9.445913629071892,
+              -4.124351891606801
+            ],
+            "n_positive": 20,
+            "n_negative": 44,
+            "n_zero": 0
+          },
+          "self_half": {
+            "mean": -6.786396634150844,
+            "history_bootstrap95": [
+              -9.445913629071892,
+              -4.124351891606801
+            ],
+            "n_positive": 20,
+            "n_negative": 44,
+            "n_zero": 0
+          }
+        }
+      },
+      "viability_sensitivity_baseline_minus_self_half": {
+        "eight_founders_capacity8": {
+          "mean": 0.0,
+          "history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "n_positive": 0,
+          "n_negative": 0,
+          "n_zero": 64
+        },
+        "eight_founders_capacity48": {
+          "mean": 0.0,
+          "history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "n_positive": 0,
+          "n_negative": 0,
+          "n_zero": 64
+        },
+        "all_available_founders_capacity48": {
+          "mean": 0.0,
+          "history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "n_positive": 0,
+          "n_negative": 0,
+          "n_zero": 64
+        }
+      },
+      "between_capacity_sensitivity_fixed_F8": {
+        "mean": 0.0,
+        "history_bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "n_positive": 0,
+        "n_negative": 0,
+        "n_zero": 64
+      },
+      "founder_dose_sensitivity_fixed_C48": {
+        "mean": 0.0,
+        "history_bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "n_positive": 0,
+        "n_negative": 0,
+        "n_zero": 64
+      }
+    },
+    "cumulative_selfed_recruits": {
+      "A_first_minus_I_first": {
+        "eight_founders_capacity8": {
+          "baseline": {
+            "mean": 8.200587605663369,
+            "history_bootstrap95": [
+              5.577033365459241,
+              10.892756515630207
+            ],
+            "n_positive": 48,
+            "n_negative": 16,
+            "n_zero": 0
+          },
+          "self_half": {
+            "mean": 2.8749378839429407,
+            "history_bootstrap95": [
+              1.42839046644993,
+              4.279552766520382
+            ],
+            "n_positive": 44,
+            "n_negative": 20,
+            "n_zero": 0
+          }
+        },
+        "eight_founders_capacity48": {
+          "baseline": {
+            "mean": 52.173279445789404,
+            "history_bootstrap95": [
+              36.90786704267671,
+              67.36332520025191
+            ],
+            "n_positive": 51,
+            "n_negative": 13,
+            "n_zero": 0
+          },
+          "self_half": {
+            "mean": 26.165485238828033,
+            "history_bootstrap95": [
+              15.512263502007048,
+              37.02263498956225
+            ],
+            "n_positive": 49,
+            "n_negative": 15,
+            "n_zero": 0
+          }
+        },
+        "all_available_founders_capacity48": {
+          "baseline": {
+            "mean": 50.02068436787452,
+            "history_bootstrap95": [
+              35.031466415074064,
+              64.80189288464489
+            ],
+            "n_positive": 52,
+            "n_negative": 12,
+            "n_zero": 0
+          },
+          "self_half": {
+            "mean": 29.112527308531185,
+            "history_bootstrap95": [
+              17.80476018386697,
+              40.06484199803341
+            ],
+            "n_positive": 46,
+            "n_negative": 18,
+            "n_zero": 0
+          }
+        }
+      },
+      "viability_sensitivity_baseline_minus_self_half": {
+        "eight_founders_capacity8": {
+          "mean": 5.325649721720428,
+          "history_bootstrap95": [
+            3.468614181847992,
+            7.220147427559491
+          ],
+          "n_positive": 47,
+          "n_negative": 17,
+          "n_zero": 0
+        },
+        "eight_founders_capacity48": {
+          "mean": 26.007794206961375,
+          "history_bootstrap95": [
+            14.606682645462197,
+            37.16957014487021
+          ],
+          "n_positive": 45,
+          "n_negative": 19,
+          "n_zero": 0
+        },
+        "all_available_founders_capacity48": {
+          "mean": 20.908157059343342,
+          "history_bootstrap95": [
+            11.681250079321254,
+            30.07079276266574
+          ],
+          "n_positive": 46,
+          "n_negative": 18,
+          "n_zero": 0
+        }
+      },
+      "between_capacity_sensitivity_fixed_F8": {
+        "mean": -20.682144485240947,
+        "history_bootstrap95": [
+          -31.159152999636085,
+          -10.107361623543913
+        ],
+        "n_positive": 20,
+        "n_negative": 44,
+        "n_zero": 0
+      },
+      "founder_dose_sensitivity_fixed_C48": {
+        "mean": 5.099637147618032,
+        "history_bootstrap95": [
+          -4.408375837171173,
+          14.675525257933048
+        ],
+        "n_positive": 33,
+        "n_negative": 31,
+        "n_zero": 0
+      }
+    },
+    "cumulative_outcross_recruits": {
+      "A_first_minus_I_first": {
+        "eight_founders_capacity8": {
+          "baseline": {
+            "mean": -3.249416079816228,
+            "history_bootstrap95": [
+              -4.482986883131153,
+              -1.9623041436058977
+            ],
+            "n_positive": 16,
+            "n_negative": 48,
+            "n_zero": 0
+          },
+          "self_half": {
+            "mean": -2.3015035294581256,
+            "history_bootstrap95": [
+              -3.3640515705958656,
+              -1.213160719869891
+            ],
+            "n_positive": 17,
+            "n_negative": 47,
+            "n_zero": 0
+          }
+        },
+        "eight_founders_capacity48": {
+          "baseline": {
+            "mean": -16.091739092473496,
+            "history_bootstrap95": [
+              -22.98261903405923,
+              -8.959147495482572
+            ],
+            "n_positive": 18,
+            "n_negative": 46,
+            "n_zero": 0
+          },
+          "self_half": {
+            "mean": -6.681569997018052,
+            "history_bootstrap95": [
+              -11.625704065004323,
+              -1.5241426679557264
+            ],
+            "n_positive": 22,
+            "n_negative": 42,
+            "n_zero": 0
+          }
+        },
+        "all_available_founders_capacity48": {
+          "baseline": {
+            "mean": -25.809516781695173,
+            "history_bootstrap95": [
+              -35.462440270796,
+              -15.753595525953498
+            ],
+            "n_positive": 18,
+            "n_negative": 46,
+            "n_zero": 0
+          },
+          "self_half": {
+            "mean": -19.606750357837264,
+            "history_bootstrap95": [
+              -29.204960369243285,
+              -10.03766997491253
+            ],
+            "n_positive": 19,
+            "n_negative": 45,
+            "n_zero": 0
+          }
+        }
+      },
+      "viability_sensitivity_baseline_minus_self_half": {
+        "eight_founders_capacity8": {
+          "mean": -0.9479125503581024,
+          "history_bootstrap95": [
+            -1.592274774928035,
+            -0.2816070615709413
+          ],
+          "n_positive": 20,
+          "n_negative": 44,
+          "n_zero": 0
+        },
+        "eight_founders_capacity48": {
+          "mean": -9.41016909545544,
+          "history_bootstrap95": [
+            -14.055795033605179,
+            -4.8821277754048396
+          ],
+          "n_positive": 20,
+          "n_negative": 44,
+          "n_zero": 0
+        },
+        "all_available_founders_capacity48": {
+          "mean": -6.202766423857908,
+          "history_bootstrap95": [
+            -9.41445878539969,
+            -3.10684824270398
+          ],
+          "n_positive": 20,
+          "n_negative": 44,
+          "n_zero": 0
+        }
+      },
+      "between_capacity_sensitivity_fixed_F8": {
+        "mean": 8.462256545097338,
+        "history_bootstrap95": [
+          4.152723427431255,
+          12.838252070698607
+        ],
+        "n_positive": 43,
+        "n_negative": 21,
+        "n_zero": 0
+      },
+      "founder_dose_sensitivity_fixed_C48": {
+        "mean": -3.2074026715975315,
+        "history_bootstrap95": [
+          -7.581512651027007,
+          1.0963488389042981
+        ],
+        "n_positive": 28,
+        "n_negative": 36,
+        "n_zero": 0
+      }
+    },
+    "cumulative_total_recruits": {
+      "A_first_minus_I_first": {
+        "eight_founders_capacity8": {
+          "baseline": {
+            "mean": 4.95117152584714,
+            "history_bootstrap95": [
+              2.756534493967309,
+              7.2517947271640235
+            ],
+            "n_positive": 45,
+            "n_negative": 19,
+            "n_zero": 0
+          },
+          "self_half": {
+            "mean": 0.5734343544848156,
+            "history_bootstrap95": [
+              -1.106971716633653,
+              2.2477964556570624
+            ],
+            "n_positive": 32,
+            "n_negative": 32,
+            "n_zero": 0
+          }
+        },
+        "eight_founders_capacity48": {
+          "baseline": {
+            "mean": 36.08154035331592,
+            "history_bootstrap95": [
+              23.077439766537665,
+              48.97680681963633
+            ],
+            "n_positive": 47,
+            "n_negative": 17,
+            "n_zero": 0
+          },
+          "self_half": {
+            "mean": 19.48391524180998,
+            "history_bootstrap95": [
+              8.161122381082665,
+              31.08302429268834
+            ],
+            "n_positive": 44,
+            "n_negative": 20,
+            "n_zero": 0
+          }
+        },
+        "all_available_founders_capacity48": {
+          "baseline": {
+            "mean": 24.21116758617935,
+            "history_bootstrap95": [
+              12.596003560645745,
+              35.63007959927511
+            ],
+            "n_positive": 40,
+            "n_negative": 24,
+            "n_zero": 0
+          },
+          "self_half": {
+            "mean": 9.505776950693933,
+            "history_bootstrap95": [
+              -2.3383958770649595,
+              21.567709416182108
+            ],
+            "n_positive": 38,
+            "n_negative": 26,
+            "n_zero": 0
+          }
+        }
+      },
+      "viability_sensitivity_baseline_minus_self_half": {
+        "eight_founders_capacity8": {
+          "mean": 4.377737171362325,
+          "history_bootstrap95": [
+            2.3972136559343133,
+            6.335055133648691
+          ],
+          "n_positive": 45,
+          "n_negative": 19,
+          "n_zero": 0
+        },
+        "eight_founders_capacity48": {
+          "mean": 16.59762511150594,
+          "history_bootstrap95": [
+            4.613519154913645,
+            28.11738899529742
+          ],
+          "n_positive": 41,
+          "n_negative": 23,
+          "n_zero": 0
+        },
+        "all_available_founders_capacity48": {
+          "mean": 14.705390635485418,
+          "history_bootstrap95": [
+            4.305232763382168,
+            24.93029953945102
+          ],
+          "n_positive": 37,
+          "n_negative": 27,
+          "n_zero": 0
+        }
+      },
+      "between_capacity_sensitivity_fixed_F8": {
+        "mean": -12.219887940143616,
+        "history_bootstrap95": [
+          -23.499516250902868,
+          -0.5786989687261165
+        ],
+        "n_positive": 28,
+        "n_negative": 36,
+        "n_zero": 0
+      },
+      "founder_dose_sensitivity_fixed_C48": {
+        "mean": 1.8922344760205252,
+        "history_bootstrap95": [
+          -9.474671527412609,
+          13.653829596257697
+        ],
+        "n_positive": 30,
+        "n_negative": 34,
+        "n_zero": 0
+      }
+    },
+    "terminal_population": {
+      "A_first_minus_I_first": {
+        "eight_founders_capacity8": {
+          "baseline": {
+            "mean": 0.07890029852603125,
+            "history_bootstrap95": [
+              0.047948441248142855,
+              0.10994640908930631
+            ],
+            "n_positive": 47,
+            "n_negative": 17,
+            "n_zero": 0
+          },
+          "self_half": {
+            "mean": 0.03093034065912017,
+            "history_bootstrap95": [
+              0.009366277452390845,
+              0.051893341884756285
+            ],
+            "n_positive": 41,
+            "n_negative": 23,
+            "n_zero": 0
+          }
+        },
+        "eight_founders_capacity48": {
+          "baseline": {
+            "mean": 0.5007959500964285,
+            "history_bootstrap95": [
+              0.32154477734170184,
+              0.6771544990669245
+            ],
+            "n_positive": 44,
+            "n_negative": 20,
+            "n_zero": 0
+          },
+          "self_half": {
+            "mean": 0.30637135813738475,
+            "history_bootstrap95": [
+              0.15939960389330202,
+              0.4533220824506889
+            ],
+            "n_positive": 47,
+            "n_negative": 17,
+            "n_zero": 0
+          }
+        },
+        "all_available_founders_capacity48": {
+          "baseline": {
+            "mean": 0.41110032879912395,
+            "history_bootstrap95": [
+              0.24393042612860183,
+              0.5743421720379702
+            ],
+            "n_positive": 45,
+            "n_negative": 19,
+            "n_zero": 0
+          },
+          "self_half": {
+            "mean": 0.32166784546627214,
+            "history_bootstrap95": [
+              0.18199914025979105,
+              0.462706842920494
+            ],
+            "n_positive": 40,
+            "n_negative": 24,
+            "n_zero": 0
+          }
+        }
+      },
+      "viability_sensitivity_baseline_minus_self_half": {
+        "eight_founders_capacity8": {
+          "mean": 0.047969957866911085,
+          "history_bootstrap95": [
+            0.015701419938641395,
+            0.08119282201416118
+          ],
+          "n_positive": 39,
+          "n_negative": 25,
+          "n_zero": 0
+        },
+        "eight_founders_capacity48": {
+          "mean": 0.19442459195904377,
+          "history_bootstrap95": [
+            0.023467189750959145,
+            0.3630703233715331
+          ],
+          "n_positive": 39,
+          "n_negative": 25,
+          "n_zero": 0
+        },
+        "all_available_founders_capacity48": {
+          "mean": 0.0894324833328518,
+          "history_bootstrap95": [
+            -0.0735049573284414,
+            0.2508278071991497
+          ],
+          "n_positive": 35,
+          "n_negative": 29,
+          "n_zero": 0
+        }
+      },
+      "between_capacity_sensitivity_fixed_F8": {
+        "mean": -0.14645463409213272,
+        "history_bootstrap95": [
+          -0.3217535498565037,
+          0.032245481400412786
+        ],
+        "n_positive": 26,
+        "n_negative": 38,
+        "n_zero": 0
+      },
+      "founder_dose_sensitivity_fixed_C48": {
+        "mean": 0.10499210862619202,
+        "history_bootstrap95": [
+          -0.06533582325610637,
+          0.28205994788320027
+        ],
+        "n_positive": 35,
+        "n_negative": 29,
+        "n_zero": 0
+      }
+    },
+    "extinct_by_20": {
+      "A_first_minus_I_first": {
+        "eight_founders_capacity8": {
+          "baseline": {
+            "mean": -0.005752607115985574,
+            "history_bootstrap95": [
+              -0.01109552888609882,
+              -0.0004133293076818588
+            ],
+            "n_positive": 27,
+            "n_negative": 37,
+            "n_zero": 0
+          },
+          "self_half": {
+            "mean": -0.00032295235489611883,
+            "history_bootstrap95": [
+              -0.004924382520344563,
+              0.004288787026809498
+            ],
+            "n_positive": 33,
+            "n_negative": 31,
+            "n_zero": 0
+          }
+        },
+        "eight_founders_capacity48": {
+          "baseline": {
+            "mean": -0.010719940866825138,
+            "history_bootstrap95": [
+              -0.014793244700332197,
+              -0.006451330940156287
+            ],
+            "n_positive": 19,
+            "n_negative": 45,
+            "n_zero": 0
+          },
+          "self_half": {
+            "mean": -0.006397852113078856,
+            "history_bootstrap95": [
+              -0.010080665320220903,
+              -0.002701214074569413
+            ],
+            "n_positive": 20,
+            "n_negative": 44,
+            "n_zero": 0
+          }
+        },
+        "all_available_founders_capacity48": {
+          "baseline": {
+            "mean": -0.007312141602951312,
+            "history_bootstrap95": [
+              -0.01330004085147127,
+              -0.001592725997012425
+            ],
+            "n_positive": 19,
+            "n_negative": 42,
+            "n_zero": 3
+          },
+          "self_half": {
+            "mean": 0.0005179885944377352,
+            "history_bootstrap95": [
+              -0.004017639228550897,
+              0.004973063124006864
+            ],
+            "n_positive": 28,
+            "n_negative": 35,
+            "n_zero": 1
+          }
+        }
+      },
+      "viability_sensitivity_baseline_minus_self_half": {
+        "eight_founders_capacity8": {
+          "mean": -0.005429654761089456,
+          "history_bootstrap95": [
+            -0.010205804728703628,
+            -0.0005674512710506407
+          ],
+          "n_positive": 26,
+          "n_negative": 37,
+          "n_zero": 1
+        },
+        "eight_founders_capacity48": {
+          "mean": -0.0043220887537462815,
+          "history_bootstrap95": [
+            -0.007995506742634023,
+            -0.00047527149382684713
+          ],
+          "n_positive": 20,
+          "n_negative": 44,
+          "n_zero": 0
+        },
+        "all_available_founders_capacity48": {
+          "mean": -0.007830130197389047,
+          "history_bootstrap95": [
+            -0.01337171630216994,
+            -0.0023629438165211937
+          ],
+          "n_positive": 24,
+          "n_negative": 40,
+          "n_zero": 0
+        }
+      },
+      "between_capacity_sensitivity_fixed_F8": {
+        "mean": -0.0011075660073431729,
+        "history_bootstrap95": [
+          -0.0065474058386597875,
+          0.00440976195278527
+        ],
+        "n_positive": 29,
+        "n_negative": 35,
+        "n_zero": 0
+      },
+      "founder_dose_sensitivity_fixed_C48": {
+        "mean": 0.0035080414436427657,
+        "history_bootstrap95": [
+          -0.0029564068297444407,
+          0.010241818019924057
+        ],
+        "n_positive": 33,
+        "n_negative": 31,
+        "n_zero": 0
+      }
+    },
+    "terminal_occupancy": {
+      "A_first_minus_I_first": {
+        "eight_founders_capacity8": {
+          "baseline": {
+            "mean": 0.009719541010305532,
+            "history_bootstrap95": [
+              0.006002261837065266,
+              0.01346077853650718
+            ],
+            "n_positive": 49,
+            "n_negative": 15,
+            "n_zero": 0
+          },
+          "self_half": {
+            "mean": 0.0039491110970920115,
+            "history_bootstrap95": [
+              0.0010545274955846623,
+              0.006824744373398863
+            ],
+            "n_positive": 39,
+            "n_negative": 24,
+            "n_zero": 1
+          }
+        },
+        "eight_founders_capacity48": {
+          "baseline": {
+            "mean": 0.010422480857521801,
+            "history_bootstrap95": [
+              0.006778760275933999,
+              0.013977906214722908
+            ],
+            "n_positive": 46,
+            "n_negative": 17,
+            "n_zero": 1
+          },
+          "self_half": {
+            "mean": 0.006500469847927638,
+            "history_bootstrap95": [
+              0.0031305134476917688,
+              0.009838889024971216
+            ],
+            "n_positive": 41,
+            "n_negative": 20,
+            "n_zero": 3
+          }
+        },
+        "all_available_founders_capacity48": {
+          "baseline": {
+            "mean": 0.008341190240449665,
+            "history_bootstrap95": [
+              0.00448898503444383,
+              0.012105632824816403
+            ],
+            "n_positive": 47,
+            "n_negative": 17,
+            "n_zero": 0
+          },
+          "self_half": {
+            "mean": 0.007220063439602606,
+            "history_bootstrap95": [
+              0.0035014918542485584,
+              0.010924479749424102
+            ],
+            "n_positive": 40,
+            "n_negative": 24,
+            "n_zero": 0
+          }
+        }
+      },
+      "viability_sensitivity_baseline_minus_self_half": {
+        "eight_founders_capacity8": {
+          "mean": 0.005770429913213521,
+          "history_bootstrap95": [
+            0.001904217079670327,
+            0.009671164430043833
+          ],
+          "n_positive": 38,
+          "n_negative": 25,
+          "n_zero": 1
+        },
+        "eight_founders_capacity48": {
+          "mean": 0.0039220110095941636,
+          "history_bootstrap95": [
+            0.0001558169124517939,
+            0.0076936619347276625
+          ],
+          "n_positive": 38,
+          "n_negative": 26,
+          "n_zero": 0
+        },
+        "all_available_founders_capacity48": {
+          "mean": 0.001121126800847059,
+          "history_bootstrap95": [
+            -0.00278009619881938,
+            0.005051771666656928
+          ],
+          "n_positive": 33,
+          "n_negative": 31,
+          "n_zero": 0
+        }
+      },
+      "between_capacity_sensitivity_fixed_F8": {
+        "mean": 0.0018484189036193578,
+        "history_bootstrap95": [
+          -0.003479635768554035,
+          0.007320822405176648
+        ],
+        "n_positive": 31,
+        "n_negative": 33,
+        "n_zero": 0
+      },
+      "founder_dose_sensitivity_fixed_C48": {
+        "mean": 0.0028008842087471056,
+        "history_bootstrap95": [
+          -0.0015095528097946926,
+          0.0072046119800517295
+        ],
+        "n_positive": 34,
+        "n_negative": 30,
+        "n_zero": 0
+      }
+    }
+  },
+  "interpretation_limits": [
+    "Selected after seeing the independent primary inconclusive result: exploratory only.",
+    "Cumulative selfed and outcross recruits depend on duration of population persistence.",
+    "A correlation of cumulative recruitment with terminal occupancy is not causal mediation.",
+    "The initial self-half seed-viability gate difference is engineered by design, not newly inferred.",
+    "Terminal occupancy is not lifetime plant fitness or empirically calibrated Izu extinction.",
+    "Founder abundance and genotype sampling remain inseparable in the fixed-capacity founder-dose comparator.",
+    "No selective seed reruns, missing histories, new biological simulations, or redefinition of the frozen primary."
+  ]
+}
