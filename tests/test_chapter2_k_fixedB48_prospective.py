@@ -113,4 +113,4 @@ def test_pure_full_grid_readout_handles_exactly_two_arms_without_outcome_generat
     sample[:,:,:,0,:,:,:,0,0]=1
     positive=summarize(sample,d)
     assert positive["primary_verdict"]=="supported_controlled_demographic_K_moderation_at_fixed_B48"
-    assert positive["contrasts"]["primary_K_at_fixed_B48"]["mean"]==1
+    assert positive["contrasts"]["primary_K_at_fixed_B48"]["mean"] == pytest.approx(1.0, abs=1e-12)
