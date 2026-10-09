@@ -113,3 +113,75 @@ natural island observations, geographic INLA or full SDE/SPDE is used.
 
 **Do not promote results until the head's numerical CI and source
 artifact have been checked.**
+
+
+## Validated old-history numeric result
+
+Run [37889777989](https://github.com/zuizui0223/izu-core/actions/runs/37889777989)
+executed the dedicated `model3-k32-same-parent-moments` job
+successfully at source SHA `76e83d2917024da9dced0ce59bfbb224b2b92550`
+(Python 3.11). The exact equality and old-history guards passed for
+both budgets. The [full raw executed JSON artifact 11597781387](https://github.com/zuizui0223/izu-core/actions/runs/37889777989/artifacts/11597781387)
+has SHA256 `6d1ae5a0e57215cf8f4249b7c52d2dba7c279a46677ace39a1cdc68633081826`.
+Permanent concise result:
+`data/results/model3_k32_same_parent_heterozygosity_20261009.json`.
+
+### Eighth-year source parent states (analytical next-generation moments)
+
+| Mean across comparable source parental states | Budget 8 | Budget 3 |
+|---|---:|---:|
+| States with nonempty parents | 512 | 509 |
+| Same next-generation expected assurance high-allele frequency | 0.977777 | 0.982318 |
+| Source q heterozygote probability | 0.019987 | 0.011805 |
+| Mean-matched comparator q heterozygote probability | 0.040535 | 0.026669 |
+| Source next living-population high-allele frequency variance | 0.000477218 | 0.000989500 |
+| Comparator next frequency variance (identical mean and N law) | 0.000316682 | 0.000687698 |
+| **Source minus comparator** one-step conditional frequency variance | **+0.000160536** | **+0.000301802** |
+| Nested demographic-parent-state MC SE of the difference | 0.0000112 | 0.00006377 |
+| Maximum algebraic identity residual | 3.65e-17 | 4.69e-17 |
+| Mean-match support failures | zero | zero |
+
+Across all eight generations, the average source-minus-counterfactual
+conditional variance difference was positive in both budget regimes.
+Its size shrinks late as assurance allele frequency approaches one.
+The *source* offspring heterozygosity probability remained BELOW the
+counterfactual at the evaluated parental states. Consequently a mean-
+and-census-matched source step has **larger finite allele-frequency
+noise**, even though its long-horizon endpoint allele-frequency
+variance is **smaller** when assurance is nearly fixed.
+
+This distinction is essential:
+
+1. **Between independent populations at the eight-year endpoint:**
+   allele fixation and previous genotype state histories compress the
+   observed distribution; this statistic compares different parental
+   distributions and depends on the previous outcomes.
+2. **Within one parent genotype census for the next birth episode:**
+   the source law yields fewer heterozygous offspring, which increases
+   conditional frequency variance relative to this full-support,
+   mean-matched counterfactual. This is an exact one-step identity
+   comparing two different reproductive kernels at the **same** state.
+
+The counterfactual here permits same-parent gamete pairs (with
+replacement), deliberately unlike the earlier distinct-individual
+neutral comparator. This prevents source selfed offspring support from
+being artificially deleted. Exact mean 0/1 cases are defined by
+the boundary limit of exponential reweighting, not an illegal
+finite-weight approximation or reconstructed allele.
+
+### Implications and strict stop line
+
+The one-step result identifies **offspring heterozygosity as the exact
+algebraic mediator of variance differences after matching mean and N**.
+It does NOT establish selfing alone as the causal mechanism: pollen
+matching, source fecundity, individual mating weights and selfing are
+joint in the source operator. It does not imply **stabilizing selection**,
+nor does it resolve a robust source-specific eight-generation variance
+reduction (that prior claim was undermined by the two-fold holdout sign
+reversal). Such a claim would require further mechanism-specific
+counterfactuals and ecologically independent confirmation.
+
+The tests used only one old visitor history, artificial fixed
+genotype support and nested source simulation repeats. Frozen
+confirmatory history seeds and natural island data remain unused;
+there is no geographical INLA or validated complete SDE/SPDE.
