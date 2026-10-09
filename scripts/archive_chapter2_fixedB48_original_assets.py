@@ -75,6 +75,7 @@ def check_runs_and_list():
                     "artifact_id": a["id"],
                     "run_id": run,
                     "original_github_artifact_bytes": a["size_in_bytes"],
+                    "original_github_sha256": a.get("digest"),
                     "created_at": a["created_at"],
                     "expires_at": a["expires_at"],
                 })
@@ -115,6 +116,8 @@ def archive_originals(root: Path):
                     raise AssertionError("Original scientific JSON checksum mismatch")
         r["downloaded_zip_bytes"] = file.stat().st_size
         r["downloaded_zip_sha256"] = sha256(file)
+        if r["original_github_sha256"] and r["original_github_sha256"] != "sha256:" + r["downloaded_zip_sha256"]:
+            raise AssertionError(f"GitHub artifact digest mismatch: {r['name']}")
         r["release_asset_name"] = file.name
         if i % 16 == 0:
             print(f"Authenticated {i}/{len(artifacts)} original immutable artifact ZIPs", flush=True)
