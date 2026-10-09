@@ -1,0 +1,150 @@
+{
+  "schema_version": "1.0",
+  "declaration_date": "2026-10-09",
+  "status": "PRE_OUTCOME_INTERVENTION_DESIGN_ONLY",
+  "title": "Factorial postzygotic viability intervention to test expression-order survival sensitivity",
+  "existing_evidence": {
+    "prior_confirmatory_interaction": "original 64-history near-far DID practically equivalent at +/-0.05",
+    "prior_confirmatory_window": "independent 64-history 3/4 budget window failed confirmation",
+    "positive_signal_rank": "post-outcome exploratory, positive common absolute occupancy with greater selfed recruits, lower outcross recruits",
+    "already_exposed_run_ids": [
+      37856410822,
+      37862121201
+    ],
+    "specific_mechanism_not_identified": true
+  },
+  "reusable_source": {
+    "original_model": "scripts/model3_island/reproduction.py",
+    "original_evolutionary_genetics": "scripts/model3_island/population.py",
+    "frozen_prehistory_protocol": "data/design/chapter2_order_expression_identification_20261008.json",
+    "independent_source_manifest": "data/design/chapter2_order_budget_window_independent_20261009.json",
+    "t400_source_run_id": 37862121201,
+    "t400_source_visitor_history_ids": [
+      38110901,
+      38110964
+    ],
+    "n_independent_histories": 64,
+    "n_source_states": 2048,
+    "old_unmodified_future_branches": 57344,
+    "no_new_pre_histories": true
+  },
+  "postzygotic_viability_factorial": {
+    "interpretation": "retain fraction of genetically ordinary expected viable selfed and expected outcross seeds after reproduction, immediately before recruitment",
+    "arms": {
+      "baseline": {
+        "selfed_fraction": 1,
+        "outcross_fraction": 1
+      },
+      "attenuate_self": {
+        "selfed_fraction": 0.5,
+        "outcross_fraction": 1
+      },
+      "attenuate_outcross": {
+        "selfed_fraction": 1,
+        "outcross_fraction": 0.5
+      },
+      "attenuate_both": {
+        "selfed_fraction": 0.5,
+        "outcross_fraction": 0.5
+      }
+    },
+    "affected_ledger_fields": [
+      "self_viable",
+      "outcross",
+      "maternal",
+      "paternal"
+    ],
+    "untouched_fields": [
+      "ovules",
+      "exported",
+      "delivered",
+      "lost",
+      "self_raw"
+    ],
+    "check": "offspring ledger viable maternal = sum donor viable outcross per recipient + viable selfed; derived paternal = sum outcross as donor + viable selfed; both never increase over baseline",
+    "caveat": "reduced offspring viability is a postzygotic experimental intervention, not a change to pollen transfer, genotype, or natural gene expression order",
+    "all_future_updates": true,
+    "unchanged_random_number_identifiers": true,
+    "exact_baseline_parity_with_archived_futures": true,
+    "no_immigration": true,
+    "no_density_or_capacity_parameter_change": true,
+    "no_new_biological_outcomes_in_CI": true
+  },
+  "full_future_grid": {
+    "postshock_years": 80,
+    "settings": [
+      "delayed_control",
+      "prior_selfing",
+      "pollen_discount",
+      "assurance_cost"
+    ],
+    "historical_environments": [
+      "near",
+      "far"
+    ],
+    "assigned_orders": [
+      "assurance_first",
+      "investment_first"
+    ],
+    "demographic_repeats": [
+      38111901,
+      38111902
+    ],
+    "regimes": [
+      "eight_founders_capacity8",
+      "unbottlenecked_capacity48"
+    ],
+    "budgets": [
+      0.5,
+      1,
+      2,
+      3,
+      4,
+      5,
+      8
+    ],
+    "visitor_future_environments": [
+      "near",
+      "far"
+    ],
+    "future_branches_per_source_per_arm": 28,
+    "new_perturbed_arms": 3,
+    "newly_generated_future_branches": 172032,
+    "total_futures_including_verified_baseline": 229376
+  },
+  "estimand": {
+    "history_unit": "64 independent visitor histories; paired assignment contrasts within each history",
+    "common_occupancy_by_arm": "average the A-first minus I-first difference across near/far historical environments, all 4 mating settings, 7 log-weighted budgets, 2 future visitor regimes, and 2 nested demographic repeats, with 8-founder capacity-8 as primary",
+    "primary": "tau_self = Delta_baseline - Delta_attenuate_self",
+    "mandatory_secondary": [
+      "tau_outcross = Delta_baseline - Delta_attenuate_outcross",
+      "Delta_attenuate_both",
+      "factorial interaction = Delta_baseline - Delta_self - Delta_outcross + Delta_both",
+      "near and far absolute occupancy by assignment",
+      "capacity48 comparator",
+      "t0 payoff and 80-step realized recruit counts"
+    ],
+    "bootstrap": {
+      "unit": "visitor_history",
+      "draws": 9999,
+      "seed": 2026100927,
+      "interval": "percentile95",
+      "two_sided": true
+    },
+    "minimum_meaningful_tau_absolute": 0.005,
+    "positive_result": "only if two-sided 95% bootstrap interval excludes 0 AND absolute history mean tau >= 0.005",
+    "practically_equivalent": "only if full two-sided 95% interval strictly within (-0.005,+0.005)",
+    "otherwise": "inconclusive",
+    "directional_hypothesis": "attenuating selfed viable offspring may reduce the A-first absolute survival contrast; this direction is exploratory and is not a one-sided gate"
+  },
+  "scientific_boundaries": [
+    "Existing 64 visitor histories are already observed; this conditional future intervention is new, but not a novel unexposed historical cohort.",
+    "The old 64-history window test remains failed and pooled DID equivalence is not retroactively redefined.",
+    "A difference in schedule effects between viability gates establishes susceptibility of a model-specific total schedule effect to controlled gate, not natural indirect mediation.",
+    "Changing selfed seed survival may affect density and genotype selection; do not call the result solely direct reproductive assurance mediation.",
+    "Do not condition primary on t400 survival, genotype crossing class, or final survival.",
+    "Never treat 229376 future branches as independent ecological replicates.",
+    "The viability-attenuation fractions are synthetic, not calibrated field estimates.",
+    "Unattenuated exact replay and original frozen source hashes must pass before any affected future outcomes are considered."
+  ]
+}
