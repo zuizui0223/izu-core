@@ -1,10 +1,5 @@
 name: Model3 K32 three-arm old-history benchmark
 on:
-  pull_request:
-    paths:
-      - 'scripts/run_model3_three_arm_k32_old_history.py'
-      - 'tests/test_model3_three_arm_k32_old_history.py'
-      - '.github/workflows/model3-three-arm-k32.yml'
   workflow_dispatch:
 
 permissions:
