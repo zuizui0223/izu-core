@@ -1,0 +1,54 @@
+name: One-time archive verified Chapter 2 postzygotic factorial
+on:
+  push:
+    branches: [main]
+    paths:
+      - .github/workflows/one-time-chapter2-factorial-result-archive.yml
+permissions:
+  contents: write
+  actions: read
+jobs:
+  copy-verbatim:
+    if: github.event.head_commit.message == 'ops-chapter2-archive-verified-factorial-readout'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: chapter2/postzygotic-factorial-confirmatory-result-20261009
+          persist-credentials: true
+      - name: Download the exact audited full-cohort result, not rerun biology
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p /tmp/factorial
+          gh run download 37869990792 --repo "${{ github.repository }}" \
+            --name postzygotic-factorial-full-adjudication --dir /tmp/factorial
+          echo '41b6513a762f8e1d1be7df8ec3533812abc1fc23dd0a37ea78f7c02c1f2826ca  /tmp/factorial/final.json' | sha256sum -c -
+      - name: Reject incomplete or prospectively unsupported new output
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import json
+          x=json.loads(Path('/tmp/factorial/final.json').read_text())
+          assert x['status']=='all_2048_diploid_sources_229376_future_cells_admitted'
+          assert x['n_independent_visitor_histories']==64
+          assert x['n_archived_baseline_futures']==57344
+          assert x['n_new_perturbed_futures']==172032
+          assert x['n_all_future_cells']==229376
+          assert x['primary']['decision']=='nonzero_controlled_self_viability_sensitivity'
+          assert x['primary']['mean']>=0.005
+          assert x['primary']['bootstrap95'][0]>0
+          print('Original complete scientific result and frozen verdict verified')
+          PY
+      - name: Commit unchanged readout bytes to review branch
+        run: |
+          set -euo pipefail
+          mkdir -p results/chapter2
+          cp /tmp/factorial/final.json results/chapter2/postzygotic_factorial_confirmatory_readout_20261009.json
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add results/chapter2/postzygotic_factorial_confirmatory_readout_20261009.json
+          git diff --cached --quiet && { echo 'Already archived'; exit 0; }
+          git commit -m 'results(chapter2): archive full postzygotic viability sensitivity outcome'
+          git push origin HEAD:chapter2/postzygotic-factorial-confirmatory-result-20261009
