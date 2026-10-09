@@ -136,3 +136,24 @@ Scope: complete annual turnover, no seed immigration, no pedigree or ancestry st
 An executable old-history holdout, `scripts/run_model3_stochastic_measure_preflight.py --out measure-preflight.json --draws 512 --updates 3`, compares two **independently sampled** 3-update endpoints under exactly the same archived visitor history `26110601`. It checks occupancy, population size and conditional-on-survival trait means and archives provenance. It uses nested demographic samples, not new independent visitor histories. Comparison against the full biological model is limited to compatible observable moments, not genealogy or mutation flags; broad CI and focused CI must both pass before promotion.
 
 **Implication for SPDE design:** The valid reference object is a random genotype **measure**, with an absorbing zero-mass state and atoms that can actually disappear. A mean-only Gaussian diffusion and a strictly-positive Dirichlet field cannot carry all of the finite Mendelian memory. Further approximations must be explicit about atomicity, boundary fluxes, nonlocal mating and birth-time mutation; an apparently smooth `SPDE` that loses these is scientifically non-equivalent.
+
+
+### Additional predeclared engineering stress: 8-generation endpoint
+
+The independent measure-versus-ABM benchmark is now repeated over eight
+mutation-enabled updates on the **same** archived visitor history, with 512
+nested demographic draws per arm. The test assesses unconditional occupancy,
+mean population size, conditional-on-occupancy three-trait mean and **mean
+number of distinct diploid genotype classes**, which is a more direct
+genetic-accessibility diagnostic than only comparing mean traits. It explicitly
+rejects a claim of trait convergence if either arm has fewer than 32
+occupied endpoints. Acceptance thresholds are unchanged for occupancy
+(<.13), mean census (<.70) and trait mean (<.095); an additional genotype
+class-count gap (<.70) is required. This is a numerical fidelity stress,
+not a new independent ecological-history or biology-generalization cohort.
+
+Exact pathwise transition law equivalence follows from retaining all joint
+diploid alleles, reconstructing individual exclusion, calling the same mating
+and inheritance operator, and using identical dedicated random streams.
+Agreement of two independently generated endpoint samples is a finite-sample
+test of implementation fidelity. It is **not** a proof of SDE convergence.
