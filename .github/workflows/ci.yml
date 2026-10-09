@@ -1167,3 +1167,72 @@ jobs:
             exploratory-visitor-environment-prediction.json
           if-no-files-found: warn
           retention-days: 90
+
+  model3-k32-multihistory-state-visitor-cross:
+    if: github.event_name == 'pull_request' && github.event.pull_request.number == 420
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Verify exact 2x2 source parent and visitor decomposition in eight declared histories
+        run: pytest -q tests/test_model3_k32_multihistory_state_visitor_cross.py
+      - name: Source cross across 8 original visitor histories budget8
+        run: python -m scripts.audit_model3_k32_multihistory_state_visitor_cross --budget 8 --draws 128 --out cross-new-histories-budget8.json
+      - name: Source cross across 8 original visitor histories budget3
+        run: python -m scripts.audit_model3_k32_multihistory_state_visitor_cross --budget 3 --draws 128 --out cross-new-histories-budget3.json
+      - name: Enforce no frozen confirmation seeds, exact source and environment-level interpretation
+        run: |
+          python - <<'PY'
+          import json
+          import numpy as np
+          from pathlib import Path
+          for b in (8,3):
+              d=json.loads(Path(f"cross-new-histories-budget{b}.json").read_text())
+              p=d["source_provenance"]
+              assert d["status"]=="ORIGINAL_K32_EIGHT_EXPLORATORY_HISTORY_EXACT_STATE_VISITOR_CROSS_VERIFIED"
+              assert (p["K"],p["mutation_rate"],p["generations"],p["ovule_budget"])==(32,0,8,b)
+              assert p["new_simulated_visitor_seeds"]==list(range(26110602,26110610))
+              assert p["n_independent_new_simulated_visitor_rng_histories"]==8
+              assert p["n_nested_demographic_paths_per_history"]==128
+              assert p["archived_old_reference_seed_excluded"]==26110601
+              assert p["original_model3_biological_reproductive_code_edited"] is False
+              assert p["prospectively_frozen_chapter2_confirmation_seeds_used"] is False
+              assert p["offdiagonal_one_step_visitor_swaps_not_autonomous_evolution"] is True
+              assert len(d["per_history_source_cross"])==8
+              assert len({r["visitor_history_sha256"] for r in d["per_history_source_cross"]})==8
+              for r in d["per_history_source_cross"]:
+                  cells=r["four_original_reproduction_cells"]
+                  terms=r["exact_source_mechanism_contrasts"]
+                  assert len(cells)==4 and len(terms)==8
+                  assert r["n_source_paths"]==128
+                  for row in cells.values():
+                      total=np.asarray(row["expected_allele_direction"]["mean"])
+                      parts=sum((np.asarray(row[c]["mean"]) for c in
+                                 ("viable_self_seed_allele_direction","outcross_paternal_allele_direction","outcross_maternal_allele_direction")),np.zeros(3))
+                      assert np.allclose(total,parts,atol=1e-12,rtol=0)
+                  for row in terms.values():
+                      total=np.asarray(row["expected_allele_direction"]["mean"])
+                      parts=sum((np.asarray(row[c]["mean"]) for c in
+                                 ("viable_self_seed_allele_direction","outcross_paternal_allele_direction","outcross_maternal_allele_direction")),np.zeros(3))
+                      assert np.allclose(total,parts,atol=1e-12,rtol=0)
+                  state=np.asarray(terms["state_order_symmetrized"]["expected_allele_direction"]["mean"])
+                  vis=np.asarray(terms["visitor_order_symmetrized"]["expected_allele_direction"]["mean"])
+                  total=np.asarray(terms["source_late_minus_early_diagonal"]["expected_allele_direction"]["mean"])
+                  assert np.allclose(state+vis,total,atol=1e-12,rtol=0)
+              s=d["eight_history_descriptive_summary"]
+              assert s["n_new_histories"]==8
+              assert s["n_negative_to_positive_matching_direction"]<=8
+              print("EXACT original K32 8-history state x visitor two-order decomposition PASS",b)
+          PY
+      - name: Archive entire-visitor-history genetic and ecology attribution
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: model3-k32-multihistory-state-visitor-cross
+          path: cross-new-histories-budget*.json
+          if-no-files-found: warn
+          retention-days: 90
