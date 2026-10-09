@@ -7,7 +7,7 @@ The canonical reproduction.py is NOT modified.
 """
 import numpy as np
 
-from .types import Config, PlantState, VisitorState, Ledger
+from scripts.model3_island.types import Config, PlantState, VisitorState, Ledger
 
 
 def reproduce_kb(state: PlantState, visitors: VisitorState, config: Config, *,
