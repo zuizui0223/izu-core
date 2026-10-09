@@ -44,3 +44,25 @@ def test_archive_ledger_is_draft_only_and_records_exact_release_digests():
     assert "retention-days: 90" in s
     assert "Issue #436" in s
     assert "Execution pending confirmation" not in s
+
+
+
+def test_fourth_timed_cohort_original_zips_in_unpublished_draft_release():
+    from scripts.archive_chapter2_timed_raw_originals import CONFIG
+    d=CONFIG["timed"]
+    assert d["run_shas"]=={37944527799:"e679e0ee190fa02e0a9d60876cd1a3e9987a4c79"}
+    assert d["counts"]=={37944527799:130}
+    assert d["futures"]==229376
+    assert d["readout_sha256"]=="42d90c17cef4be1643b987428d3a6367ba09dee6594055ae2d2b693ccb190a01"
+    assert d["verdict"]=="inconclusive"
+    assert d["tag"]=="chapter2-timed-self-raw-20261009-v1"
+
+    ledger=LEDGER.read_text()
+    assert "chapter2-timed-self-raw-20261009-v1" in ledger
+    assert "chapter2-timed-130-original-shard-artifacts.tar" in ledger
+    assert "b5ab3a99eeaf36da399290508a64fa022cacc734aa1d794cab3b8443707309aa" in ledger
+    assert "ade98a9e3916f8d92b4cdc6b3a724fae811fb0696fdbc4bccf6290f0e51586a6" in ledger
+    assert "521 original Actions artifact ZIPs" in ledger
+    assert "inconclusive" in ledger.lower()
+    assert "unpublished" in ledger.lower()
+    assert "external" in ledger.lower() and "DOI" in ledger
