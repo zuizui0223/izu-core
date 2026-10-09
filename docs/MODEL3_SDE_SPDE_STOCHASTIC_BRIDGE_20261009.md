@@ -197,3 +197,64 @@ The 512-per-arm independent Monte Carlo comparison obtained:
 All three **engineering tolerance** gates passed. The high-budget rows do not test extinction at all; the low-budget row does produce substantial extinction, but a 5.08-percentage-point difference between independently simulated samples is **not a formal equivalence test**. Conditional trait means are defined only for survivors. Direct ancestry/pedigree equivalence is out of scope because the count-measure discards identity bookkeeping.
 
 **Decision:** the inherited joint diploid state and true random loss *can* be preserved without a fixed numerical genotype grid, without modifying the Model 3 reproduction/segregation/mutation operators. The appropriate full finite-population reference is this atomic stochastic recursion. A controlled SDE/SPDE approximation still needs an explicit population-size/time-rescaling regime, treatment of nonlocal sexual inheritance, and absorbing genotype/population boundaries. In the frozen complete-turnover Model 3, invoking a continuous-time SPDE just by attaching Gaussian noise to a density solver has **not** been justified. This result is a more precise staging point than claiming an accomplished full SDE/SPDE.
+
+
+## Continuous-time diffusion eligibility — population-size scaling gate
+
+The strongest legitimate *current* mathematical representation of Model 3
+remains the stochastic atomic recurrence (with its conditional moments),
+not a validated Itô SDE or an SPDE. To test whether a conventional diffusion
+limit can even be approached while **retaining the original reproductive
+operator**, we added `scripts/audit_model3_stochastic_scaling_limit.py`.
+
+It duplicates exactly the same 8 pre-existing founder diploid genotypes to
+capacities K=8,16,32,64,128, retaining genotype proportions, the unmodified
+visitor matching, pollen, selfing, and inheritance code and the same old
+history seed `26110601`. For this *controlled* fixed-founder experiment,
+the visitor community comes from fixed **postassembly index 400**; the
+near/far source histories must be different, and the runner checks that
+they are. The plants have **not** undergone 400 reproductive updates:
+this is a fixed-founder × postassembly-visitor state intervention, not a
+co-evolutionary time series or newly calibrated island spatial distance.
+Adult survival, mutation and seed immigration are zero in this bounded
+necessary-condition screen; ovule budget is 8.
+
+Let `Q_K(p,E)` denote the mean diploid-offspring distribution from the
+canonical sexual operator at finite census K, *with individual pollen
+self-exclusion retained*. Let `P_{t+1}^K` be the randomly sampled next
+empirical genotype distribution conditional on `N>0`. For any bounded
+observable `f`, at fixed parental state:
+
+```text
+E[P_{t+1}^K(f) | parent state, N>0] = Q_K(f)
+Cov(P_{t+1}^K(f), P_{t+1}^K(g) | parent state, N=n>0)
+  = (Q_K(f*g)-Q_K(f)*Q_K(g))/n
+```
+
+For the founder trait mean, write the canonical one-generation drift
+`b_K = E[mean_trait_offspring | occupied]-mean_trait_parent`
+and the occupied sampling covariance `V_K`.
+A proposed **accelerated time** step `dt_K=1/K` would require appropriate
+finite scaling of `K*b_K` as well as `K*V_K`; matching only
+the `1/N` genetic noise term does **not** prove a finite-drift diffusion
+limit. The original Model 3 has synchronized annual reproduction and may
+retain **order-one selection per generation**, so a deterministic
+*discrete-time sexual-inheritance map plus finite-population noise*
+is the natural reference until a true weak-selection/time-rescaling
+regime is explicitly derived.
+
+The screen saves the whole per-setting × visitor environment × K
+drift/variance series and checks whether `K*||b_K||` grows in the
+tested range; its `fast_time_finite_drift_screen_fails` classification
+is expressly a **finite-K diagnostic, not an asymptotic theorem**.
+Increasing K also changes the canonical finite-pollen competition
+denominator: this is a controlled source-preserving scaling experiment,
+not a mathematical exact replication of unchanged individual payoffs.
+Numerical results will be promoted only after the corresponding
+exact-head focused CI passes and its receipt is checked.
+
+Do not label the stochastic genotype measure itself as a novel independent
+biological model, or claim a full dynamic SPDE because one-birth Gaussian
+covariance matches. Rare genotype and whole-population loss must remain
+possible; deterministic density and moment-matched smooth fields do not
+automatically preserve these absorbing boundaries.
