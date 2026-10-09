@@ -613,3 +613,54 @@ new integerization rule after inspecting results. We retain the
 **exact discrete finite-genotype Markov transition** as the
 authoritative Model 3 stochastic reference; no full SPDE, canonical
 biology source change, or geographic INLA analysis is implied.
+
+
+### Post-outcome alternative integerization: stochastic readout is not free
+
+The exposed result `data/results/model3_gaussian_projection_decomposition_20261009.json`
+shows that truncating/renormalizing the Gaussian genotype pseudo-counts
+reduced conditional expected richness, while largest-remainder
+integerization introduced a larger opposite positive shift. A tempting
+response would be to change only the last step to `Multinomial(N,P)`
+from the clipped Gaussian simplex `P`. This is **not** automatically a
+repair. It adds a second independent demographic sampling step on top
+of the random Gaussian field.
+
+For a **fixed N>0**, let `P` be the random Gaussian-clipped simplex
+from the source child genotype probabilities `q`, and let `C` be an
+integer genotype count vector from the candidate conditional sampler
+`C|P ~ Multinomial(N,P)`. The law of total covariance gives the exact
+identity
+
+```text
+E[C/N] = E[P]
+Cov(C/N) = E[(diag(P)-P P')/N] + Cov(P).
+```
+
+The canonical source law is instead `C_exact ~ Multinomial(N,q)`, with
+`Cov(C_exact/N)=(diag(q)-q q')/N`. Unless the simplex field is
+degenerate (or special compensation is explicitly derived), the nested
+random resampling can introduce different means, genotype-loss rates
+and additional variance. No method is admitted on the basis of
+nonnegative counts alone.
+
+A scoped exploratory audit,
+`scripts/audit_model3_stochastic_rounding_ablation.py`, therefore compares
+**(a)** canonical source multinomial, **(b)** original Gaussian + clip +
+largest-remainder integerization and **(c)** Gaussian + clip + independent
+categorical offspring resampling. At N=8,32,128 the exact baseline
+genotype-richness expectation is calculated analytically, and
+`E[richness|P]` for the stochastic readout is integrated analytically
+**within each Gaussian draw** so no second readout sampling noise is needed
+in the one-step comparison. The probability law and total-covariance
+components are separately audited.
+
+The same candidate is also rolled forward from its **own full joint
+diploid 27-class genotype state** for three and eight generations and
+compared with the source's exact Markov transition. Its point is to
+quantify error accumulation, not to select a replacement after observing
+an earlier failure. All comparisons are exploratory and use only
+engineered source-matching plant/visitor states, mutation=0,
+survival=0, immigration=0. In particular, neither candidate is a
+continuous-time SDE, a stochastic PDE, a model of novel allele birth,
+or a validated substitute for the source finite Model 3 process.
