@@ -1,0 +1,47 @@
+name: Chapter 2 fixed B48 raw-confirmed machine readout archive once
+on:
+  push:
+    branches:
+      - chapter2/k-fixedB48-confirmed-result-archive-20261009
+    paths:
+      - data/dispatch/k-fixedB48-archive-original-20261009.txt
+permissions:
+  contents: write
+  actions: read
+jobs:
+  byte-exact-readout-archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify source run SHA and original full successful audit
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          s=$(gh api "repos/$REPO/actions/runs/37900150213")
+          test "$(echo "$s" | jq -r .head_sha)" = "592cdad7fa0442a26fd5e79a2fd94812d4515c5d"
+          test "$(echo "$s" | jq -r .conclusion)" = "success"
+      - uses: actions/download-artifact@v4
+        with:
+          name: chapter2-fixedB48-64-history-114688-confirmatory-readout-corrected
+          path: source-original
+          run-id: 37900150213
+          repository: ${{ github.repository }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Copy original bytes and lock checksum and evidence verdict
+        run: |
+          set -euo pipefail
+          mkdir -p results/chapter2
+          cp source-original/chapter2-k48-independent-64-history-primary-20261009.json results/chapter2/k_fixedB48_independent_primary_20261009.json
+          echo "a6f3aad995b561ef4613301857a4e92e24d2d2138d2c66d59a7a28e1bd902023  results/chapter2/k_fixedB48_independent_primary_20261009.json" | sha256sum -c -
+          python -m json.tool results/chapter2/k_fixedB48_independent_primary_20261009.json > /dev/null
+      - name: Commit byte-identical scientific result to review branch
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/chapter2/k_fixedB48_independent_primary_20261009.json
+          git commit -m "Archive exact complete independent K-at-B48 confirmed science JSON"
+          git push origin "HEAD:${{ github.ref_name }}"
