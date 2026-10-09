@@ -1,0 +1,138 @@
+{
+  "status": "POST_OUTCOME_PAIRED_STRESS_REGIME_MODERATION_NOT_CONFIRMATORY",
+  "source_run": 37869990792,
+  "source_sha": "9f69db754ede497b012f4e7dcba5d2aaae9c090a",
+  "n_authenticated_t400_sources": 2048,
+  "n_authenticated_original_future_cells": 57344,
+  "n_authenticated_new_future_cells": 172032,
+  "n_history_clusters": 64,
+  "bootstrap": {
+    "seed": 2026100941,
+    "draws": 9999,
+    "unit": "paired_visitor_history"
+  },
+  "by_regime": {
+    "unbottlenecked_capacity48": {
+      "baseline_assignment_effect": {
+        "mean": 0.009237437175406312,
+        "history_bootstrap95": [
+          0.005433295636200083,
+          0.013160385853886774
+        ],
+        "positive_histories": 47,
+        "negative_histories": 16,
+        "zero_histories": 1
+      },
+      "half_self_assignment_effect": {
+        "mean": 0.01052033734292225,
+        "history_bootstrap95": [
+          0.00691934238239118,
+          0.014049066611478866
+        ],
+        "positive_histories": 48,
+        "negative_histories": 16,
+        "zero_histories": 0
+      },
+      "self_viability_sensitivity": {
+        "mean": -0.001282900167515937,
+        "history_bootstrap95": [
+          -0.004748073637486196,
+          0.002235662617636238
+        ],
+        "positive_histories": 34,
+        "negative_histories": 30,
+        "zero_histories": 0
+      },
+      "outcross_viability_sensitivity": {
+        "mean": -0.0023759690540322872,
+        "history_bootstrap95": [
+          -0.004896437673915302,
+          9.646197088342746e-05
+        ],
+        "positive_histories": 26,
+        "negative_histories": 34,
+        "zero_histories": 4
+      },
+      "factorial_nonadditivity": {
+        "mean": 0.0001508801444043235,
+        "history_bootstrap95": [
+          -0.003140508110151842,
+          0.003396720435055915
+        ],
+        "positive_histories": 33,
+        "negative_histories": 30,
+        "zero_histories": 1
+      }
+    },
+    "eight_founders_capacity8": {
+      "baseline_assignment_effect": {
+        "mean": 0.012089710485065148,
+        "history_bootstrap95": [
+          0.006793967226635007,
+          0.017428214381170624
+        ],
+        "positive_histories": 43,
+        "negative_histories": 21,
+        "zero_histories": 0
+      },
+      "half_self_assignment_effect": {
+        "mean": 0.003944592425147006,
+        "history_bootstrap95": [
+          0.0012420700817176093,
+          0.006705938706964537
+        ],
+        "positive_histories": 38,
+        "negative_histories": 24,
+        "zero_histories": 2
+      },
+      "self_viability_sensitivity": {
+        "mean": 0.008145118059918143,
+        "history_bootstrap95": [
+          0.0035364895689704657,
+          0.012857844706349358
+        ],
+        "positive_histories": 44,
+        "negative_histories": 20,
+        "zero_histories": 0
+      },
+      "outcross_viability_sensitivity": {
+        "mean": 0.0008268293698467219,
+        "history_bootstrap95": [
+          -0.002555187568996313,
+          0.004117383700976352
+        ],
+        "positive_histories": 31,
+        "negative_histories": 30,
+        "zero_histories": 3
+      },
+      "factorial_nonadditivity": {
+        "mean": 0.001928033310050796,
+        "history_bootstrap95": [
+          -0.0016549483331193525,
+          0.0055992043455606105
+        ],
+        "positive_histories": 36,
+        "negative_histories": 28,
+        "zero_histories": 0
+      }
+    }
+  },
+  "cap8_minus_cap48_self_viability_sensitivity": {
+    "mean": 0.009428018227434078,
+    "history_bootstrap95": [
+      0.0036048251459771374,
+      0.015346633192824923
+    ],
+    "positive_histories": 42,
+    "negative_histories": 22,
+    "zero_histories": 0
+  },
+  "interpretation_limits": [
+    "Selected after observing main capacity8 positive result and capacity48 negative result; no prospective confirmation.",
+    "The paired stress contrast compares EIGHT founding individuals plus capacity8 against unbottlenecked capacity48; founders and capacity co-vary.",
+    "This is a causal contrast of deliberately assigned synthetic seed viability treatments within each frozen regime, not natural genetic mediation.",
+    "A nonzero difference between two synthetic stress regimes does not identify a natural-island extinction threshold.",
+    "Prior registered full-grid DID practical equivalence and failed 3/4-budget localization remain unchanged.",
+    "All inferential units are 64 previously outcome-exposed visitor histories, not 229376 independent futures."
+  ]
+}
