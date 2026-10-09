@@ -1,0 +1,49 @@
+name: Archive original independent K vs B full readout (one-time)
+on:
+  push:
+    branches:
+      - chapter2/kb-full-readout-archive-20261009
+    paths:
+      - data/dispatch/kb-full-readout-archive-launch-20261009.txt
+permissions:
+  actions: read
+  contents: write
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Verify successful original independent full production
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          d=$(gh api "repos/$REPO/actions/runs/37893126472")
+          test "$(echo "$d" | jq -r .conclusion)" = "success"
+          test "$(echo "$d" | jq -r .head_sha)" = "6d04dca9354b3a2b600d26134f86117d225f4708"
+      - uses: actions/download-artifact@v4
+        with:
+          name: chapter2-kb-64-history-229376-full-readout
+          path: frozen-machine-readout
+          run-id: 37893126472
+          repository: ${{ github.repository }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Copy exact primary original JSON and verify SHA-256
+        run: |
+          set -euo pipefail
+          mkdir -p results/chapter2
+          cp frozen-machine-readout/chapter2-kb-independent-64-history-primary-20261009.json \
+            results/chapter2/kb_independent_full_readout_20261009.json
+          actual=$(sha256sum results/chapter2/kb_independent_full_readout_20261009.json | cut -d' ' -f1)
+          test "$actual" = "74df9619590023ee7416035ea31068b541e08dd731b603e879a27c26ccd35ed9"
+          python -m json.tool results/chapter2/kb_independent_full_readout_20261009.json >/dev/null
+      - name: Commit exact unmodified original result to this review branch
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/chapter2/kb_independent_full_readout_20261009.json
+          git commit -m "Archive exact independent 229376-future K/B primary readout"
+          git push origin "HEAD:${{ github.ref_name }}"
