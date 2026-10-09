@@ -51,7 +51,7 @@ def validate_protocol(path: Path = PROTOCOL) -> dict:
     if not (rng["same_eight_founder_ids_across_capacity_arms"]
             and rng["same_random_stream_initialization_for_all_three_arms_and_both_viability_gates"]
             and {"regime_index", "viability_gate"}.issubset(
-                set(rng["seed_must_not_include"]))):
+                set(rng["seed_must_not_include"].split(",") if isinstance(rng["seed_must_not_include"], str) else rng["seed_must_not_include"]))):
         raise AssertionError("Unpaired/unstable random-stream setup")
     gates = d["postzygotic_gates"]
     if [(x["name"], x["selfed_seed_retention"], x["outcrossed_seed_retention"])
