@@ -84,3 +84,50 @@ jobs:
           path: decomposition-budget*.json
           if-no-files-found: warn
           retention-days: 90
+
+  model3-k32-pathwise:
+    if: github.event_name == 'pull_request' && github.event.pull_request.number == 420
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Test conditional Mendelian expectation and surviving-path telescoping
+        run: pytest -q tests/test_model3_k32_pathwise_selection_drift.py
+      - name: Run source-locked pathwise budget8
+        run: python -m scripts.audit_model3_k32_pathwise_selection_drift --out pathwise-budget8.json --budget 8 --draws 512
+      - name: Run source-locked pathwise budget3
+        run: python -m scripts.audit_model3_k32_pathwise_selection_drift --out pathwise-budget3.json --budget 3 --draws 512
+      - name: Reject history leaks and check exact decomposition
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import numpy as np
+          for budget in (8,3):
+              d=json.loads(Path(f"pathwise-budget{budget}.json").read_text())
+              c=d["conditions"]
+              assert (c["K"],c["mutation_rate"],c["generations"],c["ovule_budget"]) == (32,0,8,budget)
+              assert c["old_visitor_history"]==26110601 and c["independent_visitor_histories"]==1
+              assert c["canonical_model3_biology_modified"] is False
+              assert c["new_confirmatory_histories_used"] is False
+              assert len(d["per_generation"])==8
+              assert d["n_surviving_through_eight"]+d["n_extinct_by_eight"]==512
+              final=d["surviving_trajectories"]
+              assert final["pathwise_max_absolute_identity_error"]<1e-10
+              for step in d["per_generation"]:
+                  if step["single_step_source_identity_max_error"] is not None:
+                      assert step["single_step_source_identity_max_error"]<1e-10
+              print("source exact allele-frequency identity PASS",budget)
+          PY
+      - name: Archive simulated allele-frequency paths (NOT observed data)
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: model3-k32-pathwise-direction-vs-sampling
+          path: pathwise-budget*.json
+          if-no-files-found: warn
+          retention-days: 90
