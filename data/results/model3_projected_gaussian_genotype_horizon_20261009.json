@@ -1,0 +1,74 @@
+{
+  "schema_version": "model3_projected_gaussian_horizon_20261009_v1",
+  "status": "diagnostic_of_gaussian_genotype_frequency_projection_not_validated_SPDE",
+  "provenance": {
+    "source_commit": "03c71c4dc0d5562effad3a75643f22b1028d1e78",
+    "focused_workflow_id": 37867798278,
+    "workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/37867798278",
+    "conclusion": "success",
+    "artifact_id": 11589200601,
+    "artifact_zip_sha256": "d1c1e91cbae3a49e453e6049e7142103fa224e942bb9169711dfad61e6a0be1f"
+  },
+  "model": {
+    "original_source_operator": "same frozen Model3 reproduction, pollen self-exclusion and fully joint three-locus Mendelian inheritance",
+    "exact_reference": "discrete finite diploid genotype-count Markov transition with categorical offspring",
+    "approximate": "multivariate tangent Gaussian with multinomial mean/covariance BEFORE projection, clipped to nonnegative frequencies and rounded to exact integer census; postprojection law is not exactly multinomial",
+    "genotype_classes": 27,
+    "mutation": 0,
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "independent_visitor_histories": 0,
+    "independent_demographic_samples_per_arm": 512,
+    "engineered_fixed_visitors": 2,
+    "field_or_inla_analysis": false
+  },
+  "cases": [
+    {
+      "K": 8,
+      "generations": 3,
+      "ovule_budget": 3,
+      "abs_occupancy_difference": 0.0078125,
+      "abs_occupied_trait_mean_max_difference": 0.02062211234931577,
+      "abs_mean_genotype_class_count_difference": 0.34765625,
+      "max_unconditional_genotype_count_difference": 0.267578125
+    },
+    {
+      "K": 8,
+      "generations": 8,
+      "ovule_budget": 3,
+      "abs_occupancy_difference": 0.041015625,
+      "abs_occupied_trait_mean_max_difference": 0.010650480034835152,
+      "abs_mean_genotype_class_count_difference": 0.0546875,
+      "max_unconditional_genotype_count_difference": 0.189453125
+    },
+    {
+      "K": 32,
+      "generations": 3,
+      "ovule_budget": 8,
+      "abs_occupancy_difference": 0,
+      "abs_occupied_trait_mean_max_difference": 0.0140838623046875,
+      "abs_mean_genotype_class_count_difference": 1.958984375,
+      "max_unconditional_genotype_count_difference": 0.876953125
+    }
+  ],
+  "rare_class_projection_test": {
+    "q_values": [
+      0.001,
+      0.02
+    ],
+    "N": 8,
+    "numerical_draws_per_q": 10000,
+    "gaussian_projected_absence": [
+      1,
+      0.8058
+    ],
+    "exact_multinomial_absence_formula": "(1-q)^8",
+    "scientific_interpretation": "At very rare q=0.001, the Gaussian projection/rounding numerically never represented a genotype that has strictly positive exact chance to appear; this is a fixed-kernel sampling stress, not a natural species/genetic-history result."
+  },
+  "interpretation": [
+    "Near agreement in occupied trait means is insufficient evidence of joint diploid genotype-distribution fidelity.",
+    "The Gaussian approximation has correct pre-projection first/second moments but projection and integer rounding can introduce bias.",
+    "The K32 genotype-class gap was observed after outcome exposure, and any later K32 or K128 horizon tests are exploratory diagnostics, not fresh confirmation.",
+    "No new ecological model, no validated Ito SDE or measure-valued SPDE, and no full mutation-enabled three-locus density convergence claim."
+  ]
+}
