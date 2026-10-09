@@ -29,14 +29,14 @@ def test_frozen_design_units_and_exact_source_reuse():
 def test_primary_self_viability_sensitivity_is_paired_by_history():
     d,grid=empty_grid()
     # Assignment A gains occupancy only in untreated baseline.
-    grid["occupied"][:,:,:,0,:,:,:,0,0]=0.80
-    grid["occupied"][:,:,:,1,:,:,:,0,0]=0.70
-    grid["occupied"][:,:,:,0,:,:,:,0,1]=0.78
-    grid["occupied"][:,:,:,1,:,:,:,0,1]=0.70
-    grid["occupied"][:,:,:,0,:,:,:,0,2]=0.79
-    grid["occupied"][:,:,:,1,:,:,:,0,2]=0.70
-    grid["occupied"][:,:,:,0,:,:,:,0,3]=0.77
-    grid["occupied"][:,:,:,1,:,:,:,0,3]=0.70
+    grid["occupied"][:,:,:,0,:,:,:,1,0]=0.80
+    grid["occupied"][:,:,:,1,:,:,:,1,0]=0.70
+    grid["occupied"][:,:,:,0,:,:,:,1,1]=0.78
+    grid["occupied"][:,:,:,1,:,:,:,1,1]=0.70
+    grid["occupied"][:,:,:,0,:,:,:,1,2]=0.79
+    grid["occupied"][:,:,:,1,:,:,:,1,2]=0.70
+    grid["occupied"][:,:,:,0,:,:,:,1,3]=0.77
+    grid["occupied"][:,:,:,1,:,:,:,1,3]=0.70
     x=adjudicate(d,grid)
     assert x["n_new_perturbed_futures"]==172032
     p=x["primary"]
