@@ -353,3 +353,83 @@ population state distributions. There is still just ONE historical
 visitor environment (26110601, near) and no independent island
 field measurements or use of future confirmatory visitor histories.
 This does not validate a full continuous-time SDE/SPDE.
+
+
+## Which locus is lost? Unphased genetic architecture audit
+
+The validated allele-capacity analysis established that the combined
+donor/routing/maternal flattening can reduce available ancestral
+allele combinations and Shannon/Simpson diversity even when the
+number of occupied 27-class joint genotype types changes little.
+The next follow-up asks **which specific ancestral alleles disappear**
+and how individual diploid genotype combinations redistribute.
+
+For every parent genotype count vector from the SAME eight autonomous
+factorial arm trajectories (same K=32, zero mutation/survival/
+immigration, 8 generations, old archived visitor history 26110601/
+near, and previous fixed RNG seed):
+
+1. **Locus-resolved high-allele frequency**: high allele means for
+   (pollinator matching, floral investment, reproductive assurance)
+   from the exact 27×3 diploid dosage basis \(b\in\{0,1/2,1\}\).
+2. **Direction of allele loss**: at each locus, record whether the
+   HIGH allele is absent (only low remains), LOW allele is absent
+   (high fixation), or both remain polymorphic. These are separate
+   events from loss of a *joint multilocus genotype*. Record
+   a three-symbol living-population pattern in the fixed
+   locus order: L = low homozygous fixed (HIGH lost),
+   H = high homozygous fixed (LOW lost), P = polymorphic.
+3. **Within-locus heterozygote fraction**: exact weighted fraction
+   of living individuals with genotype \(b=1/2\) at each locus.
+4. **Pairwise individual-dosage covariance and mutual
+   information**: computed from the actual joint diploid genotype
+   frequencies for (matching, investment), (matching, assurance),
+   and (investment, assurance). These describe the realized
+   *unphased diploid genotype associations*, including how
+   multivariate parental/offspring genotype frequencies accumulate
+   across locus combinations. They do **NOT** estimate
+   phased gametic linkage disequilibrium, physical chromosomal
+   linkage, epistasis, or allele-level causal selection.
+   In a finite K=32 empirical genotype-frequency distribution,
+   mutual information has an upward plug-in sampling bias even
+   when the underlying joint gamete distributions are independent.
+5. **Largest occupied joint genotype class**: record its individual
+   population frequency (dominant-genotype share) and dosage
+   label. The *dominant genotype* label uses L for low-homozygous,
+   H for heterozygous, and U for high-homozygous at each locus.
+   This is DIFFERENT from the L/P/H allele-loss pattern label.
+
+The 19 new per-path quantities are occupancy-weighted *products*
+for eight-arm factorial contrasts. Extinct populations have NO
+genetic trait or covariance; they are not assigned a fabricated
+allele frequency, and genotype-loss-pattern counts and
+dominant-genotype labels are only tabulated among living paths.
+The exact proportion of high-allele loss, low-allele loss
+from the pattern counts must equal the corresponding
+occupancy-weighted per-locus binary averages across all 512 paths.
+
+For each of eight arms and eight years, archive the full 3-locus
+loss-pattern counts and dominant genotype-label counts, and seven
+Möbius-interaction contrasts for each of the 19 quantitative
+outcomes. The design can distinguish:
+
+- whether assurance HIGH fixation accounts for most of the
+  drop in allelic combinatorial capacity or whether matching/
+  investment allele losses also accelerate;
+- whether unchanged joint genotype richness masks a shift toward
+  one or a few dominant three-locus genotype types;
+- whether pairwise genotype dosage associations change
+  despite loss of one ancestral allele, while avoiding false
+  inference that such association implies epistasis or recombination
+  change.
+
+The CI source lock now tests 3 locus names, all 19 quantities,
+8-arm/year loss-pattern accounting, and exact correspondence of
+loss-pattern counts to per-locus high/low allele-loss indicators.
+Only ONE preexisting visitor history and nested demographic source
+draws are used. **Do not promote locus-specific numerical conclusions
+until successful source-locked execution and inspection of raw JSON.**
+
+No new biological source functions under scripts/model3_island/ are
+edited, and no ecological confirmatory seeds, independent natural
+islands or continuous SDE/SPDE fitting are opened.
