@@ -24,7 +24,7 @@ from scripts.audit_model3_stochastic_bridge import (
 )
 from scripts.model3_island.population import subset
 from scripts.model3_island.reproduction import reproduce
-from scripts.model3_island.types import PlantState
+from scripts.model3_island.types import PlantState, VisitorState
 from scripts.run_chapter2_assurance_generality import (
     DEFAULT_DESIGN, config as canonical_config, founders, load_design,
 )
@@ -195,6 +195,79 @@ def scaling_screen(*,settings=("prior_selfing","assurance_cost"),
         "all_continuous_time_SDE_limits_proved":False,
         "trait_space_SPDE_validated":False,
         "geographic_INLA_used":False,
+    }
+
+
+def no_visitor_fast_time_counterexample(sizes=CAPACITIES) -> dict:
+    """Exact biological counterexample to a universal dt=1/K drift limit.
+
+    In a visitor-free source state with prior selfing, all reproductive
+    opportunities are selfing. Replicating an existing genotype K/8 times
+    multiplies every parental reproduction weight by K/8, so their normalized
+    offspring weights, trait-selection drift, and nonzero mean change are
+    *identical at every population size*. The unrelated stochastic sample
+    noise decays as population size grows.
+
+    This is an exact algebraic property of this frozen source regime,
+    conditional on identical founder genotype proportions and no visitors.
+    It does NOT claim to rule out all SDEs, alternative weak-selection
+    scalings, or spatial stochastic descriptions.
+    """
+    sizes=tuple(sizes)
+    if len(sizes)<2 or len(set(sizes))!=len(sizes):
+        raise ValueError("need at least two distinct population sizes")
+    d=load_design(DEFAULT_DESIGN)
+    eight=subset(founders(d),np.arange(8,dtype=np.int64))
+    visitors=VisitorState(
+        np.empty(0,dtype=np.int64),
+        np.empty(0,dtype=float),
+        np.empty(0,dtype=float),
+        np.empty(0,dtype=float),
+    )
+    source=canonical_config(d,"prior_selfing",0.,"evolving")
+    rows=[]
+    for K in sizes:
+        state=clone_existing_founder_pool(eight,K)
+        cfg=replace(
+            source,capacity=K,survival=0.,
+            mutation_rate=0.,ovule_budget=8.,
+            seed_arrival=replace(source.seed_arrival,supply=0.)
+        )
+        ledger=reproduce(state,visitors,cfg)
+        pairs=ledger.outcross.copy()
+        pairs[np.diag_indices(K)]+=ledger.self_viable
+        if not np.allclose(ledger.outcross,0,atol=0,rtol=0):
+            raise AssertionError("zero visitors cannot generate outcrosses")
+        prob=pairs/pairs.sum()
+        offspring_mean,offspring_cov=expected_offspring_moments(state,prob)
+        drift=offspring_mean-state.alleles.mean(axis=(0,2))
+        rows.append({
+            "K":K,
+            "one_generation_drift":drift.tolist(),
+            "drift_l2":float(np.linalg.norm(drift)),
+            "K_times_drift_l2":float(K*np.linalg.norm(drift)),
+            "child_covariance_trace":float(np.trace(offspring_cov)),
+        })
+    baseline=np.asarray(rows[0]["one_generation_drift"])
+    for r in rows[1:]:
+        np.testing.assert_allclose(
+            np.asarray(r["one_generation_drift"]),baseline,
+            rtol=0,atol=1e-12
+        )
+    if np.linalg.norm(baseline)<=1e-6:
+        raise AssertionError("constructed no-visitor state lacks nonzero selection")
+    return {
+        "status":"EXACT_NO_VISITOR_ORDER_ONE_DRIFT_COUNTEREXAMPLE",
+        "n_visitor_types":0,
+        "source_mating_setting":"prior_selfing",
+        "mutation_rate":0,
+        "original_model3_reproductive_operator_unchanged":True,
+        "distinct_joint_genotypes_replicated_without_new_alleles":True,
+        "one_generation_drift_nonzero_and_capacity_invariant":True,
+        "fast_time_dt_hypothesis":"1/K",
+        "continuous_time_finite_drift_SDE_limit_for_this_family_admissible":False,
+        "not_a_theorem_against_other_weak_selection_or_spde_models":True,
+        "rows":rows,
     }
 
 
