@@ -120,6 +120,18 @@ def exact_conditional_observables(counts,grid,visitors,cfg,year):
     return np.r_[mean_n,p_ext,richness,loss,trait_num]
 
 
+
+def exact_conditional_census_variance(counts,grid,visitors,cfg,year):
+    """Conditional variance in next census under source capped-Poisson recruitment."""
+    if int(np.asarray(counts).sum())==0:
+        return 0.
+    intensity,_=canonical_conditional_kernel(counts,grid,visitors,cfg,year)
+    pn=capped_poisson_distribution(intensity,cfg.capacity)
+    n=np.arange(cfg.capacity+1,dtype=float)
+    mean=float(n@pn)
+    return float(((n-mean)**2)@pn)
+
+
 def realized_observables(counts,grid):
     c=np.asarray(counts,dtype=np.int64)
     n=int(c.sum())
@@ -195,6 +207,14 @@ def run_decomposition(*,budget=8.,draws=512,rounds=256,seed=420261009):
         ])
         realized=np.array([realized_observables(c,grid) for c in children])
         actual=realized.mean(axis=0)
+        # Exact source-conditioned total-variance identity, treating the
+        # observed parent ensemble as a fixed empirical parent distribution.
+        within_census=float(np.mean([
+            exact_conditional_census_variance(c,grid,old[year],cfg,year)
+            for c in parents
+        ]))
+        between_census=float(np.var(expected[:,0],ddof=0))
+        observed_census_var=float(np.var(realized[:,0],ddof=0))
         source_cond=expected.mean(axis=0)
         rounded_cond=mapped_round.mean(axis=0)
         residual=actual-source_cond
@@ -213,6 +233,14 @@ def run_decomposition(*,budget=8.,draws=512,rounds=256,seed=420261009):
             "deterministic_integer_parent_census":int(rdet.sum()),
             "deterministic_integer_parent_projection_l1":float(np.abs(rdet-mu).sum()),
             "rounded_parent_mean_max_abs_error":n_round_error,
+            "census_variance_decomposition":{
+                "expected_demographic_variance_within_source_parent_states":within_census,
+                "variance_of_expected_recruitment_between_source_parent_states":between_census,
+                "total_expected_variance_under_empirical_parent_distribution":within_census+between_census,
+                "observed_next_census_variance":observed_census_var,
+                "observed_minus_law_total_variance":observed_census_var-within_census-between_census,
+                "identity_scope":"source empirical parent distribution at one generation, not all-environment biological variance",
+            },
             "source_exact_conditional_expectation":dict(zip(names,source_cond.tolist())),
             "unbiased_parent_rounding_expectation":dict(zip(names,rounded_cond.tolist())),
             "deterministic_integer_parent_expectation":dict(zip(names,mapped_det.tolist())),
