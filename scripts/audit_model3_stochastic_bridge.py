@@ -255,7 +255,16 @@ def genotype_count_markov_step(counts: np.ndarray,
     if not n or intensity <= 0:
         return result
     q = offspring_genotype_distribution(s, parents / intensity, grid)
-    return rng.multinomial(n, q)
+    # Genotype law is checked within 1e-12 by the Mendelian kernel, but
+    # NumPy 2.4's multinomial rejects some sums differing from one by
+    # floating roundoff. Normalize for numerical compatibility and draw
+    # n independent categorical child genotypes: this is exactly the same
+    # mathematical multinomial law, without modifying Model 3 biology.
+    p = q / float(q.sum())
+    if not np.isfinite(p).all() or (p < 0).any():
+        raise ArithmeticError("invalid canonical offspring probabilities")
+    labels = rng.choice(len(p), size=n, replace=True, p=p)
+    return np.bincount(labels, minlength=len(p))
 
 
 def gaussian_frequency_boundary_risk(q: np.ndarray, recruits: int) -> dict:
