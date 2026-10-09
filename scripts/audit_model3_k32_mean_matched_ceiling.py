@@ -124,6 +124,52 @@ def variance_parts(direction, noise):
     }
 
 
+
+def paired_bootstrap_spread(source_endpoint, comparator_endpoint,
+                            source_direction, source_noise,
+                            comparator_direction, comparator_noise,
+                            *, seed, bootstrap_draws=1024):
+    """Paired pathway-resampling uncertainty, conditional on SOURCE survival.
+
+    Only demographic Monte Carlo precision within this ONE old visitor
+    history, NOT an external ecological confidence interval or prospective
+    test. Pairing is by imposed source census/trajectory index.
+    """
+    arrays=[np.asarray(x,dtype=float) for x in (
+        source_endpoint,comparator_endpoint,source_direction,source_noise,
+        comparator_direction,comparator_noise)]
+    if (any(x.ndim!=1 for x in arrays) or
+            any(len(x)!=len(arrays[0]) for x in arrays) or
+            len(arrays[0])<16 or any(not np.isfinite(x).all() for x in arrays)
+            or type(bootstrap_draws) is not int or not 256<=bootstrap_draws<=4096):
+        raise ValueError("invalid paired finite path sample")
+    n=len(arrays[0])
+    rng=np.random.default_rng(seed)
+    var_diff=np.empty(bootstrap_draws)
+    covariance_diff=np.empty(bootstrap_draws)
+    fixation_diff=np.empty(bootstrap_draws)
+    for k in range(bootstrap_draws):
+        ids=rng.integers(0,n,size=n)
+        so,co,sd,sn,cd,cn=(x[ids] for x in arrays)
+        var_diff[k]=np.var(so,ddof=0)-np.var(co,ddof=0)
+        covariance_diff[k]=2.*(
+            np.mean((sd-sd.mean())*(sn-sn.mean()))-
+            np.mean((cd-cd.mean())*(cn-cn.mean()))
+        )
+        fixation_diff[k]=(np.isclose(so,1.,atol=1e-12).mean()-
+                          np.isclose(co,1.,atol=1e-12).mean())
+    def interval(values):
+        return np.percentile(values,[2.5,97.5]).tolist()
+    return {
+        "paired_survivors":n,
+        "paired_demographic_bootstrap_resamples":bootstrap_draws,
+        "source_minus_comparator_variance_mc_95_percentile":interval(var_diff),
+        "source_minus_comparator_twice_covariance_mc_95_percentile":interval(covariance_diff),
+        "source_minus_comparator_fixation_rate_mc_95_percentile":interval(fixation_diff),
+        "scope":"paired nested demographic MC conditional on one archived visitor history, exploratory post-outcome",
+        "independent_ecological_replicates":1,
+    }
+
 def run_mean_matched(*,budget=8.,draws=512,seed=420261012):
     if (budget not in (3.,8.) or type(draws) is not int or
             not 16<=draws<=4096 or type(seed) is not int or seed<0):
@@ -241,6 +287,10 @@ def run_mean_matched(*,budget=8.,draws=512,seed=420261012):
     np.testing.assert_allclose(start+dn+en,n,atol=1e-11,rtol=0)
     parts_source=variance_parts(ds,es)
     parts_null=variance_parts(dn,en)
+    spread=paired_bootstrap_spread(
+        s,n,ds,es,dn,en,
+        seed=np.random.SeedSequence([seed,500,int(budget)]),
+        bootstrap_draws=1024)
     return {
         "status":"EXPLORATORY_MEAN_MATCHED_CEILING_COMPARATOR_COMPLETE",
         "evidence_type":"source_outcome_calibrated_engineering_simulation_not_observations",
@@ -281,6 +331,7 @@ def run_mean_matched(*,budget=8.,draws=512,seed=420261012):
                 if s.var(ddof=0)>0 else None,
         },
         "per_generation":years,
+        "paired_MC_precision":spread,
         "interpretation_limits":[
             "The comparison is post-outcome mean calibrated and is an exploratory sensitivity comparator, NOT independent confirmatory inference.",
             "Uniform per-year exponential bias is deliberately different biology from source Model3 pollen, mating and fitness.",
