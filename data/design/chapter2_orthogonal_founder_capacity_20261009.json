@@ -1,0 +1,185 @@
+{
+  "schema_version": "1.0",
+  "declaration_date": "2026-10-09",
+  "status": "PRE_OUTCOME_PROTOCOL_ONLY_NOT_EXECUTABLE",
+  "title": "Independent fixed-founder capacity intervention and complementary founder-dose contrast",
+  "originating_observation": {
+    "source_prs": [
+      429,
+      430
+    ],
+    "original_source_run": 37869990792,
+    "prior_outcomes_already_exposed": true,
+    "prior_predeclared_capacity8_self_sensitivity": 0.008145118059918143,
+    "prior_posthoc_joint_regime_moderation": 0.009428018227434078,
+    "prior_posthoc_bootstrap95": [
+      0.0036048251459771374,
+      0.015346633192824923
+    ],
+    "known_confounding": "Previous comparison simultaneously switched 8 to 48 founders and capacity 8 to 48; regime index was also included in future RNG seed.",
+    "ranking": "hypothesis_generator_not_additional_confirmation",
+    "existing_negative_verdicts_unchanged": [
+      "original_near_far_DID_practically_equivalent",
+      "independent_budget_3_4_window_failed"
+    ]
+  },
+  "source_contract": {
+    "frozen_original_expression_schedule": "data/design/chapter2_order_expression_identification_20261008.json",
+    "original_followup": "data/design/chapter2_order_budget_window_independent_20261009.json",
+    "original_postzygotic_gate": "data/design/chapter2_postzygotic_viability_factorial_20261009.json",
+    "existing_postshock_runner": "scripts/chapter2_order_postshock_runner.py",
+    "do_not_reuse_previous_t400_or_visitor_histories": true,
+    "original_biology_modules_unchanged": true,
+    "no_new_biological_outcomes_in_plan_or_CI": true
+  },
+  "new_independent_cohort": {
+    "status": "UNGENERATED",
+    "visitor_history_first": 39110901,
+    "visitor_history_last": 39110964,
+    "visitor_history_count": 64,
+    "nested_demographic_repeats_count": 2,
+    "each_history_fresh_prehistory_and_t400_genotypes": true,
+    "randomized_assigned_expression_order": [
+      "assurance_first",
+      "investment_first"
+    ],
+    "forbid_overlap_with_previous_history_ranges": [
+      [
+        37110801,
+        37110864
+      ],
+      [
+        38110901,
+        38110964
+      ]
+    ],
+    "original_full_source_initial_founders": 48,
+    "no_conditioning_on_t400_or_terminal_survival": true,
+    "all_stochastic_trajectories_including_extinction_admitted": true
+  },
+  "experimental_arms": [
+    {
+      "name": "eight_founders_capacity8",
+      "founder_rule": "deterministic_eight_from_authenticated_full_t400",
+      "capacity": 8,
+      "founder_group": "fixed_eight"
+    },
+    {
+      "name": "eight_founders_capacity48",
+      "founder_rule": "exact_same_selected_eight_t400_genotype_ids_as_capacity8",
+      "capacity": 48,
+      "founder_group": "fixed_eight"
+    },
+    {
+      "name": "all_available_founders_capacity48",
+      "founder_rule": "authenticated_full_t400_population_up_to_48",
+      "capacity": 48,
+      "founder_group": "full"
+    }
+  ],
+  "forbidden_arm": {
+    "founder_count": 48,
+    "capacity": 8,
+    "reason": "violates_population_size_le_capacity_without_an_explicit_initial_thinning_intervention"
+  },
+  "extinct_source_policy": "Retain source if t400 has fewer than eight or zero survivors; cap the sampled count at available N, and never select on survival. Document realized founder N per source.",
+  "paired_future_randomness": {
+    "paired_on": "visitor_history,setting,historical_environment,assigned_order,demographic_repeat,budget,future_visitor",
+    "same_eight_founder_ids_across_capacity_arms": true,
+    "same_random_stream_initialization_for_all_three_arms_and_both_viability_gates": true,
+    "seed_must_not_include": "regime_index,viability_gate,assigned_order,historical_near_far",
+    "limitation": "After population trajectories diverge, shared RNG seed does not make every individual-level demographic draw identical.",
+    "legacy_runner_not_usable_unmodified": "scripts/chapter2_order_postshock_runner.py::paired_streams seeds by regime index; new runner must explicitly remove that component while preserving independent seed partitioning across histories and other frozen axes.",
+    "identical_unattenuated_parity_with_new_clean_reference_required": true
+  },
+  "postzygotic_gates": [
+    {
+      "name": "baseline",
+      "selfed_seed_retention": 1,
+      "outcrossed_seed_retention": 1
+    },
+    {
+      "name": "self_half",
+      "selfed_seed_retention": 0.5,
+      "outcrossed_seed_retention": 1
+    }
+  ],
+  "complete_future_grid": {
+    "postshock_updates": 80,
+    "reproductive_settings": [
+      "delayed_control",
+      "prior_selfing",
+      "pollen_discount",
+      "assurance_cost"
+    ],
+    "historical_environments": [
+      "near",
+      "far"
+    ],
+    "assigned_expression_orders": [
+      "assurance_first",
+      "investment_first"
+    ],
+    "nested_demographic_repeats": 2,
+    "budgets": [
+      0.5,
+      1,
+      2,
+      3,
+      4,
+      5,
+      8
+    ],
+    "budget_weighting": "existing frozen log_budget_weights",
+    "future_visitor_environments": [
+      "near",
+      "far"
+    ],
+    "n_regimes": 3,
+    "n_viability_gates": 2,
+    "n_prehistory_sources": 2048,
+    "futures_per_source": 84,
+    "expected_future_records": 172032
+  },
+  "estimands": {
+    "terminal_outcome": "binary_occupied_at_80_updates",
+    "schedule_assignment": "A_first_minus_I_first within each setting/history/future and regime/gate",
+    "tau_per_regime": "D_baseline_minus_D_self_half",
+    "primary": "tau_eight_founders_capacity8_minus_tau_eight_founders_capacity48",
+    "primary_interpretation": "causal model-conditional capacity effect on seed-viability sensitivity when the same eight founder genotypes are used",
+    "secondary": "tau_eight_founders_capacity48_minus_tau_all_available_founders_capacity48",
+    "secondary_interpretation": "joint founding-abundance and sampled-genotype effect at fixed capacity; NOT pure genetic diversity effect",
+    "cluster_unit": "visitor_history",
+    "cluster_bootstrap": {
+      "draws": 9999,
+      "seed": 2026100943,
+      "interval": "percentile_two_sided_95",
+      "resample": "64 paired visitor-history rows"
+    },
+    "primary_minimum_meaningful_absolute": 0.005,
+    "decision": "supported_if_abs_primary_mean_ge_0.005_and_95pct_interval_excludes_zero; practically_equivalent_if_entire_95pct_interval_strictly_inside_plus_minus_0.005; otherwise_inconclusive",
+    "direction": "two_sided",
+    "multiplicity": "Only the primary capacity contrast is a confirmatory decision; secondary founder-dose and subgroup analyses are descriptive.",
+    "no_interim_peeking_or_outcome_based_sample_size_change": true
+  },
+  "authentication_gates": [
+    "Unique previously unused visitor-history identifiers and independent fresh full-diploid prehistory",
+    "All 2048 authenticated complete t400 genotypes and survival-independent source admission",
+    "Identical selected eight founder genotype IDs and allele hashes in both capacity arms for each assigned source",
+    "No initial population size exceeding carrying capacity; no hidden thinning",
+    "Identical future stream seeds across regime and postzygotic gates at initialization; separation across visitor-history clusters",
+    "Source protocol and biology SHA-256 locked before production",
+    "Exactly 84 complete futures per t400 source and 172032 full-cohort future records before outcome readout",
+    "Baseline parity, factor-specific self-half only at postzygotic stage and no modification of pollen export",
+    "Fail closed on missing shard, nonfinite occupancy, duplicate branch, incompatible source or failed checksum",
+    "No future simulation from tests, PR CI or preflight; explicit separately approved production execution only"
+  ],
+  "interpretation_limits": [
+    "A new independently generated visitor-history cohort is mandatory to earn a fresh confirmatory label.",
+    "Capacity-specific effect is conditional on eight selected founders and on the model's seeded demography, not a natural island threshold.",
+    "The founder-dose secondary contrast changes founder abundance and genomic sampling together; it does not identify diversity alone.",
+    "Previously observed synthetic results are hypothesis generation, not additional independent evidence.",
+    "Local terminal occupancy is not lifetime plant fitness, natural genetic mediation or a field-calibrated Izu extinction result.",
+    "Sample size 64 is fixed before outcomes; an inconclusive result remains inconclusive."
+  ]
+}
