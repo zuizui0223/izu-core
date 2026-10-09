@@ -176,3 +176,24 @@ to claim full process equivalence.
 The budget intervention changes the ecological stress in an engineering
 diagnostic; it does not add an independent biological model or natural island
 calibration.
+
+
+## Admitted scoped result: independent finite genotype measure over 3 and 8 generations
+
+Verified focused CI: [#37864323482](https://github.com/zuizui0223/izu-core/actions/runs/37864323482), executed source `6225c43671f1616d21bd55d2437af41d3bb9985c`. Its original receipts are archived as `model3-stochastic-preflight` (GitHub Actions artifact). The permanent compact summary is [`data/results/model3_stochastic_measure_validation_20261009.json`](../data/results/model3_stochastic_measure_validation_20261009.json). **Single archived visitor history and nested demographic draws only.**
+
+For a genotype counting measure `nu_t`, the restricted biological process is
+`nu_{t+1} = sum_{i=1}^{N_{t+1}} delta_{G_i}`,
+where `N_{t+1}=min(Poisson(Lambda(nu_t,E_t)),K)` and conditional on that census, the genotype-valued offspring `G_i` are sampled independently from the **canonical** paired-parent, Mendelian-segregation and birth-mutation kernel `Q(nu_t,E_t)`. Both Lambda and Q retain individual pollen self-exclusion by expanding each genotype-copy to a distinct individual for reproductive accounting. This is a finite **stochastic measure-valued recurrence / Markov model**, not an autonomously derived SDE, a smooth SPDE, or an independent biological hypothesis.
+
+The 512-per-arm independent Monte Carlo comparison obtained:
+
+| Updates | Ovule budget | Occupied ABM | Occupied atomic measure | Occupancy gap | Max occupied trait mean gap | Mean genotype-class-count gap |
+|---:|---:|---:|---:|---:|---:|---:|
+| 3 | 8 | 512/512 | 512/512 | 0.00000 | 0.00533 | 0.09961 |
+| 8 | 8 | 512/512 | 512/512 | 0.00000 | 0.00419 | 0.01367 |
+| 8 | 3 | 173/512 | 147/512 | 0.05078 | 0.00530 | 0.09766 |
+
+All three **engineering tolerance** gates passed. The high-budget rows do not test extinction at all; the low-budget row does produce substantial extinction, but a 5.08-percentage-point difference between independently simulated samples is **not a formal equivalence test**. Conditional trait means are defined only for survivors. Direct ancestry/pedigree equivalence is out of scope because the count-measure discards identity bookkeeping.
+
+**Decision:** the inherited joint diploid state and true random loss *can* be preserved without a fixed numerical genotype grid, without modifying the Model 3 reproduction/segregation/mutation operators. The appropriate full finite-population reference is this atomic stochastic recursion. A controlled SDE/SPDE approximation still needs an explicit population-size/time-rescaling regime, treatment of nonlocal sexual inheritance, and absorbing genotype/population boundaries. In the frozen complete-turnover Model 3, invoking a continuous-time SPDE just by attaching Gaussian noise to a density solver has **not** been justified. This result is a more precise staging point than claiming an accomplished full SDE/SPDE.
