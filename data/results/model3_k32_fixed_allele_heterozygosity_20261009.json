@@ -1,0 +1,155 @@
+{
+  "schema": "model3_k32_assurance_heterozygosity_fixed_allele_copies_v1",
+  "status": "original_model3_source_unchanged_exact_copy_heterozygosity_contrast_ci_passed",
+  "provenance": {
+    "scientific_source_sha": "1ec2ac1773218b94551a4d8518a4bb9346ff2bd2",
+    "workflow_run_id": 37937577229,
+    "workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/37937577229",
+    "dedicated_job": "model3-k32-fixed-allele-heterozygosity",
+    "job_result": "success",
+    "raw_artifact_id": 11618768969,
+    "raw_artifact_url": "https://github.com/zuizui0223/izu-core/actions/runs/37937577229/artifacts/11618768969",
+    "raw_archive_sha256": "a78a719c6d5c51947db0795a40f4ca21e88dd2fc4a18524a31712fb4794bc545"
+  },
+  "study": {
+    "K": 32,
+    "mutation_rate": 0,
+    "generations_source": 8,
+    "source_parent_starts": [
+      1,
+      4,
+      8
+    ],
+    "old_visitor_snapshots": [
+      1,
+      8
+    ],
+    "only_old_visitor_history": 26110601,
+    "independent_ecological_visitor_histories": 1,
+    "nested_source_demographic_draws": 512,
+    "reassignment_permutations_per_original_parent": 4,
+    "ovule_budgets": [
+      8,
+      3
+    ],
+    "source_original_reproduce_code_modified": false,
+    "no_prospective_confirmatory_history_used": true,
+    "source_parent_cohort_conditioned_on_alive_at_start_year8": true,
+    "no_autonomous_evolution_of_edited_parents": true
+  },
+  "exact_genetics": {
+    "source_assurance_high_allele_copy_number": "n_LH+2*n_HH (diploid, n_LH heterozygotes), exactly identical in original/sham/edited",
+    "heterozygosity_up": "one LL and one HH -> two LH; requires at least one opposite homozygote of each type",
+    "heterozygosity_down": "two LH -> one LL and one HH; requires >=2 LH",
+    "heterozygote_fraction_delta": "exactly +/-2/N, N original living parent census",
+    "same_sham_genotype_alignment": "all assurance diplotypes are reallocated across unchanged matching/investment individual genotypes with same random permutation; edit changes only TWO parent assurance diplotypes relative to sham",
+    "feasibility_status": "not all source parent states can support both operations, especially after founder alleles approach fixation"
+  },
+  "locus_order": [
+    "pollinator_matching",
+    "floral_investment",
+    "reproductive_assurance"
+  ],
+  "cases": [
+    {
+      "budget": 8,
+      "source_parent_paths_shared": 512,
+      "checkpoints": [
+        {
+          "parent_year": 1,
+          "n_up": 512,
+          "n_down": 512,
+          "n_bidirectional": 512,
+          "late_visitor_matching_up_minus_sham": -0.00019004853244893039,
+          "late_visitor_matching_up_mc_se": 0.00011340768339161808,
+          "late_visitor_matching_down_minus_sham": 0.00002180855594736122,
+          "late_visitor_matching_down_mc_se": 0.000110908433778,
+          "late_visitor_assurance_up_minus_sham": -0.011806677596471719,
+          "late_visitor_assurance_down_minus_sham": 0.011811061329451152
+        },
+        {
+          "parent_year": 4,
+          "n_up": 478,
+          "n_down": 467,
+          "n_bidirectional": 436,
+          "late_visitor_matching_up_minus_sham": 0.00007294347981003085,
+          "late_visitor_matching_up_mc_se": 0.00013676276100185362,
+          "late_visitor_matching_down_minus_sham": -0.0000364628952680717,
+          "late_visitor_matching_down_mc_se": 0.00013679486535611907,
+          "late_visitor_assurance_up_minus_sham": -0.00982737228888627,
+          "late_visitor_assurance_down_minus_sham": 0.009807351137160941
+        },
+        {
+          "parent_year": 8,
+          "n_up": 171,
+          "n_down": 119,
+          "n_bidirectional": 86,
+          "late_visitor_matching_up_minus_sham": 0.000018437834115742198,
+          "late_visitor_matching_up_mc_se": 0.00021322934660421386,
+          "late_visitor_matching_down_minus_sham": 0.00007189993848538456,
+          "late_visitor_matching_down_mc_se": 0.00024708594214327824,
+          "late_visitor_assurance_up_minus_sham": -0.009202858848364439,
+          "late_visitor_assurance_up_mc_se": 0.00006724486965686938,
+          "late_visitor_assurance_down_minus_sham": 0.009062299684488458,
+          "late_visitor_assurance_down_mc_se": 0.00009135162567848531,
+          "late_visitor_original_matching_direction": 0.005533038586286622,
+          "late_visitor_sham_minus_original_matching_approx": -0.0028506
+        }
+      ]
+    },
+    {
+      "budget": 3,
+      "source_parent_paths_shared": 506,
+      "checkpoints": [
+        {
+          "parent_year": 1,
+          "n_up": 506,
+          "n_down": 506,
+          "n_bidirectional": 506,
+          "late_visitor_matching_up_minus_sham": -0.00018199736606373722,
+          "late_visitor_matching_up_mc_se": 0.00011442120292387036,
+          "late_visitor_matching_down_minus_sham": 0.000014619189155195356,
+          "late_visitor_matching_down_mc_se": 0.00011190925431665162,
+          "late_visitor_assurance_up_minus_sham": -0.011803929181248158,
+          "late_visitor_assurance_down_minus_sham": 0.011810862236458861
+        },
+        {
+          "parent_year": 4,
+          "n_up": 433,
+          "n_down": 346,
+          "n_bidirectional": 316,
+          "late_visitor_matching_up_minus_sham": 0.00004642012277188204,
+          "late_visitor_matching_up_mc_se": 0.0002607855966678137,
+          "late_visitor_matching_down_minus_sham": -0.0000015772230185856176,
+          "late_visitor_matching_down_mc_se": 0.0002679831901682291,
+          "late_visitor_assurance_up_minus_sham": -0.016484035141666964,
+          "late_visitor_assurance_down_minus_sham": 0.015012418970419458
+        },
+        {
+          "parent_year": 8,
+          "n_up": 101,
+          "n_down": 49,
+          "n_bidirectional": 33,
+          "late_visitor_matching_up_minus_sham": -0.0004983041664527142,
+          "late_visitor_matching_up_mc_se": 0.0007650532739176481,
+          "late_visitor_matching_down_minus_sham": 0.0008533231348558109,
+          "late_visitor_matching_down_mc_se": 0.00046007375826464907,
+          "late_visitor_assurance_up_minus_sham": -0.017985878290885354,
+          "late_visitor_assurance_up_mc_se": 0.0017909224286299158,
+          "late_visitor_assurance_down_minus_sham": 0.01309306315064304,
+          "late_visitor_assurance_down_mc_se": 0.00091793336926786,
+          "late_visitor_original_matching_direction": 0.006607157586353892,
+          "late_visitor_sham_minus_original_matching_approx": -0.0020576
+        }
+      ]
+    }
+  ],
+  "limitations": [
+    "The edited state changes assurance homozygote/heterozygote allocation in two individuals, still changing its association with the unmodified investment/matching genotypes of those individuals; genotype-association causal effects are not completely held fixed.",
+    "Comparison is edited-minus-same-permutation shuffled sham, not edited-minus-original. Sham-minus-original association effect is separate and can dominate matching-direction difference.",
+    "Near fixation severely limits edit feasibility; late parent year8 results apply only to selected eligible subsets and opposite operators select different subsets.",
+    "The large assurance own-locus expected allele-direction change under fixed parent allele mean is one-step genotype-specific reproductive transmission response, not historical evolution or independent natural selection.",
+    "Two visitor snapshots are from the same archived old visitor sequence, not replicated pollinator environments; all 512 nested demographic paths are from one ecology condition.",
+    "Original genotype Markov dynamics and canonical reproduction unchanged; genotype edits are hypothetical and do not establish natural genotype rearrangement, island evolution, field data or continuous-time SDE/SPDE."
+  ]
+}
