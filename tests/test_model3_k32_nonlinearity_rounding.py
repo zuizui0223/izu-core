@@ -5,6 +5,7 @@ import pytest
 from scripts.audit_model3_k32_nonlinearity_rounding import (
     unbiased_integer_counts, exact_conditional_observables,
     realized_observables, run_decomposition,
+    exact_conditional_census_variance,
 )
 from scripts.audit_model3_projected_gaussian_genotypes import fixed_support_problem
 from scripts.audit_model3_stochastic_bridge import genotype_count_markov_step
@@ -39,6 +40,8 @@ def test_exact_next_genotype_and_allele_analytic_quantities_have_valid_bounds():
     initial,grid,vis,cfg=fixed_support_problem(capacity=32,ovule_budget=8.)
     a=exact_conditional_observables(initial,grid,vis,cfg,0)
     assert len(a)==7
+    variance=exact_conditional_census_variance(initial,grid,vis,cfg,0)
+    assert variance>=0
     assert 0<=a[0]<=32 and 0<=a[1]<=1
     assert 0<=a[2]<=27 and 0<=a[3]<=6
     assert np.all((a[4:]>=0)&(a[4:]<=1))
@@ -72,6 +75,10 @@ def test_telescoping_components_preserve_source_scope_and_identity(budget):
     assert c["prospective_confirmatory_histories_used"] is False
     assert len(data["steps"])==8
     for step in data["steps"]:
+        v=step["census_variance_decomposition"]
+        assert v["expected_demographic_variance_within_source_parent_states"]>=0
+        assert v["variance_of_expected_recruitment_between_source_parent_states"]>=0
+        assert v["total_expected_variance_under_empirical_parent_distribution"]==pytest.approx(v["expected_demographic_variance_within_source_parent_states"]+v["variance_of_expected_recruitment_between_source_parent_states"])
         z=step["components"]
         for k in data["outcomes"]:
             assert z["total_realized_minus_representative"][k] == pytest.approx(
