@@ -86,3 +86,52 @@ The 8-year directional response, local response, and curvature tests
 must NOT be promoted to adaptive causation without an explicit
 mechanistic or empirical intervention independent of these fitted
 comparator models.
+
+## Source-verified symmetric numerical results (2026-10-09)
+
+CI dedicated job model3-k32-symmetric-assurance **success** on source
+SHA 76e83d2917024da9dced0ce59bfbb224b2b92550,
+[GitHub Actions run 37889777989](https://github.com/zuizui0223/izu-core/actions/runs/37889777989);
+[raw two-budget JSON artifact 11598345415](https://github.com/zuizui0223/izu-core/actions/runs/37889777989/artifacts/11598345415).
+Machine-readable source-lock:
+data/results/model3_k32_symmetric_assurance_response_20261009.json.
+
+Main endpoint is SOURCE central slope minus baseline mean-matched
+directionally tilted Mendelian control central slope, with the SAME
+heterozygous individual genotype mutated separately low and high:
+
+| Source states BEFORE generation | budget8 usable / 128 | budget8 mean source minus control central slope (MC SE) | budget3 usable / 128 | budget3 mean difference (MC SE) |
+|---|---:|---:|---:|---:|
+| 3 | 128 | -0.04598 (0.00894) | 122 | -0.06474 (0.00753) |
+| 5 | 119 | -0.09338 (0.00948) | 90 | -0.13426 (0.01116) |
+| 7 | 75 | -0.16797 (0.01014) | 41 | -0.20514 (0.01602) |
+| 8 | 49 | -0.16881 (0.01354) | 23 | -0.24757 (0.01598) |
+
+The source response is less sensitive to the specified one-copy
+intervention than this simplified mean-matched control at every
+examined source checkpoint/condition. The curvature contrast is also
+positive, about 0.00755-0.00851 (budget8) or 0.01305-0.01726
+(budget3) offspring-frequency units under the finite two-sided swap.
+
+**However**, the eligible subset shrinks drastically towards fixation,
+especially for budget3 where only 23/128 parent states retain one
+assurance-heterozygote in generation 8. Therefore the larger late
+slope gap **must not** be interpreted automatically as stronger
+adaptive restoration through time: the estimand changes with
+heterozygote availability. No result is defined for fully fixed parent
+states in this comparator construction.
+
+This improves identifiability relative to separate high-to-low
+and low-to-high comparisons by eliminating the different-perturbed-
+genotype-background confound; nevertheless the genotype's association
+with the other two loci and the original source reproductive fitness
+and mating rules remain jointly involved. The null is one particular
+directionally tilted Mendelian operator fitted to each baseline,
+not an independent observation or unbiased ecological reference.
+
+**Verdict:** source-specific local numerical response beyond
+the chosen baseline-matched simplified comparator is supported
+*within this one frozen model and old visitor history*. Source-specific
+global terminal variance regulation, causal adaptive stabilization,
+independent ecological confirmation and any continuous-time SDE/SPDE
+interpretation remain **NOT identified**.
