@@ -94,7 +94,18 @@ trajectories:
 | Assurance | .014111 | .019688 | **-.032208** | **.001591** |
 
 At budget 3: assurance variance filter .023722, sampling .029569,
-twice-covariance **-.051765** and total **.001526**. All are Monte Carlo
+twice-covariance **-.051765** and total **.001526**.
+
+**Critical boundary diagnostic:** assurance starts with high-allele frequency
+0.5000 in all engineered founders. Among surviving trajectories it ends at
+**0.97757** (budget 8) and **0.98790** (budget 3), close to the upper bound
+of 1. This severe frequency ceiling alone constrains realized endpoint
+variance and can induce negative correlations between the cumulative
+source-filter term and the cumulative sampling residual. The covariance
+is therefore **not sufficient evidence of stabilizing selection or
+biological canalization**. A frequency-boundary-matched neutral or
+counterfactual comparison would be required to isolate feedback from
+a nearly deterministic saturation ceiling. All are Monte Carlo
 moment estimates of survival-conditioned histories. The covariance
 reduces endpoint heterogeneity markedly. A plausible interpretation is
 that directional reproduction responds to the stochastic state reached
