@@ -71,6 +71,21 @@ def test_same_parent_counterfactual_matches_mu_and_census_exactly():
         np.zeros_like(first),grid,vis,cfg,0)["status"]=="EXTINCT_PARENT"
 
 
+
+def test_exactly_fixed_high_assurance_does_not_exceed_numeric_unit_boundary():
+    from scripts.audit_model3_k32_pathwise_selection_drift import allele_frequency_basis
+    first,grid,vis,cfg=fixed_support_problem(capacity=32,ovule_budget=8.)
+    assurance=allele_frequency_basis(grid)[:,2]
+    genotype=int(np.flatnonzero(assurance==1.)[0])
+    fixed=np.zeros_like(first)
+    fixed[genotype]=32
+    output=same_parent_exact_contrast(fixed,grid,vis,cfg,0)
+    assert output["status"]=="MATCHED"
+    assert output["source_assurance_allele_mean"]==pytest.approx(1.)
+    assert output["matched_comparator_assurance_allele_mean"]==pytest.approx(1.)
+    assert output["source_minus_comparator_next_frequency_variance"]==pytest.approx(0.,abs=1e-12)
+
+
 @pytest.mark.parametrize("budget",[3.,8.])
 def test_eight_generation_fixed_history_analytic_conditional_gate(budget):
     r=run_same_parent(budget=budget,draws=16,seed=42000017)
