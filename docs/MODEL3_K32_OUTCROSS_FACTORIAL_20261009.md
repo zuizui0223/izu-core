@@ -279,3 +279,77 @@ mutation, immigration or natural plant observations are used.
 
 **New numerical results are not admitted until the source-commit
 CI run succeeds and its raw artifact is inspected.**
+
+
+## Validated allelic-ceiling versus realized-genotype result
+
+This follow-up successfully ran all eight autonomous old-history
+K32 arms with allele combination-capacity and genotype evenness
+accounting. The source-bound [GitHub Actions run #37900326737](https://github.com/zuizui0223/izu-core/actions/runs/37900326737),
+`model3-k32-full-factorial` job **PASS**, used source SHA
+`2164eac18143d34d996a81c4b3a94c8dfedeceae`.
+[Executed raw two-budget artifact #11602765416](https://github.com/zuizui0223/izu-core/actions/runs/37900326737/artifacts/11602765416),
+SHA256 `1452ea59c4d70723cc4c1aeb74236aee080759b0c2485ef1aafb85b091edeceb`.
+Permanent compact result: `data/results/model3_k32_genetic_structure_factorial_20261009.json`.
+
+### Why class richness hides genetic erosion
+
+| Year-8 statistic | Budget8 original | Budget8 all three | Budget3 original | Budget3 all three |
+|---|---:|---:|---:|---:|
+| Surviving paths | 512 | 512 | 505 | 507 |
+| Average loci retaining both founder alleles, alive | 2.174 | 1.813 | 1.667 | 1.410 |
+| Average combinatorial upper bound P among survivors | 14.05 | **9.07** | 9.29 | **6.16** |
+| Actual multilocus genotype class richness, all paths | 4.324 | 4.041 | 3.115 | 3.109 |
+| Fraction of combinatorial genotypes actually occupied, alive | 0.419 | **0.568** | 0.520 | **0.653** |
+| Shannon effective genotype count, alive | 2.915 | **2.649** | 2.341 | **2.238** |
+| Simpson effective genotype count, alive | 2.435 | **2.213** | 2.048 | **1.936** |
+
+At budget3, the all-three counterfactual reduces the average
+**combinatorial upper bound** on available diploid genotype types
+by approximately 3.12 classes among surviving populations,
+but the realized genotype richness changes by only -0.006 classes
+unconditionally. The proportion of potential types actually occupied
+rises by ~0.133 among survivors. Consequently, **the apparent
+maintenance of raw genotype-class richness does not imply
+maintenance of allelic variation or genotype frequency evenness**.
+
+The combinatorial upper bound can fall mechanically when one
+locus loses an allele. Coverage C=R/P can then increase even if
+R stays flat, simply because the denominator P shrinks. Coverage
+increases are therefore NOT in themselves evidence of
+compensatory adaptation, recombinational rescue, or restoration
+of lost alleles. The unchanged source and altered counterfactuals
+all have mutation=0 and immigration=0.
+
+### Pathwise log decomposition and demographic MC precision
+
+The `log genotype richness = log combinatorial upper bound +
+log genotype coverage` equation was verified for every living
+population and every factorial contrast. For mortality, the
+factorial uses occupancy-weighted products, rather than
+assigning a log genotype count to extinction.
+
+| All-three-minus-original (occupancy weighted) | Budget8 mean ± MC SE | Budget3 mean ± MC SE |
+|---|---:|---:|
+| log genotype class richness | -0.06797 ± 0.01839 | +0.00631 ± 0.01965 |
+| log combinatorial upper bound | **-0.39696 ± 0.03770** | **-0.27251 ± 0.03851** |
+| log realized genotype coverage | **+0.32899 ± 0.02898** | **+0.27881 ± 0.02687** |
+| Simpson effective genotype count | **-0.22190 ± 0.03091** | **-0.10287 ± 0.03348** |
+| Shannon effective genotype count | -0.26524 ± 0.04035 | -0.09360 ± 0.04011 |
+
+The positive log-coverage component offsets most of the declining
+log-upper-bound component, particularly at budget3 where their sum
+is close to zero. Separately, the decrease in Shannon/Simpson
+effective genotype diversity shows that the relative distribution
+across represented classes becomes more concentrated despite
+the nearly unchanged raw number of classes.
+
+These are measurements of the fixed-source synthetic Model3
+full-factorial trajectories and exact algebraic identities.
+They **cannot** identify a unique biological mechanism causing
+the occupancy change; selection, finite drift, repeated Mendelian
+segregation, mating bias, and extinction may all contribute to
+population state distributions. There is still just ONE historical
+visitor environment (26110601, near) and no independent island
+field measurements or use of future confirmatory visitor histories.
+This does not validate a full continuous-time SDE/SPDE.
