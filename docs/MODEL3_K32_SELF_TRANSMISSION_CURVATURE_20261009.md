@@ -134,3 +134,80 @@ cohorts or a valid continuous SDE/SPDE.
 PR420-only CI job: \`model3-k32-self-transmission-curvature\`.
 No numeric component results accepted until source CI
 passes and full raw artifact is inspected.
+
+
+## Executed source-verified result
+
+The source-locked exact calculation and original-linear-model guard
+**PASSED**, [GitHub Actions run #37943660135](https://github.com/zuizui0223/izu-core/actions/runs/37943660135),
+dedicated job model3-k32-self-transmission-curvature on source
+SHA \`de5ee0fff2d990e2a3b41f6ebe28a0d41060b957\`.
+The [raw two-budget original source JSONs (artifact #11622482942)](https://github.com/zuizui0223/izu-core/actions/runs/37943660135/artifacts/11622482942)
+have SHA256
+\`e4b9214544fc6e16a6b2f08ae3c6e32da5c2949de5c7af8b1dd9a29d248e2d8c\`.
+Compact source result:
+\`data/results/model3_k32_self_transmission_curvature_20261009.json\`.
+
+### Year8 parents, original archived year8 visitor, eligible source paths only
+
+Each component below contributes to the same edited-minus-paired-sham
+next-generation ASSURANCE high-allele frequency *self-seed transmission
+direction*. Positive/negative direction refers to transmitting high alleles,
+not necessarily producing more/less total selfed viable seeds.
+
+| Component | Budget8 HET_UP | Budget8 HET_DOWN | Budget3 HET_UP | Budget3 HET_DOWN |
+|---|---:|---:|---:|---:|
+| Eligible parent source paths | 171 | 119 | 101 | 49 |
+| **Intrinsic dosage-product term (a×b) at pair-average investment** | **−.01020422** | **+.01015004** | **−.01890127** | **+.01431802** |
+| Investment alignment of two edited parents | +.00003931 | +.00002325 | −.00007439 | +.00002493 |
+| Self seed-mass change / direction normalization | −.00000148 | −.00000354 | +.00001351 | −.00000276 |
+| Outcross seed-mass change / direction normalization | +.00000073 | −.00000082 | +.00000222 | −.00000754 |
+| **Total exact SELF expected high-allele direction** | **−.01016566** | **+.01016893** | **−.01895993** | **+.01433265** |
+| Maximum absolute per-state reconstruction discrepancy | 1.0e−14 | 6.3e−15 | 4.8e−15 | 2.9e−15 |
+
+The intrinsic allele dosage-product term accounts for almost all
+of the observed self high-allele direction shift in these
+one-history, particular-source-parent, artificially
+edited genotypes. Investment alignment and total
+seed-mass normalization only slightly modify that
+leading result on average; they are mathematically
+necessary for exact equality at each individual parent,
+even when their averages are small.
+
+**Critical biological interpretation correction:**
+
+- There is **NO** direct nonlinear assurance-cost reproductive
+  seed-output effect here. The frozen prior_selfing config has
+  assurance_cost=0; viable self seeds are linear in assurance
+  phenotype at fixed investment.
+- The HIGH allele dosage b creates a quadratic product
+  when one asks how many high alleles are *transmitted*
+  through selfed seeds: the same parent produces s_i
+  seeds and each carries high alleles in expectation
+  proportionate to b_i.
+- For a two-individual LL+HH ↔ LH+LH replacement
+  that keeps the exact number of high allele copies
+  constant, **self viable seed MASS difference is zero
+  under equal investment weights**. Yet self transmitted
+  HIGH allele numerator differs by exactly a signed
+  1/4 factor times the common seed/investment weight.
+- At unequal investment costs, aligning the two edited
+  assurance classes with different investment genotypes
+  creates additional source self-seed mass and allele
+  numerator differences; some of those are canceled or
+  amplified by changed viable outcross seed masses
+  in the denominator.
+- These are mathematical source-mating/tranmission
+  identities relative to one specified genetic
+  reassignment sham, not experimentally identified
+  causes of natural plant heterozygote fitness.
+
+Importantly, the effect could be considered unsurprising
+given Mendelian genotype segregation and assurance-correlated
+selfing. It is **not standalone evidence of a novel
+stabilizing mechanism, real island adaptive evolution,
+pollinator replacement, or scientific feasibility of
+an SDE/SPDE approximation**. The former eight-generation
+terminal variance train/holdout sign instability remains
+unresolved. No independent visitor history or future
+confirmatory source cohort is newly analysed.
