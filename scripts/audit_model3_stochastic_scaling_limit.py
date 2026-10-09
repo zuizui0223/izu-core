@@ -277,15 +277,27 @@ def main()->None:
     parser.add_argument("--out",type=Path,required=True)
     parser.add_argument("--snapshot-index",type=int,default=VISITOR_SNAPSHOT_INDEX)
     parser.add_argument("--near-only",action="store_true")
+    parser.add_argument("--zero-visitors-counterexample",action="store_true")
     args=parser.parse_args()
-    data=scaling_screen(
-        snapshot_index=args.snapshot_index,
-        environments=("near",) if args.near_only else ("near","far")
-    )
+    data=(no_visitor_fast_time_counterexample()
+          if args.zero_visitors_counterexample else scaling_screen(
+              snapshot_index=args.snapshot_index,
+              environments=("near",) if args.near_only else ("near","far")
+          ))
     args.out.parent.mkdir(parents=True,exist_ok=True)
     args.out.write_text(json.dumps(
         data,indent=2,sort_keys=True,allow_nan=False
     )+"\n",encoding="utf-8")
+    if args.zero_visitors_counterexample:
+        print(json.dumps({
+            "status":data["status"],
+            "K":[r["K"] for r in data["rows"]],
+            "drift_l2":[r["drift_l2"] for r in data["rows"]],
+            "K_times_drift_l2":[r["K_times_drift_l2"] for r in data["rows"]],
+            "fast_time_dt_1_over_K_finite_drift_admissible":
+                data["continuous_time_finite_drift_SDE_limit_for_this_family_admissible"],
+        }))
+        return
     print(json.dumps({
         "status":data["status"],
         "snapshot_index":data["visitor_snapshot_index"],
