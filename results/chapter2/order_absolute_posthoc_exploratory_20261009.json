@@ -1,0 +1,1007 @@
+{
+  "status": "POST_OUTCOME_EXPLORATORY_NOT_PREREGISTERED_CONFIRMATION",
+  "prior_successful_run": 37862121201,
+  "source_commit_sha": "868164c24b6a6f17e7530941600fcb50e7281342",
+  "complete_source_groups": 2048,
+  "complete_future_branches": 57344,
+  "independent_visitor_histories": 64,
+  "historical_visit_history_range": [
+    38110901,
+    38110964
+  ],
+  "underlying_biological_protocol_sha256": "b6f6336875b04a131434ef35d6ec42b59dc14a1e4c59e7e4d6f2513e24a04fdd",
+  "independent_budget_protocol_sha256": "39918e4fe6650f99b0eac4372449509bdef45e58318dc760906d7a8ca3d9fe30",
+  "source_hashes": {
+    "data/design/chapter2_assurance_generality_20261006.json": "c050c94eb385a9ab6beb48388f5ec96177c0540e22da53924b02eca19b824119",
+    "data/results/chapter2_assurance_generality_20261006.json": "c0f21756ebc7b49bc41ed5196915a05e15a7c1f688c622714e22ad2407f77f6e",
+    "data/design/model3_ch2_bridge_20260927.json": "0ca971aa9a453ab00a6e36fa9f2a99df3b36a8b13cda1cb48ea420556d3ff18a",
+    "data/design/chapter2_order_expression_identification_20261008.json": "b6f6336875b04a131434ef35d6ec42b59dc14a1e4c59e7e4d6f2513e24a04fdd",
+    "scripts/plan_chapter2_order_expression_identification.py": "825436797d97e2262357b0da5ca2c17feafc3f375e7852753cc97470fe850ccc",
+    "scripts/chapter2_order_expression_phenotype.py": "7c14f6e7a83569bd13df58a9c5ea68e95ba937a5c2e1fdb4d76d6a379affa903",
+    "scripts/chapter2_order_expression_payoff.py": "113e759870f4e6387e821678066ac432423a9ceae8b3c66b2ec76acc20b2f59c",
+    "scripts/chapter2_order_expression_schedule.py": "84b104e01b33716e2d8062113eb4fded8681bd14a8c965547957ba42019925f8",
+    "scripts/chapter2_order_genetic_realization.py": "e81d7d5249816fa95bbaa91be0e8570d00b12f6308e56b38df75cfd30e5085ad",
+    "scripts/chapter2_order_prehistory_runner.py": "0dd60fc31f89b9b41aec3f8c1a6351f1cefb0413b061094b519114da7a9fb32b",
+    "scripts/chapter2_order_postshock_runner.py": "5f8abecc9458342b25340e339993a09ca5d1d764b3c60a1ad9652073067d7700",
+    "scripts/chapter2_order_confirmatory_readout.py": "620f277c30f6204af50299445d5cd8ffdf088a7f6b5b66d475f695aa52dfdc1c",
+    "scripts/run_chapter2_assurance_generality.py": "88e7aef1ee559885559e63b46d3dcb76808981d7a787440693f836f3fafea924",
+    "scripts/run_model3_persistent_isolation.py": "d573ffa85b7a1fef3f4619862cf00ab40cfc465d3ba4563df6504e0eea968e6e",
+    "scripts/model3_island/reproduction.py": "885957edb8a165ee8528781ed1d2574c44143c608496b505f9663cbfac2c4081",
+    "scripts/model3_island/population.py": "c959d18816da6666dbfb4e91bd9582c94af5453b25498d033f5747305b05fe0f",
+    "scripts/model3_island/types.py": "a572e1e7f4fded181585871a63582b16f40292bd07b13e8efc9d6b6234eb21c5",
+    "scripts/model3_island/randomness.py": "63522ae3c5ff8e11f114b5649a989945fa4ba2480fdca0f74857601b0e4b211f",
+    "scripts/model3_island/selection.py": "fc2d7354aadbf293c84c7ecab5c1d5b20cd702f850081e2d2d1df35539e32f5e",
+    "scripts/model3_island/history.py": "28d22c7fde81d9be6a604fa9dd4cb6b48d78d388d4db85f798a935cf81415488",
+    "scripts/model3_island/run.py": "094f8ed635f13b3ff5809b721f1d11f78f89d7cc414f503805b007e436878743"
+  },
+  "bootstrap": {
+    "unit": "visitor_history",
+    "n": 64,
+    "draws": 9999,
+    "seed": 2026100917
+  },
+  "regimes": {
+    "unbottlenecked_capacity48": {
+      "absolute_A_minus_I_near": {
+        "mean": 0.013117673787860065,
+        "bootstrap95": [
+          0.006341230527738741,
+          0.020062868398261432
+        ],
+        "n_positive_histories": 45,
+        "n_negative_histories": 19,
+        "n_zero_histories": 0
+      },
+      "absolute_A_minus_I_far": {
+        "mean": 0.005357200562952561,
+        "bootstrap95": [
+          0.002443525832017005,
+          0.008567898707649001
+        ],
+        "n_positive_histories": 36,
+        "n_negative_histories": 12,
+        "n_zero_histories": 16
+      },
+      "common_absolute_A_minus_I": {
+        "mean": 0.009237437175406312,
+        "bootstrap95": [
+          0.0054521430035750626,
+          0.013210744460618769
+        ],
+        "n_positive_histories": 47,
+        "n_negative_histories": 16,
+        "n_zero_histories": 1
+      },
+      "far_minus_near_DID": {
+        "mean": -0.0077604732249075044,
+        "bootstrap95": [
+          -0.015017209457375271,
+          -0.0005137811241615026
+        ],
+        "n_positive_histories": 21,
+        "n_negative_histories": 41,
+        "n_zero_histories": 2
+      },
+      "setting_diagnostics": {
+        "delayed_control": {
+          "near": {
+            "mean": 0.011114083773379808,
+            "bootstrap95": [
+              -0.0025906821155551765,
+              0.02435001142374221
+            ],
+            "n_positive_histories": 31,
+            "n_negative_histories": 23,
+            "n_zero_histories": 10
+          },
+          "far": {
+            "mean": 0.009517506394692222,
+            "bootstrap95": [
+              0.0011704665973054588,
+              0.01846495311632845
+            ],
+            "n_positive_histories": 19,
+            "n_negative_histories": 9,
+            "n_zero_histories": 36
+          },
+          "far_minus_near_DID": {
+            "mean": -0.0015965773786875857,
+            "bootstrap95": [
+              -0.017605960990502708,
+              0.014258583754738468
+            ],
+            "n_positive_histories": 28,
+            "n_negative_histories": 25,
+            "n_zero_histories": 11
+          }
+        },
+        "prior_selfing": {
+          "near": {
+            "mean": 0.014677194184108185,
+            "bootstrap95": [
+              0.005242658981526467,
+              0.023826103165634653
+            ],
+            "n_positive_histories": 26,
+            "n_negative_histories": 8,
+            "n_zero_histories": 30
+          },
+          "far": {
+            "mean": 0.004191876221055252,
+            "bootstrap95": [
+              -0.001262188721055252,
+              0.009848596192110504
+            ],
+            "n_positive_histories": 8,
+            "n_negative_histories": 4,
+            "n_zero_histories": 52
+          },
+          "far_minus_near_DID": {
+            "mean": -0.010485317963052933,
+            "bootstrap95": [
+              -0.02072251732079809,
+              -2.8319137526227376e-05
+            ],
+            "n_positive_histories": 8,
+            "n_negative_histories": 24,
+            "n_zero_histories": 32
+          }
+        },
+        "pollen_discount": {
+          "near": {
+            "mean": 0.01637344964716112,
+            "bootstrap95": [
+              0.0036935711482212583,
+              0.029532858464461683
+            ],
+            "n_positive_histories": 25,
+            "n_negative_histories": 14,
+            "n_zero_histories": 25
+          },
+          "far": {
+            "mean": 0.002810003663165756,
+            "bootstrap95": [
+              -0.001953125,
+              0.007941729739497267
+            ],
+            "n_positive_histories": 7,
+            "n_negative_histories": 4,
+            "n_zero_histories": 53
+          },
+          "far_minus_near_DID": {
+            "mean": -0.013563445983995365,
+            "bootstrap95": [
+              -0.027875653967274303,
+              5.465205458427487e-05
+            ],
+            "n_positive_histories": 20,
+            "n_negative_histories": 26,
+            "n_zero_histories": 18
+          }
+        },
+        "assurance_cost": {
+          "near": {
+            "mean": 0.010305967546791141,
+            "bootstrap95": [
+              -0.002878771852211746,
+              0.023387730001214618
+            ],
+            "n_positive_histories": 32,
+            "n_negative_histories": 23,
+            "n_zero_histories": 9
+          },
+          "far": {
+            "mean": 0.00490941597289701,
+            "bootstrap95": [
+              -0.0012079742130529322,
+              0.011026806158846955
+            ],
+            "n_positive_histories": 21,
+            "n_negative_histories": 14,
+            "n_zero_histories": 29
+          },
+          "far_minus_near_DID": {
+            "mean": -0.00539655157389413,
+            "bootstrap95": [
+              -0.020202388573012126,
+              0.00943352764037343
+            ],
+            "n_positive_histories": 26,
+            "n_negative_histories": 30,
+            "n_zero_histories": 8
+          }
+        }
+      },
+      "budget_diagnostics": {
+        "0.5": {
+          "near": {
+            "mean": 0.0,
+            "bootstrap95": [
+              0.0,
+              0.0
+            ],
+            "n_positive_histories": 0,
+            "n_negative_histories": 0,
+            "n_zero_histories": 64
+          },
+          "far": {
+            "mean": 0.0,
+            "bootstrap95": [
+              0.0,
+              0.0
+            ],
+            "n_positive_histories": 0,
+            "n_negative_histories": 0,
+            "n_zero_histories": 64
+          },
+          "pooled": {
+            "mean": 0.0,
+            "bootstrap95": [
+              0.0,
+              0.0
+            ],
+            "n_positive_histories": 0,
+            "n_negative_histories": 0,
+            "n_zero_histories": 64
+          },
+          "mean_occupancy": {
+            "near": {
+              "assurance_first": 0.0,
+              "investment_first": 0.0
+            },
+            "far": {
+              "assurance_first": 0.0,
+              "investment_first": 0.0
+            }
+          }
+        },
+        "1": {
+          "near": {
+            "mean": 0.0,
+            "bootstrap95": [
+              0.0,
+              0.0
+            ],
+            "n_positive_histories": 0,
+            "n_negative_histories": 0,
+            "n_zero_histories": 64
+          },
+          "far": {
+            "mean": 0.0,
+            "bootstrap95": [
+              0.0,
+              0.0
+            ],
+            "n_positive_histories": 0,
+            "n_negative_histories": 0,
+            "n_zero_histories": 64
+          },
+          "pooled": {
+            "mean": 0.0,
+            "bootstrap95": [
+              0.0,
+              0.0
+            ],
+            "n_positive_histories": 0,
+            "n_negative_histories": 0,
+            "n_zero_histories": 64
+          },
+          "mean_occupancy": {
+            "near": {
+              "assurance_first": 0.0,
+              "investment_first": 0.0
+            },
+            "far": {
+              "assurance_first": 0.0,
+              "investment_first": 0.0
+            }
+          }
+        },
+        "2": {
+          "near": {
+            "mean": 0.005859375,
+            "bootstrap95": [
+              0.0,
+              0.0126953125
+            ],
+            "n_positive_histories": 7,
+            "n_negative_histories": 2,
+            "n_zero_histories": 55
+          },
+          "far": {
+            "mean": 0.0068359375,
+            "bootstrap95": [
+              -0.001953125,
+              0.015625
+            ],
+            "n_positive_histories": 11,
+            "n_negative_histories": 6,
+            "n_zero_histories": 47
+          },
+          "pooled": {
+            "mean": 0.00634765625,
+            "bootstrap95": [
+              0.0009765625,
+              0.01220703125
+            ],
+            "n_positive_histories": 14,
+            "n_negative_histories": 6,
+            "n_zero_histories": 44
+          },
+          "mean_occupancy": {
+            "near": {
+              "assurance_first": 0.0087890625,
+              "investment_first": 0.0029296875
+            },
+            "far": {
+              "assurance_first": 0.0224609375,
+              "investment_first": 0.015625
+            }
+          }
+        },
+        "3": {
+          "near": {
+            "mean": 0.0634765625,
+            "bootstrap95": [
+              0.0234375,
+              0.1044921875
+            ],
+            "n_positive_histories": 32,
+            "n_negative_histories": 19,
+            "n_zero_histories": 13
+          },
+          "far": {
+            "mean": 0.0205078125,
+            "bootstrap95": [
+              0.005859375,
+              0.0361328125
+            ],
+            "n_positive_histories": 18,
+            "n_negative_histories": 7,
+            "n_zero_histories": 39
+          },
+          "pooled": {
+            "mean": 0.0419921875,
+            "bootstrap95": [
+              0.0205078125,
+              0.06396484375
+            ],
+            "n_positive_histories": 35,
+            "n_negative_histories": 17,
+            "n_zero_histories": 12
+          },
+          "mean_occupancy": {
+            "near": {
+              "assurance_first": 0.5888671875,
+              "investment_first": 0.525390625
+            },
+            "far": {
+              "assurance_first": 0.7333984375,
+              "investment_first": 0.712890625
+            }
+          }
+        },
+        "4": {
+          "near": {
+            "mean": 0.0224609375,
+            "bootstrap95": [
+              -0.0029296875,
+              0.048828125
+            ],
+            "n_positive_histories": 28,
+            "n_negative_histories": 19,
+            "n_zero_histories": 17
+          },
+          "far": {
+            "mean": 0.015625,
+            "bootstrap95": [
+              -0.0009765625,
+              0.0322265625
+            ],
+            "n_positive_histories": 21,
+            "n_negative_histories": 12,
+            "n_zero_histories": 31
+          },
+          "pooled": {
+            "mean": 0.01904296875,
+            "bootstrap95": [
+              0.00390625,
+              0.0341796875
+            ],
+            "n_positive_histories": 30,
+            "n_negative_histories": 18,
+            "n_zero_histories": 16
+          },
+          "mean_occupancy": {
+            "near": {
+              "assurance_first": 0.8564453125,
+              "investment_first": 0.833984375
+            },
+            "far": {
+              "assurance_first": 0.9755859375,
+              "investment_first": 0.9599609375
+            }
+          }
+        },
+        "5": {
+          "near": {
+            "mean": 0.015625,
+            "bootstrap95": [
+              0.001953125,
+              0.0302734375
+            ],
+            "n_positive_histories": 23,
+            "n_negative_histories": 11,
+            "n_zero_histories": 30
+          },
+          "far": {
+            "mean": 0.0,
+            "bootstrap95": [
+              0.0,
+              0.0
+            ],
+            "n_positive_histories": 0,
+            "n_negative_histories": 0,
+            "n_zero_histories": 64
+          },
+          "pooled": {
+            "mean": 0.0078125,
+            "bootstrap95": [
+              0.0009765625,
+              0.01513671875
+            ],
+            "n_positive_histories": 23,
+            "n_negative_histories": 11,
+            "n_zero_histories": 30
+          },
+          "mean_occupancy": {
+            "near": {
+              "assurance_first": 0.9755859375,
+              "investment_first": 0.9599609375
+            },
+            "far": {
+              "assurance_first": 1.0,
+              "investment_first": 1.0
+            }
+          }
+        },
+        "8": {
+          "near": {
+            "mean": 0.0,
+            "bootstrap95": [
+              0.0,
+              0.0
+            ],
+            "n_positive_histories": 0,
+            "n_negative_histories": 0,
+            "n_zero_histories": 64
+          },
+          "far": {
+            "mean": 0.0,
+            "bootstrap95": [
+              0.0,
+              0.0
+            ],
+            "n_positive_histories": 0,
+            "n_negative_histories": 0,
+            "n_zero_histories": 64
+          },
+          "pooled": {
+            "mean": 0.0,
+            "bootstrap95": [
+              0.0,
+              0.0
+            ],
+            "n_positive_histories": 0,
+            "n_negative_histories": 0,
+            "n_zero_histories": 64
+          },
+          "mean_occupancy": {
+            "near": {
+              "assurance_first": 1.0,
+              "investment_first": 1.0
+            },
+            "far": {
+              "assurance_first": 1.0,
+              "investment_first": 1.0
+            }
+          }
+        }
+      },
+      "budget_weights": {
+        "0.5": 0.125,
+        "1": 0.25,
+        "2": 0.19812031259014454,
+        "3": 0.125,
+        "4": 0.09212069927077574,
+        "5": 0.12499999999999999,
+        "8": 0.0847589881390797
+      }
+    },
+    "eight_founders_capacity8": {
+      "absolute_A_minus_I_near": {
+        "mean": 0.0165595731228406,
+        "bootstrap95": [
+          0.007093183107889843,
+          0.026390708555394642
+        ],
+        "n_positive_histories": 39,
+        "n_negative_histories": 24,
+        "n_zero_histories": 1
+      },
+      "absolute_A_minus_I_far": {
+        "mean": 0.007619847847289699,
+        "bootstrap95": [
+          0.002679182419026467,
+          0.012734072060342633
+        ],
+        "n_positive_histories": 41,
+        "n_negative_histories": 21,
+        "n_zero_histories": 2
+      },
+      "common_absolute_A_minus_I": {
+        "mean": 0.012089710485065148,
+        "bootstrap95": [
+          0.006755187526182921,
+          0.017459067262455268
+        ],
+        "n_positive_histories": 43,
+        "n_negative_histories": 21,
+        "n_zero_histories": 0
+      },
+      "far_minus_near_DID": {
+        "mean": -0.008939725275550902,
+        "bootstrap95": [
+          -0.020098391349743498,
+          0.0020492208005951293
+        ],
+        "n_positive_histories": 33,
+        "n_negative_histories": 30,
+        "n_zero_histories": 1
+      },
+      "setting_diagnostics": {
+        "delayed_control": {
+          "near": {
+            "mean": 0.015523168704423482,
+            "bootstrap95": [
+              -0.0030326644445794007,
+              0.03431168645767398
+            ],
+            "n_positive_histories": 37,
+            "n_negative_histories": 23,
+            "n_zero_histories": 4
+          },
+          "far": {
+            "mean": 0.006425175370685271,
+            "bootstrap95": [
+              -0.003674838286947063,
+              0.01686085057714463
+            ],
+            "n_positive_histories": 23,
+            "n_negative_histories": 23,
+            "n_zero_histories": 18
+          },
+          "far_minus_near_DID": {
+            "mean": -0.00909799333373821,
+            "bootstrap95": [
+              -0.029118670232741093,
+              0.010846310093582282
+            ],
+            "n_positive_histories": 27,
+            "n_negative_histories": 34,
+            "n_zero_histories": 3
+          }
+        },
+        "prior_selfing": {
+          "near": {
+            "mean": 0.02081788898274109,
+            "bootstrap95": [
+              0.005987682526281701,
+              0.035621364724111634
+            ],
+            "n_positive_histories": 34,
+            "n_negative_histories": 18,
+            "n_zero_histories": 12
+          },
+          "far": {
+            "mean": 0.0148543913891588,
+            "bootstrap95": [
+              0.004754377731526465,
+              0.0248259702783176
+            ],
+            "n_positive_histories": 32,
+            "n_negative_histories": 15,
+            "n_zero_histories": 17
+          },
+          "far_minus_near_DID": {
+            "mean": -0.005963497593582287,
+            "bootstrap95": [
+              -0.02238576695977064,
+              0.01043325666626179
+            ],
+            "n_positive_histories": 25,
+            "n_negative_histories": 31,
+            "n_zero_histories": 8
+          }
+        },
+        "pollen_discount": {
+          "near": {
+            "mean": 0.018270206927947626,
+            "bootstrap95": [
+              0.0015423628706852676,
+              0.03530708947950874
+            ],
+            "n_positive_histories": 36,
+            "n_negative_histories": 22,
+            "n_zero_histories": 6
+          },
+          "far": {
+            "mean": 0.006244679305420596,
+            "bootstrap95": [
+              -0.0038807921761058687,
+              0.016705812335774086
+            ],
+            "n_positive_histories": 26,
+            "n_negative_histories": 22,
+            "n_zero_histories": 16
+          },
+          "far_minus_near_DID": {
+            "mean": -0.012025527622527028,
+            "bootstrap95": [
+              -0.03180852497407027,
+              0.007118429803851909
+            ],
+            "n_positive_histories": 26,
+            "n_negative_histories": 33,
+            "n_zero_histories": 5
+          }
+        },
+        "assurance_cost": {
+          "near": {
+            "mean": 0.011627027876250206,
+            "bootstrap95": [
+              -0.0012290077915656445,
+              0.024308409976756942
+            ],
+            "n_positive_histories": 30,
+            "n_negative_histories": 16,
+            "n_zero_histories": 18
+          },
+          "far": {
+            "mean": 0.0029551453238941287,
+            "bootstrap95": [
+              -0.006759564028317611,
+              0.013235655046791146
+            ],
+            "n_positive_histories": 20,
+            "n_negative_histories": 24,
+            "n_zero_histories": 20
+          },
+          "far_minus_near_DID": {
+            "mean": -0.008671882552356076,
+            "bootstrap95": [
+              -0.02669190515742539,
+              0.009440424820588905
+            ],
+            "n_positive_histories": 22,
+            "n_negative_histories": 36,
+            "n_zero_histories": 6
+          }
+        }
+      },
+      "budget_diagnostics": {
+        "0.5": {
+          "near": {
+            "mean": 0.0,
+            "bootstrap95": [
+              0.0,
+              0.0
+            ],
+            "n_positive_histories": 0,
+            "n_negative_histories": 0,
+            "n_zero_histories": 64
+          },
+          "far": {
+            "mean": 0.0,
+            "bootstrap95": [
+              0.0,
+              0.0
+            ],
+            "n_positive_histories": 0,
+            "n_negative_histories": 0,
+            "n_zero_histories": 64
+          },
+          "pooled": {
+            "mean": 0.0,
+            "bootstrap95": [
+              0.0,
+              0.0
+            ],
+            "n_positive_histories": 0,
+            "n_negative_histories": 0,
+            "n_zero_histories": 64
+          },
+          "mean_occupancy": {
+            "near": {
+              "assurance_first": 0.0,
+              "investment_first": 0.0
+            },
+            "far": {
+              "assurance_first": 0.0,
+              "investment_first": 0.0
+            }
+          }
+        },
+        "1": {
+          "near": {
+            "mean": 0.0,
+            "bootstrap95": [
+              0.0,
+              0.0
+            ],
+            "n_positive_histories": 0,
+            "n_negative_histories": 0,
+            "n_zero_histories": 64
+          },
+          "far": {
+            "mean": 0.0,
+            "bootstrap95": [
+              0.0,
+              0.0
+            ],
+            "n_positive_histories": 0,
+            "n_negative_histories": 0,
+            "n_zero_histories": 64
+          },
+          "pooled": {
+            "mean": 0.0,
+            "bootstrap95": [
+              0.0,
+              0.0
+            ],
+            "n_positive_histories": 0,
+            "n_negative_histories": 0,
+            "n_zero_histories": 64
+          },
+          "mean_occupancy": {
+            "near": {
+              "assurance_first": 0.0,
+              "investment_first": 0.0
+            },
+            "far": {
+              "assurance_first": 0.0,
+              "investment_first": 0.0
+            }
+          }
+        },
+        "2": {
+          "near": {
+            "mean": 0.0,
+            "bootstrap95": [
+              0.0,
+              0.0
+            ],
+            "n_positive_histories": 0,
+            "n_negative_histories": 0,
+            "n_zero_histories": 64
+          },
+          "far": {
+            "mean": 0.0,
+            "bootstrap95": [
+              0.0,
+              0.0
+            ],
+            "n_positive_histories": 0,
+            "n_negative_histories": 0,
+            "n_zero_histories": 64
+          },
+          "pooled": {
+            "mean": 0.0,
+            "bootstrap95": [
+              0.0,
+              0.0
+            ],
+            "n_positive_histories": 0,
+            "n_negative_histories": 0,
+            "n_zero_histories": 64
+          },
+          "mean_occupancy": {
+            "near": {
+              "assurance_first": 0.0,
+              "investment_first": 0.0
+            },
+            "far": {
+              "assurance_first": 0.0,
+              "investment_first": 0.0
+            }
+          }
+        },
+        "3": {
+          "near": {
+            "mean": 0.0458984375,
+            "bootstrap95": [
+              0.0078125,
+              0.0859375
+            ],
+            "n_positive_histories": 32,
+            "n_negative_histories": 22,
+            "n_zero_histories": 10
+          },
+          "far": {
+            "mean": 0.048828125,
+            "bootstrap95": [
+              0.015625,
+              0.0810546875
+            ],
+            "n_positive_histories": 37,
+            "n_negative_histories": 14,
+            "n_zero_histories": 13
+          },
+          "pooled": {
+            "mean": 0.04736328125,
+            "bootstrap95": [
+              0.02097167968750001,
+              0.07470703125
+            ],
+            "n_positive_histories": 40,
+            "n_negative_histories": 16,
+            "n_zero_histories": 8
+          },
+          "mean_occupancy": {
+            "near": {
+              "assurance_first": 0.2138671875,
+              "investment_first": 0.16796875
+            },
+            "far": {
+              "assurance_first": 0.396484375,
+              "investment_first": 0.34765625
+            }
+          }
+        },
+        "4": {
+          "near": {
+            "mean": 0.068359375,
+            "bootstrap95": [
+              0.0302734375,
+              0.107421875
+            ],
+            "n_positive_histories": 31,
+            "n_negative_histories": 18,
+            "n_zero_histories": 15
+          },
+          "far": {
+            "mean": 0.005859375,
+            "bootstrap95": [
+              -0.0166015625,
+              0.02734375
+            ],
+            "n_positive_histories": 22,
+            "n_negative_histories": 21,
+            "n_zero_histories": 21
+          },
+          "pooled": {
+            "mean": 0.037109375,
+            "bootstrap95": [
+              0.01611328125,
+              0.05810546875
+            ],
+            "n_positive_histories": 35,
+            "n_negative_histories": 14,
+            "n_zero_histories": 15
+          },
+          "mean_occupancy": {
+            "near": {
+              "assurance_first": 0.6328125,
+              "investment_first": 0.564453125
+            },
+            "far": {
+              "assurance_first": 0.751953125,
+              "investment_first": 0.74609375
+            }
+          }
+        },
+        "5": {
+          "near": {
+            "mean": 0.0322265625,
+            "bootstrap95": [
+              0.0009765625,
+              0.0634765625
+            ],
+            "n_positive_histories": 31,
+            "n_negative_histories": 15,
+            "n_zero_histories": 18
+          },
+          "far": {
+            "mean": 0.0078125,
+            "bootstrap95": [
+              -0.0078125,
+              0.025390625
+            ],
+            "n_positive_histories": 17,
+            "n_negative_histories": 18,
+            "n_zero_histories": 29
+          },
+          "pooled": {
+            "mean": 0.02001953125,
+            "bootstrap95": [
+              0.00341796875,
+              0.0361328125
+            ],
+            "n_positive_histories": 35,
+            "n_negative_histories": 16,
+            "n_zero_histories": 13
+          },
+          "mean_occupancy": {
+            "near": {
+              "assurance_first": 0.833984375,
+              "investment_first": 0.8017578125
+            },
+            "far": {
+              "assurance_first": 0.9375,
+              "investment_first": 0.9296875
+            }
+          }
+        },
+        "8": {
+          "near": {
+            "mean": 0.005859375,
+            "bootstrap95": [
+              -0.0009765625,
+              0.013671875
+            ],
+            "n_positive_histories": 9,
+            "n_negative_histories": 4,
+            "n_zero_histories": 51
+          },
+          "far": {
+            "mean": 0.0,
+            "bootstrap95": [
+              0.0,
+              0.0
+            ],
+            "n_positive_histories": 0,
+            "n_negative_histories": 0,
+            "n_zero_histories": 64
+          },
+          "pooled": {
+            "mean": 0.0029296875,
+            "bootstrap95": [
+              -0.00048828125,
+              0.0068359375
+            ],
+            "n_positive_histories": 9,
+            "n_negative_histories": 4,
+            "n_zero_histories": 51
+          },
+          "mean_occupancy": {
+            "near": {
+              "assurance_first": 0.9951171875,
+              "investment_first": 0.9892578125
+            },
+            "far": {
+              "assurance_first": 1.0,
+              "investment_first": 1.0
+            }
+          }
+        }
+      },
+      "budget_weights": {
+        "0.5": 0.125,
+        "1": 0.25,
+        "2": 0.19812031259014454,
+        "3": 0.125,
+        "4": 0.09212069927077574,
+        "5": 0.12499999999999999,
+        "8": 0.0847589881390797
+      }
+    }
+  },
+  "interpretation_limits": [
+    "All absolute and DID comparisons are post-outcome secondary exploration, not a new frozen confirmation.",
+    "Bootstrap uses 64 paired independent visitor histories; 57344 futures are nested branches, not independent units.",
+    "A positive absolute effect does not imply a negative/positive far-near interaction or natural adaptation rescue.",
+    "No causal effect of spontaneously realized genetic order is identified.",
+    "Resource-budget differences on the survival-probability scale can arise from demographic floor/ceiling effects.",
+    "Original full-grid pooled equivalence and failed fixed 3/4 window confirmation remain unchanged."
+  ]
+}
