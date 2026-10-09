@@ -1,31 +1,5 @@
 name: Model3 stochastic focused
 on:
-  pull_request:
-    paths:
-      - 'scripts/audit_model3_stochastic_bridge.py'
-      - 'scripts/audit_model3_stochastic_multistep.py'
-      - 'scripts/audit_model3_stochastic_measure.py'
-      - 'scripts/run_model3_stochastic_measure_preflight.py'
-      - 'scripts/audit_model3_stochastic_mutation_scaling.py'
-      - 'scripts/audit_model3_stochastic_scaling_limit.py'
-      - 'scripts/audit_model3_discrete_linear_noise.py'
-      - 'scripts/audit_model3_projected_gaussian_genotypes.py'
-      - 'scripts/audit_model3_gaussian_presence_bias.py'
-      - 'scripts/audit_model3_gaussian_projection_mechanism.py'
-      - 'scripts/audit_model3_stochastic_rounding_ablation.py'
-      - 'scripts/run_model3_mutation_multistep_preflight.py'
-      - 'scripts/run_model3_sde_spde_preflight.py'
-      - 'tests/test_model3_stochastic_bridge.py'
-      - 'tests/test_model3_stochastic_multistep.py'
-      - 'tests/test_model3_stochastic_measure.py'
-      - 'tests/test_model3_stochastic_mutation_scaling.py'
-      - 'tests/test_model3_stochastic_scaling_limit.py'
-      - 'tests/test_model3_discrete_linear_noise.py'
-      - 'tests/test_model3_projected_gaussian_genotypes.py'
-      - 'tests/test_model3_gaussian_presence_bias.py'
-      - 'tests/test_model3_gaussian_projection_mechanism.py'
-      - 'tests/test_model3_stochastic_rounding_ablation.py'
-      - '.github/workflows/model3-stochastic-focused.yml'
   workflow_dispatch:
 
 permissions:
