@@ -82,6 +82,16 @@
         0.061461,
         0.032125,
         0.001591
+      ],
+      "initial_high_allele_frequencies": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "final_surviving_high_allele_frequency_means": [
+        0.37811279296875,
+        0.19512939453125,
+        0.977569580078125
       ]
     },
     {
@@ -132,6 +142,16 @@
         0.10081,
         0.050117,
         0.001526
+      ],
+      "initial_high_allele_frequencies": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "final_surviving_high_allele_frequency_means": [
+        0.4156687906682608,
+        0.17129168332378766,
+        0.9879033506050997
       ]
     }
   ],
@@ -141,6 +161,7 @@
     "Sampling residual has zero conditional mean for offspring genotype frequency given parent state and realized positive offspring census, but selection through survival conditioning may shift observed averages.",
     "Negative cross-component covariance is descriptive stabilizing compensation within this Model3 simulation, not demonstrated biological canalization in nature.",
     "One old visitor history with nested demographic draws does not represent independent ecosystems.",
-    "Mutation, survival and immigration were disabled by the restricted engineering assay; no full SDE/SPDE admitted."
+    "Mutation, survival and immigration were disabled by the restricted engineering assay; no full SDE/SPDE admitted.",
+    "Assurance high-allele frequency approaches its mathematical ceiling 1 (0.97757 at budget8, 0.98790 at budget3); this bound can mechanically contribute to strong negative covariance and must not be interpreted as demonstrated stabilizing selection."
   ]
 }
