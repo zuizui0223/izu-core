@@ -573,3 +573,43 @@ This follow-up is explicitly **post-outcome exploratory**, uses no new
 independent visitor histories, makes no decision based on whether the
 sum becomes smaller or bigger, and cannot override the observed
 source-model Gaussian-closure failure or license an SDE/SPDE.
+
+
+### Verified post-outcome clipping/rounding decomposition
+
+The exploratory paired source-controlled diagnostic passed focused CI
+[#37868625529](https://github.com/zuizui0223/izu-core/actions/runs/37868625529)
+on executed source `dea87b480c7abac2144127247008bd01a4714b67`.
+The result and the exploratory status are archived at
+[`data/results/model3_gaussian_projection_decomposition_20261009.json`](../data/results/model3_gaussian_projection_decomposition_20261009.json).
+
+| K | Baseline exact expected richness | Shift due to Gaussian + clipping/normalization before integerization | Additional shift from deterministic largest-remainder integerization | Net shift |
+|---:|---:|---:|---:|---:|
+| 8 | 6.10638 | −0.43297 | +1.32831 | +0.89533 |
+| 32 | 13.82804 | −1.22771 | +2.58546 | +1.35775 |
+| 128 | 22.07253 | −1.81729 | +2.31044 | +0.49315 |
+
+The fraction of Gaussian pseudo-count realizations containing at least
+one **negative pre-projection genotype count** was 1.0000, 0.9990, and
+0.9175 for K=8,32,128, respectively. Those are the fixed 27-class
+engineered allele-support results, not an assertion about all
+genotype distributions.
+
+**Interpretation:** Before deterministic integerization, clipping/
+renormalizing Gaussian pseudo-counts predicts **fewer** classes than
+the exact finite multinomial kernel when richness is calculated by
+analytically integrating an exact multinomial draw conditional on the
+clipped probabilities. The fixed largest-remainder rule then shifts
+richness **upwards** even more strongly, yielding the observed net
+overestimate. Thus both continuous approximation and implementation
+of the integer census matter. This attribution applies to the
+**specific implemented projected Gaussian candidate**, not all
+Gaussian/CLT methods.
+
+As this was analyzed **after observing the positive one-step richness
+bias**, the decomposition has exploratory explanatory value only,
+not a new confirmatory claim or justification for substituting a
+new integerization rule after inspecting results. We retain the
+**exact discrete finite-genotype Markov transition** as the
+authoritative Model 3 stochastic reference; no full SPDE, canonical
+biology source change, or geographic INLA analysis is implied.
