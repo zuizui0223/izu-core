@@ -45,6 +45,16 @@ Within-condition sensitivities: K8/B48 **+0.0099771962**, K48/B48 **+0.002231482
 
 **Empirical transport remains open:** all positive evidence is from the same explicit synthetic model architecture, not replicated across independent model families or observed natural population evolution. A nature-facing paper needs measured pollinator replenishment, seed-source mating route, demographic bottlenecks and inherited phenotype transitions in corresponding real systems.
 
+## Post-2026-10-09 completion: timing test, cross-cohort direction and raw backup
+
+After the original confirmed fixed-B48 K experiment, an independently preregistered new-history **early-versus-late postzygotic seed-viability experiment** (merged [PR #448](https://github.com/zuizui0223/izu-core/pull/448)) completed all **64 histories, 2,048 t400 sources and 229,376 80-update future trajectories**. Its *actual registered primary* for late-minus-early capacity moderation was **`inconclusive`**, −0.0029649032, history bootstrap95 [−0.0072632191,+0.0013173206]. Do not reinterpret the timing contrast as equivalent or positive.
+
+A new **read-only, post-outcome** comparison of three distinct, fully archived K-at-B48 contrasts appears in [`CHAPTER2_K_B48_THREE_COHORT_EVIDENCE_COMPARISON_20261010.md`](CHAPTER2_K_B48_THREE_COHORT_EVIDENCE_COMPARISON_20261010.md), with machine summary `results/chapter2/k_at_B48_three_independent_cohorts_posthoc_20261010.json`. The values are **+0.0134300**, **+0.0077457**, **+0.0085803**, all positive but ranked **descriptive secondary / preregistered supported primary / descriptive secondary**. Their directional concordance across disjoint visitor-history cohorts in **one model family** is informative; it is **not three confirmatory studies, a pooled P-value, or proof of general ecology**.
+
+All original source/future artifact ZIPs from **four independent cohorts** (521 original Actions ZIPs) have additionally been saved with checksum verification in four **unpublished GitHub draft Releases** (merged [PR #449](https://github.com/zuizui0223/izu-core/pull/449)); an independent external research-data repository, DOI and external re-download remain outstanding under [Issue #436](https://github.com/zuizui0223/izu-core/issues/436). No new biological futures were produced by the cross-cohort comparison.
+
+The publication route is **unchanged**: four-setting floral-investment divergence/compression for the main Ecology Letters manuscript; bounded K-dependent occupancy/viability-sensitivity as a mechanistic companion.
+
 ## Immediate next work, not another outcome-dependent seed search
 
 - Confirm the final scientific result's exact provenance and keep the earlier null/equivalent/inconclusive outcomes frozen as archived.
