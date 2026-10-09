@@ -402,3 +402,61 @@ the conservative theoretical bound. It is not an autonomous temporal SDE,
 not a closure for changing 3-locus genotypes, not a justified SPDE, and does
 not capture rare genotype loss or absorbing whole-population extinction.
 The true genetic Markov measure is still the reference, especially at K=8.
+
+
+## Full joint-diploid stochastic distribution versus projected Gaussian closure (2026-10-09)
+
+The previous finite-offspring investment CLT quantified the one-step CDF
+approximation for **one mean trait**, conditional on an exact offspring census,
+using a fixed parental population. It does not guarantee that an approximate
+full-genotype transition can be iterated. This next audit therefore compares
+a **complete three-locus finite genotype-count Markov chain** against an
+explicit, intentionally approximate **projected Gaussian genotype-count
+chain**, both with their own state and the **same canonical Model 3
+sexual-reproduction/payoff operator** at each update.
+
+For each complete diploid genotype-frequency law `q` and sampled next
+census `N`, the candidate first draws a tangent-space Gaussian frequency
+shock with exact pre-projection conditional count covariance
+`N * (diag(q)-q qT)`:
+
+```text
+Z_g ~ iid N(0,1)
+eps_g = sqrt(N*q_g)*Z_g - q_g*sum_h sqrt(N*q_h)*Z_h
+C*_g = N*q_g + eps_g
+```
+
+These signed, real-valued counts satisfy `sum eps=0` but can be
+**negative**. The implementation then clips negative counts, projects to
+the simplex with total census `N`, and deterministically converts the
+result to integers using largest remainders. This preserves
+nonnegativity/integer census but **does not preserve the exact multinomial
+offspring law, nor its moments after projection**. We explicitly record
+rather than conceal the fidelity effects of this step.
+
+The finite exact comparator uses `genotype_count_markov_step()` on the
+same fully joint diploid genotype grid with no linkage equilibrium
+approximation, using categorical Mendelian offspring and direct multinomial
+sampling. This engineering test uses a small exact two-allele-per-locus
+genotype support (27 joint diploid genotype classes), 4 engineered parents
+and 2 fixed visitor types, capacity `K=8` or `32`, and no mutation,
+adult carryover or plant immigration. The source no-mutation baseline is a
+**deliberate restriction**; this Gaussian closure does NOT produce novel
+allele values and must not be proposed as a replacement for mutation-enabled
+Model 3. The exact measure-valued Markov process remains the appropriate
+reference for new mutant support and absorbing extinction.
+
+`scripts/audit_model3_projected_gaussian_genotypes.py` runs independent
+finite stochastic cohorts for 3 and 8 generations. Diagnostics include
+unconditional occupancy, census mean, mean joint-genotype class count,
+per-class expected counts and occupied 3-trait means. It also tests exact
+versus Gaussian-projected **rare-class absence** at `N=8` with
+`q=0.001` and `q=0.02` to reveal boundary/rounding errors that a
+single-trait central limit theorem misses.
+
+*Gate:* This is a measurement of **actual approximation error**, not a
+success-or-failure tuning exercise. No numerical threshold is chosen
+after the outcome to accept the projected Gaussian as a valid stochastic
+SPDE. The run may indicate that the smooth approximation is unsuitable at
+small N or over multiple generations. No geography, INLA, natural-island
+calibration or independent ecological histories are involved.
