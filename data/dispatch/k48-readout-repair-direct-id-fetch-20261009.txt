@@ -1,0 +1,5 @@
+ONE-TIME READ-ONLY RECOVERY OF EXISTING 114688 K-AT-FIXED-B48 RAW FUTURES.
+Exact original run 37896872795, SHA 2737736f1dca36c8b43e9ac6a9fbd862ca21165b.
+Use all 64 verified future artifact IDs over both API pages, fetch each ZIP directly, test checksum receipts and full source registry.
+No new t400 state and NO stochastic future resimulation. Frozen primary rules remain unchanged.
+Earlier three readout failures were input/artifact download or floating point test issues, not negative scientific results.
