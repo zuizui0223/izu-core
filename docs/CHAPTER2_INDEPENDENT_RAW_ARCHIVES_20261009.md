@@ -1,6 +1,6 @@
 # Chapter 2 — complete raw-artifact preservation ledger (2026-10-09)
 
-**Scope:** preserve all original simulated individual genomes, complete pedigree/source receipts, and future trajectories from the three separately archived independent 64-history experiments. This is a data-accessibility and reproducibility record, **not** another analysis or a change to frozen evidence.
+**Scope:** preserve all original simulated individual genomes, complete pedigree/source receipts, and future trajectories from the three earlier independent 64-history experiments **and the fourth prospective timed-viability cohort**. This is a data-accessibility and reproducibility record, **not** another analysis or a change to frozen evidence.
 
 ## Evidence hierarchy remains unchanged
 
@@ -53,6 +53,20 @@ tar -tf raw-archive/chapter2-fixedB48-all-original-131-artifacts.tar
 ```
 
 The tar contains the machine manifest plus original artifact ZIPs; reconstruct and rerun the original SHA-256/source-pedigree validation using the frozen model at the recorded original workflow SHAs, **not** the mutable `main` branch. Mere ZIP/tar checksums do not prove biological model validity.
+
+## Fourth independent cohort — prospective early-versus-late seed-viability timing
+
+The **fourth** cohort must be kept separate from the preceding three. It is a new 64-visitor-history set (42110901–42110964), with **2,048 t400 complete diploid sources and 229,376 80-update future trajectories**. Its preregistered *late-versus-early capacity moderation* primary returned **`inconclusive`**, −0.0029649032, history-bootstrap95 [−0.0072632191,+0.0013173206]. The earlier supported fixed-B48 `K` result is unaffected.
+
+- Original one-time source + full-audit run: [37944527799](https://github.com/zuizui0223/izu-core/actions/runs/37944527799), original code SHA `e679e0ee190fa02e0a9d60876cd1a3e9987a4c79`, **131/131 jobs success**.
+- Exact original scientific readout: `chapter2-timed-self-viability-64-history-full-readout`, artifact ID `11623707416`; JSON SHA-256 **`42d90c17cef4be1643b987428d3a6367ba09dee6594055ae2d2b693ccb190a01`**. The same machine JSON is preserved in [PR #448](https://github.com/zuizui0223/izu-core/pull/448), separately from this raw backup.
+- Original raw original **130 ZIP assets** = 64 t400 source shards + 64 future shards + 2 source-admission/final-readout assets. Original GitHub SHA-256 and size/expiry recorded per source artifact.
+- Preservation run [37953047322](https://github.com/zuizui0223/izu-core/actions/runs/37953047322): **completed/success**. Downloaded every original artifact across both API pages, checked each original ZIP against GitHub artifact digest, uploaded a versioned tar+manifest+receipt into a GitHub **unpublished draft Release**, then independently re-downloaded the tar and verified SHA-256 and all 130 original ZIP entries.
+- Draft release tag **`chapter2-timed-self-raw-20261009-v1`** (not published, not externally citable), three assets: `chapter2-timed-130-original-shard-artifacts.tar`, `timed-raw-130-manifest.json`, `timed-archive-receipt.json`.
+- Original ZIP tar **225,617,920 bytes**, SHA-256 **`b5ab3a99eeaf36da399290508a64fa022cacc734aa1d794cab3b8443707309aa`**. Independent draft-Release re-download hash verification **success**. Manifest SHA-256 `ade98a9e3916f8d92b4cdc6b3a724fae811fb0696fdbc4bccf6290f0e51586a6`.
+- One-time execution workflow and launch marker were **removed** after successful preservation. The durable GitHub draft copy is independent of the 90-day Actions artifact expiry but remains within the same provider.
+
+**Totals now preserved as unpublished GitHub draft Releases:** **four independent cohorts, four release tags, 520 original Actions artifact ZIPs** (130 + 130 + 131 + 130; the 131 fixed-B48 set includes its independently corrected readout) with all original byte hashes verified. This does **not** make 4×64 visitor histories one universally representative population or elevate the timed-gate failed primary to support.
 
 ## What's still required before journal deposition
 
