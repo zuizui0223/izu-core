@@ -3,7 +3,7 @@ import numpy as np
 import pytest
 
 from scripts.audit_model3_k32_same_parent_heterozygosity import (
-    offspring_assurance_moments,
+    all_pair_neutral_mendelian_law, offspring_assurance_moments,
     conditional_inverse_positive_census,
     same_parent_exact_contrast,
     run_same_parent,
@@ -23,6 +23,28 @@ def test_biallelic_diploid_heterozygosity_identity_analytic():
         offspring_assurance_moments(q,np.array([0.,.25,1.]))
     with pytest.raises(ValueError):
         offspring_assurance_moments(np.array([.2,.2,.5]),b)
+
+
+
+def test_full_parent_pair_neutral_law_is_martingale_and_contains_source_support():
+    from scripts.audit_model3_k32_pathwise_selection_drift import allele_frequency_basis
+    from scripts.run_model3_three_arm_k32_old_history import canonical_conditional_kernel
+    first,grid,vis,cfg=fixed_support_problem(capacity=32,ovule_budget=8.)
+    basis=allele_frequency_basis(grid)
+    # Source can use self-mating; neutral support must include both
+    # self and outcross inherited child combinations.
+    _,qs=canonical_conditional_kernel(first,grid,vis,cfg,0)
+    q=all_pair_neutral_mendelian_law(first,grid)
+    assert q.shape==(27,)
+    assert np.all(q>=0)
+    assert q.sum()==pytest.approx(1.)
+    assert np.all(q[qs>1e-12]>0)
+    np.testing.assert_allclose(q@basis,first@basis/first.sum(),atol=1e-12)
+    np.testing.assert_array_equal(
+        all_pair_neutral_mendelian_law(np.zeros_like(first),grid),
+        np.zeros_like(first,dtype=float))
+    with pytest.raises(ValueError):
+        all_pair_neutral_mendelian_law(np.array([2,-1]),grid)
 
 
 def test_capped_poisson_conditional_frequency_variance_factor():
@@ -61,6 +83,8 @@ def test_eight_generation_fixed_history_analytic_conditional_gate(budget):
     assert c["confirmatory_cohorts_accessed"] is False
     assert c["no_outcome_fitted_yearly_trajectory"] is True
     assert c["comparison_parent_state_identical_between_operators"] is True
+    assert c["neutral_comparator_parent_pairs_include_self"] is True
+    assert c["matched_comparator_source_genotype_support_preserved"] is True
     assert c["comparison_offspring_mean_identical_between_operators"] is True
     assert c["comparison_offspring_census_law_identical_between_operators"] is True
     assert r["support_failures"]==[]
