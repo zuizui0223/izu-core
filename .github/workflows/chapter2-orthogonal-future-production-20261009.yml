@@ -1,0 +1,133 @@
+name: Chapter 2 independent orthogonal future production (one-time)
+
+# Runs only after an explicit one-time production marker, not on CI or PRs.
+on:
+  push:
+    branches:
+      - chapter2/orthogonal-production-20261009
+    paths:
+      - data/dispatch/orthogonal-future-launch-20261009.txt
+
+concurrency:
+  group: chapter2-orthogonal-futures-20261009
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  actions: read
+
+env:
+  FROZEN_T400_RUN: "37887039116"
+  FROZEN_T400_SHA: "c581d20313326b40233b438ca78fa1c55923b14c"
+
+jobs:
+  wait-for-full-t400-admission:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    steps:
+      - name: Require the exact original t400 production to finish successfully
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          finished=0
+          for attempt in $(seq 1 280); do
+            meta=$(gh api "repos/$REPO/actions/runs/$FROZEN_T400_RUN")
+            source_sha=$(echo "$meta" | jq -r '.head_sha')
+            status=$(echo "$meta" | jq -r '.status')
+            conclusion=$(echo "$meta" | jq -r '.conclusion')
+            test "$source_sha" = "$FROZEN_T400_SHA"
+            if test "$status" = "completed"; then
+              test "$conclusion" = "success"
+              finished=1
+              break
+            fi
+            sleep 60
+          done
+          test "$finished" -eq 1
+          echo "Source run $FROZEN_T400_RUN fully admitted and successful."
+
+  future-shards:
+    needs: wait-for-full-t400-admission
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Preflight paired protocol and immutable readout schema
+        run: |
+          python -m scripts.plan_chapter2_orthogonal_founder_capacity
+          python -m scripts.chapter2_orthogonal_capacity_readout
+      - name: Download the exact authentic t400 source shard
+        uses: actions/download-artifact@v4
+        with:
+          name: chapter2-orthogonal-t400-shard-${{ matrix.shard }}
+          path: verified-prehistory
+          run-id: 37887039116
+          repository: ${{ github.repository }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Run all 84 prospective 80-update futures for each of 32 t400 sources
+        run: |
+          python -m scripts.chapter2_orthogonal_future_runner \
+            --prehistory verified-prehistory \
+            --out raw-orthogonal-futures \
+            --shard-index ${{ matrix.shard }} \
+            --workers 2 \
+            --execute-frozen-cohort \
+            --acknowledge-resource-cost
+      - name: Preserve every new raw future and SHA-256 receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-orthogonal-future-shard-${{ matrix.shard }}
+          path: raw-orthogonal-futures/
+          if-no-files-found: error
+          retention-days: 90
+          compression-level: 1
+
+  admit-and-adjudicate:
+    needs: [wait-for-full-t400-admission, future-shards]
+    if: needs.future-shards.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - uses: actions/download-artifact@v4
+        with:
+          name: chapter2-orthogonal-t400-source-admission-20261009
+          path: source-admission
+          run-id: 37887039116
+          repository: ${{ github.repository }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: chapter2-orthogonal-future-shard-*
+          path: future-shard-archives
+      - name: Audit 2048 sources and 172032 futures BEFORE any inference
+        run: |
+          python -m scripts.chapter2_orthogonal_full_adjudication \
+            --futures future-shard-archives \
+            --t400-admission source-admission/orthogonal-source-admission.json \
+            --out chapter2-orthogonal-full-scientific-readout.json \
+            --execute-full-adjudication \
+            | tee chapter2-orthogonal-full-scientific-console.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-orthogonal-64-history-confirmatory-readout-20261009
+          path: |
+            chapter2-orthogonal-full-scientific-readout.json
+            chapter2-orthogonal-full-scientific-console.txt
+          if-no-files-found: error
+          retention-days: 90
