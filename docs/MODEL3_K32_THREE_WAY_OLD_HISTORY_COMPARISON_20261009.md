@@ -39,3 +39,55 @@ No ecological effect-size p-values, no cross-island claim, no posterior, no biol
 The deterministic plug-in parent projection is essential because the unchanged original reproduction operator is defined on individual integer parents. The original continuous-density model density_step() is **not** automatically equivalent: it approximates pollination and genotype-class self-exclusion, and its positive-mutation grid-refinement issues remain separate. A discrepancy between exact finite and deterministic should **not** be assigned uniquely to demographic drift; nonlinear ecological payoffs, survivor conditioning and numerical projection also matter. Gaussian mean agreement does not establish tail, extinction or rare genetic-memory accuracy.
 
 At most this is a source-locked eight-generation **numerical method comparison**, not evidence that islands evolve deterministically or stochastically and not a validated SDE or SPDE. Future independent visitor histories must be approved and prospectively isolated from #411/#418 confirmed results. This experiment must not alter their frozen claims.
+
+## MC precision and workflow-policy audit
+
+The verified 512-per-stochastic-arm receipts for the two budgets are in
+[GitHub Actions artifact 11590202019](https://github.com/zuizui0223/izu-core/actions/runs/37870799736/artifacts/11590202019)
+and the compact source-lock JSON data/results/model3_k32_three_way_old_history_20261009.json.
+This is ONE archived visitor history, not 512 independent islands.
+
+The new script scripts/audit_model3_k32_mc_uncertainty.py accepts the two
+raw JSON receipts, enforces old-history/unchanged-biology guards and compares
+independent demographic Monte Carlo ensembles. It reports approximate
+normal intervals for means and Wilson bounds for binomial rates. Its
+two-arm conservative Wilson-component envelope is NOT an exact confidence
+interval for differences.
+
+| Gaussian minus exact finite Markov | Budget 8 | Budget 3 |
+|---|---:|---:|
+| Realized joint-genotype richness difference | +1.55664 | +0.89844 |
+| MC normal 95% approximate interval | [+1.33662,+1.77666] | [+0.68143,+1.11545] |
+| Lost allele types difference | -0.45703 | -0.40234 |
+| MC normal 95% approximate interval | [-0.53156,-0.38250] | [-0.53646,-0.26822] |
+| Probability any allele lost: difference | -0.33789 | -0.23242 |
+| Conservative Wilson-component envelope | [-0.41662,-0.25413] | [-0.30144,-0.15994] |
+| Extinction: exact vs Gaussian counts | 0/512 vs 0/512 | 4/512 vs 14/512 |
+| Conservative Wilson-component envelope for difference | [-0.00745,+0.00745] | [-0.00356,+0.04233] |
+
+The fixed 27-class projected Gaussian approximation overpreserves genotype
+classes and loses fewer founder allele types under both budget conditions,
+even though every sampled count remains a nonnegative integer and total
+mass is conserved. Monte Carlo precision under one source visitor history
+does NOT establish biological transfer to other island systems.
+
+At budget 8, zero observed extinctions does NOT prove exact zero risk:
+the per-arm Wilson upper bound is about 0.00745. The budget-3 difference
+in rare extinction rates also remains compatible with zero under the
+conservative Wilson-component envelope.
+
+The deterministic conditional plug-in approximation has maximum
+fractional-to-integer parental projection L1 errors 7.8124 expected
+plants (budget 8) and 7.4291 (budget 3), relative to K=32.
+Thus mean-trait proximity does NOT establish nonlinear Markov expectation
+or dynamical equivalence.
+
+The original whole-repo CI failure was due to noncompliance of newly
+added auxiliary workflows with tests/test_workflow_trigger_policy.py:
+noncore workflows may only use workflow_dispatch, not pull_request.
+All three Model3 auxiliary workflow YAMLs were changed to
+workflow_dispatch only, preserving automatic core CI policies.
+The new tests/test_model3_k32_mc_uncertainty.py audits zero-event
+uncertainty, two-arm calculations, and rejection of confirmatory histories.
+This remains an engineering comparison, not a validated SDE/SPDE or
+independent ecological empirical finding.
