@@ -1,0 +1,10 @@
+ONE-TIME INDEPENDENT ORTHOGONAL FUTURE EXECUTION — 2026-10-09
+Authorized by user: "実装しただけでなく走らせ".
+Protocol: data/design/chapter2_orthogonal_founder_capacity_20261009.json
+Prerequisite exact original t400 Run: 37887039116
+Prerequisite exact original t400 source SHA: c581d20313326b40233b438ca78fa1c55923b14c
+Prerequisite FULL completed/success including 2048-t400 whole-cohort authentication.
+Future simulation: 64 independent histories x 32 t400 states/history x 84 futures/state = 172032 future trajectories.
+Three founder/capacity regimes x two seed viability gates x seven budgets x two future visitor environments.
+No outcomes may be read/adjudicated until all 64 future shards and source admission checks succeed.
+This is the only launch marker; do not rewrite after any outcomes have been generated.
