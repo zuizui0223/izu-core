@@ -115,6 +115,13 @@ def same_parent_exact_contrast(counts,grid,visitors,cfg,year):
     b=allele_frequency_basis(grid)[:,2]
     q0=all_pair_neutral_mendelian_law(counts,grid)
     source_mu,hs,vs=offspring_assurance_moments(qs,b)
+    # Finite arithmetic can yield 1.0000000000000002 when the exact
+    # source Mendelian offspring allele mean is mathematically 1.
+    # Clip ONLY source-conserved roundoff, never a biological frequency
+    # outside [0,1] or a failed comparator calibration.
+    if not -1e-12<=source_mu<=1.+1e-12:
+        raise ArithmeticError("source offspring allele mean outside its support")
+    source_mu=float(np.clip(source_mu,0.,1.))
     fit=calibrated_laws(q0[None,:],b,source_mu)
     if not fit["admissible"]:
         return {
