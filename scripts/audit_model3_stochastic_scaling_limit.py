@@ -31,6 +31,7 @@ from scripts.run_chapter2_assurance_generality import (
 from scripts.run_model3_persistent_isolation import exposure
 
 VISITOR_HISTORY = 26110601
+VISITOR_SNAPSHOT_INDEX = 400  # postassembly, before any plant evolution here
 CAPACITIES = (8, 16, 32, 64, 128)
 
 
@@ -73,6 +74,22 @@ def scaling_screen(*,settings=("prior_selfing","assurance_cost"),
     d=load_design(DEFAULT_DESIGN)
     base8=subset(founders(d),np.arange(8,dtype=np.int64))
     base_hash=hashlib.sha256(base8.alleles.tobytes()).hexdigest()
+    # Exogenous visitor communities are sampled at one prospectively fixed
+    # postassembly index. At t=0, near/far share their founder visitor pool
+    # and are NOT distinct ecological exposures.
+    visitor_snapshot={
+        env:exposure(VISITOR_HISTORY,env).visitors[VISITOR_SNAPSHOT_INDEX]
+        for env in environments
+    }
+    if "near" in visitor_snapshot and "far" in visitor_snapshot:
+        near,far=visitor_snapshot["near"],visitor_snapshot["far"]
+        if (np.array_equal(near.ids,far.ids)
+                and np.array_equal(near.optima,far.optima)
+                and np.array_equal(near.breadths,far.breadths)
+                and np.array_equal(near.effectiveness,far.effectiveness)):
+            raise AssertionError(
+                "near/far visitor snapshots still identical after assembly"
+            )
     rows=[]
     for mating in settings:
         if mating not in d["settings"]:
@@ -81,7 +98,7 @@ def scaling_screen(*,settings=("prior_selfing","assurance_cost"),
         for env in environments:
             if env not in ("near","far"):
                 raise ValueError("unfrozen visitor arm")
-            visitors=exposure(VISITOR_HISTORY,env).visitors[0]
+            visitors=visitor_snapshot[env]
             for K in sizes:
                 plants=clone_existing_founder_pool(base8,K)
                 cfg=replace(
@@ -111,6 +128,13 @@ def scaling_screen(*,settings=("prior_selfing","assurance_cost"),
                 rows.append({
                     "setting":mating,
                     "environment":env,
+                    "visitor_snapshot_index":VISITOR_SNAPSHOT_INDEX,
+                    "n_visitor_functional_types":len(visitors.ids),
+                    "visitor_community_sha256":hashlib.sha256(
+                        visitors.ids.tobytes()+visitors.optima.tobytes()
+                        +visitors.breadths.tobytes()
+                        +visitors.effectiveness.tobytes()
+                    ).hexdigest(),
                     "K":K,
                     "dt_fast":1/K,
                     "offspring_occupancy_probability":float(occupancy),
@@ -147,6 +171,9 @@ def scaling_screen(*,settings=("prior_selfing","assurance_cost"),
     return {
         "status":"FINITE_K_STOCHASTIC_SCALING_DIAGNOSTIC",
         "source_old_visitor_history":VISITOR_HISTORY,
+        "visitor_snapshot_index":VISITOR_SNAPSHOT_INDEX,
+        "visitor_assembly_is_fixed_not_outcome_selected":True,
+        "plants_remain_unchanged_founder_clones_at_snapshot":True,
         "founder_alleles_sha256":base_hash,
         "n_independent_visitor_histories":1,
         "n_new_visitor_histories":0,
