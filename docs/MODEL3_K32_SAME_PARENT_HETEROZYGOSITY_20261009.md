@@ -20,10 +20,14 @@ the original finite Model3 process.
 - Source: complete joint 3-locus diploid parental genotype counts from
   original Model3, exact canonical reproductive mating intensity and
   pollen exclusion, and exact Mendelian child genotype law q_source.
-- Counterfactual: **same parent state**, but neutral equal-parent
-  Mendelian genotype law q0, reweighted by an external assurance-dosage
-  exponential tilt so its expected high-allele frequency matches
-  q_source **at that same parent state**.
+- Counterfactual: **same parent state**, but a neutral equal-gamete
+  Mendelian law q0 that samples both ordered parent gametes uniformly
+  **with replacement, including same-individual self pairs**. Reweight
+  q0 by an external assurance-dosage exponential tilt so its expected
+  high-allele frequency matches q_source **at that same parent state**.
+  This differs intentionally from the earlier distinct-individual
+  neutral control. The full parent-pair support ensures that a source
+  selfed genotype cannot fall outside the comparator's support.
 - Both offspring distributions use exactly the SAME capped-Poisson
   recruitment intensity, same N distribution and same conditional
   target mean. The null deliberately changes reproductive weights; it
