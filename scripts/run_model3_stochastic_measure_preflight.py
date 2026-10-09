@@ -30,14 +30,15 @@ from scripts.run_model3_persistent_isolation import exposure
 OLD_VISITOR_HISTORY=26110601
 
 
-def compare_independent_rollouts(*,draws:int=512,updates:int=3)->dict:
+def compare_independent_rollouts(*,draws:int=512,updates:int=3, budget:float=8.0)->dict:
     if (type(draws) is not int or not 256<=draws<=2048
-            or type(updates) is not int or not 2<=updates<=8):
+            or type(updates) is not int or not 2<=updates<=8
+            or float(budget) not in (3.,4.,8.)):
         raise ValueError("restricted preflight scope")
     d=load_design(DEFAULT_DESIGN)
     source=source_config(d,"prior_selfing",.01,"evolving")
     config=replace(
-        source,capacity=8,survival=0.,ovule_budget=8.,
+        source,capacity=8,survival=0.,ovule_budget=float(budget),
         mutation_sd=.05,
         seed_arrival=replace(source.seed_arrival,supply=0.),
     )
@@ -143,7 +144,7 @@ def compare_independent_rollouts(*,draws:int=512,updates:int=3)->dict:
             "seed_immigration":0,
             "adult_survival":0,
             "capacity":8,
-            "ovule_budget":8.,
+            "ovule_budget":float(budget),
         },
         "arms":result,
         "occupancy_difference":gap_occupancy,
@@ -163,13 +164,15 @@ def main()->None:
     a.add_argument("--out",type=Path,required=True)
     a.add_argument("--draws",type=int,default=512)
     a.add_argument("--updates",type=int,default=3)
+    a.add_argument("--budget",type=float,default=8.)
     args=a.parse_args()
-    result=compare_independent_rollouts(draws=args.draws,updates=args.updates)
+    result=compare_independent_rollouts(draws=args.draws,updates=args.updates,budget=args.budget)
     args.out.parent.mkdir(parents=True,exist_ok=True)
     args.out.write_text(json.dumps(result,indent=2,sort_keys=True,
                                     allow_nan=False)+"\n",encoding="utf-8")
     print(json.dumps({
         "status":result["status"],
+        "budget":result["conditions"]["ovule_budget"],
         "occupancy_difference":result["occupancy_difference"],
         "population_mean_difference":result["population_mean_difference"],
         "mean_unique_genotype_count_difference":
