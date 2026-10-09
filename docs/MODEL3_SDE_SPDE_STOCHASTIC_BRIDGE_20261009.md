@@ -379,3 +379,26 @@ remains authoritative. The positive one-step normality finding (if admitted
 by CI) is compatible with the earlier exact Dirichlet rare-genotype-loss
 counterexample; matching sampling moments or CDFs for one summary statistic
 cannot automatically restore omitted absorbing genotype boundaries.
+
+
+### Verified one-step CLT accuracy on fixed conditional recruitment (2026-10-09)
+
+Source-locked focused run: [#37866968137](https://github.com/zuizui0223/izu-core/actions/runs/37866968137), **success**. The exact source-mating/Mendelian offspring investment probabilities on the small engineered support `{0.25,0.50,0.75}` were `{0.4892983825,0.2078880419,0.3028135756}`. The **exact** N-fold convolution and normal CDF (including CDF jumps at discrete atoms) yielded:
+
+| Fixed recruited N | Exact-vs-normal Kolmogorov distance | Berry--Esseen conservative upper bound |
+| ---: | ---: | ---: |
+| 8 | 0.090104 | 0.231483 |
+| 16 | 0.062564 | 0.163683 |
+| 32 | 0.044571 | 0.115741 |
+| 64 | 0.031632 | 0.081841 |
+| 128 | 0.022407 | 0.057871 |
+
+These values and provenance are frozen in
+[`data/results/model3_discrete_offspring_linear_noise_20261009.json`](../data/results/model3_discrete_offspring_linear_noise_20261009.json).
+This demonstrates that a **one-step conditional average-investment Gaussian
+sampling approximation improves** as recruited offspring count increases in
+the tested source-derived categorical regime; all exact CDF errors are under
+the conservative theoretical bound. It is not an autonomous temporal SDE,
+not a closure for changing 3-locus genotypes, not a justified SPDE, and does
+not capture rare genotype loss or absorbing whole-population extinction.
+The true genetic Markov measure is still the reference, especially at K=8.
