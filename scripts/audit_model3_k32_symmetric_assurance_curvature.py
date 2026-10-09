@@ -144,8 +144,10 @@ def symmetric_response(counts,grid,visitor,config,year,rng):
 
 def _summary(rows):
     if not rows:
-        return {"n":0,"mean_source_vs_control_central_slope":None,
-                "mean_source_minus_control_second_difference":None}
+        return {"n":0,"mean_source_versus_control_central_slope":None,
+                "mean_source_minus_control_second_difference":None,
+                "mc_se_central_slope_source_minus_control":None,
+                "mc_se_curvature_diff":None}
     keys=[
         "source_down_response_slope","source_up_response_slope",
         "control_down_response_slope","control_up_response_slope",
