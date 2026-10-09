@@ -213,3 +213,69 @@ reported separately from factorial occupancy-weighted products.
 The experiment cannot establish natural pollinator fitness, causal
 selection, island comparison, or a validated full SDE/SPDE. Keep
 PR #420 Draft until newest broad CI and Chapter 2 gate succeed.
+
+
+## Allelic combinatorial capacity versus actual genotype occupancy
+
+The first source-locked eight-arm experiment showed that at budget3,
+the all-three intervention loses **more initial allele types** but has
+almost unchanged **joint diploid genotype class richness**. This new
+follow-up distinguishes why those apparently conflicting diversity
+outcomes can coexist.
+
+For each nonextinct current population with a fixed diploid genotype
+grid of 3 unlinked biallelic loci and zero mutation/immigration:
+
+- Count the number of **polymorphic loci** (0..3) that still have BOTH
+  initial founder alleles.
+- Define a *purely combinatorial upper bound* on the number of possible
+  distinct unordered diploid joint genotype types as `P=3^m`,
+  where `m` is the number of polymorphic loci. Monomorphic loci allow
+  only one diploid allele-pair type. This is an upper bound given
+  allele content, **not a prediction that all P types can be formed in
+  a single generation under the real source pollen graph**.
+- Let `R` be actual occupied joint genotype class richness,
+  `1<=R<=min(P,N)` for a living finite population.
+  The genotype support coverage is `C=R/P`, which captures
+  how many of the mathematically possible classes are actually
+  represented. Even coverage C=1 at P=1 can mean a single fixed
+  genotype: **high coverage is not high absolute diversity**.
+- Compute Shannon effective genotype number
+  `exp(-sum p_g log(p_g))` and inverse-Simpson effective number
+  `1/sum p_g^2` from actual population genotype frequencies.
+  Both are bounded by realized class richness and expose dominance
+  of common genotypes despite stable raw class counts.
+
+There is an **exact per-living-population identity**
+
+```text
+ln R = ln P + ln(R/P) = ln(3) * m + ln C.
+```
+
+The factorial also evaluates occupancy-weighted products of each
+log, so the additivity remains algebraically exact without inventing
+log genotype richness for extinct populations. For extinction the
+occupancy-weighted product is 0, while alive-only population means
+are also recorded. Both the source and the seven counterfactual
+arms are simulated with their previous, unchanged random
+streams; donor export, routing and maternal pairing interventions
+are not redefined for this diagnostic.
+
+**Inference caution:** an increase in coverage C after allele loss
+does not mean biological compensation or adaptive maintenance by
+itself. C's denominator P has fallen by a factor of three whenever
+a biallelic founder locus becomes fixed. Diversity number and
+evenness need to be examined together to determine whether a
+real additional genotype-diversification process exists. The
+state-wise identity does not causally distinguish segregation,
+recombination, selection and drift.
+
+The existing PR420-only full factorial CI now checks, for all eight
+arms and seven Möbius contrasts, both the complete source
+provenance and the exact log-genotype-richness decomposition,
+as well as occupancy, six ancestral allele types and effective
+genotype diversities. No new ecological visitor histories,
+mutation, immigration or natural plant observations are used.
+
+**New numerical results are not admitted until the source-commit
+CI run succeeds and its raw artifact is inspected.**
