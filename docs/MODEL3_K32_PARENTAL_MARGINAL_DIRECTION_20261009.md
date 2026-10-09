@@ -40,3 +40,104 @@ The father/mother and self quantities depend on source-genotype-dependent mating
     python -m scripts.audit_model3_k32_parental_marginal_direction --budget 3 --draws 512 --out parent-marginals-budget3.json
 
 The existing core CI includes a PR420-only model3-k32-parental-marginals job testing these exact identities. Do not promote numerical claims until source-matched CI and its archived results succeed.
+
+
+## Validated source-run parental marginal results
+
+Source SHA `37bc04a64e1dc2070dc47fbba93ca3d33d2301d4`
+successfully passed dedicated `model3-k32-parental-marginals`
+in [GitHub Actions 37903183921](https://github.com/zuizui0223/izu-core/actions/runs/37903183921).
+Raw [budget8 and budget3 archive 11603825393](https://github.com/zuizui0223/izu-core/actions/runs/37903183921/artifacts/11603825393)
+has SHA256 `58248a8b91d9b9eca3c13af225139eb0412ca7bedf42bca2982a85aaad1e35ac`.
+Compact source-lock:
+`data/results/model3_k32_parental_marginal_direction_20261009.json`.
+Mass, all-three-locus Mendelian offspring means, eight intervention
+masks and father + mother + self identities passed on a frozen
+original Model3 source, K32, 0 mutation, same 8-year OLD visitor
+history 26110601/near, nested 512 source demographic trajectories.
+
+### Exact same-original-parent contrasts, at year eight
+
+For each locus, this is the mean *change in the expected next
+high-allele frequency shift* under the all-three equalized
+outcross-mating operator minus canonical Model3, with parent
+genotypes, original viable-self seed weights and total outcross
+seed mass HELD IDENTICAL at each source state.
+
+| Locus | Budget8 difference | Budget3 difference |
+|---|---:|---:|
+| Matching high allele | **+0.004151 ±0.000225 MC SE** | **+0.002467 ±0.000183** |
+| Investment high allele | **−0.008229 ±0.000304** | **−0.004955 ±0.000251** |
+| Assurance high allele | **+0.002541 ±0.000211** | **+0.001308 ±0.000148** |
+
+At budget8, the matching contrast comprises +0.000856
+father-outcross and **+0.003295 mother-outcross**;
+the maternal term is about 79% of this contrast.
+The investment contrast comprises −0.004069 father and
+−0.004160 mother, approximately equally.
+The assurance contrast comprises +0.000332 father and
++0.002209 mother. Source minus control self contributions
+are EXACTLY zero by the declared comparison construction.
+
+At budget3, matching's +0.002467 consists of +0.000544
+father and +0.001923 mother; investment −0.004955
+consists of −0.002471 father and −0.002485 mother; assurance
++0.001308 consists of +0.000152 father and +0.001156 mother.
+
+The source-only expected direction at year8 is
+`[+0.005533,-0.024501,+0.013156]` for budget8,
+and `[+0.006607,-0.023128,+0.011766]`
+for budget3 (matching, investment, assurance order).
+Importantly, these are **one-step reproductive gradients at the
+evolved parental state**, not the historical cumulative change
+from original founder frequencies.
+
+### Source matching high-allele direction reverses during eight years
+
+The original Model3 expected next-generation matching high-allele
+direction starts at **−0.062815** in the initial year, and
+becomes **+0.006582** at year7 and **+0.005533** at year8
+under budget8. Under resource budget3 it becomes positive
+by year5 (+0.000204), rising to +0.006607 at year8.
+
+At budget8, source selfed-seed contribution to the matching
+allele direction changes from **−0.03489 (year1)**
+to **+0.01198 (year8)**, whereas outcross father and
+mother contributions remain negative even at year8,
+approximately −0.00323 and −0.00322.
+At budget3 the self contribution moves from −0.03489
+(year1) to +0.01033 (year8), while father and mother
+remain around −0.00186 each at year8.
+
+This strongly qualifies any summary claiming the matching
+allele is monotonically disfavored: its instantaneous
+source reproductive direction depends on **parental
+genotype state and year-specific visitor history**.
+A positive late direction need not imply that cumulative
+matching-high frequency returned to its initial level,
+because early negative shifts may have already removed
+alleles from some demographic trajectories.
+
+**The sign reversal is not yet causally attributed to changes
+in pollinator ecology versus changed genotype state.**
+The old visitor sequence and current genotype distributions
+both differ across years. Isolating these explanations would
+require a separate crossed state-by-visitor counterfactual
+in which either the source state or visitor condition is
+held fixed, without new prospective histories. This is an
+identified NEXT QUESTION, not a claimed result.
+
+### Scope and interpretability
+
+One source ecological visitor history, no independently
+observed islands or field reproduction, no confirmed
+population-genetic selection coefficient or validated
+continuous-time SDE/SPDE. The seven controls intentionally
+change viable-outcross mating weights; the original source
+biological files are untouched. Father and mother
+marginals are exact successful-parent gene-transmission
+accounting, **not** independent physiological pollen
+or maternal-fecundity effects. The earlier full factorial
+autonomous eight-year allelic-diversity responses remain
+different estimands from these one-step same-parent
+expected allele changes.
