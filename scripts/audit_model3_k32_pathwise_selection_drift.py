@@ -164,7 +164,29 @@ def run_pathwise(*, budget:float=8., draws:int=512, seed:int=420261010):
                                            expected[rep]+residual[rep],
                                            atol=1e-11,rtol=0)
         conditional_cov=np.mean(variances,axis=0) if variances else np.zeros((3,3))
+        idx_now=np.flatnonzero(alive)
+        direction_now=expected[idx_now]
+        sampling_now=residual[idx_now]
+        net_now=realized[idx_now]
+        if len(idx_now)>1:
+            var_direction=np.var(direction_now,axis=0,ddof=0)
+            var_sampling=np.var(sampling_now,axis=0,ddof=0)
+            covariance_twice=2*np.mean(
+                (direction_now-direction_now.mean(axis=0))*
+                (sampling_now-sampling_now.mean(axis=0)),axis=0)
+            var_total=np.var(net_now,axis=0,ddof=0)
+        else:
+            var_direction=var_sampling=covariance_twice=var_total=np.zeros(3)
+        np.testing.assert_allclose(
+            var_total,var_direction+var_sampling+covariance_twice,
+            atol=1e-11,rtol=0)
         per_year.append({
+            "cumulative_survivor_allele_means":(
+                final_f[idx_now].mean(axis=0).tolist() if len(idx_now) else None),
+            "cumulative_survivor_direction_variance":var_direction.tolist(),
+            "cumulative_survivor_sampling_variance":var_sampling.tolist(),
+            "cumulative_survivor_twice_covariance":covariance_twice.tolist(),
+            "cumulative_survivor_total_variance":var_total.tolist(),
             "year":year+1,"n_occupied_start":started,
             "n_occupied_end":survived,
             "new_extinctions":extinction_events,
