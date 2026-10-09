@@ -22,7 +22,7 @@ Raw original artifact ZIP bytes are preserved in unpublished **draft** GitHub Re
 | --- | --- | --- | --- |
 | Fixed-B48 K confirmation | `chapter2-fixedB48-raw-20261009-v1` | 131 ZIPs = 64 t400 source shards + 64 future shards + 3 metadata/readout artifacts | **Verified** in [Run 37906236862](https://github.com/zuizui0223/izu-core/actions/runs/37906236862): SHA-256 verified original zip downloads, tar uploaded and independently re-downloaded/verified |
 | Earlier matched-founder orthogonal cohort | `chapter2-orthogonal-raw-20261009-v1` | 130 ZIPs = 64 t400 + 64 future + 2 receipts | **Verified** in [Run 37906844144](https://github.com/zuizui0223/izu-core/actions/runs/37906844144): original GitHub SHA-256 matched; upload and independent draft-release download verified |
-| Earlier K×B 2×2 cohort | `chapter2-kb-raw-20261009-v1` | 130 ZIPs = 64 t400 + 64 future + 2 receipts | **Execution pending confirmation** in [Run 37906844144](https://github.com/zuizui0223/izu-core/actions/runs/37906844144) |
+| Earlier K×B 2×2 cohort | `chapter2-kb-raw-20261009-v1` | 130 ZIPs = 64 t400 + 64 future + 2 receipts | **Verified** in [Run 37906844144](https://github.com/zuizui0223/izu-core/actions/runs/37906844144): original SHA-256 matched, upload/re-download hash verified |
 
 All three preservation Runs have **completed/success**, and the corresponding draft Releases are still **unpublished**. GitHub release assets were independently re-downloaded and SHA-256 verified, including their complete original ZIP inventories:
 
