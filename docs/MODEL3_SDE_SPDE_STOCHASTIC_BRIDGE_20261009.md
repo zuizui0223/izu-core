@@ -460,3 +460,41 @@ after the outcome to accept the projected Gaussian as a valid stochastic
 SPDE. The run may indicate that the smooth approximation is unsuitable at
 small N or over multiple generations. No geography, INLA, natural-island
 calibration or independent ecological histories are involved.
+
+
+## One-step exact genotype presence versus projected Gaussian bias
+
+After the already-exposed K=32 three-generation genotype-class gap,
+we **do not** promote that exploratory difference to independent
+confirmation. The follow-up `scripts/audit_model3_gaussian_presence_bias.py`
+has a narrower purpose: separate *source-sampling variance* from the
+mechanical error of Gaussian clipping and integer projection, by making
+the exact finite-genotype reference **analytic rather than another noisy
+finite cohort**.
+
+From the unchanged three-locus Model 3 `reproduce()` and exact Mendelian
+offspring genotype law `q=(q_g)`, with exactly `N` new individuals,
+the probability that a genotype class `g` is represented is
+
+```text
+P(C_g > 0 | q, N) = 1 - (1-q_g)^N.
+E[unique genotype classes | q, N] = sum_g [1-(1-q_g)^N].
+```
+
+The 27 fully joint diploid classes are evaluated on exactly the same small
+engineering allele support used in the earlier Gaussian experiment. The
+projected Gaussian closure is evaluated at `N=8,32,128` via 8,192
+seeded samples each; only this arm has Monte Carlo uncertainty. Its
+`mean_richness_mc_se`, per-class presence probabilities and largest
+class-presence discrepancy are archived. We do not retroactively select a
+biological-effect threshold or call an observed difference an independent
+ecology replication.
+
+Scientific rule: a Gaussian approximation can be useful for the smooth
+mean-investment CDF while still introducing structured error in the
+probability that a rare genotype is present. This audit is restricted to
+the conditional one-generation offspring law, no mutation/survival/seed
+immigration; mutation-enabled long-term SPDE, autonomous SDE and geographic
+INLA remain unvalidated/out of scope. Preserve every numerical result,
+including cases with negligible bias, without converting a source-conditioned
+diagnostic into a biological generality claim.
