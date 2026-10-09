@@ -122,3 +122,126 @@ prospective Chapter2 seed 37110801..37110864.
 Dedicated CI job: model3-k32-multihistory-state-visitor-cross.
 Numerical claims are withheld until source-locked
 CI success and raw artifact inspection. PR stays Draft.
+
+
+## Source-verified results across the eight visitor histories
+
+Dedicated `model3-k32-multihistory-state-visitor-cross`
+CI **PASSED** on original source SHA
+`0abd8157a9d2f79527c1fb7bb07237cd953b946a`
+in [Actions run #37956149435](https://github.com/zuizui0223/izu-core/actions/runs/37956149435).
+The [full executed two-budget 2×2×8-history evidence archive #11627938030](https://github.com/zuizui0223/izu-core/actions/runs/37956149435/artifacts/11627938030)
+has SHA256 `03ce2a0abbbcc5c87057d8265211c9e539b05e2007a7d9331a18cfe86f1a26a8`.
+It contains every surviving demographic path's source-history
+conditional Mendelian 2×2 factor outcomes summarized separately
+for three loci and original self/father/mother channels.
+The compact, CI-linked result is
+`data/results/model3_k32_multihistory_state_visitor_cross_20261010.json`.
+
+### Broad result: consistent genotype-state contribution, variable visitor contribution
+
+Eight NEW post-discovery exploratory visitor RNG histories
+26110602..26110609, 128 nested original demographic source
+paths per history, same source K32 settings as previous work:
+
+| History-level source-model sign or direction | Budget8 | Budget3 |
+|---|---:|---:|
+| New distinct visitor RNG histories | 8 | 8 |
+| Original matching-high allele expected direction negative early | 6/8 | 6/8 |
+| Original matching expected direction positive late | 5/8 | 6/8 |
+| Negative early to positive late source sign flips | 4/8 | 5/8 |
+| **State contribution positive, 2-order average** | **8/8** | **8/8** |
+| **Visitor-year contribution negative, 2-order average** | **5/8** | **5/8** |
+| **Among observed flips: late parent × EARLY visitor already positive** | **4/4** | **5/5** |
+| Among observed flips: EARLY parent × late visitor already positive | 0/4 | 0/5 |
+| Among observed flips: both late parent and late visitor conditions required | 0/4 | 0/5 |
+| Mean signed state contribution over histories | **+0.030485** | **+0.028837** |
+| Mean signed visitor contribution over histories | **−0.005291** | **−0.005138** |
+| Range of state contributions | +0.007024 to +0.070266 | +0.001587 to +0.075045 |
+| Range of visitor contributions | −0.029922 to +0.018692 | −0.027446 to +0.015415 |
+
+These values are averages over VISITOR RNG histories with
+equal history weight; 128 demographic paths per visitor RNG
+seed are **nested** and not 1024 independent ecological histories.
+Each within-history parent-year pair uses precisely the same
+late-original source survivor path identities in all 2×2 cells.
+A positive source state contribution is not a universal ecological
+reversal: the initial negative direction can be too large
+and visitor changes can oppose the source state shift.
+
+### Cases that directly distinguish mechanisms
+
+| Visitor seed | Budget8 parent-state contribution | Budget8 visitor contribution | Early original direction → late original direction |
+|---|---:|---:|---|
+| 26110603 | +0.032761 | +0.018692 | −0.037581 → +0.013873 |
+| 26110605 | +0.024076 | **−0.019369** | −0.002780 → +0.001928 |
+| **26110606** | +0.007024 | **−0.029922** | **+0.021864 → −0.001033** |
+| **26110607** | **+0.070266** | 0 | **−0.077490 → −0.007223** |
+| 26110609 | +0.052450 | **−0.013307** | −0.041096 → −0.001954 |
+
+- Seed **26110603**: both the parental state and visitor
+  changes contribute positively. The evolved late source
+  parent with the EARLY visitor community already gives
+  positive expected direction (+0.001187); the same
+  INITIAL parent with late visitors remains negative
+  (−0.012882).
+- Seed **26110605**: state change is positive but
+  later visitors produce a negative net contribution.
+  The state contribution exceeds the ecological
+  opposition, and late original direction is positive.
+- Seed **26110606**: the direction changes
+  from initial POSITIVE to late NEGATIVE. The visitor
+  change is more negative than the positive state
+  contribution; therefore the parental-state trend
+  cannot guarantee reversal in the desirable direction.
+- Seed **26110607**: visitor snapshots at early and
+  late in the cross yield the SAME mating environment
+  contribution (zero at this source-factor level).
+  The state contribution is strongly positive
+  +0.070266 but does not overcome the very
+  negative early direction −0.077490. Late
+  expected matching direction remains negative.
+- Seed **26110609**: an initially negative
+  direction moves closer to zero but remains
+  negative under budget8; under budget3 it just
+  crosses positive.
+
+### Why this materially changes the scientific claim
+
+The old-history 26110601 state contribution of
+82–85% was specific to ONE historical visitor
+trajectory. The newly crossed eight histories
+show an **invariant positive SIGN of the source
+parent-state contribution** in this exploratory
+set but NOT an invariant positive visitor
+contribution or invariant late expected allele
+direction. The visitor contribution is often
+negative, and signed ratios could exceed
+100% or be unstable when the total direction
+change is small. Therefore do NOT quote one
+universally fixed "state percentage" mechanism.
+
+This is a mechanistic accounting result, NOT
+a demonstration that changing assurance
+allele frequency by itself is the direct cause:
+the source parental state contains all three
+joint diploid loci, source individual census and
+prior genotype-selective filtering/drift. The
+visitors are generated from one synthetic
+ecological simulator; the crossed off-diagonal
+cells are original SOURCE reproduction at a
+hypothetical one-step visitor transplant, not
+autonomous ecological or evolutionary trajectories.
+The exact two-order state/visitor decomposition
+cannot be interpreted as statistically independent
+causal effects from natural fields.
+
+The source cohort is selected on survival to
+year8; all eight histories were newly simulated
+AFTER observing an interesting old-history
+sign reversal. No prospective frozen Chapter2
+confirmation seeds, natural island observations
+or validated SDE/SPDE limit were used. This
+precludes a general pollinator-change law or
+ecologically confirmed adaptive genotype
+response.
