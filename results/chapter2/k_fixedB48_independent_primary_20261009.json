@@ -1,0 +1,45 @@
+{
+  "status": "INDEPENDENT_64_HISTORIES_2048_T400_114688_FIXEDB48_FUTURES_ADMITTED",
+  "n_independent_visitor_histories": 64,
+  "n_t400_sources": 2048,
+  "n_future_cells": 114688,
+  "original_predeclared_primary": "tau(K8,B48)-tau(K48,B48)",
+  "primary_verdict": "supported_controlled_demographic_K_moderation_at_fixed_B48",
+  "paired_bootstrap": {
+    "unit": "visitor_history",
+    "draws": 9999,
+    "seed": 2026100967
+  },
+  "by_arm_sensitivity": {
+    "K8_B48": {
+      "mean": 0.009977196205227593,
+      "bootstrap95": [
+        0.006340449851201113,
+        0.013612614281840808
+      ],
+      "positive_histories": 48,
+      "negative_histories": 16
+    },
+    "K48_B48": {
+      "mean": 0.0022314823283339997,
+      "bootstrap95": [
+        -0.0015990852855472357,
+        0.0061510870805480886
+      ],
+      "positive_histories": 33,
+      "negative_histories": 31
+    }
+  },
+  "contrasts": {
+    "primary_K_at_fixed_B48": {
+      "mean": 0.007745713876893593,
+      "bootstrap95": [
+        0.002497158065469939,
+        0.013015478808429596
+      ],
+      "positive_histories": 43,
+      "negative_histories": 21
+    }
+  },
+  "interpretation_limit": "Synthetic model-specific recipient pollen dilution B vs demographic ceiling K; not natural genetic order mediation, ecological universality or measured Izu extinction."
+}
