@@ -1,0 +1,1994 @@
+{
+  "status": "POST_OUTCOME_TWO_EXPOSED_COHORT_REPRODUCTIVE_SIGNATURE_NOT_PREREGISTERED_CONFIRMATION",
+  "original_run": 37856410822,
+  "independent_run": 37862121201,
+  "source_groups_audited": [
+    3072,
+    2048
+  ],
+  "future_branches_audited": [
+    86016,
+    57344
+  ],
+  "independent_history_clusters": [
+    64,
+    64
+  ],
+  "original_synchronous_arm_verified_not_used_in_AB_comparison": true,
+  "bootstrap_seed": 2026100922,
+  "draws": 9999,
+  "by_regime": {
+    "unbottlenecked_capacity48": {
+      "occupied": {
+        "near": {
+          "original_mean": 0.009842319405631758,
+          "original_history_bootstrap95": [
+            0.003253127399685978,
+            0.016551580953910742
+          ],
+          "independent_mean": 0.013117673787860065,
+          "independent_history_bootstrap95": [
+            0.006210663582720599,
+            0.020020014586360435
+          ],
+          "both_cohorts_equal_weight_mean": 0.011479996596745912,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.006712122776635549,
+            0.01630028867563265
+          ],
+          "independent_minus_original": 0.0032753543822283075,
+          "independent_minus_original_bootstrap95": [
+            -0.006470692538445137,
+            0.012905538046224907
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "far": {
+          "original_mean": 0.004143686608979607,
+          "original_history_bootstrap95": [
+            0.00041886872662005636,
+            0.007916149574262158
+          ],
+          "independent_mean": 0.005357200562952561,
+          "independent_history_bootstrap95": [
+            0.002375590096613598,
+            0.008485705796849898
+          ],
+          "both_cohorts_equal_weight_mean": 0.004750443585966084,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.0023414318894072186,
+            0.007142454627761857
+          ],
+          "independent_minus_original": 0.0012135139539729538,
+          "independent_minus_original_bootstrap95": [
+            -0.0036373703119491193,
+            0.006008308072487251
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "common": {
+          "original_mean": 0.006993003007305682,
+          "original_history_bootstrap95": [
+            0.003439939012597722,
+            0.010602028007942051
+          ],
+          "independent_mean": 0.009237437175406312,
+          "independent_history_bootstrap95": [
+            0.005346591952394346,
+            0.013177867285150417
+          ],
+          "both_cohorts_equal_weight_mean": 0.008115220091355997,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.005404752126360542,
+            0.0108388463696057
+          ],
+          "independent_minus_original": 0.0022444341681006298,
+          "independent_minus_original_bootstrap95": [
+            -0.0030561075162847283,
+            0.007467044420889036
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "DID": {
+          "original_mean": -0.005698632796652153,
+          "original_history_bootstrap95": [
+            -0.013636538821644143,
+            0.002118283904920169
+          ],
+          "independent_mean": -0.0077604732249075044,
+          "independent_history_bootstrap95": [
+            -0.015001803936786495,
+            -0.0005023918596617527
+          ],
+          "both_cohorts_equal_weight_mean": -0.0067295530107798285,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -0.01209252057694456,
+            -0.0013674305799735026
+          ],
+          "independent_minus_original": -0.002061840428255352,
+          "independent_minus_original_bootstrap95": [
+            -0.012850212254658901,
+            0.008647067624052207
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        }
+      },
+      "t0_present": {
+        "near": {
+          "original_mean": 0.0,
+          "original_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_mean": 0.0,
+          "independent_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "both_cohorts_equal_weight_mean": 0.0,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_minus_original": 0.0,
+          "independent_minus_original_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "far": {
+          "original_mean": 0.0,
+          "original_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_mean": 0.0,
+          "independent_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "both_cohorts_equal_weight_mean": 0.0,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_minus_original": 0.0,
+          "independent_minus_original_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "common": {
+          "original_mean": 0.0,
+          "original_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_mean": 0.0,
+          "independent_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "both_cohorts_equal_weight_mean": 0.0,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_minus_original": 0.0,
+          "independent_minus_original_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "DID": {
+          "original_mean": 0.0,
+          "original_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_mean": 0.0,
+          "independent_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "both_cohorts_equal_weight_mean": 0.0,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_minus_original": 0.0,
+          "independent_minus_original_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        }
+      },
+      "t0_population": {
+        "near": {
+          "original_mean": 0.0,
+          "original_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_mean": 0.0,
+          "independent_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "both_cohorts_equal_weight_mean": 0.0,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_minus_original": 0.0,
+          "independent_minus_original_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "far": {
+          "original_mean": 0.0,
+          "original_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_mean": 0.0,
+          "independent_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "both_cohorts_equal_weight_mean": 0.0,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_minus_original": 0.0,
+          "independent_minus_original_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "common": {
+          "original_mean": 0.0,
+          "original_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_mean": 0.0,
+          "independent_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "both_cohorts_equal_weight_mean": 0.0,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_minus_original": 0.0,
+          "independent_minus_original_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "DID": {
+          "original_mean": 0.0,
+          "original_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_mean": 0.0,
+          "independent_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "both_cohorts_equal_weight_mean": 0.0,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_minus_original": 0.0,
+          "independent_minus_original_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        }
+      },
+      "cumulative_selfed_recruits": {
+        "near": {
+          "original_mean": 80.19102233552636,
+          "original_history_bootstrap95": [
+            51.505766639722545,
+            108.92411703743169
+          ],
+          "independent_mean": 82.950534227707,
+          "independent_history_bootstrap95": [
+            57.8316308047447,
+            108.33279946814605
+          ],
+          "both_cohorts_equal_weight_mean": 81.57077828161667,
+          "both_cohorts_equal_weight_bootstrap95": [
+            62.61534815840146,
+            100.26519293641645
+          ],
+          "independent_minus_original": 2.7595118921806403,
+          "independent_minus_original_bootstrap95": [
+            -36.30482782532075,
+            41.140234995183505
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "far": {
+          "original_mean": 41.25731529282186,
+          "original_history_bootstrap95": [
+            25.21596809143762,
+            57.344709784042706
+          ],
+          "independent_mean": 46.153481923529235,
+          "independent_history_bootstrap95": [
+            31.369715589177066,
+            61.30521889120056
+          ],
+          "both_cohorts_equal_weight_mean": 43.70539860817554,
+          "both_cohorts_equal_weight_bootstrap95": [
+            32.93764407038869,
+            54.6701279840582
+          ],
+          "independent_minus_original": 4.896166630707377,
+          "independent_minus_original_bootstrap95": [
+            -17.37979653897742,
+            27.008578580460036
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "common": {
+          "original_mean": 60.72416881417411,
+          "original_history_bootstrap95": [
+            44.38140659428049,
+            76.65688142968327
+          ],
+          "independent_mean": 64.55200807561812,
+          "independent_history_bootstrap95": [
+            49.585575349764795,
+            80.26065531880549
+          ],
+          "both_cohorts_equal_weight_mean": 62.63808844489611,
+          "both_cohorts_equal_weight_bootstrap95": [
+            51.58016478708226,
+            73.73319366992162
+          ],
+          "independent_minus_original": 3.827839261444012,
+          "independent_minus_original_bootstrap95": [
+            -18.22664598442185,
+            27.112716660155993
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "DID": {
+          "original_mean": -38.9337070427045,
+          "original_history_bootstrap95": [
+            -73.10624926093742,
+            -5.8407441002358045
+          ],
+          "independent_mean": -36.797052304177754,
+          "independent_history_bootstrap95": [
+            -64.19893026780655,
+            -9.928525858817748
+          ],
+          "both_cohorts_equal_weight_mean": -37.865379673441126,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -59.733171683466125,
+            -16.63173256808283
+          ],
+          "independent_minus_original": 2.136654738526744,
+          "independent_minus_original_bootstrap95": [
+            -40.296407132574615,
+            46.1784652499695
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        }
+      },
+      "cumulative_outcross_recruits": {
+        "near": {
+          "original_mean": -49.13685080986078,
+          "original_history_bootstrap95": [
+            -64.94098484622782,
+            -33.97242327891622
+          ],
+          "independent_mean": -31.11061520820979,
+          "independent_history_bootstrap95": [
+            -46.01625496555866,
+            -16.56458234511763
+          ],
+          "both_cohorts_equal_weight_mean": -40.123733009035284,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -50.86306739852347,
+            -29.606346112936183
+          ],
+          "independent_minus_original": 18.026235601650992,
+          "independent_minus_original_bootstrap95": [
+            -3.5212011396744582,
+            39.273522854853574
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "far": {
+          "original_mean": -24.23659555382942,
+          "original_history_bootstrap95": [
+            -37.47452250047202,
+            -11.239008315973534
+          ],
+          "independent_mean": -29.173960018550712,
+          "independent_history_bootstrap95": [
+            -41.387342515963056,
+            -17.81278760472331
+          ],
+          "both_cohorts_equal_weight_mean": -26.705277786190067,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -35.352479108400374,
+            -18.042498353922287
+          ],
+          "independent_minus_original": -4.937364464721291,
+          "independent_minus_original_bootstrap95": [
+            -22.50626539025406,
+            12.521247409508325
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "common": {
+          "original_mean": -36.6867231818451,
+          "original_history_bootstrap95": [
+            -47.98655765115354,
+            -25.752417326877772
+          ],
+          "independent_mean": -30.142287613380248,
+          "independent_history_bootstrap95": [
+            -40.09491958055277,
+            -20.57668232109426
+          ],
+          "both_cohorts_equal_weight_mean": -33.41450539761267,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -40.87201338221414,
+            -25.992993012055386
+          ],
+          "independent_minus_original": 6.544435568464856,
+          "independent_minus_original_bootstrap95": [
+            -8.152656396118383,
+            21.547903739835945
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "DID": {
+          "original_mean": 24.900255256031365,
+          "original_history_bootstrap95": [
+            6.97635545067605,
+            43.2338825679178
+          ],
+          "independent_mean": 1.9366551896590778,
+          "independent_history_bootstrap95": [
+            -15.741285613162544,
+            20.050273932212296
+          ],
+          "both_cohorts_equal_weight_mean": 13.418455222845221,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.9513677640642005,
+            26.202438164915723
+          ],
+          "independent_minus_original": -22.963600066372287,
+          "independent_minus_original_bootstrap95": [
+            -48.279945919922234,
+            2.4406381901333942
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        }
+      },
+      "cumulative_total_recruits": {
+        "near": {
+          "original_mean": 31.054171525665566,
+          "original_history_bootstrap95": [
+            7.494851377803829,
+            54.6255178492332
+          ],
+          "independent_mean": 51.83991901949719,
+          "independent_history_bootstrap95": [
+            29.98300408778101,
+            73.69780578431192
+          ],
+          "both_cohorts_equal_weight_mean": 41.44704527258138,
+          "both_cohorts_equal_weight_bootstrap95": [
+            25.289427193524652,
+            57.34365765375582
+          ],
+          "independent_minus_original": 20.78574749383162,
+          "independent_minus_original_bootstrap95": [
+            -10.87605676911385,
+            52.213418846323854
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "far": {
+          "original_mean": 17.020719738992433,
+          "original_history_bootstrap95": [
+            5.119064162241017,
+            28.885570683135462
+          ],
+          "independent_mean": 16.97952190497851,
+          "independent_history_bootstrap95": [
+            7.23933286391081,
+            27.1297759181633
+          ],
+          "both_cohorts_equal_weight_mean": 17.000120821985472,
+          "both_cohorts_equal_weight_bootstrap95": [
+            9.296516102225015,
+            24.821944069071
+          ],
+          "independent_minus_original": -0.04119783401392141,
+          "independent_minus_original_bootstrap95": [
+            -15.532141116530491,
+            15.861221955803988
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "common": {
+          "original_mean": 24.037445632329,
+          "original_history_bootstrap95": [
+            11.363995331366715,
+            36.3850646821583
+          ],
+          "independent_mean": 34.40972046223784,
+          "independent_history_bootstrap95": [
+            21.18773238806537,
+            47.62699699051395
+          ],
+          "both_cohorts_equal_weight_mean": 29.22358304728342,
+          "both_cohorts_equal_weight_bootstrap95": [
+            20.022879322558953,
+            38.18279093670516
+          ],
+          "independent_minus_original": 10.372274829908843,
+          "independent_minus_original_bootstrap95": [
+            -7.994691802490858,
+            29.2042922604292
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "DID": {
+          "original_mean": -14.033451786673137,
+          "original_history_bootstrap95": [
+            -40.33774924388358,
+            12.653749279162453
+          ],
+          "independent_mean": -34.86039711451867,
+          "independent_history_bootstrap95": [
+            -55.76304530699923,
+            -13.453157261505648
+          ],
+          "both_cohorts_equal_weight_mean": -24.4469244505959,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -41.27905954770343,
+            -7.3792035641208304
+          ],
+          "independent_minus_original": -20.826945327845532,
+          "independent_minus_original_bootstrap95": [
+            -55.73738679387191,
+            14.364037599802032
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        }
+      },
+      "t0_maternal_viable_population": {
+        "near": {
+          "original_mean": 0.6401095257980935,
+          "original_history_bootstrap95": [
+            -0.26604313970299326,
+            1.5480248951957847
+          ],
+          "independent_mean": 1.3908436794144552,
+          "independent_history_bootstrap95": [
+            0.6661429077691662,
+            2.136152604672966
+          ],
+          "both_cohorts_equal_weight_mean": 1.0154766026062743,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.43604282747901996,
+            1.6069195223117916
+          ],
+          "independent_minus_original": 0.7507341536163616,
+          "independent_minus_original_bootstrap95": [
+            -0.4101864140370164,
+            1.9216637042075375
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "far": {
+          "original_mean": -0.022017222227029037,
+          "original_history_bootstrap95": [
+            -0.5940677192648928,
+            0.5608598784507377
+          ],
+          "independent_mean": 0.30445212884520134,
+          "independent_history_bootstrap95": [
+            -0.21042607088602516,
+            0.8101143096363791
+          ],
+          "both_cohorts_equal_weight_mean": 0.14121745330908614,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -0.24209753021488387,
+            0.5229418624798184
+          ],
+          "independent_minus_original": 0.3264693510722304,
+          "independent_minus_original_bootstrap95": [
+            -0.4366791263464347,
+            1.0964099929340618
+          ],
+          "direction_reproduced": false,
+          "independent_units_per_cohort": 64
+        },
+        "common": {
+          "original_mean": 0.3090461517855323,
+          "original_history_bootstrap95": [
+            -0.2706306389755447,
+            0.9006224390753161
+          ],
+          "independent_mean": 0.8476479041298282,
+          "independent_history_bootstrap95": [
+            0.3780651969289083,
+            1.3093186460302215
+          ],
+          "both_cohorts_equal_weight_mean": 0.5783470279576802,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.209329240832973,
+            0.9568221848851659
+          ],
+          "independent_minus_original": 0.5386017523442959,
+          "independent_minus_original_bootstrap95": [
+            -0.21235044127064395,
+            1.2748785106539322
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "DID": {
+          "original_mean": -0.6621267480251226,
+          "original_history_bootstrap95": [
+            -1.6285458816768237,
+            0.30592306555534315
+          ],
+          "independent_mean": -1.0863915505692538,
+          "independent_history_bootstrap95": [
+            -1.9621239671553106,
+            -0.21159408301976368
+          ],
+          "both_cohorts_equal_weight_mean": -0.8742591492971883,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -1.5239172761229722,
+            -0.2258221009373881
+          ],
+          "independent_minus_original": -0.42426480254413124,
+          "independent_minus_original_bootstrap95": [
+            -1.728184876696736,
+            0.8779027672290767
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        }
+      },
+      "t0_female_outcross_population": {
+        "near": {
+          "original_mean": -2.7355815273510657,
+          "original_history_bootstrap95": [
+            -3.810301225709286,
+            -1.6965799736660123
+          ],
+          "independent_mean": -1.5878283620562288,
+          "independent_history_bootstrap95": [
+            -2.485494146585896,
+            -0.7261126195845613
+          ],
+          "both_cohorts_equal_weight_mean": -2.161704944703647,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -2.853093293785961,
+            -1.479745263202585
+          ],
+          "independent_minus_original": 1.147753165294837,
+          "independent_minus_original_bootstrap95": [
+            -0.2301655588746323,
+            2.514693588342195
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "far": {
+          "original_mean": -1.5949525341823292,
+          "original_history_bootstrap95": [
+            -2.5297450225016105,
+            -0.5923535861384788
+          ],
+          "independent_mean": -1.51697105640537,
+          "independent_history_bootstrap95": [
+            -2.286139781839736,
+            -0.7789141297670132
+          ],
+          "both_cohorts_equal_weight_mean": -1.5559617952938496,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -2.1559395174238323,
+            -0.9407994637459691
+          ],
+          "independent_minus_original": 0.07798147777695918,
+          "independent_minus_original_bootstrap95": [
+            -1.1508341836933083,
+            1.2579456422692565
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "common": {
+          "original_mean": -2.1652670307666977,
+          "original_history_bootstrap95": [
+            -2.941182007878937,
+            -1.399650267305493
+          ],
+          "independent_mean": -1.5523997092307993,
+          "independent_history_bootstrap95": [
+            -2.1554831833710484,
+            -0.9771967043020169
+          ],
+          "both_cohorts_equal_weight_mean": -1.8588333699987485,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -2.3428066747547347,
+            -1.3756792001556237
+          ],
+          "independent_minus_original": 0.6128673215358984,
+          "independent_minus_original_bootstrap95": [
+            -0.35913951349739387,
+            1.5772503476854354
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "DID": {
+          "original_mean": 1.1406289931687368,
+          "original_history_bootstrap95": [
+            -0.13148733153118097,
+            2.4925264558197497
+          ],
+          "independent_mean": 0.07085730565085901,
+          "independent_history_bootstrap95": [
+            -1.058348645287198,
+            1.2109926917116267
+          ],
+          "both_cohorts_equal_weight_mean": 0.6057431494097979,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -0.22456777980478673,
+            1.4831632569226316
+          ],
+          "independent_minus_original": -1.0697716875178778,
+          "independent_minus_original_bootstrap95": [
+            -2.833062961833934,
+            0.6545663451657603
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        }
+      },
+      "t0_viable_selfed_population": {
+        "near": {
+          "original_mean": 3.3756910531491604,
+          "original_history_bootstrap95": [
+            2.407516300782139,
+            4.348497735561967
+          ],
+          "independent_mean": 2.9786720414706847,
+          "independent_history_bootstrap95": [
+            2.0847277615114406,
+            3.891581783108923
+          ],
+          "both_cohorts_equal_weight_mean": 3.1771815473099227,
+          "both_cohorts_equal_weight_bootstrap95": [
+            2.5212765049069814,
+            3.843008363006948
+          ],
+          "independent_minus_original": -0.39701901167847575,
+          "independent_minus_original_bootstrap95": [
+            -1.7094403574908126,
+            0.9604549361853201
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "far": {
+          "original_mean": 1.5729353119552993,
+          "original_history_bootstrap95": [
+            0.8048557161574931,
+            2.3172367754835888
+          ],
+          "independent_mean": 1.821423185250572,
+          "independent_history_bootstrap95": [
+            1.2422140742018242,
+            2.423867897138375
+          ],
+          "both_cohorts_equal_weight_mean": 1.6971792486029358,
+          "both_cohorts_equal_weight_bootstrap95": [
+            1.2187892652030556,
+            2.1794012339913347
+          ],
+          "independent_minus_original": 0.24848787329527267,
+          "independent_minus_original_bootstrap95": [
+            -0.70552916206161,
+            1.2282790272916912
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "common": {
+          "original_mean": 2.4743131825522298,
+          "original_history_bootstrap95": [
+            1.84279230689142,
+            3.0929947213596254
+          ],
+          "independent_mean": 2.4000476133606283,
+          "independent_history_bootstrap95": [
+            1.8402769580291127,
+            2.969042998487392
+          ],
+          "both_cohorts_equal_weight_mean": 2.4371803979564293,
+          "both_cohorts_equal_weight_bootstrap95": [
+            2.0102650069430066,
+            2.8619091003363324
+          ],
+          "independent_minus_original": -0.07426556919160143,
+          "independent_minus_original_bootstrap95": [
+            -0.9065472130102992,
+            0.7536813832146347
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "DID": {
+          "original_mean": -1.8027557411938613,
+          "original_history_bootstrap95": [
+            -2.993443549067495,
+            -0.6151544318616906
+          ],
+          "independent_mean": -1.1572488562201122,
+          "independent_history_bootstrap95": [
+            -2.175434245375255,
+            -0.14787159490028545
+          ],
+          "both_cohorts_equal_weight_mean": -1.4800022987069867,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -2.2742356278638898,
+            -0.7074062150990462
+          ],
+          "independent_minus_original": 0.6455068849737491,
+          "independent_minus_original_bootstrap95": [
+            -0.9204782195760399,
+            2.2279607479733423
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        }
+      },
+      "t0_paternal_export_population": {
+        "near": {
+          "original_mean": -10.959952420651561,
+          "original_history_bootstrap95": [
+            -15.11625597173389,
+            -7.173741111667788
+          ],
+          "independent_mean": -5.269890352619447,
+          "independent_history_bootstrap95": [
+            -8.530837083734802,
+            -1.9830986148965566
+          ],
+          "both_cohorts_equal_weight_mean": -8.114921386635505,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -10.671613921182052,
+            -5.554739885700103
+          ],
+          "independent_minus_original": 5.690062068032114,
+          "independent_minus_original_bootstrap95": [
+            0.5196144822026775,
+            11.018189799528484
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "far": {
+          "original_mean": -6.510068517187294,
+          "original_history_bootstrap95": [
+            -10.191385968416219,
+            -2.6050339969314193
+          ],
+          "independent_mean": -4.299408822211308,
+          "independent_history_bootstrap95": [
+            -7.056747931157794,
+            -1.5821998230969518
+          ],
+          "both_cohorts_equal_weight_mean": -5.4047386696993005,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -7.716706838324571,
+            -3.0448454906655713
+          ],
+          "independent_minus_original": 2.2106596949759867,
+          "independent_minus_original_bootstrap95": [
+            -2.4930341073165336,
+            6.8662993124859355
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "common": {
+          "original_mean": -8.735010468919427,
+          "original_history_bootstrap95": [
+            -11.762302906006445,
+            -5.8330905644546105
+          ],
+          "independent_mean": -4.784649587415377,
+          "independent_history_bootstrap95": [
+            -6.8315013188323945,
+            -2.78891868464808
+          ],
+          "both_cohorts_equal_weight_mean": -6.759830028167402,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -8.611449065184503,
+            -4.9955965936863
+          ],
+          "independent_minus_original": 3.95036088150405,
+          "independent_minus_original_bootstrap95": [
+            0.3382167532958698,
+            7.572158492403956
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "DID": {
+          "original_mean": 4.449883903464263,
+          "original_history_bootstrap95": [
+            -0.30110394882906866,
+            9.4276439322596
+          ],
+          "independent_mean": 0.9704815304081399,
+          "independent_history_bootstrap95": [
+            -3.3504792867735986,
+            5.42780633057626
+          ],
+          "both_cohorts_equal_weight_mean": 2.7101827169362016,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -0.593106116842032,
+            6.026721625764907
+          ],
+          "independent_minus_original": -3.479402373056123,
+          "independent_minus_original_bootstrap95": [
+            -10.008249407465643,
+            3.130319632290179
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        }
+      }
+    },
+    "eight_founders_capacity8": {
+      "occupied": {
+        "near": {
+          "original_mean": 0.015414652018924061,
+          "original_history_bootstrap95": [
+            0.0072473087941610295,
+            0.023569722163037467
+          ],
+          "independent_mean": 0.0165595731228406,
+          "independent_history_bootstrap95": [
+            0.007172818051346378,
+            0.02639624209419371
+          ],
+          "both_cohorts_equal_weight_mean": 0.015987112570882332,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.009681141037823292,
+            0.022374373714154818
+          ],
+          "independent_minus_original": 0.0011449211039165387,
+          "independent_minus_original_bootstrap95": [
+            -0.011433605389220258,
+            0.013837352981702807
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "far": {
+          "original_mean": 0.0018255149465799796,
+          "original_history_bootstrap95": [
+            -0.004013983206198584,
+            0.007620134259540418
+          ],
+          "independent_mean": 0.007619847847289699,
+          "independent_history_bootstrap95": [
+            0.0024928804016771614,
+            0.012688962364639001
+          ],
+          "both_cohorts_equal_weight_mean": 0.0047226813969348394,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.0007743304972061003,
+            0.008639683525732909
+          ],
+          "independent_minus_original": 0.00579433290070972,
+          "independent_minus_original_bootstrap95": [
+            -0.0018539565286146348,
+            0.013664999156363817
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "common": {
+          "original_mean": 0.00862008348275202,
+          "original_history_bootstrap95": [
+            0.003232709943046886,
+            0.01396682827126367
+          ],
+          "independent_mean": 0.012089710485065148,
+          "independent_history_bootstrap95": [
+            0.006682063275376216,
+            0.01760172099350257
+          ],
+          "both_cohorts_equal_weight_mean": 0.010354896983908584,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.006516488305512038,
+            0.014215711006767787
+          ],
+          "independent_minus_original": 0.0034696270023131283,
+          "independent_minus_original_bootstrap95": [
+            -0.00413985913924847,
+            0.011185469881862687
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "DID": {
+          "original_mean": -0.013589137072344083,
+          "original_history_bootstrap95": [
+            -0.022994046514652075,
+            -0.0045176983691917
+          ],
+          "independent_mean": -0.008939725275550902,
+          "independent_history_bootstrap95": [
+            -0.020180483314036067,
+            0.0019161873655727105
+          ],
+          "both_cohorts_equal_weight_mean": -0.011264431173947494,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -0.018399243391233774,
+            -0.004063739547789817
+          ],
+          "independent_minus_original": 0.004649411796793181,
+          "independent_minus_original_bootstrap95": [
+            -0.009906647264078338,
+            0.0190359226728024
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        }
+      },
+      "t0_present": {
+        "near": {
+          "original_mean": 0.0,
+          "original_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_mean": 0.0,
+          "independent_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "both_cohorts_equal_weight_mean": 0.0,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_minus_original": 0.0,
+          "independent_minus_original_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "far": {
+          "original_mean": 0.0,
+          "original_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_mean": 0.0,
+          "independent_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "both_cohorts_equal_weight_mean": 0.0,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_minus_original": 0.0,
+          "independent_minus_original_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "common": {
+          "original_mean": 0.0,
+          "original_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_mean": 0.0,
+          "independent_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "both_cohorts_equal_weight_mean": 0.0,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_minus_original": 0.0,
+          "independent_minus_original_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "DID": {
+          "original_mean": 0.0,
+          "original_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_mean": 0.0,
+          "independent_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "both_cohorts_equal_weight_mean": 0.0,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_minus_original": 0.0,
+          "independent_minus_original_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        }
+      },
+      "t0_population": {
+        "near": {
+          "original_mean": 0.0,
+          "original_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_mean": 0.0,
+          "independent_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "both_cohorts_equal_weight_mean": 0.0,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_minus_original": 0.0,
+          "independent_minus_original_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "far": {
+          "original_mean": 0.0,
+          "original_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_mean": 0.0,
+          "independent_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "both_cohorts_equal_weight_mean": 0.0,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_minus_original": 0.0,
+          "independent_minus_original_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "common": {
+          "original_mean": 0.0,
+          "original_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_mean": 0.0,
+          "independent_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "both_cohorts_equal_weight_mean": 0.0,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_minus_original": 0.0,
+          "independent_minus_original_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "DID": {
+          "original_mean": 0.0,
+          "original_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_mean": 0.0,
+          "independent_history_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "both_cohorts_equal_weight_mean": 0.0,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "independent_minus_original": 0.0,
+          "independent_minus_original_bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        }
+      },
+      "cumulative_selfed_recruits": {
+        "near": {
+          "original_mean": 13.68850948622813,
+          "original_history_bootstrap95": [
+            8.876665342104955,
+            18.5210428770978
+          ],
+          "independent_mean": 13.76059839027371,
+          "independent_history_bootstrap95": [
+            8.647874138028623,
+            18.82565690574384
+          ],
+          "both_cohorts_equal_weight_mean": 13.72455393825092,
+          "both_cohorts_equal_weight_bootstrap95": [
+            10.192656281949994,
+            17.25463493284809
+          ],
+          "independent_minus_original": 0.07208890404558055,
+          "independent_minus_original_bootstrap95": [
+            -7.045915362047798,
+            7.082270360168249
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "far": {
+          "original_mean": 5.9588279358721525,
+          "original_history_bootstrap95": [
+            2.8619868658315095,
+            9.119911921117488
+          ],
+          "independent_mean": 7.619658466061834,
+          "independent_history_bootstrap95": [
+            4.646920942499014,
+            10.774531964675013
+          ],
+          "both_cohorts_equal_weight_mean": 6.789243200966993,
+          "both_cohorts_equal_weight_bootstrap95": [
+            4.675522157909225,
+            8.971532345975666
+          ],
+          "independent_minus_original": 1.6608305301896813,
+          "independent_minus_original_bootstrap95": [
+            -2.7980086875803165,
+            6.047247966486328
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "common": {
+          "original_mean": 9.82366871105014,
+          "original_history_bootstrap95": [
+            6.732980993800165,
+            12.82704004327644
+          ],
+          "independent_mean": 10.690128428167773,
+          "independent_history_bootstrap95": [
+            7.71439355035236,
+            13.723830902632312
+          ],
+          "both_cohorts_equal_weight_mean": 10.256898569608957,
+          "both_cohorts_equal_weight_bootstrap95": [
+            8.081870497780958,
+            12.34643750997227
+          ],
+          "independent_minus_original": 0.8664597171176336,
+          "independent_minus_original_bootstrap95": [
+            -3.3532497282997267,
+            5.256428666828012
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "DID": {
+          "original_mean": -7.729681550355979,
+          "original_history_bootstrap95": [
+            -13.271303877838482,
+            -2.277656960504187
+          ],
+          "independent_mean": -6.140939924211879,
+          "independent_history_bootstrap95": [
+            -12.009496929160182,
+            -0.4941688945682237
+          ],
+          "both_cohorts_equal_weight_mean": -6.935310737283929,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -10.952338931550988,
+            -2.974936447037042
+          ],
+          "independent_minus_original": 1.5887416261440999,
+          "independent_minus_original_bootstrap95": [
+            -6.3109533443923755,
+            9.491279086791096
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        }
+      },
+      "cumulative_outcross_recruits": {
+        "near": {
+          "original_mean": -6.185162511442899,
+          "original_history_bootstrap95": [
+            -8.322705299768508,
+            -4.128392365265762
+          ],
+          "independent_mean": -3.4129995520275695,
+          "independent_history_bootstrap95": [
+            -5.293111001832194,
+            -1.586545857666453
+          ],
+          "both_cohorts_equal_weight_mean": -4.799081031735234,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -6.1900555503173305,
+            -3.4295558151949614
+          ],
+          "independent_minus_original": 2.772162959415329,
+          "independent_minus_original_bootstrap95": [
+            -0.10473658279480473,
+            5.564898687494479
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "far": {
+          "original_mean": -3.6124934935589343,
+          "original_history_bootstrap95": [
+            -5.404870017249134,
+            -1.8684385901446456
+          ],
+          "independent_mean": -3.8471702889818555,
+          "independent_history_bootstrap95": [
+            -5.409862971744307,
+            -2.372937089959986
+          ],
+          "both_cohorts_equal_weight_mean": -3.729831891270395,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -4.8979567097080325,
+            -2.5933105148066864
+          ],
+          "independent_minus_original": -0.2346767954229212,
+          "independent_minus_original_bootstrap95": [
+            -2.561607535348647,
+            2.085166785746677
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "common": {
+          "original_mean": -4.898828002500917,
+          "original_history_bootstrap95": [
+            -6.452331862093402,
+            -3.4028708730905866
+          ],
+          "independent_mean": -3.6300849205047125,
+          "independent_history_bootstrap95": [
+            -4.896457022309758,
+            -2.4365588913548213
+          ],
+          "both_cohorts_equal_weight_mean": -4.264456461502815,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -5.245293852633843,
+            -3.290440091373005
+          ],
+          "independent_minus_original": 1.2687430819962042,
+          "independent_minus_original_bootstrap95": [
+            -0.6961786727487257,
+            3.207097692568987
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "DID": {
+          "original_mean": 2.5726690178839644,
+          "original_history_bootstrap95": [
+            0.22453794552772482,
+            5.014502940249135
+          ],
+          "independent_mean": -0.43417073695428604,
+          "independent_history_bootstrap95": [
+            -2.7238810629694927,
+            1.9449758317915624
+          ],
+          "both_cohorts_equal_weight_mean": 1.0692491404648392,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -0.5839251129035635,
+            2.741927720415333
+          ],
+          "independent_minus_original": -3.0068397548382504,
+          "independent_minus_original_bootstrap95": [
+            -6.3568253556703604,
+            0.3617782688538738
+          ],
+          "direction_reproduced": false,
+          "independent_units_per_cohort": 64
+        }
+      },
+      "cumulative_total_recruits": {
+        "near": {
+          "original_mean": 7.503346974785233,
+          "original_history_bootstrap95": [
+            2.970256019217111,
+            11.947872367673893
+          ],
+          "independent_mean": 10.347598838246137,
+          "independent_history_bootstrap95": [
+            5.482224437483399,
+            15.35409670392624
+          ],
+          "both_cohorts_equal_weight_mean": 8.925472906515685,
+          "both_cohorts_equal_weight_bootstrap95": [
+            5.571757888463645,
+            12.23982337841643
+          ],
+          "independent_minus_original": 2.8442518634609044,
+          "independent_minus_original_bootstrap95": [
+            -3.687527951473079,
+            9.483585463981168
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "far": {
+          "original_mean": 2.3463344423132177,
+          "original_history_bootstrap95": [
+            -0.6542374068858915,
+            5.304879202849044
+          ],
+          "independent_mean": 3.772488177079979,
+          "independent_history_bootstrap95": [
+            1.3731260565356267,
+            6.219463929324589
+          ],
+          "both_cohorts_equal_weight_mean": 3.0594113096965985,
+          "both_cohorts_equal_weight_bootstrap95": [
+            1.1020304282035174,
+            4.966480204917083
+          ],
+          "independent_minus_original": 1.4261537347667614,
+          "independent_minus_original_bootstrap95": [
+            -2.4124268354618814,
+            5.26230561432561
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "common": {
+          "original_mean": 4.924840708549226,
+          "original_history_bootstrap95": [
+            1.8987844380837091,
+            7.7828306672034575
+          ],
+          "independent_mean": 7.0600435076630585,
+          "independent_history_bootstrap95": [
+            4.16069616881454,
+            9.850509287761406
+          ],
+          "both_cohorts_equal_weight_mean": 5.992442108106142,
+          "both_cohorts_equal_weight_bootstrap95": [
+            3.9174491462093877,
+            7.992377507465063
+          ],
+          "independent_minus_original": 2.1352027991138325,
+          "independent_minus_original_bootstrap95": [
+            -1.9484501908144007,
+            6.28904073653923
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "DID": {
+          "original_mean": -5.157012532472016,
+          "original_history_bootstrap95": [
+            -10.148850047388077,
+            -0.17994445252493638
+          ],
+          "independent_mean": -6.575110661166159,
+          "independent_history_bootstrap95": [
+            -11.697642239297293,
+            -1.5088837976256666
+          ],
+          "both_cohorts_equal_weight_mean": -5.866061596819087,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -9.387455035201226,
+            -2.3290670101514452
+          ],
+          "independent_minus_original": -1.418098128694143,
+          "independent_minus_original_bootstrap95": [
+            -8.659668944159082,
+            5.5973025465078745
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        }
+      },
+      "t0_maternal_viable_population": {
+        "near": {
+          "original_mean": 0.13422326676351243,
+          "original_history_bootstrap95": [
+            -0.012649252723815027,
+            0.28250570998881946
+          ],
+          "independent_mean": 0.25451528401049234,
+          "independent_history_bootstrap95": [
+            0.13349094963330574,
+            0.37928343523428126
+          ],
+          "both_cohorts_equal_weight_mean": 0.19436927538700238,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.09835417095075513,
+            0.29083157834024825
+          ],
+          "independent_minus_original": 0.12029201724697991,
+          "independent_minus_original_bootstrap95": [
+            -0.07136658324610382,
+            0.3109874527018971
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "far": {
+          "original_mean": 0.007705816601240381,
+          "original_history_bootstrap95": [
+            -0.08414364887817098,
+            0.10118448033877417
+          ],
+          "independent_mean": 0.06425460068857883,
+          "independent_history_bootstrap95": [
+            -0.01974398300624619,
+            0.14614548871853514
+          ],
+          "both_cohorts_equal_weight_mean": 0.035980208644909605,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -0.02531114834613011,
+            0.09724252967100427
+          ],
+          "independent_minus_original": 0.05654878408733845,
+          "independent_minus_original_bootstrap95": [
+            -0.06557478553618316,
+            0.18012231380789878
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "common": {
+          "original_mean": 0.07096454168237641,
+          "original_history_bootstrap95": [
+            -0.020263557768853847,
+            0.16463328393617122
+          ],
+          "independent_mean": 0.15938494234953557,
+          "independent_history_bootstrap95": [
+            0.08063480512245334,
+            0.23585287873064795
+          ],
+          "both_cohorts_equal_weight_mean": 0.11517474201595598,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.05548994014161138,
+            0.17683278257991605
+          ],
+          "independent_minus_original": 0.08842040066715916,
+          "independent_minus_original_bootstrap95": [
+            -0.033282750335236984,
+            0.20762093073379748
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "DID": {
+          "original_mean": -0.12651745016227206,
+          "original_history_bootstrap95": [
+            -0.2877290017850492,
+            0.03592337936926471
+          ],
+          "independent_mean": -0.19026068332191348,
+          "independent_history_bootstrap95": [
+            -0.3334794745294379,
+            -0.047652911333542936
+          ],
+          "both_cohorts_equal_weight_mean": -0.15838906674209277,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -0.2659630451464676,
+            -0.05098361279209176
+          ],
+          "independent_minus_original": -0.06374323315964142,
+          "independent_minus_original_bootstrap95": [
+            -0.28192432949628043,
+            0.14911086785738248
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        }
+      },
+      "t0_female_outcross_population": {
+        "near": {
+          "original_mean": -0.41231218052387764,
+          "original_history_bootstrap95": [
+            -0.5790649552801486,
+            -0.25157879994079774
+          ],
+          "independent_mean": -0.24387698349509876,
+          "independent_history_bootstrap95": [
+            -0.3841438125943849,
+            -0.1091874316183766
+          ],
+          "both_cohorts_equal_weight_mean": -0.3280945820094882,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -0.43582851114922255,
+            -0.22360176300022905
+          ],
+          "independent_minus_original": 0.16843519702877888,
+          "independent_minus_original_bootstrap95": [
+            -0.045580988851599454,
+            0.37911075462442767
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "far": {
+          "original_mean": -0.2462857285410768,
+          "original_history_bootstrap95": [
+            -0.3891248766290789,
+            -0.09010591271163437
+          ],
+          "independent_mean": -0.23003577898576663,
+          "independent_history_bootstrap95": [
+            -0.3517709264402596,
+            -0.1149045126808895
+          ],
+          "both_cohorts_equal_weight_mean": -0.23816075376342172,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -0.33124699115131195,
+            -0.14260499520531839
+          ],
+          "independent_minus_original": 0.016249949555310172,
+          "independent_minus_original_bootstrap95": [
+            -0.17538848773834448,
+            0.2003216156472825
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "common": {
+          "original_mean": -0.3292989545324772,
+          "original_history_bootstrap95": [
+            -0.4466566205284452,
+            -0.21307812043599403
+          ],
+          "independent_mean": -0.2369563812404327,
+          "independent_history_bootstrap95": [
+            -0.33089532888909784,
+            -0.14763916902272178
+          ],
+          "both_cohorts_equal_weight_mean": -0.28312766788645494,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -0.3579231469947615,
+            -0.20848953706868395
+          ],
+          "independent_minus_original": 0.09234257329204451,
+          "independent_minus_original_bootstrap95": [
+            -0.05679805777440856,
+            0.24064790522241064
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "DID": {
+          "original_mean": 0.16602645198280078,
+          "original_history_bootstrap95": [
+            -0.032166760099198825,
+            0.3806706931971301
+          ],
+          "independent_mean": 0.013841204509332114,
+          "independent_history_bootstrap95": [
+            -0.16323074744502056,
+            0.19342407907172993
+          ],
+          "both_cohorts_equal_weight_mean": 0.08993382824606644,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -0.041466878117079345,
+            0.22846772583943228
+          ],
+          "independent_minus_original": -0.15218524747346868,
+          "independent_minus_original_bootstrap95": [
+            -0.43123966939798264,
+            0.1169326705313708
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        }
+      },
+      "t0_viable_selfed_population": {
+        "near": {
+          "original_mean": 0.54653544728739,
+          "original_history_bootstrap95": [
+            0.3874689166884807,
+            0.7094979192635622
+          ],
+          "independent_mean": 0.4983922675055913,
+          "independent_history_bootstrap95": [
+            0.34869441332644174,
+            0.6530072617576813
+          ],
+          "both_cohorts_equal_weight_mean": 0.5224638573964906,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.4118899984765148,
+            0.635175749385624
+          ],
+          "independent_minus_original": -0.04814317978179872,
+          "independent_minus_original_bootstrap95": [
+            -0.2693234512681987,
+            0.17712767594955997
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "far": {
+          "original_mean": 0.2539915451423173,
+          "original_history_bootstrap95": [
+            0.12975482092105975,
+            0.37550854574705855
+          ],
+          "independent_mean": 0.29429037967434546,
+          "independent_history_bootstrap95": [
+            0.1989188247525702,
+            0.39398482723071887
+          ],
+          "both_cohorts_equal_weight_mean": 0.2741409624083314,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.19583505834888218,
+            0.35292109767134605
+          ],
+          "independent_minus_original": 0.04029883453202815,
+          "independent_minus_original_bootstrap95": [
+            -0.11587096673560413,
+            0.1986485349744726
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "common": {
+          "original_mean": 0.40026349621485363,
+          "original_history_bootstrap95": [
+            0.29463928896329855,
+            0.5029972152998532
+          ],
+          "independent_mean": 0.3963413235899683,
+          "independent_history_bootstrap95": [
+            0.30227234977047557,
+            0.49131291709219194
+          ],
+          "both_cohorts_equal_weight_mean": 0.39830240990241095,
+          "both_cohorts_equal_weight_bootstrap95": [
+            0.32739475657247835,
+            0.4689160352649722
+          ],
+          "independent_minus_original": -0.003922172624885312,
+          "independent_minus_original_bootstrap95": [
+            -0.14272785132325472,
+            0.1337637794997415
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "DID": {
+          "original_mean": -0.2925439021450726,
+          "original_history_bootstrap95": [
+            -0.4880966795242761,
+            -0.09839250685333989
+          ],
+          "independent_mean": -0.20410188783124583,
+          "independent_history_bootstrap95": [
+            -0.3766174320632868,
+            -0.03226226453754405
+          ],
+          "both_cohorts_equal_weight_mean": -0.2483228949881592,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -0.3808121890495471,
+            -0.11947355455404432
+          ],
+          "independent_minus_original": 0.08844201431382676,
+          "independent_minus_original_bootstrap95": [
+            -0.17350840067122886,
+            0.3547486919691703
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        }
+      },
+      "t0_paternal_export_population": {
+        "near": {
+          "original_mean": -1.79514289696818,
+          "original_history_bootstrap95": [
+            -2.5005824030065793,
+            -1.1542603966465583
+          ],
+          "independent_mean": -0.8701786352221004,
+          "independent_history_bootstrap95": [
+            -1.419599664861413,
+            -0.31028828229400396
+          ],
+          "both_cohorts_equal_weight_mean": -1.3326607660951402,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -1.7611022197572437,
+            -0.8976448300286496
+          ],
+          "independent_minus_original": 0.9249642617460796,
+          "independent_minus_original_bootstrap95": [
+            0.04945768819689755,
+            1.820672032249616
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "far": {
+          "original_mean": -1.088915342945346,
+          "original_history_bootstrap95": [
+            -1.701378188514296,
+            -0.43464399413901794
+          ],
+          "independent_mean": -0.7268859423062412,
+          "independent_history_bootstrap95": [
+            -1.1928415028140669,
+            -0.27079908310759704
+          ],
+          "both_cohorts_equal_weight_mean": -0.9079006426257936,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -1.2989591419949418,
+            -0.5055883594807346
+          ],
+          "independent_minus_original": 0.3620294006391048,
+          "independent_minus_original_bootstrap95": [
+            -0.4366391845010123,
+            1.1398563567694235
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "common": {
+          "original_mean": -1.442029119956763,
+          "original_history_bootstrap95": [
+            -1.9500146590983647,
+            -0.9469725456534245
+          ],
+          "independent_mean": -0.7985322887641707,
+          "independent_history_bootstrap95": [
+            -1.1498952307094712,
+            -0.4628506685291098
+          ],
+          "both_cohorts_equal_weight_mean": -1.1202807043604668,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -1.430842788861327,
+            -0.8224445047363531
+          ],
+          "independent_minus_original": 0.6434968311925923,
+          "independent_minus_original_bootstrap95": [
+            0.03574100505935079,
+            1.2493308723183787
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        },
+        "DID": {
+          "original_mean": 0.7062275540228344,
+          "original_history_bootstrap95": [
+            -0.10702225689987256,
+            1.5557969809352865
+          ],
+          "independent_mean": 0.14329269291585894,
+          "independent_history_bootstrap95": [
+            -0.5965272342790244,
+            0.8947257816630597
+          ],
+          "both_cohorts_equal_weight_mean": 0.42476012346934666,
+          "both_cohorts_equal_weight_bootstrap95": [
+            -0.13523177067322428,
+            0.9927870636080639
+          ],
+          "independent_minus_original": -0.5629348611069755,
+          "independent_minus_original_bootstrap95": [
+            -1.6658212280630764,
+            0.5593101806161858
+          ],
+          "direction_reproduced": true,
+          "independent_units_per_cohort": 64
+        }
+      }
+    }
+  },
+  "limits": [
+    "Both cohorts were already outcome-exposed before this cross-cohort signature test was selected; this is descriptive reproducibility, not prospective confirmation.",
+    "Source IDs are disjoint, but historical settings and synthetic biological model are identical; two cohorts do not imply natural-island generality.",
+    "A-first/I-first phenotype-expression assignment is randomized; natural inherited crossing order is not.",
+    "Cumulative recruitment depends on lifespan, density and extinction; not a randomized mediator.",
+    "Pollen exported is expected export potential, not actual sire offspring or lifetime male fitness.",
+    "The original preregistered DID practical equivalence and the failed independent fixed resource-window gate are retained."
+  ]
+}
