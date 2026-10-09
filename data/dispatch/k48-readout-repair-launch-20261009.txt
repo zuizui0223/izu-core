@@ -1,0 +1,6 @@
+ONE-TIME RAW SCIENTIFIC READOUT REPAIR, 2026-10-09
+Original complete experimental run ID 37896872795, source SHA 2737736f1dca36c8b43e9ac6a9fbd862ca21165b.
+All new 64 history source and 114688 future shards finished successfully; original scientific summary failed IndexError because the two-arm readout loop still iterated 4.
+Original GitHub Action falsely concluded success due missing Bash pipefail.
+Correct only readout indexing and Bash fail-closed behavior; preserve original raw future artifacts and complete new t400 source admission. NO new biological random seeds, histories, future simulations, optional stopping or outcome-based filters.
+Run synthetic two-arm full-grid tests before re-admitting raw archive and performing one preregistered primary.
