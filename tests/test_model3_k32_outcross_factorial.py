@@ -11,6 +11,7 @@ from scripts.run_model3_k32_outcross_ablation import (
 from scripts.run_model3_k32_outcross_factorial import (
     FACTOR_NAMES, FACT_METRICS, MASK_LABELS, SINGLE_ARM,
     combine_outcross_factors, step_with_mask, factorial_terms, run_factorial,
+    genetic_structure, _row_values,
 )
 
 
@@ -40,6 +41,34 @@ def test_source_mask_exact_canonical_replay_and_single_masks_match_previous_code
         expected=step_with_intervention(
             first,grid,vis,cfg,np.random.default_rng(883),0,arm)
         np.testing.assert_array_equal(seen,expected)
+
+
+def test_genetic_richness_decomposes_into_allele_combinations_and_actual_coverage():
+    from scripts.audit_model3_k32_pathwise_selection_drift import allele_frequency_basis
+    first,grid,_,_=fixed_support_problem(capacity=32,ovule_budget=8.)
+    basis=allele_frequency_basis(grid)
+    het=(basis[:,2]==.5).astype(float)
+    normal=genetic_structure(first,basis)
+    assert normal["polymorphic_loci"]==3
+    assert normal["allelic_combinatorial_upper_bound"]==27
+    assert normal["genotype_coverage"]==pytest.approx(4/27)
+    assert normal["genotype_effective_simpson"]<=4
+    assert normal["genotype_effective_shannon"]<=4
+    one=np.zeros_like(first)
+    one[np.flatnonzero(first)[0]]=32
+    fixed=genetic_structure(one,basis)
+    expected_mono=int(np.count_nonzero((basis[np.flatnonzero(one)[0]]==0)|
+                                       (basis[np.flatnonzero(one)[0]]==1)))
+    assert fixed["polymorphic_loci"]==3-expected_mono
+    assert fixed["allelic_combinatorial_upper_bound"]==3**(3-expected_mono)
+    assert fixed["genotype_coverage"]==pytest.approx(1/fixed["allelic_combinatorial_upper_bound"])
+    assert fixed["genotype_effective_simpson"]==pytest.approx(1)
+    assert fixed["genotype_effective_shannon"]==pytest.approx(1)
+    for counts in (first,one,np.zeros_like(first)):
+        vector=_row_values(counts,basis,het)
+        assert len(vector)==len(FACT_METRICS)
+        assert vector[11]==pytest.approx(vector[12]+vector[13],abs=1e-12)
+    assert genetic_structure(np.zeros_like(first),basis) is None
 
 
 def test_mobius_contrasts_telescoping_and_interactions():
@@ -96,6 +125,22 @@ def test_eight_year_factorial_source_scope_and_all_interaction_identities(budget
             assert singles+interactions==pytest.approx(total,abs=1e-12)
             assert row["aggregate_pairwise_and_three_way_interaction"]["demographic_mc_se"] is not None
             assert sum(x["mean"] for x in row["factorial_components"].values())==pytest.approx(total,abs=1e-12)
+        # Pathwise architecture identity is preserved by every mask
+        # AND in all factorial contrasts because the metric is linear
+        # across the same demographic path index.
+        log_r=year["metrics"]["log_genotype_richness_occupancy_weighted"]
+        log_bound=year["metrics"]["log_combinatorial_upper_bound_occupancy_weighted"]
+        log_cov=year["metrics"]["log_genotype_coverage_occupancy_weighted"]
+        for m in range(8):
+            key=str(m)
+            assert log_r["each_arm"][key]["mean"]==pytest.approx(
+                log_bound["each_arm"][key]["mean"]+
+                log_cov["each_arm"][key]["mean"],abs=1e-12)
+        for m in range(1,8):
+            key=str(m)
+            assert log_r["factorial_components"][key]["mean"]==pytest.approx(
+                log_bound["factorial_components"][key]["mean"]+
+                log_cov["factorial_components"][key]["mean"],abs=1e-12)
 
 
 def test_disallowed_budget_guard():
