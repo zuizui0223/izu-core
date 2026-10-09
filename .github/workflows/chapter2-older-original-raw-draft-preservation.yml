@@ -1,0 +1,90 @@
+name: Chapter 2 older raw experimental cohorts unpublished draft archival
+on:
+  push:
+    branches:
+      - chapter2/older-raw-draft-preservation-20261009
+    paths:
+      - data/dispatch/older-two-raw-draft-launch-20261009.txt
+permissions:
+  contents: write
+  actions: read
+concurrency:
+  group: chapter2-older-raw-draft-preservation
+  cancel-in-progress: false
+jobs:
+  preserve:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      max-parallel: 2
+      matrix:
+        study: [orthogonal, kb]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Download all 130 original source/future artifacts and verify Github ZIP SHA-256
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          study="${{ matrix.study }}"
+          python -m scripts.archive_chapter2_older_raw_originals --study "$study" --out "preserved/$study" --execute-original-draft-archive
+      - name: Preserve bytes in a PRIVATE DRAFT Github Release, not publicly published
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          study="${{ matrix.study }}"
+          TAG="chapter2-$study-raw-20261009-v1"
+          main_sha=$(gh api "repos/$REPO/branches/main" --jq ".commit.sha")
+          echo "UNPUBLISHED original experimental-data preservation draft. No new biology or inference. Original model raw diploid genotypes and future trajectories; 64 independent history clusters, complete source artifact IDs and SHA-256 manifest. No external DOI minted." > "preserved/$study/notes.txt"
+          gh release create "$TAG" --draft --target "$main_sha" --title "Chapter 2 $study raw original archives (unpublished draft)" --notes-file "preserved/$study/notes.txt"
+          gh release upload "$TAG" "preserved/$study/chapter2-$study-130-original-shard-artifacts.tar" "preserved/$study/$study-raw-130-manifest.json" "preserved/$study/$study-archive-receipt.json"
+      - name: Read back complete raw tar from draft release and verify its SHA-256
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          study="${{ matrix.study }}"
+          TAG="chapter2-$study-raw-20261009-v1"
+          gh release view "$TAG" --json isDraft,assets > "preserved/$study/draft-release-status.json"
+          python - <<'PY'
+          import json,os
+          from pathlib import Path
+          study="${{ matrix.study }}"
+          d=json.loads(Path(f"preserved/{study}/draft-release-status.json").read_text())
+          assert d["isDraft"] is True
+          expected={f"chapter2-{study}-130-original-shard-artifacts.tar",f"{study}-raw-130-manifest.json",f"{study}-archive-receipt.json"}
+          assert {x["name"] for x in d["assets"]}==expected
+          PY
+          mkdir -p "redownloaded/$study"
+          gh release download "$TAG" --pattern "chapter2-$study-130-original-shard-artifacts.tar" --dir "redownloaded/$study"
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,json,tarfile
+          study="${{ matrix.study }}"
+          r=json.loads(Path(f"preserved/{study}/{study}-archive-receipt.json").read_text())
+          filename=Path(f"redownloaded/{study}/chapter2-{study}-130-original-shard-artifacts.tar")
+          h=hashlib.sha256()
+          with filename.open('rb') as f:
+              for chunk in iter(lambda:f.read(1048576),b''):h.update(chunk)
+          assert h.hexdigest()==r["archive_sha256"]
+          with tarfile.open(filename) as tar:
+              assert len(tar.getmembers())==131
+          print(f"SUCCESS: original 130 {study} ZIPs verified after draft-Release download")
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: chapter2-older-${{ matrix.study }}-draft-release-preservation-receipts
+          path: |
+            preserved/${{ matrix.study }}/${{ matrix.study }}-archive-receipt.json
+            preserved/${{ matrix.study }}/${{ matrix.study }}-raw-130-manifest.json
+            preserved/${{ matrix.study }}/draft-release-status.json
+          retention-days: 90
+          if-no-files-found: warn
