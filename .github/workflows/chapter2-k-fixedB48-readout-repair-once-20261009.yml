@@ -6,6 +6,7 @@ on:
     paths:
       - data/dispatch/k48-readout-repair-launch-20261009.txt
       - data/dispatch/k48-readout-repair-testfix-20261009.txt
+      - data/dispatch/k48-readout-repair-artifact-pagination-20261009.txt
 
 permissions:
   contents: read
@@ -50,9 +51,30 @@ jobs:
           repository: ${{ github.repository }}
           run-id: 37896872795
           github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Enumerate ALL 64 immutable future artifact IDs across API pages
+        id: artifacts
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          gh api --paginate "repos/$REPO/actions/runs/37896872795/artifacts?per_page=100" \
+            --jq '.artifacts[] | select(.name | startswith("chapter2-k48-future-shard-")) | [.id, .name] | @tsv' > future-artifacts.tsv
+          python - <<'PY'
+          from pathlib import Path
+          lines=[line.split("\t") for line in Path("future-artifacts.tsv").read_text().splitlines()]
+          names=[p[1] for p in lines]
+          expected={f"chapter2-k48-future-shard-{i}" for i in range(64)}
+          if (len(lines)!=64 or len(names)!=len(set(names))
+                  or set(names)!=expected or any(len(row)!=2 or not row[0].isdigit() for row in lines)):
+              raise AssertionError("Missing, duplicate or extraneous immutable future artifact")
+          print(f"Verified all {len(lines)} original raw shard artifact identifiers")
+          PY
+          ids=$(cut -f1 future-artifacts.tsv | paste -sd, -)
+          echo "ids=$ids" >> "$GITHUB_OUTPUT"
       - uses: actions/download-artifact@v4
         with:
-          pattern: chapter2-k48-future-shard-*
+          artifact-ids: ${{ steps.artifacts.outputs.ids }}
           path: full-64-kb-future-shards
           repository: ${{ github.repository }}
           run-id: 37896872795
