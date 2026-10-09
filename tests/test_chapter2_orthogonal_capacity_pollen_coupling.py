@@ -55,3 +55,26 @@ def test_manuscript_scope_preserves_direct_pollen_path_warning():
     report = Path("docs/CHAPTER2_ORTHOGONAL_MECHANISM_CHANNEL_AUDIT_20261009.md").read_text()
     assert "EXPLORATORY AFTER SEEING THE OUTCOME" in report
     assert "pure demographic ceiling" in report
+
+
+def test_raw_mechanism_result_is_immutable_exploratory_and_full_cohort():
+    import hashlib
+    path = Path("results/chapter2/orthogonal_capacity_mechanism_posthoc_20261009.json")
+    raw = path.read_bytes()
+    assert hashlib.sha256(raw).hexdigest() == (
+        "255d62055760e49fa3e032ac16040c790ebc2fc02564e1584fcf597aecbc14c3"
+    )
+    d = json.loads(raw)
+    assert d["status"] == "POST_OUTCOME_EXPLORATORY_RAW_AUTHENTICATED_CHANNEL_AUDIT"
+    assert d["full_future_count"] == 172032
+    assert d["history_bootstrap"]["n"] == 64
+    assert d["frozen_primary_unchanged"]["decision"] == "inconclusive"
+    assert abs(d["frozen_primary_unchanged"]["estimate"] -
+               0.0018484189036193578) < 1e-14
+    checks = d["initial_mechanical_checks"]
+    assert checks["identical_F8_starting_counts"] is True
+    assert checks["viability_gate_preserves_outcross_and_pollen"] is True
+    assert checks["viability_gate_halves_selfed_viable_seed"] is True
+    assert checks["F8_max_initial_payoff_abs_difference_capacity8_vs_capacity48"][
+        "t0_outcross_viable"
+    ] > 0
