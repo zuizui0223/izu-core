@@ -18,7 +18,7 @@ FUTURES_PER_SOURCE=112
 
 def tasks():
     d=validate_protocol()
-    h=d["independent_cohort"]
+    h=d["genuinely_new_cohort"]
     out=[]
     for ident in range(h["visitor_history_first"],h["visitor_history_last"]+1):
         group=[Prehistory(setting,env,order,ident,rep)
