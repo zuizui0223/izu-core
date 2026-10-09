@@ -5,6 +5,7 @@ on:
       - chapter2/kb-oldhistory-pilot-production-20261009
     paths:
       - data/dispatch/kb-oldhistory-smoke-launch-20261009.txt
+      - data/dispatch/kb-oldhistory-smoke-relaunch-importfix-20261009.txt
 permissions:
   contents: read
 jobs:
