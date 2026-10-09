@@ -59,6 +59,26 @@ def test_heldout_comparison_never_uses_holdout_for_calibration(budget):
         assert r[group]["paired_demographic_mc"]["paired_survivors"]==r[group]["n_survived"]
 
 
+@pytest.mark.parametrize("training_side",["first","second"])
+def test_holdout_training_direction_is_explicit(training_side):
+    r=run_holdout(budget=8.,draws=32,seed=521309,train_half=training_side)
+    if r["status"]!="K32_HELDOUT_DEMOGRAPHIC_MEAN_MATCH_EVALUATED":
+        assert r["status"] in {
+            "TRAINING_MEAN_UNATTAINABLE",
+            "HOLDOUT_NOT_EVALUABLE_ZERO_SURVIVORS",
+            "HOLDOUT_NOT_EVALUABLE_FEW_SURVIVORS",
+        }
+        return
+    c=r["conditions"]
+    assert c["training_half"]==training_side
+    assert c["holdout_outcomes_used_in_calibration"] is False
+    assert c["split"]==(
+        "first_half_train_second_half_holdout_fixed_before_fit"
+        if training_side=="first" else
+        "second_half_train_first_half_holdout_fixed_before_fit"
+    )
+
+
 def test_refuses_invalid_demographic_split_and_other_budget():
     with pytest.raises(ValueError):
         run_holdout(budget=4.,draws=32)
@@ -66,3 +86,5 @@ def test_refuses_invalid_demographic_split_and_other_budget():
         run_holdout(budget=8.,draws=33)
     with pytest.raises(ValueError):
         run_holdout(budget=8.,draws=8)
+    with pytest.raises(ValueError):
+        run_holdout(budget=8.,draws=32,train_half="both")
