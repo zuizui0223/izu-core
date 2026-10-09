@@ -60,6 +60,14 @@ FACT_METRICS=(
     "assurance_occupancy_weighted",
     "assurance_heterozygosity_occupancy_weighted",
     "fixation_occupancy_weighted",
+    "polymorphic_loci",
+    "allelic_combinatorial_upper_bound",
+    "genotype_coverage_occupancy_weighted",
+    "genotype_effective_shannon_occupancy_weighted",
+    "genotype_effective_simpson_occupancy_weighted",
+    "log_genotype_richness_occupancy_weighted",
+    "log_combinatorial_upper_bound_occupancy_weighted",
+    "log_genotype_coverage_occupancy_weighted",
 )
 
 
@@ -147,15 +155,77 @@ def step_with_mask(counts,grid,visitors,cfg,rng,year,mask):
     return child
 
 
+def genetic_structure(counts, basis):
+    """Finite three-locus allelic upper bound vs realized genotype occupancy.
+
+    For each locus whose two founder alleles survive, at most three
+    unordered diploid locus genotypes exist; monomorphic loci have one.
+    The product 3**(number polymorphic loci) is a COMBINATORIAL UPPER
+    BOUND, not a claim that all classes are immediately accessible
+    through biological pollen routing in a given year.
+
+    Shannon/Simpson effective numbers report genotype frequency
+    evenness, avoiding the claim that class richness alone fully
+    describes multilocus diversity. Extinction returns None for all
+    genotype-frequency-derived quantities.
+    """
+    c=np.asarray(counts)
+    if (c.shape!=(len(basis),) or c.dtype.kind not in "iu"
+            or (c<0).any() or basis.shape!=(len(c),3)):
+        raise ValueError("integer three-locus genotype counts required")
+    n=int(c.sum())
+    if n==0:
+        return None
+    allele=np.asarray(c,dtype=float)@basis/n
+    tol=1e-12
+    if np.any(allele < -tol) or np.any(allele > 1.+tol):
+        raise ArithmeticError("allele frequency outside its finite support")
+    n_poly=int(np.count_nonzero((allele>tol)&(allele<1.-tol)))
+    ceiling=3**n_poly
+    richness=int(np.count_nonzero(c))
+    if richness>ceiling:
+        raise ArithmeticError("realized genotype richness exceeds allelic combinatorial upper bound")
+    frequencies=c[c>0]/n
+    shannon=float(np.exp(-np.sum(frequencies*np.log(frequencies))))
+    simpson=float(1./np.sum(frequencies**2))
+    log_r=float(np.log(richness))
+    log_bound=float(np.log(ceiling))
+    log_coverage=float(np.log(richness/ceiling))
+    if not np.isclose(log_r,log_bound+log_coverage,atol=1e-12,rtol=0):
+        raise ArithmeticError("genetic diversity upper bound / coverage identity failed")
+    return {
+        "polymorphic_loci":n_poly,
+        "allelic_combinatorial_upper_bound":ceiling,
+        "genotype_coverage":richness/ceiling,
+        "genotype_effective_shannon":shannon,
+        "genotype_effective_simpson":simpson,
+        "log_genotype_richness":log_r,
+        "log_combinatorial_upper_bound":log_bound,
+        "log_genotype_coverage":log_coverage,
+    }
+
+
 def _row_values(c,basis,het):
     s=_snapshot(c,basis,het)
     alive=s["occupied"]
-    return np.array([
+    architecture=genetic_structure(c,basis) if alive else None
+    values=np.array([
         alive,s["genotype_richness"],s["allele_types_lost"],
         s["assurance"] if alive else 0.,
         s["heterozygote_fraction"] if alive else 0.,
         s["assurance_fixed"] if alive else 0.,
+        architecture["polymorphic_loci"] if alive else 0.,
+        architecture["allelic_combinatorial_upper_bound"] if alive else 0.,
+        architecture["genotype_coverage"] if alive else 0.,
+        architecture["genotype_effective_shannon"] if alive else 0.,
+        architecture["genotype_effective_simpson"] if alive else 0.,
+        architecture["log_genotype_richness"] if alive else 0.,
+        architecture["log_combinatorial_upper_bound"] if alive else 0.,
+        architecture["log_genotype_coverage"] if alive else 0.,
     ],dtype=float)
+    if not np.isclose(values[11],values[12]+values[13],atol=1e-12,rtol=0):
+        raise ArithmeticError("occupancy-weighted log-diversity decomposition failed")
+    return values
 
 
 def factorial_terms(raw_by_mask):
@@ -253,6 +323,16 @@ def run_factorial(*,budget=8.,draws=512,seed=420261017):
                 "n_extinct":int(draws-survivors.sum()),
                 "mean_richness_all":float(rs[:,1].mean()),
                 "mean_lost_alleles_all":float(rs[:,2].mean()),
+                "mean_polymorphic_loci_survivors":float(
+                    rs[survivors,6].mean()) if survivors.any() else None,
+                "mean_combinatorial_upper_bound_survivors":float(
+                    rs[survivors,7].mean()) if survivors.any() else None,
+                "mean_genotype_coverage_survivors":float(
+                    rs[survivors,8].mean()) if survivors.any() else None,
+                "mean_effective_shannon_survivors":float(
+                    rs[survivors,9].mean()) if survivors.any() else None,
+                "mean_effective_simpson_survivors":float(
+                    rs[survivors,10].mean()) if survivors.any() else None,
                 "mean_high_assurance_given_survival":float(
                     rs[survivors,3].mean()) if survivors.any() else None,
                 "mean_heterozygosity_given_survival":float(
@@ -283,6 +363,7 @@ def run_factorial(*,budget=8.,draws=512,seed=420261017):
         "factors":FACTOR_NAMES,
         "masks":{str(m):MASK_LABELS[m] for m in range(8)},
         "factorial_order":"Möbius inclusion-exclusion on full 2^3 table; each component and interaction includes higher-order state feedback; do NOT interpret as one-step Shapley",
+        "genetic_diversity_log_identity":"For every living path, log(R)=log(P)+log(R/P), where P=3^number_polymorphic_loci. For extinction, compare occupancy-weighted products (0) and never impute a fake genotype-frequency mean.",
         "metric_scopes":{
             "occupied":"binary occupation of source or counterfactual",
             "genotype_richness":"unconditional count, 0 if extinct",
@@ -290,6 +371,14 @@ def run_factorial(*,budget=8.,draws=512,seed=420261017):
             "assurance_occupancy_weighted":"occupancy TIMES assurance allele frequency; zero when extinct is product, not a fake trait mean",
             "assurance_heterozygosity_occupancy_weighted":"occupancy TIMES frequency of heterozygote plants",
             "fixation_occupancy_weighted":"occupancy TIMES indicator of assurance high-allele fixation",
+            "polymorphic_loci":"occupancy times number of biallelic loci retaining both founder alleles (0..3)",
+            "allelic_combinatorial_upper_bound":"occupancy times 3**number_of_polymorphic_loci, the maximum theoretical distinct unordered diploid multilocus genotypes, NOT immediately reachable combinations",
+            "genotype_coverage_occupancy_weighted":"occupancy times realized genotype class richness divided by combinatorial upper bound",
+            "genotype_effective_shannon_occupancy_weighted":"occupancy times exp(Shannon entropy of actual multilocus genotype frequencies)",
+            "genotype_effective_simpson_occupancy_weighted":"occupancy times reciprocal genotype concentration sum(p_g**2)",
+            "log_genotype_richness_occupancy_weighted":"occupancy times log(actual genotype class richness)",
+            "log_combinatorial_upper_bound_occupancy_weighted":"occupancy times log(3**number polymorphic loci)",
+            "log_genotype_coverage_occupancy_weighted":"occupancy times log(actual richness / combinatorial upper bound). Per path exact log richness=log upper bound+log coverage, even as occupancy weighted product",
         },
         "years":all_years,
         "interpretation_limits":[
@@ -317,6 +406,11 @@ def main():
         "assurance_all_three_minus_source":final["assurance_occupancy_weighted"]["all_three_minus_original"],
         "richness_all_three_minus_source":final["genotype_richness"]["all_three_minus_original"],
         "richness_factorial_components":final["genotype_richness"]["factorial_components"],
+        "upper_bound_all_three_minus_source":final["allelic_combinatorial_upper_bound"]["all_three_minus_original"],
+        "coverage_all_three_minus_source":final["genotype_coverage_occupancy_weighted"]["all_three_minus_original"],
+        "log_upper_bound_all_three_minus_source":final["log_combinatorial_upper_bound_occupancy_weighted"]["all_three_minus_original"],
+        "log_coverage_all_three_minus_source":final["log_genotype_coverage_occupancy_weighted"]["all_three_minus_original"],
+        "effective_simpson_all_three_minus_source":final["genotype_effective_simpson_occupancy_weighted"]["all_three_minus_original"],
     }))
 
 
