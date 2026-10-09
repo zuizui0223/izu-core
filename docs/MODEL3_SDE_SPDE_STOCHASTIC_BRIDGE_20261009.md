@@ -498,3 +498,45 @@ immigration; mutation-enabled long-term SPDE, autonomous SDE and geographic
 INLA remain unvalidated/out of scope. Preserve every numerical result,
 including cases with negligible bias, without converting a source-conditioned
 diagnostic into a biological generality claim.
+
+
+### One-step genotype-richness bias — admitted numerical result
+
+Verified focused CI [#37868247961](https://github.com/zuizui0223/izu-core/actions/runs/37868247961)
+executed commit `6bc337fbd8b87cd3287d154ad398c7f08efae26d`;
+its test suites and source-derived one-step presence audit passed.
+The compact numerical archive is
+[`data/results/model3_gaussian_presence_bias_20261009.json`](../data/results/model3_gaussian_presence_bias_20261009.json).
+
+| K (= conditional recruited N) | Exact expected joint-diploid genotype classes | Gaussian + clipping + integer rounding | Difference | MC standard error of Gaussian arm |
+| ---: | ---: | ---: | ---: | ---: |
+| 8 | 6.10638 | 7.00391 | +0.89753 | 0.00859 |
+| 32 | 13.82804 | 15.22925 | +1.40121 | 0.01868 |
+| 128 | 22.07253 | 22.61560 | +0.54308 | 0.01785 |
+
+The exact reference is analytic, not an independently sampled second
+cohort. It removes two-arm Monte Carlo uncertainty from this comparison.
+The projected approximation's richness differences exceed its
+estimated MC uncertainty by many standard errors in **each** tested
+case. The maximum individual genotype presence probability discrepancy
+was 0.10284, 0.11206 and 0.12052, respectively.
+
+**Interpretation:** Even when the smooth mean-investment CLT improves
+with larger offspring cohorts, the projected Gaussian **overestimated
+the number of realized joint three-locus diploid genotype classes** in
+these engineering settings. This is a demonstrated one-step
+approximation artifact, **not evidence of actual overestimated
+genetic diversity in natural island plants**. It may contribute to
+multi-generation mismatches, but the separately observed three-generation
+K32 class-count difference has not been causally decomposed by this
+diagnostic. The bias includes Gaussian draw, nonnegative clipping,
+simplex reprojection and deterministic integer rounding, and cannot
+be attributed to Gaussianity alone without additional controlled
+ablation tests.
+
+Comparisons with K=8,32,128 each use canonical Model 3 reproduction at
+that K; capacity changes its pollen competition denominator. Hence
+these rows do not establish a general convergence rate for a *fixed*
+biological kernel. The frozen original full-genotype Markov measure
+remains the correct finite-process reference. A full stochastic SPDE
+is not admitted; no new ecological history or geographic INLA work occurred.
