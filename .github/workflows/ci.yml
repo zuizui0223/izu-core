@@ -744,3 +744,67 @@ jobs:
           path: parent-marginals-budget*.json
           if-no-files-found: warn
           retention-days: 90
+
+  model3-k32-state-visitor-cross:
+    if: github.event_name == 'pull_request' && github.event.pull_request.number == 420
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Verify original source parent x visitor state exact Mendelian directions
+        run: pytest -q tests/test_model3_k32_state_visitor_cross.py
+      - name: Complete 8x8 source state-by-visitor cross with old history budget8
+        run: python -m scripts.audit_model3_k32_state_visitor_cross --budget 8 --draws 512 --out state-visitor-budget8.json
+      - name: Complete 8x8 source state-by-visitor cross with old history budget3
+        run: python -m scripts.audit_model3_k32_state_visitor_cross --budget 3 --draws 512 --out state-visitor-budget3.json
+      - name: Assert same survivor cohort, single original history and two-order attribution
+        run: |
+          python - <<'PY'
+          import json
+          import numpy as np
+          from pathlib import Path
+          for budget in (8,3):
+              d=json.loads(Path(f"state-visitor-budget{budget}.json").read_text())
+              c=d["conditions"]
+              assert d["status"]=="K32_ORIGINAL_MODEL3_OLD_HISTORY_STATE_VISITOR_CROSS_VERIFIED"
+              assert (c["K"],c["mutation_rate"],c["generations"],c["budget"])==(32,0,8,budget)
+              assert c["old_visitor_history"]==26110601
+              assert c["n_independent_visitor_histories"]==1
+              assert c["n_nested_demographic_draws"]==512
+              assert c["source_parent_survival_cohort_common_across_years"] is True
+              assert c["conditioned_on_occupation_at_start_of_year8"] is True
+              assert c["source_biological_reproduction_changed"] is False
+              assert c["visitor_swap_is_non_autonomous_one_step_counterfactual"] is True
+              assert c["prospective_confirmatory_history_used"] is False
+              assert len(d["full_8x8_same_cohort"])==8
+              for t in range(1,9):
+                  assert len(d["full_8x8_same_cohort"][str(t)])==8
+                  for v in range(1,9):
+                      cell=d["full_8x8_same_cohort"][str(t)][str(v)]
+                      x=np.asarray(cell["expected_allele_direction"]["mean"])
+                      terms=sum((np.asarray(cell[k]["mean"]) for k in
+                          ("viable_self_seed_allele_direction","outcross_paternal_allele_direction",
+                           "outcross_maternal_allele_direction")),np.zeros(3))
+                      assert np.allclose(x,terms,atol=1e-12,rtol=0)
+                      assert cell["expected_allele_direction"]["n"]==c["n_alive_parent_year7"]
+              a=d["early_late_same_cohort_order_symmetrized"]
+              assert a["numerical_identity_max_abs_error"]<1e-12
+              assert np.allclose(np.asarray(a["symmetrized_state_contribution"])+
+                                 a["symmetrized_visitor_contribution"],
+                                 a["actual_diagonal_late_minus_early"],
+                                 atol=1e-12,rtol=0)
+              assert d["balanced_8x8_effects"]["max_double_centering_error"]<1e-12
+              print("original source state x one old visitor history, fixed-survivor and exact-two-way identities PASS",budget)
+          PY
+      - name: Archive crossed genotype-state and archived-visitor-year conditional results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: model3-k32-state-visitor-cross
+          path: state-visitor-budget*.json
+          if-no-files-found: warn
+          retention-days: 90
