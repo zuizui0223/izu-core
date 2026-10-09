@@ -206,10 +206,15 @@ def run_state_visitor_cross(*,budget=8.,draws=512,seed=420261017):
     interaction=(d-c)-(b-a)
     np.testing.assert_allclose(state_contrib+visitor_contrib,d-a,
                                atol=1e-12,rtol=0)
-    if any(np.max(np.abs(np.asarray(endpoint[k])-
-                         np.asarray([_mc(s)["mean"] for s in [state_contrib] ][0])))
-           >1e-11 for k in ("symmetrized_state_contribution",)):
-        raise AssertionError("endpoint cohort-mean identity drift")
+    np.testing.assert_allclose(
+        endpoint["symmetrized_state_contribution"],
+        state_contrib.mean(axis=0),atol=1e-12,rtol=0)
+    np.testing.assert_allclose(
+        endpoint["symmetrized_visitor_contribution"],
+        visitor_contrib.mean(axis=0),atol=1e-12,rtol=0)
+    np.testing.assert_allclose(
+        endpoint["state_visitor_difference_in_differences"],
+        interaction.mean(axis=0),atol=1e-12,rtol=0)
 
     # Balanced two-way descriptive decomposition over the SAME cohort.
     grand=selected.mean(axis=(0,1))
