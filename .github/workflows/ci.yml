@@ -482,3 +482,51 @@ jobs:
           path: self-outcross-budget*.json
           if-no-files-found: warn
           retention-days: 90
+
+  model3-k32-outcross-factors:
+    if: github.event_name == 'pull_request' && github.event.pull_request.number == 420
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Test exact source outcross factorization and Shapley ordering
+        run: pytest -q tests/test_model3_k32_outcross_factors.py
+      - name: Audit source K32 outcross parent factors budget8
+        run: python -m scripts.audit_model3_k32_outcross_factors --budget 8 --draws 512 --out outcross-factors-budget8.json
+      - name: Audit source K32 outcross parent factors budget3
+        run: python -m scripts.audit_model3_k32_outcross_factors --budget 3 --draws 512 --out outcross-factors-budget3.json
+      - name: Confirm source visitor cohort and exact outcross sum
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for budget in (8,3):
+              x=json.loads(Path(f"outcross-factors-budget{budget}.json").read_text())
+              c=x["conditions"]
+              assert x["status"]=="EXACT_MODEL3_OUTCROSS_SHAPLEY_LEDGER_VERIFIED",x["unmatched_source_states"]
+              assert (c["K"],c["mutation_rate"],c["generations"],c["ovule_budget"])==(32,0,8,budget)
+              assert c["old_visitor_history"]==26110601
+              assert c["independent_visitor_histories"]==1
+              assert c["source_biological_reproduction_changed"] is False
+              assert c["prospective_confirmatory_histories_used"] is False
+              assert c["shapley_computed_across_three_factors"] is True
+              assert c["no_autonomous_comparator_trajectory"] is True
+              assert len(x["per_generation"])==8
+              for row in x["per_generation"]:
+                  assert row["max_absolute_state_identity_error"] < 1e-10
+                  assert abs(sum(row["shapley_and_reference_components_mean"].values())-
+                             row["mean_source_within_outcross_delta_variance"])<1e-10
+              print("original parent ledger factorization & exact Shapley identity PASS",budget)
+          PY
+      - name: Archive donor export, visitor routing, maternal allocation results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: model3-k32-outcross-factors
+          path: outcross-factors-budget*.json
+          if-no-files-found: warn
+          retention-days: 90
