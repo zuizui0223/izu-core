@@ -40,7 +40,7 @@ def prospective_biological_design() -> dict:
     validate_protocol()
     d = deepcopy(load_protocol())
     p = json.loads(Path(PROTOCOL).read_text(encoding="utf-8"))
-    h = p["independent_cohort"]
+    h = p["genuinely_new_cohort"]
     d["independent_histories"] = {
         "first": h["visitor_history_first"],
         "last": h["visitor_history_last"],
