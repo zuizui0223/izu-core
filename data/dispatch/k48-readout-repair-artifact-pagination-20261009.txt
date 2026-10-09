@@ -1,0 +1,7 @@
+Third read-only diagnostic replay after root-cause analysis of two independent blockers.
+Original immutable scientific run: 37896872795, SHA 2737736f1dca36c8b43e9ac6a9fbd862ca21165b.
+64 of 64 raw future jobs succeeded and all 114688 future cell artifacts remain intact. Original Actions run had misleading success due Bash pipeline failure masking.
+Failure 1: two-arm summary incorrectly iterated over four labels — corrected with synthetic full-grid regression.
+Failure 2: exact floating point equality in synthetic test — corrected.
+Failure 3: actions/download-artifact pattern enumerated first 100 of 130 artifacts, omitted 8 old shards — verify every artifact ID using paginated REST API and download via explicit ID inputs.
+NO generation of new histories, random seeds, or biological outcomes. Strict full raw cohort admission, then one original preregistered readout. Fail closed if even one artifact absent.
