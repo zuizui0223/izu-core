@@ -81,3 +81,68 @@ allele-absorption makes it impossible.
 visitor history. Do not label them natural-island evidence, independent
 ecological cohorts, a causal selection proof, exact stochastic-process
 equivalence, continuous-time SDE/SPDE or geographic INLA analysis.
+
+
+## Source-verified 512-path experiment and paired Monte Carlo precision
+
+Exact implementation source SHA \`ac2b2d6910d338913fbcff6e33e1ac81a4ec6c85\`;
+[GitHub CI run 37887043968](https://github.com/zuizui0223/izu-core/actions/runs/37887043968),
+\`model3-k32-mean-matched-ceiling\` dedicated job **success**.
+Raw executed JSON: [artifact 11596861798](https://github.com/zuizui0223/izu-core/actions/runs/37887043968/artifacts/11596861798);
+permanent compact source-lock:
+\`data/results/model3_k32_mean_matched_ceiling_20261009.json\`.
+
+| Numerical endpoint | Budget 8 | Budget 3 |
+|---|---:|---:|
+| Source histories surviving eight years | 512/512 | 504/512 |
+| Source assurance-high-allele mean | 0.978271 | 0.985725 |
+| Comparator assurance-high-allele mean | 0.977997 | 0.985406 |
+| Largest annual realized mean gap | 0.002106 | 0.004681 |
+| Source endpoint variance | 0.00188822 | 0.00150805 |
+| Comparator endpoint variance | 0.00089535 | 0.00117545 |
+| Source minus comparator endpoint variance | +0.00099287 | +0.00033260 |
+| Paired demographic bootstrap percentile 95% interval | [+0.00030446,+0.00173731] | [−0.00043952,+0.00108325] |
+| Source cumulative direction/sampling 2×covariance | −0.03359217 | −0.04365237 |
+| Comparator cumulative direction/sampling 2×covariance | −0.02071816 | −0.03339905 |
+| Source minus comparator 2×covariance | −0.01287401 | −0.01025332 |
+| Paired demographic bootstrap percentile 95% interval of 2×covariance difference | [−0.01739992,−0.00809967] | [−0.01919297,−0.00179965] |
+| Source high-allele complete fixation | 62.3% | 81.2% |
+| Comparator high-allele complete fixation | 48.2% | 71.2% |
+
+The 1,024 resamples draw **paired surviving source/comparator indices**
+together. They capture Monte Carlo uncertainty within ONE old visitor
+history and a retrospectively source-calibrated counterfactual.
+They are NOT a field-level uncertainty interval, prospective
+holdout, independent ecological replication, or hypothesis-test p-value.
+
+### What changed scientifically?
+
+**Strong negative direction/sampling covariance is not unique to the
+source's original ecological mating and selection implementation.**
+A Mendelian comparator with the same mean frequency trajectory and
+imposed census sizes reproduces large negative covariance and low
+terminal variance. Thus interpreting the source covariance alone as
+proof of adaptive stabilization would be wrong.
+
+The source has more negative accumulated covariance than this
+particular externally tilted comparator in **both** tested budgets.
+It also has **larger** endpoint assurance-frequency variance; the
+paired bootstrap interval excludes zero only for budget 8.
+That observation is *not* evidence of generally stronger or weaker
+adaptation: multilocus genotype structure, feedback differences,
+external per-year assurance reweighting, and the common hard
+frequency ceiling remain entangled.
+
+This refines the earlier conclusion into two distinct questions:
+1. The **direction of mean evolution** beyond neutral expectation is
+   source-specific within the frozen old-history experiment (already
+   established by the prior neutral matched-census comparison).
+2. The **compression of endpoint variance** is partly reproducible
+   by a retrospectively mean- and census-matched directional model;
+   the source-specific remainder does not have an identified
+   causal stabilizing-selection interpretation.
+
+Next independent science, if pursued, would preregister genuinely
+different source visitor environments and/or perturb the selection
+kernel with explicit sensitivity bounds. Neither is inferred or
+retrospectively manufactured from this one source history.
