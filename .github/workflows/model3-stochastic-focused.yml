@@ -5,6 +5,7 @@ on:
       - 'scripts/audit_model3_stochastic_bridge.py'
       - 'scripts/audit_model3_stochastic_multistep.py'
       - 'scripts/audit_model3_stochastic_mutation_scaling.py'
+      - 'scripts/run_model3_mutation_multistep_preflight.py'
       - 'scripts/run_model3_sde_spde_preflight.py'
       - 'tests/test_model3_stochastic_bridge.py'
       - 'tests/test_model3_stochastic_multistep.py'
@@ -29,9 +30,13 @@ jobs:
         run: pytest -q tests/test_model3_stochastic_bridge.py tests/test_model3_stochastic_multistep.py tests/test_model3_stochastic_mutation_scaling.py tests/test_model3_tensor_density.py
       - name: Run old-history stochastic moment preflight (engineering only)
         run: python -m scripts.run_model3_sde_spde_preflight --out stochastic-preflight.json --draws 1024
+      - name: Run mutation-aware three-update old-history preflight
+        run: python -m scripts.run_model3_mutation_multistep_preflight --out mutation-preflight.json --draws 512 --updates 3 --mutation-rate 0.01 --mutation-sd 0.05
       - name: Archive engineering moment receipt
         uses: actions/upload-artifact@v4
         with:
           name: model3-stochastic-preflight
-          path: stochastic-preflight.json
+          path: |
+            stochastic-preflight.json
+            mutation-preflight.json
           retention-days: 90
