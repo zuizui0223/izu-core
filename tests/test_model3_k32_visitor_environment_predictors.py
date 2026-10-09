@@ -56,7 +56,7 @@ def test_eight_entire_history_group_holdouts_and_baseline_provenance():
            "early_matching_expected_direction":float((i-4)/100)}
           for i,seed in enumerate(NEW_SEEDS)]
     result=history_heldout_forecast(rows,signatures)
-    assert result["n_test_histories"]==8
+    assert result["n_evaluated_visitor_histories"]==8
     assert result["n_training_visitor_histories_per_fold"]==7
     assert len(result["held_out_predictions"])==8
     assert all(z["n_training_visitor_histories"]==7
