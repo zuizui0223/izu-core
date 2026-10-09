@@ -5,6 +5,7 @@ on:
       - chapter2/crosscohort-kb48-evidence-audit-20261010
     paths:
       - data/dispatch/k-b48-crosscohort-readonly-run-20261010.txt
+      - data/dispatch/k-b48-crosscohort-schemafix-run-20261010.txt
 permissions:
   contents: write
 jobs:
