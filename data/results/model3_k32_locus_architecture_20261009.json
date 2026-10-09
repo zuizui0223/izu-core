@@ -1,0 +1,307 @@
+{
+  "schema": "model3_k32_locus_specific_allele_loss_unphased_association_source_locked_v1",
+  "status": "exact_source_genetic_dose_audit_passed_CI_one_archived_visitor_history",
+  "provenance": {
+    "source_commit": "1bbd161ff1cb4d53e00f0eef9877153810da83a5",
+    "run_id": 37901870989,
+    "run_url": "https://github.com/zuizui0223/izu-core/actions/runs/37901870989",
+    "job": "model3-k32-full-factorial",
+    "job_conclusion": "success",
+    "artifact_id": 11602758871,
+    "raw_artifact_url": "https://github.com/zuizui0223/izu-core/actions/runs/37901870989/artifacts/11602758871",
+    "raw_artifact_sha256": "46f05a2f60a66e2fefe77f6ec9d01acd9ab4ee98b473ebca90e221efd697b6db"
+  },
+  "conditions": {
+    "K": 32,
+    "mutation_rate": 0,
+    "generations": 8,
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "old_visitor_history": 26110601,
+    "environment": "near",
+    "independent_visitor_histories": 1,
+    "nested_demographic_replicates_per_arm": 512,
+    "genotype_classes": 27,
+    "source_canonical_biology_edited": false,
+    "other_arms_deliberate_reproductive_weight_counterfactuals": true,
+    "no_confirmatory_visitor_history_accessed": true,
+    "natural_data_used": false,
+    "locus_order": [
+      "pollinator_matching",
+      "floral_investment",
+      "reproductive_assurance"
+    ],
+    "genetic_association_type": "unphased individual diploid high-allele-dosage covariance and mutual information, not gametic LD or epistasis"
+  },
+  "metrics_note": "The reported per-arm frequency, loss and association values are occupancy-weighted with denominator 512; surviving-population means require separate survivor-only conditioning. Per-locus low allele lost means high allele fixed; high allele lost means low allele fixed.",
+  "cases": [
+    {
+      "budget": 8,
+      "n_survive_source": 512,
+      "n_survive_all_three": 512,
+      "locus_summaries": [
+        {
+          "name": "pollinator_matching",
+          "source_high_frequency": 0.359314,
+          "all_three_high_frequency": 0.453949,
+          "source_high_lost": 0.052734375,
+          "all_three_high_lost": 0.015625,
+          "source_low_lost": 0,
+          "all_three_low_lost": 0.005859375,
+          "source_heterozygosity": 0.007935,
+          "all_three_heterozygosity": 0.039246
+        },
+        {
+          "name": "floral_investment",
+          "source_high_frequency": 0.204987,
+          "all_three_high_frequency": 0.101013,
+          "source_high_lost": 0.142578125,
+          "all_three_high_lost": 0.29296875,
+          "source_low_lost": 0,
+          "all_three_low_lost": 0,
+          "source_heterozygosity": 0.047546,
+          "all_three_heterozygosity": 0.021851
+        },
+        {
+          "name": "reproductive_assurance",
+          "source_high_frequency": 0.978607177734375,
+          "all_three_high_frequency": 0.995208740234375,
+          "source_high_lost": 0,
+          "all_three_high_lost": 0,
+          "source_low_lost": 0.630859375,
+          "all_three_low_lost": 0.873046875,
+          "source_heterozygosity": 0.01898193359375,
+          "all_three_heterozygosity": 0.00323486328125
+        }
+      ],
+      "pairwise": [
+        {
+          "name": "matching_investment",
+          "dosage_covariance_source": -0.033247,
+          "dosage_covariance_all_three": -0.013425,
+          "mutual_info_source": 0.087872,
+          "mutual_info_all_three": 0.068376
+        },
+        {
+          "name": "matching_assurance",
+          "dosage_covariance_source": 0.004342,
+          "dosage_covariance_all_three": 0.000231,
+          "mutual_info_source": 0.014155,
+          "mutual_info_all_three": 0.006256
+        },
+        {
+          "name": "investment_assurance",
+          "dosage_covariance_source": -0.006238,
+          "dosage_covariance_all_three": -0.000566,
+          "mutual_info_source": 0.032592,
+          "mutual_info_all_three": 0.004791
+        }
+      ],
+      "mean_largest_genotype_share_source": 0.583496,
+      "mean_largest_genotype_share_all_three": 0.618347,
+      "top_patterns_source": [
+        [
+          "PPH",
+          242
+        ],
+        [
+          "PPP",
+          171
+        ],
+        [
+          "PLH",
+          62
+        ]
+      ],
+      "top_patterns_all_three": [
+        [
+          "PPH",
+          305
+        ],
+        [
+          "PLH",
+          132
+        ],
+        [
+          "PPP",
+          50
+        ]
+      ],
+      "top_dominant_genotype_source": [
+        [
+          "LLU",
+          276
+        ],
+        [
+          "ULU",
+          178
+        ],
+        [
+          "LUU",
+          57
+        ]
+      ],
+      "top_dominant_genotype_all_three": [
+        [
+          "LLU",
+          271
+        ],
+        [
+          "ULU",
+          229
+        ],
+        [
+          "LUU",
+          10
+        ]
+      ],
+      "genetic_capacity_summary": {
+        "source_combinatorial_upper_bound": 14.05078125,
+        "all_three_combinatorial_upper_bound": 9.0703125,
+        "source_genotype_richness": 4.32421875,
+        "all_three_genotype_richness": 4.041015625
+      }
+    },
+    {
+      "budget": 3,
+      "n_survive_source": 505,
+      "n_survive_all_three": 507,
+      "locus_summaries": [
+        {
+          "name": "pollinator_matching",
+          "source_high_frequency": 0.383998,
+          "all_three_high_frequency": 0.446325,
+          "source_high_lost": 0.130859375,
+          "all_three_high_lost": 0.076171875,
+          "source_low_lost": 0.0546875,
+          "all_three_low_lost": 0.060546875,
+          "source_heterozygosity": 0.003555,
+          "all_three_heterozygosity": 0.029629
+        },
+        {
+          "name": "floral_investment",
+          "source_high_frequency": 0.167601,
+          "all_three_high_frequency": 0.087345,
+          "source_high_lost": 0.326171875,
+          "all_three_high_lost": 0.49609375,
+          "source_low_lost": 0.01171875,
+          "all_three_low_lost": 0.005859375,
+          "source_heterozygosity": 0.032034,
+          "all_three_heterozygosity": 0.015133
+        },
+        {
+          "name": "reproductive_assurance",
+          "source_high_frequency": 0.970577,
+          "all_three_high_frequency": 0.986734,
+          "source_high_lost": 0.001953125,
+          "all_three_high_lost": 0,
+          "source_low_lost": 0.7890625,
+          "all_three_low_lost": 0.935546875,
+          "source_heterozygosity": 0.011766,
+          "all_three_heterozygosity": 0.001717
+        }
+      ],
+      "pairwise": [
+        {
+          "name": "matching_investment",
+          "dosage_covariance_source": -0.02743,
+          "dosage_covariance_all_three": -0.008543,
+          "mutual_info_source": 0.082568,
+          "mutual_info_all_three": 0.049254
+        },
+        {
+          "name": "matching_assurance",
+          "dosage_covariance_source": 0.002937,
+          "dosage_covariance_all_three": -0.000099,
+          "mutual_info_source": 0.009747,
+          "mutual_info_all_three": 0.002823
+        },
+        {
+          "name": "investment_assurance",
+          "dosage_covariance_source": -0.003394,
+          "dosage_covariance_all_three": -0.000775,
+          "mutual_info_source": 0.021403,
+          "mutual_info_all_three": 0.003856
+        }
+      ],
+      "mean_largest_genotype_share_source": 0.653808,
+      "mean_largest_genotype_share_all_three": 0.678897,
+      "top_patterns_source": [
+        [
+          "PPH",
+          210
+        ],
+        [
+          "PLH",
+          109
+        ],
+        [
+          "PPP",
+          79
+        ]
+      ],
+      "top_patterns_all_three": [
+        [
+          "PPH",
+          217
+        ],
+        [
+          "PLH",
+          196
+        ],
+        [
+          "PPP",
+          13
+        ]
+      ],
+      "top_dominant_genotype_source": [
+        [
+          "LLU",
+          261
+        ],
+        [
+          "ULU",
+          191
+        ],
+        [
+          "LUU",
+          48
+        ]
+      ],
+      "top_dominant_genotype_all_three": [
+        [
+          "LLU",
+          273
+        ],
+        [
+          "ULU",
+          215
+        ],
+        [
+          "LUU",
+          17
+        ]
+      ],
+      "genetic_capacity_summary": {
+        "source_combinatorial_upper_bound": 9.285148514851485,
+        "all_three_combinatorial_upper_bound": 6.16370808678501,
+        "source_genotype_richness": 3.115234375,
+        "all_three_genotype_richness": 3.109375
+      }
+    }
+  ],
+  "reconstruction_checks": [
+    "CI verified every arm-year locus-loss pattern count equals occupancy-weighted high/low allele-loss probability; 512 nested demographic paths per arm.",
+    "Pairwise diploid dosage covariances and empirical mutual information are calculated from 27-class complete unphased genotype frequencies, not phased haplotypes.",
+    "The low-allele-loss increase at assurance and high-allele-loss increase at floral investment are accompanied by less high-allele-loss and greater heterozygosity at matching.",
+    "Most-common-genotype share rises although budget3 genotype class richness is near unchanged; pattern counts show loss of the fully polymorphic PPP state.",
+    "No unique mechanism for associations can be isolated from this retrospective factorial; finite-sample MI bias, changed allele marginal frequencies and near-fixation all matter."
+  ],
+  "claim_limits": [
+    "One archived near visitor environment, no independent natural islands, no actual plant genotyping and no original Model3 biology modification.",
+    "Three donor/routing/maternal experiments are intentionally modified reproductive operators, not direct field manipulations.",
+    "All statistics marked occupancy weighted use denominator 512, with extinction meaning missing trait, not a trait value of zero.",
+    "Unphased individual-dosage association is not gametic linkage disequilibrium, population-genetic linkage parameter, epistasis or adaptive selection proof.",
+    "Source genotype response and full-factorial path-level uncertainty are simulation-conditional; no independent ecological evidence or validated full SDE/SPDE."
+  ]
+}
