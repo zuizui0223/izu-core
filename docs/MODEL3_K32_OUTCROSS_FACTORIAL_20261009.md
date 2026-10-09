@@ -89,8 +89,18 @@ These are **counterfactual model interaction contrasts** across
 fully specified autonomous path simulations. They are not
 regression correlations and not one-step Shapley values. Each
 coefficient has nested-demographic Monte Carlo standard error,
-computed at its path level. The joint source visitor environment
-is still only one independent ecological history.
+computed at its path level. Additionally calculate for EACH path
+
+    total_nonadditivity = [f(ERM)-f(empty)]
+      - [f(E)-f(empty)] - [f(R)-f(empty)] - [f(M)-f(empty)]
+      = I(ER)+I(EM)+I(RM)+I(ERM).
+
+The demographic Monte Carlo SE of this *aggregate* must be obtained
+from the complete path-level contrast, rather than by treating four
+correlated interaction terms as independent. A large-looking
+interaction is not scientifically resolved if its MC interval overlaps
+zero. The joint source visitor environment is still only one
+independent ecological history.
 
 ## Why this factorial matters
 
