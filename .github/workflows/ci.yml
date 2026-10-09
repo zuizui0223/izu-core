@@ -180,3 +180,52 @@ jobs:
           path: neutral-budget*.json
           if-no-files-found: warn
           retention-days: 90
+
+  model3-k32-mean-matched-ceiling:
+    if: github.event_name == 'pull_request' && github.event.pull_request.number == 420
+    runs-on: ubuntu-latest
+    timeout-minutes: 18
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Test source-lock, calibration and allele-loss boundary
+        run: pytest -q tests/test_model3_k32_mean_matched_ceiling.py
+      - name: Run retrospective mean-matched assurance comparator budget8
+        run: python -m scripts.audit_model3_k32_mean_matched_ceiling --out ceiling-budget8.json --budget 8 --draws 512
+      - name: Run retrospective mean-matched assurance comparator budget3
+        run: python -m scripts.audit_model3_k32_mean_matched_ceiling --out ceiling-budget3.json --budget 3 --draws 512
+      - name: Verify each source generation matched and no invalid promotion
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for budget in (8,3):
+              r=json.loads(Path(f"ceiling-budget{budget}.json").read_text())
+              assert r["status"]=="EXPLORATORY_MEAN_MATCHED_CEILING_COMPARATOR_COMPLETE",r
+              c=r["conditions"]
+              assert (c["K"],c["mutation_rate"],c["generations"],c["ovule_budget"])==(32,0,8,budget)
+              assert c["old_visitor_history"]==26110601 and c["independent_visitor_histories"]==1
+              assert c["no_confirmatory_cohorts_used"] is True
+              assert c["source_model3_biology_edited"] is False
+              assert c["comparator_intentionally_changes_mating_payoffs"] is True
+              assert c["comparator_reweighted_after_exposure_to_source_outcomes"] is True
+              assert c["same_realized_census_every_year"] is True
+              assert len(r["per_generation"])==8
+              assert c["n_surviving"]+c["n_extinct"]==512
+              for row in r["per_generation"]:
+                  assert abs(row["calibrated_conditional_mean"]-row["source_mean"])<1e-7
+              for arm in ("source","mean_matched_comparator"):
+                  assert abs(r[arm]["cumulative_frequency_variance"]["covariance_identity_error"])<1e-10
+              print("Exploratory matched-mean comparator source/methodology integrity PASS",budget)
+          PY
+      - name: Archive source-conditioned mean-matched comparator, not field data
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: model3-k32-mean-matched-ceiling-exploratory
+          path: ceiling-budget*.json
+          if-no-files-found: warn
+          retention-days: 90
