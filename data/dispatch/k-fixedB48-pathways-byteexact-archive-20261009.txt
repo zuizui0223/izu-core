@@ -1,6 +1,0 @@
-ONE-TIME BYTE-EXACT POST-OUTCOME EXPLORATORY RESULT ARCHIVE.
-Original completed Run 37918887205, head SHA 390da140f62cf41c87bf274b6b3b932834e53df9.
-Original 64-history 114688-future confirmed study remains SUPPORTED, mean 0.007745713876893593 and original bootstrap95 [0.002497158065469939,0.013015478808429596].
-New pathway channels are descriptive, not new causal evidence or registered hypothesis tests.
-Original ZIP artifact ID 11610537993, JSON SHA-256 8fea4bd8c1858c445ba0eb57dfc038bac6819ed767932c596b79e4cd3ed6e542.
-No new biological simulation or changes to original future archives.
