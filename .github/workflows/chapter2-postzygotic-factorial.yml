@@ -1,0 +1,111 @@
+name: Chapter 2 postzygotic factorial
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        required: true
+        type: choice
+        default: preflight_only
+        options:
+          - preflight_only
+          - full_cohort
+      full_cohort_launch_approved:
+        required: true
+        type: boolean
+        default: false
+      source_commit_sha:
+        required: true
+        type: string
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: postzygotic-factorial-${{ github.ref }}
+  cancel-in-progress: false
+jobs:
+  preflight:
+    if: ${{ github.ref == 'refs/heads/main' && (inputs.mode == 'preflight_only' || (inputs.mode == 'full_cohort' && inputs.full_cohort_launch_approved == true)) }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Require exact reviewed main source
+        env:
+          REVIEWED_SHA: ${{ inputs.source_commit_sha }}
+          CHECKED_OUT_SHA: ${{ github.sha }}
+        run: |
+          test "$REVIEWED_SHA" = "$CHECKED_OUT_SHA"
+          test "$GITHUB_REF" = 'refs/heads/main'
+      - name: Old-history parity, synthesis and no-peek future plan
+        run: |
+          pytest -q tests/test_chapter2_postzygotic_viability_gate.py tests/test_chapter2_postzygotic_factorial_run.py
+          python -m scripts.chapter2_postzygotic_factorial_run --mode plan --out outputs/plan.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: postzygotic-plan-only
+          path: outputs/plan.json
+          retention-days: 90
+          if-no-files-found: error
+  new-futures:
+    needs: preflight
+    if: ${{ inputs.mode == 'full_cohort' && inputs.full_cohort_launch_approved == true }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    strategy:
+      fail-fast: false
+      max-parallel: 16
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50, 51, 52, 53, 54, 55, 56, 57, 58, 59, 60, 61, 62, 63]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Retrieve original complete state and baseline
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run download 37862121201 --repo "${{ github.repository }}" --name budget-window-pre-shard-${{ matrix.shard }} --dir old-pre/budget-window-pre-shard-${{ matrix.shard }}
+          gh run download 37862121201 --repo "${{ github.repository }}" --name budget-window-post-shard-${{ matrix.shard }} --dir old-post/budget-window-post-shard-${{ matrix.shard }}
+      - run: python -m scripts.chapter2_postzygotic_factorial_run --mode shard --shard ${{ matrix.shard }} --workers 2 --prehistory old-pre --baseline old-post --out new-futures --execute-frozen-cohort
+      - uses: actions/upload-artifact@v4
+        with:
+          name: factorial-shard-${{ matrix.shard }}
+          path: new-futures/*
+          retention-days: 90
+          if-no-files-found: error
+  audited-readout:
+    needs: new-futures
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Restore immutable original t400 and baseline archives
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh run download 37862121201 --repo "${{ github.repository }}" --pattern 'budget-window-pre-shard-*' --dir old-pre
+          gh run download 37862121201 --repo "${{ github.repository }}" --pattern 'budget-window-post-shard-*' --dir old-post
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: factorial-shard-*
+          path: new-data
+          merge-multiple: false
+      - name: Audit all 2048 diploid sources and 229376 matched future cells
+        run: |
+          python -m scripts.chapter2_postzygotic_factorial_readout --prehistory old-pre --baseline old-post --perturbed new-data --out outputs/final.json --execute-frozen-cohort
+      - uses: actions/upload-artifact@v4
+        with:
+          name: postzygotic-factorial-full-adjudication
+          path: outputs/final.json
+          retention-days: 90
+          if-no-files-found: error
