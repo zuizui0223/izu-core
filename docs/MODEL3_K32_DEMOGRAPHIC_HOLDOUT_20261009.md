@@ -71,3 +71,57 @@ raw records. This does not edit the canonical Model 3 biological code.
 **Scientific stop:** No new causal selection/drift mechanism, natural
 island validation, external visitor-history confirmation, geographical
 INLA fit or complete SDE/SPDE is established.
+
+## Two-fold source-run outcome (2026-10-09)
+
+Dedicated model3-k32-demographic-holdout CI succeeded on source
+90840e8cdde8537992199a1cd924be1edaae4703:
+[Actions run 37887877707](https://github.com/zuizui0223/izu-core/actions/runs/37887877707),
+[raw four-JSON artifact 11597416175](https://github.com/zuizui0223/izu-core/actions/runs/37887877707/artifacts/11597416175).
+Source-locked result: data/results/model3_k32_twofold_demographic_holdout_20261009.json.
+
+### Held-out predictions only (not training-set scores)
+
+| Budget | Train half | Evaluation survived | Source - comparator endpoint variance | Paired demographic MC 95% percentile | Source - comparator 2 × cumulative covariance | Paired MC 95% percentile |
+|---|---|---:|---:|---|---:|---|
+| 8 | first | 256 | +0.001158 | [+0.000223, +0.002278] | -0.01556 | [-0.02191, -0.00889] |
+| 8 | second | 256 | +0.000190 | [-0.000527, +0.001097] | -0.00410 | [-0.01140, +0.00275] |
+| 3 | first | 250 | **+0.001219** | [+0.000317, +0.002430] | -0.02091 | [-0.03072, -0.01089] |
+| 3 | second | 253 | **-0.001253** | [-0.002523, -0.000120] | -0.00667 | [-0.01994, +0.00513] |
+
+**Falsifying constraint on prior interpretation:** at budget 3 the
+held-out variance gap reverses sign under reversal of calibration/evaluation
+halves, and the two simple percentile MC intervals exclude zero in
+OPPOSITE directions. Thus it is not defensible to identify a robust
+source-specific allele-frequency variance-reduction mechanism from
+these old-history results. Budget 8 shows weaker, but still evident,
+fold sensitivity for covariance and variance difference.
+
+The actual held-out source and comparator allele-frequency means are
+not identical despite source-training per-generation analytical
+calibration. Example: budget 3 first-half trained: 0.987584 source
+versus 0.993698 control on holdout. Reversing folds: 0.987808 source
+versus 0.979045 control. Near the p=1 ceiling, this mean mismatch
+can materially change the available endpoint variance.
+
+As a descriptive bound normalization, for any P in [0,1] we have
+Var(P) <= mu*(1-mu). The ratio Var(P)/[mu*(1-mu)] removes this simple
+upper-bound scale, though it does not isolate selection. For budget 3
+the source/comparator ratios are 0.1289 / 0.0578 (first train) versus
+0.0802 / 0.1082 (second train): the sign still reverses.
+
+The matched-mean comparator's apparent explanatory power is thus
+**retrospective, fold-dependent and not causally identifying**.
+The older inference about strong source directional mean evolution
+versus an unweighted neutral Mendelian martingale remains valid within
+its fixed source settings; it is a different question.
+
+Never turn these demographic partitions into independent ecological
+sample size: both reuse only historical visitor history 26110601.
+No natural island data, frozen confirmatory histories, mutation-enabled
+SDE/SPDE, or externally validated stabilizing selection was added.
+
+**Admissibility verdict:** keep #420 in Draft. Report exact finite
+Markov law and pathwise sampling identities as mathematical methods,
+and report mean-matched covariance/variance controls as exploratory
+negative/sensitivity results.
