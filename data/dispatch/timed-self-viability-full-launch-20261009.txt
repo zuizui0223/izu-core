@@ -1,0 +1,9 @@
+ONE-TIME NEW INDEPENDENT EARLY/LATE SELFED-SEED VIABILITY PRODUCTION — 2026-10-09
+Explicit ongoing research execution authorized by "進めて" following previous "実装しただけでなく走らせ".
+Frozen source: data/design/chapter2_timed_self_viability_20261009.json
+Unused visitor history IDs 42110901-42110964, two repeat seeds, 2048 complete t400 diploid sources.
+Four seed viability schedules (baseline, self-half early0-39, self-half late40-79, self-half full0-79)
+Fixed pollen background B48, matched up-to-8 founder genotypes, capacities K8 vs K48.
+Full 229376 futures, 64 independent visitor-history clusters; one preregistered late-minus-early K moderator.
+Only start new biological histories after prospective synthetic preflight succeeds.
+No interim significance peek, no selective source dropping or outcomes-based rerun.
