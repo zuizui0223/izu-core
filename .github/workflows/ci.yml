@@ -254,29 +254,35 @@ jobs:
         run: python -m scripts.audit_model3_k32_mean_matched_holdout --out holdout-budget8.json --draws 512 --budget 8
       - name: Fit on train demographic cohorts and evaluate unseen cohorts budget3
         run: python -m scripts.audit_model3_k32_mean_matched_holdout --out holdout-budget3.json --draws 512 --budget 3
+      - name: Reverse calibration and evaluation demographic folds budget8
+        run: python -m scripts.audit_model3_k32_mean_matched_holdout --out holdout-budget8-reverse.json --draws 512 --budget 8 --train-half second
+      - name: Reverse calibration and evaluation demographic folds budget3
+        run: python -m scripts.audit_model3_k32_mean_matched_holdout --out holdout-budget3-reverse.json --draws 512 --budget 3 --train-half second
       - name: Assert no held-out outcomes in parameter training and quarantine exploratory result
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
           for budget in (8,3):
-              d=json.loads(Path(f"holdout-budget{budget}.json").read_text())
-              assert d["status"]=="K32_HELDOUT_DEMOGRAPHIC_MEAN_MATCH_EVALUATED",d
-              c=d["conditions"]
-              assert (c["K"],c["mutation_rate"],c["generations"],c["ovule_budget"])==(32,0,8,budget)
-              assert c["old_history"]==26110601 and c["n_independent_visitor_histories"]==1
+            for side,suffix in (("first",""),("second","-reverse")):
+                d=json.loads(Path(f"holdout-budget{budget}.json").read_text())
+                assert d["status"]=="K32_HELDOUT_DEMOGRAPHIC_MEAN_MATCH_EVALUATED",d
+                c=d["conditions"]
+                assert (c["K"],c["mutation_rate"],c["generations"],c["ovule_budget"])==(32,0,8,budget)
+                assert c["old_history"]==26110601 and c["n_independent_visitor_histories"]==1
+                assert c["training_half"]==side
               assert c["train_demographic_draws"]==256
-              assert c["holdout_demographic_draws"]==256
-              assert c["holdout_outcomes_used_in_calibration"] is False
-              assert c["source_biology_unchanged"] is True
-              assert c["control_intentionally_differs_in_reproduction"] is True
-              assert c["confirmatory_visitor_cohorts_used"] is False
-              assert len(d["per_generation"])==8
-              assert d["demographic_holdout"]["status"]=="COMPARABLE"
-              for row in d["per_generation"]:
-                  assert row["coefficient_did_not_access_holdout"] is True
-                  assert abs(row["train_control_conditional_mean"]-row["train_source_target"])<1e-7
-              print("K32 demographic heldout source-lock and no-leak gates PASS",budget)
+                assert c["holdout_demographic_draws"]==256
+                assert c["holdout_outcomes_used_in_calibration"] is False
+                assert c["source_biology_unchanged"] is True
+                assert c["control_intentionally_differs_in_reproduction"] is True
+                assert c["confirmatory_visitor_cohorts_used"] is False
+                assert len(d["per_generation"])==8
+                assert d["demographic_holdout"]["status"]=="COMPARABLE"
+                for row in d["per_generation"]:
+                    assert row["coefficient_did_not_access_holdout"] is True
+                    assert abs(row["train_control_conditional_mean"]-row["train_source_target"])<1e-7
+                print("K32 demographic heldout source-lock and no-leak gates PASS",budget)
           PY
       - name: Archive exploratory demographic-holdout JSON, not ecological data
         uses: actions/upload-artifact@v4
