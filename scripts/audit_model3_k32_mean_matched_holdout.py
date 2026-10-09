@@ -77,11 +77,13 @@ def _summarize_pair(which, alive, source_last, control_last,
     }
 
 
-def run_holdout(*,budget=8.,draws=512,seed=420261013):
+def run_holdout(*,budget=8.,draws=512,seed=420261013,train_half="first"):
     if (budget not in (3.,8.) or type(draws) is not int or
-            not 32<=draws<=2048 or draws%2 or type(seed) is not int or seed<0):
+            not 32<=draws<=2048 or draws%2 or type(seed) is not int or seed<0
+            or train_half not in ("first","second")):
         raise ValueError("K32 old-history 50/50 demographic split only")
-    train,holdout=split_indices(draws)
+    first_half,second_half=split_indices(draws)
+    train,holdout=(first_half,second_half) if train_half=="first" else (second_half,first_half)
     first,grid,_,_=fixed_support_problem(capacity=K,ovule_budget=budget)
     source_design=load_design(DEFAULT_DESIGN)
     source=source_config(source_design,"prior_selfing",MUTATION_RATE,"evolving")
@@ -212,7 +214,8 @@ def run_holdout(*,budget=8.,draws=512,seed=420261013):
             "n_independent_visitor_histories":1,
             "train_demographic_draws":int(len(train)),
             "holdout_demographic_draws":int(len(holdout)),
-            "split":"first_half_train_second_half_holdout_fixed_before_fit",
+            "split":"first_half_train_second_half_holdout_fixed_before_fit" if train_half=="first" else "second_half_train_first_half_holdout_fixed_before_fit",
+            "training_half":train_half,
             "source_biology_unchanged":True,
             "control_intentionally_differs_in_reproduction":True,
             "holdout_outcomes_used_in_calibration":False,
@@ -238,8 +241,10 @@ def main():
     p.add_argument("--out",required=True,type=Path)
     p.add_argument("--budget",type=float,choices=[3.,8.],default=8.)
     p.add_argument("--draws",type=int,default=512)
+    p.add_argument("--train-half",choices=["first","second"],default="first")
     args=p.parse_args()
-    r=run_holdout(budget=args.budget,draws=args.draws)
+    r=run_holdout(budget=args.budget,draws=args.draws,
+                  train_half=args.train_half)
     args.out.parent.mkdir(parents=True,exist_ok=True)
     args.out.write_text(json.dumps(r,indent=2,sort_keys=True,allow_nan=False)+"\n")
     print(json.dumps({
