@@ -100,8 +100,17 @@ def compare_independent_rollouts(*,draws:int=512,updates:int=3)->dict:
         }
     result={name:summarize(rows) for name,rows in by_arm.items()}
     a,b=result["canonical_ABM"],result["dynamic_genotype_measure"]
+    # Endpoint trait comparisons are only admitted with enough survivors.
+    # The extinction-only case cannot be advertised as an evolution match.
+    if min(a["n_occupied"],b["n_occupied"])<32:
+        raise AssertionError(
+            "insufficient surviving replicate endpoints for trait comparison"
+        )
     gap_occupancy=abs(a["occupation_probability"]-b["occupation_probability"])
     gap_population=abs(a["mean_population"]-b["mean_population"])
+    gap_genotype_diversity=abs(
+        a["mean_unique_genotypes"]-b["mean_unique_genotypes"]
+    )
     if a["occupied_trait_mean"] is None or b["occupied_trait_mean"] is None:
         trait_error=None
         if min(a["n_occupied"],b["n_occupied"])>0:
@@ -113,6 +122,7 @@ def compare_independent_rollouts(*,draws:int=512,updates:int=3)->dict:
         )))
     # Loose external engineering bounds, NOT a simulation-equivalence theorem.
     if (gap_occupancy >= .13 or gap_population>=.70
+            or gap_genotype_diversity>=.70
             or (trait_error is not None and trait_error>=.095)):
         raise AssertionError(
             "restricted multi-generation Markov law comparison failed: "
@@ -138,6 +148,7 @@ def compare_independent_rollouts(*,draws:int=512,updates:int=3)->dict:
         "arms":result,
         "occupancy_difference":gap_occupancy,
         "population_mean_difference":gap_population,
+        "mean_unique_genotype_count_difference":gap_genotype_diversity,
         "occupied_trait_mean_max_difference":trait_error,
         "same_biology_as_Model3":True,
         "mutation_support_grid_projected":False,
@@ -161,6 +172,10 @@ def main()->None:
         "status":result["status"],
         "occupancy_difference":result["occupancy_difference"],
         "population_mean_difference":result["population_mean_difference"],
+        "mean_unique_genotype_count_difference":
+            result["mean_unique_genotype_count_difference"],
+        "n_occupied_ABM":result["arms"]["canonical_ABM"]["n_occupied"],
+        "n_occupied_measure":result["arms"]["dynamic_genotype_measure"]["n_occupied"],
         "occupied_trait_mean_max_difference":
             result["occupied_trait_mean_max_difference"],
     }))
