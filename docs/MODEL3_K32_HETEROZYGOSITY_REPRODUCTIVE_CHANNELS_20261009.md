@@ -128,3 +128,114 @@ reconstruction before archiving the source-run JSON.
 
 Do NOT promote any numerical channel results until
 successful source-locked CI and actual raw output inspection.
+
+
+## Executed source-verified results
+
+The dedicated source-matched
+[CI run 37940242506](https://github.com/zuizui0223/izu-core/actions/runs/37940242506),
+job `model3-k32-heterozygosity-channels`, PASSED at
+scientific source SHA `97de249e0842e510e0154dc0754613d58e2cdad6`.
+The [complete budget8 and budget3 JSON archive 11621457300](https://github.com/zuizui0223/izu-core/actions/runs/37940242506/artifacts/11621457300)
+has SHA256
+`6a9f1de0b011f64807f78d2c7888fe437e08b3b2bc18dec4fbc5dfca329668bb`.
+Permanent compact result:
+`data/results/model3_k32_heterozygosity_reproductive_channels_20261009.json`.
+Complete exact source-channel parent-year1/4/8 × visitor-year1/8
+results, viability/intensity differences and nested demographic
+Monte Carlo uncertainties are preserved in the raw archive.
+
+### Year8 parent states under original year8 visitor snapshot
+
+Shown are edited-minus-SAME-GENETIC-ASSIGNMENT-SHAM changes to
+the assurance HIGH-allele expected next-frequency DIRECTION,
+split into the three source reproductive channels. They are
+conditional on the specified action being feasible in the
+original source parent state.
+
+| Expected assurance high-allele direction difference | Budget8 HET_UP | Budget8 HET_DOWN | Budget3 HET_UP | Budget3 HET_DOWN |
+|---|---:|---:|---:|---:|
+| Number feasible out of living year8 parents | 171/512 | 119/512 | 101/506 | 49/506 |
+| **Viable SELF seed allele channel** | **−0.010166** | **+0.010169** | **−0.018960** | **+0.014333** |
+| Outcross FATHER allele channel | −0.000038 | +0.000036 | −0.000078 | +0.000014 |
+| Outcross MOTHER allele channel | +0.001001 | −0.001142 | +0.001052 | −0.001253 |
+| **Exact sum: overall assurance allele direction** | **−0.009203** | **+0.009062** | **−0.017986** | **+0.013093** |
+
+Across all 3 source-parent checkpoints (years1,4,8) and both
+budget regimes, changing heterozygosity at fixed HIGH allele
+copies produces a much larger change in the assurance's
+**selfed-seed expected allele transmission term** than
+in either outcross paternal or maternal term.
+
+The maternal outcross channel partially offsets the
+dominant self component, and the paternal channel is small.
+This is **exact arithmetic within the declared original
+genotype-dependent source mating ledger**, not an
+independently measured causal selfing coefficient.
+The eligible subset changes with parent year and
+genotype frequency; especially late in the eight-year
+history, too few source genotypes remain heterozygous
+or carry both assurance homozygote types for these
+comparisons to be available in most paths.
+
+### Direct recruitment intensity was audited separately
+
+| Edit minus sham at source year8 | Budget8 HET_UP | Budget8 HET_DOWN | Budget3 HET_UP | Budget3 HET_DOWN |
+|---|---:|---:|---:|---:|
+| Total expected viable seed mass | +0.00695 ±0.00810 | +0.00179 ±0.00941 | +0.00327 ±0.00350 | +0.00467 ±0.00476 |
+| Capped-Poisson expected recruits | **0** | **0** | +0.00195 ±0.00236 | +0.00341 ±0.00333 |
+
+Here ± indicates conditional demographic-path MC SE,
+not independent ecological uncertainty. Budget8 is a
+saturated K32 engineered regime: the expected capped
+recruit census is unchanged at this numerical precision.
+This does NOT mean changing parent genotypes cannot
+alter uncapped potential seed intensity or natural
+fitness.
+
+Budget3 total seed and capped expected recruit contrasts
+are small relative to MC SE; the experiment has not
+established a reliable population viability or extinction
+difference, despite an unambiguous exact conditional
+allele-transmission response in the source model.
+
+The source's selfed-SEED share may change by the edit
+even at fixed parent allele copies, but the year8
+average changes are close to zero under these
+feasible source states. The corresponding allele
+transmission self component can nevertheless change
+strongly because WHICH individual diplotypes transmit
+the high assurance allele changes.
+
+### What this does NOT mean
+
+- Editing high assurance copy count neither changes
+  parental assurance HIGH frequency nor establishes
+  new allele variants. It changes the heterozygote/
+  homozygote distribution of exactly two parent
+  genotypes and their association with the unchanged
+  matching/investment background.
+- Father/mother/self are exact successful gamete
+  transmission accounting terms. Their magnitudes
+  cannot be promoted to 100%-causal selfing/fecundity
+  impacts, heterozygote selection coefficients or
+  proven biological epistasis.
+- HET_UP and HET_DOWN are evaluated on DIFFERENT
+  feasible parent subsets at year8 (171 vs119 budget8;
+  101 vs49 budget3). A symmetric two-way gradient
+  requires comparison on the common feasible
+  subset, and that subset is even smaller.
+- Each parent was synthetically edited for ONE
+  generation only. The source original genotype
+  Markov paths, pollen biology and no mutation/
+  immigration rules remain intact; no independent
+  island field population or ecological environment
+  was sampled.
+- No confirmation cohorts, plant genetic assays,
+  natural-site evolutionary adaptation, geographic
+  INLA, or fully valid Ito SDE/SPDE was assessed.
+
+**Publication boundary:** The result is a
+mechanistically audited property of a very specific
+finite original Model3, not sufficient evidence
+for a broadly general island-evolution mechanism.
