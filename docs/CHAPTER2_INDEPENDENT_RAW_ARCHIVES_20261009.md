@@ -66,7 +66,7 @@ The **fourth** cohort must be kept separate from the preceding three. It is a ne
 - Original ZIP tar **225,617,920 bytes**, SHA-256 **`b5ab3a99eeaf36da399290508a64fa022cacc734aa1d794cab3b8443707309aa`**. Independent draft-Release re-download hash verification **success**. Manifest SHA-256 `ade98a9e3916f8d92b4cdc6b3a724fae811fb0696fdbc4bccf6290f0e51586a6`.
 - One-time execution workflow and launch marker were **removed** after successful preservation. The durable GitHub draft copy is independent of the 90-day Actions artifact expiry but remains within the same provider.
 
-**Totals now preserved as unpublished GitHub draft Releases:** **four independent cohorts, four release tags, 520 original Actions artifact ZIPs** (130 + 130 + 131 + 130; the 131 fixed-B48 set includes its independently corrected readout) with all original byte hashes verified. This does **not** make 4×64 visitor histories one universally representative population or elevate the timed-gate failed primary to support.
+**Totals now preserved as unpublished GitHub draft Releases:** **four independent cohorts, four release tags, 521 original Actions artifact ZIPs** (130 + 130 + 131 + 130; the 131 fixed-B48 set includes its independently corrected readout) with all original byte hashes verified. This does **not** make 4×64 visitor histories one universally representative population or elevate the timed-gate failed primary to support.
 
 ## What's still required before journal deposition
 
