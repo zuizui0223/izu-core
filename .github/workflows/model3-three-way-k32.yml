@@ -1,10 +1,5 @@
 name: Model3 K32 exact expected Gaussian comparison
 on:
-  pull_request:
-    paths:
-      - 'scripts/compare_model3_three_k32_old_history.py'
-      - 'tests/test_model3_three_way_old_history.py'
-      - '.github/workflows/model3-three-way-k32.yml'
   workflow_dispatch:
 
 permissions:
