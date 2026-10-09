@@ -1,0 +1,81 @@
+{
+  "status": "INDEPENDENT_64_HISTORIES_2048_T400_229376_TIMED_SELF_FUTURES_ADMITTED",
+  "n_independent_visitor_histories": 64,
+  "n_t400_sources": 2048,
+  "n_future_cells": 229376,
+  "original_predeclared_primary": "[tau_late(K8)-tau_late(K48)]-[tau_early(K8)-tau_early(K48)]",
+  "primary_verdict": "inconclusive",
+  "paired_bootstrap": {
+    "unit": "visitor_history",
+    "draws": 9999,
+    "seed": 2026100981
+  },
+  "by_arm_sensitivity": {
+    "K8_B48": {
+      "mean": 0.009195005696690383,
+      "bootstrap95": [
+        0.00472591105231359,
+        0.01340191883470381
+      ],
+      "positive_histories": 47,
+      "negative_histories": 17
+    },
+    "K48_B48": {
+      "mean": 0.0006147466780034068,
+      "bootstrap95": [
+        -0.0031105969911654763,
+        0.004400652113522606
+      ],
+      "positive_histories": 32,
+      "negative_histories": 32
+    }
+  },
+  "contrasts": {
+    "primary_late_minus_early_K_moderation": {
+      "mean": -0.002964903233790813,
+      "bootstrap95": [
+        -0.0072632190572351615,
+        0.001317320645942908
+      ],
+      "positive_histories": 31,
+      "negative_histories": 33
+    },
+    "descriptive_early_K_moderation": {
+      "mean": 0.0060694352035770525,
+      "bootstrap95": [
+        0.001697154784295269,
+        0.010539286853538079
+      ],
+      "positive_histories": 40,
+      "negative_histories": 24
+    },
+    "descriptive_late_K_moderation": {
+      "mean": 0.0031045319697862394,
+      "bootstrap95": [
+        -0.0022046528203599003,
+        0.00845434255162881
+      ],
+      "positive_histories": 33,
+      "negative_histories": 31
+    },
+    "descriptive_full_K_moderation": {
+      "mean": 0.008580259018686977,
+      "bootstrap95": [
+        0.003619657391178028,
+        0.013398803229640722
+      ],
+      "positive_histories": 44,
+      "negative_histories": 20
+    },
+    "descriptive_full_minus_early_minus_late": {
+      "mean": -0.0005937081546763156,
+      "bootstrap95": [
+        -0.006138241982151591,
+        0.004864462863373402
+      ],
+      "positive_histories": 33,
+      "negative_histories": 31
+    }
+  },
+  "interpretation_limit": "Causal time-window allocation of engineered viable selfed-seed retention on model occupancy; a stage-specific treatment effect, not mediation, individual fitness, observed genetic order or measured island extinction."
+}
