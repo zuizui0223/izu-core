@@ -110,3 +110,112 @@ source/chronology leakage, and archives the FULL per-history
 outcomes plus the new visitor signature/prediction report.
 NUMERICAL claims must wait for a successful source-linked
 CI run and raw artifact inspection. The PR remains Draft.
+
+
+## Executed source-locked results
+
+The test suite and actual source-run ecological predictor
+[GitHub Actions 37952017304](https://github.com/zuizui0223/izu-core/actions/runs/37952017304),
+job `model3-k32-new-visitor-history-stress`, **PASSED**
+on SHA `b744edbcb3abc1f1d40e9c3d21b35dbf6a426cce`.
+The [full archived source histories and ecological predictor report
+artifact 11626158325](https://github.com/zuizui0223/izu-core/actions/runs/37952017304/artifacts/11626158325)
+has SHA256
+`72f5313267de32de814e92c9c04a05121717b37e9ef0bc754cf4f3256fbb474f`.
+The artifact contains BOTH 8-year visitor-history original
+source genetic-dynamics JSONs (budgets 8 and3) and
+`exploratory-visitor-environment-prediction.json`.
+The compact committed evidence is
+`data/results/model3_k32_visitor_environment_prediction_20261010.json`.
+
+### Early visitor information does not improve held-out forecast
+
+The forecast was trained on seven **different visitor
+RNG histories** and predicted the eighth. This was
+repeated eight times for each budget; the reference seed
+26110601 was excluded from fitting and scoring.
+
+| Year8 source matching-high expected allele direction | Budget8 | Budget3 |
+|---|---:|---:|
+| New history groups in leave-one-out evaluation | 8 | 8 |
+| First-2-year visitor affinity/richness ridge sign accuracy | 5/8 | 6/8 |
+| Training-only majority sign accuracy | **5/8** | **6/8** |
+| Year1 allele expected-direction sign persistence accuracy | 3/8 | 2/8 |
+| Ridge continuous held-out MSE | 0.000064006 | 0.000031267 |
+| **Training-only intercept held-out MSE** | **0.000053662** | **0.000021051** |
+
+The fixed 2-feature ridge DOES NOT outperform the
+training-only source-history intercept baseline:
+sign accuracy is identical but the continuous
+held-out MSE is GREATER in both resource regimes.
+This is a valuable negative check against premature
+forecasting from a few intuitive visitor descriptors.
+The one-year expected matching allele direction
+also performs poorly as a simple persistence
+forecast of the late direction.
+
+### Descriptive temporal associations, NOT early forecasts
+
+| Pearson r with observed source year8 matching expected direction across eight new histories | Budget8 | Budget3 |
+|---|---:|---:|
+| First-two-year high-minus-low effective affinity | +0.351 | −0.119 |
+| First-two-year functional visitor richness | −0.268 | −0.566 |
+| Eight-year mean high-minus-low effective affinity | +0.539 | +0.090 |
+| **Late-two-years minus early-two-years matching effective-affinity contrast** | **+0.540** | **+0.782** |
+| Eight-year mean visitor richness | −0.122 | −0.096 |
+| Late minus early visitor richness | −0.245 | −0.163 |
+
+The higher retrospective association with CHANGING
+matching preference under budget3 suggests a
+hypothesis worth testing in a genuinely independent
+study. But it is calculated using the FULL visitor
+trajectory, including future conditions, and therefore
+cannot support an early-year forecast. The budget3
+association is higher than budget8 despite the SAME
+eight ecological RNG seed histories, illustrating
+genotype/census-dependent model responses. There
+are only eight distinct synthetic visitor histories,
+and multiple descriptive descriptors were examined
+AFTER earlier outcomes, so do not attach uncorrected
+significance claims to these correlations.
+
+Source examples: history 26110606 has first-two-year
+high-minus-low matching effective affinity about +0.564,
+but its final-versus-initial preference contrast is
+approximately −0.597, and source matching-high
+expected direction in year8 is negative under both
+budgets (about −0.00103 and −0.00399). Conversely
+seed 26110603 has early effective preference
+about −0.087 and late-minus-early preference
+about +0.273, with positive year8 source
+matching expected directions about +0.01387
+and +0.00829. These are *examples of ecological
+co-occurrence*, NOT isolated visitor causal
+effects because parental genotype histories also
+differ across simulation seeds.
+
+### Consequences for the scientific claim
+
+- The original source genetic mechanism, with exact
+  selfed-seed × inherited HIGH allele weighting,
+  **does not yield a robust visitor-only early predictor
+  of matching allele evolutionary direction** from
+  the fixed two descriptors used here.
+- Time-varying visitor matching conditions MAY matter,
+  consistent with prior 8×8 parent-state × visitor
+  transplantation. But the present ecological
+  correlation cannot distinguish environment change
+  from endogenous parental genotype/census changes.
+- The main value of this stage is narrowing what
+  CANNOT yet be predicted using ecological variables
+  alone, not a new predictor validated across natural
+  archipelagos.
+- The eight ecology RNG histories were selected
+  after the first discovery and represent a single
+  generator, 128 nested demographic source paths
+  per visitor history, shared across both budgets.
+- The frozen prospective Chapter2 history cohorts
+  remain unused. The original source biology was
+  not modified; no natural pollinator experiments,
+  independent island systems or SDE/SPDE validation
+  were produced.
