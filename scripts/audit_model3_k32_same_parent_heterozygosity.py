@@ -122,7 +122,22 @@ def same_parent_exact_contrast(counts,grid,visitors,cfg,year):
     if not -1e-12<=source_mu<=1.+1e-12:
         raise ArithmeticError("source offspring allele mean outside its support")
     source_mu=float(np.clip(source_mu,0.,1.))
-    fit=calibrated_laws(q0[None,:],b,source_mu)
+    # A source expectation at the EXACT absorbing boundary mu=0 or 1
+    # cannot in general be obtained by any finite exponential tilt:
+    # it is the limiting distribution supported on b=0 or b=1.
+    # Taking this exact limit removes classes, NEVER invents alleles.
+    if source_mu in (0.,1.):
+        mask=(b==source_mu)
+        limited=q0*mask
+        if limited.sum()<=0:
+            fit={"admissible":False,"lower_attainable":0.,
+                 "upper_attainable":1.}
+        else:
+            fit={"admissible":True,
+                 "laws":(limited/limited.sum())[None,:],
+                 "calibration_log_weight":None}
+    else:
+        fit=calibrated_laws(q0[None,:],b,source_mu)
     if not fit["admissible"]:
         return {
             "status":"MATCHED_MEAN_UNATTAINABLE",
