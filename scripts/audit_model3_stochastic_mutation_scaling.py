@@ -184,3 +184,58 @@ def population_size_noise_scaling(q: np.ndarray,
         "mutation_enabled_multistep_SPDE_validated":False,
         "geographic_INLA_performed":False,
     }
+
+def dirichlet_simplex_boundary_diagnostic(
+    q: np.ndarray, recruits: int, *,
+    draws: int=10000, seed: int=20261009,
+) -> dict:
+    """Same mean+covariance but radically different rare-allele loss.
+
+    A Dirichlet(alpha*q) on the positive support has mean q and covariance
+    [diag(q)-q q.T]/(alpha+1). Setting alpha=N-1 matches the multinomial
+    genotype-frequency covariance for N>=2, while retaining nonnegative
+    frequencies summing to 1. Unlike finite multinomial sampling, however,
+    every positive q_i remains *strictly positive* under Dirichlet sampling;
+    finite-N loss P(count_i=0)=(1-q_i)**N is missed.
+
+    This is a falsification diagnostic for an appealing moment-matched,
+    simplex-constrained SPDE surrogate; it is NOT a validated process.
+    """
+    from scripts.audit_model3_stochastic_bridge import frequency_noise_covariance
+
+    q=np.asarray(q,dtype=float)
+    if (type(recruits) is not int or recruits<2
+            or type(draws) is not int or draws<100
+            or type(seed) is not int or seed<0):
+        raise ValueError("Dirichlet comparison requires N>=2 and valid samples")
+    covariance=frequency_noise_covariance(q,recruits)
+    support=q>0
+    if support.sum()<2:
+        raise ValueError("Dirichlet comparison requires at least two positive classes")
+    rare=int(np.flatnonzero(support)[np.argmin(q[support])])
+    rng=np.random.default_rng(seed)
+    sample=np.zeros((draws,len(q)),dtype=float)
+    sample[:,support]=rng.dirichlet((recruits-1)*q[support],size=draws)
+    finite_counts=rng.multinomial(recruits,q,size=draws)
+    if not np.allclose(sample.sum(axis=1),1,atol=1e-12,rtol=0):
+        raise AssertionError("simplex surrogate failed normalization")
+    if (sample[:,rare]<=0).any():
+        raise AssertionError("positive-support Dirichlet draw hit a boundary")
+    return {
+        "status":"moment_matched_simplex_but_genetic_loss_not_reproduced",
+        "N":recruits,
+        "rare_genotype_index":rare,
+        "rare_genotype_probability":float(q[rare]),
+        "theoretical_multinomial_absence_probability":
+            float((1-q[rare])**recruits),
+        "empirical_multinomial_absence_probability":
+            float(np.mean(finite_counts[:,rare]==0)),
+        "empirical_dirichlet_absence_probability":
+            float(np.mean(sample[:,rare]==0)),
+        "max_empirical_dirichlet_mean_error":
+            float(np.max(np.abs(sample.mean(axis=0)-q))),
+        "max_empirical_dirichlet_covariance_error":
+            float(np.max(np.abs(np.cov(sample.T)-covariance))),
+        "formal_dirichlet_and_multinomial_first_two_moments_equal":True,
+        "full_SPDE_genetic_loss_validated":False,
+    }
