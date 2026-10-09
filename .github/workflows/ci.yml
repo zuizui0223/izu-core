@@ -1223,6 +1223,21 @@ jobs:
                   vis=np.asarray(terms["visitor_order_symmetrized"]["expected_allele_direction"]["mean"])
                   total=np.asarray(terms["source_late_minus_early_diagonal"]["expected_allele_direction"]["mean"])
                   assert np.allclose(state+vis,total,atol=1e-12,rtol=0)
+              # Independent source-history stress receipt (previously CI-verified
+              # under a different scientific script) must reproduce every
+              # year1/year8 original diagonal; the cross cannot silently
+              # change genotype RNG streams or source biology.
+              reference=json.loads(Path("data/results/model3_k32_new_visitor_history_stress_20261009.json").read_text())
+              previous=next(x for x in reference["cases"] if x["budget"]==b)
+              by_seed={x[0]:x for x in previous["per_seed"]}
+              assert len(by_seed)==8
+              for r in d["per_history_source_cross"]:
+                  expected=by_seed[r["history_seed"]]
+                  assert r["n_common_surviving_source_parent_paths"]==expected[1]
+                  got_early=r["four_original_reproduction_cells"]["early_parent_early_visitor"]["expected_allele_direction"]["mean"][0]
+                  got_late=r["four_original_reproduction_cells"]["late_parent_late_visitor"]["expected_allele_direction"]["mean"][0]
+                  assert abs(got_early-expected[2])<1e-12
+                  assert abs(got_late-expected[3])<1e-12
               s=d["eight_history_descriptive_summary"]
               assert s["n_new_histories"]==8
               assert s["n_negative_to_positive_matching_direction"]<=8
