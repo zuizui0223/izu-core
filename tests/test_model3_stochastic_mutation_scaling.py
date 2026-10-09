@@ -186,3 +186,19 @@ def test_scaling_is_conditional_not_a_capacity_experiment():
         population_size_noise_scaling(q,sizes=(8,8))
     with pytest.raises(ValueError):
         reflected_allele_moments(1.1,.01,.05)
+
+def test_mutation_conditioned_three_generation_old_history_preflight():
+    from scripts.run_model3_mutation_multistep_preflight import (
+        run_mutation_multistep_preflight,
+    )
+    receipt=run_mutation_multistep_preflight(
+        n_draws=256,updates=3,mutation_rate=.01,mutation_sd=.05
+    )
+    assert receipt["status"]=="OLD_HISTORY_MUTATION_THREE_UPDATE_CONDITIONAL_GATES_PASS"
+    assert len(receipt["results"])==3
+    assert receipt["independent_visitor_histories"]==1
+    assert receipt["new_visitor_histories_drawn"]==0
+    assert receipt["canonical_Model3_modified"] is False
+    assert receipt["full_multigeneration_SDE_validated"] is False
+    assert receipt["full_trait_space_SPDE_validated"] is False
+    assert receipt["geographic_INLA_performed"] is False
