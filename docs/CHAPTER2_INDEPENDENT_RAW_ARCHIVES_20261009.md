@@ -21,8 +21,18 @@ Raw original artifact ZIP bytes are preserved in unpublished **draft** GitHub Re
 | Study | Draft-release tag | Original ZIP inventory | Preservation verification |
 | --- | --- | --- | --- |
 | Fixed-B48 K confirmation | `chapter2-fixedB48-raw-20261009-v1` | 131 ZIPs = 64 t400 source shards + 64 future shards + 3 metadata/readout artifacts | **Verified** in [Run 37906236862](https://github.com/zuizui0223/izu-core/actions/runs/37906236862): SHA-256 verified original zip downloads, tar uploaded and independently re-downloaded/verified |
-| Earlier matched-founder orthogonal cohort | `chapter2-orthogonal-raw-20261009-v1` | 130 ZIPs = 64 t400 + 64 future + 2 receipts | **Execution pending confirmation** in [Run 37906844144](https://github.com/zuizui0223/izu-core/actions/runs/37906844144) |
+| Earlier matched-founder orthogonal cohort | `chapter2-orthogonal-raw-20261009-v1` | 130 ZIPs = 64 t400 + 64 future + 2 receipts | **Verified** in [Run 37906844144](https://github.com/zuizui0223/izu-core/actions/runs/37906844144): original GitHub SHA-256 matched; upload and independent draft-release download verified |
 | Earlier K×B 2×2 cohort | `chapter2-kb-raw-20261009-v1` | 130 ZIPs = 64 t400 + 64 future + 2 receipts | **Execution pending confirmation** in [Run 37906844144](https://github.com/zuizui0223/izu-core/actions/runs/37906844144) |
+
+All three preservation Runs have **completed/success**, and the corresponding draft Releases are still **unpublished**. GitHub release assets were independently re-downloaded and SHA-256 verified, including their complete original ZIP inventories:
+
+| Experiment | Release tar (original unchanged ZIPs + machine manifest) | Release asset SHA-256 |
+| --- | --- | --- |
+| Orthogonal | `chapter2-orthogonal-130-original-shard-artifacts.tar` (227,543,040 bytes) | `03e1292511219ea4ee64499d35ac0e5a5f824f1ee0fd420ecd7ca97f4f9ebf65` |
+| K×B | `chapter2-kb-130-original-shard-artifacts.tar` (226,304,000 bytes) | `7d367a9e4a9f4f60f25dbee2ccabc84ef0969f5d9b0096c7df07380314dcfff9` |
+| Fixed B48 | `chapter2-fixedB48-all-original-131-artifacts.tar` (224,860,160 bytes) | `3e522fc9d8da904ed70cc2213bc3b08816761c4e44a4badc72e0c87ba04bd42c` |
+
+The releases also contain separately downloadable original-artifact SHA-256 manifest JSON and independent verification receipt JSON. Their asset IDs and the original GitHub run SHAs are retained; none of the underlying model data has been regenerated or filtered.
 
 The fixed-B48 draft Release currently holds `chapter2-fixedB48-all-original-131-artifacts.tar` (224,860,160 bytes), SHA-256 `3e522fc9d8da904ed70cc2213bc3b08816761c4e44a4badc72e0c87ba04bd42c`. The draft-release manifest and verification receipt are uploaded as independent assets. No public release/public external data deposition has been performed.
 
