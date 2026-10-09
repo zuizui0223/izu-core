@@ -540,3 +540,36 @@ these rows do not establish a general convergence rate for a *fixed*
 biological kernel. The frozen original full-genotype Markov measure
 remains the correct finite-process reference. A full stochastic SPDE
 is not admitted; no new ecological history or geographic INLA work occurred.
+
+
+### Exploratory follow-up: clipping versus integerization (not a fresh test)
+
+The observed K=8,32,128 projected-Gaussian richness bias is already
+exposed. The next numerical diagnostic therefore makes no prospective
+confirmatory claim. It keeps exactly the original source-derived 27-class
+child genotype law `q` and the same pre-projection Gaussian shock,
+then separates two operations:
+
+1. Clamp negative Gaussian pseudo-counts at zero and renormalize the
+   remaining positive mass. For each Gaussian realization, calculate
+   the **analytical conditional multinomial expected richness**
+   `sum_g [1-(1-p_g)^N]` given its clipped/renormalized probability `p`.
+   This isolates the pre-integerization noise/projection contribution.
+2. For that **identical Gaussian realization**, apply the existing
+   deterministic largest-remainder integerization and record the number
+   of genotype classes with positive integer counts. Its difference
+   from the analytically integrated conditional multinomial readout
+   isolates the additional integer-rounding contribution.
+
+`scripts/audit_model3_gaussian_projection_mechanism.py` implements this
+paired decomposition and archives 8,192 source-controlled Gaussian draws
+per K=8,32,128, together with the fraction of Gaussian pseudo-count
+vectors containing negative components, mass clipped, and Monte Carlo
+standard errors. The alternate readout is an *analytical comparator*
+for numerical attribution, **not** a new biological model or proposed
+fix to the original Model 3.
+
+This follow-up is explicitly **post-outcome exploratory**, uses no new
+independent visitor histories, makes no decision based on whether the
+sum becomes smaller or bigger, and cannot override the observed
+source-model Gaussian-closure failure or license an SDE/SPDE.
