@@ -62,7 +62,7 @@ def test_null_primary_contrast_falls_into_rope():
     )
 
 
-@pytest.mark.parametrize("shape", [(64, 3, 2), (172032, 2), (1, 3, 2)])
+@pytest.mark.parametrize("shape", [(64, 2, 3), (172032, 2), (1, 3, 2)])
 def test_future_cell_pseudoreplication_fails_closed(shape):
     with pytest.raises(ValueError):
         summarize_history_effects(np.ones(shape))
