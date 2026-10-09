@@ -264,3 +264,76 @@ biological model, or claim a full dynamic SPDE because one-birth Gaussian
 covariance matches. Rare genotype and whole-population loss must remain
 possible; deterministic density and moment-matched smooth fields do not
 automatically preserve these absorbing boundaries.
+
+
+## 2026-10-09 completed scaling ruling: an exact visitor-free obstruction
+
+**Source-locked focused CI [#37866168832](https://github.com/zuizui0223/izu-core/actions/runs/37866168832) passed** including a new structural visitor-free counterexample. Full, scoped numeric provenance is archived in [`data/results/model3_fast_time_scaling_20261009.json`](../data/results/model3_fast_time_scaling_20261009.json). This is a biological-model-conditional mathematical result, not a general SDE impossibility theorem.
+
+For *no pollinator visitors* and prior selfing, canonical `reproduce()` assigns each founder plant `i` a nonzero viable selfed contribution proportional to
+`w_i = B exp(-c_I I_i^2-c_A A_i^2) A_i (1-depression)`.
+There is no outcross term. The mean phenotype of a selfed child is the
+parent phenotype under Mendelian segregation **with mutation disabled**.
+Thus the expected offspring phenotype mean is the exactly weighted mean
+
+```text
+mu_offspring = sum_i(w_i*z_i) / sum_i(w_i)
+b = mu_offspring - mean_i(z_i)
+```
+
+Replicate every original diploid founder `m=K/8` times while leaving all
+source reproductive parameters unchanged. Both numerator and denominator are
+multiplied by `m`, hence **b is identical for every multiple of K=8**.
+For the historical source founders, `||b||=0.00172576304865...` is
+nonzero. The exact-source numerical verification reproduced the same value
+at K=8,16,32,64,128 to floating-point precision, while
+`K*||b||` rose **0.0138061 -> 0.2208977**.
+
+Therefore the attempted accelerated time `dt=1/K` has a *non-finite
+selection drift rate* along this family as K grows. It cannot be a
+**universal finite-drift Itô-SDE representation of the original unscaled
+synchronized-generation Model 3**. This does NOT forbid alternative
+weak-selection scalings (which explicitly modify the biological regime),
+fluctuation limits centered on a deterministic *discrete* inheritance
+recurrence, absorbing measure-valued stochastic processes, or SPDEs with
+proper boundary treatment.
+
+### Finite-K ecological context (not an asymptotic theorem)
+
+Using the **unchanged founder genotype pool**, the near/far visitor
+communities were correctly compared at **postassembly time index 400**,
+where the visitor groups are distinct. This is a fixed-founder ecological
+contrast, *not 400 years of plant evolution*. The source mainline founders
+have **both assurance alleles fixed at 0.5**; with mutation zero this screen
+has no A segregation. Its numerical results therefore only diagnose
+matching/floral-investment response and must not be promoted to a full
+three-trait SDE statement.
+
+In the prior-selfing setting, one-step mean-change norms at K=8 ->128 were
+**near 0.001344629 -> 0.000877506** and
+**far 0.001725763 -> 0.001725763**.
+In the assurance-cost setting they were
+**near 0.002084944 -> 0.001584999** and
+**far 0.001725763 -> 0.001725763**.
+The previously declared *screen* required a terminal drift norm above
+0.005 to classify a finite-K obstruction. All postassembly cells thus
+returned `fast_time_screen_fails=false`; we **do not retroactively
+change this threshold** to make the screen positive. The explicit
+visitor-free algebraic counterexample is a separate, stronger and
+well-scoped mathematical argument.
+
+At time index 0, the near and far visitor communities are identical.
+The corrected audit **does not** call that a near-far comparison. Its
+shared baseline gives stronger drift, but it is not a second ecological
+replicate.
+
+### Decision for the paper and software
+
+Preserve the exact discrete stochastic genotype-measure recursion as the
+reference. If a tractable surrogate is required, seek a **discrete-time
+central-limit / linear-noise approximation around the nonlocal sexual
+inheritance map**, including absorbing rare-genotype and whole-population
+boundaries. Do **not** label the original time-updated genetics model
+a validated ordinary continuous-time SDE or smooth trait-space SPDE,
+and do not substitute geographic INLA-SPDE or claim natural-island
+calibration. The user-selected Step 3 remains deliberately out of scope.
