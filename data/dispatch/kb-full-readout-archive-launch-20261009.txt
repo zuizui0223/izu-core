@@ -1,0 +1,6 @@
+One-time byte-exact archival transfer of successful new 64-history independent K/B confirmatory readout.
+Original source/run: 37893126472, head SHA 6d04dca9354b3a2b600d26134f86117d225f4708.
+Original result artifact: 11600220519, SHA-256 74df9619590023ee7416035ea31068b541e08dd731b603e879a27c26ccd35ed9.
+Full new 2048 t400 sources, 229376 futures and 64 visitor history clusters successfully admitted.
+Preregistered K8 background B contrast is INCONCLUSIVE; preserve exactly. Secondary positive K and interaction contrasts DESCRIPTIVE.
+No new biological simulation, statistical rerun, or selective source filtering.
