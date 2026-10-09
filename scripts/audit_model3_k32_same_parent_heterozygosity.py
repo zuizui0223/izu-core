@@ -5,7 +5,8 @@ kernel, NOT a Gaussian approximation or observed natural island data.
 Compare, at every identical integer parent population C_t:
 
   source q_s = exact canonical reproductive and Mendelian offspring law
-  neutral q_0 = equal individual mating, exact Mendelian offspring law
+  neutral q_0 = equal parent gamete contributions with-replacement,
+                including source-supported self pairs, exact inheritance
   comparator q_theta ~ q_0 exp(theta*assurance_high_allele_dosage),
      theta fitted to EXACT q_s assurance mean *at that parent state*.
 
@@ -36,7 +37,6 @@ from scripts.audit_model3_stochastic_bridge import (
     capped_poisson_distribution, genotype_count_markov_step,
 )
 from scripts.audit_model3_k32_pathwise_selection_drift import allele_frequency_basis
-from scripts.audit_model3_k32_neutral_census_control import neutral_child_genotype_law
 from scripts.audit_model3_k32_mean_matched_ceiling import calibrated_laws
 from scripts.run_chapter2_assurance_generality import (
     DEFAULT_DESIGN, config as source_config, load_design,
@@ -46,6 +46,33 @@ from scripts.run_model3_three_arm_k32_old_history import (
     K, GENERATIONS, OLD_HISTORY, MUTATION_RATE, canonical_conditional_kernel,
 )
 
+
+
+def all_pair_neutral_mendelian_law(counts, grid):
+    """Neutral full parent-pair support including self, source Mendelian tensor.
+
+    The earlier neutral counterfactual excluded within-individual pairing
+    except at n=1. That can have less child-genotype support than source
+    Model3 (which permits selfed seeds), so exact mean matching may be
+    mathematically impossible after source alleles drift. This deliberate
+    *different* control draws two parental gametes independently with
+    replacement. It preserves EVERY source-inheritable child class and
+    the neutral martingale E[high allele frequency|C]=p(C).
+    """
+    c=np.asarray(counts)
+    if (c.ndim!=1 or c.shape!=(len(grid.genotypes),)
+            or c.dtype.kind not in "iu" or (c<0).any()):
+        raise ValueError("full diploid integer genotype census required")
+    n=int(c.sum())
+    if n==0:
+        return np.zeros(len(c),float)
+    gamete=(c@grid.gamete_probabilities)/n
+    child=np.outer(gamete,gamete)
+    q=np.bincount(grid.child_lookup.ravel(),weights=child.ravel(),
+                  minlength=len(grid.genotypes)).astype(float)
+    if not np.isclose(q.sum(),1.,atol=1e-12,rtol=0):
+        raise ArithmeticError("neutral all-pairs Mendelian child mass lost")
+    return q/q.sum()
 
 def offspring_assurance_moments(q, allele_dosage):
     """Return exact mu, heterozygote probability, and allele-dosage variance."""
@@ -86,7 +113,7 @@ def same_parent_exact_contrast(counts,grid,visitors,cfg,year):
     if not intensity>0:
         return {"status":"ZERO_OFFSPRING_INTENSITY"}
     b=allele_frequency_basis(grid)[:,2]
-    q0=neutral_child_genotype_law(counts,grid)
+    q0=all_pair_neutral_mendelian_law(counts,grid)
     source_mu,hs,vs=offspring_assurance_moments(qs,b)
     fit=calibrated_laws(q0[None,:],b,source_mu)
     if not fit["admissible"]:
@@ -225,6 +252,8 @@ def run_same_parent(*,budget=8.,draws=512,seed=420261014):
             "demographic_replicates":draws,
             "source_biology_edited":False,
             "neutral_comparator_intentionally_changes_mating_weights":True,
+            "neutral_comparator_parent_pairs_include_self":True,
+            "matched_comparator_source_genotype_support_preserved":True,
             "comparator_is_autonomous_eight_year_forecast":False,
             "confirmatory_cohorts_accessed":False,
             "no_outcome_fitted_yearly_trajectory":True,
@@ -237,7 +266,7 @@ def run_same_parent(*,budget=8.,draws=512,seed=420261014):
         "mathematical_identity":"Var_q(b)=mu*(1-mu)-.25*P_q(b==.5); with identical mu,N law, source-minus-counterfactual Var(mean offspring b|N>0,C)=-.25*(source_het-counterfactual_het)*E[1/N|N>0]",
         "limitations":[
             "The result identifies a one-step distributional contrast at the SAME canonical parental genotype state, not an eight-generation autonomous comparator effect.",
-            "Matching the source mean for each parent state uses source conditional biology to construct an analytic control; this is not independently predictive or a neutral drift process.",
+            "Matching the source mean for each parent state uses source conditional biology; full-support neutral pairs permit same-individual pairing even when the earlier neutral comparator excluded it, so this is a NEW mathematical reference, not an independent prediction.",
             "Heterozygosity is an algebraic description of offspring-dosage variance, not causal proof of stabilizing selection, adaptive canalization or a specific pollen mechanism.",
             "Demographic paths are nested under one old visitor history; no independent ecological conditions or natural data.",
             "Source biology unmodified; genetic support excludes mutation/survival/immigration and SDE/SPDE inference."
