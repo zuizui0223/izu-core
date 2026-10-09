@@ -1,0 +1,141 @@
+# K32: Heterozygosity perturbation at exactly fixed assurance allele count
+
+## Immediate question
+
+Earlier original-source Model3 engineering comparisons showed that the high
+reproductive-assurance allele approaches fixation, while shuffled
+assurance diploid genotypes retaining their original marginal
+frequencies weaken the positive late matching-allele reproductive
+direction. Artificially restoring the entire assurance founder
+genotype distribution can reverse that direction but simultaneously
+changes high-allele frequency, heterozygosity and genotype association.
+
+This experiment **fixes the assurance high-allele COPY COUNT exactly**
+and changes only the number of assurance heterozygotes by two individuals
+per living parent population. It is an **artificial genetic-state
+sensitivity**, NOT a source evolutionary event, empirical gene edit,
+unique estimate of assurance heterozygosity selection, or fully
+isolated individual fitness contrast.
+
+## Frozen biological source
+
+Original Model3 K=32, mutation=0, adult survival=0, seed immigration=0,
+the prior_selfing canonical Chapter2 mating/viable seed ledger,
+three diploid biallelic loci with 27 joint genotype classes,
+and only old near visitor history 26110601. Source original parent
+states evolve through normal finite Markov reproduction until
+parent-years 1,4,8. Every comparison uses exactly the SAME
+original nested demographic path identities still occupied
+at the start of year8; this is conditioned on late source
+survival, never independent ecological visitor histories.
+Two archived visitor snapshots are used: year1 and year8.
+Only original source reproduction is evaluated on edited
+parental genotype states; there are no autonomous eight-year
+trajectories of edited populations.
+
+## Exact genetic counterfactual and feasibility
+
+For parent census N, an assurance diploid genotype count triple
+`(n_LL,n_LH,n_HH)` has total number of high-allele
+copies `A=n_LH+2*n_HH` and heterozygote count `n_LH`.
+
+- `HET_UP` requires n_LL≥1 and n_HH≥1: convert one
+  low-low homozygote and one high-high homozygote into
+  two low-high heterozygotes. This keeps A constant but
+  increases heterozygosity `2/N`.
+- `HET_DOWN` requires n_LH≥2: convert two low-high
+  heterozygotes into one low-low and one high-high
+  homozygote. This keeps A constant but decreases
+  heterozygosity `2/N`.
+- If the required categories are absent, record the
+  change as **infeasible**. Do not create missing high
+  or low founder alleles to force an effect. An already
+  high-fixed parent (A=2N) cannot be perturbed by
+  either operation.
+
+Both controls preserve the exact original N, high-allele
+COPY count of EVERY locus, and each individual's genetic
+state at the other two loci, with allele values fixed at
+.25/.75. Relative to a same-permutation sham, exactly
+TWO individuals' assurance diploid genotype pairs change.
+The modified genotype state can still change reproductive
+mating weights/parent fitness under unchanged canonical
+source rules: that is the outcome being measured.
+
+## Remove allele-marginal and association-baseline confusion
+
+For every living source state and each of four fixed random
+permutations, shuffle the unordered assurance diploid
+genotype pairs across individuals, preserving their full
+0/1/2 genotype count distribution. This is the **SHAM**.
+Apply the exact two-individual HET_UP or HET_DOWN edit
+using the SAME permutation (not a second independent
+pairing randomization). Use unchanged genotype states
+at the other two loci, and evaluate original reproduce()
+under BOTH old visitor snapshots for the same artificial
+parent state.
+
+The primary within-feasible-source-path contrast is
+**EDIT minus SHAM** expected NEXT high-allele frequency
+direction at all three loci, averaging four permutation
+replicates inside the demographic source path before
+estimating a path-level Monte Carlo standard error.
+
+SHAM minus original also reports how much randomly
+breaking the original locus-to-locus genotype alignment
+changes the expected direction while leaving all
+three full per-locus diploid genotype marginals fixed.
+HET_UP and HET_DOWN feasibility classes need not be
+the same. A bidirectional local slope is reported
+**ONLY** on the intersection of parent populations in
+which both are possible; there is no arbitrary
+imputation from the opposite feasible subset.
+
+The source matching expected allele shift in each
+cell is evaluated relative to that cell's current
+parent matching allele frequency, which is held
+exactly constant by these assurance edits. Its
+high-allele frequency change is therefore a
+reproductive-response difference, not an immediate
+change in matching allele copy content.
+
+## Biological limits
+
+This design does not uniquely separate heterozygosity
+from associations at the level of the two changed
+parents: changing their assurance homozygosity also
+changes which matching/investment genotypes occur with
+which reassurance genotypes at those two individuals.
+The paired sham limits random pairing confounding
+but does not force identical joint diplotype structure.
+Source fertility and viable-selfed seeds can change
+as a response even when high allele copies are
+fixed, so this is not a controlled constant-fitness
+genetics experiment.
+
+The visit condition is one or both snapshots from
+a single old archive history, not independent
+pollinator environments. By late year8 assurance
+may already be high fixed, making the HET_UP
+operation rare/impossible; the proportion of
+eligible source parent states is a **scientific
+result** and must accompany effect sizes. Uncertain
+rare-category results are not promoted as broad
+adaptive findings.
+
+No canonical Model3 source code, frozen prospective
+Chapter2 history cohorts, natural island observations,
+causal pollinator fitness experiment, or verified
+Ito SDE/SPDE process is changed/established.
+
+## Reproduction
+
+    pytest -q tests/test_model3_k32_fixed_frequency_heterozygosity.py
+    python -m scripts.audit_model3_k32_fixed_frequency_heterozygosity --budget 8 --draws 512 --permutations 4 --out fixed-allele-hetero-budget8.json
+    python -m scripts.audit_model3_k32_fixed_frequency_heterozygosity --budget 3 --draws 512 --permutations 4 --out fixed-allele-hetero-budget3.json
+
+PR420 CI job `model3-k32-fixed-allele-heterozygosity`
+archives raw old-history JSON and refuses to treat
+infeasible source parent genotypes as measurements.
+**No numerical result is admitted until exact-head
+CI has passed and the full raw artifact is inspected.**
