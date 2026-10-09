@@ -51,7 +51,7 @@ def compile_manifest():
         "protocol_sha256":hashlib.sha256(PROTOCOL.read_bytes()).hexdigest(),
         "source_code_sha256":source_hashes(),
         "n_histories":64,"n_sources":2048,
-        "futures_per_source":56,"expected_futures":229376,
+        "futures_per_source":112,"expected_futures":229376,
         "shards":records,
     }
     if sum(x["futures_expected"] for x in records)!=229376:
