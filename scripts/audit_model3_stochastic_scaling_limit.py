@@ -52,7 +52,8 @@ def clone_existing_founder_pool(founders8: PlantState, capacity: int) -> PlantSt
 
 def scaling_screen(*,settings=("prior_selfing","assurance_cost"),
                    environments=("near","far"),
-                   sizes=CAPACITIES) -> dict:
+                   sizes=CAPACITIES,
+                   snapshot_index=VISITOR_SNAPSHOT_INDEX) -> dict:
     """Quantify conditional one-step drift and 1/N-like finite noise.
 
     The conditioned trait mean is defined only when offspring N>0.  If the
@@ -71,6 +72,8 @@ def scaling_screen(*,settings=("prior_selfing","assurance_cost"),
         raise ValueError("need distinct capacities divisible by eight")
     if not settings or not environments:
         raise ValueError("need declared mating and visitor conditions")
+    if type(snapshot_index) is not int or snapshot_index not in (0,200,400):
+        raise ValueError("snapshot must be a declared source-history checkpoint")
     d=load_design(DEFAULT_DESIGN)
     base8=subset(founders(d),np.arange(8,dtype=np.int64))
     base_hash=hashlib.sha256(base8.alleles.tobytes()).hexdigest()
@@ -78,7 +81,7 @@ def scaling_screen(*,settings=("prior_selfing","assurance_cost"),
     # postassembly index. At t=0, near/far share their founder visitor pool
     # and are NOT distinct ecological exposures.
     visitor_snapshot={
-        env:exposure(VISITOR_HISTORY,env).visitors[VISITOR_SNAPSHOT_INDEX]
+        env:exposure(VISITOR_HISTORY,env).visitors[snapshot_index]
         for env in environments
     }
     if "near" in visitor_snapshot and "far" in visitor_snapshot:
@@ -87,6 +90,10 @@ def scaling_screen(*,settings=("prior_selfing","assurance_cost"),
                 and np.array_equal(near.optima,far.optima)
                 and np.array_equal(near.breadths,far.breadths)
                 and np.array_equal(near.effectiveness,far.effectiveness)):
+            if snapshot_index==0:
+                raise ValueError(
+                    "initial visitor communities are shared; compare near only at t0"
+                )
             raise AssertionError(
                 "near/far visitor snapshots still identical after assembly"
             )
@@ -128,7 +135,7 @@ def scaling_screen(*,settings=("prior_selfing","assurance_cost"),
                 rows.append({
                     "setting":mating,
                     "environment":env,
-                    "visitor_snapshot_index":VISITOR_SNAPSHOT_INDEX,
+                    "visitor_snapshot_index":snapshot_index,
                     "n_visitor_functional_types":len(visitors.ids),
                     "visitor_community_sha256":hashlib.sha256(
                         visitors.ids.tobytes()+visitors.optima.tobytes()
@@ -195,16 +202,33 @@ def main()->None:
     import argparse
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--out",type=Path,required=True)
+    parser.add_argument("--snapshot-index",type=int,default=VISITOR_SNAPSHOT_INDEX)
+    parser.add_argument("--near-only",action="store_true")
     args=parser.parse_args()
-    data=scaling_screen()
+    data=scaling_screen(
+        snapshot_index=args.snapshot_index,
+        environments=("near",) if args.near_only else ("near","far")
+    )
     args.out.parent.mkdir(parents=True,exist_ok=True)
     args.out.write_text(json.dumps(
         data,indent=2,sort_keys=True,allow_nan=False
     )+"\n",encoding="utf-8")
     print(json.dumps({
         "status":data["status"],
+        "snapshot_index":data["visitor_snapshot_index"],
         "finite_K_groups":{
             key:{
+                "K":x["K_values"],
+                "drift": [
+                    round(r["one_generation_drift_l2"],9)
+                    for r in data["rows"]
+                    if r["setting"]+"_"+r["environment"]==key
+                ],
+                "K_times_drift":[
+                    round(r["fast_time_rescaled_drift_l2"],9)
+                    for r in data["rows"]
+                    if r["setting"]+"_"+r["environment"]==key
+                ],
                 "terminal_drift":x["terminal_drift_l2"],
                 "terminal_K_drift":x["terminal_K_drift_l2"],
                 "fast_time_screen_fails":x["fast_time_finite_drift_screen_fails"],
