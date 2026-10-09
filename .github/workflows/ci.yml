@@ -681,3 +681,66 @@ jobs:
           path: factorial-budget*.json
           if-no-files-found: warn
           retention-days: 90
+
+  model3-k32-parental-marginals:
+    if: github.event_name == 'pull_request' && github.event.pull_request.number == 420
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Validate exact parent-sex and selfing Mendelian direction identities
+        run: pytest -q tests/test_model3_k32_parental_marginal_direction.py
+      - name: Audit exact same-source-parent mean direction under all 8 masks budget8
+        run: python -m scripts.audit_model3_k32_parental_marginal_direction --budget 8 --draws 512 --out parent-marginals-budget8.json
+      - name: Audit exact same-source-parent mean direction under all 8 masks budget3
+        run: python -m scripts.audit_model3_k32_parental_marginal_direction --budget 3 --draws 512 --out parent-marginals-budget3.json
+      - name: Verify one original ecological visitor history and sex-specific exact identities
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import numpy as np
+          for budget in (8,3):
+              d=json.loads(Path(f"parent-marginals-budget{budget}.json").read_text())
+              c=d["conditions"]
+              assert d["status"]=="K32_EXACT_SAME_PARENT_MATERNAL_PATERNAL_PRICE_IDENTITY",d["unmatched"]
+              assert (c["K"],c["mutation_rate"],c["generations"],c["ovule_budget"])==(32,0,8,budget)
+              assert c["old_visitor_history"]==26110601
+              assert c["independent_visitor_histories"]==1
+              assert c["nested_demographic_replicates"]==512
+              assert c["canonical_original_Model3_biology_modified"] is False
+              assert c["counterfactual_outcross_mating_weights_intentionally_modified"] is True
+              assert c["original_viable_self_seeds_and_total_outcross_intensity_preserved_in_comparisons"] is True
+              assert c["same_original_parental_genotype_state_across_all_masks"] is True
+              assert c["no_autonomous_alternative_population_forecast"] is True
+              assert c["prospective_confirmatory_histories_used"] is False
+              assert len(d["years"])==8
+              for row in d["years"].values():
+                  source=row["source_marginals"]
+                  expected=np.asarray(source["expected_allele_direction"]["mean"])
+                  reconstructed=sum(
+                      (np.asarray(source[k]["mean"]) for k in
+                       ("self_seed_contribution","outcross_father_contribution",
+                        "outcross_mother_contribution")),np.zeros(3))
+                  assert np.allclose(expected,reconstructed,atol=1e-12,rtol=0)
+                  for mask in range(1,8):
+                      vals=row["factorial_contrasts_on_identical_parent_state"][str(mask)]
+                      assert vals["self_contribution_zero_exactly"] is True
+                      delta=np.asarray(vals["counterfactual_minus_source_expected_allele_direction"]["mean"])
+                      f=np.asarray(vals["outcross_father_marginal_contribution"]["mean"])
+                      m=np.asarray(vals["outcross_mother_marginal_contribution"]["mean"])
+                      assert np.allclose(delta,f+m,atol=1e-12,rtol=0)
+              print("Original three-locus maternal+paternal+self allele-direction identities PASS",budget)
+          PY
+      - name: Archive exact sex-specific reproduction direction old-history JSON
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: model3-k32-parental-marginals
+          path: parent-marginals-budget*.json
+          if-no-files-found: warn
+          retention-days: 90
