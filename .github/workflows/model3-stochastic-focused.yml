@@ -47,6 +47,8 @@ jobs:
         run: python -m scripts.audit_model3_stochastic_scaling_limit --out finite-k-limit-screen.json
       - name: Audit initial shared visitor environment without invented near-far contrast
         run: python -m scripts.audit_model3_stochastic_scaling_limit --out finite-k-initial.json --snapshot-index 0 --near-only
+      - name: Verify exact visitor-free counterexample to universal fast-time drift
+        run: python -m scripts.audit_model3_stochastic_scaling_limit --out zero-visitor-sde-counterexample.json --zero-visitors-counterexample
       - name: Archive engineering moment receipt
         uses: actions/upload-artifact@v4
         with:
@@ -59,4 +61,5 @@ jobs:
             measure-budget3.json
             finite-k-limit-screen.json
             finite-k-initial.json
+            zero-visitor-sde-counterexample.json
           retention-days: 90
