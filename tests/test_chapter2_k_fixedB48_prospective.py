@@ -95,3 +95,22 @@ def test_production_requires_explicit_permission_and_dry_run_is_nobiology(monkey
     monkeypatch.setattr("sys.argv",["runner","--shard-index","0"])
     with pytest.raises(PermissionError):
         f.main()
+
+
+def test_pure_full_grid_readout_handles_exactly_two_arms_without_outcome_generation():
+    """Synthetic 114688 binary cells; never samples prospective biology."""
+    from scripts.chapter2_k_fixedB48_full_readout import summarize
+    d=prospective_biological_design()
+    blank=np.zeros(EXPECTED_SHAPE,dtype=np.uint8)
+    res=summarize(blank,d)
+    assert set(res["by_arm_sensitivity"])=={"K8_B48","K48_B48"}
+    assert res["contrasts"]["primary_K_at_fixed_B48"]["mean"]==0
+    assert res["primary_verdict"]=="practically_equivalent_within_0p005"
+    assert res["n_future_cells"]==114688
+
+    # Synthetic constructed true two-arm responsiveness, purely an algebra test.
+    sample=blank.copy()
+    sample[:,:,:,0,:,:,:,0,0]=1
+    positive=summarize(sample,d)
+    assert positive["primary_verdict"]=="supported_controlled_demographic_K_moderation_at_fixed_B48"
+    assert positive["contrasts"]["primary_K_at_fixed_B48"]["mean"]==1
