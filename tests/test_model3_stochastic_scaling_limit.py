@@ -69,6 +69,15 @@ def test_scaling_audit_preserves_independent_finite_K_verdict_by_environment():
         sizes=(8,32,128),
     )
     assert len(data["rows"])==12
+    assert data["visitor_snapshot_index"]==400
+    assert data["visitor_assembly_is_fixed_not_outcome_selected"] is True
+    for setting in ("prior_selfing","assurance_cost"):
+        near=next(x for x in data["rows"]
+                  if x["setting"]==setting and x["environment"]=="near")
+        far=next(x for x in data["rows"]
+                 if x["setting"]==setting and x["environment"]=="far")
+        assert near["visitor_community_sha256"]!=far["visitor_community_sha256"]
+        assert near["visitor_snapshot_index"]==far["visitor_snapshot_index"]==400
     assert set(data["groups"])=={
         "prior_selfing_near","prior_selfing_far",
         "assurance_cost_near","assurance_cost_far"
