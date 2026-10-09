@@ -230,9 +230,15 @@ def run_factorial(*,budget=8.,draws=512,seed=420261017):
             np.testing.assert_allclose(
                 sum(expansions[m][:,k] for m in range(1,8)),
                 net,atol=1e-12,rtol=0)
+            single_total=sum(expansions[m][:,k] for m in (1,2,4))
+            interaction_total=sum(expansions[m][:,k] for m in (3,5,6,7))
+            np.testing.assert_allclose(single_total+interaction_total,
+                                       net,atol=1e-12,rtol=0)
             metric_results[name]={
                 "each_arm":vals,
                 "factorial_components":main_and_interaction,
+                "sum_of_three_single_factor_effects":_statistics(single_total),
+                "aggregate_pairwise_and_three_way_interaction":_statistics(interaction_total),
                 "all_three_minus_original":_statistics(net),
                 "max_additivity_identity_error":float(np.max(np.abs(
                     sum(expansions[m][:,k] for m in range(1,8))-net))),
