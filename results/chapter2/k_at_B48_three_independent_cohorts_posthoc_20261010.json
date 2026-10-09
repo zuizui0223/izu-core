@@ -1,0 +1,106 @@
+{
+  "status": "READ_ONLY_POST_OUTCOME_DIRECTIONAL_CONCORDANCE_NOT_NEW_CONFIRMATION",
+  "distinct_new_history_cohorts": 3,
+  "model_family_count": 1,
+  "n_history_clusters_per_cohort": 64,
+  "n_future_cells_by_cohort": [
+    229376,
+    114688,
+    229376
+  ],
+  "same_sign_positive": true,
+  "unweighted_descriptive_mean_not_pooled_estimate": 0.009918661687273206,
+  "descriptive_effect_min": 0.007745713876893593,
+  "descriptive_effect_max": 0.013430012166239045,
+  "descriptive_effect_range": 0.005684298289345452,
+  "rows": [
+    {
+      "cohort": "independent_KxB_four_arm",
+      "history_range": [
+        40110901,
+        40110964
+      ],
+      "n_independent_histories": 64,
+      "n_t400_sources": 2048,
+      "n_future_cells": 229376,
+      "whole_cohort_summary": "results/chapter2/kb_independent_full_readout_20261009.json",
+      "source_raw_json_sha256": "74df9619590023ee7416035ea31068b541e08dd731b603e879a27c26ccd35ed9",
+      "evidence_rank": "post_outcome_secondary_descriptive",
+      "original_primary": {
+        "key": "primary_B_at_K8",
+        "decision": "inconclusive"
+      },
+      "same_estimand": "tau(K8,B48)-tau(K48,B48); baseline vs full-period 50%-viable-selfed-seed gate",
+      "effect_mean": 0.013430012166239045,
+      "bootstrap95": [
+        0.007513631050961346,
+        0.019361980338317365
+      ],
+      "signed_histories": {
+        "positive": 47,
+        "negative": 17
+      }
+    },
+    {
+      "cohort": "independent_fixedB48_K_primary",
+      "history_range": [
+        41110901,
+        41110964
+      ],
+      "n_independent_histories": 64,
+      "n_t400_sources": 2048,
+      "n_future_cells": 114688,
+      "whole_cohort_summary": "results/chapter2/k_fixedB48_independent_primary_20261009.json",
+      "source_raw_json_sha256": "a6f3aad995b561ef4613301857a4e92e24d2d2138d2c66d59a7a28e1bd902023",
+      "evidence_rank": "preregistered_primary_supported",
+      "original_primary": {
+        "key": "primary_K_at_fixed_B48",
+        "decision": "supported_controlled_demographic_K_moderation_at_fixed_B48"
+      },
+      "same_estimand": "tau(K8,B48)-tau(K48,B48); baseline vs full-period 50%-viable-selfed-seed gate",
+      "effect_mean": 0.007745713876893593,
+      "bootstrap95": [
+        0.002497158065469939,
+        0.013015478808429596
+      ],
+      "signed_histories": {
+        "positive": 43,
+        "negative": 21
+      }
+    },
+    {
+      "cohort": "independent_timed_four_gate",
+      "history_range": [
+        42110901,
+        42110964
+      ],
+      "n_independent_histories": 64,
+      "n_t400_sources": 2048,
+      "n_future_cells": 229376,
+      "whole_cohort_summary": "results/chapter2/timed_self_viability_independent_readout_20261009.json",
+      "source_raw_json_sha256": "42d90c17cef4be1643b987428d3a6367ba09dee6594055ae2d2b693ccb190a01",
+      "evidence_rank": "post_outcome_secondary_descriptive",
+      "original_primary": {
+        "key": "primary_late_minus_early_K_moderation",
+        "decision": "inconclusive"
+      },
+      "same_estimand": "tau(K8,B48)-tau(K48,B48); baseline vs full-period 50%-viable-selfed-seed gate",
+      "effect_mean": 0.008580259018686977,
+      "bootstrap95": [
+        0.003619657391178028,
+        0.013398803229640722
+      ],
+      "signed_histories": {
+        "positive": 44,
+        "negative": 20
+      }
+    }
+  ],
+  "interpretation": [
+    "Three separate new visitor-history cohorts have directionally concordant K-at-fixed-B48 model-conditional contrasts.",
+    "Only the middle cohort preregistered this exact contrast as its confirmatory primary; the first and last comparisons are secondary/descriptive.",
+    "No pooled inferential confidence interval, P-value, formal equivalence, prospective meta-analysis or validation across model families is claimed.",
+    "The separate timing experiment's preregistered early-versus-late interaction remains inconclusive.",
+    "Transient A-first/I-first expression schedules do not identify natural genetic mutation order or Izu field extinction."
+  ]
+}
