@@ -1,0 +1,3275 @@
+{
+  "status": "POST_OUTCOME_DESCRIPTIVE_CHANNEL_DECOMPOSITION_NOT_CAUSAL_MEDIATION",
+  "source_run": 37862121201,
+  "source_commit_sha": "868164c24b6a6f17e7530941600fcb50e7281342",
+  "n_independent_visitor_histories": 64,
+  "source_groups_verified": 2048,
+  "future_branches_verified": 57344,
+  "bootstrap_unit": "visitor_history",
+  "bootstrap_draws": 9999,
+  "bootstrap_seed": 2026100918,
+  "integrated_budgets": [
+    0.5,
+    1,
+    2,
+    3,
+    4,
+    5,
+    8
+  ],
+  "metrics": {
+    "unbottlenecked_capacity48": {
+      "occupied": {
+        "near": {
+          "mean": 0.013117673787860065,
+          "bootstrap95": [
+            0.006378835067634664,
+            0.019983546567681157
+          ],
+          "n_positive_histories": 45,
+          "n_negative_histories": 19,
+          "n_zero_histories": 0
+        },
+        "far": {
+          "mean": 0.005357200562952561,
+          "bootstrap95": [
+            0.002317021839942343,
+            0.008537094819631908
+          ],
+          "n_positive_histories": 36,
+          "n_negative_histories": 12,
+          "n_zero_histories": 16
+        },
+        "common_mean": {
+          "mean": 0.009237437175406312,
+          "bootstrap95": [
+            0.005417356718083648,
+            0.013210510174545163
+          ],
+          "n_positive_histories": 47,
+          "n_negative_histories": 16,
+          "n_zero_histories": 1
+        },
+        "far_minus_near": {
+          "mean": -0.0077604732249075044,
+          "bootstrap95": [
+            -0.01502083909095207,
+            -0.0007518298770245996
+          ],
+          "n_positive_histories": 21,
+          "n_negative_histories": 41,
+          "n_zero_histories": 2
+        },
+        "by_setting": {
+          "delayed_control": {
+            "near": {
+              "mean": 0.011114083773379808,
+              "bootstrap95": [
+                -0.002739997729661535,
+                0.024681101221160486
+              ],
+              "n_positive_histories": 31,
+              "n_negative_histories": 23,
+              "n_zero_histories": 10
+            },
+            "far": {
+              "mean": 0.009517506394692222,
+              "bootstrap95": [
+                0.0010420318288319255,
+                0.018510018894660703
+              ],
+              "n_positive_histories": 19,
+              "n_negative_histories": 9,
+              "n_zero_histories": 36
+            }
+          },
+          "prior_selfing": {
+            "near": {
+              "mean": 0.014677194184108185,
+              "bootstrap95": [
+                0.005242658981526467,
+                0.0237523204517454
+              ],
+              "n_positive_histories": 26,
+              "n_negative_histories": 8,
+              "n_zero_histories": 30
+            },
+            "far": {
+              "mean": 0.004191876221055252,
+              "bootstrap95": [
+                -0.001381872557889496,
+                0.009931567384221008
+              ],
+              "n_positive_histories": 8,
+              "n_negative_histories": 4,
+              "n_zero_histories": 52
+            }
+          },
+          "pollen_discount": {
+            "near": {
+              "mean": 0.01637344964716112,
+              "bootstrap95": [
+                0.0038055716280112092,
+                0.029274988639891187
+              ],
+              "n_positive_histories": 25,
+              "n_negative_histories": 14,
+              "n_zero_histories": 25
+            },
+            "far": {
+              "mean": 0.002810003663165756,
+              "bootstrap95": [
+                -0.0019572735596055236,
+                0.007858758547386765
+              ],
+              "n_positive_histories": 7,
+              "n_negative_histories": 4,
+              "n_zero_histories": 53
+            }
+          },
+          "assurance_cost": {
+            "near": {
+              "mean": 0.010305967546791141,
+              "bootstrap95": [
+                -0.0027261521510387873,
+                0.023184379176895337
+              ],
+              "n_positive_histories": 32,
+              "n_negative_histories": 23,
+              "n_zero_histories": 9
+            },
+            "far": {
+              "mean": 0.00490941597289701,
+              "bootstrap95": [
+                -0.001233432036947067,
+                0.011129783103426355
+              ],
+              "n_positive_histories": 21,
+              "n_negative_histories": 14,
+              "n_zero_histories": 29
+            }
+          }
+        },
+        "budget_effects": {
+          "0.5": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "1": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "2": {
+            "near": 0.005859375,
+            "far": 0.0068359375
+          },
+          "3": {
+            "near": 0.0634765625,
+            "far": 0.0205078125
+          },
+          "4": {
+            "near": 0.0224609375,
+            "far": 0.015625
+          },
+          "5": {
+            "near": 0.015625,
+            "far": 0.0
+          },
+          "8": {
+            "near": 0.0,
+            "far": 0.0
+          }
+        }
+      },
+      "t0_present": {
+        "near": {
+          "mean": 0.0,
+          "bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "n_positive_histories": 0,
+          "n_negative_histories": 0,
+          "n_zero_histories": 64
+        },
+        "far": {
+          "mean": 0.0,
+          "bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "n_positive_histories": 0,
+          "n_negative_histories": 0,
+          "n_zero_histories": 64
+        },
+        "common_mean": {
+          "mean": 0.0,
+          "bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "n_positive_histories": 0,
+          "n_negative_histories": 0,
+          "n_zero_histories": 64
+        },
+        "far_minus_near": {
+          "mean": 0.0,
+          "bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "n_positive_histories": 0,
+          "n_negative_histories": 0,
+          "n_zero_histories": 64
+        },
+        "by_setting": {
+          "delayed_control": {
+            "near": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            },
+            "far": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            }
+          },
+          "prior_selfing": {
+            "near": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            },
+            "far": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            }
+          },
+          "pollen_discount": {
+            "near": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            },
+            "far": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            }
+          },
+          "assurance_cost": {
+            "near": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            },
+            "far": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            }
+          }
+        },
+        "budget_effects": {
+          "0.5": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "1": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "2": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "3": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "4": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "5": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "8": {
+            "near": 0.0,
+            "far": 0.0
+          }
+        }
+      },
+      "t0_population": {
+        "near": {
+          "mean": 0.0,
+          "bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "n_positive_histories": 0,
+          "n_negative_histories": 0,
+          "n_zero_histories": 64
+        },
+        "far": {
+          "mean": 0.0,
+          "bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "n_positive_histories": 0,
+          "n_negative_histories": 0,
+          "n_zero_histories": 64
+        },
+        "common_mean": {
+          "mean": 0.0,
+          "bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "n_positive_histories": 0,
+          "n_negative_histories": 0,
+          "n_zero_histories": 64
+        },
+        "far_minus_near": {
+          "mean": 0.0,
+          "bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "n_positive_histories": 0,
+          "n_negative_histories": 0,
+          "n_zero_histories": 64
+        },
+        "by_setting": {
+          "delayed_control": {
+            "near": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            },
+            "far": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            }
+          },
+          "prior_selfing": {
+            "near": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            },
+            "far": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            }
+          },
+          "pollen_discount": {
+            "near": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            },
+            "far": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            }
+          },
+          "assurance_cost": {
+            "near": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            },
+            "far": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            }
+          }
+        },
+        "budget_effects": {
+          "0.5": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "1": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "2": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "3": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "4": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "5": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "8": {
+            "near": 0.0,
+            "far": 0.0
+          }
+        }
+      },
+      "cumulative_selfed_recruits": {
+        "near": {
+          "mean": 82.950534227707,
+          "bootstrap95": [
+            58.492373354123146,
+            108.1937631362418
+          ],
+          "n_positive_histories": 50,
+          "n_negative_histories": 14,
+          "n_zero_histories": 0
+        },
+        "far": {
+          "mean": 46.153481923529235,
+          "bootstrap95": [
+            30.96915298149081,
+            61.25629191914807
+          ],
+          "n_positive_histories": 52,
+          "n_negative_histories": 12,
+          "n_zero_histories": 0
+        },
+        "common_mean": {
+          "mean": 64.55200807561812,
+          "bootstrap95": [
+            49.253135927312854,
+            79.9401349005
+          ],
+          "n_positive_histories": 55,
+          "n_negative_histories": 9,
+          "n_zero_histories": 0
+        },
+        "far_minus_near": {
+          "mean": -36.797052304177754,
+          "bootstrap95": [
+            -64.57423733062936,
+            -10.490806501485919
+          ],
+          "n_positive_histories": 28,
+          "n_negative_histories": 36,
+          "n_zero_histories": 0
+        },
+        "by_setting": {
+          "delayed_control": {
+            "near": {
+              "mean": 72.64563109781174,
+              "bootstrap95": [
+                17.883149176139057,
+                128.7649030539728
+              ],
+              "n_positive_histories": 42,
+              "n_negative_histories": 22,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 66.5332461976557,
+              "bootstrap95": [
+                25.571177590067656,
+                107.50668510426749
+              ],
+              "n_positive_histories": 43,
+              "n_negative_histories": 21,
+              "n_zero_histories": 0
+            }
+          },
+          "prior_selfing": {
+            "near": {
+              "mean": 88.53271344010003,
+              "bootstrap95": [
+                50.73491766481899,
+                125.82446524862031
+              ],
+              "n_positive_histories": 47,
+              "n_negative_histories": 17,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 35.76040490917633,
+              "bootstrap95": [
+                12.254774294145317,
+                60.35813276562629
+              ],
+              "n_positive_histories": 42,
+              "n_negative_histories": 22,
+              "n_zero_histories": 0
+            }
+          },
+          "pollen_discount": {
+            "near": {
+              "mean": 110.89024796290767,
+              "bootstrap95": [
+                52.579603214966816,
+                167.37060883494163
+              ],
+              "n_positive_histories": 43,
+              "n_negative_histories": 21,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 23.468478445853957,
+              "bootstrap95": [
+                -2.311316704991306,
+                49.508761399465754
+              ],
+              "n_positive_histories": 40,
+              "n_negative_histories": 24,
+              "n_zero_histories": 0
+            }
+          },
+          "assurance_cost": {
+            "near": {
+              "mean": 59.733544410008534,
+              "bootstrap95": [
+                20.153081322033763,
+                97.87679975169385
+              ],
+              "n_positive_histories": 49,
+              "n_negative_histories": 15,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 58.85179814143095,
+              "bootstrap95": [
+                27.461059275119325,
+                90.17946679420879
+              ],
+              "n_positive_histories": 43,
+              "n_negative_histories": 21,
+              "n_zero_histories": 0
+            }
+          }
+        },
+        "budget_effects": {
+          "0.5": {
+            "near": 0.8095703125,
+            "far": 0.2734375
+          },
+          "1": {
+            "near": 2.458984375,
+            "far": 1.1298828125
+          },
+          "2": {
+            "near": 57.4091796875,
+            "far": 33.34375
+          },
+          "3": {
+            "near": 258.4658203125,
+            "far": 105.60546875
+          },
+          "4": {
+            "near": 155.373046875,
+            "far": 111.1865234375
+          },
+          "5": {
+            "near": 130.1337890625,
+            "far": 74.8896484375
+          },
+          "8": {
+            "near": 94.0625,
+            "far": 75.818359375
+          }
+        }
+      },
+      "cumulative_outcross_recruits": {
+        "near": {
+          "mean": -31.11061520820979,
+          "bootstrap95": [
+            -45.95217461421828,
+            -17.35457090776161
+          ],
+          "n_positive_histories": 18,
+          "n_negative_histories": 46,
+          "n_zero_histories": 0
+        },
+        "far": {
+          "mean": -29.173960018550712,
+          "bootstrap95": [
+            -41.41199063960808,
+            -17.570072726621987
+          ],
+          "n_positive_histories": 18,
+          "n_negative_histories": 46,
+          "n_zero_histories": 0
+        },
+        "common_mean": {
+          "mean": -30.142287613380248,
+          "bootstrap95": [
+            -40.157365054000806,
+            -20.863905189419526
+          ],
+          "n_positive_histories": 16,
+          "n_negative_histories": 48,
+          "n_zero_histories": 0
+        },
+        "far_minus_near": {
+          "mean": 1.9366551896590778,
+          "bootstrap95": [
+            -15.62591178748483,
+            19.889682756183163
+          ],
+          "n_positive_histories": 32,
+          "n_negative_histories": 32,
+          "n_zero_histories": 0
+        },
+        "by_setting": {
+          "delayed_control": {
+            "near": {
+              "mean": -34.309446456096744,
+              "bootstrap95": [
+                -69.77274264367477,
+                -0.7625878463486172
+              ],
+              "n_positive_histories": 26,
+              "n_negative_histories": 38,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": -39.60113380625075,
+              "bootstrap95": [
+                -74.40612495354095,
+                -6.83011887895958
+              ],
+              "n_positive_histories": 26,
+              "n_negative_histories": 38,
+              "n_zero_histories": 0
+            }
+          },
+          "prior_selfing": {
+            "near": {
+              "mean": -21.266430027900057,
+              "bootstrap95": [
+                -32.643576567668646,
+                -10.105934909991793
+              ],
+              "n_positive_histories": 16,
+              "n_negative_histories": 48,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": -8.840657996434118,
+              "bootstrap95": [
+                -15.477261603688241,
+                -2.7679756763905097
+              ],
+              "n_positive_histories": 20,
+              "n_negative_histories": 44,
+              "n_zero_histories": 0
+            }
+          },
+          "pollen_discount": {
+            "near": {
+              "mean": -34.618945901665796,
+              "bootstrap95": [
+                -58.33928869951047,
+                -11.783166645193717
+              ],
+              "n_positive_histories": 24,
+              "n_negative_histories": 40,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": -20.08226874132546,
+              "bootstrap95": [
+                -36.491343980779604,
+                -3.5035830745338963
+              ],
+              "n_positive_histories": 26,
+              "n_negative_histories": 38,
+              "n_zero_histories": 0
+            }
+          },
+          "assurance_cost": {
+            "near": {
+              "mean": -34.247638447176556,
+              "bootstrap95": [
+                -64.48402873055463,
+                -4.867628062465783
+              ],
+              "n_positive_histories": 25,
+              "n_negative_histories": 39,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": -48.1717795301925,
+              "bootstrap95": [
+                -74.10292524893909,
+                -23.38769654119222
+              ],
+              "n_positive_histories": 21,
+              "n_negative_histories": 43,
+              "n_zero_histories": 0
+            }
+          }
+        },
+        "budget_effects": {
+          "0.5": {
+            "near": -0.2431640625,
+            "far": -0.240234375
+          },
+          "1": {
+            "near": -0.818359375,
+            "far": -0.7041015625
+          },
+          "2": {
+            "near": -2.177734375,
+            "far": -8.828125
+          },
+          "3": {
+            "near": -39.9990234375,
+            "far": -39.7578125
+          },
+          "4": {
+            "near": -73.8271484375,
+            "far": -72.6650390625
+          },
+          "5": {
+            "near": -85.3876953125,
+            "far": -73.03125
+          },
+          "8": {
+            "near": -94.029296875,
+            "far": -75.818359375
+          }
+        }
+      },
+      "cumulative_total_recruits": {
+        "near": {
+          "mean": 51.83991901949719,
+          "bootstrap95": [
+            30.357310577784155,
+            73.65919947915893
+          ],
+          "n_positive_histories": 45,
+          "n_negative_histories": 19,
+          "n_zero_histories": 0
+        },
+        "far": {
+          "mean": 16.97952190497851,
+          "bootstrap95": [
+            7.030358382779135,
+            27.41400417308589
+          ],
+          "n_positive_histories": 42,
+          "n_negative_histories": 22,
+          "n_zero_histories": 0
+        },
+        "common_mean": {
+          "mean": 34.40972046223784,
+          "bootstrap95": [
+            21.33714191294564,
+            47.77076664143071
+          ],
+          "n_positive_histories": 47,
+          "n_negative_histories": 17,
+          "n_zero_histories": 0
+        },
+        "far_minus_near": {
+          "mean": -34.86039711451867,
+          "bootstrap95": [
+            -56.24904082953248,
+            -13.741758088830904
+          ],
+          "n_positive_histories": 23,
+          "n_negative_histories": 41,
+          "n_zero_histories": 0
+        },
+        "by_setting": {
+          "delayed_control": {
+            "near": {
+              "mean": 38.33618464171499,
+              "bootstrap95": [
+                -7.722819723975249,
+                83.49757071819516
+              ],
+              "n_positive_histories": 36,
+              "n_negative_histories": 28,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 26.93211239140493,
+              "bootstrap95": [
+                -1.877459172996124,
+                57.04145487635854
+              ],
+              "n_positive_histories": 35,
+              "n_negative_histories": 29,
+              "n_zero_histories": 0
+            }
+          },
+          "prior_selfing": {
+            "near": {
+              "mean": 67.26628341219995,
+              "bootstrap95": [
+                36.91750364726492,
+                97.00161778699399
+              ],
+              "n_positive_histories": 48,
+              "n_negative_histories": 16,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 26.919746912742255,
+              "bootstrap95": [
+                6.613451626847879,
+                48.30636797133752
+              ],
+              "n_positive_histories": 42,
+              "n_negative_histories": 22,
+              "n_zero_histories": 0
+            }
+          },
+          "pollen_discount": {
+            "near": {
+              "mean": 76.27130206124181,
+              "bootstrap95": [
+                32.484199800732554,
+                120.79064346208173
+              ],
+              "n_positive_histories": 40,
+              "n_negative_histories": 24,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 3.3862097045284507,
+              "bootstrap95": [
+                -11.523835330183898,
+                19.088505131593216
+              ],
+              "n_positive_histories": 34,
+              "n_negative_histories": 30,
+              "n_zero_histories": 0
+            }
+          },
+          "assurance_cost": {
+            "near": {
+              "mean": 25.48590596283197,
+              "bootstrap95": [
+                -14.892656089359583,
+                65.19773119609518
+              ],
+              "n_positive_histories": 32,
+              "n_negative_histories": 32,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 10.680018611238422,
+              "bootstrap95": [
+                -8.539236886885329,
+                29.989994231833727
+              ],
+              "n_positive_histories": 35,
+              "n_negative_histories": 29,
+              "n_zero_histories": 0
+            }
+          }
+        },
+        "budget_effects": {
+          "0.5": {
+            "near": 0.56640625,
+            "far": 0.033203125
+          },
+          "1": {
+            "near": 1.640625,
+            "far": 0.42578125
+          },
+          "2": {
+            "near": 55.2314453125,
+            "far": 24.515625
+          },
+          "3": {
+            "near": 218.466796875,
+            "far": 65.84765625
+          },
+          "4": {
+            "near": 81.5458984375,
+            "far": 38.521484375
+          },
+          "5": {
+            "near": 44.74609375,
+            "far": 1.8583984375
+          },
+          "8": {
+            "near": 0.033203125,
+            "far": 0.0
+          }
+        }
+      },
+      "t0_maternal_viable_population": {
+        "near": {
+          "mean": 1.3908436794144552,
+          "bootstrap95": [
+            0.6596185154381996,
+            2.1202287404940874
+          ],
+          "n_positive_histories": 42,
+          "n_negative_histories": 22,
+          "n_zero_histories": 0
+        },
+        "far": {
+          "mean": 0.30445212884520134,
+          "bootstrap95": [
+            -0.2226111641393658,
+            0.8109874516276636
+          ],
+          "n_positive_histories": 37,
+          "n_negative_histories": 27,
+          "n_zero_histories": 0
+        },
+        "common_mean": {
+          "mean": 0.8476479041298282,
+          "bootstrap95": [
+            0.3730086712326571,
+            1.3092884032761423
+          ],
+          "n_positive_histories": 43,
+          "n_negative_histories": 21,
+          "n_zero_histories": 0
+        },
+        "far_minus_near": {
+          "mean": -1.0863915505692538,
+          "bootstrap95": [
+            -1.942673528025783,
+            -0.23411908880228055
+          ],
+          "n_positive_histories": 27,
+          "n_negative_histories": 37,
+          "n_zero_histories": 0
+        },
+        "by_setting": {
+          "delayed_control": {
+            "near": {
+              "mean": 1.4741502563346578,
+              "bootstrap95": [
+                -0.47345191537932574,
+                3.435727538656858
+              ],
+              "n_positive_histories": 39,
+              "n_negative_histories": 25,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 0.39957940607440934,
+              "bootstrap95": [
+                -0.997914191902794,
+                1.7765996561480397
+              ],
+              "n_positive_histories": 31,
+              "n_negative_histories": 33,
+              "n_zero_histories": 0
+            }
+          },
+          "prior_selfing": {
+            "near": {
+              "mean": 2.48456270799787,
+              "bootstrap95": [
+                1.28712645740273,
+                3.7276123968094805
+              ],
+              "n_positive_histories": 43,
+              "n_negative_histories": 21,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 1.584426494053241,
+              "bootstrap95": [
+                0.7803806438862773,
+                2.418015531558762
+              ],
+              "n_positive_histories": 42,
+              "n_negative_histories": 22,
+              "n_zero_histories": 0
+            }
+          },
+          "pollen_discount": {
+            "near": {
+              "mean": 1.9731123561479238,
+              "bootstrap95": [
+                0.3549603393720136,
+                3.55358905210888
+              ],
+              "n_positive_histories": 42,
+              "n_negative_histories": 22,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": -0.15615186726085584,
+              "bootstrap95": [
+                -1.089963175817883,
+                0.7646850641909696
+              ],
+              "n_positive_histories": 36,
+              "n_negative_histories": 28,
+              "n_zero_histories": 0
+            }
+          },
+          "assurance_cost": {
+            "near": {
+              "mean": -0.3684506028226312,
+              "bootstrap95": [
+                -1.5768908666856172,
+                0.8454626246032316
+              ],
+              "n_positive_histories": 32,
+              "n_negative_histories": 32,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": -0.6100455174859891,
+              "bootstrap95": [
+                -1.5245639682499867,
+                0.25638675935552707
+              ],
+              "n_positive_histories": 31,
+              "n_negative_histories": 33,
+              "n_zero_histories": 0
+            }
+          }
+        },
+        "budget_effects": {
+          "0.5": {
+            "near": 0.2523946644839352,
+            "far": 0.05524854737353009
+          },
+          "1": {
+            "near": 0.5047893289678704,
+            "far": 0.11049709474706018
+          },
+          "2": {
+            "near": 1.0095786579357409,
+            "far": 0.22099418949412036
+          },
+          "3": {
+            "near": 1.5143679869036115,
+            "far": 0.33149128424118113
+          },
+          "4": {
+            "near": 2.0191573158714817,
+            "far": 0.4419883789882407
+          },
+          "5": {
+            "near": 2.523946644839353,
+            "far": 0.552485473735302
+          },
+          "8": {
+            "near": 4.0383146317429635,
+            "far": 0.8839767579764815
+          }
+        }
+      },
+      "t0_female_outcross_population": {
+        "near": {
+          "mean": -1.5878283620562288,
+          "bootstrap95": [
+            -2.4826678014915577,
+            -0.7196346361978531
+          ],
+          "n_positive_histories": 21,
+          "n_negative_histories": 43,
+          "n_zero_histories": 0
+        },
+        "far": {
+          "mean": -1.51697105640537,
+          "bootstrap95": [
+            -2.2696953448849424,
+            -0.7940102813608717
+          ],
+          "n_positive_histories": 21,
+          "n_negative_histories": 43,
+          "n_zero_histories": 0
+        },
+        "common_mean": {
+          "mean": -1.5523997092307993,
+          "bootstrap95": [
+            -2.1522603976609487,
+            -0.9656514632649968
+          ],
+          "n_positive_histories": 20,
+          "n_negative_histories": 44,
+          "n_zero_histories": 0
+        },
+        "far_minus_near": {
+          "mean": 0.07085730565085901,
+          "bootstrap95": [
+            -1.024389627842161,
+            1.2021920158871322
+          ],
+          "n_positive_histories": 33,
+          "n_negative_histories": 31,
+          "n_zero_histories": 0
+        },
+        "by_setting": {
+          "delayed_control": {
+            "near": {
+              "mean": -1.17547304400412,
+              "bootstrap95": [
+                -3.7075822267699134,
+                1.3555212603716624
+              ],
+              "n_positive_histories": 29,
+              "n_negative_histories": 35,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": -1.7640246727768694,
+              "bootstrap95": [
+                -3.7672367634338517,
+                0.19754277793580302
+              ],
+              "n_positive_histories": 27,
+              "n_negative_histories": 37,
+              "n_zero_histories": 0
+            }
+          },
+          "prior_selfing": {
+            "near": {
+              "mean": -1.0049331224701228,
+              "bootstrap95": [
+                -1.5886422846061827,
+                -0.42303435790956667
+              ],
+              "n_positive_histories": 17,
+              "n_negative_histories": 47,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": -0.31377783202403264,
+              "bootstrap95": [
+                -0.7223085131422827,
+                0.07723371044698983
+              ],
+              "n_positive_histories": 26,
+              "n_negative_histories": 38,
+              "n_zero_histories": 0
+            }
+          },
+          "pollen_discount": {
+            "near": {
+              "mean": -1.8595858693632665,
+              "bootstrap95": [
+                -3.4418421844734985,
+                -0.309169431306503
+              ],
+              "n_positive_histories": 22,
+              "n_negative_histories": 42,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": -1.8466043724851389,
+              "bootstrap95": [
+                -2.9712455692449833,
+                -0.7871575330627543
+              ],
+              "n_positive_histories": 24,
+              "n_negative_histories": 40,
+              "n_zero_histories": 0
+            }
+          },
+          "assurance_cost": {
+            "near": {
+              "mean": -2.3113214123874064,
+              "bootstrap95": [
+                -4.069917658857441,
+                -0.5548644234560911
+              ],
+              "n_positive_histories": 27,
+              "n_negative_histories": 37,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": -2.1434773483354395,
+              "bootstrap95": [
+                -3.8180422607203948,
+                -0.5618615534061518
+              ],
+              "n_positive_histories": 23,
+              "n_negative_histories": 41,
+              "n_zero_histories": 0
+            }
+          }
+        },
+        "budget_effects": {
+          "0.5": {
+            "near": -0.28814122868788394,
+            "far": -0.2752828419757889
+          },
+          "1": {
+            "near": -0.5762824573757679,
+            "far": -0.5505656839515778
+          },
+          "2": {
+            "near": -1.1525649147515358,
+            "far": -1.1011313679031556
+          },
+          "3": {
+            "near": -1.7288473721273037,
+            "far": -1.6516970518547331
+          },
+          "4": {
+            "near": -2.3051298295030715,
+            "far": -2.202262735806311
+          },
+          "5": {
+            "near": -2.8814122868788394,
+            "far": -2.752828419757888
+          },
+          "8": {
+            "near": -4.610259659006143,
+            "far": -4.404525471612622
+          }
+        }
+      },
+      "t0_viable_selfed_population": {
+        "near": {
+          "mean": 2.9786720414706847,
+          "bootstrap95": [
+            2.0857827877685686,
+            3.8739457230687413
+          ],
+          "n_positive_histories": 53,
+          "n_negative_histories": 11,
+          "n_zero_histories": 0
+        },
+        "far": {
+          "mean": 1.821423185250572,
+          "bootstrap95": [
+            1.224196593213789,
+            2.4211113031256613
+          ],
+          "n_positive_histories": 52,
+          "n_negative_histories": 12,
+          "n_zero_histories": 0
+        },
+        "common_mean": {
+          "mean": 2.4000476133606283,
+          "bootstrap95": [
+            1.8321760800031714,
+            2.957925083842731
+          ],
+          "n_positive_histories": 56,
+          "n_negative_histories": 8,
+          "n_zero_histories": 0
+        },
+        "far_minus_near": {
+          "mean": -1.1572488562201122,
+          "bootstrap95": [
+            -2.2061909825906274,
+            -0.17018155452394987
+          ],
+          "n_positive_histories": 27,
+          "n_negative_histories": 37,
+          "n_zero_histories": 0
+        },
+        "by_setting": {
+          "delayed_control": {
+            "near": {
+              "mean": 2.649623300338777,
+              "bootstrap95": [
+                0.5573737951633478,
+                4.724780186371511
+              ],
+              "n_positive_histories": 41,
+              "n_negative_histories": 23,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 2.163604078851278,
+              "bootstrap95": [
+                0.5170855746110672,
+                3.794433608676599
+              ],
+              "n_positive_histories": 40,
+              "n_negative_histories": 24,
+              "n_zero_histories": 0
+            }
+          },
+          "prior_selfing": {
+            "near": {
+              "mean": 3.489495830467993,
+              "bootstrap95": [
+                2.0589990260551634,
+                4.947658698451138
+              ],
+              "n_positive_histories": 47,
+              "n_negative_histories": 17,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 1.898204326077275,
+              "bootstrap95": [
+                0.8807496195033387,
+                2.970916939819648
+              ],
+              "n_positive_histories": 41,
+              "n_negative_histories": 23,
+              "n_zero_histories": 0
+            }
+          },
+          "pollen_discount": {
+            "near": {
+              "mean": 3.8326982255111917,
+              "bootstrap95": [
+                1.6847119205532881,
+                5.931407356967646
+              ],
+              "n_positive_histories": 41,
+              "n_negative_histories": 23,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 1.690452505224284,
+              "bootstrap95": [
+                0.4301364814237289,
+                2.968558733958852
+              ],
+              "n_positive_histories": 43,
+              "n_negative_histories": 21,
+              "n_zero_histories": 0
+            }
+          },
+          "assurance_cost": {
+            "near": {
+              "mean": 1.9428708095647753,
+              "bootstrap95": [
+                0.8555988574366262,
+                2.990971806387995
+              ],
+              "n_positive_histories": 48,
+              "n_negative_histories": 16,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 1.5334318308494517,
+              "bootstrap95": [
+                0.568144713615548,
+                2.5321346032658703
+              ],
+              "n_positive_histories": 39,
+              "n_negative_histories": 25,
+              "n_zero_histories": 0
+            }
+          }
+        },
+        "budget_effects": {
+          "0.5": {
+            "near": 0.5405358931718192,
+            "far": 0.3305313893493192
+          },
+          "1": {
+            "near": 1.0810717863436383,
+            "far": 0.6610627786986384
+          },
+          "2": {
+            "near": 2.1621435726872766,
+            "far": 1.3221255573972768
+          },
+          "3": {
+            "near": 3.243215359030916,
+            "far": 1.9831883360959146
+          },
+          "4": {
+            "near": 4.324287145374553,
+            "far": 2.6442511147945535
+          },
+          "5": {
+            "near": 5.405358931718192,
+            "far": 3.305313893493191
+          },
+          "8": {
+            "near": 8.648574290749107,
+            "far": 5.288502229589107
+          }
+        }
+      },
+      "t0_paternal_export_population": {
+        "near": {
+          "mean": -5.269890352619447,
+          "bootstrap95": [
+            -8.53276369061234,
+            -2.0931659229796384
+          ],
+          "n_positive_histories": 26,
+          "n_negative_histories": 38,
+          "n_zero_histories": 0
+        },
+        "far": {
+          "mean": -4.299408822211308,
+          "bootstrap95": [
+            -7.082699756866585,
+            -1.5742198575118551
+          ],
+          "n_positive_histories": 23,
+          "n_negative_histories": 41,
+          "n_zero_histories": 0
+        },
+        "common_mean": {
+          "mean": -4.784649587415377,
+          "bootstrap95": [
+            -6.8482841028668044,
+            -2.765130800489641
+          ],
+          "n_positive_histories": 17,
+          "n_negative_histories": 47,
+          "n_zero_histories": 0
+        },
+        "far_minus_near": {
+          "mean": 0.9704815304081399,
+          "bootstrap95": [
+            -3.4033884590476577,
+            5.413743875684743
+          ],
+          "n_positive_histories": 33,
+          "n_negative_histories": 31,
+          "n_zero_histories": 0
+        },
+        "by_setting": {
+          "delayed_control": {
+            "near": {
+              "mean": -3.520355705472804,
+              "bootstrap95": [
+                -10.99598804366157,
+                4.106436098988999
+              ],
+              "n_positive_histories": 26,
+              "n_negative_histories": 38,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": -5.229638542018515,
+              "bootstrap95": [
+                -10.744680825724508,
+                0.10338229604578293
+              ],
+              "n_positive_histories": 27,
+              "n_negative_histories": 37,
+              "n_zero_histories": 0
+            }
+          },
+          "prior_selfing": {
+            "near": {
+              "mean": -5.487234132783384,
+              "bootstrap95": [
+                -12.086281395521622,
+                1.159946279947194
+              ],
+              "n_positive_histories": 24,
+              "n_negative_histories": 40,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 0.3583162125467438,
+              "bootstrap95": [
+                -4.626689712228381,
+                5.384690881547741
+              ],
+              "n_positive_histories": 31,
+              "n_negative_histories": 33,
+              "n_zero_histories": 0
+            }
+          },
+          "pollen_discount": {
+            "near": {
+              "mean": -4.9232101834157564,
+              "bootstrap95": [
+                -9.03401471350986,
+                -0.934253362775795
+              ],
+              "n_positive_histories": 25,
+              "n_negative_histories": 39,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": -4.316307497740404,
+              "bootstrap95": [
+                -7.275007513568533,
+                -1.505692627910485
+              ],
+              "n_positive_histories": 26,
+              "n_negative_histories": 38,
+              "n_zero_histories": 0
+            }
+          },
+          "assurance_cost": {
+            "near": {
+              "mean": -7.148761388805844,
+              "bootstrap95": [
+                -13.758816909964457,
+                -0.47533767782833886
+              ],
+              "n_positive_histories": 25,
+              "n_negative_histories": 39,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": -8.010005461633055,
+              "bootstrap95": [
+                -14.256482137404225,
+                -2.053624342752146
+              ],
+              "n_positive_histories": 22,
+              "n_negative_histories": 42,
+              "n_zero_histories": 0
+            }
+          }
+        },
+        "budget_effects": {
+          "0.5": {
+            "near": -5.269890352619447,
+            "far": -4.2994088222113085
+          },
+          "1": {
+            "near": -5.269890352619447,
+            "far": -4.2994088222113085
+          },
+          "2": {
+            "near": -5.269890352619447,
+            "far": -4.2994088222113085
+          },
+          "3": {
+            "near": -5.269890352619447,
+            "far": -4.2994088222113085
+          },
+          "4": {
+            "near": -5.269890352619447,
+            "far": -4.2994088222113085
+          },
+          "5": {
+            "near": -5.269890352619447,
+            "far": -4.2994088222113085
+          },
+          "8": {
+            "near": -5.269890352619447,
+            "far": -4.2994088222113085
+          }
+        }
+      }
+    },
+    "eight_founders_capacity8": {
+      "occupied": {
+        "near": {
+          "mean": 0.0165595731228406,
+          "bootstrap95": [
+            0.00711473165377137,
+            0.02644786047586239
+          ],
+          "n_positive_histories": 39,
+          "n_negative_histories": 24,
+          "n_zero_histories": 1
+        },
+        "far": {
+          "mean": 0.007619847847289699,
+          "bootstrap95": [
+            0.002505305411438088,
+            0.01276681719805836
+          ],
+          "n_positive_histories": 41,
+          "n_negative_histories": 21,
+          "n_zero_histories": 2
+        },
+        "common_mean": {
+          "mean": 0.012089710485065148,
+          "bootstrap95": [
+            0.006699370808975556,
+            0.017478715925947
+          ],
+          "n_positive_histories": 43,
+          "n_negative_histories": 21,
+          "n_zero_histories": 0
+        },
+        "far_minus_near": {
+          "mean": -0.008939725275550902,
+          "bootstrap95": [
+            -0.02046498042565323,
+            0.0019363291172456133
+          ],
+          "n_positive_histories": 33,
+          "n_negative_histories": 30,
+          "n_zero_histories": 1
+        },
+        "by_setting": {
+          "delayed_control": {
+            "near": {
+              "mean": 0.015523168704423482,
+              "bootstrap95": [
+                -0.003421660181392303,
+                0.034773236992585166
+              ],
+              "n_positive_histories": 37,
+              "n_negative_histories": 23,
+              "n_zero_histories": 4
+            },
+            "far": {
+              "mean": 0.006425175370685271,
+              "bootstrap95": [
+                -0.003931707823894131,
+                0.016859577685949943
+              ],
+              "n_positive_histories": 23,
+              "n_negative_histories": 23,
+              "n_zero_histories": 18
+            }
+          },
+          "prior_selfing": {
+            "near": {
+              "mean": 0.02081788898274109,
+              "bootstrap95": [
+                0.0055526781818174085,
+                0.03580071514037341
+              ],
+              "n_positive_histories": 34,
+              "n_negative_histories": 18,
+              "n_zero_histories": 12
+            },
+            "far": {
+              "mean": 0.0148543913891588,
+              "bootstrap95": [
+                0.004676858610841198,
+                0.0251082976391588
+              ],
+              "n_positive_histories": 32,
+              "n_negative_histories": 15,
+              "n_zero_histories": 17
+            }
+          },
+          "pollen_discount": {
+            "near": {
+              "mean": 0.018270206927947626,
+              "bootstrap95": [
+                0.0010507827604712139,
+                0.03507584270946651
+              ],
+              "n_positive_histories": 36,
+              "n_negative_histories": 22,
+              "n_zero_histories": 6
+            },
+            "far": {
+              "mean": 0.006244679305420596,
+              "bootstrap95": [
+                -0.004037103308671116,
+                0.01644894279882702
+              ],
+              "n_positive_histories": 26,
+              "n_negative_histories": 22,
+              "n_zero_histories": 16
+            }
+          },
+          "assurance_cost": {
+            "near": {
+              "mean": 0.011627027876250206,
+              "bootstrap95": [
+                -0.0013745869988759816,
+                0.024376527345832136
+              ],
+              "n_positive_histories": 30,
+              "n_negative_histories": 16,
+              "n_zero_histories": 18
+            },
+            "far": {
+              "mean": 0.0029551453238941287,
+              "bootstrap95": [
+                -0.006631129259844081,
+                0.0132865706945794
+              ],
+              "n_positive_histories": 20,
+              "n_negative_histories": 24,
+              "n_zero_histories": 20
+            }
+          }
+        },
+        "budget_effects": {
+          "0.5": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "1": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "2": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "3": {
+            "near": 0.0458984375,
+            "far": 0.048828125
+          },
+          "4": {
+            "near": 0.068359375,
+            "far": 0.005859375
+          },
+          "5": {
+            "near": 0.0322265625,
+            "far": 0.0078125
+          },
+          "8": {
+            "near": 0.005859375,
+            "far": 0.0
+          }
+        }
+      },
+      "t0_present": {
+        "near": {
+          "mean": 0.0,
+          "bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "n_positive_histories": 0,
+          "n_negative_histories": 0,
+          "n_zero_histories": 64
+        },
+        "far": {
+          "mean": 0.0,
+          "bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "n_positive_histories": 0,
+          "n_negative_histories": 0,
+          "n_zero_histories": 64
+        },
+        "common_mean": {
+          "mean": 0.0,
+          "bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "n_positive_histories": 0,
+          "n_negative_histories": 0,
+          "n_zero_histories": 64
+        },
+        "far_minus_near": {
+          "mean": 0.0,
+          "bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "n_positive_histories": 0,
+          "n_negative_histories": 0,
+          "n_zero_histories": 64
+        },
+        "by_setting": {
+          "delayed_control": {
+            "near": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            },
+            "far": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            }
+          },
+          "prior_selfing": {
+            "near": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            },
+            "far": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            }
+          },
+          "pollen_discount": {
+            "near": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            },
+            "far": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            }
+          },
+          "assurance_cost": {
+            "near": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            },
+            "far": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            }
+          }
+        },
+        "budget_effects": {
+          "0.5": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "1": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "2": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "3": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "4": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "5": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "8": {
+            "near": 0.0,
+            "far": 0.0
+          }
+        }
+      },
+      "t0_population": {
+        "near": {
+          "mean": 0.0,
+          "bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "n_positive_histories": 0,
+          "n_negative_histories": 0,
+          "n_zero_histories": 64
+        },
+        "far": {
+          "mean": 0.0,
+          "bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "n_positive_histories": 0,
+          "n_negative_histories": 0,
+          "n_zero_histories": 64
+        },
+        "common_mean": {
+          "mean": 0.0,
+          "bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "n_positive_histories": 0,
+          "n_negative_histories": 0,
+          "n_zero_histories": 64
+        },
+        "far_minus_near": {
+          "mean": 0.0,
+          "bootstrap95": [
+            0.0,
+            0.0
+          ],
+          "n_positive_histories": 0,
+          "n_negative_histories": 0,
+          "n_zero_histories": 64
+        },
+        "by_setting": {
+          "delayed_control": {
+            "near": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            },
+            "far": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            }
+          },
+          "prior_selfing": {
+            "near": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            },
+            "far": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            }
+          },
+          "pollen_discount": {
+            "near": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            },
+            "far": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            }
+          },
+          "assurance_cost": {
+            "near": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            },
+            "far": {
+              "mean": 0.0,
+              "bootstrap95": [
+                0.0,
+                0.0
+              ],
+              "n_positive_histories": 0,
+              "n_negative_histories": 0,
+              "n_zero_histories": 64
+            }
+          }
+        },
+        "budget_effects": {
+          "0.5": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "1": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "2": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "3": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "4": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "5": {
+            "near": 0.0,
+            "far": 0.0
+          },
+          "8": {
+            "near": 0.0,
+            "far": 0.0
+          }
+        }
+      },
+      "cumulative_selfed_recruits": {
+        "near": {
+          "mean": 13.76059839027371,
+          "bootstrap95": [
+            8.856064413469323,
+            18.88206142716714
+          ],
+          "n_positive_histories": 48,
+          "n_negative_histories": 16,
+          "n_zero_histories": 0
+        },
+        "far": {
+          "mean": 7.619658466061834,
+          "bootstrap95": [
+            4.65880941503179,
+            10.724418126046768
+          ],
+          "n_positive_histories": 50,
+          "n_negative_histories": 14,
+          "n_zero_histories": 0
+        },
+        "common_mean": {
+          "mean": 10.690128428167773,
+          "bootstrap95": [
+            7.658717602019054,
+            13.653528347094154
+          ],
+          "n_positive_histories": 54,
+          "n_negative_histories": 10,
+          "n_zero_histories": 0
+        },
+        "far_minus_near": {
+          "mean": -6.140939924211879,
+          "bootstrap95": [
+            -11.939534815637257,
+            -0.5541439759896508
+          ],
+          "n_positive_histories": 27,
+          "n_negative_histories": 37,
+          "n_zero_histories": 0
+        },
+        "by_setting": {
+          "delayed_control": {
+            "near": {
+              "mean": 13.935171314702155,
+              "bootstrap95": [
+                3.1813113393060752,
+                25.012461088027095
+              ],
+              "n_positive_histories": 42,
+              "n_negative_histories": 22,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 8.905272751277378,
+              "bootstrap95": [
+                2.0216496778632993,
+                15.877041185524797
+              ],
+              "n_positive_histories": 38,
+              "n_negative_histories": 26,
+              "n_zero_histories": 0
+            }
+          },
+          "prior_selfing": {
+            "near": {
+              "mean": 17.55762143521448,
+              "bootstrap95": [
+                9.322955984904235,
+                25.69479243057613
+              ],
+              "n_positive_histories": 47,
+              "n_negative_histories": 17,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 8.06939852659458,
+              "bootstrap95": [
+                2.6878685851416595,
+                13.594515086036331
+              ],
+              "n_positive_histories": 40,
+              "n_negative_histories": 24,
+              "n_zero_histories": 0
+            }
+          },
+          "pollen_discount": {
+            "near": {
+              "mean": 15.750446775297995,
+              "bootstrap95": [
+                5.337923988826506,
+                26.037398284716605
+              ],
+              "n_positive_histories": 44,
+              "n_negative_histories": 20,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 6.225329352465939,
+              "bootstrap95": [
+                0.7805723947330142,
+                11.611023414802176
+              ],
+              "n_positive_histories": 41,
+              "n_negative_histories": 23,
+              "n_zero_histories": 0
+            }
+          },
+          "assurance_cost": {
+            "near": {
+              "mean": 7.799154035880221,
+              "bootstrap95": [
+                2.08621398830593,
+                13.551773956335717
+              ],
+              "n_positive_histories": 41,
+              "n_negative_histories": 23,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 7.278633233909436,
+              "bootstrap95": [
+                2.5003295741179636,
+                12.223272422954594
+              ],
+              "n_positive_histories": 43,
+              "n_negative_histories": 21,
+              "n_zero_histories": 0
+            }
+          }
+        },
+        "budget_effects": {
+          "0.5": {
+            "near": 0.1748046875,
+            "far": 0.0634765625
+          },
+          "1": {
+            "near": 0.3232421875,
+            "far": 0.279296875
+          },
+          "2": {
+            "near": 3.67578125,
+            "far": 1.3251953125
+          },
+          "3": {
+            "near": 38.947265625,
+            "far": 24.548828125
+          },
+          "4": {
+            "near": 37.8857421875,
+            "far": 16.29296875
+          },
+          "5": {
+            "near": 25.841796875,
+            "far": 13.9423828125
+          },
+          "8": {
+            "near": 15.8212890625,
+            "far": 11.4091796875
+          }
+        }
+      },
+      "cumulative_outcross_recruits": {
+        "near": {
+          "mean": -3.4129995520275695,
+          "bootstrap95": [
+            -5.2909939541362565,
+            -1.682978760968864
+          ],
+          "n_positive_histories": 21,
+          "n_negative_histories": 43,
+          "n_zero_histories": 0
+        },
+        "far": {
+          "mean": -3.8471702889818555,
+          "bootstrap95": [
+            -5.408114776840416,
+            -2.34680907938915
+          ],
+          "n_positive_histories": 16,
+          "n_negative_histories": 48,
+          "n_zero_histories": 0
+        },
+        "common_mean": {
+          "mean": -3.6300849205047125,
+          "bootstrap95": [
+            -4.894262658740064,
+            -2.4546107965295794
+          ],
+          "n_positive_histories": 14,
+          "n_negative_histories": 50,
+          "n_zero_histories": 0
+        },
+        "far_minus_near": {
+          "mean": -0.43417073695428604,
+          "bootstrap95": [
+            -2.7013517539543814,
+            1.909797013320417
+          ],
+          "n_positive_histories": 28,
+          "n_negative_histories": 36,
+          "n_zero_histories": 0
+        },
+        "by_setting": {
+          "delayed_control": {
+            "near": {
+              "mean": -4.298437491908913,
+              "bootstrap95": [
+                -9.114664491670476,
+                0.3365672767032971
+              ],
+              "n_positive_histories": 25,
+              "n_negative_histories": 39,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": -5.287154561540659,
+              "bootstrap95": [
+                -9.973545585814112,
+                -0.9216410116319427
+              ],
+              "n_positive_histories": 30,
+              "n_negative_histories": 34,
+              "n_zero_histories": 0
+            }
+          },
+          "prior_selfing": {
+            "near": {
+              "mean": -2.7189994256208143,
+              "bootstrap95": [
+                -4.1951611787291,
+                -1.296469881317311
+              ],
+              "n_positive_histories": 20,
+              "n_negative_histories": 44,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": -1.249062879985544,
+              "bootstrap95": [
+                -2.2137022641660695,
+                -0.3796903586906346
+              ],
+              "n_positive_histories": 26,
+              "n_negative_histories": 38,
+              "n_zero_histories": 0
+            }
+          },
+          "pollen_discount": {
+            "near": {
+              "mean": -4.159884028215576,
+              "bootstrap95": [
+                -7.026941206782017,
+                -1.3860166753363978
+              ],
+              "n_positive_histories": 18,
+              "n_negative_histories": 46,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": -2.740707604601575,
+              "bootstrap95": [
+                -4.897185207387806,
+                -0.52595076745174
+              ],
+              "n_positive_histories": 26,
+              "n_negative_histories": 38,
+              "n_zero_histories": 0
+            }
+          },
+          "assurance_cost": {
+            "near": {
+              "mean": -2.474677262364975,
+              "bootstrap95": [
+                -6.0756562296826395,
+                0.9253940736052786
+              ],
+              "n_positive_histories": 32,
+              "n_negative_histories": 32,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": -6.111756109799644,
+              "bootstrap95": [
+                -9.516564654871642,
+                -2.821884975183079
+              ],
+              "n_positive_histories": 25,
+              "n_negative_histories": 39,
+              "n_zero_histories": 0
+            }
+          }
+        },
+        "budget_effects": {
+          "0.5": {
+            "near": -0.0849609375,
+            "far": -0.060546875
+          },
+          "1": {
+            "near": -0.087890625,
+            "far": -0.2080078125
+          },
+          "2": {
+            "near": -0.080078125,
+            "far": -0.482421875
+          },
+          "3": {
+            "near": -1.7734375,
+            "far": -3.9931640625
+          },
+          "4": {
+            "near": -8.4541015625,
+            "far": -8.201171875
+          },
+          "5": {
+            "near": -9.4248046875,
+            "far": -11.7958984375
+          },
+          "8": {
+            "near": -13.9921875,
+            "far": -11.3603515625
+          }
+        }
+      },
+      "cumulative_total_recruits": {
+        "near": {
+          "mean": 10.347598838246137,
+          "bootstrap95": [
+            5.53061949317703,
+            15.298549314055348
+          ],
+          "n_positive_histories": 43,
+          "n_negative_histories": 21,
+          "n_zero_histories": 0
+        },
+        "far": {
+          "mean": 3.772488177079979,
+          "bootstrap95": [
+            1.395560708907589,
+            6.24195055969162
+          ],
+          "n_positive_histories": 42,
+          "n_negative_histories": 22,
+          "n_zero_histories": 0
+        },
+        "common_mean": {
+          "mean": 7.0600435076630585,
+          "bootstrap95": [
+            4.174210848265918,
+            9.922219044080776
+          ],
+          "n_positive_histories": 49,
+          "n_negative_histories": 15,
+          "n_zero_histories": 0
+        },
+        "far_minus_near": {
+          "mean": -6.575110661166159,
+          "bootstrap95": [
+            -11.835542607426284,
+            -1.4231958374017482
+          ],
+          "n_positive_histories": 26,
+          "n_negative_histories": 38,
+          "n_zero_histories": 0
+        },
+        "by_setting": {
+          "delayed_control": {
+            "near": {
+              "mean": 9.636733822793236,
+              "bootstrap95": [
+                -0.6957462929167325,
+                20.517017116462483
+              ],
+              "n_positive_histories": 40,
+              "n_negative_histories": 24,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 3.6181181897367156,
+              "bootstrap95": [
+                -1.6731544019387699,
+                8.979912464696309
+              ],
+              "n_positive_histories": 35,
+              "n_negative_histories": 29,
+              "n_zero_histories": 0
+            }
+          },
+          "prior_selfing": {
+            "near": {
+              "mean": 14.838622009593655,
+              "bootstrap95": [
+                7.435129307374891,
+                22.039957546572083
+              ],
+              "n_positive_histories": 46,
+              "n_negative_histories": 18,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 6.820335646609035,
+              "bootstrap95": [
+                1.8896018575926372,
+                11.933136282979238
+              ],
+              "n_positive_histories": 40,
+              "n_negative_histories": 24,
+              "n_zero_histories": 0
+            }
+          },
+          "pollen_discount": {
+            "near": {
+              "mean": 11.590562747082418,
+              "bootstrap95": [
+                2.5529738935622994,
+                20.380846996917914
+              ],
+              "n_positive_histories": 43,
+              "n_negative_histories": 21,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 3.4846217478643706,
+              "bootstrap95": [
+                -0.9799845975828503,
+                7.933768450467476
+              ],
+              "n_positive_histories": 35,
+              "n_negative_histories": 29,
+              "n_zero_histories": 0
+            }
+          },
+          "assurance_cost": {
+            "near": {
+              "mean": 5.324476773515246,
+              "bootstrap95": [
+                -0.9049192170780442,
+                11.328678063651106
+              ],
+              "n_positive_histories": 40,
+              "n_negative_histories": 24,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 1.1668771241097935,
+              "bootstrap95": [
+                -3.1258992302447965,
+                5.573201666197863
+              ],
+              "n_positive_histories": 33,
+              "n_negative_histories": 31,
+              "n_zero_histories": 0
+            }
+          }
+        },
+        "budget_effects": {
+          "0.5": {
+            "near": 0.08984375,
+            "far": 0.0029296875
+          },
+          "1": {
+            "near": 0.2353515625,
+            "far": 0.0712890625
+          },
+          "2": {
+            "near": 3.595703125,
+            "far": 0.8427734375
+          },
+          "3": {
+            "near": 37.173828125,
+            "far": 20.5556640625
+          },
+          "4": {
+            "near": 29.431640625,
+            "far": 8.091796875
+          },
+          "5": {
+            "near": 16.4169921875,
+            "far": 2.146484375
+          },
+          "8": {
+            "near": 1.8291015625,
+            "far": 0.048828125
+          }
+        }
+      },
+      "t0_maternal_viable_population": {
+        "near": {
+          "mean": 0.25451528401049234,
+          "bootstrap95": [
+            0.1326123592547063,
+            0.3772563307132331
+          ],
+          "n_positive_histories": 43,
+          "n_negative_histories": 21,
+          "n_zero_histories": 0
+        },
+        "far": {
+          "mean": 0.06425460068857883,
+          "bootstrap95": [
+            -0.02059825627256208,
+            0.146745355076254
+          ],
+          "n_positive_histories": 36,
+          "n_negative_histories": 28,
+          "n_zero_histories": 0
+        },
+        "common_mean": {
+          "mean": 0.15938494234953557,
+          "bootstrap95": [
+            0.08024092784508109,
+            0.2364128543355798
+          ],
+          "n_positive_histories": 43,
+          "n_negative_histories": 21,
+          "n_zero_histories": 0
+        },
+        "far_minus_near": {
+          "mean": -0.19026068332191348,
+          "bootstrap95": [
+            -0.33263629116072396,
+            -0.050683921613454204
+          ],
+          "n_positive_histories": 26,
+          "n_negative_histories": 38,
+          "n_zero_histories": 0
+        },
+        "by_setting": {
+          "delayed_control": {
+            "near": {
+              "mean": 0.2742881111199903,
+              "bootstrap95": [
+                -0.04091998609575802,
+                0.5929438188131876
+              ],
+              "n_positive_histories": 43,
+              "n_negative_histories": 21,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 0.07618873781264032,
+              "bootstrap95": [
+                -0.149375839355942,
+                0.2966984366833971
+              ],
+              "n_positive_histories": 31,
+              "n_negative_histories": 33,
+              "n_zero_histories": 0
+            }
+          },
+          "prior_selfing": {
+            "near": {
+              "mean": 0.4357606094366459,
+              "bootstrap95": [
+                0.2315340657774019,
+                0.6478006915452678
+              ],
+              "n_positive_histories": 46,
+              "n_negative_histories": 18,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 0.26544597540729675,
+              "bootstrap95": [
+                0.12520633130764888,
+                0.4094093454939876
+              ],
+              "n_positive_histories": 42,
+              "n_negative_histories": 22,
+              "n_zero_histories": 0
+            }
+          },
+          "pollen_discount": {
+            "near": {
+              "mean": 0.3478944147565739,
+              "bootstrap95": [
+                0.07657963758261241,
+                0.6144057863975879
+              ],
+              "n_positive_histories": 40,
+              "n_negative_histories": 24,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": -0.005836954999797389,
+              "bootstrap95": [
+                -0.16258164837047212,
+                0.14608645454434183
+              ],
+              "n_positive_histories": 34,
+              "n_negative_histories": 30,
+              "n_zero_histories": 0
+            }
+          },
+          "assurance_cost": {
+            "near": {
+              "mean": -0.039881999271240864,
+              "bootstrap95": [
+                -0.23007728335493405,
+                0.14931133076229988
+              ],
+              "n_positive_histories": 33,
+              "n_negative_histories": 31,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": -0.07877935546582433,
+              "bootstrap95": [
+                -0.2256933230215067,
+                0.059077024534371435
+              ],
+              "n_positive_histories": 29,
+              "n_negative_histories": 35,
+              "n_zero_histories": 0
+            }
+          }
+        },
+        "budget_effects": {
+          "0.5": {
+            "near": 0.04618657054321591,
+            "far": 0.011660202093430563
+          },
+          "1": {
+            "near": 0.09237314108643183,
+            "far": 0.023320404186861127
+          },
+          "2": {
+            "near": 0.18474628217286365,
+            "far": 0.04664080837372225
+          },
+          "3": {
+            "near": 0.27711942325929556,
+            "far": 0.06996121256058345
+          },
+          "4": {
+            "near": 0.3694925643457273,
+            "far": 0.0932816167474445
+          },
+          "5": {
+            "near": 0.4618657054321593,
+            "far": 0.1166020209343056
+          },
+          "8": {
+            "near": 0.7389851286914546,
+            "far": 0.186563233494889
+          }
+        }
+      },
+      "t0_female_outcross_population": {
+        "near": {
+          "mean": -0.24387698349509876,
+          "bootstrap95": [
+            -0.3856844421872319,
+            -0.10809887061045714
+          ],
+          "n_positive_histories": 21,
+          "n_negative_histories": 43,
+          "n_zero_histories": 0
+        },
+        "far": {
+          "mean": -0.23003577898576663,
+          "bootstrap95": [
+            -0.34792438345799587,
+            -0.11715845229682938
+          ],
+          "n_positive_histories": 21,
+          "n_negative_histories": 43,
+          "n_zero_histories": 0
+        },
+        "common_mean": {
+          "mean": -0.2369563812404327,
+          "bootstrap95": [
+            -0.33080936127854776,
+            -0.14536194541828779
+          ],
+          "n_positive_histories": 20,
+          "n_negative_histories": 44,
+          "n_zero_histories": 0
+        },
+        "far_minus_near": {
+          "mean": 0.013841204509332114,
+          "bootstrap95": [
+            -0.15856927797997963,
+            0.1919238864126192
+          ],
+          "n_positive_histories": 35,
+          "n_negative_histories": 29,
+          "n_zero_histories": 0
+        },
+        "by_setting": {
+          "delayed_control": {
+            "near": {
+              "mean": -0.1918163670286868,
+              "bootstrap95": [
+                -0.5932171379159591,
+                0.21309646862159243
+              ],
+              "n_positive_histories": 27,
+              "n_negative_histories": 37,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": -0.26901470899391167,
+              "bootstrap95": [
+                -0.5769064234912326,
+                0.029012906224697384
+              ],
+              "n_positive_histories": 25,
+              "n_negative_histories": 39,
+              "n_zero_histories": 0
+            }
+          },
+          "prior_selfing": {
+            "near": {
+              "mean": -0.1499600398122103,
+              "bootstrap95": [
+                -0.23839524954996694,
+                -0.06218952689604165
+              ],
+              "n_positive_histories": 17,
+              "n_negative_histories": 47,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": -0.04508220849706252,
+              "bootstrap95": [
+                -0.10891625968342886,
+                0.014947444111043363
+              ],
+              "n_positive_histories": 29,
+              "n_negative_histories": 35,
+              "n_zero_histories": 0
+            }
+          },
+          "pollen_discount": {
+            "near": {
+              "mean": -0.27389662238235096,
+              "bootstrap95": [
+                -0.5105229420957604,
+                -0.03964266179117552
+              ],
+              "n_positive_histories": 23,
+              "n_negative_histories": 41,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": -0.2776417383314584,
+              "bootstrap95": [
+                -0.44733866240637055,
+                -0.119154200531694
+              ],
+              "n_positive_histories": 24,
+              "n_negative_histories": 40,
+              "n_zero_histories": 0
+            }
+          },
+          "assurance_cost": {
+            "near": {
+              "mean": -0.359834904757147,
+              "bootstrap95": [
+                -0.6322893271731482,
+                -0.084701144939274
+              ],
+              "n_positive_histories": 27,
+              "n_negative_histories": 37,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": -0.3284044601206339,
+              "bootstrap95": [
+                -0.5924579110417284,
+                -0.07869483642381914
+              ],
+              "n_positive_histories": 24,
+              "n_negative_histories": 40,
+              "n_zero_histories": 0
+            }
+          }
+        },
+        "budget_effects": {
+          "0.5": {
+            "near": -0.044256051442469496,
+            "far": -0.041744305356340564
+          },
+          "1": {
+            "near": -0.08851210288493899,
+            "far": -0.08348861071268113
+          },
+          "2": {
+            "near": -0.17702420576987798,
+            "far": -0.16697722142536225
+          },
+          "3": {
+            "near": -0.2655363086548169,
+            "far": -0.2504658321380434
+          },
+          "4": {
+            "near": -0.35404841153975597,
+            "far": -0.3339544428507245
+          },
+          "5": {
+            "near": -0.4425605144246948,
+            "far": -0.4174430535634057
+          },
+          "8": {
+            "near": -0.7080968230795119,
+            "far": -0.667908885701449
+          }
+        }
+      },
+      "t0_viable_selfed_population": {
+        "near": {
+          "mean": 0.4983922675055913,
+          "bootstrap95": [
+            0.34800925684926387,
+            0.6497770261253726
+          ],
+          "n_positive_histories": 53,
+          "n_negative_histories": 11,
+          "n_zero_histories": 0
+        },
+        "far": {
+          "mean": 0.29429037967434546,
+          "bootstrap95": [
+            0.19594950583758602,
+            0.3930613767242411
+          ],
+          "n_positive_histories": 50,
+          "n_negative_histories": 14,
+          "n_zero_histories": 0
+        },
+        "common_mean": {
+          "mean": 0.3963413235899683,
+          "bootstrap95": [
+            0.30142509346435836,
+            0.4891319137010053
+          ],
+          "n_positive_histories": 55,
+          "n_negative_histories": 9,
+          "n_zero_histories": 0
+        },
+        "far_minus_near": {
+          "mean": -0.20410188783124583,
+          "bootstrap95": [
+            -0.3833676195322582,
+            -0.037104756070655866
+          ],
+          "n_positive_histories": 25,
+          "n_negative_histories": 39,
+          "n_zero_histories": 0
+        },
+        "by_setting": {
+          "delayed_control": {
+            "near": {
+              "mean": 0.46610447814867734,
+              "bootstrap95": [
+                0.11338864453622459,
+                0.8185768528237862
+              ],
+              "n_positive_histories": 43,
+              "n_negative_histories": 21,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 0.3452034468065521,
+              "bootstrap95": [
+                0.07618080821256368,
+                0.6144056443947867
+              ],
+              "n_positive_histories": 39,
+              "n_negative_histories": 25,
+              "n_zero_histories": 0
+            }
+          },
+          "prior_selfing": {
+            "near": {
+              "mean": 0.5857206492488563,
+              "bootstrap95": [
+                0.3461167426354674,
+                0.8323170700449982
+              ],
+              "n_positive_histories": 46,
+              "n_negative_histories": 18,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 0.3105281839043592,
+              "bootstrap95": [
+                0.13996854152145743,
+                0.49254387304052605
+              ],
+              "n_positive_histories": 42,
+              "n_negative_histories": 22,
+              "n_zero_histories": 0
+            }
+          },
+          "pollen_discount": {
+            "near": {
+              "mean": 0.6217910371389253,
+              "bootstrap95": [
+                0.26344952751040396,
+                0.9696128034320151
+              ],
+              "n_positive_histories": 42,
+              "n_negative_histories": 22,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 0.2718047833316608,
+              "bootstrap95": [
+                0.06965191410677203,
+                0.4777350095608448
+              ],
+              "n_positive_histories": 43,
+              "n_negative_histories": 21,
+              "n_zero_histories": 0
+            }
+          },
+          "assurance_cost": {
+            "near": {
+              "mean": 0.31995290548590627,
+              "bootstrap95": [
+                0.14306071746450214,
+                0.48900360950233546
+              ],
+              "n_positive_histories": 48,
+              "n_negative_histories": 16,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 0.24962510465480958,
+              "bootstrap95": [
+                0.08941387085004668,
+                0.4144559396439186
+              ],
+              "n_positive_histories": 39,
+              "n_negative_histories": 25,
+              "n_zero_histories": 0
+            }
+          }
+        },
+        "budget_effects": {
+          "0.5": {
+            "near": 0.09044262198568542,
+            "far": 0.053404507449771134
+          },
+          "1": {
+            "near": 0.18088524397137085,
+            "far": 0.10680901489954227
+          },
+          "2": {
+            "near": 0.3617704879427417,
+            "far": 0.21361802979908454
+          },
+          "3": {
+            "near": 0.5426557319141125,
+            "far": 0.32042704469862676
+          },
+          "4": {
+            "near": 0.7235409758854834,
+            "far": 0.42723605959816907
+          },
+          "5": {
+            "near": 0.9044262198568543,
+            "far": 0.5340450744977112
+          },
+          "8": {
+            "near": 1.4470819517709668,
+            "far": 0.8544721191963381
+          }
+        }
+      },
+      "t0_paternal_export_population": {
+        "near": {
+          "mean": -0.8701786352221004,
+          "bootstrap95": [
+            -1.4227134891864426,
+            -0.3286862054994434
+          ],
+          "n_positive_histories": 24,
+          "n_negative_histories": 40,
+          "n_zero_histories": 0
+        },
+        "far": {
+          "mean": -0.7268859423062412,
+          "bootstrap95": [
+            -1.199633447808162,
+            -0.26156121333683763
+          ],
+          "n_positive_histories": 23,
+          "n_negative_histories": 41,
+          "n_zero_histories": 0
+        },
+        "common_mean": {
+          "mean": -0.7985322887641707,
+          "bootstrap95": [
+            -1.1515009773472464,
+            -0.4551444331152981
+          ],
+          "n_positive_histories": 17,
+          "n_negative_histories": 47,
+          "n_zero_histories": 0
+        },
+        "far_minus_near": {
+          "mean": 0.14329269291585894,
+          "bootstrap95": [
+            -0.5965404011312535,
+            0.8935541960813503
+          ],
+          "n_positive_histories": 35,
+          "n_negative_histories": 29,
+          "n_zero_histories": 0
+        },
+        "by_setting": {
+          "delayed_control": {
+            "near": {
+              "mean": -0.6225311737286628,
+              "bootstrap95": [
+                -1.910818683645908,
+                0.6928024188257151
+              ],
+              "n_positive_histories": 27,
+              "n_negative_histories": 37,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": -0.8774857725455483,
+              "bootstrap95": [
+                -1.8030553332189827,
+                0.013037295147964822
+              ],
+              "n_positive_histories": 24,
+              "n_negative_histories": 40,
+              "n_zero_histories": 0
+            }
+          },
+          "prior_selfing": {
+            "near": {
+              "mean": -0.8966457082465944,
+              "bootstrap95": [
+                -1.9821857891172086,
+                0.21214290871606567
+              ],
+              "n_positive_histories": 25,
+              "n_negative_histories": 39,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": 0.012611564089056226,
+              "bootstrap95": [
+                -0.8245724875189955,
+                0.8564960000047622
+              ],
+              "n_positive_histories": 32,
+              "n_negative_histories": 32,
+              "n_zero_histories": 0
+            }
+          },
+          "pollen_discount": {
+            "near": {
+              "mean": -0.7973332746399195,
+              "bootstrap95": [
+                -1.483043917206281,
+                -0.13522192655677273
+              ],
+              "n_positive_histories": 25,
+              "n_negative_histories": 39,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": -0.7284950910186567,
+              "bootstrap95": [
+                -1.2164919640990381,
+                -0.26229229397587833
+              ],
+              "n_positive_histories": 26,
+              "n_negative_histories": 38,
+              "n_zero_histories": 0
+            }
+          },
+          "assurance_cost": {
+            "near": {
+              "mean": -1.1642043842732246,
+              "bootstrap95": [
+                -2.258553773962807,
+                -0.04863681100857252
+              ],
+              "n_positive_histories": 25,
+              "n_negative_histories": 39,
+              "n_zero_histories": 0
+            },
+            "far": {
+              "mean": -1.3141744697498157,
+              "bootstrap95": [
+                -2.392908200207055,
+                -0.2791462179727462
+              ],
+              "n_positive_histories": 22,
+              "n_negative_histories": 42,
+              "n_zero_histories": 0
+            }
+          }
+        },
+        "budget_effects": {
+          "0.5": {
+            "near": -0.8701786352221004,
+            "far": -0.7268859423062412
+          },
+          "1": {
+            "near": -0.8701786352221004,
+            "far": -0.7268859423062412
+          },
+          "2": {
+            "near": -0.8701786352221004,
+            "far": -0.7268859423062412
+          },
+          "3": {
+            "near": -0.8701786352221004,
+            "far": -0.7268859423062412
+          },
+          "4": {
+            "near": -0.8701786352221004,
+            "far": -0.7268859423062412
+          },
+          "5": {
+            "near": -0.8701786352221004,
+            "far": -0.7268859423062412
+          },
+          "8": {
+            "near": -0.8701786352221004,
+            "far": -0.7268859423062412
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "This is post-outcome exploration of previously observed complete futures.",
+    "Immediate payoff is the per-plant reproductive output at the first future visitor census TIMES actual t0 population; zero for a truly empty source, never a made-up per-capita measurement.",
+    "Cumulative resident recruit counts are measured across the full 80-step future and are influenced by demographic persistence and extinction; they are not independent mediators.",
+    "Contrasting t0 payoffs, lifetime recruits, and final occupancy does not identify genetic or demographic causal mediation.",
+    "Source pre-extinction is retained as zero occupancy/zero population-level payoff and zero recruits in the unconditional 64-history ITT-style summaries.",
+    "The preregistered practically equivalent original DID and failed independent fixed resource-window test remain unchanged.",
+    "No biological new histories, interventions, or synthetic natural-island risk calibration."
+  ]
+}
