@@ -127,10 +127,10 @@ def fixed_support_problem(*,capacity:int=8,ovule_budget:float=3.):
         )) for k in range(3))
         genotype_indices.append(grid.genotype_lookup[loci])
     result=np.bincount(genotype_indices,minlength=len(grid.genotypes))
-    if capacity>8:
-        result=result*(capacity//8)
-    else:
-        result=result*2
+    # Four explicit diploid founder plants are cloned K/4 times; unlike
+    # the separate eight-founder scaling screen, this assay has FOUR
+    # source genotypes. Do not silently initialize at half capacity.
+    result=result*(capacity//4)
     assert result.sum()==capacity
     return result,grid,visitors,cfg
 
