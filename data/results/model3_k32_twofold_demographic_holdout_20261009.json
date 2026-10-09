@@ -1,0 +1,135 @@
+{
+  "schema": "model3_k32_twofold_demographic_holdout_source_locked_v1",
+  "status": "twofold_exploratory_model_comparison_completed_with_fold_dependent_sign_reversal",
+  "evidence_type": "single_archived_visitor_history_engineering_holdout_not_independent_ecology",
+  "source": {
+    "ci_source_sha": "90840e8cdde8537992199a1cd924be1edaae4703",
+    "ci_run_id": 37887877707,
+    "ci_url": "https://github.com/zuizui0223/izu-core/actions/runs/37887877707",
+    "job": "model3-k32-demographic-holdout",
+    "job_conclusion": "success",
+    "artifact_id": 11597416175,
+    "artifact_url": "https://github.com/zuizui0223/izu-core/actions/runs/37887877707/artifacts/11597416175",
+    "artifact_sha256": "ad095c4532a803b14f6445830523ee099dc4e962ccc6336745491b828d97405a"
+  },
+  "design": {
+    "K": 32,
+    "mutation_rate": 0,
+    "generations": 8,
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "visitor_history": 26110601,
+    "visitor_environment": "near",
+    "independent_visitor_histories": 1,
+    "original_model3_biology_unchanged": true,
+    "counterfactual_deliberately_changes_reproduction": true,
+    "post_outcome_exploratory_model_family": true,
+    "train_demographic_draws": 256,
+    "holdout_demographic_draws": 256,
+    "train_fold_reversed": true,
+    "holdout_predictions_not_used_to_fit_coefficients": true,
+    "same_source_realized_census_in_control": true,
+    "confirmed_biological_cohorts_reused": false,
+    "paired_bootstrap_resamples_per_fold": 512
+  },
+  "comparisons": [
+    {
+      "budget": 8,
+      "training_half": "first",
+      "holdout_survived": 256,
+      "source_mean": 0.9769287109375,
+      "control_mean": 0.97967529296875,
+      "source_minus_control_variance": 0.0011577792465686798,
+      "mc_95_variance_diff": [
+        0.0002234,
+        0.002278
+      ],
+      "source_minus_control_twice_covariance": -0.01555591580820033,
+      "mc_95_twice_covariance_diff": [
+        -0.0219087,
+        -0.0088908
+      ],
+      "source_variance": 0.0020236,
+      "control_variance": 0.0008658,
+      "bounded_frequency_relative_variance_source": 0.0898,
+      "bounded_frequency_relative_variance_control": 0.0435
+    },
+    {
+      "budget": 8,
+      "training_half": "second",
+      "holdout_survived": 256,
+      "source_mean": 0.97802734375,
+      "control_mean": 0.97247314453125,
+      "source_minus_control_variance": 0.0001901,
+      "mc_95_variance_diff": [
+        -0.0005268,
+        0.001097
+      ],
+      "source_minus_control_twice_covariance": -0.0041,
+      "mc_95_twice_covariance_diff": [
+        -0.011396,
+        0.002749
+      ],
+      "source_variance": 0.0015867,
+      "control_variance": 0.0013966,
+      "bounded_frequency_relative_variance_source": 0.0738,
+      "bounded_frequency_relative_variance_control": 0.0522
+    },
+    {
+      "budget": 3,
+      "training_half": "first",
+      "holdout_survived": 250,
+      "source_mean": 0.9875841378069568,
+      "control_mean": 0.99369791017712,
+      "source_minus_control_variance": 0.001218723641573439,
+      "mc_95_variance_diff": [
+        0.0003168,
+        0.0024299
+      ],
+      "source_minus_control_twice_covariance": -0.020909431439708723,
+      "mc_95_twice_covariance_diff": [
+        -0.0307219,
+        -0.0108935
+      ],
+      "source_variance": 0.0015806,
+      "control_variance": 0.0003619,
+      "bounded_frequency_relative_variance_source": 0.1289,
+      "bounded_frequency_relative_variance_control": 0.0578
+    },
+    {
+      "budget": 3,
+      "training_half": "second",
+      "holdout_survived": 253,
+      "source_mean": 0.9878082216695585,
+      "control_mean": 0.9790447,
+      "source_minus_control_variance": -0.0012533,
+      "mc_95_variance_diff": [
+        -0.0025233,
+        -0.0001202
+      ],
+      "source_minus_control_twice_covariance": -0.00667,
+      "mc_95_twice_covariance_diff": [
+        -0.019943,
+        0.005125
+      ],
+      "source_variance": 0.0009664,
+      "control_variance": 0.0022197,
+      "bounded_frequency_relative_variance_source": 0.0802,
+      "bounded_frequency_relative_variance_control": 0.1082
+    }
+  ],
+  "derived_method": {
+    "bounded_relative_variance": "Variance(P)/(mean(P)*(1-mean(P))) for P in [0,1], descriptive normalization for a frequency-dependent mathematical ceiling",
+    "bounded_relative_variance_caveat": "not a selection/demographic effect estimator; denominators vary across heldout fold and treatment",
+    "primary_endpoint": "source_minus_comparator_variance",
+    "second_endpoint": "source_minus_comparator_twice_covariance"
+  },
+  "conclusions": [
+    "Out-of-training demographic cohort comparisons remain fold-sensitive despite training-only calibration.",
+    "With budget3 the held-out difference in endpoint allele-frequency variance changes sign and each fold's MC percentile interval excludes zero in opposite directions. Thus the sign cannot be identified robustly from this one visitor history and two training partitions.",
+    "With budget8 the first heldout variance interval excludes zero, but reverse heldout interval includes zero. The negative covariance contrast also fails to be stable across folds.",
+    "Differences between the source and comparator heldout mean frequencies are material near fixation and offer a frequency-ceiling-related explanation for fold-dependent raw variance gaps; descriptive bounded-relative-variance contrast also changes sign for budget3.",
+    "Neither a stable source-specific stabilizing feedback nor a pure ceiling-only account is causally identified.",
+    "Demographic holdout is not independent visitor-environment replication, and counterfactual time-varying tilt is a different biological reproductive operator; no natural data or SDE/SPDE fitting."
+  ]
+}
