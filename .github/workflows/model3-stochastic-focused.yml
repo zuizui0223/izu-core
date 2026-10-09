@@ -39,6 +39,8 @@ jobs:
         run: python -m scripts.run_model3_stochastic_measure_preflight --out measure-preflight.json --draws 512 --updates 3
       - name: Run eight-update atomic-measure distribution stress (same old history)
         run: python -m scripts.run_model3_stochastic_measure_preflight --out measure-horizon8.json --draws 512 --updates 8
+      - name: Run eight-update low-resource population-extinction stress
+        run: python -m scripts.run_model3_stochastic_measure_preflight --out measure-budget3.json --draws 512 --updates 8 --budget 3
       - name: Archive engineering moment receipt
         uses: actions/upload-artifact@v4
         with:
@@ -48,4 +50,5 @@ jobs:
             mutation-preflight.json
             measure-preflight.json
             measure-horizon8.json
+            measure-budget3.json
           retention-days: 90
