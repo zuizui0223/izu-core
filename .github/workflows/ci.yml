@@ -874,3 +874,66 @@ jobs:
           path: locus-reassignment-budget*.json
           if-no-files-found: warn
           retention-days: 90
+
+  model3-k32-fixed-allele-heterozygosity:
+    if: github.event_name == 'pull_request' && github.event.pull_request.number == 420
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Validate exact allele-copy conservation and no impossible genetic rescue
+        run: pytest -q tests/test_model3_k32_fixed_frequency_heterozygosity.py
+      - name: Original K32 assurance heterozygosity at exactly fixed allele copies budget8
+        run: python -m scripts.audit_model3_k32_fixed_frequency_heterozygosity --out fixed-allele-hetero-budget8.json --budget 8 --draws 512 --permutations 4
+      - name: Original K32 assurance heterozygosity at exactly fixed allele copies budget3
+        run: python -m scripts.audit_model3_k32_fixed_frequency_heterozygosity --out fixed-allele-hetero-budget3.json --budget 3 --draws 512 --permutations 4
+      - name: Enforce old-history and feasible-parent source scope
+        run: |
+          python - <<'PY'
+          import json
+          import numpy as np
+          from pathlib import Path
+          for budget in (8,3):
+              r=json.loads(Path(f"fixed-allele-hetero-budget{budget}.json").read_text())
+              assert r["status"]=="MODEL3_FIXED_ASSURANCE_ALLELE_COPIES_HETEROZYGOSITY_PERTURBATION_VERIFIED"
+              c=r["conditions"]
+              assert (c["K"],c["generations"],c["mutation_rate"],c["budget"])==(32,8,0,budget)
+              assert c["old_visitor_history"]==26110601
+              assert c["independent_ecological_visitor_histories"]==1
+              assert c["nested_original_demographic_replicates"]==512
+              assert c["permutations_within_each_original_parent"]==4
+              assert c["assurance_high_allele_copies_conserved_exactly"] is True
+              assert c["single_assurance_diploid_locus_changed_only"] is True
+              assert c["complete_source_biological_reproduction_unchanged"] is True
+              assert c["no_future_confirmatory_histories_used"] is True
+              assert c["parent_path_cohort_fixed_and_conditioned_on_alive_at_year8"] is True
+              assert set(r["cell_by_source_parent_year"])=={"1","4","8"}
+              for year in r["cell_by_source_parent_year"].values():
+                  n=year["total_original_shared_source_parents"]
+                  assert n==c["source_paths_alive_before_eighth_reproduction"]
+                  for op,expected_sign in (("heterozygosity_up",1),("heterozygosity_down",-1)):
+                      d=year["operators"][op]
+                      m=d["n_eligible_source_parent_paths"]
+                      assert 0<=m<=n and m+d["n_ineligible"]==n
+                      assert d["parent_assurance_high_allele_frequency_difference"]==0.
+                      assert d["unmodified_other_two_locus_genotypes"] is True
+                      assert d["eligible_source_paths_same_for_two_visitor_conditions"] is True
+                      if m:
+                          x=d["expected_parent_heterozygote_frequency_shift"]["mean"][0]
+                          assert expected_sign*x>0
+                          for v in ("1","8"):
+                              assert d["counterfactual_minus_same_permutation_sham"][v]["n_eligible_source_paths"]==m
+              print("Exact fixed allele count heterozygosity source constraints PASS",budget)
+          PY
+      - name: Archive feasible-source assurance heterozygote perturbation results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: model3-k32-fixed-allele-heterozygosity
+          path: fixed-allele-hetero-budget*.json
+          if-no-files-found: warn
+          retention-days: 90
