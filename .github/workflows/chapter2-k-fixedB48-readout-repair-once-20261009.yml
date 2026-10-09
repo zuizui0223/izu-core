@@ -7,6 +7,7 @@ on:
       - data/dispatch/k48-readout-repair-launch-20261009.txt
       - data/dispatch/k48-readout-repair-testfix-20261009.txt
       - data/dispatch/k48-readout-repair-artifact-pagination-20261009.txt
+      - data/dispatch/k48-readout-repair-bypass100-artifacts-20261009.txt
 
 permissions:
   contents: read
@@ -72,13 +73,54 @@ jobs:
           PY
           ids=$(cut -f1 future-artifacts.tsv | paste -sd, -)
           echo "ids=$ids" >> "$GITHUB_OUTPUT"
-      - uses: actions/download-artifact@v4
+      - name: Fetch each immutable raw shard by artifact ID across BOTH GitHub API pages
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p full-64-kb-future-shards
+          while IFS=      - name: Reauthenticate all original 114688 futures, then one frozen primary readout
+        shell: bash
+        run: |
+          set -euo pipefail
+          python -m scripts.chapter2_k_fixedB48_full_readout \
+            --futures full-64-kb-future-shards \
+            --t400-admission admitted-source/k48-full-t400-admission.json \
+            --out chapter2-k48-independent-64-history-primary-20261009.json \
+            --execute-full-adjudication \
+            | tee chapter2-k48-confirmatory-console.txt
+          test -s chapter2-k48-independent-64-history-primary-20261009.json
+          python -m json.tool chapter2-k48-independent-64-history-primary-20261009.json > /dev/null
+      - uses: actions/upload-artifact@v4
         with:
-          artifact-ids: ${{ steps.artifacts.outputs.ids }}
-          path: full-64-kb-future-shards
-          repository: ${{ github.repository }}
-          run-id: 37896872795
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          name: chapter2-fixedB48-64-history-114688-confirmatory-readout-corrected
+          path: |
+            chapter2-k48-independent-64-history-primary-20261009.json
+            chapter2-k48-confirmatory-console.txt
+          if-no-files-found: error
+          retention-days: 90
+\\t' read -r artifact_id artifact_name; do
+            shard="${artifact_name##*-}"
+            index=$(printf '%02d' "$shard")
+            dest="full-64-kb-future-shards/$artifact_name"
+            mkdir -p "$dest"
+            # The v4 download action only discovered the first 100 run artifacts;
+            # the original run has 130. Fetch the exact individually verified IDs.
+            curl --fail --silent --show-error --location --retry 3 \\
+              -H "Authorization: Bearer $GH_TOKEN" \\
+              -H "Accept: application/vnd.github+json" \\
+              "https://api.github.com/repos/$REPO/actions/artifacts/$artifact_id/zip" \\
+              --output "artifact-$shard.zip"
+            unzip -tq "artifact-$shard.zip" > /dev/null
+            unzip -q "artifact-$shard.zip" -d "$dest"
+            test -f "$dest/k48_future_shard_$index.json"
+            test "$(find "$dest" -type f | wc -l)" -eq 65
+            rm "artifact-$shard.zip"
+          done < future-artifacts.tsv
+          test "$(find full-64-kb-future-shards -mindepth 1 -maxdepth 1 -type d | wc -l)" -eq 64
+          echo "All 64 original immutable future artifact ZIPs downloaded and structurally verified"
       - name: Reauthenticate all original 114688 futures, then one frozen primary readout
         shell: bash
         run: |
