@@ -121,3 +121,30 @@ PR420-only job \`model3-k32-outcross-factors\` in existing
 firewall and the two case results. Do not claim numerical
 component outcomes until the source-head job succeeds and its
 raw artifact is inspected.
+
+
+## Source-verified eight-generation outcomes (2026-10-09)
+
+**Dedicated numerical CI passed:** [run 37892234161](https://github.com/zuizui0223/izu-core/actions/runs/37892234161), job model3-k32-outcross-factors on source SHA 74d37d3ac83a3b68d9a090e12f0a4f73e82af260. [Raw two-case JSON artifact 11598624251](https://github.com/zuizui0223/izu-core/actions/runs/37892234161/artifacts/11598624251), SHA256 22f2b2ef5d00fac0cb0bbed468c6fbabe078f90ba75f92e49fcb8d5f50228702. Compact source-lock: data/results/model3_k32_outcross_factors_20261009.json.
+
+### Year-8 parent states
+
+All numbers below are signed contributions to original-source minus declared-reference conditional next-generation assurance high-allele-frequency variance.
+
+| Quantity | Budget 8 | Budget 3 |
+|---|---:|---:|
+| Source parental states evaluated | 512 | 505 (7 already extinct) |
+| Source viable-selfed seed fraction | 0.934852 | 0.957875 |
+| Artificial neutral offspring tilt/reference correction | -0.000017208 | -0.000011913 |
+| Donor exported pollen factor (Shapley) | -0.000004737 | -0.000002190 |
+| Visitor routing and recipient affinity factor (Shapley) | -0.000007435 | -0.000003167 |
+| **Maternal outcross seed allocation factor (Shapley)** | **-0.000020538** | **-0.000012340** |
+| **Total within-outcross variance difference** | **-0.000049919** | **-0.000029609** |
+| Maximum exact mathematical reconstruction error | 4.44e-16 | 4.44e-15 |
+| Parent states with no viable outcross | 0 | 3 |
+
+The three source-derived Shapley factor means are each negative and the maternal term is the largest of those three. The neutral-to-uniform reference correction is a separate artifact of the declared counterfactual and must not be interpreted as source biology. All four terms sum to the earlier source within-outcross heterozygosity/variance component at EACH matched parent state. Less than 1% of evaluated states show a positive total within-outcross contrast under these source simulation streams.
+
+**Causality boundary:** exported pollen already includes donor affinity; visitor routing combines donor visitor channels, recipient attraction, effectiveness and resource competition; maternal allocation contains ovules, assurance preemption and saturation. A Shapley order average does not make these causal effects. Different reference laws or factors may redistribute contributions. The source is strongly selfing at year eight, so an outcross-associated reduction of conditional frequency variance does not contradict the positive overall genetic noise difference noted earlier.
+
+These old source conditions include ONE archived visitor history (26110601/near), 512 nested demographic replicates per budget, artificial founders and no real island measurements. The source biological code and confirmatory ecology cohorts were not altered or accessed. The eight-generation between-population variance stabilization remained unidentified after the opposite-sign holdout results; this one-step Shapley accounting does not solve that long-term identification problem.
