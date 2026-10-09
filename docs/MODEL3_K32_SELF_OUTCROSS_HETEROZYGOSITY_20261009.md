@@ -122,3 +122,71 @@ The existing CI has a PR420-only job
 guards, three-term exact identity, and archives both raw JSON outputs.
 **Do not infer actual numeric component magnitudes before successful
 source-linked CI and raw artifact inspection.**
+
+
+## Source-run eight-generation results
+
+The dedicated self-outcross analysis and mathematical regression tests
+**PASSED** in
+[GitHub Actions run 37890587796](https://github.com/zuizui0223/izu-core/actions/runs/37890587796),
+job `model3-k32-self-outcross`, at source SHA
+`920f111dd79402ef497cdb5751f6469d458ef404`.
+The [full executed two-case JSON artifact](https://github.com/zuizui0223/izu-core/actions/runs/37890587796/artifacts/11598138261)
+has SHA256
+`11174966941835982b9ade745ab263cc19266132903bb000d2996a4b9729e8f8`.
+The compact committed source-lock is
+`data/results/model3_k32_self_outcross_20261009.json`.
+
+### Year-8 parent states, exact conditional contrast
+
+| Mean statistic | Budget 8 | Budget 3 |
+|---|---:|---:|
+| Usable source parent states | 512 | 509 |
+| Original source viable-selfed-seed share | 0.938361 | 0.957483 |
+| Matched artificial comparator self-pair share | 0.031410 | 0.075905 |
+| Self-versus-outcross composition term, delta variance | **+0.000207058** | **+0.000228765** |
+| Within-self parent weighting term | +0.000001631 | +0.000000796 |
+| Within-outcross pollen/mating weights term | **−0.000043738** | **−0.000032410** |
+| Sum: source minus comparator next-frequency variance | **+0.000164951** | **+0.000197151** |
+| Max absolute reconstruction error | 5.94e-17 | 6.16e-17 |
+
+The self/outcross fraction term is LARGER than the final positive
+contrast: the negative within-outcross term partially offsets it.
+Numerical identity is exact to floating precision; state means and
+rates are ensemble averages of 512 source-demographic paths nested
+under the SAME fixed visitor history.
+
+The source viable selfing fraction rises from 0.7861 in generation 1
+to 0.9384 by generation 8 at budget 8, or 0.9575 at budget 3.
+The matched-mean null's self-pair proportions also vary with the
+offspring dosage tilt; they are **not** a natural biological selfing
+frequency prediction.
+
+### Interpretation
+
+Within the chosen reference, the high source fraction of selfed
+viable seeds is mathematically the leading *composition* difference
+associated with greater next-generation allele-frequency noise and
+lower offspring heterozygosity. The negative within-outcross
+component shows that pollen-mediated weighting may partially
+counterbalance the source self-mating contrast.
+
+**Do not substitute the word "causal" for "algebraic".** The source
+selfing share, viable seed intensity, maternal fecundity, visitor
+affinity and paternal export all depend on parental genetic
+assurance/investment and visitor history. The comparator's self rate
+also changes because it is retrospectively reweighted to the exact
+source allele mean. One cannot attribute a 94%-96% difference or
+the +0.000207 / +0.000229 terms to a biological intervention on
+selfing alone, without new controlled payoff ablations.
+
+This is a stricter mechanism accounting within the original genetic
+operator, **not** evidence that the source's small between-population
+eight-year endpoint variance is adaptive stabilization. The earlier
+cross-fitted endpoint variance gap reversed sign when the
+demographic halves were swapped, and this one-step calculation does
+not repair that identification failure.
+
+No source biological files, frozen visitor confirmatory histories,
+natural island data, environmental geography, or full SDE/SPDE
+approximations were modified or newly evaluated.
