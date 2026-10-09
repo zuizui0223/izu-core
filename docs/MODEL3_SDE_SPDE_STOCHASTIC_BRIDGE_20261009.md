@@ -337,3 +337,45 @@ boundaries. Do **not** label the original time-updated genetics model
 a validated ordinary continuous-time SDE or smooth trait-space SPDE,
 and do not substitute geographic INLA-SPDE or claim natural-island
 calibration. The user-selected Step 3 remains deliberately out of scope.
+
+
+## 2026-10-09 discrete-generation linear-noise / finite-offspring CLT test
+
+The previous source-preserving `dt=1/K` finite-drift SDE obstruction does
+**not** prevent a central-limit approximation of **sampling noise in one
+discrete sexual-generation update**. This is the mathematically relevant
+next approximation, and it does not redefine the source biological calendar.
+
+New script: `scripts/audit_model3_discrete_linear_noise.py`. It uses
+canonical Model 3 `reproduce()` and the joint Mendelian offspring genotype
+kernel on an exactly represented small three-locus diploid founder support.
+The engineered trait support for offspring investment is
+`Y ∈ {0.25,0.5,0.75}`; there is no mutation or interpolation, and the
+fixed four-parent/two-visitor numerical assay is **not a natural island
+or independent ecological replication**.
+
+Given the source-derived categorical offspring phenotype law `p`, the
+conditional mean investment `bar Y_N` of exactly `N` recruited children
+has `E[bar Y_N]=mu` and
+`Var(bar Y_N)=sigma²/N`. The **full finite-N probability mass function**
+of the investment sum is computed by N-fold convolution of `p`, and its
+CDF is compared with the normal approximation
+`Normal(mu, sigma²/N)`. The Kolmogorov distance is the largest error
+in CDF, including **left and right limits at discrete support atoms**
+(the ordinary Gaussian CDF cannot reproduce those atoms exactly).
+
+The conservative classical Berry--Esseen upper bound is
+`D_K <= 0.56 * E|Y-mu|³ / (sigma³ * sqrt(N))` for iid finite-variance
+child investment draws. Both the exact discrete CDF distance and
+the bound are archived separately for recruited offspring N=8,16,32,64,128.
+They test whether **conditional smooth trait mean fluctuations** become
+well approximated, *not* whether finite-plant genetic drift, rare allele
+fixation/loss, dynamic mating, or whole-population extinction become Gaussian.
+
+The full model still requires a nonlocal, multivariate stochastic inherited
+genotype state and discrete annual updating. This CLT is a **bounded
+conditional one-step result** only, and the finite-atomic Markov reference
+remains authoritative. The positive one-step normality finding (if admitted
+by CI) is compatible with the earlier exact Dirichlet rare-genotype-loss
+counterexample; matching sampling moments or CDFs for one summary statistic
+cannot automatically restore omitted absorbing genotype boundaries.
