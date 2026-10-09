@@ -530,3 +530,57 @@ jobs:
           path: outcross-factors-budget*.json
           if-no-files-found: warn
           retention-days: 90
+
+  model3-k32-outcross-ablation:
+    if: github.event_name == 'pull_request' && github.event.pull_request.number == 420
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Verify original finite source replay and three isolated mating-factor interventions
+        run: pytest -q tests/test_model3_k32_outcross_ablation.py
+      - name: Run source-versus-three autonomous ablations with old history budget8
+        run: python -m scripts.run_model3_k32_outcross_ablation --out outcross-ablation-budget8.json --budget 8 --draws 512
+      - name: Run source-versus-three autonomous ablations with old history budget3
+        run: python -m scripts.run_model3_k32_outcross_ablation --out outcross-ablation-budget3.json --budget 3 --draws 512
+      - name: Enforce actual source provenance and no unlicensed mechanism promotion
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          arms={"original_canonical","equalize_donor_export","equalize_visitor_routing","equalize_maternal_outcross_provision"}
+          for budget in (8,3):
+              r=json.loads(Path(f"outcross-ablation-budget{budget}.json").read_text())
+              c=r["conditions"]
+              assert r["status"]=="K32_SOURCE_VS_ONE_FACTOR_OUTCROSS_ABLATIONS_COMPLETED"
+              assert (c["K"],c["mutation_rate"],c["generations"],c["ovule_budget"])==(32,0,8,budget)
+              assert c["old_visitor_history"]==26110601
+              assert c["independent_visitor_histories"]==1
+              assert c["demographic_replicates_per_arm"]==512
+              assert c["source_biological_code_edited"] is False
+              assert c["counterfactual_intentionally_modifies_reproduction"] is True
+              assert c["source_conditional_total_viable_seed_intensity_preserved"] is True
+              assert c["source_conditional_selfed_seed_mass_and_fraction_preserved"] is True
+              assert c["original_mating_edge_support_preserved"] is True
+              assert c["confirmatory_visitor_cohorts_used"] is False
+              assert set(r["arms"])==arms
+              assert len(r["per_generation"])==8
+              assert set(r["year8_paired_contrasts"])==arms-{"original_canonical"}
+              for row in r["per_generation"].values():
+                  assert set(row)==arms
+                  for arm in arms:
+                      assert row[arm]["n_survivors"]+row[arm]["n_extinct"]==512
+              print("K32 old source original vs three counterfactual arms PASS",budget)
+          PY
+      - name: Archive source vs three counterfactual genotype histories
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: model3-k32-outcross-ablation
+          path: outcross-ablation-budget*.json
+          if-no-files-found: warn
+          retention-days: 90
