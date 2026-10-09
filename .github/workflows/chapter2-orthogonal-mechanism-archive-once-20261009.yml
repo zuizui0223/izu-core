@@ -1,0 +1,52 @@
+name: Chapter 2 posthoc mechanism byte-exact archive one-time
+
+on:
+  push:
+    branches:
+      - chapter2/orthogonal-posthoc-pollination-coupling-20261009
+    paths:
+      - data/dispatch/orthogonal-mechanism-archive-launch-20261009.txt
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  archive:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - name: Confirm original read-only run
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          d=$(gh api "repos/$REPO/actions/runs/37890907635")
+          test "$(echo "$d" | jq -r .conclusion)" = "success"
+          test "$(echo "$d" | jq -r .head_sha)" = "615c93bd6715ad73dc859c37a4105028203958c1"
+      - uses: actions/download-artifact@v4
+        with:
+          name: chapter2-orthogonal-posthoc-mechanism-audit-20261009
+          path: frozen-machine-readout
+          repository: ${{ github.repository }}
+          run-id: 37890907635
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+      - name: Preserve exact original bytes without recomputation
+        run: |
+          set -euo pipefail
+          mkdir -p results/chapter2
+          cp frozen-machine-readout/chapter2-orthogonal-posthoc-mechanism-20261009.json \
+            results/chapter2/orthogonal_capacity_mechanism_posthoc_20261009.json
+          actual=$(sha256sum results/chapter2/orthogonal_capacity_mechanism_posthoc_20261009.json | cut -d' ' -f1)
+          test "$actual" = "255d62055760e49fa3e032ac16040c790ebc2fc02564e1584fcf597aecbc14c3"
+          python -m json.tool results/chapter2/orthogonal_capacity_mechanism_posthoc_20261009.json >/dev/null
+      - name: Commit original result to review branch
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add results/chapter2/orthogonal_capacity_mechanism_posthoc_20261009.json
+          git commit -m "Archive original source-locked post-outcome channel JSON"
+          git push origin "HEAD:${{ github.ref_name }}"
