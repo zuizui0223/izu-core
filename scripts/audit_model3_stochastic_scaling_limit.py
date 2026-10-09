@@ -178,7 +178,7 @@ def scaling_screen(*,settings=("prior_selfing","assurance_cost"),
     return {
         "status":"FINITE_K_STOCHASTIC_SCALING_DIAGNOSTIC",
         "source_old_visitor_history":VISITOR_HISTORY,
-        "visitor_snapshot_index":VISITOR_SNAPSHOT_INDEX,
+        "visitor_snapshot_index":snapshot_index,
         "visitor_assembly_is_fixed_not_outcome_selected":True,
         "plants_remain_unchanged_founder_clones_at_snapshot":True,
         "founder_alleles_sha256":base_hash,
