@@ -937,3 +937,71 @@ jobs:
           path: fixed-allele-hetero-budget*.json
           if-no-files-found: warn
           retention-days: 90
+
+  model3-k32-heterozygosity-channels:
+    if: github.event_name == 'pull_request' && github.event.pull_request.number == 420
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Test exact canonical self-father-mother allele transmission and changed recruit intensities
+        run: pytest -q tests/test_model3_k32_heterozygosity_reproductive_channels.py
+      - name: Audit year1/4/8 same-source-parent heterozygosity transmission channels budget8
+        run: python -m scripts.audit_model3_k32_heterozygosity_reproductive_channels --budget 8 --draws 512 --permutations 4 --out het-channels-budget8.json
+      - name: Audit year1/4/8 same-source-parent heterozygosity transmission channels budget3
+        run: python -m scripts.audit_model3_k32_heterozygosity_reproductive_channels --budget 3 --draws 512 --permutations 4 --out het-channels-budget3.json
+      - name: Verify source genetics, pairing constraints, allele copy conservation, and exact gene-transmission sum
+        run: |
+          python - <<'PY'
+          import json
+          import numpy as np
+          from pathlib import Path
+          for budget in (8,3):
+              d=json.loads(Path(f"het-channels-budget{budget}.json").read_text())
+              c=d["conditions"]
+              assert d["status"]=="K32_SOURCE_EXACT_ASSURANCE_HET_EDIT_CHANNEL_AND_DEMOGRAPHY_VERIFIED"
+              assert (c["K"],c["mutation_rate"],c["generations"],c["budget"])==(32,0,8,budget)
+              assert c["old_visitor_history"]==26110601
+              assert c["n_independent_ecological_histories"]==1
+              assert c["n_nested_original_source_paths"]==512
+              assert c["n_permutations_within_each_source_parent"]==4
+              assert c["source_reproductive_biology_modified"] is False
+              assert c["original_assurance_allele_copy_count_preserved_exactly"] is True
+              assert c["original_parental_census_and_other_two_loci_unchanged"] is True
+              assert c["recruitment_law_depends_on_genetic_edit"] is True
+              assert c["prospective_confirmatory_histories_used"] is False
+              assert set(d["source_parent_years"])=={"1","4","8"}
+              assert set(d["channels"])=={"viable_self_seed_allele_direction",
+                  "outcross_paternal_allele_direction","outcross_maternal_allele_direction"}
+              for y in d["source_parent_years"].values():
+                  assert y["shared_original_source_parent_count"]==c["n_shared_parent_year8_survivors"]
+                  for op in ("heterozygosity_up","heterozygosity_down"):
+                      eligible=y["source_edit_eligibility"][op]["eligible_original_source_parent_paths"]
+                      assert 0<=eligible<=c["n_shared_parent_year8_survivors"]
+                      for v in ("1","8"):
+                          row=y["edit_minus_same_sham"][op][v]
+                          assert row["expected_allele_direction_difference"]["n_eligible_original_source_parent_paths"]==eligible
+                          if eligible:
+                              delta=np.asarray(row["expected_allele_direction_difference"]["mean"])
+                              terms=sum((np.asarray(x["mean"]) for x in
+                                         row["channel_differences"].values()),np.zeros(3))
+                              assert np.allclose(delta,terms,atol=1e-12,rtol=0)
+                              assert row["max_exact_mendelian_reconstruction_error"]<1e-11
+                              rates=row["viable_seed_mass_recruitment_differences"]
+                              assert abs(rates["self_viable_seed_mass"]["mean"][0]+
+                                         rates["outcross_viable_seed_mass"]["mean"][0]-
+                                         rates["total_viable_seed_mass"]["mean"][0])<1e-11
+              print("K32 fixed-allele exact three-way reproductive channel and changed intensity PASS",budget)
+          PY
+      - name: Archive original biology genetic HET channel decomposition evidence
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: model3-k32-heterozygosity-channels
+          path: het-channels-budget*.json
+          if-no-files-found: warn
+          retention-days: 90
