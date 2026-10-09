@@ -127,14 +127,9 @@ def run_pathwise(*, budget:float=8., draws:int=512, seed:int=420261010):
         variances=[]; extinction_probability_at_parent=[]
         started=int(alive.sum())
         extinction_events=0
-        for rep in range(draws):
-            # Each trajectory maintains *its own integer parent state*.
-            # Stored separately so following generations never reset to the
-            # mean of another trajectory.
-            if year==0:
-                pass
-            # State is populated below from 'parents' for all years.
         if year==0:
+            # Each trajectory evolves from its own integer genotype census,
+            # never from another trajectory's population or ensemble mean.
             parents=np.repeat(initial[None,:],draws,axis=0)
         for rep in np.flatnonzero(alive):
             parent=parents[rep].copy()
