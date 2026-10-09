@@ -1,1 +1,0 @@
-Read-only schema correction for timing study cohort metadata. Never regenerate histories, relabel outcome evidence, or infer pooled statistical effects.
