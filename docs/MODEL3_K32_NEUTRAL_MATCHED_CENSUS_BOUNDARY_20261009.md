@@ -114,3 +114,48 @@ is added (the repo's trigger policy is unchanged).
 **Release gate:** Do not claim a successful source-run numerical comparison
 until this job finishes and its archive is inspected. The full
 main-branch CI and Chapter 2 scientific gate remain separate checks.
+
+
+## Source-locked eight-generation execution (2026-10-09)
+
+The exact-source test and both numerical experiments succeeded in
+[GitHub Actions 37886120572](https://github.com/zuizui0223/izu-core/actions/runs/37886120572)
+on source commit `789ad18c58a068ac16d1f7eec905b2fc54ad61cc`.
+Full raw neutral and source trajectories are in
+[artifact 11596860279](https://github.com/zuizui0223/izu-core/actions/runs/37886120572/artifacts/11596860279);
+permanent compact source-locked results are in
+`data/results/model3_k32_neutral_matched_census_20261009.json`.
+
+| Budget | Surviving paired histories | Source assurance high-allele mean | Neutral assurance mean | Paired source-minus-neutral mean (MC 95% approximate interval) |
+|---|---:|---:|---:|---|
+| 8 | 512/512 | 0.97726 | 0.50119 | +0.47607 [+0.46002,+0.49213] |
+| 3 | 501/512 | 0.98890 | 0.50497 | +0.48392 [+0.46414,+0.50371] |
+
+The neutral process preserves expectation p=0.5 through its exact
+parent-pair Mendelian transition. The strong source-model mean shift is
+thus a consequence of source directional reproductive rules in this
+tested simulation, **not a generic artifact of frequencies being bounded
+above by 1**. The originally observed negative source direction/sampling
+covariance can still be a boundary effect and is not causally explained
+by this control.
+
+The main source model also produced endpoint assurance high-allele
+**fixation (p=1)** in 299/512 (58.4%) budget-8 histories and 415/501
+(82.8%) budget-3 survivors, versus 0/512 (0%) and 8/501 (1.60%) in the
+matched-census neutral comparator. The source-vs-neutral variance difference
+at the endpoint (budget8 0.00176 vs 0.03173; budget3 0.00144 vs 0.04942)
+is descriptive: the counterfactual is not mean-matched and does not
+identify the contribution of ceiling versus dynamic feedback to the
+source's small variance.
+
+Additional endpoint high-allele paired differences were
+matching -0.13031 (budget8), -0.08179 (budget3), and
+floral investment -0.29025 (budget8), -0.33236 (budget3). These are
+not real-world selection coefficients. The total ecological sample size
+is one archived visitor history, not 512 independent environments.
+
+**Acceptance boundary:** dedicated neutral CI PASSED on the exact
+source SHA. Subsequent commits documenting the evidence do not revalidate
+all Python versions; keep #420 Draft until the latest broad CI and
+scientific gate have succeeded. No admission of full Ito SDE/SPDE,
+natural-island inference, or claimed uniquely causal stabilization.
