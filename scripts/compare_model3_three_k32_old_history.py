@@ -18,6 +18,7 @@ import argparse
 import hashlib
 import json
 from pathlib import Path
+from dataclasses import replace
 
 import numpy as np
 
@@ -29,6 +30,9 @@ from scripts.audit_model3_stochastic_bridge import (
     genotype_counts_to_canonical_state, offspring_genotype_distribution,
 )
 from scripts.model3_island.reproduction import reproduce
+from scripts.run_chapter2_assurance_generality import (
+    DEFAULT_DESIGN, config as canonical_config, load_design,
+)
 from scripts.run_model3_persistent_isolation import exposure
 
 OLD_HISTORY = 26110601
@@ -267,9 +271,17 @@ def compare_three(*, draws: int = DEFAULT_DRAWS,
             or type(seed) is not int or seed < 0
             or float(budget) not in (3., 8.)):
         raise ValueError("only preregistered K32, u=0, 8-year engineering design")
-    start, grid, unused_engineered_visitors, config = fixed_support_problem(
+    start, grid, unused_engineered_visitors, fixture_config = fixed_support_problem(
         capacity=FIXED_K, ovule_budget=float(budget)
     )
+    design = load_design(DEFAULT_DESIGN)
+    source = canonical_config(design, "prior_selfing", FIXED_MUTATION, "evolving")
+    config = replace(source, capacity=FIXED_K, survival=0.,
+                     mutation_rate=FIXED_MUTATION,
+                     ovule_budget=float(budget),
+                     seed_arrival=replace(source.seed_arrival, supply=0.))
+    if config.assurance_timing != "prior":
+        raise AssertionError("canonical prior_selfing timing changed")
     if (config.capacity != FIXED_K or config.mutation_rate != FIXED_MUTATION
             or config.survival != 0 or config.seed_arrival.supply != 0
             or len(grid.genotypes) != GENOTYPE_CLASSES):
@@ -326,6 +338,8 @@ def compare_three(*, draws: int = DEFAULT_DRAWS,
             "generations": years, "ovule_budget": float(budget),
             "adult_survival": 0., "seed_immigration": 0.,
             "old_visitor_history": OLD_HISTORY, "environment": "near",
+            "reproductive_setting": "prior_selfing",
+            "source_config": "chapter2_assurance_generality_20261006.json",
             "independent_visitor_histories": 1,
             "new_visitor_histories_sampled": 0,
             "confirmatory_cohorts_accessed": False,
