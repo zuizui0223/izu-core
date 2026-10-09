@@ -13,6 +13,7 @@ import pytest
 
 from scripts.audit_model3_stochastic_mutation_scaling import (
     exact_mutation_one_step_trait_moments,
+    dirichlet_simplex_boundary_diagnostic,
     population_size_noise_scaling,
     reflected_allele_moments,
 )
@@ -202,3 +203,19 @@ def test_mutation_conditioned_three_generation_old_history_preflight():
     assert receipt["full_multigeneration_SDE_validated"] is False
     assert receipt["full_trait_space_SPDE_validated"] is False
     assert receipt["geographic_INLA_performed"] is False
+
+def test_simplex_covariance_matching_cannot_reproduce_rare_genotype_loss():
+    q=np.array([.02,.98])
+    result=dirichlet_simplex_boundary_diagnostic(
+        q,8,draws=12000,seed=20261009
+    )
+    assert result["status"]=="moment_matched_simplex_but_genetic_loss_not_reproduced"
+    assert result["theoretical_multinomial_absence_probability"]==pytest.approx(.98**8)
+    assert result["empirical_multinomial_absence_probability"]>.80
+    assert result["empirical_dirichlet_absence_probability"]==0.
+    assert result["max_empirical_dirichlet_mean_error"]<.025
+    assert result["max_empirical_dirichlet_covariance_error"]<.005
+    assert result["formal_dirichlet_and_multinomial_first_two_moments_equal"] is True
+    assert result["full_SPDE_genetic_loss_validated"] is False
+    with pytest.raises(ValueError,match="N>=2"):
+        dirichlet_simplex_boundary_diagnostic(q,1)
