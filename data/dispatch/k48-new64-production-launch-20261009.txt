@@ -1,0 +1,10 @@
+ONE-TIME PROSPECTIVE FIXED-B48 DEMOGRAPHIC CAPACITY REPLICATION, 2026-10-09
+This run is authorized by the user's instruction "進めて" following the completed 64-history K×B source trial.
+Do NOT reuse exposed prior cohorts. New independent visitor histories 41110901–41110964, repeats 41111901–41111902.
+Protocol: data/design/chapter2_k_fixedB48_independent_20261009.json
+Exact eight sampled complete diploid founders; B=48 fixed; demographic ceilings K8 vs K48; baseline vs half viable selfed seed.
+One 400-update independent t400 source stage: 64 histories × 32 = 2048 authenticated raw diploid sources.
+One 80-update future stage: 2048 sources × 56 = 114688 future trajectories.
+ONLY after preregistered static preflight and full source admission. No peeking, outcome conditioning, optional stopping or cohort changes.
+Predeclared primary: tau(K8,B48)-tau(K48,B48), 9999 paired 64 history bootstrap, seed 2026100967, minimum meaningful effect |mean| >= 0.005 and CI exclusion of zero.
+Previously exposed B=48 capacity contrast from separate 401... cohort was descriptive, not confirmation.
