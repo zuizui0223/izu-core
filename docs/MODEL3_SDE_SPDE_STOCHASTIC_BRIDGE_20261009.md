@@ -115,3 +115,11 @@ The new result can establish a *consistent stochastic-noise construction under r
 ### What remains blocked
 
 A full process-level SDE/SPDE needs a **valid stand-alone inherited-state closure**, not just correct conditional moments on observed ABM states. A mean-only three-trait diffusion loses full diploid segregation, self-pollen exclusion, rare allele retention, state-dependent extinction, and the nonlocal sexual inheritance operator. The mutation-enabled three-locus deterministic density solver also has unresolved grid convergence. Therefore any claim that the candidate matches long-run mutation-enabled ABM evolution remains **not established**, regardless of these source-conditioned passes.
+
+## SPDE feasibility counterexample: positive simplex noise is not enough
+
+An attractive frequency-valued stochastic surrogate is `Dirichlet((N-1)*q)`. At fixed realized `N>=2`, it stays on the nonnegative simplex and matches the exact finite multinomial mean `q` and covariance `[diag(q)-q q.T]/N` exactly. **But it has a different support and cannot remove a rare genotype whose expected probability is positive.**
+
+For a rare genotype at `q=0.02`, and `N=8` new individuals, the true finite multinomial transition loses it with probability `(1-0.02)^8 = 0.85076...`; the moment-matched Dirichlet transition loses it with probability **zero**. Even a noise model that solves positivity and covariance can miss the central finite genetic-memory mechanism. We treat this mismatch as a *negative feasibility gate* for any naive positive continuous-density SPDE, not as evidence that all SPDE formulations are impossible. A discrete allele-loss boundary or full frequency-valued measure process is needed to represent the exact finite model.
+
+Numerical test: `test_simplex_covariance_matching_cannot_reproduce_rare_genotype_loss` and preflight JSON `simplex_noise_genetic_loss_diagnostic` using fixed `q`, `N`, a seeded 10,000-draw diagnostic. This is **not** a new ecological visitor-history replicate or a simulation of the full genetic-evolution model.
