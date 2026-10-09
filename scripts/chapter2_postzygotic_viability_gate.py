@@ -111,3 +111,103 @@ def analyze_factorial_schedule_interactions(
         "secondary_joint_gate_absolute_order_effect":both_half,
         "factorial_nonadditivity":baseline-self_half-outcross_half+both_half,
     }
+
+
+def simulate_gated_future(
+        task, state, selected_eight, d: dict, biology: dict,
+        regime: str, future: str, budget: float, *,
+        intervention: str) -> dict:
+    """Replay the frozen future biology with one explicit postzygotic gate.
+
+    Every t400 inherited allele, ancestry, visitor history, and demographic
+    stream ID is retained. Only the seed-viability ledger presented to advance
+    is experimentally attenuated. No natural mediation claim follows.
+    """
+    from dataclasses import replace
+    from scripts.chapter2_order_postshock_runner import one_future, paired_streams
+    from scripts.run_chapter2_assurance_generality import config as source_config
+    from scripts.run_model3_persistent_isolation import exposure
+    from scripts.model3_island.population import advance
+    from scripts.model3_island.reproduction import reproduce
+
+    if intervention not in FACTORIAL_GATES:
+        raise ValueError("Unregistered postzygotic intervention")
+    # Crucial bit-for-bit comparison against original audited future:
+    # never recompute the no-attenuation reference.
+    if intervention == "baseline":
+        return one_future(task,state,selected_eight,d,biology,
+                          regime,future,budget)
+
+    if regime not in d["postshock"]["arms"]:
+        raise ValueError("Unfrozen postshock regime")
+    cap = 48 if regime == "unbottlenecked_capacity48" else 8
+    initial = state if cap == 48 else selected_eight
+    if len(initial.ids) > cap:
+        raise AssertionError("Wrong frozen founder count/capacity")
+    cfg = replace(
+        source_config(biology,task.setting,d["postshock"]["post_mutation_rate"],
+                      "evolving"),
+        capacity=cap, ovule_budget=float(budget), assurance_mode="evolving",
+    )
+    if cfg.seed_arrival.supply != 0:
+        raise AssertionError("Plant immigration is forbidden")
+    visitors = exposure(
+        task.visitor_history+d["postshock"]["future_visitor_seed_offset"],
+        future,
+    )
+    streams = paired_streams(task,d,regime,future,budget)
+    if len(initial.ids):
+        ledger0 = apply_named_gate(
+            reproduce(initial,visitors.visitors[0],cfg), intervention
+        )
+        payoff = {
+            "maternal_viable_per_plant": float(ledger0.maternal.mean()),
+            "female_outcross_per_plant":float(ledger0.outcross.sum()/len(initial.ids)),
+            "paternal_export_per_plant":float(ledger0.exported.mean()),
+            "viable_selfed_per_plant":float(ledger0.self_viable.mean()),
+        }
+    else:
+        payoff = None
+
+    current = initial
+    first_extinction = 0 if not len(current.ids) else None
+    recruits_self = recruits_outcross = 0
+    for year in range(d["postshock"]["updates"]):
+        if not len(current.ids):
+            break
+        candidate=visitors.seed_candidates[year]
+        if len(candidate.ids):
+            raise AssertionError("No external plant seed candidates allowed")
+        ledger=apply_named_gate(
+            reproduce(current,visitors.visitors[year],cfg), intervention
+        )
+        current, info=advance(
+            current,ledger,candidate,cfg,streams,
+            year=d["prehistory"]["updates"]+year,
+            mutation_traits=(True,True,True),
+        )
+        recruits_self += info["resident_selfed_recruits"]
+        recruits_outcross += info["resident_outcross_recruits"]
+        if first_extinction is None and not len(current.ids):
+            first_extinction = year+1
+    if len(current.ids):
+        means=current.alleles.mean(axis=2)
+        endpoint={
+            "means":means.mean(axis=0).tolist(),
+            "variances":means.var(axis=0).tolist(),
+        }
+    else:
+        endpoint=None
+    return {
+        "regime":regime,"future_visitor":future,"budget":float(budget),
+        "t0_population":int(len(initial.ids)),
+        "end_population":int(len(current.ids)),
+        "occupied":int(bool(len(current.ids))),
+        "first_extinction":first_extinction,
+        "immediate_reproductive_payoff":payoff,
+        "surviving_genetic_endpoint":endpoint,
+        "selfed_recruits":int(recruits_self),
+        "outcross_recruits":int(recruits_outcross),
+        "future_assurance_mode":"evolving",
+        "future_expression_offsets":[0,0],
+    }
