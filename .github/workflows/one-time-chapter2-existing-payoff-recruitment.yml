@@ -1,0 +1,59 @@
+name: One-time Chapter 2 existing-case payoff and recruitment audit
+
+on:
+  push:
+    branches: [chapter2/posthoc-payoff-recruitment-decomposition-20261009]
+    paths:
+      - .github/workflows/one-time-chapter2-existing-payoff-recruitment.yml
+
+permissions:
+  actions: read
+  contents: write
+
+jobs:
+  replay-existing-futures:
+    if: github.event.head_commit.message == 'ops-chapter2-run-existing-payoff-recruitment'
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Synthetic-only validation of channel decomposition
+        run: |
+          pytest -q tests/test_chapter2_order_payoff_recruitment_posthoc.py \
+            tests/test_chapter2_order_absolute_posthoc.py
+      - name: Download only completed historical data, not new simulations
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          set -euo pipefail
+          mkdir -p outputs/window-post-archive
+          gh run download 37862121201 \
+            --repo "${{ github.repository }}" \
+            --pattern 'budget-window-post-shard-*' \
+            --dir outputs/window-post-archive
+          python - <<'PY'
+          from pathlib import Path
+          r=Path('outputs/window-post-archive')
+          assert {x.name for x in r.iterdir() if x.is_dir()} == {
+              f'budget-window-post-shard-{k}' for k in range(64)
+          }
+          print('Archived 64 independent-history future shards complete')
+          PY
+      - name: Re-audit 2048 source receipts and analyze all 57344 existing futures
+        run: |
+          python -m scripts.chapter2_order_payoff_recruitment_posthoc \
+            --post-dir outputs/window-post-archive \
+            --out results/chapter2/order_payoff_recruitment_posthoc_20261009.json
+      - name: Preserve source-backed exploratory result with no changed science
+        run: |
+          set -euo pipefail
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add results/chapter2/order_payoff_recruitment_posthoc_20261009.json
+          git diff --cached --quiet && exit 0
+          git commit -m 'results(chapter2): archive existing-future payoff recruitment decomposition'
+          git push origin HEAD:chapter2/posthoc-payoff-recruitment-decomposition-20261009
