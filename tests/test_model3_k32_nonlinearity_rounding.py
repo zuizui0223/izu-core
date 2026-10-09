@@ -60,8 +60,13 @@ def test_exact_analytic_one_step_is_compatible_with_finite_source_draws():
     ])
     error=np.abs(sampled.mean(axis=0)-target)
     se=sampled.std(axis=0,ddof=1)/np.sqrt(len(sampled))
-    # Finite MC allows a conservative 5-sigma tolerance plus tiny zero-variance.
-    assert np.all(error <= 5*se+1e-6)
+    # If a genuinely rare event was not observed in 600 draws, its
+    # sample variance is zero despite a positive analytical expectation.
+    # In that case use Bhatia-Davis: Var(H) <= E[H]*(upper-E[H]).
+    upper=np.array([32.,1.,27.,6.,1.,1.,1.])
+    conservative=np.sqrt(np.maximum(0.,target*(upper-target))/len(sampled))
+    usable=np.where(se>0,se,conservative)
+    assert np.all(error <= 5*usable+1e-6)
 
 
 @pytest.mark.parametrize("budget",[3.,8.])
