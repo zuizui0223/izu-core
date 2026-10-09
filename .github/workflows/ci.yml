@@ -1005,3 +1005,64 @@ jobs:
           path: het-channels-budget*.json
           if-no-files-found: warn
           retention-days: 90
+
+  model3-k32-self-transmission-curvature:
+    if: github.event_name == 'pull_request' && github.event.pull_request.number == 420
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Validate original linear assurance self seed and exact quadratic allele transmission
+        run: pytest -q tests/test_model3_k32_self_transmission_curvature.py
+      - name: Audit source K32 fixed-copy self-transmission numerator budget8
+        run: python -m scripts.audit_model3_k32_self_transmission_curvature --budget 8 --draws 512 --permutations 4 --out self-curvature-budget8.json
+      - name: Audit source K32 fixed-copy self-transmission numerator budget3
+        run: python -m scripts.audit_model3_k32_self_transmission_curvature --budget 3 --draws 512 --permutations 4 --out self-curvature-budget3.json
+      - name: Enforce actual source function and exact self numerator and direction reconstruction
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for b in (8,3):
+              d=json.loads(Path(f"self-curvature-budget{b}.json").read_text())
+              c=d["source_provenance"]
+              assert d["status"]=="ORIGINAL_K32_EXACT_LINEAR_SELFING_DOSAGE_CURVATURE_AUDIT_VERIFIED"
+              assert (c["K"],c["mutation_rate"],c["generations"],c["budget"])==(32,0,8,b)
+              assert c["old_visitor_history"]==26110601
+              assert c["n_independent_visitor_histories"]==1
+              assert c["nested_source_demographic_paths"]==512
+              assert c["n_permutations_per_feasible_parent"]==4
+              assert c["assurance_cost"]==0
+              assert c["investment_cost"]==.5
+              assert c["selfing_depression"]==.5
+              assert c["source_self_seed_function_linear_in_assurance_a"] is True
+              assert c["source_model3_reproductive_biology_modified"] is False
+              assert c["prospective_confirmatory_histories_accessed"] is False
+              assert set(d["source_parent_years"])=={"1","4","8"}
+              for row in d["source_parent_years"].values():
+                  for op,sign in (("heterozygosity_up",-1),("heterozygosity_down",1)):
+                      x=row[op]
+                      n=x["n_source_parent_paths_eligible"]
+                      assert 0<=n<=c["n_source_year8_parent_survivors"]
+                      for visitor in ("1","8"):
+                          z=x["visitors"][visitor]
+                          assert z["n_original_parent_paths"]==n
+                          assert z["max_absolute_reconstruction_error"]<1e-10
+                          if n:
+                              m=z["means"]
+                              assert abs(m["sum_of_self_dosage_products_delta"]-.25*sign)<1e-12
+                              assert abs(m["self_intensity_if_both_investments_equal_delta"])<1e-12
+              print("original source prior-self linear seed mass + curved allele dosage source identity PASS",b)
+          PY
+      - name: Archive old-history self transmission curvature and investment placement
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: model3-k32-self-transmission-curvature
+          path: self-curvature-budget*.json
+          if-no-files-found: warn
+          retention-days: 90
