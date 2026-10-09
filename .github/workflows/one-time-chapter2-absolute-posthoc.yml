@@ -1,3 +1,4 @@
+# Rerun synthetic paired-contrast tests after floating precision fix.
 name: One-time Chapter 2 post-outcome absolute-effect analysis
 on:
   push:
