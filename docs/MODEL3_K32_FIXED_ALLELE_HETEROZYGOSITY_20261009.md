@@ -139,3 +139,128 @@ archives raw old-history JSON and refuses to treat
 infeasible source parent genotypes as measurements.
 **No numerical result is admitted until exact-head
 CI has passed and the full raw artifact is inspected.**
+
+
+## Executed source-verified result and eligibility limits
+
+The corrected source SHA
+`1ec2ac1773218b94551a4d8518a4bb9346ff2bd2`
+passed the dedicated `model3-k32-fixed-allele-heterozygosity`
+job in [GitHub Actions #37937577229](https://github.com/zuizui0223/izu-core/actions/runs/37937577229).
+The two-budget complete [raw source-run artifact #11618768969](https://github.com/zuizui0223/izu-core/actions/runs/37937577229/artifacts/11618768969)
+has SHA256
+`a78a719c6d5c51947db0795a40f4ca21e88dd2fc4a18524a31712fb4794bc545`.
+Both budget8 and budget3 regressions, conservation guards,
+three source-parent checkpoints and each four random assignment
+averages succeeded. Compact committed evidence:
+`data/results/model3_k32_fixed_allele_heterozygosity_20261009.json`.
+
+### Biological feasibility decreases toward assurance fixation
+
+Source parental states are restricted to the SAME cohort
+still living at start of original source year8, 512 (budget8)
+or 506 (budget3). The number of eligible parent states for
+two-individual assurance heterozygote operations:
+
+| Original source parent year | Budget8 HET_UP | Budget8 HET_DOWN | Budget3 HET_UP | Budget3 HET_DOWN |
+|---|---:|---:|---:|---:|
+| Year1 | 512/512 | 512/512 | 506/506 | 506/506 |
+| Year4 | 478/512 | 467/512 | 433/506 | 346/506 |
+| Year8 | **171/512** | **119/512** | **101/506** | **49/506** |
+| Year8 eligible for both | colspan | 86/512 | colspan | 33/506 |
+
+Year8 HET_UP needs at least one *low-low AND high-high*
+assurance homozygote. Year8 HET_DOWN needs at least two
+assurance heterozygotes. Thus late fixation makes a
+large fraction of the source population's original
+genotype states **unable to implement either control**
+without introducing absent allele states. We did NOT
+replace them with fictitious measurements.
+The two operations evaluate different subsets unless
+explicitly restricted to the 86 budget8 or 33 budget3
+original states feasible both ways.
+
+### Exact same-frequency assurance-genotype perturbation results
+
+The numbers below are edited-minus-SAME-PERMUTATION-sham
+expected NEXT generation high-allele frequency *direction*
+under the archived year8 visitor snapshot, in the original
+matching/investment/assurance locus order.
+Every edited source parent retains exactly the same count
+of high assurance allele copies and unchanged individual
+genotypes at matching/investment loci. Each action changes
+assurance heterozygote fraction by exactly +/-2/N
+where N is the living source parental census.
+
+| Year8 assay, feasible states only | Matching direction, budget8 | Matching direction, budget3 | Assurance own-locus direction, budget8 | Assurance own-locus direction, budget3 |
+|---|---:|---:|---:|---:|
+| HET_UP | +0.000018 ± 0.000213 | -0.000498 ± 0.000765 | **-0.009203 ± 0.000067** | **-0.017986 ± 0.001791** |
+| HET_DOWN | +0.000072 ± 0.000247 | +0.000853 ± 0.000460 | **+0.009062 ± 0.000091** | **+0.013093 ± 0.000918** |
+
+Here +/- denotes nested source-demographic Monte Carlo SE
+WITHIN the fixed old visitor history. This is not a confidence
+interval over new ecological environments and cannot
+establish a broad natural effect. In particular budget3
+HET_DOWN is only 49 of 506 eligible parents and is
+insufficient to generalize to the high-fixed majority.
+
+**Conclusion for MATCHING:** the fixed-allele-count HET_UP /
+HET_DOWN operations fail to produce a stable large matching
+direction shift across the two budgets at year8.
+Thus the earlier *founder distribution reset* sign
+reversal is NOT supported as an effect of changing
+assurance heterozygosity alone. It also changes the
+assurance allele frequency, both homozygote classes
+and individual genotype associations.
+
+**Conclusion for ASSURANCE:** at the exact same current
+parent assurance high-allele copy number and matched
+locus-assignment baseline, increasing assurance
+heterozygosity changes its OWN next-generation
+expected transmitted allele direction negatively,
+while decreasing heterozygosity changes it positively.
+This contrast arises from genotype-specific original
+reproductive weights (fitness/assurance self seed
+rules + pollen pairing), NOT a new mutation/drift
+transition. It is a biologically suggestive controlled
+model sensitivity, not a natural heterozygote-fitness
+coefficient. Altering two individual assurance diploid
+genotypes necessarily changes their within-individual
+association to unchanged matching and investment
+backgrounds, so this is not a fully isolated
+heterozygosity-only physiological effect.
+
+### Why paired sham matters
+
+At original year8 source states, randomly reassigning
+the assurance diploid genotype pairs among individuals
+(the SHAM; full assurance dosage-class marginal
+unchanged) shifts matching-high direction by about
+**-0.00285** budget8 and **-0.00206** budget3
+under late visitors. Those association-breaking effects
+are considerably larger than the direct two-parent
+HET_UP / HET_DOWN matching-direction contrasts.
+This supports separating genetic background
+association from heterozygosity count, while still
+not identifying which biological interaction is
+causal in real plant systems.
+
+At source year1, both HET_UP and HET_DOWN are
+feasible in every original source history. Their
+matching direction contrasts under year8 visitors
+are approximately -0.000190/+0.000022 (budget8),
+-0.000182/+0.000015 (budget3), but assurance own-locus
+contrasts are about -0.01181/+0.01181. The strong
+assurance own-locus response therefore appears
+before the source is near fixation. No prospective
+confirmatory visitor histories or natural observations
+were opened.
+
+**Acceptance boundary:** one archived old visitor
+history 26110601 and artificial founder genotypes,
+source canonical biological code unchanged; edited
+genotypes do NOT naturally evolve from the frozen
+source Markov transition. No isolated field
+selfing advantage, model-wide epistasis coefficient,
+new independent island evidence, or full SDE/SPDE
+validation is asserted.
