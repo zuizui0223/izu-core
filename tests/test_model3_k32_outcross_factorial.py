@@ -91,6 +91,10 @@ def test_eight_year_factorial_source_scope_and_all_interaction_identities(budget
             row=year["metrics"][metric]
             assert row["max_additivity_identity_error"]<1e-10
             total=row["all_three_minus_original"]["mean"]
+            singles=row["sum_of_three_single_factor_effects"]["mean"]
+            interactions=row["aggregate_pairwise_and_three_way_interaction"]["mean"]
+            assert singles+interactions==pytest.approx(total,abs=1e-12)
+            assert row["aggregate_pairwise_and_three_way_interaction"]["demographic_mc_se"] is not None
             assert sum(x["mean"] for x in row["factorial_components"].values())==pytest.approx(total,abs=1e-12)
 
 
