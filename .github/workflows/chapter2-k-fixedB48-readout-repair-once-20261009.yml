@@ -5,6 +5,7 @@ on:
       - chapter2/k-fixedB48-readout-repair-20261009
     paths:
       - data/dispatch/k48-readout-repair-launch-20261009.txt
+      - data/dispatch/k48-readout-repair-testfix-20261009.txt
 
 permissions:
   contents: read
