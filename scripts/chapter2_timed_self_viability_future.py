@@ -32,6 +32,15 @@ GATES=("baseline","self_half_early","self_half_late","self_half_full")
 STATUS="NEW_TIMED_SELF_112_RAW_FUTURES_UNADJUDICATED"
 
 
+
+def gate_active(gate: str, update: int) -> bool:
+    """Pure, preregistered 0-39 vs 40-79 selfed-seed viability intervention."""
+    if gate not in GATES or type(update) is not int or not 0 <= update < 80:
+        raise ValueError("Unregistered seed gate or postshock update")
+    return (gate == "self_half_full"
+            or (gate == "self_half_early" and update < 40)
+            or (gate == "self_half_late" and update >= 40))
+
 def selected_eight(task, full, d):
     if not 42110901 <= task.visitor_history <= 42110964:
         raise AssertionError("Cannot reuse exposed source cohort")
@@ -78,7 +87,7 @@ def one_future(task,founders,d,biology,K,B,gate,visitor,budget):
             raise AssertionError("No plant seed immigration")
         ledger=reproduce_kb(current,external.visitors[y],cfg,
                             background_denominator_capacity=B)
-        if (gate=="self_half_full" or (gate=="self_half_early" and y < 40) or (gate=="self_half_late" and y >= 40)):
+        if gate_active(gate, y):
             ledger=gate_postzygotic_seed_viability(
                 ledger,selfed_fraction=0.5,outcross_fraction=1.0)
         if y==0:
@@ -143,6 +152,20 @@ def one_source(out,pre,task,d,biology,manifest):
                     raise AssertionError("K arm changed initial F8 founder abundance")
                 if rows[8]["t0"]!=rows[48]["t0"]:
                     raise AssertionError("K changed initial reproduction at fixed B48")
+        for K in (8,48):
+            by_gate={q["gate"]:q for q in futures
+                     if q["budget"]==budget and q["visitor"]==visitor and q["K"]==K}
+            if by_gate["baseline"]["t0"]!=by_gate["self_half_late"]["t0"]:
+                raise AssertionError("Late-only intervention altered t0")
+            if by_gate["self_half_early"]["t0"]!=by_gate["self_half_full"]["t0"]:
+                raise AssertionError("Early-only and full gate differ at t0")
+            if by_gate["baseline"]["t0"] is not None:
+                b=by_gate["baseline"]["t0"]
+                e=by_gate["self_half_early"]["t0"]
+                if (b["outcrossed_viable"]!=e["outcrossed_viable"]
+                        or b["exported_pollen"]!=e["exported_pollen"]
+                        or not np.isclose(e["selfed_viable"],0.5*b["selfed_viable"],rtol=0,atol=1e-10)):
+                    raise AssertionError("Timed gate changes wrong reproductive channel")
     raw={
         "status":STATUS,"task":asdict(task),"source_sha256":source_digest,
         "sampled_founder_full_genotype_sha256":founder_hash,
