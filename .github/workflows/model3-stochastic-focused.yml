@@ -4,11 +4,14 @@ on:
     paths:
       - 'scripts/audit_model3_stochastic_bridge.py'
       - 'scripts/audit_model3_stochastic_multistep.py'
+      - 'scripts/audit_model3_stochastic_measure.py'
+      - 'scripts/run_model3_stochastic_measure_preflight.py'
       - 'scripts/audit_model3_stochastic_mutation_scaling.py'
       - 'scripts/run_model3_mutation_multistep_preflight.py'
       - 'scripts/run_model3_sde_spde_preflight.py'
       - 'tests/test_model3_stochastic_bridge.py'
       - 'tests/test_model3_stochastic_multistep.py'
+      - 'tests/test_model3_stochastic_measure.py'
       - 'tests/test_model3_stochastic_mutation_scaling.py'
       - '.github/workflows/model3-stochastic-focused.yml'
   workflow_dispatch:
@@ -27,11 +30,13 @@ jobs:
           python-version: '3.11'
       - run: python -m pip install -e '.[dev]'
       - name: Test exact finite noise and three-generation stochastic bridge
-        run: pytest -q tests/test_model3_stochastic_bridge.py tests/test_model3_stochastic_multistep.py tests/test_model3_stochastic_mutation_scaling.py tests/test_model3_tensor_density.py
+        run: pytest -q tests/test_model3_stochastic_bridge.py tests/test_model3_stochastic_multistep.py tests/test_model3_stochastic_measure.py tests/test_model3_stochastic_mutation_scaling.py tests/test_model3_tensor_density.py
       - name: Run old-history stochastic moment preflight (engineering only)
         run: python -m scripts.run_model3_sde_spde_preflight --out stochastic-preflight.json --draws 1024
       - name: Run mutation-aware three-update old-history preflight
         run: python -m scripts.run_model3_mutation_multistep_preflight --out mutation-preflight.json --draws 512 --updates 3 --mutation-rate 0.01 --mutation-sd 0.05
+      - name: Run independent 3-update mutation-aware genotype measure vs canonical ABM
+        run: python -m scripts.run_model3_stochastic_measure_preflight --out measure-preflight.json --draws 512 --updates 3
       - name: Archive engineering moment receipt
         uses: actions/upload-artifact@v4
         with:
@@ -39,4 +44,5 @@ jobs:
           path: |
             stochastic-preflight.json
             mutation-preflight.json
+            measure-preflight.json
           retention-days: 90
