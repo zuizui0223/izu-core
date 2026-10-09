@@ -88,3 +88,27 @@ def test_scaling_audit_preserves_independent_finite_K_verdict_by_environment():
         assert group["result_scope"]=="finite_K_necessary_condition_not_limit_theorem"
     with pytest.raises(ValueError):
         scaling_screen(sizes=(8,8,32))
+
+
+def test_initial_snapshot_is_explicit_shared_baseline_not_isolation_effect():
+    initial=scaling_screen(
+        settings=("prior_selfing",),
+        environments=("near",),
+        sizes=(8,32,128),
+        snapshot_index=0,
+    )
+    assert initial["visitor_snapshot_index"]==0
+    assert len(initial["rows"])==3
+    assert all(r["visitor_snapshot_index"]==0 for r in initial["rows"])
+    with pytest.raises(ValueError,match="shared"):
+        scaling_screen(
+            settings=("prior_selfing",),
+            environments=("near","far"),
+            sizes=(8,32,128),
+            snapshot_index=0,
+        )
+    with pytest.raises(ValueError,match="checkpoint"):
+        scaling_screen(
+            settings=("prior_selfing",),environments=("near",),
+            sizes=(8,32,128),snapshot_index=399
+        )
