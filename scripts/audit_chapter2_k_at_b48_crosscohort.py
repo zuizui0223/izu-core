@@ -44,6 +44,7 @@ SOURCES = (
         "file": "results/chapter2/timed_self_viability_independent_readout_20261009.json",
         "sha256": "42d90c17cef4be1643b987428d3a6367ba09dee6594055ae2d2b693ccb190a01",
         "design": "data/design/chapter2_timed_self_viability_20261009.json",
+        "cohort_field": "genuinely_new_cohort",
         "range": (42110901, 42110964),
         "effect_key": "descriptive_full_K_moderation",
         "rank": "post_outcome_secondary_descriptive",
@@ -78,7 +79,7 @@ def audit() -> dict:
                     or s["range"][1] < prior["history_range"][0]):
                 raise AssertionError("Independent visitor history ranges overlap")
         design = json.loads((ROOT / s["design"]).read_text())
-        h = design["independent_cohort"]
+        h = design[s.get("cohort_field", "independent_cohort")]
         if (h["visitor_history_first"], h["visitor_history_last"]) != s["range"]:
             raise AssertionError("Source experiment new-history IDs changed")
         effect = outcome["contrasts"][s["effect_key"]]
