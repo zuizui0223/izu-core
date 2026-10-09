@@ -46,5 +46,5 @@ def test_secondary_positive_intervals_are_descriptive_not_confirmatory():
     assert sec["secondary_K_by_B"]["mean"]<0
     report=(ROOT/"docs/CHAPTER2_KB_INDEPENDENT_FULL_RESULT_20261009.md").read_text()
     assert "secondary/descriptive" in report
-    assert "multiple" in report
+    assert "multiplicity" in report
     assert "inconclusive" in report
