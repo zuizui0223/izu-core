@@ -222,7 +222,7 @@ def horizon_distribution_comparison(*,capacity:int=8,budget:float=3.,
             abs(a["mean_genotype_classes"]-b["mean_genotype_classes"]),
         "max_unconditional_genotype_count_difference":
             float(np.max(np.abs(np.asarray(a["mean_genotype_counts"])-
-                                np.asarray(b["mean_genotype_counts"]))),
+                                np.asarray(b["mean_genotype_counts"])))),
         "gaussian_closure_approved_for_multigeneration_SPDE":False,
         "canonical_Model3_modified":False,
         "INLA_geographic_analysis_performed":False,
