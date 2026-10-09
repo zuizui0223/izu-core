@@ -169,3 +169,19 @@ def test_duplicate_genotypes_conserve_integer_multiplicity():
     np.testing.assert_array_equal(
         GenotypeMeasure.from_plant_state(expanded).counts,np.array([3])
     )
+
+
+def test_independent_mutating_measure_rollouts_match_abm_endpoint_distribution():
+    from scripts.run_model3_stochastic_measure_preflight import (
+        compare_independent_rollouts,
+    )
+    result=compare_independent_rollouts(draws=256,updates=3)
+    assert result["status"]=="OLD_HISTORY_MUTATING_MEASURE_HORIZON_COMPARISON_PASS"
+    assert result["independent_visitor_histories"]==1
+    assert result["new_visitor_histories_drawn"]==0
+    assert result["mutation_support_grid_projected"] is False
+    assert result["full_continuous_time_SDE_validated"] is False
+    assert result["full_SPDE_validated"] is False
+    assert result["geographic_INLA_performed"] is False
+    assert result["arms"]["canonical_ABM"]["n_draws"]==256
+    assert result["arms"]["dynamic_genotype_measure"]["n_draws"]==256
