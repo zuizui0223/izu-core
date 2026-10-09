@@ -808,3 +808,69 @@ jobs:
           path: state-visitor-budget*.json
           if-no-files-found: warn
           retention-days: 90
+
+  model3-k32-locus-reassignment:
+    if: github.event_name == 'pull_request' && github.event.pull_request.number == 420
+    runs-on: ubuntu-latest
+    timeout-minutes: 22
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Test source-original reproduction and fixed-marginal diplotype reassignment
+        run: pytest -q tests/test_model3_k32_locus_reassignment.py
+      - name: Late original K32 parents, assurance/matching/investment diplotype controls budget8
+        run: python -m scripts.audit_model3_k32_locus_reassignment --budget 8 --draws 512 --permutations 4 --out locus-reassignment-budget8.json
+      - name: Late original K32 parents, assurance/matching/investment diplotype controls budget3
+        run: python -m scripts.audit_model3_k32_locus_reassignment --budget 3 --draws 512 --permutations 4 --out locus-reassignment-budget3.json
+      - name: Gate marginal-conservation versus artificial founder-diplotype reset
+        run: |
+          python - <<'PY'
+          import json
+          import numpy as np
+          from pathlib import Path
+          expected={"shuffle_matching","reset_matching","shuffle_investment",
+                    "reset_investment","shuffle_assurance","reset_assurance"}
+          for budget in (8,3):
+              d=json.loads(Path(f"locus-reassignment-budget{budget}.json").read_text())
+              c=d["conditions"]
+              assert d["status"]=="K32_ORIGINAL_REPRODUCTION_LATE_SOURCE_LOCUS_REASSIGNMENT_EVALUATED"
+              assert (c["K"],c["mutation_rate"],c["generations"],c["budget"])==(32,0,8,budget)
+              assert c["old_visitor_history"]==26110601
+              assert c["independent_visitor_histories"]==1
+              assert c["n_original_demographic_paths"]==512
+              assert c["n_permutation_reassignments_per_locus_variant"]==4
+              assert c["source_original_biological_code_modified"] is False
+              assert c["founder_diplotype_reset_can_reintroduce_lost_alleles"] is True
+              assert c["shuffle_preserves_all_three_marginal_diplotype_distributions"] is True
+              assert c["only_one_locus_modified_per_counterfactual"] is True
+              assert c["same_permuted_genotypes_evaluated_with_visitor_year1_and_year8"] is True
+              assert c["source_genotypes_from_start_of_year8"] is True
+              assert c["future_confirmatory_history_used"] is False
+              assert c["founder_assurance_high_allele_frequency"]==.5
+              assert set(d["locus_variants"])==expected
+              assert set(d["founder_reset_after_shuffle_sequential_contrasts"])=={
+                  "matching","investment","assurance"}
+              assert c["n_late_source_survivor_states"]>0
+              for name,record in d["locus_variants"].items():
+                  frequencies=np.asarray(record["parent_high_allele_marginal_change"]["mean"])
+                  assert len(frequencies)==3
+                  locus={"matching":0,"investment":1,"assurance":2}[name.split("_")[1]]
+                  assert np.allclose(np.delete(frequencies,locus),0.,atol=1e-12,rtol=0)
+                  if name.startswith("shuffle_"):
+                      assert np.allclose(frequencies,0.,atol=1e-12,rtol=0)
+                  for key in ("early_visitor_counterfactual_minus_original",
+                              "late_visitor_counterfactual_minus_original"):
+                      assert record[key]["n_source_parent_states"]==c["n_late_source_survivor_states"]
+              print("Source original, same-N shuffled vs reset one-locus genotype, old-history assay PASS",budget)
+          PY
+      - name: Archive artificial genetic-parent counterfactuals with provenance
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: model3-k32-locus-reassignment
+          path: locus-reassignment-budget*.json
+          if-no-files-found: warn
+          retention-days: 90
