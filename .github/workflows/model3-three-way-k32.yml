@@ -24,29 +24,33 @@ jobs:
         run: pytest -q tests/test_model3_three_way_old_history.py
       - name: Compare K32 old-history processes over 8 generations
         run: python -m scripts.compare_model3_three_k32_old_history --out model3-k32-three-way-old-history.json --draws 512 --budget 8
+      - name: Repeat 8-year comparison under resource stress (extinction sensitivity)
+        run: python -m scripts.compare_model3_three_k32_old_history --out model3-k32-three-way-old-history-budget3.json --draws 512 --budget 3
       - name: Check JSON provenance and non-promotion
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
-          p=Path("model3-k32-three-way-old-history.json")
-          r=json.loads(p.read_text())
-          c=r["conditions"]
-          assert c["capacity"]==32 and c["mutation_rate"]==0 and c["generations"]==8
-          assert c["old_visitor_history"]==26110601
-          assert c["new_visitor_histories_sampled"]==0
-          assert c["confirmatory_cohorts_accessed"] is False
-          assert r["canonical_biology_modified"] is False
-          assert "not_natural_island_observation" in r["evidence_type"]
-          assert r["numerical_precision"]["finite_markov_integer_mass_error"]==0
-          assert r["numerical_precision"]["gaussian_projected_integer_mass_error"]==0
-          print("Receipt validated; numerics remain engineering simulation only")
+          for p in (Path("model3-k32-three-way-old-history.json"),
+                    Path("model3-k32-three-way-old-history-budget3.json")):
+              r=json.loads(p.read_text())
+              c=r["conditions"]
+              assert c["capacity"]==32 and c["mutation_rate"]==0 and c["generations"]==8
+              assert c["reproductive_setting"]=="prior_selfing"
+              assert c["old_visitor_history"]==26110601
+              assert c["new_visitor_histories_sampled"]==0
+              assert c["confirmatory_cohorts_accessed"] is False
+              assert r["canonical_biology_modified"] is False
+              assert "not_natural_island_observation" in r["evidence_type"]
+              assert r["numerical_precision"]["finite_markov_integer_mass_error"]==0
+              assert r["numerical_precision"]["gaussian_projected_integer_mass_error"]==0
+              print(p, "receipt validated; simulated engineering evidence only")
           PY
       - name: Archive numerical comparison (not biological observations)
         uses: actions/upload-artifact@v4
         if: always()
         with:
           name: model3-k32-three-way-old-history
-          path: model3-k32-three-way-old-history.json
+          path: model3-k32-three-way-old-history*.json
           if-no-files-found: warn
           retention-days: 90
