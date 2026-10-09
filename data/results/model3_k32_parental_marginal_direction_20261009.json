@@ -1,0 +1,217 @@
+{
+  "schema": "model3_k32_exact_parental_marginal_allele_direction_old_history_v1",
+  "status": "original_Model3_exact_Mendelian_sex_specific_allele_direction_ci_passed",
+  "evidence_type": "source_conditional_genetic_reproductive_accounting_with_one_archived_visitor_history",
+  "provenance": {
+    "executed_source_sha": "37bc04a64e1dc2070dc47fbba93ca3d33d2301d4",
+    "ci_run_id": 37903183921,
+    "ci_url": "https://github.com/zuizui0223/izu-core/actions/runs/37903183921",
+    "job": "model3-k32-parental-marginals",
+    "conclusion": "success",
+    "raw_artifact_id": 11603825393,
+    "raw_url": "https://github.com/zuizui0223/izu-core/actions/runs/37903183921/artifacts/11603825393",
+    "raw_zip_sha256": "58248a8b91d9b9eca3c13af225139eb0412ca7bedf42bca2982a85aaad1e35ac"
+  },
+  "conditions": {
+    "K": 32,
+    "mutation_rate": 0,
+    "generations": 8,
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "ovule_budgets": [
+      8,
+      3
+    ],
+    "old_visitor_history": 26110601,
+    "environment": "near",
+    "independent_visitor_histories": 1,
+    "nested_source_demographic_paths_per_budget": 512,
+    "genotype_classes": 27,
+    "source_biology_modified": false,
+    "counterfactual_outcross_mating_weights_intentionally_altered": true,
+    "same_original_parent_state_for_all_8_factor_masks": true,
+    "self_seed_weights_and_total_outcross_intensity_preserved_same_state": true,
+    "prospective_confirmatory_histories_used": false,
+    "locus_order": [
+      "pollinator_matching",
+      "floral_investment",
+      "reproductive_assurance"
+    ]
+  },
+  "exact_reproduction_identity": "Let s_i=selfed viable seed mass, r_i=outcross male donor row sum, c_i=outcross maternal recipient column sum, T=sum s +sum outcross, b_i in {0,.5,1}, p=mean_i b_i, O=sum outcross/T, S=sum self/T. Then q-p=[sum s_i*b_i/T - S*p]+[sum r_i*b_i/(2T)-O*p/2]+[sum c_i*b_i/(2T)-O*p/2].",
+  "same_parent_factorial_identity": "Each outcross-only factor preserves s_i, O and T at same original parental C, hence counterfactual-original self contribution=0 and one-generation expected allele-direction difference exactly equals father marginal delta + mother marginal delta.",
+  "cases": [
+    {
+      "budget": 8,
+      "n_year8_source_parent_states": 512,
+      "year8_original_source_expected_allele_direction": [
+        0.005533038586286625,
+        -0.02450132742092499,
+        0.013156457614016542
+      ],
+      "year8_original_self_seed_direction": [
+        0.01198,
+        -0.03347,
+        0.01583
+      ],
+      "year8_original_outcross_father_direction": [
+        -0.00323,
+        0.00484,
+        -0.00047
+      ],
+      "year8_original_outcross_mother_direction": [
+        -0.00322,
+        0.00414,
+        -0.0022
+      ],
+      "year8_allthree_sameparent_counterfactual_minus_original_expected_direction": [
+        0.004151062114205004,
+        -0.008229448520689474,
+        0.002540863734114706
+      ],
+      "year8_allthree_outcross_father_marginal_difference": [
+        0.0008558551103724546,
+        -0.004069193604840642,
+        0.00033200549721443484
+      ],
+      "year8_allthree_outcross_mother_marginal_difference": [
+        0.003295207003832545,
+        -0.004160254915848837,
+        0.0022088582369002713
+      ],
+      "year8_allthree_delta_demographic_MC_SE": [
+        0.0002245168915113418,
+        0.0003036369877669162,
+        0.000211247719266294
+      ],
+      "source_matching_direction_over_eight_years_rounded": [
+        -0.062815,
+        -0.041109,
+        -0.02387,
+        -0.012281,
+        -0.006024,
+        -0.003007,
+        0.006582,
+        0.005533
+      ],
+      "allthree_minus_original_matching_expected_direction_over_eight_years_rounded": [
+        0.023546,
+        0.025571,
+        0.023351,
+        0.019989,
+        0.016867,
+        0.014361,
+        0.005343,
+        0.004151
+      ],
+      "source_matching_self_seed_direction_checkpoints_rounded": {
+        "year1": -0.03489,
+        "year4": 0.01335,
+        "year7": 0.01484,
+        "year8": 0.01198
+      },
+      "source_matching_outcross_father_direction_checkpoints_rounded": {
+        "year1": -0.01459,
+        "year4": -0.0129,
+        "year7": -0.00413,
+        "year8": -0.00323
+      },
+      "source_matching_outcross_mother_direction_checkpoints_rounded": {
+        "year1": -0.01333,
+        "year4": -0.01273,
+        "year7": -0.00413,
+        "year8": -0.00322
+      }
+    },
+    {
+      "budget": 3,
+      "n_year8_source_parent_states": 506,
+      "year8_original_source_expected_allele_direction": [
+        0.006607157586353894,
+        -0.02312837041849174,
+        0.011766429907600592
+      ],
+      "year8_original_self_seed_direction": [
+        0.01033,
+        -0.02851,
+        0.01315
+      ],
+      "year8_original_outcross_father_direction": [
+        -0.00186,
+        0.00292,
+        -0.00024
+      ],
+      "year8_original_outcross_mother_direction": [
+        -0.00186,
+        0.00246,
+        -0.00115
+      ],
+      "year8_allthree_sameparent_counterfactual_minus_original_expected_direction": [
+        0.0024670954188093725,
+        -0.004955372925400815,
+        0.0013077116523729725
+      ],
+      "year8_allthree_outcross_father_marginal_difference": [
+        0.0005436303294238871,
+        -0.0024707957938199044,
+        0.0001521491730375385
+      ],
+      "year8_allthree_outcross_mother_marginal_difference": [
+        0.0019234650893854867,
+        -0.002484577131580902,
+        0.0011555624793354335
+      ],
+      "year8_allthree_delta_demographic_MC_SE": [
+        0.0001831294543751541,
+        0.0002510020236551604,
+        0.00014754724169134336
+      ],
+      "source_matching_direction_over_eight_years_rounded": [
+        -0.062815,
+        -0.038237,
+        -0.017584,
+        -0.006502,
+        0.000204,
+        0.002085,
+        0.007233,
+        0.006607
+      ],
+      "allthree_minus_original_matching_expected_direction_over_eight_years_rounded": [
+        0.023546,
+        0.022701,
+        0.018397,
+        0.014256,
+        0.011184,
+        0.009024,
+        0.003028,
+        0.002467
+      ],
+      "source_matching_self_seed_direction_checkpoints_rounded": {
+        "year1": -0.03489,
+        "year4": 0.01169,
+        "year7": 0.01185,
+        "year8": 0.01033
+      },
+      "source_matching_outcross_father_direction_checkpoints_rounded": {
+        "year1": -0.01459,
+        "year4": -0.00911,
+        "year7": -0.00231,
+        "year8": -0.00186
+      },
+      "source_matching_outcross_mother_direction_checkpoints_rounded": {
+        "year1": -0.01333,
+        "year4": -0.00908,
+        "year7": -0.00231,
+        "year8": -0.00186
+      }
+    }
+  ],
+  "scientific_conclusions": [
+    "In one archived visitor environment, the original Model3 conditional expected high-allele direction of matching switches from negative in early years to positive in late years; initial negative selfed-seed directional contribution becomes positive while father/mother outcross terms remain negative.",
+    "All-three-factor equalization on the SAME source parent population shifts expected matching high-allele direction up, investment high-allele direction down, and assurance high-allele direction up, in both budget regimes.",
+    "In standard budget8 at year8, matching and assurance effects of this specific outcross-only counterfactual mostly reflect maternal recipient allele-weighted marginal changes; investment male and female changes are similar in size.",
+    "These are exact algebraic contributions within source reproductive pair-weight model and do not identify selfing, pollinator behavior or maternal fecundity as independent causal ecological mechanisms.",
+    "The matching-direction sign reversal can arise from genotype state evolution, changes in the archived visitor sequence, and their interaction. This experiment has not isolated those competing explanations.",
+    "No natural plants, independent islands, confirmatory visitor history seeds or validated SDE/SPDE."
+  ]
+}
