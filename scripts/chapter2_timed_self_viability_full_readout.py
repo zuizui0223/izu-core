@@ -26,7 +26,7 @@ def admit(root:Path,source_admission:Path):
     d=prospective_biological_design()
     m=compile_manifest()
     v=json.loads(source_admission.read_text())
-    if (v.get("status")!="ALL_2048_INDEPENDENT_FIXEDB48_T400_SOURCES_AUTHENTICATED"
+    if (v.get("status")!="ALL_2048_INDEPENDENT_TIMED_SELF_T400_SOURCES_AUTHENTICATED"
             or v.get("source_count")!=2048 or v.get("history_count")!=64
             or v.get("protocol_sha256")!=m["protocol_sha256"]):
         raise AssertionError("Original full new diploid source admission missing")
