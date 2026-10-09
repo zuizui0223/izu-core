@@ -62,7 +62,6 @@ def _three_locus_stats(x):
         "n_source_demographic_paths":len(arr),
         "mean":arr.mean(axis=0).tolist() if len(arr) else None,
         "nested_demographic_mc_se":(
-            arr.std(axis=0,ddof=1).tolist() if False else
             (arr.std(axis=0,ddof=1)/np.sqrt(len(arr))).tolist()
         ) if len(arr)>1 else None,
     }
@@ -124,7 +123,6 @@ def one_history(*,history_seed,budget=8.,draws=128,seed=420261017):
             parent_high[t,j]=r["parent_allele_frequency"]
     np.testing.assert_allclose(
         directions[:,:,0,:],
-        directions[:,:,1,:,:] if False else
         directions[:,:,1,:]+directions[:,:,2,:]+directions[:,:,3,:],
         atol=1e-12,rtol=0)
     years={}
