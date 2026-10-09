@@ -55,3 +55,50 @@ python -m scripts.audit_model3_k32_exploratory_visitor_histories --budget 3 --dr
 ```
 
 PR420-only CI `model3-k32-new-visitor-history-stress` validates actual seed lists, archive vs newly generated flags, absence of prospectively frozen confirmatory seeds, source reproduction and three-channel Mendelian sum; stores BOTH raw outputs. Do not promote numerical reproducibility claims until CI succeeds and the raw artifact has been inspected. PR stays Draft; no natural island data or SDE/SPDE validation.
+
+
+## CI-verified outcomes across new visitor seeds
+
+[Dedicated GitHub Actions CI 37947205797](https://github.com/zuizui0223/izu-core/actions/runs/37947205797) SUCCESS on source SHA 5d84435e9e0c90246556f76edef80caadd9dfeae. [Complete raw two-budget artifact 11623478169](https://github.com/zuizui0223/izu-core/actions/runs/37947205797/artifacts/11623478169), SHA256 9b1147964561ef0d8e6df6337034ba68101deb5c8c1d8d40058c19c4f2c76f14, was inspected. Its 2 JSON files include original viable-self and outcross father/mother Mendelian transmission by source year, for all nine archived/reference and new history seeds. Compact record: data/results/model3_k32_new_visitor_history_stress_20261009.json.
+
+### The negative-to-positive matching allele direction reversal is NOT universal
+
+| New visitor histories ONLY (old discovery seed excluded) | Budget8 | Budget3 |
+|---|---:|---:|
+| Distinct newly generated source visitor RNG histories | 8 | 8 |
+| Histories with surviving source parent cohort at year8 | 8 | 8 |
+| Negative year1 → positive year8 sign reversal | **4/8** | **5/8** |
+| Year8 matching HIGH expected direction positive | **5/8** | **6/8** |
+| Initially negative matching expected direction | 6/8 | 6/8 |
+| Reversal among initially negative histories | 4/6 | 5/6 |
+| Mean year8 expected matching direction across histories | +0.003513 | +0.002018 |
+| Full year8 direction range | -0.007223 to +0.013873 | -0.003994 to +0.008291 |
+| Change year8 minus year1 range | -0.022898 to +0.070266 | -0.025859 to +0.075045 |
+
+The 128 demographic replicates within each history are NESTED and not independent ecological systems. The visitor-history denominator is 8, not 8×128. These eight histories were selected AFTER seeing the original 26110601 sign reversal, so this is exploratory simulator-seed robustness, not a preregistered confirmation.
+
+### All new seeds and the old reference, no post-outcome removal
+
+| Seed | Budget8 year1 → year8 matching direction | Budget3 year1 → year8 matching direction |
+|---|---|---|
+| 26110601, old discovery REFERENCE (excluded from new denominator) | -0.062815 → +0.005629 | -0.062815 → +0.003289 |
+| 26110602 | +0.000494 → +0.009356 | +0.000494 → +0.001514 |
+| 26110603 | -0.037581 → +0.013873 | -0.037581 → +0.008291 |
+| 26110604 | -0.028825 → +0.006784 | -0.028825 → +0.005167 |
+| 26110605 | -0.002780 → +0.001928 | -0.002780 → +0.000694 |
+| **26110606** | **+0.021864 → -0.001033** | **+0.021864 → -0.003994** |
+| **26110607** | **-0.077490 → -0.007223** | **-0.077490 → -0.002445** |
+| 26110608 | -0.008031 → +0.006374 | -0.008031 → +0.006412 |
+| 26110609 | -0.041096 → -0.001954 | -0.041096 → +0.000503 |
+
+Source seed 26110606 reverses in the OPPOSITE direction under both budgets, whereas seed 26110607 stays negative. The old-source 26110601 negative-to-positive reversal is therefore a contingent outcome of a particular visitor/genotype trajectory, not a theorem that assurance-correlated selfing universally forces matching allele sign reversals.
+
+The exact genetic dosage × source linear assurance self seed production identity holds under these source biology settings regardless of visitor history. Its algebraic correctness must not be mistaken for cross-visitor ecological inevitability.
+
+The old reference year8 source mean differs slightly from older 512-path reports because this stress assay deliberately uses 128 source demographic paths and different, documented per-history RNG streams. Source genotype Markov biology is unchanged.
+
+### Evidence scope and next test
+
+Only eight newly RNG-generated visitor histories from the SAME simulator, selected post discovery. No natural island measurements, no independent botanical visitor processes, no new prospective confirmatory cohorts (37110801 through 37110864 remain untouched), and no validated full SDE/SPDE. The year8 source survivor cohort is held identical across parent years but conditions on survival; this cannot identify independent physiological pollinator selection.
+
+At most, the sign reversal shows conditional reproducibility in some stochastic source environments; it is not a general island evolution law. Subsequent research should prospectively lock a new visitor RNG history range and test true held-out outcomes, or seek independent empirical reproductive field data. Keep PR #420 Draft and the universal-sign-reversal / ecological-stabilization claims on HOLD.
