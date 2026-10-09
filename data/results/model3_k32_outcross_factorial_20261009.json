@@ -1,0 +1,183 @@
+{
+  "schema": "model3_k32_old_history_2x2x2_outcross_factorial_v1",
+  "status": "exploratory_complete_factorial_dedicated_CI_passed_not_biological_confirmation",
+  "evidence_type": "synthetic_original_Model3_plus_three_deliberately_changed_outcross_operator_factors",
+  "provenance": {
+    "source_commit": "9ebd6cb34235824b0e110a324d8774f9a2473f74",
+    "workflow_run_id": 37896524806,
+    "workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/37896524806",
+    "job": "model3-k32-full-factorial",
+    "job_conclusion": "success",
+    "raw_artifact_id": 11600821192,
+    "raw_artifact_url": "https://github.com/zuizui0223/izu-core/actions/runs/37896524806/artifacts/11600821192",
+    "raw_artifact_sha256": "29e3c4342b9e588df16e8ba081762728871f792dc1121d70ef5ce087f310708c"
+  },
+  "design": {
+    "K": 32,
+    "mutation_rate": 0,
+    "generations": 8,
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "old_visitor_history": 26110601,
+    "environment": "near",
+    "independent_visitor_histories": 1,
+    "nested_demographic_paths_per_arm": 512,
+    "initial_genotypes": "four engineered diploid founders cloned to K32, 27 joint genotype classes",
+    "factor_bits": {
+      "E": 1,
+      "R": 2,
+      "M": 4
+    },
+    "factors": {
+      "E": "equalized active donor pollen export",
+      "R": "equalized positive recipient routing per donor",
+      "M": "equalized maternal outcross viable seeds per receipt"
+    },
+    "factor_combinations": 8,
+    "canonical_source_biology_modified": false,
+    "counterfactual_reproductive_weights_changed": true,
+    "selfing_seed_mass_outcross_seed_total_and_mating_edge_support_preserved_per_arm_current_parent": true,
+    "shared_source_seed_by_path_and_year_not_identical_offspring_coupling": true,
+    "confirmatory_visitor_cohorts_used": false,
+    "natural_island_observations_used": false
+  },
+  "factorial_definition": "For f(S) pathwise, I(S)=sum(T subset S)(-1)^(|S|-|T|)f(T). All-3-minus-original=single E+single R+single M+pair ER+pair EM+pair RM+triple ERM. Aggregate nonadditivity=sum(pair+triple) calculated for each matched demographic path, SE includes joint covariance.",
+  "metric_scope": "Occupancy, genotype-class richness and allele types lost unconditional; assurance dosage, assurance heterozygosity, and high-allele fixation are occupancy-weighted products. Actual trait averages are reported conditional on occupancy separately. Extinction has no defined mean trait.",
+  "cases": [
+    {
+      "budget": 8,
+      "original": {
+        "survivors": 512,
+        "mean_joint_genotype_richness": 4.32421875,
+        "mean_ancestral_allele_types_lost": 0.826171875,
+        "mean_assurance_high_allele_conditional": 0.978607177734375,
+        "mean_assurance_heterozygosity_conditional": 0.01898193359375,
+        "assurance_high_allele_fixation_conditional": 0.630859375
+      },
+      "all_three": {
+        "survivors": 512,
+        "mean_joint_genotype_richness": 4.041015625,
+        "mean_ancestral_allele_types_lost": 1.1875,
+        "mean_assurance_high_allele_conditional": 0.995208740234375,
+        "mean_assurance_heterozygosity_conditional": 0.00323486328125,
+        "assurance_high_allele_fixation_conditional": 0.873046875
+      },
+      "factorial_effects_all_three_minus_source": {
+        "genotype_richness": {
+          "mean": -0.283203125,
+          "mc_se": 0.07586784736743725,
+          "three_single_sum": -0.5078125,
+          "aggregate_interaction_mean": 0.224609375,
+          "aggregate_interaction_mc_se": 0.1327002
+        },
+        "ancestral_allele_types_lost": {
+          "mean": 0.361328125,
+          "mc_se": 0.03431932072631143,
+          "three_single_sum": 0.447265625,
+          "aggregate_interaction_mean": -0.0859375,
+          "aggregate_interaction_mc_se": 0.0580688
+        },
+        "assurance_occupancy_weighted": {
+          "mean": 0.0166015625,
+          "mc_se": 0.0018066935663390029,
+          "three_single_sum": 0.02618408203125,
+          "aggregate_interaction_mean": -0.00958251953125,
+          "aggregate_interaction_mc_se": 0.0031536
+        },
+        "heterozygosity_occupancy_weighted": {
+          "mean": -0.0157470703125,
+          "mc_se": 0.0017128,
+          "three_single_sum": -0.026123046875,
+          "aggregate_interaction_mean": 0.0103759765625,
+          "aggregate_interaction_mc_se": 0.0032245
+        },
+        "fixation_occupancy_weighted": {
+          "mean": 0.2421875,
+          "mc_se": 0.0244159,
+          "three_single_sum": 0.294921875,
+          "aggregate_interaction_mean": -0.052734375,
+          "aggregate_interaction_mc_se": 0.0454972
+        },
+        "occupancy": {
+          "mean": 0,
+          "mc_se": 0,
+          "three_single_sum": 0,
+          "aggregate_interaction_mean": 0,
+          "aggregate_interaction_mc_se": 0
+        }
+      }
+    },
+    {
+      "budget": 3,
+      "original": {
+        "survivors": 505,
+        "mean_joint_genotype_richness": 3.115234375,
+        "mean_ancestral_allele_types_lost": 1.396484375,
+        "mean_assurance_high_allele_conditional": 0.9840306270557984,
+        "mean_assurance_heterozygosity_conditional": 0.011929098605255676,
+        "assurance_high_allele_fixation_conditional": 0.8
+      },
+      "all_three": {
+        "survivors": 507,
+        "mean_joint_genotype_richness": 3.109375,
+        "mean_ancestral_allele_types_lost": 1.6328125,
+        "mean_assurance_high_allele_conditional": 0.9964647009374938,
+        "mean_assurance_heterozygosity_conditional": 0.0017337262749320035,
+        "assurance_high_allele_fixation_conditional": 0.9447731755424064
+      },
+      "factorial_effects_all_three_minus_source": {
+        "genotype_richness": {
+          "mean": -0.005859375,
+          "mc_se": 0.0629564551888868,
+          "three_single_sum": -0.10546875,
+          "aggregate_interaction_mean": 0.099609375,
+          "aggregate_interaction_mc_se": 0.1197516
+        },
+        "ancestral_allele_types_lost": {
+          "mean": 0.236328125,
+          "mc_se": 0.04093473379884087,
+          "three_single_sum": 0.287109375,
+          "aggregate_interaction_mean": -0.05078125,
+          "aggregate_interaction_mc_se": 0.0854124
+        },
+        "assurance_occupancy_weighted": {
+          "mean": 0.016156517015881243,
+          "mc_se": 0.006117085413092698,
+          "three_single_sum": 0.0217541,
+          "aggregate_interaction_mean": -0.0055976,
+          "aggregate_interaction_mc_se": 0.0121681
+        },
+        "heterozygosity_occupancy_weighted": {
+          "mean": -0.0100492,
+          "mc_se": 0.0016679,
+          "three_single_sum": -0.0189885,
+          "aggregate_interaction_mean": 0.0089393,
+          "aggregate_interaction_mc_se": 0.0034844
+        },
+        "fixation_occupancy_weighted": {
+          "mean": 0.146484375,
+          "mc_se": 0.0201296,
+          "three_single_sum": 0.1796875,
+          "aggregate_interaction_mean": -0.033203125,
+          "aggregate_interaction_mc_se": 0.0419507
+        },
+        "occupancy": {
+          "mean": 0.00390625,
+          "mc_se": 0.005527,
+          "three_single_sum": 0.00390625,
+          "aggregate_interaction_mean": 0,
+          "aggregate_interaction_mc_se": 0.0107082
+        }
+      }
+    }
+  ],
+  "interpretation_limits": [
+    "The source model3 canonical reproduce() and exact finite genetic transition are unchanged, all other factorial arms deliberately alter mating edge weights while preserving current-state reproduction totals.",
+    "Aggregated second+third-order interaction in assurance heterozygosity is positive under both budgets, so summing three individual heterozygosity reductions overpredicts the all-three reduction. This is a model-specific, multiple-comparison exploratory result.",
+    "The aggregate genotype richness interaction MC SE is large relative to the mean in both budgets; no robust nonadditivity of richness demonstrated from these 512 nested paths.",
+    "Numerical independent-path Monte Carlo standard errors are conditional on one old visitor history, not independent ecological confidence intervals.",
+    "Genotype richness can remain similar even when more of the six founder allele types are lost. Recombination/segregation among retained alleles and joint genotype classes differ from allele types.",
+    "Shapley one-generation components and autonomous eight-generation factorial interactions are different estimands and cannot be equated.",
+    "No source plants, field ecology replication, confirmatory 37110801-37110864 histories, natural selection causality, or validated SDE/SPDE."
+  ]
+}
