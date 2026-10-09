@@ -1,0 +1,5 @@
+One-time byte-exact archival transfer of already completed READ-ONLY post-outcome audit.
+Original Run: 37890907635, SHA: 615c93bd6715ad73dc859c37a4105028203958c1.
+Artifact ID: 11598298067, original JSON SHA-256: 255d62055760e49fa3e032ac16040c790ebc2fc02564e1584fcf597aecbc14c3.
+No new biological histories or stochastic futures; immutable 172032-future primary remains inconclusive.
+Archive exactly once; do not peek, refit or alter numeric outputs.
