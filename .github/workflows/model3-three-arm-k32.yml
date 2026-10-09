@@ -43,7 +43,8 @@ jobs:
                   'projected_gaussian'
               }
               print(p, 'PASS', 'budget', budget,
-                    'extinction', {k: round(v['extinction_probability'], 5)
+                    'extinction', {k: (round(v['extinction_probability'], 5)
+                                      if v['extinction_probability'] is not None else None)
                                    for k, v in a['arms'].items()})
           PY
       - name: Archive simulation results (not natural observations)
