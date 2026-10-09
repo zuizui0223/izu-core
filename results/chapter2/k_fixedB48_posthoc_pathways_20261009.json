@@ -1,0 +1,810 @@
+{
+  "status": "POST_OUTCOME_EXPLORATORY_SOURCE_ADMITTED_CHANNEL_AUDIT",
+  "source_production_run_id": 37896872795,
+  "original_readout_run_id": 37900150213,
+  "verified_raw_future_cells": 114688,
+  "independent_bootstrap_unit": "visitor_history",
+  "n_independent_histories": 64,
+  "exploratory_bootstrap": {
+    "draws": 9999,
+    "seed": 2026100973
+  },
+  "immutable_registered_primary": {
+    "status": "supported_controlled_demographic_K_moderation_at_fixed_B48",
+    "mean": 0.007745713876893593,
+    "bootstrap95": [
+      0.002497158065469939,
+      0.013015478808429596
+    ]
+  },
+  "channels": {
+    "restricted_persistence_updates": {
+      "sensitivity_K8_B48": {
+        "mean": 0.5108647358855942,
+        "bootstrap95": [
+          0.29118980820702767,
+          0.7379067763649755
+        ],
+        "positive_histories": 43,
+        "negative_histories": 21
+      },
+      "sensitivity_K48_B48": {
+        "mean": 0.2566058786805951,
+        "bootstrap95": [
+          0.03338067214705083,
+          0.489653229106725
+        ],
+        "positive_histories": 32,
+        "negative_histories": 32
+      },
+      "K8_minus_K48_sensitivity": {
+        "mean": 0.2542588572049992,
+        "bootstrap95": [
+          -0.0071290965947032724,
+          0.5276565591124666
+        ],
+        "positive_histories": 37,
+        "negative_histories": 27
+      },
+      "order_effect_baseline_K8_B48": {
+        "mean": 0.9862630221425767,
+        "bootstrap95": [
+          0.6707788041079227,
+          1.2979554008646712
+        ],
+        "positive_histories": 51,
+        "negative_histories": 13
+      },
+      "order_effect_baseline_K48_B48": {
+        "mean": 0.7976663325731386,
+        "bootstrap95": [
+          0.521462111993589,
+          1.0774360093709292
+        ],
+        "positive_histories": 49,
+        "negative_histories": 15
+      },
+      "order_effect_half_K8_B48": {
+        "mean": 0.4753982862569824,
+        "bootstrap95": [
+          0.2743457631227368,
+          0.6658844480724513
+        ],
+        "positive_histories": 49,
+        "negative_histories": 15
+      },
+      "order_effect_half_K48_B48": {
+        "mean": 0.5410604538925434,
+        "bootstrap95": [
+          0.2827373372656677,
+          0.7974311710692252
+        ],
+        "positive_histories": 43,
+        "negative_histories": 21
+      }
+    },
+    "extinct_by_update_20": {
+      "sensitivity_K8_B48": {
+        "mean": -0.005203804827474734,
+        "bootstrap95": [
+          -0.009286857849665292,
+          -0.001274689836320934
+        ],
+        "positive_histories": 25,
+        "negative_histories": 39
+      },
+      "sensitivity_K48_B48": {
+        "mean": -0.006191859166841529,
+        "bootstrap95": [
+          -0.010503068666932453,
+          -0.00211626488645122
+        ],
+        "positive_histories": 24,
+        "negative_histories": 40
+      },
+      "K8_minus_K48_sensitivity": {
+        "mean": 0.000988054339366795,
+        "bootstrap95": [
+          -0.003416795142590624,
+          0.005314020534506115
+        ],
+        "positive_histories": 36,
+        "negative_histories": 28
+      },
+      "order_effect_baseline_K8_B48": {
+        "mean": -0.012093360607209249,
+        "bootstrap95": [
+          -0.016640816170002896,
+          -0.007543295482493657
+        ],
+        "positive_histories": 15,
+        "negative_histories": 47
+      },
+      "order_effect_baseline_K48_B48": {
+        "mean": -0.010927895448021013,
+        "bootstrap95": [
+          -0.015583476553872277,
+          -0.006373765573767474
+        ],
+        "positive_histories": 19,
+        "negative_histories": 45
+      },
+      "order_effect_half_K8_B48": {
+        "mean": -0.006889555779734515,
+        "bootstrap95": [
+          -0.010031040668328856,
+          -0.0036388462351104466
+        ],
+        "positive_histories": 15,
+        "negative_histories": 48
+      },
+      "order_effect_half_K48_B48": {
+        "mean": -0.004736036281179484,
+        "bootstrap95": [
+          -0.008843591342580646,
+          -0.000606369764481417
+        ],
+        "positive_histories": 26,
+        "negative_histories": 38
+      }
+    },
+    "extinct_by_update_40": {
+      "sensitivity_K8_B48": {
+        "mean": -0.007796935586616337,
+        "bootstrap95": [
+          -0.01169391342988368,
+          -0.0038925515107543227
+        ],
+        "positive_histories": 19,
+        "negative_histories": 45
+      },
+      "sensitivity_K48_B48": {
+        "mean": -0.003431980958109167,
+        "bootstrap95": [
+          -0.007068205687405124,
+          5.183426358508392e-05
+        ],
+        "positive_histories": 30,
+        "negative_histories": 34
+      },
+      "K8_minus_K48_sensitivity": {
+        "mean": -0.00436495462850717,
+        "bootstrap95": [
+          -0.009145184797799697,
+          0.0004378123990230682
+        ],
+        "positive_histories": 25,
+        "negative_histories": 38
+      },
+      "order_effect_baseline_K8_B48": {
+        "mean": -0.013390784711739077,
+        "bootstrap95": [
+          -0.01780677960052579,
+          -0.008996174942222221
+        ],
+        "positive_histories": 13,
+        "negative_histories": 49
+      },
+      "order_effect_baseline_K48_B48": {
+        "mean": -0.009896507339736006,
+        "bootstrap95": [
+          -0.013718029646546333,
+          -0.006151179735764843
+        ],
+        "positive_histories": 16,
+        "negative_histories": 47
+      },
+      "order_effect_half_K8_B48": {
+        "mean": -0.005593849125122742,
+        "bootstrap95": [
+          -0.00833748196886305,
+          -0.0027425790042592737
+        ],
+        "positive_histories": 16,
+        "negative_histories": 48
+      },
+      "order_effect_half_K48_B48": {
+        "mean": -0.0064645263816268395,
+        "bootstrap95": [
+          -0.009988685193303407,
+          -0.0029411222764698665
+        ],
+        "positive_histories": 24,
+        "negative_histories": 39
+      }
+    },
+    "extinct_by_update_60": {
+      "sensitivity_K8_B48": {
+        "mean": -0.010374834325917825,
+        "bootstrap95": [
+          -0.014158753638358841,
+          -0.006648607806070135
+        ],
+        "positive_histories": 15,
+        "negative_histories": 49
+      },
+      "sensitivity_K48_B48": {
+        "mean": -0.002440601184630248,
+        "bootstrap95": [
+          -0.006151560614118394,
+          0.001310070340254284
+        ],
+        "positive_histories": 32,
+        "negative_histories": 31
+      },
+      "K8_minus_K48_sensitivity": {
+        "mean": -0.007934233141287578,
+        "bootstrap95": [
+          -0.012978339524561457,
+          -0.0031326942708188345
+        ],
+        "positive_histories": 22,
+        "negative_histories": 42
+      },
+      "order_effect_baseline_K8_B48": {
+        "mean": -0.014837117231368668,
+        "bootstrap95": [
+          -0.019351049491925357,
+          -0.010264031799759009
+        ],
+        "positive_histories": 11,
+        "negative_histories": 53
+      },
+      "order_effect_baseline_K48_B48": {
+        "mean": -0.00985074564923908,
+        "bootstrap95": [
+          -0.013474572615289001,
+          -0.006266850929503612
+        ],
+        "positive_histories": 16,
+        "negative_histories": 47
+      },
+      "order_effect_half_K8_B48": {
+        "mean": -0.0044622829054508425,
+        "bootstrap95": [
+          -0.006902910788863909,
+          -0.001987713274696163
+        ],
+        "positive_histories": 17,
+        "negative_histories": 45
+      },
+      "order_effect_half_K48_B48": {
+        "mean": -0.007410144464608831,
+        "bootstrap95": [
+          -0.010799121454545655,
+          -0.003923114662844825
+        ],
+        "positive_histories": 18,
+        "negative_histories": 45
+      }
+    },
+    "terminal_population": {
+      "sensitivity_K8_B48": {
+        "mean": 0.08015143964633403,
+        "bootstrap95": [
+          0.053075084200813354,
+          0.10754434400917694
+        ],
+        "positive_histories": 45,
+        "negative_histories": 19
+      },
+      "sensitivity_K48_B48": {
+        "mean": 0.13622364086853245,
+        "bootstrap95": [
+          -0.05310902313982633,
+          0.3272018379575603
+        ],
+        "positive_histories": 35,
+        "negative_histories": 29
+      },
+      "K8_minus_K48_sensitivity": {
+        "mean": -0.05607220122219839,
+        "bootstrap95": [
+          -0.24700715272455118,
+          0.13228212723092364
+        ],
+        "positive_histories": 32,
+        "negative_histories": 32
+      },
+      "order_effect_baseline_K8_B48": {
+        "mean": 0.11311120037574791,
+        "bootstrap95": [
+          0.08072406857037256,
+          0.14521955562700165
+        ],
+        "positive_histories": 51,
+        "negative_histories": 13
+      },
+      "order_effect_baseline_K48_B48": {
+        "mean": 0.5350150267388358,
+        "bootstrap95": [
+          0.36120579963755556,
+          0.7093648677981291
+        ],
+        "positive_histories": 54,
+        "negative_histories": 10
+      },
+      "order_effect_half_K8_B48": {
+        "mean": 0.03295976072941389,
+        "bootstrap95": [
+          0.01584937053246147,
+          0.04931741092744473
+        ],
+        "positive_histories": 45,
+        "negative_histories": 19
+      },
+      "order_effect_half_K48_B48": {
+        "mean": 0.3987913858703034,
+        "bootstrap95": [
+          0.23026552010010462,
+          0.566205142841961
+        ],
+        "positive_histories": 46,
+        "negative_histories": 18
+      }
+    },
+    "cumulative_self_recruits": {
+      "sensitivity_K8_B48": {
+        "mean": 5.212396146164965,
+        "bootstrap95": [
+          3.519518991283334,
+          6.963843644422994
+        ],
+        "positive_histories": 47,
+        "negative_histories": 17
+      },
+      "sensitivity_K48_B48": {
+        "mean": 20.753292663293834,
+        "bootstrap95": [
+          9.76809382789981,
+          31.984139479020303
+        ],
+        "positive_histories": 40,
+        "negative_histories": 24
+      },
+      "K8_minus_K48_sensitivity": {
+        "mean": -15.540896517128875,
+        "bootstrap95": [
+          -26.036245024516116,
+          -5.215773606461556
+        ],
+        "positive_histories": 31,
+        "negative_histories": 33
+      },
+      "order_effect_baseline_K8_B48": {
+        "mean": 9.126153820615144,
+        "bootstrap95": [
+          6.51350509025704,
+          11.703695398177075
+        ],
+        "positive_histories": 52,
+        "negative_histories": 12
+      },
+      "order_effect_baseline_K48_B48": {
+        "mean": 51.53761902529432,
+        "bootstrap95": [
+          36.42668063999422,
+          67.2086029167397
+        ],
+        "positive_histories": 52,
+        "negative_histories": 12
+      },
+      "order_effect_half_K8_B48": {
+        "mean": 3.9137576744501814,
+        "bootstrap95": [
+          2.4702584786639123,
+          5.289577162445778
+        ],
+        "positive_histories": 49,
+        "negative_histories": 15
+      },
+      "order_effect_half_K48_B48": {
+        "mean": 30.784326362000474,
+        "bootstrap95": [
+          20.112786281246464,
+          41.126467454804434
+        ],
+        "positive_histories": 50,
+        "negative_histories": 14
+      }
+    },
+    "cumulative_outcross_recruits": {
+      "sensitivity_K8_B48": {
+        "mean": -0.455017008416242,
+        "bootstrap95": [
+          -0.64896723741519,
+          -0.2629368334179355
+        ],
+        "positive_histories": 20,
+        "negative_histories": 44
+      },
+      "sensitivity_K48_B48": {
+        "mean": -4.34329523447577,
+        "bootstrap95": [
+          -9.0595090346695,
+          0.1860673258964049
+        ],
+        "positive_histories": 30,
+        "negative_histories": 34
+      },
+      "K8_minus_K48_sensitivity": {
+        "mean": 3.888278226059527,
+        "bootstrap95": [
+          -0.5337952181698055,
+          8.508565950449167
+        ],
+        "positive_histories": 36,
+        "negative_histories": 28
+      },
+      "order_effect_baseline_K8_B48": {
+        "mean": -0.7906628171217178,
+        "bootstrap95": [
+          -1.1286585516629954,
+          -0.47824476056478343
+        ],
+        "positive_histories": 18,
+        "negative_histories": 46
+      },
+      "order_effect_baseline_K48_B48": {
+        "mean": -11.529651797329665,
+        "bootstrap95": [
+          -18.600448447638133,
+          -4.844099868405816
+        ],
+        "positive_histories": 24,
+        "negative_histories": 40
+      },
+      "order_effect_half_K8_B48": {
+        "mean": -0.33564580870547595,
+        "bootstrap95": [
+          -0.5607806809437889,
+          -0.1219764881849457
+        ],
+        "positive_histories": 24,
+        "negative_histories": 40
+      },
+      "order_effect_half_K48_B48": {
+        "mean": -7.186356562853897,
+        "bootstrap95": [
+          -11.373609930256201,
+          -3.0732100160619527
+        ],
+        "positive_histories": 23,
+        "negative_histories": 41
+      }
+    },
+    "cumulative_all_recruits": {
+      "sensitivity_K8_B48": {
+        "mean": 4.757379137748724,
+        "bootstrap95": [
+          3.0750949039960895,
+          6.521416557813185
+        ],
+        "positive_histories": 48,
+        "negative_histories": 16
+      },
+      "sensitivity_K48_B48": {
+        "mean": 16.409997428818066,
+        "bootstrap95": [
+          5.15912820779444,
+          27.629049119468938
+        ],
+        "positive_histories": 38,
+        "negative_histories": 26
+      },
+      "K8_minus_K48_sensitivity": {
+        "mean": -11.652618291069341,
+        "bootstrap95": [
+          -22.533763396841778,
+          -0.7699654646303205
+        ],
+        "positive_histories": 29,
+        "negative_histories": 35
+      },
+      "order_effect_baseline_K8_B48": {
+        "mean": 8.335491003493429,
+        "bootstrap95": [
+          5.8442346181054505,
+          10.77804753920923
+        ],
+        "positive_histories": 51,
+        "negative_histories": 13
+      },
+      "order_effect_baseline_K48_B48": {
+        "mean": 40.00796722796465,
+        "bootstrap95": [
+          27.47033860297657,
+          52.68295631425655
+        ],
+        "positive_histories": 54,
+        "negative_histories": 10
+      },
+      "order_effect_half_K8_B48": {
+        "mean": 3.578111865744705,
+        "bootstrap95": [
+          2.130778763114598,
+          4.943469587237907
+        ],
+        "positive_histories": 47,
+        "negative_histories": 17
+      },
+      "order_effect_half_K48_B48": {
+        "mean": 23.597969799146583,
+        "bootstrap95": [
+          12.256023935470173,
+          34.65755712023153
+        ],
+        "positive_histories": 43,
+        "negative_histories": 21
+      }
+    },
+    "t0_self_viable": {
+      "sensitivity_K8_B48": {
+        "mean": 0.1512015526138379,
+        "bootstrap95": [
+          0.11273125556269811,
+          0.18912033465300088
+        ],
+        "positive_histories": 55,
+        "negative_histories": 9
+      },
+      "sensitivity_K48_B48": {
+        "mean": 0.1512015526138379,
+        "bootstrap95": [
+          0.11273125556269811,
+          0.18912033465300088
+        ],
+        "positive_histories": 55,
+        "negative_histories": 9
+      },
+      "K8_minus_K48_sensitivity": {
+        "mean": 0.0,
+        "bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "positive_histories": 0,
+        "negative_histories": 0
+      },
+      "order_effect_baseline_K8_B48": {
+        "mean": 0.3024031052276758,
+        "bootstrap95": [
+          0.22546251112539623,
+          0.37824066930600175
+        ],
+        "positive_histories": 55,
+        "negative_histories": 9
+      },
+      "order_effect_baseline_K48_B48": {
+        "mean": 0.3024031052276758,
+        "bootstrap95": [
+          0.22546251112539623,
+          0.37824066930600175
+        ],
+        "positive_histories": 55,
+        "negative_histories": 9
+      },
+      "order_effect_half_K8_B48": {
+        "mean": 0.1512015526138379,
+        "bootstrap95": [
+          0.11273125556269811,
+          0.18912033465300088
+        ],
+        "positive_histories": 55,
+        "negative_histories": 9
+      },
+      "order_effect_half_K48_B48": {
+        "mean": 0.1512015526138379,
+        "bootstrap95": [
+          0.11273125556269811,
+          0.18912033465300088
+        ],
+        "positive_histories": 55,
+        "negative_histories": 9
+      }
+    },
+    "t0_outcross_viable": {
+      "sensitivity_K8_B48": {
+        "mean": 0.0,
+        "bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "positive_histories": 0,
+        "negative_histories": 0
+      },
+      "sensitivity_K48_B48": {
+        "mean": 0.0,
+        "bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "positive_histories": 0,
+        "negative_histories": 0
+      },
+      "K8_minus_K48_sensitivity": {
+        "mean": 0.0,
+        "bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "positive_histories": 0,
+        "negative_histories": 0
+      },
+      "order_effect_baseline_K8_B48": {
+        "mean": -0.0655899245188776,
+        "bootstrap95": [
+          -0.09108914417679298,
+          -0.04126542482205472
+        ],
+        "positive_histories": 17,
+        "negative_histories": 47
+      },
+      "order_effect_baseline_K48_B48": {
+        "mean": -0.0655899245188776,
+        "bootstrap95": [
+          -0.09108914417679298,
+          -0.04126542482205472
+        ],
+        "positive_histories": 17,
+        "negative_histories": 47
+      },
+      "order_effect_half_K8_B48": {
+        "mean": -0.0655899245188776,
+        "bootstrap95": [
+          -0.09108914417679298,
+          -0.04126542482205472
+        ],
+        "positive_histories": 17,
+        "negative_histories": 47
+      },
+      "order_effect_half_K48_B48": {
+        "mean": -0.0655899245188776,
+        "bootstrap95": [
+          -0.09108914417679298,
+          -0.04126542482205472
+        ],
+        "positive_histories": 17,
+        "negative_histories": 47
+      }
+    },
+    "t0_expected_pollen_export": {
+      "sensitivity_K8_B48": {
+        "mean": 0.0,
+        "bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "positive_histories": 0,
+        "negative_histories": 0
+      },
+      "sensitivity_K48_B48": {
+        "mean": 0.0,
+        "bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "positive_histories": 0,
+        "negative_histories": 0
+      },
+      "K8_minus_K48_sensitivity": {
+        "mean": 0.0,
+        "bootstrap95": [
+          0.0,
+          0.0
+        ],
+        "positive_histories": 0,
+        "negative_histories": 0
+      },
+      "order_effect_baseline_K8_B48": {
+        "mean": -0.8633292173251654,
+        "bootstrap95": [
+          -1.1953501956635326,
+          -0.5392521543061645
+        ],
+        "positive_histories": 16,
+        "negative_histories": 48
+      },
+      "order_effect_baseline_K48_B48": {
+        "mean": -0.8633292173251654,
+        "bootstrap95": [
+          -1.1953501956635326,
+          -0.5392521543061645
+        ],
+        "positive_histories": 16,
+        "negative_histories": 48
+      },
+      "order_effect_half_K8_B48": {
+        "mean": -0.8633292173251654,
+        "bootstrap95": [
+          -1.1953501956635326,
+          -0.5392521543061645
+        ],
+        "positive_histories": 16,
+        "negative_histories": 48
+      },
+      "order_effect_half_K48_B48": {
+        "mean": -0.8633292173251654,
+        "bootstrap95": [
+          -1.1953501956635326,
+          -0.5392521543061645
+        ],
+        "positive_histories": 16,
+        "negative_histories": 48
+      }
+    },
+    "terminal_occupancy": {
+      "sensitivity_K8_B48": {
+        "mean": 0.009977196205227593,
+        "bootstrap95": [
+          0.006334967161537951,
+          0.013733379968550705
+        ],
+        "positive_histories": 48,
+        "negative_histories": 16
+      },
+      "sensitivity_K48_B48": {
+        "mean": 0.0022314823283339997,
+        "bootstrap95": [
+          -0.0016617443438541161,
+          0.0061358332578073565
+        ],
+        "positive_histories": 33,
+        "negative_histories": 31
+      },
+      "K8_minus_K48_sensitivity": {
+        "mean": 0.007745713876893593,
+        "bootstrap95": [
+          0.0025938237800016725,
+          0.013211464662452843
+        ],
+        "positive_histories": 43,
+        "negative_histories": 21
+      },
+      "order_effect_baseline_K8_B48": {
+        "mean": 0.013965745982755958,
+        "bootstrap95": [
+          0.009643070822053413,
+          0.018293361846955715
+        ],
+        "positive_histories": 50,
+        "negative_histories": 12
+      },
+      "order_effect_baseline_K48_B48": {
+        "mean": 0.010321878686724975,
+        "bootstrap95": [
+          0.006732191633298637,
+          0.013926486522383711
+        ],
+        "positive_histories": 47,
+        "negative_histories": 16
+      },
+      "order_effect_half_K8_B48": {
+        "mean": 0.0039885497775283656,
+        "bootstrap95": [
+          0.00162450457007339,
+          0.006218203339445392
+        ],
+        "positive_histories": 43,
+        "negative_histories": 19
+      },
+      "order_effect_half_K48_B48": {
+        "mean": 0.008090396358390973,
+        "bootstrap95": [
+          0.004444885339453957,
+          0.011770959449573593
+        ],
+        "positive_histories": 43,
+        "negative_histories": 20
+      }
+    }
+  },
+  "limits": [
+    "All channel analyses were selected after exposure to a positive registered primary.",
+    "Initial payoff parity is a manipulation check, not an inferred causal effect.",
+    "Cumulative recruits depend on survival duration and are not independent mediators.",
+    "Restricted persistence updates and early extinction are alternate descriptions of demographic trajectories, not distinct replicates.",
+    "No inference about natural inherited mutation-order effects, fitness or field-calibrated Izu extinction.",
+    "Original predeclared primary and previous inconclusive/failed tests remain unchanged."
+  ]
+}
