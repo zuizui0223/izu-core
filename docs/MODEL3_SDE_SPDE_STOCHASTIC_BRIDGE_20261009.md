@@ -157,3 +157,22 @@ diploid alleles, reconstructing individual exclusion, calling the same mating
 and inheritance operator, and using identical dedicated random streams.
 Agreement of two independently generated endpoint samples is a finite-sample
 test of implementation fidelity. It is **not** a proof of SDE convergence.
+
+
+### Resource-stress survival boundary (engineering, same old history)
+
+The 512-by-512 eight-update comparison at ovule budget 8 preserved all
+512 populations in both arms, and is therefore informative for inherited
+trait means and genotype diversity **but not for extinction-probability
+fidelity**. The next scoped numerical stress tests the *same* archived
+visitor history and source genetics with ovule budget 3 and eight updates.
+The budget was named before observing this stress outcome; no success
+thresholds were loosened. The 32-surviving-endpoint gate prohibits
+treating an all-extinct/near-extinct arm as proof of trait-distribution
+agreement. If this setting lacks enough survivors or misses the distribution
+gates, the outcome is a recorded numerical non-admission, not a pretext
+to claim full process equivalence.
+
+The budget intervention changes the ecological stress in an engineering
+diagnostic; it does not add an independent biological model or natural island
+calibration.
