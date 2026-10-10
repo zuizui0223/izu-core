@@ -164,17 +164,17 @@ def main() -> None:
     ax.grid(axis="y", alpha=.15)
 
     fig.suptitle(
-        "Reproductive assurance compresses floral-investment divergence without causing the initial decline",
-        fontsize=15.5, weight="bold", y=.995
+        "Assurance evolution compresses floral-investment divergence",
+        fontsize=15.0, weight="bold", y=.990
     )
     fig.text(
-        .06, .015,
-        "A–C: 64 independent visitor histories; eight demographic repeats are nested. Error bars are 95% visitor-history bootstrap intervals. "
-        "D: corrected fixed-resident rare-mutant gradient at matching=0.5, investment=0.5, snapshot 400; assurance 0.75−0.25. "
-        "The gradient diagnostic explains local selection and is not a dynamic mediation fraction.",
-        fontsize=8.2,
+        .06, .010,
+        "A–C: 64 independent visitor histories; eight demographic repeats nested; 95% history-bootstrap intervals.\n"
+        "D: rare-mutant gradient at matching=investment=0.5, snapshot 400, assurance 0.75−0.25.\n"
+        "Local gradient is not an evolving-population mediation estimate.",
+        fontsize=8.0,
     )
-    fig.tight_layout(rect=[0.04, .06, .99, .955], h_pad=2.0, w_pad=1.4)
+    fig.tight_layout(rect=[0.04, .085, .99, .945], h_pad=2.0, w_pad=1.4)
 
     for ext in ("pdf", "svg", "png"):
         fig.savefig(OUT / f"assurance_compression.{ext}", dpi=200)
