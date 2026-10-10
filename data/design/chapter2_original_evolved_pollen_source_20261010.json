@@ -1,0 +1,72 @@
+{
+  "schema": "chapter2_evolved_genotype_pollen_service_source_v1",
+  "date": "2026-10-10",
+  "status": "POST_OUTCOME_ORIGINAL_GENOME_SOURCE_AUDIT_NOT_INDEPENDENT_CONFIRMATION",
+  "source_campaign": "data/design/chapter2_assurance_generality_20261006.json",
+  "original_workflow_run_id": 37458098483,
+  "artifact_shards": [
+    {
+      "shard": 0,
+      "artifact_id": 11411031490,
+      "outer_zip_sha256": "6e9ab6e3d354bba2cffd6ce960fc49a4dca0c2c84ae4b6f6ad9397e822041420",
+      "case": "near_fixed"
+    },
+    {
+      "shard": 1,
+      "artifact_id": 11410452132,
+      "outer_zip_sha256": "594516e1af6784c1c3642452a70dd03b1bc9853146812c1ea042e2b418e440be",
+      "case": "near_evolving"
+    },
+    {
+      "shard": 2,
+      "artifact_id": 11411051762,
+      "outer_zip_sha256": "1fef68e29a5686c13398be36f9a96c8a6fdf337218e29258e8e06c78a48aebfa",
+      "case": "far_fixed"
+    },
+    {
+      "shard": 3,
+      "artifact_id": 11411155493,
+      "outer_zip_sha256": "67134b4789702be88a02b356fd56a0252c31af6ae0ef6fa06e043037798bd241",
+      "case": "far_evolving"
+    }
+  ],
+  "source_reproduction_sha256": "885957edb8a165ee8528781ed1d2574c44143c608496b505f9663cbfac2c4081",
+  "history_seed_first": 26110601,
+  "history_seed_last": 26110664,
+  "demographic_repeat_seed": 26111601,
+  "n_nested_demographic_repeats_used": 1,
+  "settings": [
+    "delayed_control",
+    "prior_selfing",
+    "pollen_discount",
+    "assurance_cost"
+  ],
+  "arms": [
+    "near",
+    "far"
+  ],
+  "periods": [
+    200,
+    400
+  ],
+  "raw_npz_field": "state_<period> (N,3,2) original diploid genetic alleles; exact original trace comparison required",
+  "raw_receipt_validation": "Each original case .json receipt SHA-256 must match original raw .npz bytes, mode/setting/history identity and source manifest consistency.",
+  "visitor_exposure_validation": "Use EXACT source make_history from frozen sources, or visitor-only stream replay and verify exact visitor IDs/optima/breadths/effectiveness against source on several far/near history controls.",
+  "counterfactual": "Within each original E (evolving) diploid source population, set only investment alleles of all plants to the original matched F (fixed) branch's mean investment; preserve E matching, assurance and adult census, use same source visitor history and reproductive operator. Separately reset only E assurance to .5 as direct-pollen negative control. DO NOT call raw paired F vs E differences mediated effects.",
+  "focal_externality": "For every native E plant at snapshot 400, increase its floral investment alleles by 0.002 if admissible, otherwise use a negative 0.002 signed perturbation. Measure change in viable seed of all OTHER mothers and delivered pollen to others with all remaining alleles fixed. Treat within-history focal plants as correlated and report 64 history-level counts.",
+  "falsification_policy": "If source E evolution produces mean pollen-service loss but net viable maternal seed effect can be positive, do not infer group fitness or long-term persistence loss. Visitor-zero states must give exactly zero nonfocal pollen externality; settings without pollen discount must give zero direct assurance-to-pollen-delivery effect at fixed investment and matching.",
+  "scientific_limits": [
+    "Same ONE Model 3 biological mechanism and previously exposed 64 visitor histories, not independent ecological replication",
+    "One of eight nested demographic repeats per history; no 64x8 confirmation",
+    "Raw fixed vs evolving states have DIFFERENT genotypes/lineages, so matched arm means are not causal mediation",
+    "All investment-clamping is artificial static one-year; not an inherited assurance intervention",
+    "No descendants, allele-transmission fitness, extinction or unconditional occupancy estimated",
+    "Focal unilateral reproductive externality is not proof of population-level public-goods selection",
+    "Pollen-budget 16x saturation feasibility previously failed; near is not well-pollinated natural mainland"
+  ],
+  "raw_output_sha256": {
+    "paired": "34846d5ea2b758c7123af42130cceec7b3581c4c9a95dcbd0de52c651a599b57",
+    "focal": "09d514d0b38b6a8bb9fd44ef44aa6ec951a5c1eb0cd10913ceb25859e3835b5c",
+    "bundle": "636c839e494d165a370f6d0f703093a5de309f435aac47872092528cb3beccab"
+  }
+}
