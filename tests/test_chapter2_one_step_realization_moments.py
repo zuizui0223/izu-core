@@ -90,3 +90,27 @@ def test_wrong_inputs_fail_closed():
         exact_binary_direction_failure(
             np.full((2,2),.5),np.ones((2,2))/4,
             resident_recruits=1,threshold=.5)
+
+
+def test_source_selected_positive_expectation_can_fail_in_one_step(source_report):
+    s=source_report["selected_source_case"]
+    assert s["status"]=="POST_DISCOVERY_SELECTED_SOURCE_FIXED_STATE"
+    assert s["no_biological_trajectories"] is True
+    assert s["n_focal_adults"]==4
+    np.testing.assert_allclose(s["visitor_optima"],[.45,.5,.55,.6],
+                               atol=0,rtol=0)
+    m=s["moment"]
+    assert m["resident_recruits"]==8 and m["survivor_count"]==0
+    assert m["initial_trait_mean"]==.25
+    assert m["expected_mean_change_from_initial"]>0
+    assert m["offspring_parent_lottery_variance"]>0
+    assert m["offspring_mendelian_segregation_variance"]>0
+    prob=s["exact_conditional_nonpositive_change"]["conditional_failure_probability"]
+    assert .55<prob<.70
+    # Original source denominator and delayed selfing keep the mean
+    # selective shift small, though mathematically positive.
+    np.testing.assert_allclose(
+        m["expected_mean_change_from_initial"],.004558652322326329,
+        rtol=0,atol=5e-11)
+    np.testing.assert_allclose(prob,.6058431728182614,
+        rtol=0,atol=5e-10)
