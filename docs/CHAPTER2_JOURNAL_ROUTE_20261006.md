@@ -1,5 +1,9 @@
 # Chapter 2 journal route — 2026-10-06
 
+> **2026-10-10 one-paper supersession:** The current intended output is **one full-length original research article**, `docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md`. The Ecology Letters Letter-first / Journal of Ecology backup routing **below applied to the previous shorter manuscript only**. The unified article is no longer presented as a Letter. Journal destination will be decided against verified full-research article scope and actual word/figure constraints; it has **not** been submitted. Main supported evolutionary result remains primary, independent fixed-B48 K viability sensitivity is a narrower second registered result. Their juxtaposition is not genetic-order mediation or evolutionary suicide. Keep all negative and inconclusive demographic findings.
+
+---
+
 ## Decision
 
 **Primary target: Ecology Letters.**
