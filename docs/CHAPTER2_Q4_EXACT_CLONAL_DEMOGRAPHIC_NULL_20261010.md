@@ -49,6 +49,17 @@ All quantities are **exact probabilities in this deliberately frozen clonal/stat
 
 **Q4 demographic diversity does not require Q3 allele change.** Even with identical plant genotypes throughout and four visitors that never turn over, fixed resource and K yield strong differences in 80-year survival. At the original budget6, **K8: 3.0% versus K48: 82.9%** H80 occupancy, entirely from density-dependent recruitment, Poisson stochasticity, and the demographic ceiling. The *starting* eight-plant reproductive intensity is identical at B48; later differences arise because populations follow different census distributions. This **does not** prove that genetic evolution never affects occupancy; it establishes that the baseline demographic contrast must be subtracted or controlled before calling any evolving model difference an evolutionary consequence.
 
+### Where do surviving populations reside relative to the original Q1 sign-conflict window?
+
+In the previously exposed, monomorphic fixed-visitor #452 diagnostic (identical trait values), individual floral-investment selection and group viable-seed derivatives oppose one another only when census size is **N=6–9**. The exact no-evolution process can follow how much of its **unconditional probability mass** remains in that census band, but it does not estimate selection along a segregating inherited genotype history.
+
+At resource budget 6 and update 80:
+
+- **K8:** `Pr(alive and N in 6..8) = 0.0171583`, versus `Pr(alive) = 0.0302426`. Therefore approximately **56.7% of surviving probability mass** lies in the original restricted Q1 sign-conflict census window.
+- **K48:** `Pr(alive and N in 6..9) = 0.0000001929`, versus `Pr(alive) = 0.828719`. Only **0.0000233% of surviving probability mass** lies in that small-N window. Most surviving mass reaches much larger N, where the same source static selection gradient is no longer negative.
+
+This exposes the **density trajectory versus conflict persistence trade-off** without any genetic or pollinator change. A small-K condition can retain the hypothetical local sign-conflict while making survival highly unlikely; large K permits demographic survival while moving beyond the original sign-conflict domain. These are not direct claims about the persistence of the *genetic* conflict under evolving genomes. Both the N=6–9 window and the specific fixture were learned from old #452 exploration; no prospective threshold generalization is claimed.
+
 The exact non-genetic outcomes are qualitatively compatible with the **static-visitor engineering pilot in unmerged #452**: K8 budget6 is near the floor and K48 budget6 has frequent survival even there. But #452's actual 16-history experiments had **standing investment genetic variation** and Mendelian segregation, so the two treatments are different biological populations. The present results are **not independent replication, effect estimation, or quantitative validation of those observed 16-history proportions**.
 
 There is a second important distinction: the single-year cap-independent event `P(next N>0 | current mu)` does not imply `K` is irrelevant to 80-generation survival, because `K` changes the census-state distribution feeding into the next year's reproduction. The exact Markov propagation demonstrates this delayed population-level K pathway without genetic evolution.
