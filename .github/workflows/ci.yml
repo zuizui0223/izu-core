@@ -23,20 +23,6 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
-      - name: Audit familywise 12 original-source t20 transplant contrasts (PR 452 only)
-        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
-        run: |
-          pytest -q tests/test_chapter2_t20_joint_genome_transplant.py tests/test_chapter2_t20_transplant_familywise.py
-          python -m scripts.audit_chapter2_t20_transplant_familywise --out chapter2-t20-transplant-familywise-12.json
-      - name: Preserve source-replayed familywise sensitivity (PR 452 only)
-        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
-        uses: actions/upload-artifact@v4
-        with:
-          name: chapter2-t20-transplant-familywise-sensitivity
-          path: |
-            chapter2-t20-transplant-familywise-12.json
-            data/results/chapter2_t20_joint_genome_transplant_receipt_20261010.json
-          if-no-files-found: error
       - name: Run pytest
         run: |
           pytest -q --junitxml=pytest-${{ matrix.python-version }}.xml 2>&1 | tee pytest-${{ matrix.python-version }}.log
