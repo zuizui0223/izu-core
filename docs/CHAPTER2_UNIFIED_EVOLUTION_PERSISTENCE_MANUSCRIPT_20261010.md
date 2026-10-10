@@ -1,9 +1,9 @@
 # Floral-investment divergence and demographic persistence respond differently to reproductive assurance under pollinator limitation
 
-**Article type:** full-length original research article (single-paper synthesis; not a Letter)  
-**Target journal:** Journal of Ecology (full Research Article; submission not yet made, final requirements pending)  
-**Scope:** ~6,035-word main text; 237-word abstract; four main figures  
-**Status:** unified manuscript, not submitted or peer reviewed; replaces separate-submission routing of the two source drafts  
+**Article type:** one-paper research synthesis; Ecology Letters Letter compression pending  
+**Target journal:** Ecology Letters (Letter) first; a higher-impact ecology/evolution journal is conditional on new causal validation, not on reframing existing data  
+**Scope:** current draft ~6,035-word main text and 237-word abstract are ABOVE Ecology Letters Letter's 5,000/150 limits; four main figures; NOT submission-ready  
+**Status:** one unified scientific working draft, not submitted or peer reviewed; two original drafts retained as source provenance  
 **Model family:** one explicit Model 3; two separate interventions with distinct inference units and horizons  
 **Figures:** 4 main evidence figures; older deterministic figure retained as supplement  
 **Tables:** numerical effect table in supporting documents; cohort rank retained
@@ -196,6 +196,8 @@ The registered mean exceeds 0.005 and the entire interval is positive; **43 of 6
 After exploratory extinction-time diagnostics suggested later response, an independent **four-gate** experiment used another unused 64 histories and 229,376 futures. Selfed viable seeds were halved during updates **0–39**, **40–79**, or **0–79**, with an unchanged baseline. Its registered primary, the **difference between late-only and early-only K moderation**, was **−0.002965**, history-bootstrap **[−0.007263,+0.001317]**: **inconclusive**, neither nonzero support nor practical equivalence. The full-period K contrast (+0.008580) is a *descriptive secondary*, not a successful test of the timing hypothesis. Different interval crossings for early and late alone cannot identify when the causal mechanism acts.
 
 # Discussion
+
+The central confirmed result of this paper is evolutionary compression of floral-investment divergence by changes in reproductive assurance under two initially matched but both pollen-limited visitor regimes. The more ambitious question—whether individual reproductive insurance erodes a pollen-transfer service shared with conspecifics and thereby worsens population-level reproductive or demographic fitness—remains a **separate causal hypothesis** rather than a reinterpretation of our existing viability or capacity experiments. The finite pollen-ledger and nonfocal externality diagnostics motivate that question, but the original evolution campaigns have occupancy 1.0 and the stress campaigns did not randomize natural evolved-investment paths. We therefore do **not identify a causal chain** from inherited assurance evolution through lost collective pollen service to lower population persistence. The required falsifiers and prior-art limits are in `docs/CHAPTER2_HIGH_UPSIDE_QUESTION_AUDIT_20261010.md`, not treated as results of this article.
 
 Our results separate three questions that are often combined in interpretations of pollinator-driven selfing syndromes: whether reproductive assurance is required for floral reduction, how assurance modifies divergence among environments, and when assurance changes relative to floral investment. The answers are different. Assurance evolution was not necessary for reduced investment under low visitor replenishment, but when assurance could evolve it consistently compressed the investment difference between environments. Assurance-first temporal order occurred in one reproductive regime but not another.
 
