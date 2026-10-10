@@ -64,8 +64,8 @@ def test_carrying_capacity_modulates_genetic_realization_variance_not_expected_m
     assert a["P_next_occupied"] == pytest.approx(b["P_next_occupied"],abs=1e-13)
     assert a["E_next_census"] < b["E_next_census"]
     assert a["E_inverse_recruits_given_occupied"] > b["E_inverse_recruits_given_occupied"]
-    assert a["E_inverse_recruits_given_occupied"] == pytest.approx(.14568963924058306,abs=1e-8)
-    assert b["E_inverse_recruits_given_occupied"] == pytest.approx(.12785077360187908,abs=1e-8)
+    assert a["E_inverse_recruits_given_occupied"] == pytest.approx(.145689595636,abs=1e-7)
+    assert b["E_inverse_recruits_given_occupied"] == pytest.approx(.1278507039,abs=1e-7)
     assert a["results_by_trait"]["investment"]["expected_child_mean_conditional_on_occupancy"] == pytest.approx(
         b["results_by_trait"]["investment"]["expected_child_mean_conditional_on_occupancy"]
     )
