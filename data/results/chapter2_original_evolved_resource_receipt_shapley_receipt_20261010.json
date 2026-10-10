@@ -1,0 +1,71 @@
+{
+  "schema": "chapter2_original_evolved_resource_receipt_shapley_v1",
+  "status": "POST_OUTCOME_VERIFIED_ORIGINAL_GENOME_MATERNAL_SHAPLEY_NOT_MEDIATION",
+  "date": "2026-10-10",
+  "original_raw_full_json_name": "audit_resource_pollen_shapley.json",
+  "original_raw_full_json_sha256": "6fdd8ed45af9f7b9c65b513cb20fa1f3ba224519695ec37940421a7a6d60ae5e",
+  "source_biology_sha256": "885957edb8a165ee8528781ed1d2574c44143c608496b505f9663cbfac2c4081",
+  "original_source_artifacts": [
+    11411031490,
+    11410452132,
+    11411051762,
+    11411155493
+  ],
+  "n_original_visitors_histories": 64,
+  "n_of_8_original_demographic_repeats_used": 1,
+  "n_history_setting_blocks": 256,
+  "horizon": "near t400, original authenticated evolving adult genotypes, one reproductive ledger",
+  "estimand": "Static within-E original-genome intervention: source E versus same E genome with investment alleles replaced by matched fixed-arm mean; inherited assurance and visitor assemblage held constant. Not longitudinal mediation.",
+  "formula": "For delayed: G_i(O_i,r_i,a_i)=O_i[a_i(1-d)+(1-a_i(1-d))(1-exp(-r_i/(2s)))]. For prior: G_i=O_i[a_i(1-d)+(1-a_i)(1-exp(-r_i/(2s)))].",
+  "partition": "Symmetric exact two-factor Shapley between maternal ovule budget O and recipient pollen receipt r; sum equals source difference to <3e-11.",
+  "rows": [
+    {
+      "setting": "delayed_control",
+      "resource": 1.7722906957092415,
+      "receipt": -2.0152152577642997,
+      "seed": -0.24292456205506086,
+      "delivered": -1.3528480832545542,
+      "negReceipt": 33,
+      "posReceipt": 30,
+      "zeroReceipt": 1,
+      "nRescuing": 16
+    },
+    {
+      "setting": "prior_selfing",
+      "resource": 1.9336433228797254,
+      "receipt": 0.5387041175487683,
+      "seed": 2.4723474404284933,
+      "delivered": -1.3863086738889296,
+      "negReceipt": 37,
+      "posReceipt": 26,
+      "zeroReceipt": 1,
+      "nRescuing": 32
+    },
+    {
+      "setting": "pollen_discount",
+      "resource": 2.968494935909481,
+      "receipt": -1.2079834472800164,
+      "seed": 1.7605114886294588,
+      "delivered": -0.688982186754187,
+      "negReceipt": 37,
+      "posReceipt": 26,
+      "zeroReceipt": 1,
+      "nRescuing": 28
+    },
+    {
+      "setting": "assurance_cost",
+      "resource": 2.5724556221711428,
+      "receipt": -1.6897329122457314,
+      "seed": 0.8827227099254165,
+      "delivered": -1.8005483177904895,
+      "negReceipt": 37,
+      "posReceipt": 26,
+      "zeroReceipt": 1,
+      "nRescuing": 18
+    }
+  ],
+  "major_result": "Mean delivered pollen drops in all four original settings but mean maternal viable seed output increases in prior/pollen_discount/assurance_cost, because resource savings and recipient-specific pollen effects offset. Prior's Shapley pollen-receipt component mean is positive although total delivery declines; total delivery does not identify recipient-specific fecundity.",
+  "history_level_caveat": "History signs are mixed; all within one previously exposed 64-history model cohort, first of 8 nested demographic repeats only.",
+  "causal_limit": "The interventions fix evolving genotype matching and assurance while imposing a branch mean on investment; Shapley components are a decomposition of a selected STATIC source counterfactual, not causal mediation of 1000-step assurance evolution. Group viable seeds != unconditional fitness/occupancy; cannot claim evolutionary suicide or genetic underinvestment.",
+  "independent_histories_new": 0
+}
