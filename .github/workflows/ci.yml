@@ -1178,12 +1178,51 @@ jobs:
         with:
           python-version: '3.11'
       - run: python -m pip install -e '.[dev]'
-      - name: Verify exact 2x2 source parent and visitor decomposition in eight declared histories
-        run: pytest -q tests/test_model3_k32_multihistory_state_visitor_cross.py
+      - name: Verify exact 2x2 source channel contrasts and eight-history uncertainty accounting
+        run: pytest -q tests/test_model3_k32_multihistory_state_visitor_cross.py tests/test_model3_k32_multihistory_channel_competition.py
       - name: Source cross across 8 original visitor histories budget8
         run: python -m scripts.audit_model3_k32_multihistory_state_visitor_cross --budget 8 --draws 128 --out cross-new-histories-budget8.json
       - name: Source cross across 8 original visitor histories budget3
         run: python -m scripts.audit_model3_k32_multihistory_state_visitor_cross --budget 3 --draws 128 --out cross-new-histories-budget3.json
+      - name: Summarize across-histories self, outcross father and mother source effects
+        run: python -m scripts.audit_model3_k32_multihistory_channel_competition --budget8 cross-new-histories-budget8.json --budget3 cross-new-histories-budget3.json --out multihistory-channel-competition.json
+      - name: Verify exactly eight histories, additive locus channel identity, and no external ecology replication
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          import numpy as np
+          r=json.loads(Path("multihistory-channel-competition.json").read_text())
+          assert r["status"]=="ORIGINAL_K32_8_VISITOR_HISTORY_CHANNEL_COMPETITION_SOURCE_VERIFIED"
+          p=r["source_provenance"]
+          assert p["old_discovery_reference_excluded"]==26110601
+          assert p["new_post_outcome_rng_visitor_histories"]==list(range(26110602,26110610))
+          assert p["n_simulator_ecological_rng_histories"]==8
+          assert p["nested_demographic_paths_per_history"]==128
+          assert p["source_original_reproductive_biology_modified"] is False
+          assert p["prospective_confirmatory_visitor_history_cohorts_used"] is False
+          assert p["n_true_independent_natural_islands"]==0
+          assert len(r["cases"])==2
+          for c in r["cases"]:
+              assert c["budget"] in (3,8)
+              assert len(c["per_visitor_history_original_matching_state_channel"])==8
+              assert [z["seed"] for z in c["per_visitor_history_original_matching_state_channel"]]==list(range(26110602,26110610))
+              for name,stat in c["eight_history_contrasts"].items():
+                  assert stat["n_independent_simulator_visitor_history_rng_seeds"]==8
+                  mean=np.asarray(stat["mean_across_eight_history_RNG_seeds"])
+                  assert mean.shape==(4,3)
+                  assert np.allclose(mean[0],mean[1:].sum(axis=0),atol=1e-12,rtol=0)
+                  for field in ("positive_count","negative_count","zero_count"):
+                      assert np.asarray(stat[field]).shape==(4,3)
+                  assert np.all(np.asarray(stat["positive_count"])+
+                                np.asarray(stat["negative_count"])+
+                                np.asarray(stat["zero_count"])==8)
+              s=c["matching_source_state_competition"]
+              assert abs(s["mean_source_state_self"]+
+                         s["mean_source_state_outcross_combined"]-
+                         s["mean_source_state_total"])<1e-12
+          print("Eight synthetic visitor histories source-state reproductive channel contrasts PASS")
+          PY
       - name: Enforce no frozen confirmation seeds, exact source and environment-level interpretation
         run: |
           python - <<'PY'
@@ -1248,6 +1287,8 @@ jobs:
         if: always()
         with:
           name: model3-k32-multihistory-state-visitor-cross
-          path: cross-new-histories-budget*.json
+          path: |
+            cross-new-histories-budget*.json
+            multihistory-channel-competition.json
           if-no-files-found: warn
           retention-days: 90
