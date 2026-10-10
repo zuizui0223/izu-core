@@ -23,21 +23,6 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
-      - name: Source-only neutralized-transmission engineering gate (PR 452 only)
-        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
-        run: pytest -q tests/test_chapter2_selected_vs_neutral_parentage_new64.py
-      - name: Execute 64 unexposed visitor histories native vs neutral transmission (PR 452 only)
-        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
-        run: python -m scripts.audit_chapter2_selected_vs_neutral_parentage_new64 --out chapter2-selected-vs-neutral-parentage-64.json
-      - name: Archive complete parentage-selection intervention and frozen design (PR 452 only)
-        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
-        uses: actions/upload-artifact@v4
-        with:
-          name: chapter2-selected-neutral-parentage-new64
-          path: |
-            chapter2-selected-vs-neutral-parentage-64.json
-            data/design/chapter2_selected_neutral_parentage_new64_20261010.json
-          if-no-files-found: error
       - name: Run pytest
         run: |
           pytest -q --junitxml=pytest-${{ matrix.python-version }}.xml 2>&1 | tee pytest-${{ matrix.python-version }}.log
