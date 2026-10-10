@@ -217,6 +217,17 @@ def source_audit(paths):
                                     perturbed.delivered.sum(axis=0)[mask].sum() -
                                     parent.delivered.sum(axis=0)[mask].sum())/h),
                                 own_maternal=float((perturbed.maternal[i]-parent.maternal[i])/h),
+                                # Finite-population genetic parental expected contribution,
+                                # not the monomorphic rare-mutant log-invasion derivative.
+                                own_parental_genome=float((
+                                    .5*(perturbed.outcross.sum(axis=0)[i]
+                                        +perturbed.outcross.sum(axis=1)[i])
+                                    +perturbed.self_viable[i]
+                                    - .5*(parent.outcross.sum(axis=0)[i]
+                                        +parent.outcross.sum(axis=1)[i])
+                                    -parent.self_viable[i])/h),
+                                group_viable=float((
+                                    perturbed.maternal.sum()-parent.maternal.sum())/h),
                             )
                             focal_effects.append(one)
                         row["native_focal_effects"] = focal_effects
@@ -239,7 +250,8 @@ def source_audit(paths):
                 if t==400:
                     fx=[f for r in rr for f in r["native_focal_effects"]]
                     for field in ("nonfocal_viable","nonfocal_outcross",
-                                  "nonfocal_delivered","own_maternal"):
+                                  "nonfocal_delivered","own_maternal",
+                                  "own_parental_genome","group_viable"):
                         vals=np.array([x[field] for x in fx])
                         result[field]=dict(
                             mean=float(vals.mean()),positive=int((vals>1e-10).sum()),
@@ -249,6 +261,16 @@ def source_audit(paths):
                                 np.mean([f[field] for f in r["native_focal_effects"]])>1e-10
                                 for r in rr),
                         )
+                    result["finite_Wnegative_nonfocal_positive"] = sum(
+                        f["own_parental_genome"] < -1e-9 and f["nonfocal_viable"] > 1e-9
+                        for r in rr for f in r["native_focal_effects"])
+                    result["finite_Wnegative_groupGpositive"] = sum(
+                        f["own_parental_genome"] < -1e-9 and f["group_viable"] > 1e-9
+                        for r in rr for f in r["native_focal_effects"])
+                    result["n_histories_with_any_Wnegative_groupGpositive"] = sum(
+                        any(f["own_parental_genome"] < -1e-9 and
+                            f["group_viable"] > 1e-9 for f in r["native_focal_effects"])
+                        for r in rr)
                 summary.append(result)
     return dict(
         status="POST_OUTCOME_SOURCE_ONLY_NOT_CONFIRMATORY",
