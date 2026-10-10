@@ -10,7 +10,7 @@
   "model_independence": "Independent one-locus diploid ovule-binomial model with seed-level draws and uniform cap lottery, not Model3 Poisson recruitment or Model3 three-locus genetic architecture.",
   "constants": {
     "ovules_per_plant": 2,
-    "ovule_maturation": 0.75,
+    "ovule_maturation": 0.9,
     "selfed_seed_viability": 0.6,
     "allee_parameter": 1
   },
@@ -105,5 +105,6 @@
     "Analytic sign opposition intentionally parameter-constructed, so not a novel biological discovery",
     "No deleterious-mutation accumulation, no pollen-discount evolution, no rare phenotype-invasion path guaranteed",
     "Stochastic replications are demographic draws from one alternative kernel, not independent island systems"
-  ]
+  ],
+  "preregistration_parameter_reason": "At N=8, q=.8, source a=.375, expected viable seeds per adult=2*.9*(.625*.7+.375*.6)=1.1925 >1, to avoid forcing immediate demographic extinction by design; q=.4 source mean yields <1, high assurance approaches 1.08. This was set from algebra only, before any stochastic outcome."
 }
