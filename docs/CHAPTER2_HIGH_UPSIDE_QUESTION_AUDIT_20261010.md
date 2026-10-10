@@ -57,6 +57,12 @@ The current corrected Chapter 1 (source of truth: `zuizui0223/island/config/chap
 
 **Single-main-goal decision:** Start with **A as a *research hypothesis* and one tightly scoped diagnostic gate**, while protecting B as the only established paper headline. Do not convert B's Ecology Letters route to Journal of Ecology just because an 80-update K study was appended. Do not turn a weak K interaction into a central conclusion of a high-impact article. A journal such as Nature Ecology & Evolution is an *aspiration conditional on new convincing results*, not a verified current destination; its scope spans individual/population/community and evolutionary processes, but the currently supported dataset is one biological model family.
 
+## Journal formats are secondary to the claim
+
+The current one-paper work draft contains **6,164 main-text words including Methods**, with a **235-word abstract**. The official *Ecology Letters* Letter caps are **5,000 main words** and **150 abstract words**. The current *Nature Ecology & Evolution* Article format allows **up to 3,500 main-text words excluding Methods**, **200 abstract words** and six display items. This particular version has about **4,253 words excluding Methods** (Introduction + Results + Discussion + Conclusion), so **neither target is format-ready**. Nature Ecology & Evolution's broad ecology/population/evolution scope fits the *question*, but a journal's scope is not evidence that this one-model study has the novelty or external validation required. Source: official Wiley Ecology Letters author guide and Springer Nature Ecology & Evolution content types, checked 2026-10-10.
+
+We will not inflate the paper to integrate unsupported survival stories, nor cut the independent K nulls merely to improve narrative. The first scientific gate is whether Candidate A's missing **causal chain** can actually be identified. **If not, use Candidate B as the one-paper Ecology Letters claim and move unrelated demographic engineering detail to Supporting Information, clearly preserving provenance.**
+
 ## No-go rules
 
 - Never claim that selfing reduces pollinator abundance: visitor arrival/loss is exogenous in source Model 3.
