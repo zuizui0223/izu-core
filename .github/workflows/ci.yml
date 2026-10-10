@@ -23,18 +23,6 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
-      # TEMPORARY source diagnostic. Restore baseline CI after hash-validating archive.
-      - name: Archive near pollen sufficiency feasibility
-        if: matrix.python-version == '3.11'
-        run: |
-          python -m scripts.audit_chapter2_near_pollen_sufficiency_feasibility --out near-pollen-sufficiency-20261010.json
-      - name: Upload near pollen sufficiency feasibility
-        if: matrix.python-version == '3.11'
-        uses: actions/upload-artifact@v4
-        with:
-          name: chapter2-near-pollen-sufficiency-20261010
-          path: near-pollen-sufficiency-20261010.json
-          if-no-files-found: error
       - name: Run pytest
         run: |
           pytest -q --junitxml=pytest-${{ matrix.python-version }}.xml 2>&1 | tee pytest-${{ matrix.python-version }}.log
