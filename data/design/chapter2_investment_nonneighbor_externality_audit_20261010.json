@@ -1,0 +1,39 @@
+{
+  "schema": "chapter2_investment_nonneighbor_externality_exploratory_v1",
+  "date": "2026-10-10",
+  "status": "POST_OUTCOME_SOURCE_LEDGER_DIAGNOSTIC_NOT_PREREGISTERED",
+  "question": "Does increasing ONE model plant's floral investment increase viable seed production by OTHER conspecific plants, through outcross pollen delivery, independent of that focal plant's own payoff?",
+  "origin": "Observed finite-beta negative and collective-Gamma_seed positive floral-investment states in 384 synthetic grid, already outcome exposed. Mechanistic post-outcome audit, NOT ecological confirmation.",
+  "source": "scripts/audit_chapter2_beta_gamma_seed_map.py; unmodified scripts/chapter2_kb_reproduction.py",
+  "complete_grid": "All original 4 reproductive settings x 3 artificial visitor conditions x 2 K x 2 matching x 2 investment x 2 assurance states (192 unique parental environments); restricted perturbation investment only. Do not select favorable 14 conditions for execution.",
+  "finite_perturbation_widths": [
+    0.005,
+    0.0025
+  ],
+  "fixed_B": 48,
+  "outputs": {
+    "nonfocal_viable_seed_externality": "Derivative of sum of F_j+S_j for j != focal index0, when ONLY investment of focal changes; not a natural visitor population response.",
+    "decomposition": [
+      "nonfocal viable outcrossed offspring assigned to focal pollen father",
+      "nonfocal viable outcrossed offspring assigned to other pollen fathers",
+      "nonfocal viable selfed offspring"
+    ],
+    "focal_total_seed_response": "Derivative of F0+S0 from the same perturbed ledger; used only for accounting not identical to focal genetic beta W0",
+    "group_one_focal_response": "Sum of nonfocal + focal total viable seed derivatives, conserved against ledger total viable offspring derivative",
+    "focal_genetic_W_response": "Derivative of log(0.5F0+0.5P0+S0) as in prior beta program; not same unit as absolute externality",
+    "collective_uniform_trait_response": "Gamma_seed from shifting ALL plants simultaneously; distinct intervention, not sum of finite unilateral derivatives at different perturbed states.",
+    "known_discordance_validation": "Compare original investment-only classifications from full 384-cell source grid, including all 14 discordances and unresolved cells; do NOT relabel them as public goods without positive nonfocal response."
+  },
+  "decision_guard": {
+    "positive_externality": "Both central difference widths have positive nonfocal viable-seed effects greater than source stability deadband relative units, with no new ecological inference.",
+    "mechanism_criterion": "Positive nonfocal sum must be decomposed into increased viable outcross via focal pollen and possible compensating losses by other fathers. An increase in fixed visitor numbers cannot be claimed because source visitor community is unchanged.",
+    "model_scope": "Same-species cross-plant facilitation/indirect outcross benefit only; no between-species facilitation, pollinator recruitment, plant persistence, population/public good ESS equilibrium or island floral shrinkage established."
+  },
+  "diagnostics": [
+    "Every source row included and externality numerical derivative stable with half step",
+    "No-visitor negative control nonfocal response identically zero",
+    "Exact all-mothers seed conservation and additive nonfocal component identity",
+    "No modification canonical source biology",
+    "No claim of ecological independence or significant association across the 192 correlated synthetic grid cells"
+  ]
+}
