@@ -1,7 +1,7 @@
 {
   "schema": "chapter2_one_paper_route_20261010_v1",
   "status": "active_unified_manuscript_not_submitted",
-  "title": "Floral-investment divergence and demographic persistence respond differently to reproductive assurance under pollinator limitation",
+  "title": "Reproductive assurance compresses floral-investment divergence under pollinator limitation",
   "active_manuscript": "docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md",
   "renderer": "scripts/render_chapter2_unified_manuscript.py",
   "research_format": "ecology_letters_letter",
@@ -58,5 +58,7 @@
     "current_main_text_words": 3310,
     "current_abstract_words": 142,
     "updated_submission_scope": "Main 3310 words between Introduction and figure captions; abstract 142; 4 figures; no rewriting of old primary design."
-  }
+  },
+  "editorial_primary_claim": "Confirmed within one model family: assurance evolution not necessary for loss of investment, but compresses divergence in four frozen pollen-limited settings",
+  "editorial_secondary_claim": "Independent externally assigned expression-order K × viable selfed seed sensitivity (one registered small positive result), not an evolutionary-to-persistence mediator"
 }
