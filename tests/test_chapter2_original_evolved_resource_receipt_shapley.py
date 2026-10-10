@@ -86,3 +86,25 @@ def test_archived_original_genome_result_preserves_all_signs_and_denominators():
     # negative recipient-specific pollen contribution.
     assert next(x for x in r["rows"] if x["setting"]=="prior_selfing")["receipt"]>0
     assert "not causal mediation" in r["causal_limit"].lower()
+
+
+def test_history_bootstrap_source_intervals_do_not_promote_as_confirmatory():
+    r=json.loads((
+       ROOT/"data/results/chapter2_original_evolved_resource_receipt_bootstrap_receipt_20261010.json"
+    ).read_text(encoding="utf-8"))
+    assert r["draws"]==9999
+    assert r["seed"]==20261010
+    assert r["n_source_visitor_histories"]==64
+    assert r["n_nested_repeats_used"]==1
+    assert r["n_new_histories"]==0
+    assert len(r["rows"])==4
+    for row in r["rows"]:
+        for component in ("shapley_ovule_resource","shapley_pollen_receipt"):
+            lo,hi=row["metrics"][component]["percentile95"]
+            assert lo<0<hi, (row["setting"],component)
+    assert "NO multiplicity correction" in r["interval_method"]
+    # This one unadjusted source net interval happens to exclude zero; it is
+    # explicitly NOT a prospective or a cross-setting robustness result.
+    p=next(x for x in r["rows"] if x["setting"]=="pollen_discount")
+    assert p["metrics"]["net_evolved_minus_clamp_viable_seed"]["percentile95"][0]>0
+    assert "Do not promote" in r["claim_ceiling"]
