@@ -6,7 +6,8 @@
   "raw_output_sha256": {
     "paired": "34846d5ea2b758c7123af42130cceec7b3581c4c9a95dcbd0de52c651a599b57",
     "focal": "09d514d0b38b6a8bb9fd44ef44aa6ec951a5c1eb0cd10913ceb25859e3835b5c",
-    "bundle": "636c839e494d165a370f6d0f703093a5de309f435aac47872092528cb3beccab"
+    "bundle": "636c839e494d165a370f6d0f703093a5de309f435aac47872092528cb3beccab",
+    "focal_with_paternal": "49b26819f5bf5987543c695cbd73f062e68c61c5b73c8cea7ae3ecc3ca1d4bc8"
   },
   "source_reproduction_sha256": "885957edb8a165ee8528781ed1d2574c44143c608496b505f9663cbfac2c4081",
   "n_visitor_histories": 64,
@@ -97,7 +98,69 @@
     "Within-E investment clamp to matched fixed-mean investment is an imposed allelic counterfactual, not spontaneous evolution; changing investment also changes ovule cost.",
     "Unilateral focal externality is a one-step response in expected other-mother viable seed; not genetic fitness, visitor recruitment or survival.",
     "Group viable maternal offspring changes after investment clamp are + in 3/4 near settings despite service reductions in all 4; no universal demographic damage.",
-    "Near snapshot400 fixed-state pollen limitation; no saturation comparison; zero-visitor histories retained."
+    "Near snapshot400 fixed-state pollen limitation; no saturation comparison; zero-visitor histories retained.",
+    "After adding paternal accounting, negative own maternal effect must NOT automatically be called negative overall genetic selection; count W_i negative only from .5F+.5P+S.",
+    "Positive nonfocal seed effects are widespread, but negative focal finite-W with positive WHOLE-GROUP viable seed effects occur in only a subset; do not claim all source states are true public-goods fitness conflicts."
   ],
-  "decision": "STOP_PROMOTION_TO_CAUSAL_SHARED_SERVICE_EXTINCTION_HEADLINE. Continue only with predeclared same-genome evolutionary assay across stages and independent nonsaturated population histories if source biological justification is obtained."
+  "decision": "STOP_PROMOTION_TO_CAUSAL_SHARED_SERVICE_EXTINCTION_HEADLINE. Continue only with predeclared same-genome evolutionary assay across stages and independent nonsaturated population histories if source biological justification is obtained.",
+  "near_t400_full_genetic_focal_accounting": [
+    {
+      "setting": "delayed_control",
+      "n_focal_interventions": 3072,
+      "mean_focal_parental_genetic_derivative": -0.35461,
+      "focals_negative_finite_genetic_gradient": 2041,
+      "focals_positive_finite_genetic_gradient": 1031,
+      "focals_negative_genetic_with_positive_nonfocal_viable": 1964,
+      "focals_negative_genetic_with_positive_group_viable": 335,
+      "n_histories_any_negative_genetic_positive_group_viable": 23,
+      "n_histories_majority_negative_genetic_positive_group_viable": 6,
+      "mean_group_viable_derivative": -0.21165,
+      "focals_positive_group_viable_derivative": 1272,
+      "focals_negative_group_viable_derivative": 1800
+    },
+    {
+      "setting": "prior_selfing",
+      "n_focal_interventions": 3072,
+      "mean_focal_parental_genetic_derivative": -0.85458,
+      "focals_negative_finite_genetic_gradient": 2900,
+      "focals_positive_finite_genetic_gradient": 172,
+      "focals_negative_genetic_with_positive_nonfocal_viable": 2804,
+      "focals_negative_genetic_with_positive_group_viable": 235,
+      "n_histories_any_negative_genetic_positive_group_viable": 12,
+      "n_histories_majority_negative_genetic_positive_group_viable": 4,
+      "mean_group_viable_derivative": -0.67861,
+      "focals_positive_group_viable_derivative": 407,
+      "focals_negative_group_viable_derivative": 2665
+    },
+    {
+      "setting": "pollen_discount",
+      "n_focal_interventions": 3072,
+      "mean_focal_parental_genetic_derivative": -0.61652,
+      "focals_negative_finite_genetic_gradient": 2709,
+      "focals_positive_finite_genetic_gradient": 363,
+      "focals_negative_genetic_with_positive_nonfocal_viable": 2661,
+      "focals_negative_genetic_with_positive_group_viable": 438,
+      "n_histories_any_negative_genetic_positive_group_viable": 22,
+      "n_histories_majority_negative_genetic_positive_group_viable": 9,
+      "mean_group_viable_derivative": -0.38933,
+      "focals_positive_group_viable_derivative": 786,
+      "focals_negative_group_viable_derivative": 2286
+    },
+    {
+      "setting": "assurance_cost",
+      "n_focal_interventions": 3072,
+      "mean_focal_parental_genetic_derivative": -0.01621,
+      "focals_negative_finite_genetic_gradient": 1421,
+      "focals_positive_finite_genetic_gradient": 1651,
+      "focals_negative_genetic_with_positive_nonfocal_viable": 1373,
+      "focals_negative_genetic_with_positive_group_viable": 196,
+      "n_histories_any_negative_genetic_positive_group_viable": 17,
+      "n_histories_majority_negative_genetic_positive_group_viable": 3,
+      "mean_group_viable_derivative": 0.1157,
+      "focals_positive_group_viable_derivative": 1732,
+      "focals_negative_group_viable_derivative": 1340
+    }
+  ],
+  "scientific_definition_finite_parental": "W_i=.5*F_i+.5*P_i+S_i expected parental allele-copy equivalent from original finite source outcross matrix. Derivative is unilateral per source evolved genotype adult, not monomorphic rare-mutant log invasion gradient and not realized allele frequency change.",
+  "new_result": "Native t400 evolved genomes show explicit W_i negative / OTHER-mother seed positive situations in many focal states; but W_i negative / TOTAL group viable maternal seed positive is much narrower: 196–438 of 3072 near focal changes depending on setting. This is a source-stage sign conflict, not population survival or evolutionary suicide."
 }
