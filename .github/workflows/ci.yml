@@ -23,21 +23,6 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
-      - name: Source-only genome-preserving clamp smoke (PR 452 only)
-        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
-        run: pytest -q tests/test_chapter2_investment_mean_expression_clamp.py
-      - name: Run 64 new visitor-history t20 mean-expression clamp experiment (PR 452 only)
-        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
-        run: python -m scripts.audit_chapter2_investment_mean_expression_clamp --out chapter2-investment-t20-genome-preserving-clamp.json
-      - name: Preserve full independent visitor-history t20 paired-source outcomes (PR 452 only)
-        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
-        uses: actions/upload-artifact@v4
-        with:
-          name: chapter2-investment-t20-expression-clamp-new64
-          path: |
-            chapter2-investment-t20-genome-preserving-clamp.json
-            data/design/chapter2_investment_mean_clamp_new_visitor_20261010.json
-          if-no-files-found: error
       - name: Run pytest
         run: |
           pytest -q --junitxml=pytest-${{ matrix.python-version }}.xml 2>&1 | tee pytest-${{ matrix.python-version }}.log
