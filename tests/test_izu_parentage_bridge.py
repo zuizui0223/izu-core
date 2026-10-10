@@ -140,3 +140,14 @@ def test_bagged_seed_cannot_be_treated_as_natural_father_success():
     r=audit(d)
     assert r["status"]=="INVALID_DATA_OR_LINKAGE"
     assert any("only from open_pollinated fruits" in s for s in r["errors"])
+
+
+def test_even_claimed_field_metadata_needs_external_evidence_review():
+    data=fixture()
+    data["evidence_mode"]="field_claimed"
+    r=audit(data)
+    assert not r["errors"]
+    # The audit checks linkage and posterior accounting, not field reality,
+    # genetic assignment algorithm validity or ethics/regulatory approval.
+    assert r["status"]=="STRUCTURALLY_LINKED_CLAIM_REQUIRES_EXTERNAL_VALIDATION"
+    assert r["paternity_algorithm_not_executed"]
