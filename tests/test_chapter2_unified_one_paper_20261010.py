@@ -13,11 +13,11 @@ def test_single_active_full_research_article():
     contract=json.loads(SELECTOR.read_text(encoding="utf-8"))
     assert contract["active_manuscript_count"]==1
     assert contract["status"]=="active_unified_manuscript_not_submitted"
-    assert contract["research_format"]=="full_length_research_article"
-    assert "Ecology Letters (Letter) first" in contract["journal"]
-    assert contract["journal_fit"]["main_text_excess_words"]>=1000
-    assert contract["journal_fit"]["abstract_excess_words"]>=80
-    assert contract["journal_fit"]["editorial_status"]=="not_eligible_for_submission_format_yet"
+    assert contract["research_format"]=="ecology_letters_letter"
+    assert contract["journal"].startswith("Ecology Letters (Letter)")
+    assert contract["journal_fit"]["main_text_excess_words"]==0
+    assert contract["journal_fit"]["abstract_excess_words"]==0
+    assert contract["journal_fit"]["editorial_status"]=="EL_format_word_limits_passed_data_DOI_pending"
     assert "CHAPTER2_HIGH_UPSIDE_QUESTION_AUDIT_20261010.md" in contract["journal_fit"]["high_upside_audit"]
     assert len(contract["source_manuscripts_archived_not_separate_submissions"])==2
     for x in contract["source_manuscripts_archived_not_separate_submissions"]:
@@ -25,6 +25,8 @@ def test_single_active_full_research_article():
     unified=render_manuscript()
     assert unified.startswith("# "+contract["title"]+"\n")
     assert unified.count("## Abstract")==1
+    assert len(unified.split("## Abstract",1)[1].split("## Keywords",1)[0].split())<=150
+    assert len(unified.split("# Introduction",1)[1].split("# Primary figure assembly and captions",1)[0].split())<=5000
     assert unified.count("# References")==1
     assert unified.count("**Figure 4. Small demographic-capacity")==1
     assert unified.count("**Supplementary Figure S1.")==1
@@ -81,4 +83,4 @@ def test_route_markers_and_unpublished_data_boundary():
     assert "521 original biological-trajectory ZIP archives" in m
     assert "DOI-backed external archive" in m
     assert "not yet submitted" in m
-    assert "Ecology Letters Letter compression pending" in m.split("# Introduction",1)[0]
+    assert "Ecology Letters Letter compression pending" in m.split("# Introduction",1)[0] or "EL-format draft" in m.split("# Introduction",1)[0]
