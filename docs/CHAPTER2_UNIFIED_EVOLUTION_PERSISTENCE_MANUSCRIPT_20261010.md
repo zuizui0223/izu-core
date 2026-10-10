@@ -1,4 +1,4 @@
-# Floral-investment divergence and demographic persistence respond differently to reproductive assurance under pollinator limitation
+# Reproductive assurance compresses floral-investment divergence under pollinator limitation
 
 **Article type:** Ecology Letters Letter — one unified original research manuscript (word limits met; data deposit pending)  
 **Target journal:** Ecology Letters (Letter) first; a higher-impact ecology/evolution journal is conditional on new causal validation, not on reframing existing data  
