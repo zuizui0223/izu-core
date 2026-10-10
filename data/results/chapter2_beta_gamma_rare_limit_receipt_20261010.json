@@ -1,0 +1,31 @@
+{
+  "schema": "chapter2_beta_gamma_seed_rare_mutant_check_v1",
+  "date": "2026-10-10",
+  "status": "SOURCE_EXECUTED_CANONICAL_ANALYTIC_RARE_GRADIENT_K48_NOT_PERSISTENCE",
+  "source_commit": "b87dd45c69df81b097dd5530b30914b373008e7f",
+  "original_json_sha256": "d3dc89b702233c00be29ee1f0a6f36148d87ca7533a53271a621275178f2d3e6",
+  "original_zip_sha256": "797f5a7bf895f162d5c7bfb3882f75441f4b91a7f49668886553a07f43663521",
+  "workflow_run": 38014053216,
+  "artifact_id": 11655438178,
+  "source": "scripts/model3_island/selection.py",
+  "runner": "scripts/audit_chapter2_beta_gamma_rare_limit.py",
+  "test": "tests/test_chapter2_beta_gamma_rare_limit.py",
+  "source_grid_receipt": "data/results/chapter2_beta_gamma_seed_engineering_receipt_20261010.json",
+  "n_K48_comparison_cells": 192,
+  "n_finite_K48_discordances": 6,
+  "n_finite_discordances_retaining_same_rare_mutant_class": 6,
+  "n_opposite_rare_vs_finite_beta_signs": 0,
+  "rare_analytical_beta_group_seed_counts": {
+    "aligned": 178,
+    "inconclusive": 8,
+    "individual_advantage_group_harm": 0,
+    "individual_disadvantage_group_benefit": 6
+  },
+  "max_abs_rare_minus_finite_beta": 0.019580144234916053,
+  "scope": [
+    "The analytic original rare-mutant source is normalized for monomorphic source at capacity N=K. Only K48/B48 is comparable. K8/B48 is not.",
+    "Analytic beta and finite focal beta are different estimands in limit versus finite group; sign agreement in this declared grid is evidence of numerical robustness but not independent natural replication.",
+    "Gamma here is collective viable seed production, not population-level persistence probability or evolutionary-suicide assay.",
+    "No evolutionary trajectories, stochastic visitor history replication or new confirmation. The six retained discordances are beta-negative/Gamma_seed-positive, not individual-beneficial/population-harming."
+  ]
+}
