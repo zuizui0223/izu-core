@@ -87,3 +87,49 @@ The independent post-discovery Model 3 source-operator checks on [PR #452](https
 The **mathematical model-class nonidentifiability** here and the **frozen Model 3 ecological operator** must remain distinct. In nature, single-visit stigma pollen deposition helps estimate functional transfer, but reproductive father identities require genetic parentage or another independently valid donor-tracing method; even that does not by itself reveal heritable selection or long-term persistence.
 
 **Publication firewall:** None of the mathematical lemmas, fixed-state source diagnostics or founder/capacity pilots changes the prospective four-setting claim or its visitor-history-level uncertainty interval in the main paper. The exploratory model interventions are supplementary interpretation, not a fifth preregistered result. A causal claim that attraction-investment evolution depresses occupancy or produces evolutionary suicide is still **unresolved**.
+
+
+## S3 — Direct versus investment-mediated reproductive-assurance spillover
+
+**Mechanistic follow-up (not the #411 history-level estimand).** In original Model 3, pollen export by individual \(i\) has the source form
+
+\[
+e_i = B_p e^{-d a_i}\left[1-\exp(-q\,\overline{u}_i)\right],
+\]
+
+where \(a_i\) denotes reproductive assurance, \(d\ge0\) pollen-discount coefficient, \(q\) visitor activity and \(\overline{u}_i\) mean affinity determined by matching, visitors and floral investment \(I_i\). Pollen transfer from father \(i\) to any other mother is proportional to \(e_i\), after holding the visitor assemblage and all other parents constant.
+
+**Proposition S3.** Holding investment, other genotypes, visitor community, background and activity constant, raising focal \(a_i\) does **not** change any other mother \(j\ne i\)'s pollen receipt or maternal outcross seeds \(F_j\) when \(d=0\). When \(d>0\) and some positive focal-to-nonfocal transfer exists, raising focal assurance decreases its exported pollen, reduces each affected other mother's receipt and therefore reduces her outcross fertilization under the source monotonically increasing receipt-to-seed function. This says nothing about the focal mother's own ovule budget or competition among *offspring after recruitment*.
+
+**Proof.** At \(d=0\), \(e_i\) is invariant to \(a_i\), and the source donor–recipient affinity/channel weights depend on \(I_i\), matching and visitor traits, but not assurance. All \(T_{ij}\), \(r_j\) and \(F_j\) for \(j\ne i\) are unchanged. If \(d>0\), \(\partial e_i/\partial a_i=-d e_i<0\), so every affected \(r_j\) declines, and \(\partial F_j/\partial r_j\ge0\), strictly where receptive ovule availability and donor transfer are positive. \(\square\)
+
+An imposed focal investment decrease can produce a **distinct mediated externality**, even when \(d=0\), because it changes affinity, pollen export, and other mothers' pollen receipt. For a controlled fixed resident state, the **ordered finite contrast** is exactly
+
+\[
+F_{-i}(a_{\mathrm{high}},I_{\mathrm{low}})-F_{-i}(a_{\mathrm{low}},I_{\mathrm{high}})
+=
+\underbrace{F_{-i}(a_{\mathrm{high}},I_{\mathrm{high}})-F_{-i}(a_{\mathrm{low}},I_{\mathrm{high}})}_{\text{direct assurance contrast}}
++
+\underbrace{F_{-i}(a_{\mathrm{high}},I_{\mathrm{low}})-F_{-i}(a_{\mathrm{high}},I_{\mathrm{high}})}_{\text{imposed investment change}}.
+\]
+
+The decomposition is algebraic and **path-order-dependent** in an interacting nonlinear model, not a unique natural direct/indirect causal mediation fraction. The investment reduction is a *chosen counterfactual*, **not** evidence that assurance evolution itself produced that reduction in the original #411 trajectories.
+
+A source-fixed eight-clone fixture (focal starting matching/investment/assurance 0.2/0.35/0.35; fixed four visitor functional optima; \(B=48\); 7 other mothers; assurance 0.25→0.45; focal investment 0.35→0.25) yields the following expected **other mothers' maternal outcross viable-seed changes** from the Model 3 reproduction formula:
+
+| Source setting | Direct assurance change at fixed investment | Imposed investment change at high assurance |
+|---|---:|---:|
+| Delayed control, no pollen discount | 0 | −0.044772 |
+| Prior selfing | 0 | −0.029101 |
+| Pollen discount \(d=1\) | −0.030995 | −0.028660 |
+| Direct assurance allocation cost | 0 | −0.042112 |
+
+The frozen production-code evaluator is \`scripts/audit_chapter2_assurance_nonfocal_F_source.py\`, with structural checks in \`tests/test_chapter2_assurance_nonfocal_F_source.py\`. Source arithmetic tests must pass on the PR head before treating these fixture values as CI-verified results; no history-level intervention, evolutionary response or future persistence is tested.
+
+**Consequences for the proposed private-insurance/public-advertisement narrative:** It is reasonable to call the direct assurance benefit mostly private under specified reproductive modes. But an unconditional “assurance cannot harm others” claim is false when pollen discount is present, and an assurance-evolution-induced *indirect* external cost requires a demonstrated assurance→investment causal pathway plus the same-state investment→nonfocal pollen-service contrast. The original main four-setting #411 results show assurance evolution changes mean investment, but their arm-mean summaries do not by themselves identify a unique effect on other mothers' outcross seeds in a common genotype/visitor state.
+
+### Prior art and novelty boundary
+
+Do not claim to be first to cast floral display as a public good or to discuss altruistic floral advertising. Relevant precedents include Torices et al. (2018, *Nature Communications*, DOI 10.1038/s41467-018-04378-3), Sun et al. (2021, *Journal of Theoretical Biology*, DOI 10.1016/j.jtbi.2020.110470), and Tachiki et al. (2025, *Journal of Evolutionary Biology*, DOI 10.1093/jeb/voaf015). Cheptou (2004, *Evolution*, DOI 10.1111/j.0014-3820.2004.tb01615.x) already coupled reproductive assurance, pollen-limited Allee effects and possible evolutionary suicide. These papers overlap materially with public/private and kin-context framing.
+
+The possible contribution of our study is narrower: quantitatively **linking evolution of assurance capacity to the value and externalities of a shared effective-pollen-delivery channel within one explicit genetic and finite-demographic architecture**, while enforcing the evidence boundary between current viable-seed externalities and the unresolved long-term persistence effect. This is a proposed research contribution, not a validated novelty claim.
