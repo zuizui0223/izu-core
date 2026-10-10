@@ -1,0 +1,119 @@
+{
+  "schema": "chapter2_near_pollen_sufficiency_feasibility_source_receipt_v1",
+  "date": "2026-10-10",
+  "status": "SOURCE_EXECUTED_POSTDISCOVERY_FEASIBILITY_NOT_EVOLUTION",
+  "source_commit": "7f52571d26e49526f2c7316fe31b646210db8f59",
+  "source_action_run_id": 38041114105,
+  "source_artifact_id": 11666036103,
+  "source_artifact_url": "https://github.com/zuizui0223/izu-core/actions/runs/38041114105/artifacts/11666036103",
+  "source_json_name": "near-pollen-sufficiency-20261010.json",
+  "source_json_bytes": 206902,
+  "source_json_sha256": "c40bf96297405f620ff637d5f875490c7a38d6480726ffcdc3527d479c91a5c7",
+  "zip_download_and_json_sha_verified": true,
+  "runner_result": "success",
+  "n_source_history_ids": 64,
+  "n_new_independent_histories": 0,
+  "n_fixed_plant_states_per_history": 1,
+  "n_source_rows": 640,
+  "settings": "assurance_cost, fixed a=0.5, N48, visitor snapshot 400",
+  "admission_rule": "Near mean F/O >=0.90 AND >=60/64 histories each F/O >=0.90; first passing multiplier in frozen set 1,2,4,8,16; none met",
+  "final_decision": "SUFFICIENCY_NOT_REACHED_IN_FROZEN_FEASIBILITY_GRID",
+  "selected_multiplier": null,
+  "summary_rows": [
+    {
+      "arm": "near",
+      "multiplier": 1,
+      "mean_F_over_O": 0.2197027691026743,
+      "n_ge_0_90": 0,
+      "n_zero_visitors": 0,
+      "mean_raw_deficit": 0.39014861544866286
+    },
+    {
+      "arm": "near",
+      "multiplier": 2,
+      "mean_F_over_O": 0.376112,
+      "n_ge_0_90": 0,
+      "n_zero_visitors": 0,
+      "mean_raw_deficit": 0.311944
+    },
+    {
+      "arm": "near",
+      "multiplier": 4,
+      "mean_F_over_O": 0.576505,
+      "n_ge_0_90": 1,
+      "n_zero_visitors": 0,
+      "mean_raw_deficit": 0.211747
+    },
+    {
+      "arm": "near",
+      "multiplier": 8,
+      "mean_F_over_O": 0.766231,
+      "n_ge_0_90": 19,
+      "n_zero_visitors": 0,
+      "mean_raw_deficit": 0.116885
+    },
+    {
+      "arm": "near",
+      "multiplier": 16,
+      "mean_F_over_O": 0.887145,
+      "n_ge_0_90": 48,
+      "n_zero_visitors": 0,
+      "mean_raw_deficit": 0.056428
+    },
+    {
+      "arm": "far",
+      "multiplier": 1,
+      "mean_F_over_O": 0.0103296301056814,
+      "n_ge_0_90": 0,
+      "n_zero_visitors": 50,
+      "mean_raw_deficit": 0.4948351849471593
+    },
+    {
+      "arm": "far",
+      "multiplier": 2,
+      "mean_F_over_O": 0.019704,
+      "n_ge_0_90": 0,
+      "n_zero_visitors": 50,
+      "mean_raw_deficit": 0.490148
+    },
+    {
+      "arm": "far",
+      "multiplier": 4,
+      "mean_F_over_O": 0.036004,
+      "n_ge_0_90": 0,
+      "n_zero_visitors": 50,
+      "mean_raw_deficit": 0.481998
+    },
+    {
+      "arm": "far",
+      "multiplier": 8,
+      "mean_F_over_O": 0.061069,
+      "n_ge_0_90": 0,
+      "n_zero_visitors": 50,
+      "mean_raw_deficit": 0.469465
+    },
+    {
+      "arm": "far",
+      "multiplier": 16,
+      "mean_F_over_O": 0.092571,
+      "n_ge_0_90": 0,
+      "n_zero_visitors": 50,
+      "mean_raw_deficit": 0.453714
+    }
+  ],
+  "precision_note": "mean values other than original baseline are 6-decimal display approximations; check full archived JSON for exact floating point values.",
+  "source_checks": [
+    "Baseline 1x near and far match exact original 2026-10-05 64-history N48 fixed-plant mean raw deficits.",
+    "Source delayed selfing a=.5 implies F/O = 1 - 2 raw_deficit; raw deficit is after selfing, not outcross ovule deficit.",
+    "All 640 rows preserved; no dropped null, zero-visitor or poorly matched histories.",
+    "Candidate failed the prospective-within-this-exploratory-grid threshold at multiplier16: mean F/O 0.887 <.90 and only 48/64 histories >=.90.",
+    "50 of 64 far histories have no visitors at snapshot400 and cannot respond to pollen-budget manipulation."
+  ],
+  "limits": [
+    "No new stochastic histories",
+    "No full 1000-update evolutionary response",
+    "Pollen budget is pollen input rather than natural pollinator replenishment rate",
+    "No natural island external validation",
+    "Threshold and grid specified after prior 4-setting positive results; not independent confirmatory experiment"
+  ]
+}
