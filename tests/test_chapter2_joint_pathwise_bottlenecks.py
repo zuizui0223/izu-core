@@ -43,6 +43,8 @@ def test_replay_source_matching_and_no_visitor_pathwise_invariant_small_fixture(
     assert out["independent_visitor_histories"]==0
     assert out["archived_original_cell_counts_reproduced"] is False
     assert len(out["rows"])==2*2*2*2
+    import json
+    json.dumps(out, sort_keys=True, allow_nan=False)  # Fail if any NumPy scalar leaks
     assert out["design"]["horizons"]==[40,80]
     for row in out["rows"]:
         assert row["n_demographic_paths"]==2
