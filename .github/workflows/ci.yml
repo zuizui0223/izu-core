@@ -23,20 +23,6 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
-      - name: Source-locked finite beta x Gamma-seed engineering grid (PR 452 only)
-        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
-        run: |
-          pytest -q tests/test_chapter2_beta_gamma_seed_map.py
-          python -m scripts.audit_chapter2_beta_gamma_seed_map --out chapter2-beta-gamma-seed-map.json
-      - name: Archive entire finite beta x Gamma-seed grid (PR 452 only)
-        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
-        uses: actions/upload-artifact@v4
-        with:
-          name: chapter2-beta-gamma-seed-engineering-grid
-          path: |
-            chapter2-beta-gamma-seed-map.json
-            data/design/chapter2_beta_gamma_seed_engineering_grid_20261010.json
-          if-no-files-found: error
       - name: Run pytest
         run: |
           pytest -q --junitxml=pytest-${{ matrix.python-version }}.xml 2>&1 | tee pytest-${{ matrix.python-version }}.log
