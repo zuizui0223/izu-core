@@ -120,6 +120,17 @@ def run_all():
                     "group_shift_0p34_to_0p36": values["0.36"] - values["0.34"],
                 }
 
+            full_horizon_contrasts = [
+                float(distributions[0.36][h][1:].sum() -
+                      distributions[0.34][h][1:].sum())
+                for h in range(81)
+            ]
+            first_negative_horizon = next(
+                (h for h in range(1, 81) if full_horizon_contrasts[h] < -1e-12),
+                None,
+            )
+            minimum_horizon = int(np.argmin(full_horizon_contrasts[1:])) + 1
+
             # Original source ledger tangent and exact Markov response, not
             # an evolved investment allele-selection effect.
             step = DERIVATIVE_STEP
@@ -156,6 +167,11 @@ def run_all():
                     for n in range(1,k+1)
                 },
                 "horizons": horizons,
+                "first_negative_occupied_probability_contrast_update": first_negative_horizon,
+                "most_negative_occupied_probability_contrast_update": minimum_horizon,
+                "minimum_occupied_probability_contrast": float(
+                    full_horizon_contrasts[minimum_horizon]
+                ),
                 "H80_tangent_sensitivity": tangent,
                 "H80_tangent_forward_check": float(true_forward_tangent),
             }
