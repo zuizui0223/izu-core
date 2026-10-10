@@ -14,6 +14,19 @@ We subsequently **re-downloaded and SHA-verified original 2026-10-06 evolutionar
 
 **Decision:** Stage 1 supports pollen transfer and nonfocal benefit *components* but **fails to establish the full private-insurance → reduced collective reproductive fitness → extinction story**. In fact, seed compensation and demographic saturation block a generic harmful-persistence inference. **Keep Candidate B (confirmed evolutionary compression) as the one-paper Ecology Letters headline** until a genuinely independent, nonsaturated source-genetic-to-demography test is preregistered, executed and passes. Stage-1 raw source archive is retained with SHA and CI guards in [PR #457](https://github.com/zuizui0223/izu-core/pull/457); do not treat that exploratory Draft as a confirmed survival study.
 
+## 2026-10-10 mechanism update: exact ovule-allocation versus pollen-receipt offset
+
+Further original-genome source replay (PR #457; **64 previously exposed histories, 1 of 8 nested demographic repeats, near t400**) shows why the strong high-upside private-insurance → shared-pollen-loss → harmful-group-output inference is not yet supported. A within-evolving-genome **static investment clamp** was separated via a two-factor exact symmetric Shapley accounting identity into source maternal ovule-budget recovery and recipient-specific pollen receipt.
+
+- Mean **ovule-resource contribution** to E versus E-investment-clamped viable maternal seed: **+1.772/+1.934/+2.968/+2.572** across delayed / prior / pollen-discount / assurance-cost settings.
+- Mean **recipient-specific pollen receipt contribution**: **−2.015/+0.539/−1.208/−1.690** in the same order. Notably, *prior selfing* has an **average positive seed contribution from the changed distribution of pollen receipt (+0.539)** even though total delivered pollen decreases (−1.386). Total pollen volume therefore does not determine maternal seed output when plants are heterogeneous in ovule number, assurance and receipt.
+- Mean **net group viable maternal seed change**: **−0.243/+2.472/+1.761/+0.883**, but all four pollen and resource component **post-hoc 64-history bootstrap95 intervals include zero**, and three of four net seed intervals also include zero. The narrowly positive unadjusted pollen-discount net interval [+0.042,+3.401] is **not a preregistered or multiplicity-corrected confirmation**.
+- At native K48 all expected source near viable maternal seed totals exceed the demographic ceiling in all original histories, leaving near-zero **one-year capped expected recruitment** effects. No 80- or 1,000-update survival inference follows.
+
+**Decision strengthened:** Do not promote universal decline in total population seed output or "evolutionary tragedy" as a Nature-level headline. The model actually provides both channels — resource compensation, pollen receipt redistribution and density buffering — so the next general mechanism question must ask **under which conditions a loss of indirect reproductive service survives compensation and density regulation to affect inherited population persistence**, rather than assume that it does. Design a prospectively registered *nonsaturated* same-genome intervention with externally justified demographic envelope and null cases; old source histories cannot be counted as new independent validation.
+
+Source output SHA-256 `6fdd8ed45af9f7b9c65b513cb20fa1f3ba224519695ec37940421a7a6d60ae5e`, post-hoc history bootstrap SHA-256 `7c261e35e0dd5c496b488945a0e1edc3f9f57df3cf21a7afa7c4a053609f1d35`. Exact replay runner, descriptive receipt and original four-shard provenance in [PR #457](https://github.com/zuizui0223/izu-core/pull/457). The EL one-paper confirmed four-setting result is unaffected.
+
 ## Select the question by what can be falsified
 
 ### Candidate A — high-upside, currently UNPROVEN
