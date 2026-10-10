@@ -85,4 +85,4 @@ def test_archived_original_genome_result_preserves_all_signs_and_denominators():
     # Downward total pollen delivery does not mechanically imply a
     # negative recipient-specific pollen contribution.
     assert next(x for x in r["rows"] if x["setting"]=="prior_selfing")["receipt"]>0
-    assert "not causal mediation" not in r["causal_limit"].lower() or "not" in r["causal_limit"].lower()
+    assert "not causal mediation" in r["causal_limit"].lower()
