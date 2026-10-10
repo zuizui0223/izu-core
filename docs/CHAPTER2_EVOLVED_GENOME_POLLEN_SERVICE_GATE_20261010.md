@@ -48,6 +48,27 @@ This source demonstration is stronger than simply seeing a negative focal select
 
 **But it does NOT establish evolutionary underinvestment, community-maintained pollinator abundance, a naturally inherited selection coefficient, or extinction.** Multiple plant perturbations within each visitor history are correlated. A negative *focal maternal* derivative need not equal negative total parental allele fitness, because the focal individual's paternal outcross contribution must be included. Group viable seed is not census recruitment or occupancy. Only one repeat/history was evaluated here; the original four-setting result used eight repeats and a different preregistered estimand.
 
+## Exact maternal seed accounting: allocation recovery offsets reduced pollen transfer
+
+To adjudicate **why** lower pollen service did not consistently lower *collective viable maternal seeds*, we decomposed the original native evolving-genome t400 near-state comparison into its two source-accounting channels. Holding the **same evolving original genotypes, assurance alleles, visitor histories, N and matching states** fixed, we compare original evolved floral investment with the artificial replacement of investment to the matched fixed-arm mean. Both changes matter: investment changes the ovule budget **O** through its physiological allocation cost and the recipient-specific pollen receipt vector **r** via matching and donor export.
+
+For each mother i, in the original *delayed* selfing setting, expected viable maternal seed count is
+`G_i(O_i,r_i;a_i)=O_i[a_i(1−δ)+(1−a_i(1−δ))(1−exp(−r_i/(2s)))]`.
+For *prior* selfing the pollen term instead has coefficient `1−a_i`. We ran the unchanged original source reproduction operator with both O and r from original E or investment-clamped C, then recombined these exact source inputs to get a **symmetric two-factor Shapley decomposition**. Its two terms add to `G(E)−G(C)` to within 3×10⁻¹¹ in all **256** original setting × history blocks; this is a **static mathematical partition**, not causal mediation of evolving assurance.
+
+| Original E versus E-investment-clamp, near t400 | Mean ovule-allocation component | Mean pollen-receipt component | Mean net viable maternal seeds | Mean total delivered pollen |
+|---|---:|---:|---:|---:|
+| Delayed no-cost | **+1.77229** | **−2.01522** | **−0.24292** | −1.35285 |
+| Prior selfing | **+1.93364** | **+0.53870** | **+2.47235** | −1.38631 |
+| Pollen discount | **+2.96849** | **−1.20798** | **+1.76051** | −0.68898 |
+| Assurance cost | **+2.57246** | **−1.68973** | **+0.88272** | −1.80055 |
+
+In all four settings, the average total pollen receipt is lower with evolved investment in this artificial clamp, but average **viable maternal seed output is greater in three settings**. Thus **loss of aggregate received pollen is not equivalent to loss of collectively viable seed** once floral resource allocation and autonomous selfing are held correctly in the source accounting.
+
+A more surprising detail is the *prior-selfing* result: the **mean pollen-receipt component is positive (+0.539)** even as the summed pollen volume declines (−1.386). These are NOT contradictory; total receipt adds over mother plants while seed yield depends nonlinearly on which mother receives pollen, the number of ovules, and their selfing allocation. It is therefore unsafe to infer even the sign of the seed effect from total delivered pollen alone when mothers are heterogeneous. At the history level, pollen-recipient contributions are mixed: near t400, the pollen contribution was negative in 33, 37, 37 and 37 of 64 histories, respectively, and exactly zero in one no-visitor history. The amount by which **positive ovule-resource effects exceeded negative pollen effects** occurred in only 16, 32, 28 and 18 original histories, respectively (the source includes all 64, no post-hoc favourable-history filtering).
+
+**Reproducibility:** `scripts/audit_chapter2_original_evolved_resource_receipt_shapley.py` accepts the four original SHA-pinned frozen history shards, applies the same Model 3 seed accounting and exact two-factor identity, and preserves 256 source rows. Independent source-run JSON SHA-256 `6fdd8ed45af9f7b9c65b513cb20fa1f3ba224519695ec37940421a7a6d60ae5e`. Compact `data/results/chapter2_original_evolved_resource_receipt_shapley_receipt_20261010.json`; paired unit tests `tests/test_chapter2_original_evolved_resource_receipt_shapley.py`. There are **zero new biological history replicates**. The identity does **not** estimate the evolutionary genetic mediator or predict occupancy. Repeated individual mother values are not ecological independent samples.
+
 ## Paternal-inclusive check: external benefit is NOT always a group-fitness conflict
 
 To avoid inferring natural selection from a focal mother's own seeds, we repeated the unilateral original-genome t400 audit with **both parental routes**. For plant i, the source finite expected genetic contribution is `W_i = F_i/2 + P_i/2 + S_i`, where F is the maternal outcross count of i, P its siring contribution to other mothers and S its viable selfed seed contribution. The unilateral difference in W on the *actual evolving finite plant state* is a **source finite parental-return derivative, not the corrected monomorphic rare-mutant log-invasion derivative and not realized allele-frequency evolution**.
