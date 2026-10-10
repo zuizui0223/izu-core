@@ -29,7 +29,7 @@ OPTIMA = {
     "two_unique": (.15, .55),
     "four_clones": (.15, .15, .55, .55),
     "four_distinct": (.15, .35, .55, .75),
-    "four_shifted": (.65, .75, .85, .95),
+    "four_shifted": (.35, .55, .75, .95),
 }
 ACTIVITY = ("fixed", "count_scaled")
 GENOTYPES = ("monomorphic", "mixed_diploid")
