@@ -14,6 +14,7 @@ from scripts.audit_chapter2_investment_mean_expression_clamp import (
 def test_source_lock_n0_equal_K_distinct_and_full_genetic_variation():
     d,digest=contract()
     assert len(digest)==64
+    assert digest=="982de58f9d58412e3d7ba295995f4934941a75bf17c249a9b224965cb16d54dc"  # exact executed v2 protocol, NOT bundled v1
     assert d["design"]["total_future_paths"]==1024
     assert len(SOURCE_SEEDS)==64
     assert SOURCE_SEEDS.start==61023001 and SOURCE_SEEDS.stop==61023065
