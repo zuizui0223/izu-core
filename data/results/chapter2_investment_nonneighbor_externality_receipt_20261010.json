@@ -1,0 +1,21 @@
+{
+  "schema": "chapter2_externality_receipt_v1",
+  "status": "SOURCE_VERIFIED",
+  "source_commit": "0803b2fb665c4d4a6b23de37b8b3b5ad65c3f8f5",
+  "artifact_id": 11658777024,
+  "raw_json_sha256": "7593b5b75a83ef3c558222c7bb6a92f9458e12cdf6aa679e5f2d026ead7114b4",
+  "cells": 192,
+  "positive": 128,
+  "zero_no_visitors": 64,
+  "negative": 0,
+  "original_selection_seed_conflicts": 14,
+  "positive_nonneighbor_effect_among_conflicts": 14,
+  "example": {
+    "nonfocal_net": 0.3657985517,
+    "focal_mother": -0.1285870837,
+    "focal_father_to_others": 0.4705552458,
+    "other_fathers": -0.027163062,
+    "other_mothers_self": -0.0775936322
+  },
+  "scope": "Original fixed visitors only; pollen-mediated benefit to other conspecific mothers, no visitor recruitment, no survival inference."
+}
