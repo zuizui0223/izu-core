@@ -15,7 +15,7 @@ def render_manuscript():
     route=json.loads(ROUTE.read_text(encoding="utf-8"))
     if (route.get("status")!="active_unified_manuscript_not_submitted"
         or route.get("active_manuscript_count")!=1
-        or route.get("research_format")!="full_length_research_article"):
+        or route.get("research_format")!="ecology_letters_letter"):
         raise ValueError("invalid one-paper contract")
     target=ROOT/route["active_manuscript"]
     text=target.read_text(encoding="utf-8")
@@ -49,8 +49,11 @@ def render_manuscript():
         if required.lower() not in text.lower():
             raise ValueError(f"missing evidence or boundary: {required}")
     abstract=text.split("## Abstract",1)[1].split("## Keywords",1)[0]
-    if not 180<=len(abstract.split())<=330:
-        raise ValueError("abstract length outside source-oriented research article bounds")
+    main=text.split("# Introduction",1)[1].split("# Primary figure assembly and captions",1)[0]
+    if len(abstract.split())>150 or len(main.split())>5000:
+        raise ValueError("Ecology Letters Letter exceeds 150 abstract or 5000 main-text words")
+    if len(abstract.split())<100 or len(main.split())<2000:
+        raise ValueError("Unified manuscript accidentally truncated")
     return text.strip()+"\n"
 
 
