@@ -1,0 +1,30 @@
+{
+  "schema": "chapter2_high_replenishment_pollen_sufficiency_feasibility_v1",
+  "date": "2026-10-10",
+  "status": "POST_DISCOVERY_DIAGNOSTIC_NO_EVOLUTIONARY_CONCLUSIONS",
+  "purpose": "Test whether high-replenishment near visitor histories can reach at least 90% outcross fertilization of total ovules at the same fixed resident plant state; do not interpret near=high replenishment as full pollen sufficiency.",
+  "source_script": "scripts/run_model3_fixedplant_returns.py",
+  "source_summary": "data/results/model3_fixedplant_returns_summary_20261005.json",
+  "prior_fixed_near_raw_deficit": 0.39014861544866286,
+  "prior_fixed_far_raw_deficit": 0.4948351849471593,
+  "prior_setting": "assurance_cost",
+  "source_history_first": 76001,
+  "source_history_last": 76064,
+  "visitor_snapshot": 400,
+  "source_plant_state": "run_model3_assurance_intervention.founders(); N=48 fixed assurance alleles 0.5; no plant evolution",
+  "arms": [
+    "near",
+    "far"
+  ],
+  "setting": "assurance_cost",
+  "pollen_budget_multipliers": [
+    1,
+    2,
+    4,
+    8,
+    16
+  ],
+  "primary_sufficiency_definition": "For a candidate near pollen multiplier, fraction of ovules fertilized by outcross pollen, pooled within each of 64 histories over the 48 fixed mothers, must be >=0.90 for at least 60 histories, and mean >=0.90. Select earliest prespecified multiplier satisfying both; if none, report FAILED_NOT_ATTAINABLE and do not promote near as well-pollinated.",
+  "reference_check": "At multiplier 1.0 original near and far raw deficits match 2026-10-05 published source summary within 1e-10; fail on mismatch",
+  "interpretive_boundary": "This is post-discovery feasibility, using already exposed historical visitor draws at one static 48-plant checkpoint. It is neither preregistered evolutionary confirmation nor a test of 1000-update evolved compression. Raising pollen_budget scales pollen supply, not visitor arrival itself, and may fail to achieve sufficiency when visitors are absent or cannot match flowers."
+}
