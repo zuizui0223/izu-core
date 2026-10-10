@@ -5,7 +5,7 @@
   "active_manuscript": "docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md",
   "renderer": "scripts/render_chapter2_unified_manuscript.py",
   "research_format": "full_length_research_article",
-  "journal": "Journal of Ecology (Research Article), proposed_not_submitted",
+  "journal": "Ecology Letters (Letter) first; Nature Ecology & Evolution candidate only after independent high-impact mechanism gates",
   "active_manuscript_count": 1,
   "source_manuscripts_archived_not_separate_submissions": [
     "docs/CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md",
@@ -36,16 +36,24 @@
     ]
   },
   "data_requirement": "Issue #436 outstanding DOI-backed external raw archive verification",
-  "policy": "Do not combine incompatible history-cluster denominators or pool cohort intervals; preserve all preregistered failures and existing model biology.",
+  "policy": "Do not combine incompatible history-cluster denominators or pool cohort intervals; preserve all preregistered failures and existing model biology. Current merged draft is over the official Ecology Letters Letter word/abstract limits and must not be submitted without compression; the conditional higher target must not be advertised as achieved.",
   "journal_fit": {
-    "source": "official Journal of Ecology author guidelines retrieved 2026-10-10",
-    "typical_research_article_words": 8000,
-    "unified_main_text_words_at_first_draft": 6035,
-    "unified_abstract_words_at_first_draft": 237,
-    "figures": 4,
+    "source": "Ecology Letters Wiley official author guidelines, verified 2026-10-10",
     "ecology_letters_letter_main_max": 5000,
     "ecology_letters_letter_abstract_max": 150,
-    "backup": "Ecology journal original Article format, if JE unsuitable",
-    "scope": "Journal proposal only; current author guidelines and data deposition must be checked again before submission."
+    "display_items_max": 6,
+    "current_integrated_main_words": 6035,
+    "current_integrated_abstract_words": 237,
+    "main_text_excess_words": 1035,
+    "abstract_excess_words": 87,
+    "editorial_status": "not_eligible_for_submission_format_yet",
+    "scientific_focus": "retain prospectively confirmed four-setting evolutionary-investment claim; demographic K sensitivity is a distinct result, not mediation",
+    "high_upside_audit": "docs/CHAPTER2_HIGH_UPSIDE_QUESTION_AUDIT_20261010.md",
+    "conditional_higher_target": "Nature Ecology & Evolution or equivalent broad ecology journal ONLY if a newly validated assurance-evolution -> communal pollen transfer -> demographic fitness chain and generality are established, not by reinterpretation alone",
+    "never_promote_unproven": [
+      "evolutionary suicide",
+      "pollinator population collapse",
+      "historically explained global island syndrome"
+    ]
   }
 }
