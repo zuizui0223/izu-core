@@ -23,6 +23,20 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
+      - name: Verify model-source investment nonfocal ledger and all original 14 conflicts (PR 452)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
+        run: |
+          pytest -q tests/test_chapter2_investment_nonneighbor_externality.py
+          python -m scripts.audit_chapter2_investment_nonneighbor_externality --out chapter2-investment-nonfocal-externality.json
+      - name: Archive all original finite investment externality cell diagnostics (PR 452)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-investment-nonfocal-externality
+          path: |
+            chapter2-investment-nonfocal-externality.json
+            data/design/chapter2_investment_nonneighbor_externality_audit_20261010.json
+          if-no-files-found: error
       - name: Run pytest
         run: |
           pytest -q --junitxml=pytest-${{ matrix.python-version }}.xml 2>&1 | tee pytest-${{ matrix.python-version }}.log
