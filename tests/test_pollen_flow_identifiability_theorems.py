@@ -6,7 +6,7 @@ import numpy as np
 
 from scripts.prove_pollen_flow_identifiability import (
     TA, TB, certificate, matrix_metrics, seed_ledger, source_dimension,
-    source_seed_bounds,
+    source_seed_bounds, sharp_paternal_bounds,
 )
 
 
@@ -86,3 +86,15 @@ def test_certificate_is_math_only_not_model_reachability():
     np.testing.assert_allclose(r["paternity_L1_difference"],
                                8/15,rtol=0,atol=1e-12)
     assert r["fixed_total_receipt_seed_bounds_n3"]["width"]>0
+
+
+def test_sharp_father_bounds_and_two_adult_identification_threshold():
+    # With n=2 no other candidate exists; with n=3 there are alternative
+    # possible fathers for each mother and independent columns can vary.
+    assert sharp_paternal_bounds((2., 3.)) == ((3.,3.),(2.,2.))
+    assert sharp_paternal_bounds((2.,3.,5.)) == (
+        (0.,8.),(0.,7.),(0.,5.))
+    f=seed_ledger(TA)["maternal_outcross"]
+    b=sharp_paternal_bounds(f)
+    for i, paternal in enumerate(seed_ledger(TB)["paternal_outcross"]):
+        assert b[i][0]-1e-12 <= paternal <= b[i][1]+1e-12
