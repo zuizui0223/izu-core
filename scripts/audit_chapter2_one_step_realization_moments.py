@@ -152,6 +152,49 @@ def original_four_visitors():
     )
 
 
+def selected_source_case(cfg):
+    """Pilot-chosen original source context with positive expected one-step shift.
+
+    NOT an independent confirmation: optima were chosen after inspecting
+    exploratory source formulas, but fixed in the current design before CI.
+    """
+    state=cloned_state(heterozygous=False)
+    alleles=state.alleles.copy()
+    alleles[:2,0,:]=0.
+    alleles[2:,0,:]=[0.,1.]
+    state=replace(state,alleles=alleles)
+    visitors=VisitorState(
+        ids=np.arange(4,dtype=np.int64),
+        optima=np.array([.45,.50,.55,.60]),
+        breadths=np.full(4,.18),
+        effectiveness=np.ones(4),
+    )
+    ledger=reproduce(state,visitors,cfg)
+    q=probabilities_from_source_ledger(ledger)
+    moments=one_step_moments(
+        state.alleles[:,0,:],q,survivors=(),resident_recruits=8)
+    probability=exact_binary_direction_failure(
+        state.alleles[:,0,:],q,threshold=moments["initial_trait_mean"],
+        survivors=(),resident_recruits=8)
+    if moments["expected_mean_change_from_initial"]<=0:
+        raise AssertionError("selected source fixture has no positive expected shift")
+    if moments["offspring_parent_lottery_variance"]<=0 or (
+       moments["offspring_mendelian_segregation_variance"]<=0):
+        raise AssertionError("both source finite inheritance routes must contribute")
+    return {
+        "status":"POST_DISCOVERY_SELECTED_SOURCE_FIXED_STATE",
+        "n_focal_adults":len(state.ids),
+        "visitor_optima":visitors.optima.tolist(),
+        "initial_adult_matching_mean":moments["initial_trait_mean"],
+        "expected_viable_group_seeds":float(
+            ledger.outcross.sum()+ledger.self_viable.sum()),
+        "moment":moments,
+        "exact_conditional_nonpositive_change":probability,
+        "no_biological_trajectories":True,
+        "interpretation":"Original source expected offspring trait can shift upwards while R8 conditional realization may not; selected fixed source scenario only."
+    }
+
+
 def run():
     frozen=json.loads(DESIGN.read_text(encoding="utf-8"))
     if (frozen["status"]!="POST_DISCOVERY_EXACT_SOURCE_ONE_STEP_ONLY"
@@ -187,6 +230,7 @@ def run():
             report.append(row)
     if not np.allclose(ledgers[0],ledgers[1],atol=0,rtol=0):
         raise AssertionError("same phenotype must have identical source parental lottery")
+    selected=selected_source_case(cfg)
     return {
         "status":"EXACT_SOURCE_ONE_STEP_VARIANCE_NO_EVOLUTION",
         "n_focal_mothers":4,
@@ -194,6 +238,7 @@ def run():
         "n_model_history_replicates":0,
         "new_ecological_histories":0,
         "rows":report,
+        "selected_source_case":selected,
         "biology_changed":False,
         "claim_limit":"A conditional one-step variance decomposition. It cannot attribute observed 1000-year failure rates to drift/segregation or calculate population survival."
     }
@@ -209,6 +254,8 @@ def main():
     print(json.dumps({
         "status":res["status"],
         "rows":len(res["rows"]),
+        "selected_case_expected_shift":res["selected_source_case"]["moment"]["expected_mean_change_from_initial"],
+        "selected_case_conditional_nonpositive_probability":res["selected_source_case"]["exact_conditional_nonpositive_change"]["conditional_failure_probability"],
         "r4":[{"type":x["type"],"parent":x["moment"]["offspring_parent_lottery_variance"],
               "segregation":x["moment"]["offspring_mendelian_segregation_variance"],
               "var_mean":x["moment"]["next_mean_conditional_variance"]}
