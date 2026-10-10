@@ -23,6 +23,21 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
+      - name: Independently derived diploid-binomial kernel algebra and smoke tests (PR 452)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
+        run: pytest -q tests/test_chapter2_independent_binomial_kernel.py
+      - name: Run alternative genetic-demographic model for entire source-locked 2048 paths (PR 452)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
+        run: python -m scripts.audit_chapter2_independent_binomial_kernel --out chapter2-binomial-independent-kernel-2048.json
+      - name: Preserve alternative binomial model outcomes and frozen source design (PR 452)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-alternative-binomial-kernel-2048
+          path: |
+            chapter2-binomial-independent-kernel-2048.json
+            data/design/chapter2_alternative_binomial_kernel_20261010.json
+          if-no-files-found: error
       - name: Run pytest
         run: |
           pytest -q --junitxml=pytest-${{ matrix.python-version }}.xml 2>&1 | tee pytest-${{ matrix.python-version }}.log
