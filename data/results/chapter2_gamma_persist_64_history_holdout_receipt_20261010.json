@@ -1,0 +1,186 @@
+{
+  "schema": "chapter2_gamma_persist_holdout_source_verified_compact_v1",
+  "date": "2026-10-10",
+  "status": "EXECUTED_MODEL_INTERNAL_NEW_64_VISITOR_HISTORIES_NO_EVOLUTION",
+  "executed_source_commit": "e1695545c4dc8c65d85f7112a826708f66f0ecb5",
+  "design_file": "data/design/chapter2_gamma_persist_new_visitor_holdout_20261010.json",
+  "design_sha256": "e4c527ad21801ac2277f6f08ad8a23deadd283b58fbd56ed214e869a8dffa9db",
+  "runner": "scripts/audit_chapter2_gamma_persist_new_histories.py",
+  "workflow_run_id": 38014927982,
+  "original_artifact_id": 11655099875,
+  "raw_json_sha256": "a96540fa9c6e96ba3f1e9c15d9dcc0690707742316911f730a425ec76c5275c7",
+  "original_zip_sha256": "2e250b401fedf77a4cfb9a7f669aa3d168824e0f8aa6fb30b743e5931b43bf1a",
+  "outcome_units": {
+    "visitor_histories": 64,
+    "history_rng_first": 61021001,
+    "history_rng_last": 61021064,
+    "nested_demographic_repeats": 1,
+    "n_futures": 1024,
+    "independent_ecological_systems": 0,
+    "mutation_rate": 0,
+    "starting_genotype": "monomorphic",
+    "original_beta_reference": "four visitor types at initial year; dynamic visitor losses/arrivals thereafter"
+  },
+  "results": [
+    {
+      "K": 8,
+      "assurance": 0.35,
+      "gate": "baseline",
+      "horizons": {
+        "20": {
+          "n_shift_plus_occupied": 27,
+          "n_shift_minus_occupied": 30,
+          "n_plus_only": 4,
+          "n_minus_only": 7
+        },
+        "80": {
+          "n_shift_plus_occupied": 1,
+          "n_shift_minus_occupied": 2,
+          "n_plus_only": 0,
+          "n_minus_only": 1
+        }
+      }
+    },
+    {
+      "K": 8,
+      "assurance": 0.35,
+      "gate": "half_self",
+      "horizons": {
+        "20": {
+          "n_shift_plus_occupied": 0,
+          "n_shift_minus_occupied": 0,
+          "n_plus_only": 0,
+          "n_minus_only": 0
+        },
+        "80": {
+          "n_shift_plus_occupied": 0,
+          "n_shift_minus_occupied": 0,
+          "n_plus_only": 0,
+          "n_minus_only": 0
+        }
+      }
+    },
+    {
+      "K": 8,
+      "assurance": 0.65,
+      "gate": "baseline",
+      "horizons": {
+        "20": {
+          "n_shift_plus_occupied": 64,
+          "n_shift_minus_occupied": 64,
+          "n_plus_only": 0,
+          "n_minus_only": 0
+        },
+        "80": {
+          "n_shift_plus_occupied": 64,
+          "n_shift_minus_occupied": 64,
+          "n_plus_only": 0,
+          "n_minus_only": 0
+        }
+      }
+    },
+    {
+      "K": 8,
+      "assurance": 0.65,
+      "gate": "half_self",
+      "horizons": {
+        "20": {
+          "n_shift_plus_occupied": 10,
+          "n_shift_minus_occupied": 14,
+          "n_plus_only": 2,
+          "n_minus_only": 6
+        },
+        "80": {
+          "n_shift_plus_occupied": 0,
+          "n_shift_minus_occupied": 0,
+          "n_plus_only": 0,
+          "n_minus_only": 0
+        }
+      }
+    },
+    {
+      "K": 48,
+      "assurance": 0.35,
+      "gate": "baseline",
+      "horizons": {
+        "20": {
+          "n_shift_plus_occupied": 64,
+          "n_shift_minus_occupied": 64,
+          "n_plus_only": 0,
+          "n_minus_only": 0
+        },
+        "80": {
+          "n_shift_plus_occupied": 62,
+          "n_shift_minus_occupied": 63,
+          "n_plus_only": 0,
+          "n_minus_only": 1
+        }
+      }
+    },
+    {
+      "K": 48,
+      "assurance": 0.35,
+      "gate": "half_self",
+      "horizons": {
+        "20": {
+          "n_shift_plus_occupied": 32,
+          "n_shift_minus_occupied": 10,
+          "n_plus_only": 22,
+          "n_minus_only": 0
+        },
+        "80": {
+          "n_shift_plus_occupied": 2,
+          "n_shift_minus_occupied": 1,
+          "n_plus_only": 1,
+          "n_minus_only": 0
+        }
+      }
+    },
+    {
+      "K": 48,
+      "assurance": 0.65,
+      "gate": "baseline",
+      "horizons": {
+        "20": {
+          "n_shift_plus_occupied": 64,
+          "n_shift_minus_occupied": 64,
+          "n_plus_only": 0,
+          "n_minus_only": 0
+        },
+        "80": {
+          "n_shift_plus_occupied": 64,
+          "n_shift_minus_occupied": 64,
+          "n_plus_only": 0,
+          "n_minus_only": 0
+        }
+      }
+    },
+    {
+      "K": 48,
+      "assurance": 0.65,
+      "gate": "half_self",
+      "horizons": {
+        "20": {
+          "n_shift_plus_occupied": 63,
+          "n_shift_minus_occupied": 64,
+          "n_plus_only": 0,
+          "n_minus_only": 1
+        },
+        "80": {
+          "n_shift_plus_occupied": 40,
+          "n_shift_minus_occupied": 43,
+          "n_plus_only": 1,
+          "n_minus_only": 4
+        }
+      }
+    }
+  ],
+  "reported_bootstrap_warning": "The originally registered ordinary paired-percentile bootstrap on 64 histories can degenerate to [0,0] for all-identical occupancy cells. It must not, by itself, certify practical equivalence at 5 percentage points. A separate, labeled post-outcome conservative exact interval sensitivity is required.",
+  "interpretation_limits": [
+    "This is model-internal validation of source-imposed initial genotype shift, not evolution-enabled versus frozen genetic response.",
+    "K=8 and K=48 start with N0=K so starting census and future K are bundled.",
+    "Prior beta at year0 may change sign under new future visitor community trajectories.",
+    "No 80-update cell has direction resolved under conservative paired-history 95% confidence intervals; this is NOT a proof of zero effect.",
+    "All new histories drawn from one shared generator, not ecological system or field replications."
+  ]
+}
