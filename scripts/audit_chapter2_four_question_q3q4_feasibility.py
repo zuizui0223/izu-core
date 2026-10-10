@@ -118,6 +118,20 @@ def audit(source: Path = SOURCE, shapley: Path = SHAPLEY, ceiling: Path = CEILIN
             },
         }
 
+    # A deterministic, source-wide upper bound: both original viable-seed
+    # intensities (evolved and investment-restored) are >= the frozen minimum.
+    # Scaling by b preserves that inequality. Since P(occupied)=1-exp(-mu),
+    # their absolute one-step occupancy difference cannot exceed exp(-b*min_mu).
+    # This is NOT a confidence interval, realized effect or long-run bound.
+    original_min_viable_seed = min(
+        float(q["min_viable_mu_either_branch"]) for q in cp.values()
+    )
+    if not original_min_viable_seed > 0:
+        raise ValueError("invalid archived minimum source viable seed mean")
+    maximal_absolute_one_step_occupancy_change_by_scale = {
+        str(factor): math.exp(-factor * original_min_viable_seed) for factor in SCALES
+    }
+
     by_scale = [scale_rows(factor) for factor in SCALES]
     intermediate_E_total = sum(r["n_E_occupancy_in_0p1_0p9"] for r in rows)
     max_intermediate_E_in_any_64_history_setting = max(
@@ -150,6 +164,17 @@ def audit(source: Path = SOURCE, shapley: Path = SHAPLEY, ceiling: Path = CEILIN
         "n_old_nested_repeats_per_history": 1,
         "n_exposed_one_year_cells": b["n_derived_one_year_cells"],
         "source_original_json_sha256": b["input_sha256"],
+        "original_min_viable_seed_mean_across_original_source_arms": original_min_viable_seed,
+        "rigorous_max_absolute_conditional_one_step_occupancy_change_by_scale": (
+            maximal_absolute_one_step_occupancy_change_by_scale
+        ),
+        "bound_note": (
+            "For the previously observed source states only, at the same original "
+            "genotypes, visitor states and scaled b, all compared original viable-seed "
+            "means are >= b*min_mu. Any one-generation occupancy probability "
+            "difference is <= exp(-b*min_mu). This is a deterministic upper bound "
+            "on expected conditional occupancy, not a CI or multi-generation result."
+        ),
         "fixed_K": 48,
         "fixed_B": 48,
         "tested_scale_grid_post_outcome": list(SCALES),
