@@ -1,5 +1,47 @@
 # Chapter 1 → Chapter 2 canonical bridge — 2026-09-27
 
+## Current Chapter 1 evidence override — 2026-10-10
+
+**Read this first.** The September bridge below was written against the then-current Chapter 1 v13/v14 evidence. The active scientific source of truth is now `zuizui0223/island/config/chapter1_submission_current.json` (contract `chapter1_corrected_submission_traitwise_20261004_v1`, dated 2026-10-04), `submission/chapter1_current/MANUSCRIPT.md` and its corrected final seven-trait analyses. Where the September material says assurance and generalized accessibility *both recur across all four geographic strata*, read it with the following correction rather than promoting an outdated global claim:
+
+- **Reproductive assurance, most consistently self-compatibility**, increases with isolation in all four regions in both broad and WCVP regional-native-compatible analyses. Other selfing/autonomous traits have narrower regional support; they are not universally positive.
+- **Floral accessibility/generalization has partial conditional support**, not four-region significance. After assurance adjustment, FDR-supported H2 positive accessibility is concentrated in northern high latitudes and the tropical All analysis; tropical Direct-only is not FDR-supported (q=0.1267). Detailed flower colour, tube/architecture and display remain region- and evidence-scope-dependent.
+- **Independent pollen limitation H3** is positively associated with corrected isolation (β=+0.09191, finite-publication p=0.01594). Exact-species H4 negative associations of reproductive assurance (β=−0.29830, p=0.00417) and accessibility (β=−0.29566, p=0.02334) with current pollen limitation are *post-hoc functional compatibility*, not historical mediation.
+- The corrected Chapter 1 universe comprises 8,264 island units, 4,379 broad-H1 islands, 106,295 taxa and 2,969 GloPL experiments; the corrected geographic metric repaired 1,113 spurious zero distances. In the primary occurrence ledger, approximately **83.65% of island–species origin statuses are unresolved**, so a present-day trait–isolation pattern is not by itself colonization filtering or **within-lineage evolutionary change**.
+
+**Revised cross-chapter ecological inference (not a fit to the four world regions):**
+
+```text
+CH1 — contemporary island-flora pattern
+  island isolation → stronger measured pollen limitation (association)
+  island isolation → especially recurrent self-compatibility (association)
+                   → some accessible floral forms, non-uniform by region
+  present trait composition ≠ identified historical selection trajectory
+
+CH2 — within one genetic/pollination model
+  visitor replenishment × starting functional match
+             → maternal + paternal pollen-transfer returns
+             → conditional evolution of floral investment
+  assurance capacity evolution is not necessary for investment decline;
+  enabling it compresses the high–low replenishment contrast (confirmed 4/4)
+  a separately assigned expression history × viable-selfed-seed intervention
+             → small, K-dependent occupancy interaction at fixed B48
+                (one preregistered supported synthetic primary only)
+
+Unidentified: arrival vs establishment vs post-establishment persistence
+              as the historical cause of CH1 contemporary distributions,
+              universal mapping of colour to Model3 investment,
+              natural population K/B values, natural mortality effects.
+```
+
+The **island-biogeographic significance** is the distinction between (1) an **assembly/establishment filter** potentially favouring uniparental reproductive capacity, (2) a conditional **within-population investment response** to functional pollination and assurance, and (3) a **post-establishment persistence filter** that can depend on demographic capacity. Contemporary floras combine these stages, but neither Chapter 1's macroecological regressions nor Chapter 2's artificial histories uniquely partition their contribution. Model 3 K is not island area, and B is not measured pollinator abundance.
+
+The 2026-10-10 capacity companion `docs/CHAPTER2_CAPACITY_PERSISTENCE_COMPANION_MANUSCRIPT_20261010.md` adds a **supported but small registered synthetic moderation** at K8 versus K48 with B held at 48: +0.0077457 in the contrast of selfed-seed-viability sensitivity between randomized A-first and I-first expression schedules (paired history-bootstrap95 +0.0024972 to +0.0130155). This is **not** the effect of evolving assurance on natural island survival, nor direct evidence that Chapter 1 self-compatible species survived better because islands are small. The independent late-minus-early timing primary remains inconclusive.
+
+The September results and numbers below remain preserved as analysis history and model-specific evidence. They are not current Chapter 1 inferential statements when they disagree with this corrected submission baseline.
+
+---
+
 ## Dissertation question
 
 Chapter 1 establishes three simultaneous facts:
