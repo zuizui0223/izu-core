@@ -83,6 +83,26 @@ def seed_ledger(matrix, *, ovules=4., assurance=.25, depression=.2,
     }
 
 
+
+def sharp_paternal_bounds(female_outcross):
+    """Sharp per-donor bounds when mothers' viable outcross seeds are known.
+
+    With only two plants, each mother has a unique possible other father,
+    so each donor's share is exactly identified. For n>=3, donor i can be
+    allocated from 0 to all other mothers' outcross offspring, with the
+    remaining pollen assigned to alternative (nonself) donors.
+    Extremes may lie on the boundary of the feasible matrix simplex.
+    """
+    f = tuple(float(x) for x in female_outcross)
+    n = len(f)
+    if n < 2 or any(not math.isfinite(x) or x < 0 for x in f):
+        raise ValueError("at least two nonnegative finite maternal seeds needed")
+    return tuple(
+        ((f[1-i], f[1-i]) if n == 2
+         else (0., sum(f[j] for j in range(n) if j != i)))
+        for i in range(n)
+    )
+
 def source_seed_bounds(*, n=3, delivered=3., ovules=4.,
                        assurance=.25, depression=.2, pollen_scale=1.):
     """Exact Jensen/majorization bounds for homogeneous delayed selfing.
@@ -146,6 +166,7 @@ def certificate():
         "group_viable_seed_both": la["group_viable_seed"],
         "paternity_shares_A": d0, "paternity_shares_B": d1,
         "paternity_L1_difference": l1,
+        "sharp_paternal_seed_bounds_given_maternal_F": [list(x) for x in sharp_paternal_bounds(la["maternal_outcross"])],
         "nonidentifiability_dimension_for_n2": source_dimension(2),
         "nonidentifiability_dimension_for_n3": source_dimension(3),
         "nonidentifiability_dimension_for_n8": source_dimension(8),
