@@ -1,0 +1,117 @@
+{
+  "schema": "chapter2_beta_gamma_seed_finite_population_engineering_v1",
+  "status": "OUTCOME_UNSEEN_ENGINEERING_GRID_NOT_PROSPECTIVELY_REGISTERED",
+  "date": "2026-10-10",
+  "question": "Do a one-individual finite-population reproductive advantage and the population-wide response of viable-seed output have the same local sign, and when do F/P/S routes explain disagreement?",
+  "source": "unmodified Model3 reproduce_kb and postzygotic baseline ledger",
+  "source_history_count": 0,
+  "natural_island_population_count": 0,
+  "founder_state": "Monomorphic synthetic clones with two identical copies at each of three loci; no evolving genetic trajectory.",
+  "capacity_K": [
+    8,
+    48
+  ],
+  "pollen_background_B": 48,
+  "visitor_regimes": {
+    "none": {
+      "optima": [],
+      "breadths": [],
+      "effectiveness": []
+    },
+    "matched4": {
+      "optima": [
+        0.15,
+        0.35,
+        0.55,
+        0.75
+      ],
+      "breadths": [
+        0.18,
+        0.18,
+        0.18,
+        0.18
+      ],
+      "effectiveness": [
+        1,
+        1,
+        1,
+        1
+      ]
+    },
+    "shifted4": {
+      "optima": [
+        0.65,
+        0.75,
+        0.85,
+        0.95
+      ],
+      "breadths": [
+        0.18,
+        0.18,
+        0.18,
+        0.18
+      ],
+      "effectiveness": [
+        1,
+        1,
+        1,
+        1
+      ]
+    }
+  },
+  "traits": {
+    "matching": [
+      0.2,
+      0.5
+    ],
+    "investment": [
+      0.35,
+      0.65
+    ],
+    "assurance": [
+      0.35,
+      0.65
+    ]
+  },
+  "perturbed_traits": [
+    "investment",
+    "assurance"
+  ],
+  "reproductive_settings": [
+    "delayed_control",
+    "prior_selfing",
+    "pollen_discount",
+    "assurance_cost"
+  ],
+  "ovule_budget": 8,
+  "central_difference_steps": [
+    0.005,
+    0.0025
+  ],
+  "classification_deadband_absolute_log_derivative": 0.02,
+  "numeric_stability_rule": "stable sign and max absolute difference <= 0.02 + 0.05 * max(abs(h1),abs(h2)); otherwise inconclusive",
+  "individual_beta": "one individual's log(.5*F_i + .5*P_i + S_i) difference under +/- trait shift while all other N-1 clones remain resident; at K8 one individual is 12.5% and this is NOT the infinite-population rare-mutant beta",
+  "group_gamma_seed": "log(total viable self+outcross seeds) derivative when ALL N genotypes/expressed traits shifted by +/- equally",
+  "component_decomposition": "symmetric log-mean denominator gives exact finite-difference additive beta_F+beta_P+beta_S; P is paternal outcross success of focal mutant, not automatically zero sum when group outcross total changes",
+  "outcomes": [
+    "all raw numeric slopes including inconclusive cells",
+    "beta and gamma signs",
+    "sign mismatch quadrants",
+    "finite difference stability",
+    "component fractions as descriptive values not causal mediation",
+    "male-vs-female group mass conservation",
+    "zero visitor paternal/outcross negative control"
+  ],
+  "scope_exclusions": [
+    "NOT Gamma_persist",
+    "NOT genetic change over time",
+    "NOT true rare mutant at finite K",
+    "NOT evolutionary suicide or rescue",
+    "NOT preregistered ecological confirmation",
+    "NOT 64 independent visitor histories",
+    "NOT test of #451 A-first/I-first"
+  ],
+  "expected_rows": 384,
+  "implementation_gate": "CI must run focused unit tests, exact source and input assertions, archive full machine JSON, verify source SHA and output before numeric interpretation",
+  "pending_next_stage": "Using same defined phenotypes and new independent visitor histories, separately preregister Gamma_persist and evolution-enabled versus trait-clamped contrasts; do not reuse this engineering grid as confirmatory data"
+}
