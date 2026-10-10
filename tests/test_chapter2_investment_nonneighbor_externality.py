@@ -62,8 +62,19 @@ def test_entire_original_grid_retains_all_14_unfavorable_selection_cells():
     assert data["status"]==STATUS
     assert data["n_full_investment_conditions"]==192
     assert data["n_original_investment_discordances"]==14
-    assert sum(data["externality_sign_counts_all"].values())==192
-    assert sum(data["externality_sign_counts_in_original_14_conflicts"].values())==14
+    assert data["externality_sign_counts_all"]=={
+        "positive":128,"negative":0,"numerically_zero":64,"inconclusive":0}
+    assert data["externality_sign_counts_in_original_14_conflicts"]=={
+        "positive":14,"negative":0,"numerically_zero":0,"inconclusive":0}
+    example=next(x for x in data["original_conflict_externalities"]
+                 if x["setting"]=="delayed_control"
+                 and x["regime"]=="matched4" and x["K"]==8
+                 and x["traits"]==[.2,.35,.35])
+    assert np.isclose(example["finite_focal_outside_seed_effect"],
+                      .3657985516976936,atol=1e-8)
+    assert example["focal_maternal_viable_seed_slope"]<0
+    assert example["pollen_and_self_externality_parts"][
+        "nonfocal_from_focal_father"]>0
     assert all(r["original_beta"]<0 and r["original_gamma_collective"]>0
                for r in data["original_conflict_externalities"])
     json.dumps(data,allow_nan=False)
