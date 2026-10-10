@@ -57,17 +57,19 @@ def test_conservative_pair_interval_power_surface_has_explicit_null_scenarios():
     assert any(row.get("power_simulated_for_delta_above_5pp",0)>.8 for row in s)
     assert all(0<=r["power_simulated_for_delta_above_5pp"]<=1
                for r in s if r["feasible"])
-    for n in (128,256):
+    # Check the ACTUAL binomial bounds rather than guessing a threshold.
+    # For 64 all-concordant paired histories the upper exclusive-probability
+    # bound is about 0.0662; for 128 it shrinks to about 0.0337.
+    interval_widths={}
+    for n in (64,128):
         lower,upper=exact_cp_interval_arrays(n)
         assert lower[0]==0
         assert upper[n]==1
-        # Exact simultaneous interval for identical paired outcomes narrows
-        # with n: n=128 cannot establish ±5pp equivalence, n=256 can.
-        if n==128:
-            assert lower[0]-upper[0]<-.05
-        else:
-            assert lower[0]-upper[0]>-.05
+        interval_widths[n]=float(upper[0]-lower[0])
         assert lower[n]-upper[0]>.05
+    assert .06<interval_widths[64]<.07
+    assert .03<interval_widths[128]<.04
+    assert interval_widths[128]<interval_widths[64]
     json.dumps(s,allow_nan=False)
 
 
