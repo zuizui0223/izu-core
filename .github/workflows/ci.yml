@@ -23,6 +23,22 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
+      # Temporary PR452 post-outcome engineering grid; full CI unchanged afterward.
+      - name: Focused source-matched genetics and persistence regression checks
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
+        run: |
+          pytest -q tests/test_chapter2_joint_one_step_genetics_occupancy.py tests/test_chapter2_joint_multigen_engineering.py
+      - name: Execute predeclared complete post-outcome occupancy surface
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
+        run: |
+          python -m scripts.audit_chapter2_joint_multigen_budget_surface --out chapter2-joint-budget-surface.json
+      - name: Archive complete post-outcome occupancy surface
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-joint-budget-surface
+          path: chapter2-joint-budget-surface.json
+          if-no-files-found: error
       - name: Run pytest
         run: |
           pytest -q --junitxml=pytest-${{ matrix.python-version }}.xml 2>&1 | tee pytest-${{ matrix.python-version }}.log
