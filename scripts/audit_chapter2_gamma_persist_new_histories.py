@@ -76,7 +76,10 @@ def base_config(d, capacity):
     cfg = replace(
         setting,
         capacity=int(capacity), years=STEPS,
-        island_history="separation", initial_visitors=4,\n        ovule_budget=6.0, survival=0.0, mutation_rate=0.0, mutation_sd=0.0,\n        visitor_arrival=replace(setting.visitor_arrival,distance=0.0),\n        seed_arrival=replace(setting.seed_arrival,supply=0.0),
+        island_history="separation", initial_visitors=4,
+        ovule_budget=6.0, survival=0.0, mutation_rate=0.0, mutation_sd=0.0,
+        visitor_arrival=replace(setting.visitor_arrival,distance=0.0),
+        seed_arrival=replace(setting.seed_arrival,supply=0.0),
     )
     return cfg
 
