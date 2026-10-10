@@ -48,6 +48,23 @@ This source demonstration is stronger than simply seeing a negative focal select
 
 **But it does NOT establish evolutionary underinvestment, community-maintained pollinator abundance, a naturally inherited selection coefficient, or extinction.** Multiple plant perturbations within each visitor history are correlated. A negative *focal maternal* derivative need not equal negative total parental allele fitness, because the focal individual's paternal outcross contribution must be included. Group viable seed is not census recruitment or occupancy. Only one repeat/history was evaluated here; the original four-setting result used eight repeats and a different preregistered estimand.
 
+## Paternal-inclusive check: external benefit is NOT always a group-fitness conflict
+
+To avoid inferring natural selection from a focal mother's own seeds, we repeated the unilateral original-genome t400 audit with **both parental routes**. For plant i, the source finite expected genetic contribution is `W_i = F_i/2 + P_i/2 + S_i`, where F is the maternal outcross count of i, P its siring contribution to other mothers and S its viable selfed seed contribution. The unilateral difference in W on the *actual evolving finite plant state* is a **source finite parental-return derivative, not the corrected monomorphic rare-mutant log-invasion derivative and not realized allele-frequency evolution**.
+
+At near t400, across the same **3,072 related focal perturbations per setting**:
+
+| Setting | Mean unilateral focal derivative of W | Focals with W↓ and other mothers' viable seeds↑ | Focals with W↓ and TOTAL group viable seeds↑ | History clusters having at least one true W↓/group↑ example |
+|---|---:|---:|---:|---:|
+| Delayed control | −0.355 | 1,964 | **335 / 3,072** | 23 / 64 |
+| Prior selfing | −0.855 | 2,804 | **235 / 3,072** | 12 / 64 |
+| Pollen discount | −0.617 | 2,661 | **438 / 3,072** | 22 / 64 |
+| Assurance cost | −0.016 | 1,373 | **196 / 3,072** | 17 / 64 |
+
+So a one-parent investment increase benefits other mothers while the investing parent loses expected genetic return in many actual evolved source states. However a **genuine sign disagreement between individual W and whole-group viable seed** occupies only a SUBSET (196–438/3,072) of these post-outcome model focal perturbations; it is not a universal group-beneficial underinvestment. These counts cannot be divided by the number of focal plants and called independent evolutionary lineage replicates: adult focal perturbations share history, source genotypes and visitor context. Per-history presence is 12–23 of 64, not all 64. The mean group viable-seed derivative across all near focals is **negative** in delayed, prior and pollen-discount settings, and **positive** only with assurance cost (+0.116). These averages show why positive spillover alone cannot be extrapolated to a universal social dilemma.
+
+The enhanced complete SHA-verified original-source record, including focal paternal terms, has SHA-256 `49b26819f5bf5987543c695cbd73f062e68c61c5b73c8cea7ae3ecc3ca1d4bc8`. This is an **additional post-discovery audit**. It does not modify or reinterpret the original four-setting preregistered experiment.
+
 ## Stage 3: exact native K48 demographic cap blocks an easy survival interpretation
 
 The same ORIGINAL t400 reproductions give expected local viable maternal seeds between **67.28 and 220+** in the evolving/clamped source contexts at near; every near state exceeds the canonical plant population ceiling **K48** even after switching investment. Under the original source demographic operator, adult survival=0, plant immigration=0 and resident birth attempts follow **Poisson(μ)** with μ equal to the total viable maternal seed expectation. The subsequent census is `min(48, Poisson(μ))`. Therefore
