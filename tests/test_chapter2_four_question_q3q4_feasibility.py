@@ -34,6 +34,16 @@ def test_read_only_feasibility_from_full_original_main_receipts():
     assert a["n_original_reused_histories"] == 64
     assert a["n_old_nested_repeats_per_history"] == 1
     assert a["n_exposed_one_year_cells"] == 1536
+    assert a["source_original_shapley_raw_sha256"] == (
+        "6fdd8ed45af9f7b9c65b513cb20fa1f3ba224519695ec37940421a7a6d60ae5e"
+    )
+    assert a["source_original_paired_raw_sha256"] == (
+        "34846d5ea2b758c7123af42130cceec7b3581c4c9a95dcbd0de52c651a599b57"
+    )
+    assert a["source_original_shapley_raw_sha256"] != a["source_original_paired_raw_sha256"]
+    assert a["source_original_reproductive_biology_sha256"] == (
+        "885957edb8a165ee8528781ed1d2574c44143c608496b505f9663cbfac2c4081"
+    )
     assert a["tested_scale_grid_post_outcome"] == list(SCALES)
     assert len(a["by_scale"]) == 6
     assert a["n_settings_with_mean_seed_increase_despite_delivered_pollen_loss"] == 3
