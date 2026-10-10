@@ -67,6 +67,9 @@
   "raw_output_sha256": {
     "paired": "34846d5ea2b758c7123af42130cceec7b3581c4c9a95dcbd0de52c651a599b57",
     "focal": "09d514d0b38b6a8bb9fd44ef44aa6ec951a5c1eb0cd10913ceb25859e3835b5c",
-    "bundle": "636c839e494d165a370f6d0f703093a5de309f435aac47872092528cb3beccab"
+    "bundle": "636c839e494d165a370f6d0f703093a5de309f435aac47872092528cb3beccab",
+    "focal_with_paternal": "49b26819f5bf5987543c695cbd73f062e68c61c5b73c8cea7ae3ecc3ca1d4bc8",
+    "one_step_demographic_ceiling": "7eef0707dd3ec7aac1b56e50e64238a087f7269c8777a9f2e9ba79bd18cf48ff",
+    "complete_evidence_bundle": "57a5008fa216b00d9f446865a8dc491b4ddaaf8b56096d633bdc4fa27369eb2c"
   }
 }
