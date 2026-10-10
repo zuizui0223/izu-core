@@ -15,6 +15,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "data/results/chapter2_original_evolved_budget_capacity_gate_receipt_20261010.json"
 SHAPLEY = ROOT / "data/results/chapter2_original_evolved_resource_receipt_shapley_receipt_20261010.json"
 CEILING = ROOT / "data/results/chapter2_original_evolved_K48_ceiling_receipt_20261010.json"
+ORIGINAL = ROOT / "data/results/chapter2_original_evolved_pollen_service_receipt_20261010.json"
 SETTINGS = ("delayed_control", "prior_selfing", "pollen_discount", "assurance_cost")
 SCALES = (0.025, 0.05, 0.125, 0.25, 0.5, 1.0)
 STATUS = "POSTDISCOVERY_READ_ONLY_BRIDGE_FEASIBILITY_NOT_PERSISTENCE"
@@ -53,24 +54,32 @@ def _read(path: Path) -> dict:
     return json.loads(path.read_text(encoding="utf-8"))
 
 
-def audit(source: Path = SOURCE, shapley: Path = SHAPLEY, ceiling: Path = CEILING) -> dict:
+def audit(source: Path = SOURCE, shapley: Path = SHAPLEY, ceiling: Path = CEILING, original: Path = ORIGINAL) -> dict:
     b = _read(source)
     s = _read(shapley)
     c = _read(ceiling)
+    o = _read(original)
 
     if (b.get("schema") != "chapter2_original_evolved_budget_capacity_gate_v1"
             or s.get("schema") != "chapter2_original_evolved_resource_receipt_shapley_v1"
-            or c.get("schema") != "chapter2_native_one_step_K48_capacity_ceiling_result_v1"):
+            or c.get("schema") != "chapter2_native_one_step_K48_capacity_ceiling_result_v1"
+            or o.get("schema") != "chapter2_original_evolved_pollen_service_source_result_v1"):
         raise ValueError("unknown historical source receipt schema")
+    # Two distinct original result objects must NOT have equal SHA hashes.
+    # Budget receipt comes from the Shapley source raw file; K48 ceiling
+    # receipt comes from the earlier paired-genome source audit. Join both
+    # through the parent original archived experiment/biological code.
     if (b["input_sha256"] != s["original_raw_full_json_sha256"]
-            or c["parent_sha256"] != b["input_sha256"]):
-        raise ValueError("source-history SHA256 provenance mismatch")
+            or c["parent_sha256"] != o["raw_output_sha256"]["paired"]
+            or s["source_biology_sha256"] != o["source_reproduction_sha256"]):
+        raise ValueError("cross-receipt SHA256 provenance mismatch")
     if (b["n_source_history_clusters"] != 64 or b["n_old_nested_repeats_used"] != 1
             or b["n_new_independent_histories"] != 0 or b["n_derived_one_year_cells"] != 1536
             or b["n_original_source_rows"] != 256 or b["n_mating_settings"] != 4
             or b["n_scales"] != 6 or b["fixed_K"] != 48 or b["fixed_B"] != 48
             or c["n_history_blocks"] != 64 or c["n_nested_repeats"] != 1
-            or c["n_new_histories"] != 0 or s["independent_histories_new"] != 0):
+            or c["n_new_histories"] != 0 or s["independent_histories_new"] != 0
+            or o["n_visitor_histories"] != 64 or o["n_nested_demographic_repeats"] != 1):
         raise ValueError("historical source unit or cohort contract changed")
     if not ("POST_DISCOVERY" in b["status"] and "POST_OUTCOME" in s["status"]
             and "NO_LONGRUN" in c["status"]):
@@ -163,7 +172,9 @@ def audit(source: Path = SOURCE, shapley: Path = SHAPLEY, ceiling: Path = CEILIN
         "n_original_reused_histories": 64,
         "n_old_nested_repeats_per_history": 1,
         "n_exposed_one_year_cells": b["n_derived_one_year_cells"],
-        "source_original_json_sha256": b["input_sha256"],
+        "source_original_shapley_raw_sha256": b["input_sha256"],
+        "source_original_paired_raw_sha256": c["parent_sha256"],
+        "source_original_reproductive_biology_sha256": o["source_reproduction_sha256"],
         "original_min_viable_seed_mean_across_original_source_arms": original_min_viable_seed,
         "rigorous_max_absolute_conditional_one_step_occupancy_change_by_scale": (
             maximal_absolute_one_step_occupancy_change_by_scale
