@@ -1,0 +1,78 @@
+{
+  "schema": "model3_delivery_matched_fps_source_receipt_v1",
+  "date": "2026-10-10",
+  "status": "EXECUTED_POST_DISCOVERY_SOURCE_FPS_DIAGNOSTIC_NOT_NATURAL",
+  "source_commit": "16a7d615b29d1fa82ff4fcee9f180ffdbd4d57a8",
+  "workflow_run_id": 38032275754,
+  "original_artifact_id": 11662276812,
+  "original_json_url": "https://github.com/zuizui0223/izu-core/actions/runs/38032275754/artifacts/11662276812",
+  "original_json_filename": "matched-fps-source-20261010.json",
+  "original_json_bytes": 362001,
+  "original_json_sha256": "5dbc7a1f219fe2f6e627fbc65c59de9c0071086ce92fd56bc705f281f2fdc14c",
+  "source_archive_hash_verified": true,
+  "n_fixed_source_blocks": 36,
+  "n_arms": 72,
+  "n_focal_gradients": 576,
+  "n_independent_ecological_histories": 0,
+  "n_natural_island_samples": 0,
+  "max_abs_delivery_matching_error": 1.5154544286133387e-13,
+  "by_genetic_fixture": {
+    "monomorphic": {
+      "blocks": 18,
+      "group_seed_mean_abs_difference": 7.065952761169885e-14,
+      "father_share_L1_mean": 0,
+      "father_share_L1_max": 0,
+      "focal_beta_mean_abs_change": 0.0009579722140255301,
+      "beta_F_mean_abs_change": 0.00012990084171839525,
+      "beta_P_mean_abs_change": 0.0010379983259066307,
+      "beta_S_mean_abs_change": 0.00004548129652188459,
+      "max_abs_focal_beta_change": 0.00558358879500509,
+      "focals_abs_beta_change_gt_0p02": 0,
+      "both_positive_and_negative_focal_changes_in_same_block": 0
+    },
+    "mixed_diploid": {
+      "blocks": 18,
+      "group_seed_mean_abs_difference": 0.0009039197843891955,
+      "father_share_L1_mean": 0.11223476191657936,
+      "father_share_L1_max": 0.5510704787980234,
+      "father_share_L1_positive_blocks": 18,
+      "focal_beta_mean_abs_change": 0.017313655282160372,
+      "beta_F_mean_abs_change": 0.008800834073932631,
+      "beta_P_mean_abs_change": 0.00887814633680683,
+      "beta_S_mean_abs_change": 0.0003605245323519486,
+      "max_abs_focal_beta_change": 0.1610944323675978,
+      "focals_abs_beta_change_gt_0p02": 35,
+      "focals_abs_beta_change_gt_0p05": 15,
+      "both_positive_and_negative_focal_changes_in_same_block": 16
+    }
+  },
+  "reference_original_fixture": {
+    "monomorphic": {
+      "beta_median_reference": -0.063173669540878,
+      "beta_median_delivery_matched": -0.06548923921355643,
+      "beta_group_gamma_reference": 0.15822876051396761,
+      "beta_group_gamma_delivery_matched": 0.15916635510770938,
+      "father_share_L1": 0
+    },
+    "mixed_diploid": {
+      "beta_median_reference": -0.06868910508269488,
+      "beta_median_delivery_matched": -0.07559984153883981,
+      "beta_group_gamma_reference": 0.14050823583708905,
+      "beta_group_gamma_delivery_matched": 0.1359433820754763,
+      "father_share_L1": 0.21764187664916052
+    }
+  },
+  "source_controls": [
+    "All total maternal outcross equals paternal outcross by construction of source ledger, every source block.",
+    "All focal log gradients equal their F/P/S additive decomposition at tolerance 1e-10.",
+    "Same 36 matched-delivery fixed synthetic genotype/visitor contexts as previous source experiment, no new visitor ecological histories.",
+    "Each clone source plant has identical paternal success shares; mixed diploid source can have different relative father contributions.",
+    "Total group viable seed near-identity does NOT imply equal male/female parentage shares or identical focal gradients."
+  ],
+  "scientific_boundary": [
+    "Substantial source-internal parentage redistribution is observed in deliberately mixed diploid fixture, not a real observed reproductive history.",
+    "Both F and P finite log-gradient components contribute similarly to redistribution: this is NOT father-specific selection demonstrated in nature.",
+    "Changes in focal finite gradient need not generate evolutionary trajectories or population persistence changes.",
+    "Do not treat 576 individual derivative calculations as 576 independent population-level biological replications."
+  ]
+}
