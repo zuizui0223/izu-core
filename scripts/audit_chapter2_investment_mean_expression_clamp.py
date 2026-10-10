@@ -33,9 +33,9 @@ from scripts.run_chapter2_assurance_generality import (
 )
 
 ROOT=Path(__file__).resolve().parents[1]
-DESIGN=ROOT/"data/design/chapter2_investment_mean_clamp_new_visitor_20261010.json"
+DESIGN=ROOT/"data/design/chapter2_investment_mean_clamp_new_visitor_v2_20261010.json"
 STATUS="EXPRESSION_MEAN_CLAMP_GENOME_PRESERVED_NEW_VISITOR_COHORT_MODEL_INTERNAL"
-SOURCE_SEEDS=range(61022001,61022065)
+SOURCE_SEEDS=range(61023001,61023065)
 POLICIES=("native_genotype_expression","investment_population_mean_clamp")
 GATES=("baseline","half_self")
 CAPS=(8,48)
@@ -45,9 +45,9 @@ ASSURANCES=(.35,.65)
 def contract():
     b=DESIGN.read_bytes()
     d=json.loads(b)
-    if (d["status"]!="NEW_UNEXPOSED_VISITOR_HISTORY_DESIGN_FROZEN_BEFORE_ANY_OUTCOMES"
-            or d["source_seeds"]["visitor_first"]!=61022001
-            or d["source_seeds"]["visitor_last"]!=61022064
+    if (d["status"]!="REVISED_AFTER_V1_SOURCE_RANGE_GATE_FAILURE_BEFORE_COMPLETE_OUTCOMES"
+            or d["source_seeds"]["visitor_first"]!=61023001
+            or d["source_seeds"]["visitor_last"]!=61023064
             or d["source_seeds"]["n_independent_visitor_rng_histories"]!=64
             or d["source_seeds"]["founder_seed"]!=61022981
             or d["source_seeds"]["demographic_master_salt"]!=61022982
@@ -57,6 +57,7 @@ def contract():
             or d["design"]["common_prehistory_updates"]!=20
             or d["design"]["postintervention_updates"]!=60
             or d["design"]["source_initial_founders"]!=8
+            or d["design"]["founder_sd"]!=0.05
             or d["design"]["post20_phenotype_modes"]!=list(POLICIES)
             or d["design"]["assurance_mean"]!=[.35,.65]
             or d["design"]["seed_gates"]!={"baseline":[1,1],"half_self":[.5,1]}
@@ -85,11 +86,16 @@ def config(d,K):
 def genotype_founders(d,assurance):
     if assurance not in ASSURANCES:
         raise ValueError("unregistered assurance source")
-    return founders_from_spec(
+    source=founders_from_spec(
         {"count":8,"draw_count":8,
-         "means":[.2,.35,assurance],"sd":.1,"birth_year":0},
+         "means":[.2,.35,assurance],"sd":d["design"]["founder_sd"],"birth_year":0},
         d["source_seeds"]["founder_seed"],
     )
+    lo=float(source.alleles[:,1,:].min())
+    hi=float(source.alleles[:,1,:].max())
+    if 2*lo-hi<0 or 2*hi-lo>1:
+        raise ValueError("source allele support cannot support every additive mean shift")
+    return source
 
 
 def visitor_history(d,seed):
