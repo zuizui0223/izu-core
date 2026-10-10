@@ -10,9 +10,38 @@ from dataclasses import replace
 import json
 from pathlib import Path
 
-from scripts.audit_chapter2_beta_gamma_seed_map import (
-    load_contract, state_of_clones, changed_state, visitors_for,
-)
+import numpy as np
+
+from scripts.model3_island.types import PlantState, VisitorState
+
+
+def state_of_clones(traits, n):
+    a = np.broadcast_to(np.asarray(traits)[None, :, None], (n, 3, 2)).copy()
+    return PlantState(
+        alleles=a,
+        allele_origin=np.arange(n * 6, dtype=np.int64).reshape(n, 3, 2),
+        mutation_flags=np.zeros((n, 3, 2), dtype=bool),
+        ids=np.arange(n, dtype=np.int64),
+        birth_years=np.zeros(n, dtype=np.int64),
+    )
+
+
+def changed_state(state, trait_idx, delta, *, whole):
+    a = state.alleles.copy()
+    if whole:
+        a[:, trait_idx, :] += delta
+    else:
+        a[0, trait_idx, :] += delta
+    return replace(state, alleles=a)
+
+
+def original_four_visitors():
+    return VisitorState(
+        ids=np.arange(100, 104, dtype=np.int64),
+        optima=np.asarray([.15, .35, .55, .75]),
+        breadths=np.full(4, .18),
+        effectiveness=np.ones(4),
+    )
 from scripts.chapter2_kb_reproduction import reproduce_kb
 from scripts.run_chapter2_assurance_generality import (
     DEFAULT_DESIGN, load_design, config as source_config,
@@ -29,9 +58,8 @@ def source_outcross_to_other_mothers(state, visitors, cfg):
 
 
 def assay():
-    grid, _ = load_contract()
     initial = state_of_clones((.2, .35, .35), 8)
-    visitors = visitors_for("matched4", grid)
+    visitors = original_four_visitors()
     source_design = load_design(DEFAULT_DESIGN)
     rows = []
     for setting in SETTINGS:
