@@ -38,3 +38,28 @@ The test asserts the algebraic redundancy invariance in both designed parental s
 Data contract: `data/design/chapter2_visitor_richness_composition_factorial_20261010.json`. Code: `scripts/audit_chapter2_visitor_richness_composition_factorial.py`. Tests: `tests/test_chapter2_visitor_richness_composition_factorial.py`.
 
 **Promotion policy:** Until a source-head run succeeds and full diagnostic output is archived, record *no numerical factorial result*. Even afterward, result status remains **exploratory / post-outcome / model-internal**. A later external-validity test must independently vary effective visit number, visitor trait composition and functional breadth on a new frozen set of ecological histories (with entire histories as independent units), and ultimately use observed visitor efficacy and pollen/seed endpoints. Do not merge this into a natural-island inference or an evolutionary-suicide claim.
+
+## Executed source-head result (2026-10-10; exploratory)
+
+**Execution and provenance:** GitHub Actions [run 38027262398](https://github.com/zuizui0223/izu-core/actions/runs/38027262398), exact source commit `5453842f8e4cbd6e97fcaa7f03b231f75dfeb95e`, original [full 16-row JSON artifact 11660547248](https://github.com/zuizui0223/izu-core/actions/runs/38027262398/artifacts/11660547248), uncompressed JSON SHA-256 `80ad1216e424432b97efa17f6053bf36fd98a18aa79a09d07a8dc8434be95268` (15,220 bytes). The JSON was independently downloaded, extracted and inspected with its SHA computed. Permanent compact [receipt](../data/results/chapter2_visitor_richness_composition_factorial_receipt_20261010.json). **The runner and artifact-upload steps completed successfully**; broad pytest is a separate CI outcome. This is an explicitly post-outcome, descriptive fixture, not a new independent confirmatory cohort.
+
+| Synthetic parental state | Activity law | Visitor ID arm | Group viable seeds | Focal β median | Γ_seed | β-negative / Γ-positive conflict? |
+|---|---|---|---:|---:|---:|---|
+| Monomorphic | fixed | two unique | 12.738665 | +0.054216 | +0.361454 | no |
+| Monomorphic | fixed | four cloned | 12.738665 | +0.054216 | +0.361454 | no |
+| Monomorphic | fixed | four distinct | 11.992566 | −0.063174 | +0.158229 | **yes** |
+| Monomorphic | fixed | four shifted (+0.2) | 10.882506 | −0.273115 | −0.211788 | no |
+| Monomorphic | count-scaled | two unique | 11.672641 | −0.118373 | +0.059880 | **yes** |
+| Monomorphic | count-scaled | four cloned | 12.738665 | +0.054216 | +0.361454 | no |
+| Mixed diploid | fixed | two unique | 12.607853 | +0.042927 | +0.329437 | no |
+| Mixed diploid | fixed | four cloned | 12.607853 | +0.042927 | +0.329437 | no |
+| Mixed diploid | fixed | four distinct | 11.931507 | −0.068689 | +0.140508 | **yes** |
+| Mixed diploid | fixed | four shifted (+0.2) | 10.888561 | −0.271715 | −0.210206 | no |
+| Mixed diploid | count-scaled | two unique | 11.603697 | −0.125600 | +0.038981 | **yes** |
+| Mixed diploid | count-scaled | four cloned | 12.607853 | +0.042927 | +0.329437 | no |
+
+The remaining four arms (each count-scaled with four visitor IDs) numerically coincide with their fixed-activity counterparts because the reference count is four; all 16 rows are retained unrounded in the linked artifact. The source rule is **not** a generalized sampling design in which 16 cells are independent islands.
+
+**Matched causal-operator contrasts, keeping genotype/census fixed:** for monomorphic and mixed-diploid plants, duplicating functionally identical IDs 2→4 changes group seed by **0.000000** with fixed activity and by **+1.066024 / +1.004156** with count-scaled activity. Holding four IDs fixed but changing the optimum composition from two replicated values to four distinct values changes group viable seed by **−0.746099 / −0.676346**; shifting four equally spaced optima +0.2 changes it by an additional **−1.110060 / −1.042945**. In both genetic settings, the distinct four-optimum arm produces focal β negative while collective Γ_seed remains positive, whereas four-clone and uniformly shifted arms do not.
+
+**Mechanistic interpretation:** within the source reproduction operator, number of visitor IDs, number/location of unique functional optima, and the chosen encounter-activity scaling are not interchangeable. With count scaled by number of visitor IDs, even a redundant-type duplication alters the effective pollen activity, creating a nominal richness effect with no increase in functional-optimum diversity. At *equal visitor count* the corresponding optimum changes can reverse individual/group benefit conflict. No natural pollinator diversity experiment, population persistence change, realized investment allele trajectory or external ecological confirmation follows from these fixed states.
