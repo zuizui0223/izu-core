@@ -1,4 +1,7 @@
 """Source-model receptor pollen receipt versus viable seed control."""
+import json
+from pathlib import Path
+
 import numpy as np
 import pytest
 
@@ -89,3 +92,67 @@ def test_original_108_reference_rows_still_recovered(matrix):
            [c[0]["reference"]["total_viable_seed"],
             c[0]["shifted_raw"]["total_viable_seed"]],
            seeds,atol=1e-9,rtol=1e-9)
+
+
+def test_immutable_original_delivery_result_receipt(matrix):
+    """Verify archived source receipt without treating 36 cases as ecology samples."""
+    p = (Path(__file__).resolve().parents[1] /
+         "data/results/chapter2_visitor_delivery_matched_receipt_20261010.json")
+    archive = json.loads(p.read_text(encoding="utf-8"))
+    assert archive["original_sha256"] == (
+        "52b55ff8ab4d7651ac86068a6cf256967d86275518f7dbb04b7909cd847ed7e3"
+    )
+    assert archive["blocks_declared"] == matrix["n_registered_blocks"] == 36
+    assert archive["blocks_matched"] == matrix["n_matched"] == 36
+    assert archive["blocks_unmatchable"] == matrix["n_unmatchable"] == 0
+    np.testing.assert_allclose(
+        archive["max_total_delivery_abs_match_error"],
+        matrix["max_abs_delivery_match_error"], rtol=1e-7, atol=1e-14,
+    )
+    for group in ("monomorphic", "mixed_diploid"):
+        a = archive["summary_by_parental_state"][group]
+        cases = [x for x in matrix["by_block"]
+                 if x["parental_state"] == group]
+        assert a["n"] == len(cases) == 18
+        assert a["conflict_classification_flips_delivery_matched"] == sum(
+            x["matched_conflict_flip"] for x in cases
+        )
+        raw = np.array([
+            x["shifted_raw"]["total_viable_seed"] -
+            x["reference"]["total_viable_seed"] for x in cases
+        ])
+        delta = np.array([x["matched_group_seed_delta"] for x in cases])
+        np.testing.assert_allclose(
+            a["mean_abs_seed_contrast_raw"], np.mean(np.abs(raw)),
+            atol=1e-12, rtol=1e-10
+        )
+        np.testing.assert_allclose(
+            a["mean_abs_seed_contrast_delivery_matched"], np.mean(np.abs(delta)),
+            atol=1e-12, rtol=1e-10
+        )
+        np.testing.assert_allclose(
+            a["max_abs_seed_contrast_delivery_matched"], np.max(np.abs(delta)),
+            atol=1e-12, rtol=1e-10
+        )
+    for group, old in archive["previous_original_fixture"].items():
+        sub = [x for x in matrix["by_block"] if x["parental_state"] == group
+               and x["matching"] == .2 and x["breadth"] == .18
+               and x["effectiveness"] == 1.]
+        assert len(sub) == 1
+        src, matched = sub[0]["reference"], sub[0]["shifted_delivery_matched"]
+        for key, actual in (
+            ("baseline_delivered",src["total_pollen_delivered"]),
+            ("matched_delivered",matched["total_pollen_delivered"]),
+            ("baseline_seeds",src["total_viable_seed"]),
+            ("matched_seeds",matched["total_viable_seed"]),
+            ("baseline_export",src["total_pollen_export"]),
+            ("matched_export",matched["total_pollen_export"]),
+            ("baseline_beta_median",src["focal_beta_median"]),
+            ("matched_beta_median",matched["focal_beta_median"]),
+            ("baseline_gamma",src["collective_gamma_log_seed"]),
+            ("matched_gamma",matched["collective_gamma_log_seed"]),
+            ("activity_matched",sub[0]["root"]["activity"]),
+        ):
+            np.testing.assert_allclose(old[key],actual,rtol=1e-10,atol=1e-10)
+        assert old["baseline_conflict"] is src["beta_negative_gamma_positive_conflict"]
+        assert old["matched_conflict"] is matched["beta_negative_gamma_positive_conflict"]
