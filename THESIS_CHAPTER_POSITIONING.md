@@ -1,5 +1,7 @@
 # Thesis positioning — Chapter 2
 
+> **Current cross-chapter correction (2026-10-10).** The Chapter 1 source of truth is now `zuizui0223/island/config/chapter1_submission_current.json` (corrected traitwise, 2026-10-04), not the September v13 narrative summarized in parts of this document. Self-compatibility increases with isolation in all four regions, whereas most other assurance, accessibility and display traits have **region- and evidence-scope-dependent support**. H2 assurance-adjusted accessibility is FDR-supported in northern-high and tropical All, not tropical Direct-only. H3 pollen limitation increases with isolation (β=+0.09191, p=0.01594), while H4 functional compatibility remains post-hoc association. Read `docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20260927.md` **from its 2026-10-10 correction first**. The active main Chapter 2 submission is the Ecology Letters four-setting manuscript, and the separate capacity companion only establishes a small synthetic K-moderated expression-history occupancy sensitivity at fixed B, **not historical survival of small-island lineages**.
+
 > Current-route note (2026-10-06): Chapter 2 is governed by
 > `docs/CHAPTER2_PROCESS_MAINLINE_20261005.md`. Its primary process result is now
 > independently confirmed: in the delayed-selfing/costly positive-mutation
