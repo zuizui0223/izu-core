@@ -23,34 +23,19 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
-      - name: Verify model-source investment nonfocal ledger and all original 14 conflicts (PR 452)
+      - name: Exact source density-dependent selection and capacity recruitment (PR 452)
         if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
         run: |
-          pytest -q tests/test_chapter2_investment_nonneighbor_externality.py
-          python -m scripts.audit_chapter2_investment_nonneighbor_externality --out chapter2-investment-nonfocal-externality.json
-      - name: Archive all original finite investment externality cell diagnostics (PR 452)
+          pytest -q tests/test_chapter2_investment_density_selection.py tests/test_chapter2_investment_commons_pilot_power.py
+          python -m scripts.audit_chapter2_investment_density_selection --out chapter2-investment-density-beta-cap-poisson.json
+      - name: Archive density-gradient and capped-Poisson source grid (PR 452)
         if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
         uses: actions/upload-artifact@v4
         with:
-          name: chapter2-investment-nonfocal-externality
+          name: chapter2-investment-density-beta-cap-exact
           path: |
-            chapter2-investment-nonfocal-externality.json
-            data/design/chapter2_investment_nonneighbor_externality_audit_20261010.json
-          if-no-files-found: error
-      - name: Validate commons investment-only pilot and prospective power, no reserved seeds (PR 452)
-        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
-        run: pytest -q tests/test_chapter2_investment_commons_pilot_power.py
-      - name: Run all 384 bounded commons feasibility paths and paired exact power simulations (PR 452)
-        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
-        run: python -m scripts.audit_chapter2_investment_commons_pilot_power --out chapter2-investment-commons-pilot-power.json
-      - name: Preserve source-locked initial-investment commons feasibility and statistical power (PR 452)
-        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
-        uses: actions/upload-artifact@v4
-        with:
-          name: chapter2-investment-commons-feasibility-power
-          path: |
-            chapter2-investment-commons-pilot-power.json
-            data/design/chapter2_investment_commons_pilot_power_20261010.json
+            chapter2-investment-density-beta-cap-poisson.json
+            data/design/chapter2_investment_density_selection_source_diagnostic_20261010.json
           if-no-files-found: error
       - name: Run pytest
         run: |
