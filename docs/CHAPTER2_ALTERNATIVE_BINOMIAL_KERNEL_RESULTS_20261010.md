@@ -46,7 +46,7 @@ Prior:    beta_focal = C * (v - q_N/2)
 Delayed:  beta_focal = Gamma_seed = C * (1-q_N)*v
 ```
 
-`beta_focal` is the **signed derivative of reproductive gene-copy contributions W** (not log W); if W>0 its sign also agrees with the derivative of log W. `Gamma_seed` is the **group seed-production derivative per adult** under uniform a change, not the derivative of survival probability or density-dependent population growth. `beta_F=-phi*q_N`, `beta_P=0`, `beta_S=2*phi*v` in prior selfing, summing exactly to beta. Delayed selfing fills otherwise empty ovules and has beta_F=beta_P=0; all selection and group gradients are positive except hypothetical complete pollen saturation.
+`beta_focal` is the **signed derivative of reproductive gene-copy contributions W** in a continuous *hypothetical selfing-expression perturbation* at a symmetric resident (not log W); the **realized diploid locus has only three discrete phenotypes, a=0, 0.5, 1, so this is not an actually accessible infinitesimal allelic invasion gradient**. if W>0 its sign also agrees with the derivative of log W. `Gamma_seed` is the **group seed-production derivative per adult** under uniform a change, not the derivative of survival probability or density-dependent population growth. `beta_F=-phi*q_N`, `beta_P=0`, `beta_S=2*phi*v` in prior selfing, summing exactly to beta. Delayed selfing fills otherwise empty ovules and has beta_F=beta_P=0; all selection and group gradients are positive except hypothetical complete pollen saturation.
 
 For q=.8, v=.6, and the above mate-limitation function,
 
