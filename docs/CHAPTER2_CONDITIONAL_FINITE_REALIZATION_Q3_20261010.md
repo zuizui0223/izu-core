@@ -61,6 +61,14 @@ In the heterozygous state, an individual offspring has a 0, 0.5 or 1 matching ph
 
 The law of total variance and binomial arithmetic are standard mathematics; the contribution here is a **source-compatible decomposition and validation scaffold**, not a newly discovered theorem.
 
+## A second, deliberately selected source case: expected improvement without a guaranteed realized improvement
+
+After a separate small exploratory formula pilot, a **new post-discovery deterministic scenario** was frozen on the same source model (not predeclared independent confirmation): four plants with matching alleles `[0/0, 0/0, 0/1, 0/1]`, all floral investments 0.35 and assurances 0.5, and four visitor optima `[0.45,0.50,0.55,0.60]` at breadth 0.18. It uses the original reproductive-viability ledger with pollen-background K48, and conditions on **no adult survivors, exactly eight retained resident offspring, no immigrants and no mutation**.
+
+This native-source ledger gives original parental adult mean matching phenotype **0.25** and source expected next offspring mean approximately **0.25456**, a signed increase **+0.00456**. Yet the exact per-gamete allele-count polynomial gives **P(realized next matching mean ≤ 0.25 | S=0,R=8) ≈0.60584**. In this particular example both parental-pair sampling and Mendelian segregation have positive conditional variance, with contributions to `Var(next mean)` approximately **0.007809** and **0.007955** respectively. Thus a *positive expected one-step trait response is not the same as guaranteed positive finite realization*. The nonpositive probability is high partly because the expected shift is small compared with finite variance and because equal-or-lower is a discrete event, not because the model has established opposing selection over many generations.
+
+This example is more informative than the phenotype-identity null, but its evidence level is narrower than the Chapter 2 experiments: **one pilot-chosen synthetic genotype/visitor condition, no new independent histories, no occupancy calculation and no unconditional selection-invasion coefficient**. It demonstrates source-consistent nonrealization probability under a declared conditional recruitment count. It does not attribute the original finite ABM history variability to any percentage of genotype segregation, or show that better reproductive performance is eliminated by demographic extinction.
+
 ## How this sharpens question 3 and relates to questions 2/4
 
 1. **Already distinguished:** the conditional *expected genetic contribution* of viable offspring is distinct from a realized finite allele/trait shift. At fixed survivor/R conditions, random parental draws and allele segregation are two separable sources of trait variability.
