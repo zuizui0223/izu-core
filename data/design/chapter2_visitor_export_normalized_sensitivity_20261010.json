@@ -1,0 +1,70 @@
+{
+  "schema": "model3_export_normalized_visitor_optimum_sensitivity_v1",
+  "date": "2026-10-10",
+  "status": "EXPLORATORY_PRE_RESULT_SENSITIVITY_AFTER_PR452_POSITIVE_DISCOVERY",
+  "scope": "Instant source reproduce_kb ledger only; not independently generated ecological-history trajectories, not natural island data.",
+  "purpose": "At fixed 4 visitor type IDs and the SAME plant diploid genotype/census, separate optima-shift effects on group seeds and individual/group β/Γ conflict that are mediated by total exported pollen amount from changes remaining after equalizing total export.",
+  "parental_states": [
+    "monomorphic",
+    "mixed_diploid"
+  ],
+  "parent_matching_means": [
+    0.2,
+    0.5,
+    0.8
+  ],
+  "n_parent": 8,
+  "K": 8,
+  "B": 48,
+  "source_assurance": "evolving / delayed selfing; ovule_budget 8; original pollen, seed and depression laws",
+  "fixed_visitor_optima": [
+    0.15,
+    0.35,
+    0.55,
+    0.75
+  ],
+  "shifted_visitor_optima": [
+    0.35,
+    0.55,
+    0.75,
+    0.95
+  ],
+  "visitor_breadths": [
+    0.12,
+    0.18,
+    0.3
+  ],
+  "visitor_effectiveness": [
+    0.5,
+    1
+  ],
+  "visitor_type_count": 4,
+  "activity_mode": "fixed",
+  "source_reference_activity": 0.4,
+  "comparison_arms": [
+    "reference_original_activity",
+    "shifted_original_activity",
+    "shifted_export_matched"
+  ],
+  "total_matched_blocks": 36,
+  "expected_rows": 108,
+  "activity_adjustment": "For each state/visitor-breadth/effectiveness cell, change ONLY activity scalar of the shifted4 visitor arm by monotone root-finding to match reference4 total exported pollen within absolute 1e-8. Keep optima, 4 IDs, breadth, effectiveness, adult genotype and N fixed. Baseline activity is the canonical 0.4. This is a controlled numerical equality, not an observed behavioral response.",
+  "primary_descriptive_contrasts": [
+    "shifted_original_activity minus reference_original_activity in viable seeds and β/Γ source signs (includes different total pollen export)",
+    "shifted_export_matched minus reference_original_activity (eliminates total pollen export difference, but allows pollen recipient/donor allocation and mating changes)",
+    "shifted_export_matched minus shifted_original_activity (numerically forced activity effect within shifted visitor setting)"
+  ],
+  "material_controls": [
+    "Source original reproduction functions only; no code/biology mutation.",
+    "All 108 rows retained even where source beta/gamma sign does not flip.",
+    "Exact same 8 adult three-locus diploid array within each triad.",
+    "Original same-four optimum spacing retained; only optimum location shifted by +0.2.",
+    "4 visitor IDs, per-type breadth and per-type effectiveness constant within triads.",
+    "Total exported pollen difference of export_matched and reference <= 1e-8, or abort; do not silently drop failures.",
+    "Validate the 0.2 matching / 0.18 breadth / effectiveness 1 baseline and shifted seeds and β/Γ against the archived prior 16-condition source fixture.",
+    "Do not report significance p-values treating 36 synthetic blocks as sampled independently from natural ecosystems."
+  ],
+  "known_identification_limit": "Holding total exported pollen equal is not holding total deposited pollen or pollinator visit number equal. It is NOT natural causal mediation, since source-match activity can change channel saturation, delivery distribution, and transfer. If any optima shifts remain, only the model's matching/partition mechanisms are implicated.",
+  "expected_execution": "Runner emits 108-row complete JSON, independent SHA-256 provenance, source-block contrasts and numerical identification checks. Source-head CI must pass before numerical claims.",
+  "future": "Use observed single-visit deposition, legitimate handling, and plant-level maternal/paternal success to test beyond this mathematical source; independent histories only if persistence claims needed."
+}
