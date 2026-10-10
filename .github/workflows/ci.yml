@@ -23,6 +23,21 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
+      - name: Check independent future and nested genotype-resample source gates (PR 452)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
+        run: pytest -q tests/test_chapter2_t20_assurance_new_future_multidraw.py
+      - name: Execute 50 conditional donor sources in 64 new visitor futures and 3 genome draws (PR 452)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
+        run: python -m scripts.audit_chapter2_t20_assurance_new_future_multidraw --out chapter2-t20-assurance-new-future-multidraw.json
+      - name: Archive all 1200 new-future genomic transfer paths and frozen design (PR 452)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-t20-assurance-new-future-multidraw
+          path: |
+            chapter2-t20-assurance-new-future-multidraw.json
+            data/design/chapter2_t20_assurance_new_future_multidraw_20261010.json
+          if-no-files-found: error
       - name: Run pytest
         run: |
           pytest -q --junitxml=pytest-${{ matrix.python-version }}.xml 2>&1 | tee pytest-${{ matrix.python-version }}.log
