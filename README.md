@@ -1,8 +1,10 @@
 # Izu Core — Model 3 island reproductive economics
 
+> **Active one-paper submission route (2026-10-10):** Chapter 2 now has **one combined full-length research manuscript**, [`docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md`](docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md). The original Ecology Letters Letter and the separately authored capacity-persistence companion are **source-provenance drafts, not two current submissions**. The combined paper presents two nonexchangeable studies within Model 3: confirmed 1,000-update floral evolution and a separately randomized 80-update demographic occupancy experiment. The latter does **not** show that naturally evolved floral-investment reduction causes extinction. Route selector: `data/design/chapter2_one_paper_route_20261010.json`. DOI-backed external data deposition remains outstanding.
+
 This repository is the Chapter 2 mechanism paper built around **one ecologically explicit Model 3**.
 
-Current paper title:
+Original 2026-10-06 working title (now source provenance):
 
 > **Reproductive assurance compresses floral-investment divergence under pollinator limitation**
 
@@ -11,7 +13,7 @@ governs the scientific narrative on this branch. The full-mutation
 common-environment experiment is complementary genetic/history evidence; it is
 not the paper spine.
 
-The active submission surface is now the Ecology Letters-focused manuscript:
+The previous Ecology Letters Letter remains accessible as source provenance (no longer the active one-paper submission):
 [CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md](docs/CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md).
 The earlier long-form process manuscript is retained as provenance and supporting
 material rather than the submission text.
