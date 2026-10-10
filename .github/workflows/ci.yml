@@ -23,6 +23,21 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
+      - name: Source-only original-visitor t20 diploid transplant smoke (PR 452 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
+        run: pytest -q tests/test_chapter2_t20_joint_genome_transplant.py
+      - name: Replay 64 exposed t20 source histories and crossed genetic futures (PR 452 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
+        run: python -m scripts.audit_chapter2_t20_joint_genome_transplant --out chapter2-t20-whole-genome-transplant.json
+      - name: Archive complete t20 genotype-transplant intervention and source design (PR 452 only)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-t20-whole-genome-transplant
+          path: |
+            chapter2-t20-whole-genome-transplant.json
+            data/design/chapter2_t20_joint_genome_transplant_original_history_v1_20261010.json
+          if-no-files-found: error
       - name: Run pytest
         run: |
           pytest -q --junitxml=pytest-${{ matrix.python-version }}.xml 2>&1 | tee pytest-${{ matrix.python-version }}.log
