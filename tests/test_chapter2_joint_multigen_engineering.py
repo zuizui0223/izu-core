@@ -86,3 +86,18 @@ def test_one_path_reproducible_and_keeps_absorbing_extinction():
 def test_fail_closed_invalid_scope(draws,years):
     with pytest.raises(ValueError,match="restricted engineering pilot"):
         run_pilot(draws=draws,years=years)
+
+
+
+def test_nondefault_budget_valid_and_differs_from_stress_fixture():
+    state, cfg, visitors=engineering_fixture(ovule_budget=6.0)
+    assert cfg.ovule_budget==6.0
+    out=run_pilot(draws=1,years=2,ovule_budget=6.0)
+    assert out["design"]["ovule_budget"]==6.0
+    assert out["design"]["independent_ecological_visitor_histories"]==0
+
+
+@pytest.mark.parametrize("bad",[-2.0,0,13.0,float("nan"),True])
+def test_invalid_budget_not_accepted_in_engineering_grid(bad):
+    with pytest.raises(ValueError,match="restricted ovule budget"):
+        run_pilot(draws=1,years=2,ovule_budget=bad)
