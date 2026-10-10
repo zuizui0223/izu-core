@@ -1,0 +1,184 @@
+{
+  "schema": "chapter2_four_question_post411_evidence_spine_v1",
+  "date": "2026-10-10",
+  "status": "EVIDENCE_RANKED_EDITORIAL_DESIGN_ONLY",
+  "source_main_sha": "2b3c03ee33221dfbcc06eac7743ab68bee85eb64",
+  "source_note": "Evidence claims are frozen upstream and are not created or re-tested by this ledger.",
+  "biological_simulations_run": 0,
+  "new_visitor_histories_run": 0,
+  "new_confirmatory_claims": 0,
+  "active_submission_unchanged": true,
+  "ordered_stages": [
+    {
+      "id": "Q1",
+      "name": "threshold",
+      "japanese": "閾値",
+      "question": "When do corrected local reproductive incentives change sign, conditional on census and visitor assemblage?",
+      "verdict": "CONDITIONAL_LOCAL_MECHANISM_SOURCE_SUPPORTED_NOT_NATURAL_THRESHOLD"
+    },
+    {
+      "id": "Q2",
+      "name": "order",
+      "japanese": "順序",
+      "question": "Does assigned transient trait-expression order change outcomes, distinct from spontaneous inherited order?",
+      "verdict": "POOLED_ASSIGNED_ORDER_PRACTICALLY_EQUIVALENT_NATURAL_ORDER_NOT_IDENTIFIED"
+    },
+    {
+      "id": "Q3",
+      "name": "realization",
+      "japanese": "実現",
+      "question": "Do selection-favoured responses survive diploid inheritance, demographic stochasticity and loss of variation?",
+      "verdict": "GENETIC_REALIZATION_UNRESOLVED_CAUSAL_MEDIATOR_NOT_IDENTIFIED"
+    },
+    {
+      "id": "Q4",
+      "name": "consequence",
+      "japanese": "帰結",
+      "question": "Does inherited evolution causally alter viable seed output, recruitment and unconditional persistence?",
+      "verdict": "SMALL_CONTROLLED_K_MODERATOR_SUPPORTED_EVOLUTION_TO_PERSISTENCE_NOT_IDENTIFIED"
+    }
+  ],
+  "evidence": [
+    {
+      "pr": 411,
+      "stage": "Q1",
+      "rank": "PREREGISTERED_SUPPORTED",
+      "endpoint": "evolving-versus-fixed assurance by near/far investment response",
+      "result": "4/4 settings pass; attenuation 0.1007..0.2200; all terminal occupancy 1.0",
+      "new_data_after_411": false
+    },
+    {
+      "pr": 418,
+      "stage": "Q2",
+      "rank": "PREREGISTERED_PRACTICAL_EQUIVALENCE",
+      "endpoint": "assigned A-first vs I-first far-near DID",
+      "estimate": -0.0135891,
+      "ci95": [
+        -0.0228119,
+        -0.0043024
+      ],
+      "rope": [
+        -0.05,
+        0.05
+      ],
+      "independent_history_clusters": 64
+    },
+    {
+      "pr": 422,
+      "stage": "Q2",
+      "rank": "PREREGISTERED_NONREPLICATION",
+      "endpoint": "fixed 3/4 ovule-budget window versus smooth curve",
+      "decision": "window_residual_practically_equivalent",
+      "note": "Archive PR open; no budget switching."
+    },
+    {
+      "pr": 442,
+      "stage": "Q4",
+      "rank": "PREREGISTERED_SUPPORTED_INDEPENDENT",
+      "endpoint": "K8-minus-K48 moderation of assigned-expression-order sensitivity to halved viable selfed seed at fixed B48",
+      "estimate": 0.0077457139,
+      "ci95": [
+        0.0024971581,
+        0.0130154788
+      ],
+      "independent_history_clusters": 64,
+      "n_futures": 114688
+    },
+    {
+      "pr": 448,
+      "stage": "Q4",
+      "rank": "PREREGISTERED_INCONCLUSIVE",
+      "endpoint": "late versus early viable selfed seed loss K moderator",
+      "estimate": -0.0029649032,
+      "ci95": [
+        -0.0072632191,
+        0.0013173206
+      ]
+    },
+    {
+      "pr": 452,
+      "stage": "Q1",
+      "rank": "EXPLORATORY_DRAFT_SOURCE_MODEL_ONLY",
+      "endpoint": "finite W/group-seed conflict depends on census and functional visitor context",
+      "source_cells": 384,
+      "source_conflicting_cells": 14,
+      "paired_equal_richness_reclassified": 176,
+      "paired_equal_richness_total": 505,
+      "conditional_n_range": [
+        6,
+        9
+      ],
+      "limit": "same-N same-diploid source intervention, not population-level prospective replication"
+    },
+    {
+      "pr": 455,
+      "stage": "Q3",
+      "rank": "EXPLORATORY_DRAFT_CONDITIONAL_ONE_STEP",
+      "endpoint": "conditional parental lottery plus Mendelian variance given fixed offspring count",
+      "limit": "not natural genetic adaptation or unconditional extinction"
+    },
+    {
+      "pr": 457,
+      "stage": "Q1",
+      "rank": "RETROSPECTIVE_ORIGINAL_GENOME_SOURCE_REPLAY",
+      "endpoint": "native evolving genome direct nonfocal seed benefit and rare W-negative/group-positive sign conflict",
+      "independent_visitor_histories_reused": 64,
+      "demographic_repeats_per_history_used": 1,
+      "per_setting_focal_perturbations": 3072,
+      "group_conflict_focal_count_range": [
+        196,
+        438
+      ],
+      "group_conflict_history_count_range": [
+        12,
+        23
+      ],
+      "new_independent_histories": 0
+    },
+    {
+      "pr": 457,
+      "stage": "Q4",
+      "rank": "RETROSPECTIVE_SOURCE_FALSIFIER_NOT_PERSISTENCE",
+      "endpoint": "total delivered pollen reduction does not guarantee viable maternal seed decline or capped recruitment difference",
+      "settings_with_positive_mean_viable_seed_difference": 3,
+      "total_settings": 4,
+      "max_mean_one_step_K48_census_difference": 0.00025,
+      "new_longitudinal_persistence_estimate": false
+    }
+  ],
+  "transition_gates": [
+    {
+      "from": "Q1",
+      "to": "Q2",
+      "verdict": "UNIDENTIFIED",
+      "required": "separate local payoff sign from experimentally assigned order and spontaneous inherited ordering"
+    },
+    {
+      "from": "Q2",
+      "to": "Q3",
+      "verdict": "UNIDENTIFIED",
+      "required": "founder-matched annual inherited diploid trajectories and unconditional full-history inclusion"
+    },
+    {
+      "from": "Q3",
+      "to": "Q4",
+      "verdict": "UNIDENTIFIED",
+      "required": "same-genome direct pollen receipt and F/P/S effects linked to density-limited recruitment and unconditional future occupancy"
+    }
+  ],
+  "next_goal": "Design an outcome-independent, biologically justified go/no-go identification and nonsaturation feasibility contract before any new confirmatory histories.",
+  "stop_rules": [
+    "Do not select population size/ovule budget using outcome-exposed favourable cells.",
+    "No universal natural island threshold from synthetic N=6..9.",
+    "No natural genetic-order causality from assigned phenotype schedule.",
+    "No group-fitness conflict from negative focal maternal seed alone; include full W=.5F+.5P+S.",
+    "No long-run extinction claim from one-step pollen delivery, seed or Poisson-capped recruitment.",
+    "No external validation or public data DOI claim without completed source archive and independent evidence."
+  ],
+  "source_paths": {
+    "original_four_stage_design": "docs/CHAPTER2_ORDER_EXPRESSION_IDENTIFICATION_DESIGN_20261008.md",
+    "editorial_hypothesis_audit": "docs/CHAPTER2_HIGH_UPSIDE_QUESTION_AUDIT_20261010.md",
+    "original_genome_replay": "data/results/chapter2_original_evolved_pollen_service_receipt_20261010.json",
+    "current_manuscript": "docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md"
+  }
+}
