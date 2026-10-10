@@ -23,6 +23,20 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
+      - name: Exact replays of the 384 investment paths and actual N6-9 mixed-genotype gradient (PR452)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
+        run: |
+          pytest -q tests/test_chapter2_investment_conflict_path_replay.py
+          python -m scripts.audit_chapter2_investment_conflict_path_replay --out chapter2-investment-conflict-dynamic-replay.json
+      - name: Archive original-hash-verified 384 full path traces and N6-9 actual genomic conflict exposure
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-investment-conflict-dynamic-replay
+          path: |
+            chapter2-investment-conflict-dynamic-replay.json
+            data/design/chapter2_investment_conflict_path_replay_20261010.json
+          if-no-files-found: error
       - name: Run pytest
         run: |
           pytest -q --junitxml=pytest-${{ matrix.python-version }}.xml 2>&1 | tee pytest-${{ matrix.python-version }}.log
