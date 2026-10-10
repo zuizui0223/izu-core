@@ -23,18 +23,6 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
-      # TEMPORARY exact source diagnostic; restore original CI after archival.
-      - name: Execute delivered pollen matching diagnostic
-        if: matrix.python-version == '3.11'
-        run: |
-          python -m scripts.audit_chapter2_visitor_delivery_matched --out delivery-matched-source-20261010.json
-      - name: Archive delivered pollen matching diagnostic
-        if: matrix.python-version == '3.11'
-        uses: actions/upload-artifact@v4
-        with:
-          name: chapter2-delivered-pollen-matched-source-20261010
-          path: delivery-matched-source-20261010.json
-          if-no-files-found: error
       - name: Run pytest
         run: |
           pytest -q --junitxml=pytest-${{ matrix.python-version }}.xml 2>&1 | tee pytest-${{ matrix.python-version }}.log
