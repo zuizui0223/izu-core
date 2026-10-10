@@ -60,5 +60,14 @@
     "updated_submission_scope": "Main 3310 words between Introduction and figure captions; abstract 142; 4 figures; no rewriting of old primary design."
   },
   "editorial_primary_claim": "Confirmed within one model family: assurance evolution not necessary for loss of investment, but compresses divergence in four frozen pollen-limited settings",
-  "editorial_secondary_claim": "Independent externally assigned expression-order K × viable selfed seed sensitivity (one registered small positive result), not an evolutionary-to-persistence mediator"
+  "editorial_secondary_claim": "Independent externally assigned expression-order K × viable selfed seed sensitivity (one registered small positive result), not an evolutionary-to-persistence mediator",
+  "review_package_builder": "scripts/build_chapter2_unified_el_submission_bundle.py",
+  "review_package_expected_figures": [
+    "Figure1.pdf",
+    "Figure2.pdf",
+    "Figure3.pdf",
+    "Figure4.svg"
+  ],
+  "review_package_status": "source_figure_verified_internal_reviewer_draft_DOI_pending",
+  "legacy_process_builder": "scripts/build_chapter2_process_review.py (historical only; old manuscript and old Figure4)"
 }
