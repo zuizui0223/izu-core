@@ -14,7 +14,7 @@ def test_single_active_full_research_article():
     assert contract["active_manuscript_count"]==1
     assert contract["status"]=="active_unified_manuscript_not_submitted"
     assert contract["research_format"]=="full_length_research_article"
-    assert contract["journal"]=="undecided_pending_full_article_suitability_and_data_archive"
+    assert contract["journal"]=="Journal of Ecology (Research Article), proposed_not_submitted"
     assert len(contract["source_manuscripts_archived_not_separate_submissions"])==2
     for x in contract["source_manuscripts_archived_not_separate_submissions"]:
         assert (ROOT/x).exists()
