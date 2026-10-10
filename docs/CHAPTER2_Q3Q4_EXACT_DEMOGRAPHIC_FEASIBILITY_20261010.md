@@ -34,6 +34,16 @@ Its total analyzed *source-history × setting × resource multiplier* cells is *
 
 The 6/1,536 quantity counts repeated evaluations of **only 64 old histories** across settings/scales. It is not an independent-sample rate or an incidence estimate for natural islands. With all four mating settings included, **three of four** have *higher* mean viable maternal seed output in the evolved-versus-investment-restored source comparison, despite less average delivered pollen. The history-level Shapley source component uncertainties are post-hoc and largely cross zero. There is no general sign-consistent harmful population output.
 
+**Additional exact, source-wide upper bound.** The four archived original K48 near-state receipts guarantee that every evolved/restored pair's viable maternal seed intensity satisfies `mu >= 67.279434303` before budget scaling. Consequently, at a common budget multiplier `b` the paired difference in **conditional one-generation occupancy probability** is bounded without stochastic resampling:
+
+```text
+|Pr(occupied next year | E) - Pr(occupied next year | I-restored)|
+ = |exp(-b*mu_E)-exp(-b*mu_C)|
+ <= exp(-b*67.279434303).
+```
+
+For `b=0.125`, this bound is **0.000222646**; for `b=0.25`, **4.96e-8**; for the original `b=1`, **6.04e-30**. Thus *within the already observed original source states*, no individual original history at `b>=0.125` can generate a conditional **one-step** occupancy probability change larger than ~0.000223 via this investment-restoration comparison. This is a **deterministic mathematical upper bound**, not a bootstrap confidence interval, new ecological threshold, statistical power estimate, or bound on 80-update survival: inherited state, `mu` and demography can change after the first update.
+
 **Decision for this source grid:** `NO_GO_FOR_CURRENT_SOURCE_GRID_AS_Q3_TO_Q4_LONGITUDINAL_CONFIRMATION`. This is a *retrospective technical feasibility finding*, not a failed independently registered survival trial and not evidence that true longer-term genetic effects are zero.
 
 ## 3. A second density trap: seed supply > N does not ensure expected replacement at capacity
