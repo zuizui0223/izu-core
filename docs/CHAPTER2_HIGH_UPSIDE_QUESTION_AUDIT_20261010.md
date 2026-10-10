@@ -27,6 +27,12 @@ Further original-genome source replay (PR #457; **64 previously exposed historie
 
 Source output SHA-256 `6fdd8ed45af9f7b9c65b513cb20fa1f3ba224519695ec37940421a7a6d60ae5e`, post-hoc history bootstrap SHA-256 `7c261e35e0dd5c496b488945a0e1edc3f9f57df3cf21a7afa7c4a053609f1d35`. Exact replay runner, descriptive receipt and original four-shard provenance in [PR #457](https://github.com/zuizui0223/izu-core/pull/457). The EL one-paper confirmed four-setting result is unaffected.
 
+## 2026-10-10 completed six-budget one-step demographic falsifier (PR #457)
+
+The original authenticated 256 evolved-diploid source states were evaluated under an explicitly bounded **six-level ovule budget multiplier** grid [0.025,0.05,0.125,0.25,0.5,1] with original fixed K48/B48 and unchanged visitors. In the source model's exact one-year N'=min(Poisson(bμ),K48) update, reducing the budget produces genuinely interior expected census sizes around b=.05 or b=.125, but **not a common negative group demographic effect**. At b=.125, mean E-vs-investment-clamped next-N contrasts are **−0.0304** delayed, **+0.3090** prior, **+0.2201** pollen-discount and **+0.1103** assurance-cost, and original mean E one-year occupancy stays ≥0.999995 in each setting. At b=.05 mean occupancy is still ≥0.99599. A 64-history bootstrap (one of eight original demographic repeats, exploratory and unadjusted across 24 setting-budget cells) does not authorize confirmatory promotion. The complete 1,536 source-derived one-year cells and exact Poisson formula are preserved in PR #457; no longitudinal trajectories or new independent histories were run.
+
+**Interpretation:** Loosening the original density cap makes expected abundance responsive, but does **not** automatically connect a negative pollen-delivery source contrast to decreased collective viable seed, growth or persistence. Do **not** choose a now-observed 'favourable' low-budget cell and run more stochastic repeats as if the environmental hypothesis were frozen independently. Candidate A (evolutionary insurance undermines shared floral services with a population consequence) remains **unproven / currently NO-GO for an extinction headline**. The EL single-paper fallback B is not weakened.
+
 ## Select the question by what can be falsified
 
 ### Candidate A — high-upside, currently UNPROVEN
