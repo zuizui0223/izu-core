@@ -29,7 +29,10 @@ def test_abstract_preserves_denominator_and_claim_ceiling():
     assert "eight nested demographic repeats" in lower
     assert "78–90%" in lower
     assert "not required for pollinator-limitation-driven investment decline" in lower
-    assert "geographic floral differences can consequently underestimate evolutionary change" in lower
+    assert "in these incompletely pollinated model regimes" in lower
+    assert "about 22% of ovules fertilized by outcross pollen" in lower
+    assert "39% still unfilled after autonomous selfing" in lower
+    assert "geographic floral differences can consequently underestimate evolutionary change" not in lower
 
 
 def test_scientific_gate_is_unified_model3():
