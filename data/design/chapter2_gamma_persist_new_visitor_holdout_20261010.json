@@ -1,0 +1,93 @@
+{
+  "schema": "chapter2_gamma_persist_independent_visitor_holdout_v1",
+  "date": "2026-10-10",
+  "status": "PROSPECTIVELY_SOURCE_LOCKED_MODEL_INTERNAL_HOLDOUT_BEFORE_NEW_VISITOR_OUTCOMES",
+  "scientific_scope": "model-internal prospectively frozen visitor RNG cohort, exploratory transfer of a posthoc-discovered beta/Gamma_seed map; NOT independent field systems, universal evolutionary mechanism or registered publication primary",
+  "root_question": "At fixed initial monomorphic expressed genotype state, does the collective investment shift that raises/lower total viable seeds translate to higher/lower unconditional occupancy at H=80, under previously unexposed stochastic visitor histories?",
+  "source_files": [
+    "scripts/chapter2_kb_reproduction.py",
+    "scripts/model3_island/population.py",
+    "scripts/model3_island/history.py",
+    "scripts/audit_chapter2_beta_gamma_seed_map.py"
+  ],
+  "original_discovery": "data/results/chapter2_beta_gamma_seed_engineering_receipt_20261010.json",
+  "conditions": {
+    "independent_visitor_seed_first": 61021001,
+    "independent_visitor_seed_last": 61021064,
+    "n_independent_visitor_histories": 64,
+    "prior_use_assertion": "dedicated seed range selected before future runs; do not mix with earlier 261106/371108/401109/411109/421109 cohorts",
+    "visitor_source": "same four fixed matching optima 0.15/0.35/0.55/0.75 with breadth 0.18/effectiveness 1 at year0; Model3 make_history separation with random loss/arrivals over 80 reproductive years, visitor arrival distance0",
+    "initial_visitor_n": 4,
+    "visitor_arrival_distance": 0,
+    "n_demographic_repeats_per_history": 1,
+    "total_years": 80,
+    "horizons": [
+      20,
+      80
+    ],
+    "K": [
+      8,
+      48
+    ],
+    "pollen_background_B": 48,
+    "initial_census_policy": "N0=K monomorphic diploid exact whole individual genotypes; K8 vs K48 contrasts bundle starting N and future capacity, not an isolated carrying-capacity effect",
+    "resident_matching": 0.2,
+    "resident_investment": 0.35,
+    "resident_assurance_values": [
+      0.35,
+      0.65
+    ],
+    "changed_trait": "investment",
+    "collective_shifts": [
+      -0.05,
+      0.05
+    ],
+    "reproductive_setting": "prior_selfing",
+    "ovule_budget": 6,
+    "viability_gates": {
+      "baseline": [
+        1,
+        1
+      ],
+      "half_self": [
+        0.5,
+        1
+      ]
+    },
+    "adult_survival": 0,
+    "mutation_rate": 0,
+    "seed_immigration": 0,
+    "n_futures_total": 1024
+  },
+  "outcome_contract": {
+    "primary_endpoint": "unconditional N80>0 within each seed x K x assurance x gate x shift cell",
+    "secondary_endpoint": "unconditional N20>0",
+    "estimand": "paired across 64 independently generated visitor histories Delta=mean(occupancy under +0.05 investment - occupancy under -0.05 investment) per K, assurance, gate at H=80; Gamma_persist=Delta/0.10",
+    "uncertainty": "paired 1999 percentile bootstrap draws resampling entire visitor history seeds; seed 61021999; no false history replication from demographic paths",
+    "decision": "positive if bootstrap CI lower > +0.05 probability points, negative if upper < -0.05, practically_equivalent if both CI limits inside [-0.05,+0.05], otherwise inconclusive",
+    "effect_deadband_absolute_probability": 0.05,
+    "report_every_cell": true,
+    "sample_stop": "exactly 64 histories, no significance-based stopping, failed or extinct paths retained",
+    "prediction_at_source_visitor_state": "K48 and assurance0.35 beta positive/Gamma_seed positive; K48 and assurance0.65 beta negative/Gamma_seed positive; K8 sign differences explicitly treated as different finite-N selection estimands",
+    "claim_rule": "beta vs Gamma_persist conflict only if independent-cohort occupancy direction resolves and is opposite to the same-cell beta; if unresolved, no concordance claim; beta source initial state under 4 fixed visitors is not a beta for all later variable visitor trajectories",
+    "zero_monomorphic_variation_note": "monomorphic genotypes and zero mutation make allele evolution impossible; this is a collective phenotype/genotype initial-shift persistence intervention, NOT an evolution-enabled vs frozen evolutionary-suicide experiment",
+    "design_gates": [
+      "full source JSON original and future output hashes",
+      "source ledger mass conservation",
+      "new visitor cohort and biological setting frozen before any run",
+      "paired visitor history ID and random streams",
+      "no nonzero mutant alleles introduced except declared ±0.05 initial shift",
+      "no posthoc cell selection",
+      "no permanent changes to canonical biology",
+      "all failed/zero outcomes kept"
+    ]
+  },
+  "interpretation_exclusions": [
+    "no island empirical validation",
+    "not A-first/I-first assigned timing",
+    "not K-only causal effect because N0=K",
+    "no gene load or deleterious variants",
+    "not evolution-enabled vs frozen test",
+    "cannot treat independent visitor draws from one simulator as independent ecological systems"
+  ]
+}
