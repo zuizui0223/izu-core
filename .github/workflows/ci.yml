@@ -23,20 +23,6 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
-      - name: Verify original Chapter2 joint grid with pathwise replay (PR 452 only)
-        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
-        run: |
-          pytest -q tests/test_chapter2_joint_pathwise_bottlenecks.py
-          python -m scripts.audit_chapter2_joint_pathwise_bottlenecks --out chapter2-joint-pathwise-bottlenecks.json
-      - name: Archive complete pathwise replay and original grid receipt (PR 452 only)
-        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
-        uses: actions/upload-artifact@v4
-        with:
-          name: chapter2-joint-pathwise-bottlenecks
-          path: |
-            chapter2-joint-pathwise-bottlenecks.json
-            data/results/chapter2_joint_multigen_budget_surface_receipt_20261010.json
-          if-no-files-found: error
       - name: Run pytest
         run: |
           pytest -q --junitxml=pytest-${{ matrix.python-version }}.xml 2>&1 | tee pytest-${{ matrix.python-version }}.log
