@@ -104,3 +104,19 @@ def test_original_genome_receipt_cannot_be_promoted_to_survival_claim():
     assert sum(x["evolving_viable_maternal_seed_minus_within_evolving_fixed_mean_investment_clamp"]>0
            for x in r["near_t400_summary"])==3
     assert "STOP_PROMOTION" in r["decision"]
+
+
+def test_finite_genetic_conflict_is_narrower_than_nonfocal_benefit():
+    r=json.loads(RESULT.read_text(encoding="utf-8"))
+    rows=r["near_t400_full_genetic_focal_accounting"]
+    assert len(rows)==4
+    assert r["raw_output_sha256"]["focal_with_paternal"] == (
+        "49b26819f5bf5987543c695cbd73f062e68c61c5b73c8cea7ae3ecc3ca1d4bc8")
+    for x in rows:
+        assert x["n_focal_interventions"]==3072
+        assert x["mean_focal_parental_genetic_derivative"]<0
+        assert 0 < x["focals_negative_genetic_with_positive_group_viable"] < 500
+        assert x["focals_negative_genetic_with_positive_group_viable"] < (
+            x["focals_negative_genetic_with_positive_nonfocal_viable"])
+        assert x["n_histories_any_negative_genetic_positive_group_viable"] <64
+    assert r["scientific_definition_finite_parental"].startswith("W_i=.5*F_i")
