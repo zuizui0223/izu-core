@@ -83,6 +83,19 @@ def test_exact_80_update_results_are_model_demographic_only():
     # No genotype or visitor turnover: a demographic non-selection baseline.
     assert lookup[(8, 6.0)]["moments"]["80"]["p_occupied"] < 0.05
     assert lookup[(48, 6.0)]["moments"]["80"]["p_occupied"] > 0.8
+    # Historical #452's monomorphic SOURCE conflict window is N=6..9.
+    # Its persistence under a no-evolution density Markov process differs
+    # dramatically between K8 and K48; these are NOT selection trajectories.
+    k8 = lookup[(8, 6.0)]["moments"]["80"]
+    k48 = lookup[(48, 6.0)]["moments"]["80"]
+    assert k8["p_at_N6_to_N9_unconditional"] == pytest.approx(
+        0.017158342418196575, abs=1e-9
+    )
+    assert k48["p_at_N6_to_N9_unconditional"] == pytest.approx(
+        1.9291598825843511e-7, abs=1e-10
+    )
+    assert 0.5 < k8["p_at_N6_to_N9_unconditional"] / k8["p_occupied"] < 0.65
+    assert k48["p_at_N6_to_N9_unconditional"] / k48["p_occupied"] < 1e-6
     assert "NOT a genetic" in result["interpretation"]
     json.dumps(result, allow_nan=False)
 
