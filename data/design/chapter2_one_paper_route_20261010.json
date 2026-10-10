@@ -1,0 +1,40 @@
+{
+  "schema": "chapter2_one_paper_route_20261010_v1",
+  "status": "active_unified_manuscript_not_submitted",
+  "title": "Floral-investment divergence and demographic persistence respond differently to reproductive assurance under pollinator limitation",
+  "active_manuscript": "docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md",
+  "renderer": "scripts/render_chapter2_unified_manuscript.py",
+  "research_format": "full_length_research_article",
+  "journal": "undecided_pending_full_article_suitability_and_data_archive",
+  "active_manuscript_count": 1,
+  "source_manuscripts_archived_not_separate_submissions": [
+    "docs/CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md",
+    "docs/CHAPTER2_CAPACITY_PERSISTENCE_COMPANION_MANUSCRIPT_20261010.md"
+  ],
+  "evidence_contract": {
+    "primary": "original 1,000-update 64 independent visitor-history 8 nested repeats four-setting fixed/evolving assurance-by-replenishment gradient: all 4 passed",
+    "secondary_preregistered": "original separate 80-update assigned expression-history viability sensitivity K8 vs K48 at B48, 64 independent visitor-history clusters, +0.007745713876893593",
+    "other_negative": [
+      "near/far schedule DID practically equivalent",
+      "independent resource-window hypothesis failed",
+      "first fixed founder K comparison inconclusive",
+      "B at K8 registered primary inconclusive",
+      "timed late-minus-early primary inconclusive"
+    ],
+    "secondary_descriptive": [
+      "two other cohort K-at-B48 estimates remain post-outcome secondary and unpooled",
+      "78–90 percent arm localization is post-confirmation accounting",
+      "near pollen supply x16 saturation feasibility failed; not new evolutionary history",
+      "public-goods seed-based β/Γ conflict not survival"
+    ],
+    "identification_limitations": [
+      "No causal mediation from evolved investment to extinction established",
+      "A-first/I-first is imposed phenotype expression order, NOT genetic mutation order",
+      "K and B controlled separately only in the persistence arm",
+      "Four-setting evolving investment traits tested between two pollen-limited regimes, not a saturated mainland",
+      "No real island lineages or field validation in either model experiment"
+    ]
+  },
+  "data_requirement": "Issue #436 outstanding DOI-backed external raw archive verification",
+  "policy": "Do not combine incompatible history-cluster denominators or pool cohort intervals; preserve all preregistered failures and existing model biology."
+}
