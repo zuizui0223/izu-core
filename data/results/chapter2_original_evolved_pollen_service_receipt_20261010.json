@@ -162,5 +162,13 @@
     }
   ],
   "scientific_definition_finite_parental": "W_i=.5*F_i+.5*P_i+S_i expected parental allele-copy equivalent from original finite source outcross matrix. Derivative is unilateral per source evolved genotype adult, not monomorphic rare-mutant log invasion gradient and not realized allele frequency change.",
-  "new_result": "Native t400 evolved genomes show explicit W_i negative / OTHER-mother seed positive situations in many focal states; but W_i negative / TOTAL group viable maternal seed positive is much narrower: 196–438 of 3072 near focal changes depending on setting. This is a source-stage sign conflict, not population survival or evolutionary suicide."
+  "new_result": "Native t400 evolved genomes show explicit W_i negative / OTHER-mother seed positive situations in many focal states; but W_i negative / TOTAL group viable maternal seed positive is much narrower: 196–438 of 3072 near focal changes depending on setting. This is a source-stage sign conflict, not population survival or evolutionary suicide.",
+  "near_t400_assurance_reset_pollen_control": {
+    "definition": "Within same evolved-genotype source, force only assurance allele means to 0.5 and recompute source delivered pollen with original investments/matching/visitors.",
+    "delayed_control": 0,
+    "prior_selfing": 0,
+    "assurance_cost": 0,
+    "pollen_discount": -2.4445475906364997,
+    "interpretation": "With no pollen discount, direct assurance-to-other-pollen-delivery effect is exactly zero; with pollen discount=1, increasing evolved assurance reduces delivery independently of floral investment. Not a demographic mediation estimate."
+  }
 }
