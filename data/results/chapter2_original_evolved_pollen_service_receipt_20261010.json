@@ -1,0 +1,103 @@
+{
+  "schema": "chapter2_original_evolved_pollen_service_source_result_v1",
+  "status": "POST_DISCOVERY_SOURCE_REPLAY_COMPLETE_NOT_EVOLUTIONARY_MEDIATION",
+  "date": "2026-10-10",
+  "raw_source": "GitHub Actions run 37458098483; original shard 0,1,2,3, all original checkpoint receipts and frozen code sources SHA256 validated",
+  "raw_output_sha256": {
+    "paired": "34846d5ea2b758c7123af42130cceec7b3581c4c9a95dcbd0de52c651a599b57",
+    "focal": "09d514d0b38b6a8bb9fd44ef44aa6ec951a5c1eb0cd10913ceb25859e3835b5c",
+    "bundle": "636c839e494d165a370f6d0f703093a5de309f435aac47872092528cb3beccab"
+  },
+  "source_reproduction_sha256": "885957edb8a165ee8528781ed1d2574c44143c608496b505f9663cbfac2c4081",
+  "n_visitor_histories": 64,
+  "n_nested_demographic_repeats": 1,
+  "n_original_evolved_fixed_state_checkpoints": 1024,
+  "snapshots": [
+    200,
+    400
+  ],
+  "n_original_population_count_per_cell": 48,
+  "settings": [
+    "delayed_control",
+    "prior_selfing",
+    "pollen_discount",
+    "assurance_cost"
+  ],
+  "zero_visitor_control": {
+    "t400_near_histories": 1,
+    "t400_far_histories": 50
+  },
+  "direct_assurance_negative_control": "When pollen_discount=0, resetting only assurance within evolved plant states changes delivered pollen by exactly 0 to tolerance 1e-10 at fixed investment and matching.",
+  "near_t400_summary": [
+    {
+      "setting": "delayed_control",
+      "evolved_mean_investment_minus_paired_fixed_mean": -0.01829132066758274,
+      "evolving_delivery_minus_within_evolving_fixed_mean_investment_clamp": -1.3528480832545533,
+      "evolving_viable_maternal_seed_minus_within_evolving_fixed_mean_investment_clamp": -0.24292456205506086,
+      "observed_evolving_minus_observed_fixed_total_delivered": -6.738618565313448,
+      "n_64_histories_evolving_delivery_lower_than_I_clamp": 33,
+      "mean_unilateral_focal_investment_derivative_of_other_mothers_viable_seed": 0.6706814355640841,
+      "n_focal_derivatives_positive": 3024,
+      "n_focal_derivatives_negative": 0,
+      "n_focal_derivatives_zero": 48,
+      "n_64_histories_positive_mean_focal_externality": 63,
+      "mean_focal_own_maternal_derivative": -0.8823297302399578,
+      "n_zero_visitor_histories": 1
+    },
+    {
+      "setting": "prior_selfing",
+      "evolved_mean_investment_minus_paired_fixed_mean": -0.016520403593263858,
+      "evolving_delivery_minus_within_evolving_fixed_mean_investment_clamp": -1.386308673888931,
+      "evolving_viable_maternal_seed_minus_within_evolving_fixed_mean_investment_clamp": 2.4723474404284933,
+      "observed_evolving_minus_observed_fixed_total_delivered": -3.4238437340625065,
+      "n_64_histories_evolving_delivery_lower_than_I_clamp": 37,
+      "mean_unilateral_focal_investment_derivative_of_other_mothers_viable_seed": 0.2690499205292504,
+      "n_focal_derivatives_positive": 2976,
+      "n_focal_derivatives_negative": 0,
+      "n_focal_derivatives_zero": 96,
+      "n_64_histories_positive_mean_focal_externality": 62,
+      "mean_focal_own_maternal_derivative": -0.9476569993545875,
+      "n_zero_visitor_histories": 1
+    },
+    {
+      "setting": "pollen_discount",
+      "evolved_mean_investment_minus_paired_fixed_mean": -0.04401182310227291,
+      "evolving_delivery_minus_within_evolving_fixed_mean_investment_clamp": -0.6889821867541864,
+      "evolving_viable_maternal_seed_minus_within_evolving_fixed_mean_investment_clamp": 1.7605114886294588,
+      "observed_evolving_minus_observed_fixed_total_delivered": -4.0844753112688466,
+      "n_64_histories_evolving_delivery_lower_than_I_clamp": 37,
+      "mean_unilateral_focal_investment_derivative_of_other_mothers_viable_seed": 0.391211344987423,
+      "n_focal_derivatives_positive": 3024,
+      "n_focal_derivatives_negative": 0,
+      "n_focal_derivatives_zero": 48,
+      "n_64_histories_positive_mean_focal_externality": 63,
+      "mean_focal_own_maternal_derivative": -0.780542986117319,
+      "n_zero_visitor_histories": 1
+    },
+    {
+      "setting": "assurance_cost",
+      "evolved_mean_investment_minus_paired_fixed_mean": -0.03671804603344577,
+      "evolving_delivery_minus_within_evolving_fixed_mean_investment_clamp": -1.800548317790489,
+      "evolving_viable_maternal_seed_minus_within_evolving_fixed_mean_investment_clamp": 0.8827227099254165,
+      "observed_evolving_minus_observed_fixed_total_delivered": -5.100782147700909,
+      "n_64_histories_evolving_delivery_lower_than_I_clamp": 37,
+      "mean_unilateral_focal_investment_derivative_of_other_mothers_viable_seed": 0.6078933406799362,
+      "n_focal_derivatives_positive": 3024,
+      "n_focal_derivatives_negative": 0,
+      "n_focal_derivatives_zero": 48,
+      "n_64_histories_positive_mean_focal_externality": 63,
+      "mean_focal_own_maternal_derivative": -0.49219129608276796,
+      "n_zero_visitor_histories": 1
+    }
+  ],
+  "evidence_level": "retrospective historical source states; no new visitor history, no prospective hypothesis test, no ecological field replication",
+  "limits": [
+    "Per history only the first of eight demographic repeats used; do not transfer 64-history values to original preregistered trial effects.",
+    "Observed E and fixed states have different matching and parental lineages; raw delivered differences are not assurance causal mediation.",
+    "Within-E investment clamp to matched fixed-mean investment is an imposed allelic counterfactual, not spontaneous evolution; changing investment also changes ovule cost.",
+    "Unilateral focal externality is a one-step response in expected other-mother viable seed; not genetic fitness, visitor recruitment or survival.",
+    "Group viable maternal offspring changes after investment clamp are + in 3/4 near settings despite service reductions in all 4; no universal demographic damage.",
+    "Near snapshot400 fixed-state pollen limitation; no saturation comparison; zero-visitor histories retained."
+  ],
+  "decision": "STOP_PROMOTION_TO_CAUSAL_SHARED_SERVICE_EXTINCTION_HEADLINE. Continue only with predeclared same-genome evolutionary assay across stages and independent nonsaturated population histories if source biological justification is obtained."
+}
