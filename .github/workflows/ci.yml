@@ -23,20 +23,19 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
-      - name: Source-only smoke before unexposed visitor holdout (PR 452 only)
+      - name: Validate exact paired-history sensitivity after original cohort (PR 452 only)
         if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
-        run: pytest -q tests/test_chapter2_gamma_persist_new_histories.py
-      - name: Execute 64 source-locked independent visitor histories (PR 452 only)
-        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
-        run: python -m scripts.audit_chapter2_gamma_persist_new_histories --out chapter2-gamma-persist-64-visitor-holdout.json
-      - name: Archive full matched-visitor holdout and frozen design (PR 452 only)
+        run: |
+          pytest -q tests/test_chapter2_gamma_persist_exact_pair_sensitivity.py
+          python -m scripts.audit_chapter2_gamma_persist_exact_pair_sensitivity --out chapter2-gamma-persist-paired-exact-sensitivity.json
+      - name: Archive exact paired-history sensitivity (PR 452 only)
         if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
         uses: actions/upload-artifact@v4
         with:
-          name: chapter2-gamma-persist-64-visitor-holdout
+          name: chapter2-gamma-persist-paired-exact-sensitivity
           path: |
-            chapter2-gamma-persist-64-visitor-holdout.json
-            data/design/chapter2_gamma_persist_new_visitor_holdout_20261010.json
+            chapter2-gamma-persist-paired-exact-sensitivity.json
+            data/results/chapter2_gamma_persist_64_history_holdout_receipt_20261010.json
           if-no-files-found: error
       - name: Run pytest
         run: |
