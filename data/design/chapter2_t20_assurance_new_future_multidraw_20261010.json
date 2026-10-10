@@ -1,0 +1,92 @@
+{
+  "schema": "chapter2_t20_assurance_independent_future_multidraw_transfer_v1",
+  "status": "FROZEN_BEFORE_NEW_FUTURE_ECOLOGY_OUTCOMES_MODEL_INTERNAL_TRANSFER",
+  "date": "2026-10-10",
+  "purpose": "Check whether source-conditional t20 assurance-locus genome transplant contrast from #452 persists under NEW stochastic future visitor innovations and multiple independent donor genotype samples.",
+  "prior_exposure": {
+    "source_history_ids": [
+      61024001,
+      61024064
+    ],
+    "selected_t20_alive": 58,
+    "neutral_t20_alive": 52,
+    "both_alive": 50,
+    "source_original_paired_survival_known": true,
+    "original_exploratory_K8_selected_assurance_only_vs_neutral_all": [
+      32,
+      15
+    ],
+    "original_exploratory_K48_selected_assurance_only_vs_neutral_all": [
+      48,
+      41
+    ],
+    "original_full_locus_results_known": true,
+    "source_donor_genotype_distributions_reused": true,
+    "donor_eligibility_condition": "BOTH original prehistory selected- and neutral-transmission source populations occupied at t20; original 50/64 eligibility must be recomputed exactly. No imputation of missing donor genotypes."
+  },
+  "new_future": {
+    "seed_first": 61026001,
+    "seed_last": 61026064,
+    "seed_map": "original source visitor seed 61024001+i maps to new visitor transition seed 61026001+i; full 64 visitor innovations generated, only prehistory both-survivor histories used",
+    "inherit_t20_visitor_state": true,
+    "future_visitors": "canonical Model3 make_history with inherited original t20 visitor functional types and truly NEW visitor arrival/loss innovations during t20..t79; no new plant immigration",
+    "years_after_transplant": 60,
+    "future_demographic_rng_source": "reuse source run_future with future visitor seed, matching across all donor draws/modules/K for a given history, not the previously observed demographic RNG",
+    "independent_natural_island_systems": 0,
+    "ecological_independence_caveat": "Only new post-t20 visitor innovations are independently generated. The donor genotypes and starting t20 visitor states derive from the old, already outcome-exposed 64 histories."
+  },
+  "experiment": {
+    "original_source_K": 48,
+    "original_source_B": 48,
+    "original_source_budget": 8,
+    "original_source_gate": "half_self",
+    "source_first_updates": 20,
+    "recipient_N0": 8,
+    "recipient_future_K": [
+      8,
+      48
+    ],
+    "recipient_B": 48,
+    "genome_draws_per_source_history": 3,
+    "independent_genotype_draw_salt": 61026971,
+    "genome_draw": "whole diploid individuals, allele_origin, mutation_flags preserved; one selected source draw and one neutral source draw per source history x resample, then reuse EXACT recipient genomes across K and mosaic cells",
+    "future_parentage": "selected_source only",
+    "future_gate": "half_self",
+    "genomic_locus_compositions": [
+      "neutral_all",
+      "selected_assurance_only",
+      "selected_nonassurance_only",
+      "selected_all"
+    ],
+    "n_eligible_original_source_history_expected": 50,
+    "future_trajectories_expected": 1200
+  },
+  "primary": {
+    "contrast": "At target K8, selected_assurance_only minus neutral_all survival from t20 to t80, averaged equally over three whole-genotype draws PER eligible source history.",
+    "inference_unit": "50 previously outcome-exposed donor-history clusters; three genotype-draws nested, one fresh matched future visitor innovation per cluster",
+    "summary": "difference of unconditional post-transplant survival averages conditional on t20 donor-eligibility, NOT unconditional survival from t0",
+    "uncertainty": "1999 paired cluster bootstrap replicates over 50 donor original history IDs, averaging three nested whole-genome resamples within each history; in addition Hoeffding 95% distribution-free bound for bounded per-cluster differences [-1,1]",
+    "bootstrap_seed": 61026999,
+    "rope_absolute_survival_probability": 0.05,
+    "decision": "resolved positive only if BOTH clustered percentile bootstrap and distribution-free Hoeffding lower bounds exceed +0.05; resolved negative only if BOTH upper bounds below -0.05; practical equivalence only if BOTH intervals entirely inside [-0.05,+0.05]; otherwise INCONCLUSIVE. Bootstrap alone cannot certify equivalence in all-equal outcomes."
+  },
+  "secondary": [
+    "repeat same assurance-only contrast at K48, descriptive",
+    "match/ investment-only source contrast and assurance selected-other counterpart at both K, descriptive",
+    "whole-genome all-selected versus neutral-all contrast",
+    "paired selection-insensitive sham genomic module parity",
+    "factorial two-order assurance/other-loci descriptive allocation, no unique causal mediation",
+    "difference between single-draw and pooled multi-draw dispersion"
+  ],
+  "strict_replay_gates": [
+    "Full previously archived source counts selected=58 neutral=52 both=50 exactly replayed; retain 14 excluded histories in receipt",
+    "Run all 1200 post20 futures, no elimination by observed survival or genotype support",
+    "No original 61024001..64 visitor innovations used for future updates t20..79; new future visitor IDs 61026001..64 are generated from canonical independent RNG histories conditional on each original year20 visitor state",
+    "All four genomic compositions preserve source entire homolog pairs and origin/flags; selected-all and neutral-all remain donor whole-genome controls",
+    "At any fixed source index and draw, same exact 8 transplanted genomes used for both K; future ecological state and demographic RNG stream aligned across all mosaic cells",
+    "No new mutation, plant immigration, K-driven change to original initial census N0=8, no modifications of production Model3 biology",
+    "False claims of 150 independent visitors or prospectively independently sampled 50 donor histories forbidden",
+    "Floors, ceilings, and all null contrasts reported, no after-outcome seed/budget/ROPE revisions promoted"
+  ],
+  "scope": "Model-internal conditional future-environment transfer only, planned after earlier positive source-mosaic exploratory effect. Not external field validation, not proof of evolutionary suicide/rescue or locus-specific historical genetic mediation."
+}
