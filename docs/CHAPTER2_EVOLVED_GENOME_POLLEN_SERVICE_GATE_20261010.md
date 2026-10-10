@@ -88,6 +88,25 @@ So a one-parent investment increase benefits other mothers while the investing p
 
 The enhanced complete SHA-verified original-source record, including focal paternal terms, has SHA-256 `49b26819f5bf5987543c695cbd73f062e68c61c5b73c8cea7ae3ecc3ca1d4bc8`. This is an **additional post-discovery audit**. It does not modify or reinterpret the original four-setting preregistered experiment.
 
+## Stage 4: source-genome budget-scale gate — still not a valid long-run extinction test
+
+To check whether K48 alone hides a harmful collective effect, we fixed a six-point budget scale grid **[0.025,0.05,0.125,0.25,0.5,1]** before its own source readout. The grid uses original 64 histories × four mating settings × one of eight repeats, preserving original E and investment-clamped genomes, visitors and **pollen background B48**. The only synthetic change is a **linear multiplier b on original ovule-budget supply (8b)**; source pollen-delivery rates remain unchanged. We calculated **exact one-step** N' = min(Poisson(bμ), K48) and P(N'>0)=1−exp(−bμ), where μ is the source group's viable maternal seed expectation. Original 256 source rows yield 1,536 one-year cells; we generated no new histories or longitudinal biological trajectories.
+
+| Setting | Original budget b=1: mean E−clamp next N | At b=0.125: mean E−clamp next N | At b=0.05: mean E−clamp next N | E one-step occupancy at b=0.05 |
+|---|---:|---:|---:|---:|
+| Delayed control | ~0 | −0.0304 | −0.0121 | 0.99908 |
+| Prior selfing | ~0 | +0.3090 | +0.1236 | 0.99905 |
+| Pollen discount | ~0 | +0.2201 | +0.0880 | 0.99898 |
+| Assurance cost | +0.000248 | +0.1103 | +0.0441 | 0.99599 |
+
+At b=0.125, both E and clamp expected next population sizes lie between 10% and 90% of K in **all 64 history blocks** for each setting; thus some density saturation is removed. Nevertheless **the mean sign is NOT consistently negative across reproductive settings**. One-year occupancy remains virtually 1.0 across all four settings. At the very low b=0.025, mean one-year occupancy is still **0.946–0.976**, and only **6/64** assurance-cost histories have individual E occupancy probabilities between 0.1 and 0.9 (zero in other settings). Simply moving to a smaller ovule budget makes reproduction more census-limited but does not create a broadly informative one-year extinction assay.
+
+Unadjusted **64-history bootstrap** interval for expected next-N change at b=0.125: delayed **[−0.205,+0.150]**, prior **[−0.009,+0.672]**, pollen discount **[+0.005,+0.425]**, cost **[−0.100,+0.319]**. The narrow unadjusted pollen-discount positive interval comes from this *post-outcome old-data* sensitivity and is **not confirmatory**, has no multiple-testing adjustment across 24 cells, and does not identify long-run population viability.
+
+**Decision: NO-GO for promoting source K48 mean seed/census offsets to a population-extinction headline**. Resource changes can move mean census into an interior range, but original near-group reproductive effects do not reliably become negative and the one-year occupancy endpoint is almost universally saturated. Do not select a favourable budget after viewing these effects and then call subsequent visits/histories confirmatory. An independent prospective follow-up would first require a biologically justified long-run occupancy regime, a jointly measured genetic mediator and explicit false-prediction cases. This conclusion is a **static future-design feasibility gate**, not a new claim of extinction absence in nature.
+
+Reproducible archived source: `data/design/chapter2_original_evolved_budget_capacity_gate_20261010.json`, `scripts/audit_chapter2_original_evolved_budget_capacity_gate.py`, `data/results/chapter2_original_evolved_budget_capacity_gate_receipt_20261010.json`, `tests/test_chapter2_original_evolved_budget_capacity_gate.py`. Full original 1,536-cell output SHA-256 `e26ef585960588edd0bcfefc201e28d214fa5e9ed1feb1afaa0dcc3548b28ee1` (input source 256-cell Shapley JSON SHA-256 `6fdd8ed45af9f7b9c65b513cb20fa1f3ba224519695ec37940421a7a6d60ae5e`). All original 64 history IDs retained.
+
 ## Stage 3: exact native K48 demographic cap blocks an easy survival interpretation
 
 The same ORIGINAL t400 reproductions give expected local viable maternal seeds between **67.28 and 220+** in the evolving/clamped source contexts at near; every near state exceeds the canonical plant population ceiling **K48** even after switching investment. Under the original source demographic operator, adult survival=0, plant immigration=0 and resident birth attempts follow **Poisson(μ)** with μ equal to the total viable maternal seed expectation. The subsequent census is `min(48, Poisson(μ))`. Therefore
