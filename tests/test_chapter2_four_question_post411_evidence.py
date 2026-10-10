@@ -70,6 +70,6 @@ def test_claim_and_stop_boundaries_visible_in_human_document():
         assert stage in text
     for important in ("#411", "#418", "#422", "#442", "#448", "#452", "#455", "#457"):
         assert important in text
-    assert "NOT a new experiment" in text
+    assert "**NOT** a new experiment" in text
     assert "NO-GO" in text
     assert "untouched" in text
