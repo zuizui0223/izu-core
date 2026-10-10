@@ -23,18 +23,6 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
-      # TEMPORARY: archive post-discovery Model3 source sensitivity; revert after SHA verification.
-      - name: Archive pollen-export-normalized visitor sensitivity
-        if: matrix.python-version == '3.11'
-        run: |
-          python -m scripts.audit_chapter2_visitor_export_normalized_sensitivity --out visitor-export-normalized-20261010.json
-      - name: Upload pollen-export-normalized visitor sensitivity
-        if: matrix.python-version == '3.11'
-        uses: actions/upload-artifact@v4
-        with:
-          name: chapter2-visitor-export-normalized-source-20261010
-          path: visitor-export-normalized-20261010.json
-          if-no-files-found: error
       - name: Run pytest
         run: |
           pytest -q --junitxml=pytest-${{ matrix.python-version }}.xml 2>&1 | tee pytest-${{ matrix.python-version }}.log
