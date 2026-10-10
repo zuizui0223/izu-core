@@ -88,3 +88,18 @@ Competing explanations for apparent cross-layer patterns include genotype correl
 
 **One-sentence shared program (hypothesis, not yet a combined result):**
 > Ecological pollination limitation, inheritance through selfed and outcrossed offspring, and demographic persistence are mechanistically linked but can respond on different scales; testing when allele-transmission advantage becomes population-level survival benefit requires a common randomized, source-matched experiment.
+
+## Upgraded unifying hypothesis (added 2026-10-10; planned, not a result)
+
+**This is the main research question above, not subordinate to, the time20 state transplant:**
+
+> Predict in advance the boundary between individual-level reproductive selection and population-level persistence agreement or discordance using maternal-outcross (F), paternal-outcross (P) and viable-self (S) genetic contributions; falsify those predictions by source-matched finite-population evolutionary trajectories.
+
+The defined measurements are the rare-mutant local invasion gradient `beta`, the entire-population viable-reproduction response `Gamma_seed`, and the controlled **unconditional** finite-horizon survival response `Gamma_persist`. `beta` is not a surrogate for either `Gamma`. Cross signs classify alignment/mismatch only when all relevant estimates exclude prespecified near-zero regions; candidate evolutionary suicide additionally requires lower survival under **evolution enabled versus a properly matched trait-evolution freeze**, not merely a static survival gradient or a post-treatment genetic correlation.
+
+- **Full design, F/P/S predictions, falsifiers, numerical and biological limits:** `docs/CHAPTER2_INDIVIDUAL_SELECTION_POPULATION_PERSISTENCE_DISCORDANCE_PROTOCOL_20261010.md`.
+- **Machine-readable, explicitly NOT-registered design state and incomplete future gates:** `data/design/chapter2_beta_gamma_discordance_proposed_20261010.json`.
+- **t20 transplant is a mechanistic subtest** of the larger problem, not a substitute for a beta × Gamma map. Equal 21/24 marginal survivors under K8/K48 do *not* remove post-survival selection bias; genotype source, recipient census N and capacity K require independent control. A stochastic genotype redraw clamp is not a drift-free control. Balanced two-order/Shapley factor contrasts must not double-count their interaction.
+- **Model limitation:** with fixed depression and zero new mutation, this experiment cannot address mutation-load accumulation, purging or mutation-driven mutational meltdown in real islands. Any genetic effect is confined to the three inherited modeled trait axes and their segregation/finite sampling.
+
+No new independent visitor histories have been generated for the proposed primary question, and no outcomes are promoted retroactively to confirm the prediction.
