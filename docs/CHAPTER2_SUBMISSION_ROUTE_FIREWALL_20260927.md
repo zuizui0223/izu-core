@@ -1,5 +1,9 @@
 # Chapter 2 submission-route firewall — Model 3 mainline
 
+> **Authoritative route amendment, 2026-10-10:** There is now **one active Chapter 2 research article**, `docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md`. The October 6 "only active process paper" and Ecology Letters Letter route described below is **historical, superseded submission policy**. The 2026-10-10 full-length article integrates its preregistered four-setting floral-evolution study with the separately preregistered **fixed-B48 K-moderation of assigned expression-history occupancy sensitivity**. Both original manuscripts are immutable source-provenance surfaces; this is not an asserted causal mediation from evolved investment to local extinction. Current machine selector: `data/design/chapter2_one_paper_route_20261010.json`. Original non-significant/inconclusive primaries retain their original evidence ranks.
+
+---
+
 Updated: 2026-10-06
 
 ## Current paper
