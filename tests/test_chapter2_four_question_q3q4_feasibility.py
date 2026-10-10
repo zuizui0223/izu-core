@@ -41,6 +41,16 @@ def test_read_only_feasibility_from_full_original_main_receipts():
     assert a["n_total_E_history_scale_cells"] == 1536
     assert a["max_intermediate_E_per_64_history_setting"] == 6
     assert a["minimum_setting_mean_E_one_year_occupancy"] == pytest.approx(.945796, abs=1e-7)
+    assert a["original_min_viable_seed_mean_across_original_source_arms"] == pytest.approx(
+        67.279434303, abs=1e-8
+    )
+    u = a["rigorous_max_absolute_conditional_one_step_occupancy_change_by_scale"]
+    assert u[str(.125)] == pytest.approx(math.exp(-.125 * 67.279434303))
+    assert 0 < u[str(.125)] < .000223
+    assert 0 < u[str(.25)] < 5e-8
+    assert 0 < u[str(1.0)] < 7e-30
+    assert all(u[str(b)] > u[str(2*b)] for b in (.025, .125, .25))
+    assert "not a CI" in a["bound_note"]
     assert a["decision"].startswith("NO_GO")
     assert "80-update" in a["scientific_interpretation"]
     assert "unmerged" in a["census_example_unmerged_source"]["provenance"]
