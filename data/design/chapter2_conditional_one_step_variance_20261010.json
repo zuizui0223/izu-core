@@ -1,0 +1,65 @@
+{
+  "schema": "chapter2_one_step_conditional_allele_variance_v1",
+  "date": "2026-10-10",
+  "status": "POST_DISCOVERY_EXACT_SOURCE_ONE_STEP_ONLY",
+  "question": "For an identical source Model3 phenotype/reproductive ledger, can genetic heterozygosity alone change next-generation realization variance, even when source expected seed output and expected mean are unchanged?",
+  "original_biology": "scripts/model3_island/{reproduction.py,population.py}: donor x mother viable seed matrix and Mendelian diploid inherit()",
+  "source": "run_chapter2_assurance_generality.config(load_design(DEFAULT_DESIGN),'assurance_cost', mutation_rate=0, fixed assurance mode), 4 source adult plants with matching phenotype 0.5, investment 0.35, assurance 0.5 and four fixed visitor functional optima",
+  "arms": [
+    "homozygous matching 0.5/0.5 each",
+    "heterozygous matching 0/1 each"
+  ],
+  "identical": "All adult phenotypic trait means, visitor state, expected outcross/viable self seed ledger, parental pair distribution Q, mean offspring matching phenotype",
+  "difference": "Homozygous arms have zero Mendelian segregation variance while heterozygous arms have positive segregation variance, despite same mean genotype-independent source reproduction",
+  "fixed_survivors": [],
+  "resident_recruits": [
+    1,
+    2,
+    4,
+    8
+  ],
+  "conditional_assumptions": [
+    "Fixed survivors selected before inspection; here zero survivors in both arms",
+    "Fixed number R of resident recruits, no immigrants or new mutation",
+    "Parental pairs drawn iid from outcross+diagonal viable self source ledger",
+    "Each gamete independently picks one of two parental alleles at each locus",
+    "Zero adult initial phenotype variance within each fixture"
+  ],
+  "estimands": [
+    "offspring mean",
+    "offspring variance from parental pair lottery vs Mendelian segregation",
+    "conditional next-census trait-mean variance R Var(offspring)/(S+R)^2",
+    "exact probability to fall at/below founder mean only for alleles 0/1 via finite polynomial DP"
+  ],
+  "no_claim": [
+    "No estimate of selection or evolutionary direction in this equal-phenotype fixture",
+    "No experimental identification of natural island mechanisms",
+    "No unconditional stochastic survival or longer-horizon analysis",
+    "No claim that 4 R values are independent evolutionary populations",
+    "Original finite stochastic population uses Poisson recruits, survivor lottery, immigration and K; conditioning R/S deliberately excludes those sources and their feedback"
+  ],
+  "additional_selected_fixture": {
+    "status": "POST_DISCOVERY_PILOT_CONSTRUCTED_WITH_SOURCE_FORMULA_NOT_INDEPENDENT_CONFIRMATION",
+    "parents": "Four adults; matching alleles [0/0,0/0,0/1,0/1]; identical investment .35 and assurance .5; original Model3 assay configuration",
+    "visitor_optima": [
+      0.45,
+      0.5,
+      0.55,
+      0.6
+    ],
+    "visitor_breadth": 0.18,
+    "visitor_effectiveness": 1,
+    "source_pollen_scale": "unchanged",
+    "fixed_survivors": [],
+    "fixed_retained_recruits": 8,
+    "trait_index": 0,
+    "baseline_adult_matching_mean": 0.25,
+    "question": "Does the full original source seed parent lottery favor a positive expected offspring matching shift while Mendelian inheritance makes conditional realized shift non-positive appreciably likely?",
+    "diagnostics": [
+      "positive expected signed shift required by chosen pilot setup, do not retune after execution",
+      "exact one-step non-positive shift probability via 0/1 gametic polynomial",
+      "separate parent lottery and segregation contributions to conditional offspring variance"
+    ],
+    "limits": "This is a small selected static fixture with zero survivor adults and a conditioned R=8; not 64 independent visitor histories, not a test of model-wide selection and not a persistence result."
+  }
+}
