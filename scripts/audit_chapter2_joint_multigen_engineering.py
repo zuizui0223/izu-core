@@ -38,7 +38,7 @@ ROOT_FOUNDER_SEED = 8904102
 DEFAULT_REPLICATE_MASTER = 8904103
 
 
-def engineering_fixture():
+def engineering_fixture(*, ovule_budget=3.0):
     """Independent synthetic founders: retain standing variation at ALL loci."""
     d = load_design(DEFAULT_DESIGN)
     initial = founders_from_spec(
@@ -49,7 +49,7 @@ def engineering_fixture():
     cfg = replace(
         model_config(d, "prior_selfing", 0.0, "evolving"),
         capacity=8, survival=0.0, mutation_rate=0.0, mutation_sd=0.0,
-        ovule_budget=3.0,
+        ovule_budget=float(ovule_budget),
         seed_arrival=replace(
             model_config(d, "prior_selfing", 0.0, "evolving").seed_arrival,
             supply=0.0,
@@ -138,11 +138,14 @@ def condition_run(initial, config, visitor, *, gate, draw, master, years):
     }
 
 
-def run_pilot(*, draws=24, years=80):
+def run_pilot(*, draws=24, years=80, ovule_budget=3.0):
     if (type(draws) is not int or not 1 <= draws <= 256
             or type(years) is not int or not 1 <= years <= 80):
         raise ValueError("restricted engineering pilot only")
-    initial, base_cfg, visitors = engineering_fixture()
+    if (isinstance(ovule_budget,bool) or not isinstance(ovule_budget,(int,float))
+            or not np.isfinite(ovule_budget) or not 1.0 <= ovule_budget <= 12.0):
+        raise ValueError('restricted ovule budget engineering window')
+    initial, base_cfg, visitors = engineering_fixture(ovule_budget=ovule_budget)
     reports = {}
     for regime in VISITOR_REGIMES:
         reports[regime] = {}
@@ -225,7 +228,7 @@ def run_pilot(*, draws=24, years=80):
             "hand_authored_fixed_visitor_regimes":list(VISITOR_REGIMES),
             "same_visitors_each_year_and_condition":True,
             "K":list(CAPACITIES), "B":48, "years":years,
-            "ovule_budget":3.0,
+            "ovule_budget":float(ovule_budget),
             "viability_gates":list(GATE_LABELS),
             "no_mutation_no_immigration_no_adult_survival":True,
             "prospective_chapter2_cohorts_accessed":False,
@@ -250,9 +253,10 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--draws",type=int,default=24)
     parser.add_argument("--years",type=int,default=80)
+    parser.add_argument("--ovule-budget",type=float,default=3.0)
     parser.add_argument("--out",type=Path,required=True)
     args=parser.parse_args()
-    output=run_pilot(draws=args.draws,years=args.years)
+    output=run_pilot(draws=args.draws,years=args.years,ovule_budget=args.ovule_budget)
     args.out.parent.mkdir(parents=True,exist_ok=True)
     args.out.write_text(json.dumps(output,sort_keys=True,indent=2,allow_nan=False)+"\n")
     print(json.dumps({
