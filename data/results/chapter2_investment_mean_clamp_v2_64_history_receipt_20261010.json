@@ -1,0 +1,179 @@
+{
+  "schema": "chapter2_investment_mean_clamp_source_locked_execution_receipt_v2",
+  "date": "2026-10-10",
+  "status": "MODEL_INTERNAL_YEAR20_GENOME_PRESERVING_MEAN_EXPRESSION_COMPARISON_ALL_EIGHT_INCONCLUSIVE",
+  "executed_source_commit": "b072c3d8a43a286dd143b6350dfecd9a87d5791c",
+  "workflow_run_id": 38015887563,
+  "original_raw_artifact_id": 11656606311,
+  "raw_json_sha256": "27e3ae69036515b9375bfa08e02f3d15c8911e0198d182fc22c9511f4607cc4f",
+  "zip_sha256": "0e038e9b498b0282d513efc02a60a526aed8308a2dd6b31366a5f9f3632cd6bf",
+  "raw_json_uncompressed_bytes": 539115,
+  "source_design_filename": "data/design/chapter2_investment_mean_clamp_new_visitor_v2_20261010.json",
+  "actual_source_design_sha256_from_executed_json": "982de58f9d58412e3d7ba295995f4934941a75bf17c249a9b224965cb16d54dc",
+  "v2_source_blob_sha": "ac45632d447e0aa2947108f5e240dab2da208b2b",
+  "workflow_archive_packaging_note": "The original 11656606311 ZIP mistakenly bundled the former v1 design file under its old path. The executed JSON source_design_sha256 and the actual runner source point to committed v2 design; the v1 file is NOT the operative protocol and must not be used for replay. The full v2 file is separately preserved in the repository with blob SHA above.",
+  "v1_failed_before_complete_execution": {
+    "source_workflow_run": 38015657188,
+    "reason": "Source allele support under SD=.1 could not realize a bounded additive population-mean expression shift without clipping/variance distortion; no complete v1 outcomes or confirmatory inference."
+  },
+  "cohort": {
+    "seed_range": [
+      61023001,
+      61023064
+    ],
+    "independent_visitor_RNG_histories": 64,
+    "independent_natural_island_systems": 0,
+    "n_start_both_K": 8,
+    "K": [
+      8,
+      48
+    ],
+    "B": 48,
+    "treatment_start_year": 20,
+    "total_updates": 80,
+    "mutation_rate": 0,
+    "founder_standing_variation_sd": 0.05,
+    "posterior_design_revision": "support-feasible v2 after failed v1 protocol, not a clean predeclared v1 study"
+  },
+  "n_parent_source_pairs": 512,
+  "n_full_futures": 1024,
+  "results": [
+    {
+      "K": 8,
+      "assurance": 0.35,
+      "gate": "baseline",
+      "at20_occupied": 38,
+      "native_occupied80": 20,
+      "mean_clamp_occupied80": 18,
+      "paired_native_only": 2,
+      "paired_clamp_only": 0,
+      "delta_native_minus_clamp": 0.03125,
+      "conservative_95": [
+        -0.06354953427253386,
+        0.1209887515415175
+      ],
+      "classification": "inconclusive"
+    },
+    {
+      "K": 8,
+      "assurance": 0.35,
+      "gate": "half_self",
+      "at20_occupied": 0,
+      "native_occupied80": 0,
+      "mean_clamp_occupied80": 0,
+      "paired_native_only": 0,
+      "paired_clamp_only": 0,
+      "delta_native_minus_clamp": 0,
+      "conservative_95": [
+        -0.06617774702077084,
+        0.06617774702077084
+      ],
+      "classification": "inconclusive"
+    },
+    {
+      "K": 8,
+      "assurance": 0.65,
+      "gate": "baseline",
+      "at20_occupied": 64,
+      "native_occupied80": 64,
+      "mean_clamp_occupied80": 64,
+      "paired_native_only": 0,
+      "paired_clamp_only": 0,
+      "delta_native_minus_clamp": 0,
+      "conservative_95": [
+        -0.06617774702077084,
+        0.06617774702077084
+      ],
+      "classification": "inconclusive"
+    },
+    {
+      "K": 8,
+      "assurance": 0.65,
+      "gate": "half_self",
+      "at20_occupied": 15,
+      "native_occupied80": 1,
+      "mean_clamp_occupied80": 1,
+      "paired_native_only": 0,
+      "paired_clamp_only": 0,
+      "delta_native_minus_clamp": 0,
+      "conservative_95": [
+        -0.06617774702077084,
+        0.06617774702077084
+      ],
+      "classification": "inconclusive"
+    },
+    {
+      "K": 48,
+      "assurance": 0.35,
+      "gate": "baseline",
+      "at20_occupied": 54,
+      "native_occupied80": 51,
+      "mean_clamp_occupied80": 50,
+      "paired_native_only": 1,
+      "paired_clamp_only": 0,
+      "delta_native_minus_clamp": 0.015625,
+      "conservative_95": [
+        -0.0659812228621915,
+        0.095611957618952
+      ],
+      "classification": "inconclusive"
+    },
+    {
+      "K": 48,
+      "assurance": 0.35,
+      "gate": "half_self",
+      "at20_occupied": 0,
+      "native_occupied80": 0,
+      "mean_clamp_occupied80": 0,
+      "paired_native_only": 0,
+      "paired_clamp_only": 0,
+      "delta_native_minus_clamp": 0,
+      "conservative_95": [
+        -0.06617774702077084,
+        0.06617774702077084
+      ],
+      "classification": "inconclusive"
+    },
+    {
+      "K": 48,
+      "assurance": 0.65,
+      "gate": "baseline",
+      "at20_occupied": 64,
+      "native_occupied80": 64,
+      "mean_clamp_occupied80": 64,
+      "paired_native_only": 0,
+      "paired_clamp_only": 0,
+      "delta_native_minus_clamp": 0,
+      "conservative_95": [
+        -0.06617774702077084,
+        0.06617774702077084
+      ],
+      "classification": "inconclusive"
+    },
+    {
+      "K": 48,
+      "assurance": 0.65,
+      "gate": "half_self",
+      "at20_occupied": 28,
+      "native_occupied80": 20,
+      "mean_clamp_occupied80": 20,
+      "paired_native_only": 0,
+      "paired_clamp_only": 0,
+      "delta_native_minus_clamp": 0,
+      "conservative_95": [
+        -0.06617774702077084,
+        0.06617774702077084
+      ],
+      "classification": "inconclusive"
+    }
+  ],
+  "scientific_conclusion": "Genotype arrays and random streams are matched exactly through year20 and year21; no cell provided resolved 80-year survival advantage or harm from allowing expressed investment population mean to change. A blocked mean-expression mapping does not freeze allele frequencies or all evolution, and outcome floors/ceilings limit sensitivity.",
+  "disallowed_claims": [
+    "genetic drift contribution percentage",
+    "evolutionary suicide demonstrated",
+    "true genotype freeze",
+    "mutation load inference",
+    "empirical island persistence",
+    "negative effect proves zero true effect"
+  ]
+}
