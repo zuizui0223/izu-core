@@ -2,7 +2,7 @@
 
 **Article type:** one-paper research synthesis; Ecology Letters Letter compression pending  
 **Target journal:** Ecology Letters (Letter) first; a higher-impact ecology/evolution journal is conditional on new causal validation, not on reframing existing data  
-**Scope:** current draft ~6,035-word main text and 237-word abstract are ABOVE Ecology Letters Letter's 5,000/150 limits; four main figures; NOT submission-ready  
+**Scope:** current draft ~6,164-word main text and 235-word abstract are ABOVE Ecology Letters Letter's 5,000/150 limits; four main figures; NOT submission-ready  
 **Status:** one unified scientific working draft, not submitted or peer reviewed; two original drafts retained as source provenance  
 **Model family:** one explicit Model 3; two separate interventions with distinct inference units and horizons  
 **Figures:** 4 main evidence figures; older deterministic figure retained as supplement  
