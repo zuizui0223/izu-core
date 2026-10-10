@@ -35,6 +35,7 @@ ROOT=Path(__file__).resolve().parents[1]
 DESIGN=ROOT/"data/design/chapter2_t20_assurance_new_future_multidraw_20261010.json"
 STATUS="NEW_POST20_ECOLOGY_OLD_SOURCE_T20_CONDITIONAL_MULTIDRAW_GENOTYPE_TRANSFER"
 FUTURE_SEEDS=range(61026001,61026065)
+TEST_FUTURE_SEED=990893  # source-only smoke never consumes registered new visitor IDs
 DRAWS=3
 CAPS=(8,48)
 
@@ -72,7 +73,7 @@ def mapped_new_future_seed(original_source_seed):
 
 
 def new_future_history(original,original_history,new_seed):
-    if type(new_seed) is not int or new_seed not in FUTURE_SEEDS:
+    if type(new_seed) is not int or (new_seed not in FUTURE_SEEDS and new_seed!=TEST_FUTURE_SEED):
         raise ValueError("only frozen, unused new future ecological histories")
     inherited=original_history.visitors[20]
     cfg=replace(biological_config(original,48,8.),
