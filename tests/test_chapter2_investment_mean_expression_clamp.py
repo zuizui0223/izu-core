@@ -16,6 +16,7 @@ def test_source_lock_n0_equal_K_distinct_and_full_genetic_variation():
     assert len(digest)==64
     assert d["design"]["total_future_paths"]==1024
     assert len(SOURCE_SEEDS)==64
+    assert SOURCE_SEEDS.start==61023001 and SOURCE_SEEDS.stop==61023065
     assert all(s not in SOURCE_SEEDS for s in (990221,990222))
     for K in (8,48):
         c=config(d,K)
@@ -27,6 +28,10 @@ def test_source_lock_n0_equal_K_distinct_and_full_genetic_variation():
     assert initial.alleles.shape==(8,3,2)
     assert np.var(initial.alleles[:,1,:])>0
     assert np.var(initial.alleles[:,2,:])>0
+    lo=float(initial.alleles[:,1,:].min())
+    hi=float(initial.alleles[:,1,:].max())
+    assert 2*lo-hi>0 and 2*hi-lo<1
+    assert d["design"]["founder_sd"]==.05
 
 
 def test_mean_clamp_is_noop_at_same_target_and_preserves_all_variation():
