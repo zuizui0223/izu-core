@@ -50,13 +50,13 @@ def test_companion_retains_negative_and_inconclusive_boundaries():
         "0.013015",
         "114,688",
         "229,376",
-        "64 independent",
+        "64 matched visitor-history clusters",
         "not a universal",
         "separate",
         "Issue #436",
     ):
         assert phrase in text, phrase
-    assert "threefold confirmatory success" not in text
+    assert "no pooled interval" in text
     assert "real island plants are rescued" not in text
 
 
