@@ -46,3 +46,12 @@ def test_capacity_paper_keeps_ecological_interpretation_bounded():
     assert "source pollen dilution" in t.lower()
     assert "not a demonstration that islands select A-first ancestry" in t
     assert "This mechanistic companion should remain **separate**" in t
+
+
+def test_thesis_positioning_points_to_new_source_of_truth():
+    text=(ROOT / "THESIS_CHAPTER_POSITIONING.md").read_text(encoding="utf-8")
+    prefix=text.split("Updated: 2026-09-27",1)[0]
+    assert "chapter1_submission_current.json" in prefix
+    assert "not tropical Direct-only" in prefix
+    assert "not historical survival of small-island lineages" in prefix
+    assert "Ecology Letters" in prefix
