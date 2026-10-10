@@ -74,6 +74,14 @@ def test_all_six_source_conditions_exact_horizon_and_no_genetic_history():
         k8["source_seed_response_N8_delta_per_unit"], abs=1e-11
     )
     assert k8["source_seed_response_N1_delta_per_unit"] < 0
+    assert k8["first_negative_occupied_probability_contrast_update"] == 8
+    assert k8["most_negative_occupied_probability_contrast_update"] == 31
+    assert k8["minimum_occupied_probability_contrast"] == pytest.approx(
+        -.0014034589235904504, abs=1e-9
+    )
+    assert k48["first_negative_occupied_probability_contrast_update"] is None
+    assert lookup[(8, 4.5)]["first_negative_occupied_probability_contrast_update"] == 4
+    assert lookup[(8, 8.)]["first_negative_occupied_probability_contrast_update"] is None
     assert k48["source_seed_response_N1_delta_per_unit"] < 0
     assert k8["horizons"]["1"]["group_shift_0p34_to_0p36"] > 0
     assert k8["horizons"]["80"]["group_shift_0p34_to_0p36"] == pytest.approx(
