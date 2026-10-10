@@ -44,8 +44,8 @@
     "display_items_max": 6,
     "current_integrated_main_words": 6035,
     "current_integrated_abstract_words": 237,
-    "main_text_excess_words": 1035,
-    "abstract_excess_words": 87,
+    "main_text_excess_words": 1164,
+    "abstract_excess_words": 85,
     "editorial_status": "not_eligible_for_submission_format_yet",
     "scientific_focus": "retain prospectively confirmed four-setting evolutionary-investment claim; demographic K sensitivity is a distinct result, not mediation",
     "high_upside_audit": "docs/CHAPTER2_HIGH_UPSIDE_QUESTION_AUDIT_20261010.md",
@@ -54,6 +54,8 @@
       "evolutionary suicide",
       "pollinator population collapse",
       "historically explained global island syndrome"
-    ]
+    ],
+    "current_main_text_words": 6164,
+    "current_abstract_words": 235
   }
 }
