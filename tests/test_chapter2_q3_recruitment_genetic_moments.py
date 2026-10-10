@@ -2,6 +2,7 @@
 from dataclasses import replace
 import json
 import math
+from pathlib import Path
 
 import numpy as np
 import pytest
@@ -137,3 +138,33 @@ def test_reject_invalid_inputs_and_no_outcome_promotions():
     assert len(x["results"]) == 3
     assert all(len(r["by_capacity"]) == 2 for r in x["results"])
     json.dumps(x,allow_nan=False)
+
+
+def test_six_source_moments_match_independently_recomputed_archived_receipt():
+    path = (Path(__file__).resolve().parents[1] /
+            "data/results/chapter2_q3_exact_recruitment_genetic_moments_20261010.json")
+    receipt = json.loads(path.read_text(encoding="utf-8"))
+    assert receipt["status"] == "POSTDISCOVERY_DETERMINISTIC_SOURCE_MATHEMATICS_NO_NEW_BIOLOGICAL_HISTORY"
+    assert receipt["n_independent_histories"] == 0
+    assert receipt["n_stochastic_paths"] == 0
+    outcome = run_all()
+    computed = {(x["fixture"], y["K"]): y
+                for x in outcome["results"] for y in x["by_capacity"]}
+    assert len(computed) == len(receipt["outcomes"]) == 6
+    for original in receipt["outcomes"]:
+        actual = computed[(original["fixture"], original["K"])]
+        trait = actual["results_by_trait"]["investment"]
+        for key, got in [
+            ("mu",actual["original_source_viable_seed_mean"]),
+            ("p_next_occupied",actual["P_next_occupied"]),
+            ("expected_next_N",actual["E_next_census"]),
+            ("parent_mean",trait["founder_mean"]),
+            ("expected_child_mean",trait["expected_child_mean_conditional_on_occupancy"]),
+            ("expected_shift",trait["expected_child_mean_shift_conditional_on_occupancy"]),
+            ("conditional_next_trait_sd",trait["mean_trait_sd_conditional_on_occupancy"]),
+            ("parent_lottery_variance",trait["parent_pair_lottery_single_child_variance"]),
+            ("mendelian_variance",trait["mendelian_single_child_variance"]),
+        ]:
+            assert got == pytest.approx(original[key], abs=1e-7,rel=0), (
+                original["fixture"], original["K"], key
+            )
