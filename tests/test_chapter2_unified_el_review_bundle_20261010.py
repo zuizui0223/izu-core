@@ -87,6 +87,12 @@ def test_package_refuses_missing_unrendered_figures(tmp_path):
 
 def test_evidence_receipts_are_identified_and_not_pooled():
     assert len(FROZEN_RESULTS)==3
+    route=json.loads((ROOT/"data/design/chapter2_one_paper_route_20261010.json").read_text())
+    assert route["active_manuscript_count"]==1
+    assert route["review_package_builder"]=="scripts/build_chapter2_unified_el_submission_bundle.py"
+    assert route["review_package_expected_figures"]==[
+        "Figure1.pdf","Figure2.pdf","Figure3.pdf","Figure4.svg"]
+    assert "historical only" in route["legacy_process_builder"]
     evo=json.loads((ROOT/FROZEN_RESULTS["EVOLUTION_RESULTS.json"]).read_text())
     assert evo["adjudication"]["status"]=="all_four_confirmed"
     assert evo["independent_visitor_histories"]==64
