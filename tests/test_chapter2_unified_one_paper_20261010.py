@@ -14,7 +14,11 @@ def test_single_active_full_research_article():
     assert contract["active_manuscript_count"]==1
     assert contract["status"]=="active_unified_manuscript_not_submitted"
     assert contract["research_format"]=="full_length_research_article"
-    assert contract["journal"]=="Journal of Ecology (Research Article), proposed_not_submitted"
+    assert "Ecology Letters (Letter) first" in contract["journal"]
+    assert contract["journal_fit"]["main_text_excess_words"]>=1000
+    assert contract["journal_fit"]["abstract_excess_words"]>=80
+    assert contract["journal_fit"]["editorial_status"]=="not_eligible_for_submission_format_yet"
+    assert "CHAPTER2_HIGH_UPSIDE_QUESTION_AUDIT_20261010.md" in contract["journal_fit"]["high_upside_audit"]
     assert len(contract["source_manuscripts_archived_not_separate_submissions"])==2
     for x in contract["source_manuscripts_archived_not_separate_submissions"]:
         assert (ROOT/x).exists()
@@ -44,12 +48,12 @@ def test_integrated_funnel_does_not_promote_selected_exploration():
         "the first capacity contrasts were either confounded or inconclusive",
         "a later prospective timing contrast did not resolve",
         "not a natural mediation analysis",
-        "does not identify a causal chain",
+        "not identify a causal chain",
         "issue #436",
     ):
         assert x in s, x
     assert "the original four-setting campaign had terminal occupancy 1.0" in s
-    assert "does not identify a causal chain" in s
+    assert "not identify a causal chain" in s
 
 
 def test_only_one_preregistered_capacity_positive():
@@ -77,4 +81,4 @@ def test_route_markers_and_unpublished_data_boundary():
     assert "521 original biological-trajectory ZIP archives" in m
     assert "DOI-backed external archive" in m
     assert "not yet submitted" in m
-    assert "not a Letter" in m.split("# Introduction",1)[0]
+    assert "Ecology Letters Letter compression pending" in m.split("# Introduction",1)[0]
