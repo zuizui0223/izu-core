@@ -54,7 +54,7 @@ def _summarize_paths(paths, horizon):
         "occupied_count": int(sum(occupied)),
         "extinct_count": int(n-sum(occupied)),
         "ever_nonzero_census_le_2_count": sum(ever_low),
-        "ever_low_and_occupied_count": sum(e and o for e, o in zip(ever_low, occupied)),
+        "ever_low_and_occupied_count": int(sum(e and bool(o) for e, o in zip(ever_low, occupied))),
         "first_extinction_min": min(first_extinction) if first_extinction else None,
         "first_extinction_median_among_extinct": float(np.median(first_extinction)) if first_extinction else None,
         "first_extinction_max": max(first_extinction) if first_extinction else None,
