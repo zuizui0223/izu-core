@@ -5,7 +5,7 @@
   "active_manuscript": "docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md",
   "renderer": "scripts/render_chapter2_unified_manuscript.py",
   "research_format": "full_length_research_article",
-  "journal": "undecided_pending_full_article_suitability_and_data_archive",
+  "journal": "Journal of Ecology (Research Article), proposed_not_submitted",
   "active_manuscript_count": 1,
   "source_manuscripts_archived_not_separate_submissions": [
     "docs/CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md",
@@ -36,5 +36,16 @@
     ]
   },
   "data_requirement": "Issue #436 outstanding DOI-backed external raw archive verification",
-  "policy": "Do not combine incompatible history-cluster denominators or pool cohort intervals; preserve all preregistered failures and existing model biology."
+  "policy": "Do not combine incompatible history-cluster denominators or pool cohort intervals; preserve all preregistered failures and existing model biology.",
+  "journal_fit": {
+    "source": "official Journal of Ecology author guidelines retrieved 2026-10-10",
+    "typical_research_article_words": 8000,
+    "unified_main_text_words_at_first_draft": 6035,
+    "unified_abstract_words_at_first_draft": 237,
+    "figures": 4,
+    "ecology_letters_letter_main_max": 5000,
+    "ecology_letters_letter_abstract_max": 150,
+    "backup": "Ecology journal original Article format, if JE unsuitable",
+    "scope": "Journal proposal only; current author guidelines and data deposition must be checked again before submission."
+  }
 }
