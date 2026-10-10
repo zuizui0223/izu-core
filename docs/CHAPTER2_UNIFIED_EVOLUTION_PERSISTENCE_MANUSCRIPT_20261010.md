@@ -1,7 +1,8 @@
 # Floral-investment divergence and demographic persistence respond differently to reproductive assurance under pollinator limitation
 
 **Article type:** full-length original research article (single-paper synthesis; not a Letter)  
-**Journal route:** full research-article format; select journal after final length/figure and data-deposit checks  
+**Target journal:** Journal of Ecology (full Research Article; submission not yet made, final requirements pending)  
+**Scope:** ~6,035-word main text; 237-word abstract; four main figures  
 **Status:** unified manuscript, not submitted or peer reviewed; replaces separate-submission routing of the two source drafts  
 **Model family:** one explicit Model 3; two separate interventions with distinct inference units and horizons  
 **Figures:** 4 main evidence figures; older deterministic figure retained as supplement  
