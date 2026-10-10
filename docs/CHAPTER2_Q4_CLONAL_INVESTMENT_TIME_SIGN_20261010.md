@@ -36,6 +36,8 @@ At initial **N=8**, B48, budget6, baseline `μ_I=.35=8.994424151` expected viabl
 - **K8/budget6:** P80(I=.36)-P80(I=.34)=**−0.000465907** (**−0.0466 percentage points**). The finite time-horizon group investment benefit **reverses**.
 - **K48/budget6:** same trait shift yields **+0.004220454** (**+0.4220 percentage points**), because census trajectories move into higher density states.
 
+**When does the sign actually reverse?** Propagating the exact 0.34-versus-0.36 counterfactual through *every* horizon, not only selected reporting years, reveals that K8/budget6 begins with a positive occupied-probability difference for updates 1–7 but **first becomes negative at update 8**. Its largest negative difference occurs at update **31** (−0.00140346 probability, or −0.1403 percentage points). Under K48/budget6, no negative occupied-probability contrast occurs in the declared updates 1–80. This timing belongs only to the original fixed-clone, fixed-visitor model; it is not an inferred natural critical period or an evolutionary trait-order effect.
+
 Even the negative K8 shift is **small in absolute probability**; it is neither evidence of evolutionary suicide nor a large adaptive collapse. The low-resource K8/budget4.5 sign is negative at 80 when almost all populations are extinct, and K8/budget8 has a positive sign. This is an outcome-heterogeneous conditional model result, not a universal rule.
 
 ## Mechanism: whose reproductive benefit, at which density?
