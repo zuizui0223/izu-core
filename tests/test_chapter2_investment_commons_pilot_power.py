@@ -61,7 +61,12 @@ def test_conservative_pair_interval_power_surface_has_explicit_null_scenarios():
         lower,upper=exact_cp_interval_arrays(n)
         assert lower[0]==0
         assert upper[n]==1
-        assert lower[0]-upper[0]<-.05
+        # Exact simultaneous interval for identical paired outcomes narrows
+        # with n: n=128 cannot establish ±5pp equivalence, n=256 can.
+        if n==128:
+            assert lower[0]-upper[0]<-.05
+        else:
+            assert lower[0]-upper[0]>-.05
         assert lower[n]-upper[0]>.05
     json.dumps(s,allow_nan=False)
 
