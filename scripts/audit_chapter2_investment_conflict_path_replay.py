@@ -98,7 +98,8 @@ def actual_mixed_window(state,visitor,cfg):
     }
 
 
-def replay_path(d,founder,h,seed,regime,K,budget,policy,*,diagnose):
+def replay_path(d,founder,h,seed,regime,K,budget,policy,*,diagnose,
+                reference_visitor_state=None):
     if (policy not in POLICIES or K not in CAPS or budget not in BUDGETS
             or regime not in VISITOR_REGIMES):
         raise ValueError("not an original pilot arm")
@@ -115,6 +116,10 @@ def replay_path(d,founder,h,seed,regime,K,budget,policy,*,diagnose):
         external=None
         if present and diagnose and n in WINDOW:
             external=actual_mixed_window(current,h.visitors[t],cfg)
+            if reference_visitor_state is not None:
+                external["same_genotype_static_four_visitor_counterfactual"]=(
+                    actual_mixed_window(current,reference_visitor_state,cfg)
+                )
         years.append({
             "t":t,"N":n,
             "investment_allele_mean_if_alive":(
