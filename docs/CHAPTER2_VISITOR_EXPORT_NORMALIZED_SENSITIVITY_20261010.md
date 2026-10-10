@@ -43,3 +43,28 @@ python -m scripts.audit_chapter2_visitor_export_normalized_sensitivity \
 The diagnostic refuses missing cells, mismatched pollen export, invalid derivatives, or mismatch with previous exact Model3 source rows. The archive must retain every row and the raw SHA-256 before numerical outcome claims are made.
 
 **Publication boundary:** A source-internal 36-block sensitivity study cannot demonstrate natural island impacts or long-term evolution-to-extinction; it can only establish which components of the *existing model* are logically required for the instantaneous floral-investment conflict. The natural transport test still requires independently measured plant matching, visitor functional effectiveness, single-visit deposition, and reproductive outcomes at the same site/block.
+
+## Executed source outcome (2026-10-10; exploratory)
+
+**Run succeeded.** Source code commit `32ab1346abb21ff57883283b4903343a3b2b59e4`; [GitHub Actions run 38027964437](https://github.com/zuizui0223/izu-core/actions/runs/38027964437); [full 108-row JSON artifact 11660358587](https://github.com/zuizui0223/izu-core/actions/runs/38027964437/artifacts/11660358587). Original uncompressed JSON SHA-256: `924a29fd710aa00a5982a16477c17cdc58407d39e34358dd6f72fe84692d655d`; bytes: 106,261. This original ZIP was downloaded independently and the JSON digest checked. Compact result and caution contract: `data/results/chapter2_visitor_export_normalized_sensitivity_receipt_20261010.json`.
+
+All 108 rows and 36 three-arm contrasts are present. The maximum absolute normalized-export difference is **3.584 × 10⁻¹²** (tolerance 10⁻⁸). Matched activities ranged **0.2693 to 2.0026**. The original 16-row Model3 benchmark is exactly recovered in both synthetic diploid states (matching 0.2, breadth 0.18, effectiveness 1.0).
+
+For this **representative prior source fixture**:
+
+| Measurement | Monomorphic reference → shifted raw → shifted export-matched | Mixed-diploid reference → shifted raw → shifted export-matched |
+|---|---|---|
+| Encounter activity | 0.400 → 0.400 → 1.109 | 0.400 → 0.400 → 1.071 |
+| Total pollen export | 10.093 → 3.716 → **10.093** | 9.996 → 3.818 → **9.996** |
+| Delivered pollen | 0.477 → 0.112 → **0.305** | 0.457 → 0.115 → **0.301** |
+| Group viable seed | 11.993 → 10.883 → **11.474** | 11.932 → 10.889 → **11.457** |
+| β median | −0.063 → −0.273 → **−0.156** | −0.069 → −0.272 → **−0.159** |
+| Γ_seed | +0.158 → −0.212 → **−0.00195** | +0.141 → −0.210 → **−0.01008** |
+
+After equalizing total pollen export, viable seed still decreases by **−0.51874** and **−0.47462**, respectively, compared to the reference. **However both equalized Γ_seed values are within the frozen ±0.02 classification deadband and therefore inconclusive: they are NOT robust group-negative gradients.** In these original fixture contexts, the majority β-negative / Γ-positive disagreement condition is no longer satisfied, but that is a classification condition, not proof of an opposite evolutionary equilibrium.
+
+Across all 36 intentionally chosen, NOT independent natural-system blocks: **8/36** conflict-status flips with the raw optimum shift, **7/36** after equalizing export; **20/36** equalized blocks had negative seed differences and **16/36** positive. There is no universal direction over arbitrary plant match, breadth and efficacy, and the 36 cells must not be treated as a binomial biological sample or an effect-size meta-analysis.
+
+**Scientific result:** Equal total pollen *export* is insufficient to equalize pollen *delivery*, viable seed output or the β/Γ landscape in the original source reproductive operator. The difference can be produced through its matching, pollen-allocation and recipient pathways. **Not identified:** an independent ecological-pollinator mechanism, a natural-species-richness effect, a clean fraction of mediation by visitor composition, a long-term evolutionary investment shift, or a species-persistence response.
+
+**Run status boundary:** The audited sensitivity runner and artifact upload succeeded at source commit `32ab1346`; the full Python CI matrix and latest-commit scientific gate are tracked separately. Do not infer their completion from this row-level success alone.
