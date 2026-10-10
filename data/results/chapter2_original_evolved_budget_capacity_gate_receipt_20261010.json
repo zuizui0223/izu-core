@@ -1,0 +1,336 @@
+{
+  "schema": "chapter2_original_evolved_budget_capacity_gate_v1",
+  "date": "2026-10-10",
+  "status": "SOURCE_EXECUTED_POST_DISCOVERY_EXACT_ONE_STEP_NOT_EVOLUTION_OR_LONGRUN_SURVIVAL",
+  "input_sha256": "6fdd8ed45af9f7b9c65b513cb20fa1f3ba224519695ec37940421a7a6d60ae5e",
+  "complete_original_output_json_sha256": "e26ef585960588edd0bcfefc201e28d214fa5e9ed1feb1afaa0dcc3548b28ee1",
+  "n_source_history_clusters": 64,
+  "n_old_nested_repeats_used": 1,
+  "n_new_independent_histories": 0,
+  "n_original_source_rows": 256,
+  "n_derived_one_year_cells": 1536,
+  "n_scales": 6,
+  "n_mating_settings": 4,
+  "fixed_K": 48,
+  "fixed_B": 48,
+  "original_ovule_budget": 8,
+  "method": "At fixed original diploid genomes, visitor states, assurance and investment intervention, scaled maternal viable seed means mu by b in [0.025,0.05,0.125,0.25,0.5,1]. Source K48 next N=min(Poisson(b*mu),48); P(occupied)=1-exp(-b*mu). Original pairs and no-visitor histories preserved.",
+  "bootstrap": "Post-outcome unadjusted history-cluster percentile bootstrap 9999 samples seed 20261010. Four settings times six scales, no multiplicity correction.",
+  "summary": [
+    {
+      "setting": "delayed_control",
+      "budget_multiplier": 0.025,
+      "ovule_budget": 0.2,
+      "delta_next_N_mean": -0.006073114,
+      "delta_next_N_history_bootstrap95_descriptive": [
+        -0.040917,
+        0.030089
+      ],
+      "mean_E_one_step_occupancy": 0.976485,
+      "n_both_N_in_0p1K_0p9K": 11,
+      "n_E_occupancy_in_0p1_0p9": 0
+    },
+    {
+      "setting": "delayed_control",
+      "budget_multiplier": 0.05,
+      "ovule_budget": 0.4,
+      "delta_next_N_mean": -0.012146228,
+      "delta_next_N_history_bootstrap95_descriptive": [
+        -0.081835,
+        0.060178
+      ],
+      "mean_E_one_step_occupancy": 0.999083,
+      "n_both_N_in_0p1K_0p9K": 63,
+      "n_E_occupancy_in_0p1_0p9": 0
+    },
+    {
+      "setting": "delayed_control",
+      "budget_multiplier": 0.125,
+      "ovule_budget": 1,
+      "delta_next_N_mean": -0.030366175,
+      "delta_next_N_history_bootstrap95_descriptive": [
+        -0.20458,
+        0.15044
+      ],
+      "mean_E_one_step_occupancy": 0.999999806,
+      "n_both_N_in_0p1K_0p9K": 64,
+      "n_E_occupancy_in_0p1_0p9": 0
+    },
+    {
+      "setting": "delayed_control",
+      "budget_multiplier": 0.25,
+      "ovule_budget": 2,
+      "delta_next_N_mean": -0.041568472,
+      "delta_next_N_history_bootstrap95_descriptive": [
+        -0.35225,
+        0.27807
+      ],
+      "mean_E_one_step_occupancy": 1,
+      "n_both_N_in_0p1K_0p9K": 37,
+      "n_E_occupancy_in_0p1_0p9": 0
+    },
+    {
+      "setting": "delayed_control",
+      "budget_multiplier": 0.5,
+      "ovule_budget": 4,
+      "delta_next_N_mean": 0.016977603,
+      "delta_next_N_history_bootstrap95_descriptive": [
+        -0.07191,
+        0.12717
+      ],
+      "mean_E_one_step_occupancy": 1,
+      "n_both_N_in_0p1K_0p9K": 0,
+      "n_E_occupancy_in_0p1_0p9": 0
+    },
+    {
+      "setting": "delayed_control",
+      "budget_multiplier": 1,
+      "ovule_budget": 8,
+      "delta_next_N_mean": 1.0703736e-9,
+      "delta_next_N_history_bootstrap95_descriptive": [
+        -2.9012e-10,
+        3.4629e-9
+      ],
+      "mean_E_one_step_occupancy": 1,
+      "n_both_N_in_0p1K_0p9K": 0,
+      "n_E_occupancy_in_0p1_0p9": 0
+    },
+    {
+      "setting": "prior_selfing",
+      "budget_multiplier": 0.025,
+      "ovule_budget": 0.2,
+      "delta_next_N_mean": 0.0618087,
+      "delta_next_N_history_bootstrap95_descriptive": [
+        -0.0017948,
+        0.13436
+      ],
+      "mean_E_one_step_occupancy": 0.972246,
+      "n_both_N_in_0p1K_0p9K": 0,
+      "n_E_occupancy_in_0p1_0p9": 0
+    },
+    {
+      "setting": "prior_selfing",
+      "budget_multiplier": 0.05,
+      "ovule_budget": 0.4,
+      "delta_next_N_mean": 0.123617,
+      "delta_next_N_history_bootstrap95_descriptive": [
+        -0.0035897,
+        0.26871
+      ],
+      "mean_E_one_step_occupancy": 0.999054,
+      "n_both_N_in_0p1K_0p9K": 64,
+      "n_E_occupancy_in_0p1_0p9": 0
+    },
+    {
+      "setting": "prior_selfing",
+      "budget_multiplier": 0.125,
+      "ovule_budget": 1,
+      "delta_next_N_mean": 0.309043,
+      "delta_next_N_history_bootstrap95_descriptive": [
+        -0.0089743,
+        0.67178
+      ],
+      "mean_E_one_step_occupancy": 0.99999992,
+      "n_both_N_in_0p1K_0p9K": 64,
+      "n_E_occupancy_in_0p1_0p9": 0
+    },
+    {
+      "setting": "prior_selfing",
+      "budget_multiplier": 0.25,
+      "ovule_budget": 2,
+      "delta_next_N_mean": 0.522002,
+      "delta_next_N_history_bootstrap95_descriptive": [
+        -0.050319,
+        1.1776
+      ],
+      "mean_E_one_step_occupancy": 1,
+      "n_both_N_in_0p1K_0p9K": 59,
+      "n_E_occupancy_in_0p1_0p9": 0
+    },
+    {
+      "setting": "prior_selfing",
+      "budget_multiplier": 0.5,
+      "ovule_budget": 4,
+      "delta_next_N_mean": -0.00347139,
+      "delta_next_N_history_bootstrap95_descriptive": [
+        -0.023125,
+        0.014259
+      ],
+      "mean_E_one_step_occupancy": 1,
+      "n_both_N_in_0p1K_0p9K": 0,
+      "n_E_occupancy_in_0p1_0p9": 0
+    },
+    {
+      "setting": "prior_selfing",
+      "budget_multiplier": 1,
+      "ovule_budget": 8,
+      "delta_next_N_mean": -2.09832e-14,
+      "delta_next_N_history_bootstrap95_descriptive": [
+        -4.1411e-13,
+        3.6197e-13
+      ],
+      "mean_E_one_step_occupancy": 1,
+      "n_both_N_in_0p1K_0p9K": 0,
+      "n_E_occupancy_in_0p1_0p9": 0
+    },
+    {
+      "setting": "pollen_discount",
+      "budget_multiplier": 0.025,
+      "ovule_budget": 0.2,
+      "delta_next_N_mean": 0.0440128,
+      "delta_next_N_history_bootstrap95_descriptive": [
+        0.0010551,
+        0.085031
+      ],
+      "mean_E_one_step_occupancy": 0.973453,
+      "n_both_N_in_0p1K_0p9K": 1,
+      "n_E_occupancy_in_0p1_0p9": 0
+    },
+    {
+      "setting": "pollen_discount",
+      "budget_multiplier": 0.05,
+      "ovule_budget": 0.4,
+      "delta_next_N_mean": 0.0880256,
+      "delta_next_N_history_bootstrap95_descriptive": [
+        0.0021103,
+        0.17006
+      ],
+      "mean_E_one_step_occupancy": 0.99898,
+      "n_both_N_in_0p1K_0p9K": 64,
+      "n_E_occupancy_in_0p1_0p9": 0
+    },
+    {
+      "setting": "pollen_discount",
+      "budget_multiplier": 0.125,
+      "ovule_budget": 1,
+      "delta_next_N_mean": 0.220064,
+      "delta_next_N_history_bootstrap95_descriptive": [
+        0.0052756,
+        0.42515
+      ],
+      "mean_E_one_step_occupancy": 0.999999764,
+      "n_both_N_in_0p1K_0p9K": 64,
+      "n_E_occupancy_in_0p1_0p9": 0
+    },
+    {
+      "setting": "pollen_discount",
+      "budget_multiplier": 0.25,
+      "ovule_budget": 2,
+      "delta_next_N_mean": 0.345048,
+      "delta_next_N_history_bootstrap95_descriptive": [
+        -0.040225,
+        0.70629
+      ],
+      "mean_E_one_step_occupancy": 1,
+      "n_both_N_in_0p1K_0p9K": 52,
+      "n_E_occupancy_in_0p1_0p9": 0
+    },
+    {
+      "setting": "pollen_discount",
+      "budget_multiplier": 0.5,
+      "ovule_budget": 4,
+      "delta_next_N_mean": -0.0207439,
+      "delta_next_N_history_bootstrap95_descriptive": [
+        -0.097773,
+        0.038688
+      ],
+      "mean_E_one_step_occupancy": 1,
+      "n_both_N_in_0p1K_0p9K": 0,
+      "n_E_occupancy_in_0p1_0p9": 0
+    },
+    {
+      "setting": "pollen_discount",
+      "budget_multiplier": 1,
+      "ovule_budget": 8,
+      "delta_next_N_mean": -1.96652e-11,
+      "delta_next_N_history_bootstrap95_descriptive": [
+        -9.5752e-10,
+        9.0648e-10
+      ],
+      "mean_E_one_step_occupancy": 1,
+      "n_both_N_in_0p1K_0p9K": 0,
+      "n_E_occupancy_in_0p1_0p9": 0
+    },
+    {
+      "setting": "assurance_cost",
+      "budget_multiplier": 0.025,
+      "ovule_budget": 0.2,
+      "delta_next_N_mean": 0.0220681,
+      "delta_next_N_history_bootstrap95_descriptive": [
+        -0.019941,
+        0.063821
+      ],
+      "mean_E_one_step_occupancy": 0.945796,
+      "n_both_N_in_0p1K_0p9K": 0,
+      "n_E_occupancy_in_0p1_0p9": 6
+    },
+    {
+      "setting": "assurance_cost",
+      "budget_multiplier": 0.05,
+      "ovule_budget": 0.4,
+      "delta_next_N_mean": 0.0441361,
+      "delta_next_N_history_bootstrap95_descriptive": [
+        -0.039882,
+        0.12764
+      ],
+      "mean_E_one_step_occupancy": 0.995992,
+      "n_both_N_in_0p1K_0p9K": 52,
+      "n_E_occupancy_in_0p1_0p9": 0
+    },
+    {
+      "setting": "assurance_cost",
+      "budget_multiplier": 0.125,
+      "ovule_budget": 1,
+      "delta_next_N_mean": 0.11034,
+      "delta_next_N_history_bootstrap95_descriptive": [
+        -0.099705,
+        0.3191
+      ],
+      "mean_E_one_step_occupancy": 0.999995539,
+      "n_both_N_in_0p1K_0p9K": 64,
+      "n_E_occupancy_in_0p1_0p9": 0
+    },
+    {
+      "setting": "assurance_cost",
+      "budget_multiplier": 0.25,
+      "ovule_budget": 2,
+      "delta_next_N_mean": 0.224861,
+      "delta_next_N_history_bootstrap95_descriptive": [
+        -0.18687,
+        0.63706
+      ],
+      "mean_E_one_step_occupancy": 1,
+      "n_both_N_in_0p1K_0p9K": 63,
+      "n_E_occupancy_in_0p1_0p9": 0
+    },
+    {
+      "setting": "assurance_cost",
+      "budget_multiplier": 0.5,
+      "ovule_budget": 4,
+      "delta_next_N_mean": 0.22131,
+      "delta_next_N_history_bootstrap95_descriptive": [
+        -0.063513,
+        0.56175
+      ],
+      "mean_E_one_step_occupancy": 1,
+      "n_both_N_in_0p1K_0p9K": 4,
+      "n_E_occupancy_in_0p1_0p9": 0
+    },
+    {
+      "setting": "assurance_cost",
+      "budget_multiplier": 1,
+      "ovule_budget": 8,
+      "delta_next_N_mean": 0.000248071,
+      "delta_next_N_history_bootstrap95_descriptive": [
+        -0.000018576,
+        0.00076767
+      ],
+      "mean_E_one_step_occupancy": 1,
+      "n_both_N_in_0p1K_0p9K": 0,
+      "n_E_occupancy_in_0p1_0p9": 0
+    }
+  ],
+  "verdict": "NO_SUPPORT_FOR_UNIVERSAL_ONE_STEP_GROUP_CENSUS_LOSS_OR_PERSISTENCE_EFFECT. At b=1 capacity ceiling erases effects; at b=.05 and .125 most E and clamp next N are interior but one-year occupancy is >=.99599 even at b=.05 in all 4 settings. The sign of mean next-N contrast is negative only for delayed and positive for other three around b=.05-.25. All delayed/prior/assurance-cost unadjusted b=.05 next-N mean intervals include 0. Pollen_discount b=.05 excludes 0 before correction, selected after prior source outcomes; not confirmatory.",
+  "next_test_boundary": "One-year census sensitivity not 80-update occupancy. A defensible new preregistered longitudinal causal test needs source justified nonsaturated long-horizon states and actual genotype/visitor matched contrasts, with independent visitor histories and explicit nulls. Do not select a budget solely for significance.",
+  "raw_sha_scope": "complete_original_output_json_sha256 authenticates the /mnt/data source analysis JSON (1536 rows), archived in the downloadable original-data ZIP. The repository replay CLI outputs the same estimands but a different JSON schema and is NOT expected to have byte-identical SHA. Numeric source identities and design/estimator equivalence must be checked separately."
+}

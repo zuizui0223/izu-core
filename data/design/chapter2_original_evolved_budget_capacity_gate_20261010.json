@@ -1,0 +1,52 @@
+{
+  "schema": "chapter2_original_evolved_budget_capacity_gate_v1",
+  "date": "2026-10-10",
+  "status": "POST_DISCOVERY_DESCRIPTIVE_FIXED_GRID_BEFORE_READOUT",
+  "source": "SHA256-verified original 256 source rows in audit_resource_pollen_shapley.json, reproduced from original 2026-10-06 t400 evolving diploid checkpoint",
+  "source_raw_sha256": "6fdd8ed45af9f7b9c65b513cb20fa1f3ba224519695ec37940421a7a6d60ae5e",
+  "question": "At what prespecified resource-scale levels is the original K48 census ceiling no longer hiding a seed-output contrast, and does the group loss or gain sign persist across history clusters?",
+  "budget_scale_grid": [
+    0.025,
+    0.05,
+    0.125,
+    0.25,
+    0.5,
+    1
+  ],
+  "canonical_ovule_budget": 8,
+  "modified_ovule_budgets": [
+    0.2,
+    0.4,
+    1,
+    2,
+    4,
+    8
+  ],
+  "original_census_K": 48,
+  "original_pollen_background_B": 48,
+  "fixed_no_visitor_or_genetic_perturbations": true,
+  "theory": "At fixed original genotypes/visitors/assurance/investment, scaling ovule_budget by factor b scales source maternal viable seed expectation linearly; pollen transfer/delivery unchanged. With no adults surviving and no immigrant seeds, one-step N' = min(Poisson(b*mu), K48), P(N'>0)=1-exp(-b*mu). Compute analytic means and probabilities without drawing new random populations.",
+  "admission_rule": "No parameter chosen or retuned from outcomes; report ALL six budgets and all four reproductive settings with original 64 historical pairs. This is an old-data exploratory diagnostic, not prospectively independent confirmation.",
+  "primary_descriptives": [
+    "mean source per-history E-minus-I-clamp expected next census at each b",
+    "mean occupancy probability difference at each b",
+    "mean native source viable maternal seed contrast scaled by b",
+    "within-history sign counts, no pseudo-replication"
+  ],
+  "cluster_eligibility": "All 64 original histories retained, one of original eight demographic repeats, no new independent history",
+  "uncertainty": "One shared 9999-draw history bootstrap seed 20261010, unadjusted descriptive intervals across all four settings/six scales, not inferential promotion",
+  "null_expectations": [
+    "At b=1, source next census effects should be almost 0 owing to K48 saturation",
+    "At b very small, E-minus-clamp census contrast approaches scaled viable maternal seed contrast, but one-step occupancy may remain saturated or floor depending b",
+    "If source seed contrast is mixed, census effect will also be mixed, not universal"
+  ],
+  "not_a_test_of": [
+    "heritable fitness or long-term survival",
+    "future 80-update population rescue",
+    "actual external field pollen supply",
+    "natural island area",
+    "causal mediated effect of evolution",
+    "new prospective ecological replication"
+  ],
+  "decision_gate": "If no budget provides intermediate one-step occupancy and consistent positive/negative grouped census contrasts at history level, STOP. Do not use post-outcome chosen single budget to launch repeated 80-update stochastic histories."
+}

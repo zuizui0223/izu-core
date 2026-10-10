@@ -1,0 +1,147 @@
+{
+  "schema": "original_evolved_source_shapley_descriptive_bootstrap_v1",
+  "status": "POST_OUTCOME_DESCRIPTIVE_UNADJUSTED_HISTORY_BOOTSTRAP",
+  "raw_input_sha256": "6fdd8ed45af9f7b9c65b513cb20fa1f3ba224519695ec37940421a7a6d60ae5e",
+  "original_bootstrap_complete_output_sha256": "7c261e35e0dd5c496b488945a0e1edc3f9f57df3cf21a7afa7c4a053609f1d35",
+  "n_source_visitor_histories": 64,
+  "n_nested_repeats_used": 1,
+  "n_new_histories": 0,
+  "draws": 9999,
+  "seed": 20261010,
+  "interval_method": "ordinary percentile history-cluster bootstrap, same draws across settings, NOT preregistered, NO multiplicity correction",
+  "rows": [
+    {
+      "setting": "delayed_control",
+      "metrics": {
+        "shapley_ovule_resource": {
+          "mean": 1.7722906957092415,
+          "percentile95": [
+            -2.4786772431997073,
+            6.072072307822908
+          ]
+        },
+        "shapley_pollen_receipt": {
+          "mean": -2.0152152577642997,
+          "percentile95": [
+            -6.0517550878027055,
+            1.9724965388269713
+          ]
+        },
+        "net_evolved_minus_clamp_viable_seed": {
+          "mean": -0.24292456205506086,
+          "percentile95": [
+            -1.636694387895644,
+            1.2035554219855384
+          ]
+        },
+        "delivered_pollen_e_minus_clamp": {
+          "mean": -1.3528480832545542,
+          "percentile95": [
+            -4.205254774158713,
+            1.5451636618211446
+          ]
+        }
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "metrics": {
+        "shapley_ovule_resource": {
+          "mean": 1.9336433228797254,
+          "percentile95": [
+            -1.3276737643833239,
+            5.445723689738981
+          ]
+        },
+        "shapley_pollen_receipt": {
+          "mean": 0.5387041175487683,
+          "percentile95": [
+            -0.8443746139307182,
+            1.945994711067098
+          ]
+        },
+        "net_evolved_minus_clamp_viable_seed": {
+          "mean": 2.4723474404284933,
+          "percentile95": [
+            -0.0717936329782066,
+            5.374201976405303
+          ]
+        },
+        "delivered_pollen_e_minus_clamp": {
+          "mean": -1.3863086738889296,
+          "percentile95": [
+            -4.331574481918651,
+            1.4316982663220748
+          ]
+        }
+      }
+    },
+    {
+      "setting": "pollen_discount",
+      "metrics": {
+        "shapley_ovule_resource": {
+          "mean": 2.968494935909481,
+          "percentile95": [
+            -0.014959229147545862,
+            5.904227669289916
+          ]
+        },
+        "shapley_pollen_receipt": {
+          "mean": -1.2079834472800164,
+          "percentile95": [
+            -3.455406450458708,
+            1.0566854570157127
+          ]
+        },
+        "net_evolved_minus_clamp_viable_seed": {
+          "mean": 1.7605114886294588,
+          "percentile95": [
+            0.042205905397653246,
+            3.4012290563786167
+          ]
+        },
+        "delivered_pollen_e_minus_clamp": {
+          "mean": -0.688982186754187,
+          "percentile95": [
+            -1.9066232311670184,
+            0.55941214875394
+          ]
+        }
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "metrics": {
+        "shapley_ovule_resource": {
+          "mean": 2.5724556221711428,
+          "percentile95": [
+            -0.19308697459670957,
+            5.438033826248795
+          ]
+        },
+        "shapley_pollen_receipt": {
+          "mean": -1.6897329122457314,
+          "percentile95": [
+            -5.359876721755139,
+            1.9375231729390006
+          ]
+        },
+        "net_evolved_minus_clamp_viable_seed": {
+          "mean": 0.8827227099254165,
+          "percentile95": [
+            -0.7976366883753062,
+            2.5528243563073887
+          ]
+        },
+        "delivered_pollen_e_minus_clamp": {
+          "mean": -1.8005483177904895,
+          "percentile95": [
+            -4.691042732357797,
+            0.9406953093495469
+          ]
+        }
+      }
+    }
+  ],
+  "claim_ceiling": "All resource and receipt-component exploratory bootstrap intervals include zero across 4 settings. Three mean net viable seed contrasts are positive but only pollen-discount has an UNADJUSTED interval strictly above zero (lower +0.0422); this is outcome-selected and not adjusted for four settings or the many source analyses. Do not promote as confirmatory, or infer long-term fitness."
+}

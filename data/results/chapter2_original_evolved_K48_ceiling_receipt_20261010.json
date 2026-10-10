@@ -1,0 +1,62 @@
+{
+  "schema": "chapter2_native_one_step_K48_capacity_ceiling_result_v1",
+  "status": "SOURCE_REPLAY_EXACT_POSTOUTCOME_NO_LONGRUN_DEMOGRAPHY",
+  "parent_sha256": "34846d5ea2b758c7123af42130cceec7b3581c4c9a95dcbd0de52c651a599b57",
+  "source_k48_demography": "One source generation: fixed adult survival=0, seed immigration supply=0, expected local viable seeds mu, resident seed potential Poisson(mu), offspring retained min(Poisson(mu),48).",
+  "formula_expected_next_count": "mu*PoissonCDF(46,mu)+48*PoissonSF(47,mu)",
+  "formula_probability_below_K": "PoissonCDF(47,mu)",
+  "n_history_blocks": 64,
+  "n_nested_repeats": 1,
+  "n_new_histories": 0,
+  "near_t400": [
+    {
+      "setting": "delayed_control",
+      "arm": "near",
+      "K": 48,
+      "n_histories": 64,
+      "min_viable_mu_either_branch": 94.95453173,
+      "mean_evolved_viable_mu_rounded": 162.33,
+      "max_probability_below_K": 3.809455608408945e-8,
+      "mean_expected_census_delta": 1.0703735675576809e-9,
+      "max_abs_census_delta": 7.27602014e-8
+    },
+    {
+      "setting": "prior_selfing",
+      "arm": "near",
+      "K": 48,
+      "n_histories": 64,
+      "min_viable_mu_either_branch": 111.095950903,
+      "mean_evolved_viable_mu_rounded": 147.94,
+      "max_probability_below_K": 5.259686663434203e-12,
+      "mean_expected_census_delta": -2.098321516541546e-14,
+      "max_abs_census_delta": 8.58335625e-12
+    },
+    {
+      "setting": "pollen_discount",
+      "arm": "near",
+      "K": 48,
+      "n_histories": 64,
+      "min_viable_mu_either_branch": 97.125651772,
+      "mean_evolved_viable_mu_rounded": 152.46,
+      "max_probability_below_K": 1.232132373073105e-8,
+      "mean_expected_census_delta": -1.9665158390580473e-11,
+      "max_abs_census_delta": 2.01628083e-8
+    },
+    {
+      "setting": "assurance_cost",
+      "arm": "near",
+      "K": 48,
+      "n_histories": 64,
+      "min_viable_mu_either_branch": 67.279434303,
+      "mean_evolved_viable_mu_rounded": 123.8,
+      "max_probability_below_K": 0.00577777286080302,
+      "mean_expected_census_delta": 0.0002480714631017955,
+      "max_abs_census_delta": 0.0164107161
+    }
+  ],
+  "original_result_json_sha256": "7eef0707dd3ec7aac1b56e50e64238a087f7269c8777a9f2e9ba79bd18cf48ff",
+  "original_result_bundle_sha256": "fd84d13fbaafe188257849e2542c3789452fffdec11f60a802e54e44073e995c",
+  "claim_ceiling": "Capacity ceiling is a ONE-YEAR source demography expectation, not long-run persistence. Original 1000-update evolutionary campaign had occupancy1 across all arms, and group viable seed benefit signs differ across settings. A positive focal nonfocal benefit cannot be translated into evolutionary suicide or an EL/Nature-level persistence finding.",
+  "result": "Near t400 original expected viable seeds in all four settings greatly exceed K48 in all 64 source histories. The maximum probability of failing to fill K for any E or I-clamp near group is 0.00578. The mean E-minus-clamp one-step expected census contrast is near zero in all four settings (<0.00025 plants).",
+  "inference": "Even if evolving investment changes expected pollen delivery, the original finite source demographic model generally buffers these differences through vacancy saturation at K48, so immediate occupancy does not identify a measurable group fitness loss."
+}
