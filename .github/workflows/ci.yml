@@ -37,6 +37,21 @@ jobs:
             chapter2-investment-nonfocal-externality.json
             data/design/chapter2_investment_nonneighbor_externality_audit_20261010.json
           if-no-files-found: error
+      - name: Validate commons investment-only pilot and prospective power, no reserved seeds (PR 452)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
+        run: pytest -q tests/test_chapter2_investment_commons_pilot_power.py
+      - name: Run all 384 bounded commons feasibility paths and paired exact power simulations (PR 452)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
+        run: python -m scripts.audit_chapter2_investment_commons_pilot_power --out chapter2-investment-commons-pilot-power.json
+      - name: Preserve source-locked initial-investment commons feasibility and statistical power (PR 452)
+        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-investment-commons-feasibility-power
+          path: |
+            chapter2-investment-commons-pilot-power.json
+            data/design/chapter2_investment_commons_pilot_power_20261010.json
+          if-no-files-found: error
       - name: Run pytest
         run: |
           pytest -q --junitxml=pytest-${{ matrix.python-version }}.xml 2>&1 | tee pytest-${{ matrix.python-version }}.log
