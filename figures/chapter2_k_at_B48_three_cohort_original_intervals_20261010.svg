@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="465" viewBox="0 0 1100 465" role="img" aria-labelledby="chartTitle chartDesc">
+<title id="chartTitle">Three separate independent cohorts: K moderation at fixed B48</title>
+<desc id="chartDesc">Original 64-visitor-history paired bootstrap 95 percent intervals for three distinct cohorts; only the middle study preregistered this as its primary test.</desc>
+<rect width="1100" height="465" fill="#ffffff"/>
+<text x="42" y="43" font-size="22" font-weight="700" fill="#15283b" font-family="Arial, sans-serif">Population-capacity moderation at fixed pollen background (B=48)</text>
+<text x="42" y="70" font-size="14" fill="#46596b" font-family="Arial, sans-serif">Original point estimates and original 95% paired visitor-history bootstrap intervals</text>
+<line x1="42" x2="1057" y1="87" y2="87" stroke="#dce3e9"/>
+<line x1="224.00" x2="224.00" y1="101" y2="357" stroke="#dce3e9" stroke-width="1"/>
+<text x="224.00" y="382" text-anchor="middle" font-size="12" fill="#435365" font-family="Arial, sans-serif">-0.005</text>
+<line x1="344.74" x2="344.74" y1="101" y2="357" stroke="#738598" stroke-width="2" stroke-dasharray="5,4"/>
+<text x="344.74" y="382" text-anchor="middle" font-size="12" fill="#435365" font-family="Arial, sans-serif">+0.000</text>
+<line x1="465.48" x2="465.48" y1="101" y2="357" stroke="#dce3e9" stroke-width="1"/>
+<text x="465.48" y="382" text-anchor="middle" font-size="12" fill="#435365" font-family="Arial, sans-serif">+0.005</text>
+<line x1="586.22" x2="586.22" y1="101" y2="357" stroke="#dce3e9" stroke-width="1"/>
+<text x="586.22" y="382" text-anchor="middle" font-size="12" fill="#435365" font-family="Arial, sans-serif">+0.010</text>
+<line x1="706.96" x2="706.96" y1="101" y2="357" stroke="#dce3e9" stroke-width="1"/>
+<text x="706.96" y="382" text-anchor="middle" font-size="12" fill="#435365" font-family="Arial, sans-serif">+0.015</text>
+<line x1="827.70" x2="827.70" y1="101" y2="357" stroke="#dce3e9" stroke-width="1"/>
+<text x="827.70" y="382" text-anchor="middle" font-size="12" fill="#435365" font-family="Arial, sans-serif">+0.020</text>
+<text x="42" y="136" font-size="16" font-weight="500" fill="#203449" font-family="Arial, sans-serif">K×B four-arm cohort</text>
+<text x="42" y="160" font-size="12" fill="#576b80" font-family="Arial, sans-serif">Secondary/descriptive · 64 visitor histories</text>
+<line x1="526.18" x2="812.30" y1="147" y2="147" stroke="#7d8da1" stroke-width="5" stroke-linecap="round"/>
+<line x1="526.18" x2="526.18" y1="139" y2="155" stroke="#7d8da1" stroke-width="2"/>
+<line x1="812.30" x2="812.30" y1="139" y2="155" stroke="#7d8da1" stroke-width="2"/>
+<circle cx="669.05" cy="147" r="6" fill="#7d8da1" stroke="#ffffff" stroke-width="2"/>
+<text x="902" y="152" font-size="14" font-weight="400" fill="#243a4c" font-family="Arial, sans-serif">+0.0134</text>
+<text x="42" y="218" font-size="16" font-weight="700" fill="#203449" font-family="Arial, sans-serif">Fixed-B48 K primary</text>
+<text x="42" y="242" font-size="12" fill="#576b80" font-family="Arial, sans-serif">Preregistered primary · 64 visitor histories</text>
+<line x1="405.04" x2="659.04" y1="229" y2="229" stroke="#177d76" stroke-width="5" stroke-linecap="round"/>
+<line x1="405.04" x2="405.04" y1="221" y2="237" stroke="#177d76" stroke-width="2"/>
+<line x1="659.04" x2="659.04" y1="221" y2="237" stroke="#177d76" stroke-width="2"/>
+<rect x="525.79" y="223" width="12" height="12" rx="2" fill="#177d76" stroke="#ffffff" stroke-width="2"/>
+<text x="902" y="234" font-size="14" font-weight="700" fill="#243a4c" font-family="Arial, sans-serif">+0.0077</text>
+<text x="42" y="300" font-size="16" font-weight="500" fill="#203449" font-family="Arial, sans-serif">Timed-viability cohort</text>
+<text x="42" y="324" font-size="12" fill="#576b80" font-family="Arial, sans-serif">Secondary/descriptive · 64 visitor histories</text>
+<line x1="432.15" x2="668.30" y1="311" y2="311" stroke="#7d8da1" stroke-width="5" stroke-linecap="round"/>
+<line x1="432.15" x2="432.15" y1="303" y2="319" stroke="#7d8da1" stroke-width="2"/>
+<line x1="668.30" x2="668.30" y1="303" y2="319" stroke="#7d8da1" stroke-width="2"/>
+<circle cx="551.94" cy="311" r="6" fill="#7d8da1" stroke="#ffffff" stroke-width="2"/>
+<text x="902" y="316" font-size="14" font-weight="400" fill="#243a4c" font-family="Arial, sans-serif">+0.0086</text>
+<text x="550" y="413" text-anchor="middle" font-size="14" fill="#34465a" font-family="Arial, sans-serif">Difference in viability sensitivity, K8 minus K48 (absolute occupancy probability)</text>
+<text x="42" y="448" font-size="12" fill="#5c6b7a" font-family="Arial, sans-serif">Square: one preregistered primary. Circles: secondary/descriptive. Not a pooled meta-analysis or three confirmations.</text>
+</svg>
