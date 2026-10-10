@@ -1,0 +1,141 @@
+{
+  "schema": "chapter2_exact_384_path_replay_actual_mixed_genotype_conflict_v1",
+  "date": "2026-10-10",
+  "status": "EXECUTED_SOURCE_EXACT_REPLAY_AND_POST_OUTCOME_MIXED_GENOTYPE_EXTERNALITY_DIAGNOSTIC",
+  "execution_sha": "ab346dfe1f4e0c2c4ef30e8607e770b55259a379",
+  "workflow_run_id": 38024038577,
+  "original_artifact_id": 11659946492,
+  "raw_original_json_sha256": "0c604d167e993cad8eafe3a1491f2d2dcbc67f7bf1794d8239e08b2bb467cfae",
+  "raw_zip_sha256": "7d0feee917e6d8cbf894abf2dc6f6eb5930155750a59ba1f0752965cc77e1660",
+  "design_sha256": "38649e969d735e4e946536a3d51b73ed37df89713d44707f3543219b8bde4344",
+  "prior_pilot_original_json_sha256": "3f528fcbe7585b6c4a5e713780d7260201630e7f8d4c752c6b5f65d1e1f5a459",
+  "prior_all_384_pilot_path_canonical_sha256": "0f39b237ecfd115fff34de9dad8090d2a7fdf89f54af39a821016bc3a0a0d0a6",
+  "original_full_path_exact_sha_verified": true,
+  "n_original_full_replayed_trajectory_paths": 384,
+  "n_independent_visitor_RNG_histories": 16,
+  "n_new_independent_visitor_histories": 0,
+  "n_original_native_state_annual_N6_to9_checks": 3097,
+  "criterion": "For each ORIGINAL actual mixed-genotype source native pre-reproduction state with N∈{6,7,8,9}, all surviving individuals' finite focal log W derivatives; Gamma_group log viable seed derivative shifting entire mixed population; majority of living individuals beta<-0.02 and Gamma>+0.02. Annual pre-reproductive observations are clustered within histories and not independent replicates.",
+  "totals_by_visitor_regime": {
+    "static_matched4": {
+      "N6_9_years": 1564,
+      "majority_negative_beta_positive_gamma_years": 1562,
+      "rate": 0.9987212276214834,
+      "group_gamma_positive_years": 1563,
+      "nonfocal_externality_positive_focal_count": 12158,
+      "total_focal_checks": 12158
+    },
+    "stochastic_matched4": {
+      "N6_9_years": 1533,
+      "majority_negative_beta_positive_gamma_years": 696,
+      "rate": 0.45401174168297453,
+      "group_gamma_positive_years": 1255,
+      "nonfocal_externality_positive_focal_count": 11859,
+      "total_focal_checks": 11984
+    }
+  },
+  "high_information_cell": {
+    "visitor_regime": "stochastic_matched4",
+    "K": 8,
+    "budget": 8,
+    "N6_9_annual_native_years": 1132,
+    "actual_majority_conflict_years": 448,
+    "rate": 0.3957597173144876,
+    "group_gamma_positive_years": 888,
+    "native_occupied80": 14,
+    "centered_occupied80": 13,
+    "original_independent_visitor_seed_histories": 16
+  },
+  "paired_observations": [
+    {
+      "visitor_regime": "static_matched4",
+      "K": 8,
+      "budget": 6,
+      "N6_9_years": 244,
+      "actual_conflict_years": 243,
+      "native_H80_occupied": 0,
+      "centered_H80_occupied": 0
+    },
+    {
+      "visitor_regime": "static_matched4",
+      "K": 8,
+      "budget": 8,
+      "N6_9_years": 1141,
+      "actual_conflict_years": 1141,
+      "native_H80_occupied": 15,
+      "centered_H80_occupied": 15
+    },
+    {
+      "visitor_regime": "stochastic_matched4",
+      "K": 8,
+      "budget": 6,
+      "N6_9_years": 220,
+      "actual_conflict_years": 114,
+      "native_H80_occupied": 0,
+      "centered_H80_occupied": 1
+    },
+    {
+      "visitor_regime": "stochastic_matched4",
+      "K": 8,
+      "budget": 8,
+      "N6_9_years": 1132,
+      "actual_conflict_years": 448,
+      "native_H80_occupied": 14,
+      "centered_H80_occupied": 13
+    },
+    {
+      "visitor_regime": "stochastic_matched4",
+      "K": 48,
+      "budget": 6,
+      "N6_9_years": 49,
+      "actual_conflict_years": 37,
+      "native_H80_occupied": 12,
+      "centered_H80_occupied": 13
+    }
+  ],
+  "stochastic_visitor_richness_descriptive": [
+    {
+      "visitor_types": 2,
+      "N6_9_native_years": 104,
+      "actual_conflict_year_fraction": 0.17307692307692307
+    },
+    {
+      "visitor_types": 3,
+      "N6_9_native_years": 259,
+      "actual_conflict_year_fraction": 0.5212355212355212
+    },
+    {
+      "visitor_types": 4,
+      "N6_9_native_years": 505,
+      "actual_conflict_year_fraction": 0.6514851485148515
+    },
+    {
+      "visitor_types": 5,
+      "N6_9_native_years": 351,
+      "actual_conflict_year_fraction": 0.43874643874643876
+    },
+    {
+      "visitor_types": 6,
+      "N6_9_native_years": 159,
+      "actual_conflict_year_fraction": 0.27672955974842767
+    },
+    {
+      "visitor_types": 7,
+      "N6_9_native_years": 65,
+      "actual_conflict_year_fraction": 0.2153846153846154
+    },
+    {
+      "visitor_types": 8,
+      "N6_9_native_years": 45,
+      "actual_conflict_year_fraction": 0.022222222222222223
+    }
+  ],
+  "limits": [
+    "No fresh ecological histories: original seed IDs 9701201–9701216 and original 384 full futures were exactly replayed against original artifact checksum.",
+    "Static 4-visitor source conflict is mostly sustained at N6–9, but stochastic ecology changes real beta/gamma even with the same N. This descriptive association does not isolate visitor richness from visitor-type identity or genetic/temporal history.",
+    "Original β individual effects are finite single-parent contrasts in the actual genotype population; Γ is a whole-population immediate viable-seed derivative, not H80 persistence gradient.",
+    "The 3097 annual checks and 24142 focal tests within source histories are not independent ecological samples.",
+    "Genetic investment expression still has no separate allele-freeze experiment or confirmed decrease of unconditional population persistence.",
+    "Low N≤5 and high N≥10 states were not included in exact mixed-genotype beta check; do not infer dynamics beyond the checked N6–9."
+  ]
+}
