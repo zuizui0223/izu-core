@@ -229,7 +229,7 @@ def audit(d):
     elif mode=="template":
         status="TEMPLATE_NOT_FIELD_EVIDENCE"
     elif records and all(r["parentage_structurally_linked"] for r in records):
-        status="STRUCTURALLY_LINKED_OBSERVED_PARENTAGE_NOT_CAUSAL"
+        status="STRUCTURALLY_LINKED_CLAIM_REQUIRES_EXTERNAL_VALIDATION"
     else:
         status="FIELD_PARENTAGE_GATE_BLOCKED"
     return {"status":status,"schema":SCHEMA,"evidence_mode":mode,
