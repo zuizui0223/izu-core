@@ -85,9 +85,11 @@ def _paired_outcomes(ref, alt, horizon):
 
 
 def audit(*, budgets=BUDGETS, draws=24, verify_original=True):
-    if (tuple(budgets) not in (BUDGETS, (3.0,6.0))
-            or draws not in (2,24)
-            or verify_original != (draws==24 and tuple(budgets)==BUDGETS)):
+    valid_archival = (tuple(budgets)==BUDGETS and draws==24
+                      and verify_original is True)
+    valid_unit_test = (tuple(budgets)==(3.0,6.0) and draws==2
+                       and verify_original is False)
+    if not (valid_archival or valid_unit_test):
         raise ValueError("unsupported scope: full archival verification or bounded unit test")
     source = json.loads(RECEIPT.read_text(encoding="utf-8"))
     if (source["status"]!="POST_OUTCOME_ENGINEERING_GRID_EXACT_ARTIFACT_RETRIEVED_NOT_CONFIRMATORY"
