@@ -48,6 +48,25 @@ This source demonstration is stronger than simply seeing a negative focal select
 
 **But it does NOT establish evolutionary underinvestment, community-maintained pollinator abundance, a naturally inherited selection coefficient, or extinction.** Multiple plant perturbations within each visitor history are correlated. A negative *focal maternal* derivative need not equal negative total parental allele fitness, because the focal individual's paternal outcross contribution must be included. Group viable seed is not census recruitment or occupancy. Only one repeat/history was evaluated here; the original four-setting result used eight repeats and a different preregistered estimand.
 
+## Stage 3: exact native K48 demographic cap blocks an easy survival interpretation
+
+The same ORIGINAL t400 reproductions give expected local viable maternal seeds between **67.28 and 220+** in the evolving/clamped source contexts at near; every near state exceeds the canonical plant population ceiling **K48** even after switching investment. Under the original source demographic operator, adult survival=0, plant immigration=0 and resident birth attempts follow **Poisson(μ)** with μ equal to the total viable maternal seed expectation. The subsequent census is `min(48, Poisson(μ))`. Therefore
+
+`E[N_next] = μ PoissonCDF(46; μ) + 48 PoissonSF(47; μ)`.
+
+Applying this exact conditional formula to the authenticated 64 near history states per setting, rather than sampling new population trajectories:
+
+| Source setting, near t400 | Minimum μ (evolved or clamp) | Largest P(next N below K48) | Mean E[next N] difference, E−investment-clamp |
+|---|---:|---:|---:|
+| Delayed control | 94.95 | 3.81×10⁻⁸ | +1.07×10⁻⁹ plants |
+| Prior selfing | 111.10 | 5.26×10⁻¹² | approximately 0 |
+| Pollen discount | 97.13 | 1.23×10⁻⁸ | approximately 0 |
+| Assurance cost | 67.28 | 0.00578 | **+0.000248 plants** |
+
+Thus even though **total pollen delivery falls with evolved investment in the within-E clamp** and **nonfocal maternal seed returns to investment are positive**, the source model's first subsequent population census is nearly at capacity in all four settings. This does not rule out a longer-term genetic, demographic or mating-system consequence; it **does reject an automatic direct inference** from reduced pollen-service flow to contemporaneous fewer occupied plants under this source capacity. It explains why the original 1,000-update campaign, with terminal occupancy 1.0 in every arm, cannot serve as a viable test of group-level extinction costs.
+
+Reproduction: `scripts/audit_chapter2_original_evolved_demographic_ceiling.py` accepts the original paired source JSON, and fails closed if its SHA differs. The full derived per-history one-step output was independently calculated with source SHA **`7eef0707dd3ec7aac1b56e50e64238a087f7269c8777a9f2e9ba79bd18cf48ff`**, and compact receipt in `data/results/chapter2_original_evolved_K48_ceiling_receipt_20261010.json`. This is an **algebraic one-step demography check**, not new independent history replication or a prospective persistence test.
+
 ## High-upside hypothesis: verdict after the first causal test
 
 **Status: PARTIAL source support, causal chain NOT identified.** We verified the exact original plant-by-visitor reproductive architecture, observed investment differences across fixed and evolving arms, measured a within-E pollen-transfer intervention, and directly measured nonfocal maternal benefits in actual evolved genomes. But **the strongest claimed end-to-end mechanism is not verified**:
