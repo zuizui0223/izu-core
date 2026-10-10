@@ -23,6 +23,23 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
+      # Temporary execution to validate and preserve the new one-paper EL bundle.
+      - name: Render single-paper EL evidence figures and reviewer ZIP
+        if: matrix.python-version == '3.11'
+        run: |
+          python -m scripts.figure_model3_return_components
+          python -m scripts.figure_model3_assurance_compression
+          python -m scripts.figure_model3_trait_pollen
+          python -m scripts.build_chapter2_unified_el_submission_bundle --out outputs/chapter2_unified_el_delivery/EL_ONE_PAPER_REVIEW.zip
+      - name: Upload single-paper EL reviewer ZIP and receipt
+        if: matrix.python-version == '3.11'
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-unified-el-review-bundle-20261010
+          path: |
+            outputs/chapter2_unified_el_delivery/EL_ONE_PAPER_REVIEW.zip
+            outputs/chapter2_unified_el_delivery/EL_ONE_PAPER_REVIEW.receipt.json
+          if-no-files-found: error
       - name: Run pytest
         run: |
           pytest -q --junitxml=pytest-${{ matrix.python-version }}.xml 2>&1 | tee pytest-${{ matrix.python-version }}.log
