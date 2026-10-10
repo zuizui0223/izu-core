@@ -1,0 +1,107 @@
+{
+  "schema": "chapter2_focal_investment_public_good_persistence_pilot_v1",
+  "date": "2026-10-10",
+  "status": "ENGINEERING_FEASIBILITY_PILOT_NOT_CONFIRMATORY",
+  "source_bridge": "Source Model3 reproduce_kb / population.advance unmodified, fixed B48. From newly proven one-mutant positive reproductive externality in 14 source conflict cells, representative delayed_control/resident [.2,.35,.35] K8.",
+  "primary_question": "Can evolution of genomic floral investment LOWER population-mean investment and reduce unconditional persistence relative to a genomic-mean expression clamp when focal reproductive selection is negative but group seed production and nonfocal paternal externality are positive?",
+  "scope": "Source-controlled 16-new-pilot-history viability/safety/design-screen, not an independent 192-history confirmatory trial or evidence of evolutionary commons tragedy.",
+  "genotypes": {
+    "initial_n": 8,
+    "genotype_seed": 9701101,
+    "source_draw_count": 8,
+    "source_means": [
+      0.2,
+      0.35,
+      0.35
+    ],
+    "initial_allele_sd": 0.04,
+    "fixed_genetic_loci": [
+      "matching:both homologs exactly 0.2",
+      "reproductive assurance:both homologs exactly 0.35"
+    ],
+    "varied_locus": "investment; two source homologs per parent, continuous-valued, variation from fixed 8-parent founder RNG",
+    "no_new_mutation": true,
+    "no_immigration": true,
+    "adult_survival": 0,
+    "initial_expression_identity_between_arms": true,
+    "investment_support_envelope": "Verify [2*min_investment_homolog - max, 2*max - min] subset of [0,1] before trajectories."
+  },
+  "mechanism": {
+    "reproduction_setting": "delayed_control",
+    "visitor_source_regimes": [
+      "static_matched4",
+      "stochastic_matched4"
+    ],
+    "initial_visitors": "4 fixed optima 0.15/0.35/0.55/0.75, bandwidth0.18/effectiveness1",
+    "dynamic_visitor_recruitment": "for stochastic_matched4 source make_history uses original arrival/loss, conditional on 4 matching visitors at t0; static_matched4 holds these same 4 identical types/count each year",
+    "K": [
+      8,
+      48
+    ],
+    "B": 48,
+    "initial_census_N0": 8,
+    "ovule_budgets": [
+      4.5,
+      6,
+      8
+    ],
+    "viability_gate": "baseline only: no new seed-depression treatment",
+    "years": 80,
+    "horizons": [
+      20,
+      80
+    ],
+    "expression_policies": {
+      "native": "Use original allele-dosage investment expression in source reproduce_kb; original Mendelian inheritance fully retained.",
+      "baseline_centered": "Each year immediately before reproduce_kb, shift all investment HOMOLOG expressions by constant (original founder mean investment-current mean genetic investment) if nonextinct; pass unmodified raw parental DNA into population.advance; thus preserve within-population trait differences and original Mendelian inherited alleles, not a genetic evolution freeze."
+    }
+  },
+  "pilot_rng": {
+    "visitor_seeds": [
+      9701201,
+      9701216
+    ],
+    "seed_count": 16,
+    "demographic_salt": 9701301,
+    "per_condition_demographic_repeats": 1,
+    "novel_to_previous_original_452_history_ids": true
+  },
+  "expected_full_pilot_paths": 384,
+  "selection_diagnostic": "Original monomorphic at [.2,.35,.35] and B48 investment beta <0, Gamma_seed >0, all-original 14 discordant case externality >0; evaluate here only with initial N0=8, not claim dynamic beta sign follows automatically.",
+  "readiness_gates": [
+    "Exact first-reproduction source ledger and t1 actual genotype ID/allele state identical across both policies for every paired pilot history.",
+    "Initial standing investment genetic variation >0; matching and assurance loci are invariant over entire history and no new mutation.",
+    "Direct phenotype recentering changes original source ledger only, not inherited genome; no unsafe phenotype clipping.",
+    "Confirm source embryo budget/seed-pollen accounting, no visitor negative externality unaffected.",
+    "NO chosen confirmatory budget if either arm persist occupancy at H80 uniformly floor or ceiling across pilot16; 16-path proportions used only for engineering targeting not evidence.",
+    "Reserve new unused visitor RNG history family and power calculation before future confirmatory outcome; all 384 pilot outcomes must be archived."
+  ],
+  "power_scenarios": {
+    "estimand": "Paired P(occupied80_native)-P(occupied80_centered) per visitor history, benefit/harm direction specified prospectively before confirmatory run.",
+    "assumed_delta_absolute": [
+      0.1,
+      0.15,
+      0.2
+    ],
+    "paired_discordance_total": [
+      0.15,
+      0.3,
+      0.5
+    ],
+    "target_ROPE_absolute": 0.05,
+    "two_sided_alpha": 0.05,
+    "planned_eligible_sample_sizes": [
+      128,
+      256,
+      512,
+      1024
+    ],
+    "monte_carlo_repeats_per_scenario": 1999,
+    "simulation_seed": 9701999,
+    "CI": "Conservative Bonferroni-combined Clopper-Pearson binomial 95% exclusive discordance event intervals; require signed bound >5pp.",
+    "minimum_power_target": 0.8,
+    "conditional_on": "Independent visitor-history unit. No study allowed to retroactively substitute a tighter bound after observing data."
+  },
+  "stop": "This task only runs the complete predeclared feasibility pilot and hypothetical power scenarios; does not use or generate confirmatory visitor-history IDs, does not optimize to desired effect sign.",
+  "scientific_limit": "The t0 centered-expression arm has initial identical phenotype but later removes population-mean investment change, not investment allele transmission/within-population phenotype evolution. Therefore even if it changes survival, it does not by itself prove evolutionary suicide or a natural island tragedy of commons."
+}
