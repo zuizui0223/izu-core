@@ -23,21 +23,6 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
-      - name: Source-only t20 three-locus module-mosaic unit gates (PR 452 only)
-        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
-        run: pytest -q tests/test_chapter2_t20_assurance_locus_hybrid.py
-      - name: Replay exposed t20 assurance-vs-other loci genetic module outcomes (PR 452 only)
-        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
-        run: python -m scripts.audit_chapter2_t20_assurance_locus_hybrid --out chapter2-t20-assurance-locus-hybrid.json
-      - name: Archive full 50-source assurance locus mosaic diagnostic (PR 452 only)
-        if: github.event_name == 'pull_request' && github.event.pull_request.number == 452 && matrix.python-version == '3.11'
-        uses: actions/upload-artifact@v4
-        with:
-          name: chapter2-t20-assurance-locus-hybrid
-          path: |
-            chapter2-t20-assurance-locus-hybrid.json
-            data/design/chapter2_t20_assurance_locus_hybrid_replay_20261010.json
-          if-no-files-found: error
       - name: Run pytest
         run: |
           pytest -q --junitxml=pytest-${{ matrix.python-version }}.xml 2>&1 | tee pytest-${{ matrix.python-version }}.log
