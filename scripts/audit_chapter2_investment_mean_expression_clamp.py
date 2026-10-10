@@ -192,11 +192,9 @@ def source_and_paired_paths(d,history,seed,K,assurance,gate):
     outcomes={}
     for mode in POLICIES:
         sim=current
-        copied={}
+        copied=streams_for_seed(d,seed)
         for key in STREAM_IDS:
-            rng=streams_for_seed(d,seed)[key]
-            rng.bit_generator.state=copy.deepcopy(held_states[key])
-            copied[key]=rng
+            copied[key].bit_generator.state=copy.deepcopy(held_states[key])
         first_post20_ledger=None
         year21_state=None
         local_first_extinction=first_extinction
