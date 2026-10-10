@@ -23,6 +23,18 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
+      # TEMP source-replay audit only; revert to main workflow after result SHA verified.
+      - name: Run delivery-matched F/P/S source decomposition
+        if: matrix.python-version == '3.11'
+        run: |
+          python -m scripts.audit_chapter2_delivery_matched_fps_decomposition --out matched-fps-source-20261010.json
+      - name: Archive F/P/S source decomposition
+        if: matrix.python-version == '3.11'
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-delivery-matched-fps-source-20261010
+          path: matched-fps-source-20261010.json
+          if-no-files-found: error
       - name: Run pytest
         run: |
           pytest -q --junitxml=pytest-${{ matrix.python-version }}.xml 2>&1 | tee pytest-${{ matrix.python-version }}.log
