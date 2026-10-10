@@ -1,4 +1,7 @@
 """Exploratory source operator controls: NOT independent evolutionary replication."""
+import json
+from pathlib import Path
+
 import numpy as np
 
 from scripts.audit_chapter2_visitor_richness_composition_factorial import (
@@ -63,3 +66,38 @@ def test_run_all_is_finite_and_keeps_all_null_comparisons():
     assert result["negative_control_fixed_activity_duplicate_invariance"]
     assert all(np.isfinite(r["total_viable_seed"]) for r in result["rows"])
     assert all(r["visitor_type_count"] in (2, 4) for r in result["rows"])
+
+
+def test_archived_result_receipt_replays_at_six_decimal_precision():
+    """Prevent floating result/status drift relative to the source-locked artifact."""
+    root = Path(__file__).resolve().parents[1]
+    p = root / "data/results/chapter2_visitor_richness_composition_factorial_receipt_20261010.json"
+    receipt = json.loads(p.read_text(encoding="utf-8"))
+    result = run_all()
+    assert receipt["status"] == "EXECUTED_POST_OUTCOME_EXPLORATORY_SOURCE_LEDGER_ONLY"
+    assert receipt["source_json_sha256"] == (
+        "80ad1216e424432b97efa17f6053bf36fd98a18aa79a09d07a8dc8434be95268"
+    )
+    assert receipt["n_conditions"] == len(result["rows"]) == 16
+    for archived, live in zip(receipt["rounded_rows"], result["rows"]):
+        assert archived[:3] == [
+            live["parental_state"], live["activity_mode"], live["visitor_arm"]
+        ]
+        for old, now in zip(archived[3:6], (
+            live["total_viable_seed"],
+            live["beta_focal_median"],
+            live["gamma_log_collective"],
+        )):
+            assert abs(old - now) < 0.0000006
+        assert archived[6] is live["majority_beta_negative_gamma_positive"]
+    for archived, live in zip(
+        receipt["contrasts"], result["paired_same_genotype_contrasts"]
+    ):
+        assert archived["parental_state"] == live["parental_state"]
+        assert archived["activity_mode"] == live["activity_mode"]
+        for old_key, live_key in (
+            ("count_clone_delta", "redundant_type_count_2_to_4_total_seed_delta"),
+            ("same_four_composition_delta", "novel_optima_at_same_four_count_seed_delta"),
+            ("same_four_shift_delta", "shifted_optima_at_same_four_count_seed_delta"),
+        ):
+            np.testing.assert_allclose(archived[old_key], live[live_key], atol=1e-10, rtol=1e-10)
