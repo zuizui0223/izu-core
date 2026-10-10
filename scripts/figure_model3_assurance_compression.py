@@ -158,7 +158,7 @@ def main() -> None:
     ax.axhline(0, ls="--", lw=.8)
     ax.set_xticks(x, labels)
     ax.set_ylabel("Near − far effect of assurance\non investment selection")
-    ax.set_title("D  More attraction return remains available to lose near", loc="left", weight="bold")
+    ax.set_title("D  Greater attraction return remains near", loc="left", weight="bold")
     ax.legend(frameon=False, fontsize=7.5, ncol=2)
     ax.spines[["top", "right"]].set_visible(False)
     ax.grid(axis="y", alpha=.15)
