@@ -11,7 +11,7 @@ Hold Model3 original reproductive kernel, one fixed eight-adult diploid parental
 | `two_unique` | 2 | 2 | 0.15, 0.55 |
 | `four_clones` | 4 | 2 | 0.15, 0.15, 0.55, 0.55 |
 | `four_distinct` | 4 | 4 | 0.15, 0.35, 0.55, 0.75 |
-| `four_shifted` | 4 | 4 | 0.65, 0.75, 0.85, 0.95 |
+| `four_shifted` | 4 | 4 | 0.35, 0.55, 0.75, 0.95 |
 
 Each visitor type has source-model breadth 0.18 and effectiveness 1. The four-arm comparison is crossed with `activity_mode=fixed` versus `count_scaled`, holding the source activity constant within each row of the cross. The reference visitor count is four in both laws. Every intervention runs through `ledger_stats` (unchanged Model3 `reproduce_kb`) and the original mixed-genotype focal β/group Γ_seed evaluator with step 0.005 and deadband 0.02. **The comparison never alters reproduction in a simulated future, runs no histories and does not observe genotype selection or persistence.**
 
