@@ -54,3 +54,29 @@ pytest -q tests/test_chapter2_sequence_source_genome_replay_20261011.py
 For a short original-RNG sanity check without archived data, omit `--archive-root` and use `--years 14`. The output explicitly marks such replay as **not archive-verified**. No background pipeline is asserted to be running. No redefinition of #411, #418, #422, #442 or the frozen 0.05/20-updates sequence diagnostic.
 
 **Next decision:** find and verify original raw historical NPZ/receipt archives, then use source-matched annual gradients to test the hypothesized mechanism instead of describing it as already supported. A separate prospective abrupt-versus-gradual functional-pollinator replacement study can then test timing causally, controlling flower genotype, source pollen, census and total exposure.
+
+
+## Source-cohort identity upgrade: one COMPLETE eight-replicate paired historical comparison
+
+Companion runner `scripts/audit_chapter2_sequence_paired_original_replay_20261011.py` replays the preidentified **source visitor history76001**, both original near/far arms and **all eight original demographic repeats 7101–7108** under the 2026-10-05 delayed-selfing/costly setting, mutation rate0.01. Thus **16 original genomic trajectories** share the same original founders and streams; there are still only **one original independent visitor-history cluster**.
+
+For this history, the original frozen 1000-year event record establishes that all six crossing events (founder-relative far and incremental far-minus-near, thresholds0.025/0.05/0.10) first cross by update43. Consequently the original 20-update sustained-crossing contract can be checked from an exact replay of **the first 100 updates**, without inventing new times for events originally censored later.
+
+The companion reader repeats the **exact original eight-replicate mean-available and jointly-occupied pairing** of `scripts/summarize_model3_persistent_order.py`; it compares each detected event time/category to the existing frozen `data/results/model3_persistent_isolation_summary_20261005.json`, failing on **any** mismatch. A focused regression runs all 16 trajectories and pins the original threshold0.05 values:
+
+| History76001 within 100 original reproduced updates | Assurance crossing | Investment crossing | Frozen category |
+|---|---:|---:|---|
+| Far arm relative to its own founder | 5 | 20 | assurance first |
+| FAR-minus-NEAR increment | 17 | 15 | near-simultaneous (within 5) |
+
+These are the **original archived source event values**, not new model outcomes; the paired replay makes their original diploid source provenance checkable from exact seeded transitions. Passing six event assertions independently corroborates the original crossing times for one history, but it is **NOT a substitute for bytewise matching all raw historical 1000-year NPZ/receipts** and does not by itself explain the selection mechanism.
+
+```bash
+python -m scripts.audit_chapter2_sequence_paired_original_replay_20261011 \
+  --years 100 --gradient-until 50 --sample-n 4 \
+  --out /tmp/chapter2_sequence_76001_original_pair.json
+
+pytest -q tests/test_chapter2_sequence_paired_original_replay_20261011.py
+```
+
+We do **not** claim that the main environmental cause of precedence is proven. This checks the foundation before comparing *local full-W beta sign onset* to *genomic change onset*. A single-model original replay remains retrospective even if it reproduces every published source event.
