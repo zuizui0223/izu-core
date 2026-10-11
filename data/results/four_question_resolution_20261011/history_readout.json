@@ -1,0 +1,148 @@
+{
+  "contexts": [
+    {
+      "descriptive": {
+        "A_access_first": {
+          "cumulative_outcross": 21.56035993535164,
+          "cumulative_viable_maternal": 394.3074035185559,
+          "cumulative_viable_self": 372.74704358320423,
+          "occupied_updates": 49.5185546875,
+          "retained_recruits": 320.337890625,
+          "survived": 0.05859375
+        },
+        "I_access_first": {
+          "cumulative_outcross": 16.399617393756373,
+          "cumulative_viable_maternal": 292.76449178065843,
+          "cumulative_viable_self": 276.36487438690204,
+          "occupied_updates": 39.029296875,
+          "retained_recruits": 242.546875,
+          "survived": 0.0302734375
+        },
+        "both_access": {
+          "cumulative_outcross": 29.658772472943618,
+          "cumulative_viable_maternal": 604.1516958772891,
+          "cumulative_viable_self": 574.4929234043454,
+          "occupied_updates": 70.201171875,
+          "retained_recruits": 475.451171875,
+          "survived": 0.1201171875
+        }
+      },
+      "primary": {
+        "occupied_updates": {
+          "bootstrap_interval": [
+            0.028852355957031253,
+            0.07631896972656255
+          ],
+          "bootstrap_verdict": "positive",
+          "effect_bounded_within_margin": false,
+          "estimate": 0.052446289062500005,
+          "exact_equivalence": false,
+          "hoeffding_interval": [
+            -0.04711499285913139,
+            0.1520075709841314
+          ],
+          "hoeffding_radius": 0.0995612819216314,
+          "practical_margin": 0.1,
+          "scale": 200
+        },
+        "survived": {
+          "bootstrap_interval": [
+            0.0068359375,
+            0.0498046875
+          ],
+          "bootstrap_verdict": "positive",
+          "effect_bounded_within_margin": false,
+          "estimate": 0.0283203125,
+          "exact_equivalence": false,
+          "hoeffding_interval": [
+            -0.0712409694216314,
+            0.12788159442163138
+          ],
+          "hoeffding_radius": 0.0995612819216314,
+          "practical_margin": 0.1,
+          "scale": 1
+        }
+      },
+      "starts_per_arm": 1024,
+      "target": 1.05
+    },
+    {
+      "descriptive": {
+        "A_access_first": {
+          "cumulative_outcross": 164.6170642987475,
+          "cumulative_viable_maternal": 2537.1341808059365,
+          "cumulative_viable_self": 2372.5171165071893,
+          "occupied_updates": 193.5068359375,
+          "retained_recruits": 1519.259765625,
+          "survived": 0.939453125
+        },
+        "I_access_first": {
+          "cumulative_outcross": 163.5706840170422,
+          "cumulative_viable_maternal": 2437.271593959963,
+          "cumulative_viable_self": 2273.7009099429215,
+          "occupied_updates": 190.0283203125,
+          "retained_recruits": 1486.4384765625,
+          "survived": 0.8935546875
+        },
+        "both_access": {
+          "cumulative_outcross": 158.80170956234363,
+          "cumulative_viable_maternal": 2693.5473546330286,
+          "cumulative_viable_self": 2534.745645070685,
+          "occupied_updates": 196.0556640625,
+          "retained_recruits": 1548.70703125,
+          "survived": 0.962890625
+        }
+      },
+      "primary": {
+        "occupied_updates": {
+          "bootstrap_interval": [
+            0.0023192749023437506,
+            0.03264678955078127
+          ],
+          "bootstrap_verdict": "positive",
+          "effect_bounded_within_margin": false,
+          "estimate": 0.017392578125,
+          "exact_equivalence": false,
+          "hoeffding_interval": [
+            -0.0821687037966314,
+            0.1169538600466314
+          ],
+          "hoeffding_radius": 0.0995612819216314,
+          "practical_margin": 0.1,
+          "scale": 200
+        },
+        "survived": {
+          "bootstrap_interval": [
+            0.0185546875,
+            0.0732421875
+          ],
+          "bootstrap_verdict": "positive",
+          "effect_bounded_within_margin": false,
+          "estimate": 0.0458984375,
+          "exact_equivalence": false,
+          "hoeffding_interval": [
+            -0.0536628444216314,
+            0.14545971942163138
+          ],
+          "hoeffding_radius": 0.0995612819216314,
+          "practical_margin": 0.1,
+          "scale": 1
+        }
+      },
+      "starts_per_arm": 1024,
+      "target": 1.5
+    }
+  ],
+  "first_stage": {
+    "intended_shift": true,
+    "interval": [
+      0.046875,
+      0.080078125
+    ],
+    "order_score_difference": 0.0634765625
+  },
+  "inference": "Effect of mutation-access preparation plus a common challenge; first-stage shift alone is not pure natural-order mediation.",
+  "primary_family": 4,
+  "records_sha256": "5ecf992e19dd7492709474dbb6c2f3c7aa41d30e31eb5e00dd68789b72bb1ae7",
+  "status": "complete_verified"
+}

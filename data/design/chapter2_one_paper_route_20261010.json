@@ -68,6 +68,16 @@
       "independent_audit_scope": "all30 numerical archives/gates and990 event/40 checkpoint array readouts",
       "pooled_with_primary_studies": false,
       "limitation": "No heat/full-three-locus PDE/SPDE/ensemble-mean, causal drift or order-mediated persistence claim."
+    },
+    "supplementary_conditional_resolution": {
+      "rank": "separately preregistered conditional resolution; not pooled with primary visitor histories",
+      "source_directory": "data/results/four_question_resolution_20261011",
+      "boundary_cases": 6144,
+      "preparation_cases": 3072,
+      "future_cases": 6144,
+      "fixed_founder_blocks": 2,
+      "inference": "Genetic-access dominance band and all-start preparation-policy effects; no universal ecological threshold or pure natural-order mediation.",
+      "intervals": "registered simultaneous paired percentile bootstrap; distribution-free bounds include zero"
     }
   },
   "data_requirement": "Issue #436 outstanding DOI-backed external raw archive verification",
@@ -77,7 +87,7 @@
     "ecology_letters_letter_main_max": 5000,
     "ecology_letters_letter_abstract_max": 150,
     "display_items_max": 6,
-    "current_integrated_main_words": 3688,
+    "current_integrated_main_words": 3912,
     "current_integrated_abstract_words": 142,
     "main_text_excess_words": 0,
     "abstract_excess_words": 0,
@@ -90,9 +100,9 @@
       "pollinator population collapse",
       "historically explained global island syndrome"
     ],
-    "current_main_text_words": 3688,
+    "current_main_text_words": 3912,
     "current_abstract_words": 142,
-    "updated_submission_scope": "Main 3592 words between Introduction and figure captions; abstract 142; 4 main figures and 2 supplementary figures. Existing primary contracts unchanged; separately frozen tempo cohort is descriptive supplementary evidence.",
+    "updated_submission_scope": "Source main text 3912 words between Introduction and figure captions; anonymous review version 3917 words after link relocation; abstract 142; 4 main figures and 3 supplementary figures. Existing primary contracts unchanged; separately frozen tempo cohort is descriptive supplementary evidence.",
     "historical_precompression_counts": {
       "main_words": 6035,
       "abstract_words": 237,
@@ -112,7 +122,8 @@
   "legacy_process_builder": "scripts/build_chapter2_process_review.py (historical only; old manuscript and old Figure4)",
   "review_package_expected_supplementary_figures": [
     "SupplementaryFigureS1.pdf",
-    "SupplementaryFigureS2.svg"
+    "SupplementaryFigureS2.svg",
+    "SupplementaryFigureS3.pdf"
   ],
   "data_deposit_readiness": "data/submission/chapter2_unified_data_deposit_readiness_20261011.json"
 }

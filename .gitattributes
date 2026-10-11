@@ -10,3 +10,5 @@ data/results/atom_cell_completed_20261011/* -text whitespace=cr-at-eol
 docs/atom_comparison_20261011/* -text whitespace=cr-at-eol
 docs/atom_comparison_20261011/resolution_figures_20261011/* -text whitespace=cr-at-eol
 docs/atom_comparison_20261011/resolution_figures_20261011/*.svg -whitespace
+data/results/four_question_resolution_20261011/* -text whitespace=cr-at-eol
+docs/four_question_resolution_20261011/* -text whitespace=cr-at-eol

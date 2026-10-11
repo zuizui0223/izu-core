@@ -1,0 +1,27 @@
+{
+  "schema": "four_question_conditional_resolution_delivery_v1",
+  "source_inputs": {
+    "boundary_readout.json": "8ad79668cda1ee5738c697af7fb6a8e6c75d74df6042138f7497c19b976e4374",
+    "history_readout.json": "04ec4716ae5f2689788f5a90040fcaa8171f8fee86f0b97f3a12ca6fc017144c",
+    "boundary_registration.json": "0d838fb12955754047cb7c3ff242e53f90fcfdec8e95693c5031d44af1306f50",
+    "history_registration.json": "2214f85dab36741edb4bba5dcce058d67bc03bf8f5d181ba80acdc5bcd963e0b",
+    "boundary_execution.json": "1ab18ca7e2e926701ce4608da740bc3801568a7f088d4e8a1572204d439998d6",
+    "history_execution.json": "86651cc4d0efee4b29b5fd8473c08933191063ce1606cb3cd283ae66b07bf6fa",
+    "independent_readout_verification.json": "7f889e777b2981a4db6186ea11e2068bf3f31dd0856e5cdff739e1c72fd47497",
+    "boundary_access_diagnosis.json": "e43e226dd132939a0326be12361108028de48f4e285fc76d64db345ead42c7c9",
+    "history_state_diagnosis.json": "7b20e9882157907f5bfc4c702383ffcfc7c52864f8a0577ab312b2f3eddac916"
+  },
+  "design_sha256": "d8683c84f35f44edcd5cba35211cefc4f4c970043dd5f5daea4c33b770105396",
+  "records_sha256": {
+    "boundary": "67d1f9c84c28550ecd9a7d8afd2a0170088ac5b327967cc16ae518150ddf25a1",
+    "history": "5ecf992e19dd7492709474dbb6c2f3c7aa41d30e31eb5e00dd68789b72bb1ae7"
+  },
+  "source_closed_cohort_counts": {
+    "boundary": 6144,
+    "preparation": 3072,
+    "future": 6144
+  },
+  "scope": "Two fixed founder backgrounds; prospective new demographic streams. Conditional genetic-access band and all-start mutation-access preparation-policy effects, not natural-order mediation or a universal ecological threshold.",
+  "new_inference_computed_for_delivery": false,
+  "raw_preservation": "Separate resolution_original_cohorts_20261011.zip; not part of the numerical/320-ABM bundle."
+}
