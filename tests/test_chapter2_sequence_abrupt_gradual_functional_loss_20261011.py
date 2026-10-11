@@ -6,7 +6,8 @@ import pytest
 from scripts.run_chapter2_sequence_abrupt_gradual_functional_loss_20261011 import (
     STATUS, SAMPLE_TIMES,
     contract,original_model_config,visitor_profile,functional_visitors,
-    calibration,profile_plan,source_reference_state,order_from_trace,simulate,
+    calibration,profile_plan,source_reference_state,order_from_trace,
+    json_safe_trait_trace,simulate,
 )
 from scripts.model3_island.reproduction import reproduce
 
@@ -146,3 +147,17 @@ def test_design_rejects_unregistered_context():
         simulate(48271001,49271001,"jump","delayed",.5,.01,years=2)
     with pytest.raises(ValueError):
         simulate(48271001,49271001,"abrupt","delayed",.5,.01,years=401)
+
+
+def test_extinct_population_trait_means_remain_missing_not_zero():
+    fake=np.full((3,10),np.nan)
+    fake[:,0]=[48,1,0]
+    fake[0,1:4]=[.5,.5,.5]
+    fake[1,1:4]=[.3,.7,.5]
+    safe=json_safe_trait_trace(fake)
+    assert safe[0][0]==48 and safe[0][1]==.5
+    assert safe[2][0]==0
+    assert all(x is None for x in safe[2][1:])
+    json.dumps(safe,allow_nan=False)
+    with pytest.raises(ValueError):
+        json_safe_trait_trace(np.full((3,10),np.nan))
