@@ -74,4 +74,32 @@ python -m scripts.run_chapter2_sequence_abrupt_gradual_functional_loss_20261011 
 pytest -q tests/test_chapter2_sequence_abrupt_gradual_functional_loss_20261011.py
 ```
 
-Full 1,024-case run/cluster-level analysis requires a separate source-locked execution plan and trustworthy complete artifacts; merely adding a design, code and CI smoke tests **does not show an ecological result**. Distinguish this code-complete point from any future scientific conclusion.
+The complete-cohort execution framework is now implemented, but **NO full evolutionary outcomes have yet been admitted**.
+
+- `scripts/run_chapter2_sequence_abrupt_gradual_batch_20261011.py`: exactly 1,024 original-ABM cases partitioned into **16 equal 64-case shards**, with immutable task identities and per-case atomic SHA256 receipts. Short smoke cases are explicitly named `_SMOKE` and never get a completed biological manifest.
+- `scripts/summarize_chapter2_sequence_abrupt_gradual_functional_loss_20261011.py`: **refuses to summarize** unless all 16 full completed shard manifests, all 1,024 original full 400-update biological JSON files and receipt/source-design hashes are present. It groups all four demographic repeats within each independent synthetic visitor-profile cluster and compares abrupt−gradual at that unit, with predeclared two-sided descriptive cluster bootstrap (9,999 draws).
+- `tests/test_chapter2_sequence_abrupt_gradual_campaign_20261011.py`: checks complete paired 1,024-case factorial, no reused/colliding cases, no inference from smoke, and strict failure on incomplete data.
+
+Example engineering smoke:
+
+```bash
+python -m scripts.run_chapter2_sequence_abrupt_gradual_batch_20261011 \
+  --out /tmp/chapter2_timing_smoke --shard-index 0 --shard-count 16 \
+  --smoke-years 3 --case-limit 1
+```
+
+Full source campaign execution after final-head source CI and independent outcome authorization:
+
+```bash
+# The 16 shards may be distributed across workers, each with an isolated
+# receipt/output directory whose results are combined losslessly later.
+for SHARD in $(seq 0 15); do
+  python -m scripts.run_chapter2_sequence_abrupt_gradual_batch_20261011 \
+    --out /tmp/chapter2_timing_full --shard-index "$SHARD" --shard-count 16
+done
+python -m scripts.summarize_chapter2_sequence_abrupt_gradual_functional_loss_20261011 \
+  --input-root /tmp/chapter2_timing_full \
+  --out /tmp/chapter2_timing_readout.json
+```
+
+These are **execution instructions**, not a claim that 1,024 runs have already finished. No biological mean/CI is acceptable until the full source-proofed readout passes its completeness/receipt gates.
