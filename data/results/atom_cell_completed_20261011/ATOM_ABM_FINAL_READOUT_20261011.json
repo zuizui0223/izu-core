@@ -1,0 +1,34 @@
+{
+  "status": "admitted_descriptive_readout_built",
+  "numerical_contexts": 10,
+  "numerical_archives": 30,
+  "abm_histories": 320,
+  "thresholds": [
+    0.025,
+    0.05,
+    0.1
+  ],
+  "primary_threshold": 0.05,
+  "admission_comparisons": 20,
+  "maxima": {
+    "max_mean_error": 0.0008671089346723448,
+    "max_census_error": 7.815970093361102e-14,
+    "max_covariance_error": 4.0040706611469724e-05,
+    "max_checkpoint_allele_cdf_error": 0.004186323004452652
+  },
+  "inputs": {
+    "admission.json": "876834509cf7904a4af3dda31a81cb4fc809282dd05bc9a1b59e3840a140d855",
+    "completion_envelope.json": "161870b5d2c5633fe3d2f4aa987238b8c745361bc09011ce06689f75cc0cb229",
+    "independent_verification.json": "3a70544bfc72e2db5df4c3418470d85b1feb985741a8b42963c32fd70a698c45",
+    "matched_comparison.json": "15b63c5f3041bfbfa4f8541e2ad1742d993a59e23ae1d6592edf82576d5faa7f",
+    "matched_comparison_independent_verification.json": "cfe2dfc45f063de74634a04bc5649fa12da10988c528c709b03496fcd3996829"
+  },
+  "outputs": {
+    "atom_abm.png": "3ca7181c1eec1b1d1f2cff16e9907bf4561a6b4b868eaa0ac0424eb640966398",
+    "atom_abm.pdf": "51c65d51b242834a51bab1a9f84b87c6dcfcb8e5ad30d875b6620b391ccb2997",
+    "atom_abm.svg": "393d7ac37dc109856f5f63edfe7f1fbf986e6575dba80577ad8ad644c6cce9d7"
+  },
+  "csv_sha256": "5c433434442b006e10f6ab07a992fe2c1d46e5bbe2726f09498d3c08b322590c",
+  "figure_visual_review": "PNG visually inspected; all ten labels, six categories, density references, endpoint axes and caption readable; no clipping observed.",
+  "scope": "Descriptive all-context comparison; no new significance test or causal attribution."
+}

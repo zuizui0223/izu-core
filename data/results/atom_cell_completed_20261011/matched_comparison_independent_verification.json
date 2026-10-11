@@ -1,0 +1,22 @@
+{
+  "status": "all320_abm_and10_density_descriptive_readouts_independently_recomputed",
+  "matched_comparison_sha256": "15b63c5f3041bfbfa4f8541e2ad1742d993a59e23ae1d6592edf82576d5faa7f",
+  "abm_archives": 320,
+  "density_archives": 10,
+  "event_checks": 990,
+  "checkpoint_checks": 40,
+  "density_archive_sha256": {
+    "11b1a2b7232e15e9ad49c936.npz": "1fa4de5e5e31c2a2fead749f8d3267aba74467639ce1d394aa37f9e412f61e2e",
+    "e903280aae9748776a94480f.npz": "f76b75181e21fb36f7d9f75112fb9ee69e84910faf769700513866b4f79d7fa9",
+    "8b2d572effe103b3051d44ba.npz": "c665ddeeb2275cbe3fec83269342c09004016689c10dde22c9014a53ac74ac5f",
+    "59a88465d4eacf887c23715e.npz": "9018b2581094318f7d1f04519e25c2774e51c0c6f98f773d2be0c0c10614bec0",
+    "aabc01d31992d76a7314abba.npz": "42e3832cbce2aea9f6e26950f4ae4f3cc3977585cf06c242aaae2e34ac0658b2",
+    "8ddbc6b0019ce776e1d489b0.npz": "b413d58a8343f4ac94b03dcd237d9dc60b75b5bdedfbfb5561510c39617777d8",
+    "62f5f9752bb8077216f1c9df.npz": "99600f8e93d6b01d868dc213077fba56ec604fb87150faddb824565a0f8a2929",
+    "2189b48a90d6789016125743.npz": "508b691e6ec38c28ec3acba257f56e6ec75e81fab185a2c059c0f03df81d6f9d",
+    "ac269e25a9686718c8ca5f47.npz": "714e3188bb7e29c55b6d24d97809ec3ef2370de4357a61b6db1f1be78147597b",
+    "a87c825c9e8595862ed1124b.npz": "7e5a2ac4f986fc0d3cb984ddf83804ed0adb99d3333795cbffd4d96ee6409dae"
+  },
+  "verifier_sha256": "f24141b41705aef67513015dae09e44cd92fca7ed36b60a1c1ee35f18677f814",
+  "scope": "Archived trajectory-array event and checkpoint recomputation; no additional ecological test or raw-genome mean reconstruction"
+}

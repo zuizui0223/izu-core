@@ -6,3 +6,7 @@ data/results/model3_island_v2_summary/*.svg -whitespace
 data/results/model3_ch2_bridge_summary_20260927/* -text whitespace=cr-at-eol
 figures/model3_ch2_bridge_20260927/* -text whitespace=cr-at-eol
 figures/model3_ch2_bridge_20260927/*.svg -whitespace
+data/results/atom_cell_completed_20261011/* -text whitespace=cr-at-eol
+docs/atom_comparison_20261011/* -text whitespace=cr-at-eol
+docs/atom_comparison_20261011/resolution_figures_20261011/* -text whitespace=cr-at-eol
+docs/atom_comparison_20261011/resolution_figures_20261011/*.svg -whitespace
