@@ -80,3 +80,11 @@ pytest -q tests/test_chapter2_sequence_paired_original_replay_20261011.py
 ```
 
 We do **not** claim that the main environmental cause of precedence is proven. This checks the foundation before comparing *local full-W beta sign onset* to *genomic change onset*. A single-model original replay remains retrospective even if it reproduces every published source event.
+
+
+## Mechanistic point already established by source construction
+
+The actual original near/far histories are generated with the **same visitor history seed** and the same initial four functional visitor types; only the configured visitor replenishment distance changes. They also have identically seeded immigrant-plant candidate streams (seed source biology unchanged). The new regression asserts exact equality of the initial visitor IDs, functional optima, breadths and effectiveness, and of the early immigrant-seed candidate ID/genome arrays across arms.
+
+Thus the original far arm's early founder-relative A response does **not** mean the far-specific replenishment intervention directly initiated that response at the founding moment. The initial environment is shared. A can rise early in BOTH populations; the additional FAR-minus-NEAR investment divergence may emerge before the additional A divergence. This is a **source-supported interpretation of two different comparison baselines**, not a proof about when the full-W selection-gradient sign crossed later in a heterogeneous population.
+
