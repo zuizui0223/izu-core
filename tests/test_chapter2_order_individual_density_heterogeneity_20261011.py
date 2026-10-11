@@ -21,8 +21,11 @@ def test_census_changes_do_not_change_relative_genotype_type_frequencies():
             geno=state.alleles.mean(axis=2)
             assert geno.shape==(n,3)
             assert np.allclose(geno[:,2],.35)
-            assert all(np.sum(np.all(geno==geno[i],axis=1))==n//8
-                       for i in range(8))
+            if fixture=="clonal":
+                assert np.all(geno==geno[0])
+            else:
+                assert all(np.sum(np.all(geno==geno[i],axis=1))==n//8
+                           for i in range(8))
             np.testing.assert_allclose(geno[:8],geno[-8:],atol=0,rtol=0)
     for n in N_VALUES:
         np.testing.assert_allclose(
