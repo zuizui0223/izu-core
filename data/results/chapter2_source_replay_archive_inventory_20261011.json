@@ -1,0 +1,2258 @@
+{
+  "schema": "chapter2.github_archive_inventory.v1",
+  "observed_at_utc": "2026-10-11T08:36:33Z",
+  "assembled_at_utc": "2026-10-11T08:38:39Z",
+  "latest_campaign_metadata_read_started_at_utc": "2026-10-11T08:36:31Z",
+  "repository": "zuizui0223/izu-core",
+  "repository_ref_for_local_sources": "a0a39ee240443b9fa899b6f32515d84d5174408c",
+  "scope": "Read-only GitHub metadata and current repository provenance for the original 76001-series source replay. No new biological trajectories, simulations, tests, repository edits, GitHub mutations, Library search, Browser, or archive downloads were performed in this inventory task.",
+  "evidence_level": {
+    "metadata_only": true,
+    "zip_bytes_fetched": false,
+    "zip_bytes_digest_verified": false,
+    "zip_contents_inspected": false,
+    "per_case_receipts_verified": false,
+    "original_discovery_cohort_resolved_via_github": false,
+    "global_absence_from_github_established": false,
+    "statement": "Complete shard-name coverage and matching GitHub metadata have been established for two later cohorts only. No location for the original discovery archive was resolved within the searched sources; this is not a repository-wide or universal absence claim.",
+    "timestamp_boundary": "The six campaign run/artifact/job endpoints were re-read at the timestamps recorded below. Earlier search/release/PR inspections are reused; their exact request timestamps were not captured and are not inferred."
+  },
+  "target_original_discovery_cohort": {
+    "name": "Original sustained-isolation discovery",
+    "history_seed_first": 76001,
+    "history_seed_last": 76064,
+    "history_count": 64,
+    "demographic_repeat_seed_first": 7101,
+    "demographic_repeat_seed_last": 7108,
+    "demographic_repeat_count": 8,
+    "founder_seed": 74001,
+    "settings": [
+      "assurance_cost",
+      "prior_selfing"
+    ],
+    "arms": [
+      "near",
+      "far"
+    ],
+    "mutation_probabilities": [
+      0,
+      0.01
+    ],
+    "full_original_summary_case_count": 4096,
+    "original_new_persistent_far_cases": 2048,
+    "original_near_references": 2048,
+    "current_positive_mutation_replay_case_count": 2048,
+    "census_rows": 1001,
+    "trace_columns": 10,
+    "raw_diploid_checkpoint_updates": [
+      0,
+      200,
+      400,
+      1000
+    ],
+    "original_required_far_pattern": "outputs/model3_persistent_isolation_20261005/persistent_core_{setting}_u0.01_h{seed}_r{rep}_far.{npz,json}",
+    "original_required_near_pattern": "outputs/model3_full_mutation_20261004/core_{setting}_u0.01_h{seed}_r{rep}_near.{npz,json}",
+    "source_refs": [
+      {
+        "repository_path": "data/design/model3_persistent_isolation_20261005.json",
+        "local_path": "/workspace/scratch/352151dd0409/izu-core/data/design/model3_persistent_isolation_20261005.json",
+        "raw_url": "https://raw.githubusercontent.com/zuizui0223/izu-core/a0a39ee240443b9fa899b6f32515d84d5174408c/data/design/model3_persistent_isolation_20261005.json",
+        "blob_url": "https://github.com/zuizui0223/izu-core/blob/a0a39ee240443b9fa899b6f32515d84d5174408c/data/design/model3_persistent_isolation_20261005.json"
+      },
+      {
+        "repository_path": "data/results/model3_persistent_isolation_summary_20261005.json",
+        "local_path": "/workspace/scratch/352151dd0409/izu-core/data/results/model3_persistent_isolation_summary_20261005.json",
+        "raw_url": "https://raw.githubusercontent.com/zuizui0223/izu-core/a0a39ee240443b9fa899b6f32515d84d5174408c/data/results/model3_persistent_isolation_summary_20261005.json",
+        "blob_url": "https://github.com/zuizui0223/izu-core/blob/a0a39ee240443b9fa899b6f32515d84d5174408c/data/results/model3_persistent_isolation_summary_20261005.json"
+      },
+      {
+        "repository_path": "docs/CHAPTER2_SEQUENCE_ORIGINAL_GENOTYPE_GRADIENT_REPLAY_20261011.md",
+        "local_path": "/workspace/scratch/352151dd0409/izu-core/docs/CHAPTER2_SEQUENCE_ORIGINAL_GENOTYPE_GRADIENT_REPLAY_20261011.md",
+        "raw_url": "https://raw.githubusercontent.com/zuizui0223/izu-core/a0a39ee240443b9fa899b6f32515d84d5174408c/docs/CHAPTER2_SEQUENCE_ORIGINAL_GENOTYPE_GRADIENT_REPLAY_20261011.md",
+        "blob_url": "https://github.com/zuizui0223/izu-core/blob/a0a39ee240443b9fa899b6f32515d84d5174408c/docs/CHAPTER2_SEQUENCE_ORIGINAL_GENOTYPE_GRADIENT_REPLAY_20261011.md"
+      }
+    ],
+    "original_summary_commit": "c60e0394b33de669fc96230a7202eff563afa75e",
+    "original_summary_commit_url": "https://github.com/zuizui0223/izu-core/commit/c60e0394b33de669fc96230a7202eff563afa75e"
+  },
+  "campaigns": {
+    "assurance_generality": {
+      "associated_pull_request": {
+        "number": 411,
+        "url": "https://github.com/zuizui0223/izu-core/pull/411"
+      },
+      "cohort_identity": {
+        "name": "Four-setting assurance-generality confirmation (actual PR 411)",
+        "history_seed_first": 26110601,
+        "history_seed_last": 26110664,
+        "history_count": 64,
+        "demographic_repeat_seed_first": 26111601,
+        "demographic_repeat_seed_last": 26111608,
+        "demographic_repeat_count": 8,
+        "founder_seed": 74001,
+        "founding_assurance_override": "Both A alleles are forced to 0.5 in both fixed and evolving modes.",
+        "settings": [
+          "delayed_control",
+          "prior_selfing",
+          "pollen_discount",
+          "assurance_cost"
+        ],
+        "modes": [
+          "fixed",
+          "evolving"
+        ],
+        "arms": [
+          "near",
+          "far"
+        ],
+        "positive_mutation_probability": 0.01,
+        "positive_mutation_cases": 8192,
+        "zero_mutation_structural_control_cases": 256,
+        "total_declared_cases": 8448,
+        "original_discovery_cohort": false,
+        "source_identity_not_interchangeable_with_76001_histories": true
+      },
+      "design": {
+        "repository_path": "data/design/chapter2_assurance_generality_20261006.json",
+        "local_path": "/workspace/scratch/352151dd0409/izu-core/data/design/chapter2_assurance_generality_20261006.json",
+        "raw_url": "https://raw.githubusercontent.com/zuizui0223/izu-core/a0a39ee240443b9fa899b6f32515d84d5174408c/data/design/chapter2_assurance_generality_20261006.json",
+        "blob_url": "https://github.com/zuizui0223/izu-core/blob/a0a39ee240443b9fa899b6f32515d84d5174408c/data/design/chapter2_assurance_generality_20261006.json"
+      },
+      "run": {
+        "id": 37458098483,
+        "url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483",
+        "name": "Chapter 2 scientific gate",
+        "path": ".github/workflows/chapter2-scientific-gate.yml",
+        "event": "pull_request",
+        "status": "completed",
+        "conclusion": "cancelled",
+        "head_branch": "chapter2/assurance-generality-20261006",
+        "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4",
+        "run_attempt": 1,
+        "created_at": "2026-10-06T11:41:39Z",
+        "updated_at": "2026-10-06T11:50:00Z",
+        "run_started_at": "2026-10-06T11:41:39Z"
+      },
+      "metadata_reads": [
+        {
+          "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/runs/37458098483",
+          "read_completed_at_utc": "2026-10-11T08:36:33Z"
+        },
+        {
+          "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/runs/37458098483/artifacts?per_page=100&page=1",
+          "read_completed_at_utc": "2026-10-11T08:36:33Z"
+        },
+        {
+          "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/runs/37458098483/jobs?per_page=100&page=1",
+          "read_completed_at_utc": "2026-10-11T08:36:33Z"
+        }
+      ],
+      "raw_artifact_metadata_coverage": {
+        "expected_shards": 32,
+        "observed_shards": 32,
+        "observed_shard_numbers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15,
+          16,
+          17,
+          18,
+          19,
+          20,
+          21,
+          22,
+          23,
+          24,
+          25,
+          26,
+          27,
+          28,
+          29,
+          30,
+          31
+        ],
+        "raw_total_size_in_bytes": 377932059,
+        "all_raw_artifacts_unexpired": true,
+        "earliest_raw_expiry": "2026-11-05T11:43:09Z",
+        "latest_raw_expiry": "2026-11-05T11:47:54Z",
+        "returned_artifact_count": 34,
+        "api_total_artifact_count": 34,
+        "all_api_artifact_pages_covered": true,
+        "contents_and_case_receipts_not_verified": true
+      },
+      "raw_artifacts": [
+        {
+          "id": 11411031490,
+          "name": "chapter2-assurance-generality-shard-0",
+          "size_in_bytes": 9911019,
+          "digest": "sha256:6e9ab6e3d354bba2cffd6ce960fc49a4dca0c2c84ae4b6f6ad9397e822041420",
+          "created_at": "2026-10-06T11:43:11Z",
+          "updated_at": "2026-10-06T11:43:11Z",
+          "expires_at": "2026-11-05T11:43:09Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11411031490",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11411031490/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11410452132,
+          "name": "chapter2-assurance-generality-shard-1",
+          "size_in_bytes": 13867343,
+          "digest": "sha256:594516e1af6784c1c3642452a70dd03b1bc9853146812c1ea042e2b418e440be",
+          "created_at": "2026-10-06T11:44:35Z",
+          "updated_at": "2026-10-06T11:44:35Z",
+          "expires_at": "2026-11-05T11:44:34Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410452132",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410452132/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11411051762,
+          "name": "chapter2-assurance-generality-shard-2",
+          "size_in_bytes": 9773996,
+          "digest": "sha256:1fef68e29a5686c13398be36f9a96c8a6fdf337218e29258e8e06c78a48aebfa",
+          "created_at": "2026-10-06T11:44:44Z",
+          "updated_at": "2026-10-06T11:44:44Z",
+          "expires_at": "2026-11-05T11:44:43Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11411051762",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11411051762/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11411155493,
+          "name": "chapter2-assurance-generality-shard-3",
+          "size_in_bytes": 13682396,
+          "digest": "sha256:67134b4789702be88a02b356fd56a0252c31af6ae0ef6fa06e043037798bd241",
+          "created_at": "2026-10-06T11:43:19Z",
+          "updated_at": "2026-10-06T11:43:19Z",
+          "expires_at": "2026-11-05T11:43:17Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11411155493",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11411155493/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11410121937,
+          "name": "chapter2-assurance-generality-shard-4",
+          "size_in_bytes": 9914176,
+          "digest": "sha256:7a91b554775e5e2e1faccf1acf34d11b98ef5e6b7cececa90810905660fb4b6d",
+          "created_at": "2026-10-06T11:44:45Z",
+          "updated_at": "2026-10-06T11:44:45Z",
+          "expires_at": "2026-11-05T11:44:44Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410121937",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410121937/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11410061954,
+          "name": "chapter2-assurance-generality-shard-5",
+          "size_in_bytes": 13873310,
+          "digest": "sha256:91276f75178afc9b4aa58dc0840f1ed2a2286dd97c4bd7e5bf1727bfd4292299",
+          "created_at": "2026-10-06T11:43:42Z",
+          "updated_at": "2026-10-06T11:43:42Z",
+          "expires_at": "2026-11-05T11:43:41Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410061954",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410061954/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11410412318,
+          "name": "chapter2-assurance-generality-shard-6",
+          "size_in_bytes": 9781298,
+          "digest": "sha256:d301bb428777a9ad7843802961d4c70700d9beb3533367c832c93c1a3181c696",
+          "created_at": "2026-10-06T11:44:46Z",
+          "updated_at": "2026-10-06T11:44:46Z",
+          "expires_at": "2026-11-05T11:44:45Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410412318",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410412318/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11410497209,
+          "name": "chapter2-assurance-generality-shard-7",
+          "size_in_bytes": 13685599,
+          "digest": "sha256:de91ba59dccfd9b7eeabb8038e34a3f8f95991eaf453570bb8583085f9f0c7cf",
+          "created_at": "2026-10-06T11:44:48Z",
+          "updated_at": "2026-10-06T11:44:48Z",
+          "expires_at": "2026-11-05T11:44:45Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410497209",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410497209/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11410332394,
+          "name": "chapter2-assurance-generality-shard-8",
+          "size_in_bytes": 9915777,
+          "digest": "sha256:14b2cae6ff72a1b19069080eb9194e9109bdd891c516b64853bb163e8cbe5906",
+          "created_at": "2026-10-06T11:44:41Z",
+          "updated_at": "2026-10-06T11:44:41Z",
+          "expires_at": "2026-11-05T11:44:40Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410332394",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410332394/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11410867009,
+          "name": "chapter2-assurance-generality-shard-9",
+          "size_in_bytes": 13870510,
+          "digest": "sha256:c72f3f3ad518cfa1a45ab20608a445ca4d9840f020db10ebd78d3a5b540d4649",
+          "created_at": "2026-10-06T11:44:41Z",
+          "updated_at": "2026-10-06T11:44:41Z",
+          "expires_at": "2026-11-05T11:44:39Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410867009",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410867009/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11411101359,
+          "name": "chapter2-assurance-generality-shard-10",
+          "size_in_bytes": 9779729,
+          "digest": "sha256:e8990c53af696eeeabf3443d27d91af72d210e2e2dfefb20e73f13a6ec996727",
+          "created_at": "2026-10-06T11:43:21Z",
+          "updated_at": "2026-10-06T11:43:21Z",
+          "expires_at": "2026-11-05T11:43:20Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11411101359",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11411101359/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11410056930,
+          "name": "chapter2-assurance-generality-shard-11",
+          "size_in_bytes": 13689259,
+          "digest": "sha256:f7758eadac3587b51846c5943c533674f057f4d45dc48960811bfd73398f3fbb",
+          "created_at": "2026-10-06T11:43:50Z",
+          "updated_at": "2026-10-06T11:43:50Z",
+          "expires_at": "2026-11-05T11:43:48Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410056930",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410056930/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11410846956,
+          "name": "chapter2-assurance-generality-shard-12",
+          "size_in_bytes": 9909087,
+          "digest": "sha256:b97d77150e305544948cd9903f607adba6b8649823fd5698c4e93f7bfcbbcdf7",
+          "created_at": "2026-10-06T11:44:41Z",
+          "updated_at": "2026-10-06T11:44:41Z",
+          "expires_at": "2026-11-05T11:44:39Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410846956",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410846956/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11410442219,
+          "name": "chapter2-assurance-generality-shard-13",
+          "size_in_bytes": 13863228,
+          "digest": "sha256:f665bc5727624b7dc1576d68381a15550f4befb0eab544c4aae7d5c3c18dd367",
+          "created_at": "2026-10-06T11:44:41Z",
+          "updated_at": "2026-10-06T11:44:41Z",
+          "expires_at": "2026-11-05T11:44:38Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410442219",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410442219/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11410137017,
+          "name": "chapter2-assurance-generality-shard-14",
+          "size_in_bytes": 9778201,
+          "digest": "sha256:07dda97c654380a8eb9837a2f4e37d5962f3670a1a8ffa3727cc885b7e5d9707",
+          "created_at": "2026-10-06T11:44:45Z",
+          "updated_at": "2026-10-06T11:44:45Z",
+          "expires_at": "2026-11-05T11:44:44Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410137017",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410137017/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11410761709,
+          "name": "chapter2-assurance-generality-shard-15",
+          "size_in_bytes": 13679873,
+          "digest": "sha256:ef8182b120a6d4c4cd5d6c97902d7bfbaa09b375dec46856f4487de56e96e003",
+          "created_at": "2026-10-06T11:43:55Z",
+          "updated_at": "2026-10-06T11:43:55Z",
+          "expires_at": "2026-11-05T11:43:53Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410761709",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410761709/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11410397435,
+          "name": "chapter2-assurance-generality-shard-16",
+          "size_in_bytes": 9915294,
+          "digest": "sha256:afc5d81ba52e74833c7f800ae2bfdfa0d4220f0cb4e32974f18a31f5a9028c33",
+          "created_at": "2026-10-06T11:46:01Z",
+          "updated_at": "2026-10-06T11:46:01Z",
+          "expires_at": "2026-11-05T11:46:00Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410397435",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410397435/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11411066909,
+          "name": "chapter2-assurance-generality-shard-17",
+          "size_in_bytes": 13874852,
+          "digest": "sha256:a616702e68214b7f2ecede78138be5d5db3d0c8fadc9daf8293b74f5974769d9",
+          "created_at": "2026-10-06T11:46:15Z",
+          "updated_at": "2026-10-06T11:46:15Z",
+          "expires_at": "2026-11-05T11:46:13Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11411066909",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11411066909/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11410297181,
+          "name": "chapter2-assurance-generality-shard-18",
+          "size_in_bytes": 9778962,
+          "digest": "sha256:7b704e67744ad427fb3d3fb8fc2d953300f088069156171a9de4d26e9e7d3d97",
+          "created_at": "2026-10-06T11:46:26Z",
+          "updated_at": "2026-10-06T11:46:26Z",
+          "expires_at": "2026-11-05T11:46:24Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410297181",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410297181/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11410832384,
+          "name": "chapter2-assurance-generality-shard-19",
+          "size_in_bytes": 13689843,
+          "digest": "sha256:c4fcb78f1e44f5d5a8d424c071484379b3b74cd880b5d268840aee39a97fe1ce",
+          "created_at": "2026-10-06T11:46:26Z",
+          "updated_at": "2026-10-06T11:46:26Z",
+          "expires_at": "2026-11-05T11:46:24Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410832384",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410832384/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11410037383,
+          "name": "chapter2-assurance-generality-shard-20",
+          "size_in_bytes": 9913445,
+          "digest": "sha256:aed045d6df7554dec2e5f41118d031df990e7835777a1446bf5225eccada957c",
+          "created_at": "2026-10-06T11:46:43Z",
+          "updated_at": "2026-10-06T11:46:43Z",
+          "expires_at": "2026-11-05T11:46:42Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410037383",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410037383/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11411006977,
+          "name": "chapter2-assurance-generality-shard-21",
+          "size_in_bytes": 13873529,
+          "digest": "sha256:48b88a74bbf418cc80eb98e2a5da69db4fce06f4da683b4ba9129c07f4582933",
+          "created_at": "2026-10-06T11:45:38Z",
+          "updated_at": "2026-10-06T11:45:38Z",
+          "expires_at": "2026-11-05T11:45:37Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11411006977",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11411006977/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11410512576,
+          "name": "chapter2-assurance-generality-shard-22",
+          "size_in_bytes": 9786420,
+          "digest": "sha256:1980fb87253ebe5609b254fbb63c4dec24bd07e2648f900202c45fff5c861613",
+          "created_at": "2026-10-06T11:46:05Z",
+          "updated_at": "2026-10-06T11:46:05Z",
+          "expires_at": "2026-11-05T11:46:03Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410512576",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410512576/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11410902311,
+          "name": "chapter2-assurance-generality-shard-23",
+          "size_in_bytes": 13692348,
+          "digest": "sha256:e6699597c0def14b80f466bdba5d23c1f9e89a0516a405c1a0fbf32db6243ee4",
+          "created_at": "2026-10-06T11:46:08Z",
+          "updated_at": "2026-10-06T11:46:08Z",
+          "expires_at": "2026-11-05T11:46:06Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410902311",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410902311/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11410907380,
+          "name": "chapter2-assurance-generality-shard-24",
+          "size_in_bytes": 9905267,
+          "digest": "sha256:d41acc85eb162e48aaad55c91756d5a82b4f9cad41314459c96980d95c9f18ba",
+          "created_at": "2026-10-06T11:47:32Z",
+          "updated_at": "2026-10-06T11:47:32Z",
+          "expires_at": "2026-11-05T11:47:30Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410907380",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410907380/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11410807349,
+          "name": "chapter2-assurance-generality-shard-25",
+          "size_in_bytes": 13862881,
+          "digest": "sha256:1183be94f8223a9ed80f6149908a889fcebe1749f95cdc153dba8715772eaaa8",
+          "created_at": "2026-10-06T11:47:31Z",
+          "updated_at": "2026-10-06T11:47:31Z",
+          "expires_at": "2026-11-05T11:47:30Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410807349",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410807349/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11410802290,
+          "name": "chapter2-assurance-generality-shard-26",
+          "size_in_bytes": 9777805,
+          "digest": "sha256:391ffdf914682e1930b40e0c4d02070e15c674b313927e9639ba801c55d37578",
+          "created_at": "2026-10-06T11:46:58Z",
+          "updated_at": "2026-10-06T11:46:58Z",
+          "expires_at": "2026-11-05T11:46:56Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410802290",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410802290/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11410097253,
+          "name": "chapter2-assurance-generality-shard-27",
+          "size_in_bytes": 13676712,
+          "digest": "sha256:e8128060dcd5db79f605dd8a7689b58591439d35f9e5aaf64d9493151b194001",
+          "created_at": "2026-10-06T11:46:08Z",
+          "updated_at": "2026-10-06T11:46:08Z",
+          "expires_at": "2026-11-05T11:46:07Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410097253",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410097253/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11410897020,
+          "name": "chapter2-assurance-generality-shard-28",
+          "size_in_bytes": 9904631,
+          "digest": "sha256:2df1c4ec81411b47b928548ec4001029fdc9d13f43e487b36aaafbf8258d00f8",
+          "created_at": "2026-10-06T11:46:05Z",
+          "updated_at": "2026-10-06T11:46:05Z",
+          "expires_at": "2026-11-05T11:46:03Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410897020",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410897020/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11410957432,
+          "name": "chapter2-assurance-generality-shard-29",
+          "size_in_bytes": 13852969,
+          "digest": "sha256:b8999ed7351ce73c12b46e9a15a85f96fe74fb533a755ba96b91950318a4bb38",
+          "created_at": "2026-10-06T11:47:36Z",
+          "updated_at": "2026-10-06T11:47:36Z",
+          "expires_at": "2026-11-05T11:47:34Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410957432",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410957432/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11410062427,
+          "name": "chapter2-assurance-generality-shard-30",
+          "size_in_bytes": 9775245,
+          "digest": "sha256:981a2e1da3ec2cdd81242ba85bb2d76e17ac0b9c037ef52f77cc3b5032e28107",
+          "created_at": "2026-10-06T11:46:52Z",
+          "updated_at": "2026-10-06T11:46:52Z",
+          "expires_at": "2026-11-05T11:46:52Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410062427",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11410062427/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        },
+        {
+          "id": 11411270015,
+          "name": "chapter2-assurance-generality-shard-31",
+          "size_in_bytes": 13677055,
+          "digest": "sha256:8f78b75aca345e42306bde3cd6bcfa3df7b129f76262cfe7ad804aa68f36b2f0",
+          "created_at": "2026-10-06T11:47:55Z",
+          "updated_at": "2026-10-06T11:47:55Z",
+          "expires_at": "2026-11-05T11:47:54Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11411270015",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11411270015/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        }
+      ],
+      "summary_artifacts": [
+        {
+          "id": 11411525163,
+          "name": "chapter2-assurance-generality-result",
+          "size_in_bytes": 2849,
+          "digest": "sha256:34bedf03e6cde0b3d7f5140b7f352227b5dd1550c097e66e42022aa9830d3d8c",
+          "created_at": "2026-10-06T11:49:56Z",
+          "updated_at": "2026-10-06T11:49:56Z",
+          "expires_at": "2027-01-04T11:41:39Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11411525163",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11411525163/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        }
+      ],
+      "other_artifacts": [
+        {
+          "id": 11411106263,
+          "name": "chapter2-process-review-confirmed-20261006",
+          "size_in_bytes": 1165759,
+          "digest": "sha256:e2657490adb858fab83557d5de07240c53830dda6c4da5ddcf5f3e77d4e54072",
+          "created_at": "2026-10-06T11:43:19Z",
+          "updated_at": "2026-10-06T11:43:19Z",
+          "expires_at": "2027-01-04T11:41:39Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11411106263",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11411106263/zip",
+          "workflow_run": {
+            "id": 37458098483,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "chapter2/assurance-generality-20261006",
+            "head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4"
+          }
+        }
+      ],
+      "job_completion": {
+        "returned_job_count": 42,
+        "api_total_job_count": 42,
+        "all_api_job_pages_covered": true,
+        "shard_job_count": 32,
+        "all_shard_jobs_completed_successfully": true,
+        "summary_job_count": 1,
+        "all_summary_jobs_completed_successfully": true,
+        "shard_jobs": [
+          {
+            "id": 112250624616,
+            "name": "assurance-generality-shard (0)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:41:50Z",
+            "completed_at": "2026-10-06T11:43:13Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250624616"
+          },
+          {
+            "id": 112250624545,
+            "name": "assurance-generality-shard (1)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:41:50Z",
+            "completed_at": "2026-10-06T11:44:37Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250624545"
+          },
+          {
+            "id": 112250624585,
+            "name": "assurance-generality-shard (2)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:41:50Z",
+            "completed_at": "2026-10-06T11:44:46Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250624585"
+          },
+          {
+            "id": 112250624600,
+            "name": "assurance-generality-shard (3)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:41:50Z",
+            "completed_at": "2026-10-06T11:43:22Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250624600"
+          },
+          {
+            "id": 112250624560,
+            "name": "assurance-generality-shard (4)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:41:50Z",
+            "completed_at": "2026-10-06T11:44:47Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250624560"
+          },
+          {
+            "id": 112250624655,
+            "name": "assurance-generality-shard (5)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:41:50Z",
+            "completed_at": "2026-10-06T11:43:44Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250624655"
+          },
+          {
+            "id": 112250624580,
+            "name": "assurance-generality-shard (6)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:41:50Z",
+            "completed_at": "2026-10-06T11:44:48Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250624580"
+          },
+          {
+            "id": 112250624583,
+            "name": "assurance-generality-shard (7)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:41:50Z",
+            "completed_at": "2026-10-06T11:44:51Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250624583"
+          },
+          {
+            "id": 112250624593,
+            "name": "assurance-generality-shard (8)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:41:50Z",
+            "completed_at": "2026-10-06T11:44:43Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250624593"
+          },
+          {
+            "id": 112250624632,
+            "name": "assurance-generality-shard (9)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:41:50Z",
+            "completed_at": "2026-10-06T11:44:44Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250624632"
+          },
+          {
+            "id": 112250624633,
+            "name": "assurance-generality-shard (10)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:41:50Z",
+            "completed_at": "2026-10-06T11:43:23Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250624633"
+          },
+          {
+            "id": 112250624582,
+            "name": "assurance-generality-shard (11)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:41:51Z",
+            "completed_at": "2026-10-06T11:43:53Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250624582"
+          },
+          {
+            "id": 112250624682,
+            "name": "assurance-generality-shard (12)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:41:51Z",
+            "completed_at": "2026-10-06T11:44:44Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250624682"
+          },
+          {
+            "id": 112250624668,
+            "name": "assurance-generality-shard (13)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:41:50Z",
+            "completed_at": "2026-10-06T11:44:44Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250624668"
+          },
+          {
+            "id": 112250624737,
+            "name": "assurance-generality-shard (14)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:41:50Z",
+            "completed_at": "2026-10-06T11:44:47Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250624737"
+          },
+          {
+            "id": 112250624626,
+            "name": "assurance-generality-shard (15)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:41:50Z",
+            "completed_at": "2026-10-06T11:43:57Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250624626"
+          },
+          {
+            "id": 112250624619,
+            "name": "assurance-generality-shard (16)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:43:14Z",
+            "completed_at": "2026-10-06T11:46:03Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250624619"
+          },
+          {
+            "id": 112250624803,
+            "name": "assurance-generality-shard (17)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:43:23Z",
+            "completed_at": "2026-10-06T11:46:17Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250624803"
+          },
+          {
+            "id": 112250624911,
+            "name": "assurance-generality-shard (18)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:43:26Z",
+            "completed_at": "2026-10-06T11:46:29Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250624911"
+          },
+          {
+            "id": 112250624864,
+            "name": "assurance-generality-shard (19)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:43:46Z",
+            "completed_at": "2026-10-06T11:46:29Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250624864"
+          },
+          {
+            "id": 112250624850,
+            "name": "assurance-generality-shard (20)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:43:55Z",
+            "completed_at": "2026-10-06T11:46:45Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250624850"
+          },
+          {
+            "id": 112250624723,
+            "name": "assurance-generality-shard (21)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:43:59Z",
+            "completed_at": "2026-10-06T11:45:40Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250624723"
+          },
+          {
+            "id": 112250624896,
+            "name": "assurance-generality-shard (22)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:44:39Z",
+            "completed_at": "2026-10-06T11:46:08Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250624896"
+          },
+          {
+            "id": 112250624728,
+            "name": "assurance-generality-shard (23)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:44:44Z",
+            "completed_at": "2026-10-06T11:46:10Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250624728"
+          },
+          {
+            "id": 112250624880,
+            "name": "assurance-generality-shard (24)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:44:46Z",
+            "completed_at": "2026-10-06T11:47:33Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250624880"
+          },
+          {
+            "id": 112250624816,
+            "name": "assurance-generality-shard (25)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:44:46Z",
+            "completed_at": "2026-10-06T11:47:33Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250624816"
+          },
+          {
+            "id": 112250626058,
+            "name": "assurance-generality-shard (26)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:44:46Z",
+            "completed_at": "2026-10-06T11:47:00Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250626058"
+          },
+          {
+            "id": 112250626179,
+            "name": "assurance-generality-shard (27)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:44:47Z",
+            "completed_at": "2026-10-06T11:46:11Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250626179"
+          },
+          {
+            "id": 112250626252,
+            "name": "assurance-generality-shard (28)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:44:49Z",
+            "completed_at": "2026-10-06T11:46:08Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250626252"
+          },
+          {
+            "id": 112250626532,
+            "name": "assurance-generality-shard (29)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:44:49Z",
+            "completed_at": "2026-10-06T11:47:40Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250626532"
+          },
+          {
+            "id": 112250626622,
+            "name": "assurance-generality-shard (30)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:44:49Z",
+            "completed_at": "2026-10-06T11:46:54Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250626622"
+          },
+          {
+            "id": 112250626784,
+            "name": "assurance-generality-shard (31)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:44:58Z",
+            "completed_at": "2026-10-06T11:47:58Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112250626784"
+          }
+        ],
+        "summary_jobs": [
+          {
+            "id": 112252892958,
+            "name": "assurance-generality-summary",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-06T11:48:00Z",
+            "completed_at": "2026-10-06T11:49:58Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483/job/112252892958"
+          }
+        ],
+        "run_conclusion_interpretation": "The API run conclusion is cancelled, while all 32 shard jobs and the summary job have completed/success. Preserve both observations; do not replace run conclusion with success."
+      }
+    },
+    "confirmatory": {
+      "associated_pull_request": {
+        "number": 402,
+        "url": "https://github.com/zuizui0223/izu-core/pull/402"
+      },
+      "cohort_identity": {
+        "name": "Independent 1005 process confirmation incorporated in PR 402",
+        "history_seed_first": 26100601,
+        "history_seed_last": 26100664,
+        "history_count": 64,
+        "demographic_repeat_seed_first": 26101601,
+        "demographic_repeat_seed_last": 26101608,
+        "demographic_repeat_count": 8,
+        "founder_seed": 74001,
+        "settings": [
+          "assurance_cost",
+          "prior_selfing"
+        ],
+        "sequence_cases": 2048,
+        "sequence_arms": [
+          "far"
+        ],
+        "sequence_mutation_probabilities": [
+          0,
+          0.01
+        ],
+        "fixed_assurance_cases": 2048,
+        "fixed_assurance_arms": [
+          "near",
+          "far"
+        ],
+        "fixed_assurance": 0.5,
+        "fixed_assurance_mutation_probability": 0.01,
+        "total_declared_cases": 4096,
+        "original_discovery_cohort": false,
+        "source_identity_not_interchangeable_with_76001_histories": true
+      },
+      "design": {
+        "repository_path": "data/design/chapter2_1005_confirmatory_replication_20261006.json",
+        "local_path": "/workspace/scratch/352151dd0409/izu-core/data/design/chapter2_1005_confirmatory_replication_20261006.json",
+        "raw_url": "https://raw.githubusercontent.com/zuizui0223/izu-core/a0a39ee240443b9fa899b6f32515d84d5174408c/data/design/chapter2_1005_confirmatory_replication_20261006.json",
+        "blob_url": "https://github.com/zuizui0223/izu-core/blob/a0a39ee240443b9fa899b6f32515d84d5174408c/data/design/chapter2_1005_confirmatory_replication_20261006.json"
+      },
+      "run": {
+        "id": 37390991122,
+        "url": "https://github.com/zuizui0223/izu-core/actions/runs/37390991122",
+        "name": "Chapter 2 scientific gate",
+        "path": ".github/workflows/chapter2-scientific-gate.yml",
+        "event": "pull_request",
+        "status": "completed",
+        "conclusion": "success",
+        "head_branch": "codex/model3-full-mutation-closeout-20261004",
+        "head_sha": "380de3240992db691e1434f8577256ced80d5ae8",
+        "run_attempt": 1,
+        "created_at": "2026-10-05T23:52:59Z",
+        "updated_at": "2026-10-05T23:57:20Z",
+        "run_started_at": "2026-10-05T23:52:59Z"
+      },
+      "metadata_reads": [
+        {
+          "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/runs/37390991122",
+          "read_completed_at_utc": "2026-10-11T08:36:33Z"
+        },
+        {
+          "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/runs/37390991122/artifacts?per_page=100&page=1",
+          "read_completed_at_utc": "2026-10-11T08:36:33Z"
+        },
+        {
+          "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/runs/37390991122/jobs?per_page=100&page=1",
+          "read_completed_at_utc": "2026-10-11T08:36:33Z"
+        }
+      ],
+      "raw_artifact_metadata_coverage": {
+        "expected_shards": 16,
+        "observed_shards": 16,
+        "observed_shard_numbers": [
+          0,
+          1,
+          2,
+          3,
+          4,
+          5,
+          6,
+          7,
+          8,
+          9,
+          10,
+          11,
+          12,
+          13,
+          14,
+          15
+        ],
+        "raw_total_size_in_bytes": 140185877,
+        "all_raw_artifacts_unexpired": true,
+        "earliest_raw_expiry": "2026-11-04T23:54:31Z",
+        "latest_raw_expiry": "2026-11-04T23:56:26Z",
+        "returned_artifact_count": 17,
+        "api_total_artifact_count": 17,
+        "all_api_artifact_pages_covered": true,
+        "contents_and_case_receipts_not_verified": true
+      },
+      "raw_artifacts": [
+        {
+          "id": 11381221933,
+          "name": "chapter2-1005-confirmatory-shard-0",
+          "size_in_bytes": 8790387,
+          "digest": "sha256:176e143f96173798c304545e32900898330f0fa4573be3a4ae8dc6ea01bdefe6",
+          "created_at": "2026-10-05T23:54:59Z",
+          "updated_at": "2026-10-05T23:54:59Z",
+          "expires_at": "2026-11-04T23:54:58Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11381221933",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11381221933/zip",
+          "workflow_run": {
+            "id": 37390991122,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "codex/model3-full-mutation-closeout-20261004",
+            "head_sha": "380de3240992db691e1434f8577256ced80d5ae8"
+          }
+        },
+        {
+          "id": 11380299610,
+          "name": "chapter2-1005-confirmatory-shard-1",
+          "size_in_bytes": 8734300,
+          "digest": "sha256:3a968e2f8a8feb9d8584b9081eb55c1ae87a9f80be5a0a1595cee99164384d79",
+          "created_at": "2026-10-05T23:54:32Z",
+          "updated_at": "2026-10-05T23:54:32Z",
+          "expires_at": "2026-11-04T23:54:31Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11380299610",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11380299610/zip",
+          "workflow_run": {
+            "id": 37390991122,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "codex/model3-full-mutation-closeout-20261004",
+            "head_sha": "380de3240992db691e1434f8577256ced80d5ae8"
+          }
+        },
+        {
+          "id": 11380853633,
+          "name": "chapter2-1005-confirmatory-shard-2",
+          "size_in_bytes": 8789078,
+          "digest": "sha256:f533e629940f3397f668d89466cc29c5904497dd5e0fd600ddeae248547a6299",
+          "created_at": "2026-10-05T23:56:04Z",
+          "updated_at": "2026-10-05T23:56:04Z",
+          "expires_at": "2026-11-04T23:56:02Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11380853633",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11380853633/zip",
+          "workflow_run": {
+            "id": 37390991122,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "codex/model3-full-mutation-closeout-20261004",
+            "head_sha": "380de3240992db691e1434f8577256ced80d5ae8"
+          }
+        },
+        {
+          "id": 11380309897,
+          "name": "chapter2-1005-confirmatory-shard-3",
+          "size_in_bytes": 8751040,
+          "digest": "sha256:17b1fa5c4b6ad4a7f3f62a69a207d6611072fa3e065ad777946d1fa62fbb44e9",
+          "created_at": "2026-10-05T23:56:07Z",
+          "updated_at": "2026-10-05T23:56:07Z",
+          "expires_at": "2026-11-04T23:56:06Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11380309897",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11380309897/zip",
+          "workflow_run": {
+            "id": 37390991122,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "codex/model3-full-mutation-closeout-20261004",
+            "head_sha": "380de3240992db691e1434f8577256ced80d5ae8"
+          }
+        },
+        {
+          "id": 11380619458,
+          "name": "chapter2-1005-confirmatory-shard-4",
+          "size_in_bytes": 8805543,
+          "digest": "sha256:1474f8459533ef00a0a9d99a9c9dc1f7707c1f2e38c88576ed5f781940cbc59f",
+          "created_at": "2026-10-05T23:56:02Z",
+          "updated_at": "2026-10-05T23:56:02Z",
+          "expires_at": "2026-11-04T23:56:00Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11380619458",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11380619458/zip",
+          "workflow_run": {
+            "id": 37390991122,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "codex/model3-full-mutation-closeout-20261004",
+            "head_sha": "380de3240992db691e1434f8577256ced80d5ae8"
+          }
+        },
+        {
+          "id": 11380699306,
+          "name": "chapter2-1005-confirmatory-shard-5",
+          "size_in_bytes": 8726701,
+          "digest": "sha256:700ab871f9315f175b18aad17caeffd20ab8b27d674dfecd0512bbc0e553c712",
+          "created_at": "2026-10-05T23:54:32Z",
+          "updated_at": "2026-10-05T23:54:32Z",
+          "expires_at": "2026-11-04T23:54:31Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11380699306",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11380699306/zip",
+          "workflow_run": {
+            "id": 37390991122,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "codex/model3-full-mutation-closeout-20261004",
+            "head_sha": "380de3240992db691e1434f8577256ced80d5ae8"
+          }
+        },
+        {
+          "id": 11380838613,
+          "name": "chapter2-1005-confirmatory-shard-6",
+          "size_in_bytes": 8790768,
+          "digest": "sha256:a2b80b05350f5029d98d3204d3b913ece51321240d7457f771b885f2e0dec602",
+          "created_at": "2026-10-05T23:56:28Z",
+          "updated_at": "2026-10-05T23:56:28Z",
+          "expires_at": "2026-11-04T23:56:26Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11380838613",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11380838613/zip",
+          "workflow_run": {
+            "id": 37390991122,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "codex/model3-full-mutation-closeout-20261004",
+            "head_sha": "380de3240992db691e1434f8577256ced80d5ae8"
+          }
+        },
+        {
+          "id": 11380504445,
+          "name": "chapter2-1005-confirmatory-shard-7",
+          "size_in_bytes": 8738241,
+          "digest": "sha256:76940ae1c7a02f0ca671ae7e3b472bb7bdc2e326b8f648e4dffdb672c1d57c39",
+          "created_at": "2026-10-05T23:55:08Z",
+          "updated_at": "2026-10-05T23:55:08Z",
+          "expires_at": "2026-11-04T23:55:06Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11380504445",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11380504445/zip",
+          "workflow_run": {
+            "id": 37390991122,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "codex/model3-full-mutation-closeout-20261004",
+            "head_sha": "380de3240992db691e1434f8577256ced80d5ae8"
+          }
+        },
+        {
+          "id": 11381482009,
+          "name": "chapter2-1005-confirmatory-shard-8",
+          "size_in_bytes": 8788063,
+          "digest": "sha256:da2e8a5a5c3067228a0d9dd58c907447a5a0f7688fd93a642a55db83cb6b8b43",
+          "created_at": "2026-10-05T23:56:08Z",
+          "updated_at": "2026-10-05T23:56:08Z",
+          "expires_at": "2026-11-04T23:56:06Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11381482009",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11381482009/zip",
+          "workflow_run": {
+            "id": 37390991122,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "codex/model3-full-mutation-closeout-20261004",
+            "head_sha": "380de3240992db691e1434f8577256ced80d5ae8"
+          }
+        },
+        {
+          "id": 11381540018,
+          "name": "chapter2-1005-confirmatory-shard-9",
+          "size_in_bytes": 8722374,
+          "digest": "sha256:777773aaec4495befb8c79977d34538436a6ddbf562657d9078ce11dc507b7d7",
+          "created_at": "2026-10-05T23:56:06Z",
+          "updated_at": "2026-10-05T23:56:06Z",
+          "expires_at": "2026-11-04T23:56:04Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11381540018",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11381540018/zip",
+          "workflow_run": {
+            "id": 37390991122,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "codex/model3-full-mutation-closeout-20261004",
+            "head_sha": "380de3240992db691e1434f8577256ced80d5ae8"
+          }
+        },
+        {
+          "id": 11381382104,
+          "name": "chapter2-1005-confirmatory-shard-10",
+          "size_in_bytes": 8781953,
+          "digest": "sha256:f5ee0aad99a400cc010d62248fdf2b32160b18ffb9ac4f3af7d5eadb23451812",
+          "created_at": "2026-10-05T23:56:06Z",
+          "updated_at": "2026-10-05T23:56:06Z",
+          "expires_at": "2026-11-04T23:56:05Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11381382104",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11381382104/zip",
+          "workflow_run": {
+            "id": 37390991122,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "codex/model3-full-mutation-closeout-20261004",
+            "head_sha": "380de3240992db691e1434f8577256ced80d5ae8"
+          }
+        },
+        {
+          "id": 11381102203,
+          "name": "chapter2-1005-confirmatory-shard-11",
+          "size_in_bytes": 8727865,
+          "digest": "sha256:39ec74fcab0236bc992578f30882ee5c279c00e9ba1955d8796404ad2843ee36",
+          "created_at": "2026-10-05T23:56:04Z",
+          "updated_at": "2026-10-05T23:56:04Z",
+          "expires_at": "2026-11-04T23:56:03Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11381102203",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11381102203/zip",
+          "workflow_run": {
+            "id": 37390991122,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "codex/model3-full-mutation-closeout-20261004",
+            "head_sha": "380de3240992db691e1434f8577256ced80d5ae8"
+          }
+        },
+        {
+          "id": 11381506870,
+          "name": "chapter2-1005-confirmatory-shard-12",
+          "size_in_bytes": 8783990,
+          "digest": "sha256:68fb69cbd5a4800582cf38aba5a42a1417e9d0ad9c7d4a3e51fa7e666474a22e",
+          "created_at": "2026-10-05T23:55:16Z",
+          "updated_at": "2026-10-05T23:55:16Z",
+          "expires_at": "2026-11-04T23:55:14Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11381506870",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11381506870/zip",
+          "workflow_run": {
+            "id": 37390991122,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "codex/model3-full-mutation-closeout-20261004",
+            "head_sha": "380de3240992db691e1434f8577256ced80d5ae8"
+          }
+        },
+        {
+          "id": 11380384653,
+          "name": "chapter2-1005-confirmatory-shard-13",
+          "size_in_bytes": 8731153,
+          "digest": "sha256:5bceb43b753df9e1513265d73614e9a18ab5dce49b4280ec136c1486b481200a",
+          "created_at": "2026-10-05T23:55:10Z",
+          "updated_at": "2026-10-05T23:55:10Z",
+          "expires_at": "2026-11-04T23:55:08Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11380384653",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11380384653/zip",
+          "workflow_run": {
+            "id": 37390991122,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "codex/model3-full-mutation-closeout-20261004",
+            "head_sha": "380de3240992db691e1434f8577256ced80d5ae8"
+          }
+        },
+        {
+          "id": 11380714344,
+          "name": "chapter2-1005-confirmatory-shard-14",
+          "size_in_bytes": 8789338,
+          "digest": "sha256:2c73fcb2135c2bd74ff1ed266021ac24830ebb79191a362285e71972a304314f",
+          "created_at": "2026-10-05T23:55:15Z",
+          "updated_at": "2026-10-05T23:55:15Z",
+          "expires_at": "2026-11-04T23:55:14Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11380714344",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11380714344/zip",
+          "workflow_run": {
+            "id": 37390991122,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "codex/model3-full-mutation-closeout-20261004",
+            "head_sha": "380de3240992db691e1434f8577256ced80d5ae8"
+          }
+        },
+        {
+          "id": 11380908751,
+          "name": "chapter2-1005-confirmatory-shard-15",
+          "size_in_bytes": 8735083,
+          "digest": "sha256:a75461952a41cc54a2f522fb7afc9ba83f17fd2fe7d1950e795037b30379d2b7",
+          "created_at": "2026-10-05T23:56:21Z",
+          "updated_at": "2026-10-05T23:56:21Z",
+          "expires_at": "2026-11-04T23:56:19Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11380908751",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11380908751/zip",
+          "workflow_run": {
+            "id": 37390991122,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "codex/model3-full-mutation-closeout-20261004",
+            "head_sha": "380de3240992db691e1434f8577256ced80d5ae8"
+          }
+        }
+      ],
+      "summary_artifacts": [
+        {
+          "id": 11381590034,
+          "name": "chapter2-1005-confirmatory-result",
+          "size_in_bytes": 8297,
+          "digest": "sha256:7c5c252cf559067f218bbd9f37b74b00c5d9c52fe30f25bb0196c9bfb9cb4872",
+          "created_at": "2026-10-05T23:57:17Z",
+          "updated_at": "2026-10-05T23:57:17Z",
+          "expires_at": "2027-01-03T23:52:59Z",
+          "expired": false,
+          "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11381590034",
+          "archive_download_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts/11381590034/zip",
+          "workflow_run": {
+            "id": 37390991122,
+            "repository_id": 1281848381,
+            "head_repository_id": 1281848381,
+            "head_branch": "codex/model3-full-mutation-closeout-20261004",
+            "head_sha": "380de3240992db691e1434f8577256ced80d5ae8"
+          }
+        }
+      ],
+      "other_artifacts": [],
+      "job_completion": {
+        "returned_job_count": 22,
+        "api_total_job_count": 22,
+        "all_api_job_pages_covered": true,
+        "shard_job_count": 16,
+        "all_shard_jobs_completed_successfully": true,
+        "summary_job_count": 1,
+        "all_summary_jobs_completed_successfully": true,
+        "shard_jobs": [
+          {
+            "id": 112035811193,
+            "name": "process-confirmation-shard (0)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-05T23:53:16Z",
+            "completed_at": "2026-10-05T23:55:01Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37390991122/job/112035811193"
+          },
+          {
+            "id": 112035811154,
+            "name": "process-confirmation-shard (1)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-05T23:53:12Z",
+            "completed_at": "2026-10-05T23:54:34Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37390991122/job/112035811154"
+          },
+          {
+            "id": 112035811189,
+            "name": "process-confirmation-shard (2)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-05T23:53:16Z",
+            "completed_at": "2026-10-05T23:56:07Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37390991122/job/112035811189"
+          },
+          {
+            "id": 112035811259,
+            "name": "process-confirmation-shard (3)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-05T23:53:18Z",
+            "completed_at": "2026-10-05T23:56:09Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37390991122/job/112035811259"
+          },
+          {
+            "id": 112035811170,
+            "name": "process-confirmation-shard (4)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-05T23:53:16Z",
+            "completed_at": "2026-10-05T23:56:05Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37390991122/job/112035811170"
+          },
+          {
+            "id": 112035811129,
+            "name": "process-confirmation-shard (5)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-05T23:53:12Z",
+            "completed_at": "2026-10-05T23:54:34Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37390991122/job/112035811129"
+          },
+          {
+            "id": 112035811307,
+            "name": "process-confirmation-shard (6)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-05T23:53:41Z",
+            "completed_at": "2026-10-05T23:56:31Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37390991122/job/112035811307"
+          },
+          {
+            "id": 112035811277,
+            "name": "process-confirmation-shard (7)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-05T23:53:42Z",
+            "completed_at": "2026-10-05T23:55:11Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37390991122/job/112035811277"
+          },
+          {
+            "id": 112035811221,
+            "name": "process-confirmation-shard (8)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-05T23:53:18Z",
+            "completed_at": "2026-10-05T23:56:11Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37390991122/job/112035811221"
+          },
+          {
+            "id": 112035811239,
+            "name": "process-confirmation-shard (9)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-05T23:53:17Z",
+            "completed_at": "2026-10-05T23:56:09Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37390991122/job/112035811239"
+          },
+          {
+            "id": 112035811250,
+            "name": "process-confirmation-shard (10)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-05T23:53:17Z",
+            "completed_at": "2026-10-05T23:56:08Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37390991122/job/112035811250"
+          },
+          {
+            "id": 112035811228,
+            "name": "process-confirmation-shard (11)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-05T23:53:17Z",
+            "completed_at": "2026-10-05T23:56:05Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37390991122/job/112035811228"
+          },
+          {
+            "id": 112035811283,
+            "name": "process-confirmation-shard (12)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-05T23:53:18Z",
+            "completed_at": "2026-10-05T23:55:18Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37390991122/job/112035811283"
+          },
+          {
+            "id": 112035811280,
+            "name": "process-confirmation-shard (13)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-05T23:53:18Z",
+            "completed_at": "2026-10-05T23:55:13Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37390991122/job/112035811280"
+          },
+          {
+            "id": 112035811251,
+            "name": "process-confirmation-shard (14)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-05T23:53:18Z",
+            "completed_at": "2026-10-05T23:55:16Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37390991122/job/112035811251"
+          },
+          {
+            "id": 112035811219,
+            "name": "process-confirmation-shard (15)",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-05T23:53:26Z",
+            "completed_at": "2026-10-05T23:56:24Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37390991122/job/112035811219"
+          }
+        ],
+        "summary_jobs": [
+          {
+            "id": 112036804153,
+            "name": "process-confirmation-summary",
+            "status": "completed",
+            "conclusion": "success",
+            "started_at": "2026-10-05T23:56:33Z",
+            "completed_at": "2026-10-05T23:57:19Z",
+            "html_url": "https://github.com/zuizui0223/izu-core/actions/runs/37390991122/job/112036804153"
+          }
+        ],
+        "run_conclusion_interpretation": "The API run conclusion and all 16 shard jobs plus the summary job report success."
+      }
+    }
+  },
+  "source_preserved_artifact_mapping_comparison": {
+    "manifest": {
+      "repository_path": "data/design/chapter2_public_archive_manifest_20261006.json",
+      "local_path": "/workspace/scratch/352151dd0409/izu-core/data/design/chapter2_public_archive_manifest_20261006.json",
+      "raw_url": "https://raw.githubusercontent.com/zuizui0223/izu-core/a0a39ee240443b9fa899b6f32515d84d5174408c/data/design/chapter2_public_archive_manifest_20261006.json",
+      "blob_url": "https://github.com/zuizui0223/izu-core/blob/a0a39ee240443b9fa899b6f32515d84d5174408c/data/design/chapter2_public_archive_manifest_20261006.json"
+    },
+    "manifest_sha256": "c9564faeea3461a8d8080767a7080f4e770bf3d1a0a986eeff44e45959c900b3",
+    "manifest_source_main_sha": "982e55e80e4ca1e880edf089c3a06ce6bebce61f",
+    "campaign_count": 2,
+    "compared_artifact_count": 50,
+    "compared_fields": [
+      "id",
+      "name",
+      "size_in_bytes",
+      "digest",
+      "created_at",
+      "expires_at",
+      "expired"
+    ],
+    "mismatch_count": 0,
+    "mismatches": [],
+    "conclusion": "All 50 artifact metadata records match the preserved manifest. This checks metadata mapping, not downloaded ZIP bytes or internal case receipts.",
+    "associated_pr": {
+      "number": 412,
+      "url": "https://github.com/zuizui0223/izu-core/pull/412"
+    },
+    "archive_builder_scope": "Only the 4096-case independent confirmation and 8448-case assurance-generality cohorts; the old 76001 discovery cohort is not included by this manifest."
+  },
+  "older_original_archive_contracts": [
+    {
+      "archive_name": "model3_full_mutation_20261004_raw.zip",
+      "recorded_path": "outputs/model3_full_mutation_20261004_raw.zip",
+      "size_in_bytes": 224236731,
+      "sha256": "4647eb772303f0b53387227f052bae6ce0aff84d1b056ab3cdf6f71348917c48",
+      "declared_case_count": 4368,
+      "recorded_availability": "local workspace archive; not a public permanent repository",
+      "github_locator_found_in_scope": false,
+      "zip_members_verified_in_this_audit": false,
+      "relevance": "Contains the original near reference cohort. Its own far cases belong to the earlier 200/800 common-environment exposure, not the maintained-isolation far exposure.",
+      "source_refs": [
+        {
+          "repository_path": "data/results/model3_full_mutation_20261004.json",
+          "local_path": "/workspace/scratch/352151dd0409/izu-core/data/results/model3_full_mutation_20261004.json",
+          "raw_url": "https://raw.githubusercontent.com/zuizui0223/izu-core/a0a39ee240443b9fa899b6f32515d84d5174408c/data/results/model3_full_mutation_20261004.json",
+          "blob_url": "https://github.com/zuizui0223/izu-core/blob/a0a39ee240443b9fa899b6f32515d84d5174408c/data/results/model3_full_mutation_20261004.json"
+        },
+        {
+          "repository_path": "docs/MODEL3_FULL_MUTATION_RESULTS_20261004.md",
+          "local_path": "/workspace/scratch/352151dd0409/izu-core/docs/MODEL3_FULL_MUTATION_RESULTS_20261004.md",
+          "raw_url": "https://raw.githubusercontent.com/zuizui0223/izu-core/a0a39ee240443b9fa899b6f32515d84d5174408c/docs/MODEL3_FULL_MUTATION_RESULTS_20261004.md",
+          "blob_url": "https://github.com/zuizui0223/izu-core/blob/a0a39ee240443b9fa899b6f32515d84d5174408c/docs/MODEL3_FULL_MUTATION_RESULTS_20261004.md"
+        },
+        {
+          "repository_path": "docs/MODEL3_FULL_MUTATION_LEDGER_20261004.md",
+          "local_path": "/workspace/scratch/352151dd0409/izu-core/docs/MODEL3_FULL_MUTATION_LEDGER_20261004.md",
+          "raw_url": "https://raw.githubusercontent.com/zuizui0223/izu-core/a0a39ee240443b9fa899b6f32515d84d5174408c/docs/MODEL3_FULL_MUTATION_LEDGER_20261004.md",
+          "blob_url": "https://github.com/zuizui0223/izu-core/blob/a0a39ee240443b9fa899b6f32515d84d5174408c/docs/MODEL3_FULL_MUTATION_LEDGER_20261004.md"
+        }
+      ]
+    },
+    {
+      "archive_name": "model3_replenishment_evolution_20261005.zip",
+      "recorded_path": "outputs/archives/model3_replenishment_evolution_20261005.zip",
+      "size_in_bytes": 763914318,
+      "sha256": "37bd0bd312734715392add19f424696121fbe88517dfa784d8e702173ec71b6c",
+      "declared_case_count": 13312,
+      "declared_member_count": 26671,
+      "recorded_status": "all_archive_members_read_back_and_hash_verified",
+      "recorded_availability": "Local complete archive; not uploaded or a public persistent identifier.",
+      "github_locator_found_in_scope": false,
+      "zip_members_verified_in_this_audit": false,
+      "relevance": "Strong original-cohort candidate: the design reuses 2048 positive-mutation endpoints, d0 from full_mutation core near and d3 from persistent_isolation core far. A complete archive receipt exists, but its actual ZIP member inventory has not been inspected here.",
+      "endpoint_case_count": 2048,
+      "endpoint_mutation_probability": 0.01,
+      "zero_mutation_discovery_controls_covered": false,
+      "source_refs": [
+        {
+          "repository_path": "data/results/model3_replenishment_archive_20261005.json",
+          "local_path": "/workspace/scratch/352151dd0409/izu-core/data/results/model3_replenishment_archive_20261005.json",
+          "raw_url": "https://raw.githubusercontent.com/zuizui0223/izu-core/a0a39ee240443b9fa899b6f32515d84d5174408c/data/results/model3_replenishment_archive_20261005.json",
+          "blob_url": "https://github.com/zuizui0223/izu-core/blob/a0a39ee240443b9fa899b6f32515d84d5174408c/data/results/model3_replenishment_archive_20261005.json"
+        },
+        {
+          "repository_path": "data/design/model3_replenishment_evolution_20261005.json",
+          "local_path": "/workspace/scratch/352151dd0409/izu-core/data/design/model3_replenishment_evolution_20261005.json",
+          "raw_url": "https://raw.githubusercontent.com/zuizui0223/izu-core/a0a39ee240443b9fa899b6f32515d84d5174408c/data/design/model3_replenishment_evolution_20261005.json",
+          "blob_url": "https://github.com/zuizui0223/izu-core/blob/a0a39ee240443b9fa899b6f32515d84d5174408c/data/design/model3_replenishment_evolution_20261005.json"
+        },
+        {
+          "repository_path": "docs/MODEL3_REPLENISHMENT_EVOLUTION_20261005.md",
+          "local_path": "/workspace/scratch/352151dd0409/izu-core/docs/MODEL3_REPLENISHMENT_EVOLUTION_20261005.md",
+          "raw_url": "https://raw.githubusercontent.com/zuizui0223/izu-core/a0a39ee240443b9fa899b6f32515d84d5174408c/docs/MODEL3_REPLENISHMENT_EVOLUTION_20261005.md",
+          "blob_url": "https://github.com/zuizui0223/izu-core/blob/a0a39ee240443b9fa899b6f32515d84d5174408c/docs/MODEL3_REPLENISHMENT_EVOLUTION_20261005.md"
+        },
+        {
+          "repository_path": "docs/MODEL3_ECOLOGICAL_CLOSEOUT_STATUS_20261005.md",
+          "local_path": "/workspace/scratch/352151dd0409/izu-core/docs/MODEL3_ECOLOGICAL_CLOSEOUT_STATUS_20261005.md",
+          "raw_url": "https://raw.githubusercontent.com/zuizui0223/izu-core/a0a39ee240443b9fa899b6f32515d84d5174408c/docs/MODEL3_ECOLOGICAL_CLOSEOUT_STATUS_20261005.md",
+          "blob_url": "https://github.com/zuizui0223/izu-core/blob/a0a39ee240443b9fa899b6f32515d84d5174408c/docs/MODEL3_ECOLOGICAL_CLOSEOUT_STATUS_20261005.md"
+        },
+        {
+          "repository_path": "scripts/summarize_model3_replenishment_evolution.py",
+          "local_path": "/workspace/scratch/352151dd0409/izu-core/scripts/summarize_model3_replenishment_evolution.py",
+          "raw_url": "https://raw.githubusercontent.com/zuizui0223/izu-core/a0a39ee240443b9fa899b6f32515d84d5174408c/scripts/summarize_model3_replenishment_evolution.py",
+          "blob_url": "https://github.com/zuizui0223/izu-core/blob/a0a39ee240443b9fa899b6f32515d84d5174408c/scripts/summarize_model3_replenishment_evolution.py"
+        }
+      ]
+    }
+  ],
+  "bounded_search_inventory": {
+    "prior_request_timestamps_utc": null,
+    "pull_requests_read": [
+      {
+        "number": 402,
+        "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/pulls/402",
+        "html_url": "https://github.com/zuizui0223/izu-core/pull/402"
+      },
+      {
+        "number": 411,
+        "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/pulls/411",
+        "html_url": "https://github.com/zuizui0223/izu-core/pull/411"
+      },
+      {
+        "number": 412,
+        "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/pulls/412",
+        "html_url": "https://github.com/zuizui0223/izu-core/pull/412"
+      }
+    ],
+    "discussion_tools_read": [
+      {
+        "number": 402,
+        "tool": "mcp__codex_apps__github_fetch_pr_comments",
+        "returned_comment_count": 0,
+        "source_url": "https://github.com/zuizui0223/izu-core/pull/402"
+      },
+      {
+        "number": 411,
+        "tool": "mcp__codex_apps__github_fetch_pr_comments",
+        "returned_comment_count": 0,
+        "source_url": "https://github.com/zuizui0223/izu-core/pull/411"
+      }
+    ],
+    "original_branch_runs": {
+      "branch": "codex/model3-full-mutation-closeout-20261004",
+      "metadata_records": 254,
+      "unique_run_ids": 254,
+      "fetched_urls": [
+        "https://api.github.com/repos/zuizui0223/izu-core/actions/runs?branch=codex%2Fmodel3-full-mutation-closeout-20261004&per_page=100&page=1",
+        "https://api.github.com/repos/zuizui0223/izu-core/actions/runs?branch=codex%2Fmodel3-full-mutation-closeout-20261004&per_page=100&page=2",
+        "https://api.github.com/repos/zuizui0223/izu-core/actions/runs?branch=codex%2Fmodel3-full-mutation-closeout-20261004&per_page=100&page=3"
+      ],
+      "earliest_created_at": "2026-10-05T15:43:14Z",
+      "latest_created_at": "2026-10-06T06:39:14Z",
+      "successful_scientific_gate_runs_with_artifact_lists_inspected": [
+        {
+          "run_id": 37424943740,
+          "head_sha": "f82341098e838caf4599ce69421f483dd838bdad",
+          "run_conclusion": "success",
+          "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/runs/37424943740/artifacts?per_page=100&page=1",
+          "artifact_count": 1,
+          "artifact_names": [
+            "chapter2-process-review-confirmed-20261006"
+          ]
+        },
+        {
+          "run_id": 37424050308,
+          "head_sha": "8eb49946952e0040dc560c158f76f6a0285cf532",
+          "run_conclusion": "success",
+          "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/runs/37424050308/artifacts?per_page=100&page=1",
+          "artifact_count": 1,
+          "artifact_names": [
+            "chapter2-process-review-confirmed-20261006"
+          ]
+        },
+        {
+          "run_id": 37422806943,
+          "head_sha": "24c75e9d11b210487cf5ead058ff491a6ad9c69a",
+          "run_conclusion": "success",
+          "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/runs/37422806943/artifacts?per_page=100&page=1",
+          "artifact_count": 1,
+          "artifact_names": [
+            "chapter2-process-review-confirmed-20261006"
+          ]
+        },
+        {
+          "run_id": 37420360246,
+          "head_sha": "05340877e213e8279b70817d82b40ecb7dffb4dd",
+          "run_conclusion": "success",
+          "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/runs/37420360246/artifacts?per_page=100&page=1",
+          "artifact_count": 1,
+          "artifact_names": [
+            "chapter2-process-review-confirmed-20261006"
+          ]
+        },
+        {
+          "run_id": 37419479886,
+          "head_sha": "1e40bf0c29e3fbb8fbf195b9c7728cd2a6ffc674",
+          "run_conclusion": "success",
+          "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/runs/37419479886/artifacts?per_page=100&page=1",
+          "artifact_count": 1,
+          "artifact_names": [
+            "chapter2-process-review-confirmed-20261006"
+          ]
+        },
+        {
+          "run_id": 37407263152,
+          "head_sha": "86faee0fc608895f3cff1d19dd037f536ab18e25",
+          "run_conclusion": "success",
+          "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/runs/37407263152/artifacts?per_page=100&page=1",
+          "artifact_count": 1,
+          "artifact_names": [
+            "chapter2-process-review-confirmed-20261006"
+          ]
+        },
+        {
+          "run_id": 37405844807,
+          "head_sha": "bff90c66d8f536de54252057134ec35e64466ce6",
+          "run_conclusion": "success",
+          "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/runs/37405844807/artifacts?per_page=100&page=1",
+          "artifact_count": 1,
+          "artifact_names": [
+            "chapter2-process-review-confirmed-20261006"
+          ]
+        },
+        {
+          "run_id": 37405333106,
+          "head_sha": "6b1caf666be1b8d724a5a25827e02734f2094510",
+          "run_conclusion": "success",
+          "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/runs/37405333106/artifacts?per_page=100&page=1",
+          "artifact_count": 1,
+          "artifact_names": [
+            "chapter2-process-review-confirmed-20261006"
+          ]
+        },
+        {
+          "run_id": 37403471625,
+          "head_sha": "b51a5d9768a79fbba448b37e6a8b0598ab742fc7",
+          "run_conclusion": "success",
+          "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/runs/37403471625/artifacts?per_page=100&page=1",
+          "artifact_count": 1,
+          "artifact_names": [
+            "chapter2-process-review-confirmed-20261006"
+          ]
+        },
+        {
+          "run_id": 37401010826,
+          "head_sha": "8300aef354edf9343f9f524f39c91ea6627d9cfa",
+          "run_conclusion": "success",
+          "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/runs/37401010826/artifacts?per_page=100&page=1",
+          "artifact_count": 0,
+          "artifact_names": []
+        },
+        {
+          "run_id": 37400697120,
+          "head_sha": "654cce25579890ddd3682b78d2da29268e4200c2",
+          "run_conclusion": "success",
+          "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/runs/37400697120/artifacts?per_page=100&page=1",
+          "artifact_count": 0,
+          "artifact_names": []
+        },
+        {
+          "run_id": 37393705941,
+          "head_sha": "492ea0e67f231ac718d8dcdb4384cf536ef18ddc",
+          "run_conclusion": "success",
+          "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/runs/37393705941/artifacts?per_page=100&page=1",
+          "artifact_count": 0,
+          "artifact_names": []
+        },
+        {
+          "run_id": 37390991122,
+          "head_sha": "380de3240992db691e1434f8577256ced80d5ae8",
+          "run_conclusion": "success",
+          "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/runs/37390991122/artifacts?per_page=100&page=1",
+          "artifact_count": 17,
+          "artifact_names": [
+            "chapter2-1005-confirmatory-result",
+            "chapter2-1005-confirmatory-shard-9",
+            "chapter2-1005-confirmatory-shard-12",
+            "chapter2-1005-confirmatory-shard-8",
+            "chapter2-1005-confirmatory-shard-10",
+            "chapter2-1005-confirmatory-shard-0",
+            "chapter2-1005-confirmatory-shard-11",
+            "chapter2-1005-confirmatory-shard-15",
+            "chapter2-1005-confirmatory-shard-2",
+            "chapter2-1005-confirmatory-shard-6",
+            "chapter2-1005-confirmatory-shard-14",
+            "chapter2-1005-confirmatory-shard-5",
+            "chapter2-1005-confirmatory-shard-4",
+            "chapter2-1005-confirmatory-shard-7",
+            "chapter2-1005-confirmatory-shard-13",
+            "chapter2-1005-confirmatory-shard-3",
+            "chapter2-1005-confirmatory-shard-1"
+          ]
+        },
+        {
+          "run_id": 37390501155,
+          "head_sha": "3925653d90273d7053c16555f2f486ab36d3d78e",
+          "run_conclusion": "success",
+          "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/runs/37390501155/artifacts?per_page=100&page=1",
+          "artifact_count": 0,
+          "artifact_names": []
+        },
+        {
+          "run_id": 37389596495,
+          "head_sha": "7620a078c0e0644be0c0ea4f8cad19313e877437",
+          "run_conclusion": "success",
+          "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/runs/37389596495/artifacts?per_page=100&page=1",
+          "artifact_count": 0,
+          "artifact_names": []
+        },
+        {
+          "run_id": 37336696059,
+          "head_sha": "5d91e4d55d7d85a4f7620213b9417955bc8dab66",
+          "run_conclusion": "success",
+          "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/runs/37336696059/artifacts?per_page=100&page=1",
+          "artifact_count": 0,
+          "artifact_names": []
+        },
+        {
+          "run_id": 37336022591,
+          "head_sha": "7d1c4f758a93da3db1584087bac922451972b399",
+          "run_conclusion": "success",
+          "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/runs/37336022591/artifacts?per_page=100&page=1",
+          "artifact_count": 0,
+          "artifact_names": []
+        }
+      ],
+      "failed_or_cancelled_run_artifact_lists_exhaustively_inspected": false
+    },
+    "original_summary_head_runs": {
+      "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/runs?head_sha=c60e0394b33de669fc96230a7202eff563afa75e&per_page=100&page=1",
+      "total_count": 0
+    },
+    "manual_historical_runs_query": {
+      "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/runs?event=workflow_dispatch&created=2026-10-03..2026-10-06&per_page=100&page=1",
+      "total_count": 0
+    },
+    "all_historical_runs_query": {
+      "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/runs?created=2026-10-03..2026-10-06&per_page=100&page=1",
+      "api_total_count": 1126,
+      "returned_first_page_count": 100,
+      "all_pages_inspected": false
+    },
+    "releases": {
+      "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/releases?per_page=100&page=1",
+      "count": 5,
+      "all_returned_pages_complete": true,
+      "release_records": [
+        {
+          "id": 408060663,
+          "tag_name": "chapter2-timed-self-raw-20261009-v1",
+          "name": "Chapter 2 timed self viability 64-history raw cohort (unpublished)",
+          "draft": true,
+          "html_url": "https://github.com/zuizui0223/izu-core/releases/tag/untagged-ab1dcc4486ef9c3f612c",
+          "created_at": "2026-10-09T15:39:18Z",
+          "published_at": null,
+          "asset_names": [
+            "chapter2-timed-130-original-shard-artifacts.tar",
+            "timed-archive-receipt.json",
+            "timed-raw-130-manifest.json"
+          ]
+        },
+        {
+          "id": 407725260,
+          "tag_name": "chapter2-orthogonal-raw-20261009-v1",
+          "name": "Chapter 2 orthogonal raw original archives (unpublished draft)",
+          "draft": true,
+          "html_url": "https://github.com/zuizui0223/izu-core/releases/tag/untagged-7a5e372cda0870a75b6a",
+          "created_at": "2026-10-09T08:47:25Z",
+          "published_at": null,
+          "asset_names": [
+            "chapter2-orthogonal-130-original-shard-artifacts.tar",
+            "orthogonal-archive-receipt.json",
+            "orthogonal-raw-130-manifest.json"
+          ]
+        },
+        {
+          "id": 407724738,
+          "tag_name": "chapter2-kb-raw-20261009-v1",
+          "name": "Chapter 2 kb raw original archives (unpublished draft)",
+          "draft": true,
+          "html_url": "https://github.com/zuizui0223/izu-core/releases/tag/untagged-834b6c1d7588a2cd43c8",
+          "created_at": "2026-10-09T08:46:44Z",
+          "published_at": null,
+          "asset_names": [
+            "chapter2-kb-130-original-shard-artifacts.tar",
+            "kb-archive-receipt.json",
+            "kb-raw-130-manifest.json"
+          ]
+        },
+        {
+          "id": 407720483,
+          "tag_name": "chapter2-fixedB48-raw-20261009-v1",
+          "name": "Chapter 2 fixed-B48 raw full cohort (unpublished preservation)",
+          "draft": true,
+          "html_url": "https://github.com/zuizui0223/izu-core/releases/tag/untagged-8153ffb29f4109feb65c",
+          "created_at": "2026-10-09T08:41:13Z",
+          "published_at": null,
+          "asset_names": [
+            "chapter2-fixedB48-all-original-131-artifacts.tar",
+            "fixedB48-archive-receipt.json",
+            "fixedB48-original-artifacts-manifest.json"
+          ]
+        },
+        {
+          "id": 409496154,
+          "tag_name": "atom-cell-inputs-20261011",
+          "name": "Frozen atom-cell continuation inputs — incomplete numerical cohort",
+          "draft": false,
+          "html_url": "https://github.com/zuizui0223/izu-core/releases/tag/atom-cell-inputs-20261011",
+          "created_at": "2026-10-11T07:13:08Z",
+          "published_at": "2026-10-11T07:16:26Z",
+          "asset_names": [
+            "remote_atom_inputs_20261011.zip"
+          ]
+        }
+      ],
+      "matching_original_archive_name_found": false
+    },
+    "public_archive_build_attempt": {
+      "fetched_url": "https://api.github.com/repos/zuizui0223/izu-core/actions/runs/37484527507/artifacts?per_page=100&page=1",
+      "run_id": 37484527507,
+      "run_conclusion_from_historical_run_metadata": "failure",
+      "artifact_count": 0
+    },
+    "current_process_review_package_boundary": {
+      "source": {
+        "repository_path": "scripts/build_chapter2_process_review.py",
+        "local_path": "/workspace/scratch/352151dd0409/izu-core/scripts/build_chapter2_process_review.py",
+        "raw_url": "https://raw.githubusercontent.com/zuizui0223/izu-core/a0a39ee240443b9fa899b6f32515d84d5174408c/scripts/build_chapter2_process_review.py",
+        "blob_url": "https://github.com/zuizui0223/izu-core/blob/a0a39ee240443b9fa899b6f32515d84d5174408c/scripts/build_chapter2_process_review.py"
+      },
+      "statement": "The approximately 1.16 MB review artifacts contain source, figures and committed summaries. Builder text explicitly says they are not a complete raw-data deposit and points separately to the 13-rate raw archive receipt."
+    },
+    "rejected_metadata_endpoints": [
+      {
+        "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/artifacts?per_page=100&page=1",
+        "reason": "GitHub connector rejected URL as not an allowed endpoint; no repository-wide artifact inventory was obtained."
+      },
+      {
+        "url": "https://api.github.com/repos/zuizui0223/izu-core/actions/workflows/chapter2-public-archive.yml/runs?per_page=100&page=1",
+        "reason": "GitHub connector rejected URL as not an allowed endpoint; no exhaustive workflow-specific run inventory was obtained."
+      }
+    ],
+    "no_binary_limit_bypass_attempted": true,
+    "no_browser_used": true,
+    "no_library_search_by_this_agent": true
+  },
+  "source_identity_risks": [
+    {
+      "issue": "Different cohorts are called old #411 in current replay prose.",
+      "correction": "Actual PR411 uses26110601-series histories; requested original source uses76001-series histories. Confirmation uses26100601-series histories. Shared founder seed or51/64 counts do not establish identity."
+    },
+    {
+      "issue": "Current archive verifier replaces the apparent suffix of an extensionless key containing u0.01.",
+      "source": {
+        "repository_path": "scripts/audit_chapter2_sequence_source_genome_replay_20261011.py",
+        "local_path": "/workspace/scratch/352151dd0409/izu-core/scripts/audit_chapter2_sequence_source_genome_replay_20261011.py",
+        "raw_url": "https://raw.githubusercontent.com/zuizui0223/izu-core/a0a39ee240443b9fa899b6f32515d84d5174408c/scripts/audit_chapter2_sequence_source_genome_replay_20261011.py",
+        "blob_url": "https://github.com/zuizui0223/izu-core/blob/a0a39ee240443b9fa899b6f32515d84d5174408c/scripts/audit_chapter2_sequence_source_genome_replay_20261011.py"
+      },
+      "consequence": "Path.with_suffix('.npz') / with_suffix('.json') seeks a truncated *_u0 filename.",
+      "correction": "Append the extension to the full original case key; original runners use key+'.npz' and key+'.json'. Do not rename original files to satisfy the truncated path.",
+      "evidence_method": "Read-only source inspection; no tests or trajectories executed."
+    },
+    {
+      "issue": "Earlier common-environment far and sustained-isolation far agree for the first200updates.",
+      "correction": "Do not substitute full_mutation far cases for persistent_isolation far cases. A short prefix and general task fields cannot distinguish exposure after update200; preserve archive provenance and match the full requested trace/checkpoints."
+    },
+    {
+      "issue": "Frozen source byte hashes reflect WindowsCRLF.",
+      "source": {
+        "repository_path": "data/design/model3_replenishment_evolution_20261005.json",
+        "local_path": "/workspace/scratch/352151dd0409/izu-core/data/design/model3_replenishment_evolution_20261005.json",
+        "raw_url": "https://raw.githubusercontent.com/zuizui0223/izu-core/a0a39ee240443b9fa899b6f32515d84d5174408c/data/design/model3_replenishment_evolution_20261005.json",
+        "blob_url": "https://github.com/zuizui0223/izu-core/blob/a0a39ee240443b9fa899b6f32515d84d5174408c/data/design/model3_replenishment_evolution_20261005.json"
+      },
+      "read_only_checksum_observation": {
+        "source_files": 23,
+        "byte_equal_current_files": 0,
+        "equal_after_line_ending_normalization": 20,
+        "other_differences": [
+          "scripts/model3_island/birth_diffusion.py",
+          "scripts/model3_island/selection.py",
+          "scripts/model3_island/tensor_density.py"
+        ]
+      },
+      "interpretation": "Core persistent runner/base design/reproduction/population/history/randomness match after line-ending normalization. This is not ZIP source verification, and the entire present tree must not be called byte-identical to the frozen snapshot."
+    }
+  ],
+  "remaining_retrieval_route": {
+    "github_old_cohort_locator_resolved": false,
+    "preferred_named_candidate": "model3_replenishment_evolution_20261005.zip",
+    "preferred_candidate_sha256": "37bd0bd312734715392add19f424696121fbe88517dfa784d8e702173ec71b6c",
+    "next_if_candidate_found": "Verify package bytes, inspect member list, and retrieve all2048positive-mutation original near/far NPZ/JSON endpoint pairs with source manifests; preserve original filenames. Only then run archive matching after correcting filename construction.",
+    "if_candidate_not_found": "Keep the original-cohort archive gate unresolved. Do not replace it with the available confirmation or assurance-generality cohorts or claim source identity from seeds alone.",
+    "library_status": "Not searched by this agent; root handles that independent retrieval route."
+  }
+}

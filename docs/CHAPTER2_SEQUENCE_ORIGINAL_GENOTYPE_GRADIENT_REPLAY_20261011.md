@@ -2,6 +2,8 @@
 
 **2026-10-11 — retrospective original-history instrumentation, not a new ecological experiment or prospective confirmation.** One manuscript direction: why A (autonomous selfing assurance capacity) and I (floral attraction investment) exhibit observed temporal precedence, and whether that precedence implies a necessary cause or subsequent survival benefit.
 
+**Later 2026-10-11 cohort identity correction:** This runner targets the original **2026-10-05 sustained-isolation discovery cohort**, whose histories are 76001–76064 and repeats are 7101–7108. Its current mutation-0.01 domain contains **2,048 trajectories**; the complete discovery design, including mutation zero, contains **4,096**. Actual PR #411 is a separate four-setting experiment with histories 26110601–26110664, different founding assurance alleles, and 8,192 main cases plus 256 controls. See the [current cohort and archive-admission note](CHAPTER2_SOURCE_REPLAY_COHORT_IDENTITY_20261011.md). The older wording “old #411 raw gradient replay” referred to the wrong cohort and is corrected here; #411's confirmed result retains its existing rank.
+
 ## Main result of archival feasibility inspection
 
 The archived `data/results/model3_persistent_isolation_summary_20261005.json` records first sustained founder-relative and extra-isolation divergence crossing times for 64 history clusters. Original annual Model3 population case traces retain **N, trait means/variances and number of distinct alleles**, not every resident's diploid genotype per year. The raw model case `*.npz` stores genomes at **t=0,200,400,1000 only**.
@@ -24,9 +26,9 @@ Therefore neither the first annual *selection-gradient sign switch* nor its dela
 There are two evidence ranks:
 
 - **Replay from original algorithms without archived raw case comparison:** original RNG seed and algorithm source faithfully executed, and independent uninstrumented original prefix transition checked with regression tests. This is a valid *new retrospective calculation* but not an exact recovered original archived genotype trajectory merely because the seeds match.
-- **Archive-matched original replay:** user supplies original raw `outputs/model3_persistent_isolation_20261005/persistent_core_...far.npz` and `outputs/model3_full_mutation_20261004/core_...near.npz` with their individual JSON SHA256 receipts. The runner verifies task identity, original case-file SHA256, the entire trace prefix and every available diploid checkpoint t0/200/400/1000. On a single mismatch it raises an error and **cannot** report archived case identity.
+- **Case-matched original replay:** with original raw `outputs/model3_persistent_isolation_20261005/persistent_core_...far.npz` and `outputs/model3_full_mutation_20261004/core_...near.npz` plus their individual JSON SHA256 receipts, the runner verifies task identity, case-file SHA256, the entire replayed trace prefix and every replayed diploid checkpoint t0/200/400/1000. On a mismatch it raises an error and **cannot** report archived case identity. This per-case gate does not itself admit an external package digest, frozen source manifest/runtime, or complete cohort. Those additional prerequisites are recorded in the current cohort note.
 
-There is no original raw case archive in the GitHub current repository tree. The production GitHub artifact/archive location must be recovered if exact original correspondence is to be claimed for the entire 64×8 historical collection; unit tests alone do not replace it.
+There is no original raw case archive in the GitHub current repository tree. The original archive must be recovered and admitted before exact correspondence is claimed for the full declared discovery cohort. The current archive inspection identifies a preserved replenishment-package receipt that may contain all 2,048 positive-mutation endpoints; its raw contents have not yet been recovered. Unit tests of the reader do not establish historical data availability.
 
 ## What an actual selection-timing result would require
 
@@ -55,7 +57,7 @@ For a short original-RNG sanity check without archived data, omit `--archive-roo
 
 **Next decision:** find and verify original raw historical NPZ/receipt archives, then use source-matched annual gradients to test the hypothesized mechanism instead of describing it as already supported. A separate prospective abrupt-versus-gradual functional-pollinator replacement study can then test timing causally, controlling flower genotype, source pollen, census and total exposure.
 
-**Later 2026-10-11 availability update:** The separately frozen [1,024-case abrupt/gradual study is complete](CHAPTER2_SEQUENCE_ABRUPT_GRADUAL_FUNCTIONAL_LOSS_RESULTS_20261011.md), and its [archived expected-to-realized genetic accounting is complete](CHAPTER2_TEMPO_REALIZATION_ACCOUNTING_20261011.md). Neither result supplies the missing old #411 raw gradient replay described above. The original next-decision text is retained as a historical proposal; the new tempo experiment matched cumulative pollen only in its fixed-clonal calibration, not across evolved populations.
+**Later 2026-10-11 availability update:** The separately frozen [1,024-case abrupt/gradual study is complete](CHAPTER2_SEQUENCE_ABRUPT_GRADUAL_FUNCTIONAL_LOSS_RESULTS_20261011.md), and its [archived expected-to-realized genetic accounting is complete](CHAPTER2_TEMPO_REALIZATION_ACCOUNTING_20261011.md). The original sustained-isolation discovery cohort still requires its own full archive-matched annual replay. The original next-decision text is retained as a historical proposal; the new tempo experiment matched cumulative pollen only in its fixed-clonal calibration, not across evolved populations.
 
 
 ## Source-cohort identity upgrade: one COMPLETE eight-replicate paired historical comparison

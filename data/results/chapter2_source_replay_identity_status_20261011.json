@@ -1,0 +1,221 @@
+{
+  "schema": "chapter2_source_replay_identity_status_v1",
+  "recorded_at_utc": "2026-10-11T08:42:03Z",
+  "base_main_commit": "a0a39ee240443b9fa899b6f32515d84d5174408c",
+  "status": "READER_REPAIRED_DISCOVERY_RAW_ARCHIVE_ADMISSION_PENDING",
+  "evidence_rank": "SOURCE_IDENTITY_CLARIFICATION_AND_ENGINEERING_VALIDATION_NO_NEW_BIOLOGICAL_RESULT",
+  "report": "docs/CHAPTER2_SOURCE_REPLAY_COHORT_IDENTITY_20261011.md",
+  "scope_correction": {
+    "historical_addendum": "data/results/chapter2_four_question_current_evidence_addendum_20261011.json",
+    "historical_label": "old_411_full_gradient_replay_completed_here",
+    "correct_target": "2026-10-05 sustained-isolation discovery cohort, histories76001-76064",
+    "old_label_is_not_evidence_of_actual_pr411_raw_data_absence": true,
+    "historical_addendum_and_accounting_receipt_preserved_byte_identical": true,
+    "actual_pr411_confirmed_result_changed": false,
+    "tempo1024_complete_accounting_changed": false
+  },
+  "discovery_replay_domain": {
+    "design": {
+      "path": "data/design/model3_persistent_isolation_20261005.json",
+      "sha256": "aa3cdd9c8731fe71a2ce77220593374113d3a4c444574e730227e04cff7d28d1",
+      "size_bytes": 2516
+    },
+    "history_seed_range_inclusive": [
+      76001,
+      76064
+    ],
+    "demographic_repeat_range_inclusive": [
+      7101,
+      7108
+    ],
+    "settings": [
+      "assurance_cost",
+      "prior_selfing"
+    ],
+    "arms": [
+      "near",
+      "far"
+    ],
+    "full_design_mutation_probabilities": [
+      0,
+      0.01
+    ],
+    "full_design_cases": 4096,
+    "current_auditor_mutation_probability": 0.01,
+    "current_auditor_cases": 2048,
+    "updates_per_case": 1000,
+    "raw_trace_shape": [
+      1001,
+      10
+    ],
+    "raw_genome_checkpoint_updates": [
+      0,
+      200,
+      400,
+      1000
+    ],
+    "original_raw_cases_admitted_in_this_task": 0,
+    "complete_annual_replay_completed": false,
+    "required_far_case": "outputs/model3_persistent_isolation_20261005/persistent_core_<setting>_u0.01_h<history>_r<repeat>_far.npz",
+    "required_near_case": "outputs/model3_full_mutation_20261004/core_<setting>_u0.01_h<history>_r<repeat>_near.npz",
+    "receipts": "Append .json to the same complete case key; authenticate enclosing source package as well."
+  },
+  "archive_inventory": {
+    "path": "data/results/chapter2_source_replay_archive_inventory_20261011.json",
+    "sha256": "30b929b6eaa9d287281b03c4bfe832b05a5a94cabb5257c806fd9ff3270997ce",
+    "size_bytes": 107667,
+    "root_rechecked_preserved_artifact_metadata_records": 50,
+    "root_metadata_mismatches": 0,
+    "metadata_only_for_actions_archives": true,
+    "zip_bytes_and_case_receipts_verified_for_actions_archives": false
+  },
+  "recovered_related_packages": [
+    {
+      "filename": "chapter2-old-history-preflight-receipt.zip",
+      "bytes": 2390,
+      "sha256": "b4ec0ee6b472a469170b6e2423bf32dff2057b72edf72bc759811b45523a9889",
+      "member_count": 2,
+      "member_names": [
+        "plan.json",
+        "old_history_cost_receipt.json"
+      ],
+      "original_discovery_raw_npz_members": 0,
+      "original_discovery_raw_cases_admitted": 0,
+      "cohort": "pr411_history26110601_engineering_preflight",
+      "contents": "Prospective design-only plan and one historical engineering cost receipt; no original discovery case arrays."
+    },
+    {
+      "filename": "chapter2_original_evolved_pollen_service_full_evidence_20261010.zip",
+      "bytes": 1877176,
+      "sha256": "57a5008fa216b00d9f446865a8dc491b4ddaaf8b56096d633bdc4fa27369eb2c",
+      "member_count": 9,
+      "member_names": [
+        "audit_evolved_genomes_pollen_transfer.json",
+        "audit_native_nonneighbor_t400.json",
+        "audit_native_nonneighbor_with_paternal_t400.json",
+        "audit_evolved_one_step_demographic_ceiling.json",
+        "prepare.py",
+        "run_source_bridge.py",
+        "audit_native_nonneighbor.py",
+        "audit_native_with_paternal.py",
+        "audit_one_step_demographic_ceiling.py"
+      ],
+      "original_discovery_raw_npz_members": 0,
+      "original_discovery_raw_cases_admitted": 0,
+      "expected_package_sha256": "57a5008fa216b00d9f446865a8dc491b4ddaaf8b56096d633bdc4fa27369eb2c",
+      "package_digest_matches_preserved_contract": true,
+      "cohort": "pr411_four_setting_assurance_generality",
+      "contents": "Four derived JSON audits and five scripts; 64 histories with one demographic repeat for the source-genome audits. No raw NPZ/JSON case pairs or annual parentage archive.",
+      "distinct_from_tempo_1024_cases": true
+    }
+  ],
+  "original_archive_retrieval": {
+    "exact_and_short_title_searches_resolved_original_candidate": false,
+    "global_absence_established": false,
+    "preferred_candidate": {
+      "filename": "model3_replenishment_evolution_20261005.zip",
+      "size_bytes": 763914318,
+      "sha256": "37bd0bd312734715392add19f424696121fbe88517dfa784d8e702173ec71b6c",
+      "receipt": "data/results/model3_replenishment_archive_20261005.json",
+      "candidate_original_positive_mutation_endpoints": 2048,
+      "contains_original_endpoints_inferred_from_design_and_receipt": true,
+      "zip_directory_or_bytes_recovered": false
+    },
+    "near_reference_candidate": {
+      "filename": "model3_full_mutation_20261004_raw.zip",
+      "size_bytes": 224236731,
+      "sha256": "4647eb772303f0b53387227f052bae6ce0aff84d1b056ab3cdf6f71348917c48",
+      "source": "docs/MODEL3_FULL_MUTATION_RESULTS_20261004.md",
+      "original_full_mutation_far_is_not_persistent_far": true,
+      "zip_directory_or_bytes_recovered": false
+    },
+    "full_design_zero_mutation_archive_admission_also_required": true
+  },
+  "reader_repair": {
+    "production_source": {
+      "path": "scripts/audit_chapter2_sequence_source_genome_replay_20261011.py",
+      "sha256": "d5a85eda34369c8f24500dc30b744ca0a97dbd3ece3ea299a1a07664e0303140",
+      "size_bytes": 12741
+    },
+    "regression_tests": {
+      "path": "tests/test_chapter2_sequence_source_genome_replay_20261011.py",
+      "sha256": "3aa1c0eac9ff508749759c7ab5e39be8e3eab6d4fc7cedfdd9bae0855873d268",
+      "size_bytes": 12381
+    },
+    "change": "Append .json and .npz to the complete case basename; preserve the mutation decimal, history, repeat and arm.",
+    "red_command": "python -m pytest -q tests/test_chapter2_sequence_source_genome_replay_20261011.py -k realistic_original_basename",
+    "red_outcome": {
+      "expected_failing_cases": 2,
+      "error": "FileNotFoundError for correctly named synthetic original near/far fixture pairs"
+    },
+    "green_command": "python -m pytest -q tests/test_chapter2_sequence_source_genome_replay_20261011.py --junitxml=<validation-output.xml>",
+    "green_outcome": {
+      "tests": 18,
+      "failures": 0,
+      "errors": 0,
+      "skipped": 0,
+      "seconds": 1.17
+    },
+    "negative_controls": [
+      "wrong task/history",
+      "changed NPZ byte SHA",
+      "annual trace mismatch",
+      "genome checkpoint mismatch",
+      "missing genome checkpoint"
+    ],
+    "negative_controls_exercised_for_both_arms": true,
+    "source_routing_updates_checked": [
+      0,
+      199,
+      200,
+      400,
+      999
+    ],
+    "routing_test_uses_replay_modules_bound_exposure": true,
+    "synthetic_test_fixtures_are_original_historical_evidence": false,
+    "unchanged_limits": [
+      "Verification covers only the requested trace prefix and supplied checkpoints.",
+      "Receipt/file agreement alone does not authenticate an external package, frozen source manifest or runtime.",
+      "No complete-cohort batch admission is implemented by this two-line repair."
+    ]
+  },
+  "preservation": {
+    "original_artifacts_checked": 41,
+    "original_artifact_mismatches": 0,
+    "original_hash_manifest": "data/results/chapter2_tempo_realization_receipt_20261011.json",
+    "previous_accounting_reports_and_receipt": [
+      {
+        "path": "docs/CHAPTER2_TEMPO_REALIZATION_ACCOUNTING_20261011.md",
+        "sha256": "174e7992dae9277788148668ac7f632c4f2571fd914b2ff66ff07aa52d971922",
+        "size_bytes": 19332
+      },
+      {
+        "path": "data/results/chapter2_four_question_current_evidence_addendum_20261011.json",
+        "sha256": "3f25f2a02d159bcd7cfe4a0f4a66712fa9c0143ca9d66562333617e41e295813",
+        "size_bytes": 5796
+      },
+      {
+        "path": "docs/CHAPTER2_TEMPO_REALIZATION_ACCOUNTING_TABLES_20261011.md",
+        "sha256": "c77eda661aa587b5fd07c49833a519d1e387ead8f113401a8f0123afee5934cc",
+        "size_bytes": 34836
+      },
+      {
+        "path": "docs/CHAPTER2_TEMPO_REALIZATION_ACCOUNTING_REVIEW_20261011.md",
+        "sha256": "0bfa106119a6f78676b11ad42b3bce2b3e5f425a89694d92cf5c49ef102fa455",
+        "size_bytes": 5725
+      },
+      {
+        "path": "data/results/chapter2_tempo_realization_receipt_20261011.json",
+        "sha256": "834a5360f2f7e96e000d8aeb5cb14fe18977727df8460bca618d63a6d5be7cfd",
+        "size_bytes": 66879
+      }
+    ],
+    "frozen_biological_source_modified": false,
+    "new_biological_campaigns": 0,
+    "new_scientific_trajectories_executed": 0,
+    "new_bootstrap_or_hypothesis_tests": false,
+    "active_manuscript_changed": false
+  },
+  "next_scientific_gate": "Recover and authenticate the correct discovery package, complete task/source/runtime admission, and reproduce original full traces/checkpoints before any annual readout. A 2048-case positive-mutation replay is a declared subset; full original-design closure requires4096cases. Later confirmation or actual#411 cohorts cannot substitute for discovery near/far histories.",
+  "integration_boundary": "This record contains completed local validation and source availability findings. Independent review and final PR-head CI are reported in the pull request before integration; no future CI success is asserted here."
+}
