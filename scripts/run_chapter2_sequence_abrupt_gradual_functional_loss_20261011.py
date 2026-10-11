@@ -294,7 +294,11 @@ def simulate(profile_seed,rep_seed,schedule,timing,cost,mutation,
             "baseline_pollen_ramp_total","baseline_pollen_abrupt_total",
             "break_index","abrupt_transition_lambda")},
         "end_persistence":bool(trace[-1,0]>0),
-        "trace":trace.tolist(),"order":order_from_trace(trace,years,d),
+        # Extinct populations have UNDEFINED genetic traits. Serialize those
+        # means/variances as JSON null, NEVER as zero or nonstandard NaN.
+        "trace":[[float(x) if np.isfinite(x) else None for x in row]
+                 for row in trace],
+        "order":order_from_trace(trace,years,d),
         "pollen_and_price_series":metrics,
         "focal_gradient_samples":gradients,
         "note":"Registered controlled synthetic Model3 timing intervention. Per-year original F/P/S and inheritance unchanged; equality of cumulative pollen is only for fixed homozygous reference population. These are NOT empirical fitness benefits or natural mutation-order interventions."
