@@ -1,0 +1,156 @@
+{
+  "schema": "original_k32_eight_exploratory_visitor_histories_reproductive_channel_competition_v1",
+  "status": "source_locked_original_Model3_same_cohort_eight_history_channel_decomposition_CI_SUCCESS",
+  "provenance": {
+    "scientific_source_sha": "5db5822d4ba523459599160c170e1198de4b52cc",
+    "workflow_run_id": 38008400006,
+    "workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/38008400006",
+    "job": "model3-k32-multihistory-state-visitor-cross",
+    "job_id": 114082539657,
+    "job_conclusion": "success",
+    "raw_artifact_id": 11652381028,
+    "raw_artifact_url": "https://github.com/zuizui0223/izu-core/actions/runs/38008400006/artifacts/11652381028",
+    "raw_zip_sha256": "f8fd68b9a3f5b04923259e8e13280b1b1a00b763ce0584eef146393dacd71cc0",
+    "raw_files": [
+      "cross-new-histories-budget8.json",
+      "cross-new-histories-budget3.json",
+      "multihistory-channel-competition.json"
+    ]
+  },
+  "design": {
+    "K": 32,
+    "mutation_rate": 0,
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "generations": 8,
+    "source_setting": "canonical Chapter2 prior_selfing, assurance_cost=0, investment_cost=.5",
+    "old_discovery_seed_excluded": 26110601,
+    "new_visitor_history_seeds": [
+      26110602,
+      26110603,
+      26110604,
+      26110605,
+      26110606,
+      26110607,
+      26110608,
+      26110609
+    ],
+    "n_independent_simulated_visitor_rng_histories": 8,
+    "n_demographic_paths_nested_within_each_visitor_history": 128,
+    "budgets": [
+      8,
+      3
+    ],
+    "independent_natural_islands": 0,
+    "source_model3_biological_code_modified": false,
+    "prospectively_frozen_chapter2_visitor_histories_accessed": false,
+    "source_states_conditioned_on_survival_to_start_of_year8": true,
+    "offdiagonal_parent_state_visitor_swaps_are_one_step_not_autonomous": true
+  },
+  "exact_identities": {
+    "allele_direction": "D(C,V) = viable_self_allele_contribution + outcross_father_allele_contribution + outcross_mother_allele_contribution; exact original source viable-seed parent marginals",
+    "two_factor": "State=0.5[(D(late,earlyV)-D(early,earlyV))+(D(late,lateV)-D(early,lateV))]; Visitor=0.5[(D(early,lateV)-D(early,earlyV))+(D(late,lateV)-D(late,earlyV))]",
+    "additivity": "State+Visitor=original diagonal late-minus-early separately for each of three loci and every original self/father/mother component",
+    "unit": "one simulated visitor RNG history, not one of its nested demographic paths"
+  },
+  "cases": [
+    {
+      "budget": 8,
+      "source_state_matching_expected_direction": {
+        "self": {
+          "mean": 0.040252340633984,
+          "between_visitor_history_SE": 0.00327956,
+          "positive_histories": 8,
+          "negative_histories": 0
+        },
+        "outcross_father": {
+          "mean": -0.002949832174028998,
+          "between_visitor_history_SE": 0.00231215,
+          "positive_histories": 2,
+          "negative_histories": 6
+        },
+        "outcross_mother": {
+          "mean": -0.006817587979457476,
+          "between_visitor_history_SE": 0.00251128,
+          "positive_histories": 2,
+          "negative_histories": 6
+        },
+        "outcross_combined": {
+          "mean": -0.009767420153486474,
+          "negative_histories": 6
+        },
+        "total": {
+          "mean": 0.030484920480497515,
+          "between_visitor_history_SE": 0.00745301,
+          "positive_histories": 8,
+          "negative_histories": 0
+        }
+      },
+      "visitor_year_matching_expected_direction": {
+        "self_mean": -0.0006241315373472485,
+        "outcross_father_mean": -0.00207207,
+        "outcross_mother_mean": -0.00259526,
+        "outcross_combined_mean": -0.004667330111180817,
+        "total_mean": -0.005291461648528061,
+        "total_between_visitor_history_SE": 0.00556133,
+        "negative_total_histories": 5,
+        "negative_outcross_histories": 5
+      },
+      "source_diagonal_late_minus_early_mean": 0.025193458831969447,
+      "n_negative_to_positive_late_direction_reversals": 4
+    },
+    {
+      "budget": 3,
+      "source_state_matching_expected_direction": {
+        "self": {
+          "mean": 0.038801538801780035,
+          "between_visitor_history_SE": 0.00236597,
+          "positive_histories": 8,
+          "negative_histories": 0
+        },
+        "outcross_father": {
+          "mean": -0.003044537601317351,
+          "between_visitor_history_SE": 0.00334973,
+          "positive_histories": 2,
+          "negative_histories": 6
+        },
+        "outcross_mother": {
+          "mean": -0.006920459474563021,
+          "between_visitor_history_SE": 0.00351217,
+          "positive_histories": 2,
+          "negative_histories": 6
+        },
+        "outcross_combined": {
+          "mean": -0.009964997075880371,
+          "negative_histories": 6
+        },
+        "total": {
+          "mean": 0.02883654172589966,
+          "between_visitor_history_SE": 0.00869337,
+          "positive_histories": 8,
+          "negative_histories": 0
+        }
+      },
+      "visitor_year_matching_expected_direction": {
+        "self_mean": -0.0006479046631859748,
+        "outcross_father_mean": -0.00198305,
+        "outcross_mother_mean": -0.00250735,
+        "outcross_combined_mean": -0.0044903964963775335,
+        "total_mean": -0.005138301159563511,
+        "total_between_visitor_history_SE": 0.00496912,
+        "negative_total_histories": 5,
+        "negative_outcross_histories": 5
+      },
+      "source_diagonal_late_minus_early_mean": 0.023698240566336105,
+      "n_negative_to_positive_late_direction_reversals": 5
+    }
+  ],
+  "claim_limits": [
+    "All eight visitor history seeds were chosen post first sign-reversal outcome, sampled from the SAME synthetic visitor generating law; not independent natural islands or preregistered confirmation.",
+    "Both budgets use the SAME eight RNG visitor histories, and their environmental sample sizes cannot be added to 16.",
+    "The exact algebra and signed mean self contribution do not isolate a causal increase in selfing, since endogenous genotype composition, source assurance, flowering investment, source census and past demographic selection/drift change together.",
+    "By source-year8 survival conditioning, the paired early and late source parent states exclude extinct demographic paths; the result is a conditional mean.",
+    "Per-channel outcross father and mother interactions can vary with source visitor pairing; no direct field visitor-selection coefficient or ecological fitness inferred.",
+    "No source Model3 biological edits, no prospective frozen Chapter2 visitor cohorts, no natural field observations, no complete continuous-time SDE/SPDE validation."
+  ]
+}

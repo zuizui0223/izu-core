@@ -1,0 +1,97 @@
+{
+  "schema": "model3_k32_outcross_three_factor_shapley_source_locked_v1",
+  "status": "engineering_exact_conditional_ledger_audit_passed",
+  "evidence_type": "one_old_visitor_history_synthetic_simulation_not_field_data",
+  "provenance": {
+    "source_commit": "74d37d3ac83a3b68d9a090e12f0a4f73e82af260",
+    "workflow_run_id": 37892234161,
+    "workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/37892234161",
+    "job": "model3-k32-outcross-factors",
+    "conclusion": "success",
+    "raw_artifact_id": 11598624251,
+    "raw_artifact_url": "https://github.com/zuizui0223/izu-core/actions/runs/37892234161/artifacts/11598624251",
+    "archive_sha256": "22f2b2ef5d00fac0cb0bbed468c6fbabe078f90ba75f92e49fcb8d5f50228702"
+  },
+  "conditions": {
+    "K": 32,
+    "mutation_rate": 0,
+    "generations": 8,
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "ovule_budgets": [
+      8,
+      3
+    ],
+    "archived_visitor_history": 26110601,
+    "visitor_environment": "near",
+    "independent_visitor_histories": 1,
+    "nested_demographic_replicates_per_budget": 512,
+    "genotype_support": "engineered 4 founders, 27 full joint diploid genotype classes",
+    "canonical_model3_reproduce_modified": false,
+    "prospective_confirmatory_histories_used": false,
+    "source_parent_state_held_identical": true,
+    "mean_allele_frequency_matched_to_source": true,
+    "offspring_capped_poisson_census_law_matched_to_source": true,
+    "comparator_intentionally_changes_parent_weights": true,
+    "autonomous_eight_generation_comparator": false
+  },
+  "exact_factorization": "For i!=j, source outcross_ij = exported_i * (delivered_ij/exported_i) * (female_j/receipt_j). Zero paths remain zero. 3 Shapley components average all 6 factor orders; extra neutral-offspring-tilt-to-uniform-parent reference term is reported separately.",
+  "contrast_identity": "Within-outcross source-minus-matched-null conditional offspring-frequency variance = -0.25*(1-source_self_fraction)*E[1/N|N>0,C]*(H_source_out-H_null_out). Four source-reference and Shapley components sum to this exactly at each parent state.",
+  "cases": [
+    {
+      "budget": 8,
+      "generation": 8,
+      "n_evaluable_source_parent_states": 512,
+      "mean_original_viable_selfing_fraction": 0.9348515816098857,
+      "source_minus_matched_control_within_outcross_frequency_variance": -0.00004991915750521439,
+      "components": {
+        "matched_mean_null_offspring_tilt_to_uniform_parent_reference": -0.000017207928568243496,
+        "donor_export": -0.000004737492321343009,
+        "visitor_routing_recipient_affinity": -0.000007435305659123702,
+        "maternal_seed_provisioning": -0.000020538430956504185
+      },
+      "demographic_MC_standard_errors": {
+        "matched_mean_null_offspring_tilt_to_uniform_parent_reference": 0.0000011494151804677858,
+        "donor_export": 3.8505982944586845e-7,
+        "visitor_routing_recipient_affinity": 9.334798416131827e-7,
+        "maternal_seed_provisioning": 0.0000012875826760988958,
+        "total": 0.0000031491242525545397
+      },
+      "max_absolute_reconstruction_error": 4.440892098500626e-16,
+      "n_zero_source_outcross": 0,
+      "fraction_parent_states_positive_within_outcross_variance": 0.009765625
+    },
+    {
+      "budget": 3,
+      "generation": 8,
+      "n_evaluable_source_parent_states": 505,
+      "mean_original_viable_selfing_fraction": 0.9578748815405167,
+      "source_minus_matched_control_within_outcross_frequency_variance": -0.000029609064303492165,
+      "components": {
+        "matched_mean_null_offspring_tilt_to_uniform_parent_reference": -0.000011912678413573884,
+        "donor_export": -0.000002189810383541922,
+        "visitor_routing_recipient_affinity": -0.000003166597833939449,
+        "maternal_seed_provisioning": -0.000012339977672436906
+      },
+      "demographic_MC_standard_errors": {
+        "matched_mean_null_offspring_tilt_to_uniform_parent_reference": 0.0000015167254086343994,
+        "donor_export": 3.72154369772474e-7,
+        "visitor_routing_recipient_affinity": 9.058736226324137e-7,
+        "maternal_seed_provisioning": 0.0000015189109371777363,
+        "total": 0.0000035518883903988253
+      },
+      "max_absolute_reconstruction_error": 4.440892098500626e-15,
+      "n_source_parents_extinct_before_generation": 7,
+      "n_zero_source_outcross": 3,
+      "fraction_parent_states_positive_within_outcross_variance": 0.009900990099009901
+    }
+  ],
+  "scientific_boundaries": [
+    "The artificial mean-matched source-state null contains offspring-level assurance tilt, which contributes its own explicit reference term and is not biological pollen/maternal ecology.",
+    "The donor-export factor includes donor visitation affinity and discounting; visitor routing includes donor/recipient matching, visitor effectiveness and competition; maternal factor includes ovules, assurance preemption, and nonlinear pollen saturation.",
+    "Shapley averages factor ordering but is still baseline-dependent mathematical accounting, not uniquely causal donor, pollinator or maternal impact.",
+    "A negative within-outcross variance contrast does not imply autonomous whole-population variance stabilization; source viable-selfed offspring comprise about 93-96 percent at generation 8.",
+    "The source state distributions in these runs are generated by a different predetermined demographic stream than the earlier three-term audit; compare formulas and signs, not exact MC point equality across runs.",
+    "One old visitor environment and artificial founders, no independent ecology, no prospective confirmatory histories, no observed natural populations, no admitted Ito SDE/SPDE."
+  ]
+}

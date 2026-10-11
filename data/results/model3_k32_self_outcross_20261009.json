@@ -1,0 +1,118 @@
+{
+  "schema": "model3_k32_self_outcross_heterozygosity_source_locked_v1",
+  "status": "dedicated_source_ledger_numerical_ci_success_not_biological_causality",
+  "evidence_type": "engineering_simulation_one_old_visitor_history_not_natural_island_observation",
+  "provenance": {
+    "source_commit": "920f111dd79402ef497cdb5751f6469d458ef404",
+    "workflow_run_id": 37890587796,
+    "workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/37890587796",
+    "job": "model3-k32-self-outcross",
+    "job_status": "success",
+    "artifact_id": 11598138261,
+    "raw_results_url": "https://github.com/zuizui0223/izu-core/actions/runs/37890587796/artifacts/11598138261",
+    "artifact_sha256": "11174966941835982b9ade745ab263cc19266132903bb000d2996a4b9729e8f8"
+  },
+  "conditions": {
+    "K": 32,
+    "mutation_rate": 0,
+    "generations": 8,
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "ovule_budgets": [
+      8,
+      3
+    ],
+    "old_visitor_history": 26110601,
+    "visitor_environment": "near",
+    "independent_visitor_histories": 1,
+    "nested_demographic_draws_per_budget": 512,
+    "founder_support": "engineered four founder diploid genotypes expanded to 32 plants, 27 full joint classes",
+    "canonical_model3_reproduction_edited": false,
+    "confirmatory_cohorts_reused": false,
+    "comparator_reproductive_weights_intentionally_differ": true,
+    "comparison_source_parent_state_same": true,
+    "comparison_offspring_mean_and_N_law_matched": true,
+    "no_autonomous_eight_generation_comparator": true
+  },
+  "year8": [
+    {
+      "budget": 8,
+      "n_source_parent_states": 512,
+      "source_self_viable_seed_fraction": 0.9383611385092536,
+      "mean_matched_reference_self_pair_fraction": 0.0314097183926311,
+      "delta_next_allele_frequency_variance": 0.00016495125698192601,
+      "decomposition_components": {
+        "self_vs_outcross_fraction": 0.0002070582184641916,
+        "within_self_parent_weights": 0.000001630622941902862,
+        "within_outcross_mating_weights": -0.00004373758442416846
+      },
+      "identity_max_absolute_error": 5.937362147073744e-17
+    },
+    {
+      "budget": 3,
+      "n_source_parent_states": 509,
+      "source_self_viable_seed_fraction": 0.9574831233616629,
+      "mean_matched_reference_self_pair_fraction": 0.0759048117398381,
+      "delta_next_allele_frequency_variance": 0.00019715110224139353,
+      "decomposition_components": {
+        "self_vs_outcross_fraction": 0.00022876535342629742,
+        "within_self_parent_weights": 7.957263907495009e-7,
+        "within_outcross_mating_weights": -0.000032409977575653356
+      },
+      "identity_max_absolute_error": 6.158268339717665e-17
+    }
+  ],
+  "trajectory_highlights": [
+    {
+      "budget": 8,
+      "year": 1,
+      "source_self_fraction_approx": 0.7861,
+      "null_self_fraction_approx": 0.032,
+      "delta_next_variance_approx": 0.00158057
+    },
+    {
+      "budget": 8,
+      "year": 4,
+      "source_self_fraction_approx": 0.8633,
+      "null_self_fraction_approx": 0.032,
+      "delta_next_variance_approx": 0.00086249
+    },
+    {
+      "budget": 8,
+      "year": 8,
+      "source_self_fraction_approx": 0.9384,
+      "null_self_fraction_approx": 0.0314,
+      "delta_next_variance_approx": 0.00016495
+    },
+    {
+      "budget": 3,
+      "year": 1,
+      "source_self_fraction_approx": 0.7861,
+      "null_self_fraction_approx": 0.032,
+      "delta_next_variance_approx": 0.00197247
+    },
+    {
+      "budget": 3,
+      "year": 4,
+      "source_self_fraction_approx": 0.905,
+      "null_self_fraction_approx": 0.0575,
+      "delta_next_variance_approx": 0.00188352
+    },
+    {
+      "budget": 3,
+      "year": 8,
+      "source_self_fraction_approx": 0.9575,
+      "null_self_fraction_approx": 0.0759,
+      "delta_next_variance_approx": 0.00019715
+    }
+  ],
+  "identity": "Hsource-Hnull=(ss-sn)(Hsnull-Honull)+ss(Hssource-Hsnull)+(1-ss)(Hosource-Honull); matched conditional N and allele mean imply variance difference=-.25*(Hsource-Hnull)*E[1/N|N>0].",
+  "scientific_interpretation": [
+    "At generation8 under one old visitor history the original Model3 viable reproductive intensity is dominated by selfed offspring (94%-96%); the artificial equal-pair mean-matched null has lower self-pair fraction.",
+    "The self-vs-outcross fraction term is the largest positive component of the source-relative conditional genetic-variance difference, while within-outcross mating effects offset part of it.",
+    "These are baseline-relative algebraic components and do not by themselves causally isolate selfing benefits or visitor preference effects.",
+    "The exact source ledger does not have separate causal pollinator and maternal fecundity interventions: within-outcross combines both.",
+    "The small terminal between-population assurance-frequency variance and negative accumulated 8-year covariance remain separate nonidentified phenomena.",
+    "No real plants, independent environments, confirmatory frozen visitor histories, geographic data/INLA or validated SDE/SPDE."
+  ]
+}

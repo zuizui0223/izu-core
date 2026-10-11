@@ -1,0 +1,167 @@
+{
+  "schema": "model3_k32_pathwise_direction_sampling_source_locked_v1",
+  "status": "source_conditional_pathwise_direction_vs_sampling_validated_in_restricted_Model3",
+  "evidence_type": "one_old_visitor_history_engineered_simulation_not_field_observations",
+  "provenance": {
+    "source_commit": "558c8864011ca195521d3062df5320fe323ec722",
+    "workflow_run_id": 37885303545,
+    "numerical_ci_job": "model3-k32-pathwise",
+    "numerical_ci_conclusion": "success",
+    "raw_artifact_id": 11595743566,
+    "raw_artifact_url": "https://github.com/zuizui0223/izu-core/actions/runs/37885303545/artifacts/11595743566",
+    "raw_artifact_sha256": "5e72af536d4da889dfba9cf85df9a6cddf4a65474996ebdab08eb5d5e8c36395"
+  },
+  "design": {
+    "K": 32,
+    "mutation_rate": 0,
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "generations": 8,
+    "reproductive_setting": "prior_selfing",
+    "visitor_history_seed": 26110601,
+    "visitor_environment": "near",
+    "independent_visitor_histories": 1,
+    "nested_demographic_replicates": 512,
+    "genotype_classes": 27,
+    "founders": "four engineered diploid three-locus genotypes expanded to 32",
+    "confirmatory_history_reused": false,
+    "canonical_model3_source_modified": false
+  },
+  "labels": [
+    "pollinator_matching",
+    "floral_investment",
+    "autonomous_reproductive_assurance"
+  ],
+  "mathematical_identity": "For surviving paths: p_g(t+1)-p_g(t) = (q_g(C_t,E_t)-p_g(t))+(p_g(t+1)-q_g(C_t,E_t)). Source-filtering term is conditional expected reproductive transition, not uniquely selection.",
+  "cases": [
+    {
+      "ovule_budget": 8,
+      "n_survived": 512,
+      "n_extinct": 0,
+      "cumulative_mean_source_reproductive_filtering": [
+        -0.1304926981502894,
+        -0.29639506782837316,
+        0.4809414518153921
+      ],
+      "cumulative_mean_finite_offspring_sampling": [
+        0.008605491119039414,
+        -0.008475537640377204,
+        -0.003371871737267398
+      ],
+      "realized_mean_eight_generation_high_allele_frequency_change": [
+        -0.12188720703125,
+        -0.30487060546875,
+        0.477569580078125
+      ],
+      "mc_se_source_filtering": [
+        0.004413,
+        0.003361,
+        0.005255
+      ],
+      "mc_se_sampling": [
+        0.009675,
+        0.008651,
+        0.006207
+      ],
+      "variance_source_filtering": [
+        0.009954,
+        0.005773,
+        0.014111
+      ],
+      "variance_cumulative_sampling": [
+        0.047835,
+        0.038246,
+        0.019688
+      ],
+      "twice_covariance": [
+        0.003672,
+        -0.011894,
+        -0.032208
+      ],
+      "variance_total_frequency_change": [
+        0.061461,
+        0.032125,
+        0.001591
+      ],
+      "initial_high_allele_frequencies": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "final_surviving_high_allele_frequency_means": [
+        0.37811279296875,
+        0.19512939453125,
+        0.977569580078125
+      ]
+    },
+    {
+      "ovule_budget": 3,
+      "n_survived": 501,
+      "n_extinct": 11,
+      "cumulative_mean_source_reproductive_filtering": [
+        -0.10629674419800775,
+        -0.3196480645628856,
+        0.4851940255345574
+      ],
+      "cumulative_mean_finite_offspring_sampling": [
+        0.02196553486626893,
+        -0.009060252113326648,
+        0.002709325070542247
+      ],
+      "realized_mean_eight_generation_high_allele_frequency_change": [
+        -0.08433120933173895,
+        -0.32870831667621225,
+        0.48790335060509993
+      ],
+      "mc_se_source_filtering": [
+        0.005548,
+        0.004606,
+        0.006888
+      ],
+      "mc_se_sampling": [
+        0.012933,
+        0.011213,
+        0.00769
+      ],
+      "variance_source_filtering": [
+        0.015392,
+        0.010606,
+        0.023722
+      ],
+      "variance_cumulative_sampling": [
+        0.083632,
+        0.062866,
+        0.029569
+      ],
+      "twice_covariance": [
+        0.001786,
+        -0.023355,
+        -0.051765
+      ],
+      "variance_total_frequency_change": [
+        0.10081,
+        0.050117,
+        0.001526
+      ],
+      "initial_high_allele_frequencies": [
+        0.5,
+        0.5,
+        0.5
+      ],
+      "final_surviving_high_allele_frequency_means": [
+        0.4156687906682608,
+        0.17129168332378766,
+        0.9879033506050997
+      ]
+    }
+  ],
+  "warnings": [
+    "Means and variance decompositions of eight-generation accumulated allele frequency changes condition on survival through generation eight.",
+    "The source expected reproductive-filtering term includes fecundity, pollinator/pollen interactions, selfing, sexual inheritance and cannot isolate natural selection as a causal treatment.",
+    "Sampling residual has zero conditional mean for offspring genotype frequency given parent state and realized positive offspring census, but selection through survival conditioning may shift observed averages.",
+    "Negative cross-component covariance is descriptive stabilizing compensation within this Model3 simulation, not demonstrated biological canalization in nature.",
+    "One old visitor history with nested demographic draws does not represent independent ecosystems.",
+    "Mutation, survival and immigration were disabled by the restricted engineering assay; no full SDE/SPDE admitted.",
+    "Assurance high-allele frequency approaches its mathematical ceiling 1 (0.97757 at budget8, 0.98790 at budget3); this bound can mechanically contribute to strong negative covariance and must not be interpreted as demonstrated stabilizing selection."
+  ]
+}

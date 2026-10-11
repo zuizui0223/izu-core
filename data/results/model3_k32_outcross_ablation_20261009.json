@@ -1,0 +1,207 @@
+{
+  "schema": "model3_k32_outcross_factor_interventions_source_locked_v1",
+  "status": "three_autonomous_outcross_counterfactuals_source_ci_passed_exploratory",
+  "provenance": {
+    "source_commit": "5d57d06cb0a0975f0c128a2fec2c36a8ed0ef3dc",
+    "run_id": 37893767488,
+    "job": "model3-k32-outcross-ablation",
+    "conclusion": "success",
+    "artifact_id": 11598764619,
+    "raw_artifact_url": "https://github.com/zuizui0223/izu-core/actions/runs/37893767488/artifacts/11598764619",
+    "sha256": "bbbbbf220291fae79d613e6d0a431fbbb21e38b416bba944ec8696342e59946c"
+  },
+  "conditions": {
+    "K": 32,
+    "mutation_rate": 0,
+    "generations": 8,
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "ovule_budgets": [
+      8,
+      3
+    ],
+    "old_visitor_history": 26110601,
+    "near": true,
+    "ecological_visitor_histories": 1,
+    "demographic_draws_per_arm": 512,
+    "genotype_classes": 27,
+    "original_model3_biology_modified": false,
+    "counterfactual_parent_weight_law_altered": true,
+    "source_conditional_outcross_seed_mass_preserved": true,
+    "source_conditional_selfed_seed_mass_preserved": true,
+    "source_conditional_capped_poisson_recruitment_law_preserved": true,
+    "no_new_outcross_edges": true,
+    "prospective_confirmatory_histories_used": false
+  },
+  "arms": [
+    "original_canonical",
+    "equalize_donor_export",
+    "equalize_visitor_routing",
+    "equalize_maternal_outcross_provision"
+  ],
+  "year8": [
+    {
+      "budget": 8,
+      "arms": {
+        "original_canonical": {
+          "n_survived": 512,
+          "n_extinct": 0,
+          "assurance_high_allele_mean_survivors": 0.978607177734375,
+          "assurance_heterozygote_mean_survivors": 0.01898193359375,
+          "fixation_survivors": 0.630859375,
+          "genotype_richness_mean_unconditional": 4.32421875,
+          "mean_lost_allele_types": 0.826171875
+        },
+        "equalize_donor_export": {
+          "n_survived": 512,
+          "n_extinct": 0,
+          "assurance_high_allele_mean_survivors": 0.986236572265625,
+          "assurance_heterozygote_mean_survivors": 0.01141357421875,
+          "fixation_survivors": 0.71484375,
+          "genotype_richness_mean_unconditional": 3.869140625,
+          "mean_lost_allele_types": 0.986328125
+        },
+        "equalize_visitor_routing": {
+          "n_survived": 512,
+          "n_extinct": 0,
+          "assurance_high_allele_mean_survivors": 0.987762451171875,
+          "assurance_heterozygote_mean_survivors": 0.00994873046875,
+          "fixation_survivors": 0.724609375,
+          "genotype_richness_mean_unconditional": 4.578125,
+          "mean_lost_allele_types": 0.9765625
+        },
+        "equalize_maternal_outcross_provision": {
+          "n_survived": 512,
+          "n_extinct": 0,
+          "assurance_high_allele_mean_survivors": 0.988006591796875,
+          "assurance_heterozygote_mean_survivors": 0.00946044921875,
+          "fixation_survivors": 0.748046875,
+          "genotype_richness_mean_unconditional": 4.017578125,
+          "mean_lost_allele_types": 0.962890625
+        }
+      },
+      "paired_differences_control_minus_source": {
+        "equalize_donor_export": {
+          "n_paired_survivors": 512,
+          "assurance_delta": 0.00762939453125,
+          "assurance_delta_mc_se": 0.0018123479863440437,
+          "heterozygosity_delta": -0.007568359375,
+          "heterozygosity_delta_mc_se": 0.0017622117717470294,
+          "fixation_delta": 0.083984375,
+          "genotype_richness_delta": -0.455078125,
+          "lost_allele_types_delta": 0.16015625,
+          "extinction_rate_delta": 0
+        },
+        "equalize_visitor_routing": {
+          "n_paired_survivors": 512,
+          "assurance_delta": 0.0091552734375,
+          "assurance_delta_mc_se": 0.0018103617870133429,
+          "heterozygosity_delta": -0.009033203125,
+          "heterozygosity_delta_mc_se": 0.001750789846944899,
+          "fixation_delta": 0.09375,
+          "genotype_richness_delta": 0.25390625,
+          "lost_allele_types_delta": 0.150390625,
+          "extinction_rate_delta": 0
+        },
+        "equalize_maternal_outcross_provision": {
+          "n_paired_survivors": 512,
+          "assurance_delta": 0.0093994140625,
+          "assurance_delta_mc_se": 0.0016241117010821501,
+          "heterozygosity_delta": -0.009521484375,
+          "heterozygosity_delta_mc_se": 0.0016936267201091773,
+          "fixation_delta": 0.1171875,
+          "genotype_richness_delta": -0.306640625,
+          "lost_allele_types_delta": 0.13671875,
+          "extinction_rate_delta": 0
+        }
+      }
+    },
+    {
+      "budget": 3,
+      "arms": {
+        "original_canonical": {
+          "n_survived": 505,
+          "n_extinct": 7,
+          "assurance_high_allele_mean_survivors": 0.9840306270557984,
+          "assurance_heterozygote_mean_survivors": 0.011929098605255676,
+          "fixation_survivors": 0.8,
+          "genotype_richness_mean_unconditional": 3.115234375,
+          "mean_lost_allele_types": 1.396484375
+        },
+        "equalize_donor_export": {
+          "n_survived": 504,
+          "n_extinct": 8,
+          "assurance_high_allele_mean_survivors": 0.9888949442759224,
+          "assurance_heterozygote_mean_survivors": 0.006719860676557564,
+          "fixation_survivors": 0.8412698412698413,
+          "genotype_richness_mean_unconditional": 2.8359375,
+          "mean_lost_allele_types": 1.548828125
+        },
+        "equalize_visitor_routing": {
+          "n_survived": 507,
+          "n_extinct": 5,
+          "assurance_high_allele_mean_survivors": 0.9915866796840092,
+          "assurance_heterozygote_mean_survivors": 0.005340626732470092,
+          "fixation_survivors": 0.8678500986193294,
+          "genotype_richness_mean_unconditional": 3.322265625,
+          "mean_lost_allele_types": 1.484375
+        },
+        "equalize_maternal_outcross_provision": {
+          "n_survived": 506,
+          "n_extinct": 6,
+          "assurance_high_allele_mean_survivors": 0.989737134407439,
+          "assurance_heterozygote_mean_survivors": 0.00445841218469645,
+          "fixation_survivors": 0.8695652173913043,
+          "genotype_richness_mean_unconditional": 3.08203125,
+          "mean_lost_allele_types": 1.443359375
+        }
+      },
+      "paired_differences_control_minus_source": {
+        "equalize_donor_export": {
+          "n_paired_survivors": 500,
+          "assurance_delta": 0.004824059392662493,
+          "assurance_delta_mc_se": 0.0031708190978166264,
+          "heterozygosity_delta": -0.005052547807115987,
+          "heterozygosity_delta_mc_se": 0.0019865931819271028,
+          "fixation_delta": 0.04,
+          "genotype_richness_delta": -0.279296875,
+          "lost_allele_types_delta": 0.15234375,
+          "extinction_rate_delta": 0.001953125,
+          "extinction_rate_delta_mc_se": 0.005864469002266177
+        },
+        "equalize_visitor_routing": {
+          "n_paired_survivors": 502,
+          "assurance_delta": 0.008065697084889559,
+          "assurance_delta_mc_se": 0.0028841994417849403,
+          "heterozygosity_delta": -0.006606567813330239,
+          "heterozygosity_delta_mc_se": 0.0017521500238763608,
+          "fixation_delta": 0.0697211155378486,
+          "genotype_richness_delta": 0.20703125,
+          "lost_allele_types_delta": 0.087890625,
+          "extinction_rate_delta": -0.00390625,
+          "extinction_rate_delta_mc_se": 0.005526973744189303
+        },
+        "equalize_maternal_outcross_provision": {
+          "n_paired_survivors": 501,
+          "assurance_delta": 0.005631783127716655,
+          "assurance_delta_mc_se": 0.0035808018979514187,
+          "heterozygosity_delta": -0.007321832794805813,
+          "heterozygosity_delta_mc_se": 0.00171150489722294,
+          "fixation_delta": 0.06786427145708583,
+          "genotype_richness_delta": -0.033203125,
+          "lost_allele_types_delta": 0.046875,
+          "extinction_rate_delta": -0.001953125,
+          "extinction_rate_delta_mc_se": 0.005864469002266177
+        }
+      }
+    }
+  ],
+  "limitations": [
+    "Original canonical Model3 source arm uses unchanged exact genotype-count transition; three controls deliberately change outcross mating weights, but not source code.",
+    "Each control flattens one factor only among original viable links, renormalizes total viable outcross intensity, preserves selfing mass and thereby has NO direct within-parent-state demographic intensity effect. Long-run demographic effects may be indirect.",
+    "One-at-a-time factor interventions are mechanism sensitivity estimates under a declared baseline, not unique independent biological causal attributions or the same estimand as Shapley variance components.",
+    "Marginal frequencies and heterozygosity condition on survival; pairwise contrasts condition on survival in both paired trajectories. Extinction/allele loss/genotype richness use unconditional denominators.",
+    "Budget8 had no extinction in any of 512 arms; model cannot validate extinction-risk fidelity there. Budget3 extinction counts between 5-8 per arm are too small for stable comparisons.",
+    "One old visitor history, engineered genetic founders, no field measurements, no independent environmental replication, no prospective confirmatory visitor cohorts, no SDE/SPDE validation."
+  ]
+}

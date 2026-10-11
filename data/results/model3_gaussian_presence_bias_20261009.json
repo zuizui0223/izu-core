@@ -1,0 +1,67 @@
+{
+  "schema_version": "model3_gaussian_genotype_richness_bias_20261009_v1",
+  "status": "source_conditional_gaussian_projection_richness_bias_demonstrated",
+  "provenance": {
+    "executed_source_commit": "6bc337fbd8b87cd3287d154ad398c7f08efae26d",
+    "workflow_id": 37868247961,
+    "workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/37868247961",
+    "conclusion": "success",
+    "artifact_id": 11589591019,
+    "artifact_zip_digest": "sha256:cee4b669b696909739ba93f7b5b0a7f54f60f40358f0f24b33bcceb55e0cfee1"
+  },
+  "method": {
+    "biology": "Unmodified Model3 mating, individual pollen exclusion, complete three-locus diploid Mendelian offspring genotype law",
+    "genotype_classes": 27,
+    "engineered_visitor_types": 2,
+    "mutation_rate": 0,
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "fixed_conditioned_child_census_equal_to_K": true,
+    "capacity_values": [
+      8,
+      32,
+      128
+    ],
+    "ovule_budget": 8,
+    "exact_formula": "E[number represented genotype classes | q,N] = sum_g (1-(1-q_g)^N)",
+    "simulation_only_in_projected_gaussian_arm": true,
+    "projected_gaussian_draws_per_case": 8192,
+    "effects_include_clipping_integer_rounding_and_normal_approximation": true
+  },
+  "cases": [
+    {
+      "K": 8,
+      "exact_expected_genotype_classes": 6.106376959687035,
+      "projected_gaussian_mean_classes": 7.00390625,
+      "projected_minus_exact_bias": 0.8975292903129652,
+      "projected_monte_carlo_standard_error": 0.008594027461919685,
+      "largest_absolute_per_genotype_presence_gap": 0.10284324167419256
+    },
+    {
+      "K": 32,
+      "exact_expected_genotype_classes": 13.828041028523227,
+      "projected_gaussian_mean_classes": 15.229248046875,
+      "projected_minus_exact_bias": 1.4012070183517729,
+      "projected_monte_carlo_standard_error": 0.018682872926374418,
+      "largest_absolute_per_genotype_presence_gap": 0.11206172795226438
+    },
+    {
+      "K": 128,
+      "exact_expected_genotype_classes": 22.072525207907262,
+      "projected_gaussian_mean_classes": 22.6156005859375,
+      "projected_minus_exact_bias": 0.5430753780302382,
+      "projected_monte_carlo_standard_error": 0.017851144771338458,
+      "largest_absolute_per_genotype_presence_gap": 0.12051866288008073
+    }
+  ],
+  "claim_boundaries": [
+    "These are numeric engineering assays on exactly specified synthetic founder/visitor support, not new biological replication.",
+    "The one-step expectation reference is analytic; the Gaussian projected arm uses repeated Monte Carlo and its standard error is disclosed.",
+    "Bias arises from a Gaussian transition plus nonnegative projection and integer rounding. The audit does not attribute it uniquely to Gaussianity.",
+    "Changing K in the canonical reproductive operator can change pollen competition and biological selection; these are not one fixed q and varying N.",
+    "No proof of monotonic approximation accuracy for all K or all genotype distributions.",
+    "These results do not prove the 3-generation K32 gap in the previous trial has this exact mechanism; they demonstrate a one-step structural source of possible accumulation.",
+    "Full mutation-enabled multi-generation SPDE/Itô SDE not validated; no INLA or natural island dataset used.",
+    "Do not convert exploratory diagnostics into the preregistered ecological study."
+  ]
+}
