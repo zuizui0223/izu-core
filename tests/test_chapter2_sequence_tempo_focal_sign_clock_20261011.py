@@ -62,9 +62,22 @@ def test_all_16_profiles_by_4_mating_treatments_and_no_natural_history():
         for timing in TIMINGS:
             low=indexed[seed,timing,0.]
             high=indexed[seed,timing,.5]
-            assert low["by_schedule"]==high["by_schedule"]
+            # Source fitness signs and timing are identical, but the native
+            # F/P/S floating-point arithmetic can vary in its last bits when
+            # direct assurance cost is changed. Do not require exact float
+            # equality for separately evaluated log W derivatives.
+            for schedule in ("abrupt","gradual"):
+                a,b=low["by_schedule"][schedule],high["by_schedule"][schedule]
+                assert a["first_update_with_negative_focal_beta_I"]==b[
+                    "first_update_with_negative_focal_beta_I"]
+                assert a["lambda_at_first_negative"]==pytest.approx(
+                    b["lambda_at_first_negative"],abs=1e-14
+                )
+                assert a["beta_I_at_first_negative"]==pytest.approx(
+                    b["beta_I_at_first_negative"],rel=0,abs=1e-12
+                )
             assert low["focal_beta_I_matched"]==pytest.approx(
-                high["focal_beta_I_matched"],abs=1e-12
+                high["focal_beta_I_matched"],rel=0,abs=1e-12
             )
     json.dumps(d,allow_nan=False)
 
