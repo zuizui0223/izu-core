@@ -14,6 +14,8 @@ This project **does not silently reuse that assumption**. It freezes new source 
 
 The alternate visitor schedule thus represents **controlled functional replacement away from the initial plant phenotype**, not fewer insects. Individual evolved plants with different matching genotypes may still experience different fitness consequences; this is part of the biological question.
 
+**Functional slot interpretation:** The four visitor IDs `0–3` are bookkeeping slots whose optimum values are assigned by the controlled schedule. They do **not** track four individual insects changing their own inherited traits, and the Model 3 ecology does not distinguish repeated replacement of functionally different visitors from within-visitor evolutionary change. This study manipulates the net functional-service environment, not pollinator demography.
+
 ## Exactly what we manipulate
 
 During the first 100 reproductive updates, replace the original four visitor optima with the mismatched four-type end profile either:
@@ -44,7 +46,7 @@ This is a much sharper timing intervention than comparing abrupt pollinator abse
 
 For each individual original diploid trajectory, use founder-relative:
 
-- First sustained A increase ≥.05 over 20 reproductive updates.
+- First sustained A increase ≥.05 over 20 reproductive updates (e.g. an event from t81 through t100 inclusive **counts** as crossed by update100).
 - First sustained I decrease ≥.05 over 20 reproductive updates.
 - Times within ±5 updates are categorized as near-simultaneous; missing/censored/unreached/extinct outcomes remain separate (A-only/I-only/neither).
 
