@@ -22,6 +22,26 @@ The exact official tempo gzip and frozen design are included without changing th
 
 Keep inference units distinct: the primary evolutionary and registered demographic studies each use their own 64 independent visitor histories; the separately frozen tempo supplement uses 16 synthetic profiles with four nested repeats. The older 128-history bridge below remains supporting provenance. Neither repeated trajectories nor 410,624 tempo censuses enlarge these independent denominators. External raw-data deposition remains incomplete; see the [consolidated readiness record](docs/CHAPTER2_UNIFIED_DATA_DEPOSIT_READINESS_20261011.md).
 
+## Recovered evolutionary raw archive (2026-10-11)
+
+The [recovery receipt](data/submission/chapter2_evolution_archive_recovery_20261011.json) identifies a newly assembled historical archive containing all **50 original Actions ZIPs** from the independent confirmation and actual PR #411 generality campaigns. Its outer filename is `chapter2_public_archive_20261006.zip`, size **518,372,739 bytes**, SHA-256 **`0596de11afea2f9f0b5a781f6d0ddd1fa7ea772f048ec0ccfc06e9ecbbf60695`**. A separately retrieved private preserved copy matched that identity. Public external deposition remains pending.
+
+After authenticating this exact outer ZIP against its receipt, extract it and check all original case receipts and stored arrays:
+
+```bash
+python -m zipfile -e chapter2_public_archive_20261006.zip outputs/chapter2_recovered_archive
+python scripts/audit_chapter2_recovered_evolution_archives_20261011.py \
+  --repo . \
+  --artifact-dir outputs/chapter2_recovered_archive/raw-artifacts \
+  --out outputs/chapter2_recovered_archive/original_case_audit.json
+```
+
+The output must be separate from the original archive inputs and tracked source files; unsafe destinations are rejected before writing. The checker requires NumPy and the original Git source objects: metadata reference `90c43f0f7b9c441bd4251d1139547e43e6d118d6`, confirmation execution `380de3240992db691e1434f8577256ced80d5ae8`, and generality execution `20e8e2d6ad25545b9cb4941305343b5f010a58f4`. For a shallow clone, fetch those exact commits before checking. The [recorded independent audit](data/submission/chapter2_evolution_original_case_audit_20261011.json) covers **4,096 + 8,448 = 12,544 NPZ/JSON pairs**, complete declared task sets, source snapshots, original member CRCs and NPZ receipt hashes. It preserves the distinction between original full result JSONs and their committed projections.
+
+The existing archive workflow now keeps GitHub authorization on the initial API request and pins supporting materials to the historical packaging checkout `94c051850a43b89047e78e653edae25b043624ab`. That checkout preserves the historical manuscript association; it does not replace the current unified paper. Future builds may have different outer ZIP timestamps/checksums, so retain each actual bundle receipt and verify every original inner ZIP against the frozen source manifest.
+
+The checker launches no biological simulation, selection replay, endpoint calculation or bootstrap. These archives store a 1,001-row trace and genomes at t0/t200/t400/t1000, not annual diploid genomes. They do not close the [original discovery-cohort replay gap](docs/CHAPTER2_SOURCE_REPLAY_COHORT_IDENTITY_20261011.md), or replace the separate demographic and tempo archive requirements.
+
 ## Historical isolation bridge: independent unit and denominator
 
 The prospective isolation bridge contains **24,576 computational cases**, but those cases are **not independent replicates**. The uncertainty-bearing unit is **128 independent visitor-history seeds**. Eight demographic repeats are nested within each history/state/intervention combination and are averaged or retained for repeat-instability diagnostics; they **do not increase the independent history count**.

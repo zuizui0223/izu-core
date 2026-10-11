@@ -6,6 +6,8 @@
 
 > **Active one-paper submission route:** The unified paper retains confirmed 1,000-update floral evolution and a distinct 80-update demographic occupancy experiment as its two principal questions. The separately frozen 400-update visitor-tempo cohort is a **descriptive supplement over 16 synthetic profiles**, with no pooling into the older 64-history studies and no identified persistence benefit at its occupied endpoints. Original manuscript drafts remain source provenance. The route is defined in `data/design/chapter2_one_paper_route_20261010.json`; the [deposit readiness record](docs/CHAPTER2_UNIFIED_DATA_DEPOSIT_READINESS_20261011.md) keeps the original evolutionary, demographic and tempo archives separate.
 
+> **Evolutionary raw archive recovered (2026-10-11):** All **50 original confirmation/generality Actions ZIPs** have now been retrieved and authenticated, including **12,544 original NPZ/JSON case pairs**. The historical archive has been assembled and its private saved copy independently retrieved with an identical checksum. See the [recovery evidence and limits](docs/CHAPTER2_UNIFIED_DATA_DEPOSIT_READINESS_20261011.md#7-evolutionary-raw-archive-recovery-follow-up). Public DOI deposition, the separate 521 demographic ZIPs and tempo archive, and the original discovery replay question retain their distinct requirements.
+
 This repository is the Chapter 2 mechanism paper built around **one ecologically explicit Model 3**.
 
 Original 2026-10-06 working title (now source provenance):
