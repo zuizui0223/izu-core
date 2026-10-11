@@ -73,3 +73,44 @@ The attractive title "What evolves first need not be what caused or benefited la
 - No core biology modification, independent natural history, natural pollinator losses, or manuscript-headline change.
 
 **Evidence rank remains post-discovery mathematical mechanism.** The claim that different dates of selection-onset explain actual spontaneous A/I precedence is NOT admitted until the genuine selection-gradient history test is performed and validated.
+
+
+## Follow-up: individuals need not share the same density response
+
+The original N8/N24/N48 grid above used **clones**, so every focal individual had the same floral phenotype and therefore the same derivative. This hides real within-population heterogeneity in the original Model3 reproduction operator. Population census `N` is a group property, but local genetic returns `W_i` are **individual-specific**.
+
+The follow-up extends the same original `reproduce_kb` calculation to eight **distinct diploid homozygous floral phenotypes**, preserving equal type frequencies across N=8,24,48 by repeating each type respectively 1,3,6 times. Pollinator function count=4, source pollen background B48 and **capacity K48 remain constant**. Only current census and a disclosed flower genotype fixture vary:
+
+- `clonal`: all individuals matching=.20, investment=.35, assurance=.35.
+- `investment_heterogeneity`: matching=.20 and assurance=.35 in everyone; investment spans .20–.50 among 8 types.
+- `matching_heterogeneity`: investment=.35 and assurance=.35; matching spans .05–.55.
+- `matching_and_investment_heterogeneity`: both investment and matching vary over the original indicated intervals.
+
+There are **192 post-discovery source combinations** = 4 genotype compositions × (delayed/prior selfing × direct assurance cost0/.5) × 4 visitor optimum mismatch states (0/.25/.5/1) × 3 current censuses. The 192 cells are **not independent natural ecological observations**.
+
+### Source-mathematics diagnostic: delayed selfing, zero direct assurance cost
+
+At 50% mismatched functional visitor optima, the *eight genotype types* have the following signs for the **focal, full male+female+self log fitness investment derivative β_I**:
+
+| Flower genotype fixture | Current N | Types with β_I positive | Types with β_I negative | Individual β_I range |
+|---|---:|---:|---:|---|
+| Clonal | 24 | 0/8 | 8/8 | all −0.2656 |
+| Matching heterogeneity | 8 | 0/8 | 8/8 | −0.3456 to −0.1711 |
+| Matching heterogeneity | **24** | **4/8** | **4/8** | **−0.3379 to +0.1569** |
+| Matching heterogeneity | **48** | **5/8** | **3/8** | **−0.3285 to +0.4407** |
+| Matching + investment heterogeneity | 24 | 3/8 | 4/8 (1 near-zero) | −0.1944 to +0.1144 |
+
+**Crucially, N=24 does NOT uniquely determine the local investment-selection sign.** Under the same N, visitor assemblage, population census and assurance phenotype, different floral matching genotypes can face selection in *opposite directions*. One must not replace `β_i` with a single monomorphic resident gradient and assume all adult plants select alike.
+
+At N=8 with matching held identical at .20, varying **investment alone** already yields 2/8 types with β_I positive, 5/8 negative and 1/8 near-zero under the original matched four visitors, while the monomorphic N8 reference is uniformly negative. Thus individual trait variation also matters when floral visitor matching itself is fixed.
+
+These values are from an independent direct-array implementation of the original source equations and are retained as **original-code CI regression targets**, not field fitness measurements or independently confirmed ecological tests.
+
+### Scientific meaning for the order-centered hypothesis
+
+An apparent temporal order A-before-I may depend on which genotypes already exist in the founder population, what fraction experiences positive/negative focal selection, how the **complete full paternal-inclusive W_i** covaries with inherited trait alleles, and how drift/segregation changes genotype frequencies through time. Small N is not synonymous with uniformly negative selection in a **heterogeneous** source community.
+
+The direct test linking Q1 to Q3 is the expected inherited trait covariance (source PR #470), followed by actual time-resolved diploid histories. The historical 51/64 A-first crossing cannot be explained solely by the *clonal* β sign at N8/24/48. The field analogue needs individual plant floral traits and parentage/fitness data, not only island-wide species richness or mean census size.
+
+Implementation: `scripts/audit_chapter2_order_individual_density_heterogeneity_20261011.py`, regression tests `tests/test_chapter2_order_individual_density_heterogeneity_20261011.py`.
+
