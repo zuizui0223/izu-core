@@ -1,0 +1,86 @@
+name: Chapter 2 frozen functional-loss timing cohort
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/design/chapter2_sequence_abrupt_gradual_functional_loss_20261011.json'
+  workflow_dispatch:
+
+# This workflow may run a FULL source-locked biological campaign only AFTER
+# the original design and its associated tested code have landed on main.
+concurrency:
+  group: chapter2-functional-loss-timing-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  frozen-cohort-shards:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 105
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e '.[dev]'
+      - name: Execute exact frozen original Model3 shard
+        env:
+          OPENBLAS_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OMP_NUM_THREADS: '1'
+        run: |
+          python -m scripts.run_chapter2_sequence_abrupt_gradual_batch_20261011 \
+            --out timing-output \
+            --shard-index "${{ matrix.shard }}" \
+            --shard-count 16
+      - name: Upload SHA-receipted case artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-tempo-cases-shard-${{ matrix.shard }}
+          path: timing-output/*.json
+          if-no-files-found: error
+          retention-days: 90
+
+  frozen-cohort-readout:
+    needs: frozen-cohort-shards
+    if: github.ref == 'refs/heads/main' && needs.frozen-cohort-shards.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e '.[dev]'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: chapter2-tempo-cases-shard-*
+          merge-multiple: true
+          path: timing-combined
+      - name: Validate all 1024 SHA receipts and summarize ONLY complete cohort
+        env:
+          OPENBLAS_NUM_THREADS: '1'
+          MKL_NUM_THREADS: '1'
+          OMP_NUM_THREADS: '1'
+        run: |
+          python -m scripts.summarize_chapter2_sequence_abrupt_gradual_functional_loss_20261011 \
+            --input-root timing-combined \
+            --out chapter2_functional_loss_tempo_readout.json
+          sha256sum chapter2_functional_loss_tempo_readout.json \
+            | tee chapter2_functional_loss_tempo_readout.sha256
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-functional-loss-timing-complete-1024
+          path: |
+            chapter2_functional_loss_tempo_readout.json
+            chapter2_functional_loss_tempo_readout.sha256
+          retention-days: 90
+          if-no-files-found: error
