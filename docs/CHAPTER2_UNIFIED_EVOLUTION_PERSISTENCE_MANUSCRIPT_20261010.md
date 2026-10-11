@@ -166,7 +166,11 @@ Reproductive assurance evolution was not necessary for floral-investment decline
 
 # Data accessibility
 
-The original designs, validated machine-readouts, source-code hashes and workflow provenance for the floral-investment study and the distinct capacity–persistence cohorts are retained separately in the project repository. For the latter, 521 original biological-trajectory ZIP archives from four cohorts were backed up in unpublished draft GitHub Releases with SHA-256 verification. The locally executed visitor-tempo cohort was preserved separately as one private ZIP archive of 268,940,123 bytes (SHA-256 `034e735d244228c1f4974897a76d16acef10767a81d5dd82f5f5204f48cf0738`), with a separately retrieved copy verified by size and hash. Its 16-profile, 1,024-trajectory cohort is not part of the older four-cohort, 521-ZIP inventory.
+The original designs, validated machine-readouts, source-code hashes and workflow provenance for the floral-investment study and the distinct capacity–persistence cohorts are retained separately in the project repository.
+
+The independent evolutionary confirmation and four-setting assurance-generality experiments are preserved in 50 original Actions ZIPs (17 confirmation and 33 generality). Original byte sizes, SHA-256 values, ZIP integrity, archived source snapshots and saved case identities were verified. This recovery covers those two experiments; availability of the earlier discovery cohort's original archive remains unresolved.
+
+The separate demographic evidence comprises 521 original Actions ZIPs from four cohorts, backed up in unpublished draft GitHub Releases with SHA-256 verification. These include source-admission and readout artifacts as well as biological trajectories. The locally executed visitor-tempo cohort was preserved separately as one private ZIP archive of 268,940,123 bytes (SHA-256 `034e735d244228c1f4974897a76d16acef10767a81d5dd82f5f5204f48cf0738`), with a separately retrieved copy verified by size and hash. Its 16-profile, 1,024-trajectory cohort is not part of the older four-cohort, 521-ZIP inventory.
 
 Those private archives and expiring Actions artifacts are **not** an externally citable research-data deposit. A DOI-backed external archive with licensing and successful independent download/verification remains outstanding under Issue #436. This unified working manuscript is not yet submitted.
 
