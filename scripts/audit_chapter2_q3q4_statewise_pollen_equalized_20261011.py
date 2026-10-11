@@ -48,23 +48,17 @@ def original_genome_and_expression(counts, policy):
     return genome,expressed
 
 
-def parentage_and_mu(genome, ledger):
+def parentage_and_mu(counts, ledger):
     parents=ledger.outcross.copy()
     np.fill_diagonal(parents,np.diag(parents)+ledger.self_viable)
     mu=float(parents.sum())
     if mu<=0 or not np.isfinite(mu):
         raise ArithmeticError("missing source viable seed recruitment")
     w=parents/mu
-    # Original three genotypic classes, no numerical allele-identity shortcut.
-    # Parent alleles are inherited even if their investment expression is clamped.
-    allele_mean=np.asarray(genome.alleles[:,1,:].mean(axis=1))
-    # Source original alleles are exactly 0.20/0.50 (other width studies are
-    # separate). Mapping via genotype code is guarded by reconstructing classes.
-    # Because the source state arranges low, hetero, high in order, infer
-    # 0, .5, 1 from these classes, never from a hardcoded numeric allele value.
-    lower=(np.isclose(allele_mean,.20))
-    higher=(np.isclose(allele_mean,.50))
-    h=np.where(lower,0.,np.where(higher,1.,.5))
+    # Genotype CLASS, not numerical allele value (PR #466 regression).
+    # Offspring inherit genomic homologs even when investment expression is
+    # clamped in the reproductive source.
+    h=np.repeat(np.array([0.,.5,1.]),np.asarray(counts,dtype=int))
     f=h[:,None]; m=h[None,:]
     q=np.array([np.sum(w*(1-f)*(1-m)),
                 np.sum(w*(f*(1-m)+(1-f)*m)),np.sum(w*f*m)],dtype=float)
@@ -108,8 +102,8 @@ def source_equalized(counts,setting,budget,fraction,policy):
     de=float(equal.delivered.sum())
     if not np.isclose(ds,de,atol=1e-12,rtol=0):
         raise AssertionError("total pollen did not equalize in this genetic state")
-    mu_shifted,q_shifted=parentage_and_mu(dna,shifted)
-    mu_equal,q_equal=parentage_and_mu(dna,equal)
+    mu_shifted,q_shifted=parentage_and_mu(counts,shifted)
+    mu_equal,q_equal=parentage_and_mu(counts,equal)
     return {
         "shifted4":(mu_shifted,q_shifted),
         "original4_statewise_equal_delivery":(mu_equal,q_equal),
