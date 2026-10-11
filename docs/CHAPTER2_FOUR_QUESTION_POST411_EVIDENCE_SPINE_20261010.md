@@ -8,6 +8,8 @@
 
 **Complete-cohort update:** 2026-10-11 — the separately frozen visitor-tempo experiment implemented in [PR #475](https://github.com/zuizui0223/izu-core/pull/475) is complete from execution `main` commit `dba65f11a4ee7295ae32b623ea1103cc8a25c1b5`. This updates the evidence record below; the October 10 proposal remains historical and does not describe the current availability of outcomes.
 
+**Existing-cohort genetic-accounting update:** 2026-10-11 — [all 1,024 archived tempo cases now have verified expected-to-realized inheritance accounting](CHAPTER2_TEMPO_REALIZATION_ACCOUNTING_20261011.md), including native source expectations, retained parental contributions, and segregation/mutation remainders in both design-defined phases. All 409,600 updates are included. The demographic audit finds 23 below-capacity censuses in 13 cases (minimum N=34), with no extinction. This completes the trajectory-accounting gate for the tempo cohort; causal genetic mediation and the old #411 full-gradient replay remain unresolved. The [separate current machine-readable addendum](../data/results/chapter2_four_question_current_evidence_addendum_20261011.json) updates current availability without rewriting the October10 JSON snapshot.
+
 **Scope:** One Chapter 2 paper. The active Ecology Letters draft, frozen datasets and submission packager remain **unchanged**. PR #411 is a verified component of this four-question architecture, not its entire scientific claim.
 
 ## Central scientific question

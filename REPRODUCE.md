@@ -92,3 +92,55 @@ The unchanged table and figure generators are
 original uncompressed JSON via `--readout`; their output arguments are `--out`
 and `--out-dir`, respectively. The original scientific interpretation review
 is retained at [CHAPTER2_SEQUENCE_TEMPO_SCIENTIFIC_REVIEW_20261011.md](docs/CHAPTER2_SEQUENCE_TEMPO_SCIENTIFIC_REVIEW_20261011.md).
+
+## Existing tempo cohort: realized inheritance and recruitment accounting (2026-10-11)
+
+The [new report](docs/CHAPTER2_TEMPO_REALIZATION_ACCOUNTING_20261011.md) and
+[complete tables](docs/CHAPTER2_TEMPO_REALIZATION_ACCOUNTING_TABLES_20261011.md)
+account for every original case without generating biological histories.
+Use this checkout for the new auditors; their preflight rehashes all 30 original
+receipted native source files against the unchanged execution identity. With
+the original archive extracted into `tempo-raw`, run:
+
+```bash
+python -m scripts.audit_chapter2_tempo_realization_accounting_20261011 \
+  --raw-root tempo-raw \
+  --output-json tempo-recheck/native_realization_accounting.json \
+  --workers 8
+
+python scripts/audit_chapter2_tempo_realization_independent_20261011.py \
+  --raw-root tempo-raw/cases \
+  --design data/design/chapter2_sequence_abrupt_gradual_functional_loss_20261011.json \
+  --out tempo-recheck/independent_genetic_accounting.json \
+  --workers 8
+
+python -m scripts.tabulate_chapter2_tempo_realization_accounting_20261011 \
+  --accounting tempo-recheck/native_realization_accounting.json \
+  --independent tempo-recheck/independent_genetic_accounting.json \
+  --summary-gzip tempo-recheck/realization_summary.json.gz \
+  --comparison-json tempo-recheck/realization_comparison.json \
+  --tables-md tempo-recheck/realization_tables.md
+```
+
+The first calculation uses deterministic native reproduction on archived
+genotypes and verifies saved expectations and reproductive totals. The second
+independently maps archived parent and child IDs, treating saved expectations
+as declared inputs. It records fresh runtime/timestamp metadata, so a repeated
+independent audit has different receipt bytes while its compared numerical
+fields remain reproducible. The final command compares all case, profile, arm,
+paired-profile and paired-setting component summaries before producing outputs.
+
+The compact Git result retains every case/window/profile/arm value and omits
+only each case's annual `censuses` and `updates` arrays. Those remain in the
+separately saved `izu_core_tempo_realization_full_20261011.json.gz`, identified
+by SHA256 in the [artifact receipt](data/results/chapter2_tempo_realization_receipt_20261011.json).
+Its 85,737,428 decompressed bytes equal the native JSON output from the recorded
+runtime; gzip uses an empty stored filename and `mtime=0`. Neither the compact
+projection nor the full result replaces the original raw-genome archive.
+
+The new accounting rank is retrospective and descriptive. It adds no intervals,
+p-values, mutation-order intervention, survival-equivalence claim, or evolutionary
+mediation estimate. The earlier independent endpoint audit's stated exclusions
+remain historical; this separate audit verifies the specific expectation,
+trait-mean, parentage and recruitment quantities it uses, rather than declaring
+all 156 original secondary fields per setting independently recomputed.

@@ -55,6 +55,8 @@ For a short original-RNG sanity check without archived data, omit `--archive-roo
 
 **Next decision:** find and verify original raw historical NPZ/receipt archives, then use source-matched annual gradients to test the hypothesized mechanism instead of describing it as already supported. A separate prospective abrupt-versus-gradual functional-pollinator replacement study can then test timing causally, controlling flower genotype, source pollen, census and total exposure.
 
+**Later 2026-10-11 availability update:** The separately frozen [1,024-case abrupt/gradual study is complete](CHAPTER2_SEQUENCE_ABRUPT_GRADUAL_FUNCTIONAL_LOSS_RESULTS_20261011.md), and its [archived expected-to-realized genetic accounting is complete](CHAPTER2_TEMPO_REALIZATION_ACCOUNTING_20261011.md). Neither result supplies the missing old #411 raw gradient replay described above. The original next-decision text is retained as a historical proposal; the new tempo experiment matched cumulative pollen only in its fixed-clonal calibration, not across evolved populations.
+
 
 ## Source-cohort identity upgrade: one COMPLETE eight-replicate paired historical comparison
 
