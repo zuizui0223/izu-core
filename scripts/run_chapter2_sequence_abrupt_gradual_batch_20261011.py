@@ -29,6 +29,7 @@ SOURCE_FILES=(
     "scripts/run_model3_persistent_isolation.py",
     "scripts/run_chapter2_sequence_abrupt_gradual_functional_loss_20261011.py",
     "scripts/run_chapter2_sequence_abrupt_gradual_batch_20261011.py",
+    "scripts/summarize_chapter2_sequence_abrupt_gradual_functional_loss_20261011.py",
     "data/design/model3_ch2_bridge_20260927.json",
     "data/design/chapter2_sequence_abrupt_gradual_functional_loss_20261011.json",
 )
