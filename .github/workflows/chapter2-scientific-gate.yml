@@ -71,6 +71,7 @@ jobs:
             tests/test_chapter2_unified_one_paper_20261010.py \
             tests/test_chapter2_unified_el_review_bundle_20261010.py \
             tests/test_chapter2_sequence_tempo_result_receipt_20261011.py \
+            tests/test_chapter2_discovery_archive_intake_20261011.py \
             tests/test_chapter2_public_archive_manifest.py \
             tests/test_chapter2_branch_identifiability_boundary.py \
             tests/test_chapter2_independent_unit_reporting.py \
