@@ -37,6 +37,9 @@ def test_smoke_outputs_are_sha_verified_but_never_biological_readout(tmp_path):
     payload=json.loads(rc.read_text())
     assert payload["full_declared_case"] is False
     assert payload["years"]==3
+    assert len(payload["source_identity_sha256"])==64
+    assert "scripts/model3_island/reproduction.py" in payload["source_file_sha256"]
+    assert "scripts/summarize_chapter2_sequence_abrupt_gradual_functional_loss_20261011.py" in payload["source_file_sha256"]
     assert run_one(tmp_path,c,smoke_years=3)==result
     case_json=tmp_path/(result+".json")
     scientific=json.loads(case_json.read_text())
@@ -60,6 +63,7 @@ def test_partial_shard_manifest_is_marked_smoke_and_cannot_fake_completion(tmp_p
     assert m["status"]=="INCOMPLETE_SMOKE_NO_BIOLOGICAL_READOUT"
     assert m["case_count"]==1
     assert m["expected_full_case_count"]==64
+    assert len(m["source_identity_sha256"])==64
     assert not (tmp_path/"shard_00_complete.json").exists()
     with pytest.raises(FileNotFoundError):
         read_all(tmp_path)
