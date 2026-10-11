@@ -1,9 +1,9 @@
-"""Same 64-history frozen cohort: paired ORIGINAL ABM prefix and A/I crossings.
+"""Compare one discovery-history replay candidate with frozen A/I crossings.
 
-Unlike the archived 10-column means, we actively replay original full diploid
-plant states and original keyed RNG. This companion checks that all eight
-nested demographic repeats reconstruct the ALREADY FROZEN trait crossing
-events. It does not infer individual source-gradient signs from archived means.
+The imported checkout generates diploid states under the frozen task and RNG
+specification. This companion checks whether its eight paired demographic
+repeats agree with already frozen trait-crossing events. Supplied case-file
+agreement cannot authenticate the historical archive, source or runtime.
 
 The selected source history 76001 in assurance_cost/.01 has all three
 original threshold crossing times within the first 63 updates; replaying
@@ -19,7 +19,7 @@ from pathlib import Path
 import numpy as np
 
 from scripts.audit_chapter2_sequence_source_genome_replay_20261011 import (
-    ROOT, replay, STATUS
+    ROOT, replay, unverified_historical_identity
 )
 from scripts.model3_temporal_order import first_sustained,order_label
 
@@ -27,7 +27,7 @@ FROZEN_RESULT=ROOT/"data/results/model3_persistent_isolation_summary_20261005.js
 FROZEN_SEQUENCE_DIAGNOSTIC=ROOT/"data/design/model3_temporal_order_diagnostic_20261005.json"
 REPEAT_SEEDS=range(7101,7109)
 THRESHOLDS=(.025,.05,.1)
-STATUS_PAIRED="POSTDISCOVERY_ORIGINAL_GENOME_REPLAY_FROZEN_ORDER_HISTORY_MATCH_NOT_NEW_COHORT"
+STATUS_PAIRED="POSTDISCOVERY_PAIRED_REPLAY_CANDIDATE_HISTORICAL_IDENTITY_UNVERIFIED"
 
 
 def mean_available(values,axis):
@@ -71,10 +71,12 @@ def original_order_pair_100_updates(*,seed=76001,setting="assurance_cost",
                           gradient_until=gradient_until,sample_n=sample_n,
                           archive_root=archive_root)
             data[idx,j]=np.asarray(record["trace"],dtype=float)
+            # A legacy boolean from a case reader is not an authentication
+            # contract. This companion independently establishes no identity.
+            comparison={**record["verification"],**unverified_historical_identity()}
             hashes.append({"rep":rep,"arm":arm,
                 "replay_trace_sha256":record["source_trace_sha256"],
-                "archive_verified":record["verification"][
-                    "verified_against_exact_original_archive"]})
+                "archive_verified":False,"verification":comparison})
             focal.append({"rep":rep,"arm":arm,
                 "sampled_local_focal_selection":record["sampled_local_focal_selection"]})
     occupied=data[:,:,:,0]>0
@@ -111,8 +113,24 @@ def original_order_pair_100_updates(*,seed=76001,setting="assurance_cost",
                 "historical_1000_update_event":historical,
                 "original_event_agrees_with_prefix_replay":matched,
             })
+    comparisons=[r["verification"] for r in hashes]
+    records_agree=(len(comparisons)==16 and all(
+        v.get("supplied_case_record_verified") is True for v in comparisons))
+    prefixes_agree=(records_agree and all(
+        v.get("replay_matches_supplied_prefix") is True for v in comparisons))
+    verification={
+        **unverified_historical_identity(),
+        "case_records_expected":16,
+        "case_records_compared":sum(
+            v.get("supplied_case_record_verified") is True for v in comparisons),
+        "all_supplied_case_records_agree":records_agree,
+        "all_supplied_trace_prefixes_agree":prefixes_agree,
+        "all_full_supplied_records_reproduced":prefixes_agree and all(
+            v.get("full_supplied_record_reproduced") is True for v in comparisons),
+        "reason":"This companion aggregates supplied-case comparisons and frozen crossing agreement; it authenticates no historical archive, source, runtime or annual genomes.",
+    }
     return {
-        "schema":"chapter2_sequence_paired_original_prefix_source_verification_v1",
+        "schema":"chapter2_sequence_paired_replay_candidate_v2",
         "status":STATUS_PAIRED,
         "history_seed":seed,"setting":setting,"mutation_rate":.01,
         "n_original_demographic_repeats":len(REPEAT_SEEDS),
@@ -120,8 +138,8 @@ def original_order_pair_100_updates(*,seed=76001,setting="assurance_cost",
         "years_replayed":years,"n_original_near_and_far_replays":16,
         "all_six_frozen_original_events_reproduced":all(
             e["original_event_agrees_with_prefix_replay"] for e in events),
-        "direct_archive_NPZ_identity_verified":all(
-            r["archive_verified"] for r in hashes),
+        "direct_archive_NPZ_identity_verified":False,
+        "verification":verification,
         "original_10_column_trace_sha_by_case":hashes,
         "original_observed_crossings":events,
         "annual_pooled_trait_delta_from_founder_far":curves[
@@ -129,7 +147,7 @@ def original_order_pair_100_updates(*,seed=76001,setting="assurance_cost",
         "annual_pooled_far_minus_near_trait_delta":curves[
             "paired_far_minus_near"].tolist(),
         "sampled_actual_genotype_local_gradients":focal,
-        "scientific_limit":"This exact original-model history replay tests correspondence with frozen observed trait-crossing timing, not the causal role of the selected preceding trait, not all 64 histories, not archive NPZ byte identity unless raw receipts supplied. Any sampled gradient is individual focal W and not the whole population or spontaneous mutation causal effect.",
+        "scientific_limit":"This current-checkout replay candidate tests correspondence with frozen trait-crossing timing for one history. Supplied NPZ/receipt agreement does not authenticate the historical archive, source, runtime or original annual genomes. Sampled gradients are individual focal W assays, not population-wide gradients or causal effects of inherited order.",
     }
 
 
@@ -139,7 +157,8 @@ def main():
     parser.add_argument("--years",type=int,default=100)
     parser.add_argument("--gradient-until",type=int,default=50)
     parser.add_argument("--sample-n",type=int,default=4)
-    parser.add_argument("--archive-root",type=Path,default=None)
+    parser.add_argument("--archive-root",type=Path,default=None,
+                        help="Parent of supplied case files; comparison does not authenticate historical origin")
     args=parser.parse_args()
     d=original_order_pair_100_updates(
         years=args.years,gradient_until=args.gradient_until,
@@ -153,6 +172,7 @@ def main():
         "all_six_events_match_original_frozen_source":d[
             "all_six_frozen_original_events_reproduced"],
         "archive_NPZ_identity_verified":d["direct_archive_NPZ_identity_verified"],
+        "verification":d["verification"],
         "source_events":d["original_observed_crossings"],
     },sort_keys=True))
 
