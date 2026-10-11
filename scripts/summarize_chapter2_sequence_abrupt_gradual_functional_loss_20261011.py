@@ -14,7 +14,7 @@ import json
 
 import numpy as np
 
-from scripts.run_chapter2_sequence_abrupt_gradual_batch_20261011 import tasks,key
+from scripts.run_chapter2_sequence_abrupt_gradual_batch_20261011 import tasks,key,source_identity
 from scripts.run_chapter2_sequence_abrupt_gradual_functional_loss_20261011 import contract
 
 SCHEDULES=("abrupt","gradual")
@@ -26,6 +26,7 @@ STATUS="COMPLETE_SYNTHETIC_TEMPORAL_SEQUENCE_OUTCOME_SOURCE_ONLY_NOT_NATURAL_ECO
 def read_all(folder):
     root=Path(folder)
     d,digest=contract()
+    source_digest=source_identity()["digest"]
     for index in range(16):
         path=root/f"shard_{index:02d}_complete.json"
         if not path.is_file():raise FileNotFoundError(f"missing completed shard: {path}")
@@ -44,7 +45,9 @@ def read_all(folder):
         r=json.loads(receipt.read_text())
         if r.get("sha256")!=sha256(data.read_bytes()).hexdigest():
             raise ArithmeticError("full source case SHA256 mismatch: "+k)
-        if r.get("case")!=list(case) or r.get("design_sha256")!=digest or r.get("full_declared_case") is not True:
+        if (r.get("case")!=list(case) or r.get("design_sha256")!=digest or
+            r.get("source_identity_sha256")!=source_digest or
+            r.get("full_declared_case") is not True):
             raise ValueError("partial/altered biological source cell: "+k)
         x=json.loads(data.read_text())
         if (x["case_key"]!=k or x["years"]!=400 or
@@ -115,6 +118,7 @@ def clustered_summary(records):
         "schema":"chapter2_sequence_abrupt_gradual_full_source_readout_v1",
         "status":STATUS,
         "design_sha256":contract()[1],
+        "verified_source_identity_sha256":source_identity()["digest"],
         "total_verified_trajectory_cases":1024,
         "n_independent_synthetic_visitor_profiles":16,
         "n_nested_demographic_replicates_per_profile":4,
