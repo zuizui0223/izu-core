@@ -1,14 +1,11 @@
 name: Chapter 2 frozen functional-loss timing cohort
 
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'data/design/chapter2_sequence_abrupt_gradual_functional_loss_20261011.json'
   workflow_dispatch:
 
-# This workflow may run a FULL source-locked biological campaign only AFTER
-# the original design and its associated tested code have landed on main.
+# Existing repository CI policy permits new non-core workflows only via
+# explicit workflow_dispatch. NEVER execute 1024 model cases on a PR or
+# ordinary push. The experiment may be manually launched AFTER tested merge.
 concurrency:
   group: chapter2-functional-loss-timing-${{ github.ref }}
   cancel-in-progress: false
