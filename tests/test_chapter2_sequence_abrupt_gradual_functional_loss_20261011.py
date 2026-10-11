@@ -161,3 +161,19 @@ def test_extinct_population_trait_means_remain_missing_not_zero():
     json.dumps(safe,allow_nan=False)
     with pytest.raises(ValueError):
         json_safe_trait_trace(np.full((3,10),np.nan))
+
+
+def test_20_update_sustained_event_ending_at_t100_counts_as_crossed_by100():
+    d,_=contract()
+    trace=np.full((101,10),np.nan)
+    trace[:,0]=48
+    trace[:,1:4]=.5
+    trace[81:,3]=.6 # exactly t81,...,t100 inclusive = 20 observations
+    o=order_from_trace(trace,100,d)
+    assert o["A_crossing_update"]==81
+    assert o["A_crossed_by100"] is True
+    assert o["I_crossed_by100"] is False
+    trace[81,3]=.5
+    p=order_from_trace(trace,100,d)
+    assert p["A_crossing_update"] is None
+    assert p["A_crossed_by100"] is False
