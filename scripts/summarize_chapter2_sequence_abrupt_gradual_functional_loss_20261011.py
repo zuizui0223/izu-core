@@ -19,7 +19,8 @@ from scripts.run_chapter2_sequence_abrupt_gradual_functional_loss_20261011 impor
 
 SCHEDULES=("abrupt","gradual")
 METRICS=("A_crossed_by100","I_crossed_by100","A_first",
-         "I_first","persistence100","persistence400")
+         "I_first","near_simultaneous","A_only","I_only","neither",
+         "persistence100","persistence400")
 STATUS="COMPLETE_SYNTHETIC_TEMPORAL_SEQUENCE_OUTCOME_SOURCE_ONLY_NOT_NATURAL_ECOLOGY"
 
 
@@ -31,9 +32,12 @@ def read_all(folder):
         path=root/f"shard_{index:02d}_complete.json"
         if not path.is_file():raise FileNotFoundError(f"missing completed shard: {path}")
         s=json.loads(path.read_text())
+        exact_keys=[key(c) for j,c in enumerate(tasks()) if j%16==index]
         if (s["status"]!="COMPLETE_FROZEN_SHARD" or
             s["shard_index"]!=index or s["shard_count"]!=16 or
-            s["case_count"]!=64 or s["design_sha256"]!=digest):
+            s["case_count"]!=64 or s["design_sha256"]!=digest or
+            s.get("source_identity_sha256")!=source_digest or
+            s.get("case_keys")!=exact_keys):
             raise ValueError("incomplete or mismatched execution provenance")
     records={}
     for case in tasks():
@@ -71,14 +75,22 @@ def read_all(folder):
 def metrics_for_record(x):
     order=x["order"]
     trace=np.asarray(x["trace"],dtype=float)
-    return {
+    values={
         "A_crossed_by100":float(order["A_crossed_by100"]),
         "I_crossed_by100":float(order["I_crossed_by100"]),
         "A_first":float(order["order"]=="assurance_first"),
         "I_first":float(order["order"]=="investment_first"),
+        "near_simultaneous":float(order["order"]=="near_simultaneous"),
+        "A_only":float(order["order"]=="assurance_only"),
+        "I_only":float(order["order"]=="investment_only"),
+        "neither":float(order["order"]=="neither"),
         "persistence100":float(trace[100,0]>0),
         "persistence400":float(trace[400,0]>0),
     }
+    if sum(values[k] for k in (
+            "A_first","I_first","near_simultaneous","A_only","I_only","neither"))!=1:
+        raise AssertionError("source history lacks exactly one sequence/censoring class")
+    return values
 
 
 def clustered_summary(records):
@@ -90,19 +102,26 @@ def clustered_summary(records):
     for timing in ("delayed","prior"):
         for cost in (0.,.5):
             for mutation in (0.,.01):
-                paired=[]
+                paired=[]; abrupt_observed=[]; gradual_observed=[]
                 for profile in profiles:
-                    changes=[]
+                    changes=[]; a_rep=[];g_rep=[]
                     for rep in range(49271001,49271005):
                         a=metrics_for_record(records[(profile,rep,timing,cost,mutation,"abrupt")])
                         g=metrics_for_record(records[(profile,rep,timing,cost,mutation,"gradual")])
                         changes.append({k:a[k]-g[k] for k in METRICS})
+                        a_rep.append(a);g_rep.append(g)
                     paired.append([np.mean([v[k] for v in changes]) for k in METRICS])
+                    abrupt_observed.append([np.mean([v[k] for v in a_rep]) for k in METRICS])
+                    gradual_observed.append([np.mean([v[k] for v in g_rep]) for k in METRICS])
                 matrix=np.array(paired)
+                a_obs=np.array(abrupt_observed)
+                g_obs=np.array(gradual_observed)
                 bootstrap=matrix[draw].mean(axis=1)
                 metrics={}
                 for j,k in enumerate(METRICS):
                     metrics[k]={
+                        "P_abrupt":float(a_obs[:,j].mean()),
+                        "P_gradual":float(g_obs[:,j].mean()),
                         "abrupt_minus_gradual":float(matrix[:,j].mean()),
                         "descriptive_history_profile_bootstrap95":[float(q) for q in np.quantile(
                             bootstrap[:,j],[.025,.975])],
