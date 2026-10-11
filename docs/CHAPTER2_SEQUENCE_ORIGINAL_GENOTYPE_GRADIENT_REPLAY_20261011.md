@@ -1,6 +1,8 @@
-# Chapter 2 | Historical selection onset: source-identical diploid replay
+# Chapter 2 | Discovery replay candidates: comparison and evidence limits
 
-**2026-10-11 — retrospective original-history instrumentation, not a new ecological experiment or prospective confirmation.** One manuscript direction: why A (autonomous selfing assurance capacity) and I (floral attraction investment) exhibit observed temporal precedence, and whether that precedence implies a necessary cause or subsequent survival benefit.
+**2026-10-11 — current execution guide after [PR #483](https://github.com/zuizui0223/izu-core/pull/483).** The readers generate replay candidates using the currently imported checkout. They can compare supplied case records and frozen crossing events, but cannot authenticate an original archive, executed historical source, numerical runtime, or original annual genomes. This guide replaces its earlier source-identity wording; the [dated provenance audit](CHAPTER2_DISCOVERY_REPLAY_PROVENANCE_20261011.md) and historical result records retain their own evidence and scope.
+
+The scientific question remains why A (autonomous selfing assurance capacity) and I (floral attraction investment) exhibit observed temporal precedence, and whether that precedence implies a necessary cause or subsequent survival benefit. No new biological campaign or prospective confirmation is reported here.
 
 **Later 2026-10-11 cohort identity correction:** This runner targets the original **2026-10-05 sustained-isolation discovery cohort**, whose histories are 76001–76064 and repeats are 7101–7108. Its current mutation-0.01 domain contains **2,048 trajectories**; the complete discovery design, including mutation zero, contains **4,096**. Actual PR #411 is a separate four-setting experiment with histories 26110601–26110664, different founding assurance alleles, and 8,192 main cases plus 256 controls. See the [current cohort and archive-admission note](CHAPTER2_SOURCE_REPLAY_COHORT_IDENTITY_20261011.md). The older wording “old #411 raw gradient replay” referred to the wrong cohort and is corrected here; #411's confirmed result retains its existing rank.
 
@@ -8,87 +10,111 @@
 
 The archived `data/results/model3_persistent_isolation_summary_20261005.json` records first sustained founder-relative and extra-isolation divergence crossing times for 64 history clusters. Original annual Model3 population case traces retain **N, trait means/variances and number of distinct alleles**, not every resident's diploid genotype per year. The raw model case `*.npz` stores genomes at **t=0,200,400,1000 only**.
 
-Therefore neither the first annual *selection-gradient sign switch* nor its delay relative to A/I allele changes can be computed from trait means alone. The correct next step is to **replay the original exact visitor histories and independent random streams**, inspecting the complete original diploid `PlantState` before reproduction. This new auditor calls the SAME original `scripts/model3_island/reproduction.py::reproduce` and `population.advance` as the historical `scripts/run_model3_persistent_isolation.py`, with the actual original `exposure(seed,arm)`, founding allele seed **74001**, visitor seeds **76001–76064**, nested demographic replicate seeds **7101–7108**, no changes to reproduction, survival, mutation or mutation supply.
+Therefore neither the first annual *selection-gradient sign switch* nor its delay relative to A/I allele changes can be computed from trait means alone. A historical reconstruction would require authenticated execution inputs and reproduction of the original full traces and saved checkpoints. The current auditor instead imports `scripts/model3_island/reproduction.py::reproduce`, `population.advance`, and the persistent-isolation runner's configuration and exposure functions from the current checkout. It uses the frozen task specification: founding allele seed **74001**, visitor seeds **76001–76064**, nested demographic replicate seeds **7101–7108**, and mutation probability **.01**. Matching those parameters does not identify the source bytes or runtime that executed the original experiment.
+
+Near comparisons use full-mutation **near** case records; far comparisons use persistent-isolation **far** records. The full-mutation far arm switches to near visitors after update200 and is a different experiment. The [cohort identity note](CHAPTER2_SOURCE_REPLAY_COHORT_IDENTITY_20261011.md) explains this routing and the remaining source/runtime requirements.
 
 ## Recorded estimands are deliberately distinct
 
-1. **Exact realized year-by-year genomic state:** original N, mean/variance of the three diploid traits, unique allele counts, numbers of visitor functional types and total delivered pollen. This uses the original population transition with its original keyed RNG streams.
-2. **Expected inherited directional response** at the *existing* genomic state, before newborn mutations:
+1. **Candidate state summaries:** census N, means/variances of the three diploid traits, unique allele counts, numbers of visitor functional types and total delivered pollen. These are calculated from states generated by the imported checkout under the specified RNG streams.
+2. **Expected inherited directional response** at each candidate source state, before newborn mutations:
 
-   `W_i = 0.5F_i + 0.5P_i + S_i`; `E[offspring trait mean | at least one locally recruited offspring] = sum_i W_i g_i / sum_i W_i`. We record expected investment and assurance change relative to current adult mean. This is the actual source Price covariance (given original Mendelian parent-pair sampling), NOT the same as a local one-focal derivative. Mutation at historical rate .01 means this is **pre-mutation** directional expectation, not a prediction of exact realized change.
+   `W_i = 0.5F_i + 0.5P_i + S_i`; `E[offspring trait mean before mutation | at least one locally recruited offspring] = sum_i W_i g_i / sum_i W_i`. We record expected investment and assurance change relative to the current adult mean. This source Price covariance, conditional on the model's Mendelian parent-pair sampling, is distinct from a local one-focal derivative. Mutation at rate .01 means the quantity is a **pre-mutation** directional expectation, not a prediction of exact realized change.
 
-3. **Sampled finite one-individual local gradients:** at each selected early reproductive update perturb the two parental homologs for **one focal at a time** by `±0.005`, leave all other individuals unchanged, and compute `d log(W_i)/d I_i` and `d log(W_i)/d A_i`. F, P and S are all included. The default eight representative adults are selected deterministically across the focal trait ranking; the runner also supports `--sample-n 0` to evaluate ALL adults. The code records *number sampled and number for which a bounded central difference is available*, plus the median, minimum, maximum and counts of positive/negative/near-zero source gradients.
+3. **Sampled finite one-individual local gradients:** at each selected early reproductive update perturb the two parental homologs for **one focal at a time** by `±0.005`, leave all other individuals unchanged, and compute `d log(W_i)/d I_i` and `d log(W_i)/d A_i`. F, P and S are all included. The single-case CLI's default eight representative adults are selected deterministically across the focal trait ranking; the runner also supports `--sample-n 0` to evaluate ALL adults. The code records *number sampled and number for which a bounded central difference is available*, plus the median, minimum, maximum and counts of positive/negative/near-zero source gradients.
 
-   **Important:** eight sampled gradients are NOT a census-wide selection sign, and the sign of a group covariance need not equal a local one-individual derivative. No missing gradient near allele boundaries is imputed.
+   Eight sampled gradients are not a census-wide selection sign, and the sign of a group covariance need not equal a local one-individual derivative. Positive/negative/near-zero summaries use the existing **±.02 display band**, not a biological crossing threshold. Central differences are unavailable at allele boundaries or nonpositive focal W; no missing value is imputed.
 
-## Source identity gate
+The single-case JSON retains the ten-column trace, annual expected-response and reproductive summaries, sampled focal-gradient summaries and IDs, and hashes of reached genome checkpoints. It does **not** retain all annual adult IDs and diploid allele arrays or each focal adult's individual gradient value. The current loop also discards the parentage return from `population.advance`; it does not deliver a retained-parent accounting dataset. Computing a candidate state transiently is not the same as preserving it for independent annual verification.
 
-There are two evidence ranks:
+## Interpret the candidate-v2 output
 
-- **Replay from original algorithms without archived raw case comparison:** original RNG seed and algorithm source faithfully executed, and independent uninstrumented original prefix transition checked with regression tests. This is a valid *new retrospective calculation* but not an exact recovered original archived genotype trajectory merely because the seeds match.
-- **Case-matched original replay:** with original raw `outputs/model3_persistent_isolation_20261005/persistent_core_...far.npz` and `outputs/model3_full_mutation_20261004/core_...near.npz` plus their individual JSON SHA256 receipts, the runner verifies task identity, case-file SHA256, the entire replayed trace prefix and every replayed diploid checkpoint t0/200/400/1000. On a mismatch it raises an error and **cannot** report archived case identity. This per-case gate does not itself admit an external package digest, frozen source manifest/runtime, or complete cohort. Those additional prerequisites are recorded in the current cohort note.
+The single-case schema is `chapter2_discovery_source_selection_replay_candidate_v2`, with status `RETROSPECTIVE_DISCOVERY_REPLAY_CANDIDATE_HISTORICAL_IDENTITY_UNVERIFIED`. The paired schema is `chapter2_sequence_paired_replay_candidate_v2`, with status `POSTDISCOVERY_PAIRED_REPLAY_CANDIDATE_HISTORICAL_IDENTITY_UNVERIFIED`.
 
-There is no original raw case archive in the GitHub current repository tree. The original archive must be recovered and admitted before exact correspondence is claimed for the full declared discovery cohort. The current archive inspection identifies a preserved replenishment-package receipt that may contain all 2,048 positive-mutation endpoints; its raw contents have not yet been recovered. Unit tests of the reader do not establish historical data availability.
+| Operation | What the current readers establish |
+|---|---|
+| Candidate execution without `--archive-root` | Results from the imported checkout. Supplied-file comparison flags are false, compared counts are zero, and supplied NPZ hashes are null. |
+| Comparison with `--archive-root` | Agreement of the supplied task, NPZ SHA-256 receipt, complete stored trace shape, requested trace prefix, and exactly the checkpoints reached by that prefix. This option supplies comparison files; it does not activate archive authentication. |
+| Full supplied-record comparison | `full_supplied_record_reproduced` is true only after all 1,001 censuses and checkpoints t0/t200/t400/t1000 agree. This remains a comparison with supplied files. |
+| Six-event paired comparison | Agreement with the six frozen crossing records for history76001. This does not establish original annual genomes or a full-cohort replay. |
+
+For a successful supplied-file comparison, inspect `supplied_case_record_verified`, `replay_matches_supplied_prefix`, `compared_censuses`, `compared_updates`, and `compared_checkpoint_years`. The reader requires 2–1,001 censuses with ten columns. The replay's checkpoint dictionary must contain exactly the reached years: empty traces, omitted reached keys, keys beyond the compared prefix, and mismatches are rejected. Later checkpoint arrays in the supplied NPZ are permitted. The receipt hash and loaded arrays use the same captured NPZ bytes. `supplied_npz_sha256` and the legacy `original_npz_sha256` identify those supplied bytes.
+
+All five historical identity flags remain **false** in both readers, including after complete supplied-record agreement:
+
+- `verified_against_exact_original_archive`
+- `historical_source_identity_verified`
+- `runtime_identity_verified`
+- `original_annual_genomes_verified`
+- `original_discovery_full_replay_completed`
+
+The legacy `original_source` field names a runner reference; it does not authenticate executed source. Legacy paired field names containing `original` likewise identify the frozen task or event reference, not recovered genomes. Per-case `archive_verified`, aggregate `direct_archive_NPZ_identity_verified`, and the CLI's `archive_NPZ_identity_verified` remain false.
+
+The separate [archive intake](CHAPTER2_DISCOVERY_ARCHIVE_INTAKE_20261011.md) checks a candidate ZIP against the fixed external receipt, manifest, source pins and all 2,048 positive-mutation endpoint records. Its success would establish archive admission, not executed-source/runtime identity or annual replay. The named replenishment ZIP remains unrecovered in the [recorded provenance investigation](CHAPTER2_DISCOVERY_REPLAY_PROVENANCE_20261011.md). Its reconstruction of 21/23 replenishment source byte strings is not a verified historical execution environment.
 
 ## What an actual selection-timing result would require
 
-After archival identity verification, evaluate the same 64 histories, both near/far, all eight nested repeats, and preferably every adult at each specified early update. Compare separately:
+Before scientific use of reconstructed annual states, authenticate the original archive and executed source/runtime contract, and reproduce every original full trace and saved checkpoint within the declared cohort. A further recording contract must preserve annual adult genomes/IDs and retained child/mother/father IDs without consuming additional biological RNG draws. The current readers do not implement that complete recording or batch-admission layer. Full discovery closure requires **4,096 trajectories**, including mutation zero; the implemented mutation-.01 task domain covers **2,048**.
+
+An all-adult gradient pass also needs a separate computational and recording contract. The current early-window rank sample cannot establish a population-wide selection-onset date. With those prerequisites met, compare separately:
 
 - first date of **marginal** investment and assurance gradient positive/negative classification under all living source states;
 - first date of **genomic** 0.05 trait change sustained 20 updates (existing frozen rule), preserving extinct and non-crossing histories;
 - functional pollen mismatch, visitor richness and delivered pollen, and plant N through the same histories;
 - historical selfing timing/cost (the present delayed/costly versus prior/cost-free historical comparison is doubly confounded).
 
-The original 51/64 assured-first historical result is independently archived, but proving it was caused by an earlier selection sign switch is **NOT yet possible** without the full matched replay and a new independent loss-timing intervention. The present code is an enabling audit of a bounded original model history, not confirmation that the first response was adaptive or necessary.
+The original **51/64 assurance-first** result refers to the delayed/costly setting, mutation .01, primary threshold .05, and far change relative to founders. It remains an archived sequence result, separate from far-minus-near divergence. The candidate reader does not establish that an earlier selection sign switch caused it. Full matched replay would support descriptive timing; a causal loss-timing claim requires a separately justified intervention. The current tool does not confirm that the first response was adaptive or necessary.
 
-## Reproduction
+## Run a candidate comparison
+
+The commands below execute retrospective candidates. They are usage examples, not evidence that original inputs are available or that a scientific replay has completed. `--archive-root` must contain the supplied case/receipt directories described by the [intake guide](CHAPTER2_DISCOVERY_ARCHIVE_INTAKE_20261011.md); missing files or mismatches raise an error. Even matching genuine files does not change this reader's always-false historical flags.
 
 ```bash
 python -m scripts.audit_chapter2_sequence_source_genome_replay_20261011 \
   --setting assurance_cost --seed 76001 --rep 7101 --arm far \
   --years 1000 --gradient-until 80 --sample-n 8 \
   --archive-root outputs \
-  --out /tmp/model3_76001_7101_far_source_selection_replay.json
+  --out /tmp/model3_76001_7101_far_replay_candidate.json
 
 pytest -q tests/test_chapter2_sequence_source_genome_replay_20261011.py
 ```
 
-For a short original-RNG sanity check without archived data, omit `--archive-root` and use `--years 14`. The output explicitly marks such replay as **not archive-verified**. No background pipeline is asserted to be running. No redefinition of #411, #418, #422, #442 or the frozen 0.05/20-updates sequence diagnostic.
+For a short current-checkout compatibility calculation without supplied case files, omit `--archive-root` and use `--years 14`. To inspect the interface without generating candidate trajectories, use `--help`. Gradient updates include t0 through `min(years - 1, gradient_until)`; `--gradient-until 0` still evaluates t0, and `--sample-n 0` evaluates all adults rather than disabling gradients. No #411, #418, #422 or #442 verdict or frozen 0.05/20-updates sequence diagnostic is redefined by these commands.
 
-**Next decision:** find and verify original raw historical NPZ/receipt archives, then use source-matched annual gradients to test the hypothesized mechanism instead of describing it as already supported. A separate prospective abrupt-versus-gradual functional-pollinator replacement study can then test timing causally, controlling flower genotype, source pollen, census and total exposure.
+**Next discovery step:** recover and authenticate the missing original inputs, complete the source/runtime and annual-recording prerequisites above, then perform the declared full trace/checkpoint comparison. The prospective visitor-tempo proposal in earlier versions of this guide has already produced the separate result below; it is not a pending authorization to launch that campaign again.
 
-**Later 2026-10-11 availability update:** The separately frozen [1,024-case abrupt/gradual study is complete](CHAPTER2_SEQUENCE_ABRUPT_GRADUAL_FUNCTIONAL_LOSS_RESULTS_20261011.md), and its [archived expected-to-realized genetic accounting is complete](CHAPTER2_TEMPO_REALIZATION_ACCOUNTING_20261011.md). The original sustained-isolation discovery cohort still requires its own full archive-matched annual replay. The original next-decision text is retained as a historical proposal; the new tempo experiment matched cumulative pollen only in its fixed-clonal calibration, not across evolved populations.
+**Completed separate cohort:** The frozen [1,024-case abrupt/gradual study is complete](CHAPTER2_SEQUENCE_ABRUPT_GRADUAL_FUNCTIONAL_LOSS_RESULTS_20261011.md), and its [archived expected-to-realized genetic accounting is complete](CHAPTER2_TEMPO_REALIZATION_ACCOUNTING_20261011.md). The original sustained-isolation discovery cohort still requires its own authenticated annual replay. The tempo experiment matched cumulative pollen only in its fixed-clonal calibration, not across evolved populations.
 
 
-## Source-cohort identity upgrade: one COMPLETE eight-replicate paired historical comparison
+## One-history paired candidate comparison
 
-Companion runner `scripts/audit_chapter2_sequence_paired_original_replay_20261011.py` replays the preidentified **source visitor history76001**, both original near/far arms and **all eight original demographic repeats 7101–7108** under the 2026-10-05 delayed-selfing/costly setting, mutation rate0.01. Thus **16 original genomic trajectories** share the same original founders and streams; there are still only **one original independent visitor-history cluster**.
+The [paired companion](../scripts/audit_chapter2_sequence_paired_original_replay_20261011.py) generates **16 candidate task replays**: the preidentified visitor-history specification **76001**, both near/far arms and all eight demographic repeat seeds **7101–7108**, under the discovery delayed-selfing/costly setting and mutation rate0.01. There is **one visitor-history cluster**, not 16 independent environmental histories. The shared founder and stream specifications do not authenticate the resulting genomes as the original archived trajectories.
 
-For this history, the original frozen 1000-year event record establishes that all six crossing events (founder-relative far and incremental far-minus-near, thresholds0.025/0.05/0.10) first cross by update43. Consequently the original 20-update sustained-crossing contract can be checked from an exact replay of **the first 100 updates**, without inventing new times for events originally censored later.
+For this history, the frozen 1,000-update event record places all six crossing events (founder-relative far and incremental far-minus-near, thresholds0.025/0.05/0.10) by update43. The 100-update candidate covers the required 20-update sustained windows. That bound belongs to this preidentified history; it does not justify truncating other histories or assigning times to their censored events.
 
-The companion reader repeats the **exact original eight-replicate mean-available and jointly-occupied pairing** of `scripts/summarize_model3_persistent_order.py`; it compares each detected event time/category to the existing frozen `data/results/model3_persistent_isolation_summary_20261005.json`, failing on **any** mismatch. A focused regression runs all 16 trajectories and pins the original threshold0.05 values:
+The companion uses eight-repeat mean-available and jointly occupied pairing and compares each detected event time/category to the frozen [persistent-isolation summary](../data/results/model3_persistent_isolation_summary_20261005.json), failing on any mismatch. The existing regression for all 16 task replays pins the following archived threshold0.05 values; these are preserved historical references, not new results from this guide revision:
 
-| History76001 within 100 original reproduced updates | Assurance crossing | Investment crossing | Frozen category |
+| Frozen history76001 event reference | Assurance crossing | Investment crossing | Frozen category |
 |---|---:|---:|---|
 | Far arm relative to its own founder | 5 | 20 | assurance first |
 | FAR-minus-NEAR increment | 17 | 15 | near-simultaneous (within 5) |
 
-These are the **original archived source event values**, not new model outcomes; the paired replay makes their original diploid source provenance checkable from exact seeded transitions. Passing six event assertions independently corroborates the original crossing times for one history, but it is **NOT a substitute for bytewise matching all raw historical 1000-year NPZ/receipts** and does not by itself explain the selection mechanism.
+Passing six event comparisons establishes agreement with those frozen event summaries. It does not identify the historical diploid states or replace full original trace/checkpoint reproduction. With `--archive-root`, the aggregate reports `case_records_expected` (16), `case_records_compared`, `all_supplied_case_records_agree`, `all_supplied_trace_prefixes_agree`, and `all_full_supplied_records_reproduced`. Aggregate agreement requires all 16 cases; a 100-update comparison is not a complete 1,001-census record. All historical identity flags remain false.
 
 ```bash
 python -m scripts.audit_chapter2_sequence_paired_original_replay_20261011 \
   --years 100 --gradient-until 50 --sample-n 4 \
-  --out /tmp/chapter2_sequence_76001_original_pair.json
+  --out /tmp/chapter2_sequence_76001_pair_candidate.json
 
 pytest -q tests/test_chapter2_sequence_paired_original_replay_20261011.py
 ```
 
-We do **not** claim that the main environmental cause of precedence is proven. This checks the foundation before comparing *local full-W beta sign onset* to *genomic change onset*. A single-model original replay remains retrospective even if it reproduces every published source event.
+This example omits `--archive-root`, so its supplied-file comparison counts are zero. Frozen-event agreement and candidate gradients still have their respective retrospective meanings. Neither establishes the environmental cause of precedence, the onset of selection across all adults, or a causal effect of inherited order.
 
 
-## Mechanistic point already established by source construction
+## Shared initial state in the imported implementation
 
-The actual original near/far histories are generated with the **same visitor history seed** and the same initial four functional visitor types; only the configured visitor replenishment distance changes. They also have identically seeded immigrant-plant candidate streams (seed source biology unchanged). The new regression asserts exact equality of the initial visitor IDs, functional optima, breadths and effectiveness, and of the early immigrant-seed candidate ID/genome arrays across arms.
+The imported near/far implementation uses the same visitor-history seed and the same initial four functional visitor types; configured visitor replenishment distance differs. It also uses identically seeded immigrant-plant candidate streams. Existing regressions check equality of the initial visitor IDs, functional optima, breadths and effectiveness, and early immigrant-seed candidate ID/genome arrays across arms. These are properties of the checked implementation under the specified task, not proof of historical execution identity.
 
-Thus the original far arm's early founder-relative A response does **not** mean the far-specific replenishment intervention directly initiated that response at the founding moment. The initial environment is shared. A can rise early in BOTH populations; the additional FAR-minus-NEAR investment divergence may emerge before the additional A divergence. This is a **source-supported interpretation of two different comparison baselines**, not a proof about when the full-W selection-gradient sign crossed later in a heterogeneous population.
+The two frozen comparison baselines consequently answer different questions: change relative to a far population's founders versus additional far-minus-near divergence. The table shows assurance-first for the former and near-simultaneous for the latter. That distinction does not locate a later full-W gradient sign switch or establish that far-specific replenishment initiated the founder-relative response. The completed [1,024-case tempo accounting](CHAPTER2_TEMPO_REALIZATION_ACCOUNTING_20261011.md) retains its separate cohort and verified annual records.
 
