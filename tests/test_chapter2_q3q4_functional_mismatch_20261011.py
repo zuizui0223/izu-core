@@ -22,6 +22,16 @@ def test_exact_four_functional_types_and_only_optima_change():
     assert all(c[i]>c[i+1] for i in range(len(c)-1))
     assert c[0]==pytest.approx(.36199604641043487,abs=1e-12)
     assert c[-1]==pytest.approx(.0005052022266616112,abs=1e-14)
+
+    # The complete functional replacement remains a nonzero-pollen FOUR-type
+    # environment, although its pollen service becomes almost absent.
+    source_matched=reproductive_source((0,8,0),"delayed_control",6.,0.,"native")
+    source_replaced=reproductive_source((0,8,0),"delayed_control",6.,1.,"native")
+    assert source_matched[2]==pytest.approx(.47675164271993675,abs=1e-11)
+    assert source_replaced[2]==pytest.approx(1.7641826055923552e-6,abs=1e-11)
+    assert 0 < source_replaced[2] < source_matched[2]/10000
+    assert source_matched[3]==pytest.approx(1.3254356593125667,abs=1e-10)
+    assert source_replaced[3]==pytest.approx(4.978107026798955e-6,abs=1e-10)
     with pytest.raises(ValueError):
         visitors(.33)
 
