@@ -30,6 +30,7 @@ SOURCE_FILES=(
     "scripts/run_chapter2_sequence_abrupt_gradual_functional_loss_20261011.py",
     "scripts/run_chapter2_sequence_abrupt_gradual_batch_20261011.py",
     "scripts/summarize_chapter2_sequence_abrupt_gradual_functional_loss_20261011.py",
+    "scripts/audit_chapter2_sequence_tempo_focal_sign_clock_20261011.py",
     "data/design/model3_ch2_bridge_20260927.json",
     "data/design/chapter2_sequence_abrupt_gradual_functional_loss_20261011.json",
     ".github/workflows/chapter2-functional-loss-tempo-20261011.yml",
