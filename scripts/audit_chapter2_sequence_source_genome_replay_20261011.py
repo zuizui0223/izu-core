@@ -1,20 +1,18 @@
-"""Replay REAL original Model 3 environmental RNG + diploid population transitions.
+"""Replay discovery tasks with the imported checkout; compare supplied case files.
 
-Historical source: 2026-10-05 persistent-isolation Model 3, full 1000-step
-near/far series, 64 visitor-history clusters nested with eight demographic
-replicates. The previously archived ten-column annual trace has trait means
-and variances but not the full individual genomes at each year. The only
-valid way to calculate per-year source selection while preserving original
-population genotypes is to REPLAY the immutable original biological source,
-with its original streams, then VERIFY the result against archived cases.
+The task specification is the 2026-10-05 persistent-isolation Model 3 design:
+1000-step near/far series, 64 visitor-history clusters and eight demographic
+replicates. This module does not authenticate the executed historical source
+or numerical runtime. Its generated annual genomes remain replay candidates,
+even when supplied NPZ files and their own receipts agree with them.
 
 Record:
 - actual census and visitors at each year;
 - exact pre-mutation, paternal-inclusive W-based Price covariance at each year
   (an EXPECTED genetic mean shift, NOT a finite focal gradient);
 - sampled individual full-W finite investment/assurance selection gradients
-  from UNCHANGED ORIGINAL Model3.reproduction.reproduce (NOT the KB variant);
-- genomic and census trace provenance, with optional source receipt+NPZ SHA check.
+  from the imported Model3.reproduction.reproduce;
+- the exact extent of optional supplied receipt, trace and checkpoint comparisons.
 
 No new random-history seeds, ecology or confirmed novel historical mechanism.
 Replay is retrospective; synthetic offspring mutation effects mean actual
@@ -26,6 +24,7 @@ from dataclasses import replace
 from pathlib import Path
 import argparse
 import hashlib
+import io
 import json
 import numpy as np
 
@@ -44,7 +43,18 @@ SETTINGS=("assurance_cost","prior_selfing")
 ARMS=("near","far")
 SELECTED_GRADIENT_STEP=.005
 SELECTION_DEADBAND=.02
-STATUS="RETROSPECTIVE_ORIGINAL_ABM_GENOTYPE_REPLAY_SELECTION_PREMUTATION_NOT_ORDER_CAUSATION"
+STATUS="RETROSPECTIVE_DISCOVERY_REPLAY_CANDIDATE_HISTORICAL_IDENTITY_UNVERIFIED"
+
+
+def unverified_historical_identity():
+    """Claims that neither supplied-file agreement nor this replay establishes."""
+    return {
+        "verified_against_exact_original_archive":False,
+        "historical_source_identity_verified":False,
+        "runtime_identity_verified":False,
+        "original_annual_genomes_verified":False,
+        "original_discovery_full_replay_completed":False,
+    }
 
 
 def full_parental_W(ledger):
@@ -146,29 +156,54 @@ def archived_case_path(output_root,setting,seed,rep,arm):
 
 
 def verify_original_receipt(output_root,setting,seed,rep,arm,trace,checkpoints):
+    """Compare supplied case records without authenticating their historical origin.
+
+    The legacy function name and NPZ hash key are retained for callers. The
+    legacy exact-original boolean is always false: a self-hash receipt is not
+    an external archive, executed-source or runtime trust anchor.
+    """
+    if (not isinstance(trace,np.ndarray) or trace.ndim!=2 or
+            trace.shape[1]!=10 or not 2<=trace.shape[0]<=1001):
+        raise ValueError("comparison requires 2 to 1001 censuses with 10 columns")
+    required_years=[t for t in (0,200,400,1000) if t<len(trace)]
+    if not isinstance(checkpoints,dict) or set(checkpoints)!=set(required_years):
+        raise ValueError(f"checkpoint years must equal the compared extent: {required_years}")
     base=archived_case_path(output_root,setting,seed,rep,arm)
-    receipt_path=base.with_suffix(".json")
-    archive_path=base.with_suffix(".npz")
+    receipt_path=base.with_name(base.name+".json")
+    archive_path=base.with_name(base.name+".npz")
     if not archive_path.exists() or not receipt_path.exists():
         raise FileNotFoundError(f"original archival NPZ and receipt required: {base}")
     receipt=json.loads(receipt_path.read_text(encoding="utf-8"))
     expected=["abm",setting,.01,seed,rep,arm,0,"jump",False]
     if receipt.get("task")!=expected:
         raise AssertionError("original historical task/seed mismatch")
-    sha=hashlib.sha256(archive_path.read_bytes()).hexdigest()
+    archive_bytes=archive_path.read_bytes()
+    sha=hashlib.sha256(archive_bytes).hexdigest()
     if receipt.get("sha256")!=sha:
         raise AssertionError("original case receipt SHA256 mismatch")
-    with np.load(archive_path,allow_pickle=False) as old:
+    with np.load(io.BytesIO(archive_bytes),allow_pickle=False) as old:
         original=old["trace"]
         if original.shape!=(1001,10):
             raise AssertionError("original array was not the frozen 1001x10 trace")
         if not np.array_equal(trace,original[:len(trace)],equal_nan=True):
             raise AssertionError("replayed original annual source trace differs")
-        for t,now in checkpoints.items():
+        for t in required_years:
+            now=checkpoints[t]
             label=f"state_{t}"
             if label not in old or not np.array_equal(now,old[label]):
                 raise AssertionError(f"replayed t{t} source genome differs")
-    return {"original_npz_sha256":sha,"verified_against_exact_original_archive":True}
+    return {
+        **unverified_historical_identity(),
+        "original_npz_sha256":sha,
+        "supplied_npz_sha256":sha,
+        "supplied_case_record_verified":True,
+        "replay_matches_supplied_prefix":True,
+        "full_supplied_record_reproduced":len(trace)==1001,
+        "compared_censuses":len(trace),
+        "compared_updates":len(trace)-1,
+        "compared_checkpoint_years":required_years,
+        "reason":"Supplied task, receipt, NPZ, trace and reached checkpoints agree; historical archive, source and runtime are not authenticated.",
+    }
 
 
 def replay(setting,seed,rep,arm,*,years=1000,gradient_until=80,
@@ -223,16 +258,23 @@ def replay(setting,seed,rep,arm,*,years=1000,gradient_until=80,
     verification=(
         verify_original_receipt(archive_root,setting,seed,rep,arm,trace,checkpoints)
         if archive_root is not None else
-        {"verified_against_exact_original_archive":False,
-         "reason":"archived NPZ/receipt not supplied; source RNG replay only"}
+        {**unverified_historical_identity(),
+         "original_npz_sha256":None,"supplied_npz_sha256":None,
+         "supplied_case_record_verified":False,
+         "replay_matches_supplied_prefix":False,
+         "full_supplied_record_reproduced":False,
+         "compared_censuses":0,"compared_updates":0,
+         "compared_checkpoint_years":[],
+         "reason":"No supplied NPZ/receipt comparison; candidate replay uses the currently imported checkout."}
     )
     return {
-        "schema":"chapter2_original_1000_source_selection_genomic_replay_v1",
+        "schema":"chapter2_discovery_source_selection_replay_candidate_v2",
         "status":STATUS,
         "setting":setting,"seed":seed,"rep":rep,"arm":arm,
         "years_replayed":years,"focal_limit":sample_n,
         "gradient_window_recorded_0_to":min(years-1,gradient_until),
         "original_source":"scripts/run_model3_persistent_isolation.py::run_case",
+        "source_execution":"currently_imported_checkout_not_authenticated_historical_source",
         "source_trace_sha256":hashlib.sha256(trace.tobytes()).hexdigest(),
         "genome_checkpoint_sha256":{
             str(t):hashlib.sha256(v.tobytes()).hexdigest()
@@ -242,7 +284,7 @@ def replay(setting,seed,rep,arm,*,years=1000,gradient_until=80,
         "trace":trace.tolist(),
         "annual_pre_mutation_expected_genetic_changes":annual,
         "sampled_local_focal_selection":selection,
-        "evidence_limit":"Actual replay genomes, not inferred from means. Pre-mutation Price expectation and sampled focal gradient are not the same estimand. This retrospective original-history playback does NOT manipulate visitor arrival timing, mutation order or causal order; unverified source archive cannot be claimed exact-original identity.",
+        "evidence_limit":"The currently imported checkout generated these candidate genomes. Supplied-file agreement does not authenticate the historical archive, executed source, numerical runtime or original annual genomes. Pre-mutation source covariance and sampled focal gradients are different estimands. This replay does not intervene on causal order.",
     }
 
 
@@ -258,7 +300,7 @@ def main():
     p.add_argument("--sample-n",type=int,default=8,
                    help="0 evaluates ALL adults, otherwise sample across focal trait ranks")
     p.add_argument("--archive-root",type=Path,default=None,
-                   help="Optional original outputs/ parent with SHAs and annual checkpoints")
+                   help="Parent of supplied discovery NPZ/receipt files; comparison does not authenticate historical origin")
     args=p.parse_args()
     result=replay(args.setting,args.seed,args.rep,args.arm,
         years=args.years,gradient_until=args.gradient_until,

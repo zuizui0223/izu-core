@@ -1,0 +1,223 @@
+{
+  "schema": "chapter2_discovery_archive_intake_status_v1",
+  "recorded_at_utc": "2026-10-11T10:59:30Z",
+  "base_main_commit": "90c43f0f7b9c441bd4251d1139547e43e6d118d6",
+  "status": "INTAKE_ENGINEERING_VALIDATED_ORIGINAL_ARCHIVE_UNAVAILABLE",
+  "evidence_rank": "ENGINEERING_VALIDATION_NO_NEW_BIOLOGICAL_RESULT",
+  "report": "docs/CHAPTER2_DISCOVERY_ARCHIVE_INTAKE_20261011.md",
+  "actual_intake_attempt": {
+    "command": "python -m scripts.audit_chapter2_discovery_archive_intake_20261011 --archive outputs/archives/model3_replenishment_evolution_20261005.zip --out <separate-report-path>",
+    "exit_code": 2,
+    "result": {
+      "schema": "chapter2_discovery_archive_intake_v1",
+      "status": "ARCHIVE_UNAVAILABLE",
+      "archive": "outputs/archives/model3_replenishment_evolution_20261005.zip",
+      "trust_anchor": {
+        "receipt_path": "data/results/model3_replenishment_archive_20261005.json",
+        "receipt_sha256": "15becd79af2ed2646a8ede226761172bdd92ed139144f10379e4fdd581e03601",
+        "design_path": "data/design/model3_replenishment_evolution_20261005.json",
+        "design_sha256": "dcd39ef44b98314cdbeeacbd3fc29c9755a6ff7545c3b773ab06d6df2113029a",
+        "contract_files_verified": true
+      },
+      "verification": {
+        "archive_identity_verified": false,
+        "manifest_complete": false,
+        "embedded_sources_verified": false,
+        "discovery_endpoints_complete": false,
+        "original_discovery_full_replay_completed": false,
+        "runtime_identity_verified": false
+      },
+      "counts": {
+        "zip_members_verified": 0,
+        "manifest_records_verified": 0,
+        "embedded_sources_verified": 0,
+        "discovery_cases_verified": 0,
+        "genome_checkpoints_verified": 0
+      },
+      "coverage": {
+        "mutation_rates_verified": [],
+        "mutation_zero_covered": false,
+        "discovery_cases_expected": 2048,
+        "archive_cases_expected": 13312
+      },
+      "checkpoint_summary_absolute_tolerance": 1e-12,
+      "limitations": [
+        "Admission covers original positive-mutation discovery endpoints only; mutation zero remains missing.",
+        "No annual genomes, selection, parentage, or biological RNG replay are produced.",
+        "The packing recipe omits original campaign sources.json/sources.zip, the full-mutation runner, and a frozen numerical runtime lock.",
+        "Embedded source byte verification does not establish the executed original sources or runtime identity."
+      ],
+      "failures": [
+        {
+          "code": "archive_unavailable",
+          "detail": "outputs/archives/model3_replenishment_evolution_20261005.zip: [Errno 2] No such file or directory: 'outputs/archives/model3_replenishment_evolution_20261005.zip'"
+        }
+      ],
+      "archive_identity": {
+        "expected_bytes": 763914318,
+        "expected_sha256": "37bd0bd312734715392add19f424696121fbe88517dfa784d8e702173ec71b6c",
+        "observed_bytes": null,
+        "observed_sha256": null
+      }
+    }
+  },
+  "engineering_verification": {
+    "focused_tests": 60,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0,
+    "seconds": 1.754,
+    "python": "3.12.14",
+    "numpy": "2.3.5",
+    "command": "python -m pytest tests/test_chapter2_discovery_archive_intake_20261011.py tests/test_chapter2_sequence_source_genome_replay_20261011.py",
+    "new_intake_tests": 42,
+    "existing_reader_tests": 18,
+    "synthetic_fixtures_are_historical_evidence": false,
+    "positive_synthetic_fixture": {
+      "archive_cases": 6,
+      "discovery_endpoint_cases": 4,
+      "trace_only_intermediate_cases": 2,
+      "manifest_records": 36,
+      "zip_entries": 38
+    },
+    "test_first_failures_observed": [
+      {
+        "condition": "Missing archive did not produce a failure receipt",
+        "failed_tests": 1
+      },
+      {
+        "condition": "Archive identity, manifest, task, source and array guards absent",
+        "failed_tests": 33
+      },
+      {
+        "condition": "Output could alias and replace input trust anchors",
+        "failed_tests": 6
+      },
+      {
+        "condition": "Non-NPY bytes escaped array rejection",
+        "failed_tests": 2
+      }
+    ],
+    "runtime_versions_describe_verifier_environment_only": true
+  },
+  "verified_files": [
+    {
+      "path": "scripts/audit_chapter2_discovery_archive_intake_20261011.py",
+      "bytes": 18449,
+      "sha256": "5812e72335d1e623850f2e7980f45cab374ab47dcd5e06c9e88cb557a8931b27"
+    },
+    {
+      "path": "tests/test_chapter2_discovery_archive_intake_20261011.py",
+      "bytes": 17700,
+      "sha256": "ae4ae43f7cfaa09bd529d649eb79a53a8ea00fda434e61418eb9e22d9a25303b"
+    },
+    {
+      "path": "docs/CHAPTER2_DISCOVERY_ARCHIVE_INTAKE_20261011.md",
+      "bytes": 7753,
+      "sha256": "8735e9daba959c3517c448d31c784a6357f1487ffa3eff547a5764047337bc86"
+    },
+    {
+      "path": ".github/workflows/chapter2-scientific-gate.yml",
+      "bytes": 21573,
+      "sha256": "a32c9a805948c04a60e55085cf869c21dc86a1399d6cb72ae142a181cc81a387"
+    }
+  ],
+  "archive_retrieval": {
+    "exact_title_queries_resolved_candidate": false,
+    "shorter_title_queries_resolved_candidate": false,
+    "project_folder_metadata_rows": [
+      110,
+      18
+    ],
+    "project_folder_listing_pagination_complete": true,
+    "largest_zip_metadata_rows": 200,
+    "largest_zip_inventory_final_size_bytes": 502110,
+    "exact_original_archive_size_matches": 0,
+    "all_library_absence_established": false,
+    "candidate_bytes_recovered": false,
+    "original_discovery_raw_cases_admitted": 0,
+    "limitation": "Bounded title queries and metadata inventory did not resolve either named original archive. This is not a universal absence claim; unrelated file metadata is omitted."
+  },
+  "prior_main_postmerge_checks": [
+    {
+      "name": "confirmed-process-review-package",
+      "head_sha": "90c43f0f7b9c441bd4251d1139547e43e6d118d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/zuizui0223/izu-core/actions/runs/38127169144/job/114433966944"
+    },
+    {
+      "name": "tests (3.11)",
+      "head_sha": "90c43f0f7b9c441bd4251d1139547e43e6d118d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/zuizui0223/izu-core/actions/runs/38127169134/job/114433871234"
+    },
+    {
+      "name": "tests (3.10)",
+      "head_sha": "90c43f0f7b9c441bd4251d1139547e43e6d118d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/zuizui0223/izu-core/actions/runs/38127169134/job/114433871194"
+    },
+    {
+      "name": "tests (3.12)",
+      "head_sha": "90c43f0f7b9c441bd4251d1139547e43e6d118d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/zuizui0223/izu-core/actions/runs/38127169134/job/114433871018"
+    },
+    {
+      "name": "scientific-gate",
+      "head_sha": "90c43f0f7b9c441bd4251d1139547e43e6d118d6",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/zuizui0223/izu-core/actions/runs/38127169144/job/114433827132"
+    }
+  ],
+  "preservation": {
+    "accounting_files": [
+      {
+        "path": "docs/CHAPTER2_TEMPO_REALIZATION_ACCOUNTING_20261011.md",
+        "sha256": "174e7992dae9277788148668ac7f632c4f2571fd914b2ff66ff07aa52d971922",
+        "matches_prior_receipt": true
+      },
+      {
+        "path": "data/results/chapter2_four_question_current_evidence_addendum_20261011.json",
+        "sha256": "3f25f2a02d159bcd7cfe4a0f4a66712fa9c0143ca9d66562333617e41e295813",
+        "matches_prior_receipt": true
+      },
+      {
+        "path": "docs/CHAPTER2_TEMPO_REALIZATION_ACCOUNTING_TABLES_20261011.md",
+        "sha256": "c77eda661aa587b5fd07c49833a519d1e387ead8f113401a8f0123afee5934cc",
+        "matches_prior_receipt": true
+      },
+      {
+        "path": "docs/CHAPTER2_TEMPO_REALIZATION_ACCOUNTING_REVIEW_20261011.md",
+        "sha256": "0bfa106119a6f78676b11ad42b3bce2b3e5f425a89694d92cf5c49ef102fa455",
+        "matches_prior_receipt": true
+      },
+      {
+        "path": "data/results/chapter2_tempo_realization_receipt_20261011.json",
+        "sha256": "834a5360f2f7e96e000d8aeb5cb14fe18977727df8460bca618d63a6d5be7cfd",
+        "matches_prior_receipt": true
+      }
+    ],
+    "original_discovery_reader_modified": false,
+    "frozen_biological_source_modified": false,
+    "active_manuscript_modified": false,
+    "new_scientific_campaigns": 0,
+    "new_scientific_trajectories": 0,
+    "new_bootstrap_or_hypothesis_tests": false
+  },
+  "next_required_input": {
+    "filename": "model3_replenishment_evolution_20261005.zip",
+    "bytes": 763914318,
+    "sha256": "37bd0bd312734715392add19f424696121fbe88517dfa784d8e702173ec71b6c",
+    "candidate_bytes_recovered": false,
+    "positive_mutation_subset_cases": 2048,
+    "full_discovery_design_cases": 4096
+  },
+  "integration_boundary": "This dated record contains the final focused local tests and the actual missing-archive attempt. Independent review and exact published-head CI are reported on the pull request; no unobserved CI success is asserted here.",
+  "scientific_boundary": "Even successful archive intake would not establish historical source/runtime identity or complete annual replay. Mutation-zero discovery cases need separate archive admission. The completed 1024-case tempo result and actual PR411 cohort are unchanged."
+}
