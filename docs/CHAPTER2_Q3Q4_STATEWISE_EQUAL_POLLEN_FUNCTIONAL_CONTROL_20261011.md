@@ -40,6 +40,21 @@ This is not merely comparing plant populations that start with matched pollen de
 
 The key output is `P80_native_shift_minus_equalized` for each fixed historical four-visitor profile, together with the corresponding **fixed-expression contrast**, the difference of native-minus-fixed effects, and unconditional/conditional low-investment allele fixation.
 
+## Independently calculated source-mathematics targets (CI verification pending)
+
+For the original delayed-selfing, budget6 reference, an independently implemented exact finite 165-state operator gives the following **post-discovery diagnostic**, in absolute occupancy probability units:
+
+| Functional replacement | Shifted minus statewise-equalized original P80 under native genotype expression | Same residual under fixed expression |
+|---:|---:|---:|
+| 25% | **−0.000003916645** | numerical zero |
+| 50% | **−0.000000676876** | numerical zero |
+| 100% | **−0.0000000000346** | numerical zero |
+
+These are mathematical Model 3 calculations, **not field estimates, biological validation or CI-verified results until the original-source regressions pass**. Each numerical target has a regression assertion in the PR. The fixed-expression null is structurally plausible here because all surviving adults express the same floral investment and all have the same 0.20 matching trait; within each census, equalizing aggregate delivered pollen also equalizes their total maternal seed intensity. For segregating native investment, a small residual remains because different genotype classes respond to the same visitor optimum shift with different pollen and parentage configurations.
+
+Importantly, **statewise rescaling changes the visitor environment as a function of the current plant genotype and census**. The remaining contrast is the outcome of this artificial intervention, not a unique empirical effect of visitor taxonomic identity or proof that partner routing matters in real islands.
+
+
 **This test does not identify a unique paternal route** if a residual survives: the equalization fixes TOTAL pollen only, not the maternal recipient-by-recipient vector or father-specific reproductive success. A residual may be due to different maternal pollen allocation, paternal parentage, viability compensation or their interactions. Exact decomposition would require additional explicitly identified interventions and independent validation.
 
 ## Scope and guarded reproducibility
