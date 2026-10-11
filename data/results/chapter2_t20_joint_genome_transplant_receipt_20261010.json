@@ -1,0 +1,370 @@
+{
+  "schema": "chapter2_t20_joint_genome_transplant_exposed_source_receipt_v1",
+  "date": "2026-10-10",
+  "status": "POST_OUTCOME_REPLAY_EXPOSED_HISTORIES_COMPLETE_50_ELIGIBLE_NO_INDEPENDENT_CONFIRMATION",
+  "original_source_commit": "15edd960520b553a74dd43f916fd3e18fb4aad29",
+  "original_source_pr": 452,
+  "original_workflow_run_id": 38017510920,
+  "original_artifact_id": 11656184670,
+  "raw_json_sha256": "1c15f1921817f573662615343623e3890c5dce99413484fdd41bb4c07ab52eaf",
+  "zip_sha256": "ae0961f182d0bea8a996b4d5dd9551b91fd78cfd1fddf0ee276306a69cfe59e0",
+  "design_sha256": "9b11b1d103c46390716cf6977a33164d7f10a50a8c78790d9f45618c8a4d9bb6",
+  "source_exposed_history_cohort": "61024001..61024064",
+  "n_replayed_source_histories": 64,
+  "selected_t20_alive": 58,
+  "neutral_t20_alive": 52,
+  "common_t20_alive": 50,
+  "transplant_ineligible": 14,
+  "n_actual_transplant_futures": 400,
+  "recipient_starting_n_all": 8,
+  "recipient_K": [
+    8,
+    48
+  ],
+  "recipient_B": 48,
+  "post20_selected_vs_neutral_parentage_operator": [
+    "selected_source",
+    "neutral_within_mating_channel"
+  ],
+  "donor_genome_origin": [
+    "selected_pre20",
+    "neutral_pre20"
+  ],
+  "source_t20_means_among_50_joint_survivors": {
+    "selected": [
+      0.28529688,
+      0.44451384,
+      0.66532534
+    ],
+    "neutral": [
+      0.29914201,
+      0.45700581,
+      0.58265892
+    ],
+    "difference_selected_minus_neutral": [
+      -0.01384514,
+      -0.01249197,
+      0.08266643
+    ]
+  },
+  "post_sampling_mean_of_8_recipients": {
+    "selected": [
+      0.28521282,
+      0.44242959,
+      0.66309237
+    ],
+    "neutral": [
+      0.30229127,
+      0.45881319,
+      0.58363409
+    ]
+  },
+  "loci": [
+    "matching",
+    "investment",
+    "assurance"
+  ],
+  "cell_occupied_counts_of_50": [
+    {
+      "G": "selected_pre20",
+      "K": 8,
+      "future": "selected_source",
+      "occupied": 36
+    },
+    {
+      "G": "selected_pre20",
+      "K": 8,
+      "future": "neutral_within_mating_channel",
+      "occupied": 32
+    },
+    {
+      "G": "selected_pre20",
+      "K": 48,
+      "future": "selected_source",
+      "occupied": 49
+    },
+    {
+      "G": "selected_pre20",
+      "K": 48,
+      "future": "neutral_within_mating_channel",
+      "occupied": 46
+    },
+    {
+      "G": "neutral_pre20",
+      "K": 8,
+      "future": "selected_source",
+      "occupied": 15
+    },
+    {
+      "G": "neutral_pre20",
+      "K": 8,
+      "future": "neutral_within_mating_channel",
+      "occupied": 14
+    },
+    {
+      "G": "neutral_pre20",
+      "K": 48,
+      "future": "selected_source",
+      "occupied": 41
+    },
+    {
+      "G": "neutral_pre20",
+      "K": 48,
+      "future": "neutral_within_mating_channel",
+      "occupied": 39
+    }
+  ],
+  "paired_contrasts": [
+    {
+      "kind": "genome_origin",
+      "K": 8,
+      "future": "selected",
+      "s": 36,
+      "n": 15,
+      "sp": 24,
+      "np": 3,
+      "d": 0.42,
+      "ci": [
+        0.1364794200313184,
+        0.634900634211476
+      ],
+      "fw": [
+        0.032,
+        0.694
+      ]
+    },
+    {
+      "kind": "genome_origin",
+      "K": 8,
+      "future": "neutral",
+      "s": 32,
+      "n": 14,
+      "sp": 23,
+      "np": 5,
+      "d": 0.36,
+      "ci": [
+        0.06439879838434304,
+        0.5978873025848241
+      ],
+      "fw": [
+        -0.042,
+        0.665
+      ]
+    },
+    {
+      "kind": "genome_origin",
+      "K": 48,
+      "future": "selected",
+      "s": 49,
+      "n": 41,
+      "sp": 8,
+      "np": 0,
+      "d": 0.16,
+      "ci": [
+        -0.020785937177977373,
+        0.3102600988357772
+      ],
+      "fw": [
+        -0.087,
+        0.369
+      ]
+    },
+    {
+      "kind": "genome_origin",
+      "K": 48,
+      "future": "neutral",
+      "s": 46,
+      "n": 39,
+      "sp": 9,
+      "np": 2,
+      "d": 0.14,
+      "ci": [
+        -0.07652646760623531,
+        0.33040602630097493
+      ],
+      "fw": [
+        -0.152,
+        0.392
+      ]
+    },
+    {
+      "kind": "future_parentage",
+      "G": "selected_origin",
+      "K": 8,
+      "s": 36,
+      "n": 32,
+      "sp": 8,
+      "np": 4,
+      "d": 0.08,
+      "ci": [
+        -0.14652336359241172,
+        0.2922711038172257
+      ],
+      "fw": [
+        -0.223,
+        0.36
+      ]
+    },
+    {
+      "kind": "future_parentage",
+      "G": "selected_origin",
+      "K": 48,
+      "s": 49,
+      "n": 46,
+      "sp": 3,
+      "np": 0,
+      "d": 0.06,
+      "ci": [
+        -0.07427956085147874,
+        0.18206000347353057
+      ],
+      "fw": [
+        -0.124,
+        0.235
+      ]
+    },
+    {
+      "kind": "future_capacity",
+      "G": "selected_origin",
+      "future": "selected",
+      "s": 49,
+      "n": 36,
+      "sp": 13,
+      "np": 0,
+      "d": 0.26,
+      "ci": [
+        0.04982030499347147,
+        0.4234455286492406
+      ],
+      "fw": [
+        -0.028,
+        0.483
+      ]
+    },
+    {
+      "kind": "future_capacity",
+      "G": "selected_origin",
+      "future": "neutral",
+      "s": 46,
+      "n": 32,
+      "sp": 15,
+      "np": 1,
+      "d": 0.28,
+      "ci": [
+        0.043792722976216156,
+        0.4658768965640659
+      ],
+      "fw": [
+        -0.042,
+        0.526
+      ]
+    },
+    {
+      "kind": "future_parentage",
+      "G": "neutral_origin",
+      "K": 8,
+      "s": 15,
+      "n": 14,
+      "sp": 7,
+      "np": 6,
+      "d": 0.02,
+      "ci": [
+        -0.21091240522282367,
+        0.24743333757579228
+      ],
+      "fw": [
+        -0.287,
+        0.321
+      ]
+    },
+    {
+      "kind": "future_parentage",
+      "G": "neutral_origin",
+      "K": 48,
+      "s": 41,
+      "n": 39,
+      "sp": 4,
+      "np": 2,
+      "d": 0.04,
+      "ci": [
+        -0.1348209149906874,
+        0.2062769415533535
+      ],
+      "fw": [
+        -0.195,
+        0.264
+      ]
+    },
+    {
+      "kind": "future_capacity",
+      "G": "neutral_origin",
+      "future": "selected",
+      "s": 41,
+      "n": 15,
+      "sp": 26,
+      "np": 0,
+      "d": 0.52,
+      "ci": [
+        0.2715591706240219,
+        0.6814605764951511
+      ],
+      "fw": [
+        0.174,
+        0.733
+      ]
+    },
+    {
+      "kind": "future_capacity",
+      "G": "neutral_origin",
+      "future": "neutral",
+      "s": 39,
+      "n": 14,
+      "sp": 25,
+      "np": 0,
+      "d": 0.5,
+      "ci": [
+        0.25297504253798925,
+        0.6631150794540204
+      ],
+      "fw": [
+        0.156,
+        0.715
+      ]
+    }
+  ],
+  "balanced_main_effects_descriptive": {
+    "genotype_source": 0.27,
+    "future_selected_vs_neutral_parentage": 0.05,
+    "recipient_K48_vs_K8": 0.39
+  },
+  "inferential_qualification": {
+    "preidentified_primary": "selected_genome_minus_neutral_genome at future K48 with source selected future inheritance",
+    "primary_estimate": 0.16,
+    "primary_95": [
+      -0.020785937177977373,
+      0.3102600988357772
+    ],
+    "primary_verdict": "INCONCLUSIVE",
+    "posthoc_multiplicity_sensitivity": "12 planned per-cell contrasts; 95% family-wise Bonferroni combined marginal Clopper-Pearson intervals; comparison estimates and CI decimal approximations in paired_contrasts[...].fw",
+    "K8_genome_source_selected_future_nominal_95": [
+      0.1364794200313184,
+      0.634900634211476
+    ],
+    "K8_genome_source_selected_future_familywise_95_approx": [
+      0.032,
+      0.694
+    ],
+    "K8_main_not_resolved_above_ROPE_5pp": true,
+    "nonzero_familywise_lower_positive": true
+  },
+  "science_limits": [
+    "All future donor/genome comparisons are conditional on BOTH original selected and neutral source populations surviving to t20: 50/64. This is a post-survival selected population, not total evolutionary causality.",
+    "Source visitor RNG histories and the original source outcome cohort were previously exposed; all calculations are post-outcome mechanistic replay, not an independent validation or preregistered future ecological history study.",
+    "At t20, genotype source differs in all three loci and allelic distribution, but assurance allele mean is +.08267 in selected donors; cannot attribute the persistence difference to assurance alone without another intervention.",
+    "Donor source gene copies were whole-three-locus diploid resampled to a common N0=8. New sampling adds a separate source of variance; here only one resample per original history was drawn.",
+    "K effects compare post-t20 recipient capacities at equal N0=8 and B48; the 0.39 mean is a balanced factorial descriptive contrast, not an additive causal genetics/demography decomposition.",
+    "Future neutral parentage is an artificial genome assignment retaining realized mating-channel counts, not a no-genetic-evolution operator, and no mutational genetic load occurs.",
+    "Nominal 95% CIs for multiple secondary comparisons are not multiplicity-adjusted. The originally labeled K48 genome-source primary is inconclusive.",
+    "No field-level island validation, independent ecology model replication or evolutionary suicide conclusion."
+  ]
+}

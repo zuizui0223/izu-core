@@ -1,0 +1,198 @@
+{
+  "schema": "chapter2_investment_commons_384_engineering_pilot_power_receipt_v1",
+  "date": "2026-10-10",
+  "status": "EXECUTED_DESIGN_FEASIBILITY_ONLY_NO_CONFIRMATORY_EVIDENCE",
+  "executed_commit": "92434651cf23c8f1e29f3b7476466ad07b08db2f",
+  "artifact_id": 11658478685,
+  "original_json_sha256": "3f528fcbe7585b6c4a5e713780d7260201630e7f8d4c752c6b5f65d1e1f5a459",
+  "original_zip_sha256": "b18eb18497f8cd0ad43afc1c29449ccbe0a5cc5398f79d00bc59589bb427b7e6",
+  "source_design_sha256": "23d43cb027e6525061a7f94e138f608464bb80d20787caa0bdc09d4e7aaa26e8",
+  "method": "Source matched Model3 prior source positive nonfocal externality and β-negative/Gamma_seed-positive K8. Genomic matching/assurance exactly constant, investment standing variation only, zero mutation, t0 phenotypes and t1 genotypes equal in both arms. Unconditional N80 occupancy native vs founder-mean-expressed investment-clamp; 16 pilot visitor RNG histories per factor.",
+  "founder_investment_support": {
+    "min": 0.30362984330801324,
+    "max": 0.41248985584526543,
+    "mean": 0.35263215393133995,
+    "safe_expression_range": [
+      0.19476983077076104,
+      0.5213498683825176
+    ]
+  },
+  "source_beta_gamma": {
+    "K8": {
+      "beta": -0.0631736695408891,
+      "gamma_seed": 0.15822876051396761,
+      "nonfocal_seed_externality": 0.3657985516976936
+    },
+    "K48_at_census48": {
+      "beta": 0.584002628056346,
+      "gamma_seed": 1.0625497745341939,
+      "nonfocal_seed_externality": 1.2973598794957297
+    }
+  },
+  "all_12_pilot_environment_cases": [
+    {
+      "visitor_regime": "static_matched4",
+      "K": 8,
+      "ovule_budget": 4.5,
+      "native_occupied20": 0,
+      "centered_occupied20": 0,
+      "native_occupied80": 0,
+      "centered_occupied80": 0,
+      "pilot_independent_visitor_history_repeats": 16
+    },
+    {
+      "visitor_regime": "static_matched4",
+      "K": 8,
+      "ovule_budget": 6,
+      "native_occupied20": 6,
+      "centered_occupied20": 6,
+      "native_occupied80": 0,
+      "centered_occupied80": 0,
+      "pilot_independent_visitor_history_repeats": 16
+    },
+    {
+      "visitor_regime": "static_matched4",
+      "K": 8,
+      "ovule_budget": 8,
+      "native_occupied20": 15,
+      "centered_occupied20": 15,
+      "native_occupied80": 15,
+      "centered_occupied80": 15,
+      "pilot_independent_visitor_history_repeats": 16
+    },
+    {
+      "visitor_regime": "static_matched4",
+      "K": 48,
+      "ovule_budget": 4.5,
+      "native_occupied20": 2,
+      "centered_occupied20": 2,
+      "native_occupied80": 1,
+      "centered_occupied80": 2,
+      "pilot_independent_visitor_history_repeats": 16
+    },
+    {
+      "visitor_regime": "static_matched4",
+      "K": 48,
+      "ovule_budget": 6,
+      "native_occupied20": 14,
+      "centered_occupied20": 14,
+      "native_occupied80": 14,
+      "centered_occupied80": 14,
+      "pilot_independent_visitor_history_repeats": 16
+    },
+    {
+      "visitor_regime": "static_matched4",
+      "K": 48,
+      "ovule_budget": 8,
+      "native_occupied20": 16,
+      "centered_occupied20": 16,
+      "native_occupied80": 16,
+      "centered_occupied80": 16,
+      "pilot_independent_visitor_history_repeats": 16
+    },
+    {
+      "visitor_regime": "stochastic_matched4",
+      "K": 8,
+      "ovule_budget": 4.5,
+      "native_occupied20": 0,
+      "centered_occupied20": 0,
+      "native_occupied80": 0,
+      "centered_occupied80": 0,
+      "pilot_independent_visitor_history_repeats": 16
+    },
+    {
+      "visitor_regime": "stochastic_matched4",
+      "K": 8,
+      "ovule_budget": 6,
+      "native_occupied20": 6,
+      "centered_occupied20": 5,
+      "native_occupied80": 0,
+      "centered_occupied80": 1,
+      "pilot_independent_visitor_history_repeats": 16
+    },
+    {
+      "visitor_regime": "stochastic_matched4",
+      "K": 8,
+      "ovule_budget": 8,
+      "native_occupied20": 16,
+      "centered_occupied20": 15,
+      "native_occupied80": 14,
+      "centered_occupied80": 13,
+      "pilot_independent_visitor_history_repeats": 16
+    },
+    {
+      "visitor_regime": "stochastic_matched4",
+      "K": 48,
+      "ovule_budget": 4.5,
+      "native_occupied20": 3,
+      "centered_occupied20": 3,
+      "native_occupied80": 2,
+      "centered_occupied80": 2,
+      "pilot_independent_visitor_history_repeats": 16
+    },
+    {
+      "visitor_regime": "stochastic_matched4",
+      "K": 48,
+      "ovule_budget": 6,
+      "native_occupied20": 14,
+      "centered_occupied20": 14,
+      "native_occupied80": 12,
+      "centered_occupied80": 13,
+      "pilot_independent_visitor_history_repeats": 16
+    },
+    {
+      "visitor_regime": "stochastic_matched4",
+      "K": 48,
+      "ovule_budget": 8,
+      "native_occupied20": 16,
+      "centered_occupied20": 16,
+      "native_occupied80": 16,
+      "centered_occupied80": 16,
+      "pilot_independent_visitor_history_repeats": 16
+    }
+  ],
+  "n_pilot_paths": 384,
+  "n_environment_cells_both_arms_not_floor_ceiling": 1,
+  "only_non_saturated_cell": "stochastic_matched4;K48;ovule_budget6;80 updates occupied native 12/16 vs centered 13/16; source monomorphic beta at N48 positive, not the same original K8 individual-negative/public-positive conflict.",
+  "power_planning_hypothetical": [
+    {
+      "effect": 0.15,
+      "discordance": 0.3,
+      "n128": 0.162,
+      "n256": 0.467,
+      "n512": 0.894,
+      "n1024": 0.999
+    },
+    {
+      "effect": 0.15,
+      "discordance": 0.5,
+      "n128": 0.093,
+      "n256": 0.319,
+      "n512": 0.65,
+      "n1024": 0.959
+    },
+    {
+      "effect": 0.2,
+      "discordance": 0.3,
+      "n128": 0.574,
+      "n256": 0.951,
+      "n512": 0.999,
+      "n1024": 1
+    },
+    {
+      "effect": 0.2,
+      "discordance": 0.5,
+      "n128": 0.324,
+      "n256": 0.741,
+      "n512": 0.983,
+      "n1024": 1
+    }
+  ],
+  "readiness_interpretation": "No simultaneous clear K8 β-negative/Gamma_seed-positive and unsaturated H80 occupancy in declared budget4.5/6/8 source pilot. Prospective main test NOT warranted yet; need derive resident β changes across census and exact cap-adjusted recruitment, not chase budget after outcomes.",
+  "scientific_cautions": [
+    "Single Model3, all visitor seed histories synthetic; 16 pilot histories per factor, not a significance test.",
+    "Model β and Γ_seed diagnostics refer to monomorphic source at N=K. Within N0=8, future K48 the census may grow and β sign switch; classification cannot be held fixed over trajectory.",
+    "Observed pilot H80 N8 floor/ceiling has low power for economic-tragedy persistence inference, not evidence of zero biological effect.",
+    "Genetic investment stays segregating under founder-mean phenotype centering; no actual genetic evolution freeze and no demonstrated natural commons tragedy."
+  ]
+}

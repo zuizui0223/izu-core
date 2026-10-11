@@ -1,0 +1,356 @@
+{
+  "schema": "chapter2_joint_pathwise_source_locked_compact_receipt_v1",
+  "status": "CI_EXECUTED_EXACT_32_CONDITION_REPLAY_ENGINEERING_NOT_CONFIRMATORY",
+  "source_sha": "ebd5dc936b68cc5d547164313627f621efe53a23",
+  "ci_run": 38012545640,
+  "artifact_id": 11655475278,
+  "raw_json_sha256": "e1add69f6a09ebb28f22fa960f9b1c994b1f366cf4b404ad20f4affd531b6d43",
+  "artifact_zip_sha256": "a7509f3d4a83f4ea73f26533db83926d5ac3a294df8dc23fd37185c94c8092b0",
+  "original_archived_grid_sha": "fe3dcd23855f8dc560f9fa4dd630e3efec178114",
+  "original_32_horizon_K_regime_cell_counts_exactly_reproduced": true,
+  "design": {
+    "synthetic_static_regimes": [
+      "two_hand_authored",
+      "no_visitors"
+    ],
+    "budgets": [
+      3,
+      4.5,
+      6,
+      8
+    ],
+    "horizons": [
+      40,
+      80
+    ],
+    "K": [
+      8,
+      48
+    ],
+    "B": 48,
+    "demographic_paths_per_condition": 24,
+    "interventions": [
+      "baseline",
+      "half_self",
+      "half_outcross"
+    ],
+    "independent_ecological_histories": 0,
+    "mutations": 0,
+    "seed_immigration": 0,
+    "adult_survival": 0,
+    "A_first_I_first_schedule": false
+  },
+  "rows_80_generation": [
+    {
+      "regime": "two_hand_authored",
+      "budget": 3,
+      "K": 8,
+      "baseline_occupied_at_generations_20_40_80": [
+        1,
+        0,
+        0
+      ],
+      "halfself_occupied_at_generations_20_40_80": [
+        0,
+        0,
+        0
+      ],
+      "paired_baseline_only_80": 0,
+      "paired_halfself_only_80": 0,
+      "baseline_ever_nonzero_census_le_2_count": 23,
+      "halfself_ever_nonzero_census_le_2_count": 18
+    },
+    {
+      "regime": "two_hand_authored",
+      "budget": 3,
+      "K": 48,
+      "baseline_occupied_at_generations_20_40_80": [
+        5,
+        4,
+        4
+      ],
+      "halfself_occupied_at_generations_20_40_80": [
+        0,
+        0,
+        0
+      ],
+      "paired_baseline_only_80": 4,
+      "paired_halfself_only_80": 0,
+      "baseline_ever_nonzero_census_le_2_count": 19,
+      "halfself_ever_nonzero_census_le_2_count": 18
+    },
+    {
+      "regime": "two_hand_authored",
+      "budget": 4.5,
+      "K": 8,
+      "baseline_occupied_at_generations_20_40_80": [
+        21,
+        20,
+        17
+      ],
+      "halfself_occupied_at_generations_20_40_80": [
+        0,
+        0,
+        0
+      ],
+      "paired_baseline_only_80": 17,
+      "paired_halfself_only_80": 0,
+      "baseline_ever_nonzero_census_le_2_count": 10,
+      "halfself_ever_nonzero_census_le_2_count": 22
+    },
+    {
+      "regime": "two_hand_authored",
+      "budget": 4.5,
+      "K": 48,
+      "baseline_occupied_at_generations_20_40_80": [
+        23,
+        23,
+        23
+      ],
+      "halfself_occupied_at_generations_20_40_80": [
+        0,
+        0,
+        0
+      ],
+      "paired_baseline_only_80": 23,
+      "paired_halfself_only_80": 0,
+      "baseline_ever_nonzero_census_le_2_count": 2,
+      "halfself_ever_nonzero_census_le_2_count": 22
+    },
+    {
+      "regime": "two_hand_authored",
+      "budget": 6,
+      "K": 8,
+      "baseline_occupied_at_generations_20_40_80": [
+        24,
+        24,
+        24
+      ],
+      "halfself_occupied_at_generations_20_40_80": [
+        6,
+        4,
+        1
+      ],
+      "paired_baseline_only_80": 23,
+      "paired_halfself_only_80": 0,
+      "baseline_ever_nonzero_census_le_2_count": 2,
+      "halfself_ever_nonzero_census_le_2_count": 23
+    },
+    {
+      "regime": "two_hand_authored",
+      "budget": 6,
+      "K": 48,
+      "baseline_occupied_at_generations_20_40_80": [
+        24,
+        24,
+        24
+      ],
+      "halfself_occupied_at_generations_20_40_80": [
+        8,
+        8,
+        8
+      ],
+      "paired_baseline_only_80": 16,
+      "paired_halfself_only_80": 0,
+      "baseline_ever_nonzero_census_le_2_count": 0,
+      "halfself_ever_nonzero_census_le_2_count": 18
+    },
+    {
+      "regime": "two_hand_authored",
+      "budget": 8,
+      "K": 8,
+      "baseline_occupied_at_generations_20_40_80": [
+        24,
+        24,
+        24
+      ],
+      "halfself_occupied_at_generations_20_40_80": [
+        21,
+        17,
+        14
+      ],
+      "paired_baseline_only_80": 10,
+      "paired_halfself_only_80": 0,
+      "baseline_ever_nonzero_census_le_2_count": 0,
+      "halfself_ever_nonzero_census_le_2_count": 13
+    },
+    {
+      "regime": "two_hand_authored",
+      "budget": 8,
+      "K": 48,
+      "baseline_occupied_at_generations_20_40_80": [
+        24,
+        24,
+        24
+      ],
+      "halfself_occupied_at_generations_20_40_80": [
+        21,
+        21,
+        21
+      ],
+      "paired_baseline_only_80": 3,
+      "paired_halfself_only_80": 0,
+      "baseline_ever_nonzero_census_le_2_count": 0,
+      "halfself_ever_nonzero_census_le_2_count": 4
+    },
+    {
+      "regime": "no_visitors",
+      "budget": 3,
+      "K": 8,
+      "baseline_occupied_at_generations_20_40_80": [
+        0,
+        0,
+        0
+      ],
+      "halfself_occupied_at_generations_20_40_80": [
+        0,
+        0,
+        0
+      ],
+      "paired_baseline_only_80": 0,
+      "paired_halfself_only_80": 0,
+      "baseline_ever_nonzero_census_le_2_count": 18,
+      "halfself_ever_nonzero_census_le_2_count": 19
+    },
+    {
+      "regime": "no_visitors",
+      "budget": 3,
+      "K": 48,
+      "baseline_occupied_at_generations_20_40_80": [
+        1,
+        1,
+        0
+      ],
+      "halfself_occupied_at_generations_20_40_80": [
+        0,
+        0,
+        0
+      ],
+      "paired_baseline_only_80": 0,
+      "paired_halfself_only_80": 0,
+      "baseline_ever_nonzero_census_le_2_count": 20,
+      "halfself_ever_nonzero_census_le_2_count": 19
+    },
+    {
+      "regime": "no_visitors",
+      "budget": 4.5,
+      "K": 8,
+      "baseline_occupied_at_generations_20_40_80": [
+        20,
+        19,
+        17
+      ],
+      "halfself_occupied_at_generations_20_40_80": [
+        0,
+        0,
+        0
+      ],
+      "paired_baseline_only_80": 17,
+      "paired_halfself_only_80": 0,
+      "baseline_ever_nonzero_census_le_2_count": 12,
+      "halfself_ever_nonzero_census_le_2_count": 17
+    },
+    {
+      "regime": "no_visitors",
+      "budget": 4.5,
+      "K": 48,
+      "baseline_occupied_at_generations_20_40_80": [
+        21,
+        19,
+        19
+      ],
+      "halfself_occupied_at_generations_20_40_80": [
+        0,
+        0,
+        0
+      ],
+      "paired_baseline_only_80": 19,
+      "paired_halfself_only_80": 0,
+      "baseline_ever_nonzero_census_le_2_count": 6,
+      "halfself_ever_nonzero_census_le_2_count": 17
+    },
+    {
+      "regime": "no_visitors",
+      "budget": 6,
+      "K": 8,
+      "baseline_occupied_at_generations_20_40_80": [
+        24,
+        24,
+        24
+      ],
+      "halfself_occupied_at_generations_20_40_80": [
+        0,
+        0,
+        0
+      ],
+      "paired_baseline_only_80": 24,
+      "paired_halfself_only_80": 0,
+      "baseline_ever_nonzero_census_le_2_count": 2,
+      "halfself_ever_nonzero_census_le_2_count": 18
+    },
+    {
+      "regime": "no_visitors",
+      "budget": 6,
+      "K": 48,
+      "baseline_occupied_at_generations_20_40_80": [
+        24,
+        24,
+        24
+      ],
+      "halfself_occupied_at_generations_20_40_80": [
+        1,
+        1,
+        0
+      ],
+      "paired_baseline_only_80": 24,
+      "paired_halfself_only_80": 0,
+      "baseline_ever_nonzero_census_le_2_count": 2,
+      "halfself_ever_nonzero_census_le_2_count": 20
+    },
+    {
+      "regime": "no_visitors",
+      "budget": 8,
+      "K": 8,
+      "baseline_occupied_at_generations_20_40_80": [
+        24,
+        24,
+        24
+      ],
+      "halfself_occupied_at_generations_20_40_80": [
+        17,
+        14,
+        14
+      ],
+      "paired_baseline_only_80": 10,
+      "paired_halfself_only_80": 0,
+      "baseline_ever_nonzero_census_le_2_count": 0,
+      "halfself_ever_nonzero_census_le_2_count": 11
+    },
+    {
+      "regime": "no_visitors",
+      "budget": 8,
+      "K": 48,
+      "baseline_occupied_at_generations_20_40_80": [
+        24,
+        24,
+        24
+      ],
+      "halfself_occupied_at_generations_20_40_80": [
+        19,
+        17,
+        17
+      ],
+      "paired_baseline_only_80": 7,
+      "paired_halfself_only_80": 0,
+      "baseline_ever_nonzero_census_le_2_count": 0,
+      "halfself_ever_nonzero_census_le_2_count": 7
+    }
+  ],
+  "scientific_boundary": [
+    "This is post-outcome reexecution of the same already exposed synthetic source and demographic RNG identities; not independent ecological replication.",
+    "Occupancy is unconditional and survivor genetic means are not imputed after extinction.",
+    "Pathwise low-census and first-passage contrasts are descriptive post-treatment histories, not randomized mediators.",
+    "K8-K48 differences here are absolute viability gate responses and NOT the registered A-first/I-first interaction of PR451.",
+    "No visitor histories, field validation, ecological universality or SDE/SPDE claim."
+  ]
+}

@@ -1,0 +1,115 @@
+{
+  "schema": "chapter2_selected_vs_neutral_parentage_model_internal_v1",
+  "date": "2026-10-10",
+  "status": "FROZEN_BEFORE_NEW_MODEL_VISITOR_COHORT_OUTCOMES_EXPLORATORY_SOURCE",
+  "question": "Does selection-weighted Mendelian gene transmission, as opposed to channel-preserving genotype-neutral transmission, change unconditional 80-generation persistence under the same ecological visitor histories and identical founder genomes?",
+  "selection_mechanism": {
+    "selected": "Original reproduce_kb biological viability ledger and original population.advance (source-selected father/mother sampling and unlinked diploid Mendelian segregation).",
+    "neutral": "Run original reproduce_kb and original advance to determine native Poisson offspring count and the original selfed/outcross recruit totals. Replace ALL newly recruited genome/allele-origin/flags by new Mendelian offspring drawn from uniformly random source parent indices, conditional on the exact self/outcross recruit counts; preserve all offspring IDs and birth-year, original census/visitor states and no mutation. Channel totals remain exactly the source realized values; focal genotype-associated parentage advantage is neutralized.",
+    "mathematical_null": "For every nonempty parent census C, E[offspring allele dosage conditional on Nrecruits>0 and realized source self/outcross counts] equals parental mean for each of the three diploid trait loci under uniform self and uniform ordered distinct-parent outcross sampling.",
+    "not_a_true_evolution_freeze": true,
+    "counterfactual_is_not_physical_mating_ledger": true,
+    "remaining_mechanisms": [
+      "finite genetic drift",
+      "Mendelian segregation",
+      "source self-vs-outcross number variation",
+      "trait-induced absolute viable seed production and census feedback",
+      "visitor assembly and population ceiling"
+    ],
+    "removed_mechanism": "Within-channel genotype-fitness-dependent parentage transmission (selection-biased inheritance conditional on source channel counts)."
+  },
+  "frozen_conditions": {
+    "visitor_history_first": 61024001,
+    "visitor_history_last": 61024064,
+    "independent_visitor_rng_histories": 64,
+    "initial_visitor_optima": [
+      0.15,
+      0.35,
+      0.55,
+      0.75
+    ],
+    "initial_visitor_breadths": [
+      0.18,
+      0.18,
+      0.18,
+      0.18
+    ],
+    "stochastic_visitor_arrivals_and_loss": true,
+    "seed_immigration": 0,
+    "founder_genotype_seed": 61024981,
+    "founder_size_N0": 8,
+    "founder_source_means": [
+      0.25,
+      0.45,
+      0.58
+    ],
+    "founder_allele_sd": 0.08,
+    "K": [
+      8,
+      48
+    ],
+    "B": 48,
+    "reproduction_setting": "prior_selfing",
+    "ovule_budgets": [
+      6,
+      8
+    ],
+    "seed_viability_gates": {
+      "baseline": [
+        1,
+        1
+      ],
+      "half_self": [
+        0.5,
+        1
+      ]
+    },
+    "adult_survival": 0,
+    "mutation_rate": 0,
+    "years": 80,
+    "horizons": [
+      20,
+      80
+    ],
+    "demographic_rng_seed_salt": 61024982,
+    "neutral_parentage_rng_salt": 61024983,
+    "inheritance_arms": [
+      "selected_source",
+      "neutral_within_mating_channel"
+    ],
+    "demographic_repeats_per_history": 1,
+    "full_future_count": 1024
+  },
+  "analysis": {
+    "primary": "absolute paired history difference p(N80>0 | selected-source Mendelian parentage) - p(N80>0 | channel-preserving neutral Mendelian parentage), separately by K x budget x gate, unconditional across exactly 64 histories",
+    "secondary": [
+      "N20>0 difference",
+      "per-history discordant survival counts",
+      "final allele means among true survivors only",
+      "difference in mean allele frequencies relative to founders separately by arm",
+      "number of source selfed and outcrossed recruits, descriptive only"
+    ],
+    "exact_interval": "95% conservative simultaneous Bonferroni Clopper-Pearson paired discordance proportion interval",
+    "rope_absolute_survival_probability": 0.05,
+    "decision": "supported positive if exact lower >+0.05; supported negative if exact upper <−0.05; practical equivalence only if entire exact interval lies in ±0.05; otherwise inconclusive",
+    "sample_stop": "all 64 ecological visitor histories, all 8 K/budget/gate cells; no early stopping or removing extinct histories",
+    "negative_controls": [
+      "native population.advance parity when selection arm",
+      "exact realized self/outcross recruit counts retained under neutral assignment",
+      "same founder genome/visitors and RNG stream master per history across arms",
+      "all three neutral parent conditional expected allele dosages equal source population allele means",
+      "monomorphic all-genotype fixture must have identical occupancy under neutral and native for every paired seed",
+      "zero founder/census pathways are absorbing with undefined allele frequency after extinction"
+    ],
+    "unit_of_inference": "model-generated visitor RNG history: demographic repeats nested; no independent island ecological species/system replication"
+  },
+  "disallowed_claims": [
+    "neutral parentage is frozen evolution",
+    "completely removes genetic drift",
+    "physically valid ecological redistribution of per-mother viable ovules",
+    "proves evolutionary suicide or evolutionarily adaptive selfing",
+    "mutational load/kinship effects are represented",
+    "independently preregistered field data or ecological systems"
+  ],
+  "scientific_context": "post-outcome motivated by prior #452 gamma-seed/long-horizon unresolvable controls; no parameter selection after this outcome is permitted without explicit exploratory label"
+}

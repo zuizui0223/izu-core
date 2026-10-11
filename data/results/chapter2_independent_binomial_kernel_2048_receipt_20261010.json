@@ -1,0 +1,184 @@
+{
+  "schema": "alternative_diploid_seed_binomial_model_finite_outcome_v1",
+  "status": "SOURCE_EXECUTED_FULL_2048_PATHS_ANALYTIC_SIGN_BOUNDARY_INDEPENDENT_KERNEL",
+  "execution_source_sha": "7505ab4b87858c5dfa5f17985920c47bbab5a3ef",
+  "run_id": 38020498762,
+  "artifact_id": 11658735168,
+  "raw_json_sha256": "860ded2d374f305f66a47a55a3fe148f43accdadea4d2b20218e860ecf659266",
+  "raw_zip_sha256": "52ec9186772bc192873bc8c21b854c504fce35a177244328e7a194648a98cc7b",
+  "input_design_sha256": "1b7f00903e494b989cba9aed5722207d57a617c7d57e73dcd6f53a7e96f11575",
+  "frozen_design": "data/design/chapter2_alternative_binomial_kernel_20261010.json",
+  "executable": "scripts/audit_chapter2_independent_binomial_kernel.py",
+  "source_only_tests": "tests/test_chapter2_independent_binomial_kernel.py",
+  "new_model_type": "one-locus diploid, seed-by-seed ovule-binomial, N-dependent mate-limited pollination, uniform cap lottery; NOT original Model3 Poisson three-locus/visitor model",
+  "n_paths": 2048,
+  "n_independent_demographic_repeats_per_setting": 128,
+  "independent_natural_island_systems": 0,
+  "n_alternative_model_families": 1,
+  "parameters": {
+    "ovules_per_mother": 2,
+    "ovule_maturation_probability": 0.9,
+    "self_seed_viability": 0.6,
+    "allee_pollen_parameter": 1,
+    "pollen_q": [
+      0.8,
+      0.4
+    ],
+    "K": [
+      8,
+      48
+    ],
+    "reproduction_timing": [
+      "prior",
+      "delayed"
+    ],
+    "evaluation_H": 80
+  },
+  "analytical_identity": {
+    "effective_pollen": "q*(N-1)/(N-1+1) for N>1, 0 for N<=1",
+    "prior_beta": "2*0.9*(0.6-q_effective/2)>0",
+    "prior_group_seed_gamma": "2*0.9*(0.6-q_effective)",
+    "sign_boundary_at_abundant_q": "q=.8, N=4 gives qeff=.6, Gamma_seed=0; N<=3 group positive; N>=5 group negative while individual beta always positive",
+    "delayed_beta_gamma": "2*0.9*(1-q_effective)*0.6 positive for both individual and group",
+    "not_novel": "The automatic transmission advantage of selfing and possible evolutionary suicide are established theory."
+  },
+  "full_H80_outcomes": [
+    {
+      "timing": "prior",
+      "pollen_q": 0.8,
+      "K": 8,
+      "heritable_occupied": 57,
+      "expression_frozen_occupied": 78,
+      "paired_heritable_only": 24,
+      "paired_frozen_only": 45,
+      "delta_heritable_minus_frozen": -0.1640625,
+      "paired_exact95": [
+        -0.33691241749209505,
+        0.018797066751040814
+      ],
+      "single_setting_decision": "inconclusive",
+      "heritable_allele_mean_among_survivors": 0.9298245614035088
+    },
+    {
+      "timing": "prior",
+      "pollen_q": 0.8,
+      "K": 48,
+      "heritable_occupied": 122,
+      "expression_frozen_occupied": 122,
+      "paired_heritable_only": 6,
+      "paired_frozen_only": 6,
+      "delta_heritable_minus_frozen": 0,
+      "paired_exact95": [
+        -0.0926588326381655,
+        0.0926588326381655
+      ],
+      "single_setting_decision": "inconclusive",
+      "heritable_allele_mean_among_survivors": 0.9918032786885246
+    },
+    {
+      "timing": "prior",
+      "pollen_q": 0.4,
+      "K": 8,
+      "heritable_occupied": 46,
+      "expression_frozen_occupied": 0,
+      "paired_heritable_only": 46,
+      "paired_frozen_only": 0,
+      "delta_heritable_minus_frozen": 0.359375,
+      "paired_exact95": [
+        0.23212970590877727,
+        0.46137346080670283
+      ],
+      "single_setting_decision": "positive",
+      "heritable_allele_mean_among_survivors": 1
+    },
+    {
+      "timing": "prior",
+      "pollen_q": 0.4,
+      "K": 48,
+      "heritable_occupied": 72,
+      "expression_frozen_occupied": 0,
+      "paired_heritable_only": 72,
+      "paired_frozen_only": 0,
+      "delta_heritable_minus_frozen": 0.5625,
+      "paired_exact95": [
+        0.42604049770967845,
+        0.6615731100421169
+      ],
+      "single_setting_decision": "positive",
+      "heritable_allele_mean_among_survivors": 1
+    },
+    {
+      "timing": "delayed",
+      "pollen_q": 0.8,
+      "K": 8,
+      "heritable_occupied": 123,
+      "expression_frozen_occupied": 128,
+      "paired_heritable_only": 0,
+      "paired_frozen_only": 5,
+      "delta_heritable_minus_frozen": -0.0390625,
+      "paired_exact95": [
+        -0.09673690902400063,
+        0.022968980391185563
+      ],
+      "single_setting_decision": "inconclusive",
+      "heritable_allele_mean_among_survivors": 0.7977642276422764
+    },
+    {
+      "timing": "delayed",
+      "pollen_q": 0.8,
+      "K": 48,
+      "heritable_occupied": 128,
+      "expression_frozen_occupied": 128,
+      "paired_heritable_only": 0,
+      "paired_frozen_only": 0,
+      "delta_heritable_minus_frozen": 0,
+      "paired_exact95": [
+        -0.03365521009360786,
+        0.03365521009360786
+      ],
+      "single_setting_decision": "practically_equivalent",
+      "heritable_allele_mean_among_survivors": 0.990966796875
+    },
+    {
+      "timing": "delayed",
+      "pollen_q": 0.4,
+      "K": 8,
+      "heritable_occupied": 100,
+      "expression_frozen_occupied": 0,
+      "paired_heritable_only": 100,
+      "paired_frozen_only": 0,
+      "delta_heritable_minus_frozen": 0.78125,
+      "paired_exact95": [
+        0.6541552160090643,
+        0.857744873895336
+      ],
+      "single_setting_decision": "positive",
+      "heritable_allele_mean_among_survivors": 1
+    },
+    {
+      "timing": "delayed",
+      "pollen_q": 0.4,
+      "K": 48,
+      "heritable_occupied": 102,
+      "expression_frozen_occupied": 0,
+      "paired_heritable_only": 102,
+      "paired_frozen_only": 0,
+      "delta_heritable_minus_frozen": 0.796875,
+      "paired_exact95": [
+        0.6714317498959123,
+        0.8707504587944259
+      ],
+      "single_setting_decision": "positive",
+      "heritable_allele_mean_among_survivors": 1
+    }
+  ],
+  "scientific_limits": [
+    "Primary abundant-pollen prior-selfing K8 negative occupancy contrast -21/128=-.16406: exact paired95 [-.33691,+.01880] includes zero; DOES NOT confirm evolution-induced extinction.",
+    "Reduced-pollen positive effects are large and clear within this source-dependent alternative model, but q=.4 population under frozen founder expression has demographic expected recruitment <1 at N8 by analytical design, so its near-certain extinction is partly an imposed replacement-rate structure.",
+    "Timing contrasts across 8 grid cells are not an independently corrected family-wide confirmatory test.",
+    "Only one new toy model family, with chosen parameters constructed to yield sign reversal, not ecological calibration, natural island observations or unrelated validated biological mechanism.",
+    "Genetic founder panel fixed across all RNG histories. Heritable arm expresses one diploid selfing locus; comparator fixes reproductive phenotype to founder mean but genes still segregate and drift.",
+    "Proof of local beta/Gamma_seed opposition is not equivalent to a proof of evolutionary suicide or universal fitness-persistence divergence.",
+    "Difference between n=1 and N>=2 mating availability and density cap can reverse the ranking of benefits as populations approach extinction."
+  ]
+}

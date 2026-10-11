@@ -1,0 +1,84 @@
+{
+  "schema": "chapter2_t20_source_genome_transplant_crossed_future_operator_v1",
+  "date": "2026-10-10",
+  "status": "POST_OUTCOME_SOURCE_REPLAY_EXPLORATORY_LOCK_BEFORE_TRANSPLANT_FUTURE_OUTCOMES",
+  "scientific_question": "Does a selected vs genotype-neutral t20 joint three-locus genome distribution change later population persistence, controlling recipient census, pollen background, future cap and selected vs neutral future parentage?",
+  "source_original_design": "data/design/chapter2_selected_neutral_parentage_new64_20261010.json",
+  "source_original_raw_artifact_id": 11656058352,
+  "source_original_sha": "48eb9da3f709f40523c8bc13ce3068dc2dd97cf4",
+  "reuse_disclosure": "The same previously exposed 64 visitor histories 61024001..61024064 are replayed intentionally. This is conditional post-outcome mechanistic reanalysis, NOT an independently replicated cohort.",
+  "source_pre20": {
+    "K": 48,
+    "ovule_budget": 8,
+    "gate": "half_self",
+    "years": 20,
+    "selected_and_neutral_pre20_occupied_expected": {
+      "selected": 58,
+      "neutral": 52,
+      "both": 50
+    },
+    "eligibility": "Only original history IDs where BOTH original pre20 selected and neutral source populations are occupied at t20; all 64 source IDs and exclusion reasons retained. Never use all 64 as independent transplant outcome denominator.",
+    "genotype_unit": "entire individual diploid three-locus allele array, allele_origin and mutation_flags; no locus-by-locus reshuffling",
+    "mutation": 0,
+    "seed_immigration": 0,
+    "adult_survival": 0
+  },
+  "transplant": {
+    "at_year": 20,
+    "run_to_year": 80,
+    "recipient_census_N0": 8,
+    "donor_genotype_distribution": [
+      "selected_pre20",
+      "neutral_pre20"
+    ],
+    "target_capacity_K": [
+      8,
+      48
+    ],
+    "recipient_pollen_background_B": 48,
+    "future_transmission_operator": [
+      "selected_source",
+      "neutral_within_mating_channel"
+    ],
+    "factorial_cells_per_eligible_history": 8,
+    "matched_visitor_years": "same original source visitor history years 20..79 for each original visitor seed, reused; no new ecology draw",
+    "genome_draw": "one bounded N=8 whole-individual with-replacement sample from each donor original t20 state; source re-sampling RNG salt 61025971 per original history, distinct source tag; same chosen eight genotypes reused for both recipient K and both future transmission conditions",
+    "recipient_state": "new unique individual IDs 0..7, birth year=20, original source allele origins and flags retained; sampling with replacement creates repeated genome carriers not identical source individual identities",
+    "future_rng_salt": 61025972,
+    "neutral_parentage_rng_salt": 61025973,
+    "future_seed_gate": "half_self",
+    "source_biology": "original reproduce_kb, postzygotic viable-self gate and original population.advance plus explicit neutral Mendelian within-channel postrecruitment operator"
+  },
+  "analysis": {
+    "primary": "At fixed recipient K48 and native future selected parentage, paired original visitor-history mean [occupied80 after selected_pre20 donor - occupied80 after neutral_pre20 donor], among original t20 both-alive sources only.",
+    "secondary": [
+      "same genotype-source contrast under K8 and neutral future operator",
+      "future selection-operator effect at each donor K",
+      "K8 versus K48 future capacity effect at fixed source donor and future operator",
+      "two-factor interactions and factorial means descriptive",
+      "source t20 genotype mean and variance profiles and resampled distribution first moments"
+    ],
+    "independent_unit": "original source visitor history; 50 expected eligible original visitor history IDs, post-survival conditioning; draw and nested arms NOT independent",
+    "uncertainty": "95% conservative paired exclusive-discordance Clopper-Pearson Bonferroni interval per contrast; no pooling across factorial conditions for confirmation",
+    "effect_ROPE_absolute_probability": 0.05,
+    "stopping": "all 64 exposed visitor seeds, exact fixed pre20 eligibility, no significance-based stopping",
+    "classification": "positive if exact 95 CI lower>0.05; negative if upper<−0.05; practically equivalent only when exact interval wholly ±0.05, else inconclusive",
+    "structural_checks": [
+      "source t20 archived occupied counts selected58,neutral52,overlap50 must match exactly",
+      "complete original 64 source rows inclusive of ineligible",
+      "same t20 donor whole-genotype samples reused across future K and parentage operators",
+      "same cloned recipient census N0=8, visitor future and future RNG master within each paired comparison",
+      "same source genotype across recipient K means K difference cannot be due to different initial census",
+      "zero visitor history samples created",
+      "full pure monomorphic original genetic source would have identical outcomes under native/neutral future operator",
+      "conservative interval cannot falsely infer equivalence for all equal outcome pairs"
+    ]
+  },
+  "claim_exclusions": [
+    "The t20 conditional genotype donor effect does not equal total selection-mediated effect from year0 because of conditioning on both sources surviving.",
+    "Two-factor averages are balanced factorial contrasts, and Shapley ordering allocation never uniquely identifies causal population genetic mediation.",
+    "The comparator is a synthetic postrecruitment neutral inheritance operator and not a fully physical fertilization model.",
+    "Neither gene-frequency freeze nor removal of genetic drift; no deleterious-mutation load.",
+    "Not new independent visitor history confirmation; not field island population inference; no evolutionary suicide claim."
+  ]
+}

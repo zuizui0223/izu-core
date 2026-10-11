@@ -1,0 +1,99 @@
+{
+  "schema": "chapter2_t20_assurance_new_post20_ecology_multidraw_source_receipt_v1",
+  "date": "2026-10-10",
+  "status": "NEW_FUTURE_ECOLOGY_OLD_DONOR_SOURCE_THREE_GENOTYPE_DRAWS_COMPLETE_BOTH_K_PRIMARY_INCONCLUSIVE",
+  "full_execution_source_commit": "91cc80e2481f952602d7965b76d0b75a8a8a008a",
+  "run_id": 38018738837,
+  "artifact_id": 11657541979,
+  "raw_json_sha256": "4a863af7b1f4d0addd5fc233a97491d865fc324d0dfaa555f133a369ecb34b62",
+  "raw_zip_sha256": "7b39085cb171e91e7a6502651797efb303145c2439ce842b87707be3756d6e6c",
+  "raw_json_bytes": 258058,
+  "design_sha256": "a92ca999cfe34355b42a2f6d08c9ea37b0c6ed12d907387d15611549174ff8ff",
+  "design_file": "data/design/chapter2_t20_assurance_new_future_multidraw_20261010.json",
+  "source_file": "scripts/audit_chapter2_t20_assurance_new_future_multidraw.py",
+  "focused_test": "tests/test_chapter2_t20_assurance_new_future_multidraw.py",
+  "source_t20_original_cohort_seeds": [
+    61024001,
+    61024064
+  ],
+  "fresh_future_innovation_seeds": [
+    61026001,
+    61026064
+  ],
+  "original_donor_survival_counts": {
+    "selected": 58,
+    "neutral": 52,
+    "both": 50
+  },
+  "n_old_source_histories": 64,
+  "n_eligible_sources": 50,
+  "new_future_visitor_histories_generated": 64,
+  "new_future_visitor_histories_entering_eligible_genotype_comparisons": 50,
+  "genome_samples_per_original_donor_history": 3,
+  "n_future_genome_paths": 1200,
+  "future_K": [
+    8,
+    48
+  ],
+  "source_donor_genotype_module_arms": [
+    "neutral_all",
+    "selected_assurance_only",
+    "selected_nonassurance_only",
+    "selected_all"
+  ],
+  "outcome_nesting": "for each old donor source history, one distinct new future visitor innovation + 3 nested whole-genotype samples per donor source; genetic sampling replicates do NOT increase independent source-history denominator",
+  "K8": {
+    "count_by_genotype_arm_out_of_150_nested_paths": {
+      "neutral_all": 57,
+      "selected_assurance_only": 103,
+      "selected_nonassurance_only": 58,
+      "selected_all": 109
+    },
+    "assurance_only_delta": 0.3066666666666667,
+    "primary_cluster_bootstrap_95": [
+      0.193,
+      0.4333333333333333
+    ],
+    "primary_hoeffding_95": [
+      -0.07746244986130163,
+      0.690795783194635
+    ],
+    "other_two_loci_only_delta": 0.0066666666666666645,
+    "full_genotype_delta": 0.34666666666666673,
+    "two_order_assurance_allocation": 0.32333333333333325,
+    "two_order_other_two_loci_allocation": 0.023333333333333373,
+    "primary_predeclared_strict_classification": "INCONCLUSIVE"
+  },
+  "K48": {
+    "count_by_genotype_arm_out_of_150_nested_paths": {
+      "neutral_all": 122,
+      "selected_assurance_only": 141,
+      "selected_nonassurance_only": 127,
+      "selected_all": 145
+    },
+    "assurance_only_delta": 0.12666666666666665,
+    "assurance_only_cluster_bootstrap_95": [
+      0.039999999999999994,
+      0.21999999999999997
+    ],
+    "assurance_only_hoeffding_95": [
+      -0.2574624498613017,
+      0.510795783194635
+    ],
+    "other_two_loci_only_delta": 0.03333333333333333,
+    "full_genotype_delta": 0.15333333333333332,
+    "two_order_assurance_allocation": 0.1233333333333333,
+    "two_order_other_two_loci_allocation": 0.030000000000000027,
+    "strict_classification": "INCONCLUSIVE"
+  },
+  "numerical_and_evidence_qualification": [
+    "Both-original-t20-source-donor alive=50 out of 64 exact original history IDs, so the new experiment validates only future visitor innovation conditional on previously exposed genetic donor histories.",
+    "Full 1200 future paths executed after pre-outcome new future seed/genotype draw lock. No source donor histories independent of previously observed cohort.",
+    "At K8 point assurance-only transplant survival 103/150 versus 57/150, delta +.30667; nonparametric 50-cluster bootstrap positive but distribution-free 95% Hoeffding includes zero and preregistered rule requires both >+.05.",
+    "At K48 assurance-only 141/150 versus 122/150, delta +.12667; both cluster bootstrap and Hoeffding reported, strict rule inconclusive.",
+    "Genotype hybrids are artificial whole-locus cross-source constructs; allele mean, variance and cross-locus associations move together.",
+    "Shapley-style two-order allocations are descriptive contrasts, NOT a physically unique genetic mediation fraction.",
+    "Mutation and genetic load absent. No natural islands or independently replicated ecological models; evolutionary suicide not tested.",
+    "No additional outcomes were searched based on viability gate, budget or trait magnitude after observing this cohort."
+  ]
+}

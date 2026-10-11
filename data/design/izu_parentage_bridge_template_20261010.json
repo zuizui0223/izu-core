@@ -1,0 +1,60 @@
+{
+  "schema": "izu_parentage_extension_v1",
+  "status": "TEMPLATE_NO_FIELD_OBSERVATIONS",
+  "purpose": "Optional, non-mutating parentage extension to the legacy same-block visitor→SVD→dependency→seed chain. Paternity requires offspring genotypes; a stigma pollen count cannot identify a father.",
+  "parent_chain": "legacy/pre-model3/scripts/audit_izu_transition_linked_chain.py",
+  "site_admission_source": "legacy/routes/nee/scripts/audit_chapter2_nee_r1_site_registry.py",
+  "unit": "block_id x plant_id, with offspring nested in fruit and plant; candidate father sets belong to a defined pool",
+  "evidence_mode": "template",
+  "source_receipts": {
+    "chain_audit_sha256": null,
+    "site_registry_audit_sha256": null,
+    "parentage_genotype_archive_sha256": null,
+    "parentage_model_report_sha256": null
+  },
+  "site_admissions": [],
+  "chain_plants": [],
+  "fruits": [],
+  "offspring": [],
+  "candidate_fathers": [],
+  "assignments": [],
+  "parentage_method": {
+    "model_id": null,
+    "genotyping_error_model_documented": false,
+    "unsampled_fathers_modelled": false,
+    "maternal_genotypes_verified": false,
+    "paternity_likelihood_report_sha256": null
+  },
+  "allowed_statuses": {
+    "admission": [
+      "candidate",
+      "admitted",
+      "excluded"
+    ],
+    "genotyping": [
+      "usable",
+      "failed",
+      "pending"
+    ],
+    "assignment": [
+      "self",
+      "named_father",
+      "unsampled_or_unknown"
+    ],
+    "fruit_treatment": [
+      "open_pollinated",
+      "bagged_autonomous",
+      "supplemental_outcross"
+    ]
+  },
+  "constraints": [
+    "No prior outcomes may be used to define blocks or admit sites.",
+    "Only open-pollinated mature fruit offspring can contribute to the observational paternity summary, distinct from experimental treatments.",
+    "Exactly one self and one unsampled_or_unknown probability category per usable offspring, plus zero or more named fathers; sum of posterior probabilities must be one.",
+    "Selfing probability and unsampled-father probability must never be manufactured from SVD, visit observations, absent genotype records, or missing father candidates.",
+    "Every named father must have independently registered genotype evidence in the candidate father pool; candidate census completeness is not assumed.",
+    "Genotyping failed or pending offspring remain explicit; they never become selfed, zero pollen, or excluded from the sampling denominator without documentation.",
+    "No offspring, fruits, or father assignments may be used as independent island-system replicates or support genetic evolution without longitudinal evidence.",
+    "Only externally adjudicated site admission, access permissions and seasonal blocks can open field work; this auditor cannot grant permits."
+  ]
+}

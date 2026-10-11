@@ -1,0 +1,85 @@
+{
+  "schema": "chapter2_investment_mean_expression_clamp_prospective_model_v1",
+  "date": "2026-10-10",
+  "status": "NEW_UNEXPOSED_VISITOR_HISTORY_DESIGN_FROZEN_BEFORE_ANY_OUTCOMES",
+  "main_question": "Does variation in the dynamically expressed population-mean floral investment after generation20 alter unconditional survival, beyond what is attributable to inherited genotype states and unchanged Mendelian transmission?",
+  "scope": "model-internal mechanistic experiment conditional on already observed model and budget choices; NOT full evolutionary-suicide test, not external islands",
+  "source_biology": "canonical Model3 reproduce_kb and population.advance; no edits to biological source",
+  "source_seeds": {
+    "visitor_first": 61022001,
+    "visitor_last": 61022064,
+    "n_independent_visitor_rng_histories": 64,
+    "founder_seed": 61022981,
+    "demographic_master_salt": 61022982,
+    "bootstrap_not_used": true
+  },
+  "design": {
+    "source_initial_founders": 8,
+    "initial_census_N0": 8,
+    "capacities_K": [
+      8,
+      48
+    ],
+    "pollen_denominator_B": 48,
+    "time_horizon": 80,
+    "common_prehistory_updates": 20,
+    "postintervention_updates": 60,
+    "visitor_initial": "matched4 four synthetic optima 0.15/0.35/0.55/0.75, breadth 0.18; canonical independent visitor arrivals/loss from 64 seeds",
+    "reproductive_setting": "prior_selfing",
+    "ovule_budget": 6,
+    "source_allele_genotypes": "8 diploid three-locus joint genotypes from frozen founder RNG 61022981, mean matching .2/investment .35/assurance .35 or .65, source allele SD .1",
+    "assurance_mean": [
+      0.35,
+      0.65
+    ],
+    "seed_gates": {
+      "baseline": [
+        1,
+        1
+      ],
+      "half_self": [
+        0.5,
+        1
+      ]
+    },
+    "post20_phenotype_modes": [
+      "native_genotype_expression",
+      "investment_population_mean_clamp"
+    ],
+    "post20_clamp": "only for reproduction ledger, shift all parents' investment allele-based expression by constant target_mean_at_t20 - current_mean; allow the original unmodified DNA state to be used by population.advance for Mendelian inheritance; preserve within-generation investment deviations and allelic segregation variance; reject boundary [0,1] violations without clipping",
+    "pre20_identical_original_genetic_state_and_rng": true,
+    "seed_arrival": 0,
+    "adult_survival": 0,
+    "mutation_rate": 0,
+    "total_future_paths": 1024
+  },
+  "outcomes": {
+    "primary": "all 64 independent visitor-history outcome pairs at N80>0, natural minus mean-expression-clamped",
+    "secondary": [
+      "N20>0 unconditional common prehistory occupancy",
+      "post20 unconditional N80 and first extinction time",
+      "among survivors final investment allele mean and inherited genotype variance conditional only",
+      "complete t20 state hash to ensure exact paired original source"
+    ],
+    "uncertainty": "conservative paired exact Bonferroni Clopper-Pearson two exclusive discordance probabilities; alpha .05, effect ROPE +/-0.05 absolute probability points",
+    "classification": "resolved positive if CI lower >0.05, negative if CI upper < -0.05, practically equivalent if CI wholly within ±0.05, otherwise inconclusive",
+    "inference_unit": "independent stochastic visitor RNG history drawn from one Model3 generator, demographic replicates per history 1",
+    "report_all_cases_and_nulls": true,
+    "stop": "exactly 64 histories; no effect-based selection"
+  },
+  "controls": [
+    "Sham-clamp mean target equal current mean must return original unchanged genomic and expressed state.",
+    "At t20 source alleles/IDs and all RNG stream states identical in both arms.",
+    "Do not redraw or overwrite underlying diploid genotype in inheritance.",
+    "Conditional trait means undefined after extinction, unconditional occupancy retains all histories.",
+    "Changing K keeps N0=8 and pollen background B=48; K influences cap over subsequent years but changes paths from the first recruitment.",
+    "Comparisons across assurance settings do not claim independent donor genotypes: shared founder RNG with shifted source assurance means.",
+    "Exact bound checks reject unsafe expression outside [0,1] instead of clipping."
+  ],
+  "claim_boundaries": [
+    "Clamping the mean of expressed investment does NOT freeze allele frequencies, genetic drift or within-population trait variance.",
+    "The intervention changes genotype-phenotype mapping and can alter selective and demographic processes from generation20 onward; it does not isolate historical genetic drift.",
+    "A source-model genotype evolution-enabled versus true genetic-trait freeze comparison still requires another carefully specified operator.",
+    "No natural island inference, no genetic load or mutation accumulation, no population-level evolutionary suicide conclusion."
+  ]
+}

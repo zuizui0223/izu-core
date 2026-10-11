@@ -1,0 +1,396 @@
+{
+  "schema": "chapter2_joint_multigen_budget_horizon_source_receipt_v1",
+  "status": "POST_OUTCOME_ENGINEERING_GRID_EXACT_ARTIFACT_RETRIEVED_NOT_CONFIRMATORY",
+  "source_sha": "fe3dcd23855f8dc560f9fa4dd630e3efec178114",
+  "ci_run": 38011897964,
+  "artifact_id": 11653541956,
+  "raw_json_sha256": "9321185840a6d0ae2b52044b78b499fa97bca5c627765f92c130586520b2fbfc",
+  "raw_zip_sha256": "e1627dff144b5c581ebd56f9bbbd10e443df87a1dee23b02ce25f5e85476a108",
+  "design_sha256": "7ecee2ede9d3af5ca7b2220d252296a18d64e760207e7276372467753491525d",
+  "source_raw_json_bytes": 9338,
+  "focused_regression_tests": "PASS",
+  "grid_execution": "PASS",
+  "archive_upload": "PASS",
+  "full_repository_CI": "not_yet_confirmed_at_source_receipt",
+  "conditions": {
+    "horizons": [
+      40,
+      80
+    ],
+    "budgets": [
+      3,
+      4.5,
+      6,
+      8
+    ],
+    "per_environment_demographic_reps": 24,
+    "source_genetic_state_count": 1,
+    "independent_visitor_histories": 0,
+    "visitor_regimes": [
+      "two_hand_authored",
+      "no_visitors"
+    ],
+    "K": [
+      8,
+      48
+    ],
+    "B": 48,
+    "viability_gates": [
+      "baseline",
+      "half_self",
+      "half_outcross"
+    ],
+    "mutation": 0,
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "explicit_A_I_expression_schedule": false
+  },
+  "counts": [
+    {
+      "visitor_regime": "two_hand_authored",
+      "ovule_budget": 3,
+      "horizon": 40,
+      "K": 8,
+      "baseline": 0,
+      "half_self": 0,
+      "half_outcross": 0
+    },
+    {
+      "visitor_regime": "two_hand_authored",
+      "ovule_budget": 3,
+      "horizon": 40,
+      "K": 48,
+      "baseline": 4,
+      "half_self": 0,
+      "half_outcross": 5
+    },
+    {
+      "visitor_regime": "two_hand_authored",
+      "ovule_budget": 3,
+      "horizon": 80,
+      "K": 8,
+      "baseline": 0,
+      "half_self": 0,
+      "half_outcross": 0
+    },
+    {
+      "visitor_regime": "two_hand_authored",
+      "ovule_budget": 3,
+      "horizon": 80,
+      "K": 48,
+      "baseline": 4,
+      "half_self": 0,
+      "half_outcross": 4
+    },
+    {
+      "visitor_regime": "two_hand_authored",
+      "ovule_budget": 6,
+      "horizon": 40,
+      "K": 8,
+      "baseline": 24,
+      "half_self": 4,
+      "half_outcross": 24
+    },
+    {
+      "visitor_regime": "two_hand_authored",
+      "ovule_budget": 6,
+      "horizon": 40,
+      "K": 48,
+      "baseline": 24,
+      "half_self": 8,
+      "half_outcross": 24
+    },
+    {
+      "visitor_regime": "two_hand_authored",
+      "ovule_budget": 6,
+      "horizon": 80,
+      "K": 8,
+      "baseline": 24,
+      "half_self": 1,
+      "half_outcross": 23
+    },
+    {
+      "visitor_regime": "two_hand_authored",
+      "ovule_budget": 6,
+      "horizon": 80,
+      "K": 48,
+      "baseline": 24,
+      "half_self": 8,
+      "half_outcross": 24
+    },
+    {
+      "visitor_regime": "two_hand_authored",
+      "ovule_budget": 8,
+      "horizon": 40,
+      "K": 8,
+      "baseline": 24,
+      "half_self": 17,
+      "half_outcross": 24
+    },
+    {
+      "visitor_regime": "two_hand_authored",
+      "ovule_budget": 8,
+      "horizon": 40,
+      "K": 48,
+      "baseline": 24,
+      "half_self": 21,
+      "half_outcross": 24
+    },
+    {
+      "visitor_regime": "two_hand_authored",
+      "ovule_budget": 8,
+      "horizon": 80,
+      "K": 8,
+      "baseline": 24,
+      "half_self": 14,
+      "half_outcross": 24
+    },
+    {
+      "visitor_regime": "two_hand_authored",
+      "ovule_budget": 8,
+      "horizon": 80,
+      "K": 48,
+      "baseline": 24,
+      "half_self": 21,
+      "half_outcross": 24
+    },
+    {
+      "visitor_regime": "two_hand_authored",
+      "ovule_budget": 4.5,
+      "horizon": 40,
+      "K": 8,
+      "baseline": 20,
+      "half_self": 0,
+      "half_outcross": 21
+    },
+    {
+      "visitor_regime": "two_hand_authored",
+      "ovule_budget": 4.5,
+      "horizon": 40,
+      "K": 48,
+      "baseline": 23,
+      "half_self": 0,
+      "half_outcross": 22
+    },
+    {
+      "visitor_regime": "two_hand_authored",
+      "ovule_budget": 4.5,
+      "horizon": 80,
+      "K": 8,
+      "baseline": 17,
+      "half_self": 0,
+      "half_outcross": 20
+    },
+    {
+      "visitor_regime": "two_hand_authored",
+      "ovule_budget": 4.5,
+      "horizon": 80,
+      "K": 48,
+      "baseline": 23,
+      "half_self": 0,
+      "half_outcross": 22
+    },
+    {
+      "visitor_regime": "no_visitors",
+      "ovule_budget": 3,
+      "horizon": 40,
+      "K": 8,
+      "baseline": 0,
+      "half_self": 0,
+      "half_outcross": 0
+    },
+    {
+      "visitor_regime": "no_visitors",
+      "ovule_budget": 3,
+      "horizon": 40,
+      "K": 48,
+      "baseline": 1,
+      "half_self": 0,
+      "half_outcross": 1
+    },
+    {
+      "visitor_regime": "no_visitors",
+      "ovule_budget": 3,
+      "horizon": 80,
+      "K": 8,
+      "baseline": 0,
+      "half_self": 0,
+      "half_outcross": 0
+    },
+    {
+      "visitor_regime": "no_visitors",
+      "ovule_budget": 3,
+      "horizon": 80,
+      "K": 48,
+      "baseline": 0,
+      "half_self": 0,
+      "half_outcross": 0
+    },
+    {
+      "visitor_regime": "no_visitors",
+      "ovule_budget": 6,
+      "horizon": 40,
+      "K": 8,
+      "baseline": 24,
+      "half_self": 0,
+      "half_outcross": 24
+    },
+    {
+      "visitor_regime": "no_visitors",
+      "ovule_budget": 6,
+      "horizon": 40,
+      "K": 48,
+      "baseline": 24,
+      "half_self": 1,
+      "half_outcross": 24
+    },
+    {
+      "visitor_regime": "no_visitors",
+      "ovule_budget": 6,
+      "horizon": 80,
+      "K": 8,
+      "baseline": 24,
+      "half_self": 0,
+      "half_outcross": 24
+    },
+    {
+      "visitor_regime": "no_visitors",
+      "ovule_budget": 6,
+      "horizon": 80,
+      "K": 48,
+      "baseline": 24,
+      "half_self": 0,
+      "half_outcross": 24
+    },
+    {
+      "visitor_regime": "no_visitors",
+      "ovule_budget": 8,
+      "horizon": 40,
+      "K": 8,
+      "baseline": 24,
+      "half_self": 14,
+      "half_outcross": 24
+    },
+    {
+      "visitor_regime": "no_visitors",
+      "ovule_budget": 8,
+      "horizon": 40,
+      "K": 48,
+      "baseline": 24,
+      "half_self": 17,
+      "half_outcross": 24
+    },
+    {
+      "visitor_regime": "no_visitors",
+      "ovule_budget": 8,
+      "horizon": 80,
+      "K": 8,
+      "baseline": 24,
+      "half_self": 14,
+      "half_outcross": 24
+    },
+    {
+      "visitor_regime": "no_visitors",
+      "ovule_budget": 8,
+      "horizon": 80,
+      "K": 48,
+      "baseline": 24,
+      "half_self": 17,
+      "half_outcross": 24
+    },
+    {
+      "visitor_regime": "no_visitors",
+      "ovule_budget": 4.5,
+      "horizon": 40,
+      "K": 8,
+      "baseline": 19,
+      "half_self": 0,
+      "half_outcross": 19
+    },
+    {
+      "visitor_regime": "no_visitors",
+      "ovule_budget": 4.5,
+      "horizon": 40,
+      "K": 48,
+      "baseline": 19,
+      "half_self": 0,
+      "half_outcross": 19
+    },
+    {
+      "visitor_regime": "no_visitors",
+      "ovule_budget": 4.5,
+      "horizon": 80,
+      "K": 8,
+      "baseline": 17,
+      "half_self": 0,
+      "half_outcross": 17
+    },
+    {
+      "visitor_regime": "no_visitors",
+      "ovule_budget": 4.5,
+      "horizon": 80,
+      "K": 48,
+      "baseline": 19,
+      "half_self": 0,
+      "half_outcross": 19
+    }
+  ],
+  "interpretation": [
+    {
+      "budget": 3,
+      "horizon": 40,
+      "hand_authored_visitor_K8_minus_K48_baseline_minus_halfself_count_difference": -4,
+      "denominator": 24
+    },
+    {
+      "budget": 3,
+      "horizon": 80,
+      "hand_authored_visitor_K8_minus_K48_baseline_minus_halfself_count_difference": -4,
+      "denominator": 24
+    },
+    {
+      "budget": 4.5,
+      "horizon": 40,
+      "hand_authored_visitor_K8_minus_K48_baseline_minus_halfself_count_difference": -3,
+      "denominator": 24
+    },
+    {
+      "budget": 4.5,
+      "horizon": 80,
+      "hand_authored_visitor_K8_minus_K48_baseline_minus_halfself_count_difference": -6,
+      "denominator": 24
+    },
+    {
+      "budget": 6,
+      "horizon": 40,
+      "hand_authored_visitor_K8_minus_K48_baseline_minus_halfself_count_difference": 4,
+      "denominator": 24
+    },
+    {
+      "budget": 6,
+      "horizon": 80,
+      "hand_authored_visitor_K8_minus_K48_baseline_minus_halfself_count_difference": 7,
+      "denominator": 24
+    },
+    {
+      "budget": 8,
+      "horizon": 40,
+      "hand_authored_visitor_K8_minus_K48_baseline_minus_halfself_count_difference": 4,
+      "denominator": 24
+    },
+    {
+      "budget": 8,
+      "horizon": 80,
+      "hand_authored_visitor_K8_minus_K48_baseline_minus_halfself_count_difference": 7,
+      "denominator": 24
+    }
+  ],
+  "claim_limits": [
+    "All conditions were post-outcome engineering diagnostics of a previously observed K8 extinction floor, not preregistered confirmation.",
+    "Demographic repeat counts are conditional on a static handmade visitor condition; no independent ecological histories or field plants.",
+    "Counts of 0/24 and 24/24 do not imply exact 0 or 1 true occupancy probabilities.",
+    "K interaction in this grid is an absolute baseline-minus-self gate response; it is NOT PR451's A-first/I-first difference-in-differences primary.",
+    "The sign variation of a descriptive capacity contrast can result from floor/ceiling or nonlinearity; no unique ecological feedback or adaptive direction is identified.",
+    "All original outcomes from previous frozen Chapter2 campaigns remain unchanged."
+  ]
+}
