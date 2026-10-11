@@ -86,3 +86,22 @@ The original packing receipt predates storage retrieval and correctly records th
 [Issue #436](https://github.com/zuizui0223/izu-core/issues/436) remains **open**. External long-lived/versioned scientific repository deposition, checksums after independent external download, DOI minting, and explicit data-availability/licensing review are separate tasks; GitHub draft-release backups do not satisfy those publication requirements. Do not delete original Actions artifacts in the meantime.
 
 **Scientific claim limit:** These are model-generated pollination/flower-trait evolution and finite-population dynamics, not a measured causal effect of island geography, a natural mutation-order rescue law, or lifetime fitness in a wild plant.
+
+### Fresh tempo archive and endpoint recheck
+
+The [fresh verification record](../data/results/chapter2_sequence_tempo_fresh_verification_20261011.json)
+repeated the genotype-derived endpoint audit and fully read the original and
+already retrieved archive copies. Each copy passed all2,099 CRC checks and
+all2,098 inventory hash/size checks; the inventory's own hash was checked
+separately. All2,048 original case/receipt hashes and all16 manifests match the
+fresh audit. The fresh step did not claim another external download.
+
+The audit covers128 event/order/occupancy combinations and their profile
+bootstrap. **All156 secondary fields per setting** (1,248 setting/field
+combinations, including aggregate trait means/variances, conditional lag and
+expected genetic responses) are outside that independent calculator. Those
+fields remain in the official complete readout; their source validation and
+scientific review are separate from independent aggregate recomputation.
+The [reproduction commands](../REPRODUCE.md#complete-functional-loss-tempo-result-2026-10-11)
+and [original execution receipt](../data/results/chapter2_sequence_tempo_execution_receipt_20261011.json)
+make the source and validation scope explicit.

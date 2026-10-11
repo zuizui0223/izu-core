@@ -58,3 +58,37 @@ Large enumerated campaign outputs are not design declarations. New large endpoin
 The machine-readable policy is `data/design/repository_artifact_budget_20260928.json` and is enforced by `tests/test_repository_artifact_budget.py`.
 
 History rewriting is deliberately **not** part of routine reproduction. Removing already-committed large blobs from the current tree does not remove them from clone history. A history rewrite is a separate destructive release operation that should occur only after the permanent archive, checksums, tags/releases, and collaborator migration plan are fixed.
+
+## Complete functional-loss tempo result (2026-10-11)
+
+The frozen 1,024-case / 16-profile abrupt-versus-gradual cohort is available as
+an exact compressed [official readout](data/results/chapter2_sequence_abrupt_gradual_functional_loss_20261011.json.gz),
+with [results and all-setting figure](docs/CHAPTER2_SEQUENCE_ABRUPT_GRADUAL_FUNCTIONAL_LOSS_RESULTS_20261011.md),
+[full tables](docs/CHAPTER2_SEQUENCE_ABRUPT_GRADUAL_FULL_TABLES_20261011.md), and
+[admission/source/archive receipt](data/results/chapter2_sequence_abrupt_gradual_functional_loss_receipt_20261011.json).
+The [raw archive ledger](docs/CHAPTER2_INDEPENDENT_RAW_ARCHIVES_20261009.md)
+records the private archive's digest. After obtaining the exact archive and
+extracting it into `tempo-raw`, use an immutable source checkout at
+`dba65f11a4ee7295ae32b623ea1103cc8a25c1b5` for the original source/design:
+
+```bash
+python scripts/audit_chapter2_sequence_tempo_results_20261011.py \
+  --raw-root tempo-raw/cases \
+  --official-readout tempo-raw/readout/chapter2_functional_loss_tempo_readout.json \
+  --design /path/to/frozen-source/data/design/chapter2_sequence_abrupt_gradual_functional_loss_20261011.json \
+  --source-root /path/to/frozen-source \
+  --out tempo-recheck/independent_audit.json
+```
+
+This independently recomputes all 128 event/order/occupancy combinations and
+registered descriptive profile intervals. All 156 secondary fields per setting
+remain in the official readout but are outside that independent aggregate
+calculator. This is endpoint recomputation from retained genomes, not a new
+stochastic evolutionary replay or a validation in natural islands.
+
+The unchanged table and figure generators are
+`scripts/tabulate_chapter2_sequence_tempo_results_20261011.py` and
+`scripts/plot_chapter2_sequence_tempo_results_20261011.py`. Both accept the
+original uncompressed JSON via `--readout`; their output arguments are `--out`
+and `--out-dir`, respectively. The original scientific interpretation review
+is retained at [CHAPTER2_SEQUENCE_TEMPO_SCIENTIFIC_REVIEW_20261011.md](docs/CHAPTER2_SEQUENCE_TEMPO_SCIENTIFIC_REVIEW_20261011.md).

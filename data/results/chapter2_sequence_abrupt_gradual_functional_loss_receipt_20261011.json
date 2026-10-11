@@ -106,6 +106,11 @@
     "mutation_flags": "7039ef1163710e5e9795b7b9e57f70e397cb3d6c876a0a6a1821468883ad625a"
   },
   "founder_identity_sha256": "0fd03f041a1faf76959a04fa3e0ae889cdb1a1ccb7fe1189be8388b554726c38",
+  "fresh_verification": {
+    "path": "data/results/chapter2_sequence_tempo_fresh_verification_20261011.json",
+    "sha256": "d341218d93af64caf89289def85d61779c4f4f75d4cd479a6f1d21527386c464",
+    "size_bytes": 13792
+  },
   "frozen_design_sha256": "207a3a0ad3decf096c65f296bebeee69e7f80d5b644abb2318105e50474774d0",
   "historical_registration_current_result_field": "NONE",
   "historical_registration_note": "NONE is the unmodified pre-execution registration state, not the current result status. Current admission is recorded by this separate receipt.",
@@ -121,7 +126,7 @@
     "gzip_mtime": 0,
     "gzip_sha256": "78cff6dea77baaf97000320cf5b7a98084bbc189d5a8d684ade6b0efd4be4211",
     "gzip_size_bytes": 118454,
-    "independent_scope": "Raw-genome founder-relative onset/confirmation, both-horizon categories, occupancy, paired profile probabilities and 9999-draw bootstrap. Secondary gradients/pollen/overlap/parentage summaries are not independently recalculated by this checker.",
+    "independent_scope": "Raw-genome founder-relative onset/confirmation, both-horizon categories, occupancy, paired profile probabilities and 9999-draw bootstrap. All 156 secondary fields per setting (1248 setting/field combinations), including aggregate trait means/variances, conditional lag, expected genetic responses, gradients, pollen, overlap and parentage/recruitment, are outside this independent aggregate recomputation.",
     "original_json_bytes_preserved": true,
     "path": "data/results/chapter2_sequence_abrupt_gradual_independent_audit_20261011.json.gz",
     "script_sha256": "75ad0850a508acacadfae6a892eafbb2d327f01e9704d5b08c62671c3869a79e",
@@ -129,6 +134,12 @@
     "verified_case_count": 1024,
     "verified_outcome_fields_per_setting": 16,
     "verified_setting_count": 8
+  },
+  "integration_verification_added_at_utc": "2026-10-11T06:12:10.661427+00:00",
+  "original_execution_receipt": {
+    "path": "data/results/chapter2_sequence_tempo_execution_receipt_20261011.json",
+    "sha256": "52563926e87e08b808541cb2f241e8ccf5befd25fbded6d8807f5c4033b2e8e3",
+    "size_bytes": 16476
   },
   "raw_archive": {
     "all_members_stream_sha256_size_crc_verified": true,
@@ -203,6 +214,28 @@
     "full_factual_tables": "docs/CHAPTER2_SEQUENCE_ABRUPT_GRADUAL_FULL_TABLES_20261011.md",
     "interpretation": "docs/CHAPTER2_SEQUENCE_ABRUPT_GRADUAL_FUNCTIONAL_LOSS_RESULTS_20261011.md"
   },
+  "reproduction_artifacts": [
+    {
+      "path": "docs/CHAPTER2_SEQUENCE_ABRUPT_GRADUAL_FULL_TABLES_20261011.md",
+      "sha256": "34fa0049e06046607ca9ea5c4c57a01c3d8b8b14408059e99cb277aba6051e2a",
+      "size_bytes": 217667
+    },
+    {
+      "path": "scripts/audit_chapter2_sequence_tempo_results_20261011.py",
+      "sha256": "75ad0850a508acacadfae6a892eafbb2d327f01e9704d5b08c62671c3869a79e",
+      "size_bytes": 26736
+    },
+    {
+      "path": "scripts/plot_chapter2_sequence_tempo_results_20261011.py",
+      "sha256": "f8f803ceb2c06e4a2724bb6354e897ebbffd854936d9b20f4b9b2b2fdee44e9d",
+      "size_bytes": 3673
+    },
+    {
+      "path": "scripts/tabulate_chapter2_sequence_tempo_results_20261011.py",
+      "sha256": "43884847ea5f7e04dd3ba13d79bfb9c8fd80ab2fc05feb51b519cf9c8a728eef",
+      "size_bytes": 12964
+    }
+  ],
   "sampling": {
     "cases_per_schedule_per_setting": 64,
     "censuses_including_founders": 410624,
@@ -231,7 +264,9 @@
   },
   "scientific_interpretation_review": {
     "method": "independent assistant-agent review of complete official readout against frozen design",
+    "path": "docs/CHAPTER2_SEQUENCE_TEMPO_SCIENTIFIC_REVIEW_20261011.md",
     "report_sha256": "7393fd7bbcb8a30a5147fee21f50e3caa25bc9c25296fbb8a11a25ccb6b5a50b",
+    "size_bytes": 16686,
     "verdict": "ADMIT_BOUNDED_MODEL_SPECIFIC_RESULT_NO_MATERIAL_BLOCKERS"
   },
   "source_gate_evidence": {
@@ -330,5 +365,16 @@
   },
   "source_pull_request": "https://github.com/zuizui0223/izu-core/pull/475",
   "source_readout_status": "COMPLETE_SYNTHETIC_TEMPORAL_SEQUENCE_OUTCOME_SOURCE_ONLY_NOT_NATURAL_ECOLOGY",
-  "status": "COMPLETE_MODEL_SPECIFIC_DESCRIPTIVE_RESULT_ADMITTED"
+  "status": "COMPLETE_MODEL_SPECIFIC_DESCRIPTIVE_RESULT_ADMITTED",
+  "verification_scope": {
+    "absolute_comparison_tolerance": 1e-12,
+    "excluded": "Independent recomputation of all 156 secondary fields per setting: aggregate trait means/variances, conditional lag, native expected genetic responses, gradients, pollen, overlap and parentage/recruitment. No new biology, founder regeneration, remote execution attestation, p-test or equivalence test.",
+    "included": "All 1024 original raw genome census series; event confirmation by100; six by100 and six by400 order/censoring categories; occupancy100/400; paired 16-profile, 9999-draw descriptive bootstrap.",
+    "independent_evolutionary_replay": false,
+    "independently_recomputed_secondary_fields": 0,
+    "independently_recomputed_setting_outcomes": 128,
+    "official_outcome_fields_per_setting": 16,
+    "official_secondary_fields_per_setting": 156,
+    "original_case_receipt_mapping_sha256": "61d843407819cfe8d11862b50609e03f639703a3eafee2f9afd7cd4c88e5d40b"
+  }
 }

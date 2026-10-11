@@ -69,7 +69,7 @@ The following highlights the two categories most relevant to that distinction. [
 | prior / 0.5 / 0 | 7 / 5 | 40 / 32 | 8 / 7 | 39 / 36 |
 | prior / 0.5 / 0.01 | 20 / 8 | 31 / 31 | 31 / 20 | 27 / 32 |
 
-A-only is the largest category in every delayed abrupt arm at both horizons and every delayed gradual arm by400. By100, neither is largest in the two costly delayed gradual arms. Both costly delayed gradual arms have **zero jointly crossed trajectories even by400**. The prior/cost0/mutation.01 setting also prevents a universal A-first-advancement claim: its A-first counts are25 versus30 by100, and44 versus45 by400, abrupt versus gradual.
+A-only is the largest category in every delayed abrupt arm at both horizons and every delayed gradual arm by400. By100, neither is largest in the two costly delayed gradual arms (38 versus26 A-only cases without mutation; 34 versus30 with mutation). Both costly delayed gradual arms have **zero jointly crossed trajectories even by400**. The prior/cost0/mutation.01 setting also prevents a universal A-first-advancement claim: its A-first counts are25 versus30 by100, and44 versus45 by400, abrupt versus gradual.
 
 ### Conditional onset lag has limited common support
 
@@ -134,7 +134,7 @@ The defensible four-question update is: realized local selection paths vary with
 - Before execution, the local full suite passed1,462 tests and the focused repair suite passed29. Independent source review approved the unchanged executable fingerprint. Exact-main [Python3.10/3.11/3.12 CI](https://github.com/zuizui0223/izu-core/actions/runs/38114199578) and the [scientific gate plus review package](https://github.com/zuizui0223/izu-core/actions/runs/38114199570) all completed successfully.
 - The unchanged batch CLI executed16 shards, all1,024 cases, on the local committed-main executor. This was not a GitHub cohort workflow run; no cohort Actions run ID or17-artifact inventory is claimed.
 - The official strict reader validated every case/receipt and all16 manifests, original diploid traces, native parentage, overlap, source/design/founder/runtime identity, horizons and derived flags.
-- An independent calculator reconstructed events from **410,624 raw diploid censuses**, matching all128 setting/outcome comparisons and the9,999-draw profile bootstrap. Its independent scope covers genetic-event and occupancy statistics; secondary gradient/pollen/overlap/parentage summaries remain covered by the official reader and separate implementation/scientific review.
+- An independent calculator reconstructed events from **410,624 raw diploid censuses**, matching all128 setting/outcome comparisons and the9,999-draw profile bootstrap. Its independent scope covers genetic-event and occupancy statistics; all 156 secondary fields per setting (1,248 setting/field combinations), including trait means/variances, conditional lag, expected genetic responses and gradient/pollen/overlap/parentage summaries, were not independently recomputed by this checker. Those fields remain covered by the official reader and separate implementation/scientific review.
 - Complete machine JSON SHA256: `a1b5e84c61e9cc242af8a71bafe57bf852e233445e3e4e7476333aca252009af`. Its deterministic gzip is359,539 bytes, decompresses to the exact7,207,383 original bytes, and has SHA256 `f6056b3e0d96e0d8f610d7c0ed0eccb3ed789f5fa88e69e40e4e70671a3cd7bc`.
 - Independent audit JSON SHA256: `ece61c3ce978c58c359ed618ffa31bf4dfe20e7f7c530f55b613d42625e0b600`; the exact full audit is also preserved as deterministic gzip and in the raw archive.
 
