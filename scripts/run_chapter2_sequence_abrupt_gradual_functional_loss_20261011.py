@@ -18,6 +18,8 @@ from hashlib import sha256
 from pathlib import Path
 import argparse
 import json
+import platform
+import sys
 
 import numpy as np
 
@@ -33,6 +35,28 @@ ROOT=Path(__file__).resolve().parents[1]
 DESIGN=ROOT/"data/design/chapter2_sequence_abrupt_gradual_functional_loss_20261011.json"
 STATUS="FROZEN_DESIGN_SYNTHETIC_FUNCTIONAL_LOSS_TIMING_ABM_NOT_FIELD_CONFIRMATION"
 SAMPLE_TIMES=(0,10,20,40,60,80,100,120,200,300)
+
+
+def runtime_identity():
+    return {"python_version":sys.version,"python_implementation":platform.python_implementation(),
+            "numpy_version":np.__version__,"platform":platform.platform(),
+            "machine":platform.machine(),"byteorder":sys.byteorder}
+
+
+def founders(d):
+    f=d["founder_source"]
+    return founders_from_spec(
+        dict(count=f["number"],draw_count=f["draw_count"],
+             means=f["means"],sd=f["sd"],birth_year=f["birth_year"]),f["seed"])
+
+
+def founder_identity(state):
+    arrays={name:getattr(state,name) for name in
+            ("alleles","allele_origin","mutation_flags","ids","birth_years")}
+    hashes={name:sha256(str((a.dtype.str,a.shape)).encode()+a.tobytes()).hexdigest()
+            for name,a in arrays.items()}
+    return {"digest":sha256(json.dumps(hashes,sort_keys=True).encode()).hexdigest(),
+            "array_sha256":hashes,"arrays":{name:a.tolist() for name,a in arrays.items()}}
 
 
 def contract(path=DESIGN):
@@ -183,9 +207,16 @@ def order_from_trace(trace,years,d):
     threshold=d["crossing"]["assurance_increase"]
     a=first_sustained(delta_A,threshold,window)
     i=first_sustained(delta_I,d["crossing"]["investment_decrease"],window)
+    a100=a if a is not None and a+window-1<=100 else None
+    i100=i if i is not None and i+window-1<=100 else None
     return {
         "A_crossing_update":a,"I_crossing_update":i,
+        "A_confirmation_update":None if a is None else a+window-1,
+        "I_confirmation_update":None if i is None else i+window-1,
         "order":order_label(a,i,d["crossing"]["near_simultaneous_tolerance"]),
+        "order_horizon_updates":years,
+        "order_by100":order_label(a100,i100,d["crossing"]["near_simultaneous_tolerance"]),
+        "order_by100_horizon_updates":100,
         # A sustained 20-update event starting at t81 includes t81..t100,
         # so its final confirmed event time is start+window-1 (not +window).
         "A_crossed_by100":bool(a is not None and a+window-1<=100),
@@ -193,6 +224,17 @@ def order_from_trace(trace,years,d):
         "A_crossed_by400":bool(a is not None),
         "I_crossed_by400":bool(i is not None)
     }
+
+
+def checked_order(x):
+    """Derived event fields must agree with the original census/trait trace."""
+    trace=np.asarray(x["trace"],dtype=float)
+    derived=order_from_trace(trace,len(trace)-1,contract()[0])
+    if x.get("order")!=derived:
+        raise ValueError("inconsistent derived crossing/order fields")
+    if "end_persistence" in x and x["end_persistence"]!=bool(trace[-1,0]>0):
+        raise ValueError("inconsistent derived occupancy field")
+    return derived
 
 
 def genetic_return(ledger):
@@ -230,7 +272,7 @@ def sample_gradients(state,visitor,cfg):
     for trait,j in (("investment",1),("assurance",2)):
         if not len(state.ids):
             out[trait]={"n_evaluated":0,"median":None,"n_positive":0,
-                        "n_negative":0,"n_boundary":0}
+                        "n_negative":0,"n_boundary":0,"n_near_zero":0}
             continue
         phen=state.alleles[:,j,:].mean(axis=1)
         order=np.argsort(phen,kind="stable")
@@ -265,16 +307,15 @@ def simulate(profile_seed,rep_seed,schedule,timing,cost,mutation,
     start=np.asarray(plan["start_optima"])
     end=np.asarray(plan["end_optima"])
     history=tuple(functional_visitors(start,end,float(l)) for l in lam_full)
-    f=d["founder_source"]
-    state=founders_from_spec(
-        dict(count=f["number"],draw_count=f["draw_count"],
-             means=f["means"],sd=f["sd"],birth_year=f["birth_year"]),
-        f["seed"])
+    state=founders(d)
+    founder_proof=founder_identity(state)
     master=int(np.random.SeedSequence([profile_seed,rep_seed]).generate_state(1)[0])
     rng={name:stream(master,name,0) for name in STREAM_IDS}
     trace=np.full((years+1,10),np.nan)
-    metrics=[];gradients=[]
+    metrics=[];gradients=[];genetic_states=[]
     for t in range(years+1):
+        genetic_states.append({"t":t,"adult_ids":state.ids.tolist(),
+                               "diploid_alleles":state.alleles.tolist()})
         trace[t,0]=len(state.ids)
         if len(state.ids):
             g=state.alleles.mean(axis=2)
@@ -289,15 +330,21 @@ def simulate(profile_seed,rep_seed,schedule,timing,cost,mutation,
             "delivered":float(led.delivered.sum()),
             "outcross":float(led.outcross.sum()),
             "viable_self":float(led.self_viable.sum()),
+            "functional_overlap":float(np.exp(-((g[:,0,None]-history[t].optima)/history[t].breadths)**2).mean()) if len(state.ids) else None,
             "expected_I_change_pre_mutation":eI,
             "expected_A_change_pre_mutation":eA,
         })
         if record_gradients and t in SAMPLE_TIMES:
             gradients.append({"t":t,**sample_gradients(state,history[t],cfg)})
-        state,_=advance(state,led,empty_source_seeds(t+1),cfg,rng,year=t)
+        state,info=advance(state,led,empty_source_seeds(t+1),cfg,rng,year=t)
+        metrics[-1].update({"parentage":info["parentage"].tolist(),
+            "resident_selfed_recruits":info["resident_selfed_recruits"],
+            "resident_outcross_recruits":info["resident_outcross_recruits"]})
     return {
         "schema":"chapter2_abrupt_gradual_original_model3_genetic_history_v1",
         "status":STATUS,"frozen_design_sha256":digest,
+        "founder_identity":founder_proof,"runtime_identity":runtime_identity(),
+        "genetic_state_series":genetic_states,
         "history_profile_seed":profile_seed,"nested_demography_seed":rep_seed,
         "mating_timing":timing,"direct_assurance_cost":cost,
         "mutation_rate":mutation,"schedule":schedule,

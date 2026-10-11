@@ -14,7 +14,7 @@ import json
 import os
 
 from scripts.run_chapter2_sequence_abrupt_gradual_functional_loss_20261011 import (
-    ROOT, DESIGN, contract, simulate
+    ROOT, DESIGN, contract, simulate, runtime_identity, founders, founder_identity, checked_order
 )
 
 # Treat BOTH native biology and experimental orchestration as immutable
@@ -38,7 +38,9 @@ SOURCE_FILES=(
 
 
 def source_identity():
-    hashes={p:sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_FILES}
+    paths=set(SOURCE_FILES)|{"scripts/model3_temporal_order.py"}
+    paths.update(str(p.relative_to(ROOT)) for p in (ROOT/"scripts/model3_island").glob("*.py"))
+    hashes={p:sha256((ROOT/p).read_bytes()).hexdigest() for p in sorted(paths)}
     fingerprint=sha256(json.dumps(hashes,sort_keys=True).encode()).hexdigest()
     return {"digest":fingerprint,"files":hashes}
 
@@ -73,6 +75,30 @@ def write_atomic(path,data):
     os.replace(tmp,path)
 
 
+def validate_provenance(answer,receipt,case,source,design_hash,years,full,*,runtime=None):
+    expected_founder=founder_identity(founders(contract()[0]))
+    if (receipt.get("case")!=list(case) or receipt.get("design_sha256")!=design_hash or
+        receipt.get("source_identity_sha256")!=source["digest"] or
+        receipt.get("source_file_sha256")!=source["files"] or
+        receipt.get("years")!=years or answer.get("years")!=years or
+        receipt.get("full_declared_case") is not full or answer.get("full_declared_case") is not full or
+        receipt.get("runtime_identity")!=answer.get("runtime_identity") or
+        not isinstance(answer.get("runtime_identity"),dict) or
+        set(answer.get("runtime_identity",{}))!=set(runtime_identity()) or
+        not all(isinstance(v,str) and v for v in answer.get("runtime_identity",{}).values()) or
+        (runtime is not None and answer["runtime_identity"]!=runtime) or
+        receipt.get("founder_identity_sha256")!=expected_founder["digest"] or
+        answer.get("founder_identity")!=expected_founder):
+        raise ValueError("case runtime/founder/horizon/source provenance conflict")
+    if (answer.get("case_key")!=key(case) or answer.get("frozen_design_sha256")!=design_hash or
+        [answer.get(n) for n in ("history_profile_seed","nested_demography_seed","mating_timing",
+         "direct_assurance_cost","mutation_rate","schedule")]!=list(case) or
+        len(answer.get("trace",[]))!=years+1 or
+        len(answer.get("pollen_and_price_series",[]))!=years):
+        raise ValueError("case setting/horizon provenance conflict")
+    checked_order(answer)
+
+
 def run_one(out_root,case,*,smoke_years=None):
     d,design_hash=contract()
     original_source=source_identity()
@@ -87,15 +113,17 @@ def run_one(out_root,case,*,smoke_years=None):
     receipt_path=out/(stem+".receipt.json")
     if receipt_path.exists():
         rec=json.loads(receipt_path.read_text())
-        if not json_path.exists() or rec["sha256"]!=sha256(json_path.read_bytes()).hexdigest() or rec["case"]!=list(case) or rec["design_sha256"]!=design_hash or rec.get("source_identity_sha256")!=original_source["digest"]:
+        if not json_path.exists() or rec["sha256"]!=sha256(json_path.read_bytes()).hexdigest():
             raise ValueError("existing case receipt/content/source provenance conflict")
+        validate_provenance(json.loads(json_path.read_text()),rec,case,original_source,
+                            design_hash,year,smoke_years is None,runtime=runtime_identity())
         return stem
     if json_path.exists():
         raise ValueError("unowned result: missing original receipt")
     answer=simulate(p,r,schedule,timing,cost,mutation,years=year)
     answer["case_key"]=key(case)
     answer["full_declared_case"]=(smoke_years is None)
-    data=(json.dumps(answer,indent=2,sort_keys=True,allow_nan=False)+"\n").encode()
+    data=(json.dumps(answer,separators=(",",":"),sort_keys=True,allow_nan=False)+"\n").encode()
     write_atomic(json_path,data)
     write_atomic(receipt_path,(json.dumps({
         "schema":"chapter2_sequence_abrupt_gradual_case_receipt_v1",
@@ -106,6 +134,8 @@ def run_one(out_root,case,*,smoke_years=None):
         "sha256":sha256(data).hexdigest(),
         "full_declared_case":smoke_years is None,
         "years":year,
+        "runtime_identity":answer["runtime_identity"],
+        "founder_identity_sha256":answer["founder_identity"]["digest"],
     },sort_keys=True,indent=2)+"\n").encode())
     return stem
 
@@ -130,6 +160,8 @@ def run_shard(out_root,*,shard_index,shard_count,smoke_years=None,case_limit=Non
         "case_count":len(completed),"expected_full_case_count":64,
         "case_keys":completed,"design_sha256":contract()[1],
         "source_identity_sha256":source_identity()["digest"],
+        "runtime_identity":runtime_identity(),
+        "founder_identity_sha256":founder_identity(founders(contract()[0]))["digest"],
     }
     if manifest["status"]=="COMPLETE_FROZEN_SHARD":
         write_atomic(Path(out_root)/f"shard_{shard_index:02d}_complete.json",
