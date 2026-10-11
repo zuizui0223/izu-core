@@ -48,9 +48,9 @@
 ## Task 2: Integrate, execute and record
 
 - [x] Integrate latest main into the PR branch without overwriting concurrent work.
-- [ ] Run full pytest and verify latest-head CI/scientific gates; merge the reviewed PR under existing continuation authorization.
-- [ ] Execute all frozen cases from the resulting main source; verify complete receipts and all16 manifests.
-- [ ] Save compact results, source provenance and interpretation in the repository; retain the full raw archive durably.
+- [x] Run full pytest and verify latest-head CI/scientific gates; merge the reviewed PR under existing continuation authorization.
+- [x] Execute all frozen cases from the resulting main source; verify complete receipts and all16 manifests.
+- [x] Save compact results, source provenance and interpretation in the repository; retain the full raw archive durably.
 
 ## Progress and decisions
 
@@ -61,3 +61,9 @@
 - Repair verification: six new targeted regression failures were reproduced before implementation. The repaired focused suite passed all29 tests in both the worker run and an independent root rerun (74.358 seconds). Native Model3 files, the temporal-order module and frozen design JSON are byte-unchanged. No full biological outcomes were generated during these engineering checks.
 - Interpretation clarification: saturated occupancy or absent crossings can make an endpoint uninformative. A degenerate descriptive [0,0] interval is not evidence of practical equivalence or absence of any possible survival benefit.
 - Independent review: approved for execution only after the existing full-suite, latest-head CI/scientific gates and merge to main. No material blockers remain; exact execution source digest is `9302c9740a1f5ac91cb1c1c39093f358c6fd745d4c5b768980e78d893aade80b`. All128 fixed-clonal profile/setting/schedule sign-clock checks matched an independent exhaustive scan; these generated no evolved full-cohort outcomes.
+
+- Source integration complete: PR475 merged to `dba65f11a4ee7295ae32b623ea1103cc8a25c1b5`; reviewed and main tree both `1bf4ce5d291d966631b1497cc19d6f2a5d058c78`. Local full pytest1462/1462 passed. Exact-main CI38114199578 and scientific gate38114199570 completed successfully before execution.
+- Full execution complete: unchanged local committed-main CLI, all16 shards and1,024×400-update cases. Official readout SHA256 `a1b5e84c61e9cc242af8a71bafe57bf852e233445e3e4e7476333aca252009af`; independent audit reconstructed410,624 diploid censuses and matched all128 outcome comparisons and the registered bootstrap.
+- Scientific interpretation reviewed: context-dependent inherited trajectories; A-only retained separately; all occupancy100/400 endpoints are saturated at1.0. No uniform practical-effect, causal mutation-order, mediation, persistence-benefit or equivalence claim is admitted.
+
+- Preservation complete: raw archive268,940,123 bytes, SHA256 `034e735d244228c1f4974897a76d16acef10767a81d5dd82f5f5204f48cf0738`; all2,099 members verified. Saved artifact retrieved separately and matched by size/SHA256 at2026-10-11T05:53:49Z. Complete readout, independent audit, primary figure, full tables, interpretation and admission receipt are retained on the results branch. No public deposit or DOI is claimed.
