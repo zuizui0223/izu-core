@@ -164,6 +164,15 @@ def empty_source_seeds(year):
     )
 
 
+def json_safe_trait_trace(trace):
+    """Census N=0 is observed, extinct trait means are MISSING, not zero."""
+    values=np.asarray(trace,dtype=float)
+    if values.ndim!=2 or values.shape[1]!=10 or not np.isfinite(values[:,0]).all():
+        raise ValueError("invalid annual census-genotype trace")
+    return [[float(x) if np.isfinite(x) else None for x in row]
+            for row in values]
+
+
 def order_from_trace(trace,years,d):
     if years<1:
         raise ValueError("empty evolutionary timespan")
@@ -296,8 +305,7 @@ def simulate(profile_seed,rep_seed,schedule,timing,cost,mutation,
         "end_persistence":bool(trace[-1,0]>0),
         # Extinct populations have UNDEFINED genetic traits. Serialize those
         # means/variances as JSON null, NEVER as zero or nonstandard NaN.
-        "trace":[[float(x) if np.isfinite(x) else None for x in row]
-                 for row in trace],
+        "trace":json_safe_trait_trace(trace),
         "order":order_from_trace(trace,years,d),
         "pollen_and_price_series":metrics,
         "focal_gradient_samples":gradients,
