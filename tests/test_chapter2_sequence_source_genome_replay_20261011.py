@@ -92,6 +92,20 @@ def test_original_gendered_payoff_and_price_expectation_on_full_founder_genomes(
 
 
 def test_source_history_initial_conditions_and_unmodified_rng_stream_identity():
+    # The same original source-history seed generates the IDENTICAL initial
+    # visitor community before the near/far replenishment trajectories diverge.
+    h_near=exposure(76002,"near")
+    h_far=exposure(76002,"far")
+    for field in ("ids","optima","breadths","effectiveness"):
+        np.testing.assert_array_equal(getattr(h_near.visitors[0],field),
+                                      getattr(h_far.visitors[0],field))
+    # Plant seed-arrival stream and diploid source population histories are
+    # paired under both arms; only visitor replenishment distance differs.
+    for t in range(9):
+        np.testing.assert_array_equal(h_near.seed_candidates[t].ids,
+                                      h_far.seed_candidates[t].ids)
+        np.testing.assert_array_equal(h_near.seed_candidates[t].alleles,
+                                      h_far.seed_candidates[t].alleles)
     near=replay("prior_selfing",76002,7102,"near",years=9,
                 gradient_until=0,sample_n=3)
     far=replay("prior_selfing",76002,7102,"far",years=9,
