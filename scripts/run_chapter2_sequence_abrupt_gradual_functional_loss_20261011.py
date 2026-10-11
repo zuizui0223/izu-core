@@ -186,8 +186,10 @@ def order_from_trace(trace,years,d):
     return {
         "A_crossing_update":a,"I_crossing_update":i,
         "order":order_label(a,i,d["crossing"]["near_simultaneous_tolerance"]),
-        "A_crossed_by100":bool(a is not None and a+window<=100),
-        "I_crossed_by100":bool(i is not None and i+window<=100),
+        # A sustained 20-update event starting at t81 includes t81..t100,
+        # so its final confirmed event time is start+window-1 (not +window).
+        "A_crossed_by100":bool(a is not None and a+window-1<=100),
+        "I_crossed_by100":bool(i is not None and i+window-1<=100),
         "A_crossed_by400":bool(a is not None),
         "I_crossed_by400":bool(i is not None)
     }
