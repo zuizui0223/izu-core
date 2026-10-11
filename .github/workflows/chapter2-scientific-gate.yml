@@ -14,6 +14,10 @@ on:
       - 'scripts/run_chapter2_*'
       - 'scripts/summarize_chapter2_*'
       - 'scripts/figure_model3_*'
+      - 'scripts/build_chapter2_unified_el_submission_bundle.py'
+      - 'scripts/render_chapter2_unified_manuscript.py'
+      - 'scripts/render_chapter2_capacity_companion_evidence_figure.py'
+      - 'figures/chapter2_functional_loss_tempo_20261011/**'
       - 'scripts/build_island_ecology_submission_bundle.py'
       - 'scripts/audit_chapter2_submission_closure.py'
       - 'docs/CHAPTER2_**'
@@ -64,6 +68,9 @@ jobs:
             tests/test_chapter2_unified_payoff_evolution_persistence.py \
             tests/test_chapter2_unified_payoff_runner_smoke.py \
             tests/test_chapter2_process_review_confirmed.py \
+            tests/test_chapter2_unified_one_paper_20261010.py \
+            tests/test_chapter2_unified_el_review_bundle_20261010.py \
+            tests/test_chapter2_sequence_tempo_result_receipt_20261011.py \
             tests/test_chapter2_public_archive_manifest.py \
             tests/test_chapter2_branch_identifiability_boundary.py \
             tests/test_chapter2_independent_unit_reporting.py \
@@ -92,25 +99,22 @@ jobs:
           python-version: '3.11'
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
-      - name: Regenerate the four current main figures from stored evidence
+      - name: Regenerate main Figures 1–3 and supplemental S1 from stored evidence
         run: |
           python -m scripts.figure_model3_return_components
           python -m scripts.figure_model3_assurance_compression
           python -m scripts.figure_model3_trait_pollen
           python -m scripts.figure_model3_genetic_realization
-      - name: Build confirmed process review package
-        run: python -m scripts.build_chapter2_process_review
-      - name: Verify isolated package redraw
-        run: python -m scripts.verify_chapter2_process_review
+      - name: Build and verify the active unified manuscript package with Figures 4 and S2
+        run: python -m scripts.build_chapter2_unified_el_submission_bundle
       - uses: actions/upload-artifact@v4
         with:
-          name: chapter2-process-review-confirmed-20261006
+          name: chapter2-unified-el-review-20261011
           retention-days: 90
           if-no-files-found: error
           path: |
-            outputs/chapter2_process_delivery/chapter2_process_review_20261006.zip
-            outputs/chapter2_process_delivery/receipt.json
-            outputs/chapter2_process_delivery/isolated_redraw.json
+            outputs/chapter2_unified_el_delivery/EL_ONE_PAPER_REVIEW.zip
+            outputs/chapter2_unified_el_delivery/EL_ONE_PAPER_REVIEW.receipt.json
 
 
   process-confirmation-plan:

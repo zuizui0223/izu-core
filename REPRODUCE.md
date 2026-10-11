@@ -2,13 +2,33 @@
 
 The active Chapter 2 paper uses **one nested Model 3**. Older response-geometry / synthetic-`k` analyses are historical legacy provenance under `legacy/model2/`; they are excluded from the current manuscript, Supporting Information and reviewer archive.
 
-## Independent unit and denominator
+## Current unified manuscript review package
+
+The active manuscript is `docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md` and its Supporting Information is `docs/CHAPTER2_UNIFIED_EL_SUPPORTING_INFORMATION_20261010.md`. Rebuild their reviewer package from stored evidence:
+
+```bash
+python -m pip install -e '.[dev]'
+python -m scripts.figure_model3_return_components
+python -m scripts.figure_model3_assurance_compression
+python -m scripts.figure_model3_trait_pollen
+python -m scripts.figure_model3_genetic_realization
+python -m scripts.build_chapter2_unified_el_submission_bundle
+pytest -q tests/test_chapter2_unified_one_paper_20261010.py tests/test_chapter2_unified_el_review_bundle_20261010.py tests/test_chapter2_sequence_tempo_result_receipt_20261011.py
+```
+
+`outputs/chapter2_unified_el_delivery/EL_ONE_PAPER_REVIEW.zip` contains the current anonymous manuscript and SI, four main figures, genetic-realization S1, tempo S2, complete tempo tables, six evidence files and a SHA-256 member manifest (16 members total). The builder parses each PDF/SVG/JSON, authenticates the tempo inputs against their admission receipt and reads back every ZIP member. Given identical input bytes, ZIP output is deterministic. Figure regeneration reuses stored results; it launches no biological campaign. Visual inspection of the rendered figures remains part of release review.
+
+The exact official tempo gzip and frozen design are included without changing their bytes. Only the table's identifying repository link is replaced in the anonymous copy; all numerical rows are retained. A derived anonymous audit summary retains all 128 independently checked setting/outcome comparisons and the exclusion of all 156 secondary fields per setting. The original audit, admission record and original tables remain unchanged in the repository. `EL_ONE_PAPER_REVIEW.receipt.json` is a **separate internal provenance record**, with build commit/tree, source-to-derived hashes and any tracked worktree changes; it is not inside the anonymous reviewer ZIP. Its build identity must not be confused with the tempo execution-source identity.
+
+Keep inference units distinct: the primary evolutionary and registered demographic studies each use their own 64 independent visitor histories; the separately frozen tempo supplement uses 16 synthetic profiles with four nested repeats. The older 128-history bridge below remains supporting provenance. Neither repeated trajectories nor 410,624 tempo censuses enlarge these independent denominators. External raw-data deposition remains incomplete; see the [consolidated readiness record](docs/CHAPTER2_UNIFIED_DATA_DEPOSIT_READINESS_20261011.md).
+
+## Historical isolation bridge: independent unit and denominator
 
 The prospective isolation bridge contains **24,576 computational cases**, but those cases are **not independent replicates**. The uncertainty-bearing unit is **128 independent visitor-history seeds**. Eight demographic repeats are nested within each history/state/intervention combination and are averaged or retained for repeat-instability diagnostics; they **do not increase the independent history count**.
 
 Mean intervals use **1,999 history-cluster bootstrap resamples**. Mixed-history counts are reported at deadbands `0`, `0.01`, and `0.05` and are descriptive realized labels, not estimates of a stable latent branch prevalence.
 
-## Fast reviewer path
+## Historical bridge verification path
 
 ```bash
 python -m pip install -e '.[dev]'
@@ -26,7 +46,7 @@ pytest -q \
   tests/test_workflow_trigger_policy.py
 ```
 
-These checks verify the active Model 3 manuscript/manifest route, the frozen 24,576-case bridge receipt, the 128-history inference boundary, current figure regeneration, submission closure, workflow policy, repository-size guard, and the firewall that keeps Model 2 out of the current Supporting Information and reviewer archive.
+These checks preserve the historical Model 3 bridge manuscript/manifest route, the frozen 24,576-case receipt, the 128-history inference boundary, bridge figure regeneration, workflow policy, repository-size guard, and the Model 2 firewall. Use the unified package commands above for the active manuscript.
 
 For the complete test suite:
 

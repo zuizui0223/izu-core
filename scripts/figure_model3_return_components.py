@@ -51,7 +51,7 @@ def main():
             ax.set_xlim(-.25,1.25)
             ax.set_title(label)
             ax.text(
-                .04,.96,
+                .04,.35 if j==0 else .96,
                 f"Mean: {near:+.3f} → {far:+.3f}\n"
                 f"Δ={rec['difference']:+.3f}\n"
                 f"95% history-bootstrap [{rec['interval'][0]:+.3f}, {rec['interval'][1]:+.3f}]",
