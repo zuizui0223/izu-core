@@ -1,6 +1,9 @@
 """Frozen Model3 genomic replay: exact annual source and selection return guards."""
 import hashlib
+import io
 import json
+import sys
+from pathlib import Path
 import numpy as np
 import pytest
 
@@ -55,6 +58,14 @@ def test_source_replay_matches_exact_uninstrumented_original_transition(arm):
     assert len(r["annual_pre_mutation_expected_genetic_changes"])==14
     assert len(r["sampled_local_focal_selection"])==3
     assert r["verification"]["verified_against_exact_original_archive"] is False
+    assert r["verification"]["supplied_case_record_verified"] is False
+    assert r["verification"]["replay_matches_supplied_prefix"] is False
+    assert r["verification"]["full_supplied_record_reproduced"] is False
+    assert r["verification"]["compared_censuses"] == 0
+    assert r["verification"]["compared_checkpoint_years"] == []
+    for key in ("historical_source_identity_verified","runtime_identity_verified",
+                "original_annual_genomes_verified","original_discovery_full_replay_completed"):
+        assert r["verification"][key] is False
     assert r["trace"][0][0]==48
     assert np.isfinite(np.asarray(r["trace"])[:,0]).all()
     assert len(r["source_trace_sha256"])==64
@@ -176,8 +187,115 @@ def test_verify_realistic_original_basename_preserves_decimal_mutation_rate(synt
     assert fixture["archive"].name == base.name+".npz"
     result = verify_original_receipt(fixture["root"],fixture["setting"],fixture["seed"],fixture["rep"],arm,
                                      fixture["trace"],fixture["checkpoints"])
-    assert result == {"original_npz_sha256":fixture["receipt"]["sha256"],
-                      "verified_against_exact_original_archive":True}
+    assert result["original_npz_sha256"] == fixture["receipt"]["sha256"]
+    assert result["verified_against_exact_original_archive"] is False
+    assert result["supplied_case_record_verified"] is True
+    assert result["replay_matches_supplied_prefix"] is True
+    assert result["full_supplied_record_reproduced"] is True
+    assert result["compared_censuses"] == 1001
+    assert result["compared_updates"] == 1000
+    assert result["compared_checkpoint_years"] == [0,200,400,1000]
+    for key in ("historical_source_identity_verified","runtime_identity_verified",
+                "original_annual_genomes_verified","original_discovery_full_replay_completed"):
+        assert result[key] is False
+
+
+@pytest.mark.parametrize("censuses",(2,200,201,400,401,1001))
+def test_supplied_record_agreement_reports_exact_prefix_extent(synthetic_original_archive,censuses):
+    fixture=synthetic_original_archive("far")
+    checkpoints={t:v for t,v in fixture["checkpoints"].items() if t<censuses}
+    result=verify_original_receipt(fixture["root"],fixture["setting"],fixture["seed"],
+        fixture["rep"],"far",fixture["trace"][:censuses],checkpoints)
+    assert result["supplied_case_record_verified"] is True
+    assert result["replay_matches_supplied_prefix"] is True
+    assert result["compared_censuses"] == censuses
+    assert result["compared_updates"] == censuses-1
+    assert result["compared_checkpoint_years"] == sorted(checkpoints)
+    assert result["full_supplied_record_reproduced"] is (censuses==1001)
+    assert result["verified_against_exact_original_archive"] is False
+    assert result["historical_source_identity_verified"] is False
+    assert result["runtime_identity_verified"] is False
+    assert result["original_annual_genomes_verified"] is False
+    assert result["original_discovery_full_replay_completed"] is False
+
+
+@pytest.mark.parametrize("shape",((0,10),(1,10),(1002,10),(2,9),(10,)))
+def test_supplied_comparison_requires_a_valid_nonempty_replay_extent(synthetic_original_archive,shape):
+    fixture=synthetic_original_archive("far")
+    trace=np.zeros(shape)
+    if shape in ((0,10),(1,10)):
+        trace=fixture["trace"][:shape[0]]
+    with pytest.raises(ValueError,match="2 to 1001 censuses.*10 columns"):
+        verify_original_receipt(fixture["root"],fixture["setting"],fixture["seed"],
+            fixture["rep"],"far",trace,{})
+
+
+@pytest.mark.parametrize("censuses,missing",((2,0),(201,200),(401,400),(1001,1000)))
+def test_supplied_comparison_requires_every_reached_checkpoint(synthetic_original_archive,censuses,missing):
+    fixture=synthetic_original_archive("far")
+    checkpoints={t:v for t,v in fixture["checkpoints"].items() if t<censuses and t!=missing}
+    with pytest.raises(ValueError,match="checkpoint years must equal"):
+        verify_original_receipt(fixture["root"],fixture["setting"],fixture["seed"],
+            fixture["rep"],"far",fixture["trace"][:censuses],checkpoints)
+
+
+def test_full_trace_without_any_checkpoints_is_not_a_complete_comparison(synthetic_original_archive):
+    fixture=synthetic_original_archive("far")
+    with pytest.raises(ValueError,match="checkpoint years must equal"):
+        verify_original_receipt(fixture["root"],fixture["setting"],fixture["seed"],
+            fixture["rep"],"far",fixture["trace"],{})
+
+
+def test_prefix_cannot_claim_unreplayed_future_checkpoints(synthetic_original_archive):
+    fixture=synthetic_original_archive("far")
+    with pytest.raises(ValueError,match="checkpoint years must equal"):
+        verify_original_receipt(fixture["root"],fixture["setting"],fixture["seed"],
+            fixture["rep"],"far",fixture["trace"][:2],fixture["checkpoints"])
+
+
+def test_source_cli_exposes_supplied_agreement_without_original_authentication(
+        synthetic_original_archive,monkeypatch,tmp_path,capsys):
+    import scripts.audit_chapter2_sequence_source_genome_replay_20261011 as source_module
+    fixture=synthetic_original_archive("far")
+    verification=verify_original_receipt(fixture["root"],fixture["setting"],fixture["seed"],
+        fixture["rep"],"far",fixture["trace"],fixture["checkpoints"])
+    record={"status":STATUS,"setting":fixture["setting"],"seed":fixture["seed"],
+            "rep":fixture["rep"],"arm":"far","years_replayed":1000,
+            "source_trace_sha256":hashlib.sha256(fixture["trace"].tobytes()).hexdigest(),
+            "verification":verification}
+    # Only CLI transport is stubbed; the comparison above uses real code/files.
+    monkeypatch.setattr(source_module,"replay",lambda *args,**kwargs:record)
+    out=tmp_path/"source.json"
+    monkeypatch.setattr(sys,"argv",["source","--out",str(out),"--archive-root",str(fixture["root"])])
+    source_module.main()
+    printed=json.loads(capsys.readouterr().out)
+    saved=json.loads(out.read_text())
+    assert printed["verification"]["full_supplied_record_reproduced"] is True
+    assert printed["verification"]["verified_against_exact_original_archive"] is False
+    assert printed["verification"]["runtime_identity_verified"] is False
+    assert saved["verification"]==printed["verification"]==verification
+
+
+def test_compared_arrays_must_come_from_the_bytes_that_passed_the_receipt_hash(
+        synthetic_original_archive,monkeypatch):
+    fixture=synthetic_original_archive("far")
+    replacement_trace=fixture["trace"].copy()
+    replacement_trace[1000,2]+=.001
+    replacement=io.BytesIO()
+    np.savez_compressed(replacement,**{**fixture["arrays"],"trace":replacement_trace})
+    replacement_bytes=replacement.getvalue()
+    read_bytes=Path.read_bytes
+    def replace_after_read(path):
+        captured=read_bytes(path)
+        if path==fixture["archive"]:
+            path.write_bytes(replacement_bytes)
+        return captured
+    # The file changes after its initial read. A later open must not attach
+    # the old receipt hash to different arrays that happen to match the caller.
+    monkeypatch.setattr(Path,"read_bytes",replace_after_read)
+    with pytest.raises(AssertionError,match="annual source trace differs"):
+        verify_original_receipt(fixture["root"],fixture["setting"],fixture["seed"],
+            fixture["rep"],"far",replacement_trace,fixture["checkpoints"])
 
 
 @pytest.mark.parametrize("arm",("near","far"))
