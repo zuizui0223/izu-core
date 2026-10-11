@@ -29,6 +29,9 @@ The proxy `mean Gaussian matching` is calculated from the *trait-overlap kernel 
 
 All five profiles preserve four visitors; the λ=1 *shifted4* arm is **not** zero visitors.
 
+**Original source pollen-service audit (N=8, delayed selfing, resource budget6):** total *delivered* pollen is **0.47675164** at λ0, **0.31685427** at λ.25, **0.03911482** at λ.50, **0.00069540** at λ.75 and **0.000001764** at λ1. Maternal outcross viable seed follows **1.32543566 → 0.000004978**. These use the unchanged original `reproduce_kb` pollen-transfer and compatible maternal reproductive ledger. **At the extreme functional replacement, pollination is almost abolished despite retaining four visitor types**; this is a model-internal near-functional-loss endpoint, not literal insect disappearance. The intermediate λ.25 condition is particularly informative because pollen delivery decreases substantially while remaining clearly above zero.
+
+
 ## Model-internal result: absolute persistence falls, relative expression effect changes sign
 
 The experiment propagates the complete original 165-state diploid-genotype/census Markov transition for 80 reproductive updates, with native inherited-investment expression versus **fixed expression** of investment 0.35 (real alleles still segregate). These are mutually matched at the founding generation.
