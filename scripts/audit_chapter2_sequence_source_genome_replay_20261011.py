@@ -147,8 +147,8 @@ def archived_case_path(output_root,setting,seed,rep,arm):
 
 def verify_original_receipt(output_root,setting,seed,rep,arm,trace,checkpoints):
     base=archived_case_path(output_root,setting,seed,rep,arm)
-    receipt_path=base.with_suffix(".json")
-    archive_path=base.with_suffix(".npz")
+    receipt_path=base.with_name(base.name+".json")
+    archive_path=base.with_name(base.name+".npz")
     if not archive_path.exists() or not receipt_path.exists():
         raise FileNotFoundError(f"original archival NPZ and receipt required: {base}")
     receipt=json.loads(receipt_path.read_text(encoding="utf-8"))

@@ -1,10 +1,11 @@
 """Frozen Model3 genomic replay: exact annual source and selection return guards."""
 import hashlib
+import json
 import numpy as np
 import pytest
 
 from scripts.audit_chapter2_sequence_source_genome_replay_20261011 import (
-    STATUS, replay, focal_indices, one_individual_full_W_gradient,
+    STATUS, replay, original_exposure as replay_exposure, archived_case_path, focal_indices, one_individual_full_W_gradient,
     full_parental_W, price_shift_if_recruited, verify_original_receipt,
 )
 from scripts.run_model3_persistent_isolation import (
@@ -133,3 +134,105 @@ def test_original_npz_required_to_claim_archival_verification(tmp_path):
         replay("assurance_cost",76001,7100,"far",years=2)
     with pytest.raises(ValueError):
         replay("delayed_control",76001,7101,"far",years=2)
+
+
+@pytest.fixture
+def synthetic_original_archive(tmp_path):
+    """Synthetic temp evidence only; no historical biological trajectory is run."""
+    def make(arm):
+        setting,seed,rep = "assurance_cost",76001,7101
+        folder = ("model3_persistent_isolation_20261005" if arm == "far"
+                  else "model3_full_mutation_20261004")
+        prefix = "persistent_core" if arm == "far" else "core"
+        basename = f"{prefix}_{setting}_u0.01_h{seed}_r{rep}_{arm}"
+        directory = tmp_path/folder
+        directory.mkdir()
+        archive = directory/(basename+".npz")
+        receipt_path = directory/(basename+".json")
+        trace = np.zeros((1001,10),dtype=float)
+        trace[:,0] = 48
+        trace[:,1:4] = np.column_stack((np.full(1001,.5),
+            np.linspace(.5,.4,1001),np.linspace(.5,.6,1001)))
+        trace[:,4:7] = .025
+        trace[:,7:] = 96
+        checkpoints = {t:np.full((48,3,2),.25+t/4000)
+                       for t in (0,200,400,1000)}
+        arrays = {"trace":trace,**{f"state_{t}":v for t,v in checkpoints.items()}}
+        np.savez_compressed(archive,**arrays)
+        receipt = {"task":["abm",setting,.01,seed,rep,arm,0,"jump",False],
+                   "sha256":hashlib.sha256(archive.read_bytes()).hexdigest()}
+        receipt_path.write_text(json.dumps(receipt),encoding="utf-8")
+        return dict(root=tmp_path,setting=setting,seed=seed,rep=rep,arm=arm,
+                    archive=archive,receipt_path=receipt_path,receipt=receipt,
+                    trace=trace,checkpoints=checkpoints,arrays=arrays,basename=basename)
+    return make
+
+
+@pytest.mark.parametrize("arm",("near","far"))
+def test_verify_realistic_original_basename_preserves_decimal_mutation_rate(synthetic_original_archive,arm):
+    fixture = synthetic_original_archive(arm)
+    base = archived_case_path(fixture["root"],fixture["setting"],fixture["seed"],fixture["rep"],arm)
+    assert base.name == fixture["basename"]
+    assert fixture["archive"].name == base.name+".npz"
+    result = verify_original_receipt(fixture["root"],fixture["setting"],fixture["seed"],fixture["rep"],arm,
+                                     fixture["trace"],fixture["checkpoints"])
+    assert result == {"original_npz_sha256":fixture["receipt"]["sha256"],
+                      "verified_against_exact_original_archive":True}
+
+
+@pytest.mark.parametrize("arm",("near","far"))
+@pytest.mark.parametrize("corruption",("wrong_task","npz_sha","trace","checkpoint","missing_checkpoint"))
+def test_original_archive_verifier_fails_closed_on_corrupt_synthetic_evidence(synthetic_original_archive,arm,corruption):
+    fixture = synthetic_original_archive(arm)
+    if corruption == "wrong_task":
+        fixture["receipt"]["task"][3] += 1
+        fixture["receipt_path"].write_text(json.dumps(fixture["receipt"]),encoding="utf-8")
+        message = "task/seed mismatch"
+    elif corruption == "npz_sha":
+        # ZIP files remain loadable after trailing bytes; the original byte SHA must fail first.
+        with fixture["archive"].open("ab") as handle:
+            handle.write(b"synthetic-byte-corruption")
+        message = "receipt SHA256 mismatch"
+    elif corruption == "trace":
+        fixture["trace"] = fixture["trace"].copy()
+        fixture["trace"][1000,2] += .001
+        message = "annual source trace differs"
+    elif corruption == "checkpoint":
+        fixture["checkpoints"][400] = fixture["checkpoints"][400].copy()
+        fixture["checkpoints"][400][12,1,0] += .001
+        message = "t400 source genome differs"
+    else:
+        fixture["arrays"].pop("state_400")
+        np.savez_compressed(fixture["archive"],**fixture["arrays"])
+        fixture["receipt"]["sha256"] = hashlib.sha256(fixture["archive"].read_bytes()).hexdigest()
+        fixture["receipt_path"].write_text(json.dumps(fixture["receipt"]),encoding="utf-8")
+        message = "t400 source genome differs"
+    with pytest.raises(AssertionError,match=message):
+        verify_original_receipt(fixture["root"],fixture["setting"],fixture["seed"],fixture["rep"],arm,
+                                fixture["trace"],fixture["checkpoints"])
+
+
+def test_original_source_routes_persistent_far_and_reference_near_after_transfer_boundary():
+    from scripts.run_model3_full_mutation import exposure as full_mutation_exposure
+    # Exercise the history dependency actually bound by the replay module.
+    near = replay_exposure(76001,"near")
+    persistent_far = replay_exposure(76001,"far")
+    transferred_far = full_mutation_exposure(76001,"far")
+    original_near = full_mutation_exposure(76001,"near")
+    fields = ("ids","optima","breadths","effectiveness")
+    for t in (0,199):
+        for field in fields:
+            np.testing.assert_array_equal(getattr(persistent_far.visitors[t],field),
+                                          getattr(transferred_far.visitors[t],field))
+    for t in (0,199,200,400,999):
+        for field in fields:
+            np.testing.assert_array_equal(getattr(near.visitors[t],field),
+                                          getattr(original_near.visitors[t],field))
+    for t in (200,400,999):
+        for field in fields:
+            np.testing.assert_array_equal(getattr(transferred_far.visitors[t],field),
+                                          getattr(near.visitors[t],field))
+        assert any(not np.array_equal(getattr(persistent_far.visitors[t],field),
+                                     getattr(near.visitors[t],field)) for field in fields)
+        np.testing.assert_array_equal(persistent_far.seed_candidates[t].alleles,
+                                      transferred_far.seed_candidates[t].alleles)
