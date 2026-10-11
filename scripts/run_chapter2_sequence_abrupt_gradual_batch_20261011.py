@@ -17,6 +17,28 @@ from scripts.run_chapter2_sequence_abrupt_gradual_functional_loss_20261011 impor
     ROOT, DESIGN, contract, simulate
 )
 
+# Treat BOTH native biology and experimental orchestration as immutable
+# scientific sources. Results from different source revisions cannot be mixed.
+SOURCE_FILES=(
+    "scripts/model3_island/reproduction.py",
+    "scripts/model3_island/population.py",
+    "scripts/model3_island/history.py",
+    "scripts/model3_island/run.py",
+    "scripts/model3_island/randomness.py",
+    "scripts/model3_island/types.py",
+    "scripts/run_model3_persistent_isolation.py",
+    "scripts/run_chapter2_sequence_abrupt_gradual_functional_loss_20261011.py",
+    "scripts/run_chapter2_sequence_abrupt_gradual_batch_20261011.py",
+    "data/design/model3_ch2_bridge_20260927.json",
+    "data/design/chapter2_sequence_abrupt_gradual_functional_loss_20261011.json",
+)
+
+
+def source_identity():
+    hashes={p:sha256((ROOT/p).read_bytes()).hexdigest() for p in SOURCE_FILES}
+    fingerprint=sha256(json.dumps(hashes,sort_keys=True).encode()).hexdigest()
+    return {"digest":fingerprint,"files":hashes}
+
 
 def tasks():
     d,_=contract()
@@ -50,6 +72,7 @@ def write_atomic(path,data):
 
 def run_one(out_root,case,*,smoke_years=None):
     d,design_hash=contract()
+    original_source=source_identity()
     p,r,timing,cost,mutation,schedule=case
     year=d["common_biology"]["years"] if smoke_years is None else smoke_years
     if smoke_years is not None and not 1<=smoke_years<=40:
@@ -61,7 +84,7 @@ def run_one(out_root,case,*,smoke_years=None):
     receipt_path=out/(stem+".receipt.json")
     if receipt_path.exists():
         rec=json.loads(receipt_path.read_text())
-        if not json_path.exists() or rec["sha256"]!=sha256(json_path.read_bytes()).hexdigest() or rec["case"]!=list(case) or rec["design_sha256"]!=design_hash:
+        if not json_path.exists() or rec["sha256"]!=sha256(json_path.read_bytes()).hexdigest() or rec["case"]!=list(case) or rec["design_sha256"]!=design_hash or rec.get("source_identity_sha256")!=original_source["digest"]:
             raise ValueError("existing case receipt/content/source provenance conflict")
         return stem
     if json_path.exists():
@@ -75,6 +98,8 @@ def run_one(out_root,case,*,smoke_years=None):
         "schema":"chapter2_sequence_abrupt_gradual_case_receipt_v1",
         "case":list(case),
         "design_sha256":design_hash,
+        "source_identity_sha256":original_source["digest"],
+        "source_file_sha256":original_source["files"],
         "sha256":sha256(data).hexdigest(),
         "full_declared_case":smoke_years is None,
         "years":year,
@@ -101,6 +126,7 @@ def run_shard(out_root,*,shard_index,shard_count,smoke_years=None,case_limit=Non
         "shard_index":shard_index,"shard_count":shard_count,
         "case_count":len(completed),"expected_full_case_count":64,
         "case_keys":completed,"design_sha256":contract()[1],
+        "source_identity_sha256":source_identity()["digest"],
     }
     if manifest["status"]=="COMPLETE_FROZEN_SHARD":
         write_atomic(Path(out_root)/f"shard_{shard_index:02d}_complete.json",
