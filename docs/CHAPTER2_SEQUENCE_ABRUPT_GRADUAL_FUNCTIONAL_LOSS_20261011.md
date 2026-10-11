@@ -1,6 +1,6 @@
 # Chapter 2 — Does the *tempo* of pollinator functional loss determine which floral trait evolves first?
 
-**2026-10-11; hypothesis and source implementation only, no admitted new evolutionary outcomes.** This is an intervention on pollinator *functional-optimum trait matching*, not the disappearance of insect individuals or the temporal order of allelic mutations.
+**2026-10-11; frozen source design and complete1,024-trajectory result.** The source design and pre-evolutionary diagnostics below remain historical records; the [complete result report](CHAPTER2_SEQUENCE_ABRUPT_GRADUAL_FUNCTIONAL_LOSS_RESULTS_20261011.md) and separate admission receipt contain the verified outcomes. This is an intervention on pollinator *functional-optimum trait matching*, not the disappearance of insect individuals or the temporal order of allelic mutations.
 
 ## Why the initial functional-profile assumption had to be corrected
 
@@ -97,7 +97,7 @@ python -m scripts.run_chapter2_sequence_abrupt_gradual_functional_loss_20261011 
 pytest -q tests/test_chapter2_sequence_abrupt_gradual_functional_loss_20261011.py
 ```
 
-The complete-cohort execution framework is now implemented, but **NO full evolutionary outcomes have yet been admitted**.
+At source freeze, the complete-cohort execution framework was implemented before any full evolutionary outcomes were admitted. The full run has now passed its original receipt/readout gates; see the dated result section below.
 
 - `scripts/run_chapter2_sequence_abrupt_gradual_batch_20261011.py`: exactly 1,024 original-ABM cases partitioned into **16 equal 64-case shards**, with immutable task identities and per-case atomic SHA256 receipts. Short smoke cases are explicitly named `_SMOKE` and never get a completed biological manifest.
 - `scripts/summarize_chapter2_sequence_abrupt_gradual_functional_loss_20261011.py`: **refuses to summarize** unless all 16 full completed shard manifests, all 1,024 original full 400-update biological JSON files and receipt/source-design hashes are present. It groups all four demographic repeats within each independent synthetic visitor-profile cluster and compares abrupt−gradual at that unit, with predeclared two-sided descriptive cluster bootstrap (9,999 draws).
@@ -125,7 +125,7 @@ python -m scripts.summarize_chapter2_sequence_abrupt_gradual_functional_loss_202
   --out /tmp/chapter2_timing_readout.json
 ```
 
-These are **execution instructions**, not a claim that 1,024 runs have already finished. No biological mean/CI is acceptable until the full source-proofed readout passes its completeness/receipt gates.
+The commands above are the frozen execution instructions. The2026-10-11 complete run subsequently passed the full source-proofed completeness/receipt gates; its actual execution source, unchanged machine output and independent audit are recorded separately below.
 
 
 ## Pre-evolutionary source prediction: when does investment selection turn negative?
@@ -147,3 +147,12 @@ The current independent equation-level calculation gave baseline β_I≈+0.4655 
 **The key scientific separation:** identical first100-update reference *cumulative* pollen delivery does **not** force the same temporal sign crossing. Even if this model-internal local fitness clock is source-verified, whether allele change is advanced by 15 updates is a **separate empirical-like result** depending on genotypic variation, Mendelian inheritance, genetic source W covariance, drift, evolving matching phenotype and demographic feedback. The full cohort must answer that independently.
 
 New source regression: `tests/test_chapter2_sequence_tempo_focal_sign_clock_20261011.py`. Nothing here upgrades the old 51/64 historical chronology to proved selection-mediated causation.
+
+
+## Complete frozen-cohort outcome — 2026-10-11
+
+Source PR #475 merged to main `dba65f11a4ee7295ae32b623ea1103cc8a25c1b5`; all exact-main source gates passed before the unchanged CLI ran all1,024 cases for400 updates. The full reader and independent raw-genome endpoint/bootstrap audit both passed. The frozen design JSON and native Model3 biology remain byte-identical.
+
+The [complete result report](CHAPTER2_SEQUENCE_ABRUPT_GRADUAL_FUNCTIONAL_LOSS_RESULTS_20261011.md) reports every setting, both event horizons, sparse paired-lag support and every registered secondary endpoint. Abrupt-minus-gradual A crossing-by100 differences range0 to+42.1875pp, and I differences−6.25 to+21.875pp. A-only is common in delayed settings and remains distinct from observed A-first among two events; neither is the largest by100 category in the two costly delayed gradual arms. All schedules/settings retain100% occupancy at100 and400, so persistence is saturated and no inherited-order survival benefit or equivalence is established.
+
+The [full numeric tables](CHAPTER2_SEQUENCE_ABRUPT_GRADUAL_FULL_TABLES_20261011.md), [machine readout](../data/results/chapter2_sequence_abrupt_gradual_functional_loss_20261011.json.gz), [independent audit](../data/results/chapter2_sequence_abrupt_gradual_independent_audit_20261011.json.gz), and [separate admission receipt](../data/results/chapter2_sequence_abrupt_gradual_functional_loss_receipt_20261011.json) preserve the outcomes and provenance. The source-clonal sign clock above remains a separate diagnostic; sampled selection on evolving genotypes can change again later.
