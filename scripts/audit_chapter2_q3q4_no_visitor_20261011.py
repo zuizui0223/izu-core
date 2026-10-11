@@ -82,9 +82,9 @@ def mu_and_q(counts,setting,budget,scenario,mode):
     if not np.isfinite(mu) or mu<=0:
         raise ArithmeticError("nonpositive original source viable seed")
     weights=matrix/mu
-    # Genotype identity in the original 0.20/0.50 source. The wider-width
-    # experiment in PR #466 instead uses class identity, not this numeric test.
-    hi=(genome.alleles[:,1,:]==.50).sum(axis=1)/2.0
+    # Crucial regression protection from PR #466: infer gamete classes from
+    # genotype CLASS, not floating numeric allele equality.
+    hi=np.repeat(np.array([0.,.5,1.]),np.asarray(counts,dtype=int))
     father=hi[:,None];mother=hi[None,:]
     q=np.array([
         np.sum(weights*(1-father)*(1-mother)),
