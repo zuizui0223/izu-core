@@ -93,6 +93,22 @@ def test_complete_science_contract_for_source_counterfactual():
             p+"|"+v for p in POLICIES for v in VISITOR_ARMS
         }
         assert np.isfinite(row["P80_native_shift_minus_equalized"])
+    # Independently computed restricted mathematical kernel values.
+    # These are SOURCE-OPERATOR checks, NOT independent ecological populations.
+    selected={(r["mismatch_fraction"],r["setting"],r["budget"]):r
+              for r in d["results"]}
+    for frac,expected in (
+        (.25,-3.916644825829527e-6),
+        (.5,-6.768763501962052e-7),
+        (1.,-3.462600779019498e-11),
+    ):
+        row=selected[frac,"delayed_control",6.]
+        assert row["P80_native_shift_minus_equalized"] == pytest.approx(
+            expected,abs=1e-9
+        )
+        assert row["P80_fixed_shift_minus_equalized"] == pytest.approx(
+            0.,abs=1e-11
+        )
     json.dumps(d,allow_nan=False)
 
 
