@@ -75,10 +75,10 @@ def test_80_year_statewise_equalized_census_kernel_is_stochastic(frac):
 def test_complete_science_contract_for_source_counterfactual():
     from scripts.audit_chapter2_q3q4_statewise_pollen_equalized_20261011 import SETTINGS,BUDGETS
     assert len(FRACTIONS)*len(SETTINGS)*len(BUDGETS)==24
-    assert "NOT a biologically realizable" in " ".join(
-        audit()["limitations"]
-    )
     d=audit()
+    assert "not a biologically realizable" in " ".join(
+        d["limitations"]
+    )
     assert d["status"]==STATUS
     assert d["n_source_settings"]==24
     assert d["n_independent_biological_histories"]==0
