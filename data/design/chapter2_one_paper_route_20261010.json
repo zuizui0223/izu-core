@@ -33,17 +33,34 @@
       "K and B controlled separately only in the persistence arm",
       "Four-setting evolving investment traits tested between two pollen-limited regimes, not a saturated mainland",
       "No real island lineages or field validation in either model experiment"
-    ]
+    ],
+    "supplementary_tempo": {
+      "rank": "prospectively frozen, model-specific descriptive supplement",
+      "admission_receipt": "data/results/chapter2_sequence_abrupt_gradual_functional_loss_receipt_20261011.json",
+      "independent_synthetic_profiles": 16,
+      "nested_repeats": 4,
+      "settings": 8,
+      "schedules": 2,
+      "trajectories": 1024,
+      "updates": 400,
+      "pooled_with_primary_studies": false,
+      "independent_audit_scope": "original event/order/occupancy audit",
+      "independently_recomputed_setting_outcomes": 128,
+      "secondary_fields_per_setting_outside_independent_recomputation": 156,
+      "calibration_limit": "First-100-update pollen integral matched only for a fixed clonal reference, not evolving populations.",
+      "occupancy_limit": "All arms occupied at both horizons; no identified persistence benefit or harm, and no practical-equivalence conclusion.",
+      "causal_limit": "No assigned mutation order, genetic mediation or natural-island validation."
+    }
   },
   "data_requirement": "Issue #436 outstanding DOI-backed external raw archive verification",
-  "policy": "Do not combine incompatible history-cluster denominators or pool cohort intervals; preserve all preregistered failures and existing model biology. Current merged draft is over the official Ecology Letters Letter word/abstract limits and must not be submitted without compression; the conditional higher target must not be advertised as achieved.",
+  "policy": "Do not combine incompatible history-cluster denominators or pool cohort intervals; preserve all preregistered failures and existing model biology. The current manuscript passes the existing 5000/150 word-count contract. External raw-data deposition and final submission metadata remain outstanding; a conditional higher target has not been achieved.",
   "journal_fit": {
     "source": "Ecology Letters Wiley official author guidelines, verified 2026-10-10",
     "ecology_letters_letter_main_max": 5000,
     "ecology_letters_letter_abstract_max": 150,
     "display_items_max": 6,
-    "current_integrated_main_words": 6035,
-    "current_integrated_abstract_words": 237,
+    "current_integrated_main_words": 3592,
+    "current_integrated_abstract_words": 142,
     "main_text_excess_words": 0,
     "abstract_excess_words": 0,
     "editorial_status": "EL_format_word_limits_passed_data_DOI_pending",
@@ -55,9 +72,14 @@
       "pollinator population collapse",
       "historically explained global island syndrome"
     ],
-    "current_main_text_words": 3310,
+    "current_main_text_words": 3592,
     "current_abstract_words": 142,
-    "updated_submission_scope": "Main 3310 words between Introduction and figure captions; abstract 142; 4 figures; no rewriting of old primary design."
+    "updated_submission_scope": "Main 3592 words between Introduction and figure captions; abstract 142; 4 main figures and 2 supplementary figures. Existing primary contracts unchanged; separately frozen tempo cohort is descriptive supplementary evidence.",
+    "historical_precompression_counts": {
+      "main_words": 6035,
+      "abstract_words": 237,
+      "scope": "Superseded October 10 integrated draft; not current manuscript counts."
+    }
   },
   "editorial_primary_claim": "Confirmed within one model family: assurance evolution not necessary for loss of investment, but compresses divergence in four frozen pollen-limited settings",
   "editorial_secondary_claim": "Independent externally assigned expression-order K × viable selfed seed sensitivity (one registered small positive result), not an evolutionary-to-persistence mediator",
@@ -68,6 +90,11 @@
     "Figure3.pdf",
     "Figure4.svg"
   ],
-  "review_package_status": "source_figure_verified_internal_reviewer_draft_DOI_pending",
-  "legacy_process_builder": "scripts/build_chapter2_process_review.py (historical only; old manuscript and old Figure4)"
+  "review_package_status": "internal_reviewer_draft_with_tempo_supplement_DOI_pending",
+  "legacy_process_builder": "scripts/build_chapter2_process_review.py (historical only; old manuscript and old Figure4)",
+  "review_package_expected_supplementary_figures": [
+    "SupplementaryFigureS1.pdf",
+    "SupplementaryFigureS2.svg"
+  ],
+  "data_deposit_readiness": "data/submission/chapter2_unified_data_deposit_readiness_20261011.json"
 }

@@ -2,10 +2,10 @@
 
 **Article type:** Ecology Letters Letter — one unified original research manuscript (word limits met; data deposit pending)  
 **Target journal:** Ecology Letters (Letter) first; a higher-impact ecology/evolution journal is conditional on new causal validation, not on reframing existing data  
-**Scope:** EL-format draft ~3310-word main text and 142-word abstract; four main figures; science/data gates remain  
+**Scope:** EL-format draft 3592-word main text and 142-word abstract; four main figures; science/data gates remain\
 **Status:** one unified scientific working draft, not submitted or peer reviewed; two original drafts retained as source provenance  
-**Model family:** one explicit Model 3; two separate interventions with distinct inference units and horizons  
-**Figures:** 4 main evidence figures; older deterministic figure retained as supplement  
+**Model family:** one explicit Model 3; two principal questions and a separate supplemental visitor-tempo experiment, with distinct inference units and horizons\
+**Figures:** 4 main evidence figures; finite-genetic realization and visitor-tempo results retained as supplements\
 **Tables:** numerical effect table in supporting documents; cohort rank retained
 
 ## Abstract
@@ -43,6 +43,10 @@ The primary frozen experiment used **64 independent new visitor histories**, eig
 The two preregistered estimands were (i) fixed-assurance terminal far-minus-near investment and (ii) the matched four-cell interaction `[(far−near)_evolving−(far−near)_fixed]`, using demographic repeats occupied in all four cells. Each setting passed only if the first history-bootstrap 95% interval was wholly negative and the second wholly positive; the global rule required all four settings, at least 60/64 admissible visitor histories and 90% occupancy per arm. The eight repeats were averaged *within* visitor histories, which were the independent resampling units. Extinct phenotypes were missing, never zero. A zero-mutation control required fixed and evolving matched traces to be exactly identical: 128/128 pairs passed.
 
 After confirmation, we decomposed the interaction algebraically into the evolving-minus-fixed near and far effects, without claiming natural mediation fractions. At snapshot 400, a separate matched-history fixed-resident diagnostic changed assurance from 0.25 to 0.75 and recomputed the four investment-gradient components. A distinct frozen temporal-order cohort defined trait change as a founder-relative threshold crossing sustained 20 updates; temporal precedence was not treated as a necessity test. Separate fixed-state assays compared fractional pollen deficit with absolute viable maternal seeds.
+
+## Supplemental visitor-tempo experiment
+
+A separately frozen experiment supplied descriptive supporting evidence from 1,024 native diploid trajectories over 400 updates: 16 synthetic visitor profiles, four nested demographic repeats, eight selfing-timing/cost/mutation settings and two visitor schedules. Abrupt or gradual changes in the optima of four functional visitor types altered trait matching, without removing insect individuals. First-100-update cumulative pollen delivery was matched **only in a fixed clonal N48, X=I=A=0.5 calibration population**; actual pollen delivery in evolving populations remained an outcome. Both schedules shared the terminal visitor composition from updates 100–399. Assurance increases and investment decreases were defined relative to actual founder means by a 0.05 change sustained for 20 consecutive censuses, with confirmation by update 100 for the crossing primary. Paired differences used **16 independent profile clusters**, with demographic repeats averaged within profiles, and 9,999 two-sided descriptive percentile-bootstrap draws. These frozen endpoints do not add another confirmatory primary to the paper. Complete settings, sequence definitions and verification limits are retained in Supporting Information S5.
 
 ## Independent finite-population experiment
 
@@ -83,6 +87,8 @@ Under low replenishment, attraction-dependent outcross return was already small.
 The independent temporal-order replication recovered an assurance-first sequence in the delayed-selfing, direct-cost setting: 51 of 64 histories were assurance-first at the primary 0.05 threshold and 13 were near-simultaneous (proportion 0.797; 95% history-bootstrap interval 0.688–0.891). The same criterion did not generalize to prior selfing, where 30 of 64 histories were assurance-first and the interval spanned 0.5.
 
 Thus assurance can change before investment, but this sequence is narrower than the four-setting non-necessity and attenuation results. Temporal precedence is neither universal nor required for the investment response.
+
+In the separate visitor-tempo cohort, abrupt-minus-gradual differences in assurance-increase crossings confirmed by update 100 ranged from 0 to +42.1875 percentage points across all eight settings; investment-decrease differences ranged from −6.25 to +21.875 points (Supplementary Fig. S2; Supporting Information S5). In all four direct-cost-0.5 settings, assurance differences were +21.875 to +42.1875 points. These are descriptive profile-cluster contrasts. An assurance-only outcome is not an assurance-first sequence: in delayed selfing with cost 0.5 and no mutation, the 53 abrupt-arm assurance crossers comprised eight assurance-first and 45 assurance-only trajectories. Every setting and schedule retained occupancy 64/64 at both updates 100 and 400. This ceiling supplies no identified persistence benefit, harm or practical-equivalence result; visitor-tempo assignment does not identify a causal natural mutation-order or inherited-order-to-survival mechanism.
 
 ## Pollen-deficit and viable-output responses are not equivalent
 
@@ -156,9 +162,13 @@ Reproductive assurance evolution was not necessary for floral-investment decline
 
 **Supplementary Figure S1. Conditional finite-genetic realization.** The former Figure 4 is retained as supporting evidence that a deterministic density closure is not the exact stochastic mean of the finite ABM; its provenance and original interpretation remain in the archived 2026-10-06 Letter manuscript. It is not a fifth independent study.
 
+**Supplementary Figure S2. Visitor tempo changes inherited crossing frequencies in a setting-dependent manner.** The complete eight-setting plot in `SupplementaryFigureS2.svg` shows abrupt-minus-gradual percentage-point differences in sustained assurance increases and investment decreases confirmed by update 100. Intervals are two-sided descriptive 95% percentile intervals from 9,999 paired bootstrap draws over 16 synthetic visitor-profile clusters, each with four nested demographic repeats per arm. The 10-percentage-point reference is the frozen magnitude benchmark, not a confirmatory significance or equivalence rule. Assurance-only and assurance-first remain distinct outcomes; all arms have occupancy 64/64 at updates 100 and 400. Full counts, intervals and scope limits appear in Supporting Information S5.
+
 # Data accessibility
 
-The original designs, validated machine-readouts, source-code hashes and workflow provenance for the floral-investment study and the distinct capacity–persistence cohorts are retained separately in the project repository. For the latter, 521 original biological-trajectory ZIP archives from four cohorts were backed up in unpublished draft GitHub Releases with SHA-256 verification. Those private drafts and expiring Actions artifacts are **not** an externally citable research-data deposit. A DOI-backed external archive with licensing and successful independent download/verification remains outstanding under Issue #436. This unified working manuscript is not yet submitted.
+The original designs, validated machine-readouts, source-code hashes and workflow provenance for the floral-investment study and the distinct capacity–persistence cohorts are retained separately in the project repository. For the latter, 521 original biological-trajectory ZIP archives from four cohorts were backed up in unpublished draft GitHub Releases with SHA-256 verification. The locally executed visitor-tempo cohort was preserved separately as one private ZIP archive of 268,940,123 bytes (SHA-256 `034e735d244228c1f4974897a76d16acef10767a81d5dd82f5f5204f48cf0738`), with a separately retrieved copy verified by size and hash. Its 16-profile, 1,024-trajectory cohort is not part of the older four-cohort, 521-ZIP inventory.
+
+Those private archives and expiring Actions artifacts are **not** an externally citable research-data deposit. A DOI-backed external archive with licensing and successful independent download/verification remains outstanding under Issue #436. This unified working manuscript is not yet submitted.
 
 ## Evidence hierarchy and study-origin record
 
@@ -166,7 +176,9 @@ The four-setting 1,000-update intervention and its prespecified all-four passing
 
 The demographic experiment is a **second, nonexchangeable question within the same paper**, with its *own* registered primary and multiple negative or inconclusive antecedents: original near/far order DID practically equivalent; independent resource-window hypothesis failed; fixed-founder and B-at-K8 primary contrasts inconclusive; newly registered fixed-B48 K8-vs-K48 contrast +0.0077457 supported; original early-versus-late primary inconclusive. The three independent source cohorts are not three confirmatory model architectures. Original K/B intervention replaces one recipient pollen-dilution denominator solely for the demographic control; this is not the same exact frozen biology as the canonical four-setting campaign for all K/B comparisons.
 
-No additional biological trajectory, bootstrap, prospective hypothesis or causal mediation has been generated to assemble this unified article. The earlier `docs/CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md` and `docs/CHAPTER2_CAPACITY_PERSISTENCE_COMPANION_MANUSCRIPT_20261010.md` remain **source-provenance manuscripts**, not separate active submissions under the one-paper route. The exploratory PR #452 and the one-step Q3 PR #455 are excluded from the confirmed manuscript results; they remain research directions and methodological sensitivity, respectively.
+The visitor-tempo experiment was separately frozen before execution and admitted after raw-data verification. Its registered crossing endpoints and descriptive profile-bootstrap intervals are **supplemental, model-specific evidence**, not a replacement for the original four-setting primary or another confirmation of the demographic K result. Its 16 profile clusters are not pooled with the separate 64-history cohorts. The original event/order/occupancy audit independently recomputed 128 setting/outcome comparisons; that audit did not independently recompute the 156 secondary fields per setting (Supporting Information S5). A later retrospective expected-to-realized accounting of the same cohort has its own record in `docs/CHAPTER2_TEMPO_REALIZATION_ACCOUNTING_20261011.md`; it does not change the registered endpoints or establish genetic mediation.
+
+This manuscript integration reuses the already completed cohorts and their existing analyses; no additional biological trajectory or bootstrap was generated for manuscript assembly. The earlier `docs/CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md` and `docs/CHAPTER2_CAPACITY_PERSISTENCE_COMPANION_MANUSCRIPT_20261010.md` remain **source-provenance manuscripts**, not separate active submissions under the one-paper route. The exploratory PR #452 and the one-step Q3 PR #455 are excluded from the confirmed manuscript results; they remain research directions and methodological sensitivity, respectively.
 
 # References
 

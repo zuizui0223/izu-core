@@ -1,0 +1,123 @@
+{
+  "schema": "chapter2_q3_exact_recruitment_genetic_moments_source_receipt_v1",
+  "status": "POSTDISCOVERY_DETERMINISTIC_SOURCE_MATHEMATICS_NO_NEW_BIOLOGICAL_HISTORY",
+  "date": "2026-10-10",
+  "parent_commit": "eec58672b25f73b930f3228bbabc329fe18cc7e5",
+  "source_paths": [
+    "scripts/model3_island/population.py",
+    "scripts/chapter2_kb_reproduction.py",
+    "scripts/run_chapter2_assurance_generality.py"
+  ],
+  "source_regime": {
+    "N0": 8,
+    "B": 48,
+    "K": [
+      8,
+      48
+    ],
+    "budget": 6,
+    "visitor_optima": [
+      0.15,
+      0.35,
+      0.55,
+      0.75
+    ],
+    "matching": 0.2,
+    "assurance": 0.35,
+    "adult_survival": 0,
+    "immigration": 0,
+    "mutation": 0
+  },
+  "n_independent_histories": 0,
+  "n_stochastic_paths": 0,
+  "n_new_genetic_histories": 0,
+  "estimand": "Expected inherited trait mean and variance conditional on >=1 retained offspring, integrating R=min(Poisson(total viable seeds),K); extinct trait mean is missing, unconditional allele-copy trait sum is a separate estimand.",
+  "math": "Var(new_mean|R>0) = [Var_parent_pair(E[Z|pair]) + E_pair Var_Mendel(Z|pair)] * E[1/R | R>0]; R includes Poisson K cap.",
+  "outcomes": [
+    {
+      "fixture": "homozygous_same_phenotype",
+      "K": 8,
+      "mu": 8.994424151,
+      "parent_mean": 0.35,
+      "expected_child_mean": 0.35,
+      "expected_shift": 0,
+      "p_next_occupied": 0.9998759,
+      "expected_next_N": 7.268044022,
+      "conditional_next_trait_sd": 0,
+      "parent_lottery_variance": 0,
+      "mendelian_variance": 0
+    },
+    {
+      "fixture": "homozygous_same_phenotype",
+      "K": 48,
+      "mu": 8.994424151,
+      "parent_mean": 0.35,
+      "expected_child_mean": 0.35,
+      "expected_shift": 0,
+      "p_next_occupied": 0.9998759,
+      "expected_next_N": 8.994424151,
+      "conditional_next_trait_sd": 0,
+      "parent_lottery_variance": 0,
+      "mendelian_variance": 0
+    },
+    {
+      "fixture": "heterozygous_same_phenotype",
+      "K": 8,
+      "mu": 8.994424151,
+      "parent_mean": 0.35,
+      "expected_child_mean": 0.35,
+      "expected_shift": 0,
+      "p_next_occupied": 0.9998759,
+      "expected_next_N": 7.268044022,
+      "conditional_next_trait_sd": 0.040484663,
+      "parent_lottery_variance": 0,
+      "mendelian_variance": 0.01125
+    },
+    {
+      "fixture": "heterozygous_same_phenotype",
+      "K": 48,
+      "mu": 8.994424151,
+      "parent_mean": 0.35,
+      "expected_child_mean": 0.35,
+      "expected_shift": 0,
+      "p_next_occupied": 0.9998759,
+      "expected_next_N": 8.994424151,
+      "conditional_next_trait_sd": 0.037925195,
+      "parent_lottery_variance": 0,
+      "mendelian_variance": 0.01125
+    },
+    {
+      "fixture": "segregating_investment_gradient",
+      "K": 8,
+      "mu": 8.955490314,
+      "parent_mean": 0.375,
+      "expected_child_mean": 0.373593019,
+      "expected_shift": -0.001406981,
+      "p_next_occupied": 0.999870973,
+      "expected_next_N": 7.2553189,
+      "conditional_next_trait_sd": 0.04208972,
+      "parent_lottery_variance": 0.011925279,
+      "mendelian_variance": 0.0002
+    },
+    {
+      "fixture": "segregating_investment_gradient",
+      "K": 48,
+      "mu": 8.955490314,
+      "parent_mean": 0.375,
+      "expected_child_mean": 0.373593019,
+      "expected_shift": -0.001406981,
+      "p_next_occupied": 0.999870973,
+      "expected_next_N": 8.955490314,
+      "conditional_next_trait_sd": 0.039473321,
+      "parent_lottery_variance": 0.011925279,
+      "mendelian_variance": 0.0002
+    }
+  ],
+  "science": "In these deterministic source fixtures, same first-year pollen/fecundity and occupancy can conceal large differences in inherited variance, and finite drift dwarfs the source-signed expected first-generation investment change. No inferences to 80-year evolution, natural histories, or evolutionary suicide.",
+  "limits": [
+    "Genetic population here is synthetic and not a fresh full evolutionary trial.",
+    "No actual independent visitor histories or empirical taxa.",
+    "Neither positive nor negative long-horizon selection can be deduced from first-generation conditional moments.",
+    "The earlier Draft PR #455 covered fixed-R conditional variance; this audit includes native source Poisson truncation and unconditional genetic copy mass."
+  ]
+}

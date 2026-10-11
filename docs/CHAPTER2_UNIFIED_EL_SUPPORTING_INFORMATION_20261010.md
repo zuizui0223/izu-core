@@ -1,6 +1,6 @@
 # Ecology Letters — Supporting Information for the unified Chapter 2 Letter
 
-**Submission companion status:** internal reviewer evidence ledger, not a new confirmatory analysis, blinded author source, or public DOI archive.
+**Evidence status:** supporting information for one unsubmitted manuscript. The original four-setting primary, distinct registered demographic study and separately frozen descriptive visitor-tempo supplement retain their own inference units and evidence ranks. No public DOI deposit is claimed.
 
 ## S1. Preregistered primary evolutionary study and four-setting result
 
@@ -35,6 +35,59 @@ Post-discovery audits replayed the actual original matched evolving/fixed t400 g
 
 A bounded six-level original-genome ovule-budget sensitivity (0.025, 0.05, 0.125, 0.25, 0.5, 1 times the standard budget) used exact one-generation Poisson-limited recruitment under K=48/B=48. At the 0.125 budget scale, mean evolving-minus-clamped next-census effects across delayed, prior, pollen-discount and assurance-cost settings were −0.0304, +0.3090, +0.2201, +0.1103, respectively. Mean one-step occupancy remained >0.99999 in every setting, even when expected census no longer saturated K. This source-only sensitivity is NOT an independent survival study; it does not support an automatically harmful group-persistence consequence of assurance evolution.
 
-## S5. Data accessibility and source provenance
+## S5. Separately frozen visitor-tempo supplement
+
+### S5.1. Design, calibration and inferential unit
+
+This supplemental experiment was frozen before its outcomes were generated. It contributes model-specific descriptive evidence, not another confirmatory primary for the manuscript. The complete factorial comprises **1,024 trajectories over 400 updates**: 16 synthetic visitor profiles × four nested demographic repeats × eight settings × two visitor schedules. The eight settings cross delayed/prior selfing, direct assurance cost 0/0.5 and mutation probability 0/0.01. There are 64 trajectories per setting and schedule, but **16 independent profile clusters**. The repeats and the 1,024 trajectories are not independent natural environments, and this cohort is not pooled with either 64-history study above.
+
+The intervention changes the functional optima of four visitor types over the first 100 updates; it does not remove insect individuals. Abrupt and gradual schedules were matched for first-100-update cumulative delivered pollen **only in a fixed clonal N48, X=I=A=0.5 calibration population**. They share the terminal visitor composition during updates 100–399. Actual pollen exposure is an outcome of evolving matching, investment, assurance and census, and was not forced equal between schedules. Native reproduction and finite diploid inheritance were retained, with plant capacity K=48 and ovule budget 8. The 48 founders retain standing genetic variation even when mutation is zero. Their actual diploid trait means are X=0.5053281099, I=0.5023530254 and A=0.4850942880, distinct from the calibration clone.
+
+An assurance event requires A at least 0.05 above its actual founder mean; an investment event requires I at least 0.05 below its actual founder mean. Each condition must hold for **20 consecutive censuses**. The crossing primary counts confirmation by update 100, not merely onset by 100: onset 81 confirmed at 100 qualifies, whereas onset 82 confirmed at 101 does not. Six mutually exclusive sequence categories are retained separately for the by update 100 and full 400-update horizons: A-first, I-first, near-simultaneous, A-only, I-only and neither. A-first and I-first require both confirmed events and onset separation greater than five updates; near-simultaneous requires both onsets within five updates. An event absent at the stated horizon remains censored.
+
+Within each setting, differences are abrupt minus gradual, paired over the same demographic repeats and averaged within each profile before giving profiles equal weight. Intervals are the frozen **two-sided descriptive 95% percentile bootstrap**, with 9,999 paired profile resamples, seed 48272026 and tails 0.025/0.975. There is no new confirmatory p-test, simultaneous-coverage claim, equivalence procedure or pooling of selected settings.
+
+### S5.2. Complete registered crossing contrasts confirmed by update 100
+
+Every setting is included below. A denotes an assurance increase and I an investment decrease. Counts give **abrupt / gradual out of 64 per arm**; differences and both interval endpoints are percentage points (pp). Thus a positive I contrast means more investment-decrease crossings, not greater investment.
+
+| Selfing timing / direct cost / mutation | A counts | A difference [descriptive 95% interval], pp | I counts | I difference [descriptive 95% interval], pp |
+| --- | ---: | ---: | ---: | ---: |
+| delayed / 0 / 0 | 60 / 55 | +7.8125 [−1.5625, +17.1875] | 12 / 1 | +17.1875 [+6.25, +29.6875] |
+| delayed / 0 / 0.01 | 61 / 53 | +12.5 [+3.125, +21.875] | 11 / 2 | +14.0625 [+4.6875, +23.4375] |
+| delayed / 0.5 / 0 | 53 / 26 | +42.1875 [+32.8125, +53.125] | 9 / 0 | +14.0625 [+4.6875, +25] |
+| delayed / 0.5 / 0.01 | 46 / 30 | +25 [+6.25, +43.75] | 8 / 0 | +12.5 [+6.25, +18.75] |
+| prior / 0 / 0 | 61 / 61 | 0 [−9.375, +7.8125] | 34 / 22 | +18.75 [+1.5625, +34.375] |
+| prior / 0 / 0.01 | 61 / 61 | 0 [−6.25, +6.25] | 28 / 32 | −6.25 [−29.6875, +17.1875] |
+| prior / 0.5 / 0 | 55 / 38 | +26.5625 [+10.9375, +40.625] | 16 / 9 | +10.9375 [−1.5625, +23.4375] |
+| prior / 0.5 / 0.01 | 54 / 40 | +21.875 [+7.8125, +34.375] | 24 / 10 | +21.875 [+6.25, +39.0625] |
+
+The assurance differences span 0 to +42.1875 pp, including two zero point estimates. The investment differences span −6.25 to +21.875 pp. The registered 10-pp magnitude benchmark is reached by five A and seven I point estimates. Only two A intervals lie wholly above +10 pp, both without mutation and with direct cost 0.5; no I interval lies wholly above +10 pp. These describe magnitude and uncertainty without upgrading the cohort's evidence rank. The complete numerical companion, `TEMPO_FULL_TABLES.md`, retains all six categories at both horizons and all secondary fields, intervals and support counts.
+
+**Supplementary Figure S2. Complete visitor-tempo crossing contrasts.** `SupplementaryFigureS2.svg` shows the eight assurance-increase and investment-decrease contrasts tabulated above, with descriptive paired profile-bootstrap intervals. Its 10-pp magnitude reference is not a significance or equivalence criterion. The four main figures retain their original evidence roles; the older finite-genetic realization figure is supplied separately as `SupplementaryFigureS1.pdf`.
+
+### S5.3. Sequence, conditional lag and realized investment limits
+
+**A-only is not A-first.** In delayed selfing with cost 0.5 and no mutation, the 53 abrupt-arm A crossers by update 100 comprise eight A-first and 45 A-only trajectories. A-only is the largest category in every delayed abrupt arm at both horizons and every delayed gradual arm by update 400. By update 100, however, **neither** is the largest category in both costly delayed gradual arms: 38 neither versus 26 A-only cases without mutation, and 34 neither versus 30 A-only cases with mutation. Both costly delayed gradual arms have zero jointly crossed trajectories even by update 400. Prior selfing with cost 0 and mutation 0.01 also precludes a universal A-first-advancement claim: A-first counts are 25 versus 30 by update 100 and 44 versus 45 by update 400, abrupt versus gradual.
+
+Conditional lag is A onset minus I onset among trajectories with both events confirmed by update 400. The paired contrast uses only demographic repeats eligible in both arms, averages within profiles, and then equally weights eligible profiles. It is not the difference of separately eligible arm means. Three settings have no paired lag estimand. The sole descriptive lag interval excluding zero is +53.5 updates [+11, +96] in delayed selfing without cost or mutation, based on **two paired trajectories in two profiles** and 8,813 nonempty bootstrap draws out of 9,999. The largest paired support is 35 trajectories across 16 profiles, with an interval spanning zero. These conditional results do not identify a general advance or delay between two inherited events.
+
+Abrupt schedules have lower mean I at update 400 than gradual schedules in all eight point comparisons. This is a between-schedule difference: **every delayed arm-average I400 remains above the actual founder mean 0.5023530254**. Even the abrupt prior-selfing, cost-0.5, no-mutation mean is slightly above that founder value (0.506583). A transient sustained crossing need not persist to update 400. Lower mean pollen and overlap, or higher selfed-recruit fractions, do not by themselves establish population decline. Time-averaged expected pre-mutation I responses are positive in both arms in all delayed settings, although smaller under abrupt schedules. Sampled genotype-dependent selection gradients can change sign again; they are not exact per-trajectory first sign-crossing times or an irreversible fixed-clonal clock.
+
+### S5.4. Occupancy ceiling and limits of causal interpretation
+
+At **both updates 100 and 400, every setting and schedule has occupancy 64/64**. All paired differences are 0 pp with descriptive intervals [0, 0], and none reaches the registered 5-pp occupancy magnitude benchmark. This saturated endpoint supplies no identified persistence benefit or harm and does not establish practical equivalence or rule out effects in another ecological regime. Visitor chronology was assigned; A/I mutation order and an inherited-order mediator were not independently assigned. No causal genetic mediation, natural island history, evolutionary rescue or extinction mechanism is demonstrated.
+
+### S5.5. Verification scope and supplied evidence
+
+In the original event/order/occupancy audit, an independent calculator reconstructed genetic events from **410,624 original raw diploid censuses**: 1,024 trajectories × 401 censuses including founders. It independently recomputed the two crossing probabilities confirmed by update 100, all six sequence categories at each horizon (100 and 400), and occupancy at 100 and 400, including the paired profile bootstrap. Eight settings × 16 outcome fields give **128 setting/outcome comparisons**. Each comparison has two arm estimates, their paired difference and two interval endpoints: **640 scalar comparisons**. The saved independent audit and fresh verification agree with the official readout exactly on these scalars, with maximum absolute difference 0.0. This audits saved output; it is not an independent biological simulation or new evolutionary replication.
+
+**The original event/order/occupancy audit did not independently recompute the 156 secondary fields per setting (1,248 setting/field combinations).** That audit excluded aggregate trait means and variances, conditional lag, expected genetic responses, gradient medians and counts, pollen, functional overlap, and parentage/recruitment summaries, together with their aggregate intervals and support counts. Those outputs remain covered by the official reader and separate implementation and scientific checks. Checking raw census means does not independently validate every secondary aggregate. Neither bootstrap agreement nor archive byte verification changes the original audit's scope.
+
+The reviewer package supplies the exact official compressed readout as `EVIDENCE/TEMPO_RESULTS.json.gz`, a derived anonymous numerical companion as `TEMPO_FULL_TABLES.md`, and the independently checked outcome scope and provenance in the derived `EVIDENCE/TEMPO_AUDIT_SUMMARY.json`. `MANIFEST.json` records package-member hashes and evidence roles. A separate internal receipt preserves package-assembly identity and its mapping to original execution-source and frozen-design provenance; that receipt is excluded from the anonymous reviewer ZIP. The complete readout's decompressed SHA-256 is `a1b5e84c61e9cc242af8a71bafe57bf852e233445e3e4e7476333aca252009af`. These compact evidence files do not replace access to the original biological trajectories.
+
+## S6. Data accessibility and source provenance
 
 Each confirmatory study's originally frozen design, complete machine-readable summaries and full biological source archives are retained with SHA-256 manifests and paired history identifiers. The original raw source archives are not yet deposited in an externally persistent public DOI repository; permanent deposition remains a pre-submission requirement. The complete archive cannot be replaced by transient CI artifacts or this compact SI evidence ledger. A manuscript submitted for double-anonymous review must be supplied with approved anonymous access and an editor-acceptable repository plan. No natural island demographic or historical causality is claimed by the model experiments.
+
+The older demographic evidence comprises **521 original biological-trajectory ZIP archives from four cohorts**, preserved privately. The locally executed **16-profile tempo cohort is separate**: one private ZIP of **268,940,123 bytes**, SHA-256 `034e735d244228c1f4974897a76d16acef10767a81d5dd82f5f5204f48cf0738`. Its 2,099 members were stream-verified, and a separately retrieved preserved copy matched both size and hash. Its 1,024 trajectories are not part of the older four-cohort, 521-ZIP inventory. Private preservation is not a publicly accessible research-data deposit, and this reviewer package does not claim a completed DOI deposit or submission.

@@ -84,8 +84,8 @@ def main() -> None:
     ax.set_xticks(x, labels)
     ax.set_ylabel("Far − near investment")
     ax.set_title("A  Investment decline does not require assurance evolution", loc="left", weight="bold")
-    ax.text(.02, .04, "Fixed assurance = 0.5\n4/4 preregistered settings pass",
-            transform=ax.transAxes, fontsize=8.5)
+    ax.text(.02, .88, "Fixed assurance = 0.5\n4/4 preregistered settings pass",
+            transform=ax.transAxes, fontsize=8.5, va="top")
     ax.spines[["top", "right"]].set_visible(False)
     ax.grid(axis="y", alpha=.15)
 
@@ -99,7 +99,7 @@ def main() -> None:
     ax.set_xticks(x, labels)
     ax.set_ylabel("(Evolving − fixed) isolation contrast")
     ax.set_title("B  Assurance evolution compresses divergence", loc="left", weight="bold")
-    ax.text(.02, .04, "Positive = smaller near–far contrast\n4/4 intervals exclude zero",
+    ax.text(.02, .10, "Positive = smaller near–far contrast\n4/4 intervals exclude zero",
             transform=ax.transAxes, fontsize=8.5)
     ax.spines[["top", "right"]].set_visible(False)
     ax.grid(axis="y", alpha=.15)
@@ -126,7 +126,7 @@ def main() -> None:
         a_rows[s]["estimates"]["attenuation"]["mean"] * 100
         for s, _ in SETTINGS
     ]
-    ax.text(.02, .04, "Near-side share: " + ", ".join(f"{v:.0f}%" for v in shares),
+    ax.text(.02, .48, "Near-side share: " + ", ".join(f"{v:.0f}%" for v in shares),
             transform=ax.transAxes, fontsize=8.2)
     ax.spines[["top", "right"]].set_visible(False)
     ax.grid(axis="y", alpha=.15)
@@ -159,7 +159,8 @@ def main() -> None:
     ax.set_xticks(x, labels)
     ax.set_ylabel("Near − far effect of assurance\non investment selection")
     ax.set_title("D  Greater attraction return remains near", loc="left", weight="bold")
-    ax.legend(frameon=False, fontsize=7.5, ncol=2)
+    ax.set_ylim(top=.16)
+    ax.legend(frameon=False, fontsize=7.5, ncol=2, loc="upper right")
     ax.spines[["top", "right"]].set_visible(False)
     ax.grid(axis="y", alpha=.15)
 

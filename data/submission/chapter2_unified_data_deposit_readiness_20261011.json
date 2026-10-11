@@ -1,0 +1,710 @@
+{
+  "schema": "chapter2_unified_data_deposit_readiness_v1",
+  "status": "PREPARATION_RECORD_ONLY_EXTERNAL_DEPOSIT_PENDING",
+  "prepared_at_utc": "2026-10-11T08:02:31.234116+00:00",
+  "repository": "zuizui0223/izu-core",
+  "preparation_checkout_commit_at_start": "3fec785f2774c9ba43fd1bf4108e370aa46e3180",
+  "integrated_main_commit": "3efb019deef215fe0f8f0179170238331d5932cd",
+  "documentation": "docs/CHAPTER2_UNIFIED_DATA_DEPOSIT_READINESS_20261011.md",
+  "active_manuscript": "docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md",
+  "active_manuscript_count": 1,
+  "is_blinded_reviewer_artifact": false,
+  "raw_archive_created": false,
+  "raw_archives_downloaded_copied_or_uploaded_for_this_record": false,
+  "biological_simulation_executed": false,
+  "external_services_mutated": false,
+  "external_deposit_complete": false,
+  "ready_for_publication_or_issue_closure": false,
+  "source_references": {
+    "evolution_actions_manifest": {
+      "path": "data/design/chapter2_public_archive_manifest_20261006.json",
+      "sha256": "c9564faeea3461a8d8080767a7080f4e770bf3d1a0a986eeff44e45959c900b3",
+      "size_bytes": 19958
+    },
+    "demography_actions_snapshot": {
+      "path": "data/design/chapter2_raw_actions_artifact_inventory_20261009.json",
+      "sha256": "830000486854069443d6d8786be89bccc283442939a4838c0d3fdea2572c553a",
+      "size_bytes": 151845
+    },
+    "raw_preservation_ledger": {
+      "path": "docs/CHAPTER2_INDEPENDENT_RAW_ARCHIVES_20261009.md",
+      "sha256": "5f1b0a9eee74d6ea7bdf1bc6e212c04d0e4d55d3c789a83831d720fe80c6a0cd",
+      "size_bytes": 14539
+    },
+    "evolution_archive_preparation": {
+      "path": "docs/CHAPTER2_PUBLIC_ARCHIVE_PREP_20261006.md",
+      "sha256": "0caf994c73e039689b94d69829fe2b89f2d263a074f809a2594aff7e2b1388f7",
+      "size_bytes": 1633
+    },
+    "tempo_admission_receipt": {
+      "path": "data/results/chapter2_sequence_abrupt_gradual_functional_loss_receipt_20261011.json",
+      "sha256": "fa25a5fa979fb8993abc268f311c833db0561813de3dc297100a3167b706a340",
+      "size_bytes": 22069
+    },
+    "tempo_original_execution_receipt": {
+      "path": "data/results/chapter2_sequence_tempo_execution_receipt_20261011.json",
+      "sha256": "52563926e87e08b808541cb2f241e8ccf5befd25fbded6d8807f5c4033b2e8e3",
+      "size_bytes": 16476
+    },
+    "tempo_fresh_verification": {
+      "path": "data/results/chapter2_sequence_tempo_fresh_verification_20261011.json",
+      "sha256": "d341218d93af64caf89289def85d61779c4f4f75d4cd479a6f1d21527386c464",
+      "size_bytes": 13792
+    },
+    "tempo_frozen_design": {
+      "path": "data/design/chapter2_sequence_abrupt_gradual_functional_loss_20261011.json",
+      "sha256": "207a3a0ad3decf096c65f296bebeee69e7f80d5b644abb2318105e50474774d0",
+      "size_bytes": 5924
+    },
+    "tempo_independent_checker": {
+      "path": "scripts/audit_chapter2_sequence_tempo_results_20261011.py",
+      "sha256": "75ad0850a508acacadfae6a892eafbb2d327f01e9704d5b08c62671c3869a79e",
+      "size_bytes": 26736
+    },
+    "timed_preservation_procedure": {
+      "path": "scripts/archive_chapter2_timed_raw_originals.py",
+      "sha256": "3862c12d49580002649dc9158ba943b839cacc1e6fdf7fa7efcd82f7cfe65734",
+      "size_bytes": 6788
+    },
+    "historical_oikos_metadata_template": {
+      "path": "data/design/island_ecology_submission_metadata_template.json",
+      "sha256": "322b1235415023c5f43639e630a29b92cc61cde3b5793d8c0e6ccdcc540b168d",
+      "size_bytes": 5483
+    },
+    "evolution_confirmatory_design": {
+      "path": "data/design/chapter2_1005_confirmatory_replication_20261006.json",
+      "sha256": "0ea4cc4129b2ee97a1ed1ffb2295348e0628cf0f0a1b0d0694a3b78befb4f9d0",
+      "size_bytes": 5231
+    },
+    "evolution_confirmatory_result": {
+      "path": "data/results/chapter2_1005_confirmatory_replication_20261006.json",
+      "sha256": "13e5edeb5876208a509f94b79357f8ef400faf80fc2682b12ae42be1cad91609",
+      "size_bytes": 6827
+    },
+    "evolution_assurance_generality_design": {
+      "path": "data/design/chapter2_assurance_generality_20261006.json",
+      "sha256": "c050c94eb385a9ab6beb48388f5ec96177c0540e22da53924b02eca19b824119",
+      "size_bytes": 5149
+    },
+    "evolution_assurance_generality_result": {
+      "path": "data/results/chapter2_assurance_generality_20261006.json",
+      "sha256": "c0f21756ebc7b49bc41ed5196915a05e15a7c1f688c622714e22ad2407f77f6e",
+      "size_bytes": 6073
+    },
+    "demography_orthogonal_result": {
+      "path": "results/chapter2/orthogonal_capacity_full_readout_20261009.json",
+      "sha256": "e52d92a4586b92ca0aa3e93b560b2d603d63a9e9ee0b7fa61432a5b7f734d69c",
+      "size_bytes": 2679
+    },
+    "demography_orthogonal_design": {
+      "path": "data/design/chapter2_orthogonal_founder_capacity_20261009.json",
+      "sha256": "2317d54031b6b278efb4e625d7893f58053ec4259f82e62fd912c9130c492ee1",
+      "size_bytes": 8447
+    },
+    "demography_orthogonal_source_note": {
+      "path": "docs/CHAPTER2_ORTHOGONAL_CAPACITY_INDEPENDENT_RESULT_20261009.md",
+      "sha256": "530cd9c13b4bee9016de87d9df3bac23412d79d623e3876605e329b7e76966c0",
+      "size_bytes": 8855
+    },
+    "demography_kb_result": {
+      "path": "results/chapter2/kb_independent_full_readout_20261009.json",
+      "sha256": "74df9619590023ee7416035ea31068b541e08dd731b603e879a27c26ccd35ed9",
+      "size_bytes": 2604
+    },
+    "demography_kb_design": {
+      "path": "data/design/chapter2_kb_decoupled_20261009.json",
+      "sha256": "7cd70f808b67b5ba3595b45e3c45b146dda0b6261c2d2bf1d183d27cfe09688e",
+      "size_bytes": 6219
+    },
+    "demography_kb_source_note": {
+      "path": "docs/CHAPTER2_KB_INDEPENDENT_FULL_RESULT_20261009.md",
+      "sha256": "732e7fc4f51497aef6af46a12eb82b7810a2092816665abb1700265e1ca4d825",
+      "size_bytes": 8329
+    },
+    "demography_fixed_b48_result": {
+      "path": "results/chapter2/k_fixedB48_independent_primary_20261009.json",
+      "sha256": "a6f3aad995b561ef4613301857a4e92e24d2d2138d2c66d59a7a28e1bd902023",
+      "size_bytes": 1336
+    },
+    "demography_fixed_b48_design": {
+      "path": "data/design/chapter2_k_fixedB48_independent_20261009.json",
+      "sha256": "64188a5c13a8681eb96c2237ab1c43c2f7b7f88910c230bcdb47bc81d3826672",
+      "size_bytes": 6254
+    },
+    "demography_fixed_b48_source_note": {
+      "path": "docs/CHAPTER2_INDEPENDENT_RAW_ARCHIVES_20261009.md",
+      "sha256": "5f1b0a9eee74d6ea7bdf1bc6e212c04d0e4d55d3c789a83831d720fe80c6a0cd",
+      "size_bytes": 14539
+    },
+    "demography_timed_result": {
+      "path": "results/chapter2/timed_self_viability_independent_readout_20261009.json",
+      "sha256": "42d90c17cef4be1643b987428d3a6367ba09dee6594055ae2d2b693ccb190a01",
+      "size_bytes": 2352
+    },
+    "demography_timed_design": {
+      "path": "data/design/chapter2_timed_self_viability_20261009.json",
+      "sha256": "554a7215b9c59c56aac619b3581875c6d1743fc691d83158841d113faacaba82",
+      "size_bytes": 6692
+    },
+    "demography_timed_source_note": {
+      "path": "docs/CHAPTER2_TIMED_SELF_VIABILITY_INDEPENDENT_RESULT_20261010.md",
+      "sha256": "5c4fee2d6b85b95a05528d98bd567d50b89178f03afb349d58dc1fb9b897d26e",
+      "size_bytes": 7944
+    },
+    "tempo_official_readout_gzip": {
+      "path": "data/results/chapter2_sequence_abrupt_gradual_functional_loss_20261011.json.gz",
+      "sha256": "f6056b3e0d96e0d8f610d7c0ed0eccb3ed789f5fa88e69e40e4e70671a3cd7bc",
+      "size_bytes": 359539
+    },
+    "tempo_original_independent_audit_gzip": {
+      "path": "data/results/chapter2_sequence_abrupt_gradual_independent_audit_20261011.json.gz",
+      "sha256": "78cff6dea77baaf97000320cf5b7a98084bbc189d5a8d684ade6b0efd4be4211",
+      "size_bytes": 118454
+    },
+    "demography_fixed_b48_recovered_original_manifest": {
+      "path": "data/submission/chapter2_archive_manifest_recovery_20261011/fixedB48-original-artifacts-manifest.json.gz",
+      "sha256": "e30b267bceedcaa572bf711691377ce2d525ac7c77dfe27342df7449e90d0fb2",
+      "size_bytes": 10389,
+      "decompressed_sha256": "b9702f07e9374bdb038dfdaffb36d88a8c4f44945ebb102b7910eab92a7b944b",
+      "decompressed_size_bytes": 74952,
+      "gzip_mtime": 0
+    },
+    "demography_timed_recovered_original_manifest": {
+      "path": "data/submission/chapter2_archive_manifest_recovery_20261011/timed-raw-130-manifest.json.gz",
+      "sha256": "d251f07a53ec400bdf7208bf415d7cd65b47b878deed30ab2aa7f58d778df9ac",
+      "size_bytes": 9645,
+      "decompressed_sha256": "ade98a9e3916f8d92b4cdc6b3a724fae811fb0696fdbc4bccf6290f0e51586a6",
+      "decompressed_size_bytes": 62890,
+      "gzip_mtime": 0
+    },
+    "demography_manifest_recovery_receipt": {
+      "path": "data/submission/chapter2_archive_manifest_recovery_20261011/recovery_receipt.json",
+      "sha256": "1aeafe5d097a503447517f0bc31372cb3f145e86b92b78c189b2a74f5d268718",
+      "size_bytes": 5553
+    }
+  },
+  "issue_requirement_snapshot": {
+    "url": "https://github.com/zuizui0223/izu-core/issues/436",
+    "state_when_read": "open",
+    "observation_date_utc": "2026-10-11",
+    "basis": "Previously read through the GitHub connector; no new external request made for this readiness record.",
+    "scope": "Four older independent 64-history cohorts; all 521 original Actions ZIP bytes.",
+    "closure_requires": [
+      "Durable versioned repository outside GitHub with appropriate license, disclosure/access review and persistent identifier or DOI.",
+      "Complete independent external retrieval, all original ZIP SHA256 comparisons, and each cohort source/pedigree/future/admission audits.",
+      "Verified deposit version, checksum receipt, identifier, access statement and license linked from the manuscript and REPRODUCE.md.",
+      "Keep original Actions artifacts and draft Releases until external deposition and independent verification are complete."
+    ]
+  },
+  "source_groups": {
+    "evolution_two_campaigns": {
+      "original_actions_zip_count": 50,
+      "campaign_count": 2,
+      "sum_recorded_zip_size_bytes": 518129082,
+      "evidence_level": "Existing per-artifact GitHub metadata inventory; no raw byte retrieval or bundle receipt verified in this preparation.",
+      "manifest_source_main_sha": "982e55e80e4ca1e880edf089c3a06ce6bebce61f",
+      "original_manifest_date": "2026-10-06",
+      "historical_manuscript_preserved_in_original_manifest": "docs/CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md",
+      "existing_builder_reference": "scripts/build_chapter2_public_archive.py",
+      "documented_bundle_path": "outputs/chapter2_public_archive/chapter2_public_archive_20261006.zip",
+      "documented_bundle_path_is_not_a_verified_available_copy": true,
+      "verified_existing_bundle_sha256": null,
+      "next_source_step": "Locate any existing original bundle/receipt and authenticate it, or recover original artifact ZIPs by the recorded IDs; do not assume a documented output path proves preservation and do not relabel historical contents as the active manuscript.",
+      "campaigns": [
+        {
+          "id": "confirmatory",
+          "workflow_run_id": 37390991122,
+          "workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/37390991122",
+          "declared_trajectory_cases": 4096,
+          "expected_shards": 16,
+          "original_actions_zip_count": 17,
+          "sum_recorded_zip_size_bytes": 140194174,
+          "artifact_inventory_reference": "evolution_actions_manifest",
+          "artifact_inventory_json_pointer": "/campaigns/confirmatory/artifacts",
+          "recorded_expiry_range_utc": {
+            "earliest": "2026-11-04T23:54:31Z",
+            "latest": "2027-01-03T23:52:59Z"
+          },
+          "design_reference": "evolution_confirmatory_design",
+          "complete_result_reference": "evolution_confirmatory_result",
+          "raw_bytes_retrieved_or_rehashed_for_this_record": false
+        },
+        {
+          "id": "assurance_generality",
+          "workflow_run_id": 37458098483,
+          "workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/37458098483",
+          "declared_trajectory_cases": 8448,
+          "expected_shards": 32,
+          "original_actions_zip_count": 33,
+          "sum_recorded_zip_size_bytes": 377934908,
+          "artifact_inventory_reference": "evolution_actions_manifest",
+          "artifact_inventory_json_pointer": "/campaigns/assurance_generality/artifacts",
+          "recorded_expiry_range_utc": {
+            "earliest": "2026-11-05T11:43:09Z",
+            "latest": "2027-01-04T11:41:39Z"
+          },
+          "design_reference": "evolution_assurance_generality_design",
+          "complete_result_reference": "evolution_assurance_generality_result",
+          "raw_bytes_retrieved_or_rehashed_for_this_record": false
+        }
+      ]
+    },
+    "demography_four_independent_cohorts": {
+      "issue_number": 436,
+      "cohort_count": 4,
+      "original_actions_zip_count": 521,
+      "existing_tar_count": 4,
+      "existing_tar_size_bytes_total": 904325120,
+      "local_per_zip_metadata_count": 521,
+      "local_metadata_snapshot_is_raw_preservation_proof": false,
+      "snapshot_date_utc": "2026-10-09",
+      "snapshot_workflow_run_count": 4,
+      "snapshot_independent_cohorts_covered": 3,
+      "snapshot_recorded_zip_bytes": 677782795,
+      "remaining_per_zip_records_to_recover_from_existing_release_manifests": 0,
+      "coverage_gap_explanation": "The unchanged original snapshot supplies 390 records. Two exact recovered preservation manifests supply the corrected fixed-B48 record and 130 timed records; all 130 overlapping fixed-B48 records match fieldwise. Current combined coverage is 521 distinct original artifact IDs, with no remaining per-ZIP metadata gap.",
+      "preservation_evidence_reference": "raw_preservation_ledger",
+      "cohorts": [
+        {
+          "id": "orthogonal",
+          "label": "Matched-founder orthogonal capacity cohort",
+          "original_source_and_future_workflow_run_ids": [
+            37887039116,
+            37887290489
+          ],
+          "source_commits_explicitly_recorded_in_referenced_notes": {
+            "37887039116": "c581d20313326b40233b438ca78fa1c55923b14c"
+          },
+          "source_commit_map_is_complete": false,
+          "design_reference": "demography_orthogonal_design",
+          "result_reference": "demography_orthogonal_result",
+          "source_note_reference": "demography_orthogonal_source_note",
+          "independent_visitor_histories": 64,
+          "complete_diploid_t400_sources": 2048,
+          "future_trajectories": 172032,
+          "original_primary_verdict": "inconclusive",
+          "contained_original_actions_zip_count": 130,
+          "local_per_zip_metadata_reference": "demography_actions_snapshot",
+          "local_per_zip_metadata_json_pointers": [
+            "/campaigns/0/artifacts",
+            "/campaigns/1/artifacts"
+          ],
+          "local_per_zip_metadata_count": 130,
+          "per_zip_records_to_recover_from_existing_release_manifests": 0,
+          "existing_package": {
+            "provider": "GitHub",
+            "draft_release_tag": "chapter2-orthogonal-raw-20261009-v1",
+            "filename": "chapter2-orthogonal-130-original-shard-artifacts.tar",
+            "size_bytes": 227543040,
+            "sha256": "03e1292511219ea4ee64499d35ac0e5a5f824f1ee0fd420ecd7ca97f4f9ebf65",
+            "checksum_basis": "Prior completed preservation and independent GitHub draft-release retrieval, as recorded in raw_preservation_ledger.",
+            "preservation_workflow_run_id": 37906844144,
+            "preservation_workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/37906844144",
+            "preservation_status_in_source_record": "completed_success",
+            "publication_status_in_source_record": "unpublished_draft",
+            "retrieved_or_rehashed_for_this_readiness_record": false,
+            "external_scientific_deposit_verified": false,
+            "release_id_observed": 407725260,
+            "tar_asset_id_observed": 624411193,
+            "current_release_metadata_matches_recorded_tar_identity": true
+          },
+          "existing_release_manifest": {
+            "filename": "orthogonal-raw-130-manifest.json",
+            "sha256": "f58b222fdd9b8720a86140d6bca83b160655bdfb12e44d078de4ac60484e3df2",
+            "size_bytes": 63607,
+            "release_asset_id": 624411190,
+            "asset_api_url": "https://api.github.com/repos/zuizui0223/izu-core/releases/assets/624411190",
+            "local_copy_verified_for_this_record": false
+          },
+          "existing_release_receipt": {
+            "filename": "orthogonal-archive-receipt.json",
+            "sha256": "653fe0953f7585d5642343d41704b5c3bee299619d1f20d8a1a5f0ba8c52c8ca",
+            "size_bytes": 365,
+            "release_asset_id": 624411195,
+            "asset_api_url": "https://api.github.com/repos/zuizui0223/izu-core/releases/assets/624411195",
+            "local_copy_verified_for_this_record": false
+          },
+          "original_snapshot_per_zip_metadata_count": 130,
+          "new_per_zip_metadata_records_recovered": 0
+        },
+        {
+          "id": "kb",
+          "label": "Independent demographic K by pollen-background B cohort",
+          "original_source_and_future_workflow_run_ids": [
+            37893126472
+          ],
+          "source_commits_explicitly_recorded_in_referenced_notes": {
+            "37893126472": "6d04dca9354b3a2b600d26134f86117d225f4708"
+          },
+          "source_commit_map_is_complete": true,
+          "design_reference": "demography_kb_design",
+          "result_reference": "demography_kb_result",
+          "source_note_reference": "demography_kb_source_note",
+          "independent_visitor_histories": 64,
+          "complete_diploid_t400_sources": 2048,
+          "future_trajectories": 229376,
+          "original_primary_verdict": "inconclusive",
+          "contained_original_actions_zip_count": 130,
+          "local_per_zip_metadata_reference": "demography_actions_snapshot",
+          "local_per_zip_metadata_json_pointers": [
+            "/campaigns/2/artifacts"
+          ],
+          "local_per_zip_metadata_count": 130,
+          "per_zip_records_to_recover_from_existing_release_manifests": 0,
+          "existing_package": {
+            "provider": "GitHub",
+            "draft_release_tag": "chapter2-kb-raw-20261009-v1",
+            "filename": "chapter2-kb-130-original-shard-artifacts.tar",
+            "size_bytes": 226304000,
+            "sha256": "7d367a9e4a9f4f60f25dbee2ccabc84ef0969f5d9b0096c7df07380314dcfff9",
+            "checksum_basis": "Prior completed preservation and independent GitHub draft-release retrieval, as recorded in raw_preservation_ledger.",
+            "preservation_workflow_run_id": 37906844144,
+            "preservation_workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/37906844144",
+            "preservation_status_in_source_record": "completed_success",
+            "publication_status_in_source_record": "unpublished_draft",
+            "retrieved_or_rehashed_for_this_readiness_record": false,
+            "external_scientific_deposit_verified": false,
+            "release_id_observed": 407724738,
+            "tar_asset_id_observed": 624409583,
+            "current_release_metadata_matches_recorded_tar_identity": true
+          },
+          "existing_release_manifest": {
+            "filename": "kb-raw-130-manifest.json",
+            "sha256": "6c0f758c544d5c42a6e9ebab7526a191957341ed8d362ddbe0d51fac2d1eb97e",
+            "size_bytes": 62475,
+            "release_asset_id": 624409581,
+            "asset_api_url": "https://api.github.com/repos/zuizui0223/izu-core/releases/assets/624409581",
+            "local_copy_verified_for_this_record": false
+          },
+          "existing_release_receipt": {
+            "filename": "kb-archive-receipt.json",
+            "sha256": "005b2b5e6c87c9865a2ecbf9bc8ade1a7d4fb665ed1a6f53e3475766e99ccd2b",
+            "size_bytes": 349,
+            "release_asset_id": 624409590,
+            "asset_api_url": "https://api.github.com/repos/zuizui0223/izu-core/releases/assets/624409590",
+            "local_copy_verified_for_this_record": false
+          },
+          "original_snapshot_per_zip_metadata_count": 130,
+          "new_per_zip_metadata_records_recovered": 0
+        },
+        {
+          "id": "fixed_b48",
+          "label": "Independent fixed-B48 demographic K confirmation",
+          "original_source_and_future_workflow_run_ids": [
+            37896872795
+          ],
+          "source_commits_explicitly_recorded_in_referenced_notes": {},
+          "source_commit_map_is_complete": true,
+          "design_reference": "demography_fixed_b48_design",
+          "result_reference": "demography_fixed_b48_result",
+          "source_note_reference": "demography_fixed_b48_source_note",
+          "independent_visitor_histories": 64,
+          "complete_diploid_t400_sources": 2048,
+          "future_trajectories": 114688,
+          "original_primary_verdict": "supported_controlled_demographic_K_moderation_at_fixed_B48",
+          "contained_original_actions_zip_count": 131,
+          "local_per_zip_metadata_reference": "demography_fixed_b48_recovered_original_manifest",
+          "local_per_zip_metadata_json_pointers": [
+            "/original_artifacts"
+          ],
+          "local_per_zip_metadata_count": 131,
+          "per_zip_records_to_recover_from_existing_release_manifests": 0,
+          "existing_package": {
+            "provider": "GitHub",
+            "draft_release_tag": "chapter2-fixedB48-raw-20261009-v1",
+            "filename": "chapter2-fixedB48-all-original-131-artifacts.tar",
+            "size_bytes": 224860160,
+            "sha256": "3e522fc9d8da904ed70cc2213bc3b08816761c4e44a4badc72e0c87ba04bd42c",
+            "checksum_basis": "Prior completed preservation and independent GitHub draft-release retrieval, as recorded in raw_preservation_ledger.",
+            "preservation_workflow_run_id": 37906236862,
+            "preservation_workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/37906236862",
+            "preservation_status_in_source_record": "completed_success",
+            "publication_status_in_source_record": "unpublished_draft",
+            "retrieved_or_rehashed_for_this_readiness_record": false,
+            "external_scientific_deposit_verified": false,
+            "release_id_observed": 407720483,
+            "tar_asset_id_observed": 624397850,
+            "current_release_metadata_matches_recorded_tar_identity": true
+          },
+          "corrected_readout_workflow_run_id": 37900150213,
+          "extra_original_zip_reason": "One source-preserving corrected readout ZIP beyond the 130 records in the original metadata snapshot.",
+          "existing_release_manifest": {
+            "filename": "fixedB48-original-artifacts-manifest.json",
+            "sha256": "b9702f07e9374bdb038dfdaffb36d88a8c4f44945ebb102b7910eab92a7b944b",
+            "size_bytes": 74952,
+            "release_asset_id": 624397843,
+            "asset_api_url": "https://api.github.com/repos/zuizui0223/izu-core/releases/assets/624397843",
+            "local_copy_verified_for_this_record": true,
+            "preserved_exact_bytes_reference": "demography_fixed_b48_recovered_original_manifest"
+          },
+          "existing_release_receipt": {
+            "filename": "fixedB48-archive-receipt.json",
+            "sha256": "f075d23b115862ea8c966b7a191f311e28f34eb30aa7dc812d9a8dbacc116bd4",
+            "size_bytes": 354,
+            "release_asset_id": 624397845,
+            "asset_api_url": "https://api.github.com/repos/zuizui0223/izu-core/releases/assets/624397845",
+            "local_copy_verified_for_this_record": true,
+            "recovery_receipt_reference": "demography_manifest_recovery_receipt"
+          },
+          "original_snapshot_per_zip_metadata_count": 130,
+          "new_per_zip_metadata_records_recovered": 1,
+          "metadata_recovery_source_actions_artifact_id": 11604921559,
+          "source_commits_recorded_in_recovered_manifest": {
+            "37896872795": "2737736f1dca36c8b43e9ac6a9fbd862ca21165b",
+            "37900150213": "592cdad7fa0442a26fd5e79a2fd94812d4515c5d"
+          }
+        },
+        {
+          "id": "timed",
+          "label": "Independent early-versus-late selfed-seed viability cohort",
+          "original_source_and_future_workflow_run_ids": [
+            37944527799
+          ],
+          "source_commits_explicitly_recorded_in_referenced_notes": {
+            "37944527799": "e679e0ee190fa02e0a9d60876cd1a3e9987a4c79"
+          },
+          "source_commit_map_is_complete": true,
+          "design_reference": "demography_timed_design",
+          "result_reference": "demography_timed_result",
+          "source_note_reference": "demography_timed_source_note",
+          "independent_visitor_histories": 64,
+          "complete_diploid_t400_sources": 2048,
+          "future_trajectories": 229376,
+          "original_primary_verdict": "inconclusive",
+          "contained_original_actions_zip_count": 130,
+          "local_per_zip_metadata_reference": "demography_timed_recovered_original_manifest",
+          "local_per_zip_metadata_json_pointers": [
+            "/individual_original_artifacts"
+          ],
+          "local_per_zip_metadata_count": 130,
+          "per_zip_records_to_recover_from_existing_release_manifests": 0,
+          "existing_package": {
+            "provider": "GitHub",
+            "draft_release_tag": "chapter2-timed-self-raw-20261009-v1",
+            "filename": "chapter2-timed-130-original-shard-artifacts.tar",
+            "size_bytes": 225617920,
+            "sha256": "b5ab3a99eeaf36da399290508a64fa022cacc734aa1d794cab3b8443707309aa",
+            "checksum_basis": "Prior completed preservation and independent GitHub draft-release retrieval, as recorded in raw_preservation_ledger.",
+            "preservation_workflow_run_id": 37953047322,
+            "preservation_workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/37953047322",
+            "preservation_status_in_source_record": "completed_success",
+            "publication_status_in_source_record": "unpublished_draft",
+            "retrieved_or_rehashed_for_this_readiness_record": false,
+            "external_scientific_deposit_verified": false,
+            "release_id_observed": 408060663,
+            "tar_asset_id_observed": 625388994,
+            "current_release_metadata_matches_recorded_tar_identity": true
+          },
+          "existing_release_manifest": {
+            "filename": "timed-raw-130-manifest.json",
+            "sha256": "ade98a9e3916f8d92b4cdc6b3a724fae811fb0696fdbc4bccf6290f0e51586a6",
+            "size_bytes": 62890,
+            "release_asset_id": 625388987,
+            "asset_api_url": "https://api.github.com/repos/zuizui0223/izu-core/releases/assets/625388987",
+            "local_copy_verified_for_this_record": true,
+            "preserved_exact_bytes_reference": "demography_timed_recovered_original_manifest"
+          },
+          "existing_release_receipt": {
+            "filename": "timed-archive-receipt.json",
+            "sha256": "afb608de807d9e0eb0d8e3c5c30beba10be97f0b06817cdb2e337a675d4b1143",
+            "size_bytes": 360,
+            "release_asset_id": 625388990,
+            "asset_api_url": "https://api.github.com/repos/zuizui0223/izu-core/releases/assets/625388990",
+            "local_copy_verified_for_this_record": true,
+            "recovery_receipt_reference": "demography_manifest_recovery_receipt"
+          },
+          "original_snapshot_per_zip_metadata_count": 0,
+          "new_per_zip_metadata_records_recovered": 130,
+          "metadata_recovery_source_actions_artifact_id": 11626049740
+        }
+      ],
+      "original_snapshot_per_zip_metadata_count": 390,
+      "recovered_missing_per_zip_record_count": 131,
+      "combined_recorded_original_zip_size_bytes": 903095464,
+      "recovery_receipt_reference": "demography_manifest_recovery_receipt",
+      "metadata_recovery_is_raw_byte_or_external_deposit_verification": false
+    },
+    "tempo_local_cohort": {
+      "original_actions_zip_count": 0,
+      "local_archive_count": 1,
+      "executor_kind": "local_committed_main",
+      "cohort_github_actions_run_id": null,
+      "draft_release_tag": null,
+      "execution_source_commit": "dba65f11a4ee7295ae32b623ea1103cc8a25c1b5",
+      "execution_source_tree": "1bf4ce5d291d966631b1497cc19d6f2a5d058c78",
+      "sampling": {
+        "cases_per_schedule_per_setting": 64,
+        "censuses_including_founders": 410624,
+        "natural_islands": 0,
+        "nested_demographic_repeats_per_profile": 4,
+        "schedules_per_setting": 2,
+        "setting_blocks": 8,
+        "synthetic_profiles": 16,
+        "total_cases": 1024,
+        "updates_per_case": 400
+      },
+      "admission_receipt_reference": "tempo_admission_receipt",
+      "original_execution_receipt_reference": "tempo_original_execution_receipt",
+      "fresh_verification_reference": "tempo_fresh_verification",
+      "existing_package": {
+        "filename": "izu_core_functional_loss_tempo_full_20261011.zip",
+        "size_bytes": 268940123,
+        "sha256": "034e735d244228c1f4974897a76d16acef10767a81d5dd82f5f5204f48cf0738",
+        "preservation": "private_saved_user_artifact",
+        "member_count_including_inventory": 2099,
+        "inventory_sha256": "2f5e09d18126d0a16fca93a13364f6c711c6c64a0b1b27c4e4f113acb176bd70",
+        "original_case_json_count": 1024,
+        "original_case_receipt_count": 1024,
+        "original_shard_manifest_count": 16,
+        "original_raw_json_total_bytes": 3109296360,
+        "prior_saved_copy_retrieval_verified_at_utc": "2026-10-11T05:53:49.549570+00:00",
+        "prior_saved_copy_retrieval_status": "PASS_SAVED_ARTIFACT_RETRIEVAL_SHA256_AND_SIZE_MATCH",
+        "existing_saved_identifier_value": null,
+        "saved_identifier_note": "The receipt records retrieval by exact saved identifier, but does not expose the identifier itself. Obtain the existing saved artifact through its established context; do not invent a GitHub artifact ID or release tag.",
+        "retrieved_or_rehashed_for_this_readiness_record": false,
+        "external_scientific_deposit_verified": false,
+        "doi": null
+      },
+      "prior_fresh_local_validation": {
+        "completed_at_utc": "2026-10-11T05:57:59.775179+00:00",
+        "cases": 1024,
+        "genotype_censuses": 410624,
+        "setting_outcome_combinations": 128,
+        "all_case_inputs_sha256": "61d843407819cfe8d11862b50609e03f639703a3eafee2f9afd7cd4c88e5d40b",
+        "maximum_absolute_setting_scalar_difference": 0.0,
+        "fresh_external_download_performed": false,
+        "repeated_for_this_readiness_record": false
+      },
+      "independent_audit_scope": {
+        "recomputed_setting_outcome_combinations": 128,
+        "official_secondary_fields_per_setting": 156,
+        "recomputed_secondary_fields": 0,
+        "evolutionary_replay": false,
+        "interpretation": "Descriptive model-specific visitor-tempo result; saturated occupancy, no identified persistence benefit and no practical-equivalence claim."
+      }
+    }
+  },
+  "counting_policy": [
+    "Keep the 50 evolution Actions ZIPs, 521 demographic Actions ZIPs, and one locally generated tempo ZIP as three distinct inventory groups.",
+    "The four demographic tar files contain the existing 521 original ZIPs; do not count outer containers as additional independent datasets.",
+    "Do not treat a workflow run count as an independent-cohort count, or pool different cohorts, history units or bootstrap intervals.",
+    "Do not include tempo in the 521 Actions ZIP count or invent a workflow run, release tag, artifact inventory or DOI for it."
+  ],
+  "verification_gates": [
+    {
+      "id": "local_reference_integrity",
+      "status": "completed_for_this_preparation",
+      "requirement": "Rehash all 32 referenced repository files, parse source metadata and check local counts, unique artifact IDs, digest formats, frozen evolution design hashes, tempo receipt/gzip identity links, and exact recovered manifest gzip/decompressed identities."
+    },
+    {
+      "id": "complete_original_per_zip_inventory",
+      "status": "completed_by_exact_small_manifest_recovery",
+      "requirement": "Exact fixed-B48 and timed original manifests recovered from existing small Actions receipt ZIPs, their bytes matched independent draft-release metadata, 130 fixed-B48 overlaps matched across 1,170 field comparisons, and current metadata covers 521 distinct original demographic artifact IDs. The separate original evolution manifest still supplies 50 IDs. This completes metadata inventory coverage only."
+    },
+    {
+      "id": "original_package_availability_and_authentication",
+      "status": "not_rechecked_here",
+      "requirement": "Locate and authenticate existing original packages and receipts. Match all four recorded tar checksums and the tempo ZIP checksum; verify original ZIP-member checksums and completeness. Resolve the evolution bundle/copy availability from evidence, not its documented output path."
+    },
+    {
+      "id": "external_repository_metadata_and_access",
+      "status": "pending_user_supplied_facts_and_account_capability",
+      "requirement": "Establish the actual independent repository/account and usable deposition capability, creator records, data/code licenses, disclosure/access decisions and intended record/version. Keep unknown values null until established."
+    },
+    {
+      "id": "external_transfer_and_retrieval",
+      "status": "not_performed",
+      "requirement": "Use original existing packages. After a real authorized transfer, independently retrieve the complete external version, compare container and all original per-ZIP hashes, verify archive CRC/member counts and record a separate external recovery receipt."
+    },
+    {
+      "id": "source_and_scientific_admission_after_recovery",
+      "status": "pending_external_retrieval",
+      "requirement": "Run existing read-only source/pedigree/future/admission audits at each original source commit against externally recovered bytes. Recheck tempo genome-derived endpoints with its retained checker and frozen source/design. Do not rerun stochastic biology or claim independent recomputation of tempo secondary aggregates."
+    },
+    {
+      "id": "public_identifier_and_manuscript_linkage",
+      "status": "pending_verified_deposit",
+      "requirement": "Record only an actually issued and verified repository identifier/DOI, immutable version URL, license, access route and checksums. Update the ONE active manuscript and REPRODUCE.md, then assess all #436 closure requirements. Preserve historical records and original provider copies."
+    }
+  ],
+  "external_deposit_metadata": {
+    "repository_name": null,
+    "repository_record_id": null,
+    "repository_account": null,
+    "authenticated_upload_capability_verified": false,
+    "creators": null,
+    "data_license": null,
+    "code_license": null,
+    "disclosure_and_access_review_complete": false,
+    "version_identifier": null,
+    "persistent_url": null,
+    "doi": null,
+    "public_access_verified": false,
+    "legacy_oikos_dryad_template_adopted_for_active_el_deposit": false
+  },
+  "capability_and_evidence_limits": [
+    "This preparation read repository files, previously retrieved issue requirements and current draft-release metadata; it downloaded only two existing small Actions preservation-receipt ZIPs and preserved their exact manifest bytes. No scientific raw cohort ZIP/tar was created, copied or downloaded; no external mutation occurred.",
+    "GitHub connector read access and existing Actions receipt-artifact download capability were usable; this does not establish an external scientific repository account or upload/publication permission.",
+    "No dedicated Zenodo, Dryad or Figshare tool was exposed in the inspected catalog; no alternative authenticated external deposition path has been verified.",
+    "Original API expiration and expired flags remain historical snapshot values. Evolution shard expiry records start on 2026-11-04/05, earlier than demographic records.",
+    "The unchanged original demographic snapshot contains 390 metadata records. Exact recovered fixed-B48/timed manifests now complete local coverage of 521 distinct artifact IDs; this is not fresh raw-byte or external-deposit verification.",
+    "The old Oikos metadata template is not an authoritative creator, license, account or journal-submission declaration for the current EL paper.",
+    "This provenance record contains repository identifiers and is not a blinded reviewer supplement. Anonymous derivatives remain separate from unchanged original scientific evidence."
+  ],
+  "github_draft_release_metadata_recheck": {
+    "observed_at_utc": "2026-10-11T08:09:45.015781+00:00",
+    "source_api_url": "https://api.github.com/repos/zuizui0223/izu-core/releases?per_page=100",
+    "operation": "read_only_GitHub_connector_GET",
+    "relevant_draft_release_count": 4,
+    "relevant_release_asset_count": 12,
+    "all_four_draft_flags_true": true,
+    "all_four_published_at_values_null": true,
+    "all_four_tar_metadata_size_and_digest_match_existing_ledger": true,
+    "raw_package_bytes_retrieved": false,
+    "manifest_or_receipt_bytes_retrieved": true,
+    "missing_manifest_asset_count": 2,
+    "missing_manifest_asset_size_bytes_total": 137842,
+    "fixed_b48_manifest_asset_id": 624397843,
+    "timed_manifest_asset_id": 625388987,
+    "small_manifest_browser_download_result": "Direct browser URLs for the two private draft manifests returned HTTP 404 through the connector. The existing dedicated Actions artifact-download connector then recovered both exact manifests and receipts through their small preservation-receipt ZIPs; no raw cohort archive was fetched.",
+    "local_manifest_search": "Initial search found no matching preservation manifests in either scratch tree; exact original manifest bytes were subsequently recovered from existing small Actions receipt ZIPs and preserved as deterministic gzip in this repository.",
+    "local_manifest_search_is_global_absence_proof": false,
+    "potential_authenticated_ci_recovery": {
+      "executed": false,
+      "requires": "An existing authorized GitHub authentication context with read access to these draft-release assets; verify exact bytes before admission.",
+      "asset_api_urls": [
+        "https://api.github.com/repos/zuizui0223/izu-core/releases/assets/624397843",
+        "https://api.github.com/repos/zuizui0223/izu-core/releases/assets/625388987"
+      ],
+      "accept_header": "application/octet-stream",
+      "expected_combined_manifest_bytes": 137842,
+      "raw_tar_download_required_for_metadata_recovery": false,
+      "admission_requirement": "First verify both downloaded manifest byte sizes and SHA256 against the observed asset metadata, then parse the 131 fixed-B48 and 130 timed original-artifact entries and reconcile IDs and digests with the unchanged 390-record snapshot. This is metadata recovery, not raw-byte or external-deposit verification.",
+      "remaining_prerequisite_for_this_metadata_gap": false,
+      "note": "Alternative direct Release API path was not executed. Existing Actions receipt-package recovery has already completed the local per-ZIP metadata gap; no new workflow is needed."
+    },
+    "direct_release_asset_bytes_retrieved": false,
+    "manifest_and_receipt_bytes_recovered_through_actions_receipt_packages": true
+  },
+  "small_preservation_record_recovery": {
+    "status": "PASS_EXACT_SMALL_MANIFEST_RECOVERY_AND_521_ID_RECONCILIATION",
+    "completed_at_utc": "2026-10-11T08:12:26.956451+00:00",
+    "recovery_receipt_reference": "demography_manifest_recovery_receipt",
+    "downloaded_preservation_receipt_zip_count": 2,
+    "downloaded_preservation_receipt_zip_size_bytes_total": 21961,
+    "recovered_manifest_count": 2,
+    "recovered_manifest_original_size_bytes_total": 137842,
+    "recovered_manifest_record_counts": [
+      131,
+      130
+    ],
+    "overlap_records": 130,
+    "overlap_scalar_comparisons": 1170,
+    "overlap_mismatch_count": 0,
+    "combined_distinct_demographic_artifact_ids": 521,
+    "remaining_per_zip_metadata_gap": 0,
+    "new_raw_archive_created": false,
+    "raw_cohort_archive_downloaded": false,
+    "external_deposit_complete": false
+  }
+}

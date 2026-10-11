@@ -1,0 +1,116 @@
+{
+  "schema": "chapter2_original_archive_manifest_recovery_v1",
+  "status": "PASS_EXACT_SMALL_MANIFEST_RECOVERY_AND_521_ID_RECONCILIATION",
+  "completed_at_utc": "2026-10-11T08:12:26.956451+00:00",
+  "recovery_scope": "Two existing small Actions preservation-receipt ZIPs only; no original cohort ZIP or raw tar downloaded.",
+  "raw_archive_downloaded_copied_or_created": false,
+  "biological_simulation_executed": false,
+  "external_services_mutated": false,
+  "external_deposit_complete": false,
+  "source_snapshot": {
+    "path": "data/design/chapter2_raw_actions_artifact_inventory_20261009.json",
+    "size_bytes": 151845,
+    "sha256": "830000486854069443d6d8786be89bccc283442939a4838c0d3fdea2572c553a",
+    "unchanged": true,
+    "record_count": 390
+  },
+  "recovered_sources": [
+    {
+      "cohort": "fixed_b48",
+      "workflow_run_id": 37906236862,
+      "source_actions_artifact_id": 11604921559,
+      "source_actions_zip_size_bytes": 11406,
+      "source_actions_zip_sha256": "4e84546cd7bd75ef4e67d926fa5273d97f340453bc141442817a2a0dc56fc8b0",
+      "source_actions_zip_crc_all_members_pass": true,
+      "source_actions_zip_member_count": 3,
+      "original_manifest_member_path": "fixedB48-original-artifacts-manifest.json",
+      "original_manifest_size_bytes": 74952,
+      "original_manifest_sha256": "b9702f07e9374bdb038dfdaffb36d88a8c4f44945ebb102b7910eab92a7b944b",
+      "release_id": 407720483,
+      "release_manifest_asset_id": 624397843,
+      "original_manifest_identity_matches_independent_release_asset_metadata": true,
+      "gzip_path": "data/submission/chapter2_archive_manifest_recovery_20261011/fixedB48-original-artifacts-manifest.json.gz",
+      "gzip_size_bytes": 10389,
+      "gzip_sha256": "e30b267bceedcaa572bf711691377ce2d525ac7c77dfe27342df7449e90d0fb2",
+      "gzip_mtime": 0,
+      "original_record_array_key": "original_artifacts",
+      "original_record_count": 131,
+      "original_preservation_receipt": {
+        "member_path": "fixedB48-archive-receipt.json",
+        "size_bytes": 354,
+        "sha256": "f075d23b115862ea8c966b7a191f311e28f34eb30aa7dc812d9a8dbacc116bd4",
+        "status": "READY_FOR_DRAFT_RELEASE_UPLOAD_VERIFIED_SOURCE_ARCHIVES"
+      }
+    },
+    {
+      "cohort": "timed",
+      "workflow_run_id": 37953047322,
+      "source_actions_artifact_id": 11626049740,
+      "source_actions_zip_size_bytes": 10555,
+      "source_actions_zip_sha256": "87ba619b2d1528b8b46e170de0034de9f37c4b4127504dbf62af0ebd756007ba",
+      "source_actions_zip_crc_all_members_pass": true,
+      "source_actions_zip_member_count": 3,
+      "original_manifest_member_path": "timed-raw-130-manifest.json",
+      "original_manifest_size_bytes": 62890,
+      "original_manifest_sha256": "ade98a9e3916f8d92b4cdc6b3a724fae811fb0696fdbc4bccf6290f0e51586a6",
+      "release_id": 408060663,
+      "release_manifest_asset_id": 625388987,
+      "original_manifest_identity_matches_independent_release_asset_metadata": true,
+      "gzip_path": "data/submission/chapter2_archive_manifest_recovery_20261011/timed-raw-130-manifest.json.gz",
+      "gzip_size_bytes": 9645,
+      "gzip_sha256": "d251f07a53ec400bdf7208bf415d7cd65b47b878deed30ab2aa7f58d778df9ac",
+      "gzip_mtime": 0,
+      "original_record_array_key": "individual_original_artifacts",
+      "original_record_count": 130,
+      "original_preservation_receipt": {
+        "member_path": "timed-archive-receipt.json",
+        "size_bytes": 360,
+        "sha256": "afb608de807d9e0eb0d8e3c5c30beba10be97f0b06817cdb2e337a675d4b1143",
+        "status": "READY_FOR_PRIVATE_DRAFT_RELEASE"
+      }
+    }
+  ],
+  "reconciliation": {
+    "snapshot_distinct_artifact_ids": 390,
+    "fixed_b48_manifest_distinct_artifact_ids": 131,
+    "timed_manifest_distinct_artifact_ids": 130,
+    "overlapping_fixed_b48_records": 130,
+    "overlap_fields_compared": [
+      "artifact_id",
+      "run_id",
+      "name",
+      "size_bytes",
+      "sha256",
+      "created_at",
+      "expires_at",
+      "downloaded_zip_bytes",
+      "downloaded_zip_sha256"
+    ],
+    "overlap_scalar_comparisons": 1170,
+    "overlap_mismatches": [],
+    "snapshot_only_expired_as_of_inventory_not_compared": "Historical snapshot flag is absent from the recovered original manifest.",
+    "additional_fixed_b48_records": [
+      {
+        "artifact_id": 11601189449,
+        "run_id": 37900150213,
+        "name": "chapter2-fixedB48-64-history-114688-confirmatory-readout-corrected",
+        "size_bytes": 1289,
+        "sha256": "43c1eedef79e1ea06f61302c5148cf23b7bfe319d5bf7d5f3b21668bb54c6035",
+        "created_at": "2026-10-09T07:39:27Z",
+        "expires_at": "2027-01-07T07:38:07Z",
+        "downloaded_zip_bytes": 1289,
+        "downloaded_zip_sha256": "43c1eedef79e1ea06f61302c5148cf23b7bfe319d5bf7d5f3b21668bb54c6035"
+      }
+    ],
+    "additional_timed_records": 130,
+    "new_distinct_records_recovered": 131,
+    "combined_distinct_original_actions_artifact_ids": 521,
+    "combined_recorded_original_zip_size_bytes": 903095464,
+    "remaining_per_zip_metadata_gap": 0
+  },
+  "limitations": [
+    "Only metadata/receipt ZIP and original manifest bytes were downloaded and verified here; the individual scientific raw ZIP bytes and the four tar containers were not re-downloaded.",
+    "The recovered original preservation receipts retain their historical pre-upload readiness status; later private-release success and present metadata do not constitute independent external deposition.",
+    "This record does not assign a DOI, creator, account, license or public-access status."
+  ]
+}
