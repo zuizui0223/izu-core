@@ -103,3 +103,25 @@ python -m scripts.summarize_chapter2_sequence_abrupt_gradual_functional_loss_202
 ```
 
 These are **execution instructions**, not a claim that 1,024 runs have already finished. No biological mean/CI is acceptable until the full source-proofed readout passes its completeness/receipt gates.
+
+
+## Pre-evolutionary source prediction: when does investment selection turn negative?
+
+A separate **source-only diagnostic** is included rather than treating first observed allele change as a selection-sign observation:
+
+- `scripts/audit_chapter2_sequence_tempo_focal_sign_clock_20261011.py` runs the ORIGINAL native `reproduce` operator on a FIXED N48 clonal X=I=A=.50 population, holding all genomes constant.
+- It calculates the full individual genetic return `W_i=.5F_i+.5P_i+S_i`, its focal investment gradient β_I and assurance gradient β_A, and the first update at which β_I becomes **negative beyond the predeclared ±.02 deadband** under the two dose-matched ecological schedules.
+- All 16 visitor profiles × delayed/prior timing × cost0/.5 are retained (**64 diagnostic cells**), while initial β_A is tested against zero through the full matching gradient.
+- A concrete independent mathematical source prediction for the first frozen profile seed48271001 is:
+
+| Fixed-source mating rule | Abrupt schedule: β_I first negative | Gradual schedule: β_I first negative | Difference |
+|---|---:|---:|---:|
+| Delayed selfing, cost0.5 | update **30** | update **45** | −15 updates |
+| Prior selfing, cost0.5 | update **30** | update **33** | −3 updates |
+
+The current independent equation-level calculation gave baseline β_I≈+0.4655 and β_A≈+0.2168 for delayed/costly, and β_I positive→negative across the replacement profiles. This source-only prediction is subject to original-code CI regression tests, not a verified ABM genetic trajectory or a causal claim about historic island isolation.
+
+**The key scientific separation:** identical first100-update reference *cumulative* pollen delivery does **not** force the same temporal sign crossing. Even if this model-internal local fitness clock is source-verified, whether allele change is advanced by 15 updates is a **separate empirical-like result** depending on genotypic variation, Mendelian inheritance, genetic source W covariance, drift, evolving matching phenotype and demographic feedback. The full cohort must answer that independently.
+
+New source regression: `tests/test_chapter2_sequence_tempo_focal_sign_clock_20261011.py`. Nothing here upgrades the old 51/64 historical chronology to proved selection-mediated causation.
+
