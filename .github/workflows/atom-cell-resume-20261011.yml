@@ -1,10 +1,6 @@
 name: Frozen atom-cell numerical continuation
 
 on:
-  pull_request:
-    paths:
-      - '.github/workflows/atom-cell-resume-20261011.yml'
-      - 'scripts/resume_frozen_atom_20261011.py'
   workflow_dispatch:
 
 permissions:
@@ -24,7 +20,7 @@ env:
 
 jobs:
   continue:
-    if: github.event_name == 'workflow_dispatch' || github.head_ref == 'codex/atom-cell-github-resume-20261011'
+    if: github.event_name == 'workflow_dispatch'
     runs-on: windows-latest
     timeout-minutes: 360
     strategy:
