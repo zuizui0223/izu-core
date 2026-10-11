@@ -16,6 +16,7 @@ import json
 from pathlib import Path
 
 import numpy as np
+from scipy.stats import poisson
 
 from scripts.audit_chapter2_q3q4_exact_genotype_factorial_20261011 import source
 from scripts.audit_chapter2_q3q4_functional_mismatch_20261011 import (
@@ -83,6 +84,9 @@ def genetic_price_audit(genome, setting: str, budget: float, fraction: float):
     occupied_next=float(-np.expm1(-total_seed_mu))
     if not 0 < occupied_next <= 1:
         raise AssertionError("conditional genetic mean has no valid source occupancy")
+    p_recruits=np.r_[poisson.pmf(np.arange(8),total_seed_mu),
+                      poisson.sf(7,total_seed_mu)]
+    expected_recruits=float(np.dot(np.arange(9),p_recruits))
     variance=float(np.var(g))
     return {
         "current_N":n,
@@ -99,7 +103,7 @@ def genetic_price_audit(genome, setting: str, budget: float, fraction: float):
         "paternal_outcross_P":paternal.tolist(),
         "viable_selfed_S":selfed.tolist(),
         "genotypic_parent_means":g.tolist(),
-        "expected_unconditional_allele_copy_sum_if_K8":None,
+        "expected_unconditional_allele_copy_sum_if_K8":float(2*expected_recruits*from_parent_pairs),
     }
 
 
