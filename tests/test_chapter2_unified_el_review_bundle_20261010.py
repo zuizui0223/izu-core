@@ -35,6 +35,15 @@ def test_current_blinded_paper_is_correct_and_within_EL_limits():
     assert "zuizui0223" not in paper.lower()
     assert "DOI-backed raw-data archive has not yet been deposited" in paper
     assert "521 original biological-trajectory ZIP archives" not in paper
+    assert "[source file in blinded archive]" not in paper
+
+
+def test_unmapped_internal_reference_requires_explicit_package_routing(monkeypatch):
+    source=builder.render_manuscript()
+    source=source.replace("# Results", "# Results\n\nSee `docs/unpackaged_evidence.md`.",1)
+    monkeypatch.setattr(builder,"render_manuscript",lambda:source)
+    with pytest.raises(ValueError,match="unmapped internal reference"):
+        blind_paper()
 
 
 def fake_pdfs(tmp_path):
@@ -97,6 +106,15 @@ def test_review_package_has_four_main_and_two_supplementary_figures(tmp_path):
         paper=z.read("MANUSCRIPT.md").decode("utf-8")
         assert paper==blind_paper()
         assert "0.007746" in paper
+        assert "(Figure4.svg)" in paper and "Figure4.svg" in names
+        assert "See Supporting Information S3 and Figure 4." in paper
+        assert "## S3." in z.read("SUPPORTING_INFORMATION.md").decode()
+        assert "[source file in blinded archive]" not in paper
+        counts={
+            "abstract":len(paper.split("## Abstract",1)[1].split("## Keywords",1)[0].split()),
+            "main_text":len(paper.split("# Introduction",1)[1].split("# Primary figure assembly and captions",1)[0].split()),
+        }
+        assert m["word_counts"]==receipt["word_counts"]==counts
     saved=json.loads(out.with_suffix(".receipt.json").read_text())
     assert saved["manuscript_sha256"]==receipt["manuscript_sha256"]
     assert len(saved["build_source"]["commit"])==40

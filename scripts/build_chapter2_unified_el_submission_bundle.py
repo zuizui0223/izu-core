@@ -51,6 +51,13 @@ def json_bytes(value):
     return (json.dumps(value,sort_keys=True,indent=2)+"\n").encode("utf-8")
 
 
+def count_manuscript_words(text):
+    return {
+        "abstract":len(text.split("## Abstract",1)[1].split("## Keywords",1)[0].split()),
+        "main_text":len(text.split("# Introduction",1)[1].split("# Primary figure assembly and captions",1)[0].split()),
+    }
+
+
 def anonymous_text(text,label):
     if any(token in text.lower() for token in DENIED):
         raise ValueError("identifying internal token remains in "+label)
@@ -198,20 +205,24 @@ def blind_paper():
       "remains an outstanding requirement.\n\n"
     )
     manuscript=manuscript[:start]+anonymous+manuscript[end:]
-    # Strip internal repository-local paths, not study descriptions or results.
-    manuscript=re.sub(
-      r"\[([^\]\n]+)\]\((?:\.\./)?(?:docs/|figures/)[^)]*\)",
-      r"\1",manuscript,
+    # Route references to supplied evidence; do not promise an absent source file.
+    figure_path="figures/chapter2_k_at_B48_three_cohort_original_intervals_20261010.svg"
+    manuscript=manuscript.replace("../"+figure_path,"Figure4.svg")
+    manuscript=manuscript.replace(figure_path,"Figure4.svg")
+    manuscript=manuscript.replace(
+      "generated without refitting by `scripts/render_chapter2_capacity_companion_evidence_figure.py`",
+      "generated without refitting from the original cohort readouts",
     )
-    manuscript=re.sub(
-      r"(?<!\w)(?:docs|figures|data/design|data/results|scripts)/[A-Za-z0-9_./-]+",
-      "[source file in blinded archive]",manuscript,
+    manuscript=manuscript.replace(
+      "`docs/CHAPTER2_K_B48_THREE_COHORT_EVIDENCE_COMPARISON_20261010.md`",
+      "Supporting Information S3",
     )
+    if re.search(r"(?<!\w)(?:docs|figures|data/design|data/results|scripts)/[A-Za-z0-9_./-]+",manuscript):
+        raise ValueError("unmapped internal reference in blinded paper")
     if any(x in manuscript.lower() for x in DENIED):
         raise ValueError("identifying internal token remains")
-    abstract=manuscript.split("## Abstract",1)[1].split("## Keywords",1)[0]
-    body=manuscript.split("# Introduction",1)[1].split("# Primary figure assembly and captions",1)[0]
-    if len(abstract.split())>150 or len(body.split())>5000:
+    counts=count_manuscript_words(manuscript)
+    if counts["abstract"]>150 or counts["main_text"]>5000:
         raise ValueError("EL Letter word limits not met")
     for phrase in ("64 independent","inconclusive","+0.007746","pollen-limited"):
         if phrase.lower() not in manuscript.lower():
@@ -227,7 +238,9 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     supplementary_figures=SUPPLEMENTARY_FIGURES if supplementary_figures is None else supplementary_figures
     if set(supplementary_figures)!=set(SUPPLEMENTARY_FIGURES):
         raise ValueError("supplementary figures require SupplementaryFigureS1.pdf and SupplementaryFigureS2.svg")
-    manuscript=blind_paper().encode("utf-8")
+    manuscript_text=blind_paper()
+    counts=count_manuscript_words(manuscript_text)
+    manuscript=manuscript_text.encode("utf-8")
     si=(ROOT/"docs/CHAPTER2_UNIFIED_EL_SUPPORTING_INFORMATION_20261010.md").read_bytes()
     if any(token in si.lower().decode("utf-8") for token in DENIED):
         raise ValueError("blinded Supporting Information has identifying token")
@@ -253,6 +266,8 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
         "status":"EL_ONE_PAPER_REVIEW_VERIFIED_NOT_SUBMITTED",
         "source_active_manuscript":"CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md",
         "n_figures":4,"n_supplementary_figures":2,"doi_deposit_complete":False,
+        "word_counts":counts,
+        "word_count_method":"Whitespace-separated tokens; main text begins at Introduction and ends before primary figure captions.",
         "evolution_evidence":"preregistered four-setting",
         "capacity_evidence":"one independent preregistered small K contrast; other cohorts descriptive",
         "tempo_evidence":"separately frozen descriptive supplement; 16 synthetic profiles, no pooling with the primary 64-history studies",
@@ -281,6 +296,7 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
         "bytes":out.stat().st_size,"members":len(members),
         "manuscript_sha256":sha(manuscript),"n_figures":4,
         "n_supplementary_figures":2,
+        "word_counts":counts,
         "build_source":build_source_identity(),
         "source_derivations":derivations,
         "receipt_is_internal_provenance_not_part_of_anonymous_archive":True,
