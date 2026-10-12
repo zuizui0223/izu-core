@@ -39,6 +39,10 @@ FROZEN_RESULTS={
 TEMPO_ADMISSION=ROOT/"data/results/chapter2_sequence_abrupt_gradual_functional_loss_receipt_20261011.json"
 TEMPO_TABLES=ROOT/"docs/CHAPTER2_SEQUENCE_ABRUPT_GRADUAL_FULL_TABLES_20261011.md"
 TEMPO_DESIGN=ROOT/"data/design/chapter2_sequence_abrupt_gradual_functional_loss_20261011.json"
+ATOM_DATA=ROOT/"data/results/atom_cell_completed_20261011"
+ATOM_DOC=ROOT/"docs/atom_comparison_20261011"
+RESOLUTION_DATA=ROOT/"data/results/four_question_resolution_20261011"
+RESOLUTION_DOC=ROOT/"docs/four_question_resolution_20261011"
 DENIED=("zuizui0223","github.com/","/workspace/","/home/","/root/",
         "issue #436","pr #452","pr #455")
 
@@ -61,6 +65,111 @@ def count_manuscript_words(text):
 def anonymous_text(text,label):
     if any(token in text.lower() for token in DENIED):
         raise ValueError("identifying internal token remains in "+label)
+
+
+def atom_materials():
+    """Keep numerical values exact, deriving only a path-free presentation."""
+    final_raw=(ATOM_DATA/"ATOM_ABM_FINAL_READOUT_20261011.json").read_bytes()
+    final=json.loads(final_raw)
+    sources={}
+    for name,digest in final["inputs"].items():
+        raw=(ATOM_DATA/name).read_bytes()
+        if sha(raw)!=digest:
+            raise ValueError("atom source hash mismatch: "+name)
+        sources[name]=json.loads(raw)
+    comparison=sources["matched_comparison.json"]
+    audit=sources["matched_comparison_independent_verification.json"]
+    admission=sources["admission.json"]
+    numerical=sources["independent_verification.json"]
+    envelope=sources["completion_envelope.json"]
+    if (envelope["status"]!="all_30_archives_and_all_10_two_pair_decisions_verified"
+        or envelope["independent_readout_sha256"]!=final["inputs"]["independent_verification.json"]
+        or numerical["status"]!="all_30_archives_and_10_decisions_verified"
+        or audit["status"]!="all320_abm_and10_density_descriptive_readouts_independently_recomputed"
+        or audit["matched_comparison_sha256"]!=final["inputs"]["matched_comparison.json"]
+        or (audit["abm_archives"],audit["density_archives"],audit["event_checks"],audit["checkpoint_checks"])!=(320,10,990,40)
+        or len(comparison["abm_archive_sha256"])!=320
+        or len(numerical["archive_sha256"])!=30
+        or len(admission["contexts"])!=10
+        or not all(c["admitted"] and len(c["checks"])==2 and all(x["passed"] for x in c["checks"]) for c in admission["contexts"])
+        or {r["context"] for r in comparison["rows"]}!={r["context"] for r in admission["contexts"]}):
+        raise ValueError("atom admission or independent comparison scope differs")
+    table=(ATOM_DOC/"ATOM_ABM_COMPARISON_TABLE_20261011.csv").read_bytes()
+    figure=(ATOM_DOC/"resolution_figures_20261011/atom_abm.pdf").read_bytes()
+    if sha(table)!=final["csv_sha256"] or sha(figure)!=final["outputs"]["atom_abm.pdf"]:
+        raise ValueError("atom source hash mismatch: table or figure")
+    derived={
+        "schema":"chapter2_atom_anonymous_comparison_v1",
+        "artifact_role":"derived_anonymous_comparison_not_original_readout",
+        "original_comparison_sha256":final["inputs"]["matched_comparison.json"],
+        "original_admission_sha256":final["inputs"]["admission.json"],
+        "original_independent_comparison_sha256":final["inputs"]["matched_comparison_independent_verification.json"],
+        "rows":comparison["rows"],"admission_contexts":admission["contexts"],
+        "scope":{"abm_archives":320,"density_archives":10,"event_checks":990,
+                 "checkpoint_checks":40,"new_raw_genome_reconstruction":False,
+                 "new_biological_simulation":False,"causal_drift_decomposition":False,
+                 "numerical_scope":"assurance-only original birth mutation; not heat/full-three-locus PDE/SPDE or stochastic ensemble mean"},
+    }
+    members={"ATOM_FULL_TABLES.csv":table,"SupplementaryFigureS3.pdf":figure,
+             "EVIDENCE/ATOM_ABM_COMPARISON.json":json_bytes(derived)}
+    derivations={"EVIDENCE/ATOM_ABM_COMPARISON.json":{
+        "original_path":str((ATOM_DATA/"matched_comparison.json").relative_to(ROOT)),
+        "original_sha256":derived["original_comparison_sha256"],
+        "admission_sha256":derived["original_admission_sha256"],
+        "independent_comparison_sha256":derived["original_independent_comparison_sha256"],
+        "final_readout_sha256":sha(final_raw),
+        "derived_sha256":sha(members["EVIDENCE/ATOM_ABM_COMPARISON.json"]),
+        "transformation":"Retain every comparison row and admission context; omit identifying source paths and select the independently verified scope."},
+        "ATOM_FULL_TABLES.csv":{"original_sha256":sha(table),"transformation":"Exact original bytes"},
+        "SupplementaryFigureS3.pdf":{"original_sha256":sha(figure),"transformation":"Exact original bytes"}}
+    return members,derivations
+
+
+def resolution_materials():
+    """Present already verified all-start readouts without new inference."""
+    delivery_raw=(RESOLUTION_DATA/"delivery.json").read_bytes()
+    delivery=json.loads(delivery_raw)
+    sources={}
+    for name,digest in delivery["source_inputs"].items():
+        raw=(RESOLUTION_DATA/name).read_bytes()
+        if sha(raw)!=digest:
+            raise ValueError("resolution source hash mismatch: "+name)
+        sources[name]=json.loads(raw)
+    design=(RESOLUTION_DOC/"DESIGN.md").read_bytes()
+    if sha(design)!=delivery["design_sha256"]:
+        raise ValueError("resolution source hash mismatch: design")
+    boundary=sources["boundary_readout.json"]
+    history=sources["history_readout.json"]
+    arithmetic=sources["independent_readout_verification.json"]
+    diagnostic=sources["history_state_diagnosis.json"]
+    if (boundary["status"]!="complete_verified" or history["status"]!="complete_verified"
+        or boundary["interval_family"]!=12 or len(boundary["groups"])!=12
+        or history["primary_family"]!=4 or len(history["contexts"])!=2
+        or delivery["source_closed_cohort_counts"]!={"boundary":6144,"preparation":3072,"future":6144}
+        or delivery["new_inference_computed_for_delivery"] is not False
+        or len(boundary["replicated_transition_bands"])!=3
+        or arithmetic["boundary"]["cases"]!=6144 or arithmetic["history"]["cases"]!=3072
+        or arithmetic["boundary"]["records_sha256"]!=boundary["records_sha256"]
+        or arithmetic["history"]["records_sha256"]!=history["records_sha256"]
+        or diagnostic["records_sha256"]!=history["records_sha256"]):
+        raise ValueError("resolution source scope differs")
+    derived={"schema":"chapter2_anonymous_conditional_resolution_v1",
+             "artifact_role":"derived_anonymous_resolution_not_original_records",
+             "boundary":boundary,"history":history,"achieved_state_diagnostic":diagnostic,
+             "independent_arithmetic":arithmetic,
+             "scope":{"source_closed_cohort_counts":delivery["source_closed_cohort_counts"],
+                      "new_inference_computed_for_delivery":False,
+                      "interpretation":delivery["scope"],
+                      "original_readout_sha256":{n:delivery["source_inputs"][n] for n in
+                                                 ["boundary_readout.json","history_readout.json","history_state_diagnosis.json","independent_readout_verification.json"]}}}
+    members={"EVIDENCE/RESOLUTION_READOUT.json":json_bytes(derived),"EVIDENCE/RESOLUTION_DESIGN.md":design}
+    derivations={"EVIDENCE/RESOLUTION_READOUT.json":{
+        "delivery_path":str((RESOLUTION_DATA/"delivery.json").relative_to(ROOT)),
+        "delivery_sha256":sha(delivery_raw),"original_readout_sha256":derived["scope"]["original_readout_sha256"],
+        "derived_sha256":sha(members["EVIDENCE/RESOLUTION_READOUT.json"]),
+        "transformation":"Retain complete boundary/history readouts, achieved-state diagnostic and arithmetic audit; select path-free scope. No new inference."},
+        "EVIDENCE/RESOLUTION_DESIGN.md":{"original_sha256":sha(design),"transformation":"Exact frozen design bytes"}}
+    return members,derivations
 
 
 def validate_member(name,raw):
@@ -241,7 +350,22 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     manuscript_text=blind_paper()
     counts=count_manuscript_words(manuscript_text)
     manuscript=manuscript_text.encode("utf-8")
-    si=(ROOT/"docs/CHAPTER2_UNIFIED_EL_SUPPORTING_INFORMATION_20261010.md").read_bytes()
+    si_path=ROOT/"docs/CHAPTER2_UNIFIED_EL_SUPPORTING_INFORMATION_20261010.md"
+    si_original=si_path.read_bytes()
+    si_text=si_original.decode("utf-8")
+    old_link="atom_comparison_20261011/ATOM_ABM_NUMERICAL_VERDICT_20261011.md"
+    old_dir="data/results/atom_cell_completed_20261011/"
+    if si_text.count(old_link)!=1 or si_text.count(old_dir)!=1:
+        raise ValueError("atom SI source-link boundary changed")
+    si_text=si_text.replace(old_link,"ATOM_FULL_TABLES.csv").replace(old_dir,"EVIDENCE/ATOM_ABM_COMPARISON.json")
+    si_text=si_text.replace("The supplemental figure does not replace existing main figures.",
+                            "[Supplementary Figure S3](SupplementaryFigureS3.pdf) does not replace existing main figures.")
+    resolution_link="four_question_resolution_20261011/DESIGN.md"
+    resolution_dir="data/results/four_question_resolution_20261011/"
+    if si_text.count(resolution_link)!=1 or si_text.count(resolution_dir)!=1:
+        raise ValueError("resolution SI source-link boundary changed")
+    si_text=si_text.replace(resolution_link,"EVIDENCE/RESOLUTION_DESIGN.md").replace(resolution_dir,"EVIDENCE/RESOLUTION_READOUT.json")
+    si=si_text.encode("utf-8")
     if any(token in si.lower().decode("utf-8") for token in DENIED):
         raise ValueError("blinded Supporting Information has identifying token")
     members={
@@ -257,6 +381,15 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
         members["EVIDENCE/"+label]=b
     tempo,derivations,admission=tempo_materials()
     members.update(tempo)
+    atom,atom_derivations=atom_materials()
+    members.update(atom)
+    derivations.update(atom_derivations)
+    resolution,resolution_derivations=resolution_materials()
+    members.update(resolution)
+    derivations.update(resolution_derivations)
+    derivations["SUPPORTING_INFORMATION.md"]={
+        "original_path":str(si_path.relative_to(ROOT)),"original_sha256":sha(si_original),
+        "derived_sha256":sha(si),"transformation":"Relocate atom/resolution companion source references and add the delivered supplementary-figure link; numerical text unchanged."}
     original_s2=next(row for row in admission["figures"] if row["path"].endswith(".svg"))
     if sha(members["SupplementaryFigureS2.svg"])!=original_s2["sha256"]:
         raise ValueError("tempo supplementary figure source hash mismatch")
@@ -265,7 +398,7 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     manifest={
         "status":"EL_ONE_PAPER_REVIEW_VERIFIED_NOT_SUBMITTED",
         "source_active_manuscript":"CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md",
-        "n_figures":4,"n_supplementary_figures":2,"doi_deposit_complete":False,
+        "n_figures":4,"n_supplementary_figures":3,"doi_deposit_complete":False,
         "word_counts":counts,
         "word_count_method":"Whitespace-separated tokens; main text begins at Introduction and ends before primary figure captions.",
         "evolution_evidence":"preregistered four-setting",
@@ -273,7 +406,9 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
         "tempo_evidence":"separately frozen descriptive supplement; 16 synthetic profiles, no pooling with the primary 64-history studies",
         "audit_scope":"Original event/order/occupancy audit: 128 setting/outcome comparisons; 156 secondary fields per setting were not independently aggregate-recomputed in that audit",
         "raw_trajectory_archive_included":False,
-        "anonymous_derivations":["TEMPO_FULL_TABLES.md","EVIDENCE/TEMPO_AUDIT_SUMMARY.json"],
+        "anonymous_derivations":["TEMPO_FULL_TABLES.md","EVIDENCE/TEMPO_AUDIT_SUMMARY.json","EVIDENCE/ATOM_ABM_COMPARISON.json","EVIDENCE/RESOLUTION_READOUT.json","SUPPORTING_INFORMATION.md"],
+        "atom_evidence":"All10 two-grid numerical admissions and320 descriptive ABM histories;990 event and40 checkpoint independent array checks, no new raw-genome reconstruction or causal drift attribution",
+        "resolution_evidence":"6144 boundary,3072 shared preparations,6144 branched challenges; genetic-access band and conditional all-start preparation-policy effects, not pure natural-order mediation",
         "members":{name:{"size":len(b),"sha256":sha(b)}
                    for name,b in sorted(members.items())},
     }
@@ -295,7 +430,7 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
         "status":manifest["status"],"zip_sha256":sha(out.read_bytes()),
         "bytes":out.stat().st_size,"members":len(members),
         "manuscript_sha256":sha(manuscript),"n_figures":4,
-        "n_supplementary_figures":2,
+        "n_supplementary_figures":3,
         "word_counts":counts,
         "build_source":build_source_identity(),
         "source_derivations":derivations,

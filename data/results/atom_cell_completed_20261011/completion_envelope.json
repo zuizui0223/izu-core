@@ -1,0 +1,39 @@
+{
+  "contexts": [
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r0_evolving",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r0_evolving",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r0_evolving",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r0_evolving",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r0_evolving",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r0_evolving",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r0_evolving",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r0_evolving",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r0_evolving",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r0_evolving"
+  ],
+  "independent_readout_sha256": "3a70544bfc72e2db5df4c3418470d85b1feb985741a8b42963c32fd70a698c45",
+  "source": {
+    "adjacent_pairs": [
+      [
+        65,
+        129
+      ],
+      [
+        129,
+        257
+      ]
+    ],
+    "files": {
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\resolution_20261011\\atom_cell_numerical\\inventory_tests.xml": "1373ea16059e6e6cc1252dc0dcde261644ce86ee05262e8ca728cb5ceb9c8e75",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\resolution_20261011\\test_atom_inventory.py": "b2c4ca3d2daeeda5fff6491fa2f1edfa5e6240f7779afeabd710e6ffecd4b68f",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\resolution_20261011\\verify_atom_campaign.py": "c79a031f2962e42547fc7c6a11cc95d9e7a44ec76259302d1846b038e2262588",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\resolution_20261011\\verify_atom_inventory.py": "b08f188f2035ead614b82b6067351340e20f06f768bf95d223df8d27f68c8e94"
+    },
+    "producer_registration_sha256": "785b4e98d3a4d63c30d9a632b849ab8270f2f532e4f606f384206480810fd057",
+    "required_archives": 30,
+    "required_contexts": 10,
+    "scope": "additional completeness-only verification; registered during live computation before admission; no biological or numerical rule changes",
+    "tests": "7 passed"
+  },
+  "status": "all_30_archives_and_all_10_two_pair_decisions_verified"
+}

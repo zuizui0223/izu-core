@@ -68,12 +68,12 @@ def supplementary_figures(tmp_path):
     }
 
 
-def test_review_package_has_four_main_and_two_supplementary_figures(tmp_path):
+def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
     out=tmp_path/"EL_ONE_PAPER_REVIEW.zip"
     receipt=build(out,figures=fake_pdfs(tmp_path),
                   supplementary_figures=supplementary_figures(tmp_path))
     assert receipt["n_figures"]==4
-    assert receipt["n_supplementary_figures"]==2
+    assert receipt["n_supplementary_figures"]==3
     assert receipt["submitted"] is False
     assert receipt["doi_deposit_complete"] is False
     with zipfile.ZipFile(out) as z:
@@ -84,12 +84,16 @@ def test_review_package_has_four_main_and_two_supplementary_figures(tmp_path):
            "Figure1.pdf","Figure2.pdf","Figure3.pdf","Figure4.svg"]
         assert "Figure4.pdf" not in names
         assert sorted(x for x in names if x.startswith("SupplementaryFigure"))==[
-            "SupplementaryFigureS1.pdf","SupplementaryFigureS2.svg"]
+            "SupplementaryFigureS1.pdf","SupplementaryFigureS2.svg","SupplementaryFigureS3.pdf"]
+        assert "ATOM_FULL_TABLES.csv" in names
         assert "TEMPO_FULL_TABLES.md" in names
         assert sorted(x for x in names if x.startswith("EVIDENCE/"))==[
+           "EVIDENCE/ATOM_ABM_COMPARISON.json",
            "EVIDENCE/CAPACITY_RESULTS.json",
            "EVIDENCE/EVOLUTION_DESIGN.json",
            "EVIDENCE/EVOLUTION_RESULTS.json",
+           "EVIDENCE/RESOLUTION_DESIGN.md",
+           "EVIDENCE/RESOLUTION_READOUT.json",
            "EVIDENCE/TEMPO_AUDIT_SUMMARY.json",
            "EVIDENCE/TEMPO_DESIGN.json",
            "EVIDENCE/TEMPO_RESULTS.json.gz",
@@ -98,8 +102,8 @@ def test_review_package_has_four_main_and_two_supplementary_figures(tmp_path):
         assert m["source_active_manuscript"].startswith("CHAPTER2_UNIFIED")
         assert m["doi_deposit_complete"] is False
         assert m["n_figures"]==4
-        assert m["n_supplementary_figures"]==2
-        assert len(m["members"])==15
+        assert m["n_supplementary_figures"]==3
+        assert len(m["members"])==20
         for name,record in m["members"].items():
             raw=z.read(name)
             assert record=={"size":len(raw),"sha256":hashlib.sha256(raw).hexdigest()}
@@ -119,6 +123,82 @@ def test_review_package_has_four_main_and_two_supplementary_figures(tmp_path):
     assert saved["manuscript_sha256"]==receipt["manuscript_sha256"]
     assert len(saved["build_source"]["commit"])==40
     assert len(saved["build_source"]["tree"])==40
+
+
+def test_atom_supplement_preserves_all_contexts_and_relocates_si_links(tmp_path):
+    out=tmp_path/"atom_review.zip"
+    receipt=build(out,figures=fake_pdfs(tmp_path),supplementary_figures=supplementary_figures(tmp_path))
+    source=ROOT/"data/results/atom_cell_completed_20261011/matched_comparison.json"
+    with zipfile.ZipFile(out) as z:
+        delivered=json.loads(z.read("EVIDENCE/ATOM_ABM_COMPARISON.json"))
+        assert delivered["artifact_role"]=="derived_anonymous_comparison_not_original_readout"
+        assert delivered["original_comparison_sha256"]==hashlib.sha256(source.read_bytes()).hexdigest()
+        assert delivered["rows"]==json.loads(source.read_text(encoding="utf-8"))["rows"]
+        assert delivered["scope"]["abm_archives"]==320
+        assert delivered["scope"]["event_checks"]==990
+        assert delivered["scope"]["checkpoint_checks"]==40
+        assert delivered["scope"]["new_raw_genome_reconstruction"] is False
+        assert len(delivered["admission_contexts"])==10
+        assert z.read("ATOM_FULL_TABLES.csv")==(
+            ROOT/"docs/atom_comparison_20261011/ATOM_ABM_COMPARISON_TABLE_20261011.csv").read_bytes()
+        si=z.read("SUPPORTING_INFORMATION.md").decode("utf-8")
+        assert "(ATOM_FULL_TABLES.csv)" in si
+        assert "(SupplementaryFigureS3.pdf)" in si
+        assert "atom_comparison_20261011/" not in si
+        assert "data/results/atom_cell_completed_20261011/" not in si
+    assert "EVIDENCE/ATOM_ABM_COMPARISON.json" in receipt["source_derivations"]
+
+
+def test_atom_evidence_drift_refuses_delivery(tmp_path,monkeypatch):
+    import scripts.build_chapter2_unified_el_submission_bundle as builder
+    import shutil
+    source=ROOT/"data/results/atom_cell_completed_20261011"
+    changed=tmp_path/"atom_data"
+    shutil.copytree(source,changed)
+    p=changed/"matched_comparison.json"
+    value=json.loads(p.read_text(encoding="utf-8"))
+    value["rows"][0]["events"][0]["abm_counts"]["assurance_first"]=999
+    p.write_text(json.dumps(value),encoding="utf-8")
+    monkeypatch.setattr(builder,"ATOM_DATA",changed)
+    with pytest.raises(ValueError,match="atom source hash mismatch"):
+        build(tmp_path/"bad_atom.zip",figures=fake_pdfs(tmp_path),supplementary_figures=supplementary_figures(tmp_path))
+
+
+def test_resolution_scope_intervals_and_design_are_in_reviewer_package(tmp_path):
+    out=tmp_path/"four_question_review.zip"
+    build(out,figures=fake_pdfs(tmp_path),supplementary_figures=supplementary_figures(tmp_path))
+    data=ROOT/"data/results/four_question_resolution_20261011"
+    with zipfile.ZipFile(out) as z:
+        delivered=json.loads(z.read("EVIDENCE/RESOLUTION_READOUT.json"))
+        assert delivered["boundary"]==json.loads((data/"boundary_readout.json").read_text(encoding="utf-8"))
+        assert delivered["history"]==json.loads((data/"history_readout.json").read_text(encoding="utf-8"))
+        assert delivered["scope"]["source_closed_cohort_counts"]=={"boundary":6144,"preparation":3072,"future":6144}
+        assert delivered["scope"]["new_inference_computed_for_delivery"] is False
+        assert delivered["history"]["first_stage"]["intended_shift"] is True
+        assert [a["both_events"] for a in delivered["achieved_state_diagnostic"]["arms"][:2]]==[42,43]
+        for context in delivered["history"]["contexts"]:
+            for metric in context["primary"].values():
+                assert metric["bootstrap_interval"][0]>0
+                assert metric["hoeffding_interval"][0]<0<metric["hoeffding_interval"][1]
+        assert z.read("EVIDENCE/RESOLUTION_DESIGN.md")==(
+            ROOT/"docs/four_question_resolution_20261011/DESIGN.md").read_bytes()
+        si=z.read("SUPPORTING_INFORMATION.md").decode("utf-8")
+        assert "(EVIDENCE/RESOLUTION_DESIGN.md)" in si
+        assert "data/results/four_question_resolution_20261011/" not in si
+        assert "[0.0023192749,0.0326467896]" in si
+
+
+def test_resolution_readout_drift_refuses_delivery(tmp_path,monkeypatch):
+    import scripts.build_chapter2_unified_el_submission_bundle as builder
+    import shutil
+    copied=tmp_path/"resolution_data"
+    shutil.copytree(ROOT/"data/results/four_question_resolution_20261011",copied)
+    p=copied/"history_readout.json"
+    value=json.loads(p.read_text(encoding="utf-8"));value["first_stage"]["order_score_difference"]=999
+    p.write_text(json.dumps(value),encoding="utf-8")
+    monkeypatch.setattr(builder,"RESOLUTION_DATA",copied)
+    with pytest.raises(ValueError,match="resolution source hash mismatch"):
+        build(tmp_path/"bad_resolution.zip",figures=fake_pdfs(tmp_path),supplementary_figures=supplementary_figures(tmp_path))
 
 
 def test_package_refuses_missing_unrendered_figures(tmp_path):
@@ -213,7 +293,7 @@ def test_evidence_receipts_are_identified_and_not_pooled():
     assert route["review_package_expected_figures"]==[
         "Figure1.pdf","Figure2.pdf","Figure3.pdf","Figure4.svg"]
     assert route["review_package_expected_supplementary_figures"]==[
-        "SupplementaryFigureS1.pdf","SupplementaryFigureS2.svg"]
+        "SupplementaryFigureS1.pdf","SupplementaryFigureS2.svg","SupplementaryFigureS3.pdf"]
     supplement=route["evidence_contract"]["supplementary_tempo"]
     assert supplement["independent_synthetic_profiles"]==16
     assert supplement["pooled_with_primary_studies"] is False

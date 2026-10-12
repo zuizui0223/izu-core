@@ -1,0 +1,106 @@
+{
+  "status": "post_result_descriptive_not_new_primary",
+  "records_sha256": "5ecf992e19dd7492709474dbb6c2f3c7aa41d30e31eb5e00dd68789b72bb1ae7",
+  "producer_sha256": "1c9914087aef08d5b85b3515ad69fdaadb69717bb75ce65d675b4cc7228c016f",
+  "arms": [
+    {
+      "arm": "A_access_first",
+      "all_starts": 1024,
+      "categories": {
+        "assurance_only": 594,
+        "neither": 378,
+        "assurance_first": 40,
+        "investment_only": 10,
+        "investment_first": 1,
+        "near_simultaneous": 1
+      },
+      "both_events": 42,
+      "assurance_event": 636,
+      "investment_event": 52,
+      "occupied_preparation_end": 1024,
+      "occupied_end_mean_traits": [
+        0.49830118815104163,
+        0.4950299739571956,
+        0.5780522361638056
+      ],
+      "mean_exposed_retained_transmissions": [
+        0.0,
+        9600.0,
+        9446.83984375
+      ],
+      "mean_retained_parent_allele_changes": [
+        0.0,
+        96.095703125,
+        93.939453125
+      ]
+    },
+    {
+      "arm": "I_access_first",
+      "all_starts": 1024,
+      "categories": {
+        "neither": 618,
+        "assurance_only": 256,
+        "investment_only": 107,
+        "assurance_first": 6,
+        "investment_first": 32,
+        "near_simultaneous": 5
+      },
+      "both_events": 43,
+      "assurance_event": 299,
+      "investment_event": 150,
+      "occupied_preparation_end": 1024,
+      "occupied_end_mean_traits": [
+        0.49729156494140625,
+        0.49246395450890046,
+        0.5490180722255091
+      ],
+      "mean_exposed_retained_transmissions": [
+        0.0,
+        9446.8828125,
+        9600.0
+      ],
+      "mean_retained_parent_allele_changes": [
+        0.0,
+        94.4462890625,
+        96.0556640625
+      ]
+    },
+    {
+      "arm": "both_access",
+      "all_starts": 1024,
+      "categories": {
+        "assurance_only": 577,
+        "neither": 211,
+        "assurance_first": 110,
+        "investment_first": 63,
+        "investment_only": 47,
+        "near_simultaneous": 16
+      },
+      "both_events": 189,
+      "assurance_event": 766,
+      "investment_event": 236,
+      "occupied_preparation_end": 1024,
+      "occupied_end_mean_traits": [
+        0.49556986490885413,
+        0.4822460908377726,
+        0.6155336708949971
+      ],
+      "mean_exposed_retained_transmissions": [
+        0.0,
+        19046.857421875,
+        19046.857421875
+      ],
+      "mean_retained_parent_allele_changes": [
+        0.0,
+        190.5029296875,
+        189.955078125
+      ]
+    }
+  ],
+  "claim_limits": [
+    "A positive registered first-stage score does not mean all or most histories completed two ordered events.",
+    "Preparation end means are descriptive among occupied preparations, not survivor-conditioned primary benefits.",
+    "Different end states and amounts of response prevent attributing the whole policy contrast to pure event order.",
+    "Mutation-exposed transmissions and novel retained alleles are not identical nominal doses, all attempted mutations or neutral diversity."
+  ]
+}

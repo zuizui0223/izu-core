@@ -1,0 +1,19 @@
+{
+  "status": "all15360_original_archive_receipt_pairs_authenticated_all_members_read_back",
+  "size_bytes": 1216625856,
+  "sha256": "78ffe6bdfabd351768d4894da1d0a84dd11bd90aa8d46a9597d5f4afee8a5dc4",
+  "members": 36970,
+  "boundary_cases": 6144,
+  "preparation_cases": 3072,
+  "future_cases": 6144,
+  "bottleneck_records": 6144,
+  "schema": "resolution_public_preservation_receipt_v1",
+  "release_url": "https://github.com/zuizui0223/izu-core/releases/tag/atom-cell-inputs-20261011",
+  "asset_url": "https://github.com/zuizui0223/izu-core/releases/download/atom-cell-inputs-20261011/resolution_original_cohorts_20261011.zip",
+  "full_receipt_url": "https://github.com/zuizui0223/izu-core/releases/download/atom-cell-inputs-20261011/RESOLUTION_RAW_PRESERVATION_20261011.json",
+  "full_receipt_sha256": "ea2ac85e5257ef4f5e2d6922c2a19594cfebfd6209e7e2682d136bc32aea56c1",
+  "provider_size_and_digest_verified": true,
+  "full_receipt_independently_downloaded_equal_original": true,
+  "raw_asset_independent_client_download": false,
+  "scope": "All15360 original archive/receipt pairs and36970 members authenticated/readback locally; GitHub provider confirms identical asset digest/size; full receipt separately downloaded. Numerical/320ABM preservation is separate."
+}

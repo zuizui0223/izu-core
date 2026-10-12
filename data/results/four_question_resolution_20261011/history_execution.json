@@ -1,0 +1,40 @@
+{
+  "archives": 9216,
+  "identity": {
+    "files": {
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\outputs\\RESOLUTION_DESIGN_20261011.md": "d8683c84f35f44edcd5cba35211cefc4f4c970043dd5f5daea4c33b770105396",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\EL_order_boundary_20261007\\assurance_causal_design.json": "0e814704d3775835735e78a768df5d865965a551145969e64390c84482f8f777",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\EL_order_boundary_20261007\\assurance_causal_inputs.py": "5a534c04acc72a2e2cfc93d7e8cffa952604beccdc934c245b9e997c079995b9",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\EL_order_boundary_20261007\\campaign_inputs.py": "e8786b6f63e05947a96c52cbdef828dd0fd0bf3b3c7f67602b9d35df1f3cb152",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\EL_order_boundary_20261007\\natural_campaign_design.json": "34bf7d048bba299cae2d8d794222773ab1da418e74716b1a56b9b7adb5e09334",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\EL_order_boundary_20261007\\response_decomposition.py": "290d6b6b92707023861bdab261795e7eebfe4441a03abbbd857fd734785a077d",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\four_question_remaining_20261011\\runner.py": "e0a4a605678022e8d92c1e7d0011169f4f76fcf81790a09ed6ed31b7bdc686e0",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\data\\design\\chapter2_assurance_generality_20261006.json": "c050c94eb385a9ab6beb48388f5ec96177c0540e22da53924b02eca19b824119",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\data\\design\\model3_ch2_bridge_20260927.json": "0ca971aa9a453ab00a6e36fa9f2a99df3b36a8b13cda1cb48ea420556d3ff18a",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\__init__.py": "584d1d91dd55fea398f61aa2f2526088287a7f49ca879c99615778e93d7317b2",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\chapter2_kb_reproduction.py": "79327794763f963f0f3399c8a94cdb94ad019093d306f2ac4c0bb59a92711863",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\__init__.py": "f7e55e36abb6fbc720e3413505a2a2ea8ff784e9e5715fb097058a1b24956b16",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\assays.py": "3dbfee24a4473b220e463dc6dd0e7699f0a7de98771eeee9666c94d75700338d",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\density.py": "e293b031372da4f3b5d5b5ed9ffdea95b5a5cc449904f9dfa8880b8f0f2e4edf",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\design.py": "9184fba6fbdfed617d109eedc268103a49cfaf7c7eb1d51457ab03c5bee9cfbe",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\history.py": "28d22c7fde81d9be6a604fa9dd4cb6b48d78d388d4db85f798a935cf81415488",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\population.py": "c959d18816da6666dbfb4e91bd9582c94af5453b25498d033f5747305b05fe0f",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\randomness.py": "63522ae3c5ff8e11f114b5649a989945fa4ba2480fdca0f74857601b0e4b211f",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\reproduction.py": "885957edb8a165ee8528781ed1d2574c44143c608496b505f9663cbfac2c4081",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\run.py": "094f8ed635f13b3ff5809b721f1d11f78f89d7cc414f503805b007e436878743",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\simulate.py": "78b043183ff55ba14c38204b47499b53e7c63f41789b982680a42966871e247b",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\storage.py": "c987b56139f7782e35749bda5f378f3cd60d0463b2de5a15c034f2c2a4c73647",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\tensor_density.py": "223ad4926f3d748a744665386a3be6b02e19e8a50cb4f8d080e2170d58fbaac5",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\types.py": "a572e1e7f4fded181585871a63582b16f40292bd07b13e8efc9d6b6234eb21c5",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\run_chapter2_assurance_generality.py": "88e7aef1ee559885559e63b46d3dcb76808981d7a787440693f836f3fafea924",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\run_model3_persistent_isolation.py": "d573ffa85b7a1fef3f4619862cf00ab40cfc465d3ba4563df6504e0eea968e6e",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\resolution_20261011\\producer.py": "5a7178c68efb0e969b6d467ff8781a9a045ee5d5f41603279af8ae2a80c89161",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\resolution_20261011\\resolution.py": "91f3bf3d36e6b39c0c1bf40412769d3cfea850a085822fed3dd2a9973974e19e",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\resolution_20261011\\test_resolution.py": "7a456a06c8e8e97ec7e6b1ecef05bfd0278798b743c6516b78694501d66d01cf"
+    },
+    "numpy": "2.2.6"
+  },
+  "jobs": 3072,
+  "seconds": 825.9433801001869,
+  "status": "complete_verified"
+}

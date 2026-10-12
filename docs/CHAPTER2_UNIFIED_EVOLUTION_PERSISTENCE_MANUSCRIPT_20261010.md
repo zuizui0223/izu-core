@@ -2,10 +2,10 @@
 
 **Article type:** Ecology Letters Letter — one unified original research manuscript (word limits met; data deposit pending)  
 **Target journal:** Ecology Letters (Letter) first; a higher-impact ecology/evolution journal is conditional on new causal validation, not on reframing existing data  
-**Scope:** EL-format draft 3592-word main text and 142-word abstract; four main figures; science/data gates remain\
+**Scope:** EL-format draft 3931-word source main text and 142-word abstract; four main figures; science/data gates remain\
 **Status:** one unified scientific working draft, not submitted or peer reviewed; two original drafts retained as source provenance  
-**Model family:** one explicit Model 3; two principal questions and a separate supplemental visitor-tempo experiment, with distinct inference units and horizons\
-**Figures:** 4 main evidence figures; finite-genetic realization and visitor-tempo results retained as supplements\
+**Model family:** one explicit Model 3; four questions (thresholds, sequence, realization, persistence) and separately registered cohorts, with distinct inference units and horizons\
+**Figures:** 4 main evidence figures and 3 supplementary figures; finite-genetic realization, visitor-tempo and admitted density/ABM comparisons\
 **Tables:** numerical effect table in supporting documents; cohort rank retained
 
 ## Abstract
@@ -24,7 +24,7 @@ An alternative is parallel selection. Pollinator limitation may directly lower m
 
 This question matters for island ecology. Island floras commonly include self-compatible species, yet their floral phenotypes and pollination networks do not respond uniformly to isolation (Traveset et al. 2016; Grossenbacher et al. 2017; Hetherington-Rauth & Johnson 2020; Hiraiwa & Ushimaru 2017, 2024). Contemporary trait patterns may also reflect colonization, establishment and persistence filtering rather than within-lineage evolutionary change alone.
 
-A separate issue is demographic: an evolved reproductive phenotype may increase expected seeds without guaranteeing offspring recruitment or local population persistence. We therefore ask two linked, deliberately non-equivalent questions in one explicit plant–pollinator model. **First**, is assurance evolution necessary for reduced floral investment under visitor limitation, and does allowing assurance evolution increase or decrease investment divergence? **Second**, can viable selfed-seed output and finite demographic capacity modify the occupancy consequences of *experimentally assigned* assurance-first versus investment-first expression? The first uses inherited evolution over 1,000 updates; the second uses distinct cohorts and controlled 80-update schedules. Their juxtaposition is **not a natural mediation analysis** of evolved floral traits on extinction.
+A separate issue is demographic: an evolved reproductive phenotype may increase expected seeds without guaranteeing recruitment or persistence. We organize the analysis around four questions. **Q1, thresholds:** when do reproductive returns and genetic access permit assurance increase or investment reduction? **Q2, sequence:** which response occurs first, and is that order setting-specific? **Q3, realization:** how do inherited finite-population responses differ from a source-matched deterministic prediction? **Q4, persistence:** when do reproductive-expression or mutation-access histories change subsequent occupancy? The primary evolutionary intervention, temporal diagnostics and separately registered demographic studies retain their own cohorts and estimands. Their juxtaposition is **not a natural mediation analysis** of evolved floral traits on extinction.
 
 # Materials and Methods
 
@@ -56,63 +56,72 @@ The original population capacity parameter `K` also appeared in a pollen-recipie
 
 A separately preregistered cohort used 64 previously unused visitor-history identities, with branches and nested repeats averaged within history, and 9,999 paired history-bootstrap draws. Support required an absolute effect at least 0.005 and a two-sided percentile 95% interval excluding zero. The earlier inconclusive K or B primaries, near/far assigned-order equivalence, resource-window failure and later inconclusive early-versus-late timing test were retained. Two other cohorts' similar K contrasts are **secondary/descriptive**, not additional confirmatory successes or a pooled meta-analysis. The demographic experiments share a reproductive framework but differ in endpoints, intervention assignments, sample identities and some K/B biology from the 1,000-update evolutionary experiment. Neither identifies an evolutionary-investment-to-persistence mediator. The original four-setting campaign had terminal occupancy 1.0 in every arm.
 
+## Prospective conditional-resolution studies
+
+Separately frozen studies used new demographic streams and two fixed founder backgrounds, without pooling with the visitor-history primary. A6,144-trajectory study compared two assurance allele-width endpoints at identical founder phenotypes in three low-supply contexts. A3,072-preparation study randomized mutation-access schedules, then branched each archived end state into two common200-update K8 challenges. All-start response and occupancy estimands, simultaneous paired-bootstrap intervals and conservative distribution-free bounds were fixed before execution. The complete designs and identification limits appear in Supporting Information S8.
+
 # Results
 
-## Visitor limitation reduces the reproductive return to attraction before plant evolution
+## Q1 — Thresholds: reproductive returns and genetic access
 
+
+### Visitor limitation reduces the reproductive return to attraction before plant evolution
 At the same fixed plant state, low visitor replenishment sharply reduced the return to floral investment (Fig. 1). In the delayed-selfing setting at snapshot 400, the total investment-contribution derivative changed from +0.579 under near exposure to −0.700 under far exposure. The outcross contribution fell from +1.652 to +0.085, whereas the viable-selfed component partly offset rather than generated the decline. The intrinsic investment-cost coefficient was unchanged across environments. Thus visitor limitation can make reduced attraction favourable before any evolution of reproductive assurance.
 
-## Assurance evolution is not required for investment decline
+### Pollen-deficit and viable-output responses are not equivalent
+The reproductive-output intervention showed that apparent compensation in a fractional pollen-deficit metric need not correspond to higher viable offspring production (Fig. 3). In the delayed/far assay at snapshot 400, increasing investment from 0.25 to 0.75 at assurance 0.5 reduced fractional viable pollen deficit by 0.0104 while reducing viable maternal offspring by 15.72 per 48 plants. Reproductive assurance, pollen deficit and absolute viable production are therefore distinct quantities.
 
+### A conditional genetic-access boundary
+A separately registered confirmation localized an order-score sign reversal to assurance allele half-widths[0.046875,0.078125] in both fixed founders and all three low-supply contexts. The band has width0.03125; it is neither a continuous root nor a visitor-supply threshold. At the primary0.05 response, the lower endpoint cannot reach the assurance event from standing alleles alone. Larger0.10 response definitions instead favour investment-first at both endpoints (Supporting Information S8).
+
+### Assurance evolution is not required for investment decline
 The prospective four-setting test passed its frozen non-necessity criterion in every setting (Fig. 2A). For the cost-free delayed-selfing control, direct assurance benefits are structurally positive whenever ovules remain unfilled; passing this control does not provide the same test of assurance trade-offs as the cost, prior-selfing and pollen-discount regimes. With assurance held fixed at 0.5, far-minus-near investment was −0.4413 [−0.4564, −0.4262] under delayed control, −0.3018 [−0.3172, −0.2866] under prior selfing, −0.3305 [−0.3461, −0.3151] with pollen discount and −0.4337 [−0.4501, −0.4171] with direct assurance cost. All four near/far arms retained terminal occupancy 1.0 and all 64 histories were eligible.
 
 Reduced investment under low replenishment therefore did not require assurance-capacity evolution under any of the four declared reproductive rules. Because fixed capacity still permits realized selfing, this result excludes a requirement for assurance evolution, not all reproductive consequences of selfing.
 
-## Assurance evolution consistently compresses environmental divergence
-
+### Assurance evolution consistently compresses environmental divergence
 Allowing assurance to evolve reduced the magnitude of the near–far investment contrast in all four settings (Fig. 2B). These settings test a broader range of **investment responses** to assurance evolution, not four equally discriminating tests of whether assurance can invade: cost-free delayed selfing already favours assurance when ovules remain unfilled. Evolving-minus-fixed interactions were +0.1605 [0.1418, 0.1789] under delayed control, +0.2200 [0.2025, 0.2383] under prior selfing, +0.1915 [0.1762, 0.2069] with pollen discount and +0.1007 [0.0842, 0.1177] with assurance cost. All four settings therefore passed the preregistered attenuation criterion.
 
 The arm decomposition showed that this attenuation was not primarily rescue of far-side investment (Fig. 2C). Relative to fixed assurance, allowing assurance to evolve changed near-side investment by −0.1253 [−0.1395, −0.1112], −0.1985 [−0.2137, −0.1838], −0.1699 [−0.1831, −0.1563] and −0.0789 [−0.0931, −0.0646] across delayed control, prior selfing, pollen discount and assurance cost. Far-side effects were much smaller and positive: +0.0352 [0.0233, 0.0471], +0.0215 [0.0116, 0.0315], +0.0216 [0.0110, 0.0327] and +0.0218 [0.0120, 0.0312]. Consequently, 78.1%, 90.2%, 88.7% and 78.3% of the interaction, respectively, was localized to additional investment decline in the high-replenishment arm.
 
-## The direct selection effect is stronger where outcross returns remain available
-
+### The direct selection effect is stronger where outcross returns remain available
 The corrected rare-mutant diagnostic resolved the same environmental asymmetry at a fixed plant state (Fig. 2D). The near label denotes **higher visitor replenishment**, not pollen sufficiency. The independent fixed-plant snapshot-400 assay found mean raw deficit 0.3901 near versus 0.4948 far, and mean viable-seed deficit 0.5852 near versus 0.7423 far, in its delayed-timing assurance-cost setting across 64 visitor histories and fixed 48-plant states. Here the *raw* deficit is measured **after** autonomous selfing: with delayed assurance fixed at a=0.5, the source equation is d_raw=(1−a)(1−F/O), so mean outcross fertilization fractions F/O are approximately 0.2197 near and 0.0103 far. The 39% near deficit is NOT a claim that only 39% of ovules remain without outcross pollen. These fixed-state fractions are not terminal unfertilized-ovule fractions in evolved populations. Increasing assurance from 0.25 to 0.75 made the investment gradient more negative in both environments, but the effect was much stronger near than far. At snapshot 400, the near-minus-far assurance effect on the investment gradient was −0.3794 [−0.4376, −0.3170] under delayed control, −0.5231 [−0.6041, −0.4361] under prior selfing, −0.4661 [−0.5389, −0.3876] with pollen discount and −0.3794 [−0.4369, −0.3177] with assurance cost.
 
 Maternal outcross and paternal pollen-export components supplied most of these differences. In delayed control and assurance cost, their near-minus-far contributions were −0.125 and −0.135, respectively; under prior selfing they were −0.214 and −0.235; with pollen discount they were −0.179 and −0.198. Selfing-displacement and allocation-cost components acted in the same direction, except that selfing displacement is structurally zero under prior selfing.
 
 Under low replenishment, attraction-dependent outcross return was already small. Increasing assurance therefore removed relatively little additional attraction value. Under high replenishment, substantial maternal and paternal return remained, so the same assurance increase more strongly reduced selection for investment.
 
-## Temporal order is setting-specific and does not establish necessity
-
+## Q2 — Sequence: temporal precedence is conditional
 The independent temporal-order replication recovered an assurance-first sequence in the delayed-selfing, direct-cost setting: 51 of 64 histories were assurance-first at the primary 0.05 threshold and 13 were near-simultaneous (proportion 0.797; 95% history-bootstrap interval 0.688–0.891). The same criterion did not generalize to prior selfing, where 30 of 64 histories were assurance-first and the interval spanned 0.5.
 
 Thus assurance can change before investment, but this sequence is narrower than the four-setting non-necessity and attenuation results. Temporal precedence is neither universal nor required for the investment response.
 
 In the separate visitor-tempo cohort, abrupt-minus-gradual differences in assurance-increase crossings confirmed by update 100 ranged from 0 to +42.1875 percentage points across all eight settings; investment-decrease differences ranged from −6.25 to +21.875 points (Supplementary Fig. S2; Supporting Information S5). In all four direct-cost-0.5 settings, assurance differences were +21.875 to +42.1875 points. These are descriptive profile-cluster contrasts. An assurance-only outcome is not an assurance-first sequence: in delayed selfing with cost 0.5 and no mutation, the 53 abrupt-arm assurance crossers comprised eight assurance-first and 45 assurance-only trajectories. Every setting and schedule retained occupancy 64/64 at both updates 100 and 400. This ceiling supplies no identified persistence benefit, harm or practical-equivalence result; visitor-tempo assignment does not identify a causal natural mutation-order or inherited-order-to-survival mechanism.
 
-## Pollen-deficit and viable-output responses are not equivalent
+## Q3 — Realization: deterministic response and finite inheritance
+Finite-population and deterministic comparisons further delimit realization rather than the primary causal result (Supplementary Fig. S1). They show that expected inherited response and finite genetic realization need not coincide exactly; they do not alter the four-setting intervention conclusion. A separate, original-mutation-faithful genotype-density representation subsequently passed both registered grid comparisons in all ten static visitor/founder contexts (Supporting Information S7). At low supply with matched visitor function, density predicted assurance-first in both founder backgrounds, while only 3/32 and 2/32 corresponding ABM histories realized that category. All starts remained occupied at update 200; assurance-only histories were kept separate. This descriptive discrepancy is conditional on response magnitude and does not identify drift or a persistence benefit. The representation retains assurance-only birth mutation and is not a heat approximation, full three-locus PDE, SPDE or the finite ABM ensemble mean.
 
-The reproductive-output intervention showed that apparent compensation in a fractional pollen-deficit metric need not correspond to higher viable offspring production (Fig. 3). In the delayed/far assay at snapshot 400, increasing investment from 0.25 to 0.75 at assurance 0.5 reduced fractional viable pollen deficit by 0.0104 while reducing viable maternal offspring by 15.72 per 48 plants. Reproductive assurance, pollen deficit and absolute viable production are therefore distinct quantities.
+Assurance-access-first preparation increased the paired order score by0.06348[0.04688,0.08008], but both responses occurred in only42/1,024 versus43/1,024 preparations.
 
-Finite-population and deterministic comparisons further delimit realization rather than the primary causal result (Supplementary Fig. S1). They show that expected inherited response and finite genetic realization need not coincide exactly; they do not alter the four-setting intervention conclusion.
+## Q4 — Persistence: consequences of reproductive preparation
+Under common subsequent challenges, terminal occupancy increased by2.83 percentage points[0.68,4.98] and4.59 points[1.86,7.32] at unevolved-reference growth calibrations1.05 and1.50. The four-outcome simultaneous bootstrap intervals were positive; distribution-free bounds included zero. Different achieved genetic states and response amounts prevent interpreting these as pure natural-order effects. These studies do not change the earlier assigned-expression-order equivalence or inconclusive timing results.
 
-## Conditional demographic consequences of assigned reproductive expression history
-
+### Conditional demographic consequences of assigned reproductive expression history
 The experiments here are separate from the evolving-assurance trajectories above. In particular, 'assurance first' is imposed temporarily as an expression schedule; it does not mean spontaneous assurance alleles mutated or spread first. The analysis retains all failed and inconclusive preregistered primaries as well as the one supported capacity-moderation primary (Fig. 4).
 
-### 1. Order effects were small and not specific to geographic visitor history
+#### 1. Order effects were small and not specific to geographic visitor history
 
 The original assigned-expression-order near/far difference-in-differences passed the preregistered **practical-equivalence** bound ±0.05. The independently predeclared 3/4-ovule-budget-window follow-up **failed**. Thus the original prediction of a distinctive far-environment or resource-window rescue effect was not supported. A small absolute A-first-minus-I-first occupancy advantage still appeared in some bottlenecked conditions, but this is not a universal precedence effect and is not the original positive primary.
 
-### 2. A controlled selfed-seed intervention changed the small schedule advantage
+#### 2. A controlled selfed-seed intervention changed the small schedule advantage
 
 In an eight-founder/capacity-eight stress regime, a predeclared postzygotic intervention halving viable selfed-seed contribution reduced the A-first-minus-I-first occupancy difference from **+0.01209** at baseline to **+0.00394**. Sensitivity was **+0.008145**, 95% history-bootstrap **[+0.003708,+0.012773]**, satisfying its original frozen threshold. A matched outcross-seed viability contrast did not resolve a nonzero effect. The postzygotic manipulation identifies a **controlled response to viable selfed seeds**, not natural genetic mediation.
 
-### 3. The first capacity contrasts were either confounded or inconclusive
+#### 3. The first capacity contrasts were either confounded or inconclusive
 
 Comparing F8/K8 with a full-founding-population/K48 regime suggested a positive moderator, but that was **post-outcome exploratory** and simultaneously changed founding abundance, genomic sampling, demographic K and the pollen-delivery denominator. A new independently sampled matched-founder experiment changed K8 to K48 with eight founder genomes held fixed. Its registered primary sensitivity contrast was **+0.001848**, 95% **[−0.003458,+0.007337]**, **inconclusive**. A full subsequent two-lever experiment separated K and B; its **preregistered primary** B8 versus B48 at fixed K8 was **−0.001753**, 95% **[−0.006334,+0.002872]**, also **inconclusive**. Its K effect at fixed B48 was positive, but remained **secondary/descriptive** and motivated the next study.
 
-### 4. An independent predeclared test supported demographic K moderation at fixed B48
+#### 4. An independent predeclared test supported demographic K moderation at fixed B48
 
 With fresh visitor histories, matched founding genotypes and an explicit constant pollen-background denominator, the registered K8–K48 contrast was:
 
@@ -128,7 +137,7 @@ The registered mean exceeds 0.005 and the entire interval is positive; **43 of 6
 
 Two other **independently generated** 64-history cohorts had directionally concordant estimates of this same full-period contrast: **+0.013430** (four-arm K×B cohort) and **+0.008580** (timed-viability cohort). Both were *secondary descriptive* measures selected in experiments with **different registered primaries**. Across the three original JSONs the unweighted numerical mean **+0.009919** is **descriptive only**; no pooled interval, formal equivalence or threefold confirmatory success is claimed. See `docs/CHAPTER2_K_B48_THREE_COHORT_EVIDENCE_COMPARISON_20261010.md` and Figure 4.
 
-### 5. A later prospective timing contrast did not resolve early versus late importance
+#### 5. A later prospective timing contrast did not resolve early versus late importance
 
 After exploratory extinction-time diagnostics suggested later response, an independent **four-gate** experiment used another unused 64 histories and 229,376 futures. Selfed viable seeds were halved during updates **0–39**, **40–79**, or **0–79**, with an unchanged baseline. Its registered primary, the **difference between late-only and early-only K moderation**, was **−0.002965**, history-bootstrap **[−0.007263,+0.001317]**: **inconclusive**, neither nonzero support nor practical equivalence. The full-period K contrast (+0.008580) is a *descriptive secondary*, not a successful test of the timing hypothesis. Different interval crossings for early and late alone cannot identify when the causal mechanism acts.
 
