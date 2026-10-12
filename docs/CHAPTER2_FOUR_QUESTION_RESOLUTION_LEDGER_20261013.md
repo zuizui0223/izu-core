@@ -47,3 +47,9 @@ All320 original ABM,64,000 updates and all three traits admitted under exact bir
 The complete10-context descriptive table is CHAPTER2_GENOME_RESPONSE_ACCOUNTING_20261013.md. This completes the annual accounting component only: causal density/noise allocation, natural-order benefit and initial-state interventions remain pending. I/M mutation are disabled in this cohort; standing investment allele fixation is not neutral-diversity measurement.
 
 The next read-only96-kernel protocol is CHAPTER2_PERSISTENCE_DURATION_ACCOUNTING_PROTOCOL_20261013.md. Original conversation ZIPs are not currently located; pinned native regeneration must be admitted separately and never relabeled original-byte recovery.
+
+## Completed phase3: native temporal/state accounting
+
+Actual GitHub38280177062 at fdca3187 admits all480 baseline values and all144 original48 contrasts. All96 regenerated native kernels,81-census state probabilities, first-entry time/census and61,440 pointwise common-state comparisons are publicly preserved; original conversation ZIP bytes remain unauthenticated. Independent raw-kernel readback makes39,264 checks (maximum8.243e-13); reviewer separately verifies all48 signed partitions/crossovers within3.56e-15.
+
+There are12/48 positive-endpoint/negative-duration comparisons, six per visitor arm. Each shifted-arm reversal crosses once from early deficit to later gain. Low-fixed occupied time gains are outweighed by high-fixed and segregating occupied time losses. This closes temporal/occupancy accounting, not unique causal mediation or natural-order benefit. See CHAPTER2_PERSISTENCE_DURATION_ACCOUNTING_20261013.md and full48 readout. New initial-state intervention, ecological boundary, density causal allocation and one-paper integration remain pending.
