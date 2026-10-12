@@ -58,7 +58,7 @@ def aggregate(input_path,reference_root,technical_root,shard_root,out):
             assigned,mapping=mean.equalize_mean(original_state(s,lookup[t['block'],t['replicate'],t['origin']]))
             mean.verify_mapping(meta['mapping'],mapping)
             if len(z['population'])!=201:raise ValueError('fixed200 horizon required')
-            updates+=verify(z,assigned,visitors,configs[t['target']],old.future_seed(t),design.POLICY)
+            updates+=verify(z,assigned,visitors,configs[t['target']],old.future_seed(t),design.POLICY,float_atol=1e-12)
             occupied=bool(z['population'][-1])
             if occupied!=row['terminal_occupied']:raise ValueError('endpoint summary differs')
             ix=(old.BLOCKS.index(t['block']),t['replicate'],old.TARGETS.index(t['target']),old.ORIGINS.index(t['origin']))

@@ -183,3 +183,15 @@ def test_descriptive_genetics_use_allele_variance_and_separate_occupied_states(s
     assert result['fixed'].shape==(5,3)
     assert result['fixed'][0,2]==1
     np.testing.assert_array_equal(result['native_diagnostics'],z['diagnostics'])
+
+
+def test_cross_worker_replay_uses_frozen_float_tolerance_but_exact_counts(sampler_trace):
+    r,s,v,c,z=sampler_trace
+    bad={k:a.copy() for k,a in z.items()}
+    bad['sampling_weights'][0]=np.nextafter(bad['sampling_weights'][0],np.inf)
+    with pytest.raises(AssertionError):r.verify(bad,s,v,c,17,'native')
+    r.verify(bad,s,v,c,17,'native',float_atol=1e-12)
+    bad['sampling_weights'][0]+=1e-5
+    with pytest.raises(AssertionError):r.verify(bad,s,v,c,17,'native',float_atol=1e-12)
+    bad={k:a.copy() for k,a in z.items()};bad['diagnostics'][0,7]=np.nextafter(bad['diagnostics'][0,7],np.inf)
+    with pytest.raises(AssertionError):r.verify(bad,s,v,c,17,'native',float_atol=1e-12)

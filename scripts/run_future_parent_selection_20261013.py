@@ -50,7 +50,8 @@ def trajectory(initial,visitors,cfg,seed,policy,*,horizon=200):
     return result
 
 
-def verify(z,initial,visitors,cfg,seed,policy):
+def verify(z,initial,visitors,cfg,seed,policy,*,float_atol=0.):
+    if float_atol not in (0.,1e-12):raise ValueError('only frozen zero/local or1e-12/cross-worker float tolerance')
     for f in ('population','offsets','matrix_offsets','parent_offsets','parentage','ids','birth_years','allele_origin'):
         if z[f].dtype.kind not in 'iu':raise ValueError('integer count/identity/offset arrays required')
     for f in ('offsets','matrix_offsets','parent_offsets'):
@@ -76,19 +77,23 @@ def verify(z,initial,visitors,cfg,seed,policy):
     for t in range(h):
         state=old.census(z,t);native,sampling,p=ledger_and_weights(state,visitors,cfg,policy)
         lo,hi=z['matrix_offsets'][t:t+2]
-        np.testing.assert_array_equal(z['sampling_weights'][lo:hi],p.ravel())
-        np.testing.assert_array_equal(z['native_outcross'][lo:hi],native.outcross.ravel())
+        np.testing.assert_allclose(z['sampling_weights'][lo:hi],p.ravel(),atol=float_atol,rtol=0)
+        np.testing.assert_allclose(z['native_outcross'][lo:hi],native.outcross.ravel(),atol=float_atol,rtol=0)
         a,b=z['offsets'][t:t+2]
-        np.testing.assert_array_equal(z['native_self_viable'][a:b],native.self_viable)
+        np.testing.assert_allclose(z['native_self_viable'][a:b],native.self_viable,atol=float_atol,rtol=0)
         np.testing.assert_allclose(p.sum(),native.outcross.sum()+native.self_viable.sum(),atol=1e-12,rtol=1e-12)
         following,info=advance(state,sampling,empty,cfg,streams,year=200+t,mutation_traits=(False,True,True))
         saved=old.census(z,t+1)
-        for f in old.FIELDS:np.testing.assert_array_equal(getattr(following,f),getattr(saved,f))
+        for f in old.FIELDS:
+            if f=='alleles':np.testing.assert_allclose(getattr(following,f),getattr(saved,f),atol=float_atol,rtol=0)
+            else:np.testing.assert_array_equal(getattr(following,f),getattr(saved,f))
         a,b=z['parent_offsets'][t:t+2];np.testing.assert_array_equal(z['parentage'][a:b],info['parentage'])
-        np.testing.assert_array_equal(z['diagnostics'][t],diagnostics(native,info))
+        expected_diag=np.asarray(diagnostics(native,info))
+        np.testing.assert_allclose(z['diagnostics'][t,:7],expected_diag[:7],atol=float_atol,rtol=0)
+        np.testing.assert_array_equal(z['diagnostics'][t,7:],expected_diag[7:])
     for t in range(h+1):
         state=old.census(z,t);expected=state.alleles.mean(axis=(0,2)) if len(state.ids) else np.full(3,np.nan)
-        np.testing.assert_array_equal(z['means'][t],expected)
+        np.testing.assert_allclose(z['means'][t],expected,atol=float_atol,rtol=0,equal_nan=True)
     return h
 
 
@@ -138,7 +143,7 @@ def technical_gate(root,m,s,lookup,configs,visitors):
             raise ValueError('technical metadata drift')
         assigned,mapping=mean.equalize_mean(original_state(s,lookup[t['block'],t['replicate'],t['origin']]))
         mean.verify_mapping(meta['mapping'],mapping)
-        verify(z,assigned,visitors,configs[t['target']],old.future_seed(t),'native')
+        verify(z,assigned,visitors,configs[t['target']],old.future_seed(t),'native',float_atol=1e-12)
     return tr
 
 

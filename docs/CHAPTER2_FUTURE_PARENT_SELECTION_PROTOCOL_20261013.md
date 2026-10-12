@@ -27,3 +27,10 @@ Secondary descriptive: all201 occupancy curves/restricted duration, native mean 
 
 ## Delivery and next gate
 Commit protocol before new biological execution. Reviewed implementation/tests and original-reference admission precede dispatch through registered manual workflow, pinned execution source and dependencies. Only after all16 shards, original provider digests and independent readback pass may main/SI claims be added. If direct selection isolation fails, retain the specific failure; do not replace it with annotation identity or ordinary signed accounting.
+
+
+## Verifier portability ruling before biological readout
+
+Actual technical admission38320361326 succeeds, but some workers reject copied technical weights due2.22e-16 rounding. The frozen absolute1e-12 float allowance applies to cross-worker replay; same-worker producer replay remains bitwise exact. Census/parentage/ancestry/flags/recruitment counts remain exact. This changes verification only, not generator equations, masks, seeds, counts, horizon or inference. Unchanged remaining-module AST and full sampler/initial-mean/native future bindings must be authenticated against a18d527b. Both failures/logs retained; no live valid job cancelled.
+
+Completed valid256-case shards must be preserved. Before any mixed-source admission, bind exact old/new execution commits and raw/normalized runner bytes, the full generation AST after excluding only verify/technical_gate, all unchanged recipe bindings and manifest-pinned native sources. Preserve original provider digest and execution source per shard. The full reader must explicitly admit only this declared source pool, reject duplicate/missing identities, and replay all4096 raw cases under the frozen float tolerance. Recompute only failed/missing shard slots; no new preparation history/seed/environment or count expansion. Raw biological outcomes must not be interpreted before the complete cohort gate. This ruling does not itself constitute source-pool admission; the authenticated gate remains required.
