@@ -103,6 +103,7 @@ def minimal_resolution_materials():
     receipt_raw=(MINIMAL_RESULTS/'minimal_resolution_delivery_20261013.json').read_bytes()
     receipt=json.loads(receipt_raw)
     sources={
+        'ecological_order_boundary_20261013.json':'EVIDENCE/ECOLOGICAL_ORDER_READOUT.json',
         'matched_operator_gap_20261013.json':'EVIDENCE/OPERATOR_GAP_READOUT.json',
         'chapter2_discovery_archive_recovery_20261013.json':'EVIDENCE/DISCOVERY_ARCHIVE_INTAKE.json',
         'genome_response_accounting_readout_20261013.json':'EVIDENCE/GENOME_RESPONSE_READOUT.json',
@@ -138,6 +139,13 @@ def minimal_resolution_materials():
         or intake['counts']['discovery_cases_verified']!=2048
         or intake['verification']['runtime_identity_verified'] or intake['verification']['original_discovery_full_replay_completed']):
         raise ValueError('matched gap/original archive admission differs')
+    eco=json.loads(members['EVIDENCE/ECOLOGICAL_ORDER_READOUT.json'])
+    if (eco['status']!='ALL2304_RAW_GENOTYPE_AND_ORDER_TRACES_ADMITTED' or eco['cases']!=2304
+        or eco['updates']!=460800 or len(eco['cells'])!=18 or eco['actual_readback']['run']!=38312090996
+        or eco['independent']['cases']!=2304 or eco['independent']['checks']!=6930
+        or eco['supported_supply_pairs'] or eco['supported_composition_pairs']
+        or not all(c['simultaneous_interval'][0]<=0<=c['simultaneous_interval'][1] for c in eco['cells'])):
+        raise ValueError('ecological order admission/negative decision differs')
     return members,derivations
 
 

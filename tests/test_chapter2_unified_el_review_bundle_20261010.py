@@ -26,7 +26,12 @@ def test_minimal_resolution_delivery_is_source_bound():
     assert hashlib.sha256(original).hexdigest()==value['original_readout_sha256']
     assert json.loads(members['EVIDENCE/GENOME_RESPONSE_READOUT.json'])['updates']==64000
     assert json.loads(members['EVIDENCE/DURATION_READOUT.json'])['kernels']==96
-    assert len(derivations)==6
+    assert len(derivations)==7
+    ecological=json.loads(members['EVIDENCE/ECOLOGICAL_ORDER_READOUT.json'])
+    assert ecological['cases']==2304 and ecological['updates']==460800
+    assert len(ecological['cells'])==18 and ecological['supported_supply_pairs']==[]
+    assert ecological['supported_composition_pairs']==[]
+    assert all(lo<=0<=hi for lo,hi in [c['simultaneous_interval'] for c in ecological['cells']])
     assert json.loads(members['EVIDENCE/OPERATOR_GAP_READOUT.json'])['updates']==64000
     intake=json.loads(members['EVIDENCE/DISCOVERY_ARCHIVE_INTAKE.json'])
     assert intake['verification']['archive_identity_verified']
@@ -162,6 +167,7 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
            "EVIDENCE/CAPACITY_RESULTS.json",
            "EVIDENCE/DISCOVERY_ARCHIVE_INTAKE.json",
            "EVIDENCE/DURATION_READOUT.json",
+           "EVIDENCE/ECOLOGICAL_ORDER_READOUT.json",
            "EVIDENCE/EVOLUTION_DESIGN.json",
            "EVIDENCE/EVOLUTION_RESULTS.json",
            "EVIDENCE/GENOME_RESPONSE_READOUT.json",
@@ -182,7 +188,7 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
         assert m["doi_deposit_complete"] is False
         assert m["n_figures"]==4
         assert m["n_supplementary_figures"]==3
-        assert len(m["members"])==29
+        assert len(m["members"])==30
         for name,record in m["members"].items():
             raw=z.read(name)
             assert record=={"size":len(raw),"sha256":hashlib.sha256(raw).hexdigest()}
