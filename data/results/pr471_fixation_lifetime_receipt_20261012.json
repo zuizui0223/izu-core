@@ -1,0 +1,33 @@
+{
+  "schema": "pr471_fixation_lifetime_retrospective_receipt_v1",
+  "status": "LOCAL_ACCOUNTING_COMPLETE_NOT_PR_CI",
+  "source_main_checked": "636991a6f19669aee49ad38cf5501fcc010021e9",
+  "horizon": 80,
+  "contexts": 24,
+  "visitor_arms": 2,
+  "expression_policies": 2,
+  "saved_kernels": 96,
+  "new_random_histories": 0,
+  "native_source_reexecuted": false,
+  "source_archive_sha256": "1f58a0f0988d1215a53ea50aa30ece049a37da4a0cd459a72a44f2f05065a783",
+  "kernel_member_sha256": "9d13fe6d116e2c0ef7e08658fa9d9488cb7320e8e7cab2ecc9946e0780a852c3",
+  "native_archive_sha256": "b7f3814d682095e91783db0e4cebef2f0eb235835ff71de68e3ad28bb3c3ca84",
+  "native_endpoint_checks": 288,
+  "native_endpoint_max_error": 4.884981308350689e-15,
+  "max_accounting_error": 8.384404281969182e-13,
+  "independent_readback": {
+    "status": "PASS",
+    "kernels": 96,
+    "hit_flag_endpoint_checks": 384,
+    "hit_flag_max_error": 7.771561172376096e-16,
+    "independent_block_power_lifetime_checks": 96,
+    "lifetime_max_error": 7.105427357601002e-14,
+    "prior_timeseries_lifetime_checks": 96,
+    "prior_timeseries_max_error": 1.4210854715202004e-14,
+    "scope": "Recalculation from saved matrices and prior time series, not a new native-source run."
+  },
+  "local_unit_tests": 13,
+  "scientific_scope": "Retrospective exact saved-matrix accounting, not a changed primary endpoint or independent ecological replication.",
+  "raw_time_series_location": "Conversation archive; not a GitHub release or external DOI deposit.",
+  "readout_csv_sha256": "e0abe2aee00a538c0c6b5adaba9057e858188db147ecd446d5c88e6997b94d61"
+}
