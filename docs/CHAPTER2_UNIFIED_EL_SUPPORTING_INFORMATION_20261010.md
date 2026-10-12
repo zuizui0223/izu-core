@@ -124,3 +124,31 @@ Occupied-fraction differences are0.0524462891[0.0288523560,0.0763189697] and0.01
 The intervention changes mutation-access policy, achieved states and which response is realized. A successful first stage does not isolate the benefit of naturally evolved sequence. Under the current Markov transition operators, identical complete biological state and common future transition law have the same future distribution regardless of a retrospective event-order label. A path effect can act through survival before the handoff or the full genetic/census state reached; matching only trait means does not match that state. This source-supported identification limit is model-specific and does not deny pathway effects in organisms.
 
 Every original preparation, boundary and challenge archive retains annual diploid genotypes, allele origins, mutation flags, IDs/birth years and parentage. Genealogy keys include phase, birth year and raw ID because IDs alone can recur after K48→K8. Bottleneck receipts link exact subsets. The independent consumer checks this genealogy and all-start summaries; a separate arithmetic implementation recomputes all registered intervals. Its compact readouts and frozen design are in `data/results/four_question_resolution_20261011/` and [the resolution design](four_question_resolution_20261011/DESIGN.md). Raw histories are preserved separately from the numerical/320-ABM asset; none replaces unavailable earlier discovery originals.
+
+## S9. Controlled-expression test of preparation-policy persistence contrasts
+
+This prospective follow-up retains the two fixed founder strata and all512 paired preparation states per stratum, including extinct outcomes. Both preparation origins faced the two original reference challenges under native, assurance-fixed, investment-fixed, both-fixed and all-three-fixed expression. The common reference was0.5 throughout all200 updates. These interventions change reproductive expression only; original diploid inheritance, parent selection, inbreeding depression and Gaussian birth mutation remain active. Selection and resulting genotypes can therefore change during the future. This is not an initial-phenotype-only intervention or natural mediation analysis.
+
+All20,480 archives passed complete annual genotype, ancestry, parentage, census and ledger admission;4,096 native replays matched their original reference trajectories. The all-three-fixed negative control had exactly matched paired census/ledger trajectories, not identical genes. A separate implementation recomputed every terminal occupancy and all four19,999-draw paired-bootstrap intervals directly from all original population arrays. The independent fixed founder strata are not sampled island or visitor-history replicates.
+
+Let D(policy) be assurance-access-first minus investment-access-first terminal occupancy. The primary contrast is D(native) minus D(single-trait-fixed). The four-contrast simultaneous95% percentile intervals and decisions were frozen before execution; all corresponding conservative distribution-free bounds include zero.
+
+| Reference challenge | Fixed expression | Attenuation | Simultaneous interval | Decision |
+|---|---|---:|---|---|
+|1.05|Assurance|0.0283203125|[0.0068359375,0.0498046875]|Attenuation|
+|1.05|Investment|−0.0068359375|[−0.0302734375,0.015625]|Unresolved|
+|1.50|Assurance|0.05078125|[0.013659667968750011,0.0888671875]|Attenuation|
+|1.50|Investment|0.013671875|[−0.017578125,0.044921875]|Unresolved|
+
+| Reference challenge | D(native) | D(A fixed) | D(I fixed) | D(AI fixed) | D(MAI fixed) |
+|---|---:|---:|---:|---:|---:|
+|1.05|0.0283203125|0|0.03515625|0|0|
+|1.50|0.0458984375|−0.0048828125|0.0322265625|−0.013671875|0|
+
+Under1.05, every assurance-, both- and all-fixed start is extinct at200; zero contrasts there do not establish equivalence or complete mediation. Under1.50 the assurance-fixed origins retain occupancy0.83203125/0.8369140625, versus native0.939453125/0.8935546875. Investment-fixed occupancy is0.9375/0.9052734375; both-fixed0.8232421875/0.8369140625; all-fixed0.845703125/0.845703125. All values retain all1,024 starts per origin/policy.
+
+The predeclared descriptive symmetric partition assigns assurance/investment/residual components0.03173828125/−0.00341796875/0 at1.05 and0.04833984375/0.01123046875/−0.013671875 at1.50. The factorial interaction D(native)−D(A fixed)−D(I fixed)+D(AI fixed) is−0.0068359375 and+0.0048828125. These arithmetic quantities are reference-dependent, have no new primary intervals and are not natural mediation fractions. Negative residuals are descriptive, not supported residual causal effects.
+
+At the exact native eight-plant handoff under1.05, assurance-first origins produce more viable selfed seeds8.5450 versus8.2760 despite fewer ovules30.3255 versus30.8711 and slightly lower outcross output0.6372 versus0.6457. This immediate descriptive accounting does not identify the long-term mediator. Recorded quantitative genotype moments include between-history variation; they are not neutral genetic diversity.
+
+The [compact source-bound companion](../data/results/persistence_mechanism_20261012/readout.json), [exact frozen design](../data/results/persistence_mechanism_20261012/design.md) and [losslessly compressed original full readout](../data/results/persistence_mechanism_20261012/original_readout.json.gz) retain all estimates, conservative intervals,20 secondary trajectory groups and independent arithmetic admission. The descriptive interaction was added only to the companion; original readout bytes remain unchanged. Biological execution and faster, reader-only independent verification used distinct source identities; no biological rerun was used for delivery. Public raw preservation is distinct from a permanent DOI deposit.

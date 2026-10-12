@@ -43,6 +43,7 @@ ATOM_DATA=ROOT/"data/results/atom_cell_completed_20261011"
 ATOM_DOC=ROOT/"docs/atom_comparison_20261011"
 RESOLUTION_DATA=ROOT/"data/results/four_question_resolution_20261011"
 RESOLUTION_DOC=ROOT/"docs/four_question_resolution_20261011"
+MECHANISM_DATA=ROOT/"data/results/persistence_mechanism_20261012"
 DENIED=("zuizui0223","github.com/","/workspace/","/home/","/root/",
         "issue #436","pr #452","pr #455")
 
@@ -53,6 +54,41 @@ def sha(raw):
 
 def json_bytes(value):
     return (json.dumps(value,sort_keys=True,indent=2)+"\n").encode("utf-8")
+
+
+def mechanism_materials():
+    delivery_raw=(MECHANISM_DATA/"delivery.json").read_bytes()
+    delivery=json.loads(delivery_raw)
+    members={}
+    for filename,dest in {"readout.json":"EVIDENCE/MECHANISM_READOUT.json",
+                          "original_readout.json.gz":"EVIDENCE/MECHANISM_ORIGINAL.json.gz",
+                          "design.md":"EVIDENCE/MECHANISM_DESIGN.md"}.items():
+        raw=(MECHANISM_DATA/filename).read_bytes()
+        if sha(raw)!=delivery["sha256"][filename]:
+            raise ValueError("mechanism source hash mismatch: "+filename)
+        members[dest]=raw
+    compact=json.loads(members["EVIDENCE/MECHANISM_READOUT.json"])
+    original=gzip.decompress(members["EVIDENCE/MECHANISM_ORIGINAL.json.gz"])
+    if sha(original)!=compact["original_readout_sha256"]:
+        raise ValueError("mechanism original readout identity differs")
+    source=json.loads(original)
+    if (compact["status"]!="complete_archive_verified" or compact["verified_cases"]!=20480
+        or compact["primary"]!=source["primary"] or compact["policy_differences"]!=source["policy_differences"]
+        or compact["independent_arithmetic"]["report_sha256"]!=sha(original)
+        or compact["independent_arithmetic"]["npz_cases"]!=20480):
+        raise ValueError("mechanism admission scope differs")
+    for row, differences in zip(compact["partition"],source["policy_differences"]):
+        if row["factorial_interaction"]!=differences[0]-differences[1]-differences[2]+differences[3]:
+            raise ValueError("mechanism predeclared interaction differs")
+    expected=[{"target":s["target"],"policy":s["policy"],"origin":s["origin"],
+               "all_starts":s["all_starts"],"terminal_occupancy":s["occupancy_by_update"][-1]}
+              for s in source["secondary_descriptive"]]
+    if compact["terminal_occupancy"]!=expected or len(compact["partition"])!=2:
+        raise ValueError("mechanism descriptive inventory differs")
+    return members,{name:{"source_delivery_sha256":sha(delivery_raw),
+        "derived_sha256":sha(raw),"original_readout_sha256":sha(original),
+        "transformation":"Exact hash-bound companion bytes; original readout compressed losslessly; descriptive factorial interaction added only in compact derivative."}
+        for name,raw in members.items()}
 
 
 def count_manuscript_words(text):
@@ -365,6 +401,9 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     if si_text.count(resolution_link)!=1 or si_text.count(resolution_dir)!=1:
         raise ValueError("resolution SI source-link boundary changed")
     si_text=si_text.replace(resolution_link,"EVIDENCE/RESOLUTION_DESIGN.md").replace(resolution_dir,"EVIDENCE/RESOLUTION_READOUT.json")
+    si_text=si_text.replace("../data/results/persistence_mechanism_20261012/readout.json","EVIDENCE/MECHANISM_READOUT.json")
+    si_text=si_text.replace("../data/results/persistence_mechanism_20261012/design.md","EVIDENCE/MECHANISM_DESIGN.md")
+    si_text=si_text.replace("../data/results/persistence_mechanism_20261012/original_readout.json.gz","EVIDENCE/MECHANISM_ORIGINAL.json.gz")
     si=si_text.encode("utf-8")
     if any(token in si.lower().decode("utf-8") for token in DENIED):
         raise ValueError("blinded Supporting Information has identifying token")
@@ -387,9 +426,12 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     resolution,resolution_derivations=resolution_materials()
     members.update(resolution)
     derivations.update(resolution_derivations)
+    mechanism,mechanism_derivations=mechanism_materials()
+    members.update(mechanism)
+    derivations.update(mechanism_derivations)
     derivations["SUPPORTING_INFORMATION.md"]={
         "original_path":str(si_path.relative_to(ROOT)),"original_sha256":sha(si_original),
-        "derived_sha256":sha(si),"transformation":"Relocate atom/resolution companion source references and add the delivered supplementary-figure link; numerical text unchanged."}
+        "derived_sha256":sha(si),"transformation":"Relocate atom/resolution/mechanism companion source references and add the delivered supplementary-figure link; numerical text unchanged."}
     original_s2=next(row for row in admission["figures"] if row["path"].endswith(".svg"))
     if sha(members["SupplementaryFigureS2.svg"])!=original_s2["sha256"]:
         raise ValueError("tempo supplementary figure source hash mismatch")
@@ -406,7 +448,8 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
         "tempo_evidence":"separately frozen descriptive supplement; 16 synthetic profiles, no pooling with the primary 64-history studies",
         "audit_scope":"Original event/order/occupancy audit: 128 setting/outcome comparisons; 156 secondary fields per setting were not independently aggregate-recomputed in that audit",
         "raw_trajectory_archive_included":False,
-        "anonymous_derivations":["TEMPO_FULL_TABLES.md","EVIDENCE/TEMPO_AUDIT_SUMMARY.json","EVIDENCE/ATOM_ABM_COMPARISON.json","EVIDENCE/RESOLUTION_READOUT.json","SUPPORTING_INFORMATION.md"],
+        "anonymous_derivations":["TEMPO_FULL_TABLES.md","EVIDENCE/TEMPO_AUDIT_SUMMARY.json","EVIDENCE/ATOM_ABM_COMPARISON.json","EVIDENCE/RESOLUTION_READOUT.json","EVIDENCE/MECHANISM_READOUT.json","SUPPORTING_INFORMATION.md"],
+        "mechanism_evidence":"20480 full-genome-admitted futures and independent all-start arithmetic; lifelong expression policies, not initial-only or natural-order mediation; low-challenge terminal floor retained",
         "atom_evidence":"All10 two-grid numerical admissions and320 descriptive ABM histories;990 event and40 checkpoint independent array checks, no new raw-genome reconstruction or causal drift attribution",
         "resolution_evidence":"6144 boundary,3072 shared preparations,6144 branched challenges; genetic-access band and conditional all-start preparation-policy effects, not pure natural-order mediation",
         "members":{name:{"size":len(b),"sha256":sha(b)}

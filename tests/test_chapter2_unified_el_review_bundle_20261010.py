@@ -17,6 +17,30 @@ from scripts.build_chapter2_unified_el_submission_bundle import (
 ROOT=Path(__file__).resolve().parents[1]
 
 
+def test_mechanism_delivery_is_source_bound_and_reports_predeclared_interaction():
+    members, derivations = builder.mechanism_materials()
+    value = json.loads(members["EVIDENCE/MECHANISM_READOUT.json"])
+    assert value["status"] == "complete_archive_verified"
+    assert value["verified_cases"] == 20480
+    assert [r["factorial_interaction"] for r in value["partition"]] == [-0.0068359375, 0.0048828125]
+    assert [r["decision"] for r in value["primary"]] == ["attenuation", "unresolved", "attenuation", "unresolved"]
+    assert value["independent_arithmetic"]["npz_cases"] == 20480
+    assert value["scope"]["lifelong_expression_policy"] is True
+    assert value["scope"]["low_challenge_terminal_floor"] is True
+    assert "EVIDENCE/MECHANISM_READOUT.json" in derivations
+
+
+def test_mechanism_delivery_rejects_source_drift(tmp_path, monkeypatch):
+    import shutil
+    copied=tmp_path/"mechanism"
+    shutil.copytree(builder.MECHANISM_DATA,copied)
+    p=copied/"readout.json"
+    p.write_bytes(p.read_bytes()+b" ")
+    monkeypatch.setattr(builder,"MECHANISM_DATA",copied)
+    with pytest.raises(ValueError, match="mechanism source hash mismatch"):
+        builder.mechanism_materials()
+
+
 def test_current_blinded_paper_is_correct_and_within_EL_limits():
     paper=blind_paper()
     source=(ROOT/"docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md").read_text()
@@ -92,6 +116,9 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
            "EVIDENCE/CAPACITY_RESULTS.json",
            "EVIDENCE/EVOLUTION_DESIGN.json",
            "EVIDENCE/EVOLUTION_RESULTS.json",
+           "EVIDENCE/MECHANISM_DESIGN.md",
+           "EVIDENCE/MECHANISM_ORIGINAL.json.gz",
+           "EVIDENCE/MECHANISM_READOUT.json",
            "EVIDENCE/RESOLUTION_DESIGN.md",
            "EVIDENCE/RESOLUTION_READOUT.json",
            "EVIDENCE/TEMPO_AUDIT_SUMMARY.json",
@@ -103,7 +130,7 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
         assert m["doi_deposit_complete"] is False
         assert m["n_figures"]==4
         assert m["n_supplementary_figures"]==3
-        assert len(m["members"])==20
+        assert len(m["members"])==23
         for name,record in m["members"].items():
             raw=z.read(name)
             assert record=={"size":len(raw),"sha256":hashlib.sha256(raw).hexdigest()}
