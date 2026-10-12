@@ -2,6 +2,15 @@ name: Frozen atom-cell numerical continuation
 
 on:
   workflow_dispatch:
+    inputs:
+      campaign:
+        description: Frozen campaign to execute
+        type: choice
+        default: atom-cell
+        options:
+          - atom-cell
+          - mechanism-technical
+          - mechanism-production
 
 permissions:
   contents: read
@@ -20,7 +29,7 @@ env:
 
 jobs:
   continue:
-    if: github.event_name == 'workflow_dispatch'
+    if: github.event_name == 'workflow_dispatch' && (github.event.inputs.campaign == '' || github.event.inputs.campaign == 'atom-cell')
     runs-on: windows-latest
     timeout-minutes: 360
     strategy:
@@ -44,6 +53,80 @@ jobs:
         with:
           name: atom-cell-shard-${{ matrix.shard }}
           path: remote-output/
+          if-no-files-found: warn
+          retention-days: 90
+  mechanism-technical:
+    if: github.event_name == 'workflow_dispatch' && startsWith(github.event.inputs.campaign, 'mechanism-')
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10.11'
+      - run: python -m pip install numpy==2.2.6 scipy==1.15.3 pytest==8.4.2
+      - run: python -m pytest tests/test_persistence_expression_mechanism_20261012.py
+      - run: gh release download persistence-mechanism-inputs-20261012 --repo zuizui0223/izu-core --pattern persistence_mechanism_inputs_20261012.zip
+      - name: Native replay and exact negative control before production
+        run: |
+          $mechanismDigest = (Get-Content data/design/persistence_mechanism_inputs_20261012.json -Raw | ConvertFrom-Json).sha256
+          python -m scripts.persistence_expression_mechanism_20261012 --input persistence_mechanism_inputs_20261012.zip --sha256 $mechanismDigest --shard 0 --technical --output mechanism-technical
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mechanism-technical
+          path: mechanism-technical/
+          if-no-files-found: warn
+          retention-days: 90
+  mechanism-production:
+    needs: mechanism-technical
+    if: github.event.inputs.campaign == 'mechanism-production'
+    runs-on: windows-latest
+    timeout-minutes: 180
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10.11'
+      - run: python -m pip install numpy==2.2.6
+      - run: gh release download persistence-mechanism-inputs-20261012 --repo zuizui0223/izu-core --pattern persistence_mechanism_inputs_20261012.zip
+      - name: Execute only assigned frozen cases
+        run: |
+          $mechanismDigest = (Get-Content data/design/persistence_mechanism_inputs_20261012.json -Raw | ConvertFrom-Json).sha256
+          python -m scripts.persistence_expression_mechanism_20261012 --input persistence_mechanism_inputs_20261012.zip --sha256 $mechanismDigest --shard ${{ matrix.shard }} --output mechanism-output
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mechanism-shard-${{ matrix.shard }}
+          path: mechanism-output/
+          if-no-files-found: warn
+          retention-days: 90
+  mechanism-verify:
+    needs: mechanism-production
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10'
+      - run: python -m pip install numpy==2.2.6
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: mechanism-shard-*
+          path: mechanism-shards/
+      - run: gh release download persistence-mechanism-inputs-20261012 --repo zuizui0223/izu-core --pattern persistence_mechanism_inputs_20261012.zip
+      - run: python -m scripts.aggregate_persistence_mechanism_20261012 --root mechanism-shards --output mechanism-verified --input persistence_mechanism_inputs_20261012.zip --receipt data/design/persistence_mechanism_inputs_20261012.json
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: mechanism-independent-readout
+          path: mechanism-verified/
           if-no-files-found: warn
           retention-days: 90
   verify:
