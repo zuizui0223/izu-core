@@ -1,0 +1,364 @@
+{
+  "status": "ALL320_EXISTING_RESPONSE_CLOCKS_ACCOUNTED",
+  "input_sha256": "115636a338c847fdf1f80ae9e39cdfc622fcf38c7f70575e37d245bf7c41b098",
+  "cases": 320,
+  "updates": 64000,
+  "groups": [
+    {
+      "block": "causal_confirmation",
+      "supply": 0.0,
+      "composition": "empty",
+      "starts": 32,
+      "response_window_order": {
+        "assurance_only": 7,
+        "near_simultaneous": 9,
+        "investment_first": 16
+      },
+      "selection_contribution_order": {
+        "investment_first": 23,
+        "assurance_only": 8,
+        "investment_only": 1
+      },
+      "actual_order": {
+        "investment_first": 21,
+        "assurance_only": 4,
+        "investment_only": 5,
+        "near_simultaneous": 2
+      },
+      "initial_response": {
+        "A": {
+          "positive": 0,
+          "negative": 0,
+          "zero": 32
+        },
+        "I": {
+          "positive": 32,
+          "negative": 0,
+          "zero": 0
+        }
+      }
+    },
+    {
+      "block": "causal_confirmation",
+      "supply": 0.125,
+      "composition": "matched",
+      "starts": 32,
+      "response_window_order": {
+        "near_simultaneous": 4,
+        "investment_first": 10,
+        "assurance_first": 8,
+        "assurance_only": 10
+      },
+      "selection_contribution_order": {
+        "assurance_only": 25,
+        "investment_first": 5,
+        "neither": 2
+      },
+      "actual_order": {
+        "investment_first": 11,
+        "investment_only": 5,
+        "assurance_first": 2,
+        "neither": 5,
+        "near_simultaneous": 2,
+        "assurance_only": 7
+      },
+      "initial_response": {
+        "A": {
+          "positive": 0,
+          "negative": 0,
+          "zero": 32
+        },
+        "I": {
+          "positive": 0,
+          "negative": 32,
+          "zero": 0
+        }
+      }
+    },
+    {
+      "block": "causal_confirmation",
+      "supply": 0.125,
+      "composition": "separated",
+      "starts": 32,
+      "response_window_order": {
+        "assurance_first": 3,
+        "investment_first": 16,
+        "assurance_only": 6,
+        "near_simultaneous": 7
+      },
+      "selection_contribution_order": {
+        "assurance_first": 1,
+        "assurance_only": 14,
+        "investment_first": 15,
+        "investment_only": 1,
+        "neither": 1
+      },
+      "actual_order": {
+        "assurance_first": 2,
+        "assurance_only": 4,
+        "investment_first": 19,
+        "investment_only": 7
+      },
+      "initial_response": {
+        "A": {
+          "positive": 0,
+          "negative": 0,
+          "zero": 32
+        },
+        "I": {
+          "positive": 32,
+          "negative": 0,
+          "zero": 0
+        }
+      }
+    },
+    {
+      "block": "causal_confirmation",
+      "supply": 1.0,
+      "composition": "matched",
+      "starts": 32,
+      "response_window_order": {
+        "neither": 22,
+        "assurance_only": 10
+      },
+      "selection_contribution_order": {
+        "neither": 32
+      },
+      "actual_order": {
+        "neither": 26,
+        "assurance_only": 6
+      },
+      "initial_response": {
+        "A": {
+          "positive": 0,
+          "negative": 0,
+          "zero": 32
+        },
+        "I": {
+          "positive": 0,
+          "negative": 32,
+          "zero": 0
+        }
+      }
+    },
+    {
+      "block": "causal_confirmation",
+      "supply": 1.0,
+      "composition": "separated",
+      "starts": 32,
+      "response_window_order": {
+        "assurance_only": 31,
+        "assurance_first": 1
+      },
+      "selection_contribution_order": {
+        "neither": 23,
+        "assurance_only": 9
+      },
+      "actual_order": {
+        "assurance_only": 9,
+        "neither": 19,
+        "investment_only": 2,
+        "assurance_first": 1,
+        "investment_first": 1
+      },
+      "initial_response": {
+        "A": {
+          "positive": 0,
+          "negative": 0,
+          "zero": 32
+        },
+        "I": {
+          "positive": 32,
+          "negative": 0,
+          "zero": 0
+        }
+      }
+    },
+    {
+      "block": "causal_main",
+      "supply": 0.0,
+      "composition": "empty",
+      "starts": 32,
+      "response_window_order": {
+        "assurance_only": 6,
+        "assurance_first": 1,
+        "near_simultaneous": 7,
+        "investment_first": 18
+      },
+      "selection_contribution_order": {
+        "assurance_only": 7,
+        "investment_first": 23,
+        "investment_only": 2
+      },
+      "actual_order": {
+        "assurance_only": 11,
+        "investment_first": 19,
+        "neither": 1,
+        "investment_only": 1
+      },
+      "initial_response": {
+        "A": {
+          "positive": 0,
+          "negative": 0,
+          "zero": 32
+        },
+        "I": {
+          "positive": 32,
+          "negative": 0,
+          "zero": 0
+        }
+      }
+    },
+    {
+      "block": "causal_main",
+      "supply": 0.125,
+      "composition": "matched",
+      "starts": 32,
+      "response_window_order": {
+        "assurance_only": 11,
+        "assurance_first": 7,
+        "investment_first": 8,
+        "near_simultaneous": 6
+      },
+      "selection_contribution_order": {
+        "neither": 1,
+        "assurance_only": 20,
+        "investment_only": 2,
+        "investment_first": 7,
+        "assurance_first": 2
+      },
+      "actual_order": {
+        "neither": 6,
+        "investment_first": 6,
+        "assurance_only": 15,
+        "assurance_first": 3,
+        "near_simultaneous": 1,
+        "investment_only": 1
+      },
+      "initial_response": {
+        "A": {
+          "positive": 0,
+          "negative": 0,
+          "zero": 32
+        },
+        "I": {
+          "positive": 0,
+          "negative": 32,
+          "zero": 0
+        }
+      }
+    },
+    {
+      "block": "causal_main",
+      "supply": 0.125,
+      "composition": "separated",
+      "starts": 32,
+      "response_window_order": {
+        "assurance_only": 3,
+        "near_simultaneous": 14,
+        "investment_first": 15
+      },
+      "selection_contribution_order": {
+        "assurance_only": 7,
+        "investment_first": 22,
+        "near_simultaneous": 2,
+        "assurance_first": 1
+      },
+      "actual_order": {
+        "assurance_only": 9,
+        "investment_first": 18,
+        "investment_only": 3,
+        "near_simultaneous": 1,
+        "assurance_first": 1
+      },
+      "initial_response": {
+        "A": {
+          "positive": 0,
+          "negative": 0,
+          "zero": 32
+        },
+        "I": {
+          "positive": 32,
+          "negative": 0,
+          "zero": 0
+        }
+      }
+    },
+    {
+      "block": "causal_main",
+      "supply": 1.0,
+      "composition": "matched",
+      "starts": 32,
+      "response_window_order": {
+        "neither": 29,
+        "assurance_only": 3
+      },
+      "selection_contribution_order": {
+        "neither": 32
+      },
+      "actual_order": {
+        "assurance_only": 3,
+        "neither": 29
+      },
+      "initial_response": {
+        "A": {
+          "positive": 0,
+          "negative": 0,
+          "zero": 32
+        },
+        "I": {
+          "positive": 0,
+          "negative": 32,
+          "zero": 0
+        }
+      }
+    },
+    {
+      "block": "causal_main",
+      "supply": 1.0,
+      "composition": "separated",
+      "starts": 32,
+      "response_window_order": {
+        "assurance_only": 32
+      },
+      "selection_contribution_order": {
+        "neither": 23,
+        "assurance_only": 9
+      },
+      "actual_order": {
+        "neither": 19,
+        "investment_first": 2,
+        "assurance_only": 11
+      },
+      "initial_response": {
+        "A": {
+          "positive": 0,
+          "negative": 0,
+          "zero": 32
+        },
+        "I": {
+          "positive": 32,
+          "negative": 0,
+          "zero": 0
+        }
+      }
+    }
+  ],
+  "scope": "Retrospective realized-path expected response; not invasion-gradient onset, no-noise trajectory, ecological root or natural-order benefit.",
+  "actual_readback": {
+    "run": 38310340357,
+    "all_fields_exact": true,
+    "source": {
+      "commit": "f39deb7b49937aae66c85420bd9897f3024328ec",
+      "reader_sha256": "bb773df1d288bd1e274504f8a67ed85807f81a80c8e60e103a65dc74e48b6a89",
+      "no_new_biological_histories": true
+    }
+  },
+  "independent": {
+    "status": "ALL320_RAW_CLOCKS_AND_SUMS_INDEPENDENTLY_MATCH",
+    "cases": 320,
+    "checks": 7040,
+    "output_sha256": "763005429f65d1f6241386ccc7da1918f2ed6c076f467d6ae177d6637788d508",
+    "no_producer_import": true
+  }
+}
