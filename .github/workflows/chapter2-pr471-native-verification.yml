@@ -7,7 +7,7 @@ on:
         description: 'Original-data diagnostic or the predeclared fixed-access ecological assay'
         type: choice
         default: pr471-native
-        options: [pr471-native, independent32-admission, genome-response-accounting, persistence-duration-accounting, matched-operator-gap, discovery-original-intake, existing-response-timing, ecological-order-boundary, future-state-sufficiency]
+        options: [pr471-native, independent32-admission, genome-response-accounting, persistence-duration-accounting, matched-operator-gap, discovery-original-intake, existing-response-timing, ecological-order-boundary, future-state-sufficiency, future-parent-selection]
 
 permissions:
   contents: read
@@ -17,6 +17,111 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  future-parent-technical:
+    if: inputs.diagnostic == 'future-parent-selection'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PYTHONUTF8: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.2.6 scipy==1.15.3 pytest==8.4.2
+      - run: python -m pytest -q tests/test_future_parent_selection_20261013.py tests/test_workflow_trigger_policy.py
+      - run: |
+          gh release download persistence-mechanism-inputs-20261012 --repo zuizui0223/izu-core --pattern persistence_mechanism_inputs_20261012.zip
+          gh release download four-question-resolution-20261013 --repo zuizui0223/izu-core --pattern initial_assurance_mean_actual_github_38286055655.zip
+          python -m scripts.admit_parent_selection_references_20261013 --prior initial_assurance_mean_actual_github_38286055655.zip --input persistence_mechanism_inputs_20261012.zip --out original-reference
+          python -m scripts.run_future_parent_selection_20261013 --input persistence_mechanism_inputs_20261012.zip --references original-reference --shard 0 --technical --out stage/technical
+          python - <<'PY'
+          import shutil
+          from pathlib import Path
+          p=Path('stage/reference/verified');p.mkdir(parents=True)
+          shutil.copy2('original-reference/ADMISSION.json','stage/reference/ADMISSION.json')
+          shutil.copy2('original-reference/verified/all_start_outcomes.npz',p/'all_start_outcomes.npz')
+          PY
+          git rev-parse HEAD > stage/EXECUTION_COMMIT.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: parent-selection-admission-${{ github.run_id }}
+          path: stage/
+          if-no-files-found: error
+          retention-days: 90
+  future-parent-biological:
+    needs: future-parent-technical
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        shard: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PYTHONUTF8: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.2.6 scipy==1.15.3
+      - uses: actions/download-artifact@v4
+        with:
+          name: parent-selection-admission-${{ github.run_id }}
+          path: admitted/
+      - run: |
+          gh release download persistence-mechanism-inputs-20261012 --repo zuizui0223/izu-core --pattern persistence_mechanism_inputs_20261012.zip
+          python -m scripts.run_future_parent_selection_20261013 --input persistence_mechanism_inputs_20261012.zip --references admitted/reference --technical-root admitted/technical --shard ${{ matrix.shard }} --out outputs/biological
+          git rev-parse HEAD > outputs/biological/EXECUTION_COMMIT.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: parent-selection-shard-${{ matrix.shard }}
+          path: outputs/biological/
+          if-no-files-found: error
+          retention-days: 90
+  future-parent-readback:
+    needs: future-parent-biological
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      PYTHONUTF8: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.2.6 scipy==1.15.3
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: parent-selection-shard-*
+          path: shards/
+      - uses: actions/download-artifact@v4
+        with:
+          name: parent-selection-admission-${{ github.run_id }}
+          path: admitted/
+      - run: |
+          gh release download persistence-mechanism-inputs-20261012 --repo zuizui0223/izu-core --pattern persistence_mechanism_inputs_20261012.zip
+          python -m scripts.aggregate_future_parent_selection_20261013 --input persistence_mechanism_inputs_20261012.zip --references admitted/reference --technical-root admitted/technical --shards shards --out outputs/readout
+          git rev-parse HEAD > outputs/readout/EXECUTION_COMMIT.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: parent-selection-full-readout-${{ github.run_id }}
+          path: outputs/readout/
+          if-no-files-found: error
+          retention-days: 90
   future-state-sufficiency:
     if: inputs.diagnostic == 'future-state-sufficiency'
     runs-on: ubuntu-latest
