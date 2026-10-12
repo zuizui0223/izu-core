@@ -13,6 +13,7 @@ def inputs(tmp_path):
        "independent_visitor_histories":{"first":20,"last":51},
        "demographic_repeat_seeds":[9],"post_environments":["near","far"],
        "stress_ovule_budgets":[2,3,4,5],"total_groups":512,
+       "post_capacity":8,
        "bootstrap":{"seed":3010082026,"draws":9999}}
     rows=[]
     for s in d["settings"]:
@@ -80,3 +81,34 @@ def test_changed_frozen_target_is_reported_not_tuned(tmp_path):
 def test_missing_shard_refuses_audit(tmp_path):
     d,f=inputs(tmp_path);(tmp_path/"demographic_independent32_shard_07.json").unlink()
     with pytest.raises(ValueError,match="eight"):audit(tmp_path,d,f)
+
+
+def test_extinct_preparation_is_retained_as_all_start_zero(tmp_path):
+    d,f=inputs(tmp_path)
+    change(tmp_path,lambda rows:rows[0].update(pre_survivors=0))
+    r=audit(tmp_path,d,f)
+    assert r["groups"]==512 and r["post_trajectories"]==4096
+    assert r["numerical_agreement"]
+
+
+def test_extinct_preparation_cannot_recruit_without_immigration(tmp_path):
+    d,f=inputs(tmp_path)
+    def edit(rows):
+        rows[0]["pre_survivors"]=0
+        rows[0]["post_cases"][0].update(occupied=1,terminal_N=1)
+    change(tmp_path,edit)
+    with pytest.raises(ValueError,match="Extinct preparation"):audit(tmp_path,d,f)
+
+
+def test_census_capacity_comes_from_declared_design(tmp_path):
+    d,f=inputs(tmp_path);d["post_capacity"]=1
+    change(tmp_path,lambda rows:rows[0]["post_cases"][0].update(occupied=1,terminal_N=2))
+    with pytest.raises(ValueError,match="census"):audit(tmp_path,d,f)
+
+
+def test_original_extinct_preparation_none_future_marker_is_zero_not_dropped(tmp_path):
+    d,f=inputs(tmp_path)
+    change(tmp_path,lambda rows:rows[0].update(pre_survivors=0,post_cases=None))
+    r=audit(tmp_path,d,f)
+    assert r["groups"]==512 and r["post_trajectories"]==4096
+    assert r["numerical_agreement"]

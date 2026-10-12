@@ -29,6 +29,9 @@ def audit(directory: Path, design: dict, frozen: dict) -> dict:
     grid=set(product(design["post_environments"],design["stress_ovule_budgets"]))
     if len(grid)!=8:
         raise ValueError("Eight-case stress grid required")
+    capacity=design["post_capacity"]
+    if isinstance(capacity,bool) or not isinstance(capacity,int) or capacity<=0:
+        raise ValueError("Invalid declared census capacity")
     records={}; hashes={}; mismatches=[]
     for path in sorted(paths):
         raw=path.read_bytes();digest=hashlib.sha256(raw).hexdigest()
@@ -43,9 +46,15 @@ def audit(directory: Path, design: dict, frozen: dict) -> dict:
             if key not in keys:
                 raise ValueError("Unexpected history group")
             if (isinstance(row["pre_survivors"],bool) or not isinstance(row["pre_survivors"],int)
-                or row["pre_survivors"]<=0):
-                raise ValueError("Extinct/invalid preparation census cannot be omitted")
+                or row["pre_survivors"]<0):
+                raise ValueError("Invalid preparation census")
             cases=row["post_cases"]
+            if row["pre_survivors"]==0 and cases is None:
+                # The original source's no-immigration extinction marker denotes
+                # eight structural zeros. Keep the history in the all-start mean.
+                cases=[{"post":p,"ovule_budget":b,"occupied":0,"terminal_N":0}
+                       for p,b in sorted(grid)]
+                row={**row,"post_cases":cases}
             if (not isinstance(cases,list) or len(cases)!=8
                 or {(p["post"],p["ovule_budget"]) for p in cases}!=grid):
                 raise ValueError("Incomplete or duplicated stress grid")
@@ -53,8 +62,10 @@ def audit(directory: Path, design: dict, frozen: dict) -> dict:
                 flag=case["occupied"];n=case["terminal_N"]
                 if isinstance(flag,bool) or not isinstance(flag,int) or flag not in (0,1):
                     raise ValueError("Invalid occupancy indicator")
-                if isinstance(n,bool) or not isinstance(n,int) or n<0 or n>8 or int(n>0)!=flag:
+                if isinstance(n,bool) or not isinstance(n,int) or n<0 or n>capacity or int(n>0)!=flag:
                     raise ValueError("Invalid census or census/occupancy contradiction")
+                if row["pre_survivors"]==0 and n!=0:
+                    raise ValueError("Extinct preparation contradicts no-immigration future census")
             records[key]=row
     if set(records)!=keys:
         raise ValueError("Incomplete all-start history inventory")
