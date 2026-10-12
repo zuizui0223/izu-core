@@ -18,7 +18,7 @@ Baseline values are copied from the independent result member, not refitted or r
 
 ## Execution and outputs
 
-The [dedicated workflow](../.github/workflows/chapter2-pr471-native-verification.yml) runs for pull requests touching these companion files and can be dispatched manually after integration. It does not run new random ecological histories. Outputs are `native_output.json`, `comparison.json`, the exact independent baseline and a file manifest, retained as an Actions artifact for 90 days. This is not external DOI deposition.
+The [dedicated workflow](../.github/workflows/chapter2-pr471-native-verification.yml) is manual-dispatch only, following the repository policy that research jobs must not run automatically for pull requests. It does not run new random ecological histories. Outputs are `native_output.json`, `comparison.json`, the exact independent baseline and a file manifest, retained as an Actions artifact for 90 days. This is not external DOI deposition.
 
 ```bash
 python scripts/verify_chapter2_pr471_native_20261012.py \
@@ -32,3 +32,11 @@ A run is successful only when its comparison receipt reports `NATIVE_OUTPUT_MATC
 ## Interpretation remains bounded
 
 The independent calculation's maximum native-expression equalized P80 residual is about **0.004470588 percentage points**, across the 24 restricted synthetic conditions. Matching is fixed at 0.20, assurance at 0.35, K=8, pollen-background B=48, with two investment alleles, four visitor types, zero mutation/adult survival/immigration and an 80-update horizon. Effectiveness is recalibrated at every genetic/census/expression state. A native-source match establishes implementation agreement, not new natural replication, unique paternal mediation, universal pollen-quantity sufficiency or historical discovery-original authentication. Original primary-study and active-manuscript claims are unchanged.
+
+## Completed native execution and trigger-policy repair
+
+Native [run 38203988870](https://github.com/zuizui0223/izu-core/actions/runs/38203988870) executed the pinned original audit with verifier head `78688c9c44f4a24664f18a50ecca99ef19ca2c9a`. All **480/480 values in 24 contexts** matched, maximum absolute difference `4.884981308350689e-15`, below the unchanged `1e-12` agreement tolerance. Runtime was Python 3.12.15, NumPy 2.5.4 and SciPy 1.18.1; 21 imported source files were checked against their Git blobs.
+
+Artifact `11727015225` was independently downloaded into the working container: 12,064 bytes, SHA-256 `b7f3814d682095e91783db0e4cebef2f0eb235835ff71de68e3ad28bb3c3ca84`. All three manifest-listed members (plus the manifest itself) were verified. The downloaded native output was compared to the independent baseline again, reproducing all 480 matches and the same maximum error.
+
+The first native job succeeded, but the separate scientific gate correctly rejected its new `pull_request` trigger under `tests/test_workflow_trigger_policy.py`. The workflow was changed to manual dispatch only, rather than weakening that policy. A regression test first reproduced this trigger failure and passes after the correction. The comparator, pinned model source and 480 baseline values are unchanged. The successful native execution above remains distinct from final-head standard CI and does not claim that later checks passed.
