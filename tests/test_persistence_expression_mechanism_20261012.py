@@ -174,3 +174,23 @@ def test_rejects_missing_input_manifest_and_wrong_normalized_source(tmp_path):
         z.writestr('states.npz',raw);z.writestr('baselines.npz',raw)
     with pytest.raises(ValueError,match='source drift'):
         m.read_inputs(p,hashlib.sha256(p.read_bytes()).hexdigest())
+
+
+def test_captured_archive_preserves_genealogy_and_reads_each_compressed_field_once(monkeypatch):
+    import io
+    from scripts import aggregate_persistence_mechanism_20261012 as a
+    m=module();s=founders();c=config('assurance_cost',0.,'evolving')
+    v=exposure(76001,'near').visitors[0]
+    trace=m.trajectory(s,v,c,29,'AI_fixed',horizon=2)
+    buf=io.BytesIO();np.savez_compressed(buf,metadata=np.array('{}'),**trace)
+    accesses={};original=np.lib.npyio.NpzFile.__getitem__
+    def counted(archive,key):
+        accesses[key]=accesses.get(key,0)+1
+        return original(archive,key)
+    monkeypatch.setattr(np.lib.npyio.NpzFile,'__getitem__',counted)
+    with a.captured_archive(buf.getvalue()) as captured:
+        expected=a.validate_trace(trace,s,c,horizon=2)
+        actual=a.validate_trace(captured,s,c,horizon=2)
+        for x,y in zip(actual,expected):np.testing.assert_array_equal(x,y)
+    assert set(accesses)==set(trace)|{'metadata'}
+    assert all(n==1 for n in accesses.values())

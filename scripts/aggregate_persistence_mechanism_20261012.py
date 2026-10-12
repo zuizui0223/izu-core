@@ -4,10 +4,19 @@ import hashlib
 import io
 import json
 import math
+import subprocess
+from contextlib import contextmanager
 from pathlib import Path
 import numpy as np
 from scripts.model3_island.types import Config, PlantState, VisitorState
 from scripts.persistence_expression_mechanism_20261012 import read_inputs
+
+
+@contextmanager
+def captured_archive(raw):
+    """Decode each field once from the already hash-checked immutable bytes."""
+    with np.load(io.BytesIO(raw),allow_pickle=False) as archive:
+        yield {name:archive[name].copy() for name in archive.files}
 
 
 def validate_trace(z, initial, config, *, horizon=200):
@@ -153,7 +162,7 @@ def aggregate(root, output, input_path, input_sha):
             raw = (folder/rec['archive']).read_bytes()
             if hashlib.sha256(raw).hexdigest() != rec['sha256']:
                 raise ValueError('archive hash mismatch')
-            with np.load(io.BytesIO(raw),allow_pickle=False) as z:
+            with captured_archive(raw) as z:
                 meta=json.loads(str(z['metadata']))
                 if meta['task'] != t or meta['input_sha256'] != receipt['input_sha256']:
                     raise ValueError('archive identity mismatch')
@@ -236,6 +245,8 @@ def aggregate(root, output, input_path, input_sha):
     result['secondary_descriptive']=summaries
     result.update(status='complete_archive_verified',cases=20480,pairs=1024,native_replays=4096,
                   new_interventions=16384,execution_commit=commits.pop(),input_sha256=inputs.pop(),
+                  verification_source_commit=subprocess.check_output(['git','rev-parse','HEAD'],encoding='utf-8').strip(),
+                  reader_scope='Captured immutable compressed fields once; original audit predicates and statistical rules unchanged',
                   all_fixed_negative_control='passed',scope='Controlled expression-policy attenuation; not natural-order mediation')
     output=Path(output);output.mkdir(parents=True,exist_ok=True)
     (output/'READOUT.json').write_text(json.dumps(result,indent=2)+'\n',encoding='utf-8')
