@@ -124,4 +124,5 @@ def test_replay_gate_does_not_use_full_shard_hash_as_scientific_identity():
     assert "row['shard_sha256']==hashes" not in workflow
     assert "predeclared_pooled_primary" in workflow
     assert "pooled_primary" in workflow
-    assert "per_setting" in workflow
+    assert "projection_hash" in workflow
+    assert "biological_projection_sha256" in workflow
