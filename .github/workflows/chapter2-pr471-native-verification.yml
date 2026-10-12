@@ -7,7 +7,7 @@ on:
         description: 'Read-only diagnostic; no choice produces new random histories'
         type: choice
         default: pr471-native
-        options: [pr471-native, independent32-admission, genome-response-accounting, persistence-duration-accounting, matched-operator-gap, discovery-original-intake]
+        options: [pr471-native, independent32-admission, genome-response-accounting, persistence-duration-accounting, matched-operator-gap, discovery-original-intake, existing-response-timing]
 
 permissions:
   contents: read
@@ -17,6 +17,39 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  existing-response-timing:
+    if: inputs.diagnostic == 'existing-response-timing'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.2.6 pytest==8.4.2
+      - run: python -m pytest -q tests/test_existing_response_timing_20261013.py
+      - name: Read original admitted annual response accounts
+        run: |
+          python - <<'PY'
+          import urllib.request
+          urllib.request.urlretrieve('https://github.com/zuizui0223/izu-core/releases/download/four-question-resolution-20261013/genome_response_accounting_github_20261013.zip','original.zip')
+          PY
+          python scripts/audit_existing_response_timing_20261013.py --input original.zip --out outputs/response-timing/READOUT.json
+          python - <<'PY'
+          import subprocess,json,hashlib
+          from pathlib import Path
+          r=json.loads(Path('outputs/response-timing/READOUT.json').read_bytes())
+          assert r['cases']==320 and r['updates']==64000
+          Path('outputs/response-timing/EXECUTION_SOURCE.json').write_text(json.dumps(dict(commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),reader_sha256=hashlib.sha256(Path('scripts/audit_existing_response_timing_20261013.py').read_bytes()).hexdigest(),no_new_biological_histories=True),indent=2)+'\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: existing-response-timing-${{ github.run_id }}
+          path: outputs/response-timing/
+          if-no-files-found: error
+          retention-days: 90
+
   discovery-original-intake:
     if: inputs.diagnostic == 'discovery-original-intake'
     runs-on: ubuntu-latest
