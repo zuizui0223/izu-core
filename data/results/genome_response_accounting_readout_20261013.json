@@ -1,0 +1,387 @@
+{
+  "schema": "genome_response_descriptive_readout_v1",
+  "status": "COMPLETE_RETROSPECTIVE_ACCOUNTING_NOT_CAUSAL_GAP_ALLOCATION",
+  "cases": 320,
+  "updates": 64000,
+  "new_biological_histories": 0,
+  "trait_order": [
+    "matching",
+    "investment",
+    "assurance"
+  ],
+  "contexts": [
+    {
+      "block": "causal_confirmation",
+      "supply": 0.0,
+      "composition": "empty",
+      "cases": 32,
+      "I_fixed_by200": 32,
+      "I_median_fixation_year_among_fixed": 41.5,
+      "mean_cumulative_components": {
+        "selection": [
+          0.012749185320374848,
+          -0.06791038900338527,
+          0.15474055069416776
+        ],
+        "parent_sampling": [
+          0.005590425914744171,
+          -0.004308733020424255,
+          -0.0015513162464572162
+        ],
+        "transmission": [
+          -0.0027146112351190185,
+          0.0019066220238095257,
+          0.002486020780904444
+        ],
+        "birth_mutation": [
+          0.0,
+          0.0,
+          -0.0009004324830824903
+        ],
+        "observed_change": [
+          0.015625,
+          -0.0703125,
+          0.1547748227455325
+        ]
+      }
+    },
+    {
+      "block": "causal_confirmation",
+      "supply": 0.125,
+      "composition": "matched",
+      "cases": 32,
+      "I_fixed_by200": 30,
+      "I_median_fixation_year_among_fixed": 59.0,
+      "mean_cumulative_components": {
+        "selection": [
+          -0.018198803845860527,
+          -0.03348435615926848,
+          0.12166282356214807
+        ],
+        "parent_sampling": [
+          0.005035555147943788,
+          -0.006778501913648221,
+          0.010314622185757604
+        ],
+        "transmission": [
+          -0.002461751302083261,
+          0.006327311197916699,
+          -0.003495100678537963
+        ],
+        "birth_mutation": [
+          0.0,
+          0.0,
+          0.0010346429833735446
+        ],
+        "observed_change": [
+          -0.015625,
+          -0.033935546875,
+          0.12951698805274126
+        ]
+      }
+    },
+    {
+      "block": "causal_confirmation",
+      "supply": 0.125,
+      "composition": "separated",
+      "cases": 32,
+      "I_fixed_by200": 31,
+      "I_median_fixation_year_among_fixed": 40,
+      "mean_cumulative_components": {
+        "selection": [
+          0.0075887637009008375,
+          -0.06510501260939656,
+          0.14295098022997965
+        ],
+        "parent_sampling": [
+          0.0023599667678492007,
+          -0.008218555098936752,
+          0.007111490019292932
+        ],
+        "transmission": [
+          -0.002136230468750038,
+          0.002115885416666647,
+          0.0031381624619524623
+        ],
+        "birth_mutation": [
+          0.0,
+          0.0,
+          -0.0017115884365000791
+        ],
+        "observed_change": [
+          0.0078125,
+          -0.07120768229166667,
+          0.15148904427472498
+        ]
+      }
+    },
+    {
+      "block": "causal_confirmation",
+      "supply": 1.0,
+      "composition": "matched",
+      "cases": 32,
+      "I_fixed_by200": 29,
+      "I_median_fixation_year_among_fixed": 84,
+      "mean_cumulative_components": {
+        "selection": [
+          -0.026036088532341503,
+          0.13648993253064576,
+          -0.0026198102348401267
+        ],
+        "parent_sampling": [
+          0.0190780807198414,
+          -0.011713728103562422,
+          0.015129827978226776
+        ],
+        "transmission": [
+          -0.002156575520833228,
+          0.012390136718749991,
+          0.0010165908491715208
+        ],
+        "birth_mutation": [
+          0.0,
+          0.0,
+          -0.0011169144114976
+        ],
+        "observed_change": [
+          -0.009114583333333334,
+          0.13716634114583334,
+          0.01240969418106057
+        ]
+      }
+    },
+    {
+      "block": "causal_confirmation",
+      "supply": 1.0,
+      "composition": "separated",
+      "cases": 32,
+      "I_fixed_by200": 27,
+      "I_median_fixation_year_among_fixed": 77,
+      "mean_cumulative_components": {
+        "selection": [
+          0.030840764305801436,
+          0.08389144873087652,
+          0.046439354876217066
+        ],
+        "parent_sampling": [
+          0.000673721371281839,
+          -0.0004970802412931075,
+          0.007450973015333678
+        ],
+        "transmission": [
+          0.003641764322916725,
+          0.010396321614583258,
+          -0.003250324731635062
+        ],
+        "birth_mutation": [
+          0.0,
+          0.0,
+          -0.0017027037652963244
+        ],
+        "observed_change": [
+          0.03515625,
+          0.09379069010416667,
+          0.04893729939461936
+        ]
+      }
+    },
+    {
+      "block": "causal_main",
+      "supply": 0.0,
+      "composition": "empty",
+      "cases": 32,
+      "I_fixed_by200": 32,
+      "I_median_fixation_year_among_fixed": 40.5,
+      "mean_cumulative_components": {
+        "selection": [
+          0.025279054190196396,
+          -0.09348214542356377,
+          0.15559127725210578
+        ],
+        "parent_sampling": [
+          0.008127521330636924,
+          0.0011969891735637752,
+          -0.0039060346852754675
+        ],
+        "transmission": [
+          -0.00215657552083332,
+          0.006347656249999995,
+          -0.0002818553084336737
+        ],
+        "birth_mutation": [
+          0.0,
+          0.0,
+          0.0007374955459716372
+        ],
+        "observed_change": [
+          0.03125,
+          -0.0859375,
+          0.15214088280436827
+        ]
+      }
+    },
+    {
+      "block": "causal_main",
+      "supply": 0.125,
+      "composition": "matched",
+      "cases": 32,
+      "I_fixed_by200": 31,
+      "I_median_fixation_year_among_fixed": 81,
+      "mean_cumulative_components": {
+        "selection": [
+          -0.010680357318396363,
+          -0.050198272939771596,
+          0.13582129945609844
+        ],
+        "parent_sampling": [
+          -0.0028084122128535158,
+          0.021816925283521558,
+          0.011128633283864497
+        ],
+        "transmission": [
+          -0.0021362304687501214,
+          0.00836181640625004,
+          0.00469004497135983
+        ],
+        "birth_mutation": [
+          0.0,
+          0.0,
+          0.0010162791936575415
+        ],
+        "observed_change": [
+          -0.015625,
+          -0.02001953125,
+          0.15265625690498033
+        ]
+      }
+    },
+    {
+      "block": "causal_main",
+      "supply": 0.125,
+      "composition": "separated",
+      "cases": 32,
+      "I_fixed_by200": 32,
+      "I_median_fixation_year_among_fixed": 44.5,
+      "mean_cumulative_components": {
+        "selection": [
+          0.031167060014891057,
+          -0.0869288824424393,
+          0.15367435004086585
+        ],
+        "parent_sampling": [
+          0.014283786339275607,
+          -0.025599600630477323,
+          0.0024199432561370048
+        ],
+        "transmission": [
+          0.001424153645833334,
+          0.0031534830729166245,
+          0.0019127386306314643
+        ],
+        "birth_mutation": [
+          0.0,
+          0.0,
+          -0.00018077617068620877
+        ],
+        "observed_change": [
+          0.046875,
+          -0.109375,
+          0.15782625575694811
+        ]
+      }
+    },
+    {
+      "block": "causal_main",
+      "supply": 1.0,
+      "composition": "matched",
+      "cases": 32,
+      "I_fixed_by200": 29,
+      "I_median_fixation_year_among_fixed": 51,
+      "mean_cumulative_components": {
+        "selection": [
+          -0.008461179255347853,
+          0.08503164312143421,
+          -0.00258527274198659
+        ],
+        "parent_sampling": [
+          -0.0011416853279854443,
+          -0.01003978114226756,
+          -0.005619441709782805
+        ],
+        "transmission": [
+          -0.0060221354166667025,
+          0.010213216145833343,
+          0.010961849444219489
+        ],
+        "birth_mutation": [
+          0.0,
+          0.0,
+          -0.0017211571109890435
+        ],
+        "observed_change": [
+          -0.015625,
+          0.085205078125,
+          0.0010359778814610504
+        ]
+      }
+    },
+    {
+      "block": "causal_main",
+      "supply": 1.0,
+      "composition": "separated",
+      "cases": 32,
+      "I_fixed_by200": 30,
+      "I_median_fixation_year_among_fixed": 85.0,
+      "mean_cumulative_components": {
+        "selection": [
+          -0.0049112879956641035,
+          0.062326972923279864,
+          0.052462814325060884
+        ],
+        "parent_sampling": [
+          -0.014070645598085916,
+          -0.009104316673279812,
+          -0.002359782495976284
+        ],
+        "transmission": [
+          -0.004455566406249981,
+          0.006388346354166614,
+          0.003452106772438873
+        ],
+        "birth_mutation": [
+          0.0,
+          0.0,
+          -0.0016787923173656252
+        ],
+        "observed_change": [
+          -0.0234375,
+          0.05961100260416667,
+          0.05187634628415785
+        ]
+      }
+    }
+  ],
+  "independent_arithmetic_sha256": "fcb5bd9b9248202d64fb0433ee874337ce35d0556576e531fb81e0857d73fea8",
+  "independent_arithmetic_max_error": 5.551115123125783e-17,
+  "actual_github_readback": {
+    "status": "ACTUAL_GITHUB_320_CASE_FULL_READBACK_VERIFIED",
+    "run": 38276636285,
+    "execution_commit": "d3127ddf2e06014d4d2659d96b4e6ee7bc61ee45",
+    "cases": 320,
+    "updates": 64000,
+    "compared_float_fields": 1601280,
+    "maximum_absolute_difference": 1.4210854715202004e-13,
+    "envelope_sha256": "32a8237f7dfd3979023e60dcd3f799fbd83b3c9c7a1a154c20cf2ce64d3eb9d0",
+    "auditor_sha256": "344d82931c31b9e6648d1ec5e5ca53c338040f2bdb3a2c92ba35faad4a58bc66",
+    "artifact_id": 11759526393,
+    "artifact_digest": "115636a338c847fdf1f80ae9e39cdfc622fcf38c7f70575e37d245bf7c41b098",
+    "scope": "Every actual GitHub-derived case file authenticated against its manifest and all structures/numbers compared to the independently genome-arithmetic-verified local audit. Original birth states matched under archived source; not a new biological cohort or full historical-runtime authentication."
+  },
+  "limits": [
+    "Expected response is evaluated along realized resident states, not a counterfactual noise-free trajectory.",
+    "Only assurance mutates; matching and investment have standing alleles.",
+    "Investment allele fixation is not neutral diversity or species persistence.",
+    "Signed average sampling changes are not noise variance.",
+    "No unique causal density, drift or entire deterministic-ABM gap allocation."
+  ]
+}
