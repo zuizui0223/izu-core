@@ -1,0 +1,14 @@
+{
+  "status": "source_bound_mechanism_delivery",
+  "sha256": {
+    "readout.json": "2a832cd12fd676f44346c7f0c27fd42d0375bf958ad5836ffeae309a5b471190",
+    "original_readout.json.gz": "9d12d22e7ec1f47acac68a26436fae451d86083a02a1fa9becc97db2425276fe",
+    "design.md": "c0ce55b50996a8994329494f3d2db1c3b6920d4dad14b8e8f4f70a80a4954767"
+  },
+  "original_readout_sha256": "539a4226e8089cbb586301e6b9ae7c393aa32fd10bc5c2bfb4d37c5b28bc7b4f",
+  "production_run": 38194593041,
+  "verification_run": 38197339851,
+  "raw_archive_sha256": "2f91cf5aca524e61a0c4edff841d269a135267bddd0bc6b7d699efe484eed09e",
+  "biological_rerun_for_delivery": false,
+  "original_readout_modified": false
+}

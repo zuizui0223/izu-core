@@ -1,0 +1,10 @@
+{
+  "schema": "persistence_mechanism_input_receipt_v1",
+  "sha256": "51a07a843a087059af3d67ad113f5d849644f5b03739a6df986d506bd636648f",
+  "bytes": 20334157,
+  "states": 2048,
+  "native_futures": 4096,
+  "original_records_sha256": "5ecf992e19dd7492709474dbb6c2f3c7aa41d30e31eb5e00dd68789b72bb1ae7",
+  "scope": "Authenticated derivative bottleneck inputs and native reference arrays; original preservation unchanged; no new trajectory produced",
+  "asset_url": "https://github.com/zuizui0223/izu-core/releases/download/persistence-mechanism-inputs-20261012/persistence_mechanism_inputs_20261012.zip"
+}
