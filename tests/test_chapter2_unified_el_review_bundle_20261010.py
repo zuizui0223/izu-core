@@ -17,6 +17,33 @@ from scripts.build_chapter2_unified_el_submission_bundle import (
 ROOT=Path(__file__).resolve().parents[1]
 
 
+def test_minimal_resolution_delivery_is_source_bound():
+    members, derivations = builder.minimal_resolution_materials()
+    value=json.loads(members['EVIDENCE/INITIAL_MEAN_READOUT.json'])
+    assert value['new_native_futures']==4096
+    assert [p['decision'] for p in value['primary']]==['positive','unresolved','positive','unresolved']
+    original=gzip.decompress(members['EVIDENCE/INITIAL_MEAN_ORIGINAL.json.gz'])
+    assert hashlib.sha256(original).hexdigest()==value['original_readout_sha256']
+    assert json.loads(members['EVIDENCE/GENOME_RESPONSE_READOUT.json'])['updates']==64000
+    assert json.loads(members['EVIDENCE/DURATION_READOUT.json'])['kernels']==96
+    assert len(derivations)==4
+
+
+def test_minimal_resolution_delivery_rejects_changed_mean_results(tmp_path, monkeypatch):
+    import shutil
+    copied=tmp_path/'results'
+    receipt='minimal_resolution_delivery_20261013.json'
+    names=json.loads((builder.MINIMAL_RESULTS/receipt).read_bytes())['sha256']
+    for name in [receipt,*names]:
+        p=copied/name;p.parent.mkdir(parents=True,exist_ok=True)
+        shutil.copyfile(builder.MINIMAL_RESULTS/name,p)
+    p=copied/'initial_assurance_mean_20261013/readout.json'
+    p.write_bytes(p.read_bytes()+b' ')
+    monkeypatch.setattr(builder,'MINIMAL_RESULTS',copied)
+    with pytest.raises(ValueError,match='minimal resolution source hash mismatch'):
+        builder.minimal_resolution_materials()
+
+
 def test_mechanism_delivery_is_source_bound_and_reports_predeclared_interaction():
     members, derivations = builder.mechanism_materials()
     value = json.loads(members["EVIDENCE/MECHANISM_READOUT.json"])
@@ -114,8 +141,12 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
         assert sorted(x for x in names if x.startswith("EVIDENCE/"))==[
            "EVIDENCE/ATOM_ABM_COMPARISON.json",
            "EVIDENCE/CAPACITY_RESULTS.json",
+           "EVIDENCE/DURATION_READOUT.json",
            "EVIDENCE/EVOLUTION_DESIGN.json",
            "EVIDENCE/EVOLUTION_RESULTS.json",
+           "EVIDENCE/GENOME_RESPONSE_READOUT.json",
+           "EVIDENCE/INITIAL_MEAN_ORIGINAL.json.gz",
+           "EVIDENCE/INITIAL_MEAN_READOUT.json",
            "EVIDENCE/MECHANISM_DESIGN.md",
            "EVIDENCE/MECHANISM_ORIGINAL.json.gz",
            "EVIDENCE/MECHANISM_READOUT.json",
@@ -130,7 +161,7 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
         assert m["doi_deposit_complete"] is False
         assert m["n_figures"]==4
         assert m["n_supplementary_figures"]==3
-        assert len(m["members"])==23
+        assert len(m["members"])==27
         for name,record in m["members"].items():
             raw=z.read(name)
             assert record=={"size":len(raw),"sha256":hashlib.sha256(raw).hexdigest()}

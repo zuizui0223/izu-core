@@ -102,8 +102,8 @@
     "ecology_letters_letter_main_max": 5000,
     "ecology_letters_letter_abstract_max": 150,
     "display_items_max": 6,
-    "current_integrated_main_words": 4179,
-    "current_integrated_abstract_words": 142,
+    "current_integrated_main_words": 4463,
+    "current_integrated_abstract_words": 140,
     "main_text_excess_words": 0,
     "abstract_excess_words": 0,
     "editorial_status": "EL_format_word_limits_passed_data_DOI_pending",
@@ -115,9 +115,9 @@
       "pollinator population collapse",
       "historically explained global island syndrome"
     ],
-    "current_main_text_words": 4179,
-    "current_abstract_words": 142,
-    "updated_submission_scope": "Source main text 4179 words; abstract 142; 4 main figures and 3 supplementary figures. Four-question structure: thresholds, sequence, realization, persistence. Existing primary contracts and all separately registered cohort verdicts unchanged.",
+    "current_main_text_words": 4463,
+    "current_abstract_words": 140,
+    "updated_submission_scope": "Source main text 4463 words; abstract 140; four main and three supplementary figures. Added frozen initial-mean intervention and retrospective genetic/temporal accounting; existing primary contracts and cohort verdicts unchanged.",
     "historical_precompression_counts": {
       "main_words": 6035,
       "abstract_words": 237,

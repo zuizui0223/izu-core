@@ -44,6 +44,7 @@ ATOM_DOC=ROOT/"docs/atom_comparison_20261011"
 RESOLUTION_DATA=ROOT/"data/results/four_question_resolution_20261011"
 RESOLUTION_DOC=ROOT/"docs/four_question_resolution_20261011"
 MECHANISM_DATA=ROOT/"data/results/persistence_mechanism_20261012"
+MINIMAL_RESULTS=ROOT/"data/results"
 DENIED=("zuizui0223","github.com/","/workspace/","/home/","/root/",
         "issue #436","pr #452","pr #455")
 
@@ -96,6 +97,35 @@ def count_manuscript_words(text):
         "abstract":len(text.split("## Abstract",1)[1].split("## Keywords",1)[0].split()),
         "main_text":len(text.split("# Introduction",1)[1].split("# Primary figure assembly and captions",1)[0].split()),
     }
+
+
+def minimal_resolution_materials():
+    receipt_raw=(MINIMAL_RESULTS/'minimal_resolution_delivery_20261013.json').read_bytes()
+    receipt=json.loads(receipt_raw)
+    sources={
+        'genome_response_accounting_readout_20261013.json':'EVIDENCE/GENOME_RESPONSE_READOUT.json',
+        'persistence_duration_accounting_20261013.json':'EVIDENCE/DURATION_READOUT.json',
+        'initial_assurance_mean_20261013/readout.json':'EVIDENCE/INITIAL_MEAN_READOUT.json',
+        'initial_assurance_mean_20261013/original_readout.json.gz':'EVIDENCE/INITIAL_MEAN_ORIGINAL.json.gz',
+    }
+    if receipt['status']!='ACTUAL_RAW_AND_ARITHMETIC_VERIFIED' or set(receipt['sha256'])!=set(sources):
+        raise ValueError('minimal resolution admission inventory differs')
+    members={};derivations={}
+    for name,dest in sources.items():
+        raw=(MINIMAL_RESULTS/name).read_bytes()
+        if sha(raw)!=receipt['sha256'][name]:raise ValueError('minimal resolution source hash mismatch: '+name)
+        members[dest]=raw
+        derivations[dest]=dict(source_delivery_sha256=sha(receipt_raw),original_sha256=sha(raw),derived_sha256=sha(raw),transformation='Exact admitted bytes; original initial-mean readout losslessly compressed.')
+    value=json.loads(members['EVIDENCE/INITIAL_MEAN_READOUT.json'])
+    original=gzip.decompress(members['EVIDENCE/INITIAL_MEAN_ORIGINAL.json.gz'])
+    raw=json.loads(original)
+    if (sha(original)!=value['original_readout_sha256'] or value['primary']!=raw['primary']
+        or value['new_native_futures']!=4096 or value['new_clamp_identity_futures']!=8
+        or value['independent_arithmetic']['cases']!=4096 or value['source_execution_commit']!='615cd38156b0d0004a9415797ef498791b74257c'
+        or json.loads(members['EVIDENCE/GENOME_RESPONSE_READOUT.json'])['updates']!=64000
+        or json.loads(members['EVIDENCE/DURATION_READOUT.json'])['kernels']!=96):
+        raise ValueError('minimal resolution scientific admission differs')
+    return members,derivations
 
 
 def anonymous_text(text,label):
@@ -430,6 +460,9 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     mechanism,mechanism_derivations=mechanism_materials()
     members.update(mechanism)
     derivations.update(mechanism_derivations)
+    minimal,minimal_derivations=minimal_resolution_materials()
+    members.update(minimal)
+    derivations.update(minimal_derivations)
     derivations["SUPPORTING_INFORMATION.md"]={
         "original_path":str(si_path.relative_to(ROOT)),"original_sha256":sha(si_original),
         "derived_sha256":sha(si),"transformation":"Relocate atom/resolution/mechanism companion source references and add the delivered supplementary-figure link; numerical text unchanged."}

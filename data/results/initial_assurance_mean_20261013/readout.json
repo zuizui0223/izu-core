@@ -1,0 +1,321 @@
+{
+  "status": "COMPLETE_INITIAL_MEAN_4096_AND_CLAMP8_VERIFIED",
+  "source_execution_commit": "615cd38156b0d0004a9415797ef498791b74257c",
+  "input_sha256": "51a07a843a087059af3d67ad113f5d849644f5b03739a6df986d506bd636648f",
+  "prior_sha256": "2f91cf5aca524e61a0c4edff841d269a135267bddd0bc6b7d699efe484eed09e",
+  "runner_sha256": "b422a6ffd5d6e66e037ecf23cb84dd0b6b288daaf42741da8996cea61d0d7b93",
+  "design_sha256": "1af33520ac4524f27ad9eedf148d9564a776b9459b82084fe2f687eec497a5e6",
+  "new_native_futures": 4096,
+  "new_clamp_identity_futures": 8,
+  "reused_original_futures": 8192,
+  "primary": [
+    {
+      "block_estimates": [
+        0.033203125,
+        0.029296875
+      ],
+      "contrast": "initial_mean_component",
+      "decision": "positive",
+      "distribution_free_interval": [
+        -0.1678725638432628,
+        0.2303725638432628
+      ],
+      "estimate": 0.03125,
+      "simultaneous_bootstrap_interval": [
+        0.009765625,
+        0.0537109375
+      ],
+      "target": 1.05
+    },
+    {
+      "block_estimates": [
+        -0.00390625,
+        -0.001953125
+      ],
+      "contrast": "residual_lifelong_expression",
+      "decision": "unresolved",
+      "distribution_free_interval": [
+        -0.2020522513432628,
+        0.1961928763432628
+      ],
+      "estimate": -0.0029296875,
+      "simultaneous_bootstrap_interval": [
+        -0.0078125,
+        0.0
+      ],
+      "target": 1.05
+    },
+    {
+      "block_estimates": [
+        0.03515625,
+        0.0546875
+      ],
+      "contrast": "initial_mean_component",
+      "decision": "positive",
+      "distribution_free_interval": [
+        -0.1542006888432628,
+        0.2440444388432628
+      ],
+      "estimate": 0.044921875,
+      "simultaneous_bootstrap_interval": [
+        0.0048828125,
+        0.0849609375
+      ],
+      "target": 1.5
+    },
+    {
+      "block_estimates": [
+        -0.017578125,
+        0.029296875
+      ],
+      "contrast": "residual_lifelong_expression",
+      "decision": "unresolved",
+      "distribution_free_interval": [
+        -0.1932631888432628,
+        0.2049819388432628
+      ],
+      "estimate": 0.005859375,
+      "simultaneous_bootstrap_interval": [
+        -0.033203125,
+        0.044921875
+      ],
+      "target": 1.5
+    }
+  ],
+  "policy_order": [
+    "original_native",
+    "A_mean_equal_native",
+    "original_A_fixed"
+  ],
+  "policy_route_differences": [
+    [
+      0.0283203125,
+      -0.0029296875,
+      0.0
+    ],
+    [
+      0.0458984375,
+      0.0009765625,
+      -0.0048828125
+    ]
+  ],
+  "block_policy_route_differences": [
+    [
+      [
+        0.029296875,
+        -0.00390625,
+        0.0
+      ],
+      [
+        0.02734375,
+        -0.0078125,
+        0.009765625
+      ]
+    ],
+    [
+      [
+        0.02734375,
+        -0.001953125,
+        0.0
+      ],
+      [
+        0.064453125,
+        0.009765625,
+        -0.01953125
+      ]
+    ]
+  ],
+  "occupied_counts": [
+    [
+      [
+        60,
+        31
+      ],
+      [
+        0,
+        3
+      ],
+      [
+        0,
+        0
+      ]
+    ],
+    [
+      [
+        962,
+        915
+      ],
+      [
+        864,
+        863
+      ],
+      [
+        852,
+        857
+      ]
+    ]
+  ],
+  "partition_closure_error": 0.0,
+  "inference": "Post-discovery model/cohort-conditional uncertainty; not independent confirmation or natural-order mediation.",
+  "scope": "Controlled initial assurance mean contribution and residual lifelong expression; not pure later selection or natural-order benefit.",
+  "original_readout_sha256": "21744e23920fe280d6554f220831715b201817791974e6990efb9f7de6dada0e",
+  "independent_arithmetic": {
+    "status": "ACTUAL_PROVIDER_DIGESTS_AND_RAW4096_AND_FROZEN_ARITHMETIC_VERIFIED",
+    "run": 38286055655,
+    "source": "615cd38156b0d0004a9415797ef498791b74257c",
+    "artifacts": [
+      {
+        "name": "initial-mean-shard-10",
+        "id": 11764415000,
+        "bytes": 3114594,
+        "sha256": "cef56081f4cb99e91b6d12fa0879866b4efd0238a5414e7960d72b12c3ad45c1"
+      },
+      {
+        "name": "initial-mean-full-readout",
+        "id": 11764360554,
+        "bytes": 337933,
+        "sha256": "d074d66a263de8a756f98aab5595eaaa5f6a2d953226a8f4688ac8fda0f24308"
+      },
+      {
+        "name": "initial-mean-shard-0",
+        "id": 11764310546,
+        "bytes": 3147132,
+        "sha256": "793b7145f2f725f092a31c1644e751b2dd6a4dcd017383d232040b138e477102"
+      },
+      {
+        "name": "initial-mean-shard-14",
+        "id": 11764295745,
+        "bytes": 3190815,
+        "sha256": "2c713723638dcf82730c1e68707857010f3e0464262ed02f20d851dd7747a302"
+      },
+      {
+        "name": "initial-mean-shard-3",
+        "id": 11764250829,
+        "bytes": 3099435,
+        "sha256": "430d2b1a2358c4f70a7cbc02d418284d0130fb08b6f2d3cbd6b5da24fd8d76e6"
+      },
+      {
+        "name": "initial-mean-shard-9",
+        "id": 11764046187,
+        "bytes": 3110352,
+        "sha256": "ebdb5fb985a5559c48984ffabe617cac7b1f7a8b10b5888869bf61940a0e31e1"
+      },
+      {
+        "name": "initial-mean-shard-8",
+        "id": 11763976163,
+        "bytes": 3070425,
+        "sha256": "39dd60b24d752f951e5cc69c4b2cd71e53d0598ff4c898e1cd818aaa919fae4a"
+      },
+      {
+        "name": "initial-mean-admission",
+        "id": 11763900847,
+        "bytes": 639944,
+        "sha256": "f3caee6118055b1138e84aba76d1ee7be03d9b8a5a08226333c23f1d4557c8eb"
+      },
+      {
+        "name": "initial-mean-shard-13",
+        "id": 11763851570,
+        "bytes": 3018116,
+        "sha256": "5c53edbd41e4d7d405e01ecbf6e7f4347348a5e376bc80865635f7f2cb9a4a52"
+      },
+      {
+        "name": "initial-mean-shard-5",
+        "id": 11763811177,
+        "bytes": 3158824,
+        "sha256": "5080b17ad728a58060b8e92cfc8e440c22b2723b155420e0465d3be7de667345"
+      },
+      {
+        "name": "initial-mean-shard-1",
+        "id": 11763806157,
+        "bytes": 3170283,
+        "sha256": "929960fb149ebb0e5ddefd3953e2e500fb5b697b54a2f73deb83fd16bd8ff13b"
+      },
+      {
+        "name": "initial-mean-shard-15",
+        "id": 11763796535,
+        "bytes": 3091712,
+        "sha256": "5e7036630396c3f31c8debf07bde7dd4a2c44e9cb6aa1ed42e28936d4653bed4"
+      },
+      {
+        "name": "initial-mean-shard-6",
+        "id": 11763711073,
+        "bytes": 3136903,
+        "sha256": "622806dd1de45cb29dffd34364f9206a67de14333b7b8ffd2e3cccb2b60fc473"
+      },
+      {
+        "name": "initial-mean-shard-12",
+        "id": 11763531475,
+        "bytes": 3174775,
+        "sha256": "0d89ef24c4b63a66bc29dda0e4d75e0843bb7358d796e793f1c86c280c5d591e"
+      },
+      {
+        "name": "initial-mean-shard-7",
+        "id": 11763432262,
+        "bytes": 3171074,
+        "sha256": "76f569bccd62900300a0dc8c53b4999f38fa28bd446ffc44fb7a21f892d8f896"
+      },
+      {
+        "name": "initial-mean-shard-2",
+        "id": 11763163048,
+        "bytes": 3021526,
+        "sha256": "a4d967cf974c305eb7e7f10038556860775c102d26cc7552d7176de9c4cb9fb4"
+      },
+      {
+        "name": "initial-mean-shard-4",
+        "id": 11763024643,
+        "bytes": 3067196,
+        "sha256": "fed6e83e081da32822ee5d02fe1c797ff6a81e31c5542bfdd9756b7362eb4fd5"
+      },
+      {
+        "name": "initial-mean-shard-11",
+        "id": 11763014632,
+        "bytes": 3204679,
+        "sha256": "3e1a1ab5cba0c491e552a8fc29961a887d2dfe2cd387eaf1c76f0f17c4825cd1"
+      }
+    ],
+    "cases": 4096,
+    "primary": [
+      {
+        "target": 1.05,
+        "contrast": "initial_mean_component",
+        "estimate": 0.03125,
+        "interval": [
+          0.009765625,
+          0.0537109375
+        ],
+        "decision": "positive"
+      },
+      {
+        "target": 1.05,
+        "contrast": "residual_lifelong_expression",
+        "estimate": -0.0029296875,
+        "interval": [
+          -0.0078125,
+          0.0
+        ],
+        "decision": "unresolved"
+      },
+      {
+        "target": 1.5,
+        "contrast": "initial_mean_component",
+        "estimate": 0.044921875,
+        "interval": [
+          0.0048828125,
+          0.0849609375
+        ],
+        "decision": "positive"
+      },
+      {
+        "target": 1.5,
+        "contrast": "residual_lifelong_expression",
+        "estimate": 0.005859375,
+        "interval": [
+          -0.033203125,
+          0.044921875
+        ],
+        "decision": "unresolved"
+      }
+    ],
+    "scope": "Independent raw endpoint/curve and bootstrap arithmetic. Full birth/genome source admission is separately rerun by the source-matched validator."
+  }
+}
