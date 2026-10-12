@@ -113,3 +113,15 @@ def test_replay_receipt_separates_biological_identity_from_diagnostic_float_byte
     }
     assert receipt["github_replay"]["validation_run_id"] == 38272136110
     assert receipt["github_replay"]["validation_marker"] == "EXACT_INDEPENDENT32_BIOLOGICAL_REPLAY_MATCH"
+
+
+def test_replay_gate_does_not_use_full_shard_hash_as_scientific_identity():
+    workflow = (ROOT / ".github/workflows/chapter2-island-demographic-independent32.yml").read_text(
+        encoding="utf-8"
+    )
+    # Full JSON shard bytes contain floating descriptive diagnostics whose last
+    # bit can vary without changing any demographic outcome or frozen estimand.
+    assert "row['shard_sha256']==hashes" not in workflow
+    assert "predeclared_pooled_primary" in workflow
+    assert "pooled_primary" in workflow
+    assert "per_setting" in workflow
