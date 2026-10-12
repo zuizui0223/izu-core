@@ -1,0 +1,103 @@
+name: Frozen atom-cell numerical continuation
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: frozen-atom-resume-${{ github.head_ref || github.ref }}
+  cancel-in-progress: false
+
+env:
+  OPENBLAS_NUM_THREADS: '1'
+  OMP_NUM_THREADS: '1'
+  MKL_NUM_THREADS: '1'
+  PYTHONUTF8: '1'
+  INPUT_SHA256: f0fd126f638e1c6bd130e640ce4491b3bb47aac3da1838359a902776c9a4e037
+  GH_TOKEN: ${{ github.token }}
+
+jobs:
+  continue:
+    if: github.event_name == 'workflow_dispatch'
+    runs-on: windows-latest
+    timeout-minutes: 360
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        shard: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10.11'
+      - run: python -m pip install numpy==2.2.6 scipy==1.15.3 psutil==7.2.2 threadpoolctl==3.6.0 pytest==8.4.2
+      - run: python -m pytest -q tests/test_remote_atom_transfer_20261011.py
+      - name: Download frozen inputs
+        run: gh release download atom-cell-inputs-20261011 --repo zuizui0223/izu-core --pattern remote_atom_inputs_20261011.zip
+      - name: Verify and continue assigned archives
+        run: python scripts/resume_frozen_atom_20261011.py --bundle remote_atom_inputs_20261011.zip --sha256 $env:INPUT_SHA256 --shard ${{ matrix.shard }}
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: atom-cell-shard-${{ matrix.shard }}
+          path: remote-output/
+          if-no-files-found: warn
+          retention-days: 90
+  verify:
+    needs: continue
+    runs-on: windows-latest
+    timeout-minutes: 180
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.10.11'
+      - run: python -m pip install numpy==2.2.6 scipy==1.15.3 psutil==7.2.2 threadpoolctl==3.6.0
+      - run: gh release download atom-cell-inputs-20261011 --repo zuizui0223/izu-core --pattern remote_atom_inputs_20261011.zip
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: atom-cell-shard-*
+          path: shards
+      - name: Combine cached and remote archives; independently verify all thirty
+        run: |
+          @'
+          import sys, shutil, json
+          from pathlib import Path
+          sys.path.insert(0, 'scripts')
+          import resume_frozen_atom_20261011 as transfer
+          import os
+          transfer.extract(Path('remote_atom_inputs_20261011.zip'), os.environ['INPUT_SHA256'])
+          root = transfer.BASE / 'work/resolution_20261011'
+          target = root / 'atom_cell_numerical/archives'
+          paths = list(Path('shards').glob('atom-cell-shard-*'))
+          if len(paths) != 4: raise ValueError('incomplete remote shard set')
+          for folder in paths:
+              receipt=json.loads((folder/'remote_execution.json').read_text())
+              if len(receipt['completed_archive_sha256']) != len(receipt['selected_job_keys']): raise ValueError('incomplete shard')
+              for name, sha in receipt['completed_archive_sha256'].items():
+                  if transfer.digest(folder/name)!=sha: raise ValueError('shard archive drift')
+                  for suffix in ('.npz','.json'):
+                      source=(folder/name).with_suffix(suffix)
+                      dest=target/source.name
+                      if dest.exists(): raise ValueError('duplicate output')
+                      shutil.copy2(source,dest)
+          sys.path.insert(0,str(root))
+          import atom_campaign
+          sys.argv=['atom_campaign']
+          atom_campaign.main()
+          import verify_atom_inventory
+          verify_atom_inventory.main()
+          output=Path('verified-output');output.mkdir()
+          for file in (root/'atom_cell_numerical').glob('*.json'):
+              shutil.copy2(file,output/file.name)
+          '@ | python -
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: atom-cell-complete-independent-verification
+          path: verified-output/
+          if-no-files-found: warn
+          retention-days: 90

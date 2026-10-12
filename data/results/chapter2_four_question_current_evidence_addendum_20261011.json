@@ -1,0 +1,110 @@
+{
+  "current_accounting": {
+    "all_case_inputs_sha256": "61d843407819cfe8d11862b50609e03f639703a3eafee2f9afd7cd4c88e5d40b",
+    "biological_histories_generated": 0,
+    "cases": 1024,
+    "complete_annual_filename": "izu_core_tempo_realization_full_20261011.json.gz",
+    "complete_annual_gzip_sha256": "1963672131c9c0d838f0b5afe6b0384ec1e7246d0ba685056593eee95d51731b",
+    "frozen_design_sha256": "207a3a0ad3decf096c65f296bebeee69e7f80d5b644abb2318105e50474774d0",
+    "genomic_censuses": 410624,
+    "native_deterministic_reproduction_replayed": true,
+    "native_script": "scripts/audit_chapter2_tempo_realization_accounting_20261011.py",
+    "new_bootstrap_or_tests_of_hypotheses": false,
+    "original_case_categories_preserved": true,
+    "population_advance_called": false,
+    "receipt": "data/results/chapter2_tempo_realization_receipt_20261011.json",
+    "report": "docs/CHAPTER2_TEMPO_REALIZATION_ACCOUNTING_20261011.md",
+    "reproductive_updates": 409600,
+    "source_identity_sha256": "9302c9740a1f5ac91cb1c1c39093f358c6fd745d4c5b768980e78d893aade80b",
+    "summary": "data/results/chapter2_tempo_realization_accounting_20261011.json.gz",
+    "tables": "docs/CHAPTER2_TEMPO_REALIZATION_ACCOUNTING_TABLES_20261011.md",
+    "trait_update_accountings": 819200
+  },
+  "editorial_scope": {
+    "active_manuscript": "docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md",
+    "active_manuscript_changed": false,
+    "headline_changed": false,
+    "new_biological_campaign_launched": false,
+    "old_411_full_gradient_replay_completed_here": false,
+    "submission_or_DOI_publication_performed": false
+  },
+  "evidence_rank": "RETROSPECTIVE_EXISTING_COHORT_ACCOUNTING_NOT_CAUSAL_MEDIATION",
+  "historical_snapshot": {
+    "path": "data/design/chapter2_four_question_post411_evidence_spine_20261010.json",
+    "preserved_byte_identical": true,
+    "scope": "October10 pre-tempo evidence snapshot; retained as historical record, superseded here only for current availability and evidential scope",
+    "sha256": "6ef44a26610451930e8af1aaed0c26236a254e9df90a1479caf3bb07033d9bcd"
+  },
+  "preserved_evidence": [
+    {
+      "change": "none",
+      "rank": "INDEPENDENT_FOUR_SETTING_EVOLUTION_CONFIRMED",
+      "source_pr": 411
+    },
+    {
+      "change": "none",
+      "rank": "MUTATION_ACCESS_PRIORITY_FAILED",
+      "source_pr": 413
+    },
+    {
+      "change": "none",
+      "rank": "ASSIGNED_EXPRESSION_ORDER_PRACTICAL_EQUIVALENCE_WITHIN_DECLARED_ROPE",
+      "source_pr": 418
+    },
+    {
+      "change": "none",
+      "rank": "INDEPENDENT_FIXED_BUDGET_WINDOW_FAILED",
+      "source_pr": 422
+    },
+    {
+      "change": "none",
+      "rank": "SMALL_CONTROLLED_DEMOGRAPHIC_K_MODERATOR_CONFIRMED",
+      "source_pr": 442
+    },
+    {
+      "change": "none",
+      "rank": "EARLY_LATE_VIABILITY_TIMING_INCONCLUSIVE",
+      "source_pr": 448
+    },
+    {
+      "change": "none",
+      "rank": "STRICT_GENOME_TRANSPLANT_INCONCLUSIVE_PERSISTENCE_PILOT_NO_GO",
+      "source_pr": 452
+    },
+    {
+      "change": "none",
+      "rank": "RETROSPECTIVE_ORIGINAL_GENOME_SEED_CENSUS_ACCOUNTING",
+      "source_pr": 457
+    }
+  ],
+  "previous_complete_tempo_admission": {
+    "path": "data/results/chapter2_sequence_abrupt_gradual_functional_loss_receipt_20261011.json",
+    "pull_request": "https://github.com/zuizui0223/izu-core/pull/476",
+    "rank": "PROSPECTIVELY_FROZEN_SYNTHETIC_VISITOR_TEMPO_INTERVENTION_DESCRIPTIVE",
+    "raw_cases": 1024,
+    "unchanged": true,
+    "updates_per_case": 400
+  },
+  "questions": {
+    "Q1": {
+      "current_verdict": "CONDITIONAL_LOCAL_SELECTION_AND_POLLEN_EXTERNALITY_WITHIN_MODEL3",
+      "new_scope": "Source-genotype expected pre-mutation response verified for every saved tempo update; distinct from marginal phenotypic gradients and sampled gradient clocks. No new natural sign boundary or annual gradient replay of old #411 histories."
+    },
+    "Q2": {
+      "current_verdict": "SETTING_DEPENDENT_VISITOR_TEMPO_CROSSINGS_NO_CAUSAL_MUTATION_ORDER",
+      "new_scope": "Original crossing categories unchanged; supplementary terminal descriptors distinguish A-only and sustained I events from final I state. Earlier failed/equivalent/inconclusive order results retain their ranks."
+    },
+    "Q3": {
+      "current_verdict": "ARCHIVED_EXPECTED_TO_REALIZED_ACCOUNTING_COMPLETE_CAUSAL_MEDIATOR_UNIDENTIFIED",
+      "new_scope": "All 1,024 tempo cases have verified expected response, retained-parent sampling, and combined segregation/mutation component sums. All 16 arms and 8 paired settings use all profiles/repeats in early, late, and full windows. Conditional source-path component sums are not independent causal effects or a genetic-order mediation fraction. This completes the archived trajectory accounting gate for the tempo cohort only."
+    },
+    "Q4": {
+      "current_verdict": "NEAR_CAPACITY_RECRUITMENT_NO_IDENTIFIED_EVOLUTIONARY_PERSISTENCE_EFFECT",
+      "new_scope": "23 of 410,624 censuses below K=48 in 13 cases; minimum N=34; no extinction. Conditional one-step recruitment kernels and fixed-state zero-pollen lower bounds verified. No causal inference that A evolution rescued populations or that an investment change harmed persistence; no practical-equivalence declaration."
+    }
+  },
+  "recorded_date": "2026-10-11",
+  "remaining_scientific_gate": "A causal Q3-to-Q4 effect still needs an identifiable inherited/expression intervention and an independently justified nonsaturated demographic regime. The observed states do not authorize selecting a favorable exposed parameter cell or relabeling retrospective accounting as prospective confirmation.",
+  "schema": "chapter2_four_question_current_evidence_addendum_v1",
+  "status": "EXISTING_TEMPO_COHORT_ACCOUNTING_COMPLETE_CAUSAL_MEDIATION_UNIDENTIFIED"
+}

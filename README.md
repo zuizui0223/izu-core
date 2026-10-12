@@ -1,8 +1,12 @@
 # Izu Core — Model 3 island reproductive economics
 
-> **Current journal/hypothesis decision (2026-10-10):** Ecology Letters Letter is the first intended journal for the **single Chapter 2 paper**, provided its combined draft is compressed from ~3,310 to <=5,000 main-text words and from 237 to <=150 abstract words. Nature Ecology & Evolution or equivalent is a **conditional research aspiration**, not an achieved manuscript rank: it would require genuinely new evidence that evolution of private reproductive assurance causes loss of conspecific pollen-transfer benefits and affects group reproduction or persistence, plus generality beyond the current model. See [high-upside research-question falsifier audit](docs/CHAPTER2_HIGH_UPSIDE_QUESTION_AUDIT_20261010.md). The preceding longer format and former Journal of Ecology idea are no longer the active journal decision.
+> **Active EL reviewer preparation (2026-10-11):** The **one** current manuscript is [`CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md`](docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md), with a 142-word abstract and 3,592-word main text. Its reviewer ZIP contains four main figures, **genetic-realization S1 and visitor-tempo S2**, the current Supporting Information and complete tempo tables. **Figure4.svg** retains the original fixed-B48 capacity evidence rank. Use the [current build commands](REPRODUCE.md#current-unified-manuscript-review-package); the historical `build_chapter2_process_review.py` still reproduces the October 6 source draft. DOI-backed raw-data deposition remains incomplete; this package is a reviewer draft, not a submitted manuscript or raw-data deposit.
 
-> **Active one-paper submission route (2026-10-10):** Chapter 2 now has **one combined full-length research manuscript**, [`docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md`](docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md). The original Ecology Letters Letter and the separately authored capacity-persistence companion are **source-provenance drafts, not two current submissions**. The combined paper presents two nonexchangeable studies within Model 3: confirmed 1,000-update floral evolution and a separately randomized 80-update demographic occupancy experiment. The latter does **not** show that naturally evolved floral-investment reduction causes extinction. Route selector: `data/design/chapter2_one_paper_route_20261010.json`. DOI-backed external data deposition remains outstanding.
+> **Current journal/hypothesis decision (2026-10-11):** Ecology Letters Letter remains the first intended journal for the **single Chapter 2 paper**. The current text passes the route's existing 5,000-word main-text and 150-word abstract limits. Nature Ecology & Evolution or equivalent remains a **conditional research aspiration** requiring new evidence connecting assurance evolution, communal pollen transfer and demographic performance, with generality beyond the present model. See the [high-upside research-question audit](docs/CHAPTER2_HIGH_UPSIDE_QUESTION_AUDIT_20261010.md). Data deposition and the final submission metadata remain outstanding.
+
+> **Active one-paper submission route:** The unified paper retains confirmed 1,000-update floral evolution and a distinct 80-update demographic occupancy experiment as its two principal questions. The separately frozen 400-update visitor-tempo cohort is a **descriptive supplement over 16 synthetic profiles**, with no pooling into the older 64-history studies and no identified persistence benefit at its occupied endpoints. Original manuscript drafts remain source provenance. The route is defined in `data/design/chapter2_one_paper_route_20261010.json`; the [deposit readiness record](docs/CHAPTER2_UNIFIED_DATA_DEPOSIT_READINESS_20261011.md) keeps the original evolutionary, demographic and tempo archives separate.
+
+> **Evolutionary raw archive recovered (2026-10-11):** All **50 original confirmation/generality Actions ZIPs** have now been retrieved and authenticated, including **12,544 original NPZ/JSON case pairs**. The historical archive has been assembled and its private saved copy independently retrieved with an identical checksum. See the [recovery evidence and limits](docs/CHAPTER2_UNIFIED_DATA_DEPOSIT_READINESS_20261011.md#7-evolutionary-raw-archive-recovery-follow-up). Public DOI deposition, the separate 521 demographic ZIPs and tempo archive, and the original discovery replay question retain their distinct requirements.
 
 This repository is the Chapter 2 mechanism paper built around **one ecologically explicit Model 3**.
 
@@ -229,7 +233,9 @@ causes and region-to-model-cell assignments remain unidentified.
 
 Scientific narrative:
 
-- `docs/CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md` — active Ecology Letters submission manuscript.
+- `docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md` — one active Ecology Letters manuscript, including the descriptive tempo supplement.
+- `docs/CHAPTER2_UNIFIED_EL_SUPPORTING_INFORMATION_20261010.md` — current Supporting Information, all eight tempo contrasts and their inferential limits.
+- `docs/CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md` — historical evolutionary source manuscript.
 - `docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md` — long-form process/provenance manuscript.
 - `docs/CHAPTER2_PROCESS_MAINLINE_20261005.md` — current claim spine and parallel-model structure.
 - `docs/CHAPTER2_CANONICAL_STORY_20260927.md` — historical bridge narrative.
@@ -257,8 +263,12 @@ Implementation:
 
 - `scripts/model3_island/` — finite-population and deterministic Model 3 implementation.
 - `scripts/model3_island_bridge_ops.py` — prospective bridge interventions.
-- `scripts/render_chapter2_process_manuscript.py` — current process manuscript renderer.
-- `scripts/figure_model3_return_components.py`, `scripts/figure_model3_assurance_compression.py`, `scripts/figure_model3_trait_pollen.py`, `scripts/figure_model3_genetic_realization.py` — current primary figures.
+- `scripts/render_chapter2_unified_manuscript.py` — active one-paper renderer and word-limit checks.
+- `scripts/build_chapter2_unified_el_submission_bundle.py` — current reviewer ZIP, evidence hashes and separate internal provenance receipt.
+- `scripts/render_chapter2_process_manuscript.py` — historical process manuscript renderer.
+- `scripts/figure_model3_return_components.py`, `scripts/figure_model3_assurance_compression.py`, `scripts/figure_model3_trait_pollen.py` — main Figures 1–3.
+- `scripts/render_chapter2_capacity_companion_evidence_figure.py` — current main Figure 4.
+- `scripts/figure_model3_genetic_realization.py` — supplemental Figure S1; the admitted tempo SVG is supplemental Figure S2.
 - `scripts/figure_model3_replenishment_evolution.py` — complete replenishment-gradient panels.
 - `scripts/generate_chapter2_unified_model3_figures.py` — historical bridge Figures 1–4.
 - `scripts/render_chapter2_oikos_generality_overlay.py` — historical snapshot renderer.

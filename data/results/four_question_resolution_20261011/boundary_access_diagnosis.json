@@ -1,0 +1,884 @@
+{
+  "status": "post_result_access_geometry_diagnosis",
+  "producer_sha256": "0adfec8e36d256093d5726a245414b9fbef728eca02ef5f17d46363a8c6e66c4",
+  "records_sha256": "67d1f9c84c28550ecd9a7d8afd2a0170088ac5b327967cc16ae518150ddf25a1",
+  "rows": [
+    {
+      "block": "confirmation",
+      "supply": 0.0,
+      "composition": "empty",
+      "allele_half_width": 0.046875,
+      "threshold": 0.025,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.453125,
+        0.546875
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0010986328125,
+      "threshold_accessible_without_mutation": true,
+      "reached_assurance_event": 512,
+      "categories": {
+        "near_simultaneous": 159,
+        "assurance_only": 113,
+        "investment_first": 172,
+        "assurance_first": 68
+      }
+    },
+    {
+      "block": "confirmation",
+      "supply": 0.0,
+      "composition": "empty",
+      "allele_half_width": 0.046875,
+      "threshold": 0.05,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.453125,
+        0.546875
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0010986328125,
+      "threshold_accessible_without_mutation": false,
+      "reached_assurance_event": 503,
+      "categories": {
+        "near_simultaneous": 44,
+        "assurance_only": 140,
+        "investment_first": 297,
+        "assurance_first": 22,
+        "neither": 1,
+        "investment_only": 8
+      }
+    },
+    {
+      "block": "confirmation",
+      "supply": 0.0,
+      "composition": "empty",
+      "allele_half_width": 0.046875,
+      "threshold": 0.1,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.453125,
+        0.546875
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0010986328125,
+      "threshold_accessible_without_mutation": false,
+      "reached_assurance_event": 421,
+      "categories": {
+        "assurance_only": 138,
+        "neither": 20,
+        "investment_first": 257,
+        "investment_only": 71,
+        "assurance_first": 8,
+        "near_simultaneous": 18
+      }
+    },
+    {
+      "block": "confirmation",
+      "supply": 0.0,
+      "composition": "empty",
+      "allele_half_width": 0.078125,
+      "threshold": 0.025,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.421875,
+        0.578125
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0030517578125,
+      "threshold_accessible_without_mutation": true,
+      "reached_assurance_event": 512,
+      "categories": {
+        "assurance_only": 122,
+        "near_simultaneous": 217,
+        "investment_first": 37,
+        "assurance_first": 136
+      }
+    },
+    {
+      "block": "confirmation",
+      "supply": 0.0,
+      "composition": "empty",
+      "allele_half_width": 0.078125,
+      "threshold": 0.05,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.421875,
+        0.578125
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0030517578125,
+      "threshold_accessible_without_mutation": true,
+      "reached_assurance_event": 512,
+      "categories": {
+        "assurance_only": 139,
+        "assurance_first": 166,
+        "near_simultaneous": 172,
+        "investment_first": 35
+      }
+    },
+    {
+      "block": "confirmation",
+      "supply": 0.0,
+      "composition": "empty",
+      "allele_half_width": 0.078125,
+      "threshold": 0.1,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.421875,
+        0.578125
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0030517578125,
+      "threshold_accessible_without_mutation": false,
+      "reached_assurance_event": 470,
+      "categories": {
+        "assurance_only": 137,
+        "assurance_first": 38,
+        "investment_first": 260,
+        "near_simultaneous": 35,
+        "investment_only": 31,
+        "neither": 11
+      }
+    },
+    {
+      "block": "confirmation",
+      "supply": 0.125,
+      "composition": "matched",
+      "allele_half_width": 0.046875,
+      "threshold": 0.025,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.453125,
+        0.546875
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0010986328125,
+      "threshold_accessible_without_mutation": true,
+      "reached_assurance_event": 511,
+      "categories": {
+        "assurance_only": 227,
+        "assurance_first": 96,
+        "investment_first": 122,
+        "near_simultaneous": 66,
+        "neither": 1
+      }
+    },
+    {
+      "block": "confirmation",
+      "supply": 0.125,
+      "composition": "matched",
+      "allele_half_width": 0.046875,
+      "threshold": 0.05,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.453125,
+        0.546875
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0010986328125,
+      "threshold_accessible_without_mutation": false,
+      "reached_assurance_event": 479,
+      "categories": {
+        "assurance_only": 250,
+        "assurance_first": 51,
+        "investment_first": 162,
+        "near_simultaneous": 16,
+        "investment_only": 11,
+        "neither": 22
+      }
+    },
+    {
+      "block": "confirmation",
+      "supply": 0.125,
+      "composition": "matched",
+      "allele_half_width": 0.046875,
+      "threshold": 0.1,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.453125,
+        0.546875
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0010986328125,
+      "threshold_accessible_without_mutation": false,
+      "reached_assurance_event": 323,
+      "categories": {
+        "assurance_only": 171,
+        "assurance_first": 27,
+        "investment_first": 117,
+        "neither": 138,
+        "investment_only": 51,
+        "near_simultaneous": 8
+      }
+    },
+    {
+      "block": "confirmation",
+      "supply": 0.125,
+      "composition": "matched",
+      "allele_half_width": 0.078125,
+      "threshold": 0.025,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.421875,
+        0.578125
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0030517578125,
+      "threshold_accessible_without_mutation": true,
+      "reached_assurance_event": 512,
+      "categories": {
+        "assurance_only": 224,
+        "near_simultaneous": 106,
+        "investment_first": 33,
+        "assurance_first": 149
+      }
+    },
+    {
+      "block": "confirmation",
+      "supply": 0.125,
+      "composition": "matched",
+      "allele_half_width": 0.078125,
+      "threshold": 0.05,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.421875,
+        0.578125
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0030517578125,
+      "threshold_accessible_without_mutation": true,
+      "reached_assurance_event": 511,
+      "categories": {
+        "assurance_only": 241,
+        "near_simultaneous": 57,
+        "investment_first": 45,
+        "assurance_first": 168,
+        "neither": 1
+      }
+    },
+    {
+      "block": "confirmation",
+      "supply": 0.125,
+      "composition": "matched",
+      "allele_half_width": 0.078125,
+      "threshold": 0.1,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.421875,
+        0.578125
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0030517578125,
+      "threshold_accessible_without_mutation": false,
+      "reached_assurance_event": 416,
+      "categories": {
+        "assurance_only": 224,
+        "investment_first": 118,
+        "near_simultaneous": 15,
+        "neither": 58,
+        "assurance_first": 59,
+        "investment_only": 38
+      }
+    },
+    {
+      "block": "confirmation",
+      "supply": 0.125,
+      "composition": "separated",
+      "allele_half_width": 0.046875,
+      "threshold": 0.025,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.453125,
+        0.546875
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0010986328125,
+      "threshold_accessible_without_mutation": true,
+      "reached_assurance_event": 511,
+      "categories": {
+        "near_simultaneous": 139,
+        "assurance_first": 88,
+        "assurance_only": 132,
+        "investment_first": 152,
+        "investment_only": 1
+      }
+    },
+    {
+      "block": "confirmation",
+      "supply": 0.125,
+      "composition": "separated",
+      "allele_half_width": 0.046875,
+      "threshold": 0.05,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.453125,
+        0.546875
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0010986328125,
+      "threshold_accessible_without_mutation": false,
+      "reached_assurance_event": 489,
+      "categories": {
+        "investment_first": 272,
+        "assurance_first": 43,
+        "assurance_only": 144,
+        "near_simultaneous": 30,
+        "neither": 6,
+        "investment_only": 17
+      }
+    },
+    {
+      "block": "confirmation",
+      "supply": 0.125,
+      "composition": "separated",
+      "allele_half_width": 0.046875,
+      "threshold": 0.1,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.453125,
+        0.546875
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0010986328125,
+      "threshold_accessible_without_mutation": false,
+      "reached_assurance_event": 412,
+      "categories": {
+        "investment_first": 245,
+        "investment_only": 60,
+        "assurance_only": 125,
+        "assurance_first": 26,
+        "near_simultaneous": 16,
+        "neither": 40
+      }
+    },
+    {
+      "block": "confirmation",
+      "supply": 0.125,
+      "composition": "separated",
+      "allele_half_width": 0.078125,
+      "threshold": 0.025,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.421875,
+        0.578125
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0030517578125,
+      "threshold_accessible_without_mutation": true,
+      "reached_assurance_event": 512,
+      "categories": {
+        "assurance_first": 155,
+        "near_simultaneous": 198,
+        "assurance_only": 126,
+        "investment_first": 33
+      }
+    },
+    {
+      "block": "confirmation",
+      "supply": 0.125,
+      "composition": "separated",
+      "allele_half_width": 0.078125,
+      "threshold": 0.05,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.421875,
+        0.578125
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0030517578125,
+      "threshold_accessible_without_mutation": true,
+      "reached_assurance_event": 512,
+      "categories": {
+        "assurance_first": 179,
+        "near_simultaneous": 149,
+        "assurance_only": 143,
+        "investment_first": 41
+      }
+    },
+    {
+      "block": "confirmation",
+      "supply": 0.125,
+      "composition": "separated",
+      "allele_half_width": 0.078125,
+      "threshold": 0.1,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.421875,
+        0.578125
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0030517578125,
+      "threshold_accessible_without_mutation": false,
+      "reached_assurance_event": 453,
+      "categories": {
+        "assurance_first": 56,
+        "investment_only": 38,
+        "assurance_only": 135,
+        "investment_first": 237,
+        "neither": 21,
+        "near_simultaneous": 25
+      }
+    },
+    {
+      "block": "main",
+      "supply": 0.0,
+      "composition": "empty",
+      "allele_half_width": 0.046875,
+      "threshold": 0.025,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.453125,
+        0.546875
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0010986328125,
+      "threshold_accessible_without_mutation": true,
+      "reached_assurance_event": 510,
+      "categories": {
+        "investment_first": 230,
+        "near_simultaneous": 152,
+        "assurance_only": 49,
+        "assurance_first": 79,
+        "investment_only": 2
+      }
+    },
+    {
+      "block": "main",
+      "supply": 0.0,
+      "composition": "empty",
+      "allele_half_width": 0.046875,
+      "threshold": 0.05,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.453125,
+        0.546875
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0010986328125,
+      "threshold_accessible_without_mutation": false,
+      "reached_assurance_event": 497,
+      "categories": {
+        "investment_first": 383,
+        "assurance_only": 60,
+        "near_simultaneous": 35,
+        "investment_only": 14,
+        "assurance_first": 19,
+        "neither": 1
+      }
+    },
+    {
+      "block": "main",
+      "supply": 0.0,
+      "composition": "empty",
+      "allele_half_width": 0.046875,
+      "threshold": 0.1,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.453125,
+        0.546875
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0010986328125,
+      "threshold_accessible_without_mutation": false,
+      "reached_assurance_event": 420,
+      "categories": {
+        "investment_only": 79,
+        "investment_first": 338,
+        "assurance_only": 58,
+        "neither": 13,
+        "near_simultaneous": 17,
+        "assurance_first": 7
+      }
+    },
+    {
+      "block": "main",
+      "supply": 0.0,
+      "composition": "empty",
+      "allele_half_width": 0.078125,
+      "threshold": 0.025,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.421875,
+        0.578125
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0030517578125,
+      "threshold_accessible_without_mutation": true,
+      "reached_assurance_event": 512,
+      "categories": {
+        "near_simultaneous": 282,
+        "assurance_only": 48,
+        "assurance_first": 123,
+        "investment_first": 59
+      }
+    },
+    {
+      "block": "main",
+      "supply": 0.0,
+      "composition": "empty",
+      "allele_half_width": 0.078125,
+      "threshold": 0.05,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.421875,
+        0.578125
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0030517578125,
+      "threshold_accessible_without_mutation": true,
+      "reached_assurance_event": 512,
+      "categories": {
+        "near_simultaneous": 218,
+        "investment_first": 89,
+        "assurance_first": 144,
+        "assurance_only": 61
+      }
+    },
+    {
+      "block": "main",
+      "supply": 0.0,
+      "composition": "empty",
+      "allele_half_width": 0.078125,
+      "threshold": 0.1,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.421875,
+        0.578125
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0030517578125,
+      "threshold_accessible_without_mutation": false,
+      "reached_assurance_event": 464,
+      "categories": {
+        "investment_first": 358,
+        "assurance_only": 62,
+        "assurance_first": 22,
+        "near_simultaneous": 22,
+        "neither": 6,
+        "investment_only": 42
+      }
+    },
+    {
+      "block": "main",
+      "supply": 0.125,
+      "composition": "matched",
+      "allele_half_width": 0.046875,
+      "threshold": 0.025,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.453125,
+        0.546875
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0010986328125,
+      "threshold_accessible_without_mutation": true,
+      "reached_assurance_event": 508,
+      "categories": {
+        "assurance_only": 161,
+        "investment_first": 141,
+        "near_simultaneous": 82,
+        "assurance_first": 124,
+        "investment_only": 3,
+        "neither": 1
+      }
+    },
+    {
+      "block": "main",
+      "supply": 0.125,
+      "composition": "matched",
+      "allele_half_width": 0.046875,
+      "threshold": 0.05,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.453125,
+        0.546875
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0010986328125,
+      "threshold_accessible_without_mutation": false,
+      "reached_assurance_event": 480,
+      "categories": {
+        "assurance_only": 169,
+        "investment_first": 221,
+        "assurance_first": 65,
+        "near_simultaneous": 25,
+        "investment_only": 18,
+        "neither": 14
+      }
+    },
+    {
+      "block": "main",
+      "supply": 0.125,
+      "composition": "matched",
+      "allele_half_width": 0.046875,
+      "threshold": 0.1,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.453125,
+        0.546875
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0010986328125,
+      "threshold_accessible_without_mutation": false,
+      "reached_assurance_event": 340,
+      "categories": {
+        "assurance_only": 122,
+        "investment_first": 167,
+        "neither": 80,
+        "assurance_first": 39,
+        "investment_only": 92,
+        "near_simultaneous": 12
+      }
+    },
+    {
+      "block": "main",
+      "supply": 0.125,
+      "composition": "matched",
+      "allele_half_width": 0.078125,
+      "threshold": 0.025,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.421875,
+        0.578125
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0030517578125,
+      "threshold_accessible_without_mutation": true,
+      "reached_assurance_event": 512,
+      "categories": {
+        "assurance_only": 129,
+        "near_simultaneous": 120,
+        "investment_first": 55,
+        "assurance_first": 208
+      }
+    },
+    {
+      "block": "main",
+      "supply": 0.125,
+      "composition": "matched",
+      "allele_half_width": 0.078125,
+      "threshold": 0.05,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.421875,
+        0.578125
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0030517578125,
+      "threshold_accessible_without_mutation": true,
+      "reached_assurance_event": 512,
+      "categories": {
+        "assurance_only": 150,
+        "assurance_first": 199,
+        "investment_first": 68,
+        "near_simultaneous": 95
+      }
+    },
+    {
+      "block": "main",
+      "supply": 0.125,
+      "composition": "matched",
+      "allele_half_width": 0.078125,
+      "threshold": 0.1,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.421875,
+        0.578125
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0030517578125,
+      "threshold_accessible_without_mutation": false,
+      "reached_assurance_event": 432,
+      "categories": {
+        "assurance_only": 143,
+        "neither": 34,
+        "investment_first": 192,
+        "investment_only": 46,
+        "assurance_first": 70,
+        "near_simultaneous": 27
+      }
+    },
+    {
+      "block": "main",
+      "supply": 0.125,
+      "composition": "separated",
+      "allele_half_width": 0.046875,
+      "threshold": 0.025,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.453125,
+        0.546875
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0010986328125,
+      "threshold_accessible_without_mutation": true,
+      "reached_assurance_event": 512,
+      "categories": {
+        "investment_first": 186,
+        "assurance_first": 111,
+        "assurance_only": 72,
+        "near_simultaneous": 143
+      }
+    },
+    {
+      "block": "main",
+      "supply": 0.125,
+      "composition": "separated",
+      "allele_half_width": 0.046875,
+      "threshold": 0.05,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.453125,
+        0.546875
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0010986328125,
+      "threshold_accessible_without_mutation": false,
+      "reached_assurance_event": 496,
+      "categories": {
+        "investment_first": 317,
+        "assurance_only": 79,
+        "investment_only": 14,
+        "near_simultaneous": 53,
+        "assurance_first": 47,
+        "neither": 2
+      }
+    },
+    {
+      "block": "main",
+      "supply": 0.125,
+      "composition": "separated",
+      "allele_half_width": 0.046875,
+      "threshold": 0.1,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.453125,
+        0.546875
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0010986328125,
+      "threshold_accessible_without_mutation": false,
+      "reached_assurance_event": 401,
+      "categories": {
+        "investment_first": 277,
+        "investment_only": 92,
+        "assurance_only": 73,
+        "neither": 19,
+        "near_simultaneous": 18,
+        "assurance_first": 33
+      }
+    },
+    {
+      "block": "main",
+      "supply": 0.125,
+      "composition": "separated",
+      "allele_half_width": 0.078125,
+      "threshold": 0.025,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.421875,
+        0.578125
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0030517578125,
+      "threshold_accessible_without_mutation": true,
+      "reached_assurance_event": 512,
+      "categories": {
+        "near_simultaneous": 234,
+        "assurance_first": 173,
+        "investment_first": 51,
+        "assurance_only": 54
+      }
+    },
+    {
+      "block": "main",
+      "supply": 0.125,
+      "composition": "separated",
+      "allele_half_width": 0.078125,
+      "threshold": 0.05,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.421875,
+        0.578125
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0030517578125,
+      "threshold_accessible_without_mutation": true,
+      "reached_assurance_event": 512,
+      "categories": {
+        "near_simultaneous": 188,
+        "assurance_only": 64,
+        "investment_first": 84,
+        "assurance_first": 176
+      }
+    },
+    {
+      "block": "main",
+      "supply": 0.125,
+      "composition": "separated",
+      "allele_half_width": 0.078125,
+      "threshold": 0.1,
+      "starts": 512,
+      "initial_assurance_phenotype": 0.5,
+      "initial_assurance_phenotype_variance": 0.0,
+      "standing_allele_assurance_range": [
+        0.421875,
+        0.578125
+      ],
+      "mutation_free_first_generation_assurance_variance": 0.0030517578125,
+      "threshold_accessible_without_mutation": false,
+      "reached_assurance_event": 448,
+      "categories": {
+        "investment_first": 304,
+        "assurance_only": 65,
+        "investment_only": 53,
+        "near_simultaneous": 33,
+        "assurance_first": 46,
+        "neither": 11
+      }
+    }
+  ],
+  "mathematical_scope": "Closed diploid additive assurance locus initially heterozygous0.5\u00b1h in every founder. Mendelian inheritance alone cannot leave that interval. Thus an assurance event of increase d>h requires mutation; this remains true with positive mutation enabled, but does not estimate its causal effect.",
+  "variance_scope": "For mutation-free first-generation offspring of identical A heterozygotes, AA/Aa/aa proportions1/4,1/2,1/4 give phenotype variance h\u00b2/2. This is an exact accessibility calculation, not an assumed long-run variance.",
+  "claim_limits": [
+    "The dominance band is conditional on genetic supply, finite horizon and event magnitude; not a universal ecological threshold.",
+    "Mutation necessity for an event does not establish sufficiency or a unique mechanism for the order.",
+    "No thresholds, endpoints, costs, sources or previous admission decisions were changed."
+  ]
+}

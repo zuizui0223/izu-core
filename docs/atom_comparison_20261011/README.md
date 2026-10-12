@@ -1,0 +1,11 @@
+# Admitted original-mutation numerical supplement
+
+This companion supplements the single active Chapter2 manuscript; it is not a second submission.
+
+The evidence table retains all ten contexts and all three response thresholds. The six mutually exclusive order categories are not collapsed. The figure is a descriptive comparison of finite histories with the admitted genotype-density calculation, not an uncertainty plot or an estimate of an ensemble mean.
+
+For byte-preserving reproduction, obtain `remote_atom_inputs_20261011.zip` and `completed_atom_abm_20261011.zip` from [the preserved synthetic-assets release](https://github.com/zuizui0223/izu-core/releases/tag/atom-cell-inputs-20261011). Authenticate both SHA-256 values against the committed receipts before extraction. The first asset supplies the original frozen source/configuration and technical references; the second supplies the completed30 numerical and320 matched ABM archive/receipt pairs and their per-member manifest. Restore the relative members under the original absolute Windows workspace in the registration: frozen identities are intentionally not relabelled as the latest checkout. Do not replace any unrelated workspace files. A fresh isolated Windows environment can use that exact layout.
+
+Use Python3.10.11, NumPy2.2.6 and SciPy1.15.3, with one BLAS thread. After exact restoration, `work/resolution_20261011/verify_atom_campaign.py`, the completion-envelope consumer and `verify_matched_atom_abm.py` reproduce the independent readouts without generating new biological histories. The latter independently classifies990 events and40 checkpoints from arrays; it does not derive every array from annual raw genomes. The source bundle's original registered commands and receipts define the numerical checks.
+
+Historical discovery originals, their runtime and annual genomes are separate unresolved inputs (PR483). Preserved later cohorts and this new supplement do not close that provenance gate. The output bundle also does not contain raw boundary/preparation-history cohorts; those four-question analyses retain separate evidence and delivery requirements. GitHub preservation is not completed DOI deposition.

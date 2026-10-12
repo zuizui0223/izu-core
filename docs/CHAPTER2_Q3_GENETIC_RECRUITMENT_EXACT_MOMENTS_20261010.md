@@ -2,6 +2,8 @@
 
 **2026-10-10 — deterministic original-source analysis, not a new preregistered experiment or ecological population observation.** No newly sampled visitors, genetic trajectories or stochastic demographic paths. Source code is the unchanged Model 3 reproductive ledger, parental lottery and Mendelian inheritance, using controlled pollen background B48. The original experimental findings #411 and #442 remain unchanged.
 
+**2026-10-11 follow-through:** The [complete archived tempo-cohort accounting](CHAPTER2_TEMPO_REALIZATION_ACCOUNTING_20261011.md) now applies the expected/retained-parent/observed-mean stages to all 1,024 cases and 409,600 saved reproductive updates. It separately verifies native pre-mutation expectations, retains a combined segregation/mutation term when mutation is enabled, and records unconditional recruitment. This completes the stated original-trajectory accounting gate for that cohort only; it is retrospective and does not establish an evolutionary persistence mediator. The synthetic six-state analysis below remains unchanged.
+
 ## The exact gap in the four-question logic
 
 The Chapter 2 structure remains **閾値 → 順序 → 実現 → 帰結**. Q1 local marginal fitness or F/P/S changes do **not** tell us what alleles will be transmitted. Q2's experimentally assigned phenotype timing does not manipulate spontaneous genetic order. The Q3 transition depends on a finite number of retained offspring and on their actual parental genotype distribution.

@@ -1,0 +1,127 @@
+{
+  "schema": "chapter2_sequence_abrupt_gradual_functional_loss_v1",
+  "status": "FROZEN_BEFORE_EVOLUTIONARY_OUTCOME_EXECUTION",
+  "date": "2026-10-11",
+  "question": "At equivalent initial-representative cumulative pollen service during environmental turnover, does abrupt versus gradual replacement of pollinator functional optima alter A-before-I evolution, realized genotype changes, or eventual persistence?",
+  "source": "unmodified Model3 scripts/model3_island/reproduction.py and scripts/model3_island/population.py",
+  "founder_source": {
+    "number": 48,
+    "draw_count": 48,
+    "means": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "sd": 0.15,
+    "birth_year": 0,
+    "seed": 74001
+  },
+  "common_biology": {
+    "K": 48,
+    "years": 400,
+    "adult_survival": 0,
+    "seed_immigration_supply": 0,
+    "mutation_sd": 0.05,
+    "visitor_types": 4,
+    "visitor_breadth": 0.2,
+    "visitor_effectiveness": 1,
+    "matched_optima": [
+      0.5,
+      0.55,
+      0.6,
+      0.65
+    ],
+    "shifted_optima": [
+      0.8,
+      0.85,
+      0.9,
+      0.95
+    ],
+    "baseline_ovule_budget": 8
+  },
+  "scheduled_window": {
+    "updates": 100,
+    "after_window": "both groups remain shifted4 from update 100 through update399",
+    "schedules": [
+      "abrupt",
+      "gradual"
+    ],
+    "gradual_rule": "lambda(t)=(t+0.5)/100 for integer updates t=0..99",
+    "abrupt_rule": "matched4 for first k updates, intermediate lambda_star at update k, then shifted4 until t=99",
+    "calibration": "match sum of total delivered pollen across first100 updates under FIXED n48 clonal X=I=A=.5 reference using unchanged original reproduction kernel; one common calibration per synthetic history visitor profile, with finite-step bisection",
+    "calibration_tolerance": 1e-9,
+    "baseline_monotonicity_check": "all 101 integer step lambdas must decrease reference delivered pollen, otherwise fail closed",
+    "scope_limit": "baseline calibration is NOT equal pollen across actual evolving genotype/census states"
+  },
+  "experimental_factorial": {
+    "mating_timing": [
+      "delayed",
+      "prior"
+    ],
+    "direct_assurance_cost": [
+      0,
+      0.5
+    ],
+    "mutation_rate": [
+      0,
+      0.01
+    ],
+    "visitor_profile_history_seeds": {
+      "first": 48271001,
+      "last": 48271016,
+      "count": 16
+    },
+    "demographic_repeat_seeds": {
+      "first": 49271001,
+      "last": 49271004,
+      "count": 4
+    },
+    "tasks": 1024
+  },
+  "visitor_profile_variability": {
+    "seeded_function": "four independently seeded offsets Uniform(0,0.025), added to both starting and final functional optima; start and end stay within [0,1]",
+    "history_unit": "one independent synthetic optima profile, four demographic repeats nested within same profile; do not treat all1024 trajectories as independent ecological histories"
+  },
+  "crossing": {
+    "investment_decrease": 0.05,
+    "assurance_increase": 0.05,
+    "sustained_updates": 20,
+    "near_simultaneous_tolerance": 5,
+    "reference": "actual diploid founder means, never relative to one evolved comparator",
+    "censoring": "unreached, one-trait-only and extinct branches remain classified separately; no zero-coded extinct trait"
+  },
+  "endpoints": {
+    "primary": "per visitor-profile paired schedule difference in investment and assurance cumulative probabilities of first sustained founder-relative crossing by update100, with categorical A-first/I-first/tie/A-only/I-only/neither retained",
+    "secondary": [
+      "paired per-profile A-minus-I crossing lag among jointly reached; censored kept visible",
+      "ancestral local focal full-W beta_A and beta_I sign paths at designated sampled times",
+      "unconditional occupancy at updates100 and400",
+      "investment, assurance and matching genotype means/variances at10,100,400",
+      "mean and range of pollen delivery and visitor functional overlap",
+      "original genotypic parentage and conditional pre-mutation mean shifts"
+    ]
+  },
+  "inference": {
+    "unit": "16 synthetic environmental-profile clusters; 4 demographic repeats nested",
+    "method": "two-sided cluster-level paired mean difference and descriptive percentile bootstrap, 9999 draws, fixed seed48272026, all 4 timing-cost settings and both mutation rates reported",
+    "importance_thresholds": {
+      "crossing_by_100_probability_difference": 0.1,
+      "occupancy400_probability_difference": 0.05
+    },
+    "decision": "Do NOT call the mechanism confirmed on source-selected repeated cells; new run exploratory/model-specific unless independent realistic/power-calibrated ecological external validation exists",
+    "no_peeking_or_retuning": "no profile/exposure/genetic/demographic parameter adjustment after outcome run; any failed CI must be corrected as engineering with source-preserving audit and full provenance"
+  },
+  "execution_policy": {
+    "smoke": "one profile x one repeat x two schedules x first40 updates; no evolutionary claim",
+    "full": "all1024 trajectories plus SHA source/environment/founder receipts; main prereg endpoints must be computed only from complete full readout",
+    "current_result": "NONE"
+  },
+  "scientific_limitations": [
+    "The artificial replacement reduces fitness affinity by changing optima, not actual disappearance of pollinator individuals",
+    "The original Model3 has no dynamical pollinator dependence on floral investment and no spatial neighbor density",
+    "Equalized pollen supply is calculated for a fixed reference homozygous N48 population only, not for all evolving states or per maternal recipient",
+    "Reproductive updates are not calibrated to natural island years",
+    "This experiment manipulates functional matching chronology, not the natural genetic mutation-order of A and I loci",
+    "A small synthetic 16-profile cohort cannot establish universal evolutionary selection-order or island ecological survival"
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "absolute_tolerance": 1e-11,
+  "checked_counts": {
+    "arm_component_values": 384,
+    "case_component_values": 24576,
+    "case_identity_values": 6144,
+    "case_sha256_pairs": 1024,
+    "cases": 1024,
+    "paired_mean_component_values": 192,
+    "paired_profile_component_values": 3072,
+    "paired_profile_contrasts": 128,
+    "paired_setting_means": 8,
+    "profile_component_values": 6144,
+    "profile_means": 256,
+    "setting_schedule_arms": 16,
+    "total_component_values": 34368
+  },
+  "component_mapping": {
+    "expected_response": "stored_source_expectation_sum",
+    "observed_change": "observed_change",
+    "parent_sampling": "realized_parent_allocation_sum",
+    "segregation_mutation_remainder": "segregation_mutation_remainder_sum"
+  },
+  "evidence_rank": "RETROSPECTIVE_EXISTING_COHORT_ACCOUNTING_NOT_CAUSAL_MEDIATION",
+  "input_files": {
+    "full_accounting_json": {
+      "sha256": "542b42ba6d117f54b3597c786ecbf4d592523120611fd73f5accfd7189aa5ea1",
+      "size_bytes": 85737428
+    },
+    "independent_json": {
+      "sha256": "18ece42b333427c1ee93e0b9620ec45075eb1ca7925c4450cd3733a448fed6ba",
+      "size_bytes": 5523167
+    }
+  },
+  "interpretation": "Independent checker uses stored source expectations; native replay separately verifies those expectations. Agreement verifies retained-parent realization and aggregation, not causal mediation.",
+  "matched_original_proof": {
+    "common_identity": {
+      "design_sha256": "207a3a0ad3decf096c65f296bebeee69e7f80d5b644abb2318105e50474774d0",
+      "founder_identity_sha256": "0fd03f041a1faf76959a04fa3e0ae889cdb1a1ccb7fe1189be8388b554726c38",
+      "runtime_sha256": "648a35138347b5ddda7fd37dff480a84bc3071066fed5f64a83198f5e8d61b0f",
+      "source_file_map_sha256": "939f25412a6249179f5da669e418cf7862c434939e2e7bf062e7425fe322bf8a",
+      "source_identity_sha256": "9302c9740a1f5ac91cb1c1c39093f358c6fd745d4c5b768980e78d893aade80b"
+    },
+    "manifest_sha256": {
+      "shard_00_complete.json": "76201b97e9f3dd5772940b8e64ff948b617b0515d56cd4371ec80b744332eab4",
+      "shard_01_complete.json": "99033ecb2cb2ec087b24f6b2e7094dd70e95e9616fcee6e63eabab66bdf64626",
+      "shard_02_complete.json": "d895097057713bcf0f9203124baf8a417c605d59e8e76f330eeb2114493c0119",
+      "shard_03_complete.json": "2fdeeee5026cd72b7fa0a6815998e5533a4f0c54b247f7d98ebcdc3c90aa1348",
+      "shard_04_complete.json": "1c316e56928add5e321eabc2f0f741ff0766a5cadf75136d6ebf9018e5770624",
+      "shard_05_complete.json": "ed6e218bac1a2a33199c8dacbe67af1d0bea683a2c62d1b52e8189c5322aa7e0",
+      "shard_06_complete.json": "fdf9f37a53ef58107114331068cc1fbdf6269afc3c208d341362025179652014",
+      "shard_07_complete.json": "088e472bca9dcdbe6a2c96a43e86b1b505e4fb06fc353310c9332b15e1fc1703",
+      "shard_08_complete.json": "69f18e5286f23dc5b5503f76ff03ced330f043339ead8163f67cbe2827dde44b",
+      "shard_09_complete.json": "962cf5391299df63d9385b8918ace93dcbfe76c66ee39c772db34db2e8d9355c",
+      "shard_10_complete.json": "7d541262aea49b2bc6591f5df9182cd31fbeba27ee406a946e4cd0397ecc4979",
+      "shard_11_complete.json": "5939840a1b0c81fcd401999afb8229b2ce1ca2874b66f65d37a6355ed3ec866b",
+      "shard_12_complete.json": "c627dcb1836a2e4b3d8adc525c567235e4b3ac56115c8de2bde88e69e37f640b",
+      "shard_13_complete.json": "5bb1e41c3e199811c78293e1370d0e0bdb0772c143b7cd7a6e992a5fd978ec8f",
+      "shard_14_complete.json": "eddbe8c063807f6c1e48f6b665cb1aafdd5e05e9e279967f41cd2f1372cb88fa",
+      "shard_15_complete.json": "3398523777b93ee960b73d69ddd34d06f536b3e49e978ac65480312e48e3e66e"
+    }
+  },
+  "max_absolute_error": 0.0,
+  "schema": "chapter2_tempo_realization_independent_comparison_v1",
+  "status": "PASS_COMPLETE_NATIVE_TO_INDEPENDENT_ACCOUNTING_COMPARISON",
+  "supplementary_original_categories": {
+    "arm_records": 16,
+    "case_records": 1024,
+    "new_event_classes": false,
+    "status": "PASS_COPIED_CASE_TO_ARM_COUNTS"
+  },
+  "window_mapping": {
+    "early": "updates_0_99",
+    "full": "full400",
+    "late": "updates_100_399"
+  }
+}

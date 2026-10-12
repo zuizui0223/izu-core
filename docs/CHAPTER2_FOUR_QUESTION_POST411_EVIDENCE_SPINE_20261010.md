@@ -1,8 +1,15 @@
 # Chapter 2 scientific spine after PR #411: threshold → order → realization → consequence
 
-**Date:** 2026-10-10  
-**Status:** Evidence-ranked editorial/research-plan realignment, **NOT** a new experiment, fresh preregistration, manuscript submission, or causal discovery.  
-**Source:** `main` at `2b3c03ee33221dfbcc06eac7743ab68bee85eb64`, with the separately unmerged exploratory #452 branch explicitly distinguished.  
+**Original record:** 2026-10-10
+
+**Historical status (October 10):** Evidence-ranked editorial/research-plan realignment, **NOT** a new experiment, fresh preregistration, manuscript submission, or causal discovery.
+
+**Historical source:** `main` at `2b3c03ee33221dfbcc06eac7743ab68bee85eb64`, with the separately unmerged exploratory #452 branch explicitly distinguished.
+
+**Complete-cohort update:** 2026-10-11 — the separately frozen visitor-tempo experiment implemented in [PR #475](https://github.com/zuizui0223/izu-core/pull/475) is complete from execution `main` commit `dba65f11a4ee7295ae32b623ea1103cc8a25c1b5`. This updates the evidence record below; the October 10 proposal remains historical and does not describe the current availability of outcomes.
+
+**Existing-cohort genetic-accounting update:** 2026-10-11 — [all 1,024 archived tempo cases now have verified expected-to-realized inheritance accounting](CHAPTER2_TEMPO_REALIZATION_ACCOUNTING_20261011.md), including native source expectations, retained parental contributions, and segregation/mutation remainders in both design-defined phases. All 409,600 updates are included. The demographic audit finds 23 below-capacity censuses in 13 cases (minimum N=34), with no extinction. This completes the trajectory-accounting gate for the tempo cohort; causal genetic mediation and the original sustained-isolation discovery cohort's complete annual replay remain unresolved. The [cohort identity correction](CHAPTER2_SOURCE_REPLAY_COHORT_IDENTITY_20261011.md) distinguishes that discovery experiment from actual #411 and supersedes the older “old #411” replay label. The [separate accounting addendum](../data/results/chapter2_four_question_current_evidence_addendum_20261011.json) and its receipted bytes remain preserved; the [current replay-identity status](../data/results/chapter2_source_replay_identity_status_20261011.json) records the corrected scope without rewriting the October10 snapshot or #478 accounting evidence.
+
 **Scope:** One Chapter 2 paper. The active Ecology Letters draft, frozen datasets and submission packager remain **unchanged**. PR #411 is a verified component of this four-question architecture, not its entire scientific claim.
 
 ## Central scientific question
@@ -13,10 +20,22 @@ The requested inferential order is **threshold → order → realization → con
 
 | Question | Proper estimand / observable | Post-#411 evidence and rank | Present verdict |
 |---|---|---|---|
-| **Q1 — Threshold (閾値)** | Corrected local investment and assurance selection gradients; maternal outcross `F`, paternal export `P`, viable selfed seed `S`; focal finite parental return `W=.5F+.5P+S`; nonfocal benefit and group viable-seed derivative. Conditions: plant N, pollinator assemblage/activity and delivered pollen. | #411 (independently prospective, four-setting floral evolution); #452 (source-model exploratory sign boundary and visitor swap); #457 (original evolved-genome, **retrospective** one-generation replay). | **Conditional local selection and pollen externality present in Model 3.** No natural island tipping point, universal sign conflict, or evolved group harm established. |
-| **Q2 — Order (順序)** | Assigned A-first vs I-first phenotypic-expression schedule; **separately** observed spontaneous inherited A/I threshold-crossing order. | #418 (independently frozen full assigned-order cohort); #422 (independent fixed-budget-window failure, open archive); prior #413 mutation-access priority test failed. | **No preregistered practically meaningful pooled assigned-order far–near effect.** Do not infer causal effects of spontaneous mutation order. |
-| **Q3 — Realization (実現)** | Annual allele means/variances, founders, segregation, genealogical transfer, sustained crossing, loss of heritable variation, pre- and post-extinction availability. | #415–418 archived diploid recording; #455 (exploratory conditional one-generation genotype lottery); #452 (conditional source-genome transplant whose strict primary gate failed). | Genetic realization is **not implied** by local payoffs or an imposed expression schedule. No supported general selection-to-inherited-response mediator. |
-| **Q4 — Consequence (帰結)** | Distinct endpoints: nonfocal pollen service, recipient-specific seed production, total viable maternal offspring, realized recruits and unconditional 80-update occupancy (not interchangeable). | #442 independent prospectively supported K effect at B48; #448 preregistered early-vs-late timing inconclusive; #457 source budget/census audit; #452 pilot persistence NO-GO. | **A narrow demographic K moderator is confirmed within Model 3.** Evolved investment → lower group output → extinction remains **unproven**. |
+| **Q1 — Threshold (閾値)** | Corrected local investment and assurance selection gradients; maternal outcross `F`, paternal export `P`, viable selfed seed `S`; focal finite parental return `W=.5F+.5P+S`; nonfocal benefit and group viable-seed derivative. Conditions: plant N, pollinator assemblage/activity and delivered pollen. | #411 (independently prospective, four-setting floral evolution); #452 (source-model exploratory sign boundary and visitor swap); #457 (original evolved-genome, **retrospective** one-generation replay); #475 (complete frozen tempo cohort, sampled genotype-dependent sign paths). | **Conditional local selection and pollen externality present in Model 3.** Sampled sign paths vary with tempo and evolving state; they are distinct from fixed-clonal clocks and exact crossing times. No natural tipping point, universal sign conflict or evolved group harm established. |
+| **Q2 — Order (順序)** | Assigned A-first vs I-first phenotypic-expression schedule; **separately** assigned visitor tempo and observed inherited A/I threshold-crossing order, with A-only and full400/by100 horizons retained. | #418 (independently frozen full assigned-order cohort); #422 (independent fixed-budget-window failure, open archive); prior #413 mutation-access priority test failed; #475 (prospectively frozen visitor-tempo contrast, all eight settings). | **No preregistered practically meaningful pooled assigned-expression far–near effect.** Visitor tempo alters crossing frequencies in a context-dependent manner; A-only is not A-first. No causal mutation-order result. |
+| **Q3 — Realization (実現)** | Annual allele means/variances, founders, segregation, genealogical transfer, sustained crossing, loss of heritable variation, pre- and post-extinction availability. | #415–418 archived diploid recording; #455 (exploratory conditional one-generation genotype lottery); #452 (conditional source-genome transplant whose strict primary gate failed); #475 (retained native genomes/parentage and realized trajectories). | **Native inherited trajectory differences under visitor tempo are now observed within this model.** Local payoffs do not imply a crossing, and no general selection-to-inherited-response mediator is identified. |
+| **Q4 — Consequence (帰結)** | Distinct endpoints: nonfocal pollen service, recipient-specific seed production, total viable maternal offspring, realized recruits and unconditional occupancy at each cohort's declared horizon (80 updates for assigned-expression futures; 100/400 for tempo), not interchangeable. | #442 independent prospectively supported K effect at B48; #448 preregistered early-vs-late timing inconclusive; #457 source budget/census audit; #452 pilot persistence NO-GO; #475 (lower realized pollen/overlap, altered recruitment, saturated occupancy at 100/400). | **The narrow demographic K moderator remains confirmed within Model 3.** The tempo cohort identifies no persistence advantage at its occupancy ceiling; evolved investment → group harm → extinction remains **unproven**. |
+
+## 2026-10-11 — complete frozen visitor-tempo cohort
+
+The separate [human result](CHAPTER2_SEQUENCE_ABRUPT_GRADUAL_FUNCTIONAL_LOSS_RESULTS_20261011.md) and [complete factual tables](CHAPTER2_SEQUENCE_ABRUPT_GRADUAL_FULL_TABLES_20261011.md) record **1,024 native Model 3 trajectories, 400 updates each, 16 independent synthetic visitor profiles and four nested demographic repeats**, across all eight timing/cost/mutation settings. Execution used committed `main` `dba65f11a4ee7295ae32b623ea1103cc8a25c1b5`, with source identity `9302c9740a1f5ac91cb1c1c39093f358c6fd745d4c5b768980e78d893aade80b`. The pre-execution design, native biology, seeds and thresholds are unchanged. This is a controlled visitor-*functional-optimum* chronology intervention, not pollinator disappearance or an assignment of A/I mutation order.
+
+The registered by100 abrupt−gradual **A crossing** differences range from 0 to +42.1875 percentage points; **I crossing** differences range from −6.25 to +21.875 points. The 10-point importance benchmark is met by point estimates in five A and seven I settings, but only two A descriptive intervals lie wholly above +10 points and no I interval does. Report all settings rather than selecting the largest costly-setting contrast. Intervals remain the frozen **two-sided descriptive profile bootstrap**, 9,999 resamples, seed48272026; no confirmatory p-test or equivalence procedure is introduced.
+
+A-only is the largest category in every delayed abrupt arm at both horizons and every delayed gradual arm by400. By100, neither is largest in the two costly delayed gradual arms. **A-only** remains distinct from A-first among two observed events. Both costly delayed gradual arms have zero jointly crossed trajectories even by400. Conditional paired A-minus-I lag is unavailable in three settings; the only lag interval wholly above zero has just two paired trajectories in two profiles. Keep by100 events confirmed by100 distinct from full400 categories, and show paired eligibility rather than subtracting differently selected arm means.
+
+Native genotype means, original parentage and recruitment now record differences in realized genome trajectories under assigned visitor tempo within the frozen model. Abrupt schedules have lower mean I than gradual at 100/400, but every delayed arm's mean I400 remains above the actual founder mean (.502353): between-schedule differences are not a universal founder-relative decrease. Sampled sign paths cover all 10 designated times and both traits; means of sampled investment medians become positive again in delayed mutation settings. These sampled paths do not replace the fixed-clonal clock or identify exact per-trajectory first sign crossings.
+
+Realized 400-update pollen and functional overlap are lower, and selfed-recruit fractions higher, under abrupt replacement in all settings. Reference pollen equality was calibrated only for the fixed clonal first100-update reference, so it does not imply equal evolving-population pollen. **Occupancy at updates 100 and 400 is 64/64 in both arms in every setting**, with 0-point contrasts and descriptive intervals [0,0]; no observed contrast reaches the 5-point occupancy400 benchmark. This saturated endpoint identifies no persistence advantage and does not establish practical equivalence or rule out possible survival benefit. Altered genomes, pollen or recruitment cannot be promoted to causal genetic-order mediation, rescue or evolutionary suicide. The current manuscript/submission headline and all earlier failed, equivalent and inconclusive conclusions remain unchanged.
 
 ## Q1 — Where does selection change sign?
 
@@ -28,7 +47,7 @@ The **latest #452 delivery-matched falsifier matters**: in 36 artificial source 
 
 The merged retrospective #457 audit used actual original #411 evolving diploid genomes, **64 old visitor histories × one of eight demographic repeats**, not a fresh confirmatory cohort. Unilateral higher investment increased other mothers' expected viable seed return in 62–63 of 64 near histories, depending on mating setting. Crucially, checking full expected finite **focal parental** return `W=.5F+.5P+S` narrowed the stronger `W<0 / whole-group viable-seed response>0` result to **196–438/3,072 correlated individual perturbations**, occurring in **12–23/64 history blocks** depending on setting. A negative focal *maternal* return is not synonymous with negative total genetic fitness.
 
-**Q1 verdict:** Identify the ecological domain of conditional private-versus-nonfocal conflict. Do not substitute an observed range of synthetic N for a natural evolutionary threshold, or call a positive nonfocal benefit a generally positive **group** benefit.
+**Q1 verdict:** Conditional local selection remains distinct from exact event timing; the complete tempo cohort adds sampled, genotype-dependent sign paths with late feedback. Identify the ecological domain of conditional private-versus-nonfocal conflict. Do not substitute an observed range of synthetic N for a natural evolutionary threshold, or call a positive nonfocal benefit a generally positive **group** benefit.
 
 ## Q2 — Does the order actually matter?
 
@@ -38,7 +57,7 @@ The complete #418 experiment (`3,072` source populations, `86,016` future branch
 
 The prior independent mutation-access priority hypothesis in #413 also **failed**. Scheduling a phenotype, manipulating mutation opportunity and observing spontaneous allele trajectories are three distinct interventions/observables.
 
-**Q2 verdict:** An apparently compelling evolutionary sequence cannot be claimed necessary or generally causal from these trials. Local deviations remain exploratory unless an independent preregistered contrast is specified.
+**Q2 verdict:** The completed, separately frozen tempo contrast shows context-dependent crossing-frequency changes, while the earlier assigned-expression and mutation-access verdicts remain unchanged. An observed A-only outcome or inherited sequence cannot be claimed necessary or generally causal; visitor-tempo assignment does not identify a causal mutation-order effect.
 
 ## Q3 — Does selection become inherited evolutionary change?
 
@@ -46,7 +65,7 @@ Finite diploid source states retain parental identity, segregation and allele va
 
 #452's 192-new-history assurance-locus-source transplant produced a descriptive K8 survival difference of **+19.35 percentage points**, but the **precommitted joint clustered-bootstrap plus Hoeffding lower-bound criterion failed** (Hoeffding lower −1.61 pp). This remains **INCONCLUSIVE**, is conditional on jointly surviving donors, and manipulates inherited genomic origins rather than the natural causal effect of assurance-first evolutionary order.
 
-**Q3 verdict:** The bridge from local `W` to a sustained, inheritable A or I trajectory remains unestablished. Use founder-paired, unconditional annual trajectories and explicit genetic-state accounting; never select only histories that evolved or survived to claim an order-mediated effect.
+**Q3 verdict:** Native inherited trajectories under contrasting visitor tempos are now measured, but a general causal mediator linking local `W` to a sustained A/I response remains unestablished. Use founder-paired, unconditional annual trajectories and explicit genetic-state accounting; never select only histories that evolved or survived to claim an order-mediated effect.
 
 ## Q4 — What are the population consequences?
 
@@ -54,7 +73,7 @@ The independent #442 preregistered full-period contrast (64 new visitor-history 
 
 #448's separately registered **early versus late** selfed-seed viability timing moderator was **INCONCLUSIVE**. In the original #411 trial all terminal occupancy arms equalled 1.0. The actual-genome #457 replay found lower pollen delivery under the evolutionary investment state versus an imposed investment restoration, but **three of four settings had greater mean total viable maternal seed output** under the evolved state; source allocation/receipt contributions had broad post-hoc uncertainty. Native K48 one-year Poisson-capped expected census differences were below **0.00025 plants**, and lower-budget exploratory screens did not produce a general adverse group sign. #452's independently collected pilot had occupancy floor/ceiling and changing selection signs across census sizes; its investment→persistent tragedy hypothesis was explicitly **NO-GO** for a confirmatory launch based on that selected envelope.
 
-**Q4 verdict:** Neither `delivered pollen↓` nor `other-mother seed effects` alone identifies `population survival↓`. Resource allocation, recipient-specific receipt, selfing, inbreeding depression, density regulation and genetic transmission must remain separate causal stages.
+**Q4 verdict:** The complete tempo cohort changes realized pollen/overlap and recruitment composition but has saturated occupancy at 100/400, so it supplies no persistence conclusion. Neither `delivered pollen↓` nor `other-mother seed effects` alone identifies `population survival↓`. Resource allocation, recipient-specific receipt, selfing, inbreeding depression, density regulation and genetic transmission must remain separate causal stages.
 
 ## The three links that must be tested, not assumed
 
@@ -62,7 +81,9 @@ The independent #442 preregistered full-period contrast (64 new visitor-history 
 2. **Q2 → Q3:** The randomized assigned-expression contrast identifies the effect of *assignment*, not natural inherited sequence. Preserve the full founder and annual genotype/pedigree histories, including extinction-before-crossing, and analyze realized trajectories without conditioning the primary contrast on a post-treatment state.
 3. **Q3 → Q4:** The difference between paternal/maternal reproductive returns, viable maternal seed, actual recruits and survival must be measured along **the same matched inherited source histories**. A source-level positive nonfocal effect or a separate K-moderation cohort cannot be turned into an evolutionary mediation fraction.
 
-## Next single scientific task: a go/no-go **identification and feasibility contract**, not another confirmatory run
+## Historical October 10 proposal: a go/no-go **identification and feasibility contract**, not another confirmatory run
+
+**Historical scope:** The following proposal is retained as the original October 10 contract, before the separately frozen #475 tempo experiment. Its “zero new outcomes” statement applies to that proposal; it is not a claim that the now-complete tempo outcomes are unavailable. This evidence update grants no future execution authorization and changes no registration.
 
 Before running additional biological histories, assemble a *prospective* decision specification that is independent of already exposed #452/#457 outcomes:
 
@@ -81,6 +102,9 @@ Before running additional biological histories, assemble a *prospective* decisio
 
 ### Source links
 
+- [#475 — frozen visitor-tempo design and pre-execution repair](https://github.com/zuizui0223/izu-core/pull/475)
+- [Complete visitor-tempo result and interpretation](CHAPTER2_SEQUENCE_ABRUPT_GRADUAL_FUNCTIONAL_LOSS_RESULTS_20261011.md)
+- [All registered visitor-tempo factual tables](CHAPTER2_SEQUENCE_ABRUPT_GRADUAL_FULL_TABLES_20261011.md)
 - [Original four connected stages](https://github.com/zuizui0223/izu-core/blob/main/docs/CHAPTER2_ORDER_EXPRESSION_IDENTIFICATION_DESIGN_20261008.md)
 - [#411 — four-setting evolution](https://github.com/zuizui0223/izu-core/pull/411)
 - [#418 — assigned-order practical equivalence](https://github.com/zuizui0223/izu-core/pull/418)
