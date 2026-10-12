@@ -7,7 +7,7 @@ on:
         description: 'Original-data diagnostic or the predeclared fixed-access ecological assay'
         type: choice
         default: pr471-native
-        options: [pr471-native, independent32-admission, genome-response-accounting, persistence-duration-accounting, matched-operator-gap, discovery-original-intake, existing-response-timing, ecological-order-boundary, future-state-sufficiency, future-parent-selection]
+        options: [pr471-native, independent32-admission, genome-response-accounting, persistence-duration-accounting, matched-operator-gap, discovery-original-intake, existing-response-timing, ecological-order-boundary, future-state-sufficiency, future-parent-selection, future-parent-recovery]
 
 permissions:
   contents: read
@@ -17,6 +17,38 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  future-parent-recovery:
+    if: inputs.diagnostic == 'future-parent-recovery'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      PYTHONUTF8: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.2.6 scipy==1.15.3 psutil==7.2.2 threadpoolctl==3.6.0 pytest==8.4.2
+      - run: python -m pytest -q tests/test_future_parent_source_compatibility_20261013.py tests/test_future_parent_recovery_20261013.py tests/test_future_parent_selection_20261013.py tests/test_workflow_trigger_policy.py
+      - name: Fetch exact original outputs and input states
+        run: |
+          gh release download four-question-resolution-20261013 --repo zuizui0223/izu-core --pattern parent_selection_valid_shards_38320361326.zip --pattern parent_selection_actual_admission_38320361326.zip
+          gh release download persistence-mechanism-inputs-20261012 --repo zuizui0223/izu-core --pattern persistence_mechanism_inputs_20261012.zip
+      - name: Preserve eleven complete shards and execute only five missing slots
+        run: |
+          python -m scripts.recover_future_parent_selection_20261013 prepare --prior parent_selection_valid_shards_38320361326.zip --admission parent_selection_actual_admission_38320361326.zip --root outputs/recovery
+          python -m scripts.recover_future_parent_selection_20261013 run --input persistence_mechanism_inputs_20261012.zip --root outputs/recovery
+          git rev-parse HEAD > outputs/recovery/EXECUTION_COMMIT.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: parent-selection-recovery-${{ github.run_id }}
+          path: outputs/recovery/
+          if-no-files-found: error
+          retention-days: 90
   future-parent-technical:
     if: inputs.diagnostic == 'future-parent-selection'
     runs-on: ubuntu-latest

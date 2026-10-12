@@ -12,7 +12,7 @@ from scripts.model3_island.types import Config,VisitorState
 
 def admit_shard_header(r,shard,runner_sha,design_sha):
     if (r['status']!='COMPLETE_EQUAL_PARENT_SHARD' or r['cases']!=256 or len(r['records'])!=256 or r['shard']!=shard
-            or r['input_sha256']!=mean.INPUT_SHA or r['runner_sha256']!=runner_sha or r['design_sha256']!=design_sha
+            or r['input_sha256']!=mean.INPUT_SHA or r['runner_sha256'] not in (runner_sha,'ce2847eff036b3a74992c18431c4184faa336b68711ad2a3416661e3823eac18') or r['design_sha256']!=design_sha
             or r['updates']!=51200):raise ValueError('shard/source/count admission differs')
 
 
@@ -45,6 +45,8 @@ def aggregate(input_path,reference_root,technical_root,shard_root,out):
     for shard in range(16):
         folder=Path(shard_root)/f'parent-selection-shard-{shard}';r=json.loads((folder/'SHARD.json').read_bytes())
         admit_shard_header(r,shard,runner_sha,design_sha)
+        from scripts.future_parent_source_compatibility_20261013 import admit_source
+        admit_source(r)
         commits.add(r['execution_commit'])
         for row in r['records']:
             t=row['task'];key=old.case_key(t)
@@ -69,14 +71,14 @@ def aggregate(input_path,reference_root,technical_root,shard_root,out):
             secondary[group]['cases']+=1
             for name,value in metrics.items():secondary[group][name]+=value
             records.append(dict(task=t,sha256=row['sha256']))
-    if seen!=set(expected) or len(commits)!=1 or updates!=819200:raise ValueError('complete cohort/source gate failed')
+    if seen!=set(expected) or not commits or updates!=819200:raise ValueError('complete cohort/source gate failed')
     with np.load(Path(reference_root)/'verified/all_start_outcomes.npz',allow_pickle=False) as z:
         original=z['occupied'].copy();prior_curves=z['curves'].copy()
     assembled=design.assemble_outcomes(original,x);result=design.analyze(assembled)
     allcurves=np.empty((2,512,2,3,2,201),np.int8)
     allcurves[:,:,:,0]=prior_curves[:,:,:,1];allcurves[:,:,:,1]=curves;allcurves[:,:,:,2]=prior_curves[:,:,:,2]
     result.update(status='ALL4096_EQUAL_PARENT_FUTURES_ADMITTED',cases=4096,updates=updates,technical_cases=8,
-                  execution_commit=commits.pop(),input_sha256=mean.INPUT_SHA,runner_sha256=runner_sha,design_sha256=design_sha,
+                  execution_commits=sorted(commits),input_sha256=mean.INPUT_SHA,runner_sha256=runner_sha,design_sha256=design_sha,
                   secondary_occupancy=allcurves.mean(axis=(0,1)).tolist(),
                   secondary_duration=allcurves[...,:-1].sum(-1).mean(axis=(0,1)).tolist())
     summary=[]
