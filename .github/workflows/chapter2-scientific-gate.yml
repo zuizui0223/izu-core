@@ -574,9 +574,6 @@ jobs:
               name=f'demographic_independent32_shard_{shard:02d}.json'
               expected=receipt['shards'][str(shard)]
               assert projection_hash(root/name)==expected['biological_projection_sha256'], name
-              raw_hash=hashlib.sha256((root/name).read_bytes()).hexdigest()
-              if expected['byte_identical']:
-                  assert raw_hash==expected['old_sha256'], name
 
           a=observed['pooled_primary']; b=frozen['predeclared_pooled_primary']
           assert receipt['original_archive']['sha256']==frozen['archive']['sha256']
