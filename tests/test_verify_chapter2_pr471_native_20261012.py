@@ -124,3 +124,10 @@ def test_checkout_requires_exact_commit_and_clean_tracked_source(tmp_path):
     tracked.write_text('x = 2\n')
     with pytest.raises(ValueError, match='modified source'):
         m.check_checkout(tmp_path, head)
+
+
+def test_native_workflow_is_manual_only():
+    import re
+    source = (ROOT / '.github/workflows/chapter2-pr471-native-verification.yml').read_text()
+    block = source.split('\non:\n', 1)[1].split('\npermissions:', 1)[0]
+    assert set(re.findall(r'^  ([A-Za-z0-9_-]+)\s*:', block, re.MULTILINE)) == {'workflow_dispatch'}
