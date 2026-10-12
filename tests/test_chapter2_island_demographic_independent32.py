@@ -78,3 +78,29 @@ def test_recorded_offline_result_keeps_prior_selfing_uncertainty():
     assert prior["bootstrap95"][0] < 0 < prior["bootstrap95"][1]
     assert d["archive"]["github_actions_confirmation"] is False
     assert "temporal" in " ".join(d["scientific_boundary"]).lower()
+
+
+def test_replay_receipt_separates_biological_identity_from_diagnostic_float_bytes():
+    receipt = json.loads((
+        ROOT / "data/results/chapter2_island_demographic_independent32_replay_receipt_20261013.json"
+    ).read_text())
+    frozen = json.loads((
+        ROOT / "data/results/chapter2_island_demographic_independent32_20261008.json"
+    ).read_text())
+    assert receipt["status"] == (
+        "EXACT_PRIMARY_AND_BIOLOGICAL_STATE_REPLAY_DIAGNOSTIC_FLOAT_ROUNDING_ONLY"
+    )
+    assert receipt["original_archive"]["sha256"] == frozen["archive"]["sha256"]
+    assert receipt["primary_replay"]["mean"] == frozen["predeclared_pooled_primary"]["mean"]
+    assert receipt["primary_replay"]["bootstrap95"] == frozen["predeclared_pooled_primary"]["bootstrap95"]
+    assert receipt["primary_replay"]["post_trajectories"] == frozen["post_switch_trajectories"]
+    assert receipt["diagnostic_absolute_tolerance"] == 1e-12
+    assert set(receipt["shards"]) == {str(i) for i in range(8)}
+    assert [i for i in range(8) if receipt["shards"][str(i)]["byte_identical"]] == [0, 1, 5, 6, 7]
+    for i in range(8):
+        row = receipt["shards"][str(i)]
+        assert row["biological_projection_exact"] is True
+        assert row["groups"] == 64
+        assert row["cases"] == 512
+        assert row["diagnostic_max_abs_difference"] <= receipt["diagnostic_absolute_tolerance"]
+    assert sum(receipt["shards"][str(i)]["diagnostic_float_differences"] for i in range(8)) == 118
