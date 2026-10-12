@@ -78,6 +78,21 @@
       "fixed_founder_blocks": 2,
       "inference": "Genetic-access dominance band and all-start preparation-policy effects; no universal ecological threshold or pure natural-order mediation.",
       "intervals": "registered simultaneous paired percentile bootstrap; distribution-free bounds include zero"
+    },
+    "controlled_persistence_mechanism": {
+      "rank": "prospective controlled-expression follow-up",
+      "cases": 20480,
+      "pairs": 1024,
+      "primary_family": 4,
+      "assurance_fixed": "attenuation at both registered challenges",
+      "investment_fixed": "unresolved at both challenges",
+      "limits": [
+        "lifelong policy, not initial-only mediation",
+        "low-challenge terminal extinction floor",
+        "all distribution-free intervals include zero",
+        "not pure natural-order benefit"
+      ],
+      "delivery": "data/results/persistence_mechanism_20261012/delivery.json"
     }
   },
   "data_requirement": "Issue #436 outstanding DOI-backed external raw archive verification",
@@ -87,7 +102,7 @@
     "ecology_letters_letter_main_max": 5000,
     "ecology_letters_letter_abstract_max": 150,
     "display_items_max": 6,
-    "current_integrated_main_words": 3931,
+    "current_integrated_main_words": 4179,
     "current_integrated_abstract_words": 142,
     "main_text_excess_words": 0,
     "abstract_excess_words": 0,
@@ -100,9 +115,9 @@
       "pollinator population collapse",
       "historically explained global island syndrome"
     ],
-    "current_main_text_words": 3931,
+    "current_main_text_words": 4179,
     "current_abstract_words": 142,
-    "updated_submission_scope": "Source main text 3931 words; abstract 142; 4 main figures and 3 supplementary figures. Four-question structure: thresholds, sequence, realization, persistence. Existing primary contracts and all separately registered cohort verdicts unchanged.",
+    "updated_submission_scope": "Source main text 4179 words; abstract 142; 4 main figures and 3 supplementary figures. Four-question structure: thresholds, sequence, realization, persistence. Existing primary contracts and all separately registered cohort verdicts unchanged.",
     "historical_precompression_counts": {
       "main_words": 6035,
       "abstract_words": 237,

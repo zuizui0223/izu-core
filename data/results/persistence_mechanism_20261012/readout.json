@@ -1,0 +1,314 @@
+{
+  "status": "complete_archive_verified",
+  "primary": [
+    {
+      "target": 1.05,
+      "intervention": "A_fixed",
+      "estimate": 0.0283203125,
+      "simultaneous_bootstrap_interval": [
+        0.0068359375,
+        0.0498046875
+      ],
+      "distribution_free_interval": [
+        -0.1708022513432628,
+        0.2274428763432628
+      ],
+      "decision": "attenuation"
+    },
+    {
+      "target": 1.05,
+      "intervention": "I_fixed",
+      "estimate": -0.0068359375,
+      "simultaneous_bootstrap_interval": [
+        -0.0302734375,
+        0.015625
+      ],
+      "distribution_free_interval": [
+        -0.2059585013432628,
+        0.1922866263432628
+      ],
+      "decision": "unresolved"
+    },
+    {
+      "target": 1.5,
+      "intervention": "A_fixed",
+      "estimate": 0.05078125,
+      "simultaneous_bootstrap_interval": [
+        0.013659667968750011,
+        0.0888671875
+      ],
+      "distribution_free_interval": [
+        -0.1483413138432628,
+        0.2499038138432628
+      ],
+      "decision": "attenuation"
+    },
+    {
+      "target": 1.5,
+      "intervention": "I_fixed",
+      "estimate": 0.013671875,
+      "simultaneous_bootstrap_interval": [
+        -0.017578125,
+        0.044921875
+      ],
+      "distribution_free_interval": [
+        -0.1854506888432628,
+        0.2127944388432628
+      ],
+      "decision": "unresolved"
+    }
+  ],
+  "primary_family": 4,
+  "bootstrap_count": 19999,
+  "policy_differences": [
+    [
+      0.0283203125,
+      0.0,
+      0.03515625,
+      0.0,
+      0.0
+    ],
+    [
+      0.0458984375,
+      -0.0048828125,
+      0.0322265625,
+      -0.013671875,
+      0.0
+    ]
+  ],
+  "partition": [
+    {
+      "target": 1.05,
+      "native_difference": 0.0283203125,
+      "assurance_component": 0.03173828125,
+      "investment_component": -0.00341796875,
+      "residual": 0.0,
+      "all_fixed_difference": 0.0,
+      "interpretation": "Reference-dependent controlled partition; not natural mediation or neutral diversity",
+      "factorial_interaction": -0.0068359375
+    },
+    {
+      "target": 1.5,
+      "native_difference": 0.0458984375,
+      "assurance_component": 0.04833984375,
+      "investment_component": 0.01123046875,
+      "residual": -0.013671875,
+      "all_fixed_difference": 0.0,
+      "interpretation": "Reference-dependent controlled partition; not natural mediation or neutral diversity",
+      "factorial_interaction": 0.0048828125
+    }
+  ],
+  "execution_commit": "4cf462f8aa5275c901f4c612078e1a62c373004c",
+  "verification_source_commit": "068fff23a25afb9a3b3ce18346073f4c6be50b65",
+  "input_sha256": "51a07a843a087059af3d67ad113f5d849644f5b03739a6df986d506bd636648f",
+  "native_replays": 4096,
+  "new_interventions": 16384,
+  "pairs": 1024,
+  "all_fixed_negative_control": "passed",
+  "verified_cases": 20480,
+  "artifact_role": "derived_compact_readout_not_original",
+  "original_readout_sha256": "539a4226e8089cbb586301e6b9ae7c393aa32fd10bc5c2bfb4d37c5b28bc7b4f",
+  "independent_arithmetic": {
+    "status": "independent_all_start_arithmetic_verified",
+    "npz_cases": 20480,
+    "pairs": 1024,
+    "report_sha256": "539a4226e8089cbb586301e6b9ae7c393aa32fd10bc5c2bfb4d37c5b28bc7b4f",
+    "verifier_sha256": "c8f95e5e47bf9f0229a76d0ee6a2c8d99cb972a2dbf98faf3cd0d9da42346710",
+    "primary": [
+      {
+        "target": 1.05,
+        "intervention": "A_fixed",
+        "all_start_estimate": 0.0283203125,
+        "simultaneous_interval": [
+          0.0068359375,
+          0.0498046875
+        ],
+        "decision": "attenuation"
+      },
+      {
+        "target": 1.05,
+        "intervention": "I_fixed",
+        "all_start_estimate": -0.0068359375,
+        "simultaneous_interval": [
+          -0.0302734375,
+          0.015625
+        ],
+        "decision": "unresolved"
+      },
+      {
+        "target": 1.5,
+        "intervention": "A_fixed",
+        "all_start_estimate": 0.05078125,
+        "simultaneous_interval": [
+          0.013659667968750011,
+          0.0888671875
+        ],
+        "decision": "attenuation"
+      },
+      {
+        "target": 1.5,
+        "intervention": "I_fixed",
+        "all_start_estimate": 0.013671875,
+        "simultaneous_interval": [
+          -0.017578125,
+          0.044921875
+        ],
+        "decision": "unresolved"
+      }
+    ],
+    "all_fixed_terminal_equality": true,
+    "scope": "Independent census-outcome, registered paired-bootstrap and bound arithmetic; full annual genealogy admission was separately completed on GitHub"
+  },
+  "scope": {
+    "lifelong_expression_policy": true,
+    "low_challenge_terminal_floor": true,
+    "natural_order_mediation": false,
+    "neutral_diversity_claim": false,
+    "fixed_founder_blocks": 2,
+    "common_expression_reference": 0.5,
+    "factorial_interaction_rank": "predeclared descriptive; no new primary inference",
+    "full_secondary_outputs": "MECHANISM_ORIGINAL.json.gz"
+  },
+  "terminal_occupancy": [
+    {
+      "target": 1.05,
+      "policy": "native",
+      "origin": "A_access_first",
+      "all_starts": 1024,
+      "terminal_occupancy": 0.05859375
+    },
+    {
+      "target": 1.05,
+      "policy": "native",
+      "origin": "I_access_first",
+      "all_starts": 1024,
+      "terminal_occupancy": 0.0302734375
+    },
+    {
+      "target": 1.05,
+      "policy": "A_fixed",
+      "origin": "A_access_first",
+      "all_starts": 1024,
+      "terminal_occupancy": 0.0
+    },
+    {
+      "target": 1.05,
+      "policy": "A_fixed",
+      "origin": "I_access_first",
+      "all_starts": 1024,
+      "terminal_occupancy": 0.0
+    },
+    {
+      "target": 1.05,
+      "policy": "I_fixed",
+      "origin": "A_access_first",
+      "all_starts": 1024,
+      "terminal_occupancy": 0.056640625
+    },
+    {
+      "target": 1.05,
+      "policy": "I_fixed",
+      "origin": "I_access_first",
+      "all_starts": 1024,
+      "terminal_occupancy": 0.021484375
+    },
+    {
+      "target": 1.05,
+      "policy": "AI_fixed",
+      "origin": "A_access_first",
+      "all_starts": 1024,
+      "terminal_occupancy": 0.0
+    },
+    {
+      "target": 1.05,
+      "policy": "AI_fixed",
+      "origin": "I_access_first",
+      "all_starts": 1024,
+      "terminal_occupancy": 0.0
+    },
+    {
+      "target": 1.05,
+      "policy": "MAI_fixed",
+      "origin": "A_access_first",
+      "all_starts": 1024,
+      "terminal_occupancy": 0.0
+    },
+    {
+      "target": 1.05,
+      "policy": "MAI_fixed",
+      "origin": "I_access_first",
+      "all_starts": 1024,
+      "terminal_occupancy": 0.0
+    },
+    {
+      "target": 1.5,
+      "policy": "native",
+      "origin": "A_access_first",
+      "all_starts": 1024,
+      "terminal_occupancy": 0.939453125
+    },
+    {
+      "target": 1.5,
+      "policy": "native",
+      "origin": "I_access_first",
+      "all_starts": 1024,
+      "terminal_occupancy": 0.8935546875
+    },
+    {
+      "target": 1.5,
+      "policy": "A_fixed",
+      "origin": "A_access_first",
+      "all_starts": 1024,
+      "terminal_occupancy": 0.83203125
+    },
+    {
+      "target": 1.5,
+      "policy": "A_fixed",
+      "origin": "I_access_first",
+      "all_starts": 1024,
+      "terminal_occupancy": 0.8369140625
+    },
+    {
+      "target": 1.5,
+      "policy": "I_fixed",
+      "origin": "A_access_first",
+      "all_starts": 1024,
+      "terminal_occupancy": 0.9375
+    },
+    {
+      "target": 1.5,
+      "policy": "I_fixed",
+      "origin": "I_access_first",
+      "all_starts": 1024,
+      "terminal_occupancy": 0.9052734375
+    },
+    {
+      "target": 1.5,
+      "policy": "AI_fixed",
+      "origin": "A_access_first",
+      "all_starts": 1024,
+      "terminal_occupancy": 0.8232421875
+    },
+    {
+      "target": 1.5,
+      "policy": "AI_fixed",
+      "origin": "I_access_first",
+      "all_starts": 1024,
+      "terminal_occupancy": 0.8369140625
+    },
+    {
+      "target": 1.5,
+      "policy": "MAI_fixed",
+      "origin": "A_access_first",
+      "all_starts": 1024,
+      "terminal_occupancy": 0.845703125
+    },
+    {
+      "target": 1.5,
+      "policy": "MAI_fixed",
+      "origin": "I_access_first",
+      "all_starts": 1024,
+      "terminal_occupancy": 0.845703125
+    }
+  ]
+}
