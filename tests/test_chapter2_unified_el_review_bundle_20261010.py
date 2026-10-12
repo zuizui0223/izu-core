@@ -44,6 +44,20 @@ def test_minimal_resolution_delivery_rejects_changed_mean_results(tmp_path, monk
         builder.minimal_resolution_materials()
 
 
+def test_minimal_resolution_explicit_text_newline_derivation_is_portable(tmp_path, monkeypatch):
+    copied=tmp_path/'portable';copied.mkdir()
+    receipt='minimal_resolution_delivery_20261013.json'
+    names=json.loads((builder.MINIMAL_RESULTS/receipt).read_bytes())['sha256']
+    for name in [receipt,*names]:
+        p=copied/name;p.parent.mkdir(parents=True,exist_ok=True)
+        raw=(builder.MINIMAL_RESULTS/name).read_bytes()
+        p.write_bytes(raw if name.endswith('.gz') else raw.replace(b'\r\n',b'\n'))
+    expected,_=builder.minimal_resolution_materials()
+    monkeypatch.setattr(builder,'MINIMAL_RESULTS',copied)
+    actual,_=builder.minimal_resolution_materials()
+    assert actual==expected
+
+
 def test_mechanism_delivery_is_source_bound_and_reports_predeclared_interaction():
     members, derivations = builder.mechanism_materials()
     value = json.loads(members["EVIDENCE/MECHANISM_READOUT.json"])

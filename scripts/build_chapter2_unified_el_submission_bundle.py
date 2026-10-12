@@ -113,9 +113,11 @@ def minimal_resolution_materials():
     members={};derivations={}
     for name,dest in sources.items():
         raw=(MINIMAL_RESULTS/name).read_bytes()
-        if sha(raw)!=receipt['sha256'][name]:raise ValueError('minimal resolution source hash mismatch: '+name)
-        members[dest]=raw
-        derivations[dest]=dict(source_delivery_sha256=sha(receipt_raw),original_sha256=sha(raw),derived_sha256=sha(raw),transformation='Exact admitted bytes; original initial-mean readout losslessly compressed.')
+        canonical=raw if name.endswith('.gz') else raw.replace(b'\r\n',b'\n')
+        if sha(raw) not in receipt['source_raw_sha256'][name] or sha(canonical)!=receipt['sha256'][name]:
+            raise ValueError('minimal resolution source hash mismatch: '+name)
+        members[dest]=canonical
+        derivations[dest]=dict(source_delivery_sha256=sha(receipt_raw),original_sha256=sha(raw),derived_sha256=sha(canonical),transformation=receipt['transformation'])
     value=json.loads(members['EVIDENCE/INITIAL_MEAN_READOUT.json'])
     original=gzip.decompress(members['EVIDENCE/INITIAL_MEAN_ORIGINAL.json.gz'])
     raw=json.loads(original)

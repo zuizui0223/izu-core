@@ -1,9 +1,27 @@
 {
   "status": "ACTUAL_RAW_AND_ARITHMETIC_VERIFIED",
   "sha256": {
-    "genome_response_accounting_readout_20261013.json": "46e5052e7f2889e6b04f4041f3b96606a10a8d16885376ff083afec496407e4c",
-    "persistence_duration_accounting_20261013.json": "f5cf5d6fcff3bfd72e76d3e2e334bc0c741f4d2eeb3b9f1f5515d93e9edeb156",
-    "initial_assurance_mean_20261013/readout.json": "2e1af96908e874d8f34a913ece24083f6f486d028b748f7819d21ff3978e74ea",
+    "genome_response_accounting_readout_20261013.json": "5bdd9a977f5b6b956ed80952e1794bdecbb4bb53bd62a0777a72611050937370",
+    "persistence_duration_accounting_20261013.json": "fc81b77b137d2b7ce95ae865c325b683596e86ccad1f963ccf4431e43da03646",
+    "initial_assurance_mean_20261013/readout.json": "8b6e43e27b6f24941c4522c42ef6039db956243772309e15b4584f9d1ab78017",
     "initial_assurance_mean_20261013/original_readout.json.gz": "5115130d36a91a947ac0da099866b18940a2f203e8aa95eeec5cb627686da840"
-  }
+  },
+  "source_raw_sha256": {
+    "genome_response_accounting_readout_20261013.json": [
+      "46e5052e7f2889e6b04f4041f3b96606a10a8d16885376ff083afec496407e4c",
+      "5bdd9a977f5b6b956ed80952e1794bdecbb4bb53bd62a0777a72611050937370"
+    ],
+    "persistence_duration_accounting_20261013.json": [
+      "f5cf5d6fcff3bfd72e76d3e2e334bc0c741f4d2eeb3b9f1f5515d93e9edeb156",
+      "fc81b77b137d2b7ce95ae865c325b683596e86ccad1f963ccf4431e43da03646"
+    ],
+    "initial_assurance_mean_20261013/readout.json": [
+      "2e1af96908e874d8f34a913ece24083f6f486d028b748f7819d21ff3978e74ea",
+      "8b6e43e27b6f24941c4522c42ef6039db956243772309e15b4584f9d1ab78017"
+    ],
+    "initial_assurance_mean_20261013/original_readout.json.gz": [
+      "5115130d36a91a947ac0da099866b18940a2f203e8aa95eeec5cb627686da840"
+    ]
+  },
+  "transformation": "UTF-8 JSON: CRLF to LF only; original gzip unchanged. Known original and LF source-byte identities are both recorded; values are not reserialized."
 }
