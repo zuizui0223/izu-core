@@ -1,16 +1,22 @@
 {
   "claim_boundary": [
-    "Five of eight shard JSON files are byte-identical to the archived offline execution.",
-    "Shards 2, 3 and 4 differ only in initial_viable_maternal_per_capita at IEEE-754 last-bit scale; maximum absolute difference 4.440892098500626e-16.",
-    "All bottleneck genome hashes, occupancy indicators, terminal census sizes, extinction times, minimum census sizes, start/bottleneck/end trait arrays and group identities are exact across old and replayed shards.",
+    "In the first GitHub replay, five of eight raw shard JSON files happened to be byte-identical to the archived offline execution.",
+    "Shards 2, 3 and 4 in that first replay differed only in initial_viable_maternal_per_capita at IEEE-754 last-bit scale; maximum absolute difference 4.440892098500626e-16.",
+    "A later GitHub rerun changed the raw JSON SHA of a shard that had previously been byte-identical while its biological projection remained exact; raw JSON SHA is therefore not a cross-run scientific reproducibility requirement.",
+    "Across the validated replay, all eight biological projection hashes match the archived execution, excluding only initial_viable_maternal_per_capita from the exact projection.",
+    "All bottleneck genome hashes, occupancy indicators, terminal census sizes, extinction times, minimum census sizes, start/bottleneck/end trait arrays and group identities are covered by the exact biological projection.",
     "The pooled primary mean and bootstrap interval reproduce exactly; this receipt does not convert the pilot-informed stress grid into an unbiased global test or a natural-island result."
   ],
   "diagnostic_absolute_tolerance": 1e-12,
   "field_excluded_from_exact_biological_projection": "post_cases[*].initial_viable_maternal_per_capita",
   "github_replay": {
-    "head_sha": "affaa7013dd22280955d4f63f62c2c918de46015",
-    "rerun_shard2_job_id": 114721889289,
-    "run_id": 38221924607
+    "validation_run_id": 38272136110,
+    "validation_head_sha": "46c93da511cd886470916714ccec772ecd9c9820",
+    "validation_summary_job_id": 114891246889,
+    "validation_marker": "EXACT_INDEPENDENT32_BIOLOGICAL_REPLAY_MATCH",
+    "initial_comparison_run_id": 38221924607,
+    "initial_comparison_head_sha": "affaa7013dd22280955d4f63f62c2c918de46015",
+    "rerun_shard2_job_id": 114721889289
   },
   "original_archive": {
     "bytes": 335015,
@@ -34,7 +40,7 @@
       "byte_identical": true,
       "cases": 512,
       "diagnostic_float_differences": 0,
-      "diagnostic_max_abs_difference": 0.0,
+      "diagnostic_max_abs_difference": 0,
       "groups": 64,
       "groups_with_diagnostic_float_difference": 0,
       "old_sha256": "a3c4abb97172569ab49a6f4ac517470ec3ffed3db7fb17a85199f254ad2e04c8",
@@ -47,7 +53,7 @@
       "byte_identical": true,
       "cases": 512,
       "diagnostic_float_differences": 0,
-      "diagnostic_max_abs_difference": 0.0,
+      "diagnostic_max_abs_difference": 0,
       "groups": 64,
       "groups_with_diagnostic_float_difference": 0,
       "old_sha256": "aec270829c17f55adc6707ad65c63972b1722ae642973e55a64005388c951e96",
@@ -99,7 +105,7 @@
       "byte_identical": true,
       "cases": 512,
       "diagnostic_float_differences": 0,
-      "diagnostic_max_abs_difference": 0.0,
+      "diagnostic_max_abs_difference": 0,
       "groups": 64,
       "groups_with_diagnostic_float_difference": 0,
       "old_sha256": "7d1f1bc751c1e134dc85bccfb041207f266e9aff0774e164edb8044fd9df25db",
@@ -112,7 +118,7 @@
       "byte_identical": true,
       "cases": 512,
       "diagnostic_float_differences": 0,
-      "diagnostic_max_abs_difference": 0.0,
+      "diagnostic_max_abs_difference": 0,
       "groups": 64,
       "groups_with_diagnostic_float_difference": 0,
       "old_sha256": "1c4205964ace429af3c360200344690ffc115cb9b95a75b9626f3f9a360bc748",
@@ -125,7 +131,7 @@
       "byte_identical": true,
       "cases": 512,
       "diagnostic_float_differences": 0,
-      "diagnostic_max_abs_difference": 0.0,
+      "diagnostic_max_abs_difference": 0,
       "groups": 64,
       "groups_with_diagnostic_float_difference": 0,
       "old_sha256": "81afee9e054c7fbf5c0a0b03808acaf04b1d8bb78b1d4fb9c528c224b21c31f1",
@@ -133,5 +139,12 @@
       "replay_sha256": "81afee9e054c7fbf5c0a0b03808acaf04b1d8bb78b1d4fb9c528c224b21c31f1"
     }
   },
-  "status": "EXACT_PRIMARY_AND_BIOLOGICAL_STATE_REPLAY_DIAGNOSTIC_FLOAT_ROUNDING_ONLY"
+  "status": "EXACT_PRIMARY_AND_BIOLOGICAL_STATE_REPLAY_DIAGNOSTIC_FLOAT_ROUNDING_ONLY",
+  "validation": {
+    "all_eight_biological_projection_hashes_exact": true,
+    "pooled_primary_exact": true,
+    "bootstrap_interval_exact": true,
+    "post_trajectories": 4096,
+    "raw_json_byte_identity_required": false
+  }
 }
