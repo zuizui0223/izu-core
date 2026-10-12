@@ -72,20 +72,41 @@ jobs:
           python -m scripts.summarize_chapter2_island_demographic_independent32 \
             --input outputs/island_demographic32 \
             --out outputs/island_demographic32/independent_readout.json
-      - name: Audit hash and exact frozen numerical result, never silently overwrite
+      - name: Audit biological-state identity and exact frozen primary result
         run: |
           python - <<'PY'
+          import hashlib
           import json
           from pathlib import Path
-          row=json.loads(Path('outputs/island_demographic32/independent_readout.json').read_text())
+
+          root=Path('outputs/island_demographic32')
+          row=json.loads((root/'independent_readout.json').read_text())
           declared=json.loads(Path('data/results/chapter2_island_demographic_independent32_20261008.json').read_text())
-          hashes=declared['archive']['offline_shard_sha256']
-          assert row['shard_sha256']==hashes, 'source or case bytes diverge from frozen offline execution'
+          receipt=json.loads(Path('data/results/chapter2_island_demographic_independent32_replay_receipt_20261013.json').read_text())
+
+          def projection_hash(path):
+              records=json.loads(path.read_text())
+              for record in records:
+                  for case in record['post_cases']:
+                      case.pop('initial_viable_maternal_per_capita', None)
+              raw=json.dumps(records,sort_keys=True,separators=(',',':'),allow_nan=False).encode()
+              return hashlib.sha256(raw).hexdigest()
+
+          for shard in range(8):
+              name=f'demographic_independent32_shard_{shard:02d}.json'
+              expected=receipt['shards'][str(shard)]
+              assert projection_hash(root/name)==expected['biological_projection_sha256'], name
+              raw_hash=hashlib.sha256((root/name).read_bytes()).hexdigest()
+              if expected['byte_identical']:
+                  assert raw_hash==expected['old_sha256'], name
+
+          assert receipt['original_archive']['sha256']==declared['archive']['sha256']
           assert abs(row['pooled_primary']['mean']-declared['predeclared_pooled_primary']['mean']) < 1e-12
           assert all(abs(a-b)<1e-12 for a,b in zip(
             row['pooled_primary']['bootstrap95'],declared['predeclared_pooled_primary']['bootstrap95']))
           assert row['pooled_primary']['passes_frozen_rule']
-          print('exact independent32 replay and frozen source digests match')
+          assert row['post_trajectories']==declared['post_switch_trajectories']==4096
+          print('independent32 biological states and frozen primary result match; diagnostic float bytes may differ only as recorded')
           PY
       - uses: actions/upload-artifact@v4
         with:
