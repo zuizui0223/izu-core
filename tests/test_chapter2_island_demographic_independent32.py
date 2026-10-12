@@ -104,3 +104,12 @@ def test_replay_receipt_separates_biological_identity_from_diagnostic_float_byte
         assert row["cases"] == 512
         assert row["diagnostic_max_abs_difference"] <= receipt["diagnostic_absolute_tolerance"]
     assert sum(receipt["shards"][str(i)]["diagnostic_float_differences"] for i in range(8)) == 118
+    assert receipt["validation"] == {
+        "all_eight_biological_projection_hashes_exact": True,
+        "pooled_primary_exact": True,
+        "bootstrap_interval_exact": True,
+        "post_trajectories": 4096,
+        "raw_json_byte_identity_required": False,
+    }
+    assert receipt["github_replay"]["validation_run_id"] == 38272136110
+    assert receipt["github_replay"]["validation_marker"] == "EXACT_INDEPENDENT32_BIOLOGICAL_REPLAY_MATCH"
