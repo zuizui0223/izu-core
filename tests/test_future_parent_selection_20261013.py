@@ -62,3 +62,16 @@ def test_reference_admission_rejects_unpinned_prior_before_extraction(tmp_path):
     with pytest.raises(ValueError,match='prior original byte identity'):
         admission.admit(bad,tmp_path/'missing-input.zip',tmp_path/'out')
     assert not (tmp_path/'out').exists()
+
+
+def test_reference_assembly_selects_mean_equal_native_not_original_native():
+    old=np.zeros((2,512,2,3,2),dtype=np.int8)
+    old[:,:,:,0,:]=1
+    old[:,:,:,1,0]=1
+    uniform=np.zeros((2,512,2,2),dtype=np.int8)
+    x=assay.assemble_outcomes(old,uniform)
+    np.testing.assert_array_equal(x[:,:,:,0,:],old[:,:,:,1,:])
+    np.testing.assert_array_equal(x[:,:,:,1,:],uniform)
+    np.testing.assert_array_equal(x[:,:,:,2,:],old[:,:,:,2,:])
+    assert not np.array_equal(x[:,:,:,0,:],old[:,:,:,0,:])
+    with pytest.raises(ValueError):assay.assemble_outcomes(old[:,:511],uniform)

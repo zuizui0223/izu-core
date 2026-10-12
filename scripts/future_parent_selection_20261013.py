@@ -73,3 +73,15 @@ def analyze(occupied,*,bootstrap_count=19999):
         policy_route_differences=means.tolist(),block_policy_route_differences=d.mean(1).tolist(),
         occupied_counts=x.sum(axis=(0,1)).astype(int).tolist(),partition_closure_error=error,
         inference='All-locus controlled parent weighting contrast; no pure assurance-selection or natural-order mediation.')
+
+
+def assemble_outcomes(old_mean_intervention,uniform):
+    old=np.asarray(old_mean_intervention);new=np.asarray(uniform)
+    if (old.shape!=(2,512,2,3,2) or new.shape!=(2,512,2,2)
+            or not np.isin(old,[0,1]).all() or not np.isin(new,[0,1]).all()):
+        raise ValueError('complete old/native and new equal-parent outcome domains required')
+    result=np.empty((2,512,2,3,2),dtype=np.int8)
+    result[:,:,:,0,:]=old[:,:,:,1,:]
+    result[:,:,:,1,:]=new
+    result[:,:,:,2,:]=old[:,:,:,2,:]
+    return result
