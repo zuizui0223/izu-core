@@ -1,0 +1,56 @@
+{
+  "schema": "chapter2_discovery_archive_intake_v1",
+  "status": "ARCHIVE_BYTES_AND_DISCOVERY_ENDPOINTS_VERIFIED",
+  "archive": "model3_replenishment_evolution_20261005.zip",
+  "trust_anchor": {
+    "receipt_path": "data/results/model3_replenishment_archive_20261005.json",
+    "receipt_sha256": "15becd79af2ed2646a8ede226761172bdd92ed139144f10379e4fdd581e03601",
+    "design_path": "data/design/model3_replenishment_evolution_20261005.json",
+    "design_sha256": "dcd39ef44b98314cdbeeacbd3fc29c9755a6ff7545c3b773ab06d6df2113029a",
+    "contract_files_verified": true
+  },
+  "verification": {
+    "archive_identity_verified": true,
+    "manifest_complete": true,
+    "embedded_sources_verified": true,
+    "discovery_endpoints_complete": true,
+    "original_discovery_full_replay_completed": false,
+    "runtime_identity_verified": false
+  },
+  "counts": {
+    "zip_members_verified": 26673,
+    "manifest_records_verified": 26671,
+    "embedded_sources_verified": 23,
+    "discovery_cases_verified": 2048,
+    "genome_checkpoints_verified": 8192
+  },
+  "coverage": {
+    "mutation_rates_verified": [
+      0.01
+    ],
+    "mutation_zero_covered": false,
+    "discovery_cases_expected": 2048,
+    "archive_cases_expected": 13312
+  },
+  "checkpoint_summary_absolute_tolerance": 1e-12,
+  "limitations": [
+    "Admission covers original positive-mutation discovery endpoints only; mutation zero remains missing.",
+    "No annual genomes, selection, parentage, or biological RNG replay are produced.",
+    "The packing recipe omits original campaign sources.json/sources.zip, the full-mutation runner, and a frozen numerical runtime lock.",
+    "Embedded source byte verification does not establish the executed original sources or runtime identity."
+  ],
+  "failures": [],
+  "archive_identity": {
+    "expected_bytes": 763914318,
+    "expected_sha256": "37bd0bd312734715392add19f424696121fbe88517dfa784d8e702173ec71b6c",
+    "observed_bytes": 763914318,
+    "observed_sha256": "37bd0bd312734715392add19f424696121fbe88517dfa784d8e702173ec71b6c"
+  },
+  "manifest": {
+    "sha256": "2a53a7eb60f675f1e3f62331898a105735ee05f60b61d12b09c3aab488ec20f7",
+    "cases": 13312,
+    "records": 26671,
+    "zip_entries": 26673
+  },
+  "presentation_derivation": "Absolute locator removed; all counts, hashes, flags and limitations retained from exact-blob original intake."
+}

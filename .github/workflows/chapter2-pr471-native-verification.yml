@@ -7,7 +7,7 @@ on:
         description: 'Read-only diagnostic; no choice produces new random histories'
         type: choice
         default: pr471-native
-        options: [pr471-native, independent32-admission, genome-response-accounting, persistence-duration-accounting, matched-operator-gap]
+        options: [pr471-native, independent32-admission, genome-response-accounting, persistence-duration-accounting, matched-operator-gap, discovery-original-intake]
 
 permissions:
   contents: read
@@ -17,6 +17,47 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  discovery-original-intake:
+    if: inputs.diagnostic == 'discovery-original-intake'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.2.6 pytest==8.4.2
+      - run: python -m pytest -q tests/test_chapter2_discovery_archive_intake_20261011.py
+      - name: Read and authenticate the recovered original archive
+        run: |
+          python - <<'PY'
+          import urllib.request,hashlib
+          from pathlib import Path
+          name='model3_replenishment_evolution_20261005.zip'
+          urllib.request.urlretrieve('https://github.com/zuizui0223/izu-core/releases/download/four-question-resolution-20261013/'+name,name)
+          p=Path(name)
+          assert p.stat().st_size==763914318 and hashlib.sha256(p.read_bytes()).hexdigest()=='37bd0bd312734715392add19f424696121fbe88517dfa784d8e702173ec71b6c'
+          PY
+      - name: Apply unchanged fixed original-byte and endpoint gates
+        run: |
+          python scripts/audit_chapter2_discovery_archive_intake_20261011.py --archive model3_replenishment_evolution_20261005.zip --out outputs/discovery-original/INTAKE.json
+          python - <<'PY'
+          import json,subprocess,hashlib
+          from pathlib import Path
+          r=json.loads(Path('outputs/discovery-original/INTAKE.json').read_bytes())
+          assert r['status']=='ARCHIVE_BYTES_AND_DISCOVERY_ENDPOINTS_VERIFIED'
+          assert r['counts']['discovery_cases_verified']==2048 and r['counts']['genome_checkpoints_verified']==8192
+          assert not r['verification']['runtime_identity_verified'] and not r['verification']['original_discovery_full_replay_completed']
+          Path('outputs/discovery-original/EXECUTION_SOURCE.json').write_text(json.dumps(dict(commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),verifier_sha256=hashlib.sha256(Path('scripts/audit_chapter2_discovery_archive_intake_20261011.py').read_bytes()).hexdigest(),no_biological_replay=True),indent=2)+'\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: discovery-original-intake-${{ github.run_id }}
+          path: outputs/discovery-original/
+          if-no-files-found: error
+          retention-days: 90
+
   matched-operator-gap:
     if: inputs.diagnostic == 'matched-operator-gap'
     runs-on: ubuntu-latest

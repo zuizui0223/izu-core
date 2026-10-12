@@ -26,7 +26,12 @@ def test_minimal_resolution_delivery_is_source_bound():
     assert hashlib.sha256(original).hexdigest()==value['original_readout_sha256']
     assert json.loads(members['EVIDENCE/GENOME_RESPONSE_READOUT.json'])['updates']==64000
     assert json.loads(members['EVIDENCE/DURATION_READOUT.json'])['kernels']==96
-    assert len(derivations)==4
+    assert len(derivations)==6
+    assert json.loads(members['EVIDENCE/OPERATOR_GAP_READOUT.json'])['updates']==64000
+    intake=json.loads(members['EVIDENCE/DISCOVERY_ARCHIVE_INTAKE.json'])
+    assert intake['verification']['archive_identity_verified']
+    assert intake['counts']['discovery_cases_verified']==2048
+    assert intake['verification']['original_discovery_full_replay_completed'] is False
 
 
 def test_minimal_resolution_delivery_rejects_changed_mean_results(tmp_path, monkeypatch):
@@ -155,6 +160,7 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
         assert sorted(x for x in names if x.startswith("EVIDENCE/"))==[
            "EVIDENCE/ATOM_ABM_COMPARISON.json",
            "EVIDENCE/CAPACITY_RESULTS.json",
+           "EVIDENCE/DISCOVERY_ARCHIVE_INTAKE.json",
            "EVIDENCE/DURATION_READOUT.json",
            "EVIDENCE/EVOLUTION_DESIGN.json",
            "EVIDENCE/EVOLUTION_RESULTS.json",
@@ -164,6 +170,7 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
            "EVIDENCE/MECHANISM_DESIGN.md",
            "EVIDENCE/MECHANISM_ORIGINAL.json.gz",
            "EVIDENCE/MECHANISM_READOUT.json",
+           "EVIDENCE/OPERATOR_GAP_READOUT.json",
            "EVIDENCE/RESOLUTION_DESIGN.md",
            "EVIDENCE/RESOLUTION_READOUT.json",
            "EVIDENCE/TEMPO_AUDIT_SUMMARY.json",
@@ -175,7 +182,7 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
         assert m["doi_deposit_complete"] is False
         assert m["n_figures"]==4
         assert m["n_supplementary_figures"]==3
-        assert len(m["members"])==27
+        assert len(m["members"])==29
         for name,record in m["members"].items():
             raw=z.read(name)
             assert record=={"size":len(raw),"sha256":hashlib.sha256(raw).hexdigest()}

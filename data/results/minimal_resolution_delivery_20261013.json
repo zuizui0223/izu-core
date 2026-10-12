@@ -4,7 +4,9 @@
     "genome_response_accounting_readout_20261013.json": "5bdd9a977f5b6b956ed80952e1794bdecbb4bb53bd62a0777a72611050937370",
     "persistence_duration_accounting_20261013.json": "fc81b77b137d2b7ce95ae865c325b683596e86ccad1f963ccf4431e43da03646",
     "initial_assurance_mean_20261013/readout.json": "8b6e43e27b6f24941c4522c42ef6039db956243772309e15b4584f9d1ab78017",
-    "initial_assurance_mean_20261013/original_readout.json.gz": "5115130d36a91a947ac0da099866b18940a2f203e8aa95eeec5cb627686da840"
+    "initial_assurance_mean_20261013/original_readout.json.gz": "5115130d36a91a947ac0da099866b18940a2f203e8aa95eeec5cb627686da840",
+    "matched_operator_gap_20261013.json": "a960da933b6d2dee413dca6173a9163607b95898a22e05f50ee35f71dd3b1d6c",
+    "chapter2_discovery_archive_recovery_20261013.json": "0c798de4dd6028cb605932d2715027200a3881d888109809736b885f3ae661c5"
   },
   "source_raw_sha256": {
     "genome_response_accounting_readout_20261013.json": [
@@ -21,6 +23,14 @@
     ],
     "initial_assurance_mean_20261013/original_readout.json.gz": [
       "5115130d36a91a947ac0da099866b18940a2f203e8aa95eeec5cb627686da840"
+    ],
+    "matched_operator_gap_20261013.json": [
+      "99f94de108c0f1c7f9db9c43525186e90c36bb9ff380f0f04c7c3b3c43f73d93",
+      "a960da933b6d2dee413dca6173a9163607b95898a22e05f50ee35f71dd3b1d6c"
+    ],
+    "chapter2_discovery_archive_recovery_20261013.json": [
+      "0c798de4dd6028cb605932d2715027200a3881d888109809736b885f3ae661c5",
+      "10ffde6240d412a68191c34c487f9ed78d7f78c3de25a40f6071888db4388182"
     ]
   },
   "transformation": "UTF-8 JSON: CRLF to LF only; original gzip unchanged. Known original and LF source-byte identities are both recorded; values are not reserialized."

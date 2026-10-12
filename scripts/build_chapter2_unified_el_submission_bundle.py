@@ -103,6 +103,8 @@ def minimal_resolution_materials():
     receipt_raw=(MINIMAL_RESULTS/'minimal_resolution_delivery_20261013.json').read_bytes()
     receipt=json.loads(receipt_raw)
     sources={
+        'matched_operator_gap_20261013.json':'EVIDENCE/OPERATOR_GAP_READOUT.json',
+        'chapter2_discovery_archive_recovery_20261013.json':'EVIDENCE/DISCOVERY_ARCHIVE_INTAKE.json',
         'genome_response_accounting_readout_20261013.json':'EVIDENCE/GENOME_RESPONSE_READOUT.json',
         'persistence_duration_accounting_20261013.json':'EVIDENCE/DURATION_READOUT.json',
         'initial_assurance_mean_20261013/readout.json':'EVIDENCE/INITIAL_MEAN_READOUT.json',
@@ -127,6 +129,15 @@ def minimal_resolution_materials():
         or json.loads(members['EVIDENCE/GENOME_RESPONSE_READOUT.json'])['updates']!=64000
         or json.loads(members['EVIDENCE/DURATION_READOUT.json'])['kernels']!=96):
         raise ValueError('minimal resolution scientific admission differs')
+    gap=json.loads(members['EVIDENCE/OPERATOR_GAP_READOUT.json'])
+    intake=json.loads(members['EVIDENCE/DISCOVERY_ARCHIVE_INTAKE.json'])
+    if (gap['cases']!=320 or gap['updates']!=64000 or gap['actual_readback']['run']!=38306641012
+        or gap['independent_pair_matrix']['updates']!=64000
+        or intake['status']!='ARCHIVE_BYTES_AND_DISCOVERY_ENDPOINTS_VERIFIED'
+        or not intake['verification']['archive_identity_verified']
+        or intake['counts']['discovery_cases_verified']!=2048
+        or intake['verification']['runtime_identity_verified'] or intake['verification']['original_discovery_full_replay_completed']):
+        raise ValueError('matched gap/original archive admission differs')
     return members,derivations
 
 
@@ -376,7 +387,7 @@ def blind_paper():
       "# Data accessibility\n\n"
       "The preservation status and verification limits of the frozen study designs, "
       "source code and simulation outputs are documented in the Supporting Information. "
-      "The earlier discovery cohort's original archive remains unavailable. "
+      "The original discovery archive and positive-mutation endpoints have been authenticated; historical execution/runtime and annual-genome replay remain unverified. "
       "A permanent DOI-backed raw-data archive has not yet been deposited. "
       "An appropriately anonymous, editor-approved access route is required "
       "before manuscript submission; depositing the underlying raw data "
