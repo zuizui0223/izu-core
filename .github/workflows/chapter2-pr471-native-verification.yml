@@ -7,7 +7,7 @@ on:
         description: 'Read-only diagnostic; no choice produces new random histories'
         type: choice
         default: pr471-native
-        options: [pr471-native, independent32-admission, genome-response-accounting, persistence-duration-accounting]
+        options: [pr471-native, independent32-admission, genome-response-accounting, persistence-duration-accounting, matched-operator-gap]
 
 permissions:
   contents: read
@@ -17,6 +17,53 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  matched-operator-gap:
+    if: inputs.diagnostic == 'matched-operator-gap'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.2.6 scipy==1.15.3 psutil==7.2.2 threadpoolctl==3.6.0 pytest==8.4.2
+      - run: python -m pytest -q tests/test_matched_operator_gap_20261013.py
+      - name: Read immutable original cases, source and birth-accounting outputs
+        run: |
+          python - <<'PY'
+          import urllib.request, hashlib
+          from pathlib import Path
+          inputs=[('atom-cell-inputs-20261011','completed_atom_abm_20261011.zip','7ae00916ed2cbb38323c3fb9ffc5824de3e8272df1f5a35785842c316191f918'),
+                  ('atom-cell-inputs-20261011','remote_atom_inputs_20261011.zip','f0fd126f638e1c6bd130e640ce4491b3bb47aac3da1838359a902776c9a4e037'),
+                  ('four-question-resolution-20261013','genome_response_accounting_github_20261013.zip','115636a338c847fdf1f80ae9e39cdfc622fcf38c7f70575e37d245bf7c41b098')]
+          for tag,name,digest in inputs:
+              urllib.request.urlretrieve('https://github.com/zuizui0223/izu-core/releases/download/'+tag+'/'+name,name)
+              assert hashlib.sha256(Path(name).read_bytes()).hexdigest()==digest
+          PY
+      - name: Account all320 cases and64000 updates without new evolution histories
+        run: |
+          python scripts/audit_matched_operator_gap_20261013.py --cohort completed_atom_abm_20261011.zip --input remote_atom_inputs_20261011.zip --account genome_response_accounting_github_20261013.zip --out outputs/operator-gap
+          python - <<'PY'
+          import hashlib,json,subprocess
+          from pathlib import Path
+          r=json.loads(Path('outputs/operator-gap/READOUT.json').read_bytes())
+          assert r['cases']==320 and r['updates']==64000 and r['max_closure_error']<=1e-10
+          sources={n:hashlib.sha256(Path(n).read_bytes()).hexdigest() for n in ['scripts/audit_matched_operator_gap_20261013.py','docs/CHAPTER2_MATCHED_OPERATOR_GAP_PROTOCOL_20261013.md']}
+          Path('outputs/operator-gap/EXECUTION_SOURCE.json').write_text(json.dumps(dict(commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),sources=sources,no_new_biological_histories=True),indent=2)+'\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: matched-operator-gap-${{ github.run_id }}
+          path: outputs/operator-gap/
+          if-no-files-found: error
+          retention-days: 90
+
   persistence-duration-accounting:
     if: inputs.diagnostic == 'persistence-duration-accounting'
     runs-on: ubuntu-latest
