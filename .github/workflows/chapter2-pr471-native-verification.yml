@@ -7,7 +7,7 @@ on:
         description: 'Original-data diagnostic or the predeclared fixed-access ecological assay'
         type: choice
         default: pr471-native
-        options: [pr471-native, independent32-admission, genome-response-accounting, persistence-duration-accounting, matched-operator-gap, discovery-original-intake, existing-response-timing, ecological-order-boundary]
+        options: [pr471-native, independent32-admission, genome-response-accounting, persistence-duration-accounting, matched-operator-gap, discovery-original-intake, existing-response-timing, ecological-order-boundary, future-state-sufficiency]
 
 permissions:
   contents: read
@@ -17,6 +17,33 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  future-state-sufficiency:
+    if: inputs.diagnostic == 'future-state-sufficiency'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONUTF8: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.2.6 pytest==8.4.2
+      - run: python -m pytest -q tests/test_future_state_sufficiency_20261013.py tests/test_workflow_trigger_policy.py
+      - run: gh release download persistence-mechanism-inputs-20261012 --repo zuizui0223/izu-core --pattern persistence_mechanism_inputs_20261012.zip
+      - run: |
+          python -m scripts.audit_future_state_sufficiency_20261013 --input persistence_mechanism_inputs_20261012.zip --out outputs/future-state
+          git rev-parse HEAD > outputs/future-state/EXECUTION_COMMIT.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: future-state-sufficiency-${{ github.run_id }}
+          path: outputs/future-state/
+          if-no-files-found: error
+          retention-days: 90
   ecological-order-technical:
     if: inputs.diagnostic == 'ecological-order-boundary'
     runs-on: ubuntu-latest
