@@ -1,17 +1,6 @@
 name: Chapter 2 stored equal-pollen readout
 
 on:
-  pull_request:
-    paths:
-      - '.github/workflows/chapter2-statewise-pollen-readout.yml'
-      - 'data/results/chapter2_statewise_pollen_readout*'
-      - 'tests/test_chapter2_statewise_pollen_readout_20261012.py'
-      - 'scripts/audit_chapter2_q3q4_*'
-      - 'scripts/chapter2_kb_reproduction.py'
-      - 'scripts/model3_island/**'
-      - 'scripts/run_chapter2_assurance_generality.py'
-      - 'data/design/model3_ch2_bridge_20260927.json'
-      - 'data/design/chapter2_assurance_generality_20261006.json'
   workflow_dispatch:
 
 permissions:
