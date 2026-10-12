@@ -1,13 +1,6 @@
 name: PR471 native output verification
 
 on:
-  pull_request:
-    paths:
-      - '.github/workflows/chapter2-pr471-native-verification.yml'
-      - 'scripts/verify_chapter2_pr471_native_20261012.py'
-      - 'tests/test_verify_chapter2_pr471_native_20261012.py'
-      - 'data/results/chapter2_pr471_independent_baseline_20261012.csv'
-      - 'docs/CHAPTER2_PR471_NATIVE_VERIFICATION_20261012.md'
   workflow_dispatch:
 
 permissions:
@@ -30,7 +23,7 @@ jobs:
       - name: Checkout comparison code
         uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          ref: ${{ github.sha }}
           path: auditor
           persist-credentials: false
       - name: Checkout immutable native model source
