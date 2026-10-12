@@ -1,0 +1,51 @@
+name: Chapter 2 stored equal-pollen readout
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/chapter2-statewise-pollen-readout.yml'
+      - 'data/results/chapter2_statewise_pollen_readout*'
+      - 'tests/test_chapter2_statewise_pollen_readout_20261012.py'
+      - 'scripts/audit_chapter2_q3q4_*'
+      - 'scripts/chapter2_kb_reproduction.py'
+      - 'scripts/model3_island/**'
+      - 'scripts/run_chapter2_assurance_generality.py'
+      - 'data/design/model3_ch2_bridge_20260927.json'
+      - 'data/design/chapter2_assurance_generality_20261006.json'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: statewise-pollen-readout-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  native-readout-regression:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Recompute the 24-context native readout
+        run: python -m scripts.audit_chapter2_q3q4_statewise_pollen_equalized_20261011 --out native_equal_pollen_readout.json
+      - name: Check stored evidence against native source
+        run: python -m pytest -q tests/test_chapter2_statewise_pollen_readout_20261012.py --junitxml=native_equal_pollen_tests.xml
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: native-equal-pollen-readout-${{ github.event.pull_request.head.sha || github.sha }}
+          path: |
+            native_equal_pollen_readout.json
+            native_equal_pollen_tests.xml
+          if-no-files-found: warn
+          retention-days: 90
