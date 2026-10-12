@@ -1,0 +1,56 @@
+name: PR471 native output verification
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr471-native-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  native-source-comparison:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      NUMEXPR_NUM_THREADS: '1'
+    steps:
+      - name: Checkout comparison code
+        uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+          path: auditor
+          persist-credentials: false
+      - name: Checkout immutable native model source
+        uses: actions/checkout@v4
+        with:
+          ref: bb150519507c82d75c1ba4bef1d7e9b3d5889b7c
+          path: source
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install source dependencies
+        run: python -m pip install -e './source[dev]'
+      - name: Test comparison failure boundaries
+        working-directory: auditor
+        run: python -m pytest -q tests/test_verify_chapter2_pr471_native_20261012.py
+      - name: Execute original native audit and compare all 480 numbers
+        run: |
+          python auditor/scripts/verify_chapter2_pr471_native_20261012.py \
+            --source-root source \
+            --expected-csv auditor/data/results/chapter2_pr471_independent_baseline_20261012.csv \
+            --out "$RUNNER_TEMP/pr471-native"
+      - name: Preserve native output and source/runtime receipt
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr471-native-source-${{ github.run_id }}
+          path: ${{ runner.temp }}/pr471-native/
+          if-no-files-found: error
+          retention-days: 90
