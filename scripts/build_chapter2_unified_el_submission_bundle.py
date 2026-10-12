@@ -306,8 +306,9 @@ def blind_paper():
     end=manuscript.index("# References",start)
     anonymous=(
       "# Data accessibility\n\n"
-      "The originally frozen study designs, complete simulation outputs, "
-      "source code and SHA-256-authenticated raw data remain preserved. "
+      "The preservation status and verification limits of the frozen study designs, "
+      "source code and simulation outputs are documented in Supporting Information S6-S8. "
+      "The earlier discovery cohort's original archive remains unavailable. "
       "A permanent DOI-backed raw-data archive has not yet been deposited. "
       "An appropriately anonymous, editor-approved access route is required "
       "before manuscript submission; depositing the underlying raw data "
