@@ -4,19 +4,94 @@ on:
   workflow_dispatch:
     inputs:
       diagnostic:
-        description: 'Read-only diagnostic; no choice produces new random histories'
+        description: 'Original-data diagnostic or the predeclared fixed-access ecological assay'
         type: choice
         default: pr471-native
-        options: [pr471-native, independent32-admission, genome-response-accounting, persistence-duration-accounting, matched-operator-gap, discovery-original-intake, existing-response-timing]
+        options: [pr471-native, independent32-admission, genome-response-accounting, persistence-duration-accounting, matched-operator-gap, discovery-original-intake, existing-response-timing, ecological-order-boundary]
 
 permissions:
   contents: read
 
 concurrency:
-  group: pr471-native-${{ github.ref }}
-  cancel-in-progress: true
+  group: pr471-native-${{ github.ref }}-${{ inputs.diagnostic }}
+  cancel-in-progress: false
 
 jobs:
+  ecological-order-technical:
+    if: inputs.diagnostic == 'ecological-order-boundary'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.2.6 scipy==1.15.3 psutil==7.2.2 threadpoolctl==3.6.0 pytest==8.4.2
+      - run: python -m pytest -q tests/test_ecological_order_boundary_20261013.py tests/test_workflow_trigger_policy.py
+      - name: Fetch fixed original source inputs
+        run: |
+          python - <<'PY'
+          import urllib.request
+          urllib.request.urlretrieve('https://github.com/zuizui0223/izu-core/releases/download/atom-cell-inputs-20261011/remote_atom_inputs_20261011.zip','original.zip')
+          PY
+      - name: Admit original operators, all18 inputs and four disjoint short fixtures
+        run: |
+          python scripts/run_ecological_order_boundary_20261013.py --input original.zip --source-dir original-source --out outputs/technical --technical
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path('outputs/technical/_COMPLETION.json').read_bytes())
+          assert r['status']=='TECHNICAL_ONLY' and r['cases']==4 and r['corruption_rejections']==32
+          PY
+          git rev-parse HEAD > outputs/technical/EXECUTION_COMMIT.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ecological-order-technical-${{ github.run_id }}
+          path: outputs/technical/
+          if-no-files-found: error
+          retention-days: 90
+  ecological-order-biological:
+    needs: ecological-order-technical
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        shard: [0,1,2,3,4,5,6,7,8]
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.2.6 scipy==1.15.3 psutil==7.2.2 threadpoolctl==3.6.0
+      - name: Fetch unchanged source inputs
+        run: |
+          python - <<'PY'
+          import urllib.request
+          urllib.request.urlretrieve('https://github.com/zuizui0223/izu-core/releases/download/atom-cell-inputs-20261011/remote_atom_inputs_20261011.zip','original.zip')
+          PY
+      - name: Execute exactly256 fixed biological traces
+        run: |
+          python scripts/run_ecological_order_boundary_20261013.py --input original.zip --source-dir original-source --out outputs/biological --shard ${{ matrix.shard }}
+          git rev-parse HEAD > outputs/biological/EXECUTION_COMMIT.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ecological-order-${{ github.run_id }}-shard-${{ matrix.shard }}
+          path: outputs/biological/
+          if-no-files-found: error
+          retention-days: 90
+
   existing-response-timing:
     if: inputs.diagnostic == 'existing-response-timing'
     runs-on: ubuntu-latest
