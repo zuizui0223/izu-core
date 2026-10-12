@@ -1,0 +1,135 @@
+{
+  "status": "TECHNICAL_CONDITIONAL_STATE_INVARIANCE_ADMITTED",
+  "input_sha256": "51a07a843a087059af3d67ad113f5d849644f5b03739a6df986d506bd636648f",
+  "operator_sha256": "da8be50f183732f4bafc0cd3f8e5760514911859a96134a3ba61fdf5e2e32d0d",
+  "producer_sha256": "e06e94f76a33a3689e151735f5af613309812389c8cac0ba921299eac573f448",
+  "states": 2048,
+  "origin_free_future_pairs": 2048,
+  "technical_pairs": 8,
+  "technical_traces": 16,
+  "horizon": 200,
+  "biological_effect_cases": 0,
+  "records": [
+    {
+      "task": {
+        "block": "main",
+        "replicate": 0,
+        "origin": "A_access_first",
+        "target": 1.05,
+        "policy": "native"
+      },
+      "archive": "aa097cea1eba7ed136827acb.npz",
+      "sha256": "379fdfd467f546e3a912016fff852845f8d3bc2d33ba013ab1b49403792ac34f",
+      "exact_dynamics_equal": true,
+      "original_native_admitted": true
+    },
+    {
+      "task": {
+        "block": "main",
+        "replicate": 0,
+        "origin": "A_access_first",
+        "target": 1.5,
+        "policy": "native"
+      },
+      "archive": "b70be1beb03b1acd290c30b6.npz",
+      "sha256": "3a3c055ad74f72a65c70aa3e86eadf61cecbf04f132e374583f8d7673434ea88",
+      "exact_dynamics_equal": true,
+      "original_native_admitted": true
+    },
+    {
+      "task": {
+        "block": "main",
+        "replicate": 0,
+        "origin": "I_access_first",
+        "target": 1.05,
+        "policy": "native"
+      },
+      "archive": "ac1e360f1665ad7e2827c275.npz",
+      "sha256": "b92f6b9aa6fd65b42133d873dfd274297129a23e33a0e3c3e1bc6d2ff37722e9",
+      "exact_dynamics_equal": true,
+      "original_native_admitted": true
+    },
+    {
+      "task": {
+        "block": "main",
+        "replicate": 0,
+        "origin": "I_access_first",
+        "target": 1.5,
+        "policy": "native"
+      },
+      "archive": "e24fec80688f3f4bb3e0bdd2.npz",
+      "sha256": "23bf3a07da4a1cbc3d0fb70f876f1e4686a53b5421fe04b67a1717b52646051e",
+      "exact_dynamics_equal": true,
+      "original_native_admitted": true
+    },
+    {
+      "task": {
+        "block": "confirmation",
+        "replicate": 0,
+        "origin": "A_access_first",
+        "target": 1.05,
+        "policy": "native"
+      },
+      "archive": "3bb3565e45580f52d1d78478.npz",
+      "sha256": "4e47d7afe5552b81c07e0878d6c6f50b2c1f5ee246e071c29aa8dc784372baa4",
+      "exact_dynamics_equal": true,
+      "original_native_admitted": true
+    },
+    {
+      "task": {
+        "block": "confirmation",
+        "replicate": 0,
+        "origin": "A_access_first",
+        "target": 1.5,
+        "policy": "native"
+      },
+      "archive": "507e08152e4760d51e1a4076.npz",
+      "sha256": "94334e231f4072f3575247526508b2a62b065abc2bf875983f6000b76fdeae12",
+      "exact_dynamics_equal": true,
+      "original_native_admitted": true
+    },
+    {
+      "task": {
+        "block": "confirmation",
+        "replicate": 0,
+        "origin": "I_access_first",
+        "target": 1.05,
+        "policy": "native"
+      },
+      "archive": "ea7b7e8fbad133f6f18d8f97.npz",
+      "sha256": "8a5be1cb18b1b785dac7047486f39a6a156fb05f2a44b4c43cd693209ba9f190",
+      "exact_dynamics_equal": true,
+      "original_native_admitted": true
+    },
+    {
+      "task": {
+        "block": "confirmation",
+        "replicate": 0,
+        "origin": "I_access_first",
+        "target": 1.5,
+        "policy": "native"
+      },
+      "archive": "3f0875d1bc85b98756e005d7.npz",
+      "sha256": "a8dfa2c96a35c5e6bde278028df6084a8be28c0f611bc54ae0a9f5865915755a",
+      "exact_dynamics_equal": true,
+      "original_native_admitted": true
+    }
+  ],
+  "inference": "Same ordered genotype/census/future law has no direct ancestry-label effect. No natural-order benefit or future-selection decomposition identified.",
+  "actual_capture": {
+    "run": 38317593225,
+    "source": "cf0f18387f9ed53c17e15d355ac4ec4b3f23d36d",
+    "artifact": 11776772696,
+    "zip_sha256": "2cea6c8d75a992e1b99434321ef9ee5991d8a7ff82f8639d77527267280e0450",
+    "bytes": 134944,
+    "server_digest": "sha256:2cea6c8d75a992e1b99434321ef9ee5991d8a7ff82f8639d77527267280e0450"
+  },
+  "independent": {
+    "status": "INDEPENDENT_ALL8_RAW_TECHNICAL_PAIRS_MATCH",
+    "checks": 72,
+    "pairs": 8,
+    "raw_zip_sha256": "2cea6c8d75a992e1b99434321ef9ee5991d8a7ff82f8639d77527267280e0450",
+    "producer_imports": false,
+    "biological_effect_cases": 0
+  }
+}
