@@ -4,10 +4,10 @@ on:
   workflow_dispatch:
     inputs:
       diagnostic:
-        description: 'Read-only diagnostic; neither choice produces new random histories'
+        description: 'Read-only diagnostic; no choice produces new random histories'
         type: choice
         default: pr471-native
-        options: [pr471-native, independent32-admission, genome-response-accounting]
+        options: [pr471-native, independent32-admission, genome-response-accounting, persistence-duration-accounting]
 
 permissions:
   contents: read
@@ -17,6 +17,45 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
+  persistence-duration-accounting:
+    if: inputs.diagnostic == 'persistence-duration-accounting'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: auditor
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: bb150519507c82d75c1ba4bef1d7e9b3d5889b7c
+          path: source
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e './source[dev]'
+      - name: Test curve accounting and original lifetime identities
+        working-directory: auditor
+        run: python -m pytest -q tests/test_persistence_duration_accounting_20261013.py tests/test_pr471_fixation_lifetime_20261012.py tests/test_verify_chapter2_pr471_native_20261012.py
+      - name: Admit native source then account all96 kernels and48 curves
+        run: |
+          python auditor/scripts/audit_persistence_duration_accounting_20261013.py \
+            --source-root source --expected-csv auditor/data/results/chapter2_pr471_independent_baseline_20261012.csv \
+            --lifetime-csv auditor/data/results/pr471_fixation_lifetime_readout_20261012.csv \
+            --out "$RUNNER_TEMP/persistence-duration"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: persistence-duration-accounting-${{ github.run_id }}
+          path: ${{ runner.temp }}/persistence-duration/
+          if-no-files-found: error
+          retention-days: 90
+
   native-source-comparison:
     if: inputs.diagnostic == 'pr471-native'
     runs-on: ubuntu-latest
