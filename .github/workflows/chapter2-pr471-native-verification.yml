@@ -2,6 +2,12 @@ name: PR471 native output verification
 
 on:
   workflow_dispatch:
+    inputs:
+      diagnostic:
+        description: 'Read-only diagnostic; neither choice produces new random histories'
+        type: choice
+        default: pr471-native
+        options: [pr471-native, independent32-admission]
 
 permissions:
   contents: read
@@ -12,6 +18,7 @@ concurrency:
 
 jobs:
   native-source-comparison:
+    if: inputs.diagnostic != 'independent32-admission'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
@@ -52,5 +59,56 @@ jobs:
         with:
           name: pr471-native-source-${{ github.run_id }}
           path: ${{ runner.temp }}/pr471-native/
+          if-no-files-found: error
+          retention-days: 90
+
+  independent32-admission:
+    if: inputs.diagnostic == 'independent32-admission'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.2.6 pytest==8.4.2
+      - run: python -m pytest -q tests/test_independent32_replay_admission_20261013.py
+      - name: Read back immutable original summary inputs
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib, urllib.request, zipfile, json
+          url='https://github.com/zuizui0223/izu-core/releases/download/four-question-resolution-20261013/independent32_summary_inputs_20261013.zip'
+          p=Path('independent32_summary_inputs_20261013.zip')
+          urllib.request.urlretrieve(url,p)
+          assert hashlib.sha256(p.read_bytes()).hexdigest()=='3196b295317eeec418d974bb0358d366df898d8a6d1ca29f4facf36c10edbdf8'
+          with zipfile.ZipFile(p) as z:
+              m=json.loads(z.read('MANIFEST.json'))
+              assert len(z.namelist())==11 and len(set(z.namelist()))==11
+              assert set(z.namelist())==set(m['sha256'])|{'MANIFEST.json'}
+              for name,digest in m['sha256'].items():
+                  assert '/' not in name and '\\' not in name
+                  assert hashlib.sha256(z.read(name)).hexdigest()==digest
+              z.extractall('independent32-inputs')
+          PY
+      - name: Distinguish frozen numerical agreement from original byte identity
+        run: |
+          python -m scripts.audit_independent32_replay_admission_20261013 \
+            --input independent32-inputs --design independent32-inputs/design.json \
+            --frozen independent32-inputs/frozen.json --out outputs/independent32_admission.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          actual=json.loads(Path('outputs/independent32_admission.json').read_bytes())
+          reference=json.loads(Path('data/results/independent32_replay_admission_20261013.json').read_bytes())
+          assert actual==reference, 'read-only audit differs from saved technical readback'
+          assert actual['numerical_agreement'] and not actual['declared_byte_agreement']
+          assert actual['status']=='NUMERICS_MATCH_DECLARED_BYTES_DIVERGE_NOT_ORIGINAL_ADMISSION'
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: independent32-admission-${{ github.run_id }}
+          path: outputs/independent32_admission.json
           if-no-files-found: error
           retention-days: 90
