@@ -1,0 +1,64 @@
+{
+  "schema": "chapter2_statewise_pollen_readout_delivery_v1",
+  "date": "2026-10-12",
+  "source_commit": "bb150519507c82d75c1ba4bef1d7e9b3d5889b7c",
+  "pr471_head": "bdeeca5d019800c61f8aaa5fff4c80f8b38ca125",
+  "table_sha256": "c6e644b361da50ff83a0da4825ae0cd3f767c2879b7a634f8a925ab8eea86aaf",
+  "original_table_sha256": "e52c7d8a97d7db29457dae49f4a6bd635d31e474d6bcdece2a329b972fd88396",
+  "table_derivation": "Only CRLF line endings normalized to LF; all columns, rows and numeric tokens unchanged.",
+  "original_package": {
+    "name": "izu_core_pr471_verification_20261012.zip",
+    "bytes": 15348576,
+    "sha256": "1f58a0f0988d1215a53ea50aa30ece049a37da4a0cd459a72a44f2f05065a783",
+    "storage": "conversation attachment; not a release asset or DOI deposit"
+  },
+  "direct_input_git_blobs": {
+    "scripts/audit_chapter2_q3q4_statewise_pollen_equalized_20261011.py": "4d577533d58409b92b0932962eb16427b5bef5b3",
+    "scripts/chapter2_kb_reproduction.py": "c3ade30fa49ee64c95462100d99c597c6b6b5ce2",
+    "data/design/model3_ch2_bridge_20260927.json": "11acfca595a4d0dd19c355f6d0ea578b547cd245",
+    "data/design/chapter2_assurance_generality_20261006.json": "8b502da55f9dfcf6d36a6a749e32660de97317d7"
+  },
+  "source_pin_scope": "Four declared direct inputs only; not a transitive runtime or dependency lock.",
+  "independent_equation_recomputation": {
+    "contexts": 24,
+    "living_state_context_policy_combinations": 7872,
+    "kernels": 96,
+    "states_per_kernel": 165,
+    "unscaled_reference_kernels": 16,
+    "fresh_vs_original_numeric_readout": "exactly_equal",
+    "errors": {
+      "pollen_equality": 1.1102230246251565e-16,
+      "kernel": 1.7208456881689926e-15,
+      "terminal_distribution": 6.827871601444713e-15,
+      "fixed_expression_pollen_matrix": 8.673617379884035e-19,
+      "fixed_expression_kernel": 7.216449660063518e-16,
+      "fixed_expression_occupancy": 4.440892098500626e-16,
+      "probability_mass": 2.042810365310288e-14
+    }
+  },
+  "local_native_repository_execution": false,
+  "native_validation": "New pytest compares the native runner and eight unscaled reference kernels with every saved row. Completion must be read from exact-head CI; not inferred from independent recomputation.",
+  "scope": {
+    "new_biological_histories": 0,
+    "natural_mediation_identified": false,
+    "formal_equivalence_test": false,
+    "K": 8,
+    "pollen_background_B": 48,
+    "horizon_updates": 80,
+    "fixed_matching": 0.2,
+    "fixed_assurance": 0.35,
+    "visitors": 4,
+    "assurance_or_matching_mutation": 0,
+    "investment_alleles": [
+      0.2,
+      0.5
+    ],
+    "adult_survival": 0,
+    "seed_immigration": 0
+  },
+  "limits": [
+    "State-dependent effectiveness is an artificial counterfactual, not one static visitor-community replacement.",
+    "Numerical contrasts are not independently observed biological effect sizes.",
+    "The primary evolutionary cohorts, active manuscript, missing historical discovery originals and external DOI task are unchanged."
+  ]
+}
