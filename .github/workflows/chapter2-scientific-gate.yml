@@ -496,3 +496,80 @@ jobs:
           path: |
             chapter2_assurance_gradient_components_20261006.json
             chapter2_assurance_gradient_components_console.txt
+
+
+  # TEMPORARY PR #490 technical replay. Remove after exact 32-history replay succeeds.
+  island-demographic32-clean-replay:
+    if: github.event_name == 'pull_request' && github.head_ref == 'analysis/island-history-independent32-clean-20261012'
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e '.[dev]'
+      - name: Run exact frozen independent32 shard
+        run: |
+          python -m scripts.run_chapter2_island_demographic_independent32 \
+            --out outputs/island_demographic32 \
+            --shard-index ${{ matrix.shard }} \
+            --shard-count 8 --workers 2
+      - uses: actions/upload-artifact@v4
+        with:
+          name: island-demographic32-clean-${{ matrix.shard }}
+          retention-days: 90
+          if-no-files-found: error
+          path: outputs/island_demographic32/demographic_independent32_shard_*.json
+
+  island-demographic32-clean-replay-summary:
+    needs: island-demographic32-clean-replay
+    if: always() && github.event_name == 'pull_request' && github.head_ref == 'analysis/island-history-independent32-clean-20261012' && needs.island-demographic32-clean-replay.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install --upgrade pip
+      - run: python -m pip install -e '.[dev]'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: island-demographic32-clean-*
+          merge-multiple: true
+          path: outputs/island_demographic32
+      - name: Recompute frozen history-level gate
+        run: |
+          python -m scripts.summarize_chapter2_island_demographic_independent32 \
+            --input outputs/island_demographic32 \
+            --out outputs/island_demographic32/independent_readout.json
+      - name: Require exact original shard bytes and frozen numerical result
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          observed=json.loads(Path('outputs/island_demographic32/independent_readout.json').read_text())
+          frozen=json.loads(Path('data/results/chapter2_island_demographic_independent32_20261008.json').read_text())
+          assert observed['shard_sha256']==frozen['archive']['offline_shard_sha256']
+          a=observed['pooled_primary']; b=frozen['predeclared_pooled_primary']
+          assert abs(a['mean']-b['mean']) < 1e-12
+          assert all(abs(x-y)<1e-12 for x,y in zip(a['bootstrap95'],b['bootstrap95']))
+          assert a['passes_frozen_rule'] and b['pass']
+          assert observed['post_trajectories']==4096
+          print('EXACT_INDEPENDENT32_REPLAY_MATCH')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: island-demographic32-clean-full-readout
+          retention-days: 90
+          if-no-files-found: error
+          path: |
+            outputs/island_demographic32/independent_readout.json
+            outputs/island_demographic32/demographic_independent32_shard_*.json
