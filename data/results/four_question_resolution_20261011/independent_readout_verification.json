@@ -1,0 +1,12 @@
+{
+  "boundary": {
+    "cases": 6144,
+    "status": "independent_all_start_arithmetic_verified",
+    "records_sha256": "67d1f9c84c28550ecd9a7d8afd2a0170088ac5b327967cc16ae518150ddf25a1"
+  },
+  "history": {
+    "cases": 3072,
+    "status": "independent_all_start_arithmetic_verified",
+    "records_sha256": "5ecf992e19dd7492709474dbb6c2f3c7aa41d30e31eb5e00dd68789b72bb1ae7"
+  }
+}

@@ -1,0 +1,1180 @@
+{
+  "contexts": [
+    {
+      "admitted": true,
+      "checks": [
+        {
+          "events": [
+            {
+              "left": {
+                "assurance_time": 30,
+                "category": "investment_first",
+                "investment_time": 8
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 30,
+                "category": "investment_first",
+                "investment_time": 8
+              },
+              "threshold": 0.025
+            },
+            {
+              "left": {
+                "assurance_time": 36,
+                "category": "investment_first",
+                "investment_time": 17
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 36,
+                "category": "investment_first",
+                "investment_time": 17
+              },
+              "threshold": 0.05
+            },
+            {
+              "left": {
+                "assurance_time": 45,
+                "category": "assurance_only",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 45,
+                "category": "assurance_only",
+                "investment_time": null
+              },
+              "threshold": 0.1
+            }
+          ],
+          "high": 129,
+          "low": 65,
+          "max_census_error": 3.552713678800501e-14,
+          "max_checkpoint_allele_cdf_error": 0.004007653606098005,
+          "max_covariance_error": 4.0040706611347426e-05,
+          "max_mean_error": 0.0008032315305444016,
+          "passed": true
+        },
+        {
+          "events": [
+            {
+              "left": {
+                "assurance_time": 30,
+                "category": "investment_first",
+                "investment_time": 8
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 30,
+                "category": "investment_first",
+                "investment_time": 8
+              },
+              "threshold": 0.025
+            },
+            {
+              "left": {
+                "assurance_time": 36,
+                "category": "investment_first",
+                "investment_time": 17
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 36,
+                "category": "investment_first",
+                "investment_time": 17
+              },
+              "threshold": 0.05
+            },
+            {
+              "left": {
+                "assurance_time": 45,
+                "category": "assurance_only",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 45,
+                "category": "assurance_only",
+                "investment_time": null
+              },
+              "threshold": 0.1
+            }
+          ],
+          "high": 257,
+          "low": 129,
+          "max_census_error": 5.684341886080802e-14,
+          "max_checkpoint_allele_cdf_error": 0.001009145821939339,
+          "max_covariance_error": 1.0063418141456615e-05,
+          "max_mean_error": 0.00020221788284258135,
+          "passed": true
+        }
+      ],
+      "context": "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r0_evolving"
+    },
+    {
+      "admitted": true,
+      "checks": [
+        {
+          "events": [
+            {
+              "left": {
+                "assurance_time": 41,
+                "category": "assurance_first",
+                "investment_time": 47
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 41,
+                "category": "assurance_first",
+                "investment_time": 47
+              },
+              "threshold": 0.025
+            },
+            {
+              "left": {
+                "assurance_time": 52,
+                "category": "assurance_first",
+                "investment_time": 89
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 52,
+                "category": "assurance_first",
+                "investment_time": 89
+              },
+              "threshold": 0.05
+            },
+            {
+              "left": {
+                "assurance_time": 66,
+                "category": "assurance_only",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 66,
+                "category": "assurance_only",
+                "investment_time": null
+              },
+              "threshold": 0.1
+            }
+          ],
+          "high": 129,
+          "low": 65,
+          "max_census_error": 4.263256414560601e-14,
+          "max_checkpoint_allele_cdf_error": 0.004135457926111585,
+          "max_covariance_error": 3.788279795742273e-05,
+          "max_mean_error": 0.0008592984130671999,
+          "passed": true
+        },
+        {
+          "events": [
+            {
+              "left": {
+                "assurance_time": 41,
+                "category": "assurance_first",
+                "investment_time": 47
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 41,
+                "category": "assurance_first",
+                "investment_time": 47
+              },
+              "threshold": 0.025
+            },
+            {
+              "left": {
+                "assurance_time": 52,
+                "category": "assurance_first",
+                "investment_time": 89
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 52,
+                "category": "assurance_first",
+                "investment_time": 89
+              },
+              "threshold": 0.05
+            },
+            {
+              "left": {
+                "assurance_time": 66,
+                "category": "assurance_only",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 66,
+                "category": "assurance_only",
+                "investment_time": null
+              },
+              "threshold": 0.1
+            }
+          ],
+          "high": 257,
+          "low": 129,
+          "max_census_error": 7.815970093361102e-14,
+          "max_checkpoint_allele_cdf_error": 0.0010461586143831747,
+          "max_covariance_error": 9.517334599336638e-06,
+          "max_mean_error": 0.00021627968072146508,
+          "passed": true
+        }
+      ],
+      "context": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r0_evolving"
+    },
+    {
+      "admitted": true,
+      "checks": [
+        {
+          "events": [
+            {
+              "left": {
+                "assurance_time": 33,
+                "category": "investment_first",
+                "investment_time": 11
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 33,
+                "category": "investment_first",
+                "investment_time": 11
+              },
+              "threshold": 0.025
+            },
+            {
+              "left": {
+                "assurance_time": 40,
+                "category": "investment_first",
+                "investment_time": 25
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 40,
+                "category": "investment_first",
+                "investment_time": 25
+              },
+              "threshold": 0.05
+            },
+            {
+              "left": {
+                "assurance_time": 50,
+                "category": "assurance_only",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 51,
+                "category": "assurance_only",
+                "investment_time": null
+              },
+              "threshold": 0.1
+            }
+          ],
+          "high": 129,
+          "low": 65,
+          "max_census_error": 3.552713678800501e-14,
+          "max_checkpoint_allele_cdf_error": 0.0040280855413279415,
+          "max_covariance_error": 3.941177774693071e-05,
+          "max_mean_error": 0.0008236839015722808,
+          "passed": true
+        },
+        {
+          "events": [
+            {
+              "left": {
+                "assurance_time": 33,
+                "category": "investment_first",
+                "investment_time": 11
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 33,
+                "category": "investment_first",
+                "investment_time": 11
+              },
+              "threshold": 0.025
+            },
+            {
+              "left": {
+                "assurance_time": 40,
+                "category": "investment_first",
+                "investment_time": 25
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 40,
+                "category": "investment_first",
+                "investment_time": 25
+              },
+              "threshold": 0.05
+            },
+            {
+              "left": {
+                "assurance_time": 51,
+                "category": "assurance_only",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 51,
+                "category": "assurance_only",
+                "investment_time": null
+              },
+              "threshold": 0.1
+            }
+          ],
+          "high": 257,
+          "low": 129,
+          "max_census_error": 5.684341886080802e-14,
+          "max_checkpoint_allele_cdf_error": 0.0010208887312241899,
+          "max_covariance_error": 9.905527978295789e-06,
+          "max_mean_error": 0.00020738331943537247,
+          "passed": true
+        }
+      ],
+      "context": "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r0_evolving"
+    },
+    {
+      "admitted": true,
+      "checks": [
+        {
+          "events": [
+            {
+              "left": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "threshold": 0.025
+            },
+            {
+              "left": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "threshold": 0.05
+            },
+            {
+              "left": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "threshold": 0.1
+            }
+          ],
+          "high": 129,
+          "low": 65,
+          "max_census_error": 3.552713678800501e-14,
+          "max_checkpoint_allele_cdf_error": 0.0017554120587175426,
+          "max_covariance_error": 1.2967656943059427e-05,
+          "max_mean_error": 4.107350266091547e-05,
+          "passed": true
+        },
+        {
+          "events": [
+            {
+              "left": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "threshold": 0.025
+            },
+            {
+              "left": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "threshold": 0.05
+            },
+            {
+              "left": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "threshold": 0.1
+            }
+          ],
+          "high": 257,
+          "low": 129,
+          "max_census_error": 6.394884621840902e-14,
+          "max_checkpoint_allele_cdf_error": 0.00044443271165287013,
+          "max_covariance_error": 3.243851886983694e-06,
+          "max_mean_error": 1.0278209324643406e-05,
+          "passed": true
+        }
+      ],
+      "context": "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r0_evolving"
+    },
+    {
+      "admitted": true,
+      "checks": [
+        {
+          "events": [
+            {
+              "left": {
+                "assurance_time": 92,
+                "category": "assurance_only",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 92,
+                "category": "assurance_only",
+                "investment_time": null
+              },
+              "threshold": 0.025
+            },
+            {
+              "left": {
+                "assurance_time": 136,
+                "category": "assurance_only",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 136,
+                "category": "assurance_only",
+                "investment_time": null
+              },
+              "threshold": 0.05
+            },
+            {
+              "left": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "threshold": 0.1
+            }
+          ],
+          "high": 129,
+          "low": 65,
+          "max_census_error": 3.552713678800501e-14,
+          "max_checkpoint_allele_cdf_error": 0.002898754402619219,
+          "max_covariance_error": 2.4760169897062104e-05,
+          "max_mean_error": 0.0004825156970561517,
+          "passed": true
+        },
+        {
+          "events": [
+            {
+              "left": {
+                "assurance_time": 92,
+                "category": "assurance_only",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 93,
+                "category": "assurance_only",
+                "investment_time": null
+              },
+              "threshold": 0.025
+            },
+            {
+              "left": {
+                "assurance_time": 136,
+                "category": "assurance_only",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 136,
+                "category": "assurance_only",
+                "investment_time": null
+              },
+              "threshold": 0.05
+            },
+            {
+              "left": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "threshold": 0.1
+            }
+          ],
+          "high": 257,
+          "low": 129,
+          "max_census_error": 4.973799150320701e-14,
+          "max_checkpoint_allele_cdf_error": 0.0007292460143787372,
+          "max_covariance_error": 6.2110561867998945e-06,
+          "max_mean_error": 0.00012102150184312155,
+          "passed": true
+        }
+      ],
+      "context": "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r0_evolving"
+    },
+    {
+      "admitted": true,
+      "checks": [
+        {
+          "events": [
+            {
+              "left": {
+                "assurance_time": 30,
+                "category": "investment_first",
+                "investment_time": 7
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 30,
+                "category": "investment_first",
+                "investment_time": 7
+              },
+              "threshold": 0.025
+            },
+            {
+              "left": {
+                "assurance_time": 36,
+                "category": "investment_first",
+                "investment_time": 13
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 36,
+                "category": "investment_first",
+                "investment_time": 13
+              },
+              "threshold": 0.05
+            },
+            {
+              "left": {
+                "assurance_time": 45,
+                "category": "investment_first",
+                "investment_time": 27
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 45,
+                "category": "investment_first",
+                "investment_time": 27
+              },
+              "threshold": 0.1
+            }
+          ],
+          "high": 129,
+          "low": 65,
+          "max_census_error": 2.842170943040401e-14,
+          "max_checkpoint_allele_cdf_error": 0.004007653606098449,
+          "max_covariance_error": 4.0040706611469724e-05,
+          "max_mean_error": 0.0008032315305422921,
+          "passed": true
+        },
+        {
+          "events": [
+            {
+              "left": {
+                "assurance_time": 30,
+                "category": "investment_first",
+                "investment_time": 7
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 30,
+                "category": "investment_first",
+                "investment_time": 7
+              },
+              "threshold": 0.025
+            },
+            {
+              "left": {
+                "assurance_time": 36,
+                "category": "investment_first",
+                "investment_time": 13
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 36,
+                "category": "investment_first",
+                "investment_time": 13
+              },
+              "threshold": 0.05
+            },
+            {
+              "left": {
+                "assurance_time": 45,
+                "category": "investment_first",
+                "investment_time": 27
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 45,
+                "category": "investment_first",
+                "investment_time": 27
+              },
+              "threshold": 0.1
+            }
+          ],
+          "high": 257,
+          "low": 129,
+          "max_census_error": 3.552713678800501e-14,
+          "max_checkpoint_allele_cdf_error": 0.001009145821939006,
+          "max_covariance_error": 1.0063418141445339e-05,
+          "max_mean_error": 0.00020221788284147113,
+          "passed": true
+        }
+      ],
+      "context": "causal_main_s0.0_empty_n48_standing_MI_new_A_r0_evolving"
+    },
+    {
+      "admitted": true,
+      "checks": [
+        {
+          "events": [
+            {
+              "left": {
+                "assurance_time": 44,
+                "category": "near_simultaneous",
+                "investment_time": 45
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 44,
+                "category": "near_simultaneous",
+                "investment_time": 45
+              },
+              "threshold": 0.025
+            },
+            {
+              "left": {
+                "assurance_time": 56,
+                "category": "assurance_first",
+                "investment_time": 77
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 56,
+                "category": "assurance_first",
+                "investment_time": 77
+              },
+              "threshold": 0.05
+            },
+            {
+              "left": {
+                "assurance_time": 72,
+                "category": "assurance_first",
+                "investment_time": 126
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 72,
+                "category": "assurance_first",
+                "investment_time": 126
+              },
+              "threshold": 0.1
+            }
+          ],
+          "high": 129,
+          "low": 65,
+          "max_census_error": 3.552713678800501e-14,
+          "max_checkpoint_allele_cdf_error": 0.004186323004452652,
+          "max_covariance_error": 3.742992935204699e-05,
+          "max_mean_error": 0.0008671089346723448,
+          "passed": true
+        },
+        {
+          "events": [
+            {
+              "left": {
+                "assurance_time": 44,
+                "category": "near_simultaneous",
+                "investment_time": 45
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 44,
+                "category": "near_simultaneous",
+                "investment_time": 45
+              },
+              "threshold": 0.025
+            },
+            {
+              "left": {
+                "assurance_time": 56,
+                "category": "assurance_first",
+                "investment_time": 77
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 56,
+                "category": "assurance_first",
+                "investment_time": 77
+              },
+              "threshold": 0.05
+            },
+            {
+              "left": {
+                "assurance_time": 72,
+                "category": "assurance_first",
+                "investment_time": 126
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 72,
+                "category": "assurance_first",
+                "investment_time": 126
+              },
+              "threshold": 0.1
+            }
+          ],
+          "high": 257,
+          "low": 129,
+          "max_census_error": 6.394884621840902e-14,
+          "max_checkpoint_allele_cdf_error": 0.001055034257957943,
+          "max_covariance_error": 9.406489776757343e-06,
+          "max_mean_error": 0.00021822202058352502,
+          "passed": true
+        }
+      ],
+      "context": "causal_main_s0.125_matched_n48_standing_MI_new_A_r0_evolving"
+    },
+    {
+      "admitted": true,
+      "checks": [
+        {
+          "events": [
+            {
+              "left": {
+                "assurance_time": 33,
+                "category": "investment_first",
+                "investment_time": 9
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 33,
+                "category": "investment_first",
+                "investment_time": 9
+              },
+              "threshold": 0.025
+            },
+            {
+              "left": {
+                "assurance_time": 41,
+                "category": "investment_first",
+                "investment_time": 18
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 41,
+                "category": "investment_first",
+                "investment_time": 18
+              },
+              "threshold": 0.05
+            },
+            {
+              "left": {
+                "assurance_time": 52,
+                "category": "investment_first",
+                "investment_time": 43
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 52,
+                "category": "investment_first",
+                "investment_time": 43
+              },
+              "threshold": 0.1
+            }
+          ],
+          "high": 129,
+          "low": 65,
+          "max_census_error": 3.552713678800501e-14,
+          "max_checkpoint_allele_cdf_error": 0.004077404102977966,
+          "max_covariance_error": 3.9559184243896824e-05,
+          "max_mean_error": 0.0008379086258444302,
+          "passed": true
+        },
+        {
+          "events": [
+            {
+              "left": {
+                "assurance_time": 33,
+                "category": "investment_first",
+                "investment_time": 9
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 34,
+                "category": "investment_first",
+                "investment_time": 9
+              },
+              "threshold": 0.025
+            },
+            {
+              "left": {
+                "assurance_time": 41,
+                "category": "investment_first",
+                "investment_time": 18
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 41,
+                "category": "investment_first",
+                "investment_time": 18
+              },
+              "threshold": 0.05
+            },
+            {
+              "left": {
+                "assurance_time": 52,
+                "category": "investment_first",
+                "investment_time": 43
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 52,
+                "category": "investment_first",
+                "investment_time": 43
+              },
+              "threshold": 0.1
+            }
+          ],
+          "high": 257,
+          "low": 129,
+          "max_census_error": 5.684341886080802e-14,
+          "max_checkpoint_allele_cdf_error": 0.0010282285664825475,
+          "max_covariance_error": 9.938812561667391e-06,
+          "max_mean_error": 0.00021096944551857177,
+          "passed": true
+        }
+      ],
+      "context": "causal_main_s0.125_separated_n48_standing_MI_new_A_r0_evolving"
+    },
+    {
+      "admitted": true,
+      "checks": [
+        {
+          "events": [
+            {
+              "left": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "threshold": 0.025
+            },
+            {
+              "left": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "threshold": 0.05
+            },
+            {
+              "left": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "threshold": 0.1
+            }
+          ],
+          "high": 129,
+          "low": 65,
+          "max_census_error": 4.973799150320701e-14,
+          "max_checkpoint_allele_cdf_error": 0.0017691704697371524,
+          "max_covariance_error": 1.3042806223747486e-05,
+          "max_mean_error": 4.499303671490207e-05,
+          "passed": true
+        },
+        {
+          "events": [
+            {
+              "left": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "threshold": 0.025
+            },
+            {
+              "left": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "threshold": 0.05
+            },
+            {
+              "left": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "threshold": 0.1
+            }
+          ],
+          "high": 257,
+          "low": 129,
+          "max_census_error": 6.394884621840902e-14,
+          "max_checkpoint_allele_cdf_error": 0.00044745822137326474,
+          "max_covariance_error": 3.2626416278658255e-06,
+          "max_mean_error": 1.1259495441839906e-05,
+          "passed": true
+        }
+      ],
+      "context": "causal_main_s1.0_matched_n48_standing_MI_new_A_r0_evolving"
+    },
+    {
+      "admitted": true,
+      "checks": [
+        {
+          "events": [
+            {
+              "left": {
+                "assurance_time": 100,
+                "category": "assurance_only",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 100,
+                "category": "assurance_only",
+                "investment_time": null
+              },
+              "threshold": 0.025
+            },
+            {
+              "left": {
+                "assurance_time": 144,
+                "category": "assurance_only",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 145,
+                "category": "assurance_only",
+                "investment_time": null
+              },
+              "threshold": 0.05
+            },
+            {
+              "left": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "threshold": 0.1
+            }
+          ],
+          "high": 129,
+          "low": 65,
+          "max_census_error": 3.552713678800501e-14,
+          "max_checkpoint_allele_cdf_error": 0.0028092211839525483,
+          "max_covariance_error": 2.4071344505218265e-05,
+          "max_mean_error": 0.0004485090389791946,
+          "passed": true
+        },
+        {
+          "events": [
+            {
+              "left": {
+                "assurance_time": 100,
+                "category": "assurance_only",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 100,
+                "category": "assurance_only",
+                "investment_time": null
+              },
+              "threshold": 0.025
+            },
+            {
+              "left": {
+                "assurance_time": 145,
+                "category": "assurance_only",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": 145,
+                "category": "assurance_only",
+                "investment_time": null
+              },
+              "threshold": 0.05
+            },
+            {
+              "left": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "passed": true,
+              "right": {
+                "assurance_time": null,
+                "category": "neither",
+                "investment_time": null
+              },
+              "threshold": 0.1
+            }
+          ],
+          "high": 257,
+          "low": 129,
+          "max_census_error": 3.552713678800501e-14,
+          "max_checkpoint_allele_cdf_error": 0.0007084259755073541,
+          "max_covariance_error": 6.037968333759934e-06,
+          "max_mean_error": 0.00011245996174502615,
+          "passed": true
+        }
+      ],
+      "context": "causal_main_s1.0_separated_n48_standing_MI_new_A_r0_evolving"
+    }
+  ],
+  "identity": {
+    "files": {
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\outputs\\ATOM_CELL_NUMERICAL_DESIGN_20261011.md": "4a667761bdf3449a97322297238f9ba2f619bebba245522395c188ea5f074786",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\EL_order_boundary_20261007\\assurance_axis_density.py": "4d508a35fe51d7455daf1c24608cbf9f022b8e452cd2bd2de87c68216a9a8683",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\EL_order_boundary_20261007\\assurance_axis_design.json": "b42696491492c730483d20fa9eb2a42418c0c35c477fc37dd1a82e65fe29cec0",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\EL_order_boundary_20261007\\assurance_axis_probe.py": "c69f8ae08fc649c46e540b364de841b33f145ca863c5e0b1e0ab2fcc49ea6710",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\EL_order_boundary_20261007\\assurance_axis_runner.py": "83ffd99b90106c706b20fad026625cc4f39fa79495b972896e464b9369c0853e",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\EL_order_boundary_20261007\\assurance_causal_design.json": "0e814704d3775835735e78a768df5d865965a551145969e64390c84482f8f777",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\EL_order_boundary_20261007\\assurance_causal_inputs.py": "5a534c04acc72a2e2cfc93d7e8cffa952604beccdc934c245b9e997c079995b9",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\EL_order_boundary_20261007\\campaign_inputs.py": "e8786b6f63e05947a96c52cbdef828dd0fd0bf3b3c7f67602b9d35df1f3cb152",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\EL_order_boundary_20261007\\campaign_runner.py": "9f20e155480976dfc26a32d792308b4cadde51398e4836e6e6bf63d60268e16e",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\EL_order_boundary_20261007\\natural_campaign_design.json": "34bf7d048bba299cae2d8d794222773ab1da418e74716b1a56b9b7adb5e09334",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\EL_order_boundary_20261007\\natural_trace.py": "0e46481c74b16ac7c05e6ed76564d5da8d15a578f286ca04f042de558f7b6bae",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\EL_order_boundary_20261007\\order_events.py": "721769c22d22045d6d86ea5bc4692f9c004a310261a0819a4e59ba1710bfe2bf",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\EL_order_boundary_20261007\\order_observer.py": "080ccaf3bb8e8885e56dcaf58528adffe90ae0326b290ba07c08e5a04242e7bf",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\EL_order_boundary_20261007\\response_decomposition.py": "290d6b6b92707023861bdab261795e7eebfe4441a03abbbd857fd734785a077d",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\EL_order_boundary_20261007\\summarize_quadrature_probe.py": "6aa653f828aca67a92f68331249fc99630eb983cf9e5a7f5141b53e5c4c3e2a0",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\EL_order_boundary_20261007\\trace_archive.py": "fd2de7d629ccbd5a509d84f2dcd34e55671aa9604cdbab96e140723a0234d48d",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\data\\design\\chapter2_assurance_generality_20261006.json": "c050c94eb385a9ab6beb48388f5ec96177c0540e22da53924b02eca19b824119",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\data\\design\\model3_ch2_bridge_20260927.json": "0ca971aa9a453ab00a6e36fa9f2a99df3b36a8b13cda1cb48ea420556d3ff18a",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\__init__.py": "584d1d91dd55fea398f61aa2f2526088287a7f49ca879c99615778e93d7317b2",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\chapter2_kb_reproduction.py": "79327794763f963f0f3399c8a94cdb94ad019093d306f2ac4c0bb59a92711863",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\__init__.py": "f7e55e36abb6fbc720e3413505a2a2ea8ff784e9e5715fb097058a1b24956b16",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\assays.py": "3dbfee24a4473b220e463dc6dd0e7699f0a7de98771eeee9666c94d75700338d",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\audit.py": "7503b738281a0d648d7a536dfa508efada80b2e85d26538ceab413fcaedc9925",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\birth_diffusion.py": "ce6b8c63a964b02654fee63b023be9c79c1be9ebfa5eca7e5de04ffa6006a8e7",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\campaign.py": "b2a4d2acc785f1b4707353a74ce3684c347e84df2915dcb5c02fa1d407eb033b",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\density.py": "e293b031372da4f3b5d5b5ed9ffdea95b5a5cc449904f9dfa8880b8f0f2e4edf",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\design.py": "9184fba6fbdfed617d109eedc268103a49cfaf7c7eb1d51457ab03c5bee9cfbe",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\expectation.py": "422de5b82fa80b293b9173735c8d50bd4aec5bd61450ea233d27ecd9169db943",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\finite_audit.py": "47c567a7a450a81afa4d91c29ce91512702d7b066d289f60214a3cd543b5a49d",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\history.py": "28d22c7fde81d9be6a604fa9dd4cb6b48d78d388d4db85f798a935cf81415488",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\plot.py": "f0323311ccf55c0fe677d4afe35defcbc660ce98bc3705eacb5e8e80600d8b1a",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\population.py": "c959d18816da6666dbfb4e91bd9582c94af5453b25498d033f5747305b05fe0f",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\randomness.py": "63522ae3c5ff8e11f114b5649a989945fa4ba2480fdca0f74857601b0e4b211f",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\reproduction.py": "885957edb8a165ee8528781ed1d2574c44143c608496b505f9663cbfac2c4081",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\run.py": "094f8ed635f13b3ff5809b721f1d11f78f89d7cc414f503805b007e436878743",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\selection.py": "fc2d7354aadbf293c84c7ecab5c1d5b20cd702f850081e2d2d1df35539e32f5e",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\simulate.py": "78b043183ff55ba14c38204b47499b53e7c63f41789b982680a42966871e247b",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\storage.py": "c987b56139f7782e35749bda5f378f3cd60d0463b2de5a15c034f2c2a4c73647",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\summarize.py": "9e1b9a1c432e16cc35ca7e7a6075c044999faaa5b2aea84e0dec2cf1fee1b435",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\tensor_density.py": "223ad4926f3d748a744665386a3be6b02e19e8a50cb4f8d080e2170d58fbaac5",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\model3_island\\types.py": "a572e1e7f4fded181585871a63582b16f40292bd07b13e8efc9d6b6234eb21c5",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\run_chapter2_assurance_generality.py": "88e7aef1ee559885559e63b46d3dcb76808981d7a787440693f836f3fafea924",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\main-44b90bc-source\\izu-core-44b90bc516bc102555bf9cedf4d3dc0084a434ef\\scripts\\run_model3_persistent_isolation.py": "d573ffa85b7a1fef3f4619862cf00ab40cfc465d3ba4563df6504e0eea968e6e",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\resolution_20261011\\atom_campaign.py": "e7020f74fbad3832b7e44c220b9aa0a48d57c4b23cc03e1ccececa5d8987e91e",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\resolution_20261011\\atom_cells.py": "76c72903decdb760dd40aac7c10c32d7a82ba0ff4fac3ae972f129518b342406",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\resolution_20261011\\atom_density.py": "e9058060dc22fb1d13fbf800b083664ce734915e251152713b78e9369b12c169",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\resolution_20261011\\benchmark_atom_cells.py": "f860da364c14a7d73f511a6687d2b1bebc9ef9a5229880194c56572f3a29a823",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\resolution_20261011\\probe_atom_density.py": "98a2ddff23bf3e3dc8a11d9a5d1bddb02c379dc4a2c6cff8279978f8389208bf",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\resolution_20261011\\test_atom_campaign.py": "dccc6ac56fdc4b752f01a21bdee409d09070d47a19c52ec6314cfcbfd0ae31e0",
+      "C:\\Users\\zuizui\\Documents\\Codex\\2026-09-24\\https-github-com-zuizui0223-izu-core\\work\\resolution_20261011\\verify_atom_campaign.py": "c79a031f2962e42547fc7c6a11cc95d9e7a44ec76259302d1846b038e2262588"
+    },
+    "numpy": "2.2.6"
+  },
+  "old_admissions_changed": false
+}

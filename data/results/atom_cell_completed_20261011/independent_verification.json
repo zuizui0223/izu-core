@@ -1,0 +1,280 @@
+{
+  "archive_sha256": {
+    "10a221c7fb488ca8262ed734.npz": "941cbca2dcce5787417b3f0cb7a818ec9bb699c18e1939b83c53ddef84fcefef",
+    "11b1a2b7232e15e9ad49c936.npz": "1fa4de5e5e31c2a2fead749f8d3267aba74467639ce1d394aa37f9e412f61e2e",
+    "177711d8e0dc95309515093e.npz": "e19f5f880bc80715ea9ca6fcc6b438f5de59b6b83700b837d20d9cf5d8ab7811",
+    "2189b48a90d6789016125743.npz": "508b691e6ec38c28ec3acba257f56e6ec75e81fab185a2c059c0f03df81d6f9d",
+    "25ff23f4e7d90f3c32b8bfc7.npz": "9425a0662d306aa060b8c042270c7986efef4dac5967f9f6a92e096fc5ec33cf",
+    "304ef511ed1df85edc293ee2.npz": "a1e3117d0b2a10360119263905622549233abe08a0dc4939c6474ab8d065cd4b",
+    "3ced8804341b3824d4510a5d.npz": "3b6de09a05236247082ae9d150c516134a7abf4d2f47be87688b57871811c440",
+    "501c8f0cb849804d5bc8f1c7.npz": "2fbb832be8854e10659bc633e78854dffb01b966895a749917cd06da528e7e17",
+    "505575f90659eeeb2d04302f.npz": "c17ad78d72234eb07edb2b2c7bee16d5ae697e8f97b87ea13b5ae78d8093f3b6",
+    "59a88465d4eacf887c23715e.npz": "9018b2581094318f7d1f04519e25c2774e51c0c6f98f773d2be0c0c10614bec0",
+    "62b38a42a2f875fd0551a200.npz": "e625e2ab262d47dd12b51f8a33435892ca3740e556107267fddfab8fb3514c68",
+    "62f5f9752bb8077216f1c9df.npz": "99600f8e93d6b01d868dc213077fba56ec604fb87150faddb824565a0f8a2929",
+    "67b7d75c40b4409955f0cb01.npz": "faaa5e63aa9fe4c8cb31cfa0ead06574f409db70a718efa8abb33bca0f1acd54",
+    "7b0d8749947735e411dabbed.npz": "34c2d82f412b571d45f7e2921976e56de9e16dc31056ce20e91c45b1a5e23aae",
+    "8899278804d5b48b74d8d16b.npz": "be35826770d367b4488689abb9bf3155ebbfe30ec9617132fa75142a655639c1",
+    "8b2d572effe103b3051d44ba.npz": "c665ddeeb2275cbe3fec83269342c09004016689c10dde22c9014a53ac74ac5f",
+    "8ddbc6b0019ce776e1d489b0.npz": "b413d58a8343f4ac94b03dcd237d9dc60b75b5bdedfbfb5561510c39617777d8",
+    "99bce7c9478591ca8dea503a.npz": "3b3b2f2fa8a961efc9a3f8a5197bfc3490eda8167fbcb5026cbf78916ede1bf2",
+    "a87c825c9e8595862ed1124b.npz": "7e5a2ac4f986fc0d3cb984ddf83804ed0adb99d3333795cbffd4d96ee6409dae",
+    "aabc01d31992d76a7314abba.npz": "42e3832cbce2aea9f6e26950f4ae4f3cc3977585cf06c242aaae2e34ac0658b2",
+    "ac269e25a9686718c8ca5f47.npz": "714e3188bb7e29c55b6d24d97809ec3ef2370de4357a61b6db1f1be78147597b",
+    "ae306685dd1271667a814967.npz": "a69a0ac59366bb8c2b0ed62931f259308cbe812c1998b259ee160889522266d3",
+    "b5d6fe071e0972a89447cc9b.npz": "6d3d0d59048343f44dc44454a2a776af6f26742af3e7af73e04e9a85551bcbf0",
+    "cbc129048723d690facc0a23.npz": "91897bafb75db2acda10eca864abdba52ab2d37f7bed34bbb0a99172ff58d5b5",
+    "ceacc54848f583e9ea11317a.npz": "70bc64d90ac68f889005b4a0b53e98dcc57afb862a2cede7caf7323366744a45",
+    "d112d18483d510e9da06f8b4.npz": "f69172a570358562bcb6a098550de1df20b5a955fbb422afa6993b3ea56182da",
+    "d85002d03fbb73432c5482ae.npz": "045c6dff8fa708b3fe800bd97642c667af62b6656c40bc59a8f227bdb3f53764",
+    "e38c9aaeb706240773bff3d1.npz": "a953c623d12af59f4c45764b346db4dd745903739a8f61f5d77dc5f4bc47d4b8",
+    "e77c1aa62a0ac6be426ba331.npz": "d11265d892193a664568dc13cb79dfb7842e05378cb57acd367119bd84744dd1",
+    "e903280aae9748776a94480f.npz": "f76b75181e21fb36f7d9f75112fb9ee69e84910faf769700513866b4f79d7fa9"
+  },
+  "contexts": [
+    {
+      "admitted": true,
+      "checks": [
+        {
+          "high": 129,
+          "low": 65,
+          "max_census_error": 3.552713678800501e-14,
+          "max_checkpoint_allele_cdf_error": 0.004007653606098005,
+          "max_covariance_error": 4.0040706611347426e-05,
+          "max_mean_error": 0.0008032315305444016,
+          "passed": true
+        },
+        {
+          "high": 257,
+          "low": 129,
+          "max_census_error": 5.684341886080802e-14,
+          "max_checkpoint_allele_cdf_error": 0.001009145821939339,
+          "max_covariance_error": 1.0063418141456615e-05,
+          "max_mean_error": 0.00020221788284258135,
+          "passed": true
+        }
+      ],
+      "context": "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r0_evolving"
+    },
+    {
+      "admitted": true,
+      "checks": [
+        {
+          "high": 129,
+          "low": 65,
+          "max_census_error": 4.263256414560601e-14,
+          "max_checkpoint_allele_cdf_error": 0.004135457926111585,
+          "max_covariance_error": 3.788279795742273e-05,
+          "max_mean_error": 0.0008592984130671999,
+          "passed": true
+        },
+        {
+          "high": 257,
+          "low": 129,
+          "max_census_error": 7.815970093361102e-14,
+          "max_checkpoint_allele_cdf_error": 0.0010461586143831747,
+          "max_covariance_error": 9.517334599336638e-06,
+          "max_mean_error": 0.00021627968072146508,
+          "passed": true
+        }
+      ],
+      "context": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r0_evolving"
+    },
+    {
+      "admitted": true,
+      "checks": [
+        {
+          "high": 129,
+          "low": 65,
+          "max_census_error": 3.552713678800501e-14,
+          "max_checkpoint_allele_cdf_error": 0.0040280855413279415,
+          "max_covariance_error": 3.941177774693071e-05,
+          "max_mean_error": 0.0008236839015722808,
+          "passed": true
+        },
+        {
+          "high": 257,
+          "low": 129,
+          "max_census_error": 5.684341886080802e-14,
+          "max_checkpoint_allele_cdf_error": 0.0010208887312241899,
+          "max_covariance_error": 9.905527978295789e-06,
+          "max_mean_error": 0.00020738331943537247,
+          "passed": true
+        }
+      ],
+      "context": "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r0_evolving"
+    },
+    {
+      "admitted": true,
+      "checks": [
+        {
+          "high": 129,
+          "low": 65,
+          "max_census_error": 3.552713678800501e-14,
+          "max_checkpoint_allele_cdf_error": 0.0017554120587175426,
+          "max_covariance_error": 1.2967656943059427e-05,
+          "max_mean_error": 4.107350266091547e-05,
+          "passed": true
+        },
+        {
+          "high": 257,
+          "low": 129,
+          "max_census_error": 6.394884621840902e-14,
+          "max_checkpoint_allele_cdf_error": 0.00044443271165287013,
+          "max_covariance_error": 3.243851886983694e-06,
+          "max_mean_error": 1.0278209324643406e-05,
+          "passed": true
+        }
+      ],
+      "context": "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r0_evolving"
+    },
+    {
+      "admitted": true,
+      "checks": [
+        {
+          "high": 129,
+          "low": 65,
+          "max_census_error": 3.552713678800501e-14,
+          "max_checkpoint_allele_cdf_error": 0.002898754402619219,
+          "max_covariance_error": 2.4760169897062104e-05,
+          "max_mean_error": 0.0004825156970561517,
+          "passed": true
+        },
+        {
+          "high": 257,
+          "low": 129,
+          "max_census_error": 4.973799150320701e-14,
+          "max_checkpoint_allele_cdf_error": 0.0007292460143787372,
+          "max_covariance_error": 6.2110561867998945e-06,
+          "max_mean_error": 0.00012102150184312155,
+          "passed": true
+        }
+      ],
+      "context": "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r0_evolving"
+    },
+    {
+      "admitted": true,
+      "checks": [
+        {
+          "high": 129,
+          "low": 65,
+          "max_census_error": 2.842170943040401e-14,
+          "max_checkpoint_allele_cdf_error": 0.004007653606098449,
+          "max_covariance_error": 4.0040706611469724e-05,
+          "max_mean_error": 0.0008032315305422921,
+          "passed": true
+        },
+        {
+          "high": 257,
+          "low": 129,
+          "max_census_error": 3.552713678800501e-14,
+          "max_checkpoint_allele_cdf_error": 0.001009145821939006,
+          "max_covariance_error": 1.0063418141445339e-05,
+          "max_mean_error": 0.00020221788284147113,
+          "passed": true
+        }
+      ],
+      "context": "causal_main_s0.0_empty_n48_standing_MI_new_A_r0_evolving"
+    },
+    {
+      "admitted": true,
+      "checks": [
+        {
+          "high": 129,
+          "low": 65,
+          "max_census_error": 3.552713678800501e-14,
+          "max_checkpoint_allele_cdf_error": 0.004186323004452652,
+          "max_covariance_error": 3.742992935204699e-05,
+          "max_mean_error": 0.0008671089346723448,
+          "passed": true
+        },
+        {
+          "high": 257,
+          "low": 129,
+          "max_census_error": 6.394884621840902e-14,
+          "max_checkpoint_allele_cdf_error": 0.001055034257957943,
+          "max_covariance_error": 9.406489776757343e-06,
+          "max_mean_error": 0.00021822202058352502,
+          "passed": true
+        }
+      ],
+      "context": "causal_main_s0.125_matched_n48_standing_MI_new_A_r0_evolving"
+    },
+    {
+      "admitted": true,
+      "checks": [
+        {
+          "high": 129,
+          "low": 65,
+          "max_census_error": 3.552713678800501e-14,
+          "max_checkpoint_allele_cdf_error": 0.004077404102977966,
+          "max_covariance_error": 3.9559184243896824e-05,
+          "max_mean_error": 0.0008379086258444302,
+          "passed": true
+        },
+        {
+          "high": 257,
+          "low": 129,
+          "max_census_error": 5.684341886080802e-14,
+          "max_checkpoint_allele_cdf_error": 0.0010282285664825475,
+          "max_covariance_error": 9.938812561667391e-06,
+          "max_mean_error": 0.00021096944551857177,
+          "passed": true
+        }
+      ],
+      "context": "causal_main_s0.125_separated_n48_standing_MI_new_A_r0_evolving"
+    },
+    {
+      "admitted": true,
+      "checks": [
+        {
+          "high": 129,
+          "low": 65,
+          "max_census_error": 4.973799150320701e-14,
+          "max_checkpoint_allele_cdf_error": 0.0017691704697371524,
+          "max_covariance_error": 1.3042806223747486e-05,
+          "max_mean_error": 4.499303671490207e-05,
+          "passed": true
+        },
+        {
+          "high": 257,
+          "low": 129,
+          "max_census_error": 6.394884621840902e-14,
+          "max_checkpoint_allele_cdf_error": 0.00044745822137326474,
+          "max_covariance_error": 3.2626416278658255e-06,
+          "max_mean_error": 1.1259495441839906e-05,
+          "passed": true
+        }
+      ],
+      "context": "causal_main_s1.0_matched_n48_standing_MI_new_A_r0_evolving"
+    },
+    {
+      "admitted": true,
+      "checks": [
+        {
+          "high": 129,
+          "low": 65,
+          "max_census_error": 3.552713678800501e-14,
+          "max_checkpoint_allele_cdf_error": 0.0028092211839525483,
+          "max_covariance_error": 2.4071344505218265e-05,
+          "max_mean_error": 0.0004485090389791946,
+          "passed": true
+        },
+        {
+          "high": 257,
+          "low": 129,
+          "max_census_error": 3.552713678800501e-14,
+          "max_checkpoint_allele_cdf_error": 0.0007084259755073541,
+          "max_covariance_error": 6.037968333759934e-06,
+          "max_mean_error": 0.00011245996174502615,
+          "passed": true
+        }
+      ],
+      "context": "causal_main_s1.0_separated_n48_standing_MI_new_A_r0_evolving"
+    }
+  ],
+  "old_admissions_changed": false,
+  "original_gate_changed": false,
+  "status": "all_30_archives_and_10_decisions_verified",
+  "verifier_sha256": "c79a031f2962e42547fc7c6a11cc95d9e7a44ec76259302d1846b038e2262588"
+}

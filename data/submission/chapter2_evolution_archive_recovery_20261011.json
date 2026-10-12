@@ -1,0 +1,337 @@
+{
+  "active_manuscript": "docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md",
+  "active_manuscript_count": 1,
+  "assembled_outer_archive": {
+    "assembled_on_utc_date": "2026-10-11",
+    "assembly_type": "New outer ZIP assembled from 50 unchanged original ZIPs and historical supporting files, not a recovered preexisting historical outer ZIP.",
+    "builder_receipt": {
+      "artifact_count": 50,
+      "bundle_bytes": 518372739,
+      "bundle_sha256": "0596de11afea2f9f0b5a781f6d0ddd1fa7ea772f048ec0ccfc06e9ecbbf60695",
+      "campaigns": {
+        "assurance_generality": {
+          "declared_cases": 8448,
+          "expected_shards": 32
+        },
+        "confirmatory": {
+          "declared_cases": 4096,
+          "expected_shards": 16
+        }
+      },
+      "doi_assigned": false,
+      "raw_artifact_bytes": 518129082,
+      "source_main_sha": "982e55e80e4ca1e880edf089c3a06ce6bebce61f",
+      "status": "verified_deposition_bundle"
+    },
+    "external_receipt_file": {
+      "path": "chapter2_public_archive_20261006.zip.receipt.json",
+      "sha256": "a2ec62825af29e86500da978b981c3ac8bcc44421eef7a79ace50fc83fa237d1",
+      "size_bytes": 513
+    },
+    "filename": "chapter2_public_archive_20261006.zip",
+    "future_outer_bytes_deterministic": false,
+    "identity_rule": "Future ZIP timestamps can change outer-container bytes; use the receipt for the specific assembled file and retain all frozen original inner ZIP identities.",
+    "member_composition": {
+      "historical_supporting_files": 8,
+      "internal_verification_receipt": 1,
+      "original_actions_zips": 50,
+      "total": 59
+    },
+    "outer_and_member_readback": {
+      "bundle_bytes": 518372739,
+      "bundle_sha256": "0596de11afea2f9f0b5a781f6d0ddd1fa7ea772f048ec0ccfc06e9ecbbf60695",
+      "historical_materials_exact": true,
+      "member_count": 59,
+      "original_member_payload_bytes": 518129082,
+      "original_zip_count": 50,
+      "status": "PASS_OUTER_AND_ALL_ORIGINAL_MEMBERS"
+    }
+  },
+  "documentation": "docs/CHAPTER2_UNIFIED_DATA_DEPOSIT_READINESS_20261011.md#7-evolutionary-raw-archive-recovery-follow-up",
+  "frozen_original_manifest": {
+    "path": "data/design/chapter2_public_archive_manifest_20261006.json",
+    "sha256": "c9564faeea3461a8d8080767a7080f4e770bf3d1a0a986eeff44e45959c900b3",
+    "size_bytes": 19958
+  },
+  "historical_supporting_materials": {
+    "files": [
+      {
+        "matches_current_main": true,
+        "path": "data/design/chapter2_public_archive_manifest_20261006.json",
+        "sha256": "c9564faeea3461a8d8080767a7080f4e770bf3d1a0a986eeff44e45959c900b3",
+        "size_bytes": 19958
+      },
+      {
+        "matches_current_main": true,
+        "path": "scripts/build_chapter2_public_archive.py",
+        "sha256": "18fb5bbc78fcdaa152690ec77779753541e59f45cafaabfbdbb12af292ef3168",
+        "size_bytes": 4223
+      },
+      {
+        "matches_current_main": false,
+        "path": "docs/CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md",
+        "sha256": "3dc4db708d79685bfa3c422caa03fa09f2b1b93d66219fbbddad19c44f137584",
+        "size_bytes": 33164
+      },
+      {
+        "matches_current_main": true,
+        "path": "data/results/chapter2_assurance_attenuation_decomposition_20261006.json",
+        "sha256": "192397713b6e7f0850e94b28c2a1a430475fe562c540a617d3e0f9aac15f9bbb",
+        "size_bytes": 13261
+      },
+      {
+        "matches_current_main": true,
+        "path": "data/results/chapter2_assurance_gradient_components_20261006.json",
+        "sha256": "b29e0fbc3646d87af23d5df8e2f0707091bc26f7b06f31e622e69fc392c2ba7c",
+        "size_bytes": 140863
+      },
+      {
+        "matches_current_main": true,
+        "path": "data/design/chapter2_1005_confirmatory_replication_20261006.json",
+        "sha256": "0ea4cc4129b2ee97a1ed1ffb2295348e0628cf0f0a1b0d0694a3b78befb4f9d0",
+        "size_bytes": 5231
+      },
+      {
+        "matches_current_main": true,
+        "path": "data/results/chapter2_1005_confirmatory_replication_20261006.json",
+        "sha256": "13e5edeb5876208a509f94b79357f8ef400faf80fc2682b12ae42be1cad91609",
+        "size_bytes": 6827
+      },
+      {
+        "matches_current_main": true,
+        "path": "data/design/chapter2_assurance_generality_20261006.json",
+        "sha256": "c050c94eb385a9ab6beb48388f5ec96177c0540e22da53924b02eca19b824119",
+        "size_bytes": 5149
+      },
+      {
+        "matches_current_main": true,
+        "path": "data/results/chapter2_assurance_generality_20261006.json",
+        "sha256": "c0f21756ebc7b49bc41ed5196915a05e15a7c1f688c622714e22ad2407f77f6e",
+        "size_bytes": 6073
+      }
+    ],
+    "historical_build_source_commit": "94c051850a43b89047e78e653edae25b043624ab"
+  },
+  "historical_workflow_failure": {
+    "artifact_collection_empty_on_recheck": true,
+    "build_and_upload_steps_skipped": true,
+    "conclusion": "failure",
+    "diagnosis": "The ordinary Authorization header is retained by urllib across the signed-storage redirect. A real HTTPRedirectHandler regression reproduced the header propagation; the fixed request uses add_unredirected_header for initial GitHub authentication.",
+    "failed_at_utc": "2026-10-06T16:30:34Z",
+    "failed_step": "Download exact historical artifact ZIP bytes and verify API digests",
+    "head_sha": "94c051850a43b89047e78e653edae25b043624ab",
+    "historical_failed_outer_archive_recovered": false,
+    "job_id": 112341032071,
+    "observed_download_error_status": 401,
+    "observed_redirect_status": 302,
+    "rechecked_at_utc": "2026-10-11T11:02:19Z",
+    "regression_test": "tests/test_chapter2_public_archive_download.py",
+    "run_id": 37484527507,
+    "run_url": "https://github.com/zuizui0223/izu-core/actions/runs/37484527507",
+    "workflow_path": ".github/workflows/chapter2-public-archive.yml"
+  },
+  "independent_original_case_audit": {
+    "auditor": {
+      "path": "scripts/audit_chapter2_recovered_evolution_archives_20261011.py",
+      "sha256": "c7f79cc8d1a0d6d15f2555b8648b768db5a276b9203056a59976c83597ff8cd0",
+      "size_bytes": 30368
+    },
+    "completed_at_utc": "2026-10-11T11:12:49.567249+00:00",
+    "elapsed_seconds": 9.292,
+    "path": "data/submission/chapter2_evolution_original_case_audit_20261011.json",
+    "scope": {
+      "annual_diploid_genomes_present": false,
+      "biological_simulation_executed": false,
+      "expected_checkpoint_updates": [
+        0,
+        200,
+        400,
+        1000
+      ],
+      "expected_trace_shape": [
+        1001,
+        10
+      ],
+      "external_scientific_deposit_verified": false,
+      "npz_scope": "Receipt byte hashes, exact array names/shapes, float64 types, census values, checkpoint dimensions; no recomputation of scientific results.",
+      "original_discovery_76001_cohort_admitted": false,
+      "original_execution_runtime_verified": false,
+      "raw_artifacts_modified_or_repacked": false,
+      "scientific_summary_or_bootstrap_recomputed": false,
+      "source_original_actions_zip_bytes_read": true,
+      "source_replay_or_annual_selection_admission_claimed": false,
+      "task_method": "Only inspected pure seed_ranges, declared_tasks, and case_key AST functions from the verified archived runner are compiled. No runner imports or biological calls are executed.",
+      "zip_crc_method": "Read every outer ZIP member fully; Python ZipFile validates member CRCs. Read every NPZ array and every nested source ZIP member fully."
+    },
+    "sha256": "a470644fdfdc9c10f2e66fb2668b5fff4b1e74b7dc71c67f06c015933dec68e5",
+    "size_bytes": 54006,
+    "started_at_utc": "2026-10-11T11:12:40.275546+00:00",
+    "status": "PASS_ORIGINAL_EVOLUTION_ARCHIVE_BYTES_SOURCE_SNAPSHOTS_AND_CASE_IDENTITY"
+  },
+  "local_code_verification": {
+    "elapsed_seconds": 1.43,
+    "full_repository_ci_success_claimed_by_this_preparation_record": false,
+    "independent_code_review": "No remaining blocking findings after fixing original-output and input-symlink-target collisions.",
+    "new_remote_archive_workflow_success_claimed_by_this_preparation_record": false,
+    "preservation_controls": "Reject original ZIP/input-tree, symlink, auditor, tracked-source and Git-metadata output collisions before writes; use exclusively created temporary files and atomic replacement.",
+    "status": "PASS",
+    "test_paths": [
+      "tests/test_chapter2_public_archive_download.py",
+      "tests/test_chapter2_public_archive_manifest.py",
+      "tests/test_chapter2_recovered_evolution_archives_20261011.py",
+      "tests/test_repository_artifact_budget.py",
+      "tests/test_workflow_trigger_policy.py",
+      "tests/test_current_ci_surface.py"
+    ],
+    "tests_failed": 0,
+    "tests_passed": 21
+  },
+  "original_zip_recovery": {
+    "campaigns": {
+      "assurance_generality": {
+        "declared_cases": 8448,
+        "observed_counts": {
+          "case_pairs_verified": 8448,
+          "completion_markers_verified": 32,
+          "nested_source_zips_crc_checked": 32,
+          "npz_arrays_crc_read_checked": 42240,
+          "npz_byte_hash_receipts_verified": 8448,
+          "outer_members_crc_checked": 16994,
+          "raw_case_receipt_bytes": 1667648,
+          "raw_npz_bytes": 374372170,
+          "raw_shards": 32,
+          "source_file_hash_and_head_comparisons": 800,
+          "summary_artifacts": 1,
+          "zip_bytes": 377934908
+        },
+        "original_execution_head_sha": "20e8e2d6ad25545b9cb4941305343b5f010a58f4",
+        "original_result_comparison": {
+          "all_original_result_fields_exactly_match": true,
+          "committed_additional_keys": [
+            "workflow_provenance"
+          ],
+          "committed_path": "data/results/chapter2_assurance_generality_20261006.json",
+          "committed_sha256": "c0f21756ebc7b49bc41ed5196915a05e15a7c1f688c622714e22ad2407f77f6e",
+          "committed_size_bytes": 6073,
+          "comparison_passed": true,
+          "exact_scalar_comparisons": 126,
+          "member": "chapter2_assurance_generality_20261006.json",
+          "original_and_committed_byte_identical": false,
+          "original_and_committed_json_identical": false,
+          "original_sha256": "d8812507a78264351f72326311f88625a9e01b4ea91c1ec922f8061daf777055",
+          "original_size_bytes": 7122,
+          "relationship": "Every original result field equals the committed JSON; committed file adds workflow_provenance and changes formatting."
+        },
+        "workflow_run_id": 37458098483
+      },
+      "confirmatory": {
+        "declared_cases": 4096,
+        "observed_counts": {
+          "case_pairs_verified": 4096,
+          "completion_markers_verified": 16,
+          "nested_source_zips_crc_checked": 16,
+          "npz_arrays_crc_read_checked": 20480,
+          "npz_byte_hash_receipts_verified": 4096,
+          "outer_members_crc_checked": 8242,
+          "raw_case_receipt_bytes": 878592,
+          "raw_npz_bytes": 138846381,
+          "raw_shards": 16,
+          "source_file_hash_and_head_comparisons": 432,
+          "summary_artifacts": 1,
+          "zip_bytes": 140194174
+        },
+        "original_execution_head_sha": "380de3240992db691e1434f8577256ced80d5ae8",
+        "original_result_comparison": {
+          "committed_path": "data/results/chapter2_1005_confirmatory_replication_20261006.json",
+          "committed_sha256": "13e5edeb5876208a509f94b79357f8ef400faf80fc2682b12ae42be1cad91609",
+          "committed_size_bytes": 6827,
+          "comparison_passed": true,
+          "exact_scalar_comparisons": 143,
+          "explicit_full_result_and_console_hashes_match": true,
+          "member": "chapter2_1005_confirmatory_replication_20261006.json",
+          "original_and_committed_byte_identical": false,
+          "original_and_committed_json_identical": false,
+          "original_sha256": "1951af2f2d5a8be883eae514aa84dce7d6a40407201c9a8cce501d4502773900",
+          "original_size_bytes": 140528,
+          "projected_fixed_assurance_cells": 2,
+          "projected_threshold_cells": 12,
+          "relationship": "Committed compact projection; full original JSON and console match explicit committed hashes."
+        },
+        "workflow_run_id": 37390991122
+      }
+    },
+    "extra_generality_reviewer_artifact_excluded": true,
+    "method": "Retrieve each original GitHub Actions ZIP by the exact ID in the frozen manifest; verify original size, SHA256 and member CRCs.",
+    "original_artifacts_repacked": false,
+    "selection": "Only the 17 confirmation and 33 actual PR #411 generality artifacts in the frozen manifest.",
+    "totals": {
+      "byte_hash_size_crc_receipt_or_source_mismatches": 0,
+      "exact_task_coverage": true,
+      "missing_or_extra_artifacts_or_cases": 0,
+      "npz_arrays_crc_read_checked": 62720,
+      "npz_original_receipt_hashes_verified": 12544,
+      "original_actions_zip_count": 50,
+      "original_npz_json_case_pairs": 12544,
+      "original_raw_shards": 48,
+      "original_summary_artifacts": 2,
+      "original_zip_bytes": 518129082,
+      "outer_zip_members_crc_checked": 25236,
+      "source_file_hash_and_head_comparisons": 1232,
+      "unique_original_artifact_ids": 50
+    }
+  },
+  "preparation_reference_commit": "90c43f0f7b9c441bd4251d1139547e43e6d118d6",
+  "prior_readiness_record": {
+    "path": "data/submission/chapter2_unified_data_deposit_readiness_20261011.json",
+    "sha256": "32a25420fc2e48c9afcb17c54e78cd8d8ec6e772ce20b69d15135535781dba08",
+    "size_bytes": 40441
+  },
+  "prior_source_references_rechecked": {
+    "all_original_sizes_and_sha256_match": true,
+    "all_original_source_files_unchanged": true,
+    "count": 32
+  },
+  "private_preserved_copy_readback": {
+    "bytes": 518372739,
+    "external_scientific_repository_deposit": false,
+    "public_access_or_doi_verified": false,
+    "same_original_path_or_inode": false,
+    "sha256": "0596de11afea2f9f0b5a781f6d0ddd1fa7ea772f048ec0ccfc06e9ecbbf60695",
+    "status": "PASS_PRIVATE_PRESERVED_COPY_RETRIEVAL",
+    "verified_at_utc": "2026-10-11T10:56:39.756216+00:00"
+  },
+  "recorded_at_utc": "2026-10-11T11:13:50.366196+00:00",
+  "repository": "zuizui0223/izu-core",
+  "schema": "chapter2_evolution_archive_recovery_v1",
+  "scientific_and_deposit_limits": {
+    "annual_diploid_genomes_present": false,
+    "biological_simulation_executed": false,
+    "creator_license_and_repository_metadata": {
+      "authenticated_upload_capability_verified": false,
+      "code_license": null,
+      "creators": null,
+      "data_license": null,
+      "disclosure_and_access_review_complete": false,
+      "doi": null,
+      "legacy_oikos_dryad_template_adopted_for_active_el_deposit": false,
+      "persistent_url": null,
+      "public_access_verified": false,
+      "repository_account": null,
+      "repository_name": null,
+      "repository_record_id": null,
+      "version_identifier": null
+    },
+    "external_scientific_repository_deposit_complete": false,
+    "fresh_demographic_tar_or_tempo_zip_downloads_in_this_followup": false,
+    "independent_units": "Each evolutionary campaign retains 64 independent visitor histories; 12544 cases are not additional independent histories.",
+    "issue_436_ready_to_close": false,
+    "journal_submission_made": false,
+    "original_discovery_76001_cohort_admitted": false,
+    "original_execution_runtime_verified": false,
+    "public_doi_assigned_or_access_verified": false,
+    "remaining_scope": "Separate 521 demographic original ZIPs in four existing tar containers and the separate tempo archive retain their own preservation and external-deposit requirements.",
+    "scientific_conclusions_changed": false,
+    "scientific_summary_or_bootstrap_recomputed": false
+  },
+  "status": "PASS_ORIGINAL_EVOLUTION_ARCHIVE_RECOVERY_AND_PRIVATE_PRESERVATION"
+}

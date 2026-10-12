@@ -1,0 +1,34 @@
+{
+  "status": "diagnostic_declared_before_new_numerical_admission_existing_abm_outcomes_not_new_confirmatory_test",
+  "scope": "ten original contexts, all32 existing ABM repetitions per context, exact same founders and visitors; evolving assurance only mutation K48",
+  "numerical_gate": "require complete30 archives and independent10 two-adjacent-level decisions; report admitted and unadmitted inventory; refuse biological comparison for any unadmitted context",
+  "responses": {
+    "thresholds": [
+      0.025,
+      0.05,
+      0.1
+    ],
+    "sustained": 20,
+    "tie": 5,
+    "horizon": 200
+  },
+  "outputs": [
+    "all-start six-category order counts for each context and threshold",
+    "all-start terminal occupancy among32 starts",
+    "conditional living-population mean traits at0/25/100/200 with eligible count",
+    "finest admitted density event categories and moments at identical times"
+  ],
+  "limits": [
+    "descriptive existing32 histories per synthetic context; no new significance tests",
+    "density is not assumed equal to stochastic ensemble mean",
+    "matched initial state does not imply identical future genotype or census states",
+    "category disagreement alone does not isolate drift versus segregation versus demographic feedback",
+    "no natural-order survival mediation inference"
+  ],
+  "sources": [
+    "assurance_causal_design.json",
+    "assurance_causal_inputs.py",
+    "assurance_causal_runner.py",
+    "order_events.py"
+  ]
+}

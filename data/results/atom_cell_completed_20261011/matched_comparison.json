@@ -1,0 +1,2018 @@
+{
+  "abm_archive_sha256": {
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r0_evolving.npz": "c126710aba826e3327539ec059fbb534401193f9052b8f6e08d1c26b9c2fbe96",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r10_evolving.npz": "d66d2b4b07954a39334ca4d2a68a0ff3696cda35e351f2b7536fa73fcd7a6ae5",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r11_evolving.npz": "4b4234d380ebcd9c5c5730342dcc81ee281cc7745af81d70b376313d4b69f584",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r12_evolving.npz": "2f7ec598f537d5ec2d4489d6cdad54154bf314945460c0d41b4035174d8572dc",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r13_evolving.npz": "836cc73a6b116e16ab519b9599d7e5f281452bd35f0caaadb64f90abd1ed5b9c",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r14_evolving.npz": "0b8d3655b08d65c8ea674d604ecbe187c59b34563c6ee8c9c7d293ee66787992",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r15_evolving.npz": "79e7aec7e693f8ebf214451493445badbfa8b3cf1a0b4a2159d8d0f1633f0d62",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r16_evolving.npz": "294cb909d5b71c79bbd7a306b54ac8fb32b76db86b938f1f2ce85cd249dfd469",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r17_evolving.npz": "6c0b54a75dd0c7260f591be53f61316aee3857488a64c199d524e0ab92ba0beb",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r18_evolving.npz": "3eff4c2137dafac03a8f4bf6154d0e20eba9d5f63bc415049f3fd88ddf92eecb",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r19_evolving.npz": "bc86453ca82559a8d1e33643970e672a374bc1b0442fbe34b6c3d4b361c59f1e",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r1_evolving.npz": "94250bd8348be9c1e9ca093e2459210ea527d61f37f7b90dad0ff04bc7e095b4",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r20_evolving.npz": "1ab17fa59afef56b91febbbda6bb6e182cdfc4eb2f8f4c248f715028420e2a22",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r21_evolving.npz": "815d16b5c01beff8d0fc72a71b41b26c05a9c8ce3abc2489a3df13af4fe79738",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r22_evolving.npz": "2c350768d17313fdc972913e2d20e9346113db2e51e656da38a53b6bedab21e4",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r23_evolving.npz": "049adf79c82d7ed2b6584849b3b7549ca57f30d2ca18df826441d8ed062288b3",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r24_evolving.npz": "64b8bd40c7a4aeb34e72e7c747c5d7b82a4f8c7434a4605fd0a68b653895d8b6",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r25_evolving.npz": "43ade8173eeb393315cbb84401c7223ff393cf4fa7a87eb31605cd80f2087a77",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r26_evolving.npz": "a48709424a45bcfcbf5dc1fd030b9a3f0ae1a3277527ff01921dbefc4021fd8a",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r27_evolving.npz": "6bc006afbcb9d2f483d508da4336830e7b447b146ac4e87167c9dbe9d55cdfb4",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r28_evolving.npz": "c30057e185b947cb6e5a99ff4f5e5afea6e6ddb38cce2357d22676b612b3c423",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r29_evolving.npz": "559b7f99cd8f5feacdb8bc566363c65a6d7cf694305626d54c674e8fb34f8613",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r2_evolving.npz": "334a270a7e747a7ef457fbb4d12dc12abf7732dbb146e8732acac6aba315f6f7",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r30_evolving.npz": "250fab65ede7b4a49832af4a8cafa9ecc8ca789ce505d121483c1435e6a1b1a1",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r31_evolving.npz": "3fd15b58a2c185b09a092481e4ce57c15129253757543ce4d568d778ab1061d8",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r3_evolving.npz": "32bd567e3ff42d6fbd0767afd534341bff0c39d970972d90f3f9e26c050e32f0",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r4_evolving.npz": "4b59fc8917b42743da8a661c6e0040b66ff2b763f335d29b9561140324520e95",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r5_evolving.npz": "939d59b9e8afd6f036494f1d12dbf3cb2632f9a516379f10f527b7bb6ad3276e",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r6_evolving.npz": "4d15f23f7bb8566fa5dec11970653e56e8aa4fb3bc565f031cff6c171746dced",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r7_evolving.npz": "878aca39ebc8c3fd30d8f9ef0627f74a14c514e7cb6a06823cd7e6bd66767ab7",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r8_evolving.npz": "95000b8a4d40244dda10385acb57d6a2fd4e4f32e13e3af93c58983fd884698a",
+    "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r9_evolving.npz": "33eadbf95c0e503af1df755c61ac4e4243cc3d04f2881c9b0ecc61d1467fd135",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r0_evolving.npz": "2f2ef6c547354ddd17f0041ac050d94a708d5c46b239e1c8e401bdc27f288c46",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r10_evolving.npz": "1ea60c152eccaa809317714401d9395ac99988db41e33b9f8ced552f80272fee",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r11_evolving.npz": "a7518c9b99bdefce96755244038219b71e7e85753a2ebec394720c19accbd42a",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r12_evolving.npz": "7d0a84fb687587d21413c1083ba431e7673a934a62be8b485cf4fdab154d5d8f",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r13_evolving.npz": "a508f59240d3ef82c099df33ec968e663b7bd63353fc8088e09179a6d5b101f8",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r14_evolving.npz": "e4fa9267e9f6a1f06094394d742a546f7197807c5fd9801de23c5e6408ef541f",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r15_evolving.npz": "f5073c07178d68d7f5ae7e963016372b1b10d0d941d800e38f0b40ced25f8f37",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r16_evolving.npz": "75d4d7491a236ebbbf6cd3976d50296c4a7702c65dd3c810abf862b3c7c1a9cb",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r17_evolving.npz": "091d8bb796e93ad46020dd1f075b8aadf90c0ac5dba688444f1abfefbd9257c8",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r18_evolving.npz": "639d0bf29a3114f21832810b6428e5b92af107fa3d0e7535300aac255ccabecd",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r19_evolving.npz": "8b7becd5269adc9c70e569aade25346d8e3d8f98cc697175241a1aafdb1c8870",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r1_evolving.npz": "79bb0f794adc514286820ddf4887586305bba07465b12b1f0d981ce2591c75e6",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r20_evolving.npz": "32cb26e7b4db4acac0df33ec85a45efa8744aaf0f3a1ad4af838f57562b4fbe8",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r21_evolving.npz": "183132c746f4c4a970f842eb201a7c524975c1e0c554a9b82c491158c6d600b4",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r22_evolving.npz": "564d9fa8dd05fb3a98cb823695b320cfb5c960d168ace54a218522d58f6c7ad4",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r23_evolving.npz": "0f5bd296490e239ee7d3f76955c240f66e53eac76bdb50c12d2bdc726185c7af",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r24_evolving.npz": "5c542aa0ebbc15e61b1df6eadd6f732e588ce6cb7ef9af1040536bf1250f9ac6",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r25_evolving.npz": "5a27068ef2d514a4fb49a7ed205d6d8c151f1a476d3fee5dad2b6f9904f3e005",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r26_evolving.npz": "305e8273466f6487e5b1e4bc4fe280f06d78fd1f0980d55f2f9ed4562172d1c8",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r27_evolving.npz": "8f92b3df7290c3fcf70ae820a6fef3d63ea35aac085cc237cdb1838bfdba7e25",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r28_evolving.npz": "d59f8bf280871c9f9674eab903eca606418d58d9d91cab61adc63b7577d6e8ba",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r29_evolving.npz": "7dd302b127bdb6a01e2fb6fd69017421c2104231c9a370f71d45aaef7d9dd6dd",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r2_evolving.npz": "fac606fb6d00949ab9342e0123b9b3950e98e2f40537b5028343b199e25128ac",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r30_evolving.npz": "8591a34b0e550765d19c7fb48ad7b21dd1a9d1cde2a0c0515f724d61aaf8849e",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r31_evolving.npz": "bf40466079fb0ca9afb0c407643b3c44c586a1c9d1bcb5e9b53415734327ad31",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r3_evolving.npz": "f685e4950971fe56a6b563eced12b153d043842da2882a8558ae2dc7af23ff19",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r4_evolving.npz": "023e0c85d2bf34d5e2398c6a2dc47efd04389e914a47f5ccef2cf66128b3c573",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r5_evolving.npz": "746441c9b73b3ee4a6ccbe0cf2eec9ff0b311cf0f13efa29f3e2b93b21a268b5",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r6_evolving.npz": "283c0f3519d5fca0eb7457bd2d5e04bde1cd4f563367ec1769d9c2fb41736f79",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r7_evolving.npz": "e8aaed1d8ccb786b26fbe0dc468d6c0c1e9ab108bb3fb3f9228d9074e39cf64e",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r8_evolving.npz": "1ca334aedcd35237904e6c59f052f20c1a543fcce16df4ce780a46c2df112e02",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r9_evolving.npz": "ca9a147c65f560e8c2b2a3b1f2053ce98a367f683d08959b48f3b1b55a64fcc9",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r0_evolving.npz": "cd19bee2725ba1cb2feb97f15362c9a450bbe7a3cf980323b2a029706a48079c",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r10_evolving.npz": "f85f32af1a0f2e0d7adadc1d4f655141a159d1f240deef886f2ea64f55361ffa",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r11_evolving.npz": "27cc86c7cc5459525f12f3e39245ef93bcdc994c15d6bcdabc79874d2c200490",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r12_evolving.npz": "4dae542bd31eaad240268da405e482a00c94725062c3fd8e4c3a0687933957b5",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r13_evolving.npz": "5844cc011dab278a298625087fe43202b9d044999eafe821da3b4bc8f8deaadf",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r14_evolving.npz": "9db46cc75abeea5c127d336a5808a6cbac83d9727f9f0201fd85509283d18d36",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r15_evolving.npz": "b7b15a774fcf6f4c15b33569c98c5f9d93021c79ebd401a11d289fd90ca3796f",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r16_evolving.npz": "07a909c64487c172f4a93049bf264a058a7e4ccff671c23c4afb353d8995d5fd",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r17_evolving.npz": "63ba16884a4ce9273b9292c55bcb6ec32383af85e7b7661090e6989429a632f4",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r18_evolving.npz": "33bcb972366dda84d11377ca77b2167f3d6d3b6a24b8ab60f376302ca235c2d8",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r19_evolving.npz": "b7e8e9aadfd1fff444e3d31bc18f9d7e7e7cacb01cc363328012878e7bdc9329",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r1_evolving.npz": "64ed95d640567eef120bfb34b64a46c1e7b0d4d16535062f8d2f401ab1135cab",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r20_evolving.npz": "edb65e87c57c24752e33db9200939f9190575f2a492a909e03c9ae5e21f7cb30",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r21_evolving.npz": "6ddfcaf312b5720ad35589840f9c5162a2e752e9e94d3dfd2ae45a928b7a6ccf",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r22_evolving.npz": "a3da21e3f81facbefcc28d971e287dc9586460252a013a5997b4de239953da6e",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r23_evolving.npz": "deb03d9181bf5d82b49a918c061a5da0bb4f1254032d18a30cf3e6e2a1d842b2",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r24_evolving.npz": "70203047750a9d945302d851d8867b02c08fcee754ca33d61d46f800481d31e2",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r25_evolving.npz": "58e0dae5f13931441715c7b1038f3737dfadc861e4649080d8db5a73aa1f9b35",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r26_evolving.npz": "005d224bd8285a37bc6010903e6d8d3c1243b3b24a6831608ee1affb20849067",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r27_evolving.npz": "18f54b42bd237539ad855d848d1616d0dc8ac1af788fe9d4bef38505c7327a46",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r28_evolving.npz": "59035d8ccb3492a03b33fe4d38dab2a53e45de6913556a41341ea70e298e4bfe",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r29_evolving.npz": "0eabb328cd1b8b753877ef2a6db50bceb36dbb2dbe8c7bb3aa63c2e4a2e44cfe",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r2_evolving.npz": "bff5f2373dc6094122f32d34f24bd21bd4d198421f09fa18f88fda3c392424e5",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r30_evolving.npz": "644a18510e85b3f95bc686754d56af5ae5e515e2ae9913bd0b86452a0c246707",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r31_evolving.npz": "3d1ecfa15902e2893581a737aca5087588e3760ac3a59a0969eea54d8893bde5",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r3_evolving.npz": "e49547793361bfeb7784096b27cdf3c5720c366afcbd6b9c836528b6567ebb1f",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r4_evolving.npz": "5bebc9a29f7ee8810ff9cc4faddbe2111b071cb98e09055df154510bc0edbdf9",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r5_evolving.npz": "10009c1e69649a6d7158b227a14f2e66d63df729bf336ac27a17e37d1e3b6f19",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r6_evolving.npz": "ddcf54f2980c1ed8e9a76b9e293b57bcb11596c4223aa132da83b5dfef51d043",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r7_evolving.npz": "4d02cf805f3b69e3326f6cde19435eb2cfaba8e76b09663645b05c841a0c8969",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r8_evolving.npz": "2ff0cb2478b92bb1bd5990898c49a824d6ece4888d20cca41554dbd3f2e6dc0e",
+    "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r9_evolving.npz": "3781b290e0eee8ac121bca37c6f0b4d4c7e0483f870d360634b9e97a999cf495",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r0_evolving.npz": "76f33c18e8e8a74013973e7fe66b98e3347caf86a2ee82a65d17d217d58464fb",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r10_evolving.npz": "5affa7205a689bfd0f048329dfda8aa4508f5b5ff6358d05ee609e751a96593b",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r11_evolving.npz": "98b09a59fc7be7ba7b73443598aabca519089a4acbd1f8a547fe17ef2279e77d",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r12_evolving.npz": "2d83a3823a474cb7793578769e71daebe5feee76f34dfcfd48b397c197f4b039",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r13_evolving.npz": "1ab927b1470d0ff2306fc23d3b68ba6982256babb344beb9cf17f8a0db26a3ce",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r14_evolving.npz": "5858333fcb49b1e1944cef9932091f2c94f7aa08aa3aa0835ed7815c1f6dc060",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r15_evolving.npz": "22a617b029ed3437b3c80b48e97f317667b6baec9b4d93aa370ebed3a294ef5b",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r16_evolving.npz": "3e9a935656539a6533b233ec8bce1a57479215472305dae20dd68a02728193b9",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r17_evolving.npz": "70d404d7b04aa7e23b7896a1f7fac30fb640aef062582d19eec2ea02480fdd63",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r18_evolving.npz": "df649aee6f96bc9ae17f705c9a6162a485fa50615d156a2c0990a3141e5e6273",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r19_evolving.npz": "13165fc59f952c63abcfeec50f2ac58f2f6c3deb655c3f17a63f75bad9ef7044",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r1_evolving.npz": "c629201588c174b29af9bf86801b5a9bcf3ef78af7681ac2a9f485926e80c59b",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r20_evolving.npz": "75d23a4e07ead35f3fb806e006a71588a43fb3d5f7922fe14302c348657a1f57",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r21_evolving.npz": "4bab0c352c058e177ac038a5c78c80709ee7548a193a1a2311a1f8b999487eb4",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r22_evolving.npz": "fd00d07daa2d519636a630d76ab86375ad174c3dc7d2ba67b8a8ff4d018b1b0b",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r23_evolving.npz": "dacd3464e6ce737d1911f2d92416b50b5a8df4ade810636244654f60002aeb66",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r24_evolving.npz": "3e7c6004c0830e0bebe2c9ce97b6aa98d1a62589130fa835f938f9a5022652fe",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r25_evolving.npz": "adcf3ed10796df0b7bcd1e870f3141a6d5a869c39c8366b191864fea2f53945a",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r26_evolving.npz": "5df2614958d3aac2a604c3514d7d24e11774055f14a369e07ab4d5b3ea61a28f",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r27_evolving.npz": "7f849df8697b5f171e99d20fdd7e3abb2b97d34dac5170211f19db16b64b953e",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r28_evolving.npz": "2dc7f1b40f702f297ec8abf3df7154b370e84f88dcf020472d7579dec336d96f",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r29_evolving.npz": "8f62ca92054f37ff8f84a9d5e20360cef35cb2b20bee579f053b9ff2daaea264",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r2_evolving.npz": "4310d369f105cbe71eea784bb5d6fb13fdbff7380999a42a61caead840093523",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r30_evolving.npz": "a21b33435bea388d1e38d53f32799a84c787d19cdf0084e51452d1645499ab39",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r31_evolving.npz": "a8e936f1534568914220d0eda0b319b6df171baf250b400ae2f8ff7995ab7f16",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r3_evolving.npz": "9316ff24446d0fb285a3359f4d92c4ac61fc6dc1f9b4a9a7bcd455a1ccfe5a1b",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r4_evolving.npz": "a4353a539db7ee6f02d6a2ed7df442411ebee37d11865b435dda10f5be686b3a",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r5_evolving.npz": "6d966f7ebb7be0b9c2fc371b1193b4f636ab2e65dff3e7babd51c5c0319fdb3f",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r6_evolving.npz": "518da843869266cb81fe38d733d3a5e0aa82ad118a0eef1f6a0b5f39425ece96",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r7_evolving.npz": "e3cbf052336454cdcdea4b1ca052b087383736ed77767c693c115a3ce5990e7e",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r8_evolving.npz": "ef2c927f3ac2ee813c5f770b20c501d2fe872a62b39b6cdeef3fe2cb0a271c99",
+    "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r9_evolving.npz": "9d9185580f6bf4d8e1e9c386b8e9335e01c2a2c296ef3223f7b5c605eecca5ef",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r0_evolving.npz": "3238e7535a106154a0ec4b5aa1234b354b06b901e9359499cf1c65f70926a547",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r10_evolving.npz": "2d5fc56652d693129ae388079408254c1be44815dd819dab84278ad4c910e3b0",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r11_evolving.npz": "174d01a021bd7df22255ccc6aedc0da3db15f87bb78191609ffde4897da78e94",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r12_evolving.npz": "72286d8e051537a6b60ed9750360b77693b15015eb9528a0f2786a31ac531971",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r13_evolving.npz": "0b005c5e1c85a9c0c1e6213eda21d54a107665e1d9f93545dd337e8afacdd1ca",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r14_evolving.npz": "63dabc669513caa2af5566a4280643e3beb3c2f01c9c4fb933ac8fedb9164775",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r15_evolving.npz": "811aef33a61d6028b4692da71bbf635c7129cd0d0373fc48ba6cf8d89af6277e",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r16_evolving.npz": "f09d856cea5fa2f723ac258d534a19ff65ae9bb10f6b72b61d576ed69897b6af",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r17_evolving.npz": "c5b06e6877ab8b40495aa8617edf5eb23e10ea03fb561396501d6dfc096e9c5e",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r18_evolving.npz": "97e0e62809a125d57935bede42f87d7a12662e4188cc634dede278534184de32",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r19_evolving.npz": "06e5c4623dce134a97e42573c625b08b3be282f8f0365fa265f3904e2aedfd6b",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r1_evolving.npz": "8730160cf877c3a9fe74a35ad44c0d91c6c8428a41c8284c111f468e6dbc81c1",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r20_evolving.npz": "f4f330d7efc5c107668cb66087e929446dcccbf082ab4163eaa6c144b38e32bb",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r21_evolving.npz": "773589ec5467637acf44f7357b612bb267a327962eb2054f5928de3e5e4b6ee0",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r22_evolving.npz": "fbcc0d3f45ca1373705157e7d87c3a4ab4d20b0d33153f20e9aff964a729713d",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r23_evolving.npz": "fce485b98a67f5f7c05602e2f8dc1607c872eb38200115cd95425158958b41e0",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r24_evolving.npz": "3283ea1edf7415f8da8d6bb7aba0b9b952c2fbff5c72c2b35e39ead3347d3803",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r25_evolving.npz": "117b38f95d2a44106e4ab7308b3a6ca87f583a5e75236b60007c93664c6b54f0",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r26_evolving.npz": "06cb71ce6e761137da03ed6867c1b7fa00959045cd4f3efafb7d36ce5082f03a",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r27_evolving.npz": "66c973b01b9df00d30ff2ed8e0d86107a2b5bb303f3ae98f244c6f3d6876102c",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r28_evolving.npz": "dc257cde7ada05c6e4fb6b3f5b8e55faa60d38ba89c6d6ca696fdfd14465dd8e",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r29_evolving.npz": "c65d1361aa925fc2cedd88df1a7ba18eef39ff202462bba05be9093b2bf0eb03",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r2_evolving.npz": "aa82e3adba68c8f742abfb2859ef312b3b6e6792a8bfa7dd0f5e5a12af0283a5",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r30_evolving.npz": "3c57cec922e5d1977d16ef5528bdcc9d96dab189021c80b93f2c0ee604be0643",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r31_evolving.npz": "465e156b18081afd442c4a92d7620ad20bccb92fe2d78170a2aa39133143fe91",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r3_evolving.npz": "c94d59c81f0a8a0fe55b4ebe37922e927dc3850ca181ece1984801616e90b3ac",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r4_evolving.npz": "911c69baa8a476741a30dc923c44ea82e944a0c8ba90690db1f02ec06ebd926d",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r5_evolving.npz": "08a275207c1ea640e81c7729e2ae980ae9704c7b909553836ef4993795a02850",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r6_evolving.npz": "a9e29d18b5278afea0a0223835874e7015c33d7912652099f22af25895ba317f",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r7_evolving.npz": "e0fc8adfc6395ece06e67a04d77190e838cb277a9dabd9feda21f238c6f68487",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r8_evolving.npz": "7207070e2e4b83b60fcb59702672017b23c4283cf3051891e6f6868ce16a65f4",
+    "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r9_evolving.npz": "47de9f060e8b0049f934fb3570064e331cd028cdb1b2e012519963ae6e5a9c25",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r0_evolving.npz": "519011353fe1acc403a57b79355e1b5a61aedbd39adc485a8ad5b1f85eb60ac9",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r10_evolving.npz": "357c015137e613db1d17611bdbf5ceaef5c80a2d372e88c48ba04916b1c6490c",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r11_evolving.npz": "86fef0ff309d42ebd7c185027e424811acd74258ba524fc85337f356d297c06e",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r12_evolving.npz": "5c3fa1b60511dffaf03f3c25f4a2cdae4a8427804d770c828a4526dd6fc359c8",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r13_evolving.npz": "ca214d96b44c3c0beea32205b55961211a7c4699d7282e0a65ed43b64f591c8c",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r14_evolving.npz": "5609cdf12429718deeaa6f09ade2a6bb1d2e19634715c64a5d85f6049aa0cfc9",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r15_evolving.npz": "54f5d2d3d4a74d7db6a21bd51bc8df3d3558250a8b2476aabfda328ac9d2c033",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r16_evolving.npz": "5b38ca9b75789400f0ef758b10220cdbe91cb1d9aafc8f2cb76d037e98f63dc1",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r17_evolving.npz": "3bcbfd8f2737c953d53fdf0d9099f7f97923de12e4723f437ba7c4ca97ae2b21",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r18_evolving.npz": "c9ddd23e011e321c96dc6d57a7fdbc036cf1e6986e06083828da1dec61ceb015",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r19_evolving.npz": "f379852d91ac5194202bb318ffd3cc92b9ab6df9c2ecf2d334846c41b43e7aaf",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r1_evolving.npz": "7a33056e9aa0f0997794d60a2fb637923b3d9c3c7118c3fe43ed3708040d287a",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r20_evolving.npz": "61eeb763fcc9d13cd0aff84a2aaff2648c674a680588f0e92f0235459f239b3c",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r21_evolving.npz": "e15ed7bd3e7c63ba2828831138b6ff7a3f1e657c5dda329c9e4981cba73104a8",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r22_evolving.npz": "a41e9cfb86a1980abd7a4a8c57217b625445cfa3fa8db0be85f5cc030e91b8b5",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r23_evolving.npz": "1e57928474ece61c881ac6d0a53475f5888c1bdb3cda5414c888baad3cb7075a",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r24_evolving.npz": "dd40720d35b33c8c5bf925d47a7bc579c3f6a21e1ee9eff760a9039b1d4e15fc",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r25_evolving.npz": "45a39ddbeb1e32bb582abe458217d17a6364c571c5b745a3474adf3aa4e82496",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r26_evolving.npz": "6ffb35d0904283b726a6278396a878c59ac9685e693fd2ef26f09c446c712184",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r27_evolving.npz": "48f80511092a495ede52254fabc1fa46f5cb98a8c4617857523a223a962682bb",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r28_evolving.npz": "e3be32bbd62aa687c50c6b48ce0f3f7defe452b5edd0de24eaa3724675616b36",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r29_evolving.npz": "5b3b751ff42887d042e97ed984ec0091475db6b84080ce84d0c0186d394fea1d",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r2_evolving.npz": "260a4b3c7d0e17c96b06463971b3a8f2260b93e2e34a8e5a7ce99458ad41bcb5",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r30_evolving.npz": "b1c6dd5f29b82f6db06853e39944e504d5bcb67371a2c1748e1e75b71f5f64bb",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r31_evolving.npz": "a0a5705bfaf750148dae7d82e56c66734e91f73c406d2f6001eeea72361f0427",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r3_evolving.npz": "5a3662adb8d6ceccd85947f07d84dafe68d26dea9a78aa78bf01675f7d6c1806",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r4_evolving.npz": "bb615739111e4f7a3f361db2b184eaa4c6ad8a766a90d9ef59c7da1a044aec22",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r5_evolving.npz": "d0e0c30b4141f89efaebba141e6688d51a0f67df495dd6f9ae800e343a472f49",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r6_evolving.npz": "75796b8ba092e3f949f8172f49f95492ebc7dc5c6c4ec7494882ded0c6a7d315",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r7_evolving.npz": "c012fac1282a690f1e698fb4ec704d4b2a68ee99d9350468d5eead4c94e4481d",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r8_evolving.npz": "a5031a7f811e5bbc8e727a93ed1e63facfd3a20fc9b7b79fcf499ec03943eca6",
+    "causal_main_s0.0_empty_n48_standing_MI_new_A_r9_evolving.npz": "c41969a8ec732e4fb785bcf3e04b97b004cafe1aed5cd4d5ee9ac4ea4c2f6271",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r0_evolving.npz": "c74c822c0d3898615ed8c39f0e94dcd3c0c94de34a06020207f745a3eee8ae54",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r10_evolving.npz": "5760208c696be1061886a36b0d156b5e04ef1d205193aa98144847dca4d82275",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r11_evolving.npz": "73a76e8b93d826e3cefba0640f935697348ee6b3625a010707c5c041bfeaa9f5",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r12_evolving.npz": "f32b245b8d3f3dfbaaece97c294407ce2d0c0f6c3ee1c97bf141b1d60f301b72",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r13_evolving.npz": "bf125539bd4627ab00f4c19b8a16999fd7fa4504c75ac03c9d12a3bf6b184b15",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r14_evolving.npz": "5b9bbf15510dd0101d0b04e02f3a67247ef4ab4ef3b041cca6e9c9c9538d7303",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r15_evolving.npz": "1ee702f69f398a8ec7633d66e9abca0bdf9fd8524684d6d837e4f76063c5b29a",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r16_evolving.npz": "9a367188579d1f16de461a138091bc1e193f42aabeae4f391e325047a81e6667",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r17_evolving.npz": "cef8d23fa4d1d547d5bfd185e806437ddf2a736bce00d52f26f39b8b59892837",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r18_evolving.npz": "5f2ecbc1b2e0f18655b31bf4874511b600648c39bdf937b9ca38ef8f99d16ed4",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r19_evolving.npz": "48a326ecac684132dee4353c242c91bd50c71bf273ed8974d2de6d71575c8f38",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r1_evolving.npz": "d2154e2beaa4a19a9b6d5c05e0b24fd1f0d622a609c5d2bd0099092dcf994d22",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r20_evolving.npz": "1a6bc65cdc3ce5d5f7d23b89b07f61815c02174e9f588eb87eb7e7f8697b24d2",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r21_evolving.npz": "92f0d8d1aaf00cebba6efcf1414c2104d24767dcccf551ad560a8cfea22e7920",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r22_evolving.npz": "0dc41d70d690dbfd8fc07f13cbd396347b707ac8b9f1296ecc10c52945b2f44c",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r23_evolving.npz": "cc3fea80368e6105d07e2fc641b74f4fe8492246e90bec53b84b2303b0da4f62",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r24_evolving.npz": "d9cc6a1fe5b3a3f37bcfa853f6cf64d5badae59bbb554342d36f5882662eacc9",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r25_evolving.npz": "b785777821123b5851f850ad23b2162d1e257a0fd3c11b7d3616e46cb1cbc731",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r26_evolving.npz": "8c0432a9e077e45f373c77dd11c236a683a8b0d70b9b6d550b393d1d8cd384f2",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r27_evolving.npz": "00c55f1a3c7913c623f5b2cc98874ab2b8e0b5aae07cee2c6b3eec9d32612183",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r28_evolving.npz": "589f4d5ccfce0a5fea239d1736a2da82ed23db80bbb310bd44b15b264d723f54",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r29_evolving.npz": "1714e886069a786077c0675fbe6cead49c4622aaf97284fd4096e70b51e66688",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r2_evolving.npz": "6bd5d7b79de31781f57fbea97e105e60559dc3bd7f6b790795c134c2c18d9f06",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r30_evolving.npz": "b776347f68088300569279ea6753d50a56bf7710d10568ee88a713d81798e095",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r31_evolving.npz": "79a3cfa8d2a618da19110b3f5e202dd02892de7324b39a87e5ea68295ddc5425",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r3_evolving.npz": "40e1c7a5f73a92e2cfbe916c6613e77e4db91683ccbb725b2272b9d62f4bdbf7",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r4_evolving.npz": "fc6917e6371f03e6acdd66b9db6212d5f91618cedf014f66b1e0a9dbbf57e50a",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r5_evolving.npz": "cc9722fb555e74cde1f14e3d796d2ef5a938d789dcb2cef8382883199b0f0ee1",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r6_evolving.npz": "bd500f6d8027c033e4e2c40eeb51a00b3b023d48aa7a92048f97eea26c845f87",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r7_evolving.npz": "74c072438975966f6424d18d5f39b0a5cd5df9f4f1e294983dc5c0767d1babe1",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r8_evolving.npz": "b759c47764d2922bb45133b2360ce228848b172fa72982bf1d5800a762bc3df2",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r9_evolving.npz": "a712a522176af9950820964dcff87dd07f054c511bad57720b98807b93ce6fea",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r0_evolving.npz": "e49f19ae905b5433fe0c6e57fd67d72fc000aaa3a9e2f10bb27153a306f94dae",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r10_evolving.npz": "aecc6f7a9a7e10bcacec50d1114b48009a4e1f2cbf9f0b013f1dab428c4a5871",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r11_evolving.npz": "8c19b7289824ef9b7c91d3e155b929215293deb2d55a7dd71414a2368f584e8e",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r12_evolving.npz": "f4b86ec57db0eebceff1b57d133e27a7eea43a2308ab19126837262721c16f97",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r13_evolving.npz": "2e51d32a073881f931bb069a12bbc072e42ccbf4b29238e0d1a493219b9e3cce",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r14_evolving.npz": "489b109fa5bc7fd4b1fcf164b170cbfa153efb9e46d2adf91b98d199f1973c4f",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r15_evolving.npz": "5317db5f6cf642808c3ad4e197fb01db3cc1724a63ff1de50b3fde2bec563867",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r16_evolving.npz": "db6e55dcd06f5844b5e3eb5799fdf9970d018362ccc51f1ea275fd1f99d6bc6c",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r17_evolving.npz": "2938dc9a3aa500f47b12cff883b3834c4c3b5956b204cf7a2f9fcadaecb006cc",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r18_evolving.npz": "3cef8a17212df63e1e515d796be2ff47826a08b0287e2072e5b40c714c531c82",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r19_evolving.npz": "a5188cbb943f382fb8d34322f1a2d4cae6849d5a43a97ecf878414b6b07199d6",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r1_evolving.npz": "8e2e3404dfc65097c1923cd6a824b079b12691674ad01983f050ea06fef30a38",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r20_evolving.npz": "dea6786bc8fb7174c84de1f3807d38e02eda3240eac7da68ed01d9e1307134bb",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r21_evolving.npz": "9bf8c8a23d0eb3ab17926a080d8cd8d663da52e66df8f55e0dc99739eeecc8f4",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r22_evolving.npz": "f6af4cffb12968320a2a1377a58ef5155e6ff8c5d7f5ac79a882d03b6ad19e7b",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r23_evolving.npz": "75b91d39a674d7c3d752551765cd186f8eddb347369c80a2539c0d92507e66e8",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r24_evolving.npz": "67049726411794e5f59bbcc024f31026c5cce04ae0e46968e2643dab2b7ac033",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r25_evolving.npz": "092343739af12ca6428c1de4326857ae075fb2ee87a0e16328eff7c63369c19f",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r26_evolving.npz": "b5ffb5d0574237cdfcf44b3ed2cc0712b34aedd306c3fea3c7a52b5ef7e6c05d",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r27_evolving.npz": "45e3824ed949a049852c9a1e01bca1ae265bc3cb6f3d83f56ce47be9e348399f",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r28_evolving.npz": "c622f7e22134a4403e8feecb7738c32ff0506d1dd3721c985197144836325ae4",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r29_evolving.npz": "06097bc705f93d86bd0ca55497d5f5b0a2a83aaef28de90ca27ba0c5f5779cf0",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r2_evolving.npz": "79b8d6e506c5778fa5f1e0635f7d0e3a38e2d320321897f55328f0b3e50f5c49",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r30_evolving.npz": "d244f2bac32f0091901449ca583fc6e966a3627f3460122bdf32ba776667f72a",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r31_evolving.npz": "ae4be328d2f00c83531af1e42e19628a5cca1d3348f922aba9469e2bb235a1fa",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r3_evolving.npz": "ed9d0eb73c41c7314faa72825d4359afd3bbfc3995f1281234e444368778b1a7",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r4_evolving.npz": "3d2ec6c350c2ab511427b99c3f9625899b2b705468d336f0a6dfc251d65437ee",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r5_evolving.npz": "2b931e5c07cc04f22c9c63f855c7a594652c1bcb629fd0566ea72b75dc199cc5",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r6_evolving.npz": "c0be635d69953234ad9974618c62ea7ab27b9d355aa2dc34d1da7b5ed3c51e19",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r7_evolving.npz": "2da11709f1afd5da6f185e8b252049fd0f9a07c74af8c31bb2ca6936e6568400",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r8_evolving.npz": "fc4b60ceaeecf357afba4f41c25b637ffa5adfb4af247dffa3878b682fecb96d",
+    "causal_main_s0.125_separated_n48_standing_MI_new_A_r9_evolving.npz": "aebf01a70de7dfee027769e7c1baea9e48027e35163c285e8f56c3b39f90d99b",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r0_evolving.npz": "a10ddcca9fb5793f07735696b836220adb3603406e2daba6752b6ddf64c28a44",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r10_evolving.npz": "ef9d4e298ddf59ffed006e19c12ccc72e811cc5220299c2c755516cd5f260523",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r11_evolving.npz": "695f38f42ef5b3abdf7949c10d32d6dd62dfbad38170532eb22c5400e9e010ca",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r12_evolving.npz": "8101281915ead49b4b5b9d561c3c45a8d5e26fb4a965bb8b7fbdb3db024a39fe",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r13_evolving.npz": "df42e9648d0d45673c250f71f0fe6fab6ce255df6a3553a8a57479432011075e",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r14_evolving.npz": "7bf8d95c9a5b8b49391c2f88551989f24d72284d5727001a7181f46d374bf2a1",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r15_evolving.npz": "b9ba351f33efb843f127093d4f235d02492d85eb9ee4f0352e4b5d87cc83ed25",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r16_evolving.npz": "0abb61a573785a17a606ac0db3f45310784a6f6b583163d21b0c53236c71aa32",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r17_evolving.npz": "e140705b7eb64f77ab13521d11e6865475e6d3463fec4323beac42fdb4c38fd9",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r18_evolving.npz": "32a06b4c2fb1fba2adc66540719d0be26263b345594dd2daa0c0feca5b6cfa40",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r19_evolving.npz": "6be036e52190dd6ecac9585b2a267eb6c7617cda3c278d47a1dc7d784f5277c4",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r1_evolving.npz": "5a3fa25af06b0afbced1e2bca455f9823ee05a4bea82a3fa92c573e096ad9d88",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r20_evolving.npz": "f7464cd569aad27395a996e1cbcaacdb242bc9423f38ab8329a0f1997ec8b7ff",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r21_evolving.npz": "dcc645ce03050871ed788dfaef4a7d66e982134803d97ff61bd4f9caf5b317d1",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r22_evolving.npz": "d8a394c91aee8fc0c6129b3d3c4ddf5a3401c7cfcd24be7eaa21ed61dab9ce68",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r23_evolving.npz": "1d0f7720971985dbbfb03e2141981f26babe0df60bc5b13ac74bdf77182303ad",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r24_evolving.npz": "4ddac8fdf64365e8ec9f4511c68c565e845221e2c9f63187badd2a7bbb85b942",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r25_evolving.npz": "ef9baab43c1f49b6d0723a82b2e788bdc424acf78b09ce426ad3c4de228499ff",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r26_evolving.npz": "0886cdf1c72a140783637f1b0aa1b60001f32f46f752772c737bb47605e9520c",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r27_evolving.npz": "116bbf588efb2db44f67196dd1dcee823eb6b78be85a11dd5668f1930fcacf39",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r28_evolving.npz": "a4e662432d933ec81b6f0e53f73fce3588843974041b408aafc0d8545c546cb1",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r29_evolving.npz": "a1581342a1ab3427968cb8db66102f2c6656d41cf25442c2a9a64e77bf876283",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r2_evolving.npz": "82de88aa7ed81555650d8f45776dc32438a3a902d2fed43ba06c008f7e117d3b",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r30_evolving.npz": "a4da30fd13889ec25d68178eec05802d7a4b997cc300a2fe970d63a5f86ddfda",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r31_evolving.npz": "0e5d5d8cbb192c0ad2305fcfa03ddb11c61611692b349a9077f16f4be1a8fde3",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r3_evolving.npz": "58be1bb4acabd0167b6100af7e50d13143f8b7095656e8160e93c49afeff29a1",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r4_evolving.npz": "b6265820a165caf6af0f19d9f9128b6fcb37e08b4d216e66807ae6cad1a29440",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r5_evolving.npz": "51da3ac080d1e69a9e27a70c65b950307dbd498e7a80f167abf194cd57a4125f",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r6_evolving.npz": "abe181be338e71e7146713b476504773a15a171d35b96b1867009a780e32aa94",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r7_evolving.npz": "623785256a5880b4db46f21bad06893d88d68966c79fa6d88d6062d35d8385e6",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r8_evolving.npz": "59439fd41acec15797d4ce3ac06ef5570c0a241629c93f0cc1a74aa6bc43c0c2",
+    "causal_main_s1.0_matched_n48_standing_MI_new_A_r9_evolving.npz": "dfdc32bde443ba4b288aebbd1c91553b55b1924600d74f81d1ec78b41f503fb4",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r0_evolving.npz": "d5293cbcccceb23f288295463a1e6114252e4ba1d280da4dd623fa8533c440de",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r10_evolving.npz": "d14b73e1fcc987f9401912cd519a861cdf764c87ad1765cecb7c5207a3a70229",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r11_evolving.npz": "ce6f4bab0ead5f84c12bbbf3b9ffcff2b1a6b0259a3761c35fca7a8c7f74c406",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r12_evolving.npz": "7b0ff66cbeb9e03f3b3258761f93749a5eb8b78530a0f0e3e3e416d905b7f265",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r13_evolving.npz": "cdcd526031f75a459f3eb7d508cb72d48fffac1efa11edc7ea12568b03ddc376",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r14_evolving.npz": "db3c4d076826d5e8096dd7a55e7ce1ccef0221fb36c5c8b85d0faed5b492afb3",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r15_evolving.npz": "9095929b332b8fe74393f75ca706f6502b16b1fc25045f5ecb9b387cc926e2a3",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r16_evolving.npz": "bca867c9f7d3c997af9a2bac3e75e0878c30800a66f1cc40cd7cc79a208054a2",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r17_evolving.npz": "df9871dfe76f7ebbad88b9c95424bb4872a75fb1e61b12c94818a1d14c5f8198",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r18_evolving.npz": "5ceea2e59162753417f3be7a3a022b9c9581e6f8fe07e96a3a6b71cd119571eb",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r19_evolving.npz": "3e76b11aa8f8f2bf21bbc71b3db6bc3d215b9dd4bb437ce200cd4ca10ec3aeee",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r1_evolving.npz": "285e441230dca6ccc3645812312f384d0c54afba588b246b3a74f0e34a4dc615",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r20_evolving.npz": "fac539e6341980cc0ba567c3e656ce614bbdbb2978f7b6fdf3ff114ac7b93b49",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r21_evolving.npz": "1876a6ed429249315121d1cc7a2e2855093f26ac88070d292cb7c6c65ac8f836",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r22_evolving.npz": "db985e578a177a04faf2a59d142160c6c38aac8e35290470f8a503dff7b4709d",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r23_evolving.npz": "38659cbfc3e04429ce55665c20a5d0ee92df50c37d4bfd82febee050d10138b5",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r24_evolving.npz": "f83f2711dcb9a3671876d84f995b592e001b1e926d741d8ab9bc1142c792e6e8",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r25_evolving.npz": "570db01daa59c2b169976d9016ae5427cc286c83203fd8f1501d7610f340e147",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r26_evolving.npz": "36f5515d1b49b87d7f632e30ee0df3d038b98850f8e8d0cbdd4f304a13fa474b",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r27_evolving.npz": "5caffcf325bd2fd1ae7f32e25cde48cffc8aa012b2185e788ffa6f200a3497f5",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r28_evolving.npz": "877f64f954539b9438acade1e2ea0b44f5e801361bcbd5841dadbdd813ae22c8",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r29_evolving.npz": "f99ac55c8926e4cd347bb940d0db3bb0c99f4c19b9413ba264489640e994eb78",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r2_evolving.npz": "0aa25633e3df11df8009db385784819c380da9cb7c0a196df262b83f8923016d",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r30_evolving.npz": "4315ac5ef731656f760fcb9305583ff383659bb0b232f1b82fe03dadf534f5b3",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r31_evolving.npz": "111fe4d99241b2d7e40616a8e5bd0203ac37e4349a232eea27f7e558f2f47744",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r3_evolving.npz": "e762c9abe12f85a87d80609a56610879949d31e6fcf94d0b8bf2db91ce57249f",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r4_evolving.npz": "e52a903efb6de7895796e57212ade668b5c93a50f2c927f6b255e22203a7d8a1",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r5_evolving.npz": "652aca1f43b827151bd97274346d80db4de9c393a0019e7603a1faa9eb0372f7",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r6_evolving.npz": "ed9b13d6d257766e2d9a7dae73d0e0d214439b58207bfb33cb6305cf87823fd1",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r7_evolving.npz": "3284fa548e02cf75f20f92cb1bd04c7996b79286b44bbdc3985e2fe209bbf3be",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r8_evolving.npz": "eb87701172e4476e653f4da7df77f4c9dadab90956c479b9f767bb24ef3e8d0d",
+    "causal_main_s1.0_separated_n48_standing_MI_new_A_r9_evolving.npz": "01fcb445d1c6a5a6b954ee19ba5d108287a17084f7e475ceeab217fa9c81fb04"
+  },
+  "design": {
+    "limits": [
+      "descriptive existing32 histories per synthetic context; no new significance tests",
+      "density is not assumed equal to stochastic ensemble mean",
+      "matched initial state does not imply identical future genotype or census states",
+      "category disagreement alone does not isolate drift versus segregation versus demographic feedback",
+      "no natural-order survival mediation inference"
+    ],
+    "numerical_gate": "require complete30 archives and independent10 two-adjacent-level decisions; report admitted and unadmitted inventory; refuse biological comparison for any unadmitted context",
+    "outputs": [
+      "all-start six-category order counts for each context and threshold",
+      "all-start terminal occupancy among32 starts",
+      "conditional living-population mean traits at0/25/100/200 with eligible count",
+      "finest admitted density event categories and moments at identical times"
+    ],
+    "responses": {
+      "horizon": 200,
+      "sustained": 20,
+      "thresholds": [
+        0.025,
+        0.05,
+        0.1
+      ],
+      "tie": 5
+    },
+    "scope": "ten original contexts, all32 existing ABM repetitions per context, exact same founders and visitors; evolving assurance only mutation K48",
+    "sources": [
+      "assurance_causal_design.json",
+      "assurance_causal_inputs.py",
+      "assurance_causal_runner.py",
+      "order_events.py"
+    ],
+    "status": "diagnostic_declared_before_new_numerical_admission_existing_abm_outcomes_not_new_confirmatory_test"
+  },
+  "producer_sha256": "9e16d65a0194e42312ea441647caf87ec9084ccb9a20216e88dd6caee206a6c6",
+  "rows": [
+    {
+      "checkpoints": [
+        {
+          "abm_living_mean_traits": [
+            0.515625,
+            0.53125,
+            0.5
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            48.0,
+            0.515625,
+            0.53125,
+            0.5,
+            0.005615234375,
+            -0.00341796875,
+            0.0,
+            -0.00341796875,
+            0.00390625,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "living_abm_starts": 32,
+          "year": 0
+        },
+        {
+          "abm_living_mean_traits": [
+            0.5304361979166667,
+            0.46590169270833326,
+            0.5033300456718723
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            48.0,
+            0.538655995414387,
+            0.43415822814833277,
+            0.5152717935561669,
+            0.008130319066537644,
+            0.0004575020879441522,
+            -1.2643424363564953e-18,
+            0.00045750208794415205,
+            0.006100670571553013,
+            -2.3764027012419417e-19,
+            -1.3401428895465937e-18,
+            -2.7370984262608694e-19,
+            0.001488952461736487
+          ],
+          "living_abm_starts": 32,
+          "year": 25
+        },
+        {
+          "abm_living_mean_traits": [
+            0.55224609375,
+            0.4464518229166667,
+            0.5840100061525552
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            47.99999999999999,
+            0.5233722108695595,
+            0.37614199775674395,
+            0.808955130133728,
+            0.007460551047903628,
+            6.964680606216248e-05,
+            2.1738065236881576e-19,
+            6.964680606216248e-05,
+            0.00014175589525199938,
+            -7.99705808507079e-20,
+            5.042424771722722e-19,
+            -7.545307179868497e-20,
+            0.0050763774727030685
+          ],
+          "living_abm_starts": 32,
+          "year": 100
+        },
+        {
+          "abm_living_mean_traits": [
+            0.546875,
+            0.4453125,
+            0.6521408828043682
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            48.0,
+            0.5228116319573335,
+            0.3750048488383447,
+            0.9172310049386132,
+            0.007440518219623864,
+            2.9978394628584124e-07,
+            -5.956581271927138e-20,
+            2.9978394628584124e-07,
+            6.06082452773646e-07,
+            1.588545066206819e-22,
+            1.2709920483161966e-20,
+            1.5885450451705283e-22,
+            0.0026813663107569346
+          ],
+          "living_abm_starts": 32,
+          "year": 200
+        }
+      ],
+      "context": "causal_main_s0.0_empty_n48_standing_MI_new_A_r0_evolving",
+      "events": [
+        {
+          "abm_counts": {
+            "assurance_first": 1,
+            "assurance_only": 3,
+            "investment_first": 28,
+            "investment_only": 0,
+            "near_simultaneous": 0,
+            "neither": 0
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": 30,
+            "category": "investment_first",
+            "investment_time": 7
+          },
+          "threshold": 0.025
+        },
+        {
+          "abm_counts": {
+            "assurance_first": 0,
+            "assurance_only": 11,
+            "investment_first": 19,
+            "investment_only": 1,
+            "near_simultaneous": 0,
+            "neither": 1
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": 36,
+            "category": "investment_first",
+            "investment_time": 13
+          },
+          "threshold": 0.05
+        },
+        {
+          "abm_counts": {
+            "assurance_first": 0,
+            "assurance_only": 9,
+            "investment_first": 13,
+            "investment_only": 5,
+            "near_simultaneous": 0,
+            "neither": 5
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": 45,
+            "category": "investment_first",
+            "investment_time": 27
+          },
+          "threshold": 0.1
+        }
+      ],
+      "status": "admitted_descriptive_comparison"
+    },
+    {
+      "checkpoints": [
+        {
+          "abm_living_mean_traits": [
+            0.515625,
+            0.53125,
+            0.5
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            48.0,
+            0.515625,
+            0.53125,
+            0.5,
+            0.005615234375,
+            -0.00341796875,
+            0.0,
+            -0.00341796875,
+            0.00390625,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "living_abm_starts": 32,
+          "year": 0
+        },
+        {
+          "abm_living_mean_traits": [
+            0.51220703125,
+            0.5281982421875,
+            0.5063048086133971
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            47.99999999999998,
+            0.5076504858972544,
+            0.5169050233923362,
+            0.5060906105347823,
+            0.003985751143308017,
+            -5.5711761232460404e-05,
+            3.995670470951376e-06,
+            -5.571176123246049e-05,
+            0.007450798475769635,
+            -3.135276980537411e-05,
+            3.995670470951374e-06,
+            -3.1352769805374096e-05,
+            0.000645811178922857
+          ],
+          "living_abm_starts": 32,
+          "year": 25
+        },
+        {
+          "abm_living_mean_traits": [
+            0.5042317708333333,
+            0.5136311848958334,
+            0.5740668123898843
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            48.0,
+            0.500381569052562,
+            0.4566546532895977,
+            0.6975617632350776,
+            0.00023195435672968768,
+            -2.344361776589846e-06,
+            2.2168271880286044e-06,
+            -2.3443617765898447e-06,
+            0.006174367039694013,
+            -0.00019890973171901962,
+            2.2168271880286073e-06,
+            -0.0001989097317190195,
+            0.006058490289806761
+          ],
+          "living_abm_starts": 32,
+          "year": 100
+        },
+        {
+          "abm_living_mean_traits": [
+            0.5,
+            0.51123046875,
+            0.6526562569049803
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            48.00000000000002,
+            0.5000234443998023,
+            0.3888530667730501,
+            0.8583294293601857,
+            1.4965904372166014e-05,
+            -2.984316918163046e-08,
+            5.896729379904587e-08,
+            -2.984316918163055e-08,
+            0.0013588092254616221,
+            -1.905977395131283e-05,
+            5.896729379904595e-08,
+            -1.9059773951312796e-05,
+            0.0040750516229767515
+          ],
+          "living_abm_starts": 32,
+          "year": 200
+        }
+      ],
+      "context": "causal_main_s0.125_matched_n48_standing_MI_new_A_r0_evolving",
+      "events": [
+        {
+          "abm_counts": {
+            "assurance_first": 6,
+            "assurance_only": 5,
+            "investment_first": 16,
+            "investment_only": 2,
+            "near_simultaneous": 2,
+            "neither": 1
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": 44,
+            "category": "near_simultaneous",
+            "investment_time": 45
+          },
+          "threshold": 0.025
+        },
+        {
+          "abm_counts": {
+            "assurance_first": 3,
+            "assurance_only": 15,
+            "investment_first": 6,
+            "investment_only": 1,
+            "near_simultaneous": 1,
+            "neither": 6
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": 56,
+            "category": "assurance_first",
+            "investment_time": 77
+          },
+          "threshold": 0.05
+        },
+        {
+          "abm_counts": {
+            "assurance_first": 1,
+            "assurance_only": 18,
+            "investment_first": 6,
+            "investment_only": 1,
+            "near_simultaneous": 0,
+            "neither": 6
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": 72,
+            "category": "assurance_first",
+            "investment_time": 126
+          },
+          "threshold": 0.1
+        }
+      ],
+      "status": "admitted_descriptive_comparison"
+    },
+    {
+      "checkpoints": [
+        {
+          "abm_living_mean_traits": [
+            0.515625,
+            0.53125,
+            0.5
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            48.0,
+            0.515625,
+            0.53125,
+            0.5,
+            0.005615234375,
+            -0.00341796875,
+            0.0,
+            -0.00341796875,
+            0.00390625,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "living_abm_starts": 32,
+          "year": 0
+        },
+        {
+          "abm_living_mean_traits": [
+            0.5557454427083333,
+            0.4612630208333333,
+            0.5121125196544688
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            47.99999999999999,
+            0.558631759249212,
+            0.4621665451485361,
+            0.5110289778192105,
+            0.007715188543146526,
+            0.0001453430056843281,
+            -4.203020545261418e-05,
+            0.0001453430056843281,
+            0.006490765217421318,
+            -3.7116656993766894e-05,
+            -4.2030205452614125e-05,
+            -3.711665699376695e-05,
+            0.0010718824503978318
+          ],
+          "living_abm_starts": 32,
+          "year": 25
+        },
+        {
+          "abm_living_mean_traits": [
+            0.5592447916666667,
+            0.4204508463541667,
+            0.5764824550789438
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            48.00000000000001,
+            0.6030945322006577,
+            0.38354683971820486,
+            0.7808176405401198,
+            0.0032166465456946974,
+            7.166456430288073e-05,
+            -0.0002121425157773978,
+            7.166456430288075e-05,
+            0.0009300615465852323,
+            -3.0144965808693344e-05,
+            -0.0002121425157773978,
+            -3.0144965808693344e-05,
+            0.005376139234706262
+          ],
+          "living_abm_starts": 32,
+          "year": 100
+        },
+        {
+          "abm_living_mean_traits": [
+            0.5625,
+            0.421875,
+            0.6578262557569482
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            47.99999999999999,
+            0.6214020041604952,
+            0.37517675280268664,
+            0.8999947344983558,
+            0.0005216379221331345,
+            2.1234393341010588e-07,
+            -1.7825427171720064e-05,
+            2.1234393341010588e-07,
+            2.040405211802174e-05,
+            -2.1721841808176275e-07,
+            -1.7825427171720064e-05,
+            -2.172184180817625e-07,
+            0.0031360719566686985
+          ],
+          "living_abm_starts": 32,
+          "year": 200
+        }
+      ],
+      "context": "causal_main_s0.125_separated_n48_standing_MI_new_A_r0_evolving",
+      "events": [
+        {
+          "abm_counts": {
+            "assurance_first": 2,
+            "assurance_only": 0,
+            "investment_first": 30,
+            "investment_only": 0,
+            "near_simultaneous": 0,
+            "neither": 0
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": 34,
+            "category": "investment_first",
+            "investment_time": 9
+          },
+          "threshold": 0.025
+        },
+        {
+          "abm_counts": {
+            "assurance_first": 1,
+            "assurance_only": 9,
+            "investment_first": 18,
+            "investment_only": 3,
+            "near_simultaneous": 1,
+            "neither": 0
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": 41,
+            "category": "investment_first",
+            "investment_time": 18
+          },
+          "threshold": 0.05
+        },
+        {
+          "abm_counts": {
+            "assurance_first": 1,
+            "assurance_only": 6,
+            "investment_first": 8,
+            "investment_only": 11,
+            "near_simultaneous": 1,
+            "neither": 5
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": 52,
+            "category": "investment_first",
+            "investment_time": 43
+          },
+          "threshold": 0.1
+        }
+      ],
+      "status": "admitted_descriptive_comparison"
+    },
+    {
+      "checkpoints": [
+        {
+          "abm_living_mean_traits": [
+            0.515625,
+            0.53125,
+            0.5
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            48.0,
+            0.515625,
+            0.53125,
+            0.5,
+            0.005615234375,
+            -0.00341796875,
+            0.0,
+            -0.00341796875,
+            0.00390625,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "living_abm_starts": 32,
+          "year": 0
+        },
+        {
+          "abm_living_mean_traits": [
+            0.49739583333333337,
+            0.5733642578124999,
+            0.5023250835207163
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            48.000000000000014,
+            0.5013195895379591,
+            0.5810988749086783,
+            0.5001055035444096,
+            0.0022427478701214964,
+            -2.8828490833917873e-07,
+            5.213283007999916e-08,
+            -2.8828490833917873e-07,
+            0.002864450221516583,
+            -1.444814183786079e-06,
+            5.213283007999805e-08,
+            -1.4448141837860803e-06,
+            0.00033342397142631613
+          ],
+          "living_abm_starts": 32,
+          "year": 25
+        },
+        {
+          "abm_living_mean_traits": [
+            0.49841308593749994,
+            0.6087646484375,
+            0.49985091757275196
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            47.99999999999998,
+            0.5000123757324049,
+            0.6194710649539059,
+            0.4982333734076096,
+            3.237408607996964e-05,
+            -1.8513018503004683e-10,
+            1.3470545655525277e-09,
+            -1.8513018503016566e-10,
+            0.00036660105014376716,
+            -6.047049827020319e-07,
+            1.3470545655522448e-09,
+            -6.047049827020433e-07,
+            0.001264658987113865
+          ],
+          "living_abm_starts": 32,
+          "year": 100
+        },
+        {
+          "abm_living_mean_traits": [
+            0.5,
+            0.616455078125,
+            0.501035977881461
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            47.99999999999999,
+            0.5000000309887068,
+            0.6246047529369307,
+            0.49118673346720154,
+            8.135380823039264e-08,
+            -3.167016373063339e-14,
+            6.277486334220773e-12,
+            -3.16701637306327e-14,
+            2.6465855696816506e-05,
+            -8.193235001000627e-08,
+            6.277486334220779e-12,
+            -8.193235001000543e-08,
+            0.0023794371184839734
+          ],
+          "living_abm_starts": 32,
+          "year": 200
+        }
+      ],
+      "context": "causal_main_s1.0_matched_n48_standing_MI_new_A_r0_evolving",
+      "events": [
+        {
+          "abm_counts": {
+            "assurance_first": 0,
+            "assurance_only": 11,
+            "investment_first": 1,
+            "investment_only": 0,
+            "near_simultaneous": 0,
+            "neither": 20
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": null,
+            "category": "neither",
+            "investment_time": null
+          },
+          "threshold": 0.025
+        },
+        {
+          "abm_counts": {
+            "assurance_first": 0,
+            "assurance_only": 3,
+            "investment_first": 0,
+            "investment_only": 0,
+            "near_simultaneous": 0,
+            "neither": 29
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": null,
+            "category": "neither",
+            "investment_time": null
+          },
+          "threshold": 0.05
+        },
+        {
+          "abm_counts": {
+            "assurance_first": 0,
+            "assurance_only": 0,
+            "investment_first": 0,
+            "investment_only": 0,
+            "near_simultaneous": 0,
+            "neither": 32
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": null,
+            "category": "neither",
+            "investment_time": null
+          },
+          "threshold": 0.1
+        }
+      ],
+      "status": "admitted_descriptive_comparison"
+    },
+    {
+      "checkpoints": [
+        {
+          "abm_living_mean_traits": [
+            0.515625,
+            0.53125,
+            0.5
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            48.0,
+            0.515625,
+            0.53125,
+            0.5,
+            0.005615234375,
+            -0.00341796875,
+            0.0,
+            -0.00341796875,
+            0.00390625,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "living_abm_starts": 32,
+          "year": 0
+        },
+        {
+          "abm_living_mean_traits": [
+            0.4976806640624999,
+            0.55078125,
+            0.5068840796890309
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            47.99999999999999,
+            0.6190616813744122,
+            0.546356322522119,
+            0.5021333942115095,
+            0.0005747535726233139,
+            2.128265100895292e-05,
+            -2.8697580998375332e-06,
+            2.1282651008952902e-05,
+            0.004096799260404666,
+            -5.4620872852335966e-06,
+            -2.869758099837534e-06,
+            -5.462087285233587e-06,
+            0.0003945723140990026
+          ],
+          "living_abm_starts": 32,
+          "year": 25
+        },
+        {
+          "abm_living_mean_traits": [
+            0.4921875,
+            0.5830485026041667,
+            0.527939512163971
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            48.00000000000001,
+            0.6249999909041649,
+            0.6036976371713719,
+            0.52504574152137,
+            7.373994111135211e-10,
+            8.199523928462693e-12,
+            -1.4744124039989593e-11,
+            8.199523928462683e-12,
+            0.001416144187326159,
+            -8.000504196049785e-06,
+            -1.4744124039989602e-11,
+            -8.000504196049877e-06,
+            0.0019282629453693557
+          ],
+          "living_abm_starts": 32,
+          "year": 100
+        },
+        {
+          "abm_living_mean_traits": [
+            0.4921875,
+            0.5908610026041667,
+            0.5518763462841579
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            47.99999999999999,
+            0.6249999999999991,
+            0.620841508091187,
+            0.5887699366977323,
+            2.7550780730716473e-17,
+            7.702819912389894e-20,
+            -1.1175563901053708e-18,
+            7.702819912389902e-20,
+            0.00031090865792102976,
+            -3.623774291308921e-06,
+            -1.1175563901053708e-18,
+            -3.623774291308921e-06,
+            0.004347570246473896
+          ],
+          "living_abm_starts": 32,
+          "year": 200
+        }
+      ],
+      "context": "causal_main_s1.0_separated_n48_standing_MI_new_A_r0_evolving",
+      "events": [
+        {
+          "abm_counts": {
+            "assurance_first": 2,
+            "assurance_only": 13,
+            "investment_first": 3,
+            "investment_only": 5,
+            "near_simultaneous": 0,
+            "neither": 9
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": 100,
+            "category": "assurance_only",
+            "investment_time": null
+          },
+          "threshold": 0.025
+        },
+        {
+          "abm_counts": {
+            "assurance_first": 0,
+            "assurance_only": 11,
+            "investment_first": 2,
+            "investment_only": 0,
+            "near_simultaneous": 0,
+            "neither": 19
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": 145,
+            "category": "assurance_only",
+            "investment_time": null
+          },
+          "threshold": 0.05
+        },
+        {
+          "abm_counts": {
+            "assurance_first": 0,
+            "assurance_only": 5,
+            "investment_first": 0,
+            "investment_only": 1,
+            "near_simultaneous": 0,
+            "neither": 26
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": null,
+            "category": "neither",
+            "investment_time": null
+          },
+          "threshold": 0.1
+        }
+      ],
+      "status": "admitted_descriptive_comparison"
+    },
+    {
+      "checkpoints": [
+        {
+          "abm_living_mean_traits": [
+            0.5078125,
+            0.4609375,
+            0.5
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            48.0,
+            0.5078125,
+            0.4609375,
+            0.5,
+            0.00335693359375,
+            -0.00067138671875,
+            0.0,
+            -0.00067138671875,
+            0.00286865234375,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "living_abm_starts": 32,
+          "year": 0
+        },
+        {
+          "abm_living_mean_traits": [
+            0.5233561197916666,
+            0.40332031250000006,
+            0.5095644940818094
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            48.00000000000001,
+            0.5172701992249052,
+            0.3973027959051242,
+            0.5152717935561258,
+            0.010768986998490455,
+            -0.0007634048000660812,
+            7.967314479700971e-19,
+            -0.0007634048000660814,
+            0.0028039499118565374,
+            8.361582019197539e-19,
+            8.690821788814019e-19,
+            8.293800168700883e-19,
+            0.0014889524617364787
+          ],
+          "living_abm_starts": 32,
+          "year": 25
+        },
+        {
+          "abm_living_mean_traits": [
+            0.5282389322916666,
+            0.390625,
+            0.5729674411839069
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            48.00000000000001,
+            0.5244933323247305,
+            0.3753586445858165,
+            0.8089551301337192,
+            0.010303244458419085,
+            -1.7946540573417705e-05,
+            -6.838640888902578e-18,
+            -1.7946540573417705e-05,
+            4.4753773114684484e-05,
+            -1.4318703198446044e-20,
+            -6.80228878252271e-18,
+            -1.481273681929334e-20,
+            0.005076377472703079
+          ],
+          "living_abm_starts": 32,
+          "year": 100
+        },
+        {
+          "abm_living_mean_traits": [
+            0.5234375,
+            0.390625,
+            0.6547748227455326
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            48.00000000000001,
+            0.5246367034351151,
+            0.37500151480342975,
+            0.9172310049386049,
+            0.0102918509868065,
+            -7.609988452085909e-08,
+            -6.286638704885928e-19,
+            -7.609988452085909e-08,
+            1.8934833176920332e-07,
+            6.565412055841659e-23,
+            -7.732241601543785e-19,
+            6.565412055841659e-23,
+            0.0026813663107569385
+          ],
+          "living_abm_starts": 32,
+          "year": 200
+        }
+      ],
+      "context": "causal_confirmation_s0.0_empty_n48_standing_MI_new_A_r0_evolving",
+      "events": [
+        {
+          "abm_counts": {
+            "assurance_first": 0,
+            "assurance_only": 4,
+            "investment_first": 26,
+            "investment_only": 1,
+            "near_simultaneous": 1,
+            "neither": 0
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": 30,
+            "category": "investment_first",
+            "investment_time": 8
+          },
+          "threshold": 0.025
+        },
+        {
+          "abm_counts": {
+            "assurance_first": 0,
+            "assurance_only": 4,
+            "investment_first": 21,
+            "investment_only": 5,
+            "near_simultaneous": 2,
+            "neither": 0
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": 36,
+            "category": "investment_first",
+            "investment_time": 17
+          },
+          "threshold": 0.05
+        },
+        {
+          "abm_counts": {
+            "assurance_first": 0,
+            "assurance_only": 21,
+            "investment_first": 0,
+            "investment_only": 0,
+            "near_simultaneous": 0,
+            "neither": 11
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": 45,
+            "category": "assurance_only",
+            "investment_time": null
+          },
+          "threshold": 0.1
+        }
+      ],
+      "status": "admitted_descriptive_comparison"
+    },
+    {
+      "checkpoints": [
+        {
+          "abm_living_mean_traits": [
+            0.5078125,
+            0.4609375,
+            0.5
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            48.0,
+            0.5078125,
+            0.4609375,
+            0.5,
+            0.00335693359375,
+            -0.00067138671875,
+            0.0,
+            -0.00067138671875,
+            0.00286865234375,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "living_abm_starts": 32,
+          "year": 0
+        },
+        {
+          "abm_living_mean_traits": [
+            0.5117187500000001,
+            0.45373535156249994,
+            0.5058495889925368
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            47.99999999999999,
+            0.5039104895637372,
+            0.4466935348022239,
+            0.5071083477540046,
+            0.005494340908099889,
+            -5.4122651216561905e-05,
+            2.5176639561102966e-06,
+            -5.412265121656197e-05,
+            0.006497531873243018,
+            -3.0425094555162973e-05,
+            2.517663956110253e-06,
+            -3.0425094555163e-05,
+            0.0007258238537768159
+          ],
+          "living_abm_starts": 32,
+          "year": 25
+        },
+        {
+          "abm_living_mean_traits": [
+            0.49987792968749994,
+            0.43339029947916663,
+            0.5681717996764561
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            48.00000000000004,
+            0.5003543152173869,
+            0.40470398686246467,
+            0.7198006155856662,
+            0.0005616949491714426,
+            -9.827821067001285e-07,
+            1.8601575484896028e-06,
+            -9.827821067001227e-07,
+            0.0029490221599704105,
+            -8.70507931661422e-05,
+            1.8601575484896021e-06,
+            -8.705079316614213e-05,
+            0.005854425264256667
+          ],
+          "living_abm_starts": 32,
+          "year": 100
+        },
+        {
+          "abm_living_mean_traits": [
+            0.4921875,
+            0.427001953125,
+            0.6295169880527413
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            47.99999999999999,
+            0.5000265190634015,
+            0.37895477642665926,
+            0.8655320977663041,
+            4.3371821764392084e-05,
+            -9.980557863761675e-09,
+            6.130611140907878e-08,
+            -9.980557863761675e-09,
+            0.0004091298977773426,
+            -5.3280501266849706e-06,
+            6.13061114090788e-08,
+            -5.3280501266849706e-06,
+            0.0038909097781686408
+          ],
+          "living_abm_starts": 32,
+          "year": 200
+        }
+      ],
+      "context": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r0_evolving",
+      "events": [
+        {
+          "abm_counts": {
+            "assurance_first": 3,
+            "assurance_only": 9,
+            "investment_first": 16,
+            "investment_only": 2,
+            "near_simultaneous": 1,
+            "neither": 1
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": 41,
+            "category": "assurance_first",
+            "investment_time": 47
+          },
+          "threshold": 0.025
+        },
+        {
+          "abm_counts": {
+            "assurance_first": 2,
+            "assurance_only": 7,
+            "investment_first": 11,
+            "investment_only": 5,
+            "near_simultaneous": 2,
+            "neither": 5
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": 52,
+            "category": "assurance_first",
+            "investment_time": 89
+          },
+          "threshold": 0.05
+        },
+        {
+          "abm_counts": {
+            "assurance_first": 0,
+            "assurance_only": 18,
+            "investment_first": 0,
+            "investment_only": 0,
+            "near_simultaneous": 0,
+            "neither": 14
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": 66,
+            "category": "assurance_only",
+            "investment_time": null
+          },
+          "threshold": 0.1
+        }
+      ],
+      "status": "admitted_descriptive_comparison"
+    },
+    {
+      "checkpoints": [
+        {
+          "abm_living_mean_traits": [
+            0.5078125,
+            0.4609375,
+            0.5
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            48.0,
+            0.5078125,
+            0.4609375,
+            0.5,
+            0.00335693359375,
+            -0.00067138671875,
+            0.0,
+            -0.00067138671875,
+            0.00286865234375,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "living_abm_starts": 32,
+          "year": 0
+        },
+        {
+          "abm_living_mean_traits": [
+            0.52099609375,
+            0.41194661458333337,
+            0.5109002584508342
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            48.00000000000002,
+            0.5229995409912704,
+            0.4098981053226144,
+            0.5117228441711615,
+            0.010984878252135512,
+            -0.0005109727964622492,
+            -1.5739429199456797e-05,
+            -0.0005109727964622491,
+            0.0039872905655840745,
+            -2.0295712318294313e-05,
+            -1.5739429199456797e-05,
+            -2.029571231829428e-05,
+            0.0011380806275447669
+          ],
+          "living_abm_starts": 32,
+          "year": 25
+        },
+        {
+          "abm_living_mean_traits": [
+            0.5122884114583334,
+            0.3898518880208333,
+            0.5769828697677779
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            48.00000000000001,
+            0.5742343446406829,
+            0.37646475195462636,
+            0.7862025432490565,
+            0.00786743282832191,
+            6.370166070311393e-06,
+            -0.0002657273885828068,
+            6.370166070311393e-06,
+            0.00017035112265199282,
+            -4.369318603225472e-06,
+            -0.0002657273885828068,
+            -4.3693186032254705e-06,
+            0.0053010732926570756
+          ],
+          "living_abm_starts": 32,
+          "year": 100
+        },
+        {
+          "abm_living_mean_traits": [
+            0.515625,
+            0.3897298177083333,
+            0.651489044274725
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            48.0,
+            0.6157062299283621,
+            0.3750258539823576,
+            0.901689712527709,
+            0.0016390788103964576,
+            8.462022690552952e-08,
+            -4.7541203038947266e-05,
+            8.462022690552953e-08,
+            2.9942721482831657e-06,
+            -3.267666203298267e-08,
+            -4.7541203038947286e-05,
+            -3.2676662032982596e-08,
+            0.003083953775736149
+          ],
+          "living_abm_starts": 32,
+          "year": 200
+        }
+      ],
+      "context": "causal_confirmation_s0.125_separated_n48_standing_MI_new_A_r0_evolving",
+      "events": [
+        {
+          "abm_counts": {
+            "assurance_first": 2,
+            "assurance_only": 3,
+            "investment_first": 22,
+            "investment_only": 3,
+            "near_simultaneous": 2,
+            "neither": 0
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": 33,
+            "category": "investment_first",
+            "investment_time": 11
+          },
+          "threshold": 0.025
+        },
+        {
+          "abm_counts": {
+            "assurance_first": 2,
+            "assurance_only": 4,
+            "investment_first": 19,
+            "investment_only": 7,
+            "near_simultaneous": 0,
+            "neither": 0
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": 40,
+            "category": "investment_first",
+            "investment_time": 25
+          },
+          "threshold": 0.05
+        },
+        {
+          "abm_counts": {
+            "assurance_first": 0,
+            "assurance_only": 19,
+            "investment_first": 0,
+            "investment_only": 0,
+            "near_simultaneous": 0,
+            "neither": 13
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": 51,
+            "category": "assurance_only",
+            "investment_time": null
+          },
+          "threshold": 0.1
+        }
+      ],
+      "status": "admitted_descriptive_comparison"
+    },
+    {
+      "checkpoints": [
+        {
+          "abm_living_mean_traits": [
+            0.5078125,
+            0.4609375,
+            0.5
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            48.0,
+            0.5078125,
+            0.4609375,
+            0.5,
+            0.00335693359375,
+            -0.00067138671875,
+            0.0,
+            -0.00067138671875,
+            0.00286865234375,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "living_abm_starts": 32,
+          "year": 0
+        },
+        {
+          "abm_living_mean_traits": [
+            0.5139567057291667,
+            0.5187174479166667,
+            0.4971313316874482
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            48.00000000000003,
+            0.5007870521796675,
+            0.5364868776840285,
+            0.5003278603970561,
+            0.0027753550721718585,
+            -3.6910898801321174e-07,
+            3.757625845877575e-08,
+            -3.691089880132118e-07,
+            0.005030207939259336,
+            -2.9356942026633624e-06,
+            3.757625845878037e-08,
+            -2.935694202663376e-06,
+            0.0003381220473149099
+          ],
+          "living_abm_starts": 32,
+          "year": 25
+        },
+        {
+          "abm_living_mean_traits": [
+            0.5002848307291667,
+            0.5924886067708334,
+            0.4990996032618011
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            47.99999999999999,
+            0.5000069007733108,
+            0.6147431273451773,
+            0.49901892343060933,
+            4.0965095077659035e-05,
+            -1.969852144384925e-10,
+            7.614499937023866e-10,
+            -1.9698521443865132e-10,
+            0.0006815328598421884,
+            -1.1423443414636596e-06,
+            7.614499937025273e-10,
+            -1.1423443414636604e-06,
+            0.001262828541317312
+          ],
+          "living_abm_starts": 32,
+          "year": 100
+        },
+        {
+          "abm_living_mean_traits": [
+            0.4986979166666667,
+            0.5981038411458334,
+            0.5124096941810604
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            48.000000000000014,
+            0.5000000172103164,
+            0.6242743892859635,
+            0.4920060279679362,
+            1.0257809815511904e-07,
+            -3.242774034432592e-14,
+            3.477643842056215e-12,
+            -3.242774034434656e-14,
+            4.8533158067415776e-05,
+            -1.4976851281333533e-07,
+            3.4776438420573014e-12,
+            -1.4976851281333644e-07,
+            0.0023715371110144966
+          ],
+          "living_abm_starts": 32,
+          "year": 200
+        }
+      ],
+      "context": "causal_confirmation_s1.0_matched_n48_standing_MI_new_A_r0_evolving",
+      "events": [
+        {
+          "abm_counts": {
+            "assurance_first": 0,
+            "assurance_only": 12,
+            "investment_first": 0,
+            "investment_only": 2,
+            "near_simultaneous": 0,
+            "neither": 18
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": null,
+            "category": "neither",
+            "investment_time": null
+          },
+          "threshold": 0.025
+        },
+        {
+          "abm_counts": {
+            "assurance_first": 0,
+            "assurance_only": 6,
+            "investment_first": 0,
+            "investment_only": 0,
+            "near_simultaneous": 0,
+            "neither": 26
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": null,
+            "category": "neither",
+            "investment_time": null
+          },
+          "threshold": 0.05
+        },
+        {
+          "abm_counts": {
+            "assurance_first": 0,
+            "assurance_only": 2,
+            "investment_first": 0,
+            "investment_only": 0,
+            "near_simultaneous": 0,
+            "neither": 30
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": null,
+            "category": "neither",
+            "investment_time": null
+          },
+          "threshold": 0.1
+        }
+      ],
+      "status": "admitted_descriptive_comparison"
+    },
+    {
+      "checkpoints": [
+        {
+          "abm_living_mean_traits": [
+            0.5078125,
+            0.4609375,
+            0.5
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            48.0,
+            0.5078125,
+            0.4609375,
+            0.5,
+            0.00335693359375,
+            -0.00067138671875,
+            0.0,
+            -0.00067138671875,
+            0.00286865234375,
+            0.0,
+            0.0,
+            0.0,
+            0.0
+          ],
+          "living_abm_starts": 32,
+          "year": 0
+        },
+        {
+          "abm_living_mean_traits": [
+            0.5368652343749999,
+            0.4842936197916667,
+            0.5017949245519385
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            48.00000000000001,
+            0.6104312474327637,
+            0.4934257572609993,
+            0.5028680148352059,
+            0.001872116515670621,
+            0.00011860934714721275,
+            -1.1083322799827674e-05,
+            0.00011860934714721275,
+            0.006539378453408292,
+            -1.163501874156288e-05,
+            -1.1083322799827672e-05,
+            -1.1635018741562872e-05,
+            0.0004264733892501218
+          ],
+          "living_abm_starts": 32,
+          "year": 25
+        },
+        {
+          "abm_living_mean_traits": [
+            0.54296875,
+            0.5439046223958333,
+            0.5273080267903538
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            48.000000000000014,
+            0.6249999825514159,
+            0.5974116886273768,
+            0.5289637862331799,
+            1.4213406517244052e-09,
+            2.4109272702043163e-11,
+            -3.15996795482144e-11,
+            2.4109272702043163e-11,
+            0.002034639334876738,
+            -1.3053931038808351e-05,
+            -3.159967954821439e-11,
+            -1.305393103880831e-05,
+            0.002095721522662825
+          ],
+          "living_abm_starts": 32,
+          "year": 100
+        },
+        {
+          "abm_living_mean_traits": [
+            0.54296875,
+            0.5547281901041667,
+            0.5489372993946194
+          ],
+          "abm_occupied_fraction": 1.0,
+          "all_starts": 32,
+          "density": [
+            47.99999999999999,
+            0.6250000000000013,
+            0.6200182391309735,
+            0.5951991807282896,
+            5.877748998666803e-17,
+            2.0285268939609843e-19,
+            -2.4599180200466527e-18,
+            2.0285268939609843e-19,
+            0.0003763895083346964,
+            -4.5395686124655435e-06,
+            -2.4599180200466527e-18,
+            -4.539568612465509e-06,
+            0.0045064021896056095
+          ],
+          "living_abm_starts": 32,
+          "year": 200
+        }
+      ],
+      "context": "causal_confirmation_s1.0_separated_n48_standing_MI_new_A_r0_evolving",
+      "events": [
+        {
+          "abm_counts": {
+            "assurance_first": 1,
+            "assurance_only": 12,
+            "investment_first": 4,
+            "investment_only": 2,
+            "near_simultaneous": 0,
+            "neither": 13
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": 93,
+            "category": "assurance_only",
+            "investment_time": null
+          },
+          "threshold": 0.025
+        },
+        {
+          "abm_counts": {
+            "assurance_first": 1,
+            "assurance_only": 9,
+            "investment_first": 1,
+            "investment_only": 2,
+            "near_simultaneous": 0,
+            "neither": 19
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": 136,
+            "category": "assurance_only",
+            "investment_time": null
+          },
+          "threshold": 0.05
+        },
+        {
+          "abm_counts": {
+            "assurance_first": 0,
+            "assurance_only": 4,
+            "investment_first": 0,
+            "investment_only": 0,
+            "near_simultaneous": 0,
+            "neither": 28
+          },
+          "all_starts": 32,
+          "density": {
+            "assurance_time": null,
+            "category": "neither",
+            "investment_time": null
+          },
+          "threshold": 0.1
+        }
+      ],
+      "status": "admitted_descriptive_comparison"
+    }
+  ],
+  "scientific_limits": [
+    "descriptive existing32 histories per synthetic context; no new significance tests",
+    "density is not assumed equal to stochastic ensemble mean",
+    "matched initial state does not imply identical future genotype or census states",
+    "category disagreement alone does not isolate drift versus segregation versus demographic feedback",
+    "no natural-order survival mediation inference"
+  ],
+  "source_identity": {
+    "producer": {
+      "assurance_causal_design.json": "0e814704d3775835735e78a768df5d865965a551145969e64390c84482f8f777",
+      "assurance_causal_inputs.py": "5a534c04acc72a2e2cfc93d7e8cffa952604beccdc934c245b9e997c079995b9",
+      "assurance_causal_runner.py": "8a3331c315e2f38e23272bcd1c382b8865cd4587b18064902bd3411901ca264d"
+    },
+    "source": {
+      "local": {
+        "campaign_inputs.py": "e8786b6f63e05947a96c52cbdef828dd0fd0bf3b3c7f67602b9d35df1f3cb152",
+        "campaign_runner.py": "9f20e155480976dfc26a32d792308b4cadde51398e4836e6e6bf63d60268e16e",
+        "natural_campaign_design.json": "34bf7d048bba299cae2d8d794222773ab1da418e74716b1a56b9b7adb5e09334",
+        "natural_trace.py": "0e46481c74b16ac7c05e6ed76564d5da8d15a578f286ca04f042de558f7b6bae",
+        "order_observer.py": "080ccaf3bb8e8885e56dcaf58528adffe90ae0326b290ba07c08e5a04242e7bf",
+        "trace_archive.py": "fd2de7d629ccbd5a509d84f2dcd34e55671aa9604cdbab96e140723a0234d48d"
+      },
+      "numpy": "2.2.6",
+      "source_manifest": "4b23f2106d798215c2e466191ac88e6922ef209c909825b9205b75647898afff"
+    }
+  },
+  "status": "all_ten_contexts_accounted"
+}

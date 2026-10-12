@@ -80,7 +80,7 @@ def test_route_markers_and_unpublished_data_boundary():
         text=(ROOT/path).read_text(encoding="utf-8")
         assert "CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md" in text
     m=render_manuscript()
-    assert "521 original biological-trajectory ZIP archives" in m
+    assert "521 original Actions ZIPs" in m
     assert "DOI-backed external archive" in m
     assert "not yet submitted" in m
     assert "Ecology Letters Letter compression pending" in m.split("# Introduction",1)[0] or "EL-format draft" in m.split("# Introduction",1)[0]

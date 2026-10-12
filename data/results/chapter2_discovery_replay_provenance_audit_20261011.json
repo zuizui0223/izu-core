@@ -1,0 +1,774 @@
+{
+  "schema": "chapter2_discovery_replay_provenance_audit_v1",
+  "recorded_at_utc": "2026-10-11T13:56:41.050279+00:00",
+  "base_main_commit": "1fb98dffd5cb6362722a3f94ac58fe627da1af07",
+  "status": "REPLAY_COMPARISON_BOUNDARY_REPAIRED_HISTORICAL_INPUTS_UNAVAILABLE",
+  "evidence_rank": "Engineering regression verification and exact source-byte reconstruction; no new scientific result",
+  "report": "docs/CHAPTER2_DISCOVERY_REPLAY_PROVENANCE_20261011.md",
+  "historical_admission": {
+    "original_archive_bytes_available_here": false,
+    "original_discovery_cases_admitted": 0,
+    "verified_against_exact_original_archive": false,
+    "historical_source_identity_verified": false,
+    "runtime_identity_verified": false,
+    "original_annual_genomes_verified": false,
+    "original_discovery_full_replay_completed": false,
+    "new_scientific_campaign_executed": false,
+    "engineering_compatibility_replays_executed": true
+  },
+  "frozen_input_records": [
+    {
+      "path": "data/design/model3_replenishment_evolution_20261005.json",
+      "sha256": "dcd39ef44b98314cdbeeacbd3fc29c9755a6ff7545c3b773ab06d6df2113029a",
+      "size_bytes": 5778
+    },
+    {
+      "path": "data/results/model3_replenishment_archive_20261005.json",
+      "sha256": "15becd79af2ed2646a8ede226761172bdd92ed139144f10379e4fdd581e03601",
+      "size_bytes": 369
+    },
+    {
+      "path": "data/results/model3_full_mutation_20261004.json",
+      "sha256": "cd7f3347f767c5066c4f931dbaa038852e562b8e9de9d17bfd4809b0292ee8df",
+      "size_bytes": 288194
+    },
+    {
+      "path": "data/submission/chapter2_evolution_original_case_audit_20261011.json",
+      "sha256": "a470644fdfdc9c10f2e66fb2668b5fff4b1e74b7dc71c67f06c015933dec68e5",
+      "size_bytes": 54006
+    }
+  ],
+  "source_reconstruction": {
+    "verified_at_utc": "2026-10-11T13:53:23.890583+00:00",
+    "search_scope": "Complete reachable Git clone at base_main_commit; all exact-path history versions of the frozen source paths. No claim about unavailable external workstation or archive bytes.",
+    "common_reference_commit": "2ea05fea7ad51e1ab53a3e7b7d35371170a3925e",
+    "method": "Read named Git blob bytes; require no CR bytes; replace every LF with CRLF; require SHA-256 equality to the pre-existing frozen pin. No code, whitespace or encoding edits.",
+    "design_pinned_files": 23,
+    "current_base_checkout_pins_matching_after_uniform_lf_to_crlf": 20,
+    "reconstructed_pinned_byte_strings": 21,
+    "distinct_exact_path_blob_versions_examined": 53,
+    "all_pinned_sources_reconstructed": false,
+    "current_model_sources_replaced": false,
+    "sources": [
+      {
+        "path": "scripts/model3_island/assays.py",
+        "expected_sha256": "c6398d50195a40226df1220762aaf5ae081b652558ef2bfde69d8a86980877f4",
+        "git_blob": "7f7f62b47b0dbde3260eecea897424916939ae48",
+        "size_bytes": 2493,
+        "raw_sha256": "3dbfee24a4473b220e463dc6dd0e7699f0a7de98771eeee9666c94d75700338d",
+        "raw_cr_bytes": 0,
+        "uniform_lf_to_crlf_sha256": "c6398d50195a40226df1220762aaf5ae081b652558ef2bfde69d8a86980877f4",
+        "uniform_lf_to_crlf_matches_expected": true,
+        "matching_reachable_versions": [
+          "7f7f62b47b0dbde3260eecea897424916939ae48"
+        ],
+        "distinct_exact_path_versions_examined": 2
+      },
+      {
+        "path": "scripts/model3_island/audit.py",
+        "expected_sha256": "26cd0dfa8dc2dcd8a01ba38c51ab910bc8e43b0fa0f3a5b9f293a50b9f401c35",
+        "git_blob": "17a33d13e6d0c37d5ce3848b3ef3409698a62b0c",
+        "size_bytes": 7363,
+        "raw_sha256": "7503b738281a0d648d7a536dfa508efada80b2e85d26538ceab413fcaedc9925",
+        "raw_cr_bytes": 0,
+        "uniform_lf_to_crlf_sha256": "26cd0dfa8dc2dcd8a01ba38c51ab910bc8e43b0fa0f3a5b9f293a50b9f401c35",
+        "uniform_lf_to_crlf_matches_expected": true,
+        "matching_reachable_versions": [
+          "17a33d13e6d0c37d5ce3848b3ef3409698a62b0c"
+        ],
+        "distinct_exact_path_versions_examined": 2
+      },
+      {
+        "path": "scripts/model3_island/birth_diffusion.py",
+        "expected_sha256": "534e0b75d441f058327b3904e290ceb189c91f83fb003fb3703da4fa9fe180c2",
+        "git_blob": "fc1f1c637b205f5c902a1663b24ce53833ea9e37",
+        "size_bytes": 1219,
+        "raw_sha256": "ce6b8c63a964b02654fee63b023be9c79c1be9ebfa5eca7e5de04ffa6006a8e7",
+        "raw_cr_bytes": 0,
+        "uniform_lf_to_crlf_sha256": "2249ae0c3680792ef1c260d0ae85135547e7d85f259aa7ff52d3b60149468266",
+        "uniform_lf_to_crlf_matches_expected": false,
+        "matching_reachable_versions": [],
+        "distinct_exact_path_versions_examined": 1,
+        "examined_versions": [
+          {
+            "git_blob": "fc1f1c637b205f5c902a1663b24ce53833ea9e37",
+            "size_bytes": 1219,
+            "raw_sha256": "ce6b8c63a964b02654fee63b023be9c79c1be9ebfa5eca7e5de04ffa6006a8e7",
+            "raw_cr_bytes": 0,
+            "uniform_lf_to_crlf_sha256": "2249ae0c3680792ef1c260d0ae85135547e7d85f259aa7ff52d3b60149468266"
+          }
+        ]
+      },
+      {
+        "path": "scripts/model3_island/campaign.py",
+        "expected_sha256": "e35ec98134939c2c979fff275cbc93f922798aa395aa9232fa99704722b597ba",
+        "git_blob": "7bf4c114f2e1e49f9c53e98f7c25e082cd2775a4",
+        "size_bytes": 10794,
+        "raw_sha256": "b2a4d2acc785f1b4707353a74ce3684c347e84df2915dcb5c02fa1d407eb033b",
+        "raw_cr_bytes": 0,
+        "uniform_lf_to_crlf_sha256": "e35ec98134939c2c979fff275cbc93f922798aa395aa9232fa99704722b597ba",
+        "uniform_lf_to_crlf_matches_expected": true,
+        "matching_reachable_versions": [
+          "7bf4c114f2e1e49f9c53e98f7c25e082cd2775a4"
+        ],
+        "distinct_exact_path_versions_examined": 2
+      },
+      {
+        "path": "scripts/model3_island/density.py",
+        "expected_sha256": "1507ab10ee6a297f35da61095deab51aaaac68ef67b3a1bb34a5f0cc998ce04e",
+        "git_blob": "14309131c078aee4ef759f45b6bc7013729b99f4",
+        "size_bytes": 11047,
+        "raw_sha256": "e293b031372da4f3b5d5b5ed9ffdea95b5a5cc449904f9dfa8880b8f0f2e4edf",
+        "raw_cr_bytes": 0,
+        "uniform_lf_to_crlf_sha256": "1507ab10ee6a297f35da61095deab51aaaac68ef67b3a1bb34a5f0cc998ce04e",
+        "uniform_lf_to_crlf_matches_expected": true,
+        "matching_reachable_versions": [
+          "14309131c078aee4ef759f45b6bc7013729b99f4"
+        ],
+        "distinct_exact_path_versions_examined": 6
+      },
+      {
+        "path": "scripts/model3_island/design.py",
+        "expected_sha256": "426442a8f60f8b661c4ace7099e76c399c4e738c2353165ccb7b4f42fae9235a",
+        "git_blob": "c57b49995bbc7cafc8366653e4df5f1e2bb60b71",
+        "size_bytes": 12181,
+        "raw_sha256": "9184fba6fbdfed617d109eedc268103a49cfaf7c7eb1d51457ab03c5bee9cfbe",
+        "raw_cr_bytes": 0,
+        "uniform_lf_to_crlf_sha256": "426442a8f60f8b661c4ace7099e76c399c4e738c2353165ccb7b4f42fae9235a",
+        "uniform_lf_to_crlf_matches_expected": true,
+        "matching_reachable_versions": [
+          "c57b49995bbc7cafc8366653e4df5f1e2bb60b71"
+        ],
+        "distinct_exact_path_versions_examined": 3
+      },
+      {
+        "path": "scripts/model3_island/expectation.py",
+        "expected_sha256": "142e030c31a0e479aea37d5591dfc87f46d72c7a74b857cde37b1937e9717552",
+        "git_blob": "9bd891c21f72c704be9d3a2c1da802cc1df1624a",
+        "size_bytes": 1979,
+        "raw_sha256": "422de5b82fa80b293b9173735c8d50bd4aec5bd61450ea233d27ecd9169db943",
+        "raw_cr_bytes": 0,
+        "uniform_lf_to_crlf_sha256": "142e030c31a0e479aea37d5591dfc87f46d72c7a74b857cde37b1937e9717552",
+        "uniform_lf_to_crlf_matches_expected": true,
+        "matching_reachable_versions": [
+          "9bd891c21f72c704be9d3a2c1da802cc1df1624a"
+        ],
+        "distinct_exact_path_versions_examined": 1
+      },
+      {
+        "path": "scripts/model3_island/finite_audit.py",
+        "expected_sha256": "7e02d00af2950e048d448aa3b3f2524c2577ff4f408cbfab94e7a0047460d198",
+        "git_blob": "ebe6524e85ad75016d58968e58b4f91b2cf465de",
+        "size_bytes": 3930,
+        "raw_sha256": "47c567a7a450a81afa4d91c29ce91512702d7b066d289f60214a3cd543b5a49d",
+        "raw_cr_bytes": 0,
+        "uniform_lf_to_crlf_sha256": "7e02d00af2950e048d448aa3b3f2524c2577ff4f408cbfab94e7a0047460d198",
+        "uniform_lf_to_crlf_matches_expected": true,
+        "matching_reachable_versions": [
+          "ebe6524e85ad75016d58968e58b4f91b2cf465de"
+        ],
+        "distinct_exact_path_versions_examined": 1
+      },
+      {
+        "path": "scripts/model3_island/history.py",
+        "expected_sha256": "87407dd301ee7c9c793ff5fd25963b470ebf4674a61a0385ab7adcca8d354d04",
+        "git_blob": "0c58aee6f73ae133d96d8da4dd6678886ff3061c",
+        "size_bytes": 6091,
+        "raw_sha256": "28d22c7fde81d9be6a604fa9dd4cb6b48d78d388d4db85f798a935cf81415488",
+        "raw_cr_bytes": 0,
+        "uniform_lf_to_crlf_sha256": "87407dd301ee7c9c793ff5fd25963b470ebf4674a61a0385ab7adcca8d354d04",
+        "uniform_lf_to_crlf_matches_expected": true,
+        "matching_reachable_versions": [
+          "0c58aee6f73ae133d96d8da4dd6678886ff3061c"
+        ],
+        "distinct_exact_path_versions_examined": 2
+      },
+      {
+        "path": "scripts/model3_island/plot.py",
+        "expected_sha256": "d0b2a053f02bdeecb7f4a85643c1d8b8d3b97902554b5ce9b75e5abed34a63cd",
+        "git_blob": "7d06cf13553a58910d726c5467353fb6969c0e4e",
+        "size_bytes": 3806,
+        "raw_sha256": "f0323311ccf55c0fe677d4afe35defcbc660ce98bc3705eacb5e8e80600d8b1a",
+        "raw_cr_bytes": 0,
+        "uniform_lf_to_crlf_sha256": "d0b2a053f02bdeecb7f4a85643c1d8b8d3b97902554b5ce9b75e5abed34a63cd",
+        "uniform_lf_to_crlf_matches_expected": true,
+        "matching_reachable_versions": [
+          "7d06cf13553a58910d726c5467353fb6969c0e4e"
+        ],
+        "distinct_exact_path_versions_examined": 2
+      },
+      {
+        "path": "scripts/model3_island/population.py",
+        "expected_sha256": "c03fc6fccdf4efb660ece8fa5ee016d4de14f84f3b234dfb6322666b89ec34c1",
+        "git_blob": "20e90f249f63e9f37e8801d19d9b75cade2fe193",
+        "size_bytes": 6128,
+        "raw_sha256": "c959d18816da6666dbfb4e91bd9582c94af5453b25498d033f5747305b05fe0f",
+        "raw_cr_bytes": 0,
+        "uniform_lf_to_crlf_sha256": "c03fc6fccdf4efb660ece8fa5ee016d4de14f84f3b234dfb6322666b89ec34c1",
+        "uniform_lf_to_crlf_matches_expected": true,
+        "matching_reachable_versions": [
+          "20e90f249f63e9f37e8801d19d9b75cade2fe193"
+        ],
+        "distinct_exact_path_versions_examined": 3
+      },
+      {
+        "path": "scripts/model3_island/randomness.py",
+        "expected_sha256": "35305f37429c2d46239bed125736d8168c26bbd66aeefc68319615f3f620cefe",
+        "git_blob": "46f1ee55899e729cdd09d9dbb9332694ef1e2071",
+        "size_bytes": 873,
+        "raw_sha256": "63522ae3c5ff8e11f114b5649a989945fa4ba2480fdca0f74857601b0e4b211f",
+        "raw_cr_bytes": 0,
+        "uniform_lf_to_crlf_sha256": "35305f37429c2d46239bed125736d8168c26bbd66aeefc68319615f3f620cefe",
+        "uniform_lf_to_crlf_matches_expected": true,
+        "matching_reachable_versions": [
+          "46f1ee55899e729cdd09d9dbb9332694ef1e2071"
+        ],
+        "distinct_exact_path_versions_examined": 2
+      },
+      {
+        "path": "scripts/model3_island/reproduction.py",
+        "expected_sha256": "a1d2ad76a2b0d22cda19606fd7d115c3a0506c6dad05e49f3177cbd13ee51c82",
+        "git_blob": "95314698a3296b6f13b8c053c36f2df0b7b744ca",
+        "size_bytes": 3263,
+        "raw_sha256": "885957edb8a165ee8528781ed1d2574c44143c608496b505f9663cbfac2c4081",
+        "raw_cr_bytes": 0,
+        "uniform_lf_to_crlf_sha256": "a1d2ad76a2b0d22cda19606fd7d115c3a0506c6dad05e49f3177cbd13ee51c82",
+        "uniform_lf_to_crlf_matches_expected": true,
+        "matching_reachable_versions": [
+          "95314698a3296b6f13b8c053c36f2df0b7b744ca"
+        ],
+        "distinct_exact_path_versions_examined": 1
+      },
+      {
+        "path": "scripts/model3_island/run.py",
+        "expected_sha256": "1f86ab82cb82d47998e9f083b2393993a9c1edf8f69513c51ed8918a0329f1b3",
+        "git_blob": "c11cff5375a38d93e2a778ff69e1a9efee632200",
+        "size_bytes": 10802,
+        "raw_sha256": "094f8ed635f13b3ff5809b721f1d11f78f89d7cc414f503805b007e436878743",
+        "raw_cr_bytes": 0,
+        "uniform_lf_to_crlf_sha256": "1f86ab82cb82d47998e9f083b2393993a9c1edf8f69513c51ed8918a0329f1b3",
+        "uniform_lf_to_crlf_matches_expected": true,
+        "matching_reachable_versions": [
+          "c11cff5375a38d93e2a778ff69e1a9efee632200"
+        ],
+        "distinct_exact_path_versions_examined": 4
+      },
+      {
+        "path": "scripts/model3_island/selection.py",
+        "expected_sha256": "27d55ecedadf3259351eae4d52c955d61e9ab287a047472dfc057ce3383d0064",
+        "git_blob": "c603f1cf907336a5ed44a7399f60631ad399d2d7",
+        "size_bytes": 4559,
+        "raw_sha256": "79cbc2181493b1bf3c8631beb29801d46c756cc2ac45ef8167342be690bdb355",
+        "raw_cr_bytes": 0,
+        "uniform_lf_to_crlf_sha256": "27d55ecedadf3259351eae4d52c955d61e9ab287a047472dfc057ce3383d0064",
+        "uniform_lf_to_crlf_matches_expected": true,
+        "matching_reachable_versions": [
+          "c603f1cf907336a5ed44a7399f60631ad399d2d7"
+        ],
+        "distinct_exact_path_versions_examined": 3
+      },
+      {
+        "path": "scripts/model3_island/simulate.py",
+        "expected_sha256": "49780718fba3a152869eec0db83259ee546833ee552bfc939905aa246a962099",
+        "git_blob": "b49e42fbeb851fd2170e1dbd66d70583c266d673",
+        "size_bytes": 7050,
+        "raw_sha256": "78b043183ff55ba14c38204b47499b53e7c63f41789b982680a42966871e247b",
+        "raw_cr_bytes": 0,
+        "uniform_lf_to_crlf_sha256": "49780718fba3a152869eec0db83259ee546833ee552bfc939905aa246a962099",
+        "uniform_lf_to_crlf_matches_expected": true,
+        "matching_reachable_versions": [
+          "b49e42fbeb851fd2170e1dbd66d70583c266d673"
+        ],
+        "distinct_exact_path_versions_examined": 6
+      },
+      {
+        "path": "scripts/model3_island/storage.py",
+        "expected_sha256": "da06ae2645f79ff8ad5092b33bab8a43e91b51518453f2ddfa84ed5283457e70",
+        "git_blob": "19c4b42e319279686eef6cbd243a22f534a52b1d",
+        "size_bytes": 1816,
+        "raw_sha256": "c987b56139f7782e35749bda5f378f3cd60d0463b2de5a15c034f2c2a4c73647",
+        "raw_cr_bytes": 0,
+        "uniform_lf_to_crlf_sha256": "da06ae2645f79ff8ad5092b33bab8a43e91b51518453f2ddfa84ed5283457e70",
+        "uniform_lf_to_crlf_matches_expected": true,
+        "matching_reachable_versions": [
+          "19c4b42e319279686eef6cbd243a22f534a52b1d"
+        ],
+        "distinct_exact_path_versions_examined": 1
+      },
+      {
+        "path": "scripts/model3_island/summarize.py",
+        "expected_sha256": "39f490c57f287c18925b06f01b93bd1109a4ede3d415efb6ea6b20173cf5f73c",
+        "git_blob": "b899b1d47d76739a7739334e82f31c7f0d6a553c",
+        "size_bytes": 18256,
+        "raw_sha256": "9e1b9a1c432e16cc35ca7e7a6075c044999faaa5b2aea84e0dec2cf1fee1b435",
+        "raw_cr_bytes": 0,
+        "uniform_lf_to_crlf_sha256": "39f490c57f287c18925b06f01b93bd1109a4ede3d415efb6ea6b20173cf5f73c",
+        "uniform_lf_to_crlf_matches_expected": true,
+        "matching_reachable_versions": [
+          "b899b1d47d76739a7739334e82f31c7f0d6a553c"
+        ],
+        "distinct_exact_path_versions_examined": 3
+      },
+      {
+        "path": "scripts/model3_island/tensor_density.py",
+        "expected_sha256": "dfe759136daaa8dad0cc4cff917af62823108167fc567817c6cadf137266a4a4",
+        "git_blob": "5941c8aa3f24d1ef79d420b3519778d22d6f0602",
+        "size_bytes": 3104,
+        "raw_sha256": "223ad4926f3d748a744665386a3be6b02e19e8a50cb4f8d080e2170d58fbaac5",
+        "raw_cr_bytes": 0,
+        "uniform_lf_to_crlf_sha256": "afdfeeb46f336b3195f3a89ef5df8328a0fe2908af038df41efbfb1331bd275d",
+        "uniform_lf_to_crlf_matches_expected": false,
+        "matching_reachable_versions": [],
+        "distinct_exact_path_versions_examined": 1,
+        "examined_versions": [
+          {
+            "git_blob": "5941c8aa3f24d1ef79d420b3519778d22d6f0602",
+            "size_bytes": 3104,
+            "raw_sha256": "223ad4926f3d748a744665386a3be6b02e19e8a50cb4f8d080e2170d58fbaac5",
+            "raw_cr_bytes": 0,
+            "uniform_lf_to_crlf_sha256": "afdfeeb46f336b3195f3a89ef5df8328a0fe2908af038df41efbfb1331bd275d"
+          }
+        ]
+      },
+      {
+        "path": "scripts/model3_island/types.py",
+        "expected_sha256": "b56b579c8821f0094e395d5bef42e49e557d59781f2dcf8ed14cff895bea292e",
+        "git_blob": "0bc427b3261e7baf1651648ee879b368f9bf935b",
+        "size_bytes": 8610,
+        "raw_sha256": "a572e1e7f4fded181585871a63582b16f40292bd07b13e8efc9d6b6234eb21c5",
+        "raw_cr_bytes": 0,
+        "uniform_lf_to_crlf_sha256": "b56b579c8821f0094e395d5bef42e49e557d59781f2dcf8ed14cff895bea292e",
+        "uniform_lf_to_crlf_matches_expected": true,
+        "matching_reachable_versions": [
+          "0bc427b3261e7baf1651648ee879b368f9bf935b"
+        ],
+        "distinct_exact_path_versions_examined": 4
+      },
+      {
+        "path": "scripts/model3_island/__init__.py",
+        "expected_sha256": "570943c83d3ce9417b496e5e899d35f9baca398ed4689d7da8df65d1c0ae2261",
+        "git_blob": "b385daf32fb3d1a2435ef97fce62f47c8f56e81f",
+        "size_bytes": 80,
+        "raw_sha256": "f7e55e36abb6fbc720e3413505a2a2ea8ff784e9e5715fb097058a1b24956b16",
+        "raw_cr_bytes": 0,
+        "uniform_lf_to_crlf_sha256": "570943c83d3ce9417b496e5e899d35f9baca398ed4689d7da8df65d1c0ae2261",
+        "uniform_lf_to_crlf_matches_expected": true,
+        "matching_reachable_versions": [
+          "b385daf32fb3d1a2435ef97fce62f47c8f56e81f"
+        ],
+        "distinct_exact_path_versions_examined": 1
+      },
+      {
+        "path": "scripts/run_model3_persistent_isolation.py",
+        "expected_sha256": "c4fdc21e0c551482102f93d3d7dd414e35a842c1098b6c430a54f4daa37586e5",
+        "git_blob": "aa9949eb10883d09324ac030aa6dfd1c8b5e97dd",
+        "size_bytes": 6964,
+        "raw_sha256": "d573ffa85b7a1fef3f4619862cf00ab40cfc465d3ba4563df6504e0eea968e6e",
+        "raw_cr_bytes": 0,
+        "uniform_lf_to_crlf_sha256": "c4fdc21e0c551482102f93d3d7dd414e35a842c1098b6c430a54f4daa37586e5",
+        "uniform_lf_to_crlf_matches_expected": true,
+        "matching_reachable_versions": [
+          "aa9949eb10883d09324ac030aa6dfd1c8b5e97dd"
+        ],
+        "distinct_exact_path_versions_examined": 1
+      },
+      {
+        "path": "data/design/model3_ch2_bridge_20260927.json",
+        "expected_sha256": "ee11a074da98460839b6ffe3e0e34c106400b54309b865b794bdb2d4fe856ee0",
+        "git_blob": "11acfca595a4d0dd19c355f6d0ea578b547cd245",
+        "size_bytes": 7682,
+        "raw_sha256": "0ca971aa9a453ab00a6e36fa9f2a99df3b36a8b13cda1cb48ea420556d3ff18a",
+        "raw_cr_bytes": 0,
+        "uniform_lf_to_crlf_sha256": "ee11a074da98460839b6ffe3e0e34c106400b54309b865b794bdb2d4fe856ee0",
+        "uniform_lf_to_crlf_matches_expected": true,
+        "matching_reachable_versions": [
+          "11acfca595a4d0dd19c355f6d0ea578b547cd245"
+        ],
+        "distinct_exact_path_versions_examined": 1
+      }
+    ]
+  },
+  "full_mutation_source_contract": {
+    "source_record": {
+      "path": "data/results/model3_full_mutation_20261004.json",
+      "sha256": "cd7f3347f767c5066c4f931dbaa038852e562b8e9de9d17bfd4809b0292ee8df",
+      "size_bytes": 288194
+    },
+    "common_reference_commit": "2ea05fea7ad51e1ab53a3e7b7d35371170a3925e",
+    "pinned_files": 25,
+    "reconstructed_pinned_byte_strings": 20,
+    "unresolved": [
+      {
+        "path": "docs/superpowers/plans/2026-10-04-model3-full-mutation-execution.md",
+        "expected_sha256": "8acf57c7c5b3d344c2b7afa3165981c00d0ea27eafcc24e74f2921adb5be949b",
+        "git_blob": "ae2f12cbfe40e10e4387eb3d54ae19253a6e518f",
+        "size_bytes": 1667,
+        "raw_sha256": "d94fdce5bcdcf6887eca0872c46cc7b11e4b08141df658dd2dd280ec552ff4fe",
+        "raw_cr_bytes": 0,
+        "uniform_lf_to_crlf_sha256": "aae015702ff89471b4cb1da8ef36152a2393888bf2bc00cb5f55d5e9dcc280e9",
+        "uniform_lf_to_crlf_matches_expected": false,
+        "matching_reachable_versions": [],
+        "distinct_exact_path_versions_examined": 1,
+        "examined_versions": [
+          {
+            "git_blob": "ae2f12cbfe40e10e4387eb3d54ae19253a6e518f",
+            "size_bytes": 1667,
+            "raw_sha256": "d94fdce5bcdcf6887eca0872c46cc7b11e4b08141df658dd2dd280ec552ff4fe",
+            "raw_cr_bytes": 0,
+            "uniform_lf_to_crlf_sha256": "aae015702ff89471b4cb1da8ef36152a2393888bf2bc00cb5f55d5e9dcc280e9"
+          }
+        ]
+      },
+      {
+        "path": "docs/superpowers/plans/2026-10-04-model3-full-mutation.md",
+        "expected_sha256": "59ded1a16fa454d9042dee1a58f95f3df569f25b2e4163989231a5cf3b0ce40b",
+        "git_blob": "71b7c5526f18949733ca9219e60c2c7fa5943b6a",
+        "size_bytes": 3113,
+        "raw_sha256": "ea8487a9a7ea6d8e7c939bf44119eda2d24afb3ef83564474df9421f48ac3d8e",
+        "raw_cr_bytes": 0,
+        "uniform_lf_to_crlf_sha256": "a20104ff5e172e9da388fc42363b8254ff727e0ccff1530b1efea635f1e5db07",
+        "uniform_lf_to_crlf_matches_expected": false,
+        "matching_reachable_versions": [],
+        "distinct_exact_path_versions_examined": 1,
+        "examined_versions": [
+          {
+            "git_blob": "71b7c5526f18949733ca9219e60c2c7fa5943b6a",
+            "size_bytes": 3113,
+            "raw_sha256": "ea8487a9a7ea6d8e7c939bf44119eda2d24afb3ef83564474df9421f48ac3d8e",
+            "raw_cr_bytes": 0,
+            "uniform_lf_to_crlf_sha256": "a20104ff5e172e9da388fc42363b8254ff727e0ccff1530b1efea635f1e5db07"
+          }
+        ]
+      },
+      {
+        "path": "scripts/model3_island/birth_diffusion.py",
+        "expected_sha256": "534e0b75d441f058327b3904e290ceb189c91f83fb003fb3703da4fa9fe180c2",
+        "git_blob": "fc1f1c637b205f5c902a1663b24ce53833ea9e37",
+        "size_bytes": 1219,
+        "raw_sha256": "ce6b8c63a964b02654fee63b023be9c79c1be9ebfa5eca7e5de04ffa6006a8e7",
+        "raw_cr_bytes": 0,
+        "uniform_lf_to_crlf_sha256": "2249ae0c3680792ef1c260d0ae85135547e7d85f259aa7ff52d3b60149468266",
+        "uniform_lf_to_crlf_matches_expected": false,
+        "matching_reachable_versions": [],
+        "distinct_exact_path_versions_examined": 1,
+        "examined_versions": [
+          {
+            "git_blob": "fc1f1c637b205f5c902a1663b24ce53833ea9e37",
+            "size_bytes": 1219,
+            "raw_sha256": "ce6b8c63a964b02654fee63b023be9c79c1be9ebfa5eca7e5de04ffa6006a8e7",
+            "raw_cr_bytes": 0,
+            "uniform_lf_to_crlf_sha256": "2249ae0c3680792ef1c260d0ae85135547e7d85f259aa7ff52d3b60149468266"
+          }
+        ]
+      },
+      {
+        "path": "scripts/model3_island/tensor_density.py",
+        "expected_sha256": "dfe759136daaa8dad0cc4cff917af62823108167fc567817c6cadf137266a4a4",
+        "git_blob": "5941c8aa3f24d1ef79d420b3519778d22d6f0602",
+        "size_bytes": 3104,
+        "raw_sha256": "223ad4926f3d748a744665386a3be6b02e19e8a50cb4f8d080e2170d58fbaac5",
+        "raw_cr_bytes": 0,
+        "uniform_lf_to_crlf_sha256": "afdfeeb46f336b3195f3a89ef5df8328a0fe2908af038df41efbfb1331bd275d",
+        "uniform_lf_to_crlf_matches_expected": false,
+        "matching_reachable_versions": [],
+        "distinct_exact_path_versions_examined": 1,
+        "examined_versions": [
+          {
+            "git_blob": "5941c8aa3f24d1ef79d420b3519778d22d6f0602",
+            "size_bytes": 3104,
+            "raw_sha256": "223ad4926f3d748a744665386a3be6b02e19e8a50cb4f8d080e2170d58fbaac5",
+            "raw_cr_bytes": 0,
+            "uniform_lf_to_crlf_sha256": "afdfeeb46f336b3195f3a89ef5df8328a0fe2908af038df41efbfb1331bd275d"
+          }
+        ]
+      },
+      {
+        "path": "scripts/run_model3_full_mutation.py",
+        "expected_sha256": "55238a6a5f78cde306950ac17f5e2dd370e366d062481722b0b3c68b457051d8",
+        "git_blob": "204e3865a2e251f00701e7fb390917eb0b30783c",
+        "size_bytes": 6900,
+        "raw_sha256": "050bf7df2e69f65dcbfcfee011f8241a498a0b46561d27e0fba858752351f1f7",
+        "raw_cr_bytes": 0,
+        "uniform_lf_to_crlf_sha256": "be1e870b542ecbdc501952e6660d36c36aa057ecce7139c28a3719c6ba6c1309",
+        "uniform_lf_to_crlf_matches_expected": false,
+        "matching_reachable_versions": [],
+        "distinct_exact_path_versions_examined": 1,
+        "examined_versions": [
+          {
+            "git_blob": "204e3865a2e251f00701e7fb390917eb0b30783c",
+            "size_bytes": 6900,
+            "raw_sha256": "050bf7df2e69f65dcbfcfee011f8241a498a0b46561d27e0fba858752351f1f7",
+            "raw_cr_bytes": 0,
+            "uniform_lf_to_crlf_sha256": "be1e870b542ecbdc501952e6660d36c36aa057ecce7139c28a3719c6ba6c1309"
+          }
+        ]
+      }
+    ],
+    "recorded_runtime_observation": {
+      "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+      "platform": "Windows-10-10.0.22621-SP0",
+      "numpy": "2.2.6",
+      "scipy": "1.15.3",
+      "note": "Recorded during the campaign, not before launch. Runner commands explicitly set OPENBLAS_NUM_THREADS=1 and OMP_NUM_THREADS=1."
+    },
+    "runtime_observation_is_a_prelaunch_lock": false,
+    "runtime_identity_verified": false,
+    "raw_archive_lead": {
+      "path": "outputs/model3_full_mutation_20261004_raw.zip",
+      "sha256": "4647eb772303f0b53387227f052bae6ce0aff84d1b056ab3cdf6f71348917c48",
+      "bytes": 224236731,
+      "available_in_this_task": false,
+      "contents_verified_in_this_task": false
+    }
+  },
+  "later_cohort_source_comparisons": {
+    "source_record": {
+      "path": "data/submission/chapter2_evolution_original_case_audit_20261011.json",
+      "sha256": "a470644fdfdc9c10f2e66fb2668b5fff4b1e74b7dc71c67f06c015933dec68e5",
+      "size_bytes": 54006
+    },
+    "source_record_pr": "https://github.com/zuizui0223/izu-core/pull/481",
+    "method": "Compare recorded source-manifest hashes with raw Git blobs at each recorded execution head, then compare uniform LF-to-CRLF bytes with discovery pins. No archive binary download for this comparison.",
+    "comparisons": [
+      {
+        "campaign": "assurance_generality",
+        "execution_head": "20e8e2d6ad25545b9cb4941305343b5f010a58f4",
+        "compared_source_files": 23,
+        "all_manifest_hashes_equal_git_blobs": true,
+        "raw_discovery_pin_matches": 0,
+        "uniform_lf_to_crlf_discovery_pin_matches": 21,
+        "unmatched_paths": [
+          "scripts/model3_island/birth_diffusion.py",
+          "scripts/model3_island/tensor_density.py"
+        ],
+        "contains_full_mutation_runner": false
+      },
+      {
+        "campaign": "confirmatory",
+        "execution_head": "380de3240992db691e1434f8577256ced80d5ae8",
+        "compared_source_files": 23,
+        "all_manifest_hashes_equal_git_blobs": true,
+        "raw_discovery_pin_matches": 0,
+        "uniform_lf_to_crlf_discovery_pin_matches": 21,
+        "unmatched_paths": [
+          "scripts/model3_island/birth_diffusion.py",
+          "scripts/model3_island/tensor_density.py"
+        ],
+        "contains_full_mutation_runner": false
+      }
+    ],
+    "satisfies_original_discovery_source_contract": false
+  },
+  "fresh_retrieval_scope": {
+    "canonical_archive_names": [
+      "model3_replenishment_evolution_20261005.zip",
+      "model3_full_mutation_20261004_raw.zip"
+    ],
+    "saved_file_query_scope": "Exact canonical-title queries, one simpler replenishment title query, and files modified after the cutoff; no original candidate resolved.",
+    "github_scope": "Metadata for five new workflow runs and their artifacts, plus the five-release/13-asset inventory. Repository-wide artifact endpoint was not available; artifact coverage is limited to the five new runs.",
+    "cutoff_utc": "2026-10-11T11:22:59Z",
+    "new_discovery_original_candidates_resolved": 0,
+    "universal_absence_established": false
+  },
+  "replay_report_contract": {
+    "single_case_schema": "chapter2_discovery_source_selection_replay_candidate_v2",
+    "paired_schema": "chapter2_sequence_paired_replay_candidate_v2",
+    "comparison_extent_censuses": {
+      "minimum": 2,
+      "maximum": 1001,
+      "columns": 10
+    },
+    "required_checkpoint_rule": "Exactly t in [0, 200, 400, 1000] with t < compared_censuses.",
+    "full_supplied_record_rule": "1001 compared censuses and all four required checkpoints; agreement does not authenticate historical origin.",
+    "npz_byte_binding": "Read once; SHA-256 and np.load(BytesIO(...)) use the same captured bytes.",
+    "paired_case_records_required": 16,
+    "legacy_archive_flags_always_false": true,
+    "historical_identity_flags_always_false": true,
+    "numerical_model_rng_and_crossing_logic_changed": false
+  },
+  "engineering_verification": {
+    "baseline_source_and_paired_tests_passed": 20,
+    "red_source_comparison_failures": 19,
+    "red_paired_metadata_failures": 6,
+    "red_npz_snapshot_binding_failures": 1,
+    "focused_command": "python -m pytest -q tests/test_chapter2_sequence_source_genome_replay_20261011.py tests/test_chapter2_sequence_paired_original_replay_20261011.py tests/test_chapter2_discovery_archive_intake_20261011.py",
+    "focused_counts": {
+      "tests": 87,
+      "passed": 87,
+      "failed": 0,
+      "errors": 0,
+      "skipped": 0,
+      "source_tests": 37,
+      "paired_tests": 8,
+      "intake_tests": 42
+    },
+    "focused_seconds": 2.982,
+    "focused_junit_sha256": "d683128d1da05c38f4d241efb4ca57f194a465eaf8dc5574d14c5f51bba2cc73",
+    "focused_report_timestamp": "2026-10-11T08:51:23.816072-05:00",
+    "current_test_environment": {
+      "python": "3.12.14",
+      "numpy": "2.3.5",
+      "scipy": "1.17.0",
+      "pytest": "9.1.1"
+    },
+    "independent_code_review": "Read-only review of the five changed implementation/test/workflow files; independently reran all 87 focused tests and git diff --check; no blocking issue found.",
+    "scientific_gate_replay_tests_registered": true,
+    "engineering_fixtures_establish_historical_identity": false,
+    "implementation_files": [
+      {
+        "path": "scripts/audit_chapter2_sequence_source_genome_replay_20261011.py",
+        "sha256": "cd52adff4f36d430bfa0deea94fe7d422857b9b33574ef243e94859dea74ee5a",
+        "size_bytes": 14737
+      },
+      {
+        "path": "scripts/audit_chapter2_sequence_paired_original_replay_20261011.py",
+        "sha256": "564f970d17958d82e7cd4711567c234b9e734ad62abd67958cba32a9027f08a2",
+        "size_bytes": 9222
+      },
+      {
+        "path": "tests/test_chapter2_sequence_source_genome_replay_20261011.py",
+        "sha256": "532510fd1d182bb84802edc1670d2b51728babf11e8a529a881d3186fb1dc385",
+        "size_bytes": 19019
+      },
+      {
+        "path": "tests/test_chapter2_sequence_paired_original_replay_20261011.py",
+        "sha256": "b858d363f63b9c49331190f555acb779a7b1114abae0535f5d19378eb0f2593e",
+        "size_bytes": 7458
+      },
+      {
+        "path": ".github/workflows/chapter2-scientific-gate.yml",
+        "sha256": "db7d0b5c440e2f1869f5e10319c220d0026036f6be100995e93dffb9be399da6",
+        "size_bytes": 21727
+      }
+    ]
+  },
+  "preservation": {
+    "completed_tempo_cases": 1024,
+    "tempo_scientific_evidence": [
+      {
+        "path": "docs/CHAPTER2_TEMPO_REALIZATION_ACCOUNTING_20261011.md",
+        "sha256": "174e7992dae9277788148668ac7f632c4f2571fd914b2ff66ff07aa52d971922",
+        "size_bytes": 19332
+      },
+      {
+        "path": "data/results/chapter2_four_question_current_evidence_addendum_20261011.json",
+        "sha256": "3f25f2a02d159bcd7cfe4a0f4a66712fa9c0143ca9d66562333617e41e295813",
+        "size_bytes": 5796
+      },
+      {
+        "path": "docs/CHAPTER2_TEMPO_REALIZATION_ACCOUNTING_TABLES_20261011.md",
+        "sha256": "c77eda661aa587b5fd07c49833a519d1e387ead8f113401a8f0123afee5934cc",
+        "size_bytes": 34836
+      },
+      {
+        "path": "docs/CHAPTER2_TEMPO_REALIZATION_ACCOUNTING_REVIEW_20261011.md",
+        "sha256": "0bfa106119a6f78676b11ad42b3bce2b3e5f425a89694d92cf5c49ef102fa455",
+        "size_bytes": 5725
+      },
+      {
+        "path": "data/results/chapter2_tempo_realization_receipt_20261011.json",
+        "sha256": "834a5360f2f7e96e000d8aeb5cb14fe18977727df8460bca618d63a6d5be7cfd",
+        "size_bytes": 66879
+      }
+    ],
+    "prior_identity_and_intake_snapshots": [
+      {
+        "path": "docs/CHAPTER2_SOURCE_REPLAY_COHORT_IDENTITY_20261011.md",
+        "sha256": "5d7a1b0c23ca27e88ad0a91e5bf10c1eaa95ae68f193917db1f4797dbe383c97",
+        "size_bytes": 15887
+      },
+      {
+        "path": "data/results/chapter2_source_replay_identity_status_20261011.json",
+        "sha256": "78f2471fbee2d925065a84f81d53697ba294f6633615e87ea6f507f3e548ff99",
+        "size_bytes": 9809
+      },
+      {
+        "path": "data/results/chapter2_source_replay_archive_inventory_20261011.json",
+        "sha256": "30b929b6eaa9d287281b03c4bfe832b05a5a94cabb5257c806fd9ff3270997ce",
+        "size_bytes": 107667
+      },
+      {
+        "path": "docs/CHAPTER2_DISCOVERY_ARCHIVE_INTAKE_20261011.md",
+        "sha256": "8735e9daba959c3517c448d31c784a6357f1487ffa3eff547a5764047337bc86",
+        "size_bytes": 7753
+      },
+      {
+        "path": "data/results/chapter2_discovery_archive_intake_status_20261011.json",
+        "sha256": "d4106c85cee2934f83e31eff21145736af440cde7c3190c7649cb54e2856cfff",
+        "size_bytes": 9407
+      },
+      {
+        "path": "scripts/audit_chapter2_discovery_archive_intake_20261011.py",
+        "sha256": "5812e72335d1e623850f2e7980f45cab374ab47dcd5e06c9e88cb557a8931b27",
+        "size_bytes": 18449
+      },
+      {
+        "path": "tests/test_chapter2_discovery_archive_intake_20261011.py",
+        "sha256": "ae4ae43f7cfaa09bd529d649eb79a53a8ea00fda434e61418eb9e22d9a25303b",
+        "size_bytes": 17700
+      }
+    ],
+    "all_nine_pr481_files": [
+      {
+        "path": ".github/workflows/chapter2-public-archive.yml",
+        "sha256": "48b3574ebf62891ea5a66501c57828d7376d6592b61d2594a99e48348a675525",
+        "size_bytes": 3456
+      },
+      {
+        "path": "README.md",
+        "sha256": "7898d8501b26f2f72bab7d9ab07ad89d94939f74a293e62e8a7f5d7126fb5da4",
+        "size_bytes": 21811
+      },
+      {
+        "path": "REPRODUCE.md",
+        "sha256": "e677ba4dd7c0fa881ecf4b038f30f1b077d52c76a6607830c3d09afff3912ec8",
+        "size_bytes": 13961
+      },
+      {
+        "path": "data/submission/chapter2_evolution_archive_recovery_20261011.json",
+        "sha256": "11f68e80e6a28dd9725c5bf5b774937fae6f1f433b8654a3e92f2f311dfa07f3",
+        "size_bytes": 15713
+      },
+      {
+        "path": "data/submission/chapter2_evolution_original_case_audit_20261011.json",
+        "sha256": "a470644fdfdc9c10f2e66fb2668b5fff4b1e74b7dc71c67f06c015933dec68e5",
+        "size_bytes": 54006
+      },
+      {
+        "path": "docs/CHAPTER2_UNIFIED_DATA_DEPOSIT_READINESS_20261011.md",
+        "sha256": "a103b9d7e73f4a1d6e1ed94368fd62b680aba6abafab711b3b4e97b52a990c85",
+        "size_bytes": 24891
+      },
+      {
+        "path": "scripts/audit_chapter2_recovered_evolution_archives_20261011.py",
+        "sha256": "c7f79cc8d1a0d6d15f2555b8648b768db5a276b9203056a59976c83597ff8cd0",
+        "size_bytes": 30368
+      },
+      {
+        "path": "tests/test_chapter2_public_archive_download.py",
+        "sha256": "f4ab2035696f1a6e1cc6ab55c184f681172b1e2e632afccbd222c832a896235a",
+        "size_bytes": 2406
+      },
+      {
+        "path": "tests/test_chapter2_recovered_evolution_archives_20261011.py",
+        "sha256": "238a45a432f2a342098bf65bf290883985b1fab93d35a9285b0fbd9a5fc06788",
+        "size_bytes": 8190
+      }
+    ],
+    "older_receipt_code_hashes_are_historical_snapshots": true
+  },
+  "next_required_input": {
+    "primary_archive_filename": "model3_replenishment_evolution_20261005.zip",
+    "primary_archive_bytes": 763914318,
+    "primary_archive_sha256": "37bd0bd312734715392add19f424696121fbe88517dfa784d8e702173ec71b6c",
+    "positive_mutation_endpoint_cases": 2048,
+    "full_discovery_cases_including_mutation_zero": 4096,
+    "source_material": "Original campaign sources.json and sources.zip, with every relevant member matched to the appropriate 23-file or 25-file frozen contract.",
+    "remaining_gate": "Authenticate archive, executed source and numerical runtime; reproduce complete original traces and all checkpoints before admitting reconstructed annual genomes."
+  },
+  "report_file": {
+    "path": "docs/CHAPTER2_DISCOVERY_REPLAY_PROVENANCE_20261011.md",
+    "sha256": "2586f1ff50f7e7594bfc1501afb05f8b88a6ddffe6f38ac6723f0b58f1069c9c",
+    "size_bytes": 11681
+  }
+}

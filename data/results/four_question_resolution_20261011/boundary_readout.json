@@ -1,0 +1,169 @@
+{
+  "groups": [
+    {
+      "D": -0.537109375,
+      "block": "confirmation",
+      "composition": "empty",
+      "simultaneous_interval": [
+        -0.607421875,
+        -0.46223144531249716
+      ],
+      "supply": 0.0,
+      "width": 0.046875
+    },
+    {
+      "D": 0.255859375,
+      "block": "confirmation",
+      "composition": "empty",
+      "simultaneous_interval": [
+        0.185546875,
+        0.328125
+      ],
+      "supply": 0.0,
+      "width": 0.078125
+    },
+    {
+      "D": -0.216796875,
+      "block": "confirmation",
+      "composition": "matched",
+      "simultaneous_interval": [
+        -0.294921875,
+        -0.140625
+      ],
+      "supply": 0.125,
+      "width": 0.046875
+    },
+    {
+      "D": 0.240234375,
+      "block": "confirmation",
+      "composition": "matched",
+      "simultaneous_interval": [
+        0.162109375,
+        0.31640625
+      ],
+      "supply": 0.125,
+      "width": 0.078125
+    },
+    {
+      "D": -0.447265625,
+      "block": "confirmation",
+      "composition": "separated",
+      "simultaneous_interval": [
+        -0.52734375,
+        -0.3671875
+      ],
+      "supply": 0.125,
+      "width": 0.046875
+    },
+    {
+      "D": 0.26953125,
+      "block": "confirmation",
+      "composition": "separated",
+      "simultaneous_interval": [
+        0.1927001953125,
+        0.34375
+      ],
+      "supply": 0.125,
+      "width": 0.078125
+    },
+    {
+      "D": -0.7109375,
+      "block": "main",
+      "composition": "empty",
+      "simultaneous_interval": [
+        -0.775390625,
+        -0.642578125
+      ],
+      "supply": 0.0,
+      "width": 0.046875
+    },
+    {
+      "D": 0.107421875,
+      "block": "main",
+      "composition": "empty",
+      "simultaneous_interval": [
+        0.0234375,
+        0.1875
+      ],
+      "supply": 0.0,
+      "width": 0.078125
+    },
+    {
+      "D": -0.3046875,
+      "block": "main",
+      "composition": "matched",
+      "simultaneous_interval": [
+        -0.388671875,
+        -0.21875
+      ],
+      "supply": 0.125,
+      "width": 0.046875
+    },
+    {
+      "D": 0.255859375,
+      "block": "main",
+      "composition": "matched",
+      "simultaneous_interval": [
+        0.169921875,
+        0.33984375
+      ],
+      "supply": 0.125,
+      "width": 0.078125
+    },
+    {
+      "D": -0.52734375,
+      "block": "main",
+      "composition": "separated",
+      "simultaneous_interval": [
+        -0.607421875,
+        -0.44140625
+      ],
+      "supply": 0.125,
+      "width": 0.046875
+    },
+    {
+      "D": 0.1796875,
+      "block": "main",
+      "composition": "separated",
+      "simultaneous_interval": [
+        0.091796875,
+        0.26628417968750284
+      ],
+      "supply": 0.125,
+      "width": 0.078125
+    }
+  ],
+  "inference": "Conditional dominance band, not a continuous root or universal threshold.",
+  "interval_family": 12,
+  "records_sha256": "67d1f9c84c28550ecd9a7d8afd2a0170088ac5b327967cc16ae518150ddf25a1",
+  "replicated_transition_bands": [
+    {
+      "band": [
+        0.046875,
+        0.078125
+      ],
+      "composition": "empty",
+      "resolution": 0.03125,
+      "supply": 0.0
+    },
+    {
+      "band": [
+        0.046875,
+        0.078125
+      ],
+      "composition": "matched",
+      "resolution": 0.03125,
+      "supply": 0.125
+    },
+    {
+      "band": [
+        0.046875,
+        0.078125
+      ],
+      "composition": "separated",
+      "resolution": 0.03125,
+      "supply": 0.125
+    }
+  ],
+  "status": "complete_verified"
+}
