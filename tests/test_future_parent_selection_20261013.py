@@ -127,6 +127,8 @@ def test_registered_workflow_requires_technical_before_all16_shards():
     assert 'future-parent-selection' in s
     technical=s.split('  future-parent-technical:',1)[1].split('  future-parent-biological:',1)[0]
     assert 'scipy==1.15.3' in technical
+    assert 'psutil==7.2.2' in technical
+    assert 'threadpoolctl==3.6.0' in technical
     assert 'needs: future-parent-technical' in s
     assert 'needs: future-parent-biological' in s
     assert 'python -m scripts.admit_parent_selection_references_20261013' in s
