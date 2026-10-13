@@ -139,14 +139,16 @@
       "scripts/audit_chapter2_clock_factorial_feasibility_20261013.py": "79aeb0374d4d822e00760889c8be58c1af7f68bc227930474b2f20195f01737a",
       "scripts/audit_chapter2_clock_power_envelope_20261013.py": "5291f05adcc70c2270540d53902cbe10760746d36ea67ff12e6e3e703c078109",
       "data/results/chapter2_clock_factorial_feasibility_20261013.json": "93517809785e95c06bae089a133142fc63b0f15aec7c30ff03a2418407717da6",
-      "data/results/chapter2_clock_power_envelope_20261013.json": "c6ae68d74668c629a9395dc84c2d48398e749df7bfeccd4c0503116342526f6b"
+      "data/results/chapter2_clock_power_envelope_20261013.json": "c6ae68d74668c629a9395dc84c2d48398e749df7bfeccd4c0503116342526f6b",
+      "scripts/audit_chapter2_clock_t0_reproduction_equivalence_20261013.py": "59608b7b000435c35a264f97748846dda83bb3ef1b1742133db254254865e28f",
+      "data/results/chapter2_clock_t0_reproduction_equivalence_20261013.json": "1d4d531212f1268da84b3aea6dd9bb8ed0c08a5895034275f6f5192408054032"
     },
     "assumption_not_empirical_power": true
   },
   "execute_rules": [
     "Supersedes the earlier PR draft I-population-wide scale: it changed each individual I floral phenotype and confounded initial ecological return. The revised I-within-individual homolog scale holds all t0 expressed phenotypes identical; no biological trajectories have been dispatched under either design.",
     "Do not dispatch any biological trajectories on this PR or during the feasibility audit.",
-    "Review and authenticate exact original biology, 2x2 founder transformation, 12-cell coupled-stream mapping and source/runtime hashes before pilot.",
+    "Original t0 reproduction is source-verified and 24 source-ledger comparisons passed; full original type validation, birth-only operator, mutation/parentage and producer/stream genealogy remain pre-pilot blockers.",
     "Execute only a single 1,536-case pilot after immutable pilot design and original source manifest are approved; no adaptive case adds.",
     "Reader-only independent verification, complete participant IDs, origin/mutation ancestry and all six endpoint categories precede any biological conclusion.",
     "Power and fully specified predictor/null contract must be separately frozen before new confirmation histories, never using their outcomes.",
@@ -158,5 +160,21 @@
     "rejected_v1": "I_new = population_mean_I + scale*(I_old-population_mean_I) varied each adult flower investment despite constant population average; unsuitable for isolating hidden genetic accessibility",
     "revised_v2": "I_new homologs = adult_i_mean ± h*(original homolog half-difference) with h=0 or 1; every adult M/I/A expressed phenotype exact-identical at t0",
     "traces": "The pre-review historical v1 proposal remains in prior Git commits, not biological data; original source archive and prior frozen results unchanged."
+  },
+  "source_original_operator_gate": {
+    "status": "T0_REPRODUCTIVE_LEDGER_EQUIVALENCE_COMPLETE_NO_BIOLOGICAL_TRAJECTORIES",
+    "original_reproduction_git_blob": "95314698a3296b6f13b8c053c36f2df0b7b744ca",
+    "orig_20261013_bio_execution_commit": "328548612e93469fcc8663f24548530a57399b9a",
+    "source_original_context_shard_sha256": {
+      "0": "5b850eaad6104f572f56df2a37da00fbc8473503a827703c82f6870a87e9a881",
+      "3": "676e84ff0729ba88dcd91cb161efeb2dc63f10b6679458695c5d2909c017e9c2",
+      "4": "900d3d22a36fa59241a933b8efc4b2fb8f320e4b25637e592640f31c529314fe"
+    },
+    "source_states": 6,
+    "unchanged_source_reproductive_counterfactuals": 24,
+    "original_return_error_max": 1.4210854715202004e-14,
+    "genotype_changed_return_arrays_hash_equivalent": true,
+    "remaining": "Full original-type class validators / inheritance / mutation / population advance test and producer input/seed genealogy source lock still mandatory before pilot.",
+    "source_result": "data/results/chapter2_clock_t0_reproduction_equivalence_20261013.json"
   }
 }
