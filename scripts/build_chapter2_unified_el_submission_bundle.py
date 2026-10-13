@@ -106,20 +106,25 @@ def kernel_expression_materials():
     if sha(receipt_raw) != 'cf9a42c0099996a07105b718bbc4e12f20b8cbb002e2121974ce354274c37e6b':
         raise ValueError('kernel expression independent receipt identity differs')
     receipt = json.loads(receipt_raw)
-    readout_raw = (data / 'READOUT.json').read_bytes()
+    readout_raw = gzip.decompress((data / 'READOUT.json.gz').read_bytes())
     readout = json.loads(readout_raw)
-    terms_raw = (data / 'ALL_STATE_TIME_CONTRIBUTIONS.npz').read_bytes()
+    arrays_raw = (data / 'ARRAYS_MANIFEST.json').read_bytes()
+    arrays = json.loads(arrays_raw)
+    optional_terms = data / 'ALL_STATE_TIME_CONTRIBUTIONS.npz'
+    if optional_terms.exists() and sha(optional_terms.read_bytes()) != receipt['all_terms_sha256']:
+        raise ValueError('kernel expression verified source admission differs: local signed terms')
     source = (code / 'audit_kernel_expression.py').read_bytes()
     protocol = (code / 'PROTOCOL.md').read_bytes()
     verifier = (code / 'verify_kernel_expression_independent.py').read_bytes()
-    if (sha(readout_raw) != receipt['readout_sha256'] or sha(terms_raw) != receipt['all_terms_sha256']
+    if (sha(readout_raw) != receipt['readout_sha256'] or arrays['sha256'] != receipt['all_terms_sha256'] or arrays['bytes'] != 18547957
+        or arrays['companion_sha256'] != 'c5da14c2bb577e0c7a58dad481b611424045df37ad48cb81d397ebe3f667722a'
         or sha(source) != readout['executed_source_sha256'] or sha(protocol) != readout['protocol_sha256']
         or sha(verifier) != receipt['verifier_sha256']
         or readout['pairs'] != 48 or readout['kernels'] != 96 or readout['original_reversals'] != 12
         or receipt['state_time_checks'] != 2534400 or receipt['switch_time_checks'] != 15360
         or receipt['new_biological_histories'] != 0 or receipt['producer_imported']):
         raise ValueError('kernel expression verified source admission differs')
-    manifest = json_bytes(dict(file='ALL_STATE_TIME_CONTRIBUTIONS.npz',sha256=sha(terms_raw),bytes=len(terms_raw),
+    manifest = json_bytes(dict(file='ALL_STATE_TIME_CONTRIBUTIONS.npz',sha256=arrays['sha256'],bytes=arrays['bytes'],
         endpoint_shape=[48,2,80,165],duration_shape=[48,2,80,165],
         external_companion='KERNEL_EXPRESSION_OPERATOR_REVIEW_20261013.zip',
         scope='All signed state-time arrays preserved in separate public companion; not duplicated in reviewer ZIP.'))
@@ -131,7 +136,7 @@ def kernel_expression_materials():
         'EVIDENCE/KERNEL_EXPRESSION_SOURCE.py': source,
         'EVIDENCE/KERNEL_EXPRESSION_INDEPENDENT_SOURCE.py': verifier,
     }
-    return members, {name:dict(original_sha256=sha(terms_raw) if name.endswith('ARRAYS_MANIFEST.json') else sha(raw),
+    return members, {name:dict(original_sha256=arrays['sha256'] if name.endswith('ARRAYS_MANIFEST.json') else sha(raw),
         derived_sha256=sha(raw),independent_review_sha256=sha(receipt_raw),
         transformation='Array manifest is a size/hash-bound pointer to full signed arrays; all other diagnostic bytes exact and unpooled.')
         for name,raw in members.items()}

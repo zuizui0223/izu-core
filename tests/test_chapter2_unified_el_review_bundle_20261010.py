@@ -552,12 +552,43 @@ def test_kernel_expression_materials_reject_changed_signed_terms(tmp_path, monke
     data = tmp_path / 'data/results/kernel_expression_accounting_20261013'
     code = tmp_path / 'scripts/kernel_expression_accounting_20261013'
     data.mkdir(parents=True); code.mkdir(parents=True)
-    for name in ['READOUT.json', 'INDEPENDENT_REVIEW.json']:
+    for name in ['READOUT.json.gz', 'INDEPENDENT_REVIEW.json', 'ARRAYS_MANIFEST.json']:
         (data / name).write_bytes((builder.MINIMAL_RESULTS / 'kernel_expression_accounting_20261013' / name).read_bytes())
     (data / 'ALL_STATE_TIME_CONTRIBUTIONS.npz').write_bytes(b'changed signed terms')
     for name in ['audit_kernel_expression.py', 'PROTOCOL.md', 'verify_kernel_expression_independent.py']:
         (code / name).write_bytes((builder.ROOT / 'scripts/kernel_expression_accounting_20261013' / name).read_bytes())
     monkeypatch.setattr(builder, 'ROOT', tmp_path)
+    monkeypatch.setattr(builder, 'MINIMAL_RESULTS', tmp_path / 'data/results')
+    with pytest.raises(ValueError, match='kernel expression verified source admission'):
+        builder.kernel_expression_materials()
+
+
+def test_kernel_expression_materials_use_verified_companion_when_arrays_not_local(tmp_path, monkeypatch):
+    data = tmp_path / 'data/results/kernel_expression_accounting_20261013'
+    code = tmp_path / 'scripts/kernel_expression_accounting_20261013'
+    data.mkdir(parents=True); code.mkdir(parents=True)
+    for name in ['READOUT.json.gz', 'INDEPENDENT_REVIEW.json', 'ARRAYS_MANIFEST.json']:
+        (data / name).write_bytes((builder.MINIMAL_RESULTS / 'kernel_expression_accounting_20261013' / name).read_bytes())
+    for name in ['audit_kernel_expression.py', 'PROTOCOL.md', 'verify_kernel_expression_independent.py']:
+        (code / name).write_bytes((builder.ROOT / 'scripts/kernel_expression_accounting_20261013' / name).read_bytes())
+    monkeypatch.setattr(builder, 'ROOT', tmp_path)
+    monkeypatch.setattr(builder, 'MINIMAL_RESULTS', tmp_path / 'data/results')
+    members, _ = builder.kernel_expression_materials()
+    value = json.loads(members['EVIDENCE/KERNEL_EXPRESSION_ARRAYS_MANIFEST.json'])
+    assert value['bytes'] == 18547957
+    assert value['sha256'] == '3a39c3d37dda4eba126e01ea83ea1ff667d7f99860471dc2e15e8114f13d748a'
+
+
+def test_kernel_expression_materials_reject_changed_compressed_readout(tmp_path, monkeypatch):
+    import gzip
+    data = tmp_path / 'data/results/kernel_expression_accounting_20261013'
+    data.mkdir(parents=True)
+    original = builder.MINIMAL_RESULTS / 'kernel_expression_accounting_20261013'
+    (data / 'INDEPENDENT_REVIEW.json').write_bytes((original / 'INDEPENDENT_REVIEW.json').read_bytes())
+    (data / 'ARRAYS_MANIFEST.json').write_bytes((original / 'ARRAYS_MANIFEST.json').read_bytes())
+    changed = json.loads(gzip.decompress((original / 'READOUT.json.gz').read_bytes()))
+    changed['pairs'] = 47
+    (data / 'READOUT.json.gz').write_bytes(gzip.compress(json.dumps(changed).encode(), mtime=0))
     monkeypatch.setattr(builder, 'MINIMAL_RESULTS', tmp_path / 'data/results')
     with pytest.raises(ValueError, match='kernel expression verified source admission'):
         builder.kernel_expression_materials()
