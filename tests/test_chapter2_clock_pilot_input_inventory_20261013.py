@@ -1,6 +1,5 @@
 """No-running-biology contract for original-data registered clock pilot inputs."""
 from __future__ import annotations
-import base64
 import json
 from pathlib import Path
 import sys
@@ -12,10 +11,9 @@ ROOT=Path(__file__).resolve().parents[1]
 sys.path.insert(0,str(ROOT))
 from scripts import register_chapter2_clock_pilot_input_inventory_20261013 as reg
 
-FIXTURE=Path('/mnt/data/clock_pilot_registry/data/design/chapter2_clock_original_t0_typed_fixture_20261013.json')
 READOUT=ROOT/'data/design/chapter2_clock_factorial_pilot_input_inventory_20261013.json'
 
-def artificial_sources_from_original_fixture():
+def artificial_sources_only_for_registration_test():
     # The dataset's historical source fixture is in repo on the targeted parent PR.
     # Here only a pure-input mock: no stochastic biology or rereading future outcomes.
     fixture={}
@@ -24,8 +22,8 @@ def artificial_sources_from_original_fixture():
     # the source-zip readback, NOT attributed to this artificial unit fixture.
     for block in reg.FOUNDER_SEEDS:
         a=np.zeros((48,3,2),dtype=np.float64)+0.5
-        a[:,1,0]=np.linspace(.25,.5,48)
-        a[:,1,1]=np.linspace(.5,.75,48)
+        a[:,1,0]=.25+(np.arange(48)%8)*.03125
+        a[:,1,1]=.5+(np.arange(48)%8)*.03125
         a[:,2,0]=.4375;a[:,2,1]=.5625
         for ctx in reg.CONTEXTS:
             conf={'activity':.4*reg.CONTEXTS[ctx][0]}
@@ -39,7 +37,7 @@ def artificial_sources_from_original_fixture():
     return fixture
 
 def test_registration_has_1536_case_identifiers_and_128_clustered_streams(monkeypatch):
-    monkeypatch.setattr(reg,'read_sources',lambda _:artificial_sources_from_original_fixture())
+    monkeypatch.setattr(reg,'read_sources',lambda _:artificial_sources_only_for_registration_test())
     x=reg.registration({})
     assert x['status']=='PRE_BIOLOGICAL_EXPLICIT_PILOT_INPUTS_RECORDED_NO_EXECUTION'
     assert x['new_biological_histories']==0 and x['execution_authorized'] is False
@@ -75,7 +73,7 @@ def test_seed_namespace_exclusion_and_bounds():
 
 
 def test_all_four_homolog_transforms_keep_each_individuals_expressed_traits_exact():
-    a=artificial_sources_from_original_fixture()['main',0]['original_t0_alleles']
+    a=artificial_sources_only_for_registration_test()['main',0]['original_t0_alleles']
     ref=a.mean(axis=2)
     for w in (.046875,.078125):
       for h in (0.,1.):
