@@ -1,0 +1,153 @@
+{
+  "schema": "chapter2_clock_A_access_by_I_standing_variance_pilot_design_v1",
+  "created": "2026-10-13",
+  "status": "PRE_EXECUTION_DESIGN_REVIEW_PENDING_DO_NOT_DISPATCH",
+  "aim": "Can initially separate inherited assurance-accessibility and investment standing variance reveal when a predicted access-delay plus selection-response clock generalizes across new finite histories?",
+  "prior_exposed_evidence": {
+    "old_ecological_order_source": "328548612e93469fcc8663f24548530a57399b9a",
+    "original_ecology_readout_sha256": "af17831b6916440e5e1e7796003a0b6b228a63c6773450f6d238dddb3e5535fd",
+    "original_source_shard0_sha256": "5b850eaad6104f572f56df2a37da00fbc8473503a827703c82f6870a87e9a881",
+    "complete_original_raw_zip_sha256": "819741aa4a9f5bc1aaf2dadddbd56b79d158fc9295d07fc3bffe362693fc056a",
+    "original_inputs_archive_sha256": "f0fd126f638e1c6bd130e640ce4491b3bb47aac3da1838359a902776c9a4e037",
+    "existing_cv": "data/results/chapter2_initial_clock_two_axis_cv_20261013.json",
+    "history_cutoff": "Existing 2,304-case old outcomes and 6,144 genetic-width histories were already exposed. Pilot is NOT independent historical validation."
+  },
+  "biological_source": "Require exact authenticated Model3 original 2026-10-11 source package; no modifications to reproduction, inheritance, recruitment or mutation kernel. A new orchestration wrapper must be reviewed separately.",
+  "factorial": {
+    "founders": [
+      {
+        "block": "main",
+        "frozen_seed": 27200701
+      },
+      {
+        "block": "confirmation",
+        "frozen_seed": 27210701
+      }
+    ],
+    "N0": 48,
+    "K": 48,
+    "horizon_updates": 200,
+    "assurance_allele_halfwidth": [
+      0.046875,
+      0.078125
+    ],
+    "assurance_alleles_per_founder": [
+      "A:.5-w,.5+w per plant (heterozygous)"
+    ],
+    "investment_allele_scale": [
+      0.5,
+      1.0
+    ],
+    "I_scale_definition": "I_new = original pooled founding I allele mean + c*(I_original - original pooled founding I allele mean)",
+    "independence_condition": "Full 2x2 crossing within each original founder; A-width does not change I source alleles; I-scaling does not change A or M source alleles.",
+    "matching_M": "unaltered original allele states",
+    "A_initial_expressed_mean": 0.5,
+    "I_initial_allele_mean": "unaltered per founder; original main=.5078125, confirmation=.515625",
+    "A_initial_expressed_variance": 0.0,
+    "A_F1_segregation_potential": "w²/2 under no mutation and independent meiosis; not observed next-generation variance",
+    "no_mutation_A_accessibility_at_delta0.05": "w<.05 structurally inaccessible; w>.05 allele support permits but never guarantees event",
+    "I_mutation_allowed": false,
+    "A_mutation_rate": 0.01,
+    "A_mutation_sd": 0.05,
+    "mutation_traits": [
+      false,
+      false,
+      true
+    ],
+    "assurance_timing": "delayed",
+    "assurance_cost": 0.5,
+    "investment_cost": 0.5,
+    "inbreeding_depression": 0.5,
+    "adult_survival": 0.0,
+    "seed_immigration": 0.0,
+    "environments": [
+      {
+        "id": "none",
+        "supply": 0.0,
+        "composition": "empty",
+        "original_context_id": 0
+      },
+      {
+        "id": "matched",
+        "supply": 0.125,
+        "composition": "matched",
+        "original_context_id": 3
+      },
+      {
+        "id": "separated",
+        "supply": 0.125,
+        "composition": "separated",
+        "original_context_id": 4
+      }
+    ],
+    "contexts": 3,
+    "treatments_per_founder_seed": 12,
+    "no_additional_ecological_contexts_in_this_pilot": true,
+    "no_facultative_I_mutation_in_this_pilot": true,
+    "names_are_abstract": "A and I are synthetic Model3 axes; not observed autonomous selfing rates or literal flower size."
+  },
+  "pilot": {
+    "purpose": "prospective FEASIBILITY and precision estimation only, not successful Q1-Q2 clock confirmation",
+    "salt": "chapter2-clock-factorial-pilot-v1-20261013",
+    "independent_stream_definition": "(founder_block, replicate) cryptographic salted seed; same source stream used for its three environments and four factorial arms",
+    "replicates_per_founder": 64,
+    "founder_blocks": 2,
+    "independent_stochastic_clusters": 128,
+    "total_trajectories": 1536,
+    "updates_per_trajectory": 200,
+    "technical_fixture_streams": "distinct salt; excluded from 1,536; no source-substitution",
+    "original_outcome_threshold": 0.05,
+    "event_sustain_censuses": 20,
+    "tie_window_updates": 5,
+    "sensitivity_thresholds": [
+      0.025,
+      0.1
+    ],
+    "primary_descriptive_event_categories": [
+      "assurance_first",
+      "investment_first",
+      "near_simultaneous",
+      "assurance_only",
+      "investment_only",
+      "neither"
+    ],
+    "retain_all_starts_even_extinct": true,
+    "retain": "all annual genotypes (all loci and homologs), ancestry/parents, census, mutation flags, reproduction F/P/S ledgers, visitor context, event and comparison receipts",
+    "strict_censoring": "event not sustained by update 200 = unobserved; extinct genotype mean undefined, never zero; keep six outcome categories",
+    "pilot_allowed_usage": "judge producer correctness, observed process feasibility and groupwise score-difference variance; selecting coefficient/model using pilot may inform an entirely NEW independent confirmation design but is NOT itself evidence",
+    "pilot_forbidden_usage": "no cohort re-use in confirm, no retuning parameters/thresholds/horizon after outcomes, no retrospective reclassification of original failed/nonsupported tests"
+  },
+  "confirmation": {
+    "status": "NOT_YET_FROZEN_NOT_AUTHORIZED_FOR_DISPATCH",
+    "goal": "independent-history heldout six-class log-score difference of mechanistic access+response clock versus equal-or-greater-flexibility ecology/genetic-interaction null",
+    "target_log_loss_reduction_min": 0.02,
+    "primary_metric": "six-class log loss averaged over all starts (not only strict two-event histories)",
+    "evaluation_units": "founder-block stratified paired visitor-history clusters; all 12 cells within cluster remain joined",
+    "planned_power": "Assumption envelope only; choose n from pilot sigma (floor .15, 512 <= n <= 1024, 128-cluster rounding); no main execution until pilot and predictive algorithm are reviewed",
+    "predeclared_n_rule": "ceil_to_multiple128(max(512, ((z0.975+z0.8)*max(sigma_pilot,0.15)/0.02)^2 )); if >1024 -> NO-GO",
+    "potential_new_seeds_salt": "chapter2-clock-factorial-confirm-v1-20261013",
+    "model_algorithms": "NOT FROZEN: mechanistic τ_A access+response and τ_I from full parent returns require pre-execution published mathematical definition, software and test fixtures",
+    "larger_null": "equal or more flexible ecological supply/composition × genetic variance/supply interaction, with same training and calibration opportunity as clock",
+    "no_intervention_on_nat_order": "This design tests forecast and response processes; no claim of natural-order-mediated Q4 benefit."
+  },
+  "power_and_feasibility": {
+    "feasibility_file": "data/results/chapter2_clock_factorial_feasibility_20261013.json",
+    "power_file": "data/results/chapter2_clock_power_envelope_20261013.json",
+    "derivation_files_sha256": {
+      "scripts/audit_chapter2_clock_factorial_feasibility_20261013.py": "4b23bc81da1dfd057413e9a2870325e9cccf0f7b53c2b5c14c23c4845892ef5a",
+      "scripts/audit_chapter2_clock_power_envelope_20261013.py": "5291f05adcc70c2270540d53902cbe10760746d36ea67ff12e6e3e703c078109",
+      "data/results/chapter2_clock_factorial_feasibility_20261013.json": "729f96b40c2457947b83a01963e6ba7019efc24149f2ead1d6a67fb53f00ad77",
+      "data/results/chapter2_clock_power_envelope_20261013.json": "c6ae68d74668c629a9395dc84c2d48398e749df7bfeccd4c0503116342526f6b"
+    },
+    "assumption_not_empirical_power": true
+  },
+  "execute_rules": [
+    "Do not dispatch any biological trajectories on this PR or during the feasibility audit.",
+    "Review and authenticate exact original biology, 2x2 founder transformation, 12-cell coupled-stream mapping and source/runtime hashes before pilot.",
+    "Execute only a single 1,536-case pilot after immutable pilot design and original source manifest are approved; no adaptive case adds.",
+    "Reader-only independent verification, complete participant IDs, origin/mutation ancestry and all six endpoint categories precede any biological conclusion.",
+    "Power and fully specified predictor/null contract must be separately frozen before new confirmation histories, never using their outcomes.",
+    "If pilot sd implies >1024 confirm history clusters under fixed .02 threshold, stop and report NO-GO (do not relax target).",
+    "No merge/promotion to one-paper main claim from pilot-only results."
+  ]
+}
