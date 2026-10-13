@@ -99,6 +99,65 @@ def count_manuscript_words(text):
     }
 
 
+def directional_access_materials():
+    data = MINIMAL_RESULTS / 'directional_access_20261013'
+    code = ROOT / 'scripts/directional_access_20261013'
+    receipt_raw = (data / 'INDEPENDENT_REVIEW.json').read_bytes()
+    frozen_raw = (code / 'FROZEN_SOURCES.json').read_bytes()
+    if (sha(receipt_raw) != '0b7522ad57903a819b1d630c56023edfa46c66d1b37edc721ce3471826952d0b'
+        or sha(frozen_raw) != '168fcc024a60157268239ecc37a1c11446931f0a4098a56cec20a77d047f10e9'):
+        raise ValueError('directional independent/source identity differs')
+    receipt = json.loads(receipt_raw)
+    frozen = json.loads(frozen_raw)
+    if set(frozen) != {'PROTOCOL.md','audit_access.py','verify_access.py','test_access.py','POPULATION_SOURCE.py'}:
+        raise ValueError('directional source inventory differs')
+    for name, identity in frozen.items():
+        if sha((code / name).read_bytes()) != identity:
+            raise ValueError('directional executed source differs')
+    readout_raw = (data / 'READOUT.json').read_bytes()
+    value = json.loads(readout_raw)
+    case_raw = (data / 'ALL_CASES.csv').read_bytes()
+    array_raw = (data / 'ALL_CENSUS_SUPPORT.npz').read_bytes()
+    compact_raw = (data / 'ORIGINAL_COMPACT.json').read_bytes()
+    blob = hashlib.sha1(b'blob ' + str(len(compact_raw)).encode() + b'\0' + compact_raw).hexdigest()
+    if (sha(readout_raw) != receipt['readout_sha256'] or sha(case_raw) != receipt['cases_sha256']
+        or sha(array_raw) != receipt['arrays_sha256'] or blob != value['compact_git_blob']
+        or blob != '5608ad2cdcbef167fe9062ab5f26318abf2e1bd9'
+        or value['source_sha256'] != frozen['audit_access.py']
+        or value['protocol_sha256'] != frozen['PROTOCOL.md']
+        or value['population_source_sha256'] != frozen['POPULATION_SOURCE.py']
+        or receipt['verifier_sha256'] != frozen['verify_access.py']
+        or value['cases'] != 2304 or len(value['cells']) != 18
+        or value['excluded_before_fixation'] != 703 or value['missing_I_excluded_before_fixation'] != 702
+        or value['missing_I_terminal_excluded_alive'] != 1159
+        or receipt['parent_homolog_checks'] != 44236800 or receipt['census_descriptor_checks'] != 2315520
+        or receipt['status'] != 'ALL2304_DIRECTIONAL_SUPPORT_AND_ANCESTRY_INDEPENDENTLY_VERIFIED'
+        or receipt['producer_imported'] is not False or value['new_biological_histories'] != 0):
+        raise ValueError('directional verified scope differs')
+    members = {
+        'EVIDENCE/DIRECTIONAL_ACCESS_READOUT.json': readout_raw,
+        'EVIDENCE/DIRECTIONAL_ACCESS_CASES.csv': case_raw,
+        'EVIDENCE/DIRECTIONAL_ACCESS_ARRAYS.npz': array_raw,
+        'EVIDENCE/DIRECTIONAL_ACCESS_INDEPENDENT_REVIEW.json': receipt_raw,
+        'EVIDENCE/DIRECTIONAL_ACCESS_ORIGINAL_COMPACT.json': compact_raw,
+        'EVIDENCE/DIRECTIONAL_ACCESS_FROZEN_SOURCES.json': frozen_raw,
+        'EVIDENCE/DIRECTIONAL_ACCESS_README.md': re.sub(rb'https://github\.com/[^\s]+',
+            b'External original raw archive (identity recorded below; source access supplied separately).',
+            (data / 'README.md').read_bytes()),
+    }
+    for name, dest in [('PROTOCOL.md','PROTOCOL.md'),('audit_access.py','SOURCE.py'),
+                       ('verify_access.py','INDEPENDENT_SOURCE.py'),('test_access.py','TEST_SOURCE.py'),
+                       ('POPULATION_SOURCE.py','POPULATION_SOURCE.py')]:
+        members['EVIDENCE/DIRECTIONAL_ACCESS_' + dest] = (code / name).read_bytes()
+    derivations = {name: dict(original_sha256=sha(raw), derived_sha256=sha(raw),
+        independent_review_sha256=sha(receipt_raw), transformation='Exact retrospective support diagnostic; original event definitions and all case/census records retained.')
+        for name, raw in members.items()}
+    derivations['EVIDENCE/DIRECTIONAL_ACCESS_README.md'].update(
+        original_sha256=sha((data / 'README.md').read_bytes()),
+        transformation='Remove identifying public source URL only; archive name, identity, verification command and scientific limits retained.')
+    return members, derivations
+
+
 def kernel_channel_materials():
     data = MINIMAL_RESULTS / 'kernel_channel_factorial_20261013'
     code = ROOT / 'scripts/kernel_channel_factorial_20261013'
@@ -483,6 +542,18 @@ def resolution_materials():
 
 def validate_member(name,raw):
     """Parse deliverable formats; visual and scientific inspection remain separate."""
+    if name == 'EVIDENCE/DIRECTIONAL_ACCESS_ARRAYS.npz':
+        import numpy as np
+        with np.load(io.BytesIO(raw), allow_pickle=False) as arrays:
+            expected = {'keys','minimum','maximum','support_size','allele_variance','phenotype_variance'}
+            if set(arrays.files) != expected or arrays['keys'].shape != (2304,):
+                raise ValueError('directional census array inventory differs')
+            for field in expected - {'keys'}:
+                if arrays[field].shape != (2304,201) or arrays[field].dtype.kind not in 'fiu':
+                    raise ValueError('directional census descriptor shape differs')
+            for key in arrays['keys']:
+                anonymous_text(str(key), name)
+        return
     if name.endswith(".pdf"):
         try:
             if not raw.startswith(b"%PDF-"):
@@ -722,6 +793,9 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     kernel_channel,kernel_channel_derivations=kernel_channel_materials()
     members.update(kernel_channel)
     derivations.update(kernel_channel_derivations)
+    directional,directional_derivations=directional_access_materials()
+    members.update(directional)
+    derivations.update(directional_derivations)
     derivations["SUPPORTING_INFORMATION.md"]={
         "original_path":str(si_path.relative_to(ROOT)),"original_sha256":sha(si_original),
         "derived_sha256":sha(si),"transformation":"Relocate atom/resolution/mechanism companion source references and add the delivered supplementary-figure link; numerical text unchanged."}

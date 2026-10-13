@@ -232,6 +232,18 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
         assert sorted(x for x in names if x.startswith("EVIDENCE/"))==[
            "EVIDENCE/ATOM_ABM_COMPARISON.json",
            "EVIDENCE/CAPACITY_RESULTS.json",
+           "EVIDENCE/DIRECTIONAL_ACCESS_ARRAYS.npz",
+           "EVIDENCE/DIRECTIONAL_ACCESS_CASES.csv",
+           "EVIDENCE/DIRECTIONAL_ACCESS_FROZEN_SOURCES.json",
+           "EVIDENCE/DIRECTIONAL_ACCESS_INDEPENDENT_REVIEW.json",
+           "EVIDENCE/DIRECTIONAL_ACCESS_INDEPENDENT_SOURCE.py",
+           "EVIDENCE/DIRECTIONAL_ACCESS_ORIGINAL_COMPACT.json",
+           "EVIDENCE/DIRECTIONAL_ACCESS_POPULATION_SOURCE.py",
+           "EVIDENCE/DIRECTIONAL_ACCESS_PROTOCOL.md",
+           "EVIDENCE/DIRECTIONAL_ACCESS_README.md",
+           "EVIDENCE/DIRECTIONAL_ACCESS_READOUT.json",
+           "EVIDENCE/DIRECTIONAL_ACCESS_SOURCE.py",
+           "EVIDENCE/DIRECTIONAL_ACCESS_TEST_SOURCE.py",
            "EVIDENCE/DISCOVERY_ARCHIVE_INTAKE.json",
            "EVIDENCE/DURATION_READOUT.json",
            "EVIDENCE/ECOLOGICAL_ORDER_READOUT.json",
@@ -283,7 +295,7 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
         assert m["doi_deposit_complete"] is False
         assert m["n_figures"]==4
         assert m["n_supplementary_figures"]==3
-        assert len(m["members"])==58
+        assert len(m["members"])==70
         for name,record in m["members"].items():
             raw=z.read(name)
             assert record=={"size":len(raw),"sha256":hashlib.sha256(raw).hexdigest()}
@@ -433,6 +445,9 @@ def test_tempo_archive_preserves_results_and_every_table_row_without_identifiers
             if name.endswith(".pdf"):
                 continue
             content=z.read(name)
+            if name.endswith('.npz'):
+                builder.validate_member(name, content)
+                continue
             text=(gzip.decompress(content) if name.endswith(".gz") else content).decode().lower()
             assert not any(token in text for token in ("zuizui0223","github.com","/workspace/","/home/","/root/")),name
     receipt=json.loads(out.with_suffix(".receipt.json").read_text())
