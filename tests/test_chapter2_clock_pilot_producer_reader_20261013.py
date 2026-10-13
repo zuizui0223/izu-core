@@ -1,5 +1,9 @@
 """Short, disjoint technical pilot producer/reader gate; NO 200-update cases."""
 from __future__ import annotations
+import io
+import json
+import zipfile
+import hashlib
 import numpy as np
 import pytest
 
@@ -8,7 +12,7 @@ from scripts.run_chapter2_clock_factorial_pilot_20261013 import (
     FULL_HORIZON, TECH_HORIZON, produce,
 )
 from scripts.read_chapter2_clock_factorial_pilot_20261013 import (
-    one_events, decode_case,
+    one_events, decode_case, admit,
 )
 from scripts.audit_chapter2_clock_native_birth_technical_20261013 import (
     load_original_source,source_fixture,
@@ -95,3 +99,55 @@ def test_registered_task_key_decoder_refuses_unregistered_levels():
         decode_case('main_c1_w24_i0_r000')
     with pytest.raises(ValueError,match='Bad source-registered'):
         decode_case('main_c0_w33_i0_r000')
+
+
+@pytest.fixture(scope='module')
+def source_technical_zip(tmp_path_factory):
+    # Run only four original Model3 technical fixtures x3 updates, with a
+    # separate technical RNG. Zero full 200-update pilot histories.
+    root=tmp_path_factory.mktemp('native_pilot_technical')
+    output=root/'technical-original'
+    r=produce(0,output,technical=True)
+    assert r['status']=='TECHNICAL_ONLY_CLOCK_FACTORIAL_SHARD'
+    assert r['cases']==4 and r['updates']==12
+    archive=root/'technical-provider.zip'
+    with zipfile.ZipFile(archive,'w',compression=zipfile.ZIP_DEFLATED) as z:
+        for path in sorted(output.iterdir()):z.write(path,path.name)
+    return archive
+
+
+def test_independent_reader_reproduces_every_native_parent_and_allele_in_technical_provider(source_technical_zip):
+    # Reader shares only original native operator, never imports the producer
+    # or its event definitions. It sees all five copied birth fields.
+    r=admit(0,source_technical_zip,technical=True)
+    assert r['status']=='TECHNICAL_FOUR_CASES_ORIGINAL_BIRTHS_ADMITTED'
+    assert r['technical_only'] and r['cases']==4 and r['updates']==12
+    assert r['reproductive_checks']==12 and r['birth_parent_checks']==12
+    assert r['source_field_checks']==4*4*5
+    assert r['category_counts']=={name:0 for name in (
+        'assurance_first','investment_first','near_simultaneous',
+        'assurance_only','investment_only','neither')}
+    assert r['new_biological_histories_generated_by_reader']==0
+
+
+def test_rehashed_parentage_corruption_is_still_rejected_by_native_replay(source_technical_zip,tmp_path):
+    with zipfile.ZipFile(source_technical_zip) as src:
+        original={name:src.read(name) for name in src.namelist()}
+    completion=json.loads(original['_COMPLETION.json'])
+    key=completion['records'][0]['task']['key']+'.npz'
+    with np.load(io.BytesIO(original[key]),allow_pickle=False) as saved:
+        arrays={field:saved[field] for field in saved.files}
+    assert len(arrays['parentage'])>0
+    tampered=arrays['parentage'].copy()
+    tampered[0,1]=99999999
+    arrays['parentage']=tampered
+    content=io.BytesIO()
+    np.savez_compressed(content,**arrays)
+    original[key]=content.getvalue()
+    completion['records'][0]['case_sha256']=hashlib.sha256(original[key]).hexdigest()
+    original['_COMPLETION.json']=(json.dumps(completion,indent=2)+'\n').encode()
+    corrupted=tmp_path/'tampered-technical-original.zip'
+    with zipfile.ZipFile(corrupted,'w',compression=zipfile.ZIP_DEFLATED) as dest:
+        for name,body in original.items():dest.writestr(name,body)
+    with pytest.raises(ValueError,match='Original recorded child/father/mother pair differs'):
+        admit(0,corrupted,technical=True)
