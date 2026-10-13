@@ -1,0 +1,363 @@
+{
+  "schema": "chapter2_clock_pilot_prelaunch_original_outcome_and_power_review_v1",
+  "analysis_date": "2026-10-14",
+  "status": "ACTUAL_OLD2304_REPLAYED__NEW1536_NOT_RUN__PILOT_POWER_ONLY_HYPOTHETICAL",
+  "original_source_git_blob": "5608ad2cdcbef167fe9062ab5f26318abf2e1bd9",
+  "original_model3_biology_commit": "328548612e93469fcc8663f24548530a57399b9a",
+  "original_source_shards_exact_sha256": [
+    {
+      "shard": 0,
+      "sha256": "5b850eaad6104f572f56df2a37da00fbc8473503a827703c82f6870a87e9a881",
+      "bytes": 21210876,
+      "cases": 256
+    },
+    {
+      "shard": 1,
+      "sha256": "bc675e9eb231ec7f6ac4cb7c26a762cd55d75ad8fff51eae0aa8e28568172280",
+      "bytes": 25105436,
+      "cases": 256
+    },
+    {
+      "shard": 2,
+      "sha256": "3673b1b07ed2742669f1ba43494ba814d7968cb200c6832c62a5a1c1640fe554",
+      "bytes": 24011622,
+      "cases": 256
+    },
+    {
+      "shard": 3,
+      "sha256": "676e84ff0729ba88dcd91cb161efeb2dc63f10b6679458695c5d2909c017e9c2",
+      "bytes": 28260780,
+      "cases": 256
+    },
+    {
+      "shard": 4,
+      "sha256": "900d3d22a36fa59241a933b8efc4b2fb8f320e4b25637e592640f31c529314fe",
+      "bytes": 25372222,
+      "cases": 256
+    },
+    {
+      "shard": 5,
+      "sha256": "b45f10aae6ec8fa437179285eb50cb3b98a35e3cc3e8610f6e8d36358daeb6e8",
+      "bytes": 32701303,
+      "cases": 256
+    },
+    {
+      "shard": 6,
+      "sha256": "03d9dcc3b7b993fcba9486bb543e01b8dcd75e40bbb0d5684c6cf72292105a42",
+      "bytes": 29543709,
+      "cases": 256
+    },
+    {
+      "shard": 7,
+      "sha256": "7a304cab06107d3a48d18bd033f07c046dad5c4ecb95eb2a1a4916ebd9d51876",
+      "bytes": 33820408,
+      "cases": 256
+    },
+    {
+      "shard": 8,
+      "sha256": "35a6c2da91bb02d50806a919777e21a2c855ab55b5fccc95f917a7af7d77bf62",
+      "bytes": 31634199,
+      "cases": 256
+    }
+  ],
+  "original_cases_verified_from_actual_npz": 2304,
+  "raw_original_case_checksums_verified": 2304,
+  "all_original_2304_six_class": {
+    "assurance_first": 335,
+    "investment_first": 435,
+    "near_simultaneous": 358,
+    "assurance_only": 895,
+    "investment_only": 10,
+    "neither": 271
+  },
+  "old_matching_pilot_ecological_contexts": [
+    0,
+    3,
+    4
+  ],
+  "original_fixed_access_comparator": {
+    "n_existing_histories": 768,
+    "n_original_paired_clusters": 256,
+    "A_event_count": 767,
+    "I_event_count": 579,
+    "six_class_counts": {
+      "assurance_first": 179,
+      "investment_first": 217,
+      "near_simultaneous": 182,
+      "assurance_only": 189,
+      "investment_only": 1,
+      "neither": 0
+    },
+    "six_founder_ecology_rows": [
+      {
+        "founder_block": "main",
+        "ecological_context": 0,
+        "old_genotype_starts": 128,
+        "six_class_counts": {
+          "assurance_first": 24,
+          "investment_first": 51,
+          "near_simultaneous": 46,
+          "assurance_only": 7,
+          "investment_only": 0,
+          "neither": 0
+        },
+        "p_A_event": 1.0,
+        "p_I_event": 0.9453125,
+        "D_all_start": -0.2109375
+      },
+      {
+        "founder_block": "main",
+        "ecological_context": 3,
+        "old_genotype_starts": 128,
+        "six_class_counts": {
+          "assurance_first": 33,
+          "investment_first": 41,
+          "near_simultaneous": 18,
+          "assurance_only": 36,
+          "investment_only": 0,
+          "neither": 0
+        },
+        "p_A_event": 1.0,
+        "p_I_event": 0.71875,
+        "D_all_start": -0.0625
+      },
+      {
+        "founder_block": "main",
+        "ecological_context": 4,
+        "old_genotype_starts": 128,
+        "six_class_counts": {
+          "assurance_first": 33,
+          "investment_first": 46,
+          "near_simultaneous": 36,
+          "assurance_only": 13,
+          "investment_only": 0,
+          "neither": 0
+        },
+        "p_A_event": 1.0,
+        "p_I_event": 0.8984375,
+        "D_all_start": -0.1015625
+      },
+      {
+        "founder_block": "confirmation",
+        "ecological_context": 0,
+        "old_genotype_starts": 128,
+        "six_class_counts": {
+          "assurance_first": 25,
+          "investment_first": 36,
+          "near_simultaneous": 36,
+          "assurance_only": 31,
+          "investment_only": 0,
+          "neither": 0
+        },
+        "p_A_event": 1.0,
+        "p_I_event": 0.7578125,
+        "D_all_start": -0.0859375
+      },
+      {
+        "founder_block": "confirmation",
+        "ecological_context": 3,
+        "old_genotype_starts": 128,
+        "six_class_counts": {
+          "assurance_first": 34,
+          "investment_first": 14,
+          "near_simultaneous": 14,
+          "assurance_only": 65,
+          "investment_only": 1,
+          "neither": 0
+        },
+        "p_A_event": 0.9921875,
+        "p_I_event": 0.4921875,
+        "D_all_start": 0.15625
+      },
+      {
+        "founder_block": "confirmation",
+        "ecological_context": 4,
+        "old_genotype_starts": 128,
+        "six_class_counts": {
+          "assurance_first": 30,
+          "investment_first": 29,
+          "near_simultaneous": 32,
+          "assurance_only": 37,
+          "investment_only": 0,
+          "neither": 0
+        },
+        "p_A_event": 1.0,
+        "p_I_event": 0.7109375,
+        "D_all_start": 0.0078125
+      }
+    ],
+    "old_seed_cluster_summary": {
+      "A": {
+        "mean": 0.9986979166666666,
+        "sd_across_256_old_founder_seed_clusters": 0.020833333333333336
+      },
+      "I": {
+        "mean": 0.75390625,
+        "sd_across_256_old_founder_seed_clusters": 0.2858041773273753
+      },
+      "D": {
+        "mean": -0.049479166666666664,
+        "sd_across_256_old_founder_seed_clusters": 0.46505762521567345
+      }
+    }
+  },
+  "new_pilot": {
+    "n_scheduled_trajectories": 1536,
+    "n_scheduled_independent_founder_seed_clusters": 128,
+    "observed_new_genetic_treatment_effects": null,
+    "n_new_pilot_biological_histories_executed_by_this_audit": 0
+  },
+  "hypothetical_power_for_future_genetic_factorial_cluster_contrasts": {
+    "normal_approx_scenarios": [
+      {
+        "hypothetical_effect": 0.05,
+        "hypothetical_cluster_SD": 0.25,
+        "n_pilot_history_clusters": 128,
+        "directional_success_probability_under_normal_95pct_interval": 0.6189703663026572,
+        "required_clusters_for_nominal_80pct": 197
+      },
+      {
+        "hypothetical_effect": 0.1,
+        "hypothetical_cluster_SD": 0.25,
+        "n_pilot_history_clusters": 128,
+        "directional_success_probability_under_normal_95pct_interval": 0.9948489272156245,
+        "required_clusters_for_nominal_80pct": 50
+      },
+      {
+        "hypothetical_effect": 0.2,
+        "hypothetical_cluster_SD": 0.25,
+        "n_pilot_history_clusters": 128,
+        "directional_success_probability_under_normal_95pct_interval": 0.9999999999993343,
+        "required_clusters_for_nominal_80pct": 13
+      },
+      {
+        "hypothetical_effect": 0.3,
+        "hypothetical_cluster_SD": 0.25,
+        "n_pilot_history_clusters": 128,
+        "directional_success_probability_under_normal_95pct_interval": 1.0,
+        "required_clusters_for_nominal_80pct": 6
+      },
+      {
+        "hypothetical_effect": 0.05,
+        "hypothetical_cluster_SD": 0.5,
+        "n_pilot_history_clusters": 128,
+        "directional_success_probability_under_normal_95pct_interval": 0.2036673370654139,
+        "required_clusters_for_nominal_80pct": 785
+      },
+      {
+        "hypothetical_effect": 0.1,
+        "hypothetical_cluster_SD": 0.5,
+        "n_pilot_history_clusters": 128,
+        "directional_success_probability_under_normal_95pct_interval": 0.6189703663026572,
+        "required_clusters_for_nominal_80pct": 197
+      },
+      {
+        "hypothetical_effect": 0.2,
+        "hypothetical_cluster_SD": 0.5,
+        "n_pilot_history_clusters": 128,
+        "directional_success_probability_under_normal_95pct_interval": 0.9948489272156245,
+        "required_clusters_for_nominal_80pct": 50
+      },
+      {
+        "hypothetical_effect": 0.3,
+        "hypothetical_cluster_SD": 0.5,
+        "n_pilot_history_clusters": 128,
+        "directional_success_probability_under_normal_95pct_interval": 0.9999993113478816,
+        "required_clusters_for_nominal_80pct": 22
+      },
+      {
+        "hypothetical_effect": 0.05,
+        "hypothetical_cluster_SD": 0.8,
+        "n_pilot_history_clusters": 128,
+        "directional_success_probability_under_normal_95pct_interval": 0.10512883960980479,
+        "required_clusters_for_nominal_80pct": 2010
+      },
+      {
+        "hypothetical_effect": 0.1,
+        "hypothetical_cluster_SD": 0.8,
+        "n_pilot_history_clusters": 128,
+        "directional_success_probability_under_normal_95pct_interval": 0.29261875345420973,
+        "required_clusters_for_nominal_80pct": 503
+      },
+      {
+        "hypothetical_effect": 0.2,
+        "hypothetical_cluster_SD": 0.8,
+        "n_pilot_history_clusters": 128,
+        "directional_success_probability_under_normal_95pct_interval": 0.8074295788138212,
+        "required_clusters_for_nominal_80pct": 126
+      },
+      {
+        "hypothetical_effect": 0.3,
+        "hypothetical_cluster_SD": 0.8,
+        "n_pilot_history_clusters": 128,
+        "directional_success_probability_under_normal_95pct_interval": 0.9887752904501095,
+        "required_clusters_for_nominal_80pct": 56
+      },
+      {
+        "hypothetical_effect": 0.05,
+        "hypothetical_cluster_SD": 1.0,
+        "n_pilot_history_clusters": 128,
+        "directional_success_probability_under_normal_95pct_interval": 0.08161675140053354,
+        "required_clusters_for_nominal_80pct": 3140
+      },
+      {
+        "hypothetical_effect": 0.1,
+        "hypothetical_cluster_SD": 1.0,
+        "n_pilot_history_clusters": 128,
+        "directional_success_probability_under_normal_95pct_interval": 0.2036673370654139,
+        "required_clusters_for_nominal_80pct": 785
+      },
+      {
+        "hypothetical_effect": 0.2,
+        "hypothetical_cluster_SD": 1.0,
+        "n_pilot_history_clusters": 128,
+        "directional_success_probability_under_normal_95pct_interval": 0.6189703663026572,
+        "required_clusters_for_nominal_80pct": 197
+      },
+      {
+        "hypothetical_effect": 0.3,
+        "hypothetical_cluster_SD": 1.0,
+        "n_pilot_history_clusters": 128,
+        "directional_success_probability_under_normal_95pct_interval": 0.9242350643221925,
+        "required_clusters_for_nominal_80pct": 88
+      }
+    ],
+    "minimum_detectable_effect_scenarios": [
+      {
+        "hypothetical_paired_contrast_SD": 0.25,
+        "delta_needed_for_approx_80pct_power_pilot_n128": 0.06190687205623977,
+        "delta_needed_for_approx_80pct_power_per_founder_n64": 0.08754953806603026
+      },
+      {
+        "hypothetical_paired_contrast_SD": 0.5,
+        "delta_needed_for_approx_80pct_power_pilot_n128": 0.12381374411247954,
+        "delta_needed_for_approx_80pct_power_per_founder_n64": 0.17509907613206052
+      },
+      {
+        "hypothetical_paired_contrast_SD": 0.8,
+        "delta_needed_for_approx_80pct_power_pilot_n128": 0.19810199057996727,
+        "delta_needed_for_approx_80pct_power_per_founder_n64": 0.28015852181129686
+      },
+      {
+        "hypothetical_paired_contrast_SD": 1.0,
+        "delta_needed_for_approx_80pct_power_pilot_n128": 0.24762748822495909,
+        "delta_needed_for_approx_80pct_power_per_founder_n64": 0.35019815226412104
+      }
+    ],
+    "nominal_two_sided_alpha": 0.05,
+    "power_target": 0.8,
+    "missing_actual_new_intervention_paired_SD": true,
+    "old_cluster_D_SD_is_not_new_genetic_treatment_contrast_SD": true
+  },
+  "scope_limits": [
+    "Old original 2304 events independently recomputed from exact NPZ censuses, but no original reproductive genome pedigree reexecution claimed here.",
+    "Three old ecological contexts reused from exposed cohort are contextual planning evidence, not genetically manipulated pilot results.",
+    "The old A 767/768 event incidence is specific to its old A allele-width and original mutation process, and is not projected to new A-width arms.",
+    "Any power from hypothetical sigma is an assumption, not observed pilot SD; the five planned contrast effect sizes have not been seen.",
+    "I hidden homolog collapse h=0 preserves between-plant expressed variation; it is not total elimination of genetic I access.",
+    "A lower halfwidth is inaccessible by standing allele support alone at 0.05, but A mutation at rate 0.01 remains possible.",
+    "Two original founder blocks and three prechosen ecological contexts do not provide generalization to all island populations.",
+    "Pilot is exploratory, not independent confirmatory test of t0 Price clock versus flexible nonlinear null.",
+    "Original source execution and new pilot source/run authorization/preservation remain separate gates."
+  ]
+}
