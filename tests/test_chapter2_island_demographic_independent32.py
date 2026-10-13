@@ -1,0 +1,128 @@
+"""Lock the independent history demographic gate and scientific inference boundary."""
+import json
+from pathlib import Path
+
+import pytest
+
+from scripts.run_chapter2_island_demographic_independent32 import (
+    load_frozen, tasks, run_group,
+)
+from scripts.summarize_chapter2_island_demographic_independent32 import evaluate
+
+ROOT = Path(__file__).resolve().parents[1]
+
+
+def test_design_is_frozen_new_history_and_full_grid():
+    d, _ = load_frozen()
+    assert d["status"] == "frozen_before_new_history_demographic_confirmation"
+    assert d["independent_visitor_histories"]["count"] == 32
+    assert d["demographic_repeat_seeds"] == [30101801]
+    assert d["stress_ovule_budgets"] == [2, 3, 4, 5]
+    assert d["post_updates"] == 80
+    assert d["post_capacity"] == d["source_bottleneck_n"] == 8
+    assert len(tasks(d)) == d["total_groups"] == 512
+    assert set(t[2] for t in tasks(d)) == set(range(30100801, 30100833))
+    assert len(set(tasks(d))) == 512
+
+
+def test_one_actual_model_group_performs_full_paired_post_grid():
+    d, source = load_frozen()
+    row = run_group(tasks(d)[0], d, source)
+    assert row["pre_survivors"] >= 8
+    assert len(row["post_cases"]) == 8
+    assert len({(x["post"], x["ovule_budget"]) for x in row["post_cases"]}) == 8
+    for x in row["post_cases"]:
+        assert x["occupied"] == int(x["terminal_N"] > 0)
+        assert 0 <= x["terminal_N"] <= 8
+        if x["terminal_N"] == 0:
+            assert x["end_traits"] is None
+
+
+def test_survival_bootstrap_has_32_histories_not_4096():
+    d, _ = load_frozen()
+    rows = {}
+    # Unit fixture: simulate a strong positive interaction in every visitor
+    # history, with complete post-treatment cases. Not an observed result.
+    for key in tasks(d):
+        setting, mode, h, rep, pre = key
+        occupied = int(mode == "evolving" and pre == "far")
+        rows[key] = {
+            "group": key,
+            "post_cases": [
+                {"post": post, "ovule_budget": budget, "occupied": occupied}
+                for post in d["post_environments"]
+                for budget in d["stress_ovule_budgets"]
+            ]
+        }
+    r = evaluate(d, rows)
+    assert r["independent_histories"] == 32
+    assert r["nested_demographic_repeats"] == 1
+    assert r["post_trajectories"] == 4096
+    assert r["pooled_primary"]["mean"] == pytest.approx(1)
+    assert r["pooled_primary"]["bootstrap95"] == pytest.approx([1, 1])
+
+
+def test_recorded_offline_result_keeps_prior_selfing_uncertainty():
+    d = json.loads((ROOT / "data/results/chapter2_island_demographic_independent32_20261008.json").read_text())
+    assert d["independent_histories"] == 32
+    assert d["post_switch_trajectories"] == 4096
+    assert d["predeclared_pooled_primary"]["pass"] is True
+    assert d["predeclared_pooled_primary"]["mean"] == pytest.approx(0.1083984375)
+    assert d["predeclared_pooled_primary"]["bootstrap95"] == pytest.approx(
+        [0.0654296875, 0.1513671875]
+    )
+    assert len(d["per_setting"]) == 4
+    prior = next(row for row in d["per_setting"]
+                 if row["setting"] == "prior_selfing")
+    assert prior["interaction"] > 0
+    assert prior["bootstrap95"][0] < 0 < prior["bootstrap95"][1]
+    assert d["archive"]["github_actions_confirmation"] is False
+    assert "temporal" in " ".join(d["scientific_boundary"]).lower()
+
+
+def test_replay_receipt_separates_biological_identity_from_diagnostic_float_bytes():
+    receipt = json.loads((
+        ROOT / "data/results/chapter2_island_demographic_independent32_replay_receipt_20261013.json"
+    ).read_text())
+    frozen = json.loads((
+        ROOT / "data/results/chapter2_island_demographic_independent32_20261008.json"
+    ).read_text())
+    assert receipt["status"] == (
+        "EXACT_PRIMARY_AND_BIOLOGICAL_STATE_REPLAY_DIAGNOSTIC_FLOAT_ROUNDING_ONLY"
+    )
+    assert receipt["original_archive"]["sha256"] == frozen["archive"]["sha256"]
+    assert receipt["primary_replay"]["mean"] == frozen["predeclared_pooled_primary"]["mean"]
+    assert receipt["primary_replay"]["bootstrap95"] == frozen["predeclared_pooled_primary"]["bootstrap95"]
+    assert receipt["primary_replay"]["post_trajectories"] == frozen["post_switch_trajectories"]
+    assert receipt["diagnostic_absolute_tolerance"] == 1e-12
+    assert set(receipt["shards"]) == {str(i) for i in range(8)}
+    assert [i for i in range(8) if receipt["shards"][str(i)]["byte_identical"]] == [0, 1, 5, 6, 7]
+    for i in range(8):
+        row = receipt["shards"][str(i)]
+        assert row["biological_projection_exact"] is True
+        assert row["groups"] == 64
+        assert row["cases"] == 512
+        assert row["diagnostic_max_abs_difference"] <= receipt["diagnostic_absolute_tolerance"]
+    assert sum(receipt["shards"][str(i)]["diagnostic_float_differences"] for i in range(8)) == 118
+    assert receipt["validation"] == {
+        "all_eight_biological_projection_hashes_exact": True,
+        "pooled_primary_exact": True,
+        "bootstrap_interval_exact": True,
+        "post_trajectories": 4096,
+        "raw_json_byte_identity_required": False,
+    }
+    assert receipt["github_replay"]["validation_run_id"] == 38272136110
+    assert receipt["github_replay"]["validation_marker"] == "EXACT_INDEPENDENT32_BIOLOGICAL_REPLAY_MATCH"
+
+
+def test_replay_gate_does_not_use_full_shard_hash_as_scientific_identity():
+    workflow = (ROOT / ".github/workflows/chapter2-island-demographic-independent32.yml").read_text(
+        encoding="utf-8"
+    )
+    # Full JSON shard bytes contain floating descriptive diagnostics whose last
+    # bit can vary without changing any demographic outcome or frozen estimand.
+    assert "row['shard_sha256']==hashes" not in workflow
+    assert "predeclared_pooled_primary" in workflow
+    assert "pooled_primary" in workflow
+    assert "projection_hash" in workflow
+    assert "biological_projection_sha256" in workflow
