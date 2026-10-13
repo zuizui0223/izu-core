@@ -9,7 +9,7 @@ import pytest
 
 from scripts.run_chapter2_clock_factorial_pilot_20261013 import (
     load_input_inventory,job_cases,simulate,saved_events,
-    FULL_HORIZON, TECH_HORIZON, produce,
+    FULL_HORIZON, TECH_HORIZON, produce, FROZEN_APPROVAL_GIT_BLOB,
 )
 from scripts.read_chapter2_clock_factorial_pilot_20261013 import (
     one_events, decode_case, admit,
@@ -88,7 +88,7 @@ def test_native_birth_short_pilot_smoke_uses_original_model_but_new_seed():
 def test_invalid_output_is_refused_before_full_pilot(monkeypatch,tmp_path):
     path=tmp_path/'existing'
     path.mkdir()
-    with pytest.raises(ValueError,match='original NumPy 2.2.6|output directory'):
+    with pytest.raises(ValueError,match='Scientific pilot not authorized|original NumPy 2.2.6|output directory'):
         # Never run biological cases from this test, only verify fail-closed.
         produce(0,path,technical=False)
 
@@ -151,3 +151,20 @@ def test_rehashed_parentage_corruption_is_still_rejected_by_native_replay(source
         for name,body in original.items():dest.writestr(name,body)
     with pytest.raises(ValueError,match='Original recorded child/father/mother pair differs'):
         admit(0,corrupted,technical=True)
+
+
+def test_200_update_pilot_requires_separate_immutable_approval_before_source_or_io(monkeypatch,tmp_path):
+    from scripts import run_chapter2_clock_factorial_pilot_20261013 as producer
+    assert FROZEN_APPROVAL_GIT_BLOB is None
+    # Must reject BEFORE loading the original model/source or creating any
+    # result location. No 200-year biological trajectory can run in CI.
+    monkeypatch.setattr(producer,'load_input_inventory',
+        lambda *a,**k: (_ for _ in ()).throw(AssertionError('Source was loaded before authorization')))
+    out=tmp_path/'unapproved-full-pilot'
+    with pytest.raises(ValueError,match='Scientific pilot not authorized'):
+        produce(0,out,technical=False)
+    assert not out.exists()
+    # A technical-only run may never accept a pilot authorization token.
+    with pytest.raises(ValueError,match='Technical source fixtures'):
+        produce(0,tmp_path/'technical',technical=True,approval_path=tmp_path/'fake-approval.json')
+    assert not (tmp_path/'technical').exists()
