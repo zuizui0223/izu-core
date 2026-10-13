@@ -118,6 +118,8 @@ Raw-genome accounting of all320 source-matched ABM trajectories separated expect
 
 A matched same-state operator accounting narrowed this discrepancy. In low-supply matched populations, current-census contributions were zero in both founders. Finite individual-self exclusion opposed, rather than produced, the positive ABM-minus-density investment gap. In the main founder block, endpoint gap+0.122377 closed as sampling/transmission+0.030179, finite-parent operator−0.005405, census0 and remaining path feedback+0.097603. After investment fixation, its mean could no longer change while density predictions continued moving; the all-start mean post-fixation gap increase was+0.081531, versus+0.044516 in confirmation founders. Remaining feedback includes genetic-state dynamics and numerical representation error; these signed quantities are not unique causal fractions (Supporting Information S13).
 
+A subsequent64-history diagnostic restored investment allele variation at fixation while preserving each individual's expressed mean. Original-minus-restored terminal investment was+0.00749[−0.00562,+0.02035], with opposing founder estimates. Restoring accessible variation alone did not establish greater floral reduction (S17).
+
 Assurance-access-first preparation increased the paired order score by0.06348[0.04688,0.08008], but both responses occurred in only42/1,024 versus43/1,024 preparations.
 
 ## Q4 — Persistence: consequences of reproductive preparation
