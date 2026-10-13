@@ -16,7 +16,7 @@ from scripts.prepare_chapter2_clock_pilot_archive_20261013 import (
     CASE_RE,APPROVAL_GIT_BLOB,REGISTRY_SHA,ORIGINAL_T0_SHA,DESIGN_SHA,
     TECH_SALT, WIDTHS,HIDDEN, CONTEXTS, FIELDS,
     case_parts,original_events,technical_case_keys,shard_case_keys,
-    sources,native,archive,
+    sources,native,archive, RETURNS,verify_original_t0_source_returns,
 )
 from scripts.verify_chapter2_clock_pilot_raw_20261013 import (
     six_class,OP_RE,require_array_shape,verify,
@@ -125,3 +125,20 @@ def test_native_48_archival_and_independent_source_heredity_verifier(tmp_path):
         verify(out,REG,FIX,DESIGN,technical=True)
     shutil.copy2(backup,one)
     assert verify(out,REG,FIX,DESIGN,technical=True)['updates']==144
+
+
+def test_historical_t0_return_acceptance_is_numeric_not_unproven_platform_sha():
+    from types import SimpleNamespace
+    source=SimpleNamespace(**{field:np.array([i+0.5,2*i+.25],dtype=float)
+         for i,field in enumerate(RETURNS)})
+    expected=np.array([getattr(source,field).sum() for field in RETURNS])
+    np.testing.assert_array_equal(verify_original_t0_source_returns(source,expected),expected)
+    # A prior unrelated array digest is not an independent native NumPy
+    # cross-machine oracle. The recorded source 8-return totals are.
+    with pytest.raises(ValueError,match='historical original t0 reproductive totals differ'):
+        verify_original_t0_source_returns(source,expected+1e-5)
+    with pytest.raises(ValueError,match='historical original t0 reproductive totals differ'):
+        verify_original_t0_source_returns(source,expected[:-1])
+    corrupt=expected.copy();corrupt[0]=np.nan
+    with pytest.raises(ValueError,match='historical original t0 reproductive totals differ'):
+        verify_original_t0_source_returns(source,corrupt)
