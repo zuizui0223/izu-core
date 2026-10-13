@@ -1,0 +1,62 @@
+{
+  "schema": "chapter2_island_demographic_independent32_current_replay_v1",
+  "source": "GitHub Actions PR490 replay artifacts",
+  "groups": 512,
+  "post_trajectories": 4096,
+  "independent_histories": 32,
+  "pooled_primary": {
+    "mean": 0.1083984375,
+    "bootstrap95": [0.0654296875, 0.1513671875],
+    "passes_frozen_rule": true
+  },
+  "per_setting": [
+    {"setting":"delayed_control","fixed_delta":0.0390625,"evolving_delta":0.19140625,"interaction":0.15234375,"bootstrap95":[0.05859375,0.24609375],"positive_history_count":16,"negative_history_count":5,"zero_history_count":11},
+    {"setting":"prior_selfing","fixed_delta":0.01171875,"evolving_delta":0.0625,"interaction":0.05078125,"bootstrap95":[-0.01953125,0.12109375],"positive_history_count":14,"negative_history_count":9,"zero_history_count":9},
+    {"setting":"pollen_discount","fixed_delta":0.0546875,"evolving_delta":0.15234375,"interaction":0.09765625,"bootstrap95":[0.01953125,0.171875],"positive_history_count":20,"negative_history_count":7,"zero_history_count":5},
+    {"setting":"assurance_cost","fixed_delta":-0.0078125,"evolving_delta":0.125,"interaction":0.1328125,"bootstrap95":[0.07421875,0.19140625],"positive_history_count":22,"negative_history_count":3,"zero_history_count":7}
+  ],
+  "raw_shard_byte_identity": {
+    "matching": 5,
+    "total": 8,
+    "mismatching_shards": [
+      "demographic_independent32_shard_02.json",
+      "demographic_independent32_shard_03.json",
+      "demographic_independent32_shard_04.json"
+    ],
+    "note": "Primary numerical readout and all four setting-level readouts match the frozen result exactly; three raw JSON shard byte hashes do not. The frozen raw bytes are unavailable in the current evidence set, so the field-level cause cannot be localized."
+  },
+  "current_raw_sha256": {
+    "demographic_independent32_shard_00.json":"a3c4abb97172569ab49a6f4ac517470ec3ffed3db7fb17a85199f254ad2e04c8",
+    "demographic_independent32_shard_01.json":"aec270829c17f55adc6707ad65c63972b1722ae642973e55a64005388c951e96",
+    "demographic_independent32_shard_02.json":"f81c701e75edbe22c7f0b8025c1e9fb32e59ce980188754d8fe0fb9d1132780b",
+    "demographic_independent32_shard_03.json":"6ef9b197a492351a457e0c9b33817f93fbcc1163d6494c31e527fddb524163b3",
+    "demographic_independent32_shard_04.json":"1f93a5ff1f7f2fecac6da296b77896f396d6d8e11f2ec9de2d86b1dc716f3eb7",
+    "demographic_independent32_shard_05.json":"7d1f1bc751c1e134dc85bccfb041207f266e9aff0774e164edb8044fd9df25db",
+    "demographic_independent32_shard_06.json":"1c4205964ace429af3c360200344690ffc115cb9b95a75b9626f3f9a360bc748",
+    "demographic_independent32_shard_07.json":"81afee9e054c7fbf5c0a0b03808acaf04b1d8bb78b1d4fb9c528c224b21c31f1"
+  },
+  "frozen_raw_sha256": {
+    "demographic_independent32_shard_00.json":"a3c4abb97172569ab49a6f4ac517470ec3ffed3db7fb17a85199f254ad2e04c8",
+    "demographic_independent32_shard_01.json":"aec270829c17f55adc6707ad65c63972b1722ae642973e55a64005388c951e96",
+    "demographic_independent32_shard_02.json":"1feba5b72a393ddd0c2c941f3d4f68dc78eb1566218c6e18be9bfaf3540f7e92",
+    "demographic_independent32_shard_03.json":"4ac96f4ca8b25848dc1b546f46a4090b5af1697d1f6a8e87fc9875c85841b4ff",
+    "demographic_independent32_shard_04.json":"f22b8029dca9a92f8df7aace305a2087c10b0d942be78ce4978f41429a0ec0b5",
+    "demographic_independent32_shard_05.json":"7d1f1bc751c1e134dc85bccfb041207f266e9aff0774e164edb8044fd9df25db",
+    "demographic_independent32_shard_06.json":"1c4205964ace429af3c360200344690ffc115cb9b95a75b9626f3f9a360bc748",
+    "demographic_independent32_shard_07.json":"81afee9e054c7fbf5c0a0b03808acaf04b1d8bb78b1d4fb9c528c224b21c31f1"
+  },
+  "replay_environment": {
+    "github_actions_run": 38221924607,
+    "python": "3.11.17",
+    "runner_os": "ubuntu-24.04",
+    "source_head": "affaa7013dd22280955d4f63f62c2c918de46015",
+    "major_model_source_identity": "verified_equal_to_PR413_for_types_reproduction_population_randomness_history_generality_runner_exposure_and_source_design",
+    "repeatability_check": "shard_02 rerun reproduced current SHA f81c701e75edbe22c7f0b8025c1e9fb32e59ce980188754d8fe0fb9d1132780b"
+  },
+  "claim_boundary": [
+    "Exact frozen primary and per-setting numerical results reproduced from all 4096 trajectories.",
+    "Raw JSON byte identity reproduced for 5 of 8 shards; byte identity is not claimed for shards 2, 3 and 4.",
+    "The cause of the three byte mismatches is unresolved because the original raw shard bytes and original numerical environment lock are unavailable.",
+    "The stress grid was pilot-informed and the result remains conditional within this model; no natural-island rescue, pure assurance-locus mediation or temporal-order effect is claimed."
+  ]
+}
