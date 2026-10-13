@@ -146,14 +146,22 @@ def test_same_runtime_source_ledger_referee_handles_numpy_roundoff_without_maski
                         assert check_same_runtime_initial_ledger(
                             candidate,original,frozen[block,context],numpy_version=version
                         )==checksum
+                    # Even under NumPy2.2.6, a source-authenticated prior
+                    # archive-byte SHA need not reproduce on another runner.
+                    # Same-runtime bitwise genetic-treatment equality is mandatory.
+                    assert check_same_runtime_initial_ledger(
+                        candidate,original,frozen[block,context],numpy_version='2.2.6'
+                    )==checksum
                     if checksum==frozen[block,context]:
                         assert check_same_runtime_initial_ledger(
-                            candidate,original,frozen[block,context],numpy_version='2.2.6'
+                            candidate,original,frozen[block,context],numpy_version='2.2.6',
+                            strict_archived_digest=True
                         )==checksum
                     else:
                         with pytest.raises(ValueError,match='frozen NumPy 2.2.6 source'):
                             check_same_runtime_initial_ledger(candidate,original,
-                                frozen[block,context],numpy_version='2.2.6')
+                                frozen[block,context],numpy_version='2.2.6',
+                                strict_archived_digest=True)
                     cases+=1
     assert cases==24
 
@@ -169,7 +177,7 @@ def test_same_runtime_byte_mismatch_and_historical_source_digest_fail_closed():
         numpy_version='2.4.6')==original_sha
     with pytest.raises(ValueError,match='frozen NumPy 2.2.6 source'):
         check_same_runtime_initial_ledger(ledger,ledger,'unrelated-frozen-version-sha',
-            numpy_version='2.2.6')
+            numpy_version='2.2.6',strict_archived_digest=True)
     original_fields={k:getattr(ledger,k) for k in LEDGER_FIELDS}
     perturbed=dict(original_fields)
     perturbed['ovules']=original_fields['ovules'].copy()
