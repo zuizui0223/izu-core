@@ -99,6 +99,34 @@ def count_manuscript_words(text):
     }
 
 
+def pr490_original_materials():
+    raw=(MINIMAL_RESULTS/'pr490_original_archive_direct_admission_20261014.json').read_bytes()
+    independent=(MINIMAL_RESULTS/'pr490_original_archive_independent_review_20261014.json').read_bytes()
+    if (sha(raw)!='d6f427af7fd8e7c14f593f7baac42d5c187bba28ab36197179396f751160916c'
+        or sha(independent)!='232f5934c1b159f2d5c8c4c47168432bfb1d68a4e7da6be773a73ad52b3e1cda'):
+        raise ValueError('PR490 original/independent receipt identity differs')
+    result=json.loads(raw);review=json.loads(independent)
+    source=(ROOT/'scripts/audit_pr490_original_archive_20261014.py').read_bytes()
+    numeric=(ROOT/'scripts/pr490_original_intake_20261014/NUMERICAL_AUDITOR_EXECUTED.py').read_bytes()
+    if (sha(source)!=result['auditor_sha256'] or sha(numeric)!=result['numerical_auditor_sha256']
+        or review['producer_receipt_sha256']!=sha(raw) or review['blockers']!=[]
+        or result['original_archive']['sha256']!=review['original_sha256']
+        or result['original_archive']['bytes']!=335015 or len(result['shards'])!=8
+        or len(result['manifest_members_verified'])!=26 or len(result['nested_sources_verified'])!=25
+        or result['numerical_admission']['pooled_primary']!=review['pooled_primary']
+        or result['original_annual_genomes_authenticated'] is not False
+        or result['historical_executed_runtime_authenticated'] is not False
+        or result['new_biological_histories']!=0):
+        raise ValueError('PR490 direct admission scope differs')
+    members={'EVIDENCE/PR490_ORIGINAL_DIRECT_ADMISSION.json':raw,
+             'EVIDENCE/PR490_ORIGINAL_INDEPENDENT_REVIEW.json':independent,
+             'EVIDENCE/PR490_ORIGINAL_AUDITOR.py':source,
+             'EVIDENCE/PR490_ORIGINAL_NUMERICAL_AUDITOR.py':numeric}
+    return members,{name:dict(original_sha256=sha(value),derived_sha256=sha(value),
+        independent_review_sha256=sha(independent),transformation='Exact recovered-original archive/logged-summary admission; prior failed receipts and annual-genome/runtime limits retained.')
+        for name,value in members.items()}
+
+
 def directional_access_materials():
     data = MINIMAL_RESULTS / 'directional_access_20261013'
     code = ROOT / 'scripts/directional_access_20261013'
@@ -796,6 +824,9 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     directional,directional_derivations=directional_access_materials()
     members.update(directional)
     derivations.update(directional_derivations)
+    original490,original490_derivations=pr490_original_materials()
+    members.update(original490)
+    derivations.update(original490_derivations)
     derivations["SUPPORTING_INFORMATION.md"]={
         "original_path":str(si_path.relative_to(ROOT)),"original_sha256":sha(si_original),
         "derived_sha256":sha(si),"transformation":"Relocate atom/resolution/mechanism companion source references and add the delivered supplementary-figure link; numerical text unchanged."}

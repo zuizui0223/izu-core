@@ -1,0 +1,124 @@
+{
+  "status": "INDEPENDENT_DIRECT_ORIGINAL_ARCHIVE_AND_LOGGED_REPLAY_MATCH",
+  "original_bytes": 335015,
+  "original_sha256": "cd9f998e38ec51e747c4495dbe94b1fe1168d48d31ef54a438250bfa0ace5a21",
+  "actual_replay_sha256": "e73fce6c37fc928e22f73b3f370e510cf2e310c25f7aaa94745f5164df9192f1",
+  "members": 27,
+  "manifest_members": 26,
+  "nested_source_members": 25,
+  "nested_source_sha256": {
+    "scripts/run_chapter2_assurance_generality.py": "88e7aef1ee559885559e63b46d3dcb76808981d7a787440693f836f3fafea924",
+    "data/design/model3_ch2_bridge_20260927.json": "0ca971aa9a453ab00a6e36fa9f2a99df3b36a8b13cda1cb48ea420556d3ff18a",
+    "data/design/chapter2_assurance_generality_20261006.json": "c050c94eb385a9ab6beb48388f5ec96177c0540e22da53924b02eca19b824119",
+    "scripts/run_model3_persistent_isolation.py": "d573ffa85b7a1fef3f4619862cf00ab40cfc465d3ba4563df6504e0eea968e6e",
+    "scripts/model3_island/__init__.py": "f7e55e36abb6fbc720e3413505a2a2ea8ff784e9e5715fb097058a1b24956b16",
+    "scripts/model3_island/assays.py": "3dbfee24a4473b220e463dc6dd0e7699f0a7de98771eeee9666c94d75700338d",
+    "scripts/model3_island/audit.py": "7503b738281a0d648d7a536dfa508efada80b2e85d26538ceab413fcaedc9925",
+    "scripts/model3_island/birth_diffusion.py": "ce6b8c63a964b02654fee63b023be9c79c1be9ebfa5eca7e5de04ffa6006a8e7",
+    "scripts/model3_island/campaign.py": "b2a4d2acc785f1b4707353a74ce3684c347e84df2915dcb5c02fa1d407eb033b",
+    "scripts/model3_island/density.py": "e293b031372da4f3b5d5b5ed9ffdea95b5a5cc449904f9dfa8880b8f0f2e4edf",
+    "scripts/model3_island/design.py": "9184fba6fbdfed617d109eedc268103a49cfaf7c7eb1d51457ab03c5bee9cfbe",
+    "scripts/model3_island/expectation.py": "422de5b82fa80b293b9173735c8d50bd4aec5bd61450ea233d27ecd9169db943",
+    "scripts/model3_island/finite_audit.py": "47c567a7a450a81afa4d91c29ce91512702d7b066d289f60214a3cd543b5a49d",
+    "scripts/model3_island/history.py": "28d22c7fde81d9be6a604fa9dd4cb6b48d78d388d4db85f798a935cf81415488",
+    "scripts/model3_island/plot.py": "f0323311ccf55c0fe677d4afe35defcbc660ce98bc3705eacb5e8e80600d8b1a",
+    "scripts/model3_island/population.py": "c959d18816da6666dbfb4e91bd9582c94af5453b25498d033f5747305b05fe0f",
+    "scripts/model3_island/randomness.py": "63522ae3c5ff8e11f114b5649a989945fa4ba2480fdca0f74857601b0e4b211f",
+    "scripts/model3_island/reproduction.py": "885957edb8a165ee8528781ed1d2574c44143c608496b505f9663cbfac2c4081",
+    "scripts/model3_island/run.py": "094f8ed635f13b3ff5809b721f1d11f78f89d7cc414f503805b007e436878743",
+    "scripts/model3_island/selection.py": "79cbc2181493b1bf3c8631beb29801d46c756cc2ac45ef8167342be690bdb355",
+    "scripts/model3_island/simulate.py": "78b043183ff55ba14c38204b47499b53e7c63f41789b982680a42966871e247b",
+    "scripts/model3_island/storage.py": "c987b56139f7782e35749bda5f378f3cd60d0463b2de5a15c034f2c2a4c73647",
+    "scripts/model3_island/summarize.py": "9e1b9a1c432e16cc35ca7e7a6075c044999faaa5b2aea84e0dec2cf1fee1b435",
+    "scripts/model3_island/tensor_density.py": "223ad4926f3d748a744665386a3be6b02e19e8a50cb4f8d080e2170d58fbaac5",
+    "scripts/model3_island/types.py": "a572e1e7f4fded181585871a63582b16f40292bd07b13e8efc9d6b6234eb21c5"
+  },
+  "groups": 512,
+  "post_cases": 4096,
+  "shards": [
+    {
+      "shard": 0,
+      "groups": 64,
+      "cases": 512,
+      "raw_identical": true,
+      "original_sha256": "a3c4abb97172569ab49a6f4ac517470ec3ffed3db7fb17a85199f254ad2e04c8",
+      "differences": 0,
+      "max_abs": 0
+    },
+    {
+      "shard": 1,
+      "groups": 64,
+      "cases": 512,
+      "raw_identical": false,
+      "original_sha256": "aec270829c17f55adc6707ad65c63972b1722ae642973e55a64005388c951e96",
+      "differences": 28,
+      "max_abs": 4.440892098500626e-16
+    },
+    {
+      "shard": 2,
+      "groups": 64,
+      "cases": 512,
+      "raw_identical": true,
+      "original_sha256": "1feba5b72a393ddd0c2c941f3d4f68dc78eb1566218c6e18be9bfaf3540f7e92",
+      "differences": 0,
+      "max_abs": 0
+    },
+    {
+      "shard": 3,
+      "groups": 64,
+      "cases": 512,
+      "raw_identical": false,
+      "original_sha256": "4ac96f4ca8b25848dc1b546f46a4090b5af1697d1f6a8e87fc9875c85841b4ff",
+      "differences": 16,
+      "max_abs": 4.440892098500626e-16
+    },
+    {
+      "shard": 4,
+      "groups": 64,
+      "cases": 512,
+      "raw_identical": false,
+      "original_sha256": "f22b8029dca9a92f8df7aace305a2087c10b0d942be78ce4978f41429a0ec0b5",
+      "differences": 44,
+      "max_abs": 4.440892098500626e-16
+    },
+    {
+      "shard": 5,
+      "groups": 64,
+      "cases": 512,
+      "raw_identical": false,
+      "original_sha256": "7d1f1bc751c1e134dc85bccfb041207f266e9aff0774e164edb8044fd9df25db",
+      "differences": 30,
+      "max_abs": 2.220446049250313e-16
+    },
+    {
+      "shard": 6,
+      "groups": 64,
+      "cases": 512,
+      "raw_identical": false,
+      "original_sha256": "1c4205964ace429af3c360200344690ffc115cb9b95a75b9626f3f9a360bc748",
+      "differences": 34,
+      "max_abs": 4.440892098500626e-16
+    },
+    {
+      "shard": 7,
+      "groups": 64,
+      "cases": 512,
+      "raw_identical": false,
+      "original_sha256": "81afee9e054c7fbf5c0a0b03808acaf04b1d8bb78b1d4fb9c528c224b21c31f1",
+      "differences": 16,
+      "max_abs": 2.220446049250313e-16
+    }
+  ],
+  "total_diagnostic_differences": 168,
+  "maximum_difference": 4.440892098500626e-16,
+  "pooled_primary": {
+    "mean": 0.1083984375,
+    "bootstrap95": [
+      0.0654296875,
+      0.1513671875
+    ]
+  },
+  "producer_receipt_sha256": "d6f427af7fd8e7c14f593f7baac42d5c187bba28ab36197179396f751160916c",
+  "scope": "Original contents and logged summaries only; no archived code execution, annual genomes or historical runtime admission",
+  "blockers": []
+}

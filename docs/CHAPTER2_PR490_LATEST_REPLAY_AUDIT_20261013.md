@@ -23,3 +23,13 @@ Actual artifact and separate arithmetic/projection audit receipts are preserved 
 ## Current upstream state
 
 Live GitHub inspection at2026-10-13 confirms PR490 merged at2026-10-12T23:59:52Z, headb6582d2f6e5cdaf7b68060b59d5fb0ae9233efc1, main merge commitd0e8ddf6adbc9cff50c6794ff840799f18766f83. Its eight-file clean extraction includes the later replay receipt. Merge status does not extend the verified annual-genome/runtime/offline-ZIP scope above. No merge or additional biological rerun was performed by this audit.
+
+## Direct original-byte admission, 2026-10-14
+
+The user supplied the original Library ZIP as a local attachment. Direct reading now authenticates its335,015 bytes and frozen SHA256cd9f998e38ec51e747c4495dbe94b1fe1168d48d31ef54a438250bfa0ace5a21, all27 ZIP members, all26 manifest-declared payload hashes and25 nested source files. The earlier non-location and first byte-divergence receipts remain unchanged as dated records.
+
+All eight original offline shards now match the original frozen shard digests. Direct comparison to the actual38272136110 artifact verifies every logged field after excluding only the previously declared post-case handoff diagnostic. In this later run only shards0/2 are raw-byte-identical; the other six contain168 diagnostic float differences, maximum4.440892098500626e−16. No other field differs. This closes the previous direct-comparison gap for original shards3/4; agreement no longer relies on the attributed upstream recovery receipt alone.
+
+The unchanged all-start numerical auditor reproduces512 groups/4,096 post-trajectories over32 independent visitor histories, primary0.1083984375 and bootstrap95[0.0654296875,0.1513671875], including all four settings. No biological run, threshold change, checksum replacement or post-outcome selection was made. The new exact receipt is `data/results/pr490_original_archive_direct_admission_20261014.json`; its reader is `scripts/audit_pr490_original_archive_20261014.py`.
+
+This is original-ZIP and recorded-summary admission. The archive does not supply full annual diploid genomes/parentage or historical executed-runtime proof. Authenticated archived source contents are not proof of their historical execution. The pilot-informed stress-grid limitation and32-history study unit remain unchanged.
