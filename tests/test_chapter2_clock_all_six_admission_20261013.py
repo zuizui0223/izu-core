@@ -8,7 +8,7 @@ ROOT=Path(__file__).resolve().parents[1]
 if str(ROOT) not in sys.path:sys.path.insert(0,str(ROOT))
 import pytest
 from scripts.aggregate_chapter2_clock_pilot_verified_shards_20261013 import (
-    aggregate,VALID,CASE,
+    aggregate,VALID,CASE,verify_six_class_event,
 )
 
 REG=ROOT/'data/design/chapter2_clock_factorial_pilot_input_inventory_20261013.json'
@@ -75,3 +75,72 @@ def test_corrupted_registry_or_wrong_history_units_fail_closed(tmp_path):
     corrupt.write_text(json.dumps(d))
     with pytest.raises(ValueError,match='horizon'):
         aggregate(files,REG)
+
+
+def test_original_six_class_onset_rule_all_cases_and_boundaries():
+    for event in (
+        {'A':10,'I':30,'category':'assurance_first'},
+        {'A':30,'I':10,'category':'investment_first'},
+        {'A':30,'I':35,'category':'near_simultaneous'},
+        {'A':35,'I':30,'category':'near_simultaneous'},
+        {'A':0,'I':None,'category':'assurance_only'},
+        {'A':None,'I':181,'category':'investment_only'},
+        {'A':None,'I':None,'category':'neither'},
+    ):
+        assert verify_six_class_event(event)==event['category']
+    for bad in (
+        {'A':181,'I':0,'category':'assurance_first'},
+        {'A':10,'I':30,'category':'investment_first'},
+        {'A':0,'I':20,'category':'near_simultaneous'},
+        {'A':None,'I':20,'category':'neither'},
+        {'A':10,'I':None,'category':'investment_only'},
+        {'A':182,'I':None,'category':'assurance_only'},
+        {'A':-1,'I':None,'category':'assurance_only'},
+        {'A':True,'I':None,'category':'assurance_only'},
+        {'A':10.0,'I':None,'category':'assurance_only'},
+        {'A':None,'I':None,'category':'neither','extra':'forged'},
+    ):
+        with pytest.raises(ValueError):
+            verify_six_class_event(bad)
+
+
+def test_forged_correct_looking_category_and_raw_digest_fail_closed(tmp_path):
+    paths=fake_readouts(tmp_path)
+    target=paths[0];d=json.loads(target.read_text())
+    d['original_case_receipts'][0]['event_0p05']={
+        'A':181,'I':0,'category':'assurance_first'
+    }
+    target.write_text(json.dumps(d))
+    with pytest.raises(ValueError,match='contradicts original'):
+        aggregate(paths,REG)
+
+    paths=fake_readouts(tmp_path)
+    target=paths[0];d=json.loads(target.read_text())
+    d['original_case_receipts'][0]['case_sha256']='x'*64
+    target.write_text(json.dumps(d))
+    with pytest.raises(ValueError,match='raw case digest'):
+        aggregate(paths,REG)
+
+
+def test_physical_ancestry_accounting_counter_cannot_be_negative(tmp_path):
+    paths=fake_readouts(tmp_path)
+    target=paths[0];d=json.loads(target.read_text())
+    d['original_case_receipts'][0]['parent_pairs']=-1
+    target.write_text(json.dumps(d))
+    with pytest.raises(ValueError,match='nonphysical'):
+        aggregate(paths,REG)
+
+
+def test_six_differently_located_same_name_source_receipts_keep_six_hashes(tmp_path):
+    from hashlib import sha256
+    import shutil
+    six=fake_readouts(tmp_path)
+    relocated=[]
+    for i,p in enumerate(six):
+        d=tmp_path/('shard_'+str(i));d.mkdir()
+        q=d/'verification.json';shutil.copyfile(p,q);relocated.append(q)
+    result=aggregate(relocated,REG)
+    proven=result['original_shard_readback_files_sha256']
+    assert len(proven)==6
+    assert set(proven)=={f'{b}_c{c}' for b in ('main','confirmation') for c in ('0','3','4')}
+    assert set(proven.values())=={sha256(p.read_bytes()).hexdigest() for p in relocated}
