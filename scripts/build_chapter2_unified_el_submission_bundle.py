@@ -99,6 +99,44 @@ def count_manuscript_words(text):
     }
 
 
+def response_onset_materials():
+    data = MINIMAL_RESULTS / 'expected_response_onset_20261013'
+    code = ROOT / 'scripts/expected_response_onset_20261013'
+    independent_raw = (data / 'INDEPENDENT_REVIEW.json').read_bytes()
+    if sha(independent_raw) != '9d3c84e5068efa25bd9984a4b43118dbb2e3f6789214e7735499b89d5997ca05':
+        raise ValueError('response onset independent receipt identity differs')
+    independent = json.loads(independent_raw)
+    readout_raw = (data / 'READOUT.json').read_bytes()
+    readout = json.loads(readout_raw)
+    source = (code / 'audit_response_onset.py').read_bytes()
+    protocol = (code / 'PROTOCOL.md').read_bytes()
+    cases = (data / 'ALL_CASES.csv').read_bytes()
+    verifier = (code / 'verify_response_onset_independent.py').read_bytes()
+    if (sha(readout_raw) != independent['readout_sha256']
+        or sha(cases) != independent['all_cases_sha256']
+        or sha(verifier) != independent['verifier_sha256']
+        or sha(source) != readout['source_script_sha256']
+        or sha(protocol) != readout['protocol_sha256']
+        or readout['cases'] != 2304 or readout['profiles'] != 18
+        or readout['original_categories']['assurance_first'] != 335
+        or readout['assurance_first_despite_earlier_I_point'] != 299
+        or readout['assurance_first_despite_earlier_I_sustained'] != 216
+        or independent['onset_comparisons'] != 9216 or independent['native_F1_checks'] != 306
+        or independent['new_biological_histories'] != 0 or independent['offspring_calls'] != 0):
+        raise ValueError('response onset independent source admission differs')
+    members = {
+        'EVIDENCE/RESPONSE_ONSET_READOUT.json': readout_raw,
+        'EVIDENCE/RESPONSE_ONSET_ALL_CASES.csv': cases,
+        'EVIDENCE/RESPONSE_ONSET_INDEPENDENT_REVIEW.json': independent_raw,
+        'EVIDENCE/RESPONSE_ONSET_PROTOCOL.md': protocol,
+        'EVIDENCE/RESPONSE_ONSET_SOURCE.py': source,
+        'EVIDENCE/RESPONSE_ONSET_INDEPENDENT_SOURCE.py': verifier,
+    }
+    return members, {name:dict(original_sha256=sha(raw),derived_sha256=sha(raw),
+        independent_review_sha256=sha(independent_raw),transformation='Exact frozen read-only diagnostic bytes; no recoding, simulation or inferential pooling.')
+        for name,raw in members.items()}
+
+
 def initial_clock_materials():
     """Admit independently checked read-only initial-state evidence, not a fitted clock."""
     review_name = 'chapter2_initial_clock_independent_review_20261013.json'
@@ -575,6 +613,9 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     clock,clock_derivations=initial_clock_materials()
     members.update(clock)
     derivations.update(clock_derivations)
+    onset,onset_derivations=response_onset_materials()
+    members.update(onset)
+    derivations.update(onset_derivations)
     derivations["SUPPORTING_INFORMATION.md"]={
         "original_path":str(si_path.relative_to(ROOT)),"original_sha256":sha(si_original),
         "derived_sha256":sha(si),"transformation":"Relocate atom/resolution/mechanism companion source references and add the delivered supplementary-figure link; numerical text unchanged."}
@@ -598,6 +639,7 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
         "mechanism_evidence":"20480 full-genome-admitted futures and independent all-start arithmetic; lifelong expression policies, not initial-only or natural-order mediation; low-challenge terminal floor retained",
         "atom_evidence":"All10 two-grid numerical admissions and320 descriptive ABM histories;990 event and40 checkpoint independent array checks, no new raw-genome reconstruction or causal drift attribution",
         "resolution_evidence":"6144 boundary,3072 shared preparations,6144 branched challenges; genetic-access band and conditional all-start preparation-policy effects, not pure natural-order mediation",
+        "response_onset_evidence":"All2304 archived on-path expected inherited response clocks;299 point/216 sustained earlier-I counterexamples among335 assurance-first cases. Descriptive refutation of universal start-time-only necessity; no invasion-gradient, causal or future-benefit claim",
         "initial_clock_evidence":"Read-only 2304 histories in18 identical-t0 profiles; native initial returns independently checked; observed six-class oracle is descriptive, not fitted/prospective accuracy, causal explanation or natural-order benefit",
         "investment_variation_evidence":"64 outcome-informed mean-preserving allele-variation intervention slots,61 triggers and3 unchanged controls; independently replayed frozen-source paths; primary unresolved, not equivalence or unique causal allocation",
         "members":{name:{"size":len(b),"sha256":sha(b)}

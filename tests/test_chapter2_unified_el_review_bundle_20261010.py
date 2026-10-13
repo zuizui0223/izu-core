@@ -252,6 +252,12 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
            "EVIDENCE/OPERATOR_GAP_READOUT.json",
            "EVIDENCE/RESOLUTION_DESIGN.md",
            "EVIDENCE/RESOLUTION_READOUT.json",
+           "EVIDENCE/RESPONSE_ONSET_ALL_CASES.csv",
+           "EVIDENCE/RESPONSE_ONSET_INDEPENDENT_REVIEW.json",
+           "EVIDENCE/RESPONSE_ONSET_INDEPENDENT_SOURCE.py",
+           "EVIDENCE/RESPONSE_ONSET_PROTOCOL.md",
+           "EVIDENCE/RESPONSE_ONSET_READOUT.json",
+           "EVIDENCE/RESPONSE_ONSET_SOURCE.py",
            "EVIDENCE/TEMPO_AUDIT_SUMMARY.json",
            "EVIDENCE/TEMPO_DESIGN.json",
            "EVIDENCE/TEMPO_RESULTS.json.gz",
@@ -261,7 +267,7 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
         assert m["doi_deposit_complete"] is False
         assert m["n_figures"]==4
         assert m["n_supplementary_figures"]==3
-        assert len(m["members"])==36
+        assert len(m["members"])==42
         for name,record in m["members"].items():
             raw=z.read(name)
             assert record=={"size":len(raw),"sha256":hashlib.sha256(raw).hexdigest()}
@@ -494,3 +500,30 @@ def test_initial_clock_materials_reject_changed_unverified_source(tmp_path, monk
     monkeypatch.setattr(builder, 'MINIMAL_RESULTS', root)
     with pytest.raises(ValueError, match='initial clock source hash'):
         builder.initial_clock_materials()
+
+
+def test_response_onset_evidence_keeps_all_starts_and_counterexample_scope():
+    members, derivations = builder.response_onset_materials()
+    assert len(members) == len(derivations) == 6
+    value = json.loads(members['EVIDENCE/RESPONSE_ONSET_READOUT.json'])
+    assert value['cases'] == 2304
+    assert value['original_categories']['assurance_first'] == 335
+    assert value['assurance_first_despite_earlier_I_point'] == 299
+    assert value['assurance_first_despite_earlier_I_sustained'] == 216
+    for name, raw in members.items(): builder.validate_member(name, raw)
+
+
+def test_response_onset_materials_reject_changed_executed_source(tmp_path, monkeypatch):
+    results = tmp_path / 'data/results/expected_response_onset_20261013'
+    code = tmp_path / 'scripts/expected_response_onset_20261013'
+    results.mkdir(parents=True); code.mkdir(parents=True)
+    for name in ['READOUT.json', 'ALL_CASES.csv', 'INDEPENDENT_REVIEW.json']:
+        (results / name).write_bytes((builder.MINIMAL_RESULTS / 'expected_response_onset_20261013' / name).read_bytes())
+    for name in ['audit_response_onset.py', 'PROTOCOL.md', 'verify_response_onset_independent.py']:
+        (code / name).write_bytes((builder.ROOT / 'scripts/expected_response_onset_20261013' / name).read_bytes())
+    target = code / 'audit_response_onset.py'
+    target.write_bytes(target.read_bytes() + b'\n# changed after execution\n')
+    monkeypatch.setattr(builder, 'ROOT', tmp_path)
+    monkeypatch.setattr(builder, 'MINIMAL_RESULTS', tmp_path / 'data/results')
+    with pytest.raises(ValueError, match='response onset independent source admission'):
+        builder.response_onset_materials()

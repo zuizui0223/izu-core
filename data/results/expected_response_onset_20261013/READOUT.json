@@ -1,0 +1,456 @@
+{
+  "status": "ALL2304_ORIGINAL_EXPECTED_RESPONSE_ONSETS_AUTHENTICATED_RETROSPECTIVE_ONLY",
+  "cases": 2304,
+  "profiles": 18,
+  "protocol_sha256": "1d57f67bdd31b5cdae7d5e32db21179c9d3288ca2a639dd6ba23b92857146622",
+  "outer_sha256": "819741aa4a9f5bc1aaf2dadddbd56b79d158fc9295d07fc3bffe362693fc056a",
+  "source_compact_git_blob": "5608ad2cdcbef167fe9062ab5f26318abf2e1bd9",
+  "source_script_sha256": "3176aacdf61ca55608256382a11cf72a0e76305e6074b8869cab07c8aa15879a",
+  "new_biological_histories": 0,
+  "original_categories": {
+    "near_simultaneous": 358,
+    "assurance_first": 335,
+    "investment_first": 435,
+    "assurance_only": 895,
+    "investment_only": 10,
+    "neither": 271
+  },
+  "onset_categories": {
+    "I_earlier": 1536,
+    "tie": 123,
+    "A_earlier": 307,
+    "A_only": 338
+  },
+  "sustained_onset_categories": {
+    "I_earlier": 795,
+    "A_only": 1037,
+    "A_earlier": 255,
+    "tie": 43,
+    "neither": 174
+  },
+  "assurance_first_despite_earlier_I_point": 299,
+  "assurance_first_despite_earlier_I_sustained": 216,
+  "cells": [
+    {
+      "block": "confirmation",
+      "context": 0,
+      "all_starts": 128,
+      "original_categories": {
+        "assurance_first": 25,
+        "investment_first": 36,
+        "near_simultaneous": 36,
+        "assurance_only": 31,
+        "investment_only": 0,
+        "neither": 0
+      },
+      "point_onsets": {
+        "I_earlier": 128
+      },
+      "sustained_onsets": {
+        "I_earlier": 85,
+        "A_earlier": 13,
+        "A_only": 30
+      },
+      "assurance_first_despite_earlier_I_point": 25,
+      "assurance_first_despite_earlier_I_sustained": 24
+    },
+    {
+      "block": "confirmation",
+      "context": 1,
+      "all_starts": 128,
+      "original_categories": {
+        "assurance_first": 26,
+        "investment_first": 36,
+        "near_simultaneous": 32,
+        "assurance_only": 34,
+        "investment_only": 0,
+        "neither": 0
+      },
+      "point_onsets": {
+        "I_earlier": 128
+      },
+      "sustained_onsets": {
+        "A_only": 15,
+        "I_earlier": 95,
+        "A_earlier": 18
+      },
+      "assurance_first_despite_earlier_I_point": 26,
+      "assurance_first_despite_earlier_I_sustained": 23
+    },
+    {
+      "block": "confirmation",
+      "context": 2,
+      "all_starts": 128,
+      "original_categories": {
+        "assurance_first": 27,
+        "investment_first": 32,
+        "near_simultaneous": 38,
+        "assurance_only": 31,
+        "investment_only": 0,
+        "neither": 0
+      },
+      "point_onsets": {
+        "I_earlier": 128
+      },
+      "sustained_onsets": {
+        "I_earlier": 95,
+        "A_only": 25,
+        "A_earlier": 8
+      },
+      "assurance_first_despite_earlier_I_point": 27,
+      "assurance_first_despite_earlier_I_sustained": 25
+    },
+    {
+      "block": "confirmation",
+      "context": 3,
+      "all_starts": 128,
+      "original_categories": {
+        "assurance_first": 34,
+        "investment_first": 14,
+        "near_simultaneous": 14,
+        "assurance_only": 65,
+        "investment_only": 1,
+        "neither": 0
+      },
+      "point_onsets": {
+        "tie": 118,
+        "A_earlier": 10
+      },
+      "sustained_onsets": {
+        "A_earlier": 55,
+        "A_only": 28,
+        "tie": 43,
+        "I_earlier": 2
+      },
+      "assurance_first_despite_earlier_I_point": 0,
+      "assurance_first_despite_earlier_I_sustained": 1
+    },
+    {
+      "block": "confirmation",
+      "context": 4,
+      "all_starts": 128,
+      "original_categories": {
+        "assurance_first": 30,
+        "investment_first": 29,
+        "near_simultaneous": 32,
+        "assurance_only": 37,
+        "investment_only": 0,
+        "neither": 0
+      },
+      "point_onsets": {
+        "I_earlier": 128
+      },
+      "sustained_onsets": {
+        "A_earlier": 20,
+        "I_earlier": 91,
+        "A_only": 17
+      },
+      "assurance_first_despite_earlier_I_point": 30,
+      "assurance_first_despite_earlier_I_sustained": 27
+    },
+    {
+      "block": "confirmation",
+      "context": 5,
+      "all_starts": 128,
+      "original_categories": {
+        "assurance_first": 2,
+        "investment_first": 0,
+        "near_simultaneous": 1,
+        "assurance_only": 80,
+        "investment_only": 1,
+        "neither": 44
+      },
+      "point_onsets": {
+        "tie": 3,
+        "A_earlier": 70,
+        "A_only": 55
+      },
+      "sustained_onsets": {
+        "A_only": 127,
+        "neither": 1
+      },
+      "assurance_first_despite_earlier_I_point": 0,
+      "assurance_first_despite_earlier_I_sustained": 0
+    },
+    {
+      "block": "confirmation",
+      "context": 6,
+      "all_starts": 128,
+      "original_categories": {
+        "assurance_first": 12,
+        "investment_first": 16,
+        "near_simultaneous": 9,
+        "assurance_only": 90,
+        "investment_only": 0,
+        "neither": 1
+      },
+      "point_onsets": {
+        "I_earlier": 128
+      },
+      "sustained_onsets": {
+        "A_only": 96,
+        "A_earlier": 24,
+        "I_earlier": 8
+      },
+      "assurance_first_despite_earlier_I_point": 12,
+      "assurance_first_despite_earlier_I_sustained": 2
+    },
+    {
+      "block": "confirmation",
+      "context": 7,
+      "all_starts": 128,
+      "original_categories": {
+        "assurance_first": 0,
+        "investment_first": 0,
+        "near_simultaneous": 0,
+        "assurance_only": 49,
+        "investment_only": 0,
+        "neither": 79
+      },
+      "point_onsets": {
+        "A_earlier": 37,
+        "A_only": 90,
+        "tie": 1
+      },
+      "sustained_onsets": {
+        "A_only": 45,
+        "neither": 83
+      },
+      "assurance_first_despite_earlier_I_point": 0,
+      "assurance_first_despite_earlier_I_sustained": 0
+    },
+    {
+      "block": "confirmation",
+      "context": 8,
+      "all_starts": 128,
+      "original_categories": {
+        "assurance_first": 9,
+        "investment_first": 7,
+        "near_simultaneous": 2,
+        "assurance_only": 94,
+        "investment_only": 2,
+        "neither": 14
+      },
+      "point_onsets": {
+        "I_earlier": 128
+      },
+      "sustained_onsets": {
+        "A_only": 128
+      },
+      "assurance_first_despite_earlier_I_point": 9,
+      "assurance_first_despite_earlier_I_sustained": 0
+    },
+    {
+      "block": "main",
+      "context": 0,
+      "all_starts": 128,
+      "original_categories": {
+        "assurance_first": 24,
+        "investment_first": 51,
+        "near_simultaneous": 46,
+        "assurance_only": 7,
+        "investment_only": 0,
+        "neither": 0
+      },
+      "point_onsets": {
+        "I_earlier": 128
+      },
+      "sustained_onsets": {
+        "I_earlier": 93,
+        "A_only": 27,
+        "A_earlier": 8
+      },
+      "assurance_first_despite_earlier_I_point": 24,
+      "assurance_first_despite_earlier_I_sustained": 22
+    },
+    {
+      "block": "main",
+      "context": 1,
+      "all_starts": 128,
+      "original_categories": {
+        "assurance_first": 30,
+        "investment_first": 49,
+        "near_simultaneous": 38,
+        "assurance_only": 11,
+        "investment_only": 0,
+        "neither": 0
+      },
+      "point_onsets": {
+        "I_earlier": 128
+      },
+      "sustained_onsets": {
+        "I_earlier": 95,
+        "A_only": 24,
+        "A_earlier": 9
+      },
+      "assurance_first_despite_earlier_I_point": 30,
+      "assurance_first_despite_earlier_I_sustained": 26
+    },
+    {
+      "block": "main",
+      "context": 2,
+      "all_starts": 128,
+      "original_categories": {
+        "assurance_first": 24,
+        "investment_first": 49,
+        "near_simultaneous": 47,
+        "assurance_only": 8,
+        "investment_only": 0,
+        "neither": 0
+      },
+      "point_onsets": {
+        "I_earlier": 128
+      },
+      "sustained_onsets": {
+        "I_earlier": 89,
+        "A_only": 29,
+        "A_earlier": 10
+      },
+      "assurance_first_despite_earlier_I_point": 24,
+      "assurance_first_despite_earlier_I_sustained": 21
+    },
+    {
+      "block": "main",
+      "context": 3,
+      "all_starts": 128,
+      "original_categories": {
+        "assurance_first": 33,
+        "investment_first": 41,
+        "near_simultaneous": 18,
+        "assurance_only": 36,
+        "investment_only": 0,
+        "neither": 0
+      },
+      "point_onsets": {
+        "I_earlier": 128
+      },
+      "sustained_onsets": {
+        "I_earlier": 44,
+        "A_only": 32,
+        "A_earlier": 52
+      },
+      "assurance_first_despite_earlier_I_point": 33,
+      "assurance_first_despite_earlier_I_sustained": 15
+    },
+    {
+      "block": "main",
+      "context": 4,
+      "all_starts": 128,
+      "original_categories": {
+        "assurance_first": 33,
+        "investment_first": 46,
+        "near_simultaneous": 36,
+        "assurance_only": 13,
+        "investment_only": 0,
+        "neither": 0
+      },
+      "point_onsets": {
+        "I_earlier": 128
+      },
+      "sustained_onsets": {
+        "A_earlier": 20,
+        "I_earlier": 92,
+        "A_only": 16
+      },
+      "assurance_first_despite_earlier_I_point": 33,
+      "assurance_first_despite_earlier_I_sustained": 29
+    },
+    {
+      "block": "main",
+      "context": 5,
+      "all_starts": 128,
+      "original_categories": {
+        "assurance_first": 0,
+        "investment_first": 1,
+        "near_simultaneous": 0,
+        "assurance_only": 87,
+        "investment_only": 2,
+        "neither": 38
+      },
+      "point_onsets": {
+        "A_earlier": 66,
+        "A_only": 62
+      },
+      "sustained_onsets": {
+        "A_only": 128
+      },
+      "assurance_first_despite_earlier_I_point": 0,
+      "assurance_first_despite_earlier_I_sustained": 0
+    },
+    {
+      "block": "main",
+      "context": 6,
+      "all_starts": 128,
+      "original_categories": {
+        "assurance_first": 26,
+        "investment_first": 23,
+        "near_simultaneous": 9,
+        "assurance_only": 68,
+        "investment_only": 1,
+        "neither": 1
+      },
+      "point_onsets": {
+        "I_earlier": 128
+      },
+      "sustained_onsets": {
+        "A_earlier": 18,
+        "A_only": 104,
+        "I_earlier": 6
+      },
+      "assurance_first_despite_earlier_I_point": 26,
+      "assurance_first_despite_earlier_I_sustained": 1
+    },
+    {
+      "block": "main",
+      "context": 7,
+      "all_starts": 128,
+      "original_categories": {
+        "assurance_first": 0,
+        "investment_first": 0,
+        "near_simultaneous": 0,
+        "assurance_only": 55,
+        "investment_only": 1,
+        "neither": 72
+      },
+      "point_onsets": {
+        "A_only": 90,
+        "A_earlier": 38
+      },
+      "sustained_onsets": {
+        "A_only": 38,
+        "neither": 90
+      },
+      "assurance_first_despite_earlier_I_point": 0,
+      "assurance_first_despite_earlier_I_sustained": 0
+    },
+    {
+      "block": "main",
+      "context": 8,
+      "all_starts": 128,
+      "original_categories": {
+        "assurance_first": 0,
+        "investment_first": 5,
+        "near_simultaneous": 0,
+        "assurance_only": 99,
+        "investment_only": 2,
+        "neither": 22
+      },
+      "point_onsets": {
+        "A_earlier": 86,
+        "A_only": 41,
+        "tie": 1
+      },
+      "sustained_onsets": {
+        "A_only": 128
+      },
+      "assurance_first_despite_earlier_I_point": 0,
+      "assurance_first_despite_earlier_I_sustained": 0
+    }
+  ],
+  "limits": [
+    "On-path inherited response, not an invasion gradient or direct trait-only selection.",
+    "No causal attribution, prospective fit, significance, threshold identification or natural-order persistence effect.",
+    "First directional update and20-consecutive directional updates differ from original biological events; original categories unchanged.",
+    "Nine contexts reuse each of256 founder-specific random streams."
+  ]
+}
