@@ -16,3 +16,6 @@ docs/four_question_resolution_20261011/* -text whitespace=cr-at-eol
 # Retrospective response-onset source and receipts retain executed byte identities.
 scripts/expected_response_onset_20261013/* -text whitespace=cr-at-eol
 data/results/expected_response_onset_20261013/* -text whitespace=cr-at-eol
+
+scripts/kernel_expression_accounting_20261013/* -text whitespace=cr-at-eol
+data/results/kernel_expression_accounting_20261013/* -text whitespace=cr-at-eol

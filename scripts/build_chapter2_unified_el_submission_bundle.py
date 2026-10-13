@@ -99,6 +99,44 @@ def count_manuscript_words(text):
     }
 
 
+def kernel_expression_materials():
+    data = MINIMAL_RESULTS / 'kernel_expression_accounting_20261013'
+    code = ROOT / 'scripts/kernel_expression_accounting_20261013'
+    receipt_raw = (data / 'INDEPENDENT_REVIEW.json').read_bytes()
+    if sha(receipt_raw) != 'cf9a42c0099996a07105b718bbc4e12f20b8cbb002e2121974ce354274c37e6b':
+        raise ValueError('kernel expression independent receipt identity differs')
+    receipt = json.loads(receipt_raw)
+    readout_raw = (data / 'READOUT.json').read_bytes()
+    readout = json.loads(readout_raw)
+    terms_raw = (data / 'ALL_STATE_TIME_CONTRIBUTIONS.npz').read_bytes()
+    source = (code / 'audit_kernel_expression.py').read_bytes()
+    protocol = (code / 'PROTOCOL.md').read_bytes()
+    verifier = (code / 'verify_kernel_expression_independent.py').read_bytes()
+    if (sha(readout_raw) != receipt['readout_sha256'] or sha(terms_raw) != receipt['all_terms_sha256']
+        or sha(source) != readout['executed_source_sha256'] or sha(protocol) != readout['protocol_sha256']
+        or sha(verifier) != receipt['verifier_sha256']
+        or readout['pairs'] != 48 or readout['kernels'] != 96 or readout['original_reversals'] != 12
+        or receipt['state_time_checks'] != 2534400 or receipt['switch_time_checks'] != 15360
+        or receipt['new_biological_histories'] != 0 or receipt['producer_imported']):
+        raise ValueError('kernel expression verified source admission differs')
+    manifest = json_bytes(dict(file='ALL_STATE_TIME_CONTRIBUTIONS.npz',sha256=sha(terms_raw),bytes=len(terms_raw),
+        endpoint_shape=[48,2,80,165],duration_shape=[48,2,80,165],
+        external_companion='KERNEL_EXPRESSION_OPERATOR_REVIEW_20261013.zip',
+        scope='All signed state-time arrays preserved in separate public companion; not duplicated in reviewer ZIP.'))
+    members = {
+        'EVIDENCE/KERNEL_EXPRESSION_READOUT.json': readout_raw,
+        'EVIDENCE/KERNEL_EXPRESSION_ARRAYS_MANIFEST.json': manifest,
+        'EVIDENCE/KERNEL_EXPRESSION_INDEPENDENT_REVIEW.json': receipt_raw,
+        'EVIDENCE/KERNEL_EXPRESSION_PROTOCOL.md': protocol,
+        'EVIDENCE/KERNEL_EXPRESSION_SOURCE.py': source,
+        'EVIDENCE/KERNEL_EXPRESSION_INDEPENDENT_SOURCE.py': verifier,
+    }
+    return members, {name:dict(original_sha256=sha(terms_raw) if name.endswith('ARRAYS_MANIFEST.json') else sha(raw),
+        derived_sha256=sha(raw),independent_review_sha256=sha(receipt_raw),
+        transformation='Array manifest is a size/hash-bound pointer to full signed arrays; all other diagnostic bytes exact and unpooled.')
+        for name,raw in members.items()}
+
+
 def response_onset_materials():
     data = MINIMAL_RESULTS / 'expected_response_onset_20261013'
     code = ROOT / 'scripts/expected_response_onset_20261013'
@@ -616,6 +654,9 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     onset,onset_derivations=response_onset_materials()
     members.update(onset)
     derivations.update(onset_derivations)
+    kernel_expression,kernel_expression_derivations=kernel_expression_materials()
+    members.update(kernel_expression)
+    derivations.update(kernel_expression_derivations)
     derivations["SUPPORTING_INFORMATION.md"]={
         "original_path":str(si_path.relative_to(ROOT)),"original_sha256":sha(si_original),
         "derived_sha256":sha(si),"transformation":"Relocate atom/resolution/mechanism companion source references and add the delivered supplementary-figure link; numerical text unchanged."}
@@ -639,6 +680,7 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
         "mechanism_evidence":"20480 full-genome-admitted futures and independent all-start arithmetic; lifelong expression policies, not initial-only or natural-order mediation; low-challenge terminal floor retained",
         "atom_evidence":"All10 two-grid numerical admissions and320 descriptive ABM histories;990 event and40 checkpoint independent array checks, no new raw-genome reconstruction or causal drift attribution",
         "resolution_evidence":"6144 boundary,3072 shared preparations,6144 branched challenges; genetic-access band and conditional all-start preparation-policy effects, not pure natural-order mediation",
+        "kernel_expression_evidence":"All48 investment-expression pairs and12 endpoint-duration reversals; two exact reference-order/state-time decompositions. Pure-low positive/pure-high negative aggregate contributions; segregating signs reference-sensitive. Not unique fixation mediation or natural-order benefit",
         "response_onset_evidence":"All2304 archived on-path expected inherited response clocks;299 point/216 sustained earlier-I counterexamples among335 assurance-first cases. Descriptive refutation of universal start-time-only necessity; no invasion-gradient, causal or future-benefit claim",
         "initial_clock_evidence":"Read-only 2304 histories in18 identical-t0 profiles; native initial returns independently checked; observed six-class oracle is descriptive, not fitted/prospective accuracy, causal explanation or natural-order benefit",
         "investment_variation_evidence":"64 outcome-informed mean-preserving allele-variation intervention slots,61 triggers and3 unchanged controls; independently replayed frozen-source paths; primary unresolved, not equivalence or unique causal allocation",

@@ -1,0 +1,6163 @@
+{
+  "status": "ALL48_TWO_REFERENCE_STATE_TIME_AND_SWITCH_REWARD_IDENTITIES_INDEPENDENTLY_MATCH",
+  "pairs": 48,
+  "state_time_checks": 2534400,
+  "switch_time_checks": 15360,
+  "max_state_error": 4.402294501160142e-15,
+  "max_switch_error": 4.263256414560601e-14,
+  "new_biological_histories": 0,
+  "producer_imported": false,
+  "readout_sha256": "5fc388ecae36663faf8b77e2287f4be293ca487a7f5b2ed1daafb116f816b774",
+  "all_terms_sha256": "3a39c3d37dda4eba126e01ea83ea1ff667d7f99860471dc2e15e8114f13d748a",
+  "verifier_sha256": "9d73fa52fb37d8507006ef1d1f8531a91f7dd9846143199024a47f3dc925b341",
+  "descriptive_one_step_all48_pairs": [
+    {
+      "pair": 0,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.01517343516795207,
+      "expected_recruit_census_change": 0.04159068660232753
+    },
+    {
+      "pair": 0,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.008946953493040704,
+      "expected_recruit_census_change": 0.06850541991020764
+    },
+    {
+      "pair": 0,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.0037273202520968444,
+      "expected_recruit_census_change": 0.08038418567933059
+    },
+    {
+      "pair": 0,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0012713041101771738,
+      "expected_recruit_census_change": 0.07594640302404627
+    },
+    {
+      "pair": 0,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0003559744286982837,
+      "expected_recruit_census_change": 0.056400127575006745
+    },
+    {
+      "pair": 0,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 7.152909995754991e-05,
+      "expected_recruit_census_change": 0.02830829857883932
+    },
+    {
+      "pair": 0,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 1.2029494698391832e-06,
+      "expected_recruit_census_change": 0.001114128292859889
+    },
+    {
+      "pair": 0,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -8.826811818437967e-06,
+      "expected_recruit_census_change": -0.017955140393755457
+    },
+    {
+      "pair": 0,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.023425825939348728,
+      "expected_recruit_census_change": -0.06099525829727011
+    },
+    {
+      "pair": 0,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.01482803101585516,
+      "expected_recruit_census_change": -0.10414037376227268
+    },
+    {
+      "pair": 0,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.0066471773934349086,
+      "expected_recruit_census_change": -0.12917919983057963
+    },
+    {
+      "pair": 0,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.002482305548409787,
+      "expected_recruit_census_change": -0.13363056733772843
+    },
+    {
+      "pair": 0,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0008033111201646639,
+      "expected_recruit_census_change": -0.11643528806711059
+    },
+    {
+      "pair": 0,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.0002243444288494642,
+      "expected_recruit_census_change": -0.08331718263546121
+    },
+    {
+      "pair": 0,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -5.1121091269020445e-05,
+      "expected_recruit_census_change": -0.04585373188986101
+    },
+    {
+      "pair": 0,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -7.357994286017171e-06,
+      "expected_recruit_census_change": -0.015006602054168403
+    },
+    {
+      "pair": 1,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.01517343516795207,
+      "expected_recruit_census_change": 0.04159068660232753
+    },
+    {
+      "pair": 1,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.008946953493040704,
+      "expected_recruit_census_change": 0.06850541991020764
+    },
+    {
+      "pair": 1,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.0037273202520968444,
+      "expected_recruit_census_change": 0.08038418567933059
+    },
+    {
+      "pair": 1,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0012713041101771738,
+      "expected_recruit_census_change": 0.07594640302404627
+    },
+    {
+      "pair": 1,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0003559744286982837,
+      "expected_recruit_census_change": 0.056400127575006745
+    },
+    {
+      "pair": 1,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 7.152909995754991e-05,
+      "expected_recruit_census_change": 0.02830829857883932
+    },
+    {
+      "pair": 1,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 1.2029494698391832e-06,
+      "expected_recruit_census_change": 0.001114128292859889
+    },
+    {
+      "pair": 1,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -8.826811818437967e-06,
+      "expected_recruit_census_change": -0.017955140393755457
+    },
+    {
+      "pair": 1,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.023425825939348728,
+      "expected_recruit_census_change": -0.06099525829727011
+    },
+    {
+      "pair": 1,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.01482803101585516,
+      "expected_recruit_census_change": -0.10414037376227268
+    },
+    {
+      "pair": 1,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.0066471773934349086,
+      "expected_recruit_census_change": -0.12917919983057963
+    },
+    {
+      "pair": 1,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.002482305548409787,
+      "expected_recruit_census_change": -0.13363056733772843
+    },
+    {
+      "pair": 1,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0008033111201646639,
+      "expected_recruit_census_change": -0.11643528806711059
+    },
+    {
+      "pair": 1,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.0002243444288494642,
+      "expected_recruit_census_change": -0.08331718263546121
+    },
+    {
+      "pair": 1,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -5.1121091269020445e-05,
+      "expected_recruit_census_change": -0.04585373188986101
+    },
+    {
+      "pair": 1,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -7.357994286017171e-06,
+      "expected_recruit_census_change": -0.015006602054168403
+    },
+    {
+      "pair": 2,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.014456536466695343,
+      "expected_recruit_census_change": 0.05545035290830964
+    },
+    {
+      "pair": 2,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.00605048325303114,
+      "expected_recruit_census_change": 0.09082624541457872
+    },
+    {
+      "pair": 2,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.001777364270708147,
+      "expected_recruit_census_change": 0.10235767319295783
+    },
+    {
+      "pair": 2,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0004246951588883739,
+      "expected_recruit_census_change": 0.08677407397268024
+    },
+    {
+      "pair": 2,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 8.278367454230343e-05,
+      "expected_recruit_census_change": 0.053759273447464034
+    },
+    {
+      "pair": 2,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 1.1508938027453806e-05,
+      "expected_recruit_census_change": 0.021219415266396577
+    },
+    {
+      "pair": 2,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 1.3312025355877253e-07,
+      "expected_recruit_census_change": 0.0006290647409050104
+    },
+    {
+      "pair": 2,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -6.67975808172315e-07,
+      "expected_recruit_census_change": -0.007404586656317637
+    },
+    {
+      "pair": 2,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.022705378856561792,
+      "expected_recruit_census_change": -0.08132299157208764
+    },
+    {
+      "pair": 2,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.010322735118926868,
+      "expected_recruit_census_change": -0.13823967309832375
+    },
+    {
+      "pair": 2,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.003284905500739871,
+      "expected_recruit_census_change": -0.16560421137694054
+    },
+    {
+      "pair": 2,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.0008608867173864436,
+      "expected_recruit_census_change": -0.15493998787959337
+    },
+    {
+      "pair": 2,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0001933570845703888,
+      "expected_recruit_census_change": -0.11318504899853453
+    },
+    {
+      "pair": 2,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -3.707825282235795e-05,
+      "expected_recruit_census_change": -0.06363655957528738
+    },
+    {
+      "pair": 2,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -5.741759198884828e-06,
+      "expected_recruit_census_change": -0.026194271896887916
+    },
+    {
+      "pair": 2,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -5.560789955163722e-07,
+      "expected_recruit_census_change": -0.006181657288137573
+    },
+    {
+      "pair": 3,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.014456536466695343,
+      "expected_recruit_census_change": 0.05545035290830964
+    },
+    {
+      "pair": 3,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.00605048325303114,
+      "expected_recruit_census_change": 0.09082624541457872
+    },
+    {
+      "pair": 3,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.001777364270708147,
+      "expected_recruit_census_change": 0.10235767319295783
+    },
+    {
+      "pair": 3,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0004246951588883739,
+      "expected_recruit_census_change": 0.08677407397268024
+    },
+    {
+      "pair": 3,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 8.278367454230343e-05,
+      "expected_recruit_census_change": 0.053759273447464034
+    },
+    {
+      "pair": 3,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 1.1508938027453806e-05,
+      "expected_recruit_census_change": 0.021219415266396577
+    },
+    {
+      "pair": 3,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 1.3312025355877253e-07,
+      "expected_recruit_census_change": 0.0006290647409050104
+    },
+    {
+      "pair": 3,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -6.67975808172315e-07,
+      "expected_recruit_census_change": -0.007404586656317637
+    },
+    {
+      "pair": 3,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.022705378856561792,
+      "expected_recruit_census_change": -0.08132299157208764
+    },
+    {
+      "pair": 3,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.010322735118926868,
+      "expected_recruit_census_change": -0.13823967309832375
+    },
+    {
+      "pair": 3,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.003284905500739871,
+      "expected_recruit_census_change": -0.16560421137694054
+    },
+    {
+      "pair": 3,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.0008608867173864436,
+      "expected_recruit_census_change": -0.15493998787959337
+    },
+    {
+      "pair": 3,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.00019335708457087104,
+      "expected_recruit_census_change": -0.11318504899853743
+    },
+    {
+      "pair": 3,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -3.707825282235795e-05,
+      "expected_recruit_census_change": -0.06363655957528738
+    },
+    {
+      "pair": 3,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -5.741759198884828e-06,
+      "expected_recruit_census_change": -0.026194271896887916
+    },
+    {
+      "pair": 3,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -5.560789955163722e-07,
+      "expected_recruit_census_change": -0.006181657288137573
+    },
+    {
+      "pair": 4,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.01517343516795207,
+      "expected_recruit_census_change": 0.04159068660232753
+    },
+    {
+      "pair": 4,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.009391041819885999,
+      "expected_recruit_census_change": 0.07159809851362349
+    },
+    {
+      "pair": 4,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.0042004151945250374,
+      "expected_recruit_census_change": 0.08946065725258805
+    },
+    {
+      "pair": 4,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0015965675201684085,
+      "expected_recruit_census_change": 0.09314555152016428
+    },
+    {
+      "pair": 4,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0005365581060725079,
+      "expected_recruit_census_change": 0.08196929696038834
+    },
+    {
+      "pair": 4,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.0001590054305835812,
+      "expected_recruit_census_change": 0.05987444165661265
+    },
+    {
+      "pair": 4,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 3.9538445658741234e-05,
+      "expected_recruit_census_change": 0.03438534811099907
+    },
+    {
+      "pair": 4,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 6.669339679597763e-06,
+      "expected_recruit_census_change": 0.012577083987543699
+    },
+    {
+      "pair": 4,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.023425825939348728,
+      "expected_recruit_census_change": -0.06099525829727011
+    },
+    {
+      "pair": 4,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.015483237718173882,
+      "expected_recruit_census_change": -0.10790509930776086
+    },
+    {
+      "pair": 4,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.007379468877706061,
+      "expected_recruit_census_change": -0.14021398539293828
+    },
+    {
+      "pair": 4,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.0029990487007906033,
+      "expected_recruit_census_change": -0.15470296339565837
+    },
+    {
+      "pair": 4,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0010921291773770062,
+      "expected_recruit_census_change": -0.14823855941185263
+    },
+    {
+      "pair": 4,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.0003627300667909672,
+      "expected_recruit_census_change": -0.12318988159756239
+    },
+    {
+      "pair": 4,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -0.00011012433597613197,
+      "expected_recruit_census_change": -0.08824832072253083
+    },
+    {
+      "pair": 4,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -3.0194001010147575e-05,
+      "expected_recruit_census_change": -0.053803029944383074
+    },
+    {
+      "pair": 5,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.01517343516795207,
+      "expected_recruit_census_change": 0.04159068660232753
+    },
+    {
+      "pair": 5,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.009391041819885999,
+      "expected_recruit_census_change": 0.07159809851362349
+    },
+    {
+      "pair": 5,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.0042004151945250374,
+      "expected_recruit_census_change": 0.08946065725258805
+    },
+    {
+      "pair": 5,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0015965675201684085,
+      "expected_recruit_census_change": 0.09314555152016428
+    },
+    {
+      "pair": 5,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0005365581060725079,
+      "expected_recruit_census_change": 0.08196929696038834
+    },
+    {
+      "pair": 5,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.0001590054305835812,
+      "expected_recruit_census_change": 0.05987444165661265
+    },
+    {
+      "pair": 5,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 3.9538445658741234e-05,
+      "expected_recruit_census_change": 0.03438534811099907
+    },
+    {
+      "pair": 5,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 6.669339679597763e-06,
+      "expected_recruit_census_change": 0.012577083987543699
+    },
+    {
+      "pair": 5,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.023425825939348728,
+      "expected_recruit_census_change": -0.06099525829727011
+    },
+    {
+      "pair": 5,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.015483237718173882,
+      "expected_recruit_census_change": -0.10790509930776086
+    },
+    {
+      "pair": 5,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.007379468877706061,
+      "expected_recruit_census_change": -0.14021398539293828
+    },
+    {
+      "pair": 5,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.0029990487007906033,
+      "expected_recruit_census_change": -0.15470296339565837
+    },
+    {
+      "pair": 5,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0010921291773770062,
+      "expected_recruit_census_change": -0.14823855941185263
+    },
+    {
+      "pair": 5,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.0003627300667909672,
+      "expected_recruit_census_change": -0.12318988159756239
+    },
+    {
+      "pair": 5,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -0.00011012433597613197,
+      "expected_recruit_census_change": -0.08824832072253083
+    },
+    {
+      "pair": 5,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -3.0194001010147575e-05,
+      "expected_recruit_census_change": -0.053803029944383074
+    },
+    {
+      "pair": 6,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.014456536466695343,
+      "expected_recruit_census_change": 0.05545035290830964
+    },
+    {
+      "pair": 6,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.006359970971342082,
+      "expected_recruit_census_change": 0.0949328003560832
+    },
+    {
+      "pair": 6,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.0020115950282343156,
+      "expected_recruit_census_change": 0.11401175061953286
+    },
+    {
+      "pair": 6,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0005379287889359236,
+      "expected_recruit_census_change": 0.1067892237060931
+    },
+    {
+      "pair": 6,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.00012655239019951706,
+      "expected_recruit_census_change": 0.0787687427580105
+    },
+    {
+      "pair": 6,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 2.612526779602678e-05,
+      "expected_recruit_census_change": 0.04554747433874913
+    },
+    {
+      "pair": 6,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 4.504030895097905e-06,
+      "expected_recruit_census_change": 0.019865238461761817
+    },
+    {
+      "pair": 6,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 5.243238970394082e-07,
+      "expected_recruit_census_change": 0.005357791363767258
+    },
+    {
+      "pair": 6,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.022705378856561792,
+      "expected_recruit_census_change": -0.08132299157208764
+    },
+    {
+      "pair": 6,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.010806904517974204,
+      "expected_recruit_census_change": -0.14325107915522325
+    },
+    {
+      "pair": 6,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.003675080901218375,
+      "expected_recruit_census_change": -0.1799956955433685
+    },
+    {
+      "pair": 6,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.0010561411492911246,
+      "expected_recruit_census_change": -0.18040883456209972
+    },
+    {
+      "pair": 6,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0002695942799704164,
+      "expected_recruit_census_change": -0.146142489357321
+    },
+    {
+      "pair": 6,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -6.223496849839909e-05,
+      "expected_recruit_census_change": -0.09655605771173179
+    },
+    {
+      "pair": 6,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -1.3025202117479713e-05,
+      "expected_recruit_census_change": -0.05249515867705114
+    },
+    {
+      "pair": 6,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -2.4424856972186243e-06,
+      "expected_recruit_census_change": -0.02347342985436786
+    },
+    {
+      "pair": 7,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.014456536466695343,
+      "expected_recruit_census_change": 0.05545035290830964
+    },
+    {
+      "pair": 7,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.006359970971342082,
+      "expected_recruit_census_change": 0.0949328003560832
+    },
+    {
+      "pair": 7,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.0020115950282343156,
+      "expected_recruit_census_change": 0.11401175061953286
+    },
+    {
+      "pair": 7,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0005379287889359236,
+      "expected_recruit_census_change": 0.1067892237060931
+    },
+    {
+      "pair": 7,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.00012655239019951706,
+      "expected_recruit_census_change": 0.0787687427580105
+    },
+    {
+      "pair": 7,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 2.612526779602678e-05,
+      "expected_recruit_census_change": 0.04554747433874913
+    },
+    {
+      "pair": 7,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 4.504030895097905e-06,
+      "expected_recruit_census_change": 0.019865238461761817
+    },
+    {
+      "pair": 7,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 5.243238970394082e-07,
+      "expected_recruit_census_change": 0.005357791363767258
+    },
+    {
+      "pair": 7,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.022705378856561792,
+      "expected_recruit_census_change": -0.08132299157208764
+    },
+    {
+      "pair": 7,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.010806904517974204,
+      "expected_recruit_census_change": -0.14325107915522325
+    },
+    {
+      "pair": 7,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.003675080901218375,
+      "expected_recruit_census_change": -0.1799956955433685
+    },
+    {
+      "pair": 7,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.0010561411492911246,
+      "expected_recruit_census_change": -0.18040883456209972
+    },
+    {
+      "pair": 7,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0002695942799704164,
+      "expected_recruit_census_change": -0.146142489357321
+    },
+    {
+      "pair": 7,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -6.223496849839909e-05,
+      "expected_recruit_census_change": -0.09655605771173179
+    },
+    {
+      "pair": 7,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -1.3025202117479713e-05,
+      "expected_recruit_census_change": -0.05249515867705114
+    },
+    {
+      "pair": 7,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -2.4424856972186243e-06,
+      "expected_recruit_census_change": -0.02347342985436786
+    },
+    {
+      "pair": 8,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.01517343516795207,
+      "expected_recruit_census_change": 0.04159068660232753
+    },
+    {
+      "pair": 8,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.009565282448834036,
+      "expected_recruit_census_change": 0.0728043567389205
+    },
+    {
+      "pair": 8,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.004387151421763654,
+      "expected_recruit_census_change": 0.09298284862486958
+    },
+    {
+      "pair": 8,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.001726414331957804,
+      "expected_recruit_census_change": 0.09979671089597834
+    },
+    {
+      "pair": 8,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0006098550240707552,
+      "expected_recruit_census_change": 0.09185573435410073
+    },
+    {
+      "pair": 8,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.00019530125297369597,
+      "expected_recruit_census_change": 0.07213401263549368
+    },
+    {
+      "pair": 8,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 5.5891985392977905e-05,
+      "expected_recruit_census_change": 0.0474335087480827
+    },
+    {
+      "pair": 8,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 1.350877221995006e-05,
+      "expected_recruit_census_change": 0.024736546402885265
+    },
+    {
+      "pair": 8,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.023425825939348728,
+      "expected_recruit_census_change": -0.06099525829727011
+    },
+    {
+      "pair": 8,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.01574017772023591,
+      "expected_recruit_census_change": -0.10936562799287959
+    },
+    {
+      "pair": 8,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.007669297021043823,
+      "expected_recruit_census_change": -0.14445123351235356
+    },
+    {
+      "pair": 8,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.003207226792974187,
+      "expected_recruit_census_change": -0.16273299234735406
+    },
+    {
+      "pair": 8,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0012115395378495299,
+      "expected_recruit_census_change": -0.16033440232554022
+    },
+    {
+      "pair": 8,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.0004219298282215223,
+      "expected_recruit_census_change": -0.13844809038054523
+    },
+    {
+      "pair": 8,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -0.00013646469375161625,
+      "expected_recruit_census_change": -0.10472133824804467
+    },
+    {
+      "pair": 8,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -4.093239092129233e-05,
+      "expected_recruit_census_change": -0.06925622709397468
+    },
+    {
+      "pair": 9,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.01517343516795207,
+      "expected_recruit_census_change": 0.04159068660232753
+    },
+    {
+      "pair": 9,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.009565282448834036,
+      "expected_recruit_census_change": 0.0728043567389205
+    },
+    {
+      "pair": 9,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.004387151421763654,
+      "expected_recruit_census_change": 0.09298284862486958
+    },
+    {
+      "pair": 9,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.001726414331957804,
+      "expected_recruit_census_change": 0.09979671089597834
+    },
+    {
+      "pair": 9,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0006098550240707552,
+      "expected_recruit_census_change": 0.09185573435410073
+    },
+    {
+      "pair": 9,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.00019530125297369597,
+      "expected_recruit_census_change": 0.07213401263549368
+    },
+    {
+      "pair": 9,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 5.5891985392977905e-05,
+      "expected_recruit_census_change": 0.0474335087480827
+    },
+    {
+      "pair": 9,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 1.350877221995006e-05,
+      "expected_recruit_census_change": 0.024736546402885265
+    },
+    {
+      "pair": 9,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.023425825939348728,
+      "expected_recruit_census_change": -0.06099525829727011
+    },
+    {
+      "pair": 9,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.01574017772023591,
+      "expected_recruit_census_change": -0.10936562799287959
+    },
+    {
+      "pair": 9,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.007669297021043823,
+      "expected_recruit_census_change": -0.14445123351235356
+    },
+    {
+      "pair": 9,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.0032072267929745615,
+      "expected_recruit_census_change": -0.16273299234735555
+    },
+    {
+      "pair": 9,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0012115395378495299,
+      "expected_recruit_census_change": -0.16033440232554022
+    },
+    {
+      "pair": 9,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.0004219298282215223,
+      "expected_recruit_census_change": -0.13844809038054523
+    },
+    {
+      "pair": 9,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -0.00013646469375161625,
+      "expected_recruit_census_change": -0.10472133824804467
+    },
+    {
+      "pair": 9,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -4.093239092129233e-05,
+      "expected_recruit_census_change": -0.06925622709397468
+    },
+    {
+      "pair": 10,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.014456536466695343,
+      "expected_recruit_census_change": 0.05545035290830964
+    },
+    {
+      "pair": 10,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.006481629012528772,
+      "expected_recruit_census_change": 0.09653464335654785
+    },
+    {
+      "pair": 10,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.002104553415241836,
+      "expected_recruit_census_change": 0.11853933716584389
+    },
+    {
+      "pair": 10,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0005836152518262049,
+      "expected_recruit_census_change": 0.1145652605197454
+    },
+    {
+      "pair": 10,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0001446309205944095,
+      "expected_recruit_census_change": 0.08854566350218941
+    },
+    {
+      "pair": 10,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 3.2350626918829783e-05,
+      "expected_recruit_census_change": 0.05518546173934996
+    },
+    {
+      "pair": 10,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 6.438837114004087e-06,
+      "expected_recruit_census_change": 0.027645953041671965
+    },
+    {
+      "pair": 10,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 1.077811415444753e-06,
+      "expected_recruit_census_change": 0.010669756972676466
+    },
+    {
+      "pair": 10,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.022705378856561792,
+      "expected_recruit_census_change": -0.08132299157208764
+    },
+    {
+      "pair": 10,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.010997382204582802,
+      "expected_recruit_census_change": -0.14519548551538647
+    },
+    {
+      "pair": 10,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.0038308943296499406,
+      "expected_recruit_census_change": -0.18553163489555072
+    },
+    {
+      "pair": 10,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.0011361520754844742,
+      "expected_recruit_census_change": -0.19018873566396072
+    },
+    {
+      "pair": 10,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0003019881962198854,
+      "expected_recruit_census_change": -0.15891192934073817
+    },
+    {
+      "pair": 10,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -7.34368592158318e-05,
+      "expected_recruit_census_change": -0.10958129625418869
+    },
+    {
+      "pair": 10,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -1.646224395776292e-05,
+      "expected_recruit_census_change": -0.06325249328813633
+    },
+    {
+      "pair": 10,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -3.3978586981898463e-06,
+      "expected_recruit_census_change": -0.030875482363676175
+    },
+    {
+      "pair": 11,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.014456536466695343,
+      "expected_recruit_census_change": 0.05545035290830964
+    },
+    {
+      "pair": 11,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.006481629012528772,
+      "expected_recruit_census_change": 0.09653464335654785
+    },
+    {
+      "pair": 11,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.002104553415241836,
+      "expected_recruit_census_change": 0.11853933716584389
+    },
+    {
+      "pair": 11,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0005836152518262049,
+      "expected_recruit_census_change": 0.1145652605197454
+    },
+    {
+      "pair": 11,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0001446309205944095,
+      "expected_recruit_census_change": 0.08854566350218941
+    },
+    {
+      "pair": 11,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 3.2350626918829783e-05,
+      "expected_recruit_census_change": 0.05518546173934996
+    },
+    {
+      "pair": 11,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 6.438837114004087e-06,
+      "expected_recruit_census_change": 0.027645953041671965
+    },
+    {
+      "pair": 11,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 1.077811415444753e-06,
+      "expected_recruit_census_change": 0.010669756972676466
+    },
+    {
+      "pair": 11,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.022705378856561792,
+      "expected_recruit_census_change": -0.08132299157208764
+    },
+    {
+      "pair": 11,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.010997382204582802,
+      "expected_recruit_census_change": -0.14519548551538647
+    },
+    {
+      "pair": 11,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.0038308943296499406,
+      "expected_recruit_census_change": -0.18553163489555072
+    },
+    {
+      "pair": 11,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.0011361520754844742,
+      "expected_recruit_census_change": -0.19018873566396072
+    },
+    {
+      "pair": 11,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0003019881962198854,
+      "expected_recruit_census_change": -0.15891192934073817
+    },
+    {
+      "pair": 11,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -7.34368592158318e-05,
+      "expected_recruit_census_change": -0.10958129625418869
+    },
+    {
+      "pair": 11,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -1.646224395776292e-05,
+      "expected_recruit_census_change": -0.06325249328813633
+    },
+    {
+      "pair": 11,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -3.3978586981898463e-06,
+      "expected_recruit_census_change": -0.030875482363676175
+    },
+    {
+      "pair": 12,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.015153017306697658,
+      "expected_recruit_census_change": 0.03911985457735525
+    },
+    {
+      "pair": 12,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.009497838858036557,
+      "expected_recruit_census_change": 0.0644607798653839
+    },
+    {
+      "pair": 12,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.004211063414707526,
+      "expected_recruit_census_change": 0.07591007365456207
+    },
+    {
+      "pair": 12,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0015303513741899005,
+      "expected_recruit_census_change": 0.07257693733143997
+    },
+    {
+      "pair": 12,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0004570844977042354,
+      "expected_recruit_census_change": 0.055168157249473715
+    },
+    {
+      "pair": 12,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 9.807814411510671e-05,
+      "expected_recruit_census_change": 0.028658910616563855
+    },
+    {
+      "pair": 12,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 1.7632318444361222e-06,
+      "expected_recruit_census_change": 0.0011780691725427287
+    },
+    {
+      "pair": 12,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -1.384467938559189e-05,
+      "expected_recruit_census_change": -0.019967996531522186
+    },
+    {
+      "pair": 12,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.02332289611618687,
+      "expected_recruit_census_change": -0.05737156603568553
+    },
+    {
+      "pair": 12,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.015659957165907498,
+      "expected_recruit_census_change": -0.09798293596143903
+    },
+    {
+      "pair": 12,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.007462305730403894,
+      "expected_recruit_census_change": -0.12191002160460697
+    },
+    {
+      "pair": 12,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.0029682738238253,
+      "expected_recruit_census_change": -0.1274813839380498
+    },
+    {
+      "pair": 12,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0010251861949210211,
+      "expected_recruit_census_change": -0.11358958369957094
+    },
+    {
+      "pair": 12,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.00030614926424089514,
+      "expected_recruit_census_change": -0.08411487017177503
+    },
+    {
+      "pair": 12,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -7.473360891683406e-05,
+      "expected_recruit_census_change": -0.04839655460468255
+    },
+    {
+      "pair": 12,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -1.1543606960556178e-05,
+      "expected_recruit_census_change": -0.01669197591925084
+    },
+    {
+      "pair": 13,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.015153017306697658,
+      "expected_recruit_census_change": 0.03911985457735525
+    },
+    {
+      "pair": 13,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.009497838858036574,
+      "expected_recruit_census_change": 0.06446077986538398
+    },
+    {
+      "pair": 13,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.004211063414707526,
+      "expected_recruit_census_change": 0.07591007365456207
+    },
+    {
+      "pair": 13,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0015303513741899005,
+      "expected_recruit_census_change": 0.07257693733143997
+    },
+    {
+      "pair": 13,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0004570844977042354,
+      "expected_recruit_census_change": 0.055168157249473715
+    },
+    {
+      "pair": 13,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 9.807814411510671e-05,
+      "expected_recruit_census_change": 0.028658910616563855
+    },
+    {
+      "pair": 13,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 1.7632318444361222e-06,
+      "expected_recruit_census_change": 0.0011780691725427287
+    },
+    {
+      "pair": 13,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -1.384467938559189e-05,
+      "expected_recruit_census_change": -0.019967996531522186
+    },
+    {
+      "pair": 13,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.02332289611618687,
+      "expected_recruit_census_change": -0.05737156603568553
+    },
+    {
+      "pair": 13,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.01565995716590748,
+      "expected_recruit_census_change": -0.09798293596143894
+    },
+    {
+      "pair": 13,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.007462305730403894,
+      "expected_recruit_census_change": -0.12191002160460697
+    },
+    {
+      "pair": 13,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.0029682738238253,
+      "expected_recruit_census_change": -0.1274813839380498
+    },
+    {
+      "pair": 13,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0010251861949210211,
+      "expected_recruit_census_change": -0.11358958369957094
+    },
+    {
+      "pair": 13,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.00030614926424163413,
+      "expected_recruit_census_change": -0.08411487017178038
+    },
+    {
+      "pair": 13,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -7.473360891683406e-05,
+      "expected_recruit_census_change": -0.04839655460468255
+    },
+    {
+      "pair": 13,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -1.1543606960556178e-05,
+      "expected_recruit_census_change": -0.01669197591925084
+    },
+    {
+      "pair": 14,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.01472820337163392,
+      "expected_recruit_census_change": 0.0521573921422798
+    },
+    {
+      "pair": 14,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.0066873189521202345,
+      "expected_recruit_census_change": 0.08560489506669174
+    },
+    {
+      "pair": 14,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.002134505259979734,
+      "expected_recruit_census_change": 0.0977555345224056
+    },
+    {
+      "pair": 14,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0005550435218804779,
+      "expected_recruit_census_change": 0.08558638408092704
+    },
+    {
+      "pair": 14,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.00011791732671593592,
+      "expected_recruit_census_change": 0.055745470871521964
+    },
+    {
+      "pair": 14,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 1.789313887364495e-05,
+      "expected_recruit_census_change": 0.023437225416060067
+    },
+    {
+      "pair": 14,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 2.2621792985372258e-07,
+      "expected_recruit_census_change": 0.0007467440225158374
+    },
+    {
+      "pair": 14,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -1.2424076924920022e-06,
+      "expected_recruit_census_change": -0.009505538470635608
+    },
+    {
+      "pair": 14,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.023037865439450453,
+      "expected_recruit_census_change": -0.07649293973188201
+    },
+    {
+      "pair": 14,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.011330811285298715,
+      "expected_recruit_census_change": -0.1302369944254
+    },
+    {
+      "pair": 14,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.0039116044738690126,
+      "expected_recruit_census_change": -0.15782261056255795
+    },
+    {
+      "pair": 14,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.0011151313308783196,
+      "expected_recruit_census_change": -0.15217556950082595
+    },
+    {
+      "pair": 14,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.00027317120976753234,
+      "expected_recruit_census_change": -0.11674678409649014
+    },
+    {
+      "pair": 14,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -5.727922599720221e-05,
+      "expected_recruit_census_change": -0.0699473129577072
+    },
+    {
+      "pair": 14,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -9.722832892040695e-06,
+      "expected_recruit_census_change": -0.031003108450597186
+    },
+    {
+      "pair": 14,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -1.0346130124001904e-06,
+      "expected_recruit_census_change": -0.007937835051921307
+    },
+    {
+      "pair": 15,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.01472820337163392,
+      "expected_recruit_census_change": 0.0521573921422798
+    },
+    {
+      "pair": 15,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.0066873189521202345,
+      "expected_recruit_census_change": 0.08560489506669174
+    },
+    {
+      "pair": 15,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.002134505259979734,
+      "expected_recruit_census_change": 0.0977555345224056
+    },
+    {
+      "pair": 15,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0005550435218804779,
+      "expected_recruit_census_change": 0.08558638408092704
+    },
+    {
+      "pair": 15,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.00011791732671593592,
+      "expected_recruit_census_change": 0.055745470871521964
+    },
+    {
+      "pair": 15,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 1.7893138872213804e-05,
+      "expected_recruit_census_change": 0.023437225416050228
+    },
+    {
+      "pair": 15,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 2.2621792985372258e-07,
+      "expected_recruit_census_change": 0.0007467440225158374
+    },
+    {
+      "pair": 15,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -1.2424076924920022e-06,
+      "expected_recruit_census_change": -0.009505538470635608
+    },
+    {
+      "pair": 15,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.023037865439450453,
+      "expected_recruit_census_change": -0.07649293973188201
+    },
+    {
+      "pair": 15,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.011330811285298715,
+      "expected_recruit_census_change": -0.1302369944254
+    },
+    {
+      "pair": 15,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.0039116044738690126,
+      "expected_recruit_census_change": -0.15782261056255795
+    },
+    {
+      "pair": 15,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.0011151313308783196,
+      "expected_recruit_census_change": -0.15217556950082595
+    },
+    {
+      "pair": 15,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.00027317120976753234,
+      "expected_recruit_census_change": -0.11674678409649014
+    },
+    {
+      "pair": 15,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -5.727922599761074e-05,
+      "expected_recruit_census_change": -0.0699473129577117
+    },
+    {
+      "pair": 15,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -9.722832892040695e-06,
+      "expected_recruit_census_change": -0.031003108450597186
+    },
+    {
+      "pair": 15,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -1.0346130124001904e-06,
+      "expected_recruit_census_change": -0.007937835051921307
+    },
+    {
+      "pair": 16,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.01517343516795207,
+      "expected_recruit_census_change": 0.04159068660232753
+    },
+    {
+      "pair": 16,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.01081127429619138,
+      "expected_recruit_census_change": 0.08132002269533065
+    },
+    {
+      "pair": 16,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.005762419505078411,
+      "expected_recruit_census_change": 0.11798115618342282
+    },
+    {
+      "pair": 16,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0027230138885750987,
+      "expected_recruit_census_change": 0.14740967997968493
+    },
+    {
+      "pair": 16,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0012031824039836457,
+      "expected_recruit_census_change": 0.16373110244628916
+    },
+    {
+      "pair": 16,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.0005090325304786536,
+      "expected_recruit_census_change": 0.16354026230920454
+    },
+    {
+      "pair": 16,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 0.00020882487087561796,
+      "expected_recruit_census_change": 0.14836021486527293
+    },
+    {
+      "pair": 16,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 8.369836123050395e-05,
+      "expected_recruit_census_change": 0.12353621340606444
+    },
+    {
+      "pair": 16,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.023425825939348728,
+      "expected_recruit_census_change": -0.06099525829727011
+    },
+    {
+      "pair": 16,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.017599186793784246,
+      "expected_recruit_census_change": -0.11970625222658755
+    },
+    {
+      "pair": 16,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.009874546310797483,
+      "expected_recruit_census_change": -0.17477277978612268
+    },
+    {
+      "pair": 16,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.004904105535046166,
+      "expected_recruit_census_change": -0.22107920762486288
+    },
+    {
+      "pair": 16,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.002273787128558309,
+      "expected_recruit_census_change": -0.250528862889886
+    },
+    {
+      "pair": 16,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.0010078430668445156,
+      "expected_recruit_census_change": -0.25707825293186537
+    },
+    {
+      "pair": 16,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -0.0004325034941506968,
+      "expected_recruit_census_change": -0.24082020867264634
+    },
+    {
+      "pair": 16,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -0.00018106147453040428,
+      "expected_recruit_census_change": -0.20775647870712777
+    },
+    {
+      "pair": 17,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.01517343516795207,
+      "expected_recruit_census_change": 0.04159068660232753
+    },
+    {
+      "pair": 17,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.01081127429619138,
+      "expected_recruit_census_change": 0.08132002269533065
+    },
+    {
+      "pair": 17,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.005762419505078411,
+      "expected_recruit_census_change": 0.11798115618342282
+    },
+    {
+      "pair": 17,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0027230138885750987,
+      "expected_recruit_census_change": 0.14740967997968493
+    },
+    {
+      "pair": 17,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0012031824039836457,
+      "expected_recruit_census_change": 0.16373110244628916
+    },
+    {
+      "pair": 17,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.0005090325304786536,
+      "expected_recruit_census_change": 0.16354026230920454
+    },
+    {
+      "pair": 17,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 0.00020882487087561796,
+      "expected_recruit_census_change": 0.14836021486527293
+    },
+    {
+      "pair": 17,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 8.369836123050395e-05,
+      "expected_recruit_census_change": 0.12353621340606444
+    },
+    {
+      "pair": 17,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.023425825939348728,
+      "expected_recruit_census_change": -0.06099525829727011
+    },
+    {
+      "pair": 17,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.017599186793784246,
+      "expected_recruit_census_change": -0.11970625222658755
+    },
+    {
+      "pair": 17,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.009874546310797483,
+      "expected_recruit_census_change": -0.17477277978612268
+    },
+    {
+      "pair": 17,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.004904105535046166,
+      "expected_recruit_census_change": -0.22107920762486288
+    },
+    {
+      "pair": 17,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.002273787128558309,
+      "expected_recruit_census_change": -0.250528862889886
+    },
+    {
+      "pair": 17,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.0010078430668445156,
+      "expected_recruit_census_change": -0.25707825293186537
+    },
+    {
+      "pair": 17,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -0.0004325034941506968,
+      "expected_recruit_census_change": -0.24082020867264634
+    },
+    {
+      "pair": 17,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -0.00018106147453040428,
+      "expected_recruit_census_change": -0.20775647870712777
+    },
+    {
+      "pair": 18,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.014456536466695343,
+      "expected_recruit_census_change": 0.05545035290830964
+    },
+    {
+      "pair": 18,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.007355175182258588,
+      "expected_recruit_census_change": 0.10784499084310487
+    },
+    {
+      "pair": 18,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.002797356163800155,
+      "expected_recruit_census_change": 0.15075009318727461
+    },
+    {
+      "pair": 18,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.000942556863672693,
+      "expected_recruit_census_change": 0.17077931600535623
+    },
+    {
+      "pair": 18,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0002967491116925569,
+      "expected_recruit_census_change": 0.16131946490167687
+    },
+    {
+      "pair": 18,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 8.93895747222026e-05,
+      "expected_recruit_census_change": 0.13020450123336147
+    },
+    {
+      "pair": 18,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 2.6090838357729906e-05,
+      "expected_recruit_census_change": 0.09203520015601974
+    },
+    {
+      "pair": 18,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 7.434754026577894e-06,
+      "expected_recruit_census_change": 0.05823295533449782
+    },
+    {
+      "pair": 18,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.022705378856561792,
+      "expected_recruit_census_change": -0.08132299157208764
+    },
+    {
+      "pair": 18,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.01238461234929025,
+      "expected_recruit_census_change": -0.15896491951758385
+    },
+    {
+      "pair": 18,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.005038714005148388,
+      "expected_recruit_census_change": -0.22527528745225078
+    },
+    {
+      "pair": 18,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.0018122922748878695,
+      "expected_recruit_census_change": -0.2622866764063023
+    },
+    {
+      "pair": 18,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.000607762755689252,
+      "expected_recruit_census_change": -0.257645067133878
+    },
+    {
+      "pair": 18,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.00019459887365355297,
+      "expected_recruit_census_change": -0.2178925385472422
+    },
+    {
+      "pair": 18,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -6.0248358344028655e-05,
+      "expected_recruit_census_change": -0.1620536358205177
+    },
+    {
+      "pair": 18,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -1.817327171164257e-05,
+      "expected_recruit_census_change": -0.10809558830782737
+    },
+    {
+      "pair": 19,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.014456536466695343,
+      "expected_recruit_census_change": 0.05545035290830964
+    },
+    {
+      "pair": 19,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.007355175182258588,
+      "expected_recruit_census_change": 0.10784499084310487
+    },
+    {
+      "pair": 19,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.002797356163800155,
+      "expected_recruit_census_change": 0.15075009318727461
+    },
+    {
+      "pair": 19,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.000942556863672693,
+      "expected_recruit_census_change": 0.17077931600535623
+    },
+    {
+      "pair": 19,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0002967491116925569,
+      "expected_recruit_census_change": 0.16131946490167687
+    },
+    {
+      "pair": 19,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 8.93895747222026e-05,
+      "expected_recruit_census_change": 0.13020450123336147
+    },
+    {
+      "pair": 19,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 2.6090838357729906e-05,
+      "expected_recruit_census_change": 0.09203520015601974
+    },
+    {
+      "pair": 19,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 7.434754026577894e-06,
+      "expected_recruit_census_change": 0.05823295533449782
+    },
+    {
+      "pair": 19,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.022705378856561792,
+      "expected_recruit_census_change": -0.08132299157208764
+    },
+    {
+      "pair": 19,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.01238461234929025,
+      "expected_recruit_census_change": -0.15896491951758385
+    },
+    {
+      "pair": 19,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.005038714005148388,
+      "expected_recruit_census_change": -0.22527528745225078
+    },
+    {
+      "pair": 19,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.0018122922748878695,
+      "expected_recruit_census_change": -0.2622866764063023
+    },
+    {
+      "pair": 19,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.000607762755689252,
+      "expected_recruit_census_change": -0.257645067133878
+    },
+    {
+      "pair": 19,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.00019459887365355297,
+      "expected_recruit_census_change": -0.2178925385472422
+    },
+    {
+      "pair": 19,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -6.0248358344028655e-05,
+      "expected_recruit_census_change": -0.1620536358205177
+    },
+    {
+      "pair": 19,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -1.817327171164257e-05,
+      "expected_recruit_census_change": -0.10809558830782737
+    },
+    {
+      "pair": 20,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.01517343516795207,
+      "expected_recruit_census_change": 0.04159068660232753
+    },
+    {
+      "pair": 20,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.01086665986076694,
+      "expected_recruit_census_change": 0.08169460650261669
+    },
+    {
+      "pair": 20,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.005825459823927678,
+      "expected_recruit_census_change": 0.11909155617960904
+    },
+    {
+      "pair": 20,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0027705823337911342,
+      "expected_recruit_census_change": 0.14955108664629352
+    },
+    {
+      "pair": 20,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0012329375335351153,
+      "expected_recruit_census_change": 0.16702306167119513
+    },
+    {
+      "pair": 20,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.000525701220880595,
+      "expected_recruit_census_change": 0.16783825854148332
+    },
+    {
+      "pair": 20,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 0.00021749936781452484,
+      "expected_recruit_census_change": 0.15327720063962308
+    },
+    {
+      "pair": 20,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 8.79785342120798e-05,
+      "expected_recruit_census_change": 0.12857012491487924
+    },
+    {
+      "pair": 20,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.023425825939348728,
+      "expected_recruit_census_change": -0.06099525829727011
+    },
+    {
+      "pair": 20,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.017683787834260445,
+      "expected_recruit_census_change": -0.1201693394824292
+    },
+    {
+      "pair": 20,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.00997985808357256,
+      "expected_recruit_census_change": -0.17615046843066626
+    },
+    {
+      "pair": 20,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.004990371765091962,
+      "expected_recruit_census_change": -0.22377819584483555
+    },
+    {
+      "pair": 20,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.002332005299746545,
+      "expected_recruit_census_change": -0.25481205235676646
+    },
+    {
+      "pair": 20,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.0010428439251792647,
+      "expected_recruit_census_change": -0.2629335035657091
+    },
+    {
+      "pair": 20,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -0.0004519619811403225,
+      "expected_recruit_census_change": -0.2479010985693014
+    },
+    {
+      "pair": 20,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -0.00019127688734664125,
+      "expected_recruit_census_change": -0.215458809856596
+    },
+    {
+      "pair": 21,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.01517343516795207,
+      "expected_recruit_census_change": 0.04159068660232753
+    },
+    {
+      "pair": 21,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.01086665986076694,
+      "expected_recruit_census_change": 0.08169460650261669
+    },
+    {
+      "pair": 21,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.005825459823927678,
+      "expected_recruit_census_change": 0.11909155617960904
+    },
+    {
+      "pair": 21,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0027705823337911342,
+      "expected_recruit_census_change": 0.14955108664629352
+    },
+    {
+      "pair": 21,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0012329375335351153,
+      "expected_recruit_census_change": 0.16702306167119513
+    },
+    {
+      "pair": 21,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.000525701220880595,
+      "expected_recruit_census_change": 0.16783825854148332
+    },
+    {
+      "pair": 21,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 0.00021749936781452484,
+      "expected_recruit_census_change": 0.15327720063962308
+    },
+    {
+      "pair": 21,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 8.79785342120798e-05,
+      "expected_recruit_census_change": 0.12857012491487924
+    },
+    {
+      "pair": 21,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.023425825939348728,
+      "expected_recruit_census_change": -0.06099525829727011
+    },
+    {
+      "pair": 21,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.017683787834260445,
+      "expected_recruit_census_change": -0.1201693394824292
+    },
+    {
+      "pair": 21,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.00997985808357256,
+      "expected_recruit_census_change": -0.17615046843066626
+    },
+    {
+      "pair": 21,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.004990371765091962,
+      "expected_recruit_census_change": -0.22377819584483555
+    },
+    {
+      "pair": 21,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.002332005299746545,
+      "expected_recruit_census_change": -0.25481205235676646
+    },
+    {
+      "pair": 21,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.0010428439251792647,
+      "expected_recruit_census_change": -0.2629335035657091
+    },
+    {
+      "pair": 21,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -0.0004519619811403225,
+      "expected_recruit_census_change": -0.2479010985693014
+    },
+    {
+      "pair": 21,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -0.00019127688734664125,
+      "expected_recruit_census_change": -0.215458809856596
+    },
+    {
+      "pair": 22,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.014456536466695343,
+      "expected_recruit_census_change": 0.05545035290830964
+    },
+    {
+      "pair": 22,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.0073941353533548485,
+      "expected_recruit_census_change": 0.10834257596342203
+    },
+    {
+      "pair": 22,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.002829432259828908,
+      "expected_recruit_census_change": 0.15218371432835476
+    },
+    {
+      "pair": 22,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0009600244850105841,
+      "expected_recruit_census_change": 0.17332864325764324
+    },
+    {
+      "pair": 22,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0003046187810409051,
+      "expected_recruit_census_change": 0.1647196928400975
+    },
+    {
+      "pair": 22,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 9.255910069689427e-05,
+      "expected_recruit_census_change": 0.13386089602048076
+    },
+    {
+      "pair": 22,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 2.727476665527473e-05,
+      "expected_recruit_census_change": 0.0953492101495183
+    },
+    {
+      "pair": 22,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 7.853430436188802e-06,
+      "expected_recruit_census_change": 0.06084768722824574
+    },
+    {
+      "pair": 22,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.022705378856561792,
+      "expected_recruit_census_change": -0.08132299157208764
+    },
+    {
+      "pair": 22,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.012448059712810995,
+      "expected_recruit_census_change": -0.15958164316689094
+    },
+    {
+      "pair": 22,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.005097266570279632,
+      "expected_recruit_census_change": -0.22708551405606875
+    },
+    {
+      "pair": 22,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.0018476662881329077,
+      "expected_recruit_census_change": -0.26566030786797795
+    },
+    {
+      "pair": 22,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0006252966602920754,
+      "expected_recruit_census_change": -0.2624719819545116
+    },
+    {
+      "pair": 22,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.00020231480510853397,
+      "expected_recruit_census_change": -0.22353064083665253
+    },
+    {
+      "pair": 22,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -6.337904634598143e-05,
+      "expected_recruit_census_change": -0.16762847712752332
+    },
+    {
+      "pair": 22,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -1.9369729267785032e-05,
+      "expected_recruit_census_change": -0.11289289654811452
+    },
+    {
+      "pair": 23,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.014456536466695343,
+      "expected_recruit_census_change": 0.05545035290830964
+    },
+    {
+      "pair": 23,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.0073941353533548485,
+      "expected_recruit_census_change": 0.10834257596342203
+    },
+    {
+      "pair": 23,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.002829432259828908,
+      "expected_recruit_census_change": 0.15218371432835476
+    },
+    {
+      "pair": 23,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0009600244850105841,
+      "expected_recruit_census_change": 0.17332864325764324
+    },
+    {
+      "pair": 23,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0003046187810409051,
+      "expected_recruit_census_change": 0.1647196928400975
+    },
+    {
+      "pair": 23,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 9.255910069689427e-05,
+      "expected_recruit_census_change": 0.13386089602048076
+    },
+    {
+      "pair": 23,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 2.727476665527473e-05,
+      "expected_recruit_census_change": 0.0953492101495183
+    },
+    {
+      "pair": 23,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 7.853430436188802e-06,
+      "expected_recruit_census_change": 0.06084768722824574
+    },
+    {
+      "pair": 23,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.022705378856561792,
+      "expected_recruit_census_change": -0.08132299157208764
+    },
+    {
+      "pair": 23,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.012448059712810995,
+      "expected_recruit_census_change": -0.15958164316689094
+    },
+    {
+      "pair": 23,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.005097266570279632,
+      "expected_recruit_census_change": -0.22708551405606875
+    },
+    {
+      "pair": 23,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.0018476662881329077,
+      "expected_recruit_census_change": -0.26566030786797795
+    },
+    {
+      "pair": 23,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0006252966602920754,
+      "expected_recruit_census_change": -0.2624719819545116
+    },
+    {
+      "pair": 23,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.00020231480510853397,
+      "expected_recruit_census_change": -0.22353064083665253
+    },
+    {
+      "pair": 23,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -6.337904634598143e-05,
+      "expected_recruit_census_change": -0.16762847712752332
+    },
+    {
+      "pair": 23,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -1.9369729267785032e-05,
+      "expected_recruit_census_change": -0.11289289654811452
+    },
+    {
+      "pair": 24,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.01517343516795207,
+      "expected_recruit_census_change": 0.04159068660232753
+    },
+    {
+      "pair": 24,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.010888382429773061,
+      "expected_recruit_census_change": 0.08184141628000327
+    },
+    {
+      "pair": 24,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.005850202482161235,
+      "expected_recruit_census_change": 0.11952648622032597
+    },
+    {
+      "pair": 24,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0027892776531793853,
+      "expected_recruit_census_change": 0.1503894838710731
+    },
+    {
+      "pair": 24,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0012446546551872079,
+      "expected_recruit_census_change": 0.16831182998762945
+    },
+    {
+      "pair": 24,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.0005322816470678046,
+      "expected_recruit_census_change": 0.169521628585784
+    },
+    {
+      "pair": 24,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 0.0002209343905636013,
+      "expected_recruit_census_change": 0.15520499908334975
+    },
+    {
+      "pair": 24,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 8.967956154363327e-05,
+      "expected_recruit_census_change": 0.13054701484705253
+    },
+    {
+      "pair": 24,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.023425825939348728,
+      "expected_recruit_census_change": -0.06099525829727011
+    },
+    {
+      "pair": 24,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.017716967106440024,
+      "expected_recruit_census_change": -0.12035071905073129
+    },
+    {
+      "pair": 24,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.010021206765100474,
+      "expected_recruit_census_change": -0.1766894056832441
+    },
+    {
+      "pair": 24,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.005024315660975533,
+      "expected_recruit_census_change": -0.22483298676214764
+    },
+    {
+      "pair": 24,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0023549838702674603,
+      "expected_recruit_census_change": -0.2564853350561004
+    },
+    {
+      "pair": 24,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.0010567136807314165,
+      "expected_recruit_census_change": -0.2652220511688749
+    },
+    {
+      "pair": 24,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -0.0004597099497508049,
+      "expected_recruit_census_change": -0.25067279575063284
+    },
+    {
+      "pair": 24,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -0.00019536734158930383,
+      "expected_recruit_census_change": -0.2184812760108717
+    },
+    {
+      "pair": 25,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.01517343516795207,
+      "expected_recruit_census_change": 0.04159068660232753
+    },
+    {
+      "pair": 25,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.010888382429773061,
+      "expected_recruit_census_change": 0.08184141628000327
+    },
+    {
+      "pair": 25,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.005850202482161235,
+      "expected_recruit_census_change": 0.11952648622032597
+    },
+    {
+      "pair": 25,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0027892776531793853,
+      "expected_recruit_census_change": 0.1503894838710731
+    },
+    {
+      "pair": 25,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0012446546551872079,
+      "expected_recruit_census_change": 0.16831182998762945
+    },
+    {
+      "pair": 25,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.0005322816470678046,
+      "expected_recruit_census_change": 0.169521628585784
+    },
+    {
+      "pair": 25,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 0.0002209343905636013,
+      "expected_recruit_census_change": 0.15520499908334975
+    },
+    {
+      "pair": 25,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 8.967956154363327e-05,
+      "expected_recruit_census_change": 0.13054701484705253
+    },
+    {
+      "pair": 25,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.023425825939348728,
+      "expected_recruit_census_change": -0.06099525829727011
+    },
+    {
+      "pair": 25,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.017716967106440024,
+      "expected_recruit_census_change": -0.12035071905073129
+    },
+    {
+      "pair": 25,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.010021206765100474,
+      "expected_recruit_census_change": -0.1766894056832441
+    },
+    {
+      "pair": 25,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.005024315660975533,
+      "expected_recruit_census_change": -0.22483298676214764
+    },
+    {
+      "pair": 25,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0023549838702674603,
+      "expected_recruit_census_change": -0.2564853350561004
+    },
+    {
+      "pair": 25,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.0010567136807314165,
+      "expected_recruit_census_change": -0.2652220511688749
+    },
+    {
+      "pair": 25,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -0.0004597099497508049,
+      "expected_recruit_census_change": -0.25067279575063284
+    },
+    {
+      "pair": 25,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -0.00019536734158930383,
+      "expected_recruit_census_change": -0.2184812760108717
+    },
+    {
+      "pair": 26,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.014456536466695343,
+      "expected_recruit_census_change": 0.05545035290830964
+    },
+    {
+      "pair": 26,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.007409419206952432,
+      "expected_recruit_census_change": 0.1085375952621957
+    },
+    {
+      "pair": 26,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.0028420298949429906,
+      "expected_recruit_census_change": 0.1527453186623765
+    },
+    {
+      "pair": 26,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.000966898107990357,
+      "expected_recruit_census_change": 0.17432727702107959
+    },
+    {
+      "pair": 26,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.00030772393096695216,
+      "expected_recruit_census_change": 0.1660525332778503
+    },
+    {
+      "pair": 26,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 9.381400149984648e-05,
+      "expected_recruit_census_change": 0.13529624693327452
+    },
+    {
+      "pair": 26,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 2.7745453999375447e-05,
+      "expected_recruit_census_change": 0.09665310029744734
+    },
+    {
+      "pair": 26,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 8.020682378383909e-06,
+      "expected_recruit_census_change": 0.06187957422278023
+    },
+    {
+      "pair": 26,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.022705378856561792,
+      "expected_recruit_census_change": -0.08132299157208764
+    },
+    {
+      "pair": 26,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.012472952408486594,
+      "expected_recruit_census_change": -0.15982320135559147
+    },
+    {
+      "pair": 26,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.005120280646083053,
+      "expected_recruit_census_change": -0.22779379156959034
+    },
+    {
+      "pair": 26,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.0018616130697896686,
+      "expected_recruit_census_change": -0.26697986788542805
+    },
+    {
+      "pair": 26,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0006322392106426211,
+      "expected_recruit_census_change": -0.2643616008819543
+    },
+    {
+      "pair": 26,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.00020538635861323817,
+      "expected_recruit_census_change": -0.22574264058592483
+    },
+    {
+      "pair": 26,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -6.463332997068243e-05,
+      "expected_recruit_census_change": -0.1698232603817683
+    },
+    {
+      "pair": 26,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -1.985265457501474e-05,
+      "expected_recruit_census_change": -0.11479041979941182
+    },
+    {
+      "pair": 27,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.014456536466695343,
+      "expected_recruit_census_change": 0.05545035290830964
+    },
+    {
+      "pair": 27,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.007409419206952432,
+      "expected_recruit_census_change": 0.1085375952621957
+    },
+    {
+      "pair": 27,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.0028420298949429906,
+      "expected_recruit_census_change": 0.1527453186623765
+    },
+    {
+      "pair": 27,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.000966898107990357,
+      "expected_recruit_census_change": 0.17432727702107959
+    },
+    {
+      "pair": 27,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.00030772393096695216,
+      "expected_recruit_census_change": 0.1660525332778503
+    },
+    {
+      "pair": 27,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 9.381400149984648e-05,
+      "expected_recruit_census_change": 0.13529624693327452
+    },
+    {
+      "pair": 27,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 2.7745453999375447e-05,
+      "expected_recruit_census_change": 0.09665310029744734
+    },
+    {
+      "pair": 27,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 8.020682378383909e-06,
+      "expected_recruit_census_change": 0.06187957422278023
+    },
+    {
+      "pair": 27,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.022705378856561792,
+      "expected_recruit_census_change": -0.08132299157208764
+    },
+    {
+      "pair": 27,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.012472952408486594,
+      "expected_recruit_census_change": -0.15982320135559147
+    },
+    {
+      "pair": 27,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.005120280646083053,
+      "expected_recruit_census_change": -0.22779379156959034
+    },
+    {
+      "pair": 27,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.0018616130697896686,
+      "expected_recruit_census_change": -0.26697986788542805
+    },
+    {
+      "pair": 27,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0006322392106426211,
+      "expected_recruit_census_change": -0.2643616008819543
+    },
+    {
+      "pair": 27,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.00020538635861323817,
+      "expected_recruit_census_change": -0.22574264058592483
+    },
+    {
+      "pair": 27,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -6.463332997068243e-05,
+      "expected_recruit_census_change": -0.1698232603817683
+    },
+    {
+      "pair": 27,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -1.985265457501474e-05,
+      "expected_recruit_census_change": -0.11479041979941182
+    },
+    {
+      "pair": 28,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.015153017306697658,
+      "expected_recruit_census_change": 0.03911985457735525
+    },
+    {
+      "pair": 28,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.011464725974114506,
+      "expected_recruit_census_change": 0.07651725621621212
+    },
+    {
+      "pair": 28,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.006489623340781818,
+      "expected_recruit_census_change": 0.11137732044122199
+    },
+    {
+      "pair": 28,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.00325723349598165,
+      "expected_recruit_census_change": 0.14063974316047473
+    },
+    {
+      "pair": 28,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0015288744433365822,
+      "expected_recruit_census_change": 0.15944150698932982
+    },
+    {
+      "pair": 28,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.000687201913515758,
+      "expected_recruit_census_change": 0.1641028306488516
+    },
+    {
+      "pair": 28,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 0.00029955522527188444,
+      "expected_recruit_census_change": 0.15458993255824027
+    },
+    {
+      "pair": 28,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 0.0001275924718253038,
+      "expected_recruit_census_change": 0.1344448273770396
+    },
+    {
+      "pair": 28,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.02332289611618687,
+      "expected_recruit_census_change": -0.05737156603568553
+    },
+    {
+      "pair": 28,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.018550997886643994,
+      "expected_recruit_census_change": -0.1126252099474798
+    },
+    {
+      "pair": 28,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.011022455233180638,
+      "expected_recruit_census_change": -0.1648536044692633
+    },
+    {
+      "pair": 28,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.005798387806591875,
+      "expected_recruit_census_change": -0.210350432429682
+    },
+    {
+      "pair": 28,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.002848285488712299,
+      "expected_recruit_census_change": -0.24259094261909497
+    },
+    {
+      "pair": 28,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.0013378674578944476,
+      "expected_recruit_census_change": -0.25564152637443666
+    },
+    {
+      "pair": 28,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -0.0006085504599782614,
+      "expected_recruit_census_change": -0.2478212202443279
+    },
+    {
+      "pair": 28,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -0.00027009728938867314,
+      "expected_recruit_census_change": -0.2225680539145931
+    },
+    {
+      "pair": 29,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.015153017306697658,
+      "expected_recruit_census_change": 0.03911985457735525
+    },
+    {
+      "pair": 29,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.011464725974114506,
+      "expected_recruit_census_change": 0.07651725621621212
+    },
+    {
+      "pair": 29,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.006489623340781818,
+      "expected_recruit_census_change": 0.11137732044122199
+    },
+    {
+      "pair": 29,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.00325723349598165,
+      "expected_recruit_census_change": 0.14063974316047473
+    },
+    {
+      "pair": 29,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0015288744433365822,
+      "expected_recruit_census_change": 0.15944150698932982
+    },
+    {
+      "pair": 29,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.000687201913515758,
+      "expected_recruit_census_change": 0.1641028306488516
+    },
+    {
+      "pair": 29,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 0.00029955522527188444,
+      "expected_recruit_census_change": 0.15458993255824027
+    },
+    {
+      "pair": 29,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 0.0001275924718253038,
+      "expected_recruit_census_change": 0.1344448273770396
+    },
+    {
+      "pair": 29,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.02332289611618687,
+      "expected_recruit_census_change": -0.05737156603568553
+    },
+    {
+      "pair": 29,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.018550997886643994,
+      "expected_recruit_census_change": -0.1126252099474798
+    },
+    {
+      "pair": 29,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.011022455233180638,
+      "expected_recruit_census_change": -0.1648536044692633
+    },
+    {
+      "pair": 29,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.005798387806591875,
+      "expected_recruit_census_change": -0.210350432429682
+    },
+    {
+      "pair": 29,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.002848285488712299,
+      "expected_recruit_census_change": -0.24259094261909497
+    },
+    {
+      "pair": 29,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.0013378674578944476,
+      "expected_recruit_census_change": -0.25564152637443666
+    },
+    {
+      "pair": 29,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -0.0006085504599782614,
+      "expected_recruit_census_change": -0.2478212202443279
+    },
+    {
+      "pair": 29,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -0.00027009728938867314,
+      "expected_recruit_census_change": -0.2225680539145931
+    },
+    {
+      "pair": 30,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.01472820337163392,
+      "expected_recruit_census_change": 0.0521573921422798
+    },
+    {
+      "pair": 30,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.008117758244497697,
+      "expected_recruit_census_change": 0.10163575060855914
+    },
+    {
+      "pair": 30,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.003345190660276255,
+      "expected_recruit_census_change": 0.14381639545085034
+    },
+    {
+      "pair": 30,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0012214732759639885,
+      "expected_recruit_census_change": 0.16777092707861974
+    },
+    {
+      "pair": 30,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0004168148415231998,
+      "expected_recruit_census_change": 0.16578953025508159
+    },
+    {
+      "pair": 30,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.00013611082722111284,
+      "expected_recruit_census_change": 0.141581866034919
+    },
+    {
+      "pair": 30,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 4.307459589391466e-05,
+      "expected_recruit_census_change": 0.10668464263213726
+    },
+    {
+      "pair": 30,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 1.3310764621462384e-05,
+      "expected_recruit_census_change": 0.07231396687958025
+    },
+    {
+      "pair": 30,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.023037865439450453,
+      "expected_recruit_census_change": -0.07649293973188201
+    },
+    {
+      "pair": 30,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.013559245761843117,
+      "expected_recruit_census_change": -0.1497415739120897
+    },
+    {
+      "pair": 30,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.0059544180946607475,
+      "expected_recruit_census_change": -0.2143185018705259
+    },
+    {
+      "pair": 30,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.002312290351450641,
+      "expected_recruit_census_change": -0.2558925739655715
+    },
+    {
+      "pair": 30,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0008374747879083128,
+      "expected_recruit_census_change": -0.26170568376389564
+    },
+    {
+      "pair": 30,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.00028968860891977893,
+      "expected_recruit_census_change": -0.23308393958652251
+    },
+    {
+      "pair": 30,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -9.692156482352457e-05,
+      "expected_recruit_census_change": -0.1839973679722145
+    },
+    {
+      "pair": 30,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -3.1602666434499965e-05,
+      "expected_recruit_census_change": -0.13095996607504692
+    },
+    {
+      "pair": 31,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.01472820337163392,
+      "expected_recruit_census_change": 0.0521573921422798
+    },
+    {
+      "pair": 31,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.008117758244497697,
+      "expected_recruit_census_change": 0.10163575060855914
+    },
+    {
+      "pair": 31,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.003345190660276255,
+      "expected_recruit_census_change": 0.14381639545085034
+    },
+    {
+      "pair": 31,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0012214732759639885,
+      "expected_recruit_census_change": 0.16777092707861974
+    },
+    {
+      "pair": 31,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0004168148415231998,
+      "expected_recruit_census_change": 0.16578953025508159
+    },
+    {
+      "pair": 31,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.00013611082722111284,
+      "expected_recruit_census_change": 0.141581866034919
+    },
+    {
+      "pair": 31,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 4.307459589391466e-05,
+      "expected_recruit_census_change": 0.10668464263213726
+    },
+    {
+      "pair": 31,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 1.3310764621462384e-05,
+      "expected_recruit_census_change": 0.07231396687958025
+    },
+    {
+      "pair": 31,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.023037865439450453,
+      "expected_recruit_census_change": -0.07649293973188201
+    },
+    {
+      "pair": 31,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.013559245761843117,
+      "expected_recruit_census_change": -0.1497415739120897
+    },
+    {
+      "pair": 31,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.0059544180946607475,
+      "expected_recruit_census_change": -0.2143185018705259
+    },
+    {
+      "pair": 31,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.002312290351450641,
+      "expected_recruit_census_change": -0.2558925739655715
+    },
+    {
+      "pair": 31,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0008374747879083128,
+      "expected_recruit_census_change": -0.26170568376389564
+    },
+    {
+      "pair": 31,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.00028968860891977893,
+      "expected_recruit_census_change": -0.23308393958652251
+    },
+    {
+      "pair": 31,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -9.692156482352457e-05,
+      "expected_recruit_census_change": -0.1839973679722145
+    },
+    {
+      "pair": 31,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -3.1602666434499965e-05,
+      "expected_recruit_census_change": -0.13095996607504692
+    },
+    {
+      "pair": 32,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.01517343516795207,
+      "expected_recruit_census_change": 0.04159068660232753
+    },
+    {
+      "pair": 32,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.011072842779656582,
+      "expected_recruit_census_change": 0.08308584935648793
+    },
+    {
+      "pair": 32,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.00606119354018551,
+      "expected_recruit_census_change": 0.12321625933885873
+    },
+    {
+      "pair": 32,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0029496273712558765,
+      "expected_recruit_census_change": 0.15751112215579238
+    },
+    {
+      "pair": 32,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0013458910437464076,
+      "expected_recruit_census_change": 0.17928284554616192
+    },
+    {
+      "pair": 32,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.0005896391408323765,
+      "expected_recruit_census_change": 0.1839013257922472
+    },
+    {
+      "pair": 32,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 0.00025118321238688096,
+      "expected_recruit_census_change": 0.1717540217792967
+    },
+    {
+      "pair": 32,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 0.00010483404986779549,
+      "expected_recruit_census_change": 0.1476276696775247
+    },
+    {
+      "pair": 32,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.023425825939348728,
+      "expected_recruit_census_change": -0.06099525829727011
+    },
+    {
+      "pair": 32,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.017999260029937656,
+      "expected_recruit_census_change": -0.12188929389060094
+    },
+    {
+      "pair": 32,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.010375525733395403,
+      "expected_recruit_census_change": -0.18126820541858812
+    },
+    {
+      "pair": 32,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.005317988364710383,
+      "expected_recruit_census_change": -0.23381361175570625
+    },
+    {
+      "pair": 32,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.002556172083120062,
+      "expected_recruit_census_change": -0.2707808813761939
+    },
+    {
+      "pair": 32,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.001179880321319566,
+      "expected_recruit_census_change": -0.2848796468373445
+    },
+    {
+      "pair": 32,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -0.0005296451877422441,
+      "expected_recruit_census_change": -0.27466423412580243
+    },
+    {
+      "pair": 32,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -0.0002329756852744412,
+      "expected_recruit_census_change": -0.24490884753947018
+    },
+    {
+      "pair": 33,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.01517343516795207,
+      "expected_recruit_census_change": 0.04159068660232753
+    },
+    {
+      "pair": 33,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.011072842779656582,
+      "expected_recruit_census_change": 0.08308584935648793
+    },
+    {
+      "pair": 33,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.00606119354018551,
+      "expected_recruit_census_change": 0.12321625933885873
+    },
+    {
+      "pair": 33,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0029496273712558765,
+      "expected_recruit_census_change": 0.15751112215579238
+    },
+    {
+      "pair": 33,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0013458910437464076,
+      "expected_recruit_census_change": 0.17928284554616192
+    },
+    {
+      "pair": 33,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.0005896391408323765,
+      "expected_recruit_census_change": 0.1839013257922472
+    },
+    {
+      "pair": 33,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 0.00025118321238688096,
+      "expected_recruit_census_change": 0.1717540217792967
+    },
+    {
+      "pair": 33,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 0.00010483404986779549,
+      "expected_recruit_census_change": 0.1476276696775247
+    },
+    {
+      "pair": 33,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.023425825939348728,
+      "expected_recruit_census_change": -0.06099525829727011
+    },
+    {
+      "pair": 33,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.017999260029937656,
+      "expected_recruit_census_change": -0.12188929389060094
+    },
+    {
+      "pair": 33,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.010375525733395403,
+      "expected_recruit_census_change": -0.18126820541858812
+    },
+    {
+      "pair": 33,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.005317988364710383,
+      "expected_recruit_census_change": -0.23381361175570625
+    },
+    {
+      "pair": 33,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.002556172083120062,
+      "expected_recruit_census_change": -0.2707808813761939
+    },
+    {
+      "pair": 33,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.001179880321319566,
+      "expected_recruit_census_change": -0.2848796468373445
+    },
+    {
+      "pair": 33,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -0.0005296451877422441,
+      "expected_recruit_census_change": -0.27466423412580243
+    },
+    {
+      "pair": 33,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -0.0002329756852744412,
+      "expected_recruit_census_change": -0.24490884753947018
+    },
+    {
+      "pair": 34,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.014456536466695343,
+      "expected_recruit_census_change": 0.05545035290830964
+    },
+    {
+      "pair": 34,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.00753927778467108,
+      "expected_recruit_census_change": 0.11019071610296251
+    },
+    {
+      "pair": 34,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.002949630802895474,
+      "expected_recruit_census_change": 0.15751127342104754
+    },
+    {
+      "pair": 34,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.001026039613588256,
+      "expected_recruit_census_change": 0.1828212258386504
+    },
+    {
+      "pair": 34,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.00033469007164905334,
+      "expected_recruit_census_change": 0.17743476326623653
+    },
+    {
+      "pair": 34,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.00010483434012526632,
+      "expected_recruit_census_change": 0.1476279887381207
+    },
+    {
+      "pair": 34,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 3.1933054391079796e-05,
+      "expected_recruit_census_change": 0.1079460905033525
+    },
+    {
+      "pair": 34,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 9.530877924997239e-06,
+      "expected_recruit_census_change": 0.07090702067270063
+    },
+    {
+      "pair": 34,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.022705378856561792,
+      "expected_recruit_census_change": -0.08132299157208764
+    },
+    {
+      "pair": 34,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.012684934558386346,
+      "expected_recruit_census_change": -0.1618723048565715
+    },
+    {
+      "pair": 34,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.005317994737716811,
+      "expected_recruit_census_change": -0.23381380445192732
+    },
+    {
+      "pair": 34,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.0019828670140287427,
+      "expected_recruit_census_change": -0.2782357983770724
+    },
+    {
+      "pair": 34,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0006935033016306665,
+      "expected_recruit_census_change": -0.2805816811827154
+    },
+    {
+      "pair": 34,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.0002329764314061636,
+      "expected_recruit_census_change": -0.24490935141822834
+    },
+    {
+      "pair": 34,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -7.613378264760898e-05,
+      "expected_recruit_census_change": -0.18908095856543816
+    },
+    {
+      "pair": 34,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -2.438503577176232e-05,
+      "expected_recruit_census_change": -0.13170139169773792
+    },
+    {
+      "pair": 35,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.014456536466695343,
+      "expected_recruit_census_change": 0.05545035290830964
+    },
+    {
+      "pair": 35,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.00753927778467108,
+      "expected_recruit_census_change": 0.11019071610296251
+    },
+    {
+      "pair": 35,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.002949630802895474,
+      "expected_recruit_census_change": 0.15751127342104754
+    },
+    {
+      "pair": 35,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.001026039613588256,
+      "expected_recruit_census_change": 0.1828212258386504
+    },
+    {
+      "pair": 35,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.00033469007164905334,
+      "expected_recruit_census_change": 0.17743476326623653
+    },
+    {
+      "pair": 35,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.00010483434012526632,
+      "expected_recruit_census_change": 0.1476279887381207
+    },
+    {
+      "pair": 35,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 3.1933054391079796e-05,
+      "expected_recruit_census_change": 0.1079460905033525
+    },
+    {
+      "pair": 35,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 9.530877924997239e-06,
+      "expected_recruit_census_change": 0.07090702067270063
+    },
+    {
+      "pair": 35,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.022705378856561792,
+      "expected_recruit_census_change": -0.08132299157208764
+    },
+    {
+      "pair": 35,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.012684934558386346,
+      "expected_recruit_census_change": -0.1618723048565715
+    },
+    {
+      "pair": 35,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.005317994737716811,
+      "expected_recruit_census_change": -0.23381380445192732
+    },
+    {
+      "pair": 35,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.0019828670140287427,
+      "expected_recruit_census_change": -0.2782357983770724
+    },
+    {
+      "pair": 35,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0006935033016306665,
+      "expected_recruit_census_change": -0.2805816811827154
+    },
+    {
+      "pair": 35,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.0002329764314061636,
+      "expected_recruit_census_change": -0.24490935141822834
+    },
+    {
+      "pair": 35,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -7.613378264760898e-05,
+      "expected_recruit_census_change": -0.18908095856543816
+    },
+    {
+      "pair": 35,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -2.438503577176232e-05,
+      "expected_recruit_census_change": -0.13170139169773792
+    },
+    {
+      "pair": 36,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.01517343516795207,
+      "expected_recruit_census_change": 0.04159068660232753
+    },
+    {
+      "pair": 36,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.011072845256591,
+      "expected_recruit_census_change": 0.08308586604802434
+    },
+    {
+      "pair": 36,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.0060611963915703365,
+      "expected_recruit_census_change": 0.12321630901348454
+    },
+    {
+      "pair": 36,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.002949629555122041,
+      "expected_recruit_census_change": 0.15751121841995885
+    },
+    {
+      "pair": 36,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.00134589243503341,
+      "expected_recruit_census_change": 0.17928299454764282
+    },
+    {
+      "pair": 36,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.0005896399372175357,
+      "expected_recruit_census_change": 0.18390152221954642
+    },
+    {
+      "pair": 36,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 0.00025118363720375014,
+      "expected_recruit_census_change": 0.17175424942422146
+    },
+    {
+      "pair": 36,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 0.00010483426538526741,
+      "expected_recruit_census_change": 0.14762790658235236
+    },
+    {
+      "pair": 36,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.023425825939348728,
+      "expected_recruit_census_change": -0.06099525829727011
+    },
+    {
+      "pair": 36,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.017999263847424323,
+      "expected_recruit_census_change": -0.12188931467088301
+    },
+    {
+      "pair": 36,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.010375530570519254,
+      "expected_recruit_census_change": -0.18126826759061865
+    },
+    {
+      "pair": 36,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.005317992420498303,
+      "expected_recruit_census_change": -0.23381373438862468
+    },
+    {
+      "pair": 36,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.002556174899386511,
+      "expected_recruit_census_change": -0.2707810778708808
+    },
+    {
+      "pair": 36,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.001179882072034063,
+      "expected_recruit_census_change": -0.28487991920978095
+    },
+    {
+      "pair": 36,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -0.0005296461989027501,
+      "expected_recruit_census_change": -0.274664569825388
+    },
+    {
+      "pair": 36,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -0.00023297623929634595,
+      "expected_recruit_census_change": -0.24490922168856083
+    },
+    {
+      "pair": 37,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.01517343516795207,
+      "expected_recruit_census_change": 0.04159068660232753
+    },
+    {
+      "pair": 37,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.011072845256591,
+      "expected_recruit_census_change": 0.08308586604802434
+    },
+    {
+      "pair": 37,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.0060611963915703365,
+      "expected_recruit_census_change": 0.12321630901348454
+    },
+    {
+      "pair": 37,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.002949629555122041,
+      "expected_recruit_census_change": 0.15751121841995885
+    },
+    {
+      "pair": 37,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.00134589243503341,
+      "expected_recruit_census_change": 0.17928299454764282
+    },
+    {
+      "pair": 37,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.0005896399372175357,
+      "expected_recruit_census_change": 0.18390152221954642
+    },
+    {
+      "pair": 37,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 0.00025118363720375014,
+      "expected_recruit_census_change": 0.17175424942422146
+    },
+    {
+      "pair": 37,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 0.00010483426538526741,
+      "expected_recruit_census_change": 0.14762790658235236
+    },
+    {
+      "pair": 37,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.023425825939348728,
+      "expected_recruit_census_change": -0.06099525829727011
+    },
+    {
+      "pair": 37,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.017999263847424323,
+      "expected_recruit_census_change": -0.12188931467088301
+    },
+    {
+      "pair": 37,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.010375530570519254,
+      "expected_recruit_census_change": -0.18126826759061865
+    },
+    {
+      "pair": 37,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.005317992420498303,
+      "expected_recruit_census_change": -0.23381373438862468
+    },
+    {
+      "pair": 37,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.002556174899386511,
+      "expected_recruit_census_change": -0.2707810778708808
+    },
+    {
+      "pair": 37,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.001179882072034063,
+      "expected_recruit_census_change": -0.28487991920978095
+    },
+    {
+      "pair": 37,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -0.0005296461989027501,
+      "expected_recruit_census_change": -0.274664569825388
+    },
+    {
+      "pair": 37,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -0.00023297623929634595,
+      "expected_recruit_census_change": -0.24490922168856083
+    },
+    {
+      "pair": 38,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.014456536466695343,
+      "expected_recruit_census_change": 0.05545035290830964
+    },
+    {
+      "pair": 38,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.007539279529054304,
+      "expected_recruit_census_change": 0.1101907382765159
+    },
+    {
+      "pair": 38,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.002949632258839513,
+      "expected_recruit_census_change": 0.1575113375986516
+    },
+    {
+      "pair": 38,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0010260404210746914,
+      "expected_recruit_census_change": 0.18282134076736614
+    },
+    {
+      "pair": 38,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0003346904437766321,
+      "expected_recruit_census_change": 0.17743491823651403
+    },
+    {
+      "pair": 38,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.00010483449407282935,
+      "expected_recruit_census_change": 0.14762815796350376
+    },
+    {
+      "pair": 38,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 3.19331136967721e-05,
+      "expected_recruit_census_change": 0.10794624696285621
+    },
+    {
+      "pair": 38,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 9.530899639072221e-06,
+      "expected_recruit_census_change": 0.07090714715221264
+    },
+    {
+      "pair": 38,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.022705378856561792,
+      "expected_recruit_census_change": -0.08132299157208764
+    },
+    {
+      "pair": 38,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.012684937426344488,
+      "expected_recruit_census_change": -0.16187233253223932
+    },
+    {
+      "pair": 38,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.005317997441657667,
+      "expected_recruit_census_change": -0.23381388620989768
+    },
+    {
+      "pair": 38,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.0019828686947756316,
+      "expected_recruit_census_change": -0.27823595225903386
+    },
+    {
+      "pair": 38,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0006935041644838894,
+      "expected_recruit_census_change": -0.28058190485561424
+    },
+    {
+      "pair": 38,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.00023297682715851115,
+      "expected_recruit_census_change": -0.24490961868412991
+    },
+    {
+      "pair": 38,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -7.613395102824827e-05,
+      "expected_recruit_census_change": -0.18908123080444184
+    },
+    {
+      "pair": 38,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -2.438510364935996e-05,
+      "expected_recruit_census_change": -0.13170163466104662
+    },
+    {
+      "pair": 39,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.014456536466695343,
+      "expected_recruit_census_change": 0.05545035290830964
+    },
+    {
+      "pair": 39,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.007539279529054304,
+      "expected_recruit_census_change": 0.1101907382765159
+    },
+    {
+      "pair": 39,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.002949632258839513,
+      "expected_recruit_census_change": 0.1575113375986516
+    },
+    {
+      "pair": 39,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0010260404210746914,
+      "expected_recruit_census_change": 0.18282134076736614
+    },
+    {
+      "pair": 39,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0003346904437766321,
+      "expected_recruit_census_change": 0.17743491823651403
+    },
+    {
+      "pair": 39,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.00010483449407282935,
+      "expected_recruit_census_change": 0.14762815796350376
+    },
+    {
+      "pair": 39,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 3.19331136967721e-05,
+      "expected_recruit_census_change": 0.10794624696285621
+    },
+    {
+      "pair": 39,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 9.530899639072221e-06,
+      "expected_recruit_census_change": 0.07090714715221264
+    },
+    {
+      "pair": 39,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.022705378856561792,
+      "expected_recruit_census_change": -0.08132299157208764
+    },
+    {
+      "pair": 39,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.012684937426344488,
+      "expected_recruit_census_change": -0.16187233253223932
+    },
+    {
+      "pair": 39,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.005317997441657667,
+      "expected_recruit_census_change": -0.23381388620989768
+    },
+    {
+      "pair": 39,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.0019828686947756316,
+      "expected_recruit_census_change": -0.27823595225903386
+    },
+    {
+      "pair": 39,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0006935041644838894,
+      "expected_recruit_census_change": -0.28058190485561424
+    },
+    {
+      "pair": 39,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.00023297682715851115,
+      "expected_recruit_census_change": -0.24490961868412991
+    },
+    {
+      "pair": 39,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -7.613395102824827e-05,
+      "expected_recruit_census_change": -0.18908123080444184
+    },
+    {
+      "pair": 39,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -2.438510364935996e-05,
+      "expected_recruit_census_change": -0.13170163466104662
+    },
+    {
+      "pair": 40,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.01517343516795207,
+      "expected_recruit_census_change": 0.04159068660232753
+    },
+    {
+      "pair": 40,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.011072846228006698,
+      "expected_recruit_census_change": 0.08308587259418991
+    },
+    {
+      "pair": 40,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.00606119750983956,
+      "expected_recruit_census_change": 0.12321632849511122
+    },
+    {
+      "pair": 40,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.002949630411600679,
+      "expected_recruit_census_change": 0.157511256173289
+    },
+    {
+      "pair": 40,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0013458929806759862,
+      "expected_recruit_census_change": 0.17928305298374642
+    },
+    {
+      "pair": 40,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.0005896402495479264,
+      "expected_recruit_census_change": 0.18390159925532834
+    },
+    {
+      "pair": 40,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 0.00025118380381104755,
+      "expected_recruit_census_change": 0.1717543387030847
+    },
+    {
+      "pair": 40,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 0.00010483434990838508,
+      "expected_recruit_census_change": 0.1476279994928136
+    },
+    {
+      "pair": 40,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.023425825939348728,
+      "expected_recruit_census_change": -0.06099525829727011
+    },
+    {
+      "pair": 40,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.017999265344584223,
+      "expected_recruit_census_change": -0.12188932282059146
+    },
+    {
+      "pair": 40,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.010375532467565167,
+      "expected_recruit_census_change": -0.1812682919735349
+    },
+    {
+      "pair": 40,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.005317994011117558,
+      "expected_recruit_census_change": -0.23381378248337936
+    },
+    {
+      "pair": 40,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0025561760038837963,
+      "expected_recruit_census_change": -0.27078115493308313
+    },
+    {
+      "pair": 40,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.0011798827586376529,
+      "expected_recruit_census_change": -0.2848800260300703
+    },
+    {
+      "pair": 40,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -0.0005296465954653627,
+      "expected_recruit_census_change": -0.27466470148162836
+    },
+    {
+      "pair": 40,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -0.0002329764565751416,
+      "expected_recruit_census_change": -0.2449093684241182
+    },
+    {
+      "pair": 41,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.01517343516795207,
+      "expected_recruit_census_change": 0.04159068660232753
+    },
+    {
+      "pair": 41,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.011072846228006698,
+      "expected_recruit_census_change": 0.08308587259418991
+    },
+    {
+      "pair": 41,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.00606119750983956,
+      "expected_recruit_census_change": 0.12321632849511122
+    },
+    {
+      "pair": 41,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.002949630411600679,
+      "expected_recruit_census_change": 0.157511256173289
+    },
+    {
+      "pair": 41,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0013458929806759862,
+      "expected_recruit_census_change": 0.17928305298374642
+    },
+    {
+      "pair": 41,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.0005896402495479264,
+      "expected_recruit_census_change": 0.18390159925532834
+    },
+    {
+      "pair": 41,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 0.00025118380381104755,
+      "expected_recruit_census_change": 0.1717543387030847
+    },
+    {
+      "pair": 41,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 0.00010483434990838508,
+      "expected_recruit_census_change": 0.1476279994928136
+    },
+    {
+      "pair": 41,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.023425825939348728,
+      "expected_recruit_census_change": -0.06099525829727011
+    },
+    {
+      "pair": 41,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.017999265344584223,
+      "expected_recruit_census_change": -0.12188932282059146
+    },
+    {
+      "pair": 41,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.010375532467565167,
+      "expected_recruit_census_change": -0.1812682919735349
+    },
+    {
+      "pair": 41,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.005317994011117558,
+      "expected_recruit_census_change": -0.23381378248337936
+    },
+    {
+      "pair": 41,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0025561760038837963,
+      "expected_recruit_census_change": -0.27078115493308313
+    },
+    {
+      "pair": 41,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.0011798827586376529,
+      "expected_recruit_census_change": -0.2848800260300703
+    },
+    {
+      "pair": 41,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -0.0005296465954653627,
+      "expected_recruit_census_change": -0.27466470148162836
+    },
+    {
+      "pair": 41,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -0.0002329764565751416,
+      "expected_recruit_census_change": -0.2449093684241182
+    },
+    {
+      "pair": 42,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.014456536466695343,
+      "expected_recruit_census_change": 0.05545035290830964
+    },
+    {
+      "pair": 42,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.007539280213174641,
+      "expected_recruit_census_change": 0.11019074697264389
+    },
+    {
+      "pair": 42,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.0029496328298382335,
+      "expected_recruit_census_change": 0.15751136276812402
+    },
+    {
+      "pair": 42,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.001026040737759571,
+      "expected_recruit_census_change": 0.18282138584065588
+    },
+    {
+      "pair": 42,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.00033469058971842547,
+      "expected_recruit_census_change": 0.1774349790134812
+    },
+    {
+      "pair": 42,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.00010483455445000484,
+      "expected_recruit_census_change": 0.14762822433112258
+    },
+    {
+      "pair": 42,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 3.193313695597222e-05,
+      "expected_recruit_census_change": 0.10794630832389512
+    },
+    {
+      "pair": 42,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 9.530908155142015e-06,
+      "expected_recruit_census_change": 0.07090719675555857
+    },
+    {
+      "pair": 42,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.022705378856561792,
+      "expected_recruit_census_change": -0.08132299157208764
+    },
+    {
+      "pair": 42,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.012684938551113994,
+      "expected_recruit_census_change": -0.1618723433862136
+    },
+    {
+      "pair": 42,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.005317998502101504,
+      "expected_recruit_census_change": -0.2338139182741188
+    },
+    {
+      "pair": 42,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.0019828693539383595,
+      "expected_recruit_census_change": -0.2782360126091774
+    },
+    {
+      "pair": 42,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0006935045028818657,
+      "expected_recruit_census_change": -0.2805819925767012
+    },
+    {
+      "pair": 42,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.00023297698236577138,
+      "expected_recruit_census_change": -0.24490972350172846
+    },
+    {
+      "pair": 42,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -7.613401706382805e-05,
+      "expected_recruit_census_change": -0.18908133757243073
+    },
+    {
+      "pair": 42,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -2.4385130269692634e-05,
+      "expected_recruit_census_change": -0.1317017299475774
+    },
+    {
+      "pair": 43,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.014456536466695343,
+      "expected_recruit_census_change": 0.05545035290830964
+    },
+    {
+      "pair": 43,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.007539280213174641,
+      "expected_recruit_census_change": 0.11019074697264389
+    },
+    {
+      "pair": 43,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.0029496328298382335,
+      "expected_recruit_census_change": 0.15751136276812402
+    },
+    {
+      "pair": 43,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.001026040737759571,
+      "expected_recruit_census_change": 0.18282138584065588
+    },
+    {
+      "pair": 43,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.00033469058971842547,
+      "expected_recruit_census_change": 0.1774349790134812
+    },
+    {
+      "pair": 43,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.00010483455445000484,
+      "expected_recruit_census_change": 0.14762822433112258
+    },
+    {
+      "pair": 43,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 3.193313695597222e-05,
+      "expected_recruit_census_change": 0.10794630832389512
+    },
+    {
+      "pair": 43,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 9.530908155142015e-06,
+      "expected_recruit_census_change": 0.07090719675555857
+    },
+    {
+      "pair": 43,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.022705378856561792,
+      "expected_recruit_census_change": -0.08132299157208764
+    },
+    {
+      "pair": 43,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.012684938551113994,
+      "expected_recruit_census_change": -0.1618723433862136
+    },
+    {
+      "pair": 43,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.005317998502101504,
+      "expected_recruit_census_change": -0.2338139182741188
+    },
+    {
+      "pair": 43,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.0019828693539383595,
+      "expected_recruit_census_change": -0.2782360126091774
+    },
+    {
+      "pair": 43,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0006935045028818657,
+      "expected_recruit_census_change": -0.2805819925767012
+    },
+    {
+      "pair": 43,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.00023297698236577138,
+      "expected_recruit_census_change": -0.24490972350172846
+    },
+    {
+      "pair": 43,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -7.613401706382805e-05,
+      "expected_recruit_census_change": -0.18908133757243073
+    },
+    {
+      "pair": 43,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -2.4385130269692634e-05,
+      "expected_recruit_census_change": -0.1317017299475774
+    },
+    {
+      "pair": 44,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.015153017306697658,
+      "expected_recruit_census_change": 0.03911985457735525
+    },
+    {
+      "pair": 44,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.011740399318111085,
+      "expected_recruit_census_change": 0.07817858444754264
+    },
+    {
+      "pair": 44,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.006823123083314515,
+      "expected_recruit_census_change": 0.1163142824942961
+    },
+    {
+      "pair": 44,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0035252207949493103,
+      "expected_recruit_census_change": 0.1502447711721579
+    },
+    {
+      "pair": 44,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0017077173487035635,
+      "expected_recruit_census_change": 0.174481735020738
+    },
+    {
+      "pair": 44,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.0007942772532991138,
+      "expected_recruit_census_change": 0.18431264903894284
+    },
+    {
+      "pair": 44,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 0.00035921047414216867,
+      "expected_recruit_census_change": 0.1786069372980591
+    },
+    {
+      "pair": 44,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 0.00015915714799581704,
+      "expected_recruit_census_change": 0.1601823646193633
+    },
+    {
+      "pair": 44,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.02332289611618687,
+      "expected_recruit_census_change": -0.05737156603568553
+    },
+    {
+      "pair": 44,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.01896770589716099,
+      "expected_recruit_census_change": -0.1146786828099588
+    },
+    {
+      "pair": 44,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.011572504586975799,
+      "expected_recruit_census_change": -0.17096908981619735
+    },
+    {
+      "pair": 44,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.006277782385390444,
+      "expected_recruit_census_change": -0.22239091563902702
+    },
+    {
+      "pair": 44,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.003193560552989416,
+      "expected_recruit_census_change": -0.26194506533691425
+    },
+    {
+      "pair": 44,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.0015600331838429883,
+      "expected_recruit_census_change": -0.28271557753696275
+    },
+    {
+      "pair": 44,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -0.0007410992894268838,
+      "expected_recruit_census_change": -0.28167669304381415
+    },
+    {
+      "pair": 44,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -0.0003449706902520812,
+      "expected_recruit_census_change": -0.2610052957584446
+    },
+    {
+      "pair": 45,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.015153017306697658,
+      "expected_recruit_census_change": 0.03911985457735525
+    },
+    {
+      "pair": 45,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.011740399318111085,
+      "expected_recruit_census_change": 0.07817858444754264
+    },
+    {
+      "pair": 45,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.006823123083314515,
+      "expected_recruit_census_change": 0.1163142824942961
+    },
+    {
+      "pair": 45,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0035252207949493103,
+      "expected_recruit_census_change": 0.1502447711721579
+    },
+    {
+      "pair": 45,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0017077173487035635,
+      "expected_recruit_census_change": 0.174481735020738
+    },
+    {
+      "pair": 45,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.0007942772532991138,
+      "expected_recruit_census_change": 0.18431264903894284
+    },
+    {
+      "pair": 45,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 0.00035921047414216867,
+      "expected_recruit_census_change": 0.1786069372980591
+    },
+    {
+      "pair": 45,
+      "original_reversal": false,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 0.00015915714799581704,
+      "expected_recruit_census_change": 0.1601823646193633
+    },
+    {
+      "pair": 45,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.02332289611618687,
+      "expected_recruit_census_change": -0.05737156603568553
+    },
+    {
+      "pair": 45,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.01896770589716099,
+      "expected_recruit_census_change": -0.1146786828099588
+    },
+    {
+      "pair": 45,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.011572504586975799,
+      "expected_recruit_census_change": -0.17096908981619735
+    },
+    {
+      "pair": 45,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.006277782385390444,
+      "expected_recruit_census_change": -0.22239091563902702
+    },
+    {
+      "pair": 45,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.003193560552989416,
+      "expected_recruit_census_change": -0.26194506533691425
+    },
+    {
+      "pair": 45,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.0015600331838429883,
+      "expected_recruit_census_change": -0.28271557753696275
+    },
+    {
+      "pair": 45,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -0.0007410992894268838,
+      "expected_recruit_census_change": -0.28167669304381415
+    },
+    {
+      "pair": 45,
+      "original_reversal": false,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -0.0003449706902520812,
+      "expected_recruit_census_change": -0.2610052957584446
+    },
+    {
+      "pair": 46,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.01472820337163392,
+      "expected_recruit_census_change": 0.0521573921422798
+    },
+    {
+      "pair": 46,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.008319332672022853,
+      "expected_recruit_census_change": 0.10384512133711765
+    },
+    {
+      "pair": 46,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.0035252248504052466,
+      "expected_recruit_census_change": 0.1502449149789346
+    },
+    {
+      "pair": 46,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0013281004215529406,
+      "expected_recruit_census_change": 0.1795043978018445
+    },
+    {
+      "pair": 46,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0004691853798861889,
+      "expected_recruit_census_change": 0.18212969111356464
+    },
+    {
+      "pair": 46,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.0001591575802236539,
+      "expected_recruit_census_change": 0.1601827046482074
+    },
+    {
+      "pair": 46,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 5.250173419126675e-05,
+      "expected_recruit_census_change": 0.12471402946871529
+    },
+    {
+      "pair": 46,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 1.6969258875718096e-05,
+      "expected_recruit_census_change": 0.08764085882904693
+    },
+    {
+      "pair": 46,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.023037865439450453,
+      "expected_recruit_census_change": -0.07649293973188201
+    },
+    {
+      "pair": 46,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.013883154773146715,
+      "expected_recruit_census_change": -0.1524774599847812
+    },
+    {
+      "pair": 46,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.006277789759766776,
+      "expected_recruit_census_change": -0.2223910977980864
+    },
+    {
+      "pair": 46,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.0025245498315651926,
+      "expected_recruit_census_change": -0.2712118801853399
+    },
+    {
+      "pair": 46,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0009522326597607138,
+      "expected_recruit_census_change": -0.28441254929479814
+    },
+    {
+      "pair": 46,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.0003449717617246238,
+      "expected_recruit_census_change": -0.2610058151985425
+    },
+    {
+      "pair": 46,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -0.00012156232741128772,
+      "expected_recruit_census_change": -0.21343726301606677
+    },
+    {
+      "pair": 46,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -4.198249795625032e-05,
+      "expected_recruit_census_change": -0.15824085229255413
+    },
+    {
+      "pair": 47,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 1,
+      "one_update_occupancy_change": 0.01472820337163392,
+      "expected_recruit_census_change": 0.0521573921422798
+    },
+    {
+      "pair": 47,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 2,
+      "one_update_occupancy_change": 0.008319332672022853,
+      "expected_recruit_census_change": 0.10384512133711765
+    },
+    {
+      "pair": 47,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 3,
+      "one_update_occupancy_change": 0.0035252248504052466,
+      "expected_recruit_census_change": 0.1502449149789346
+    },
+    {
+      "pair": 47,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 4,
+      "one_update_occupancy_change": 0.0013281004215529406,
+      "expected_recruit_census_change": 0.1795043978018445
+    },
+    {
+      "pair": 47,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 5,
+      "one_update_occupancy_change": 0.0004691853798861889,
+      "expected_recruit_census_change": 0.18212969111356464
+    },
+    {
+      "pair": 47,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 6,
+      "one_update_occupancy_change": 0.0001591575802236539,
+      "expected_recruit_census_change": 0.1601827046482074
+    },
+    {
+      "pair": 47,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 7,
+      "one_update_occupancy_change": 5.250173419126675e-05,
+      "expected_recruit_census_change": 0.12471402946871529
+    },
+    {
+      "pair": 47,
+      "original_reversal": true,
+      "investment_genotype": "low_fixed",
+      "census": 8,
+      "one_update_occupancy_change": 1.6969258875718096e-05,
+      "expected_recruit_census_change": 0.08764085882904693
+    },
+    {
+      "pair": 47,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 1,
+      "one_update_occupancy_change": -0.023037865439450453,
+      "expected_recruit_census_change": -0.07649293973188201
+    },
+    {
+      "pair": 47,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 2,
+      "one_update_occupancy_change": -0.013883154773146715,
+      "expected_recruit_census_change": -0.1524774599847812
+    },
+    {
+      "pair": 47,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 3,
+      "one_update_occupancy_change": -0.006277789759766776,
+      "expected_recruit_census_change": -0.2223910977980864
+    },
+    {
+      "pair": 47,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 4,
+      "one_update_occupancy_change": -0.0025245498315651926,
+      "expected_recruit_census_change": -0.2712118801853399
+    },
+    {
+      "pair": 47,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 5,
+      "one_update_occupancy_change": -0.0009522326597607138,
+      "expected_recruit_census_change": -0.28441254929479814
+    },
+    {
+      "pair": 47,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 6,
+      "one_update_occupancy_change": -0.0003449717617246238,
+      "expected_recruit_census_change": -0.2610058151985425
+    },
+    {
+      "pair": 47,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 7,
+      "one_update_occupancy_change": -0.00012156232741128772,
+      "expected_recruit_census_change": -0.21343726301606677
+    },
+    {
+      "pair": 47,
+      "original_reversal": true,
+      "investment_genotype": "high_fixed",
+      "census": 8,
+      "one_update_occupancy_change": -4.198249795625032e-05,
+      "expected_recruit_census_change": -0.15824085229255413
+    }
+  ],
+  "limits": [
+    "Single-update pure-genotype recruit/occupancy changes are descriptive row properties, not a new confirmatory family.",
+    "No unique fixation or natural-order mediator identified."
+  ]
+}

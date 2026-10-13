@@ -1,0 +1,13 @@
+# Saved-kernel expression-effect accounting, 2026-10-13
+
+Retrospective exact algebraic diagnostic, no new biology or random history. Authenticate the existing96-kernel/165-state/81-census archive SHA d34fc60c389775f88fa8a54051fdfe90a76ef7864b8f5a813b99d5f0b68ca172 and its original duration JSON SHA cd4c2f8fc8584fce1b453d31a6a4bee9f96d7d22853831ccce95caf8c7253ba2. Preserve all48 original native-minus-fixed-expression comparisons, their80-update endpoint, restricted mean sum at censuses0..79, original state masks and12 reversal classifications. These are the reduced diploid finite-state model, not2304 full-genome ABM histories or individual natural-order effects. Original conversation archive remains unverified; current native matrices/independent baseline are verified.
+
+For A=native kernel, B=fixed-expression kernel, r=alive reward, use two exact identities:
+A^H-B^H=sum_t A^t(A-B)B^(H-1-t)=sum_t B^t(A-B)A^(H-1-t).
+Multiply each by the same original p0 and r. The contribution at source state i and update t is p_prefix[t,i]*((A-B)@v_future[H-1-t])[i]. For duration replace v with sum_j=0..H-2-t v_future[j], for t=0..H-2; the final update cannot affect restricted duration. Record all80 source-update/state contributions and both reference orders, not an averaged or selected causal fraction. Closure must match endpoint and duration within1e-10, preserving original signs and original48 rows. No numerical tolerance adjustment after readout.
+
+Group source states by original low-fixed/high-fixed/segregating/extinct classes and census0..8; retain positive/negative contributions and both reference orders. Whether signs or magnitudes differ with reference order is descriptive, not a significance test. A statewise term is a controlled single-update kernel replacement with stated prefix and continuation law; it is not a unique historical fixation mediation effect. Do not equate positive terminal effect with increased absolute survival or treat fixation as causal merely from its timing.
+
+No event/condition/horizon/biological operator/model expansion, fitting or retuning. Test identities on small absorbing toy matrices before processing the original archive; independently verify via cumulative switch-time hybrid endpoint/reward differences. Publish protocol/source identity before actual readout and retain all raw signed outputs, including zero/weak/reference-dependent terms.
+
+Source clarification before execution: fixed_expression clamps expressed investment I to0.35 while the original genomic homologs still determine Mendelian inheritance. It is not an assurance-only clamp. Both saved visitor arms and all four original timing/discount/cost settings remain unchanged.

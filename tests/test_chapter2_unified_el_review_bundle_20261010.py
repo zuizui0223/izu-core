@@ -246,6 +246,12 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
            "EVIDENCE/INITIAL_MEAN_READOUT.json",
            "EVIDENCE/INVESTMENT_VARIATION_PROTOCOL.md",
            "EVIDENCE/INVESTMENT_VARIATION_READOUT.json",
+           "EVIDENCE/KERNEL_EXPRESSION_ARRAYS_MANIFEST.json",
+           "EVIDENCE/KERNEL_EXPRESSION_INDEPENDENT_REVIEW.json",
+           "EVIDENCE/KERNEL_EXPRESSION_INDEPENDENT_SOURCE.py",
+           "EVIDENCE/KERNEL_EXPRESSION_PROTOCOL.md",
+           "EVIDENCE/KERNEL_EXPRESSION_READOUT.json",
+           "EVIDENCE/KERNEL_EXPRESSION_SOURCE.py",
            "EVIDENCE/MECHANISM_DESIGN.md",
            "EVIDENCE/MECHANISM_ORIGINAL.json.gz",
            "EVIDENCE/MECHANISM_READOUT.json",
@@ -267,7 +273,7 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
         assert m["doi_deposit_complete"] is False
         assert m["n_figures"]==4
         assert m["n_supplementary_figures"]==3
-        assert len(m["members"])==42
+        assert len(m["members"])==48
         for name,record in m["members"].items():
             raw=z.read(name)
             assert record=={"size":len(raw),"sha256":hashlib.sha256(raw).hexdigest()}
@@ -527,3 +533,31 @@ def test_response_onset_materials_reject_changed_executed_source(tmp_path, monke
     monkeypatch.setattr(builder, 'MINIMAL_RESULTS', tmp_path / 'data/results')
     with pytest.raises(ValueError, match='response onset independent source admission'):
         builder.response_onset_materials()
+
+
+def test_kernel_expression_materials_preserve_two_references_and_scope():
+    members, derivations = builder.kernel_expression_materials()
+    assert len(members) == len(derivations) == 6
+    value = json.loads(members['EVIDENCE/KERNEL_EXPRESSION_READOUT.json'])
+    assert value['pairs'] == 48 and value['original_reversals'] == 12
+    assert len(value['comparisons']) == 48
+    assert all(len(row['references']) == 2 for row in value['comparisons'])
+    assert value['policy'].startswith('expressed investment')
+    assert value['new_biological_histories'] == 0
+    for name, raw in members.items():
+        if not name.endswith('.npz'): builder.validate_member(name, raw)
+
+
+def test_kernel_expression_materials_reject_changed_signed_terms(tmp_path, monkeypatch):
+    data = tmp_path / 'data/results/kernel_expression_accounting_20261013'
+    code = tmp_path / 'scripts/kernel_expression_accounting_20261013'
+    data.mkdir(parents=True); code.mkdir(parents=True)
+    for name in ['READOUT.json', 'INDEPENDENT_REVIEW.json']:
+        (data / name).write_bytes((builder.MINIMAL_RESULTS / 'kernel_expression_accounting_20261013' / name).read_bytes())
+    (data / 'ALL_STATE_TIME_CONTRIBUTIONS.npz').write_bytes(b'changed signed terms')
+    for name in ['audit_kernel_expression.py', 'PROTOCOL.md', 'verify_kernel_expression_independent.py']:
+        (code / name).write_bytes((builder.ROOT / 'scripts/kernel_expression_accounting_20261013' / name).read_bytes())
+    monkeypatch.setattr(builder, 'ROOT', tmp_path)
+    monkeypatch.setattr(builder, 'MINIMAL_RESULTS', tmp_path / 'data/results')
+    with pytest.raises(ValueError, match='kernel expression verified source admission'):
+        builder.kernel_expression_materials()
