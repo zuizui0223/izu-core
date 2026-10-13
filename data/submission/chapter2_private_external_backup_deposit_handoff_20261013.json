@@ -1,0 +1,112 @@
+{
+  "schema": "izu_core_chapter2_private_external_backup_deposit_handoff_v1",
+  "as_of_date_utc": "2026-10-13",
+  "repository": "zuizui0223/izu-core",
+  "source_main_commit_observed": "d0e8ddf6adbc9cff50c6794ff840799f18766f83",
+  "status": "PRIVATE_PRESERVATION_520_OF_521; PUBLIC_DOI_DEPOSIT_NOT_COMPLETED",
+  "scope": "Four separately generated 64-history Chapter 2 demographic model cohorts; not the separately packaged 50 evolution Actions ZIPs or one local tempo ZIP",
+  "original_actions_zip_total": 521,
+  "external_verified_unique_zip_total": 520,
+  "external_verified_bytes_total": 902977321,
+  "original_actions_bytes_total": 903095464,
+  "unverified_in_external_drive_count": 1,
+  "external_verified_basis": "Stored private independent audit receipts, read again and structurally checked on 2026-10-13; their prior full byte audits are not rerun in this snapshot.",
+  "cohorts": {
+    "orthogonal": {
+      "n_original": 130,
+      "n_external": 130,
+      "bytes_external": 227238776,
+      "original_run_ids": [
+        37887039116,
+        37887290489
+      ],
+      "receipt_file": "chapter2_orthogonal_drive_readback_audit_20261012.json",
+      "receipt_sha256": "1b2176d13e1e49aa0aead91f406b4677e2330ebb4602fc5de383aec987d97910",
+      "original_primary": "inconclusive",
+      "science_replay": "Original scientific result previously archived; this private-copy receipt validates file integrity, not independent biological re-analysis."
+    },
+    "kb": {
+      "n_original": 130,
+      "n_external": 130,
+      "bytes_external": 226003482,
+      "original_run_ids": [
+        37893126472
+      ],
+      "receipt_file": "chapter2_kb_external_complete130_audit_20261012.json",
+      "receipt_sha256": "fcdcb2ff77b72d0e8b235191f94422c05e4eae2b6ed82f300bc593f7ff4e3e69",
+      "original_primary": "inconclusive",
+      "science_replay": "Independent backup readback; frozen primary unchanged."
+    },
+    "fixed_b48": {
+      "n_original": 131,
+      "n_external": 130,
+      "bytes_external": 224423683,
+      "original_run_ids": [
+        37896872795,
+        37900150213
+      ],
+      "receipt_file": "chapter2_fixedB48_drive_restored_130_audit_20261012.json",
+      "receipt_sha256": "be6d4d7b7aca216933a02801ac5d3e63f8f31cde70f6bb0ee942bc21636e8433",
+      "original_primary": "supported_controlled_demographic_K_moderation_at_fixed_B48, model-specific",
+      "missing_original": {
+        "name": "chapter2-k48-future-shard-18.zip",
+        "size_bytes": 118143,
+        "sha256": "1b4c1450c387e24a844a97b25bcf01df20001ffe3afad64e2044e5d28cad3ff4",
+        "internal_member_count": 65,
+        "local_crc_previously_passed": true,
+        "external_transfer_status": "service_safety_check_stopped; do_not_bypass"
+      },
+      "science_replay": "The prior scientific confirmation remains restricted to the synthetic model; private Drive has one original asset gap."
+    },
+    "timed": {
+      "n_original": 130,
+      "n_external": 130,
+      "bytes_external": 225311380,
+      "original_run_ids": [
+        37944527799
+      ],
+      "receipt_file": "chapter2_timed_drive_readback_complete130_20261012.json",
+      "receipt_sha256": "8b396c7ba456bafb910aea7c6b86ca3ccd9512751a20eb54642a74dfb7c0a091",
+      "original_primary": "inconclusive",
+      "science_replay": "Independent pedigree/future-source linkage and frozen primary recomputation previously recorded in Issue #436 comment 6120405691; NOT rerun during this snapshot."
+    }
+  },
+  "related_source_packages": {
+    "evolution_campaigns": {
+      "original_actions_zip_count": 50,
+      "original_zip_bytes_recorded": 518129082,
+      "preserved_state": "previously recovered/private scientific-package preservation; exclude from four demographic cohort 521 count; external DOI not assigned"
+    },
+    "local_tempo": {
+      "archive_count": 1,
+      "archive_bytes": 268940123,
+      "sha256": "034e735d244228c1f4974897a76d16acef10767a81d5dd82f5f5204f48cf0738",
+      "scope": "16 synthetic profiles ×4 nested repeats ×8 settings ×2 schedules",
+      "preserved_state": "private original archive; not part of 521 demographic Actions ZIPs; no DOI"
+    }
+  },
+  "journal_submission_gates": {
+    "creator_names_and_order": "PENDING_AUTHOR_APPROVAL",
+    "data_license": "PENDING_AUTHOR_APPROVAL",
+    "code_license": "PENDING_AUTHOR_APPROVAL",
+    "repository_and_depositor_access": "PENDING_DEPOSIT_ROUTE",
+    "data_release_version_and_public_access_or_embargo": "PENDING_AUTHOR_APPROVAL",
+    "fixed_b48_safety_stopped_original": "UNRESOLVED_DO_NOT_BYPASS",
+    "durable_public_data_deposit": "NOT_PERFORMED",
+    "doi": "NOT_ASSIGNED",
+    "independent_re_download_from_public_repository": "NOT_PERFORMED",
+    "approved_manuscript_data_availability_link": "NOT_YET_PUBLISHABLE"
+  },
+  "citations": {
+    "source_archive_ledger": "docs/CHAPTER2_INDEPENDENT_RAW_ARCHIVES_20261009.md",
+    "historical_readiness_snapshot": "docs/CHAPTER2_UNIFIED_DATA_DEPOSIT_READINESS_20261011.md",
+    "issue": "https://github.com/zuizui0223/izu-core/issues/436",
+    "timed_raw_and_primary_replay": "https://github.com/zuizui0223/izu-core/issues/436#issuecomment-6120405691"
+  },
+  "no_mutation_claims": {
+    "simulation_rerun": false,
+    "historical_result_or_verdict_changed": false,
+    "private_drive_visibility_changed": false,
+    "scientific_doi_published": false
+  }
+}
