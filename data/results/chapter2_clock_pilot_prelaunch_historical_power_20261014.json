@@ -199,6 +199,52 @@
         "mean": -0.049479166666666664,
         "sd_across_256_old_founder_seed_clusters": 0.46505762521567345
       }
+    },
+    "retrospective_genotype_support_at_individual_level": {
+      "n_original_cases_full_diploid_alleles_examined": 768,
+      "first_support_and_expressed_variation_year_counts": {
+        "first_A_individual_at_least_founder_mean_plus_005": {
+          "1": 768
+        },
+        "first_I_individual_at_most_founder_mean_minus_005": {
+          "0": 768
+        },
+        "first_positive_expressed_A_variance": {
+          "1": 768
+        },
+        "first_A_individual_support_with_no_A_mutation_flag": {
+          "1": 768
+        }
+      },
+      "F1_A_supporting_individuals_across_all_starts": 9204,
+      "F1_A_supporting_individuals_without_A_mutation_flag": 9084,
+      "first_support_to_A_sustained_population_event_by_postselected_class": {
+        "assurance_first": {
+          "observed_A_event_starts": 179,
+          "median_response_update_after_individual_support": 14
+        },
+        "investment_first": {
+          "observed_A_event_starts": 217,
+          "median_response_update_after_individual_support": 22
+        },
+        "near_simultaneous": {
+          "observed_A_event_starts": 182,
+          "median_response_update_after_individual_support": 11.0
+        },
+        "assurance_only": {
+          "observed_A_event_starts": 189,
+          "median_response_update_after_individual_support": 20
+        },
+        "investment_only": {
+          "observed_A_event_starts": 0,
+          "median_response_update_after_individual_support": null
+        },
+        "neither": {
+          "observed_A_event_starts": 0,
+          "median_response_update_after_individual_support": null
+        }
+      },
+      "interpretation": "Old w=.0625: segregating individual A support by t1 in every existing 3-context case, yet population mean order remains diverse. Genetic support is necessary not sufficient; postselected timing by label is descriptive not causal."
     }
   },
   "new_pilot": {
@@ -350,7 +396,8 @@
     "old_cluster_D_SD_is_not_new_genetic_treatment_contrast_SD": true
   },
   "scope_limits": [
-    "Old original 2304 events independently recomputed from exact NPZ censuses, but no original reproductive genome pedigree reexecution claimed here.",
+    "Old original 2304 events independently recomputed from exact NPZ censuses, and old 768 3-context diploid genomes scanned for individual support; no original reproductive genome pedigree reexecution claimed here.",
+    "Observed A support in first-generation nonmutation-flagged individuals is not a direct randomized segregation-versus-mutation intervention; do not infer natural-population mechanisms or post-event subgroup causality.",
     "Three old ecological contexts reused from exposed cohort are contextual planning evidence, not genetically manipulated pilot results.",
     "The old A 767/768 event incidence is specific to its old A allele-width and original mutation process, and is not projected to new A-width arms.",
     "Any power from hypothetical sigma is an assumption, not observed pilot SD; the five planned contrast effect sizes have not been seen.",
