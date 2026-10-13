@@ -202,6 +202,8 @@ Actual GitHub run38312090996 at328548612e93469fcc8663f24548530a57399b9a. Frozen 
 
 No supply pair or same-supply composition contrast met the predeclared replicated-reversal criterion. All18 simultaneous D intervals include0. This is nonidentification within the fixed128-history/200-update design, not evidence of absent ecological effects, equivalence or a unique threshold. No parameter, threshold, count or horizon was retuned. D=(assurance-first minus investment-first)/128 retains all starts. Thirty-six exact marginal binomial intervals at error.05/36 yield18 simultaneous conservative difference bounds.
 
+Here the two order categories require both sustained events; single-event histories remain separate categories with zero contribution to D. A near-zero D therefore need not mean equally frequent assurance and investment responses. At matched supply0.5, assurance-only counts are87/128 and80/128 in the two founders while investment-only counts are2/128 and1/128. At matched supply1, assurance-only counts are55/128 and49/128. These already registered counts explain why the two-event score can approach zero when investment response is rare. They do not establish a new first-event significance test, a completed sequence or a hidden ecological root. The frozen estimand is retained.
+
 | Founder | Supply | Composition | A-first | I-first | Tie | A-only | I-only | Neither | D | Simultaneous interval |
 |---|---:|---|---:|---:|---:|---:|---:|---:|---:|---|
 | main | 0.0 | empty | 24 | 51 | 46 | 7 | 0 | 0 | -0.2109 | [-0.4504, 0.0526] |
