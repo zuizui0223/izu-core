@@ -16,4 +16,6 @@ Delivery gate: all four primary contrasts unresolved. Earlier initial-mean effec
 
 Ruling: concurrently pushedff610819 is merged without force. Its compact endpoint/bootstrap provenance record remains intact and is numerically identical to the full readout. One expanded S16 is retained because it adds independently admitted full birth/ledger and secondary-summary evidence, founder/count detail and scope limits; the chronological ledger retains both records. No scientific generator or frozen endpoint changes. All46 focused checks pass after conflict resolution.
 
+Final delivery: actual source200a492a package1714785 bytes/SHA256f8a2146bd91064cf03fbd58dbb267a385127f5d432d32c30a0b1b9a4a98d272f, public re-download32 members/all31 payloads, original parent fields exact,4849 blinded main/140 abstract words,4 main/3 SI figures. Scientific gate38326263306 succeeds. Full CI38326263290 is live; separate broader goal remains active with explicit unresolved ecological/natural-order/unique-causal/deposit ceilings.
+
 Review focus: artificial sampling law versus native biological ledger; simultaneous family; source/old-provider admission; extinction floor; no neutral-diversity substitution.
