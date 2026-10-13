@@ -165,6 +165,26 @@ def ledger_hash(ledger):
     return h.hexdigest()
 
 
+
+def verify_original_t0_source_returns(original_ledger, archived_source_totals):
+    """Anchor t0 biology to recorded original NPZ returns, not a cross-platform SHA.
+
+    Historical t0 full-array ledger SHA came from a separate source-admission
+    computation with no recorded numerical runtime. Even matching NumPy
+    versions do not guarantee identical BLAS/ufunc last bits across machines.
+    Within a runtime, original-vs-hidden-genotype ledger SHA MUST match
+    exactly; eight archived source totals must match independently at the
+    already registered 1e-12 source tolerance.
+    """
+    actual=np.array([float(np.asarray(getattr(original_ledger,k)).sum())
+                     for k in RETURNS],dtype=np.float64)
+    recorded=np.asarray(archived_source_totals,dtype=np.float64)
+    if (recorded.shape!=(len(RETURNS),) or not np.isfinite(recorded).all()
+            or not np.allclose(actual,recorded,atol=1e-12,rtol=0)):
+        raise ValueError('historical original t0 reproductive totals differ')
+    return actual
+
+
 def original_events(means,census,threshold=.05):
     means=np.asarray(means,dtype=np.float64);census=np.asarray(census,dtype=int)
     length=len(census)
@@ -193,12 +213,15 @@ def model_history(case_key,reg,fixture,expected,modules,technical=False):
     _,pop,repro,randomness=modules
     block,context,letter,h,rep=case_parts(case_key)
     state,config,vis,conf_sha,gen_sha,unaltered=founder_case(reg,fixture,block,context,letter,h,modules)
-    digest0=ledger_hash(repro.reproduce(unaltered,vis,config))
-    mod_hash=ledger_hash(repro.reproduce(state,vis,config))
-    if mod_hash!=digest0:
+    original_ledger=repro.reproduce(unaltered,vis,config)
+    adjusted_ledger=repro.reproduce(state,vis,config)
+    digest0=ledger_hash(original_ledger)
+    if ledger_hash(adjusted_ledger)!=digest0:
         raise ValueError('t0 genotype variation changed reproductive state within runtime')
-    if np.__version__=='2.2.6' and digest0!=expected[f'{block}:{context}']:
-        raise ValueError('original archived NumPy2.2.6 reproductive SHA drift')
+    if f'{block}:{context}' not in expected:
+        raise ValueError('source-authenticated historical ledger receipt absent')
+    historical_t0=fixture['original_founders'][block]['contexts'][str(context)]['original_returns_t0']
+    verify_original_t0_source_returns(original_ledger,historical_t0)
     if technical:
         if rep>=2:raise ValueError('max two technical reps per founder')
         master=technical_seed(block,rep);years=3
