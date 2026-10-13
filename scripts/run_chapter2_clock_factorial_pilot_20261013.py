@@ -204,8 +204,10 @@ def produce(shard:int,out:Path,*,technical:bool=False,registered_path:Path=REGIS
         d,metadata,geometry=simulate(case,reg,fixture,modules,TECH_HORIZON if technical else FULL_HORIZON)
         m={'identity':identity,'case':case,'metadata':metadata,'genetic_geometry':geometry}
         path=out/(case['key']+'.npz')
-        if path.exists():raise ValueError('Refuse to overwrite a pre-existing original case')
-        np.savez_compressed(path,**d,metadata=np.asarray(json.dumps(m,sort_keys=True,allow_nan=False)))
+        # Atomic no-overwrite publication: checking exists() then writing would
+        # allow concurrent writers to replace an already valid source body.
+        with path.open('xb') as handle:
+            np.savez_compressed(handle,**d,metadata=np.asarray(json.dumps(m,sort_keys=True,allow_nan=False)))
         with np.load(path,allow_pickle=False) as rec:
             if set(rec.files)!=set(d)|{'metadata'}:raise ValueError('Saved archive array inventory changed')
             for key in d:
