@@ -12,3 +12,13 @@ docs/atom_comparison_20261011/resolution_figures_20261011/* -text whitespace=cr-
 docs/atom_comparison_20261011/resolution_figures_20261011/*.svg -whitespace
 data/results/four_question_resolution_20261011/* -text whitespace=cr-at-eol
 docs/four_question_resolution_20261011/* -text whitespace=cr-at-eol
+
+# Clock pilot gates hash the original Git bytes, not platform newline variants.
+data/design/chapter2_clock*.json text eol=lf
+data/results/chapter2_clock*.json text eol=lf
+scripts/*chapter2_clock*.py text eol=lf
+scripts/model3_island/types.py text eol=lf
+scripts/model3_island/reproduction.py text eol=lf
+scripts/model3_island/population.py text eol=lf
+scripts/model3_island/randomness.py text eol=lf
+scripts/model3_island/history.py text eol=lf
