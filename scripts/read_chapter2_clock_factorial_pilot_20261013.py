@@ -26,6 +26,7 @@ REGISTRY_BLOB='0721517f7bf69eee1c2daf040f4781873ba3c3ea'
 CASE=re.compile(r'^(main|confirmation)_c([034])_w(24|40)_i([01])_r(\d{3})$')
 RETURN=('maternal','paternal','self_raw','self_viable','ovules','exported','delivered','outcross')
 CATEGORIES=('assurance_first','investment_first','near_simultaneous','assurance_only','investment_only','neither')
+TECH_SALT='chapter2-clock-factorial-producer-debug-only-20261013'
 
 
 def hashbytes(raw):return hashlib.sha256(raw).hexdigest()
@@ -69,7 +70,8 @@ def source_inventory():
     return d
 
 
-def archive_read_one(z,task,receipt,identity,fixture,modules,registered):
+def archive_read_one(z,task,receipt,identity,fixture,modules,registered,*,technical=False):
+    horizon=3 if technical else 200
     raw=z.read(task['key']+'.npz')
     if hashbytes(raw)!=receipt['case_sha256']:raise ValueError('Original saved case SHA mismatch')
     with np.load(io.BytesIO(raw),allow_pickle=False) as data:
@@ -78,14 +80,15 @@ def archive_read_one(z,task,receipt,identity,fixture,modules,registered):
             raise ValueError('Native source/output identity metadata differs')
         if meta['metadata']['task']!=task or meta['metadata']['mutation_traits']!=list(MUTATION_MASK):
             raise ValueError('Source producer full-case mutation/task metadata drift')
-        if meta['metadata']['runtime_numpy']!='2.2.6':raise ValueError('Unregistered output numerical runtime')
+        if meta['metadata']['runtime_numpy']!=identity['numpy_runtime'] or (not technical and meta['metadata']['runtime_numpy']!='2.2.6'):
+            raise ValueError('Unregistered output numerical runtime')
         expected={'ids','alleles','allele_origin','mutation_flags','birth_years',
                   'offsets','means','population','parentage','parent_offsets','returns','sexual_selection','metadata'}
         if set(data.files)!=expected:raise ValueError('Original annual-record field inventory')
         a={k:data[k] for k in data.files if k!='metadata'}
-    if len(a['population'])!=201 or a['offsets'].shape!=(202,) or a['parent_offsets'].shape!=(201,):
-        raise ValueError('Original 201 annual census/parent offsets missing')
-    if len(a['returns'])!=200 or a['returns'].shape!=(200,8) or a['sexual_selection'].shape!=(200,3,3):
+    if len(a['population'])!=horizon+1 or a['offsets'].shape!=(horizon+2,) or a['parent_offsets'].shape!=(horizon+1,):
+        raise ValueError('Original full annual census/parent offsets missing')
+    if len(a['returns'])!=horizon or a['returns'].shape!=(horizon,8) or a['sexual_selection'].shape!=(horizon,3,3):
         raise ValueError('Original full reproductive/genetic response inventory missing')
     if a['population'][0]!=48 or np.any(a['population']<0) or np.any(a['population']>48):
         raise ValueError('Original genotype model K48 count inventory')
@@ -103,7 +106,7 @@ def archive_read_one(z,task,receipt,identity,fixture,modules,registered):
     streams={name:randomness.stream(task['master'],name,0) for name in randomness.STREAM_IDS}
     empty=pop.subset(initial,np.array([],dtype=int))
     counts=[];selchecks=0;sourcechecks=0;statechecks=0;geneticchecks=0
-    for t in range(201):
+    for t in range(horizon+1):
         lo=int(a['offsets'][t]);hi=int(a['offsets'][t+1]);n=hi-lo
         if len(state.ids)!=n:raise ValueError('Replayed population census differs')
         for field in FIELDS:
@@ -114,7 +117,7 @@ def archive_read_one(z,task,receipt,identity,fixture,modules,registered):
         if n:
             np.testing.assert_allclose(state.alleles.mean(axis=(0,2)),a['means'][t],atol=1e-14,rtol=0)
         elif not np.isnan(a['means'][t]).all():raise ValueError('Extinct genotype means must be missing')
-        if t==200:break
+        if t==horizon:break
         ledger=repro.reproduce(state,vis,cfg)
         values=np.array([float(np.asarray(getattr(ledger,k)).sum()) for k in RETURN])
         np.testing.assert_allclose(values,a['returns'][t],atol=1e-10,rtol=0)
@@ -135,41 +138,45 @@ def archive_read_one(z,task,receipt,identity,fixture,modules,registered):
         if info['resident_recruits']!=len(child.ids):raise ValueError('Resident birth-count accounting')
         geneticchecks+=1
         state=child
-    events={str(th):one_events(a['means'],a['population'],th) for th in (.025,.05,.1)}
-    if receipt.get('events')!=events:raise ValueError('Independent six-class original threshold readout mismatch')
-    if receipt['censuses']!=201 or receipt['parentage_events']!=len(a['parentage']):
+    events=None if technical else {str(th):one_events(a['means'],a['population'],th) for th in (.025,.05,.1)}
+    if not technical and receipt.get('events')!=events:raise ValueError('Independent six-class original threshold readout mismatch')
+    if technical and 'events' in receipt:raise ValueError('Technical smoke must not report evolution outcomes')
+    if receipt['censuses']!=horizon+1 or receipt['parentage_events']!=len(a['parentage']):
         raise ValueError('Original independent source lengths differ')
-    return {'key':task['key'],'events':events['0.05'],'censuses':201,
+    return {'key':task['key'],'events':None if technical else events['0.05'],'censuses':horizon+1,
             'parentage_events':len(a['parentage']),'state_field_checks':statechecks,
             'native_reproduction_checks':sourcechecks,'native_selection_checks':selchecks,
             'native_parentage_checks':geneticchecks}
 
 
-def admit(shard:int,archive:Path)->dict:
-    if np.__version__!='2.2.6':raise ValueError('Historical original source replay requires exact NumPy 2.2.6')
+def admit(shard:int,archive:Path,*,technical:bool=False)->dict:
+    if not technical and np.__version__!='2.2.6':raise ValueError('Historical original source replay requires exact NumPy 2.2.6')
     if not isinstance(shard,int) or shard not in range(6):raise ValueError('Only six registered shards')
     registry=source_inventory()
     fixture=source_fixture()
     modules=load_original_source()
     block=('main','confirmation')[shard//3];ctx=(0,3,4)[shard%3]
-    expected=[k for k in registry['pilot_case_keys'] if decode_case(k)['block']==block and decode_case(k)['context']==ctx]
-    if len(expected)!=256:raise ValueError('Incomplete source shard roster')
+    expected=[k for k in registry['pilot_case_keys'] if decode_case(k)['block']==block and decode_case(k)['context']==ctx
+              and (not technical or decode_case(k)['replicate']==0)]
+    nexpected=4 if technical else 256
+    if len(expected)!=nexpected:raise ValueError('Incomplete source shard roster')
     clusters={(c['block'],c['replicate']):int(c['master']) for c in registry['rng_clusters']}
     result=[];counts=Counter()
     with zipfile.ZipFile(archive) as z:
         members=z.namelist()
-        if len(members)!=259 or len(members)!=len(set(members)):
+        if len(members)!=nexpected+3 or len(members)!=len(set(members)):
             raise ValueError('Missing or duplicate original 256-case ZIP members')
         if set(members)!={x+'.npz' for x in expected}|{'REGISTRATION.json','_COMPLETION.json','EXECUTION_COMMIT.txt'}:
             raise ValueError('Unregistered source ZIP payload')
         registered=json.loads(z.read('REGISTRATION.json'))
         complete=json.loads(z.read('_COMPLETION.json'))
-        if complete['status']!='COMPLETE_FROZEN_CLOCK_FACTORIAL_SHARD' or complete['cases']!=256:
+        required_status=('TECHNICAL_ONLY_CLOCK_FACTORIAL_SHARD' if technical else 'COMPLETE_FROZEN_CLOCK_FACTORIAL_SHARD')
+        if complete['status']!=required_status or complete['cases']!=nexpected:
             raise ValueError('Incomplete original pilot shard')
-        if complete['identity']!=registered['identity'] or registered['expected']!=256:
+        if complete['identity']!=registered['identity'] or registered['expected']!=nexpected:
             raise ValueError('Original cohort registration/producer identity drift')
         identity=complete['identity']
-        if identity['technical'] or identity['numpy_runtime']!='2.2.6' or identity['input_registry_git_blob']!=REGISTRY_BLOB:
+        if identity['technical']!=technical or identity['numpy_runtime']!=np.__version__ or identity['input_registry_git_blob']!=REGISTRY_BLOB:
             raise ValueError('Provider is not registered original source pilot')
         if identity['model_git_blobs']!=registry['original_source_git_blobs']:
             raise ValueError('Original source biological modules differ')
@@ -183,16 +190,19 @@ def admit(shard:int,archive:Path)->dict:
             task=tasks[key]
             original=decode_case(key)
             if any(task[k]!=original[k] for k in original):raise ValueError('Unregistered genetic case factor')
-            if task['master']!=clusters[original['block'],original['replicate']]:raise ValueError('Pilot history master seed changed')
+            required_master=(int.from_bytes(hashlib.sha256((TECH_SALT+'\0'+key).encode()).digest()[:16],'big')
+                             if technical else clusters[original['block'],original['replicate']])
+            if task['master']!=required_master:raise ValueError('Pilot/technical history master seed changed')
             if receipts[key]['task']!=task:raise ValueError('Registered case/receipt mismatch')
             if receipts[key]['mutation_mask']!=list(MUTATION_MASK):raise ValueError('Unexpected I/M mutation')
-            row=archive_read_one(z,task,receipts[key],identity,fixture,modules,registry)
-            result.append(row);counts[row['events']['category']]+=1
-    if sum(counts.values())!=256:raise ValueError('Original six-class all-start denominator changed')
+            row=archive_read_one(z,task,receipts[key],identity,fixture,modules,registry,technical=technical)
+            result.append(row)
+            if not technical:counts[row['events']['category']]+=1
+    if not technical and sum(counts.values())!=nexpected:raise ValueError('Original six-class all-start denominator changed')
     return {'schema':'chapter2_clock_pilot_independent_original_source_replay_v1',
-            'status':'ALL256_ORIGINAL_SOURCE_GENOME_COHORT_ADMITTED',
+            'status':'TECHNICAL_FOUR_CASES_ORIGINAL_BIRTHS_ADMITTED' if technical else 'ALL256_ORIGINAL_SOURCE_GENOME_COHORT_ADMITTED',
             'shard':shard,'source_zip_sha256':hashbytes(archive.read_bytes()),
-            'source_member_count':259,'cases':256,'updates':51200,
+            'source_member_count':nexpected+3,'cases':nexpected,'updates':nexpected*(3 if technical else 200),
             'category_counts':{k:counts[k] for k in CATEGORIES},
             'source_field_checks':sum(x['state_field_checks'] for x in result),
             'birth_parent_checks':sum(x['native_parentage_checks'] for x in result),
@@ -202,6 +212,7 @@ def admit(shard:int,archive:Path)->dict:
                           'input_registry_blob':REGISTRY_BLOB,
                           'original_biology_blobs':registry['original_source_git_blobs']},
             'new_biological_histories_generated_by_reader':0,
+            'technical_only':technical,
             'independent_pilot_confirmation_claim':False}
 
 
@@ -210,8 +221,9 @@ def main():
     p.add_argument('--shard',type=int,required=True)
     p.add_argument('--archive',type=Path,required=True)
     p.add_argument('--out',type=Path,required=True)
+    p.add_argument('--technical',action='store_true')
     args=p.parse_args()
-    r=admit(args.shard,args.archive)
+    r=admit(args.shard,args.archive,technical=args.technical)
     args.out.parent.mkdir(parents=True,exist_ok=True)
     with args.out.open('x',encoding='utf8',newline='\n') as f:
         f.write(json.dumps(r,indent=2,allow_nan=False)+'\n')
