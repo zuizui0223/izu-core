@@ -188,11 +188,16 @@ def test_real_reviewer_can_open_only_canonical_257_member_archive(tmp_path,monke
     # Original reviewer is a separate upstream module available in a true
     # branch checkout; scratchpad's standalone mock does not import it.
     try:
-        from scripts.review_chapter2_clock_external_archives_20261013 import inspect_zip
+        from scripts import review_chapter2_clock_external_archives_20261013 as reviewer
     except ImportError:
         pytest.skip('standalone scratchpad lacks upstream external native review module')
     src,reg,_=setup_mock(tmp_path,monkeypatch)
+    # The upstream reader pins the ORIGINAL source registry. This explicitly
+    # MOCK registry must be injected in BOTH guards; otherwise a legitimate
+    # test fixture would be rejected before checking the ZIP format. This
+    # monkeypatch exists only in a synthetic-test function, never production.
+    monkeypatch.setattr(reviewer,'REGISTRY_GIT_BLOB',packer.REGISTRY_BLOB)
     out=tmp_path/'synthetic.zip'
     packer.package(src,reg,'main_c0',out,tmp_path/'receipt.json')
-    admitted,_=inspect_zip(out,{'case_identifiers':json.loads(reg.read_text())['case_identifiers']},'main_c0')
+    admitted,_=reviewer.inspect_zip(out,{'case_identifiers':json.loads(reg.read_text())['case_identifiers']},'main_c0')
     assert admitted['cases']==256
