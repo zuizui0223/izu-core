@@ -1,66 +1,74 @@
-# Chapter 2 next discriminating experiment: two-axis initial genetic access (design only)
+# Q1→Q2 two-axis clock: phenotype-matched genetic-access factorial (v2 pre-execution design)
 
-**2026-10-13 — Prospective preparation, not an executed Model 3 biological experiment or a new ecological finding.** This plan is downstream of the retrospective initial-clock PR #494 and the source-identity repair PR #495. Neither of those exposed cohorts proves a two-stage first-passage clock. The current four-setting assurance-compression result remains the paper headline. This proposal cannot alter frozen historical results or promote the exploratory clock to the one active manuscript.
+**2026-10-13 — NEW biological histories = 0; not registered confirmation or manuscript evidence.** The old 2,304-source outcome and A-width boundary cohort have already been exposed. This is a separate, prospective **pilot proposal** to test whether genetic access and inherited response jointly explain six original evolutionary threshold outcomes. It preserves the canonical Model 3 biology and all pre-existing failed/null results.
 
-## 1. Current question, and why the prior cohort cannot answer it
+## 1. Question and evidence boundary
 
-The earlier 2,304 trajectories had exactly 18 distinct founding genotype-by-visitor contexts. All founders expressed assurance A=0.5, all A loci were heterozygotes (.4375,.5625), and the initial expected genetic response of A was zero. The F1 **potential** segregational variance was constant at 0.001953125. A t0 Price response for investment I improved a relatively simple six-category predictor, but a more flexible ecological/genetic interaction null achieved lower log loss (1.41659 versus 1.42169 under double history-and-context holdout). Separately, 299 of 335 assurance-first paths had an earlier *on-path* expected I-decline response onset; onset order alone is not the realized threshold-crossing order.
+In the retrospective 2,304 histories, initial A has the same expressed value0.5 and zero t0 expected genetic response across all 18 founder×visitor conditions. Potential segregation variance0.001953125 is constant; it cannot explain different onset clocks within that cohort. A source t0 I Price-response feature improved parsimonious retrospective models, but a flexible ecological/genetic-interaction model yielded lower double-heldout six-class Log loss (1.41659 vs1.42169). Independently, 299 assurance-first histories showed earlier *on-path* expected I-decline selection onset (216 sustained), so onset sign alone does not dictate threshold-event order.
 
-Therefore, the missing scientific question is **whether independently varying inherited A availability and I standing variance produces a predictable change in the joint distribution of six threshold-crossing outcomes**, beyond a flexible nonmechanistic description. This is a conditional model falsification question, not an evolutionary order → persistence study.
+**Pilot question:** holding every starting adult's expressed floral traits and initial pollination environment identical within each founder×visitor regime, does *hidden* inherited A-versus-I allele availability alter six-category realized response frequencies? The pilot is a first step toward a truly prospectively validated access-delay + genetic-response probabilistic clock, NOT confirmation of such a clock.
 
-## 2. Source-verified two-by-two initial-factor design
+## 2. Scientifically important pre-execution correction
 
-The immutably preserved shard-0 ZIP (48 original first-census diploid genotype states per founder) passed source SHA-256 verification. The audit made **eight genotype configurations** without executing Model 3 reproduction, inheritance or population update.
+The original unreviewed v1 design proposed population-centred I allele scaling, `I' = mu_I + c*(I-mu_I)` with `c=0.5 or1`. Although it held the **population** I mean constant, it moved individual adults' flower-investment phenotypes and hence their potential t0 ecological returns. It could not cleanly discriminate genetic access from changed ecological matching. **No new biological case was produced using v1.** Its historical Git commits remain source provenance; v2 below supersedes it before a biological pilot is authorized.
 
-| Initial axis | Low | High | Held fixed |
-|---|---:|---:|---|
-| A allele half-width `w` | 0.046875 | 0.078125 | All adults have the same expressed A=0.5; each is heterozygous (.5-w,.5+w) |
-| I allele-deviation multiplier `c` | 0.5 | 1 | Original founder-wide allele mean I, original M allele values, original population size |
+The corrected contrast **preserves every individual's initial expressed M, I and A phenotype exactly**. Let original adult `i` carry investment alleles `(I_i1,I_i2)`, `m_i=(I_i1+I_i2)/2` and `d_i=(I_i2-I_i1)/2`. Replace only its investment alleles by
 
-I is transformed **allele-copy by allele-copy**: `I_new = I_founder_mean + c*(I_old - I_founder_mean)`. Its allele-variance proxy and expressed adult variance consequently change by factor `c²` while means are unchanged. Both scales retain an I allele below `(founder I mean − 0.05)` in **both** founders, preventing an accidental I-threshold structural impossibility. Other original genotype fields, source reproduction and mutation kernels must remain unchanged in the eventual implementation.
+`I_i1' = m_i - h*d_i;   I_i2' = m_i + h*d_i`, with `h ∈ {0,1}`.
 
-**Key accessibility distinction:** `w=0.046875` cannot attain a founder-relative +0.05 assurance event without new A mutation, even after arbitrary Mendelian segregation, whereas `w=0.078125` makes such an event structurally possible without new mutation. **Possibility is not guaranteed occurrence.** Expected nonmutated F1 assurance variance is `w²/2` under the original independent diploid gamete sampling: **0.0010986328125 vs 0.0030517578125**.
+At `h=0`, each individual's original expression is maintained but its hidden I heterozygosity is removed. At `h=1`, the original two alleles are restored. **Between-adult expressed I variance is unchanged** under this manipulation; we vary inherited homolog *segregation potential*, not claim a factor-four reduction in expressed additive variance. Any genetic covariance and next-generation change must be reported rather than attributed solely to one scalar variance.
 
-This manipulation changes the supply of alleles and the support reachable without mutation. I scaling also changes its genetic covariance with M and A, not just a single orthogonal variance coefficient. Therefore conclusions must be about **these exact founder treatments**, not an isolated universal effect of `G_I`.
+Cross independently with A locus width `w∈{0.046875,0.078125}` by assigning every adult the heterozygote `(.5−w,.5+w)`. Its starting **expressed A is always0.5**. The F1 no-mutation segregational potential `w²/2` is **0.0010986328125 vs0.0030517578125**. At the pre-existing +0.05 threshold, width0.046875 cannot cross without a new A mutation; width0.078125 permits but does not guarantee crossing without mutation.
 
-## 3. Minimal pilot: 1,536 new paths only after source review
+### Actual raw-founder feasibility: 8 of 8 combinations pass
 
-- **Two fixed founding templates**, main (27200701) and confirmation (27210701), each from the original source-attested 48-adult diploid genotype population.
-- **Three declared visitor contexts**: supply0/empty, supply0.125/matched, supply0.125/separated, using the canonical original visitor functional groups. Original model `activity=.4*supply`; supply is a synthetic establishment-rate coordinate, not field visitor abundance.
-- **Four genetic treatments**: full A-width × I-variance-factor factorial; **64 new paired stochastic streams per founder** under salt `chapter2-clock-factorial-pilot-v1-20261013`. The identical founder/seed stream key is reused across all 12 treatment×context cells; the original 2,304 histories and prior 6,144 width-history salts are excluded. There are **128 independent stochastic stream clusters, not 1,536 independent ecological histories**.
-- **Horizon 200 updates, K=N0=48, source mating model unchanged**. Only A mutates (rate .01, SD .05). M and I retain original nonmutation rules. Adult survival=0 and seed immigration=0. Full original source/reproduction/parentage, IDs and all A/I/M allele copies must be independently audited, with no missing cases selected away.
-- **Six outcomes, unchanged**: A-first, I-first, near-simultaneous, A-only, I-only, neither. A increase/I decrease of 0.05 from *actual transformed founder mean*, sustained 20 censuses, tie window5. Original thresholds0.025/0.10 are secondary sensitivity checks only. Extinction is an absorbing process and trait means after extinction are missing, not zeros.
-- **Pilot inference ceiling:** feasibility, observed A/I event accessibility, stage-specific frequencies and cross-treatment paired variation for *future power*. No independent confirmation, causal mediator, ecological continuous root, biological genetic-access universality or Q4 persistence benefit.
+Immutable original GitHub Actions shard0 SHA256 **`5b850eaad6104f572f56df2a37da00fbc8473503a827703c82f6870a87e9a881`** was re-read. The eight genotype arrays were checked for bounded alleles, no clipping, unchanged *per-individual* M/I/A expressions and original founder-wide means, genetic support for I decline0.05, and source genotype hash identities. No `reproduce`, `inherit`, `advance`, mutation or new environmental trajectory was executed.
 
-No confirmed one-paper result or old frozen failed/inconclusive gate changes. A separate producer + immutable source/seed/config manifest and independent birth/genome audit are REQUIRED before any production dispatch. This PR does **not** dispatch the pilot.
+| Founder | Original/expression I variance (all four arms) | Hidden I homolog half-difference variance at h=0 | at h=1 |
+|---|---:|---:|---:|
+| main | 0.00921630859375 | 0 | 0.00341796875 |
+| confirmation | 0.002685546875 | 0 | 0.0068359375 |
 
-## 4. Assumption-based power calculation completed BEFORE design freeze
+Each combination preserves the hash of the **whole expressed 48×3 trait matrix**. All eight keep a path to founder-relative I decline0.05 even without I mutation, although the event need not occur. This provides a source-backed t0 genotype manipulation, **not yet a source-operator proof that the reproduction-ledger bytes are identical**; that proof and original mutation-masks/ancestry verification are gates for the future producer.
 
-Predeclared candidate effect for a later independent confirmation is a six-class **log-loss reduction of 0.02** over an **equal-or-more-flexible ecology × genetic-variance null**. This is a meaningful target on the original outcome-probability scale, *not* the estimated effect from a new factorial experiment.
+## 3. Proposed exploratory pilot — NOT DISPATCHED
 
-The read-only power worksheet evaluates `P(normal two-sided 95% lower confidence bound for paired log-loss reduction >0)` over independent history-cluster counts, hypothetical score difference SDs and effect sizes. Normal approximation requires that independent founder×stream clusters are a valid asymptotic unit; the 12 nested paths within a cluster are not independent. The calculation ignores model-fitting uncertainty and is explicitly **not empirical study power**.
+- Two original 48-adult founder blocks (`main` seed27200701; `confirmation` seed27210701), three original visitor contexts: zero/empty, supply0.125/matched, supply0.125/separated. Original visitor optima and activity scaling unchanged.
+- Two A widths × two hidden I heterozygosity treatments = four source-genotype configurations per founder; `A` is the sole mutating locus (original rate0.01/SD0.05), `M/I` do not mutate. No seed arrival, adult survival, other biological rule changes.
+- Exactly **64 new demographic streams per founder**, salted `chapter2-clock-factorial-pilot-v1-20261013` and paired over the **12 genotype×visitor treatments**. Thus **128 independent founder×history clusters, 1,536 trajectories**, each200 updates. Not 1,536 independent ecological histories, and not 128 independent natural populations.
+- Original outcomes unchanged: assurance-first, investment-first, near-simultaneous, assurance-only, investment-only, neither. Event thresholds: A increase0.05/I decrease0.05 relative to each transformed founder, sustained20 censuses, tie window5. Sensitivities0.025 and0.10 described separately; no replacing primary definitions after observing failures.
+- Retain ALL starts, all source genetic copies, maternal/paternal/self viability records, parentage, mutation flags, population size, extinction and event-censoring states. Extinction makes trait means undefined, not zero. A-only or I-only is **never** relabelled first in a two-event ordering.
+- Pilot permitted claims: feasibility, genotype-access response, all six class fractions, descriptive treatment interactions and *score-contrast variance estimation for later independent power*. **Pilot cannot confirm the clock and cannot be pooled into later confirmation.**
 
-| Hypothetical paired-history SD | 512 independent clusters, power for Δ=0.02 | Planning action |
-|---:|---:|---|
-| 0.10 | 99.5% | Retain minimum 512 |
-| 0.15 | **85.5%** | 512 clusters (256/founder; 6,144 total paths) |
-| 0.20 | 61.9% | Increase to 896 clusters (448/founder; 10,752 total paths) |
-| 0.25 | 44.0% | No-go under cap 1,024; do not inflate effect to claim power |
+A source-pinned producer, complete input registration, independent original parentage/genotype replay and short technical fixtures must undergo separate code review BEFORE any of the 1,536 biological trajectories run.
 
-For the eventual separate confirmation proposal, use **only the pilot history-cluster score-difference SD** (with a conservative floor0.15), never the pilot point-estimate effect: `n = ceil_to_128(max(512, ((z_0.975+z_0.8)*max(sd_pilot,0.15)/0.02)^2))`; if `n>1024`, stop. Pilot histories are never reused. This rule is *proposed* in advance and must be validated/reviewed with the complete prospective predictor/null training and uncertainty method before that separate confirmation is authorized.
+## 4. Power calculated before drafting/freeze, independent of new outcomes
 
-## 5. What remains to specify before biological execution
+One confirmatory question to plan after an exploratory pilot is: does a formally specified two-stage inherited A-access+I-response predictor beat an **equal-or-more-flexible ecology × hidden-genetic-access interaction baseline** in *six-class held-out log loss* by at least a scientifically meaningful0.02? The current code does **not yet specify the full source-compatible two-stage transition predictor**; do not run confirm until its code, feature definitions, training/calibration rules, evaluation folds, null, error family and model source are separately frozen and tested.
 
-1. Authenticate the exact original source ZIP and original source/operator snapshot, including full code that constructs the two founder diploid arrays. Implement the 2×2 genetic transformation in a **new, source-verified orchestration wrapper only** and compare its t0 genotype SHA with the independently computed, read-only fixture in `chapter2_clock_factorial_feasibility_20261013.json`. Do not modify the historical Model 3 modules or allow malformed ref mixing.
-2. Freeze a *computable* A-access stage: probability/latency of selectable allelic variation and the explicit mutation-sensitive support bound. Separate F1 potential from realized genetic change; any β_A derivative/selection gradient must be calculated with the canonical female, paternal and selfing genetic return, not just maternal seed output. Freeze an I-response stage using actual full-parent return. Avoid substituting retrospective annual responses when forecasting from t0.
-3. Fix the full six-outcome probabilistic model and greater-or-equal-flexibility null (feature maps, regularization, training-context splits, calibration, probability floors, missing/censored handling, and bootstrap/refitting/CI rule). Pilot-derived coefficients may inform **a new protocol** but cannot count as independent main evidence.
-4. Lock pilot input/export scripts and paired seed inventory. Run only standalone technical short paths for source/identity tests first. Independent review must admit all 12 factor cells, exact original mutation mask, allele origins/parentage, no random source substitution and no output overwrite/race; then authorize a single 1,536-case biological pilot.
-5. If technical/power gates cannot be met, record `HOLD`/`NO_GO` with reason, not a positive conclusion. No outcome-driven parameter/horizon/denominator changes.
+The independent audit power worksheet uses normal paired-history mean log-score differences, 95% two-sided lower interval >0, assumed effect0.02, assumed standard deviation `s` of each **founder×stochastic stream aggregate over12 nested treatments**, and no model-refitting noise. These are **hypothetical planning scenarios**, not empirically measured pilot power:
 
-## 6. Files / evidence classes
+| Hypothetical per-history score SD | Power if n=512 independent clusters | Proposed independent confirm size |
+|---:|---:|---:|
+| 0.10 | 99.5% | minimum512 (256 each founder; 6,144 paths) |
+| 0.15 | **85.5%** | 512 (6,144 paths) |
+| 0.20 | 61.9% | 896 (10,752 paths) |
+| 0.25 | 44.0% | **NO-GO** within cap1024 |
 
-- Machine-readable pilot design: [`chapter2_clock_factorial_pilot_protocol_20261013.json`](../data/design/chapter2_clock_factorial_pilot_protocol_20261013.json).
-- Source-verified no-biology genotype transformation: [`audit_chapter2_clock_factorial_feasibility_20261013.py`](../scripts/audit_chapter2_clock_factorial_feasibility_20261013.py) → [`feasibility JSON`](../data/results/chapter2_clock_factorial_feasibility_20261013.json).
-- Explicit hypothetical power method: [`audit_chapter2_clock_power_envelope_20261013.py`](../scripts/audit_chapter2_clock_power_envelope_20261013.py) → [`power JSON`](../data/results/chapter2_clock_power_envelope_20261013.json).
+For any later proposed confirmation, predefine (before its outcomes) `n=ceil_to_multiple128(max(512, [(z0.975+z0.80)*max(s_pilot,0.15)/0.02]^2))`, upper cap1024 clusters; stop with NO-GO if it exceeds cap. Only `s_pilot`, not pilot estimated mean effect, enters this size rule. The pilot histories must remain absent from confirm inference. The conservative SD floor does not cure possible new-model-fitting uncertainty, so its inference method must receive independent review as a separate gate.
 
-**Current decision:** `DESIGN_READY_FOR_SOURCE_AND_STATISTICAL_REVIEW; BIOLOGICAL_EXECUTION_NOT_AUTHORIZED`. Scientific goals that depend on actually observing new histories remain unresolved.
+## 5. Remaining gates and rollback/no-go conditions
+
+1. **Original source/runtime identity:** use the original 048-adult diploid Model 3 source/recipe package, not a current-main variant silently substituted. Verify the exact original source SHA and all founder-specific allele/ancestry arrays, then implement the h/w transformations in a new producer-wrapper only. Reject changes to M/I/A *expressed* t0 traits, source configurations, indexed parentage or mutation masks.
+2. **Initial reproduction equality:** replay the original mating operator on all four adjusted t0 states **without advance/recruitment** to verify identical initial maternal/paternal/self viability and pollen transfer per founder×visitor context. This tests the hypothesised phenotype-only t0 operator and is a prerequisite, not assumed evidence.
+3. **Prospective pilot registration:** persist exact salt, 1,536 input IDs, configs/sha, raw genotype/source output format, the complete six-class event definitions and the independent verification process. Preserve original source ZIP and failed technical attempts. No retrospective tuning or selective re-run of completed cases.
+4. **Clock-vs-flexible-null readiness:** calculate the A-access waiting distribution/availability from genetics, exact A and I returns and mutation law, not from future observed genotypes. Freeze the *statistical* two-stage prediction and stronger ecological interaction null only after pilot exploration and before independent confirmation. A raw source β-gradient sign by itself is not a full first-passage time.
+5. **Post-pilot stop rule:** if original source access, operator equality, parentage, status/stream pairing, six-class denominator or calibration fails, `HOLD` and do not promote. If pilot SD implies confirmation n>1024, `NO_GO`; do not select favorable ecological cells or increase hypothesized effect.
+
+**Current decision:** `DESIGN_V2_READY_FOR_INDEPENDENT_SOURCE_AND_STATISTICAL_REVIEW; NO BIOLOGICAL EXECUTION AUTHORIZED`. This is a tightened experiment to distinguish hidden genetic access from immediate phenotype ecology, not an affirmative Q2 or Q4 conclusion.
+
+### Reproduction surfaces
+
+- [`Pilot design JSON`](../data/design/chapter2_clock_factorial_pilot_protocol_20261013.json)
+- [`Source-genotype audit`](../scripts/audit_chapter2_clock_factorial_feasibility_20261013.py) and [`8-state result`](../data/results/chapter2_clock_factorial_feasibility_20261013.json)
+- [`Power-envelope method`](../scripts/audit_chapter2_clock_power_envelope_20261013.py) and [`90 assumed scenarios`](../data/results/chapter2_clock_power_envelope_20261013.json)
