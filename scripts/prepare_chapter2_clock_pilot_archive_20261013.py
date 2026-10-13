@@ -317,8 +317,10 @@ def archive(out_dir:Path,registry_path:Path,fixture_path:Path,design_path:Path,l
         arrays,metadata,event=model_history(key,reg,fixture,expected,modules,technical=technical)
         destination=out_dir/(key+'.npz')
         # Exclusive writes: incomplete output directory is never a complete receipt.
-        if destination.exists():raise ValueError('duplicate output attempted')
-        np.savez_compressed(destination,**arrays)
+        # Exclusive creation is required: exists()+write has a race that can
+        # overwrite a prior valid biological NPZ produced by another worker.
+        with destination.open('xb') as sink:
+            np.savez_compressed(sink,**arrays)
         sourcebytes=destination.read_bytes()
         rec.append({'case_key':key,'sha256':digest(sourcebytes),'size':len(sourcebytes),
             'status':'TECHNICAL_NATIVE_3_UPDATE_ONLY' if technical else 'COMPLETE_ORIGINAL_200_UPDATE',
