@@ -1,0 +1,277 @@
+{
+  "schema": "chapter2_clock_factorial_genotype_feasibility_v1",
+  "status": "EIGHT_COUNTERFACTUAL_T0_GENOTYPE_CONFIGURATIONS_VERIFIED_NO_TRAJECTORIES",
+  "original_source_shard0_sha256": "5b850eaad6104f572f56df2a37da00fbc8473503a827703c82f6870a87e9a881",
+  "original_source_shard0_bytes": 21210876,
+  "founder_blocks": [
+    "main",
+    "confirmation"
+  ],
+  "A_half_widths": [
+    0.046875,
+    0.078125
+  ],
+  "I_allele_multipliers": [
+    0.5,
+    1.0
+  ],
+  "original_annual_genomes_replayed": false,
+  "new_biological_histories": 0,
+  "factorial_t0_genotype_records": [
+    {
+      "block": "main",
+      "source_case": "main_c0_r0.npz",
+      "source_task": {
+        "block": "main",
+        "block_seed": 27200701,
+        "composition": "empty",
+        "context": 0,
+        "replicate": 0,
+        "supply": 0.0
+      },
+      "original_config_sha256": "c66c4df1b769e404b549c8e6022c9319bbc21ebde9f76c0c36a926e7a402feba",
+      "A_width": 0.046875,
+      "A_founding_allele_values": [
+        0.453125,
+        0.546875
+      ],
+      "A_founding_expressed_variance": 0.0,
+      "A_expected_F1_segregation_variance_no_mutation": 0.0010986328125,
+      "A_can_reach_threshold_without_mutation": false,
+      "I_scale": 0.5,
+      "I_allele_copy_mean": 0.5078125,
+      "I_allelic_variance_proxy": 0.00157928466796875,
+      "I_expressed_variance": 0.0023040771484375,
+      "I_original_variance_proxy": 0.006317138671875,
+      "I_variance_relative_to_source": 0.25,
+      "I_possible_decline_support": 0.06640625,
+      "I_can_reach_decline_without_mutation": true,
+      "no_clipping": true,
+      "transformed_alleles_sha256": "93f9c3edb977472f98ba3174e52796013849bdab97be30f03ee7d92153572bc7"
+    },
+    {
+      "block": "main",
+      "source_case": "main_c0_r0.npz",
+      "source_task": {
+        "block": "main",
+        "block_seed": 27200701,
+        "composition": "empty",
+        "context": 0,
+        "replicate": 0,
+        "supply": 0.0
+      },
+      "original_config_sha256": "c66c4df1b769e404b549c8e6022c9319bbc21ebde9f76c0c36a926e7a402feba",
+      "A_width": 0.046875,
+      "A_founding_allele_values": [
+        0.453125,
+        0.546875
+      ],
+      "A_founding_expressed_variance": 0.0,
+      "A_expected_F1_segregation_variance_no_mutation": 0.0010986328125,
+      "A_can_reach_threshold_without_mutation": false,
+      "I_scale": 1.0,
+      "I_allele_copy_mean": 0.5078125,
+      "I_allelic_variance_proxy": 0.006317138671875,
+      "I_expressed_variance": 0.00921630859375,
+      "I_original_variance_proxy": 0.006317138671875,
+      "I_variance_relative_to_source": 1.0,
+      "I_possible_decline_support": 0.1328125,
+      "I_can_reach_decline_without_mutation": true,
+      "no_clipping": true,
+      "transformed_alleles_sha256": "4da49d080c1033932b78d44e5b0804406ddc48896e0789d3ec211c2c5c39b96b"
+    },
+    {
+      "block": "main",
+      "source_case": "main_c0_r0.npz",
+      "source_task": {
+        "block": "main",
+        "block_seed": 27200701,
+        "composition": "empty",
+        "context": 0,
+        "replicate": 0,
+        "supply": 0.0
+      },
+      "original_config_sha256": "c66c4df1b769e404b549c8e6022c9319bbc21ebde9f76c0c36a926e7a402feba",
+      "A_width": 0.078125,
+      "A_founding_allele_values": [
+        0.421875,
+        0.578125
+      ],
+      "A_founding_expressed_variance": 0.0,
+      "A_expected_F1_segregation_variance_no_mutation": 0.0030517578125,
+      "A_can_reach_threshold_without_mutation": true,
+      "I_scale": 0.5,
+      "I_allele_copy_mean": 0.5078125,
+      "I_allelic_variance_proxy": 0.00157928466796875,
+      "I_expressed_variance": 0.0023040771484375,
+      "I_original_variance_proxy": 0.006317138671875,
+      "I_variance_relative_to_source": 0.25,
+      "I_possible_decline_support": 0.06640625,
+      "I_can_reach_decline_without_mutation": true,
+      "no_clipping": true,
+      "transformed_alleles_sha256": "bf3d7059fc527ed146e448233db16ed20878a4c3c8b1a443cc413ca465bb9803"
+    },
+    {
+      "block": "main",
+      "source_case": "main_c0_r0.npz",
+      "source_task": {
+        "block": "main",
+        "block_seed": 27200701,
+        "composition": "empty",
+        "context": 0,
+        "replicate": 0,
+        "supply": 0.0
+      },
+      "original_config_sha256": "c66c4df1b769e404b549c8e6022c9319bbc21ebde9f76c0c36a926e7a402feba",
+      "A_width": 0.078125,
+      "A_founding_allele_values": [
+        0.421875,
+        0.578125
+      ],
+      "A_founding_expressed_variance": 0.0,
+      "A_expected_F1_segregation_variance_no_mutation": 0.0030517578125,
+      "A_can_reach_threshold_without_mutation": true,
+      "I_scale": 1.0,
+      "I_allele_copy_mean": 0.5078125,
+      "I_allelic_variance_proxy": 0.006317138671875,
+      "I_expressed_variance": 0.00921630859375,
+      "I_original_variance_proxy": 0.006317138671875,
+      "I_variance_relative_to_source": 1.0,
+      "I_possible_decline_support": 0.1328125,
+      "I_can_reach_decline_without_mutation": true,
+      "no_clipping": true,
+      "transformed_alleles_sha256": "e89ea3b09158d5429c29effce466750be198b53a47a5c0fd0da8179db792fdad"
+    },
+    {
+      "block": "confirmation",
+      "source_case": "confirmation_c0_r0.npz",
+      "source_task": {
+        "block": "confirmation",
+        "block_seed": 27210701,
+        "composition": "empty",
+        "context": 0,
+        "replicate": 0,
+        "supply": 0.0
+      },
+      "original_config_sha256": "c66c4df1b769e404b549c8e6022c9319bbc21ebde9f76c0c36a926e7a402feba",
+      "A_width": 0.046875,
+      "A_founding_allele_values": [
+        0.453125,
+        0.546875
+      ],
+      "A_founding_expressed_variance": 0.0,
+      "A_expected_F1_segregation_variance_no_mutation": 0.0010986328125,
+      "A_can_reach_threshold_without_mutation": false,
+      "I_scale": 0.5,
+      "I_allele_copy_mean": 0.515625,
+      "I_allelic_variance_proxy": 0.001190185546875,
+      "I_expressed_variance": 0.00067138671875,
+      "I_original_variance_proxy": 0.0047607421875,
+      "I_variance_relative_to_source": 0.25,
+      "I_possible_decline_support": 0.0703125,
+      "I_can_reach_decline_without_mutation": true,
+      "no_clipping": true,
+      "transformed_alleles_sha256": "50fd429e608cc6f16f567f70a4e83ea24740518298553b3e67cca3cc88fdd16e"
+    },
+    {
+      "block": "confirmation",
+      "source_case": "confirmation_c0_r0.npz",
+      "source_task": {
+        "block": "confirmation",
+        "block_seed": 27210701,
+        "composition": "empty",
+        "context": 0,
+        "replicate": 0,
+        "supply": 0.0
+      },
+      "original_config_sha256": "c66c4df1b769e404b549c8e6022c9319bbc21ebde9f76c0c36a926e7a402feba",
+      "A_width": 0.046875,
+      "A_founding_allele_values": [
+        0.453125,
+        0.546875
+      ],
+      "A_founding_expressed_variance": 0.0,
+      "A_expected_F1_segregation_variance_no_mutation": 0.0010986328125,
+      "A_can_reach_threshold_without_mutation": false,
+      "I_scale": 1.0,
+      "I_allele_copy_mean": 0.515625,
+      "I_allelic_variance_proxy": 0.0047607421875,
+      "I_expressed_variance": 0.002685546875,
+      "I_original_variance_proxy": 0.0047607421875,
+      "I_variance_relative_to_source": 1.0,
+      "I_possible_decline_support": 0.140625,
+      "I_can_reach_decline_without_mutation": true,
+      "no_clipping": true,
+      "transformed_alleles_sha256": "8ab836651b21bb69460667749eb2e67492c7f43d52b9613310241c0ff3029106"
+    },
+    {
+      "block": "confirmation",
+      "source_case": "confirmation_c0_r0.npz",
+      "source_task": {
+        "block": "confirmation",
+        "block_seed": 27210701,
+        "composition": "empty",
+        "context": 0,
+        "replicate": 0,
+        "supply": 0.0
+      },
+      "original_config_sha256": "c66c4df1b769e404b549c8e6022c9319bbc21ebde9f76c0c36a926e7a402feba",
+      "A_width": 0.078125,
+      "A_founding_allele_values": [
+        0.421875,
+        0.578125
+      ],
+      "A_founding_expressed_variance": 0.0,
+      "A_expected_F1_segregation_variance_no_mutation": 0.0030517578125,
+      "A_can_reach_threshold_without_mutation": true,
+      "I_scale": 0.5,
+      "I_allele_copy_mean": 0.515625,
+      "I_allelic_variance_proxy": 0.001190185546875,
+      "I_expressed_variance": 0.00067138671875,
+      "I_original_variance_proxy": 0.0047607421875,
+      "I_variance_relative_to_source": 0.25,
+      "I_possible_decline_support": 0.0703125,
+      "I_can_reach_decline_without_mutation": true,
+      "no_clipping": true,
+      "transformed_alleles_sha256": "4dfcdfef50dba52701475be80ba395783930fbab7c48b1809beae4822902c5d7"
+    },
+    {
+      "block": "confirmation",
+      "source_case": "confirmation_c0_r0.npz",
+      "source_task": {
+        "block": "confirmation",
+        "block_seed": 27210701,
+        "composition": "empty",
+        "context": 0,
+        "replicate": 0,
+        "supply": 0.0
+      },
+      "original_config_sha256": "c66c4df1b769e404b549c8e6022c9319bbc21ebde9f76c0c36a926e7a402feba",
+      "A_width": 0.078125,
+      "A_founding_allele_values": [
+        0.421875,
+        0.578125
+      ],
+      "A_founding_expressed_variance": 0.0,
+      "A_expected_F1_segregation_variance_no_mutation": 0.0030517578125,
+      "A_can_reach_threshold_without_mutation": true,
+      "I_scale": 1.0,
+      "I_allele_copy_mean": 0.515625,
+      "I_allelic_variance_proxy": 0.0047607421875,
+      "I_expressed_variance": 0.002685546875,
+      "I_original_variance_proxy": 0.0047607421875,
+      "I_variance_relative_to_source": 1.0,
+      "I_possible_decline_support": 0.140625,
+      "I_can_reach_decline_without_mutation": true,
+      "no_clipping": true,
+      "transformed_alleles_sha256": "54a173e049d06f07c5f996de697485745f3f0ad7b3a0abf0b06b210b161f1141"
+    }
+  ],
+  "limitations": [
+    "Synthetic founding-genotype transformation only, no realised genetic evolution or first-passage time.",
+    "I allele scaling also rescales genetic covariances with other loci; it does not isolate a marginal quantitative-genetic variance effect.",
+    "A width changes both initial allelic spread and structural threshold accessibility under no A mutation.",
+    "Exact original Model3 reproductive and inheritance source must be bound and tested before biological execution.",
+    "Only original context-zero founding state used; previously source-admitted context identity does not substitute for a fresh new-producer gate."
+  ]
+}
