@@ -81,8 +81,42 @@ def test_frozen_original_actual_outcome_counts():
         'assurance_first':179,'investment_first':217,'near_simultaneous':182,
         'assurance_only':189,'investment_only':1,'neither':0}
     assert len(j['original_fixed_access_comparator']['six_founder_ecology_rows'])==6
+    support=j['original_fixed_access_comparator']['retrospective_genotype_support_at_individual_level']
+    assert support['n_original_cases_full_diploid_alleles_examined']==768
+    counts=support['first_support_and_expressed_variation_year_counts']
+    assert counts['first_A_individual_at_least_founder_mean_plus_005']=={'1':768}
+    assert counts['first_I_individual_at_most_founder_mean_minus_005']=={'0':768}
+    assert counts['first_positive_expressed_A_variance']=={'1':768}
+    assert counts['first_A_individual_support_with_no_A_mutation_flag']=={'1':768}
+    assert support['F1_A_supporting_individuals_across_all_starts']==9204
+    assert support['F1_A_supporting_individuals_without_A_mutation_flag']==9084
+    lat=support['first_support_to_A_sustained_population_event_by_postselected_class']
+    assert lat['assurance_first']['median_response_update_after_individual_support']==14
+    assert lat['investment_first']['median_response_update_after_individual_support']==22
+    assert lat['near_simultaneous']['median_response_update_after_individual_support']==11
     assert j['new_pilot']['n_new_pilot_biological_histories_executed_by_this_audit']==0
     assert j['new_pilot']['observed_new_genetic_treatment_effects'] is None
+
+
+def test_support_from_original_genotype_variance_not_implicit_t0_clock():
+    pop=np.full(201,2,dtype=int)
+    means=np.full((201,3),.5)
+    offsets=np.arange(0,2*(201+1),2,dtype=np.int64)
+    alleles=np.full((402,3,2),.5)
+    alleles[2,2,:]=[.5625,.5625]    # one t1 source adult has +0.0625 A support
+    alleles[0,1,:]=[.40,.40]        # I support at original census zero
+    flags=np.zeros_like(alleles,dtype=bool)
+    v=audit.first_individual_support(alleles,flags,offsets,means,pop)
+    assert v['first_A_individual_at_least_founder_mean_plus_005']==1
+    assert v['first_A_individual_support_with_no_A_mutation_flag']==1
+    assert v['first_I_individual_at_most_founder_mean_minus_005']==0
+    assert v['first_positive_expressed_A_variance']==1
+    assert v['F1_A_support_individuals_without_A_mutation_flag']==1
+    flags[2,2,0]=True
+    second=audit.first_individual_support(alleles,flags,offsets,means,pop)
+    assert second['first_A_individual_support_with_no_A_mutation_flag'] is None
+    with pytest.raises(ValueError,match='full-genome census'):
+        audit.first_individual_support(alleles,flags,offsets[:-1],means,pop)
 
 
 def test_original_zip_byte_corruption_is_rejected(tmp_path):
