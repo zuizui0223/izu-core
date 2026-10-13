@@ -36,7 +36,30 @@ All six outcomes are retained: `assurance_first=335`, `investment_first=435`, `n
 
 - `scripts/audit_chapter2_initial_clock_identifiability_20261013.py` validates the frozen 18-cell source-labelled inventory (2 blocks × 9 contexts × 128 histories), original six-class partitions, original order-score `D`, preserved source identifier, and **Git blob of the input summary**. It computes all descriptive majority/entropy/Brier oracles reproducibly without replaying biology or altering original readouts.
 - `tests/test_chapter2_initial_clock_identifiability_20261013.py` checks category and denominator partition, monotonicity of nested oracles, source drift, impossible category counts, swapped contexts, duplicate cells, and postselected strict-only accounting. The exact-input integration check is run when the original PR491 branch file is present. The offline sandbox executed **14 tests**, with the exact-input integration check unavailable in the sandbox; it must pass on GitHub before claiming a source checkout replay.
-- This audit does **not** calculate the 18 initial `G`, `beta`, or full source-fitness gradients; it does not inspect the 251,663,558-byte independent raw nine-shard package or establish out-of-sample clock accuracy. There are **no new genotypes, stochastic trajectories, p-values, bootstrap intervals or significance conclusions**. Observed-sample oracle comparisons are descriptive only and cannot substitute for preregistration.
+- The **first aggregate-only phase** does not calculate actual t0 response. The separate source-authenticated **raw t0 follow-up** below does. Neither phase estimates two-trait first-passage times or out-of-sample clock accuracy. There are **no new genotypes, stochastic trajectories, p-values, bootstrap intervals or significance conclusions**. Observed-sample oracle comparisons are descriptive only and cannot substitute for preregistration.
+
+## Completed original-genome t0 follow-up (run 38337931445)
+
+The newly isolated, read-only GitHub job [38337931445](https://github.com/zuizui0223/izu-core/actions/runs/38337931445) **succeeded**. The job downloaded the already public **251,663,558-byte** original `ecological_order_actual_github_38312090996.zip`, checked outer SHA256 `819741aa4a9f5bc1aaf2dadddbd56b79d158fc9295d07fc3bffe362693fc056a`, all nine nested provider ZIP hashes and all 2,304 raw case hashes against the frozen event/category registry. It verified that each founder×visitor context has an identical full initial genotype across its 128 stochastic repeats. No new biological generation, mutation experiment, threshold adjustment, or trajectory replay was executed.
+
+A separate [18-row compact result](../data/results/chapter2_initial_clock_t0_raw_20261013.json) now reports original saved **t0 genetic-return Price response** and starting genetic-variance proxies. The features depend only on initial genotypes, original t0 female/paternal/selfed return components and visitor context. Later results were read solely for identity/category admission.
+
+| Source-derived t0 diagnostic | Confirmed result |
+|---|---:|
+| Source-genotype initial profiles across 2,304 paths | **18** |
+| Founding expressed assurance phenotypic variance | **0** in all 18 |
+| Founding expected assurance genetic-selection response | **0** in all 18 |
+| Hypothetical unmutated F1 A expressed Mendelian segregation variance | **0.001953125** in all 18 |
+| Main founder investment allelic additive-variance proxy | **0.00631714** |
+| Confirmation founder investment allelic additive-variance proxy | **0.00476074** |
+| t0 inherited-investment response favours investment decline | **12/18 conditions** |
+| t0 inherited-investment response favours investment increase | **6/18 conditions** |
+
+Exploratory descriptive association with later registered 200-update **investment-decline event** (any of A-first/I-first/tie/I-only): **1,060/1,536 = 69.01%** of starts in the 12 initially decline-favoured cells; **78/768 = 10.16%** of starts in the six opposite-direction cells. These cell groups are neither randomized nor independent ecological systems; the same replicate seeds are paired across contexts, and differences confound founder genetics, activity and functional composition. They are **not** a six-class clock, adjusted selection effect, causal genetic-access attribution or prospective accuracy estimate.
+
+**Mechanistic constraint revealed:** the initial expected A response is identically zero even though assurance is heterozygous and Mendelian segregation makes selectable variation possible. A one-stage `0.05 / t0 R_A` clock is formally undefined/infinite for all 18 initial states and cannot predict observed A-first histories. Building the proposed two-stage *access → response* clock therefore requires predicting first-generation segregation/mutation and subsequent selection without reading observed post-t0 states. The observed t0 investment direction alone is promising for **I-event incidence** but is not a model of relative A-versus-I crossing times.
+
+The next gate remains an outcome-blind 18-condition, t0-only two-stage clock with all six categories, held-out paired-history evaluation and predeclared proper scores. The raw follow-up is source verification and feature extraction, **not confirmation of that clock**.
 
 ## Single next scientific gate
 
