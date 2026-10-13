@@ -997,7 +997,8 @@
         "confidence_exploratory_conditional": {
           "replicates": 10000,
           "unit": "founder-specific replicate/visitor random-stream cluster (all nine ecological contexts stay together)",
-          "sampling": "paired within each of two source founders, fitted 5-fold predictions treated as fixed",          "bootstrap_seed": 2026101301,
+          "sampling": "paired within each of two source founders, fitted 5-fold predictions treated as fixed",
+          "bootstrap_seed": 2026101301,
           "log_loss_reduction_95_percentile": [
             0.031106546304541068,
             0.03573494438455228
