@@ -29,7 +29,18 @@ Immutable original GitHub Actions shard0 SHA256 **`5b850eaad6104f572f56df2a37da0
 | main | 0.00921630859375 | 0 | 0.00341796875 |
 | confirmation | 0.002685546875 | 0 | 0.0068359375 |
 
-Each combination preserves the hash of the **whole expressed 48×3 trait matrix**. All eight keep a path to founder-relative I decline0.05 even without I mutation, although the event need not occur. This provides a source-backed t0 genotype manipulation, **not yet a source-operator proof that the reproduction-ledger bytes are identical**; that proof and original mutation-masks/ancestry verification are gates for the future producer.
+Each combination preserves the hash of the **whole expressed 48×3 trait matrix**. All eight keep a path to founder-relative I decline0.05 even without I mutation, although the event need not occur. This provides a source-backed t0 genotype manipulation. **The native, original-byte-identity reproduction-operator comparison has now also passed**, as detailed below. Parentage/mutation/offspring and population-update checks remain pre-pilot gates.
+
+
+## 2b. Original native reproductive operator exact equality — completed
+
+The historical `scripts/model3_island/reproduction.py` Git blob at biological execution SHA `328548612e93469fcc8663f24548530a57399b9a` is exactly `95314698a3296b6f13b8c053c36f2df0b7b744ca`, and the current repository file has the identical blob. The original source-reproduction function operates on `state.alleles.mean(axis=2)`. It was called read-only on the **six archived original** founder×visitor t0 states (shards0/3/4, independently SHA-locked) and **24 adjusted** t0 genotype states. Exact source configurations and restored visitor optima/effectiveness were used, without any mutation, meiosis, inheritance or population-update call.
+
+- All six archived t0 source reproductive totals independently re-evaluated within **1.42×10^-14** maximum absolute error. The source-checker uses the saved original `returns[0]` for every reference cell.
+- Every one of the **24** modified genotype states has **exact identical per-array SHA256** for the original mother's viable contribution, paternal return, outcross matrix, autonomous selfing, pollen exported/delivered and resource budget under each founder×visitor configuration. This is stronger than equality of scalar totals.
+- The checker used exact original SHA-pinned `reproduce` source with simple technical input receivers, not a replacement biological equation. New histories0; `advance` called0. This verifies only a **static original source operator**. Full original typed state/parentage/mutation-stream preservation and biological producer review remain unresolved.
+
+Reader: [`audit_chapter2_clock_t0_reproduction_equivalence_20261013.py`](../scripts/audit_chapter2_clock_t0_reproduction_equivalence_20261013.py); [24-state source check receipt](../data/results/chapter2_clock_t0_reproduction_equivalence_20261013.json).
 
 ## 3. Proposed exploratory pilot — NOT DISPATCHED
 
@@ -60,7 +71,7 @@ For any later proposed confirmation, predefine (before its outcomes) `n=ceil_to_
 ## 5. Remaining gates and rollback/no-go conditions
 
 1. **Original source/runtime identity:** use the original 048-adult diploid Model 3 source/recipe package, not a current-main variant silently substituted. Verify the exact original source SHA and all founder-specific allele/ancestry arrays, then implement the h/w transformations in a new producer-wrapper only. Reject changes to M/I/A *expressed* t0 traits, source configurations, indexed parentage or mutation masks.
-2. **Initial reproduction equality:** replay the original mating operator on all four adjusted t0 states **without advance/recruitment** to verify identical initial maternal/paternal/self viability and pollen transfer per founder×visitor context. This tests the hypothesised phenotype-only t0 operator and is a prerequisite, not assumed evidence.
+2. **Initial reproductive equality (CLOSED):** six original fixed source states and24 adjusted states passed byte-identical source F/P/S/pollen ledger comparison. It does not establish equality of future stochastic histories. Continue with full original typed genotype/parentage/mutation rules, source identity and population-update technical fixtures before pilot.
 3. **Prospective pilot registration:** persist exact salt, 1,536 input IDs, configs/sha, raw genotype/source output format, the complete six-class event definitions and the independent verification process. Preserve original source ZIP and failed technical attempts. No retrospective tuning or selective re-run of completed cases.
 4. **Clock-vs-flexible-null readiness:** calculate the A-access waiting distribution/availability from genetics, exact A and I returns and mutation law, not from future observed genotypes. Freeze the *statistical* two-stage prediction and stronger ecological interaction null only after pilot exploration and before independent confirmation. A raw source β-gradient sign by itself is not a full first-passage time.
 5. **Post-pilot stop rule:** if original source access, operator equality, parentage, status/stream pairing, six-class denominator or calibration fails, `HOLD` and do not promote. If pilot SD implies confirmation n>1024, `NO_GO`; do not select favorable ecological cells or increase hypothesized effect.
