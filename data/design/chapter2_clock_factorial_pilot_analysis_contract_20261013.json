@@ -40,8 +40,8 @@
   },
   "descriptive_endpoints": {
     "cell_frequency_table": "24 founder_by_context_by_Awidth_by_Ihidden cells, each n=64; all six classes and full denominators",
-    "assurance_incidence": "A onset observed by year 181 and sustained through 200",
-    "investment_incidence": "I decline onset observed by year 181 and sustained through 200",
+    "assurance_incidence": "A first threshold crossing has 20 consecutive occupied censuses starting at an onset year 0..181; does NOT need to remain beyond that 20-census run to year 200",
+    "investment_incidence": "I decline first threshold crossing has 20 consecutive occupied censuses starting at an onset year 0..181; does NOT need to remain beyond that 20-census run to year 200",
     "strict_order_score_D": "one(A-first) - one(I-first), with tie/single-event/neither equal zero; mean over all starts",
     "per_block_context_Awidth_difference_A_incidence": "average over two I arms of P(Aevent|A=H)-P(Aevent|A=L)",
     "per_block_context_Ihidden_difference_I_incidence": "average over two A arms of P(Ievent|I=1)-P(Ievent|I=0)",
