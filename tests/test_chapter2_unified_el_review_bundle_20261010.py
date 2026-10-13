@@ -107,9 +107,15 @@ def test_restoration_is_portable_and_keeps_independently_verified_unresolved_dec
     assert value['independent_state_parent_checks']==123880
     assert len(value['cases'])==64
     assert builder.sha(members['EVIDENCE/INVESTMENT_VARIATION_PROTOCOL.md'])==value['protocol_sha256']
+    accounting=value['pathwise_accounting']
+    assert accounting['status']=='INDEPENDENT_ALL7740_RESTORED_PATHWISE_TERMS_MATCH'
+    assert accounting['updates']==7740 and accounting['new_histories']==0
+    assert all(v['selection']<0 for v in accounting['blocks'].values())
+    assert accounting['blocks']['causal_confirmation']['observed_change']>0
 
 
-def test_restoration_rejects_pending_independent_status_with_updated_byte_receipt(tmp_path,monkeypatch):
+@pytest.mark.parametrize('field',['status','pathwise_accounting.status'])
+def test_restoration_rejects_pending_independent_status_with_updated_byte_receipt(tmp_path,monkeypatch,field):
     import shutil
     root=tmp_path/'results';receipt='minimal_resolution_delivery_20261013.json'
     value=json.loads((builder.MINIMAL_RESULTS/receipt).read_bytes())
@@ -118,7 +124,9 @@ def test_restoration_rejects_pending_independent_status_with_updated_byte_receip
         shutil.copyfile(builder.MINIMAL_RESULTS/name,p)
     name='investment_variation_restoration_readout_20261013.json';p=root/name
     assert p.exists(),'restoration readout missing from scientific evidence inventory'
-    result=json.loads(p.read_bytes());result['status']='PENDING'
+    result=json.loads(p.read_bytes())
+    if field=='status':result['status']='PENDING'
+    else:result['pathwise_accounting']['status']='PENDING'
     raw=(json.dumps(result,indent=2)+'\n').encode();p.write_bytes(raw)
     value['sha256'][name]=builder.sha(raw);value['source_raw_sha256'][name]=[builder.sha(raw)]
     (root/receipt).write_text(json.dumps(value),encoding='utf-8')

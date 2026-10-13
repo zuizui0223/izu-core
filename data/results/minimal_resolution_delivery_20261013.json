@@ -9,7 +9,7 @@
     "chapter2_discovery_archive_recovery_20261013.json": "0c798de4dd6028cb605932d2715027200a3881d888109809736b885f3ae661c5",
     "ecological_order_boundary_20261013.json": "4a0b6ab3edf90b21c9513feecab0bec59bfc550f1af8350964ac3b3201220ce5",
     "future_parent_selection_readout_20261013.json": "7187fc9ee738afdc99e3ca576f1d41d7d1ffa0a5052b2b6e252a9ebbc76e3cfe",
-    "investment_variation_restoration_readout_20261013.json": "7ceb0a70905f6c65645a7cc4f65aef31b36aa35cda3990ac9a365a4a68d46c41"
+    "investment_variation_restoration_readout_20261013.json": "17440b517f96fb6ebdac2091f886a5fa27c7a2da5a8c884743e5dab6057a7bb1"
   },
   "source_raw_sha256": {
     "genome_response_accounting_readout_20261013.json": [
@@ -44,8 +44,8 @@
       "3d0a2d269c6d45357ea31e2cc6f0e666cd4dff2cc928c36ccd2ff4ee7be3d2b4"
     ],
     "investment_variation_restoration_readout_20261013.json": [
-      "43677cbe8f820e11ea9bd99d697639b51e8fea0ae7e959354d8d135e147f17e5",
-      "7ceb0a70905f6c65645a7cc4f65aef31b36aa35cda3990ac9a365a4a68d46c41"
+      "17440b517f96fb6ebdac2091f886a5fa27c7a2da5a8c884743e5dab6057a7bb1",
+      "2485c2416140434ad7ade03ae77999921d066db1132fe529484084a65b044eb5"
     ]
   },
   "transformation": "UTF-8 JSON: CRLF to LF only; original gzip unchanged. Known original and LF source-byte identities are both recorded; values are not reserialized."

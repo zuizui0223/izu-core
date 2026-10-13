@@ -172,6 +172,15 @@ def minimal_resolution_materials():
         or any(r['original_I'] is None or r['restored_I'] is None for r in restoration['cases'])):
         raise ValueError('investment variation independent admission differs')
     values=restoration['cases']
+    accounting=restoration.get('pathwise_accounting',{})
+    if (accounting.get('status')!='INDEPENDENT_ALL7740_RESTORED_PATHWISE_TERMS_MATCH'
+        or accounting.get('updates')!=7740 or accounting.get('cases')!=64
+        or accounting.get('new_histories')!=0 or accounting.get('producer_imports') is not False
+        or accounting.get('independent_receipt_sha256')!='f98613093deca632475000556670be9faa28a31f17007b5fcc859997f1c95355'):
+        raise ValueError('investment variation independent admission differs')
+    for block,row in accounting['blocks'].items():
+        if abs(row['selection']+row['parent_sampling']+row['transmission']-row['observed_change'])>1e-12:
+            raise ValueError('investment variation signed accounting closure differs')
     if abs(sum(r['original_I']-r['restored_I'] for r in values)/64-restoration['primary']['estimate'])>1e-12:
         raise ValueError('investment variation primary differs from complete case inventory')
     protocol=ROOT/'docs/CHAPTER2_INVESTMENT_VARIATION_RESTORATION_PROTOCOL_20261013.md'

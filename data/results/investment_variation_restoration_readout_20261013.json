@@ -475,5 +475,32 @@
   "independent_state_parent_checks": 123880,
   "independent_reproductive_variance_checks": 54628,
   "independent_receipt_sha256": "8fc957c4fcea4287541627abae5aaf572dccb82bd43e74f7c7f16fafa816f37e",
-  "scope": "Outcome-informed64-history diagnostic; unresolved effect, no equivalence or pure natural-order benefit"
+  "scope": "Outcome-informed64-history diagnostic; unresolved effect, no equivalence or pure natural-order benefit",
+  "pathwise_accounting": {
+    "status": "INDEPENDENT_ALL7740_RESTORED_PATHWISE_TERMS_MATCH",
+    "cases": 64,
+    "updates": 7740,
+    "producer_imports": false,
+    "new_histories": 0,
+    "blocks": {
+      "causal_main": {
+        "selection": -0.018300644248005985,
+        "parent_sampling": -0.0061134182519940175,
+        "transmission": 0.004923502604166675,
+        "observed_change": -0.019490559895833332
+      },
+      "causal_confirmation": {
+        "selection": -0.011386170404292389,
+        "parent_sampling": 0.013685161289709048,
+        "transmission": 0.0022176106770833356,
+        "observed_change": 0.0045166015625
+      }
+    },
+    "annual_term_max_error": 1.214306433183765e-17,
+    "expected_response_max_error": 1.2034644114589099e-17,
+    "audited_accounting_sha256": "c1604c9b7ed8c814d0219cef951e9f4da835db7ccbbc7b85bb00aaa95f36a52f",
+    "verifier_sha256": "bd377c2b654bd0ab56f53260a15cc16c0ddbd91be7d63af791026f82f7362d93",
+    "independent_receipt_sha256": "f98613093deca632475000556670be9faa28a31f17007b5fcc859997f1c95355",
+    "scope": "Retrospective signed within-path accounting, no extra inference family or unique causal/density-gap share"
+  }
 }
