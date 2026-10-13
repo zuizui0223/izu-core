@@ -274,6 +274,12 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
            "EVIDENCE/KERNEL_EXPRESSION_PROTOCOL.md",
            "EVIDENCE/KERNEL_EXPRESSION_READOUT.json",
            "EVIDENCE/KERNEL_EXPRESSION_SOURCE.py",
+           "EVIDENCE/LOW_ALLELE_LOSS_CASES.csv",
+           "EVIDENCE/LOW_ALLELE_LOSS_INDEPENDENT_REVIEW.json",
+           "EVIDENCE/LOW_ALLELE_LOSS_PROTOCOL.md",
+           "EVIDENCE/LOW_ALLELE_LOSS_READOUT.json",
+           "EVIDENCE/LOW_ALLELE_LOSS_SCOPE.md",
+           "EVIDENCE/LOW_ALLELE_LOSS_SOURCE_READBACK_NOTE.md",
            "EVIDENCE/MECHANISM_DESIGN.md",
            "EVIDENCE/MECHANISM_ORIGINAL.json.gz",
            "EVIDENCE/MECHANISM_READOUT.json",
@@ -299,7 +305,7 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
         assert m["doi_deposit_complete"] is False
         assert m["n_figures"]==4
         assert m["n_supplementary_figures"]==3
-        assert len(m["members"])==74
+        assert len(m["members"])==80
         for name,record in m["members"].items():
             raw=z.read(name)
             assert record=={"size":len(raw),"sha256":hashlib.sha256(raw).hexdigest()}

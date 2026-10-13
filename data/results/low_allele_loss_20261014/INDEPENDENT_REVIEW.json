@@ -1,0 +1,14 @@
+{
+  "status": "ALL2304_LAST_LOSS_RECORDS_INDEPENDENTLY_VERIFIED",
+  "cases": 2304,
+  "eligible_loss": 1238,
+  "scalar_checks": 23522,
+  "gamete_enumerations": 10994304,
+  "max_scalar_error": 5.684341886080802e-14,
+  "readout_sha256": "8c80ed2aa4b19e6d9847a3a509040d6e40e953961f280781be24f79bdab6ccc6",
+  "cases_sha256": "f1f0854d5cc73aadaf45a5980ac54d47dda476589f51e5e35fe4e293d33a60d3",
+  "verifier_sha256": "7c36ba3c76bd4d765d9b7111f6d20088de5bf4adfe9c9c059c06d0b4d349860e",
+  "producer_imported": false,
+  "new_biological_histories": 0,
+  "reproduction_advances": 0
+}

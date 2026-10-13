@@ -1,0 +1,28 @@
+{
+  "status": "PUBLIC_ALL20_PAYLOADS_MATCH_FROZEN_LOCAL_ORIGINAL",
+  "archive_sha256": "dda7661dfc0b223ca5797f451dece0204f69f63ac30f6430b8092154245a72ff",
+  "bytes": 407379,
+  "payloads": 20,
+  "pins": {
+    "scripts/low_allele_loss_20261014/PROTOCOL.md": "1587dcf1d977f657babdf94cd9998bd8549661890c4b19427ef54e232f0535ad",
+    "scripts/low_allele_loss_20261014/audit_loss.py": "58d11dff4a313fba7fde3ecc598126012f2aeb0d0517919563ee3b9531ebff6e",
+    "scripts/low_allele_loss_20261014/verify_loss.py": "7c36ba3c76bd4d765d9b7111f6d20088de5bf4adfe9c9c059c06d0b4d349860e",
+    "scripts/low_allele_loss_20261014/test_loss.py": "2817f92f2a3d7701431fefbe4fb9c200c88d98c8f6695d5bf3ee970d67b47fe7",
+    "scripts/low_allele_loss_20261014/RECIPE_SOURCE.py": "e8786b6f63e05947a96c52cbdef828dd0fd0bf3b3c7f67602b9d35df1f3cb152",
+    "scripts/low_allele_loss_20261014/native/__init__.py": "570943c83d3ce9417b496e5e899d35f9baca398ed4689d7da8df65d1c0ae2261",
+    "scripts/low_allele_loss_20261014/native/types.py": "b56b579c8821f0094e395d5bef42e49e557d59781f2dcf8ed14cff895bea292e",
+    "scripts/low_allele_loss_20261014/native/reproduction.py": "a1d2ad76a2b0d22cda19606fd7d115c3a0506c6dad05e49f3177cbd13ee51c82",
+    "scripts/low_allele_loss_20261014/native/population.py": "c03fc6fccdf4efb660ece8fa5ee016d4de14f84f3b234dfb6322666b89ec34c1",
+    "scripts/low_allele_loss_20261014/FROZEN_SOURCES.json": "12a77fa1b82b892199a5ff0375c1fa8a0495943a32881bf4c79ea0f6f4433706",
+    "data/results/low_allele_loss_20261014/extracted/READOUT.json": "8c80ed2aa4b19e6d9847a3a509040d6e40e953961f280781be24f79bdab6ccc6",
+    "data/results/low_allele_loss_20261014/extracted/ALL_CASES.csv": "f1f0854d5cc73aadaf45a5980ac54d47dda476589f51e5e35fe4e293d33a60d3",
+    "data/results/low_allele_loss_20261014/INDEPENDENT_REVIEW.json": "84c637c2b839f488cfe41873bd7cbb9c014a67b52e1b1f2e4c37bd96448af776",
+    "data/results/low_allele_loss_20261014/SOURCE_READBACK_NOTE.md": "6113e8f0ba95995e33511921b3c5f73742939d7dae04d6a1f09464b512076d9c",
+    "data/results/low_allele_loss_20261014/COMPANION_README.md": "4e0376d6bd640aec7cbc39405f435289782018709cdf2e9b02c54bfab6ad5b8c",
+    "data/results/low_allele_loss_20261014/README.md": "eee03a543e8be4c39e206245ea13c495dad16b89dcd4cb1952fa73b1fad88237",
+    "data/results/low_allele_loss_20261014/INPUT_CASES.csv": "5c8e3fe38d7f2953d2ba8b54e716261c7bdc9d4a92bf928182b5fcf621e5e665",
+    "data/results/low_allele_loss_20261014/ORIGINAL_COMPACT.json": "4a0b6ab3edf90b21c9513feecab0bec59bfc550f1af8350964ac3b3201220ce5",
+    "data/results/low_allele_loss_20261014/PRIOR_SUPPORT_READOUT.json": "976dcf0be6d203220e221f3dffa83b69a6f6fe3624f6f3a1103c5063bedd26b1",
+    "data/results/low_allele_loss_20261014/PRIOR_SUPPORT_INDEPENDENT_REVIEW.json": "0b7522ad57903a819b1d630c56023edfa46c66d1b37edc721ce3471826952d0b"
+  }
+}

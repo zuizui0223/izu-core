@@ -127,6 +127,41 @@ def pr490_original_materials():
         for name,value in members.items()}
 
 
+def low_allele_loss_materials():
+    data=ROOT/'data/results/low_allele_loss_20261014'
+    raw=(data/'PUBLIC_READBACK.json').read_bytes()
+    if sha(raw)!='25c1b872db116be164a1891aa05f82cde4ef95e861dee20c81b70bf57a557867':
+        raise ValueError('low-allele-loss public readback identity differs')
+    admission=json.loads(raw)
+    for path,digest in admission['pins'].items():
+        if sha((ROOT/path).read_bytes())!=digest:
+            raise ValueError('low-allele-loss frozen source/result differs: '+path)
+    names={
+        'data/results/low_allele_loss_20261014/extracted/READOUT.json':'READOUT.json',
+        'data/results/low_allele_loss_20261014/extracted/ALL_CASES.csv':'CASES.csv',
+        'data/results/low_allele_loss_20261014/INDEPENDENT_REVIEW.json':'INDEPENDENT_REVIEW.json',
+        'scripts/low_allele_loss_20261014/PROTOCOL.md':'PROTOCOL.md',
+        'data/results/low_allele_loss_20261014/COMPANION_README.md':'SCOPE.md',
+        'data/results/low_allele_loss_20261014/SOURCE_READBACK_NOTE.md':'SOURCE_READBACK_NOTE.md',
+    }
+    members={'EVIDENCE/LOW_ALLELE_LOSS_'+dest:(ROOT/path).read_bytes() for path,dest in names.items()}
+    result=json.loads(members['EVIDENCE/LOW_ALLELE_LOSS_READOUT.json'])
+    review=json.loads(members['EVIDENCE/LOW_ALLELE_LOSS_INDEPENDENT_REVIEW.json'])
+    if (result['cases']!=2304 or result['eligible_loss']!=1238
+        or result['direction_counts']!={'favouring_needed':315,'opposing_needed':923,'screened_near_zero':0}
+        or review['status']!='ALL2304_LAST_LOSS_RECORDS_INDEPENDENTLY_VERIFIED'
+        or review['readout_sha256']!=sha(members['EVIDENCE/LOW_ALLELE_LOSS_READOUT.json'])
+        or review['cases_sha256']!=sha(members['EVIDENCE/LOW_ALLELE_LOSS_CASES.csv'])
+        or review['producer_imported'] is not False
+        or any(v['new_biological_histories']!=0 or v['reproduction_advances']!=0 for v in (result,review))):
+        raise ValueError('low-allele-loss admission scope differs')
+    return members,{name:dict(original_sha256=sha(value),derived_sha256=sha(value),
+        public_companion_sha256=admission['archive_sha256'],
+        public_companion_name='LOW_ALLELE_LOSS_COMPLETE_REVIEW_20261014.zip',
+        transformation='Exact retrospective last-loss evidence; full frozen source/input companion publicly verified. Conditional parent-weighting and sampling/segregation terms, not pure drift or historical causal shares.')
+        for name,value in members.items()}
+
+
 def directional_access_materials():
     data = MINIMAL_RESULTS / 'directional_access_20261013'
     code = ROOT / 'scripts/directional_access_20261013'
@@ -824,6 +859,9 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     directional,directional_derivations=directional_access_materials()
     members.update(directional)
     derivations.update(directional_derivations)
+    low_loss,low_loss_derivations=low_allele_loss_materials()
+    members.update(low_loss)
+    derivations.update(low_loss_derivations)
     original490,original490_derivations=pr490_original_materials()
     members.update(original490)
     derivations.update(original490_derivations)

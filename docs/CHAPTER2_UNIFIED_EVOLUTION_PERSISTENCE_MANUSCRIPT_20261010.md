@@ -122,7 +122,7 @@ Raw-genome accounting of all320 source-matched ABM trajectories separated expect
 
 A matched same-state operator accounting narrowed this discrepancy. In low-supply matched populations, current-census contributions were zero in both founders. Finite individual-self exclusion opposed, rather than produced, the positive ABM-minus-density investment gap. In the main founder block, endpoint gap+0.122377 closed as sampling/transmission+0.030179, finite-parent operator−0.005405, census0 and remaining path feedback+0.097603. After investment fixation, its mean could no longer change while density predictions continued moving; the all-start mean post-fixation gap increase was+0.081531, versus+0.044516 in confirmation founders. Remaining feedback includes genetic-state dynamics and numerical representation error; these signed quantities are not unique causal fractions (Supporting Information S13).
 
-In the separate2,304-case assay, loss of alleles needed for the predeclared0.05 investment decrease could precede complete fixation despite remaining expressed variation (S14).
+In2,304 separate histories, alleles needed for the0.05 investment decrease disappeared before fixation despite expressed variation in703 cases; in315/1,238 final-loss transitions, their expected frequency increased (S14).
 
 A subsequent64-history diagnostic restored investment allele variation at fixation while preserving each individual's expressed mean. Original-minus-restored terminal investment was+0.00749[−0.00562,+0.02035], with opposing founder estimates. Restoring accessible variation alone did not establish greater floral reduction (S17).
 
@@ -259,4 +259,3 @@ Sakai, S. (1995). Evolutionarily stable selfing rates of hermaphroditic plants i
 Sicard, A., Stacey, N., Hermann, K., Dessoly, J., Neuffer, B., Bäurle, I. & Lenhard, M. (2011). Genetics, evolution, and adaptive significance of the selfing syndrome in the genus *Capsella*. *The Plant Cell*, 23, 3156–3171. https://doi.org/10.1105/tpc.111.088237
 
 Traveset, A., Tur, C., Trøjelsgaard, K., Heleno, R., Castro-Urgal, R. & Olesen, J.M. (2016). Global patterns of mainland and insular pollination networks. *Global Ecology and Biogeography*, 25, 880–890. https://doi.org/10.1111/geb.12362
-
