@@ -101,6 +101,7 @@ def test_missing_external_archive_manifest_cannot_start_review(tmp_path):
     output=tmp_path/'published'
     with pytest.raises(FileNotFoundError):
         review_six({k:tmp_path/(k+'.zip') for k in SHARDS},
+                   {k:tmp_path/(k+'_mirror.zip') for k in SHARDS},
                    tmp_path/'no-reviewed-archive-receipt.json',
                    tmp_path/'no-registry.json',
                    tmp_path/'no-original-fixture.json',
@@ -112,7 +113,7 @@ def test_review_never_replaces_prior_source_readout(tmp_path):
     output=tmp_path/'prior-reviewed-artifacts'
     output.mkdir()
     with pytest.raises(FileExistsError,match='do not replace'):
-        review_six({},tmp_path/'receipt.json',tmp_path/'reg.json',
+        review_six({}, {},tmp_path/'receipt.json',tmp_path/'reg.json',
                    tmp_path/'fixture.json',tmp_path/'design.json',output)
 
 
@@ -127,10 +128,15 @@ def test_six_zip_review_orchestration_with_stubbed_nonbiological_reader(tmp_path
     registry.write_text(json.dumps(fake)+'\n')
     monkeypatch.setattr(m,'REGISTRY_GIT_BLOB',git_blob(registry.read_bytes()))
     archives={}
+    mirrors={}
     hashes={}
+    import shutil
     for name in SHARDS:
         path=write_mock_zip(tmp_path/(name+'.zip'),fake,shard=name,registry_blob=m.REGISTRY_GIT_BLOB)
         archives[name]=path
+        mirror=tmp_path/(name+'_separate_copy.zip')
+        shutil.copyfile(path,mirror)
+        mirrors[name]=mirror
         hashes[name]=hashlib.sha256(path.read_bytes()).hexdigest()
     external=manifest()
     external['original_pilot_registry_blob']=m.REGISTRY_GIT_BLOB
@@ -159,7 +165,7 @@ def test_six_zip_review_orchestration_with_stubbed_nonbiological_reader(tmp_path
         return {'all_starts':1536,'total_native_reproductive_updates':307200}
     monkeypatch.setattr(m,'aggregate',fake_aggregate)
     output=tmp_path/'mock-delivery-results'
-    out=review_six(archives,receipt,registry,tmp_path/'no-original-fixture',
+    out=review_six(archives,mirrors,receipt,registry,tmp_path/'no-original-fixture',
                    tmp_path/'no-original-design',output)
     assert len(invoked)==6
     assert out['new_biological_histories_generated_by_reviewer']==0
@@ -168,6 +174,53 @@ def test_six_zip_review_orchestration_with_stubbed_nonbiological_reader(tmp_path
     assert len(list(output.iterdir()))==7
     for shard,record in out['raw_and_reader_sha256'].items():
         assert record['source_archive_sha256']==hashes[shard]
+        assert record['separately_read_mirror_sha256']==hashes[shard]
         filename=output/(shard+'_independently_verified.json')
         assert record['new_reader_receipt_sha256']==hashlib.sha256(filename.read_bytes()).hexdigest()
     assert (output/'ALL_SIX_ORIGINAL_SOURCE_READBACK.json').exists()
+
+
+def test_mirror_inventory_required_before_any_native_reader_import(tmp_path):
+    existing=tmp_path/'not-created'
+    # The source receipt is deliberately absent, and native biology may not
+    # run. A missing external manifest cannot be replaced by six local files.
+    with pytest.raises(FileNotFoundError):
+        review_six({k:tmp_path/(k+'.zip') for k in SHARDS},
+                   {k:tmp_path/(k+'_mirror.zip') for k in SHARDS},
+                   tmp_path/'absent-published-source.json',tmp_path/'absent-registry.json',
+                   tmp_path/'absent-fixture.json',tmp_path/'absent-design.json',existing)
+    assert not existing.exists()
+
+
+def test_same_inode_or_modified_separate_mirror_fails_closed(tmp_path, monkeypatch):
+    """Byte-equality of two distinct supplied copies is mandatory; no biology."""
+    import sys
+    import types
+    from scripts import review_chapter2_clock_external_archives_20261013 as m
+    reg=mock_registry()
+    reg_path=tmp_path/'reg.json';reg_path.write_text(json.dumps(reg)+'\n')
+    monkeypatch.setattr(m,'REGISTRY_GIT_BLOB',git_blob(reg_path.read_bytes()))
+    archives={}
+    mirrors={}
+    receipt=manifest()
+    receipt['original_pilot_registry_blob']=m.REGISTRY_GIT_BLOB
+    import shutil
+    for shard in SHARDS:
+        source=write_mock_zip(tmp_path/(shard+'.zip'),reg,shard=shard,
+                              registry_blob=m.REGISTRY_GIT_BLOB)
+        mirror=tmp_path/(shard+'_backup.zip')
+        shutil.copyfile(source,mirror)
+        archives[shard]=source; mirrors[shard]=mirror
+        receipt['archives'][shard]['sha256']=hashlib.sha256(source.read_bytes()).hexdigest()
+    manifest_file=tmp_path/'source-receipt.json'
+    manifest_file.write_text(json.dumps(receipt))
+    reader=types.ModuleType('scripts.verify_chapter2_clock_pilot_raw_20261013')
+    reader.verify=lambda *a,**k: (_ for _ in ()).throw(AssertionError('Never read native data after mirror failure'))
+    monkeypatch.setitem(sys.modules,'scripts.verify_chapter2_clock_pilot_raw_20261013',reader)
+
+    same=dict(mirrors);same['main_c0']=archives['main_c0']
+    with pytest.raises(ValueError,match='cannot be the same file'):
+        review_six(archives,same,manifest_file,reg_path,tmp_path/'x',tmp_path/'y',tmp_path/'review_same')
+    mirrors['main_c0'].write_bytes(mirrors['main_c0'].read_bytes()+b'changed-after-release')
+    with pytest.raises(ValueError,match='separate mirror ZIP byte SHA256 differs'):
+        review_six(archives,mirrors,manifest_file,reg_path,tmp_path/'x',tmp_path/'y',tmp_path/'review_modified')
