@@ -107,9 +107,9 @@ def inspect_zip(archive: Path, registry: dict, shard: str) -> tuple[dict, bytes]
     return completion, completion_bytes
 
 
-def review_six(archives: dict[str, Path], release_receipt: Path,
-               registry_path: Path, fixture_path: Path, design_path: Path,
-               output_directory: Path) -> dict:
+def review_six(archives: dict[str, Path], mirrors: dict[str, Path],
+               release_receipt: Path, registry_path: Path, fixture_path: Path,
+               design_path: Path, output_directory: Path) -> dict:
     """Run existing source-independent reviewer, never the producer.
 
     The review directory must not exist, so an interrupted/partially completed
@@ -120,8 +120,8 @@ def review_six(archives: dict[str, Path], release_receipt: Path,
     manifest_raw = release_receipt.read_bytes()
     receipt = json.loads(manifest_raw)
     expected, registry = manifest_check(receipt, registry_path)
-    if set(archives) != set(SHARDS):
-        raise ValueError('expected six distinct externally re-downloaded raw ZIPs')
+    if set(archives) != set(SHARDS) or set(mirrors) != set(SHARDS):
+        raise ValueError('expected six original-release ZIPs and six separate mirror ZIPs')
     from scripts.verify_chapter2_clock_pilot_raw_20261013 import verify
     # Runtime and original module identity are checked again by `verify`.
     output_directory.mkdir(parents=True, exist_ok=False)
@@ -129,9 +129,13 @@ def review_six(archives: dict[str, Path], release_receipt: Path,
     independent_sha = {}
     for shard in SHARDS:
         archive = Path(archives[shard])
+        mirror = Path(mirrors[shard])
+        if archive.resolve() == mirror.resolve() or archive.samefile(mirror):
+            raise ValueError('source release and separately preserved mirror cannot be the same file')
         source_hash = sha256(archive.read_bytes())
-        if source_hash != expected[shard]['sha256']:
-            raise ValueError('external original shard SHA256 differs from published receipt: ' + shard)
+        mirror_hash = sha256(mirror.read_bytes())
+        if source_hash != expected[shard]['sha256'] or mirror_hash != source_hash:
+            raise ValueError('source release or separate mirror ZIP byte SHA256 differs from published receipt: ' + shard)
         inspect_zip(archive, registry, shard)
         with tempfile.TemporaryDirectory(prefix='clock_pilot_source_replay_') as temp:
             folder = Path(temp)
@@ -151,6 +155,7 @@ def review_six(archives: dict[str, Path], release_receipt: Path,
         with target.open('xb') as out:
             out.write(payload)
         independent_sha[shard] = {'source_archive_sha256': source_hash,
+                                  'separately_read_mirror_sha256': mirror_hash,
                                   'new_reader_receipt_sha256': sha256(payload)}
         shard_outputs.append(target)
     whole = aggregate(shard_outputs, registry_path)
@@ -174,6 +179,7 @@ def review_six(archives: dict[str, Path], release_receipt: Path,
 def main() -> None:
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--archive', action='append', nargs=2, metavar=('SHARD', 'ZIP'), required=True)
+    parser.add_argument('--mirror', action='append', nargs=2, metavar=('SHARD', 'SEPARATE_ZIP'), required=True)
     parser.add_argument('--external-receipt', type=Path, required=True)
     parser.add_argument('--registry', type=Path, required=True)
     parser.add_argument('--fixture', type=Path, required=True)
@@ -181,9 +187,10 @@ def main() -> None:
     parser.add_argument('--out', type=Path, required=True)
     options = parser.parse_args()
     raw = {key: Path(value) for key, value in options.archive}
-    if len(raw) != len(options.archive):
-        raise ValueError('duplicate external source shard arguments')
-    result = review_six(raw, options.external_receipt, options.registry,
+    mirrors = {key: Path(value) for key, value in options.mirror}
+    if len(raw) != len(options.archive) or len(mirrors) != len(options.mirror):
+        raise ValueError('duplicate external source or mirror shard arguments')
+    result = review_six(raw, mirrors, options.external_receipt, options.registry,
                         options.fixture, options.design, options.out)
     print(json.dumps({'status': result['status'],
                       'all_starts': result['whole_cohort']['all_starts']}, indent=2))
