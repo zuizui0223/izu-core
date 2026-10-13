@@ -1,0 +1,76 @@
+{
+  "schema": "chapter2_clock_pilot_exploratory_factorial_analysis_contract_v1",
+  "status": "PRE_OUTCOME_FROZEN_ANALYSIS_RULES_NO_BIOLOGICAL_EXECUTION",
+  "registered_date": "2026-10-13",
+  "basis": {
+    "pilot_registry_git_blob": "f18eae09e3f569ae7edefe970ea17d93c64b1bd5",
+    "original_biological_commit": "328548612e93469fcc8663f24548530a57399b9a",
+    "source_gate": "SIX_ORIGINAL_EXTERNAL_RAW_ARCHIVES_INDEPENDENTLY_REPLAYED",
+    "source_reader_schema": "chapter2_clock_factorial_producer_independent_raw_reader_v1",
+    "approved_case_keys": 1536,
+    "registered_stochastic_clusters": 128,
+    "updates_per_case": 200,
+    "expected_complete_shards": 6
+  },
+  "factorial": {
+    "founder_blocks": ["main", "confirmation"],
+    "ecological_contexts": [0, 3, 4],
+    "assurance_halfwidth": {"L": 0.046875, "H": 0.078125},
+    "investment_hidden_homolog_scale": {"0": 0, "1": 1},
+    "n_paired_seeds_per_founder": 64,
+    "n_arms_per_paired_seed": 12,
+    "starting_expressed_M_I_A_each_plant_preserved": true,
+    "A_mutation_only": true
+  },
+  "original_six_outcomes": [
+    "assurance_first",
+    "investment_first",
+    "near_simultaneous",
+    "assurance_only",
+    "investment_only",
+    "neither"
+  ],
+  "frozen_event_rule": {
+    "founder_relative_change": 0.05,
+    "sustained_censuses": 20,
+    "tie_window_updates": 5,
+    "retain_missing_and_extinct_in_all_start_denominator": true,
+    "A_incidence_is_recorded_A_onset_not_null": true,
+    "I_incidence_is_recorded_I_onset_not_null": true
+  },
+  "descriptive_endpoints": {
+    "cell_frequency_table": "24 founder_by_context_by_Awidth_by_Ihidden cells, each n=64; all six classes and full denominators",
+    "assurance_incidence": "A onset observed by year 181 and sustained through 200",
+    "investment_incidence": "I decline onset observed by year 181 and sustained through 200",
+    "strict_order_score_D": "one(A-first) - one(I-first), with tie/single-event/neither equal zero; mean over all starts",
+    "per_block_context_Awidth_difference_A_incidence": "average over two I arms of P(Aevent|A=H)-P(Aevent|A=L)",
+    "per_block_context_Ihidden_difference_I_incidence": "average over two A arms of P(Ievent|I=1)-P(Ievent|I=0)",
+    "per_block_context_Awidth_difference_D": "average over two I arms of D(A=H)-D(A=L)",
+    "per_block_context_Ihidden_difference_D": "average over two A arms of D(I=1)-D(I=0)",
+    "per_block_context_interaction_D": "D(H,1)-D(H,0)-D(L,1)+D(L,0)",
+    "summary_aggregation": "equal-weight average of the three prespecified ecological conditions within each founder_and_seed cluster; average of 128 clusters",
+    "uncertainty": "report empirical SD and standard error of 128 founder_by_seed cluster-level contrasts; descriptive only; no nominal confidence interval/p-value"
+  },
+  "execution_policy": {
+    "run_only_after": [
+      "real approved separately source-pinned 1536-path pilot not mock 3-step fixtures",
+      "all six independently obtained and authenticated raw primary plus mirror ZIPs",
+      "all six original-operator independent readback receipts and 1536-case aggregate",
+      "prior pilot scientific authorization by separate reviewer"
+    ],
+    "no_adaptive_threshold_or_selected_subgroup": true,
+    "no_cross_cohort_pooling_with_old_2304": true,
+    "do_not_change_confirmatory_model_based_on_this_analysis_without_future_new_history_preregistration": true,
+    "no_biological_simulation_permitted_in_analysis_code": true,
+    "prospective_pilot_histories_currently_executed": 0,
+    "this_contract_does_not_authorize_pilot_execution": true
+  },
+  "do_not_claim": [
+    "discovered evolutionary response-clock equation",
+    "identified causal ecological threshold in natural islands",
+    "independent biological confirmation by 128 shared-seed contexts",
+    "causal effect of natural A-first order on Q4 persistence",
+    "power estimate or score-difference SD for unfrozen predictive models",
+    "archival DOI or independent external custody without separate proof"
+  ]
+}
