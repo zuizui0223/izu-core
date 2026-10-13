@@ -17,7 +17,7 @@ import numpy as np
 SOURCE_SHARD0_SHA256 = "5b850eaad6104f572f56df2a37da00fbc8473503a827703c82f6870a87e9a881"
 FOUNDER_BLOCKS = ("main", "confirmation")
 A_HALF_WIDTHS = (0.046875, 0.078125)
-I_ALLELE_SCALE = (0.5, 1.0)
+I_HOMOLOG_SCALE = (0.0, 1.0)
 A_FOUNDER_CENTER = 0.5
 RESPONSE_THRESHOLD = 0.05
 EXPECTED_FOUNDER_IDS = 48
@@ -51,45 +51,60 @@ def original_state(shard: zipfile.ZipFile, block: str) -> tuple[np.ndarray, dict
         return initial, {"source_case": name, "source_task": task, "original_config_sha256": hashlib.sha256(json.dumps(config, sort_keys=True, separators=(",", ":")).encode()).hexdigest()}
 
 
-def transform(initial: np.ndarray, width: float, i_scale: float) -> tuple[np.ndarray, dict]:
-    """Transform only A and I allele values, preserving means and genetic M."""
-    initial = np.asarray(initial)
-    if initial.shape != (48, 3, 2) or (width not in A_HALF_WIDTHS) or (i_scale not in I_ALLELE_SCALE):
+def transform(initial: np.ndarray, width: float, i_homolog_scale: float) -> tuple[np.ndarray, dict]:
+    """Modify hidden homolog alleles without changing any adult's expressed trait.
+
+    This isolates t0 phenotypic ecology more cleanly than multiplying every
+    allele deviation from the *population* mean, which unintentionally moves
+    individual floral-investment phenotypes and reproductive payoffs.
+    """
+    initial=np.asarray(initial)
+    if initial.shape != (48,3,2) or (width not in A_HALF_WIDTHS) or (i_homolog_scale not in I_HOMOLOG_SCALE):
         raise ValueError("unregistered initial transform")
-    old = initial[:, 1, :]
-    mean = float(old.mean())
+    old = initial[:,1,:]
+    individual_means=old.mean(axis=1)
+    half_differences=(old[:,1]-old[:,0])/2
+    old_hidden=float(np.mean(half_differences**2))
+    if old_hidden<=0:
+        raise ValueError("original I founder has no homolog-scale accessibility to manipulate")
     new = initial.copy()
-    new[:, 1, :] = mean + i_scale * (old - mean)
-    new[:, 2, :] = np.array([A_FOUNDER_CENTER - width, A_FOUNDER_CENTER + width])
-    if not np.array_equal(new[:, 0, :], initial[:, 0, :]):
-        raise ValueError("matching alleles changed")
-    if not np.isclose(new[:, 1, :].mean(), mean, rtol=0, atol=1e-14):
-        raise ValueError("I founding mean changed")
-    if not np.array_equal(new[:, 2, :], np.tile([.5 - width, .5 + width], (48, 1))):
-        raise ValueError("A founding heterozygosity changed")
-    if new.min() < 0 or new.max() > 1 or not np.isfinite(new).all():
-        raise ValueError("transformed alleles violate bounded source scale")
-    i_copy_var = float(new[:, 1, :].var() / 2)
-    original_var = float(initial[:, 1, :].var() / 2)
-    if not np.isclose(i_copy_var, original_var * i_scale * i_scale, atol=1e-15, rtol=0):
-        raise ValueError("I genetic-variance factor violated")
-    if not (float(new[:, 1, :].min()) <= mean - RESPONSE_THRESHOLD):
+    new[:,1,0] = individual_means-i_homolog_scale*half_differences
+    new[:,1,1] = individual_means+i_homolog_scale*half_differences
+    new[:,2,:] = np.array([A_FOUNDER_CENTER-width,A_FOUNDER_CENTER+width])
+    if not np.array_equal(new[:,0,:],initial[:,0,:]):
+        raise ValueError("original matching alleles altered")
+    if not np.array_equal(new.mean(axis=2),initial.mean(axis=2)):
+        raise ValueError("individual expressed M/I/A traits changed; t0 ecological source confounded")
+    if new.min()<0 or new.max()>1 or not np.isfinite(new).all():
+        raise ValueError("transformed alleles violate original bounded domain")
+    hidden=float(np.mean(((new[:,1,1]-new[:,1,0])/2)**2))
+    if not np.isclose(hidden,old_hidden*i_homolog_scale*i_homolog_scale,atol=1e-15,rtol=0):
+        raise ValueError("hidden I segregation-potential contrast violated")
+    founder_mean=float(initial[:,1,:].mean())
+    if not (float(new[:,1,:].min()) <= founder_mean - RESPONSE_THRESHOLD):
         raise ValueError("I locus structurally cannot attain registered decline")
+    adultI=individual_means
     return new, {
         "A_width":width,
-        "A_founding_allele_values": [float(.5-width), float(.5+width)],
-        "A_founding_expressed_variance": float(new[:, 2, :].mean(axis=1).var()),
-        "A_expected_F1_segregation_variance_no_mutation": float(width*width/2),
-        "A_can_reach_threshold_without_mutation": bool(width >= RESPONSE_THRESHOLD),
-        "I_scale":i_scale,
-        "I_allele_copy_mean": float(new[:, 1, :].mean()),
-        "I_allelic_variance_proxy":i_copy_var,
-        "I_expressed_variance":float(new[:, 1, :].mean(axis=1).var()),
-        "I_original_variance_proxy":original_var,
-        "I_variance_relative_to_source":float(i_copy_var/original_var),
-        "I_possible_decline_support":float(mean - new[:, 1, :].min()),
+        "A_founding_allele_values":[float(.5-width),float(.5+width)],
+        "A_founding_expressed_variance":float(new[:,2,:].mean(axis=1).var()),
+        "A_expected_F1_segregation_variance_no_mutation":float(width*width/2),
+        "A_can_reach_threshold_without_mutation":bool(width>=RESPONSE_THRESHOLD),
+        "I_homolog_scale":i_homolog_scale,
+        "I_individual_expressed_traits_all_preserved":True,
+        "I_original_allelic_variance_proxy":float(old.var()/2),
+        "I_allelic_variance_proxy":float(new[:,1,:].var()/2),
+        "I_original_expressed_variance":float(adultI.var()),
+        "I_expressed_variance":float(new[:,1,:].mean(axis=1).var()),
+        "I_original_hidden_homolog_variance_proxy":old_hidden,
+        "I_hidden_homolog_variance_proxy":hidden,
+        "I_hidden_homolog_variance_relative_to_source":float(hidden/old_hidden),
+        "I_allele_copy_mean":float(new[:,1,:].mean()),
+        "I_possible_decline_support":float(founder_mean-new[:,1,:].min()),
         "I_can_reach_decline_without_mutation":True,
-        "no_clipping": True,
+        "no_clipping":True,
+        "source_expressed_trait_matrix_sha256":hashlib.sha256(initial.mean(axis=2).tobytes(order="C")).hexdigest(),
+        "transformed_expressed_trait_matrix_sha256":hashlib.sha256(new.mean(axis=2).tobytes(order="C")).hexdigest(),
     }
 
 
@@ -105,7 +120,7 @@ def audit(shard0: Path) -> dict:
         for block in FOUNDER_BLOCKS:
             initial,source=original_state(z,block)
             for width in A_HALF_WIDTHS:
-                for scale in I_ALLELE_SCALE:
+                for scale in I_HOMOLOG_SCALE:
                     transformed,summary=transform(initial,width,scale)
                     # Explicitly ensure no original array was overwritten.
                     if float(initial[:,2,:].mean())!=0.5 or float(initial[:,1,:].mean())!=summary["I_allele_copy_mean"]:
@@ -114,19 +129,19 @@ def audit(shard0: Path) -> dict:
                                     "transformed_alleles_sha256":hashlib.sha256(transformed.tobytes(order="C")).hexdigest()})
     assert len(records)==8
     return {
-        "schema":"chapter2_clock_factorial_genotype_feasibility_v1",
+        "schema":"chapter2_clock_factorial_genotype_feasibility_v2",
         "status":"EIGHT_COUNTERFACTUAL_T0_GENOTYPE_CONFIGURATIONS_VERIFIED_NO_TRAJECTORIES",
         "original_source_shard0_sha256":SOURCE_SHARD0_SHA256,
         "original_source_shard0_bytes":len(raw),
         "founder_blocks":list(FOUNDER_BLOCKS),
         "A_half_widths":list(A_HALF_WIDTHS),
-        "I_allele_multipliers":list(I_ALLELE_SCALE),
+        "I_homolog_scale_levels":list(I_HOMOLOG_SCALE),
         "original_annual_genomes_replayed":False,
         "new_biological_histories":0,
         "factorial_t0_genotype_records":records,
         "limitations":[
             "Synthetic founding-genotype transformation only, no realised genetic evolution or first-passage time.",
-            "I allele scaling also rescales genetic covariances with other loci; it does not isolate a marginal quantitative-genetic variance effect.",
+            "I homolog scaling holds every t0 expressed plant phenotype fixed, but changes hidden homolog segregation potential, NOT between-plant expressed standing variance; future genetic outcomes may alter covariance.",
             "A width changes both initial allelic spread and structural threshold accessibility under no A mutation.",
             "Exact original Model3 reproductive and inheritance source must be bound and tested before biological execution.",
             "Only original context-zero founding state used; previously source-admitted context identity does not substitute for a fresh new-producer gate."
