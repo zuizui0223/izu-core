@@ -1,0 +1,1357 @@
+{
+  "schema": "chapter2_initial_clock_paired_seed_events_original_v1",
+  "status": "ALL2304_CASE_HASHES_AND_256_PAIRED_CLUSTERS_VERIFIED",
+  "original_source_compact_git_blob": "5608ad2cdcbef167fe9062ab5f26318abf2e1bd9",
+  "provider_receipts": [
+    {
+      "shard": 0,
+      "sha256": "5b850eaad6104f572f56df2a37da00fbc8473503a827703c82f6870a87e9a881",
+      "size": 21210876
+    },
+    {
+      "shard": 1,
+      "sha256": "bc675e9eb231ec7f6ac4cb7c26a762cd55d75ad8fff51eae0aa8e28568172280",
+      "size": 25105436
+    },
+    {
+      "shard": 2,
+      "sha256": "3673b1b07ed2742669f1ba43494ba814d7968cb200c6832c62a5a1c1640fe554",
+      "size": 24011622
+    },
+    {
+      "shard": 3,
+      "sha256": "676e84ff0729ba88dcd91cb161efeb2dc63f10b6679458695c5d2909c017e9c2",
+      "size": 28260780
+    },
+    {
+      "shard": 4,
+      "sha256": "900d3d22a36fa59241a933b8efc4b2fb8f320e4b25637e592640f31c529314fe",
+      "size": 25372222
+    },
+    {
+      "shard": 5,
+      "sha256": "b45f10aae6ec8fa437179285eb50cb3b98a35e3cc3e8610f6e8d36358daeb6e8",
+      "size": 32701303
+    },
+    {
+      "shard": 6,
+      "sha256": "03d9dcc3b7b993fcba9486bb543e01b8dcd75e40bbb0d5684c6cf72292105a42",
+      "size": 29543709
+    },
+    {
+      "shard": 7,
+      "sha256": "7a304cab06107d3a48d18bd033f07c046dad5c4ecb95eb2a1a4916ebd9d51876",
+      "size": 33820408
+    },
+    {
+      "shard": 8,
+      "sha256": "35a6c2da91bb02d50806a919777e21a2c855ab55b5fccc95f917a7af7d77bf62",
+      "size": 31634199
+    }
+  ],
+  "categories": {
+    "A": "assurance_first",
+    "I": "investment_first",
+    "T": "near_simultaneous",
+    "a": "assurance_only",
+    "i": "investment_only",
+    "N": "neither"
+  },
+  "context_order": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8
+  ],
+  "case_count": 2304,
+  "clusters": 256,
+  "random_streams_reused_across_contexts": true,
+  "no_new_biological_histories": true,
+  "source_type": "saved original NPZ + immutable event receipts",
+  "data": [
+    {
+      "block": "main",
+      "replicate": 0,
+      "sequence": "TIIIINaNN"
+    },
+    {
+      "block": "main",
+      "replicate": 1,
+      "sequence": "TTIIIaaaa"
+    },
+    {
+      "block": "main",
+      "replicate": 2,
+      "sequence": "AITaTaAaa"
+    },
+    {
+      "block": "main",
+      "replicate": 3,
+      "sequence": "TIATIaaNa"
+    },
+    {
+      "block": "main",
+      "replicate": 4,
+      "sequence": "IIIAIaaNN"
+    },
+    {
+      "block": "main",
+      "replicate": 5,
+      "sequence": "IIAIAaIaa"
+    },
+    {
+      "block": "main",
+      "replicate": 6,
+      "sequence": "IIIIINANa"
+    },
+    {
+      "block": "main",
+      "replicate": 7,
+      "sequence": "AAaIaNiNN"
+    },
+    {
+      "block": "main",
+      "replicate": 8,
+      "sequence": "ITIITaaNa"
+    },
+    {
+      "block": "main",
+      "replicate": 9,
+      "sequence": "TAAAAaINa"
+    },
+    {
+      "block": "main",
+      "replicate": 10,
+      "sequence": "IIIaAaIaa"
+    },
+    {
+      "block": "main",
+      "replicate": 11,
+      "sequence": "TTTAIaINa"
+    },
+    {
+      "block": "main",
+      "replicate": 12,
+      "sequence": "TTAaTaaaa"
+    },
+    {
+      "block": "main",
+      "replicate": 13,
+      "sequence": "ATaaANaaN"
+    },
+    {
+      "block": "main",
+      "replicate": 14,
+      "sequence": "TTTTIaTNa"
+    },
+    {
+      "block": "main",
+      "replicate": 15,
+      "sequence": "IIIAaaaai"
+    },
+    {
+      "block": "main",
+      "replicate": 16,
+      "sequence": "TIAITaaNa"
+    },
+    {
+      "block": "main",
+      "replicate": 17,
+      "sequence": "aaIIIaaNN"
+    },
+    {
+      "block": "main",
+      "replicate": 18,
+      "sequence": "TAAITaAaa"
+    },
+    {
+      "block": "main",
+      "replicate": 19,
+      "sequence": "IIIAIaaNN"
+    },
+    {
+      "block": "main",
+      "replicate": 20,
+      "sequence": "TTTTAaaaN"
+    },
+    {
+      "block": "main",
+      "replicate": 21,
+      "sequence": "aaaIaaaaa"
+    },
+    {
+      "block": "main",
+      "replicate": 22,
+      "sequence": "AaTITaANa"
+    },
+    {
+      "block": "main",
+      "replicate": 23,
+      "sequence": "ITIaANaNN"
+    },
+    {
+      "block": "main",
+      "replicate": 24,
+      "sequence": "IIIAIaAaa"
+    },
+    {
+      "block": "main",
+      "replicate": 25,
+      "sequence": "TATaTaaaa"
+    },
+    {
+      "block": "main",
+      "replicate": 26,
+      "sequence": "TITaINaNI"
+    },
+    {
+      "block": "main",
+      "replicate": 27,
+      "sequence": "IIIIIaINa"
+    },
+    {
+      "block": "main",
+      "replicate": 28,
+      "sequence": "IAIAIaAaa"
+    },
+    {
+      "block": "main",
+      "replicate": 29,
+      "sequence": "IIITTNINa"
+    },
+    {
+      "block": "main",
+      "replicate": 30,
+      "sequence": "AaIAANaaI"
+    },
+    {
+      "block": "main",
+      "replicate": 31,
+      "sequence": "IATaTNANa"
+    },
+    {
+      "block": "main",
+      "replicate": 32,
+      "sequence": "aTTTTaaaa"
+    },
+    {
+      "block": "main",
+      "replicate": 33,
+      "sequence": "IAIaaNINa"
+    },
+    {
+      "block": "main",
+      "replicate": 34,
+      "sequence": "IIITINaNa"
+    },
+    {
+      "block": "main",
+      "replicate": 35,
+      "sequence": "ITATAaaaa"
+    },
+    {
+      "block": "main",
+      "replicate": 36,
+      "sequence": "IATITaaNi"
+    },
+    {
+      "block": "main",
+      "replicate": 37,
+      "sequence": "IIIaTNaNa"
+    },
+    {
+      "block": "main",
+      "replicate": 38,
+      "sequence": "ATTAANANa"
+    },
+    {
+      "block": "main",
+      "replicate": 39,
+      "sequence": "ITTaININa"
+    },
+    {
+      "block": "main",
+      "replicate": 40,
+      "sequence": "IITIININa"
+    },
+    {
+      "block": "main",
+      "replicate": 41,
+      "sequence": "TIIATaAaa"
+    },
+    {
+      "block": "main",
+      "replicate": 42,
+      "sequence": "TTATAaaNN"
+    },
+    {
+      "block": "main",
+      "replicate": 43,
+      "sequence": "TTTaANAaa"
+    },
+    {
+      "block": "main",
+      "replicate": 44,
+      "sequence": "ITIaIaaaa"
+    },
+    {
+      "block": "main",
+      "replicate": 45,
+      "sequence": "AAAITNaNa"
+    },
+    {
+      "block": "main",
+      "replicate": 46,
+      "sequence": "TTTIIaaNa"
+    },
+    {
+      "block": "main",
+      "replicate": 47,
+      "sequence": "ITIAINTaN"
+    },
+    {
+      "block": "main",
+      "replicate": 48,
+      "sequence": "ITTaAaaaa"
+    },
+    {
+      "block": "main",
+      "replicate": 49,
+      "sequence": "AIIIAaaaa"
+    },
+    {
+      "block": "main",
+      "replicate": 50,
+      "sequence": "TATTAiaaa"
+    },
+    {
+      "block": "main",
+      "replicate": 51,
+      "sequence": "AaTIaaINa"
+    },
+    {
+      "block": "main",
+      "replicate": 52,
+      "sequence": "IITIINNaN"
+    },
+    {
+      "block": "main",
+      "replicate": 53,
+      "sequence": "TIIITaANa"
+    },
+    {
+      "block": "main",
+      "replicate": 54,
+      "sequence": "IITaIaaNN"
+    },
+    {
+      "block": "main",
+      "replicate": 55,
+      "sequence": "TIIATaaaa"
+    },
+    {
+      "block": "main",
+      "replicate": 56,
+      "sequence": "ITTITNaaN"
+    },
+    {
+      "block": "main",
+      "replicate": 57,
+      "sequence": "aaaAaaaNa"
+    },
+    {
+      "block": "main",
+      "replicate": 58,
+      "sequence": "TTTAIaaNa"
+    },
+    {
+      "block": "main",
+      "replicate": 59,
+      "sequence": "TATIIaTaa"
+    },
+    {
+      "block": "main",
+      "replicate": 60,
+      "sequence": "AAaATaINa"
+    },
+    {
+      "block": "main",
+      "replicate": 61,
+      "sequence": "TIIAIaIaa"
+    },
+    {
+      "block": "main",
+      "replicate": 62,
+      "sequence": "AATAAaTNa"
+    },
+    {
+      "block": "main",
+      "replicate": 63,
+      "sequence": "IITIAaaNa"
+    },
+    {
+      "block": "main",
+      "replicate": 64,
+      "sequence": "AIAaTaANa"
+    },
+    {
+      "block": "main",
+      "replicate": 65,
+      "sequence": "AITIANaaa"
+    },
+    {
+      "block": "main",
+      "replicate": 66,
+      "sequence": "IATaAaaNa"
+    },
+    {
+      "block": "main",
+      "replicate": 67,
+      "sequence": "IIIIIaANa"
+    },
+    {
+      "block": "main",
+      "replicate": 68,
+      "sequence": "IAIAIaIaa"
+    },
+    {
+      "block": "main",
+      "replicate": 69,
+      "sequence": "TTIITaaNa"
+    },
+    {
+      "block": "main",
+      "replicate": 70,
+      "sequence": "ITAaaaAaa"
+    },
+    {
+      "block": "main",
+      "replicate": 71,
+      "sequence": "TIIIIaaaa"
+    },
+    {
+      "block": "main",
+      "replicate": 72,
+      "sequence": "TaIAAaANa"
+    },
+    {
+      "block": "main",
+      "replicate": 73,
+      "sequence": "TITaTNaaa"
+    },
+    {
+      "block": "main",
+      "replicate": 74,
+      "sequence": "TTaaANaaI"
+    },
+    {
+      "block": "main",
+      "replicate": 75,
+      "sequence": "IIAaTaINa"
+    },
+    {
+      "block": "main",
+      "replicate": 76,
+      "sequence": "IIIATaaNN"
+    },
+    {
+      "block": "main",
+      "replicate": 77,
+      "sequence": "TAAaaaTaa"
+    },
+    {
+      "block": "main",
+      "replicate": 78,
+      "sequence": "ITIaIaaNa"
+    },
+    {
+      "block": "main",
+      "replicate": 79,
+      "sequence": "TTTTaIINa"
+    },
+    {
+      "block": "main",
+      "replicate": 80,
+      "sequence": "IIITIaANa"
+    },
+    {
+      "block": "main",
+      "replicate": 81,
+      "sequence": "ITIIAaaaN"
+    },
+    {
+      "block": "main",
+      "replicate": 82,
+      "sequence": "IIITIaaNa"
+    },
+    {
+      "block": "main",
+      "replicate": 83,
+      "sequence": "TITaTaaNa"
+    },
+    {
+      "block": "main",
+      "replicate": 84,
+      "sequence": "IIIaIaaaa"
+    },
+    {
+      "block": "main",
+      "replicate": 85,
+      "sequence": "IIIAAaINa"
+    },
+    {
+      "block": "main",
+      "replicate": 86,
+      "sequence": "TTaAAaINa"
+    },
+    {
+      "block": "main",
+      "replicate": 87,
+      "sequence": "TITaANaNa"
+    },
+    {
+      "block": "main",
+      "replicate": 88,
+      "sequence": "IATATaaNa"
+    },
+    {
+      "block": "main",
+      "replicate": 89,
+      "sequence": "AAATAaaNa"
+    },
+    {
+      "block": "main",
+      "replicate": 90,
+      "sequence": "TTTATaINa"
+    },
+    {
+      "block": "main",
+      "replicate": 91,
+      "sequence": "aAIaaaAaa"
+    },
+    {
+      "block": "main",
+      "replicate": 92,
+      "sequence": "TITIINaaN"
+    },
+    {
+      "block": "main",
+      "replicate": 93,
+      "sequence": "ITATANaNN"
+    },
+    {
+      "block": "main",
+      "replicate": 94,
+      "sequence": "TATaIaaNa"
+    },
+    {
+      "block": "main",
+      "replicate": 95,
+      "sequence": "AAAITiINa"
+    },
+    {
+      "block": "main",
+      "replicate": 96,
+      "sequence": "IAIATNANa"
+    },
+    {
+      "block": "main",
+      "replicate": 97,
+      "sequence": "TTTaIaINa"
+    },
+    {
+      "block": "main",
+      "replicate": 98,
+      "sequence": "TIIIINAaa"
+    },
+    {
+      "block": "main",
+      "replicate": 99,
+      "sequence": "AaTATaaNI"
+    },
+    {
+      "block": "main",
+      "replicate": 100,
+      "sequence": "ATAaTaAaN"
+    },
+    {
+      "block": "main",
+      "replicate": 101,
+      "sequence": "TTTIAaTaa"
+    },
+    {
+      "block": "main",
+      "replicate": 102,
+      "sequence": "AAIaIaaNa"
+    },
+    {
+      "block": "main",
+      "replicate": 103,
+      "sequence": "TITATaaaa"
+    },
+    {
+      "block": "main",
+      "replicate": 104,
+      "sequence": "IIIIIaTia"
+    },
+    {
+      "block": "main",
+      "replicate": 105,
+      "sequence": "IITIIaINa"
+    },
+    {
+      "block": "main",
+      "replicate": 106,
+      "sequence": "TTIIINTaN"
+    },
+    {
+      "block": "main",
+      "replicate": 107,
+      "sequence": "ATTaaNaNN"
+    },
+    {
+      "block": "main",
+      "replicate": 108,
+      "sequence": "ITITINaNa"
+    },
+    {
+      "block": "main",
+      "replicate": 109,
+      "sequence": "TTAIANANa"
+    },
+    {
+      "block": "main",
+      "replicate": 110,
+      "sequence": "AIIATNaaa"
+    },
+    {
+      "block": "main",
+      "replicate": 111,
+      "sequence": "IITaAaaNa"
+    },
+    {
+      "block": "main",
+      "replicate": 112,
+      "sequence": "AAATIaaaN"
+    },
+    {
+      "block": "main",
+      "replicate": 113,
+      "sequence": "ATaAaNaaa"
+    },
+    {
+      "block": "main",
+      "replicate": 114,
+      "sequence": "aaAAAaaaa"
+    },
+    {
+      "block": "main",
+      "replicate": 115,
+      "sequence": "ITTaAaaaN"
+    },
+    {
+      "block": "main",
+      "replicate": 116,
+      "sequence": "AaATTaaaa"
+    },
+    {
+      "block": "main",
+      "replicate": 117,
+      "sequence": "AATaIaANa"
+    },
+    {
+      "block": "main",
+      "replicate": 118,
+      "sequence": "IIIIANaaa"
+    },
+    {
+      "block": "main",
+      "replicate": 119,
+      "sequence": "TAIIINaNa"
+    },
+    {
+      "block": "main",
+      "replicate": 120,
+      "sequence": "TITaIaAaa"
+    },
+    {
+      "block": "main",
+      "replicate": 121,
+      "sequence": "aAAAaaAaI"
+    },
+    {
+      "block": "main",
+      "replicate": 122,
+      "sequence": "TIAIININa"
+    },
+    {
+      "block": "main",
+      "replicate": 123,
+      "sequence": "IATAIaANa"
+    },
+    {
+      "block": "main",
+      "replicate": 124,
+      "sequence": "IaIITaAaa"
+    },
+    {
+      "block": "main",
+      "replicate": 125,
+      "sequence": "IIAITaaNa"
+    },
+    {
+      "block": "main",
+      "replicate": 126,
+      "sequence": "TATAAaTaa"
+    },
+    {
+      "block": "main",
+      "replicate": 127,
+      "sequence": "TAITTNINa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 0,
+      "sequence": "TaIaIaaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 1,
+      "sequence": "IIIaIaaNI"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 2,
+      "sequence": "TAIATaIaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 3,
+      "sequence": "IIaaIaaaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 4,
+      "sequence": "aAAAININa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 5,
+      "sequence": "aTTAIaIaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 6,
+      "sequence": "IIIITNIaI"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 7,
+      "sequence": "TTTTTaaNI"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 8,
+      "sequence": "AIIaaNaaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 9,
+      "sequence": "IIIITNaaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 10,
+      "sequence": "TIIATiIaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 11,
+      "sequence": "TTAaTAaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 12,
+      "sequence": "IaaaaaTNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 13,
+      "sequence": "IIIaTNaNN"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 14,
+      "sequence": "TTTATaaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 15,
+      "sequence": "aAAaAaaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 16,
+      "sequence": "ATAaTaaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 17,
+      "sequence": "IaTAANaaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 18,
+      "sequence": "aaaaTNaaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 19,
+      "sequence": "IATaIaaaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 20,
+      "sequence": "aTaTaNaaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 21,
+      "sequence": "IIITINTNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 22,
+      "sequence": "IaaaaaaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 23,
+      "sequence": "AIIaaNaNN"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 24,
+      "sequence": "TaATaaaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 25,
+      "sequence": "Aaaaaaaaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 26,
+      "sequence": "AaAaTNaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 27,
+      "sequence": "TAAaANTNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 28,
+      "sequence": "TTAaTaaNT"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 29,
+      "sequence": "AAIAAaaaN"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 30,
+      "sequence": "aIIaTaaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 31,
+      "sequence": "TTTITaaaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 32,
+      "sequence": "aAaAaaIaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 33,
+      "sequence": "TATaaaaNN"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 34,
+      "sequence": "aAIaIaaaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 35,
+      "sequence": "AATaaaaaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 36,
+      "sequence": "aIaaAaaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 37,
+      "sequence": "aAaAaaINa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 38,
+      "sequence": "ITITANTaA"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 39,
+      "sequence": "IaAaaaTaA"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 40,
+      "sequence": "TaAaANANa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 41,
+      "sequence": "IIIIINaaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 42,
+      "sequence": "aaAaTNINa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 43,
+      "sequence": "TaIaaaaaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 44,
+      "sequence": "aAAIANaaA"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 45,
+      "sequence": "AIAaaNINN"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 46,
+      "sequence": "AaAaaaaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 47,
+      "sequence": "TATaININa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 48,
+      "sequence": "aaaaaaaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 49,
+      "sequence": "IIIAAaaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 50,
+      "sequence": "aAaaAaANa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 51,
+      "sequence": "TTTAaaaaA"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 52,
+      "sequence": "TTTAIaaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 53,
+      "sequence": "TITaINaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 54,
+      "sequence": "TIIAIaaaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 55,
+      "sequence": "ITIaTaaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 56,
+      "sequence": "IIIATaaNI"    },
+    {
+      "block": "confirmation",
+      "replicate": 57,
+      "sequence": "IAITTNaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 58,
+      "sequence": "TTTIaaaaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 59,
+      "sequence": "TTTATaaaN"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 60,
+      "sequence": "AAIaIaaaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 61,
+      "sequence": "TaTaaaaaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 62,
+      "sequence": "IITTIaaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 63,
+      "sequence": "aaaaTaaaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 64,
+      "sequence": "TIAaIaAaT"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 65,
+      "sequence": "aaAaTNaaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 66,
+      "sequence": "TaaAaNaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 67,
+      "sequence": "IIaTINaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 68,
+      "sequence": "IIIIINANa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 69,
+      "sequence": "IaIAAaaaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 70,
+      "sequence": "aTTaaNaNi"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 71,
+      "sequence": "TITAIaANa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 72,
+      "sequence": "ITTIITaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 73,
+      "sequence": "IITaTaANa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 74,
+      "sequence": "TTAAAaaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 75,
+      "sequence": "IIATININA"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 76,
+      "sequence": "AaaTAaAaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 77,
+      "sequence": "TTTTAaaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 78,
+      "sequence": "TITaAaINN"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 79,
+      "sequence": "ATTaaaIaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 80,
+      "sequence": "aaaaaNaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 81,
+      "sequence": "AAAAAaaaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 82,
+      "sequence": "TIIIINaaN"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 83,
+      "sequence": "ATTaINaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 84,
+      "sequence": "aIaaaaaNA"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 85,
+      "sequence": "IIIaINaNN"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 86,
+      "sequence": "aAaATNaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 87,
+      "sequence": "aTaaaNaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 88,
+      "sequence": "AaaAaaINa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 89,
+      "sequence": "TIIIININN"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 90,
+      "sequence": "AATaAaAaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 91,
+      "sequence": "AATaTaaNi"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 92,
+      "sequence": "ITTITaaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 93,
+      "sequence": "aTAaTaaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 94,
+      "sequence": "IaTAIaTaA"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 95,
+      "sequence": "IIIIINaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 96,
+      "sequence": "IaTTAaaaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 97,
+      "sequence": "TTTaAaaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 98,
+      "sequence": "TATTTaINa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 99,
+      "sequence": "aaaaaaaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 100,
+      "sequence": "aaAaANaaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 101,
+      "sequence": "IIAAaaaaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 102,
+      "sequence": "TITATNaaI"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 103,
+      "sequence": "AaAAAaANN"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 104,
+      "sequence": "ATAaaaaaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 105,
+      "sequence": "IaTIaaaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 106,
+      "sequence": "ITIATNaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 107,
+      "sequence": "AIaaaaANa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 108,
+      "sequence": "aaaaaNTaA"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 109,
+      "sequence": "aaIAaNaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 110,
+      "sequence": "AITiAaANN"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 111,
+      "sequence": "ITAaAaTaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 112,
+      "sequence": "TAaaAaaaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 113,
+      "sequence": "aAaAANaNN"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 114,
+      "sequence": "IITAaaTNN"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 115,
+      "sequence": "aaaaaaaaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 116,
+      "sequence": "IAIATaAaa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 117,
+      "sequence": "ITATIaaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 118,
+      "sequence": "aTaaAaaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 119,
+      "sequence": "TIIATaaaI"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 120,
+      "sequence": "AAaAaNaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 121,
+      "sequence": "AATaINaNI"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 122,
+      "sequence": "aaaaAAaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 123,
+      "sequence": "AaTaANaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 124,
+      "sequence": "TTTITaaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 125,
+      "sequence": "AaAAAaNNA"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 126,
+      "sequence": "TTaaAaaNa"
+    },
+    {
+      "block": "confirmation",
+      "replicate": 127,
+      "sequence": "aTaaaaaNa"
+    }
+  ]
+}
