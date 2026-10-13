@@ -4,6 +4,7 @@ No prospective cohort or historical scientific comparison is initiated by pytest
 """
 from __future__ import annotations
 import copy
+from types import SimpleNamespace
 from pathlib import Path
 import sys
 
@@ -20,7 +21,8 @@ from scripts.audit_chapter2_clock_native_birth_technical_20261013 import (
     A_HALF_WIDTHS, I_HOMOLOG_SCALE, FROZEN_SOURCE_GIT_BLOBS, MUTATION_MASK,
     audit, decode_array, source_fixture, ledger_reference, load_original_source,
     initial_state, visitor_and_config, technical_case, technical_seed,
-    compare_child_genetics, streams, FIXTURE_PATH,
+    compare_child_genetics, streams, FIXTURE_PATH, FIELDS, LEDGER_FIELDS,
+    ledger_hash, check_same_runtime_initial_ledger,
 )
 
 
@@ -113,3 +115,65 @@ def test_source_mutation_package_drift_rejected(monkeypatch):
     monkeypatch.setitem(technical.FROZEN_SOURCE_GIT_BLOBS,'population.py','0'*40)
     with pytest.raises(ValueError,match='original model source Git blob mismatch|Original model source Git blob mismatch'):
         technical.load_original_source()
+
+
+def test_same_runtime_source_ledger_referee_handles_numpy_roundoff_without_masking_genetic_effect():
+    modules=load_original_source()
+    fixture=source_fixture()
+    frozen=ledger_reference()
+    types=modules['types']; reproduce=modules['reproduction'].reproduce
+    cases=0
+    for block in FOUNDER_BLOCKS:
+        arrays=fixture['original_founders'][block]['source_state_arrays']
+        historical=types.PlantState(**{key:decode_array(arrays[key]) for key in FIELDS})
+        for context in CONTEXTS:
+            cfg,vis,archived_totals=visitor_and_config(fixture,block,context,modules)
+            original=reproduce(historical,vis,cfg)
+            checksum=ledger_hash(original)
+            computed=np.array([np.asarray(getattr(original,k)).sum() for k in
+                ('maternal','paternal','self_raw','self_viable','ovules','exported','delivered','outcross')])
+            np.testing.assert_allclose(computed,archived_totals,rtol=0,atol=1e-12)
+            for width in A_HALF_WIDTHS:
+                for scale in I_HOMOLOG_SCALE:
+                    modified,_=initial_state(fixture,block,width,scale,modules)
+                    assert np.array_equal(modified.alleles.mean(axis=2),historical.alleles.mean(axis=2))
+                    candidate=reproduce(modified,vis,cfg)
+                    # Python 3.11/3.12 use later NumPy than frozen 2.2.6: do NOT
+                    # require their bytewise original ledger to equal an archived
+                    # numerical digest from 2.2.6. Still demand bytewise equality
+                    # against the same-runtime original within every environment.
+                    for version in ('2.4.6','2.5.4'):
+                        assert check_same_runtime_initial_ledger(
+                            candidate,original,frozen[block,context],numpy_version=version
+                        )==checksum
+                    if checksum==frozen[block,context]:
+                        assert check_same_runtime_initial_ledger(
+                            candidate,original,frozen[block,context],numpy_version='2.2.6'
+                        )==checksum
+                    else:
+                        with pytest.raises(ValueError,match='frozen NumPy 2.2.6 source'):
+                            check_same_runtime_initial_ledger(candidate,original,
+                                frozen[block,context],numpy_version='2.2.6')
+                    cases+=1
+    assert cases==24
+
+
+def test_same_runtime_byte_mismatch_and_historical_source_digest_fail_closed():
+    modules=load_original_source();fixture=source_fixture()
+    src=fixture['original_founders']['main']['source_state_arrays']
+    original=modules['types'].PlantState(**{key:decode_array(src[key]) for key in FIELDS})
+    cfg,vis,_=visitor_and_config(fixture,'main',3,modules)
+    ledger=modules['reproduction'].reproduce(original,vis,cfg)
+    original_sha=ledger_hash(ledger)
+    assert check_same_runtime_initial_ledger(ledger,ledger,'unrelated-frozen-version-sha',
+        numpy_version='2.4.6')==original_sha
+    with pytest.raises(ValueError,match='frozen NumPy 2.2.6 source'):
+        check_same_runtime_initial_ledger(ledger,ledger,'unrelated-frozen-version-sha',
+            numpy_version='2.2.6')
+    original_fields={k:getattr(ledger,k) for k in LEDGER_FIELDS}
+    perturbed=dict(original_fields)
+    perturbed['ovules']=original_fields['ovules'].copy()
+    perturbed['ovules'][0]+=1e-4
+    with pytest.raises(ValueError,match='adjusted original genetic state altered'):
+        check_same_runtime_initial_ledger(SimpleNamespace(**perturbed),ledger,original_sha,
+            numpy_version='2.4.6')
