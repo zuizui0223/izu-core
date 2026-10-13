@@ -9,7 +9,9 @@ Tech stack: pinned Python/NumPy, existing registered manual GitHub workflow and 
 - [x] TDD tests for sampler conservation, all equal expected contributions, self/outcross separation, n0/n1, masking, native reference identity and all-start four-contrast analysis.
 - [x] Implement explicit sampling adapter and complete native RNG replay, original4096 reference admission; new4096 futures only.
 - [x] Review interpretation/implementation; fix any source or inventory blockers before dispatch.
-- [ ] Registered manual technical8/full16shard gates; preserve actual raw archives/source and independent recomputation.
-- [ ] Integrate all outcomes/nulls in existing four-question paper; no natural-order/pure-A mediation claim.
+- [x] Registered manual technical8/full16shard gates; preserve actual raw archives/source and independent recomputation. Run38322562488,4096/819200,9031680 producer-free replay checks, four frozen decisions matched. Valid2816 case bytes retained;1280 missing slots only recovered.
+- [x] Integrate all outcomes/nulls in existing four-question paper; no natural-order/pure-A mediation claim. Main/S16 and hash-bound complete readout added; final package validation/public readback follows below.
+
+Delivery gate: all four primary contrasts unresolved. Earlier initial-mean effects retain their own family. Do not describe larger high-budget origin difference under equal-parent sampling as improved absolute persistence:790/757 versus native864/863.
 
 Review focus: artificial sampling law versus native biological ledger; simultaneous family; source/old-provider admission; extinction floor; no neutral-diversity substitution.

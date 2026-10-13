@@ -7,7 +7,8 @@
     "initial_assurance_mean_20261013/original_readout.json.gz": "5115130d36a91a947ac0da099866b18940a2f203e8aa95eeec5cb627686da840",
     "matched_operator_gap_20261013.json": "a960da933b6d2dee413dca6173a9163607b95898a22e05f50ee35f71dd3b1d6c",
     "chapter2_discovery_archive_recovery_20261013.json": "0c798de4dd6028cb605932d2715027200a3881d888109809736b885f3ae661c5",
-    "ecological_order_boundary_20261013.json": "4a0b6ab3edf90b21c9513feecab0bec59bfc550f1af8350964ac3b3201220ce5"
+    "ecological_order_boundary_20261013.json": "4a0b6ab3edf90b21c9513feecab0bec59bfc550f1af8350964ac3b3201220ce5",
+    "future_parent_selection_readout_20261013.json": "7187fc9ee738afdc99e3ca576f1d41d7d1ffa0a5052b2b6e252a9ebbc76e3cfe"
   },
   "source_raw_sha256": {
     "genome_response_accounting_readout_20261013.json": [
@@ -36,6 +37,10 @@
     "ecological_order_boundary_20261013.json": [
       "4028b17a316bf98d17f8ca99945edbffae896e9e19d8f52ce274ed34d4dfecb8",
       "4a0b6ab3edf90b21c9513feecab0bec59bfc550f1af8350964ac3b3201220ce5"
+    ],
+    "future_parent_selection_readout_20261013.json": [
+      "7187fc9ee738afdc99e3ca576f1d41d7d1ffa0a5052b2b6e252a9ebbc76e3cfe",
+      "3d0a2d269c6d45357ea31e2cc6f0e666cd4dff2cc928c36ccd2ff4ee7be3d2b4"
     ]
   },
   "transformation": "UTF-8 JSON: CRLF to LF only; original gzip unchanged. Known original and LF source-byte identities are both recorded; values are not reserialized."

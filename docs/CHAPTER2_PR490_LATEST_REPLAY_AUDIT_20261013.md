@@ -19,3 +19,7 @@ The recovered offline ZIP itself has not been independently read in this Windows
 Exact projection equality covers recorded bottleneck genome hashes, group identities, occupancy, census/extinction summaries and recorded start/bottleneck/end traits. It is not admission of complete annual genomes, the executed historical numerical runtime, or the separate older replenishment discovery archive. Numerical technical reproducibility does not make the pilot-informed stress grid an unbiased global or natural-island test, and this study retains32 independent visitor histories rather than the fixed-founder demographic units used in the initial-mean intervention.
 
 Actual artifact and separate arithmetic/projection audit receipts are preserved in the [public resolution release](https://github.com/zuizui0223/izu-core/releases/tag/four-question-resolution-20261013). The source recovery receipt is available in [PR490](https://github.com/zuizui0223/izu-core/pull/490).
+
+## Current upstream state
+
+Live GitHub inspection at2026-10-13 confirms PR490 merged at2026-10-12T23:59:52Z, headb6582d2f6e5cdaf7b68060b59d5fb0ae9233efc1, main merge commitd0e8ddf6adbc9cff50c6794ff840799f18766f83. Its eight-file clean extraction includes the later replay receipt. Merge status does not extend the verified annual-genome/runtime/offline-ZIP scope above. No merge or additional biological rerun was performed by this audit.

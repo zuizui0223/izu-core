@@ -103,6 +103,7 @@ def minimal_resolution_materials():
     receipt_raw=(MINIMAL_RESULTS/'minimal_resolution_delivery_20261013.json').read_bytes()
     receipt=json.loads(receipt_raw)
     sources={
+        'future_parent_selection_readout_20261013.json':'EVIDENCE/FUTURE_PARENT_READOUT.json',
         'ecological_order_boundary_20261013.json':'EVIDENCE/ECOLOGICAL_ORDER_READOUT.json',
         'matched_operator_gap_20261013.json':'EVIDENCE/OPERATOR_GAP_READOUT.json',
         'chapter2_discovery_archive_recovery_20261013.json':'EVIDENCE/DISCOVERY_ARCHIVE_INTAKE.json',
@@ -146,6 +147,17 @@ def minimal_resolution_materials():
         or eco['supported_supply_pairs'] or eco['supported_composition_pairs']
         or not all(c['simultaneous_interval'][0]<=0<=c['simultaneous_interval'][1] for c in eco['cells'])):
         raise ValueError('ecological order admission/negative decision differs')
+    parent=json.loads(members['EVIDENCE/FUTURE_PARENT_READOUT.json'])
+    if (parent['status']!='ACTUAL_RAW_BIRTH_AND_FOUR_DECISIONS_INDEPENDENTLY_VERIFIED'
+        or parent['cases']!=4096 or parent['updates']!=819200
+        or parent['actual_readback']['run']!=38322562488
+        or parent['independent']['status']!='INDEPENDENT_ALL4096_RAW_CASE_AND_FOUR_DECISIONS_MATCH'
+        or parent['independent']['raw_replay_checks']!=9031680
+        or parent['independent']['producer_imports'] is not False
+        or len(parent['primary'])!=4
+        or any(p['decision']!='unresolved' for p in parent['primary'])
+        or parent['occupied_counts'][1][:2]!=[[864,863],[790,757]]):
+        raise ValueError('future parent independent admission differs')
     return members,derivations
 
 

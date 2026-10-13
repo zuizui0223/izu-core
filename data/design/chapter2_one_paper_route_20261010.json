@@ -101,6 +101,21 @@
       "contexts": 18,
       "supported_replicated_reversal": false,
       "limits": "All simultaneous intervals include zero; no absence, equivalence or unique threshold claim. Post-result fixed-genotype bound applies only under the same no-I-mutation/no-immigration law."
+    },
+    "future_parent_weighting": {
+      "rank": "separately frozen controlled supplementary intervention",
+      "cases": 4096,
+      "updates": 819200,
+      "primary_family": 4,
+      "primary_decisions": [
+        "unresolved",
+        "unresolved",
+        "unresolved",
+        "unresolved"
+      ],
+      "independent_birth_checks": 9031680,
+      "pooled_with_primary_studies": false,
+      "scope": "All-locus expected parental weighting after initial A-mean equalization; not pure A selection, unique mediation or natural-order benefit."
     }
   },
   "data_requirement": "Issue #436 outstanding DOI-backed external raw archive verification",
@@ -110,7 +125,7 @@
     "ecology_letters_letter_main_max": 5000,
     "ecology_letters_letter_abstract_max": 150,
     "display_items_max": 6,
-    "current_integrated_main_words": 4725,
+    "current_integrated_main_words": 4844,
     "current_integrated_abstract_words": 140,
     "main_text_excess_words": 0,
     "abstract_excess_words": 0,
@@ -123,9 +138,9 @@
       "pollinator population collapse",
       "historically explained global island syndrome"
     ],
-    "current_main_text_words": 4725,
+    "current_main_text_words": 4844,
     "current_abstract_words": 140,
-    "updated_submission_scope": "Source main 4725 words; abstract140. S14 ecological null gate and S15 conditional-state technical identity retained; natural-order benefit and future selection unresolved.",
+    "updated_submission_scope": "Source main 4844 words; abstract140. S14 ecological null, S15 conditional-state identity and S16 controlled parent-weighting unresolved family retained. Initial-mean effects use their original family; natural-order benefit remains unestablished.",
     "historical_precompression_counts": {
       "main_words": 6035,
       "abstract_words": 237,

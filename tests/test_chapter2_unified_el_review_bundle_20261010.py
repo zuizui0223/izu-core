@@ -26,7 +26,15 @@ def test_minimal_resolution_delivery_is_source_bound():
     assert hashlib.sha256(original).hexdigest()==value['original_readout_sha256']
     assert json.loads(members['EVIDENCE/GENOME_RESPONSE_READOUT.json'])['updates']==64000
     assert json.loads(members['EVIDENCE/DURATION_READOUT.json'])['kernels']==96
-    assert len(derivations)==7
+    assert len(derivations)==8
+    parent=json.loads(members['EVIDENCE/FUTURE_PARENT_READOUT.json'])
+    assert parent['status']=='ACTUAL_RAW_BIRTH_AND_FOUR_DECISIONS_INDEPENDENTLY_VERIFIED'
+    assert parent['cases']==4096 and parent['updates']==819200
+    assert parent['independent']['raw_replay_checks']==9031680
+    assert parent['independent']['producer_imports'] is False
+    assert len(parent['primary'])==4
+    assert all(p['decision']=='unresolved' for p in parent['primary'])
+    assert parent['occupied_counts'][1][:2]==[[864,863],[790,757]]
     ecological=json.loads(members['EVIDENCE/ECOLOGICAL_ORDER_READOUT.json'])
     assert ecological['cases']==2304 and ecological['updates']==460800
     assert len(ecological['cells'])==18 and ecological['supported_supply_pairs']==[]
@@ -51,6 +59,26 @@ def test_minimal_resolution_delivery_rejects_changed_mean_results(tmp_path, monk
     p.write_bytes(p.read_bytes()+b' ')
     monkeypatch.setattr(builder,'MINIMAL_RESULTS',copied)
     with pytest.raises(ValueError,match='minimal resolution source hash mismatch'):
+        builder.minimal_resolution_materials()
+
+
+def test_minimal_resolution_rejects_pending_parent_verification_even_with_matching_hash(tmp_path, monkeypatch):
+    import shutil
+    copied=tmp_path/'results'
+    receipt='minimal_resolution_delivery_20261013.json'
+    value=json.loads((builder.MINIMAL_RESULTS/receipt).read_bytes())
+    for name in [receipt,*value['sha256']]:
+        p=copied/name;p.parent.mkdir(parents=True,exist_ok=True)
+        shutil.copyfile(builder.MINIMAL_RESULTS/name,p)
+    name='future_parent_selection_readout_20261013.json'
+    p=copied/name;parent=json.loads(p.read_bytes())
+    parent['independent']['status']='PENDING'
+    raw=(json.dumps(parent,indent=2)+'\n').encode('utf-8');p.write_bytes(raw)
+    digest=hashlib.sha256(raw).hexdigest()
+    value['sha256'][name]=digest;value['source_raw_sha256'][name]=[digest]
+    (copied/receipt).write_text(json.dumps(value),encoding='utf-8')
+    monkeypatch.setattr(builder,'MINIMAL_RESULTS',copied)
+    with pytest.raises(ValueError,match='future parent independent admission differs'):
         builder.minimal_resolution_materials()
 
 
@@ -169,7 +197,8 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
            "EVIDENCE/DURATION_READOUT.json",
            "EVIDENCE/ECOLOGICAL_ORDER_READOUT.json",
            "EVIDENCE/EVOLUTION_DESIGN.json",
-           "EVIDENCE/EVOLUTION_RESULTS.json",
+            "EVIDENCE/EVOLUTION_RESULTS.json",
+            "EVIDENCE/FUTURE_PARENT_READOUT.json",
            "EVIDENCE/GENOME_RESPONSE_READOUT.json",
            "EVIDENCE/INITIAL_MEAN_ORIGINAL.json.gz",
            "EVIDENCE/INITIAL_MEAN_READOUT.json",
@@ -188,7 +217,7 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
         assert m["doi_deposit_complete"] is False
         assert m["n_figures"]==4
         assert m["n_supplementary_figures"]==3
-        assert len(m["members"])==30
+        assert len(m["members"])==31
         for name,record in m["members"].items():
             raw=z.read(name)
             assert record=={"size":len(raw),"sha256":hashlib.sha256(raw).hexdigest()}
