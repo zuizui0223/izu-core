@@ -1,0 +1,42 @@
+{
+  "status": "TECHNICAL_NATIVE_48_WINDOWS_REPLAY_VERIFIED_NO_SCIENTIFIC_PILOT",
+  "archive": "CLOCK_NATIVE_48_TECHNICAL_WINDOWS_20261014.zip",
+  "sha256": "034ff24eaed8fae4d4ea361a5f1840d52db4e1c20236ab36eb05a080158376ca",
+  "bytes": 403482,
+  "payloads": 63,
+  "runtime": {
+    "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+    "platform": "Windows-10-10.0.22621-SP0",
+    "numpy": "2.2.6",
+    "numpy_configuration": "{'Compilers': {'c': {'name': 'msvc', 'linker': 'link', 'version': '19.29.30159', 'commands': 'cl'}, 'cython': {'name': 'cython', 'linker': 'cython', 'version': '3.1.0', 'commands': 'cython'}, 'c++': {'name': 'msvc', 'linker': 'link', 'version': '19.29.30159', 'commands': 'cl'}}, 'Machine Information': {'host': {'cpu': 'x86_64', 'family': 'x86_64', 'endian': 'little', 'system': 'windows'}, 'build': {'cpu': 'x86_64', 'family': 'x86_64', 'endian': 'little', 'system': 'windows'}}, 'Build Dependencies': {'blas': {'name': 'scipy-openblas', 'found': True, 'version': '0.3.29', 'detection method': 'pkgconfig', 'include directory': 'C:/Users/runneradmin/AppData/Local/Temp/cibw-run-7xf_vzet/cp310-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/include', 'lib directory': 'C:/Users/runneradmin/AppData/Local/Temp/cibw-run-7xf_vzet/cp310-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/lib', 'openblas configuration': 'OpenBLAS 0.3.29  USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=24', 'pc file directory': 'C:/a/numpy/numpy/.openblas'}, 'lapack': {'name': 'scipy-openblas', 'found': True, 'version': '0.3.29', 'detection method': 'pkgconfig', 'include directory': 'C:/Users/runneradmin/AppData/Local/Temp/cibw-run-7xf_vzet/cp310-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/include', 'lib directory': 'C:/Users/runneradmin/AppData/Local/Temp/cibw-run-7xf_vzet/cp310-win_amd64/build/venv/Lib/site-packages/scipy_openblas64/lib', 'openblas configuration': 'OpenBLAS 0.3.29  USE64BITINT DYNAMIC_ARCH NO_AFFINITY Haswell MAX_THREADS=24', 'pc file directory': 'C:/a/numpy/numpy/.openblas'}}, 'Python Information': {'path': 'C:\\\\Users\\\\runneradmin\\\\AppData\\\\Local\\\\Temp\\\\build-env-r6iiznem\\\\Scripts\\\\python.exe', 'version': '3.10'}, 'SIMD Extensions': {'baseline': ['SSE', 'SSE2', 'SSE3'], 'found': ['SSSE3', 'SSE41', 'POPCNT', 'SSE42', 'AVX', 'F16C', 'FMA3', 'AVX2'], 'not found': ['AVX512F', 'AVX512CD', 'AVX512_SKX', 'AVX512_CLX', 'AVX512_CNL', 'AVX512_ICL']}}",
+    "threads": {
+      "OPENBLAS_NUM_THREADS": "1",
+      "OMP_NUM_THREADS": "1"
+    },
+    "source_commit": "7709d03926b7591d2f9f574b7dc36a438dcd8e85",
+    "source_sha256": {
+      "scripts/prepare_chapter2_clock_pilot_archive_20261013.py": "7025997a21866107e733224a7149376ebda5116db7c0fbd913496a520d709838",
+      "scripts/verify_chapter2_clock_pilot_raw_20261013.py": "d50d2d370eb2d7cdd406a58370bc3451435ea633b8d55dfdde37995eebbf2cb0",
+      "data/design/chapter2_clock_factorial_pilot_input_inventory_20261013.json": "79255d691237768a3b1a78187bf974c0376a4cc6135ac36f3e085a3f06b76df4",
+      "data/design/chapter2_clock_original_t0_typed_fixture_20261013.json": "ce557b17359d9e6fa128b83cd1ef52be876124ba13c9b3db357afde12934454e",
+      "data/design/chapter2_clock_factorial_pilot_protocol_20261013.json": "63e91d334d703dbc3f5c113a3c805d47437b26e2a9b793771f3b7c56488cf5a9",
+      "data/results/chapter2_clock_t0_reproduction_equivalence_20261013.json": "1d4d531212f1268da84b3aea6dd9bb8ed0c08a5895034275f6f5192408054032",
+      "scripts/model3_island/types.py": "a572e1e7f4fded181585871a63582b16f40292bd07b13e8efc9d6b6234eb21c5",
+      "scripts/model3_island/reproduction.py": "885957edb8a165ee8528781ed1d2574c44143c608496b505f9663cbfac2c4081",
+      "scripts/model3_island/population.py": "c959d18816da6666dbfb4e91bd9582c94af5453b25498d033f5747305b05fe0f",
+      "scripts/model3_island/randomness.py": "63522ae3c5ff8e11f114b5649a989945fa4ba2480fdca0f74857601b0e4b211f",
+      "scripts/model3_island/history.py": "28d22c7fde81d9be6a604fa9dd4cb6b48d78d388d4db85f798a935cf81415488"
+    },
+    "new_scientific_pilot_histories": 0,
+    "technical_paths": 48,
+    "updates": 144,
+    "parent_pairs": 6912,
+    "source_year_genetic_records": 6912,
+    "independent_verifier_imported_producer": false,
+    "limitations": [
+      "Same-machine technical replay only; no cross-BLAS portability claim.",
+      "Not registered200-update histories, not six-shard source admission, not pilot approval or biological conclusions."
+    ]
+  },
+  "independent_review_sha256": "aadc095487949c37edcfe5709abe1ad376390fe3e0bced00f2cc9ad076ff539e"
+}
