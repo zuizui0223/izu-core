@@ -17,6 +17,34 @@ MODEL_BIO_COMMIT='328548612e93469fcc8663f24548530a57399b9a'
 VALID=('assurance_first','investment_first','near_simultaneous',
        'assurance_only','investment_only','neither')
 CASE=re.compile(r'^(main|confirmation)_c(0|3|4)_A([LH])_I([01])_r(\d{3})$')
+CASE_DIGEST=re.compile(r'[0-9a-f]{64}\Z')
+MAX_ONSET=201-20  # Last possible start of a 20-census sustained event.
+
+
+def verify_six_class_event(event:dict)->str:
+    """Independently check event times and the ORIGINAL six-category rule.
+
+    It is not sufficient to trust a label in a self-described readout JSON:
+    the A-first label cannot coexist with an I onset that is 181 years earlier.
+    A full original-genotype source replay remains a separate earlier gate.
+    """
+    if not isinstance(event,dict) or set(event)!={'A','I','category'}:
+        raise ValueError('six-class event must carry exact original A/I/category fields')
+    a,i=event['A'],event['I']
+    for name,v in (('A',a),('I',i)):
+        if v is not None and (type(v) is not int or v<0 or v>MAX_ONSET):
+            raise ValueError('invalid sustained 20-census event onset '+name)
+    if a is None:
+        category='neither' if i is None else 'investment_only'
+    elif i is None:
+        category='assurance_only'
+    elif abs(a-i)<=5:
+        category='near_simultaneous'
+    else:
+        category='assurance_first' if a<i else 'investment_first'
+    if event['category']!=category:
+        raise ValueError('six-category label contradicts original A/I event onsets')
+    return category
 
 
 def git_blob(data:bytes)->str:
@@ -36,7 +64,7 @@ def aggregate(files:list[Path],registry_file:Path)->dict:
     observed={};contexts=set();sha_files={};paired=defaultdict(set)
     categories=Counter({x:0 for x in VALID});n_updates=0;n_genomes=0;n_births=0
     for filename in files:
-        raw=filename.read_bytes();sha_files[filename.name]=hashlib.sha256(raw).hexdigest()
+        raw=filename.read_bytes();verified_receipt_sha=hashlib.sha256(raw).hexdigest()
         receipt=json.loads(raw)
         if (receipt['schema']!='chapter2_clock_factorial_producer_independent_raw_reader_v1'
             or receipt['status']!='ALL_256_PILOT_SHARD_RAW_GENOMES_REPLAYED'
@@ -55,14 +83,15 @@ def aggregate(files:list[Path],registry_file:Path)->dict:
                 raise ValueError('case duplicate, missing original registration or invalid ID')
             block,ctx,aw,ih,r=match.groups()
             r=int(r)
-            if r>=64 or result['updates']!=200 or len(result['case_sha256'])!=64:
+            if (r>=64 or type(result['updates']) is not int or result['updates']!=200
+                or not isinstance(result['case_sha256'],str)
+                or CASE_DIGEST.fullmatch(result['case_sha256']) is None):
                 raise ValueError('unregistered history seed, horizon, or raw case digest')
-            event=result['event_0p05'];category=event.get('category') if isinstance(event,dict) else None
-            if category not in VALID:
-                raise ValueError('unexpected original six-category endpoint label')
-            if (event['A'] is not None and not isinstance(event['A'],int)
-                or event['I'] is not None and not isinstance(event['I'],int)):
-                raise ValueError('unregistered event onset encoding')
+            for field,limit in (('genotype_record_source_years',9600),('parent_pairs',9600)):
+                v=result[field]
+                if type(v) is not int or not 0<=v<=limit:
+                    raise ValueError('nonphysical source-genome or parentpair count')
+            category=verify_six_class_event(result['event_0p05'])
             paired[(block,r)].add((ctx,aw,ih));subset.add((block,ctx))
             categories[category]+=1
             n_updates+=result['updates'];n_genomes+=result['genotype_record_source_years'];n_births+=result['parent_pairs']
@@ -72,7 +101,12 @@ def aggregate(files:list[Path],registry_file:Path)->dict:
         context=next(iter(subset))
         if context in contexts:raise ValueError('duplicated founder/context sharded source')
         contexts.add(context)
-    if set(observed)!=expected or len(contexts)!=6 or len(paired)!=128 or n_updates!=307200:
+        # A conventional reviewer download often calls all six readouts
+        # 'verification.json' in separate directories. A filename-only map
+        # silently overwrites five source digests, leaving invalid provenance.
+        receipt_key=f'{context[0]}_c{context[1]}'
+        sha_files[receipt_key]=verified_receipt_sha
+    if set(observed)!=expected or len(contexts)!=6 or len(paired)!=128 or n_updates!=307200 or len(sha_files)!=6:
         raise ValueError('six-shard source case total/source context/annual updates incomplete')
     targets={(c,a,i) for c in ('0','3','4') for a in 'LH' for i in '01'}
     if any(v!=targets for v in paired.values()):
