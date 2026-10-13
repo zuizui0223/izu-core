@@ -19,7 +19,7 @@ jobs:
         run: python -m pip install 'numpy==2.2.6' 'scipy>=1.11' 'pytest>=8,<10'
       - name: Verify actual frozen summary and tests
         run: |
-          python -m pytest -q tests/test_chapter2_initial_clock_identifiability_20261013.py tests/test_chapter2_initial_clock_raw_20261013.py
+          python -m pytest -q tests/test_chapter2_initial_clock_identifiability_20261013.py tests/test_chapter2_initial_clock_raw_20261013.py tests/test_chapter2_initial_clock_two_axis_cv_20261013.py
           python scripts/audit_chapter2_initial_clock_identifiability_20261013.py \
             --input data/results/ecological_order_boundary_20261013.json \
             --out "$RUNNER_TEMP/initial_clock_summary_oracles.json"
@@ -81,6 +81,11 @@ jobs:
             --t0 data/results/chapter2_initial_clock_t0_raw_20261013.json \
             --paired "$RUNNER_TEMP/initial_clock_paired_events.json" \
             --out "$RUNNER_TEMP/initial_clock_paired_cv.json"
+          python -m scripts.audit_chapter2_initial_clock_two_axis_cv_20261013 \
+            --compact data/results/ecological_order_boundary_20261013.json \
+            --t0 data/results/chapter2_initial_clock_t0_raw_20261013.json \
+            --paired "$RUNNER_TEMP/initial_clock_paired_events.json" \
+            --out "$RUNNER_TEMP/initial_clock_two_axis_cv.json"
           python - <<'PYCODE'
           import os,json,pathlib
           a=json.loads((pathlib.Path(os.environ['RUNNER_TEMP'])/'initial_clock_paired_cv.json').read_text())
@@ -94,6 +99,18 @@ jobs:
                         'full_vs_equal_complexity_quadratic'):
                   for metric in ('log_loss_reduction','brier_reduction'):
                       assert abs(ar[k][metric]-br[k][metric])<1e-8
+          ta=json.loads((pathlib.Path(os.environ['RUNNER_TEMP'])/'initial_clock_two_axis_cv.json').read_text())
+          tb=json.loads(pathlib.Path('data/results/chapter2_initial_clock_two_axis_cv_20261013.json').read_text())
+          assert ta['status']==tb['status'] and ta['cases']==tb['cases']==2304
+          for tr,br in zip(ta['results'],tb['results']):
+              assert tr['lambda']==br['lambda']
+              for model in tr['scores']:
+                  for metric in ('log_loss','brier','argmax_accuracy'):
+                      assert abs(tr['scores'][model][metric]-br['scores'][model][metric])<1e-7
+              for contrast in tr['comparisons']:
+                  for metric in ('log_loss_reduction','brier_reduction'):
+                      assert abs(tr['comparisons'][contrast][metric]-br['comparisons'][contrast][metric])<1e-7
+          print('ALL2304_DOUBLE_HELDOUT_SCORE_RECOMPUTATIONS_MATCH_SAVED_ORIGINAL')
           print('ALL256_PAIRED_SEED_CV_METRICS_MATCH_ORIGINAL_PROVIDER_CASES')
           PYCODE
       - uses: actions/upload-artifact@v4
@@ -105,4 +122,5 @@ jobs:
             ${{ runner.temp }}/initial_clock_paired_events.json
             ${{ runner.temp }}/initial_clock_aggregate_cv.json
             ${{ runner.temp }}/initial_clock_paired_cv.json
+            ${{ runner.temp }}/initial_clock_two_axis_cv.json
           retention-days: 30
