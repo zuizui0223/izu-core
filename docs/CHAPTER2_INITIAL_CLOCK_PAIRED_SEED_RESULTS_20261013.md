@@ -67,3 +67,18 @@ The next *new independent* biological campaign would need **before execution**: 
 - Original frozen biological execution source `328548612e93469fcc8663f24548530a57399b9a`; original compact source Git blob `5608ad2cdcbef167fe9062ab5f26318abf2e1bd9`.
 
 This is an exploratory companion to [PR #494](https://github.com/zuizui0223/izu-core/pull/494), itself stacked on the unmerged four-question submission [PR #491](https://github.com/zuizui0223/izu-core/pull/491). Publication/DOI status does not change.
+
+## Stronger same-condition null: fully known-context lookup (post hoc negative benchmark)
+
+A further **source-matched retrospective check** asks whether the t0 Price model is actually the best forecaster *within these exact 18 already-known founder × visitor profiles*. Using the same 256 paired biological random-stream clusters and the identical held-out `replicate % 5` folds, an **18-cell empirical category-frequency lookup** is estimated from the other four seed folds. To avoid zero probabilities in rare labels, add `alpha=0.5` (Jeffreys pseudocount for each of six labels) to each cell/category frequency. The six possible outcomes and all original starts remain in the loss denominator.
+
+| Model / 5-fold seed-heldout | Six-class Log loss | Brier | Argmax accuracy |
+|---|---:|---:|---:|
+| Existing ecology+I-genetic variance+t0 I response | 1.31875 | 0.66683 | 45.75% |
+| **Known-profile 18-cell empirical lookup**, α=0.5 | **1.13993** | **0.62074** | **47.22%** |
+
+Lookup pseudocount sensitivity `alpha={0.01,0.5,1,2}` gives Log loss `1.14740 / 1.13993 / 1.14676 / 1.16315`. These are **post-exposure checks**; alpha is not an independently frozen biological optimum. The lookup uses many more effective parameters (six-category probabilities independently estimated in each of 18 named original cells). Crucially, it **cannot predict a genuinely new founder/environment condition** because its cell label is absent from training. Consequently this is **not an equal-complexity falsification** of the process model or a competing general ecological mechanism.
+
+It does impose an important ceiling on the claims: within these exact repeatedly sampled contexts, empirical conditional frequencies capture more of the stochastic outcome distribution than the present coarse mechanistic features. The source response feature's small advantage over a flexible ecological covariate is an exploratory **low-dimensional interpolation** result; a model with an A-access delay or reliable unseen-condition prediction has not yet been demonstrated.
+
+Machine-readable same-history check: [`chapter2_initial_clock_saturated_reference_20261013.json`](../data/results/chapter2_initial_clock_saturated_reference_20261013.json); source-bound reader: [`audit_chapter2_initial_clock_saturated_reference_20261013.py`](../scripts/audit_chapter2_initial_clock_saturated_reference_20261013.py). Execute with the original exact PR491 ecological compact JSON and PR494 paired event JSON; their Git blob identities are pinned, and the test rejects lost/changed original histories. This is read-only: **zero new biological cases**.
