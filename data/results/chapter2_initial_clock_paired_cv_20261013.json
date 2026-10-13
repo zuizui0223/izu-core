@@ -1,0 +1,1073 @@
+{
+  "schema": "chapter2_initial_clock_seed_blocked_cv_exploratory_v1",
+  "status": "COMPLETED_RETROSPECTIVE_256_CLUSTER_PAIRED_FOLD_PROPER_SCORES_NOT_PROSPECTIVE_CONFIRMATION",
+  "cases": 2304,
+  "independent_stochastic_stream_clusters": 256,
+  "ecological_contexts_per_cluster": 9,
+  "genotypic_founder_blocks": 2,
+  "six_original_categories": [
+    "assurance_first",
+    "investment_first",
+    "near_simultaneous",
+    "assurance_only",
+    "investment_only",
+    "neither"
+  ],
+  "paired_seed_fold_rule": "replicate % 5; all nine contexts and matching founder held out together",
+  "models": [
+    "prevalence",
+    "ecology",
+    "genetic_access",
+    "ecology_genetics",
+    "ecology_genetics_quadratic",
+    "ecology_genetics_price"
+  ],
+  "lambda_sensitivity": [
+    0.025,
+    0.15,
+    0.6
+  ],
+  "original_source_bio": "fixed ecological Model3, no new evolutionary trajectories",
+  "cohort_scope": "Single biological model and two founder genetic states; reused stochastic streams across contexts.",
+  "selection_direction_inference": "initial full-parent Price I response, not an A-vs-I first-passage prediction",
+  "initial_assurance_genetic_access": "constant A heterozygosity, expressed variance0, expected t0 selection0, F1 segregation proxy constant",
+  "results": [
+    {
+      "lambda": 0.025,
+      "five_fold_out_of_history_scores": {
+        "prevalence": {
+          "log_loss": 1.531344616994401,
+          "brier": 0.7551349011510522,
+          "argmax_accuracy": 0.3884548611111111,
+          "correct": 895,
+          "n": 2304
+        },
+        "ecology": {
+          "log_loss": 1.266639656754266,
+          "brier": 0.6539499022793112,
+          "argmax_accuracy": 0.4392361111111111,
+          "correct": 1012,
+          "n": 2304
+        },
+        "genetic_access": {
+          "log_loss": 1.5236095351147063,
+          "brier": 0.7506765214420168,
+          "argmax_accuracy": 0.3884548611111111,
+          "correct": 895,
+          "n": 2304
+        },
+        "ecology_genetics": {
+          "log_loss": 1.25631816238447,
+          "brier": 0.649696553418433,
+          "argmax_accuracy": 0.4609375,
+          "correct": 1062,
+          "n": 2304
+        },
+        "ecology_genetics_quadratic": {
+          "log_loss": 1.2186799194884874,
+          "brier": 0.6388703296311627,
+          "argmax_accuracy": 0.4609375,
+          "correct": 1062,
+          "n": 2304
+        },
+        "ecology_genetics_price": {
+          "log_loss": 1.2117094258132832,
+          "brier": 0.6367158809749304,
+          "argmax_accuracy": 0.4587673611111111,
+          "correct": 1057,
+          "n": 2304
+        }
+      },
+      "folds": [
+        {
+          "fold": 0,
+          "heldout_clusters": 52,
+          "heldout_cases": 468,
+          "prevalence": {
+            "log_loss": 1.553505691319838,
+            "brier": 0.7509759102406812,
+            "argmax_accuracy": 0.40384615384615385,
+            "correct": 189,
+            "n": 468
+          },
+          "ecology": {
+            "log_loss": 1.3009569165686246,
+            "brier": 0.657543666589112,
+            "argmax_accuracy": 0.4444444444444444,
+            "correct": 208,
+            "n": 468
+          },
+          "genetic_access": {
+            "log_loss": 1.5396908556086053,
+            "brier": 0.7432831012830322,
+            "argmax_accuracy": 0.40384615384615385,
+            "correct": 189,
+            "n": 468
+          },
+          "ecology_genetics": {
+            "log_loss": 1.2830310290474702,
+            "brier": 0.6512649197070016,
+            "argmax_accuracy": 0.4636752136752137,
+            "correct": 217,
+            "n": 468
+          },
+          "ecology_genetics_quadratic": {
+            "log_loss": 1.2469583584570207,
+            "brier": 0.6422951725077773,
+            "argmax_accuracy": 0.4636752136752137,
+            "correct": 217,
+            "n": 468
+          },
+          "ecology_genetics_price": {
+            "log_loss": 1.232516979381313,
+            "brier": 0.6364387943869942,
+            "argmax_accuracy": 0.4636752136752137,
+            "correct": 217,
+            "n": 468
+          }
+        },
+        {
+          "fold": 1,
+          "heldout_clusters": 52,
+          "heldout_cases": 468,
+          "prevalence": {
+            "log_loss": 1.5276420930328323,
+            "brier": 0.7557530466664161,
+            "argmax_accuracy": 0.38247863247863245,
+            "correct": 179,
+            "n": 468
+          },
+          "ecology": {
+            "log_loss": 1.2514285551700126,
+            "brier": 0.6438397098496864,
+            "argmax_accuracy": 0.44871794871794873,
+            "correct": 210,
+            "n": 468
+          },
+          "genetic_access": {
+            "log_loss": 1.5246728614380252,
+            "brier": 0.75436740397412,
+            "argmax_accuracy": 0.38247863247863245,
+            "correct": 179,
+            "n": 468
+          },
+          "ecology_genetics": {
+            "log_loss": 1.2467136602995506,
+            "brier": 0.6418631023960122,
+            "argmax_accuracy": 0.4465811965811966,
+            "correct": 209,
+            "n": 468
+          },
+          "ecology_genetics_quadratic": {
+            "log_loss": 1.2123630948362194,
+            "brier": 0.6318670714287619,
+            "argmax_accuracy": 0.4465811965811966,
+            "correct": 209,
+            "n": 468
+          },
+          "ecology_genetics_price": {
+            "log_loss": 1.2118474371706838,
+            "brier": 0.6327916818517691,
+            "argmax_accuracy": 0.4465811965811966,
+            "correct": 209,
+            "n": 468
+          }
+        },
+        {
+          "fold": 2,
+          "heldout_clusters": 52,
+          "heldout_cases": 468,
+          "prevalence": {
+            "log_loss": 1.5381762378295794,
+            "brier": 0.7606856318807655,
+            "argmax_accuracy": 0.3803418803418803,
+            "correct": 178,
+            "n": 468
+          },
+          "ecology": {
+            "log_loss": 1.2837769109528934,
+            "brier": 0.6700387672503605,
+            "argmax_accuracy": 0.40384615384615385,
+            "correct": 189,
+            "n": 468
+          },
+          "genetic_access": {
+            "log_loss": 1.5346699859859267,
+            "brier": 0.7579244012932296,
+            "argmax_accuracy": 0.3803418803418803,
+            "correct": 178,
+            "n": 468
+          },
+          "ecology_genetics": {
+            "log_loss": 1.2792404248116092,
+            "brier": 0.6676515188219658,
+            "argmax_accuracy": 0.4358974358974359,
+            "correct": 204,
+            "n": 468
+          },
+          "ecology_genetics_quadratic": {
+            "log_loss": 1.2359885530594643,
+            "brier": 0.6540538244725858,
+            "argmax_accuracy": 0.4358974358974359,
+            "correct": 204,
+            "n": 468
+          },
+          "ecology_genetics_price": {
+            "log_loss": 1.2362442221070935,
+            "brier": 0.6550310328716283,
+            "argmax_accuracy": 0.4358974358974359,
+            "correct": 204,
+            "n": 468
+          }
+        },
+        {
+          "fold": 3,
+          "heldout_clusters": 50,
+          "heldout_cases": 450,
+          "prevalence": {
+            "log_loss": 1.5153145233738747,
+            "brier": 0.7520903403100017,
+            "argmax_accuracy": 0.3977777777777778,
+            "correct": 179,
+            "n": 450
+          },
+          "ecology": {
+            "log_loss": 1.2433203126104235,
+            "brier": 0.6503382431760705,
+            "argmax_accuracy": 0.4533333333333333,
+            "correct": 204,
+            "n": 450
+          },
+          "genetic_access": {
+            "log_loss": 1.5050742719559353,
+            "brier": 0.7463237999200789,
+            "argmax_accuracy": 0.3977777777777778,
+            "correct": 179,
+            "n": 450
+          },
+          "ecology_genetics": {
+            "log_loss": 1.2295644097748466,
+            "brier": 0.6451364216920823,
+            "argmax_accuracy": 0.47555555555555556,
+            "correct": 214,
+            "n": 450
+          },
+          "ecology_genetics_quadratic": {
+            "log_loss": 1.1898674181605895,
+            "brier": 0.6340462570588413,
+            "argmax_accuracy": 0.47555555555555556,
+            "correct": 214,
+            "n": 450
+          },
+          "ecology_genetics_price": {
+            "log_loss": 1.1738985147214112,
+            "brier": 0.6271205823688852,
+            "argmax_accuracy": 0.47555555555555556,
+            "correct": 214,
+            "n": 450
+          }
+        },
+        {
+          "fold": 4,
+          "heldout_clusters": 50,
+          "heldout_cases": 450,
+          "prevalence": {
+            "log_loss": 1.521072932567919,
+            "brier": 0.7560891812440083,
+            "argmax_accuracy": 0.37777777777777777,
+            "correct": 170,
+            "n": 450
+          },
+          "ecology": {
+            "log_loss": 1.2522658519722265,
+            "brier": 0.6476062270572776,
+            "argmax_accuracy": 0.44666666666666666,
+            "correct": 201,
+            "n": 450
+          },
+          "genetic_access": {
+            "log_loss": 1.5128114966775017,
+            "brier": 0.75134208705065,
+            "argmax_accuracy": 0.37777777777777777,
+            "correct": 170,
+            "n": 450
+          },
+          "ecology_genetics": {
+            "log_loss": 1.2414400629086653,
+            "brier": 0.6420992092483163,
+            "argmax_accuracy": 0.48444444444444446,
+            "correct": 218,
+            "n": 450
+          },
+          "ecology_genetics_quadratic": {
+            "log_loss": 1.206651363013654,
+            "brier": 0.631625119507222,
+            "argmax_accuracy": 0.48444444444444446,
+            "correct": 218,
+            "n": 450
+          },
+          "ecology_genetics_price": {
+            "log_loss": 1.2022207612371454,
+            "brier": 0.6316327587479508,
+            "argmax_accuracy": 0.47333333333333333,
+            "correct": 213,
+            "n": 450
+          }
+        }
+      ],
+      "controlled_add_source_Price_vs_ecology_genetics": {
+        "log_loss_reduction": 0.0446087365711868,
+        "brier_reduction": 0.012980672443502747,
+        "confidence_exploratory_conditional": {
+          "replicates": 10000,
+          "unit": "founder-specific replicate/visitor random-stream cluster (all nine ecological contexts stay together)",
+          "sampling": "paired within each of two source founders, fitted 5-fold predictions treated as fixed",
+          "bootstrap_seed": 2026101301,
+          "log_loss_reduction_95_percentile": [
+            0.039205185385834264,
+            0.04958679072120734
+          ],
+          "brier_reduction_95_percentile": [
+            0.010746096530928164,
+            0.01510795966298125
+          ]
+        }
+      },
+      "full_vs_ecology_only": {
+        "log_loss_reduction": 0.05493023094098247,
+        "brier_reduction": 0.017234021304380818,
+        "confidence_exploratory_conditional": {
+          "replicates": 10000,
+          "unit": "founder-specific replicate/visitor random-stream cluster (all nine ecological contexts stay together)",
+          "sampling": "paired within each of two source founders, fitted 5-fold predictions treated as fixed",
+          "bootstrap_seed": 2026101302,
+          "log_loss_reduction_95_percentile": [
+            0.04427990341986766,
+            0.06513630551198335
+          ],
+          "brier_reduction_95_percentile": [
+            0.012486655921868633,
+            0.021861305742849304
+          ]
+        }
+      },
+      "full_vs_equal_complexity_quadratic": {
+        "log_loss_reduction": 0.006970493675204049,
+        "brier_reduction": 0.002154448656232425,
+        "confidence_exploratory_conditional": {
+          "replicates": 10000,
+          "unit": "founder-specific replicate/visitor random-stream cluster (all nine ecological contexts stay together)",
+          "sampling": "paired within each of two source founders, fitted 5-fold predictions treated as fixed",
+          "bootstrap_seed": 2026101303,
+          "log_loss_reduction_95_percentile": [
+            0.0017137170756152738,
+            0.01212417457294757
+          ],
+          "brier_reduction_95_percentile": [
+            0.00016961106549898052,
+            0.004168919385735139
+          ]
+        }
+      }
+    },
+    {
+      "lambda": 0.15,
+      "five_fold_out_of_history_scores": {
+        "prevalence": {
+          "log_loss": 1.531344616994401,
+          "brier": 0.7551349011510522,
+          "argmax_accuracy": 0.3884548611111111,
+          "correct": 895,
+          "n": 2304
+        },
+        "ecology": {
+          "log_loss": 1.3727698530593182,
+          "brier": 0.6844147358691746,
+          "argmax_accuracy": 0.4279513888888889,
+          "correct": 986,
+          "n": 2304
+        },
+        "genetic_access": {
+          "log_loss": 1.5242135188616102,
+          "brier": 0.7510804811419262,
+          "argmax_accuracy": 0.3884548611111111,
+          "correct": 895,
+          "n": 2304
+        },
+        "ecology_genetics": {
+          "log_loss": 1.3646843956001062,
+          "brier": 0.6807111562462441,
+          "argmax_accuracy": 0.4431423611111111,
+          "correct": 1021,
+          "n": 2304
+        },
+        "ecology_genetics_quadratic": {
+          "log_loss": 1.3306222724772014,
+          "brier": 0.6724874665497727,
+          "argmax_accuracy": 0.4457465277777778,
+          "correct": 1027,
+          "n": 2304
+        },
+        "ecology_genetics_price": {
+          "log_loss": 1.31875274908682,
+          "brier": 0.6668312359433015,
+          "argmax_accuracy": 0.4574652777777778,
+          "correct": 1054,
+          "n": 2304
+        }
+      },
+      "folds": [
+        {
+          "fold": 0,
+          "heldout_clusters": 52,
+          "heldout_cases": 468,
+          "prevalence": {
+            "log_loss": 1.553505691319838,
+            "brier": 0.7509759102406812,
+            "argmax_accuracy": 0.40384615384615385,
+            "correct": 189,
+            "n": 468
+          },
+          "ecology": {
+            "log_loss": 1.4048652375663109,
+            "brier": 0.685005828310489,
+            "argmax_accuracy": 0.4358974358974359,
+            "correct": 204,
+            "n": 468
+          },
+          "genetic_access": {
+            "log_loss": 1.5424745215944573,
+            "brier": 0.7448077880227146,
+            "argmax_accuracy": 0.40384615384615385,
+            "correct": 189,
+            "n": 468
+          },
+          "ecology_genetics": {
+            "log_loss": 1.3926605865719923,
+            "brier": 0.6799215543775089,
+            "argmax_accuracy": 0.45726495726495725,
+            "correct": 214,
+            "n": 468
+          },
+          "ecology_genetics_quadratic": {
+            "log_loss": 1.3587385068329492,
+            "brier": 0.6719147097538077,
+            "argmax_accuracy": 0.4594017094017094,
+            "correct": 215,
+            "n": 468
+          },
+          "ecology_genetics_price": {
+            "log_loss": 1.3417130044232497,
+            "brier": 0.6633643241569563,
+            "argmax_accuracy": 0.4636752136752137,
+            "correct": 217,
+            "n": 468
+          }
+        },
+        {
+          "fold": 1,
+          "heldout_clusters": 52,
+          "heldout_cases": 468,
+          "prevalence": {
+            "log_loss": 1.5276420930328323,
+            "brier": 0.7557530466664161,
+            "argmax_accuracy": 0.38247863247863245,
+            "correct": 179,
+            "n": 468
+          },
+          "ecology": {
+            "log_loss": 1.356225852159047,
+            "brier": 0.6757604076847301,
+            "argmax_accuracy": 0.4337606837606838,
+            "correct": 203,
+            "n": 468
+          },
+          "genetic_access": {
+            "log_loss": 1.5238741615211455,
+            "brier": 0.7538269036996883,
+            "argmax_accuracy": 0.38247863247863245,
+            "correct": 179,
+            "n": 468
+          },
+          "ecology_genetics": {
+            "log_loss": 1.35165280954588,
+            "brier": 0.6736680503836213,
+            "argmax_accuracy": 0.44017094017094016,
+            "correct": 206,
+            "n": 468
+          },
+          "ecology_genetics_quadratic": {
+            "log_loss": 1.317375822436413,
+            "brier": 0.6638725182158894,
+            "argmax_accuracy": 0.44017094017094016,
+            "correct": 206,
+            "n": 468
+          },
+          "ecology_genetics_price": {
+            "log_loss": 1.3098898678972923,
+            "brier": 0.6602215177880467,
+            "argmax_accuracy": 0.44871794871794873,
+            "correct": 210,
+            "n": 468
+          }
+        },
+        {
+          "fold": 2,
+          "heldout_clusters": 52,
+          "heldout_cases": 468,
+          "prevalence": {
+            "log_loss": 1.5381762378295794,
+            "brier": 0.7606856318807655,
+            "argmax_accuracy": 0.3803418803418803,
+            "correct": 178,
+            "n": 468
+          },
+          "ecology": {
+            "log_loss": 1.3908021173006448,
+            "brier": 0.6995788273365887,
+            "argmax_accuracy": 0.39316239316239315,
+            "correct": 184,
+            "n": 468
+          },
+          "genetic_access": {
+            "log_loss": 1.5334518707024778,
+            "brier": 0.7576201176788626,
+            "argmax_accuracy": 0.3803418803418803,
+            "correct": 178,
+            "n": 468
+          },
+          "ecology_genetics": {
+            "log_loss": 1.3853257316135108,
+            "brier": 0.6966969023407797,
+            "argmax_accuracy": 0.4188034188034188,
+            "correct": 196,
+            "n": 468
+          },
+          "ecology_genetics_quadratic": {
+            "log_loss": 1.3509646890930789,
+            "brier": 0.6900263774212136,
+            "argmax_accuracy": 0.42094017094017094,
+            "correct": 197,
+            "n": 468
+          },
+          "ecology_genetics_price": {
+            "log_loss": 1.344294234945084,
+            "brier": 0.6868513542091849,
+            "argmax_accuracy": 0.4358974358974359,
+            "correct": 204,
+            "n": 468
+          }
+        },
+        {
+          "fold": 3,
+          "heldout_clusters": 50,
+          "heldout_cases": 450,
+          "prevalence": {
+            "log_loss": 1.5153145233738747,
+            "brier": 0.7520903403100017,
+            "argmax_accuracy": 0.3977777777777778,
+            "correct": 179,
+            "n": 450
+          },
+          "ecology": {
+            "log_loss": 1.3552906854062048,
+            "brier": 0.6824391637187956,
+            "argmax_accuracy": 0.43555555555555553,
+            "correct": 196,
+            "n": 450
+          },
+          "genetic_access": {
+            "log_loss": 1.5066456191554785,
+            "brier": 0.7471452267173255,
+            "argmax_accuracy": 0.3977777777777778,
+            "correct": 179,
+            "n": 450
+          },
+          "ecology_genetics": {
+            "log_loss": 1.3455391023919216,
+            "brier": 0.6781892568411437,
+            "argmax_accuracy": 0.4577777777777778,
+            "correct": 206,
+            "n": 450
+          },
+          "ecology_genetics_quadratic": {
+            "log_loss": 1.3120223872184273,
+            "brier": 0.6712953575435647,
+            "argmax_accuracy": 0.4666666666666667,
+            "correct": 210,
+            "n": 450
+          },
+          "ecology_genetics_price": {
+            "log_loss": 1.293666683576488,
+            "brier": 0.6623550039886422,
+            "argmax_accuracy": 0.4711111111111111,
+            "correct": 212,
+            "n": 450
+          }
+        },
+        {
+          "fold": 4,
+          "heldout_clusters": 50,
+          "heldout_cases": 450,
+          "prevalence": {
+            "log_loss": 1.521072932567919,
+            "brier": 0.7560891812440083,
+            "argmax_accuracy": 0.37777777777777777,
+            "correct": 170,
+            "n": 450
+          },
+          "ecology": {
+            "log_loss": 1.3553220269504611,
+            "brier": 0.6790054180662978,
+            "argmax_accuracy": 0.44222222222222224,
+            "correct": 199,
+            "n": 450
+          },
+          "genetic_access": {
+            "log_loss": 1.5135350214451628,
+            "brier": 0.7518818349520204,
+            "argmax_accuracy": 0.37777777777777777,
+            "correct": 170,
+            "n": 450
+          },
+          "ecology_genetics": {
+            "log_loss": 1.346820310239984,
+            "brier": 0.6747538957536399,
+            "argmax_accuracy": 0.44222222222222224,
+            "correct": 199,
+            "n": 450
+          },
+          "ecology_genetics_quadratic": {
+            "log_loss": 1.3126014687679053,
+            "brier": 0.664994321584724,
+            "argmax_accuracy": 0.44222222222222224,
+            "correct": 199,
+            "n": 450
+          },
+          "ecology_genetics_price": {
+            "log_loss": 1.3026144001917794,
+            "brier": 0.6609662400407061,
+            "argmax_accuracy": 0.4688888888888889,
+            "correct": 211,
+            "n": 450
+          }
+        }
+      ],
+      "controlled_add_source_Price_vs_ecology_genetics": {
+        "log_loss_reduction": 0.04593164651328621,
+        "brier_reduction": 0.013879920302942625,
+        "confidence_exploratory_conditional": {
+          "replicates": 10000,
+          "unit": "founder-specific replicate/visitor random-stream cluster (all nine ecological contexts stay together)",
+          "sampling": "paired within each of two source founders, fitted 5-fold predictions treated as fixed",
+          "bootstrap_seed": 2026101301,
+          "log_loss_reduction_95_percentile": [
+            0.04228447112096918,
+            0.04913290438775274
+          ],
+          "brier_reduction_95_percentile": [
+            0.012116080467266624,
+            0.01551135189986505
+          ]
+        }
+      },
+      "full_vs_ecology_only": {
+        "log_loss_reduction": 0.054017103972497996,
+        "brier_reduction": 0.017583499925873016,
+        "confidence_exploratory_conditional": {
+          "replicates": 10000,
+          "unit": "founder-specific replicate/visitor random-stream cluster (all nine ecological contexts stay together)",
+          "sampling": "paired within each of two source founders, fitted 5-fold predictions treated as fixed",
+          "bootstrap_seed": 2026101302,
+          "log_loss_reduction_95_percentile": [
+            0.04740580420470969,
+            0.060192720419646704
+          ],
+          "brier_reduction_95_percentile": [
+            0.014478012143085195,
+            0.020571115900682998
+          ]
+        }
+      },
+      "full_vs_equal_complexity_quadratic": {
+        "log_loss_reduction": 0.011869523390381411,
+        "brier_reduction": 0.005656230606471096,
+        "confidence_exploratory_conditional": {
+          "replicates": 10000,
+          "unit": "founder-specific replicate/visitor random-stream cluster (all nine ecological contexts stay together)",
+          "sampling": "paired within each of two source founders, fitted 5-fold predictions treated as fixed",
+          "bootstrap_seed": 2026101303,
+          "log_loss_reduction_95_percentile": [
+            0.008495654565017205,
+            0.015239747349197096
+          ],
+          "brier_reduction_95_percentile": [
+            0.003980704262643724,
+            0.0074080387210489
+          ]
+        }
+      }
+    },
+    {
+      "lambda": 0.6,
+      "five_fold_out_of_history_scores": {
+        "prevalence": {
+          "log_loss": 1.531344616994401,
+          "brier": 0.7551349011510522,
+          "argmax_accuracy": 0.3884548611111111,
+          "correct": 895,
+          "n": 2304
+        },
+        "ecology": {
+          "log_loss": 1.4431530051815866,
+          "brier": 0.7105548815202751,
+          "argmax_accuracy": 0.4097222222222222,
+          "correct": 944,
+          "n": 2304
+        },
+        "genetic_access": {
+          "log_loss": 1.5269137592653996,
+          "brier": 0.7526030029415356,
+          "argmax_accuracy": 0.3884548611111111,
+          "correct": 895,
+          "n": 2304
+        },
+        "ecology_genetics": {
+          "log_loss": 1.438612240806577,
+          "brier": 0.7081710884826544,
+          "argmax_accuracy": 0.4066840277777778,
+          "correct": 937,
+          "n": 2304
+        },
+        "ecology_genetics_quadratic": {
+          "log_loss": 1.4113552497698498,
+          "brier": 0.6978444355071551,
+          "argmax_accuracy": 0.4097222222222222,
+          "correct": 944,
+          "n": 2304
+        },
+        "ecology_genetics_price": {
+          "log_loss": 1.4050900290203794,
+          "brier": 0.6948435291009363,
+          "argmax_accuracy": 0.4379340277777778,
+          "correct": 1009,
+          "n": 2304
+        }
+      },
+      "folds": [
+        {
+          "fold": 0,
+          "heldout_clusters": 52,
+          "heldout_cases": 468,
+          "prevalence": {
+            "log_loss": 1.553505691319838,
+            "brier": 0.7509759102406812,
+            "argmax_accuracy": 0.40384615384615385,
+            "correct": 189,
+            "n": 468
+          },
+          "ecology": {
+            "log_loss": 1.4711320241834687,
+            "brier": 0.7090968931265302,
+            "argmax_accuracy": 0.4188034188034188,
+            "correct": 196,
+            "n": 468
+          },
+          "genetic_access": {
+            "log_loss": 1.5473480153205421,
+            "brier": 0.7475096848085636,
+            "argmax_accuracy": 0.40384615384615385,
+            "correct": 189,
+            "n": 468
+          },
+          "ecology_genetics": {
+            "log_loss": 1.4648555122689102,
+            "brier": 0.7059654890530925,
+            "argmax_accuracy": 0.4188034188034188,
+            "correct": 196,
+            "n": 468
+          },
+          "ecology_genetics_quadratic": {
+            "log_loss": 1.4378817139392648,
+            "brier": 0.695655891770075,
+            "argmax_accuracy": 0.4188034188034188,
+            "correct": 196,
+            "n": 468
+          },
+          "ecology_genetics_price": {
+            "log_loss": 1.4283649809361691,
+            "brier": 0.6906718723763617,
+            "argmax_accuracy": 0.46153846153846156,
+            "correct": 216,
+            "n": 468
+          }
+        },
+        {
+          "fold": 1,
+          "heldout_clusters": 52,
+          "heldout_cases": 468,
+          "prevalence": {
+            "log_loss": 1.5276420930328323,
+            "brier": 0.7557530466664161,
+            "argmax_accuracy": 0.38247863247863245,
+            "correct": 179,
+            "n": 468
+          },
+          "ecology": {
+            "log_loss": 1.432207541304917,
+            "brier": 0.706386731436574,
+            "argmax_accuracy": 0.41239316239316237,
+            "correct": 193,
+            "n": 468
+          },
+          "genetic_access": {
+            "log_loss": 1.5247758592167604,
+            "brier": 0.754202950045265,
+            "argmax_accuracy": 0.38247863247863245,
+            "correct": 179,
+            "n": 468
+          },
+          "ecology_genetics": {
+            "log_loss": 1.4292380818330226,
+            "brier": 0.7048228044770971,
+            "argmax_accuracy": 0.3952991452991453,
+            "correct": 185,
+            "n": 468
+          },
+          "ecology_genetics_quadratic": {
+            "log_loss": 1.3996581144363724,
+            "brier": 0.6925104470662053,
+            "argmax_accuracy": 0.41239316239316237,
+            "correct": 193,
+            "n": 468
+          },
+          "ecology_genetics_price": {
+            "log_loss": 1.3960692472762897,
+            "brier": 0.6908855056208474,
+            "argmax_accuracy": 0.4230769230769231,
+            "correct": 198,
+            "n": 468
+          }
+        },
+        {
+          "fold": 2,
+          "heldout_clusters": 52,
+          "heldout_cases": 468,
+          "prevalence": {
+            "log_loss": 1.5381762378295794,
+            "brier": 0.7606856318807655,
+            "argmax_accuracy": 0.3803418803418803,
+            "correct": 178,
+            "n": 468
+          },
+          "ecology": {
+            "log_loss": 1.4556057641004438,
+            "brier": 0.72060222789796,
+            "argmax_accuracy": 0.39316239316239315,
+            "correct": 184,
+            "n": 468
+          },
+          "genetic_access": {
+            "log_loss": 1.5347347652717507,
+            "brier": 0.7585515623066892,
+            "argmax_accuracy": 0.3803418803418803,
+            "correct": 178,
+            "n": 468
+          },
+          "ecology_genetics": {
+            "log_loss": 1.4520621515901708,
+            "brier": 0.7185401446917533,
+            "argmax_accuracy": 0.39316239316239315,
+            "correct": 184,
+            "n": 468
+          },
+          "ecology_genetics_quadratic": {
+            "log_loss": 1.4273480702088164,
+            "brier": 0.7106078984551022,
+            "argmax_accuracy": 0.39316239316239315,
+            "correct": 184,
+            "n": 468
+          },
+          "ecology_genetics_price": {
+            "log_loss": 1.4239816167185217,
+            "brier": 0.7092668172012476,
+            "argmax_accuracy": 0.4188034188034188,
+            "correct": 196,
+            "n": 468
+          }
+        },
+        {
+          "fold": 3,
+          "heldout_clusters": 50,
+          "heldout_cases": 450,
+          "prevalence": {
+            "log_loss": 1.5153145233738747,
+            "brier": 0.7520903403100017,
+            "argmax_accuracy": 0.3977777777777778,
+            "correct": 179,
+            "n": 450
+          },
+          "ecology": {
+            "log_loss": 1.4263185488073804,
+            "brier": 0.7076764488161932,
+            "argmax_accuracy": 0.4222222222222222,
+            "correct": 190,
+            "n": 450
+          },
+          "genetic_access": {
+            "log_loss": 1.510191249038871,
+            "brier": 0.7491375258897303,
+            "argmax_accuracy": 0.3977777777777778,
+            "correct": 179,
+            "n": 450
+          },
+          "ecology_genetics": {
+            "log_loss": 1.4210793629135328,
+            "brier": 0.704994660455354,
+            "argmax_accuracy": 0.4266666666666667,
+            "correct": 192,
+            "n": 450
+          },
+          "ecology_genetics_quadratic": {
+            "log_loss": 1.3953346544454994,
+            "brier": 0.6960263774048192,
+            "argmax_accuracy": 0.4222222222222222,
+            "correct": 190,
+            "n": 450
+          },
+          "ecology_genetics_price": {
+            "log_loss": 1.385580362941031,
+            "brier": 0.6911486085097692,
+            "argmax_accuracy": 0.4622222222222222,
+            "correct": 208,
+            "n": 450
+          }
+        },
+        {
+          "fold": 4,
+          "heldout_clusters": 50,
+          "heldout_cases": 450,
+          "prevalence": {
+            "log_loss": 1.521072932567919,
+            "brier": 0.7560891812440083,
+            "argmax_accuracy": 0.37777777777777777,
+            "correct": 170,
+            "n": 450
+          },
+          "ecology": {
+            "log_loss": 1.42932169494996,
+            "brier": 0.7088352580081092,
+            "argmax_accuracy": 0.4022222222222222,
+            "correct": 181,
+            "n": 450
+          },
+          "genetic_access": {
+            "log_loss": 1.5164742129985598,
+            "brier": 0.7535150841239937,
+            "argmax_accuracy": 0.37777777777777777,
+            "correct": 170,
+            "n": 450
+          },
+          "ecology_genetics": {
+            "log_loss": 1.4246133344963527,
+            "brier": 0.7063397368250153,
+            "argmax_accuracy": 0.4,
+            "correct": 180,
+            "n": 450
+          },
+          "ecology_genetics_quadratic": {
+            "log_loss": 1.3953208098482992,
+            "brier": 0.6942119256087772,
+            "argmax_accuracy": 0.4022222222222222,
+            "correct": 181,
+            "n": 450
+          },
+          "ecology_genetics_price": {
+            "log_loss": 1.3901281069150915,
+            "brier": 0.6919930974806294,
+            "argmax_accuracy": 0.42444444444444446,
+            "correct": 191,
+            "n": 450
+          }
+        }
+      ],
+      "controlled_add_source_Price_vs_ecology_genetics": {
+        "log_loss_reduction": 0.03352221178619742,
+        "brier_reduction": 0.013327559381718044,
+        "confidence_exploratory_conditional": {
+          "replicates": 10000,
+          "unit": "founder-specific replicate/visitor random-stream cluster (all nine ecological contexts stay together)",
+          "sampling": "paired within each of two source founders, fitted 5-fold predictions treated as fixed",          "bootstrap_seed": 2026101301,
+          "log_loss_reduction_95_percentile": [
+            0.031106546304541068,
+            0.03573494438455228
+          ],
+          "brier_reduction_95_percentile": [
+            0.011809666043790613,
+            0.014788237757367758
+          ]
+        }
+      },
+      "full_vs_ecology_only": {
+        "log_loss_reduction": 0.038062976161207206,
+        "brier_reduction": 0.015711352419338943,
+        "confidence_exploratory_conditional": {
+          "replicates": 10000,
+          "unit": "founder-specific replicate/visitor random-stream cluster (all nine ecological contexts stay together)",
+          "sampling": "paired within each of two source founders, fitted 5-fold predictions treated as fixed",
+          "bootstrap_seed": 2026101302,
+          "log_loss_reduction_95_percentile": [
+            0.034677725646521024,
+            0.0412459351176567
+          ],
+          "brier_reduction_95_percentile": [
+            0.013805378926926777,
+            0.017556019006791324
+          ]
+        }
+      },
+      "full_vs_equal_complexity_quadratic": {
+        "log_loss_reduction": 0.00626522074947039,
+        "brier_reduction": 0.003000906406218865,
+        "confidence_exploratory_conditional": {
+          "replicates": 10000,
+          "unit": "founder-specific replicate/visitor random-stream cluster (all nine ecological contexts stay together)",
+          "sampling": "paired within each of two source founders, fitted 5-fold predictions treated as fixed",
+          "bootstrap_seed": 2026101303,
+          "log_loss_reduction_95_percentile": [
+            0.004127917299964148,
+            0.00847931253727864
+          ],
+          "brier_reduction_95_percentile": [
+            0.0017620069012979302,
+            0.004291117529831511
+          ]
+        }
+      }
+    }
+  ],
+  "inference_limitations": [
+    "Post-hoc selected model features, exploratory tests only.",
+    "Paired cluster bootstrap conditions on fold-fitted probabilities, ignoring refit variability.",
+    "History seeds are independent stochastic inputs but share fixed ecology and only two genotypes; no ecological cross-system generality.",
+    "Cannot identify access-delay A selection or a two-trait causal response-clock ratio from constant A source accessibility.",
+    "Not a natural-order persistence result or field-validated evolutionary equation."
+  ],
+  "source": {
+    "original_compact_git_blob": "5608ad2cdcbef167fe9062ab5f26318abf2e1bd9",
+    "original_t0_git_blob": "ac6cf64f7c190a03d9c6a5a74105fdea75c719cd",
+    "original_paired_events_git_blob": "afab849d2f0036d07d28beb1441644f9ca2808cb",
+    "original_provider_sha256": [
+      "5b850eaad6104f572f56df2a37da00fbc8473503a827703c82f6870a87e9a881",
+      "bc675e9eb231ec7f6ac4cb7c26a762cd55d75ad8fff51eae0aa8e28568172280",
+      "3673b1b07ed2742669f1ba43494ba814d7968cb200c6832c62a5a1c1640fe554",
+      "676e84ff0729ba88dcd91cb161efeb2dc63f10b6679458695c5d2909c017e9c2",
+      "900d3d22a36fa59241a933b8efc4b2fb8f320e4b25637e592640f31c529314fe",
+      "b45f10aae6ec8fa437179285eb50cb3b98a35e3cc3e8610f6e8d36358daeb6e8",
+      "03d9dcc3b7b993fcba9486bb543e01b8dcd75e40bbb0d5684c6cf72292105a42",
+      "7a304cab06107d3a48d18bd033f07c046dad5c4ecb95eb2a1a4916ebd9d51876",
+      "35a6c2da91bb02d50806a919777e21a2c855ab55b5fccc95f917a7af7d77bf62"
+    ],
+    "no_new_biological_trajectories": true
+  }
+}
