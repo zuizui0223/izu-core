@@ -99,6 +99,63 @@ def count_manuscript_words(text):
     }
 
 
+def kernel_channel_materials():
+    data = MINIMAL_RESULTS / 'kernel_channel_factorial_20261013'
+    code = ROOT / 'scripts/kernel_channel_factorial_20261013'
+    receipt_raw = (data / 'INDEPENDENT_REVIEW_V3.json').read_bytes()
+    if sha(receipt_raw) != '60fb6306a1684d0e6589d4b8d5a0717b65b12760f32fec241339606f38945d4a':
+        raise ValueError('kernel channel independent receipt identity differs')
+    receipt = json.loads(receipt_raw)
+    raw = (data / 'READOUT.json').read_bytes()
+    readout = json.loads(raw)
+    arrays_raw = (data / 'ARRAYS_MANIFEST.json').read_bytes()
+    arrays = json.loads(arrays_raw)
+    if (sha(raw) != receipt['readout_sha256'] or arrays['sha256'] != receipt['arrays_sha256']
+        or arrays['companion_sha256'] != 'c7c7c091d8ea202fecebcb9dd31605b86add813ead52587bbe6c129c94bdaaaf'
+        or arrays['file'] != 'HYBRID_KERNELS_AND_CURVES.npz' or arrays['bytes'] != 32735765
+        or arrays['kernels_shape'] != [192,165,165] or arrays['occupancy_shape'] != [192,81]
+        or arrays['external_companion'] != 'KERNEL_CHANNEL_FACTORIAL_OPERATOR_REVIEW_20261013.zip'
+        or arrays['companion_member'] != 'kernel-channel-factorial-20261013/extracted/HYBRID_KERNELS_AND_CURVES.npz'
+        or readout['pairs'] != 48 or readout['original_kernels'] != 96 or readout['hybrid_laws'] != 192
+        or receipt['original_row_checks'] != 2613600 or receipt['hybrid_row_checks'] != 5227200
+        or receipt['occupancy_checks'] != 15552 or readout['new_biological_histories'] != 0):
+        raise ValueError('kernel channel verified evidence differs')
+    bindings = {}
+    for version, identity in [('v2','ce18d6aaabf70025967fb8d1583cdb89fae66d2888e203d97b3a5abc91b69982'),
+                              ('verification_v3','fcd512804c9398b7f44bad24359018813b23677cc1248a8c3fc813a9424296eb')]:
+        frozen_raw = (code / version / 'FROZEN_SOURCES.json').read_bytes()
+        if sha(frozen_raw) != identity:
+            raise ValueError('kernel channel frozen source identity differs')
+        frozen = json.loads(frozen_raw)
+        if set(frozen) != {'audit_channels.py','verify_channels.py','test_channels.py','PROTOCOL.md'}:
+            raise ValueError('kernel channel frozen inventory differs')
+        for name, source_sha in frozen.items():
+            if sha((code / version / name).read_bytes()) != source_sha:
+                raise ValueError('kernel channel executed source differs')
+        bindings[version] = frozen_raw
+    members = {
+        'EVIDENCE/KERNEL_CHANNEL_READOUT.json': raw,
+        'EVIDENCE/KERNEL_CHANNEL_ARRAYS_MANIFEST.json': arrays_raw,
+        'EVIDENCE/KERNEL_CHANNEL_INDEPENDENT_REVIEW.json': receipt_raw,
+        'EVIDENCE/KERNEL_CHANNEL_PROTOCOL.md': (code / 'v2/PROTOCOL.md').read_bytes(),
+        'EVIDENCE/KERNEL_CHANNEL_SOURCE.py': (code / 'v2/audit_channels.py').read_bytes(),
+        'EVIDENCE/KERNEL_CHANNEL_INDEPENDENT_SOURCE.py': (code / 'verification_v3/verify_channels.py').read_bytes(),
+        'EVIDENCE/KERNEL_CHANNEL_V2_BINDINGS.json': bindings['v2'],
+        'EVIDENCE/KERNEL_CHANNEL_V3_BINDINGS.json': bindings['verification_v3'],
+        'EVIDENCE/KERNEL_CHANNEL_V2_TECHNICAL_STOP.json': (data / 'INDEPENDENT_V2_TECHNICAL_STOP.json').read_bytes(),
+        'EVIDENCE/KERNEL_CHANNEL_V3_CORRECTION.md': (code / 'verification_v3/CORRECTION.md').read_bytes(),
+    }
+    if (sha(members['EVIDENCE/KERNEL_CHANNEL_PROTOCOL.md']) != readout['protocol_sha256']
+        or sha(members['EVIDENCE/KERNEL_CHANNEL_SOURCE.py']) != readout['source_sha256']
+        or sha(members['EVIDENCE/KERNEL_CHANNEL_INDEPENDENT_SOURCE.py']) != receipt['verifier_sha256']
+        or sha(members['EVIDENCE/KERNEL_CHANNEL_V2_TECHNICAL_STOP.json']) != '6de998527cbb90d1f11c158866f405629e00614cb7eb26c471ac9de1191eea9d'
+        or sha(members['EVIDENCE/KERNEL_CHANNEL_V3_CORRECTION.md']) != '09a11fd18bd28f9510be05560abb164f9efb3f5f95c2eb98da738fe44188cd9d'):
+        raise ValueError('kernel channel operator binding differs')
+    return members, {name: dict(original_sha256=sha(content), derived_sha256=sha(content),
+        independent_review_sha256=sha(receipt_raw), transformation='Exact diagnostic bytes; full arrays retained in pinned public companion.')
+        for name, content in members.items()}
+
+
 def kernel_expression_materials():
     data = MINIMAL_RESULTS / 'kernel_expression_accounting_20261013'
     code = ROOT / 'scripts/kernel_expression_accounting_20261013'
@@ -662,6 +719,9 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     kernel_expression,kernel_expression_derivations=kernel_expression_materials()
     members.update(kernel_expression)
     derivations.update(kernel_expression_derivations)
+    kernel_channel,kernel_channel_derivations=kernel_channel_materials()
+    members.update(kernel_channel)
+    derivations.update(kernel_channel_derivations)
     derivations["SUPPORTING_INFORMATION.md"]={
         "original_path":str(si_path.relative_to(ROOT)),"original_sha256":sha(si_original),
         "derived_sha256":sha(si),"transformation":"Relocate atom/resolution/mechanism companion source references and add the delivered supplementary-figure link; numerical text unchanged."}

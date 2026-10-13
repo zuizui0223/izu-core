@@ -246,6 +246,16 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
            "EVIDENCE/INITIAL_MEAN_READOUT.json",
            "EVIDENCE/INVESTMENT_VARIATION_PROTOCOL.md",
            "EVIDENCE/INVESTMENT_VARIATION_READOUT.json",
+           "EVIDENCE/KERNEL_CHANNEL_ARRAYS_MANIFEST.json",
+           "EVIDENCE/KERNEL_CHANNEL_INDEPENDENT_REVIEW.json",
+           "EVIDENCE/KERNEL_CHANNEL_INDEPENDENT_SOURCE.py",
+           "EVIDENCE/KERNEL_CHANNEL_PROTOCOL.md",
+           "EVIDENCE/KERNEL_CHANNEL_READOUT.json",
+           "EVIDENCE/KERNEL_CHANNEL_SOURCE.py",
+           "EVIDENCE/KERNEL_CHANNEL_V2_BINDINGS.json",
+           "EVIDENCE/KERNEL_CHANNEL_V2_TECHNICAL_STOP.json",
+           "EVIDENCE/KERNEL_CHANNEL_V3_BINDINGS.json",
+           "EVIDENCE/KERNEL_CHANNEL_V3_CORRECTION.md",
            "EVIDENCE/KERNEL_EXPRESSION_ARRAYS_MANIFEST.json",
            "EVIDENCE/KERNEL_EXPRESSION_INDEPENDENT_REVIEW.json",
            "EVIDENCE/KERNEL_EXPRESSION_INDEPENDENT_SOURCE.py",
@@ -273,7 +283,7 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
         assert m["doi_deposit_complete"] is False
         assert m["n_figures"]==4
         assert m["n_supplementary_figures"]==3
-        assert len(m["members"])==48
+        assert len(m["members"])==58
         for name,record in m["members"].items():
             raw=z.read(name)
             assert record=={"size":len(raw),"sha256":hashlib.sha256(raw).hexdigest()}
@@ -592,3 +602,29 @@ def test_kernel_expression_materials_reject_changed_compressed_readout(tmp_path,
     monkeypatch.setattr(builder, 'MINIMAL_RESULTS', tmp_path / 'data/results')
     with pytest.raises(ValueError, match='kernel expression verified source admission'):
         builder.kernel_expression_materials()
+
+
+def test_kernel_channels_preserve_all_conditions_and_original_reversals():
+    members, derivations = builder.kernel_channel_materials()
+    assert len(members) == len(derivations) == 10
+    r = json.loads(members['EVIDENCE/KERNEL_CHANNEL_READOUT.json'])
+    assert len(r['comparisons']) == 48
+    assert sum(row['original_reversal'] for row in r['comparisons']) == 12
+    assert all(row['duration']['recruitment_only'] < 0 for row in r['comparisons'])
+    assert all(row['duration']['interaction'] > 0 for row in r['comparisons'])
+    assert max(abs(row['duration']['genotype_only']) for row in r['comparisons']) < 1e-12
+    for name, raw in members.items():
+        builder.validate_member(name, raw)
+
+
+def test_kernel_channels_reject_redirected_array_pointer(tmp_path, monkeypatch):
+    import shutil
+    src = builder.MINIMAL_RESULTS / 'kernel_channel_factorial_20261013'
+    data = tmp_path / 'kernel_channel_factorial_20261013'
+    shutil.copytree(src, data)
+    p = data / 'ARRAYS_MANIFEST.json'
+    value = json.loads(p.read_bytes()); value['companion_member'] = 'different.npz'
+    p.write_text(json.dumps(value), encoding='utf-8')
+    monkeypatch.setattr(builder, 'MINIMAL_RESULTS', tmp_path)
+    with pytest.raises(ValueError, match='kernel channel verified evidence'):
+        builder.kernel_channel_materials()

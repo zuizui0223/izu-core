@@ -1,0 +1,19 @@
+{
+  "status": "TECHNICAL_STOP_NOT_BIOLOGICAL_NULL",
+  "source_zip_sha256": "8e58058a022dd635ca7ae2f1f19775c95889c911bb69c0fcfd4eca6dc909bf48",
+  "stage": "independent scipy original-corner reconstruction",
+  "demonstrated_original_key": "0.25_delayed_control_6.0_native_shifted4",
+  "row": 19,
+  "state": [
+    3,
+    0,
+    0
+  ],
+  "moment_q": [
+    1.0000000000000002,
+    0,
+    0
+  ],
+  "reason": "Separate BLAS evaluation of expected total census differs from sum of component expectations; scipy rejects p>1. No producer output or tolerance changed.",
+  "proposed_correction": "Normalize the same component expectations by their own sum, algebraically equal to expected total census; retain no clipping and the original 1e-12 gate."
+}

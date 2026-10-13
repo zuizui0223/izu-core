@@ -1,0 +1,5 @@
+# V3 independent verification arithmetic correction
+
+The producer and its results remain exactly those frozen and executed under public V2 source ZIP SHA256 8e58058a022dd635ca7ae2f1f19775c95889c911bb69c0fcfd4eca6dc909bf48. Original protocol and producer bytes are unchanged. Preserve the V2 technical STOP, not a biological null.
+
+V2 independent moment q divided three expected genotype counts by a separately evaluated expected census. Floating reductions produced probability 1.0000000000000002 in pure-genotype states, which SciPy rejects. V3 divides the same expected counts by their sum, using the exact identity sum_g E[count_g]=E[N]. It checks that identity at unchanged 1e-12, records maximum identity error and q correction and the old over-one component count. No clipping, new tolerance, new condition, new producer execution or biological retuning. The new source and regression are published before running verification. All 192 laws and original absolute corner curves remain subject to the same gates.

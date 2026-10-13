@@ -1,0 +1,17 @@
+{
+  "file": "HYBRID_KERNELS_AND_CURVES.npz",
+  "sha256": "80181d4c2465c2cd5dd18ae0f18c7a76edb783efb51f7863aa8235a014f80280",
+  "bytes": 32735765,
+  "kernels_shape": [
+    192,
+    165,
+    165
+  ],
+  "occupancy_shape": [
+    192,
+    81
+  ],
+  "external_companion": "KERNEL_CHANNEL_FACTORIAL_OPERATOR_REVIEW_20261013.zip",
+  "companion_sha256": "c7c7c091d8ea202fecebcb9dd31605b86add813ead52587bbe6c129c94bdaaaf",
+  "companion_member": "kernel-channel-factorial-20261013/extracted/HYBRID_KERNELS_AND_CURVES.npz"
+}

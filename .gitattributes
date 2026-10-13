@@ -19,3 +19,6 @@ data/results/expected_response_onset_20261013/* -text whitespace=cr-at-eol
 
 scripts/kernel_expression_accounting_20261013/* -text whitespace=cr-at-eol
 data/results/kernel_expression_accounting_20261013/* -text whitespace=cr-at-eol
+
+scripts/kernel_channel_factorial_20261013/**/* -text whitespace=cr-at-eol
+data/results/kernel_channel_factorial_20261013/* -text whitespace=cr-at-eol
