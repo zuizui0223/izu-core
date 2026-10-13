@@ -34,6 +34,7 @@ def cli_inputs(tmp_path):
     ('paired_cv', 'run', ('--compact', '--t0', '--paired')),
     ('transfer', 'run', ('--compact', '--t0')),
     ('saturated_reference', 'run', ('--compact', '--paired')),
+    ('two_axis_cv', 'evaluate', ('--compact', '--t0', '--paired')),
 ])
 def test_all_clock_readers_preserve_a_concurrent_publication(tmp_path, monkeypatch, suffix, function, flags):
     module = importlib.import_module('scripts.audit_chapter2_initial_clock_' + suffix + '_20261013')
@@ -41,7 +42,7 @@ def test_all_clock_readers_preserve_a_concurrent_publication(tmp_path, monkeypat
     output = tmp_path / 'audit.json'
     def competing_publication(*args):
         output.write_text('first validated result', encoding='utf-8')
-        return {}
+        return {'source': {}}
     monkeypatch.setattr(module, function, competing_publication)
     argv = ['reader']
     for flag in flags:
@@ -53,8 +54,9 @@ def test_all_clock_readers_preserve_a_concurrent_publication(tmp_path, monkeypat
     assert output.read_text(encoding='utf-8') == 'first validated result'
 
 
-def test_paired_cv_rejects_changed_seed_pairing_before_fit(tmp_path, monkeypatch):
-    from scripts import audit_chapter2_initial_clock_paired_cv_20261013 as module
+@pytest.mark.parametrize('suffix,function', [('paired_cv','run'), ('two_axis_cv','evaluate')])
+def test_paired_cv_rejects_changed_seed_pairing_before_fit(tmp_path, monkeypatch, suffix, function):
+    module = importlib.import_module('scripts.audit_chapter2_initial_clock_' + suffix + '_20261013')
     inputs = cli_inputs(tmp_path)
     paired = json.loads(inputs['--paired'].read_bytes())
     rows = {r['replicate']: r for r in paired['data'] if r['block'] == 'main'}
@@ -64,7 +66,7 @@ def test_paired_cv_rejects_changed_seed_pairing_before_fit(tmp_path, monkeypatch
     rows[0]['sequence'], rows[2]['sequence'] = ''.join(a), ''.join(b)
     inputs['--paired'].write_text(json.dumps(paired), encoding='utf-8')
     def must_not_fit(*args): raise AssertionError('Tampered paired labels reached fitting')
-    monkeypatch.setattr(module, 'run', must_not_fit)
+    monkeypatch.setattr(module, function, must_not_fit)
     argv = ['reader']
     for flag, path in inputs.items(): argv.extend([flag, str(path)])
     argv.extend(['--out', str(tmp_path / 'out.json')])

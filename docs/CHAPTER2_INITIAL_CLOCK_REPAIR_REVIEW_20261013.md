@@ -9,3 +9,6 @@ Independent raw admission authenticates2304 case bodies and256 exact nine-contex
 These checks validate retrospective computation and provenance only. Conditional bootstrap intervals omit refitting/model-selection uncertainty, ecology consists of nine fixed contexts and genetics of two founders, and assurance accessibility is constant. No ecological threshold, two-trait first-passage clock, causal natural-order effect or new persistence benefit is confirmed. Saturated known-context lookup is a more flexible descriptive benchmark, not transfer to unseen conditions.
 
 The reviewer package and raw source admission are supplementary diagnostics, not a new biological replication or a change to the four-question manuscript's frozen conclusions.
+
+
+The later two-axis reader introduced the same paired-input and output-publication gaps. The patch extends identical byte pinning, same-byte parsing, UTF-8 LF exclusive publication and two failing-then-passing CLI tests to that seventh reader. Existing two-axis result bytes, fitting, feature/scaling choices, folds, bootstrap and biological source remain unchanged. Its rich-null non-superiority remains exploratory rather than a causal-clock result.

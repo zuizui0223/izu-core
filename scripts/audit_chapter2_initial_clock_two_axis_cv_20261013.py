@@ -199,9 +199,15 @@ def main():
     raw=args.compact.read_bytes();fraw=args.t0.read_bytes()
     if blob_sha(raw)!=EXPECTED_INPUT_GIT_BLOB or blob_sha(fraw)!=RAW_FEATURE_GIT_BLOB:
         raise ValueError('Admitted compact/t0 git blobs have drifted')
-    result=evaluate(json.loads(raw),json.loads(fraw),json.loads(args.paired.read_bytes()))
+    paired_raw=args.paired.read_bytes()
+    paired_blob='afab849d2f0036d07d28beb1441644f9ca2808cb'
+    if blob_sha(paired_raw)!=paired_blob:
+        raise ValueError('Original paired event identity differs')
+    result=evaluate(json.loads(raw),json.loads(fraw),json.loads(paired_raw))
+    result['source']['original_paired_git_blob']=paired_blob
     args.out.parent.mkdir(parents=True,exist_ok=True)
-    args.out.write_text(json.dumps(result,ensure_ascii=False,indent=2,allow_nan=False)+'\n',encoding='utf-8')
+    with args.out.open('x',encoding='utf-8',newline='\n') as output:
+        output.write(json.dumps(result,ensure_ascii=False,indent=2,allow_nan=False)+'\n')
     print(json.dumps({'status':result['status'],'n':result['cases'],
                       'lambda_015_scores':result['results'][1]['scores'],
                       'lambda_015_comp':result['results'][1]['comparisons']},indent=2))
