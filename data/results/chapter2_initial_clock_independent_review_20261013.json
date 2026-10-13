@@ -1,0 +1,21 @@
+{
+  "reviewed_head": "da4b84e49e0f62f85d68d867a6e6dec5a0a3e9ab",
+  "raw_cases": 2304,
+  "profiles_exact_match": true,
+  "local_tests_passed": 23,
+  "remote_patch_applied": false,
+  "files": {
+    "PR494_EXCLUSIVE_OUTPUT_FIX.patch": "55b3503f5c3655a3fadeccc938e440ca38bdb588c0e278d822ffc651df208d54",
+    "PR494_INDEPENDENT_REVIEW_20261013.md": "a62ae4f9e31d2df799f8ae6a40186fbc07e3a3a21837dc83028a9013a07509b5",
+    "RAW_T0_ALL2304_RECOMPUTED_DA4B84E_20261013.json": "bf0621b8864236b439ca65a4cc3f838278184f1e05eb4bfb32e779b8c0c67d80",
+    "INDEPENDENT18_T0_RETURN_REVIEW_20261013.json": "820dd07a7d05979daaf20bbbde1c931a96dba1edb2ac1fb4481187212e8f59bb"
+  },
+  "status": "ALL2304_RAW_AND18_NATIVE_INITIAL_RETURN_CHECKS_VERIFIED",
+  "native_return_checks": 144,
+  "native_response_checks": 162,
+  "native_max_abs_error": 5.684341886080802e-14,
+  "source_sha256": {
+    "chapter2_initial_clock_identifiability_20261013.json": "8e03deea5aff79e475707181f79ada3abc2dc6ca2923b1fb07d7ebff2531aa50",
+    "chapter2_initial_clock_t0_raw_20261013.json": "58e7d15e9fd5d01b6099ccd45202486c64245d9ed8b0e596a9b61155273f4fbe"
+  }
+}

@@ -239,6 +239,9 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
             "EVIDENCE/EVOLUTION_RESULTS.json",
             "EVIDENCE/FUTURE_PARENT_READOUT.json",
            "EVIDENCE/GENOME_RESPONSE_READOUT.json",
+           "EVIDENCE/INITIAL_CLOCK_IDENTIFIABILITY.json",
+           "EVIDENCE/INITIAL_CLOCK_INDEPENDENT_REVIEW.json",
+           "EVIDENCE/INITIAL_CLOCK_RAW.json",
            "EVIDENCE/INITIAL_MEAN_ORIGINAL.json.gz",
            "EVIDENCE/INITIAL_MEAN_READOUT.json",
            "EVIDENCE/INVESTMENT_VARIATION_PROTOCOL.md",
@@ -258,7 +261,7 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
         assert m["doi_deposit_complete"] is False
         assert m["n_figures"]==4
         assert m["n_supplementary_figures"]==3
-        assert len(m["members"])==33
+        assert len(m["members"])==36
         for name,record in m["members"].items():
             raw=z.read(name)
             assert record=={"size":len(raw),"sha256":hashlib.sha256(raw).hexdigest()}
@@ -465,3 +468,29 @@ def test_evidence_receipts_are_identified_and_not_pooled():
     assert all(x["passes_frozen_rule"] for x in evo["settings"])
     cap=json.loads((ROOT/FROZEN_RESULTS["CAPACITY_RESULTS.json"]).read_text())
     assert cap["primary_verdict"]=="supported_controlled_demographic_K_moderation_at_fixed_B48"
+
+
+def test_initial_clock_materials_preserve_scope_and_remove_repo_routing():
+    members, derivations = builder.initial_clock_materials()
+    assert len(members) == len(derivations) == 3
+    value = json.loads(members['EVIDENCE/INITIAL_CLOCK_RAW.json'])
+    assert value['original_starts'] == 2304
+    assert len(value['original_raw_t0_feature_rows']) == 18
+    assert 'repo' not in value['execution']
+    assert 'branch' not in value['execution']
+    for name, raw in members.items():
+        builder.validate_member(name, raw)
+
+
+def test_initial_clock_materials_reject_changed_unverified_source(tmp_path, monkeypatch):
+    root = tmp_path / 'data'; root.mkdir()
+    for filename in ['chapter2_initial_clock_identifiability_20261013.json',
+                     'chapter2_initial_clock_t0_raw_20261013.json',
+                     'chapter2_initial_clock_independent_review_20261013.json']:
+        (root / filename).write_bytes((builder.MINIMAL_RESULTS / filename).read_bytes())
+    p = root / 'chapter2_initial_clock_t0_raw_20261013.json'
+    value = json.loads(p.read_text()); value['original_starts'] = 2303
+    p.write_text(json.dumps(value))
+    monkeypatch.setattr(builder, 'MINIMAL_RESULTS', root)
+    with pytest.raises(ValueError, match='initial clock source hash'):
+        builder.initial_clock_materials()

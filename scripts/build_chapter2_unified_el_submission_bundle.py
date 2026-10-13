@@ -99,6 +99,46 @@ def count_manuscript_words(text):
     }
 
 
+def initial_clock_materials():
+    """Admit independently checked read-only initial-state evidence, not a fitted clock."""
+    review_name = 'chapter2_initial_clock_independent_review_20261013.json'
+    review_raw = (MINIMAL_RESULTS / review_name).read_bytes()
+    review = json.loads(review_raw)
+    if (review['status'] != 'ALL2304_RAW_AND18_NATIVE_INITIAL_RETURN_CHECKS_VERIFIED'
+        or review['raw_cases'] != 2304 or not review['profiles_exact_match']
+        or review['native_return_checks'] != 144 or review['native_response_checks'] != 162):
+        raise ValueError('initial clock independent admission differs')
+    names = {
+        'chapter2_initial_clock_identifiability_20261013.json': 'EVIDENCE/INITIAL_CLOCK_IDENTIFIABILITY.json',
+        'chapter2_initial_clock_t0_raw_20261013.json': 'EVIDENCE/INITIAL_CLOCK_RAW.json',
+    }
+    members = {}; derivations = {}
+    for name, dest in names.items():
+        raw = (MINIMAL_RESULTS / name).read_bytes()
+        if sha(raw.replace(b'\r\n', b'\n')) != review['source_sha256'][name]:
+            raise ValueError('initial clock source hash differs: ' + name)
+        value = json.loads(raw)
+        if 'execution' in value:
+            value['execution'].pop('repo', None)
+            value['execution'].pop('branch', None)
+            if value['original_starts'] != 2304 or len(value['original_raw_t0_feature_rows']) != 18:
+                raise ValueError('initial clock raw scope differs')
+        else:
+            if (value['all_cases'] != 2304
+                or value['post_hoc_oracle_six_classes']['joint']['oracle_correct'] != 1117):
+                raise ValueError('initial clock observed scope differs')
+            value['source']['path'] = 'EVIDENCE/ECOLOGICAL_ORDER_READOUT.json'
+            value.pop('recompute', None)
+        members[dest] = json_bytes(value)
+        derivations[dest] = dict(original_sha256=sha(raw), derived_sha256=sha(members[dest]),
+            independent_review_sha256=sha(review_raw),
+            transformation='Remove repository/branch and internal execution routing only; numerical values and scientific ceilings unchanged.')
+    dest = 'EVIDENCE/INITIAL_CLOCK_INDEPENDENT_REVIEW.json'
+    members[dest] = review_raw
+    derivations[dest] = dict(original_sha256=sha(review_raw), derived_sha256=sha(review_raw), transformation='Exact independent review receipt.')
+    return members, derivations
+
+
 def minimal_resolution_materials():
     receipt_raw=(MINIMAL_RESULTS/'minimal_resolution_delivery_20261013.json').read_bytes()
     receipt=json.loads(receipt_raw)
@@ -532,6 +572,9 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     minimal,minimal_derivations=minimal_resolution_materials()
     members.update(minimal)
     derivations.update(minimal_derivations)
+    clock,clock_derivations=initial_clock_materials()
+    members.update(clock)
+    derivations.update(clock_derivations)
     derivations["SUPPORTING_INFORMATION.md"]={
         "original_path":str(si_path.relative_to(ROOT)),"original_sha256":sha(si_original),
         "derived_sha256":sha(si),"transformation":"Relocate atom/resolution/mechanism companion source references and add the delivered supplementary-figure link; numerical text unchanged."}
@@ -555,6 +598,7 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
         "mechanism_evidence":"20480 full-genome-admitted futures and independent all-start arithmetic; lifelong expression policies, not initial-only or natural-order mediation; low-challenge terminal floor retained",
         "atom_evidence":"All10 two-grid numerical admissions and320 descriptive ABM histories;990 event and40 checkpoint independent array checks, no new raw-genome reconstruction or causal drift attribution",
         "resolution_evidence":"6144 boundary,3072 shared preparations,6144 branched challenges; genetic-access band and conditional all-start preparation-policy effects, not pure natural-order mediation",
+        "initial_clock_evidence":"Read-only 2304 histories in18 identical-t0 profiles; native initial returns independently checked; observed six-class oracle is descriptive, not fitted/prospective accuracy, causal explanation or natural-order benefit",
         "investment_variation_evidence":"64 outcome-informed mean-preserving allele-variation intervention slots,61 triggers and3 unchanged controls; independently replayed frozen-source paths; primary unresolved, not equivalence or unique causal allocation",
         "members":{name:{"size":len(b),"sha256":sha(b)}
                    for name,b in sorted(members.items())},
