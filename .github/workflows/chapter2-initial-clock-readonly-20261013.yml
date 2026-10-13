@@ -1,13 +1,6 @@
 name: Chapter 2 initial clock read-only audit
 
 on:
-  pull_request:
-    paths:
-      - '.github/workflows/chapter2-initial-clock-readonly-20261013.yml'
-      - 'scripts/audit_chapter2_initial_clock_*.py'
-      - 'tests/test_chapter2_initial_clock_*.py'
-      - 'docs/CHAPTER2_INITIAL_CLOCK_IDENTIFIABILITY_20261013.md'
-      - 'data/results/chapter2_initial_clock_identifiability_20261013.json'
   workflow_dispatch:
 
 permissions:
