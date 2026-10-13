@@ -63,6 +63,45 @@ def events(means:np.ndarray, pop:np.ndarray, threshold:float=.05, sustain:int=20
     return {'A':A,'I':I,'category':category}
 
 
+def first_individual_support(alleles:np.ndarray, mutation_flags:np.ndarray,
+                             offsets:np.ndarray, means:np.ndarray, pop:np.ndarray,
+                             threshold:float=.05)->dict:
+    """Retrospective individual-level support, NOT future-blind clock inference.
+
+    Distinguishes standing/segregating non-flagged F1 A genotypes from cases
+    where observed support would require a flagged mutant.  Original mutation
+    flag semantics are trusted as archived; this is no causal mutation experiment.
+    """
+    if (alleles.ndim!=3 or alleles.shape[1:]!=(3,2)
+        or mutation_flags.shape!=alleles.shape or offsets.shape!=(202,)
+        or offsets[0]!=0 or int(offsets[-1])!=len(alleles)
+        or not np.array_equal(np.diff(offsets),pop)):
+        raise ValueError('invalid original full-genome census/flag inventory')
+    A0=float(means[0,2]);I0=float(means[0,1])
+    first_A=None;first_I=None;first_A_variance=None;first_nonflag_A=None
+    f1_support_count=0;f1_without_flag_count=0
+    for year in range(201):
+        l,h=offsets[year:year+2]
+        if h==l:continue
+        body=alleles[l:h];phen=body.mean(axis=2)
+        at_A=phen[:,2]>=A0+threshold
+        at_I=phen[:,1]<=I0-threshold
+        no_flag=(~mutation_flags[l:h,2,:].any(axis=1))
+        if first_A is None and at_A.any():first_A=year
+        if first_I is None and at_I.any():first_I=year
+        if first_A_variance is None and float(phen[:,2].var())>1e-12:first_A_variance=year
+        if first_nonflag_A is None and np.any(at_A & no_flag):first_nonflag_A=year
+        if year==1:
+            f1_support_count=int(at_A.sum())
+            f1_without_flag_count=int(np.sum(at_A & no_flag))
+    return {'first_A_individual_at_least_founder_mean_plus_005':first_A,
+            'first_I_individual_at_most_founder_mean_minus_005':first_I,
+            'first_positive_expressed_A_variance':first_A_variance,
+            'first_A_individual_support_with_no_A_mutation_flag':first_nonflag_A,
+            'F1_A_support_individuals':f1_support_count,
+            'F1_A_support_individuals_without_A_mutation_flag':f1_without_flag_count}
+
+
 def norm_cdf(x):return .5*(1+erf(x/sqrt(2)))
 
 
@@ -78,7 +117,7 @@ def target_delta(n:int,sigma:float,power_target=.8):
 
 
 def audit(root:Path)->dict:
-    results={}; provenance=[]; failures=[]
+    results={}; provenance=[]; support={}
     for shard_idx,(wanted_sha,wanted_bytes) in enumerate(ORIGINAL_SHARDS):
         path=root/f'ecological-original-shard-{shard_idx}.zip'
         archive=path.read_bytes()
@@ -102,7 +141,11 @@ def audit(root:Path)->dict:
                 if sha256(binary).hexdigest()!=row['sha256']:
                     raise ValueError('original NPZ sha mismatch '+member)
                 with np.load(BytesIO(binary),allow_pickle=False) as npz:
-                    recomputed=events(npz['means'],npz['population'])
+                    means=npz['means'];pop=npz['population']
+                    recomputed=events(means,pop)
+                    if key[1] in PILOT_CONTEXTS:
+                        support[key]=first_individual_support(npz['alleles'],npz['mutation_flags'],
+                            npz['offsets'],means,pop)
                 if recomputed!=row['events']['0.05']:
                     raise ValueError('original source record and independently re-derived event mismatch: '+member)
                 results[key]=recomputed
@@ -137,6 +180,23 @@ def audit(root:Path)->dict:
     legacy_SD={label:{'mean':mean(x[label] for x in old_clusters),
                      'sd_across_256_old_founder_seed_clusters':stdev(x[label] for x in old_clusters)}
                for label in ('A','I','D')}
+    if len(support)!=768:raise ValueError('missing original raw genetic-access support records')
+    support_fields=('first_A_individual_at_least_founder_mean_plus_005',
+                    'first_I_individual_at_most_founder_mean_minus_005',
+                    'first_positive_expressed_A_variance',
+                    'first_A_individual_support_with_no_A_mutation_flag')
+    supply={name:{str(k):int(c) for k,c in Counter(v[name] for v in support.values()).items()} for name in support_fields}
+    # Only compare realized response latency after first individual support.
+    # Stratification by observed future order class is post-selection/descriptive!
+    from statistics import median
+    observed_latency={}
+    for cat in CATEGORIES:
+        d=[int(results[k]['A']-support[k]['first_A_individual_at_least_founder_mean_plus_005'])
+           for k in support if results[k]['category']==cat and results[k]['A'] is not None
+           and support[k]['first_A_individual_at_least_founder_mean_plus_005'] is not None]
+        if any(v<0 for v in d):raise ValueError('mean A response before individual A-support')
+        observed_latency[cat]={'observed_A_event_starts':len(d),
+                                'median_response_update_after_individual_support':median(d) if d else None}
     powers=[]
     for sigma in (.25,.5,.8,1.):
         for delta in (.05,.1,.2,.3):
@@ -165,7 +225,14 @@ def audit(root:Path)->dict:
             'I_event_count':sum(v['I'] is not None for v in pilot_subset.values()),
             'six_class_counts':{k:tcounts[k] for k in CATEGORIES},
             'six_founder_ecology_rows':rows,
-            'old_seed_cluster_summary':legacy_SD},
+            'old_seed_cluster_summary':legacy_SD,
+            'retrospective_genotype_support_at_individual_level':{
+                'n_original_cases_full_diploid_alleles_examined':768,
+                'first_support_and_expressed_variation_year_counts':supply,
+                'F1_A_supporting_individuals_across_all_starts':sum(v['F1_A_support_individuals'] for v in support.values()),
+                'F1_A_supporting_individuals_without_A_mutation_flag':sum(v['F1_A_support_individuals_without_A_mutation_flag'] for v in support.values()),
+                'first_support_to_A_sustained_population_event_by_postselected_class':observed_latency,
+                'interpretation':'Old w=.0625: segregating individual A support by t1 in every existing 3-context case, yet population mean order remains diverse. Genetic support is necessary not sufficient; postselected timing by label is descriptive not causal.'}},
         'new_pilot':{'n_scheduled_trajectories':1536,
                      'n_scheduled_independent_founder_seed_clusters':128,
                      'observed_new_genetic_treatment_effects':None,
@@ -176,7 +243,8 @@ def audit(root:Path)->dict:
             'missing_actual_new_intervention_paired_SD':True,
             'old_cluster_D_SD_is_not_new_genetic_treatment_contrast_SD':True},
         'scope_limits':[
-            'Old original 2304 events independently recomputed from exact NPZ censuses, but no original reproductive genome pedigree reexecution claimed here.',
+            'Old original 2304 events independently recomputed from exact NPZ censuses, and old 768 3-context diploid genomes scanned for individual support; no original reproductive genome pedigree reexecution claimed here.',
+            'Observed A support in first-generation nonmutation-flagged individuals is not a direct randomized segregation-versus-mutation intervention; do not infer natural-population mechanisms or post-event subgroup causality.',
             'Three old ecological contexts reused from exposed cohort are contextual planning evidence, not genetically manipulated pilot results.',
             'The old A 767/768 event incidence is specific to its old A allele-width and original mutation process, and is not projected to new A-width arms.',
             'Any power from hypothetical sigma is an assumption, not observed pilot SD; the five planned contrast effect sizes have not been seen.',
