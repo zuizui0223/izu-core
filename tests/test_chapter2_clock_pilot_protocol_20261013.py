@@ -11,11 +11,11 @@ FEASIBILITY=ROOT/'data/results/chapter2_clock_factorial_feasibility_20261013.jso
 
 def test_protocol_excludes_unreviewed_biological_execution_and_preserves_denominators():
     d=json.loads(DESIGN.read_text())
-    assert d['status']=='PRE_EXECUTION_DESIGN_REVIEW_PENDING_DO_NOT_DISPATCH'
+    assert d['status']=='PRE_EXECUTION_REVISED_DESIGN_REVIEW_PENDING_DO_NOT_DISPATCH'
     f=d['factorial']; p=d['pilot']
     assert len(f['founders'])==2
     assert len(f['assurance_allele_halfwidth'])==2
-    assert len(f['investment_allele_scale'])==2
+    assert len(f['investment_homolog_heterozygosity_scale'])==2
     assert len(f['environments'])==3
     assert f['mutation_traits']==[False,False,True]
     assert f['I_mutation_allowed'] is False
