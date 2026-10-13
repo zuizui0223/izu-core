@@ -8,9 +8,9 @@ The user approved existing-data decomposition first, then only missing initial-g
 | Requirement | Evidence needed | Current status |
 |---|---|---|
 | Ecological order boundary | Source-matched selection/response evidence across census and functional matching, distinguished from standing-allele support and response-definition thresholds | Completed fixed-access2304-trace ecological test: all18 simultaneous intervals include zero; no replicated reversal supported. No unique/continuous threshold identified |
-| Order mechanism and future benefit | Complete-state selection/allele clocks; defined all-start intervention; explicit Markov identification limit | Pending; no pure natural-order benefit inferred from prior access policies |
+| Order mechanism and future benefit | Complete-state selection/allele clocks; defined all-start intervention; explicit Markov identification limit | Conditional-state annotation identity complete; all-locus future parent-weighting intervention complete but unresolved at both challenges; no pure natural-order benefit or assurance-specific selection effect identified |
 | Deterministic versus finite realization | Annual-genome and parentage accounting of selection, parental sampling, transmission and mutation; demographic/operator differences kept separate | Complete320-history annual accounting and matched same-state four-term density-gap accounting. Signed partitions are verified; unique autonomous/no-noise causal allocation remains open |
-| Persistence mechanism | Initial inherited-state interventions distinguished from lifelong expression clamps, with preserved original biology | Controlled initial-mean intervention complete4096+8; residual lifelong expression unresolved; not complete-genotype matching or future selection alone |
+| Persistence mechanism | Initial inherited-state interventions distinguished from lifelong expression clamps, with preserved original biology | Controlled initial-mean intervention complete4096+8; lifelong-expression attenuation retained; all-locus future parent-weighting contrast complete4096 and unresolved; not complete-genotype mediation or natural-order benefit |
 | Endpoint versus duration | All96 original-context kernels and survival-curve/first-entry accounting; independent arithmetic and source checks | Temporal/state-mass accounting complete96 kernels/48 contrasts; not unique causal mediation |
 | PR490 reproducibility | Actual eight-shard readback, original-byte comparison, frozen all-start numerical comparison, explanation of any difference | Numerical comparison verified; original-byte admission remains unresolved |
 | Earlier discovery archive | Identify and authenticate the specified original archive or document concrete unrecoverable inputs without substituting later cohorts | Original763914318-byte discovery ZIP and2048 endpoints/8192 checkpoints admitted, including actual Linux readback; historical runtime/full replay unverified |
@@ -89,7 +89,7 @@ The separate original model3_replenishment_evolution_20261005.zip was located in
 
 Original archive identity and stored discovery endpoints/checkpoints are now verified. Historical executed-source/runtime identity, full biological replay, annual genomes and parentage are not thereby authenticated. The separate offline demographic-stress ZIP remains unlocated in the targeted search; PR490 logged-state/numerical replay does not substitute for its original bytes. Dated failed/unavailable records remain unchanged. A manual Linux original-intake readback is pending; local package/operator/trigger checks pass26 tests, while the preexisting original-intake suite has six Windows newline/path failures.
 
-Ecological continuous order boundary, natural-order future benefit and unique long-run causal allocation remain open; achieved accounting is not used to relabel these unresolved questions. Updated ONE-paper package verification is pending.
+Ecological continuous order boundary and natural-order future benefit remain open. The all-locus future parent-weighting intervention is complete but unresolved at both challenges, so pure assurance-specific future selection and unique long-run causal allocation remain unidentified. Achieved accounting is not used to relabel these unresolved questions. Updated ONE-paper package verification is pending.
 
 ## Actual original intake and updated ONE-paper delivery
 
@@ -158,6 +158,23 @@ Original corrected run38320361326 is now terminal failure:11 complete successful
 ## Reviewed source-compatible recovery
 
 The explicit pool accepts only exact a18d527b/ce2847 legacy and active checkout/registered runner source pairs. Embedded original runner bytes match the Git blob; full generation AST outside only verify/technical_gate is identical, and nine exact original recipe/native dependency hashes are mandatory. The immutable input manifest source gate remains active. Recovery preparation matches both published original ZIPs, all11 server/provider digests and saved case hashes, retaining2816 cases. Only fixed missing slots1,4,5,10,15 execute (1280 cases, max3 workers). All source headers/provider capture remain in the final output; reader replays every4096 unique case with frozen float tolerance and exact genealogy/counts. Independent review and28 focused/source/recovery/trigger tests pass before dispatch. Local preparation succeeded; no new recovery biological case has run at this recording. This is a runtime/source repair, not outcome-dependent history expansion or pooling incompatible biological generators.
+
+## Completed future-parent recovery and null readout
+
+Actual run `38322562488` at `cecf9c9fdd3afd414ace9acdcdff057ca53c09b2` completed the frozen equal-parent sampler cohort without rerunning successful old paths. The recovery retained 2,816 cases from shards 0,2,3,6,7,8,9,11,12,13,14 and generated only 1,280 missing cases from shards 1,4,5,10,15. The final artifact contains 4,096 unique case NPZ files, 819,200 updates, exact per-shard execution provenance and a complete all-start readout.
+
+All four preregistered simultaneous contrasts are unresolved:
+
+| Target | Contrast | Estimate | Simultaneous interval | Decision |
+|---:|---|---:|---|---|
+|1.05|controlled future parent selection|+0.001953125|[-0.00390625, 0.0087890625]|unresolved|
+|1.05|residual reference contrast|-0.0048828125|[-0.0107421875, 0]|unresolved|
+|1.50|controlled future parent selection|-0.03125|[-0.0791015625, 0.0146484375]|unresolved|
+|1.50|residual reference contrast|+0.037109375|[-0.009765625, 0.0849609375]|unresolved|
+
+Producer-free verification directly parsed all 4,096 case archives and the admitted old reference outcome NPZ, reconstructed the complete outcome tensor and independently repeated the frozen 19,999-draw within-founder bootstrap. It matches the producer tensor and all four primary rows exactly. Artifact SHA256 is `0a8bbded2ff4ad0051986c53447ddd9e17417b5f90b1ee7f5c22cbe86c24e4f9`; producer readout SHA256 is `eab4a3e51918b76b9f73240e95caccd25fafe52d0b768326e2277432ccf2bae2`. Machine record: `data/results/future_parent_selection_20261013.json`.
+
+Ruling: this closes the frozen all-locus parent-weighting probe as an **unresolved null**, not as equivalence. It does not isolate assurance-specific future selection, remove finite inheritance noise or identify a natural-order persistence mediator. The initial-mean and lifelong-expression interventions retain their separate supported/unresolved outcomes.
 
 ## Actual recovery complete; independent biological readback pending
 

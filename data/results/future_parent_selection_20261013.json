@@ -1,0 +1,157 @@
+{
+  "schema": "future_parent_selection_result_v1",
+  "status": "COMPLETE_ALL4096_INDEPENDENTLY_RECOMPUTED_PRIMARY_UNRESOLVED",
+  "question": "Does removing unequal future parent weighting after initial assurance-mean equalization change the preparation-policy persistence contrast?",
+  "estimand": "All-locus controlled future parent-weighting contrast under the two frozen 200-update challenges; not pure assurance-locus selection.",
+  "production": {
+    "run_id": 38322562488,
+    "artifact_id": 11780255932,
+    "artifact_name": "parent-selection-recovery-38322562488",
+    "artifact_bytes": 81221090,
+    "artifact_sha256": "0a8bbded2ff4ad0051986c53447ddd9e17417b5f90b1ee7f5c22cbe86c24e4f9",
+    "cases": 4096,
+    "updates": 819200,
+    "preserved_cases_from_original_valid_shards": 2816,
+    "recovered_missing_cases": 1280,
+    "preserved_shards": [
+      0,
+      2,
+      3,
+      6,
+      7,
+      8,
+      9,
+      11,
+      12,
+      13,
+      14
+    ],
+    "recovered_shards": [
+      1,
+      4,
+      5,
+      10,
+      15
+    ],
+    "execution_commits": [
+      "a18d527bdab699d2841adcf4f8663ed41ba0c29b",
+      "cecf9c9fdd3afd414ace9acdcdff057ca53c09b2"
+    ],
+    "design_sha256": "45170028aa2e3c79e08eea3e7388da49dc73cbe21625daf05139d5b11da84d5c",
+    "input_sha256": "51a07a843a087059af3d67ad113f5d849644f5b03739a6df986d506bd636648f",
+    "runner_sha256_new": "a5fd736c357e4abd20930918d5f9cc8ce5ced86cb0680a8fe43209307a41de67"
+  },
+  "reference_admission": {
+    "status": "ALL4096_ORIGINAL_MEAN_NATIVE_REFERENCES_ADMITTED",
+    "prior_sha256": "f3045118f51947e9eaa2dd71f275b5bc1428aa2042dd0c2af95bcaa5ca2b14f5",
+    "cases": 4096,
+    "old_clamp_technical": 8,
+    "old_original_references": 8192,
+    "outcome_npz_sha256": "0bb73c1ace1df7f8f2aa2511b2c60034f644ccb7f238691e20b3ee8c4a8ea6a8"
+  },
+  "payload_identity": {
+    "readout_sha256": "eab4a3e51918b76b9f73240e95caccd25fafe52d0b768326e2277432ccf2bae2",
+    "completion_sha256": "8bd684bb23d25db5dccdec6de6bed6b75778f328c0d90531832f081c04c23f63",
+    "outcomes_sha256": "8035e1891b55fab148891fc8fba468c18d28562c2b3baa603139ac1654796ff5",
+    "reference_admission_sha256": "8652a43ca2cd0be2ddce1a42f6da6280ab2e4206ddb20561fd6eedeba1614fd0",
+    "legacy_provider_capture_sha256": "762a1efe3f0234164a959a748b00388785567852078f1083865200c9844abe24"
+  },
+  "primary": [
+    {
+      "target": 1.05,
+      "contrast": "controlled_future_parent_selection",
+      "estimate": 0.001953125,
+      "simultaneous_bootstrap_interval": [
+        -0.00390625,
+        0.0087890625
+      ],
+      "distribution_free_interval": [
+        -0.1971694388432628,
+        0.2010756888432628
+      ],
+      "block_estimates": [
+        0.00390625,
+        0
+      ],
+      "decision": "unresolved"
+    },
+    {
+      "target": 1.05,
+      "contrast": "residual_reference_contrast",
+      "estimate": -0.0048828125,
+      "simultaneous_bootstrap_interval": [
+        -0.0107421875,
+        0
+      ],
+      "distribution_free_interval": [
+        -0.2040053763432628,
+        0.1942397513432628
+      ],
+      "block_estimates": [
+        -0.0078125,
+        -0.001953125
+      ],
+      "decision": "unresolved"
+    },
+    {
+      "target": 1.5,
+      "contrast": "controlled_future_parent_selection",
+      "estimate": -0.03125,
+      "simultaneous_bootstrap_interval": [
+        -0.0791015625,
+        0.0146484375
+      ],
+      "distribution_free_interval": [
+        -0.2303725638432628,
+        0.1678725638432628
+      ],
+      "block_estimates": [
+        -0.03125,
+        -0.03125
+      ],
+      "decision": "unresolved"
+    },
+    {
+      "target": 1.5,
+      "contrast": "residual_reference_contrast",
+      "estimate": 0.037109375,
+      "simultaneous_bootstrap_interval": [
+        -0.009765625,
+        0.0849609375
+      ],
+      "distribution_free_interval": [
+        -0.1620131888432628,
+        0.2362319388432628
+      ],
+      "block_estimates": [
+        0.013671875,
+        0.060546875
+      ],
+      "decision": "unresolved"
+    }
+  ],
+  "producer_partition_closure_error": 0,
+  "independent_recomputation": {
+    "implementation": "Direct parse of all 4096 case NPZ metadata and terminal population arrays plus the admitted old reference outcome NPZ; no producer analysis code imported.",
+    "raw_case_npz_count": 4096,
+    "unique_task_count": 4096,
+    "raw_case_hashes_equal_completion_manifest": true,
+    "assembled_outcomes_equal_producer_npz": true,
+    "primary_rows_equal_producer_readout": true,
+    "bootstrap_draws": 19999,
+    "bootstrap_seed_rule": "2026101307 + contrast_index",
+    "simultaneous_tail_probability_each_side": 0.00625
+  },
+  "interpretation": {
+    "controlled_future_parent_selection": "Unresolved at both challenges; simultaneous bootstrap intervals cross zero.",
+    "residual_reference_contrast": "Unresolved at both challenges; simultaneous bootstrap intervals touch or cross zero.",
+    "scientific_boundary": [
+      "The intervention removes all-locus unequal parent weighting, not only assurance selection.",
+      "Unresolved is not evidence of absence or practical equivalence.",
+      "These results do not identify a natural-order benefit or a natural-island persistence effect.",
+      "The lower challenge remains strongly floor-limited.",
+      "All distribution-free intervals include zero.",
+      "The result does not replace the previously supported initial-mean and lifelong-expression controlled interventions."
+    ]
+  }
+}

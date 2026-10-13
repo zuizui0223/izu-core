@@ -14,4 +14,6 @@ Tech stack: pinned Python/NumPy, existing registered manual GitHub workflow and 
 
 Delivery gate: all four primary contrasts unresolved. Earlier initial-mean effects retain their own family. Do not describe larger high-budget origin difference under equal-parent sampling as improved absolute persistence:790/757 versus native864/863.
 
+Ruling: concurrently pushedff610819 is merged without force. Its compact endpoint/bootstrap provenance record remains intact and is numerically identical to the full readout. One expanded S16 is retained because it adds independently admitted full birth/ledger and secondary-summary evidence, founder/count detail and scope limits; the chronological ledger retains both records. No scientific generator or frozen endpoint changes. All46 focused checks pass after conflict resolution.
+
 Review focus: artificial sampling law versus native biological ledger; simultaneous family; source/old-provider admission; extinction floor; no neutral-diversity substitution.
