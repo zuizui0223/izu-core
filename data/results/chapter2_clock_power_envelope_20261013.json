@@ -1,0 +1,621 @@
+{
+  "schema": "chapter2_clock_power_envelope_assumption_sensitivity_v1",
+  "status": "DESIGN_ONLY_HYPOTHETICAL_NORMAL_POWER_NOT_EMPIRICAL",
+  "test": "paired history mean proper-score reduction; require lower 95% interval > 0",
+  "primary_score": "six-category held-out log loss",
+  "hypothetical_min_important_gain": 0.02,
+  "independent_unit": "founder + stochastic visitor-history stream, paired across 12 treatment/context cells",
+  "pilot": {
+    "per_founder_clusters": 64,
+    "clusters": 128,
+    "treatments_per_cluster": 12,
+    "trajectories": 1536,
+    "used_in_confirmation": false
+  },
+  "confirmation_selection_rule": {
+    "alpha_two_sided": 0.05,
+    "power_target": 0.8,
+    "sigma_floor": 0.15,
+    "min_clusters": 512,
+    "max_clusters": 1024,
+    "round_to": 128,
+    "effect_used": 0.02,
+    "if_over_cap": "NO_GO; do not inflate effect or weaken rule"
+  },
+  "design_grid": [
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.05,
+      "clusters": 128,
+      "asymptotic_normal_power": 0.6189703663026571
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.05,
+      "clusters": 256,
+      "asymptotic_normal_power": 0.8925189633779204
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.05,
+      "clusters": 512,
+      "asymptotic_normal_power": 0.9948489272156245
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.05,
+      "clusters": 768,
+      "asymptotic_normal_power": 0.9998299034270769
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.05,
+      "clusters": 896,
+      "asymptotic_normal_power": 0.9999717159734431
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.05,
+      "clusters": 1024,
+      "asymptotic_normal_power": 0.9999955028087916
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.1,
+      "clusters": 128,
+      "asymptotic_normal_power": 0.2036673370654138
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.1,
+      "clusters": 256,
+      "asymptotic_normal_power": 0.35943703343173816
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.1,
+      "clusters": 512,
+      "asymptotic_normal_power": 0.6189703663026571
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.1,
+      "clusters": 768,
+      "asymptotic_normal_power": 0.7914082633524853
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.1,
+      "clusters": 896,
+      "asymptotic_normal_power": 0.8492827211233429
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.1,
+      "clusters": 1024,
+      "asymptotic_normal_power": 0.8925189633779204
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.15,
+      "clusters": 128,
+      "asymptotic_normal_power": 0.11396336191298306
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.15,
+      "clusters": 256,
+      "asymptotic_normal_power": 0.18584898697339447
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.15,
+      "clusters": 512,
+      "asymptotic_normal_power": 0.325825594750103
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.15,
+      "clusters": 768,
+      "asymptotic_normal_power": 0.4552360323952893
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.15,
+      "clusters": 896,
+      "asymptotic_normal_power": 0.5141940120643763
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.15,
+      "clusters": 1024,
+      "asymptotic_normal_power": 0.5688194418122061
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.2,
+      "clusters": 128,
+      "asymptotic_normal_power": 0.08161675140053348
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.2,
+      "clusters": 256,
+      "asymptotic_normal_power": 0.12303173492167702
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.2,
+      "clusters": 512,
+      "asymptotic_normal_power": 0.2036673370654138
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.2,
+      "clusters": 768,
+      "asymptotic_normal_power": 0.28287450944564163
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.2,
+      "clusters": 896,
+      "asymptotic_normal_power": 0.3215743038614549
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.2,
+      "clusters": 1024,
+      "asymptotic_normal_power": 0.35943703343173816
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.25,
+      "clusters": 128,
+      "asymptotic_normal_power": 0.06585207559343009
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.25,
+      "clusters": 256,
+      "asymptotic_normal_power": 0.09342352145072708
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.25,
+      "clusters": 512,
+      "asymptotic_normal_power": 0.1457430086872763
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.25,
+      "clusters": 768,
+      "asymptotic_normal_power": 0.19725930597970082
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.25,
+      "clusters": 896,
+      "asymptotic_normal_power": 0.22284096397198716
+    },
+    {
+      "assumed_delta_log_loss": 0.01,
+      "assumed_paired_history_sd": 0.25,
+      "clusters": 1024,
+      "asymptotic_normal_power": 0.2482636328323794
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.05,
+      "clusters": 128,
+      "asymptotic_normal_power": 0.9948489272156245
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.05,
+      "clusters": 256,
+      "asymptotic_normal_power": 0.9999955028087916
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.05,
+      "clusters": 512,
+      "asymptotic_normal_power": 0.9999999999993343
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.05,
+      "clusters": 768,
+      "asymptotic_normal_power": 1.0
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.05,
+      "clusters": 896,
+      "asymptotic_normal_power": 1.0
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.05,
+      "clusters": 1024,
+      "asymptotic_normal_power": 1.0
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.1,
+      "clusters": 128,
+      "asymptotic_normal_power": 0.6189703663026571
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.1,
+      "clusters": 256,
+      "asymptotic_normal_power": 0.8925189633779204
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.1,
+      "clusters": 512,
+      "asymptotic_normal_power": 0.9948489272156245
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.1,
+      "clusters": 768,
+      "asymptotic_normal_power": 0.9998299034270769
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.1,
+      "clusters": 896,
+      "asymptotic_normal_power": 0.9999717159734431
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.1,
+      "clusters": 1024,
+      "asymptotic_normal_power": 0.9999955028087916
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.15,
+      "clusters": 128,
+      "asymptotic_normal_power": 0.325825594750103
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.15,
+      "clusters": 256,
+      "asymptotic_normal_power": 0.5688194418122061
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.15,
+      "clusters": 512,
+      "asymptotic_normal_power": 0.8547498992894756
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.15,
+      "clusters": 768,
+      "asymptotic_normal_power": 0.9586364815970223
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.15,
+      "clusters": 896,
+      "asymptotic_normal_power": 0.9788794620451364
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.15,
+      "clusters": 1024,
+      "asymptotic_normal_power": 0.9894642996823989
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.2,
+      "clusters": 128,
+      "asymptotic_normal_power": 0.2036673370654138
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.2,
+      "clusters": 256,
+      "asymptotic_normal_power": 0.35943703343173816
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.2,
+      "clusters": 512,
+      "asymptotic_normal_power": 0.6189703663026571
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.2,
+      "clusters": 768,
+      "asymptotic_normal_power": 0.7914082633524853
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.2,
+      "clusters": 896,
+      "asymptotic_normal_power": 0.8492827211233429
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.2,
+      "clusters": 1024,
+      "asymptotic_normal_power": 0.8925189633779204
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.25,
+      "clusters": 128,
+      "asymptotic_normal_power": 0.1457430086872763
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.25,
+      "clusters": 256,
+      "asymptotic_normal_power": 0.2482636328323794
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.25,
+      "clusters": 512,
+      "asymptotic_normal_power": 0.44047279299947595
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.25,
+      "clusters": 768,
+      "asymptotic_normal_power": 0.6014341771868712
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.25,
+      "clusters": 896,
+      "asymptotic_normal_power": 0.6681087185891268
+    },
+    {
+      "assumed_delta_log_loss": 0.02,
+      "assumed_paired_history_sd": 0.25,
+      "clusters": 1024,
+      "asymptotic_normal_power": 0.7257588833575942
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.05,
+      "clusters": 128,
+      "asymptotic_normal_power": 0.9999993113478816
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.05,
+      "clusters": 256,
+      "asymptotic_normal_power": 0.9999999999999891
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.05,
+      "clusters": 512,
+      "asymptotic_normal_power": 1.0
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.05,
+      "clusters": 768,
+      "asymptotic_normal_power": 1.0
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.05,
+      "clusters": 896,
+      "asymptotic_normal_power": 1.0
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.05,
+      "clusters": 1024,
+      "asymptotic_normal_power": 1.0
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.1,
+      "clusters": 128,
+      "asymptotic_normal_power": 0.9242350643221925
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.1,
+      "clusters": 256,
+      "asymptotic_normal_power": 0.9977445779645286
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.1,
+      "clusters": 512,
+      "asymptotic_normal_power": 0.9999993113478816
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.1,
+      "clusters": 768,
+      "asymptotic_normal_power": 0.9999999998950246
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.1,
+      "clusters": 896,
+      "asymptotic_normal_power": 0.9999999999988908
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.1,
+      "clusters": 1024,
+      "asymptotic_normal_power": 0.9999999999999891
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.15,
+      "clusters": 128,
+      "asymptotic_normal_power": 0.6189703663026572
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.15,
+      "clusters": 256,
+      "asymptotic_normal_power": 0.8925189633779205
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.15,
+      "clusters": 512,
+      "asymptotic_normal_power": 0.9948489272156245
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.15,
+      "clusters": 768,
+      "asymptotic_normal_power": 0.9998299034270769
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.15,
+      "clusters": 896,
+      "asymptotic_normal_power": 0.9999717159734431
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.15,
+      "clusters": 1024,
+      "asymptotic_normal_power": 0.9999955028087916
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.2,
+      "clusters": 128,
+      "asymptotic_normal_power": 0.3963108569126642
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.2,
+      "clusters": 256,
+      "asymptotic_normal_power": 0.670044488690416
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.2,
+      "clusters": 512,
+      "asymptotic_normal_power": 0.9242350643221925
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.2,
+      "clusters": 768,
+      "asymptotic_normal_power": 0.9859882753784162
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.2,
+      "clusters": 896,
+      "asymptotic_normal_power": 0.9942972780583634
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.2,
+      "clusters": 1024,
+      "asymptotic_normal_power": 0.9977445779645286
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.25,
+      "clusters": 128,
+      "asymptotic_normal_power": 0.2734809196984086
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.25,
+      "clusters": 256,
+      "asymptotic_normal_power": 0.48406091975735266
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.25,
+      "clusters": 512,
+      "asymptotic_normal_power": 0.7749733155437175
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.25,
+      "clusters": 768,
+      "asymptotic_normal_power": 0.913963575919567
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.25,
+      "clusters": 896,
+      "asymptotic_normal_power": 0.9486631120158058
+    },
+    {
+      "assumed_delta_log_loss": 0.03,
+      "assumed_paired_history_sd": 0.25,
+      "clusters": 1024,
+      "asymptotic_normal_power": 0.9699484151775906
+    }
+  ],
+  "example_confirmation_allocations": [
+    {
+      "assumed_or_pilot_sd": 0.05,
+      "planning_sigma": 0.15,
+      "independent_clusters": 512,
+      "clusters_per_founder": 256,
+      "confirm_trajectories": 6144,
+      "decision": "RUN_ONLY_AFTER_PROTOCOL_REVIEW",
+      "pilot_effect_point_estimate_used": false
+    },
+    {
+      "assumed_or_pilot_sd": 0.1,
+      "planning_sigma": 0.15,
+      "independent_clusters": 512,
+      "clusters_per_founder": 256,
+      "confirm_trajectories": 6144,
+      "decision": "RUN_ONLY_AFTER_PROTOCOL_REVIEW",
+      "pilot_effect_point_estimate_used": false
+    },
+    {
+      "assumed_or_pilot_sd": 0.15,
+      "planning_sigma": 0.15,
+      "independent_clusters": 512,
+      "clusters_per_founder": 256,
+      "confirm_trajectories": 6144,
+      "decision": "RUN_ONLY_AFTER_PROTOCOL_REVIEW",
+      "pilot_effect_point_estimate_used": false
+    },
+    {
+      "assumed_or_pilot_sd": 0.2,
+      "planning_sigma": 0.2,
+      "independent_clusters": 896,
+      "clusters_per_founder": 448,
+      "confirm_trajectories": 10752,
+      "decision": "RUN_ONLY_AFTER_PROTOCOL_REVIEW",
+      "pilot_effect_point_estimate_used": false
+    },
+    {
+      "assumed_or_pilot_sd": 0.25,
+      "planning_sigma": 0.25,
+      "independent_clusters": null,
+      "clusters_per_founder": null,
+      "confirm_trajectories": null,
+      "decision": "NO_GO_PRECISION_EXCEEDS_CAP",
+      "pilot_effect_point_estimate_used": false
+    }
+  ],
+  "limitations": [
+    "sigma values are scenarios, not sample SD estimates of an independent new factorial experiment",
+    "normal paired-history formula assumes independent streams and ignores fitted-model uncertainty",
+    "single model-family/three fixed ecological contexts are not independent biological systems",
+    "predictor class, competing flexible null, calibration and error grouping must be fixed before confirmation",
+    "no original or new biological Model3 simulations performed"
+  ]
+}
