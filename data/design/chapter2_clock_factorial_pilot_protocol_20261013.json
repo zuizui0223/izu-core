@@ -1,8 +1,8 @@
 {
-  "schema": "chapter2_clock_A_access_by_I_standing_variance_pilot_design_v1",
+  "schema": "chapter2_clock_A_access_by_I_hidden_homolog_pilot_design_v2",
   "created": "2026-10-13",
-  "status": "PRE_EXECUTION_DESIGN_REVIEW_PENDING_DO_NOT_DISPATCH",
-  "aim": "Can initially separate inherited assurance-accessibility and investment standing variance reveal when a predicted access-delay plus selection-response clock generalizes across new finite histories?",
+  "status": "PRE_EXECUTION_REVISED_DESIGN_REVIEW_PENDING_DO_NOT_DISPATCH",
+  "aim": "Can independently manipulated, expressed-phenotype-matched assurance allele-access width and investment hidden homolog segregation support help predict the six natural threshold outcomes, rather than t0 ecological differences?",
   "prior_exposed_evidence": {
     "old_ecological_order_source": "328548612e93469fcc8663f24548530a57399b9a",
     "original_ecology_readout_sha256": "af17831b6916440e5e1e7796003a0b6b228a63c6773450f6d238dddb3e5535fd",
@@ -34,12 +34,7 @@
     "assurance_alleles_per_founder": [
       "A:.5-w,.5+w per plant (heterozygous)"
     ],
-    "investment_allele_scale": [
-      0.5,
-      1.0
-    ],
-    "I_scale_definition": "I_new = original pooled founding I allele mean + c*(I_original - original pooled founding I allele mean)",
-    "independence_condition": "Full 2x2 crossing within each original founder; A-width does not change I source alleles; I-scaling does not change A or M source alleles.",
+    "independence_condition": "Within each original founder, the A-width and I-homolog scale factors are crossed independently. Both preserve EACH plant's expressed A/I/M phenotype, and t0 source pollen ecology (subject to source-operator identity check).",
     "matching_M": "unaltered original allele states",
     "A_initial_expressed_mean": 0.5,
     "I_initial_allele_mean": "unaltered per founder; original main=.5078125, confirmation=.515625",
@@ -84,10 +79,17 @@
     "treatments_per_founder_seed": 12,
     "no_additional_ecological_contexts_in_this_pilot": true,
     "no_facultative_I_mutation_in_this_pilot": true,
-    "names_are_abstract": "A and I are synthetic Model3 axes; not observed autonomous selfing rates or literal flower size."
+    "names_are_abstract": "A and I are synthetic Model3 axes; not observed autonomous selfing rates or literal flower size.",
+    "investment_homolog_heterozygosity_scale": [
+      0.0,
+      1.0
+    ],
+    "I_homolog_scale_definition": "For each original plant i, set its I homolog pair to (m_i - h*d_i, m_i + h*d_i), m_i=(I_i1+I_i2)/2, d_i=(I_i2-I_i1)/2, h in {0,1}; preserve every plant expression and all M/A sources.",
+    "I_initial_expressed_variance": "main=0.00921630859375, confirmation=0.002685546875; identical in all four treatments per founder",
+    "I_hidden_homolog_potential": "h=0 yields zero within-plant allele half-difference variance; h=1 restores original source .00341796875 (main) or .0068359375 (confirmation). This is not a 4x difference in between-plant expressed VA."
   },
   "pilot": {
-    "purpose": "prospective FEASIBILITY and precision estimation only, not successful Q1-Q2 clock confirmation",
+    "purpose": "New source-exact phenotype-matched genetic-access/segregation feasibility, six class event spectrum, and future score-difference variance. No hypothesis confirmation.",
     "salt": "chapter2-clock-factorial-pilot-v1-20261013",
     "independent_stream_definition": "(founder_block, replicate) cryptographic salted seed; same source stream used for its three environments and four factorial arms",
     "replicates_per_founder": 64,
@@ -119,7 +121,7 @@
   },
   "confirmation": {
     "status": "NOT_YET_FROZEN_NOT_AUTHORIZED_FOR_DISPATCH",
-    "goal": "independent-history heldout six-class log-score difference of mechanistic access+response clock versus equal-or-greater-flexibility ecology/genetic-interaction null",
+    "goal": "independent history distributional prediction from a pre-frozen two-stage (A access-to-segregation + subsequent selection; I hidden homolog access + I source Price) clock, compared with a flexible ecological/genetic interaction null",
     "target_log_loss_reduction_min": 0.02,
     "primary_metric": "six-class log loss averaged over all starts (not only strict two-event histories)",
     "evaluation_units": "founder-block stratified paired visitor-history clusters; all 12 cells within cluster remain joined",
@@ -134,14 +136,15 @@
     "feasibility_file": "data/results/chapter2_clock_factorial_feasibility_20261013.json",
     "power_file": "data/results/chapter2_clock_power_envelope_20261013.json",
     "derivation_files_sha256": {
-      "scripts/audit_chapter2_clock_factorial_feasibility_20261013.py": "4b23bc81da1dfd057413e9a2870325e9cccf0f7b53c2b5c14c23c4845892ef5a",
+      "scripts/audit_chapter2_clock_factorial_feasibility_20261013.py": "79aeb0374d4d822e00760889c8be58c1af7f68bc227930474b2f20195f01737a",
       "scripts/audit_chapter2_clock_power_envelope_20261013.py": "5291f05adcc70c2270540d53902cbe10760746d36ea67ff12e6e3e703c078109",
-      "data/results/chapter2_clock_factorial_feasibility_20261013.json": "729f96b40c2457947b83a01963e6ba7019efc24149f2ead1d6a67fb53f00ad77",
+      "data/results/chapter2_clock_factorial_feasibility_20261013.json": "93517809785e95c06bae089a133142fc63b0f15aec7c30ff03a2418407717da6",
       "data/results/chapter2_clock_power_envelope_20261013.json": "c6ae68d74668c629a9395dc84c2d48398e749df7bfeccd4c0503116342526f6b"
     },
     "assumption_not_empirical_power": true
   },
   "execute_rules": [
+    "Supersedes the earlier PR draft I-population-wide scale: it changed each individual I floral phenotype and confounded initial ecological return. The revised I-within-individual homolog scale holds all t0 expressed phenotypes identical; no biological trajectories have been dispatched under either design.",
     "Do not dispatch any biological trajectories on this PR or during the feasibility audit.",
     "Review and authenticate exact original biology, 2x2 founder transformation, 12-cell coupled-stream mapping and source/runtime hashes before pilot.",
     "Execute only a single 1,536-case pilot after immutable pilot design and original source manifest are approved; no adaptive case adds.",
@@ -149,5 +152,11 @@
     "Power and fully specified predictor/null contract must be separately frozen before new confirmation histories, never using their outcomes.",
     "If pilot sd implies >1024 confirm history clusters under fixed .02 threshold, stop and report NO-GO (do not relax target).",
     "No merge/promotion to one-paper main claim from pilot-only results."
-  ]
+  ],
+  "design_correction": {
+    "time": "2026-10-13 pre-execution before any new biological histories",
+    "rejected_v1": "I_new = population_mean_I + scale*(I_old-population_mean_I) varied each adult flower investment despite constant population average; unsuitable for isolating hidden genetic accessibility",
+    "revised_v2": "I_new homologs = adult_i_mean ± h*(original homolog half-difference) with h=0 or 1; every adult M/I/A expressed phenotype exact-identical at t0",
+    "traces": "The pre-review historical v1 proposal remains in prior Git commits, not biological data; original source archive and prior frozen results unchanged."
+  }
 }
