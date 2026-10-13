@@ -26,7 +26,7 @@ def test_minimal_resolution_delivery_is_source_bound():
     assert hashlib.sha256(original).hexdigest()==value['original_readout_sha256']
     assert json.loads(members['EVIDENCE/GENOME_RESPONSE_READOUT.json'])['updates']==64000
     assert json.loads(members['EVIDENCE/DURATION_READOUT.json'])['kernels']==96
-    assert len(derivations)==8
+    assert len(derivations)==10
     parent=json.loads(members['EVIDENCE/FUTURE_PARENT_READOUT.json'])
     assert parent['status']=='ACTUAL_RAW_BIRTH_AND_FOUR_DECISIONS_INDEPENDENTLY_VERIFIED'
     assert parent['cases']==4096 and parent['updates']==819200
@@ -94,6 +94,37 @@ def test_minimal_resolution_explicit_text_newline_derivation_is_portable(tmp_pat
     monkeypatch.setattr(builder,'MINIMAL_RESULTS',copied)
     actual,_=builder.minimal_resolution_materials()
     assert actual==expected
+
+
+def test_restoration_is_portable_and_keeps_independently_verified_unresolved_decision():
+    members,_=builder.minimal_resolution_materials()
+    value=json.loads(members['EVIDENCE/INVESTMENT_VARIATION_READOUT.json'])
+    assert value['histories']==64 and value['triggers']==61 and value['no_trigger']==3
+    assert value['primary']['decision']=='unresolved'
+    assert value['primary']['ci95'][0]<0<value['primary']['ci95'][1]
+    assert value['primary']['block_estimates']['causal_main']>0
+    assert value['primary']['block_estimates']['causal_confirmation']<0
+    assert value['independent_state_parent_checks']==123880
+    assert len(value['cases'])==64
+    assert builder.sha(members['EVIDENCE/INVESTMENT_VARIATION_PROTOCOL.md'])==value['protocol_sha256']
+
+
+def test_restoration_rejects_pending_independent_status_with_updated_byte_receipt(tmp_path,monkeypatch):
+    import shutil
+    root=tmp_path/'results';receipt='minimal_resolution_delivery_20261013.json'
+    value=json.loads((builder.MINIMAL_RESULTS/receipt).read_bytes())
+    for name in [receipt,*value['sha256']]:
+        p=root/name;p.parent.mkdir(parents=True,exist_ok=True)
+        shutil.copyfile(builder.MINIMAL_RESULTS/name,p)
+    name='investment_variation_restoration_readout_20261013.json';p=root/name
+    assert p.exists(),'restoration readout missing from scientific evidence inventory'
+    result=json.loads(p.read_bytes());result['status']='PENDING'
+    raw=(json.dumps(result,indent=2)+'\n').encode();p.write_bytes(raw)
+    value['sha256'][name]=builder.sha(raw);value['source_raw_sha256'][name]=[builder.sha(raw)]
+    (root/receipt).write_text(json.dumps(value),encoding='utf-8')
+    monkeypatch.setattr(builder,'MINIMAL_RESULTS',root)
+    with pytest.raises(ValueError,match='investment variation independent admission differs'):
+        builder.minimal_resolution_materials()
 
 
 def test_mechanism_delivery_is_source_bound_and_reports_predeclared_interaction():
@@ -202,6 +233,8 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
            "EVIDENCE/GENOME_RESPONSE_READOUT.json",
            "EVIDENCE/INITIAL_MEAN_ORIGINAL.json.gz",
            "EVIDENCE/INITIAL_MEAN_READOUT.json",
+           "EVIDENCE/INVESTMENT_VARIATION_PROTOCOL.md",
+           "EVIDENCE/INVESTMENT_VARIATION_READOUT.json",
            "EVIDENCE/MECHANISM_DESIGN.md",
            "EVIDENCE/MECHANISM_ORIGINAL.json.gz",
            "EVIDENCE/MECHANISM_READOUT.json",
@@ -217,7 +250,7 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
         assert m["doi_deposit_complete"] is False
         assert m["n_figures"]==4
         assert m["n_supplementary_figures"]==3
-        assert len(m["members"])==31
+        assert len(m["members"])==33
         for name,record in m["members"].items():
             raw=z.read(name)
             assert record=={"size":len(raw),"sha256":hashlib.sha256(raw).hexdigest()}

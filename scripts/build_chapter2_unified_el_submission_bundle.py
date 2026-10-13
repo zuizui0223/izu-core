@@ -103,6 +103,7 @@ def minimal_resolution_materials():
     receipt_raw=(MINIMAL_RESULTS/'minimal_resolution_delivery_20261013.json').read_bytes()
     receipt=json.loads(receipt_raw)
     sources={
+        'investment_variation_restoration_readout_20261013.json':'EVIDENCE/INVESTMENT_VARIATION_READOUT.json',
         'future_parent_selection_readout_20261013.json':'EVIDENCE/FUTURE_PARENT_READOUT.json',
         'ecological_order_boundary_20261013.json':'EVIDENCE/ECOLOGICAL_ORDER_READOUT.json',
         'matched_operator_gap_20261013.json':'EVIDENCE/OPERATOR_GAP_READOUT.json',
@@ -158,6 +159,28 @@ def minimal_resolution_materials():
         or any(p['decision']!='unresolved' for p in parent['primary'])
         or parent['occupied_counts'][1][:2]!=[[864,863],[790,757]]):
         raise ValueError('future parent independent admission differs')
+    restoration=json.loads(members['EVIDENCE/INVESTMENT_VARIATION_READOUT.json'])
+    if (restoration['status']!='INDEPENDENT64_NATIVE_AND_RESTORED_SAVED_PATHS_PRIMARY_AND_SECONDARIES_MATCH'
+        or (restoration['histories'],restoration['triggers'],restoration['no_trigger'])!=(64,61,3)
+        or restoration['independent_state_parent_checks']!=123880
+        or restoration['independent_reproductive_variance_checks']!=54628
+        or restoration['independent_receipt_sha256']!='8fc957c4fcea4287541627abae5aaf572dccb82bd43e74f7c7f16fafa816f37e'
+        or restoration['source_commit']!='778474d9'
+        or restoration['primary']['decision']!='unresolved'
+        or not restoration['primary']['ci95'][0]<0<restoration['primary']['ci95'][1]
+        or len(restoration['cases'])!=64 or len({r['key'] for r in restoration['cases']})!=64
+        or any(r['original_I'] is None or r['restored_I'] is None for r in restoration['cases'])):
+        raise ValueError('investment variation independent admission differs')
+    values=restoration['cases']
+    if abs(sum(r['original_I']-r['restored_I'] for r in values)/64-restoration['primary']['estimate'])>1e-12:
+        raise ValueError('investment variation primary differs from complete case inventory')
+    protocol=ROOT/'docs/CHAPTER2_INVESTMENT_VARIATION_RESTORATION_PROTOCOL_20261013.md'
+    original_protocol=protocol.read_bytes();canonical_protocol=original_protocol.replace(b'\r\n',b'\n')
+    if sha(canonical_protocol)!=restoration['protocol_sha256']:
+        raise ValueError('investment variation frozen protocol hash differs')
+    dest='EVIDENCE/INVESTMENT_VARIATION_PROTOCOL.md';members[dest]=canonical_protocol
+    derivations[dest]=dict(original_sha256=sha(original_protocol),derived_sha256=sha(canonical_protocol),
+        transformation='Exact approved protocol; CRLF to LF only; no numerical or decision changes.')
     return members,derivations
 
 
@@ -468,6 +491,10 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     si_text=si_text.replace("../data/results/persistence_mechanism_20261012/readout.json","EVIDENCE/MECHANISM_READOUT.json")
     si_text=si_text.replace("../data/results/persistence_mechanism_20261012/design.md","EVIDENCE/MECHANISM_DESIGN.md")
     si_text=si_text.replace("../data/results/persistence_mechanism_20261012/original_readout.json.gz","EVIDENCE/MECHANISM_ORIGINAL.json.gz")
+    si_text=si_text.replace('docs/CHAPTER2_INVESTMENT_VARIATION_RESTORATION_PROTOCOL_20261013.md',
+                            'EVIDENCE/INVESTMENT_VARIATION_PROTOCOL.md')
+    si_text=si_text.replace('data/results/investment_variation_restoration_readout_20261013.json',
+                            'EVIDENCE/INVESTMENT_VARIATION_READOUT.json')
     si=si_text.encode("utf-8")
     if any(token in si.lower().decode("utf-8") for token in DENIED):
         raise ValueError("blinded Supporting Information has identifying token")
@@ -519,6 +546,7 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
         "mechanism_evidence":"20480 full-genome-admitted futures and independent all-start arithmetic; lifelong expression policies, not initial-only or natural-order mediation; low-challenge terminal floor retained",
         "atom_evidence":"All10 two-grid numerical admissions and320 descriptive ABM histories;990 event and40 checkpoint independent array checks, no new raw-genome reconstruction or causal drift attribution",
         "resolution_evidence":"6144 boundary,3072 shared preparations,6144 branched challenges; genetic-access band and conditional all-start preparation-policy effects, not pure natural-order mediation",
+        "investment_variation_evidence":"64 outcome-informed mean-preserving allele-variation intervention slots,61 triggers and3 unchanged controls; independently replayed frozen-source paths; primary unresolved, not equivalence or unique causal allocation",
         "members":{name:{"size":len(b),"sha256":sha(b)}
                    for name,b in sorted(members.items())},
     }
