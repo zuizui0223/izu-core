@@ -59,7 +59,7 @@ def test_manifest_requires_all_six_and_raw_sha_not_claimed_from_template(tmp_pat
         manifest_check(d,fake)
 
 
-def write_mock_zip(zipfile_path:Path, registry, shard='main_c0', bad=None):
+def write_mock_zip(zipfile_path:Path, registry, shard='main_c0', bad=None, registry_blob=REGISTRY_GIT_BLOB):
     members=[x+'.npz' for x in registry['case_identifiers'] if x.startswith(shard+'_')]
     assert len(members)==256
     if bad=='omit':members.pop()
@@ -75,7 +75,7 @@ def write_mock_zip(zipfile_path:Path, registry, shard='main_c0', bad=None):
             'schema':'chapter2_clock_factorial_model3_native_raw_shard_v1',
             'status':'COMPLETE_REGISTERED_256_NATIVE_PATHS',
             'cases':256, 'updates_per_case':200,
-            'pilot_registry_git_blob':REGISTRY_GIT_BLOB,
+            'pilot_registry_git_blob':registry_blob,
             'case_records':[{ 'mock':i } for i in range(256)]}))
     return zipfile_path
 
@@ -114,3 +114,60 @@ def test_review_never_replaces_prior_source_readout(tmp_path):
     with pytest.raises(FileExistsError,match='do not replace'):
         review_six({},tmp_path/'receipt.json',tmp_path/'reg.json',
                    tmp_path/'fixture.json',tmp_path/'design.json',output)
+
+
+def test_six_zip_review_orchestration_with_stubbed_nonbiological_reader(tmp_path, monkeypatch):
+    """Exercise delivery mechanics only; NO native biology, NO genuine readout."""
+    import sys
+    import types
+    from scripts import review_chapter2_clock_external_archives_20261013 as m
+
+    registry=tmp_path/'source_registry.json'
+    fake=mock_registry()
+    registry.write_text(json.dumps(fake)+'\n')
+    monkeypatch.setattr(m,'REGISTRY_GIT_BLOB',git_blob(registry.read_bytes()))
+    archives={}
+    hashes={}
+    for name in SHARDS:
+        path=write_mock_zip(tmp_path/(name+'.zip'),fake,shard=name,registry_blob=m.REGISTRY_GIT_BLOB)
+        archives[name]=path
+        hashes[name]=hashlib.sha256(path.read_bytes()).hexdigest()
+    external=manifest()
+    external['original_pilot_registry_blob']=m.REGISTRY_GIT_BLOB
+    for name in SHARDS:
+        external['archives'][name]['sha256']=hashes[name]
+    receipt=tmp_path/'independently_attested_RELEASE_NOT_REAL.json'
+    receipt.write_text(json.dumps(external)+'\n')
+
+    # The fake verifier is explicitly labelled; no producer or Model3 code is
+    # imported or run. It proves only that valid source file *shapes* are passed
+    # to the existing independently replaying reader interface exactly once.
+    invoked=[]
+    def fake_independent_reviewer(folder,*args,**kwargs):
+        names=sorted(x.name for x in folder.iterdir())
+        assert len(names)==257 and '_COMPLETION.json' in names
+        first=next(x for x in names if x.endswith('.npz'))
+        assert (folder/first).read_bytes()==b'mock-not-biological-NPZ'
+        invoked.append(first)
+        return {'original_case_receipts':[{'case_key':n[:-4]} for n in names if n.endswith('.npz')]}
+    fake_import=types.ModuleType('scripts.verify_chapter2_clock_pilot_raw_20261013')
+    fake_import.verify=fake_independent_reviewer
+    monkeypatch.setitem(sys.modules,'scripts.verify_chapter2_clock_pilot_raw_20261013',fake_import)
+    def fake_aggregate(readouts,reg):
+        assert len(readouts)==6 and reg==registry
+        assert len({p.name for p in readouts})==6
+        return {'all_starts':1536,'total_native_reproductive_updates':307200}
+    monkeypatch.setattr(m,'aggregate',fake_aggregate)
+    output=tmp_path/'mock-delivery-results'
+    out=review_six(archives,receipt,registry,tmp_path/'no-original-fixture',
+                   tmp_path/'no-original-design',output)
+    assert len(invoked)==6
+    assert out['new_biological_histories_generated_by_reviewer']==0
+    assert out['status']=='SIX_ORIGINAL_EXTERNAL_RAW_ARCHIVES_INDEPENDENTLY_REPLAYED'
+    assert len(out['raw_and_reader_sha256'])==6
+    assert len(list(output.iterdir()))==7
+    for shard,record in out['raw_and_reader_sha256'].items():
+        assert record['source_archive_sha256']==hashes[shard]
+        filename=output/(shard+'_independently_verified.json')
+        assert record['new_reader_receipt_sha256']==hashlib.sha256(filename.read_bytes()).hexdigest()
+    assert (output/'ALL_SIX_ORIGINAL_SOURCE_READBACK.json').exists()
