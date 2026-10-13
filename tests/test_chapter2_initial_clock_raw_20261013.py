@@ -58,3 +58,28 @@ def test_rejects_future_or_missing_task_identity():
     for v in [{'replicate': 128}, {'supply': 0.5}, {'block': 'other'}, {'context': 9}]:
         b = {**base, **v}
         with pytest.raises(ValueError): _task_key(b)
+
+def test_admitted_full_source_t0_profile_summary_when_repository_checkout_has_it():
+    import json
+    from pathlib import Path
+    p = Path('data/results/chapter2_initial_clock_t0_raw_20261013.json')
+    if not p.exists():
+        pytest.skip('Source-admitted compact t0 readout not staged in standalone source tests')
+    d = json.loads(p.read_text())
+    assert d['status'] == 'ALL2304_ORIGINAL_INITIAL_FEATURES_ADMITTED'
+    assert d['original_starts'] == 2304 and d['founder_contexts'] == 18
+    assert d['execution']['conclusion'] == 'success'
+    assert d['execution']['job_id'] == 115102169482
+    assert len({(x['block'], x['context']) for x in d['original_raw_t0_feature_rows']}) == 18
+    assert d['t0_investment_genetic_expected_response_signs'] == {
+        'toward_decline': 12, 'away_from_decline': 6, 'zero': 0,
+    }
+    for x in d['original_raw_t0_feature_rows']:
+        f = x['time0_only']
+        assert f['t0_expected_A_response'] == 0.0
+        assert f['A_variance_expressed'] == 0.0
+        assert f['A_expected_F1_Mendelian_variance_no_mutation'] == 0.001953125
+    assert (d['exploratory_response_order_association']
+            ['initial_in_decline_contexts_mean_event_rate']) == 1060 / 1536
+    assert (d['exploratory_response_order_association']
+            ['initial_against_decline_contexts_mean_event_rate']) == 78 / 768
