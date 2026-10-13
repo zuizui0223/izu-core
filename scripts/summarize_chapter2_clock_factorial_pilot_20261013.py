@@ -19,7 +19,7 @@ from scripts.aggregate_chapter2_clock_pilot_verified_shards_20261013 import (
 )
 
 CONTRACT = Path('data/design/chapter2_clock_factorial_pilot_analysis_contract_20261013.json')
-CONTRACT_GIT_BLOB = '7ad5be9235bf7dff3f93202f105a79ea054a19d9'
+CONTRACT_GIT_BLOB = '06c343b6e20a08c0575ddbe6ace5ef5fbdeb85ed'
 CASE = re.compile(r'^(main|confirmation)_c(0|3|4)_A([LH])_I([01])_r(\d{3})$')
 SHA = re.compile(r'[0-9a-f]{64}\Z')
 SHARDS = tuple(f'{block}_c{c}' for block in ('main', 'confirmation') for c in (0, 3, 4))
