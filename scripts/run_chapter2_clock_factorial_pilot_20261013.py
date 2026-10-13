@@ -26,6 +26,7 @@ from scripts.audit_chapter2_clock_native_birth_technical_20261013 import (
 
 REGISTERED_INPUTS=Path('data/design/chapter2_clock_factorial_pilot_registered_inputs_20261013.json')
 REGISTERED_INPUTS_GIT_BLOB='0721517f7bf69eee1c2daf040f4781873ba3c3ea'
+FROZEN_APPROVAL_GIT_BLOB=None  # No source-reviewed prospectively authorized pilot execution
 FULL_HORIZON=200
 TECH_HORIZON=3
 TECH_SEED_SALT='chapter2-clock-factorial-producer-debug-only-20261013'
@@ -178,9 +179,23 @@ def simulate(case,registered,fixture,source,horizon:int):
               'technical':horizon==TECH_HORIZON},geometry
 
 
-def produce(shard:int,out:Path,*,technical:bool=False,registered_path:Path=REGISTERED_INPUTS):
-    if not technical and np.__version__!='2.2.6':
-        raise ValueError('Full producer must use exact original NumPy 2.2.6 numerical runtime')
+def produce(shard:int,out:Path,*,technical:bool=False,registered_path:Path=REGISTERED_INPUTS,
+            approval_path:Path|None=None):
+    if technical and approval_path is not None:
+        raise ValueError('Technical source fixtures must not accept scientific approval')
+    if not technical:
+        if FROZEN_APPROVAL_GIT_BLOB is None:
+            raise ValueError('Scientific pilot not authorized: independently reviewed approval SHA not frozen')
+        if approval_path is None:
+            raise ValueError('Scientific pilot requires immutable approval receipt')
+        approval_raw=approval_path.read_bytes()
+        if git_blob(approval_raw)!=FROZEN_APPROVAL_GIT_BLOB:
+            raise ValueError('Unregistered pilot approval receipt changed')
+        approved=json.loads(approval_raw)
+        if approved.get('status')!='APPROVED_TO_RUN_PILOT' or approved.get('registry_git_blob')!=REGISTERED_INPUTS_GIT_BLOB:
+            raise ValueError('No matching scientific pilot approval')
+        if np.__version__!='2.2.6':
+            raise ValueError('Full producer must use exact original NumPy 2.2.6 numerical runtime')
     reg=load_input_inventory(registered_path)
     fixture=source_fixture()
     modules=load_original_source()
@@ -233,7 +248,9 @@ def main():
     a.add_argument('--out',type=Path,required=True)
     a.add_argument('--technical',action='store_true')
     a.add_argument('--registry',type=Path,default=REGISTERED_INPUTS)
+    a.add_argument('--approval',type=Path)
     args=a.parse_args()
-    print(json.dumps(produce(args.shard,args.out,technical=args.technical,registered_path=args.registry)))
+    print(json.dumps(produce(args.shard,args.out,technical=args.technical,
+        registered_path=args.registry,approval_path=args.approval)))
 
 if __name__=='__main__':main()
