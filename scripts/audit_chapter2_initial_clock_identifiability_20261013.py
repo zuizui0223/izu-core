@@ -190,7 +190,8 @@ def main() -> None:
     readout = json.loads(content)
     result = analyze(readout, hashlib.sha256(content).hexdigest())
     args.out.parent.mkdir(parents=True, exist_ok=True)
-    args.out.write_text(json.dumps(result, ensure_ascii=False, indent=2, allow_nan=False) + "\n", encoding="utf-8")
+    with args.out.open("x", encoding="utf-8", newline="\n") as output:
+        output.write(json.dumps(result, ensure_ascii=False, indent=2, allow_nan=False) + "\n")
     print(json.dumps({"status": result["status"], "six_class_joint": result["all_six_class_oracles"]["joint"],
                       "strict_joint": result["postselected_strict_two_class_oracles"]["joint"]}, indent=2))
 

@@ -62,9 +62,13 @@ jobs:
                   assert len(matches)==1, (i,matches)
                   (destination/f'shard_{i}.zip').write_bytes(z.read(matches[0]))
           PYCODE
+          shards=()
+          for i in {0..8}; do
+            shards+=("$RUNNER_TEMP/original_shards/shard_${i}.zip")
+          done
           python -m scripts.audit_chapter2_initial_clock_paired_events_20261013 \
             --compact data/results/ecological_order_boundary_20261013.json \
-            --shards $(printf '%s/original_shards/shard_%s.zip ' "$RUNNER_TEMP" {0..8}) \
+            --shards "${shards[@]}" \
             --out "$RUNNER_TEMP/initial_clock_paired_events.json"
           cmp "$RUNNER_TEMP/initial_clock_paired_events.json" \
             data/results/chapter2_initial_clock_paired_events_20261013.json

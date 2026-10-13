@@ -80,6 +80,7 @@ def main():
                    'original_verified_paired_blob':PAIRED_BLOB,
                    'new_original_biological_trajectories':0}
     a.out.parent.mkdir(parents=True,exist_ok=True)
-    a.out.write_text(json.dumps(obj,indent=2,allow_nan=False)+'\n',encoding='utf8')
+    with a.out.open("x", encoding="utf-8", newline="\n") as output:
+        output.write(json.dumps(obj,indent=2,allow_nan=False)+'\n')
     print(json.dumps({'status':obj['status'],'scores':obj['scores']},indent=2))
 if __name__=='__main__':main()

@@ -22,6 +22,7 @@ from scripts.audit_chapter2_initial_clock_transfer_20261013 import (
 
 SEED=2026101301
 B=10000
+PAIRED_EVENTS_GIT_BLOB = "afab849d2f0036d07d28beb1441644f9ca2808cb"
 
 
 def validate_clusters(pair:dict,rows:list[dict]):
@@ -176,11 +177,16 @@ def main():
     if a.out.exists():raise ValueError('Refuse overwrite of existing readout')
     if blob_sha(a.compact.read_bytes())!=EXPECTED_INPUT_GIT_BLOB or blob_sha(a.t0.read_bytes())!=RAW_FEATURE_GIT_BLOB:
         raise ValueError('Source-bound compact and original-genotype t0 identity')
-    result=run(json.loads(a.compact.read_bytes()),json.loads(a.t0.read_bytes()),json.loads(a.paired.read_bytes()))
+    paired_raw = a.paired.read_bytes()
+    if blob_sha(paired_raw) != PAIRED_EVENTS_GIT_BLOB:
+        raise ValueError('Source-bound paired event identity differs')
+    result=run(json.loads(a.compact.read_bytes()),json.loads(a.t0.read_bytes()),json.loads(paired_raw))
     result['source']={'original_compact_sha':EXPECTED_INPUT_GIT_BLOB,'original_t0_sha':RAW_FEATURE_GIT_BLOB,
+                      'original_paired_git_blob': PAIRED_EVENTS_GIT_BLOB,
                       'source_paired_case_status':'ALL2304_CASE_HASHES_AND_256_PAIRED_CLUSTERS_VERIFIED'}
     a.out.parent.mkdir(parents=True,exist_ok=True)
-    a.out.write_text(json.dumps(result,indent=2,allow_nan=False)+'\n')
+    with a.out.open("x", encoding="utf-8", newline="\n") as output:
+        output.write(json.dumps(result,indent=2,allow_nan=False)+'\n')
     print(json.dumps({'status':result['status'],'n_history_clusters':256,
                       'main':result['results'][1]['controlled_add_source_Price_vs_ecology_genetics'],
                       'scores':result['results'][1]['five_fold_out_of_history_scores']},indent=2))

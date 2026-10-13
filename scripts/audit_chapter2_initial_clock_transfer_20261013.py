@@ -273,7 +273,8 @@ def main():
                       'raw_history_sha256':'819741aa4a9f5bc1aaf2dadddbd56b79d158fc9295d07fc3bffe362693fc056a',
                       'no_new_biological_trajectories':True}
     a.out.parent.mkdir(parents=True,exist_ok=True)
-    a.out.write_text(json.dumps(result,ensure_ascii=False,indent=2,allow_nan=False)+'\n',encoding='utf-8')
+    with a.out.open("x", encoding="utf-8", newline="\n") as output:
+        output.write(json.dumps(result,ensure_ascii=False,indent=2,allow_nan=False)+'\n')
     print(json.dumps({'status':result['status'],'main_lambda':0.15,
                       'main_scores':result['results'][1]['model_scores'],
                       'sensitivity':[{ 'lambda':x['lambda_value'],
