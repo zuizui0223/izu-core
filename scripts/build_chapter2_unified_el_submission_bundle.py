@@ -161,6 +161,49 @@ def first_meiosis_access_materials():
         for name, value in members.items()}
 
 
+def q3_conditional_materials():
+    """Admit the separate fixed-state paired-survivor follow-up, not an old-primary replacement."""
+    data=ROOT/'data/results/q3_conditional_paper_20261014'
+    raw=(data/'PUBLIC_ADMISSION.json').read_bytes()
+    if sha(raw)!='10e5c5f21e244fcf8cc560cae2763a91e40f162b22a8ccad04905a10854fc60d':
+        raise ValueError('Q3 conditional public admission differs')
+    admission=json.loads(raw)
+    for name,digest in admission['pins'].items():
+        if sha((data/name).read_bytes())!=digest:
+            raise ValueError('Q3 conditional frozen source/result differs: '+name)
+    result=json.loads((data/'READOUT.json').read_bytes())
+    audit=json.loads((data/'INDEPENDENT_SAVED_ARRAYS.json').read_bytes())
+    replay=json.loads((data/'INDEPENDENT_REPLAY.json').read_bytes())
+    resources=json.loads((data/'RESOURCES.json').read_bytes())
+    target='fixed_state_coupling_specific_paired_survivor_conditional'
+    if (admission['status']!='FULL7808_ORIGINAL_ARRAYS_AND_FIXED_CONDITIONAL_PRIMARY_ADMITTED'
+        or admission['public_companion_sha256']!='aceec1ebf3d8c5e6b1671cc08b94ec5da086750428e0de5f21a53e163d8e0e91'
+        or admission['raw_archive_sha256']!='8a2462910025b4a386e789583578cb1380349097393916dac4e50d01c9637b7e'
+        or audit['status']!='ALL7808_RAW_ARRAYS_ENDPOINTS_AND_FIXED_PRIMARY_INDEPENDENTLY_MATCH'
+        or audit['paths']!=7808 or audit['pairs']!=3904 or audit['members']!=12042
+        or audit['saved_censuses']!=998528 or audit['saved_replay_updates']!=990720
+        or audit['native_calls_during_this_audit']!=0 or audit['secondary_event_fields_reconstructed']!=7808
+        or audit['source_sha256']!=admission['pins']['INDEPENDENT_VERIFIER_SOURCE.py']
+        or audit['readout_sha256']!=admission['pins']['READOUT.json']
+        or replay['status']!='ALL_7808_PATHS_REPLAYED_EXACTLY' or replay['raw_paths']!=7808
+        or replay['native_updates']!=990720
+        or resources['actual_calls']!=1981444 or resources['workers']!=2
+        or result['target']!=target or result['original_primary']!='unresolved_unchanged'
+        or result['pairs']!=3904 or result['slots']!=64 or result['policy_zero_slots']!=3
+        or result['survival']!=dict(both_alive=3904,native_only=0,restored_only=0,both_extinct=0)
+        or result['decision']!='evaluated_conditional' or result['directional_replication']!='positive'
+        or result['means']['causal_confirmation']['practical']!='unresolved'):
+        raise ValueError('Q3 full-domain or conditional scope differs')
+    members={};provenance={}
+    for name in ['PUBLIC_ADMISSION.json']+list(admission['pins']):
+        original=(data/name).read_bytes();key='EVIDENCE/Q3_CONDITIONAL_'+name
+        derived=original.replace(b'https://github.com/zuizui0223/izu-core/',b'PUBLIC_REPOSITORY_SOURCE/')
+        members[key]=derived
+        provenance[key]=dict(original_sha256=sha(original),derived_sha256=sha(derived),
+            transformation='Identifying public repository prefix replaced only. Separate fixed-state paired-survivor study; old64 primary unchanged. Full raw-array audit makes zero native calls.')
+    return members,provenance
+
+
 def assurance_parent_materials():
     """Admit all4096 controlled futures, complete raw replay and fixed comparisons."""
     data=ROOT/'data/results/assurance_parent_control_20261014'
@@ -1023,6 +1066,8 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     restoration_access,restoration_access_derivations=restoration_access_materials()
     members.update(restoration_access)
     derivations.update(restoration_access_derivations)
+    q3_conditional,q3_conditional_derivations=q3_conditional_materials()
+    members.update(q3_conditional);derivations.update(q3_conditional_derivations)
     assurance_parent,assurance_parent_derivations=assurance_parent_materials()
     members.update(assurance_parent)
     derivations.update(assurance_parent_derivations)

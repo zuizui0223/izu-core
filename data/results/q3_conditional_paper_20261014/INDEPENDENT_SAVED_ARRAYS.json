@@ -1,0 +1,52 @@
+{
+  "status": "ALL7808_RAW_ARRAYS_ENDPOINTS_AND_FIXED_PRIMARY_INDEPENDENTLY_MATCH",
+  "archive_sha256": "8a2462910025b4a386e789583578cb1380349097393916dac4e50d01c9637b7e",
+  "source_head": "4c46f2985d746f6b8b1fe209a7442d5d64a84674",
+  "readout_sha256": "10e72db05792292e31862733d57b79589abc12ea3eec62caab64018a05d58cef",
+  "members": 12042,
+  "pairs": 3904,
+  "paths": 7808,
+  "saved_censuses": 998528,
+  "plant_rows": 47929344,
+  "parent_rows": 47554560,
+  "saved_replay_updates": 990720,
+  "native_calls_during_this_audit": 0,
+  "means": {
+    "all64": {
+      "estimate": 0.016744931538899742,
+      "interval": [
+        0.01379478226925998,
+        0.019695080808539503
+      ],
+      "direction": "positive",
+      "practical": "positive"
+    },
+    "causal_main": {
+      "estimate": 0.020933787027994793,
+      "interval": [
+        0.016727587059970725,
+        0.02513998699601886
+      ],
+      "direction": "positive",
+      "practical": "positive"
+    },
+    "causal_confirmation": {
+      "estimate": 0.012556076049804688,
+      "interval": [
+        0.008418274135548957,
+        0.016693877964060418
+      ],
+      "direction": "positive",
+      "practical": "unresolved"
+    }
+  },
+  "survival": {
+    "both_alive": 3904,
+    "native_only": 0,
+    "restored_only": 0,
+    "both_extinct": 0
+  },
+  "secondary_event_fields_reconstructed": 7808,
+  "source_sha256": "82d4e4009ed61be517ca990c641142f94cfd5301ebfe027610e567973142f87e",
+  "scope": "Read-only complete saved-array, event and primary arithmetic audit; not a second native replay, independent founder confirmation, natural-order benefit or unique mediator identification."
+}

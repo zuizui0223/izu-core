@@ -406,3 +406,35 @@ The following descriptive counts and restricted occupied times retain every star
 The lower challenge is endpoint-floor limited. At1.50, the control has lower observed occupancy in both origins while increasing their difference. Neither absolute descriptive counts nor this larger difference constitute a confirmed natural-order benefit.
 
 Execution source was publicly frozen/read back before generation. All4,096 old mean-native references and eight native controls were independently replayed first. All4,096 new futures,819,200 updates, native/effective weights, typed genomes and parent records then passed producer-independent replay with allele error0. A separate collector verified actual shard labels, frozen reader identity and the exact unique full domain, correcting provisional counts-only admission without restarting birth replay. Independent arithmetic reconstructed all-start endpoints and matched all four estimates, intervals and decisions. Complete original archives, source, correction and every receipt are preserved in the public companion; compact delivered evidence is under `EVIDENCE/ASSURANCE_PARENT_`. No conditions, periods, thresholds, counts or comparisons were retuned.
+
+
+## S23. Registered conditional futures from the original investment-fixation states
+
+The original64-pair restoration primary remains unresolved (+0.00748698, interval[−0.00561523,+0.02034607]); its opposing founder point estimates are retained in S17/S21. The outcome-informed follow-up was prospectively specified for fresh futures. It does not provide new founder replication or replace that primary.
+
+The new experiment reconstructed61 original first occupied complete-I-fixation states and retained three no-trigger policy-zero slots. Each triggered state supplied64 fresh pairs: unchanged native fixation versus one mean-preserving replacement of I homologs by[v−1/16,v+1/16]. M/A, individual IDs, origins, flags, birth years, original visitor context, native operators, original remaining horizon and mutation mask(False,False,True) remained. All7,808 trajectories and exactly one native replay completed. No I mutation or immigration was added; restoration changes allele support, variance and heterozygosity together, while initial expressed individual means remain unchanged.
+
+For each fixed source state the target is E[I_native(200)−I_restored(200) | both arms occupied], under the declared common-RNG coupling. State-specific conditional means receive equal original-slot weights, including three zeros; they are not survival-weighted pooled means. Inference requires every one of3,904 pairs to survive in both arms. All did, passing this gate; that observation identifies neither a survival benefit nor zero extinction risk. Conditional simultaneous95% Hoeffding intervals cover three averages, with h=1/16, R=64, n triggered slots and N original slots: half-width h√(2n log120/(64N²)). They quantify fresh-future uncertainty for these fixed states, not new-founder uncertainty.
+
+| Fixed target | Native−restored mean I | Simultaneous conditional95% interval | Direction | Operational margin .01 |
+|---|---:|---|---|---|
+| All64 slots | +0.016745 | [+0.013795,+0.019695] | Positive | Positive |
+| Main32 slots | +0.020934 | [+0.016728,+0.025140] | Positive | Positive |
+| Confirmation32 slots | +0.012556 | [+0.008418,+0.016694] | Positive | Unresolved |
+
+Both block intervals exclude zero in the positive direction, satisfying the frozen directional-replication rule. Positive means lower terminal investment under restoration. Confirmation does not establish a contrast exceeding .01. The margin is an explicit outcome-informed operational convention, not demonstrated ecological equivalence. These block-average directions do not establish positive effects in every state or uniquely explain the old sign opposition as noise.
+
+The distinct descriptive event endpoint retains a decrease ≥.05 from the original founder mean for20 consecutive censuses, stitching original pre-trigger history to each future. No baseline or event criterion was reset.
+
+| Block | Futures/arm | Native events | Restored events | Completed before trigger, each arm |
+|---|---:|---:|---:|---:|
+| Main31 triggered states | 1,984 | 640 | 1,108 | 512 |
+| Confirmation30 triggered states | 1,920 | 1,280 | 1,208 | 192 |
+
+The three no-trigger histories remain policy zeros; their original events are retained separately. Confirmation has a positive terminal-mean contrast despite fewer restoration-arm threshold events. Thus mean reduction and threshold-event incidence must not be conflated. No new event tests or causal allocation to support, refixation or remaining duration were introduced.
+
+The two policies change support width, allele variance and heterozygosity jointly. Refixation is a downstream process, and each source state has one remaining duration. Neither repeated futures nor complete ancestry uniquely separates these mechanisms. The delivered identification review gives explicit counterexamples. This is not natural mutation, natural-order benefit, a population-level historical explanation or a unique partition of the deterministic–ABM gap.
+
+Original executiond92ac4324b6e1c8924dcc8e5f30e0750088a3acf generated/replayed990,720 updates per phase, plus four technical calls:1,981,444 within1,981,472. The immutable original archive has12,042 members and SHA2568a2462910025b4a386e789583578cb1380349097393916dac4e50d01c9637b7e. Complete extra saved-array admission verified all hashes,7,808 typed paths,998,528 censuses,47,929,344 plant rows,47,554,560 parent rows, initial edits, every M/I birth transmission, every endpoint/event and all three primary intervals with zero native calls. It is not a second biological replay. A stalled Actions transport was replaced by authenticated Release retrieval; no registered calculation restarted. Reviewed V2 checker changes only the archive input-path interface; unrun V1 remains preserved.
+
+Evidence is delivered under `EVIDENCE/Q3_CONDITIONAL_`. The42-member original-source/full-array-review companion is permanently published with SHA256aceec1ebf3d8c5e6b1671cc08b94ec5da086750428e0de5f21a53e163d8e0e91. The original protocol retains its registration-stage header; execution and result records establish its subsequent completed status. Earlier cohorts and primary families remain separate.

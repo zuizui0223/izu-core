@@ -47,3 +47,6 @@ tests/test_restoration_access_20261014.py -text whitespace=cr-at-eol
 # Frozen source records retain their original trailing blank line.
 data/results/assurance_parent_control_20261014/ANALYSIS_SOURCE.py -text whitespace=cr-at-eol,-blank-at-eof
 data/results/assurance_parent_control_20261014/INDEPENDENT_ARITHMETIC_SOURCE.py -text whitespace=cr-at-eol,-blank-at-eof
+
+# Preserve authenticated original Q3 source, results and independent admission bytes.
+data/results/q3_conditional_paper_20261014/** -text whitespace=cr-at-eol

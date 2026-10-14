@@ -322,6 +322,19 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
            "EVIDENCE/PR490_ORIGINAL_DIRECT_ADMISSION.json",
            "EVIDENCE/PR490_ORIGINAL_INDEPENDENT_REVIEW.json",
            "EVIDENCE/PR490_ORIGINAL_NUMERICAL_AUDITOR.py",
+           "EVIDENCE/Q3_CONDITIONAL_EXECUTION.json",
+           "EVIDENCE/Q3_CONDITIONAL_EXTERNAL_READBACK.json",
+           "EVIDENCE/Q3_CONDITIONAL_IDENTIFICATION_REVIEW.md",
+           "EVIDENCE/Q3_CONDITIONAL_INDEPENDENT_READOUT.json",
+           "EVIDENCE/Q3_CONDITIONAL_INDEPENDENT_REPLAY.json",
+           "EVIDENCE/Q3_CONDITIONAL_INDEPENDENT_SAVED_ARRAYS.json",
+           "EVIDENCE/Q3_CONDITIONAL_INDEPENDENT_VERIFIER_SOURCE.py",
+           "EVIDENCE/Q3_CONDITIONAL_PROTOCOL.md",
+           "EVIDENCE/Q3_CONDITIONAL_PUBLICATION_RECEIPT.json",
+           "EVIDENCE/Q3_CONDITIONAL_PUBLIC_ADMISSION.json",
+           "EVIDENCE/Q3_CONDITIONAL_READOUT.json",
+           "EVIDENCE/Q3_CONDITIONAL_RESOURCES.json",
+           "EVIDENCE/Q3_CONDITIONAL_RESULTS.md",
            "EVIDENCE/RESOLUTION_DESIGN.md",
            "EVIDENCE/RESOLUTION_READOUT.json",
            "EVIDENCE/RESPONSE_ONSET_ALL_CASES.csv",
@@ -346,7 +359,7 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
         assert m["doi_deposit_complete"] is False
         assert m["n_figures"]==4
         assert m["n_supplementary_figures"]==3
-        assert len(m["members"])==121
+        assert len(m["members"])==134
         for name,record in m["members"].items():
             raw=z.read(name)
             assert record=={"size":len(raw),"sha256":hashlib.sha256(raw).hexdigest()}
