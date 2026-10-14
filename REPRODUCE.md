@@ -51,8 +51,9 @@ The original `chapter2-k48-future-shard-18.zip` remained accessible in GitHub Ac
 python -m scripts.verify_chapter2_k48_shard18_source_20261014 \
   /path/to/chapter2-k48-future-shard-18.zip \
   --receipt outputs/source_verification/k48_shard18_source_readback.json
-pytest -q tests/test_verify_chapter2_k48_shard18_source_20261014.py
 ```
+
+The source-only corruption and receipt fixtures live in `tests/test_verify_chapter2_k48_shard18_source_20261014.py`; they are exercised by the repository-wide `pytest -q` command below. They are not required for the fast manuscript-review scientific gate, which covers the paper's original scientific tests.
 
 The [2026-10-14 source readback](data/submission/chapter2_k48_shard18_fresh_actions_readback_20261014.json) independently matched the complete original 118,143-byte ZIP and all 32 JSON SHA-256 sidecars. **This is not a new external private backup or an authorized DOI deposit:** the external service's prior safety check was not bypassed, and the fixed-B48 private external backup remains **130/131** (all four cohorts **520/521**). See [the deposit handoff](docs/CHAPTER2_PRIVATE_EXTERNAL_BACKUP_DEPOSIT_HANDOFF_20261013.md) and [open Issue #436](https://github.com/zuizui0223/izu-core/issues/436). This check does not recompute 1,792 biological future conditions or upgrade the study's inference.
 
