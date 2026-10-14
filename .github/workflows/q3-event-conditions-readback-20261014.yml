@@ -1,0 +1,49 @@
+name: Q3 event conditions raw readback
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - '.github/workflows/q3-event-conditions-readback-20261014.yml'
+      - 'scripts/q3_event_conditions_20261014.py'
+      - 'scripts/verify_q3_event_conditions_20261014.py'
+      - 'data/results/q3_event_conditions_20261014/**'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: q3-event-conditions-readback-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  raw-only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11.14'
+      - run: python -m pip install numpy==2.2.6
+      - name: Download the existing hash-pinned archive
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          mkdir -p work/q3-event-raw
+          gh release download q3-conditional-futures-20261014 --repo "$GITHUB_REPOSITORY" --pattern Q3_CONDITIONAL_FUTURES_20261014.zip --dir work/q3-event-raw
+      - name: Independently recompute committed tables without biological updates
+        run: |
+          python scripts/verify_q3_event_conditions_20261014.py \
+            --archive work/q3-event-raw/Q3_CONDITIONAL_FUTURES_20261014.zip \
+            --preflight data/designs/restoration_futures_preflight_20261014.json \
+            --protocol docs/CHAPTER2_Q3_EVENT_CONDITIONS_PROTOCOL_20261014.md \
+            --output data/results/q3_event_conditions_20261014 \
+            --reader scripts/q3_event_conditions_20261014.py \
+            > work/q3-event-raw/GITHUB_RAW_READBACK.json
+      - name: Upload independent readback receipt
+        uses: actions/upload-artifact@v4
+        with:
+          name: q3-event-conditions-raw-readback
+          path: work/q3-event-raw/GITHUB_RAW_READBACK.json
+          if-no-files-found: error
