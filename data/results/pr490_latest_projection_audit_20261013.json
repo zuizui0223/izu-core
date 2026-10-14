@@ -1,0 +1,97 @@
+{
+  "status": "TWO_ACTUAL_GITHUB_RUNS_LOGGED_STATE_PROJECTIONS_AND_PRIMARY_MATCH",
+  "inspected_pr490_head": "06c2d8779bd36705bc1ecec4c038de71981421f1",
+  "actual_latest_run": 38272136110,
+  "latest_artifact_sha256": "e73fce6c37fc928e22f73b3f370e510cf2e310c25f7aaa94745f5164df9192f1",
+  "actual_first_run": 38221924607,
+  "shards": [
+    {
+      "shard": 0,
+      "first_replay_sha256": "a3c4abb97172569ab49a6f4ac517470ec3ffed3db7fb17a85199f254ad2e04c8",
+      "latest_replay_sha256": "a3c4abb97172569ab49a6f4ac517470ec3ffed3db7fb17a85199f254ad2e04c8",
+      "logged_state_projection_sha256": "f18abc9746ee3142aa9cf2e6d03ec96ac9e89ecff94ea38f22b4deda40701ef9",
+      "diagnostic_difference_count_between_github_runs": 0,
+      "maximum_diagnostic_difference_between_github_runs": 0.0,
+      "offline_original_raw_identity_in_first_run": true
+    },
+    {
+      "shard": 1,
+      "first_replay_sha256": "aec270829c17f55adc6707ad65c63972b1722ae642973e55a64005388c951e96",
+      "latest_replay_sha256": "24272e81f6e19b8f18e8fad119e4ced03092e1408fd3f17ab2d32010e08ea28e",
+      "logged_state_projection_sha256": "18e8d7b9959e6388e5bd036df5127f1e64b153445022a10562a2f97fb6951688",
+      "diagnostic_difference_count_between_github_runs": 28,
+      "maximum_diagnostic_difference_between_github_runs": 4.440892098500626e-16,
+      "offline_original_raw_identity_in_first_run": true
+    },
+    {
+      "shard": 2,
+      "first_replay_sha256": "f81c701e75edbe22c7f0b8025c1e9fb32e59ce980188754d8fe0fb9d1132780b",
+      "latest_replay_sha256": "1feba5b72a393ddd0c2c941f3d4f68dc78eb1566218c6e18be9bfaf3540f7e92",
+      "logged_state_projection_sha256": "0f3c3624019b59ed7d50afb8f219a8024435049132e6e5820daf149fbe083216",
+      "diagnostic_difference_count_between_github_runs": 58,
+      "maximum_diagnostic_difference_between_github_runs": 4.440892098500626e-16,
+      "offline_original_raw_identity_in_first_run": false
+    },
+    {
+      "shard": 3,
+      "first_replay_sha256": "6ef9b197a492351a457e0c9b33817f93fbcc1163d6494c31e527fddb524163b3",
+      "latest_replay_sha256": "6ef9b197a492351a457e0c9b33817f93fbcc1163d6494c31e527fddb524163b3",
+      "logged_state_projection_sha256": "fd7f56ae15605c19ddf0c4e782f98ea72d600c11282d2d543575b91a97787807",
+      "diagnostic_difference_count_between_github_runs": 0,
+      "maximum_diagnostic_difference_between_github_runs": 0.0,
+      "offline_original_raw_identity_in_first_run": false
+    },
+    {
+      "shard": 4,
+      "first_replay_sha256": "1f93a5ff1f7f2fecac6da296b77896f396d6d8e11f2ec9de2d86b1dc716f3eb7",
+      "latest_replay_sha256": "1f93a5ff1f7f2fecac6da296b77896f396d6d8e11f2ec9de2d86b1dc716f3eb7",
+      "logged_state_projection_sha256": "7157ee12a0fd9610c61d1d9982b1b1a49bde9d92e0a54d40119a778e72c9ead0",
+      "diagnostic_difference_count_between_github_runs": 0,
+      "maximum_diagnostic_difference_between_github_runs": 0.0,
+      "offline_original_raw_identity_in_first_run": false
+    },
+    {
+      "shard": 5,
+      "first_replay_sha256": "7d1f1bc751c1e134dc85bccfb041207f266e9aff0774e164edb8044fd9df25db",
+      "latest_replay_sha256": "28acc743fd625eafc710d9df7eb31b8c7cf5b97be631d6cdbff3f7ce65f4dd65",
+      "logged_state_projection_sha256": "80402762f0ed58c71947ed3b51c59bdc2328181a0119e6f146c5c446840160f9",
+      "diagnostic_difference_count_between_github_runs": 30,
+      "maximum_diagnostic_difference_between_github_runs": 2.220446049250313e-16,
+      "offline_original_raw_identity_in_first_run": true
+    },
+    {
+      "shard": 6,
+      "first_replay_sha256": "1c4205964ace429af3c360200344690ffc115cb9b95a75b9626f3f9a360bc748",
+      "latest_replay_sha256": "43358664080777042a831e6e3ae3a8e2590573824874845d90721e8dc4696133",
+      "logged_state_projection_sha256": "e6d4b445adecf8c83f3275c2ea3f1e9d0c26ea277bf97b1b4f2d14236eb46281",
+      "diagnostic_difference_count_between_github_runs": 34,
+      "maximum_diagnostic_difference_between_github_runs": 4.440892098500626e-16,
+      "offline_original_raw_identity_in_first_run": true
+    },
+    {
+      "shard": 7,
+      "first_replay_sha256": "81afee9e054c7fbf5c0a0b03808acaf04b1d8bb78b1d4fb9c528c224b21c31f1",
+      "latest_replay_sha256": "77a8714a8e240505e2e8540c665373ca7616292c784d5b76723a96deafc66f13",
+      "logged_state_projection_sha256": "34995dfb83bde73e57993031bb74ac7e8e5e23ee4b1aa4fd489f4f3f7fd605da",
+      "diagnostic_difference_count_between_github_runs": 16,
+      "maximum_diagnostic_difference_between_github_runs": 2.220446049250313e-16,
+      "offline_original_raw_identity_in_first_run": true
+    }
+  ],
+  "pooled_primary": {
+    "mean": 0.1083984375,
+    "bootstrap95": [
+      0.0654296875,
+      0.1513671875
+    ],
+    "passes_frozen_rule": true
+  },
+  "original_archive_recovered_in_upstream_receipt": true,
+  "original_archive_bytes_independently_read_here": false,
+  "offline_field_comparison_basis": "Upstream original-archive recovery receipt; independently checked reported old hashes against frozen declarations. Direct offline JSON comparison not possible without original bytes here.",
+  "limits": [
+    "Exact equality concerns all logged fields except one derived handoff diagnostic, not complete annual genomes.",
+    "Original raw-byte divergence retained; no frozen checksum overwritten.",
+    "Both available GitHub executions independently show only diagnostic-field differences, within declared1e-12."
+  ]
+}

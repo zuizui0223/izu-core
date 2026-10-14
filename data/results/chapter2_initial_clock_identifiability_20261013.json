@@ -1,0 +1,123 @@
+{
+  "schema": "chapter2_initial_clock_identifiability_compact_observed_ceiling_v1",
+  "status": "DESCRIPTIVE_EXISTING_2304_SUMMARY_ONLY_NOT_FITTED_CLOCK",
+  "asof": "2026-10-13",
+  "source": {
+    "path": "data/results/ecological_order_boundary_20261013.json",
+    "git_blob": "5608ad2cdcbef167fe9062ab5f26318abf2e1bd9",
+    "execution_commit": "328548612e93469fcc8663f24548530a57399b9a",
+    "producer_sha256": "cd9779c89c643c9daf4a9c9001ce14dcf5d3cf95300d98f50c4ba3a4d1998fae",
+    "raw_original_rechecked_in_this_step": false
+  },
+  "design": {
+    "founder_blocks": 2,
+    "visitor_contexts": 9,
+    "stochastic_repeats_per_cell": 128,
+    "initial_biological_profiles_max": 18,
+    "source_input_repeated_across_demographic_seeds": true,
+    "matching_demographic_stream_seed_across_visitor_contexts": true
+  },
+  "categories": {
+    "assurance_first": 335,
+    "investment_first": 435,
+    "near_simultaneous": 358,
+    "assurance_only": 895,
+    "investment_only": 10,
+    "neither": 271
+  },
+  "all_cases": 2304,
+  "both_events_with_ties": 1128,
+  "strict_order_subset": 770,
+  "post_hoc_oracle_six_classes": {
+    "none": {
+      "groups": 1,
+      "evaluated": 2304,
+      "oracle_correct": 895,
+      "oracle_accuracy": 0.3884548611111111,
+      "oracle_multiclass_log_loss": 1.5270819957477437,
+      "oracle_multiclass_brier": 0.7543184256847995,
+      "groups_with_multiple_labels": 1
+    },
+    "founder": {
+      "groups": 2,
+      "evaluated": 2304,
+      "oracle_correct": 895,
+      "oracle_accuracy": 0.3884548611111111,
+      "oracle_multiclass_log_loss": 1.5179491857214167,
+      "oracle_multiclass_brier": 0.7494001977237654,
+      "groups_with_multiple_labels": 2
+    },
+    "ecology": {
+      "groups": 9,
+      "evaluated": 2304,
+      "oracle_correct": 1102,
+      "oracle_accuracy": 0.4782986111111111,
+      "oracle_multiclass_log_loss": 1.1306633900537728,
+      "oracle_multiclass_brier": 0.6200832790798612,
+      "groups_with_multiple_labels": 9
+    },
+    "joint": {
+      "groups": 18,
+      "evaluated": 2304,
+      "oracle_correct": 1117,
+      "oracle_accuracy": 0.4848090277777778,
+      "oracle_multiclass_log_loss": 1.101972604291669,
+      "oracle_multiclass_brier": 0.6097005208333334,
+      "groups_with_multiple_labels": 18
+    }
+  },
+  "post_hoc_oracle_strict_after_outcome_selection": {
+    "none": {
+      "groups": 1,
+      "evaluated": 770,
+      "oracle_correct": 435,
+      "oracle_accuracy": 0.564935064935065,
+      "oracle_multiclass_log_loss": 0.6846901879841258,
+      "oracle_multiclass_brier": 0.49156687468375776,
+      "groups_with_multiple_labels": 1
+    },
+    "founder": {
+      "groups": 2,
+      "evaluated": 770,
+      "oracle_correct": 435,
+      "oracle_accuracy": 0.564935064935065,
+      "oracle_multiclass_log_loss": 0.6795173714388846,
+      "oracle_multiclass_brier": 0.48647938097243293,
+      "groups_with_multiple_labels": 2
+    },
+    "ecology": {
+      "groups": 9,
+      "evaluated": 770,
+      "oracle_correct": 448,
+      "oracle_accuracy": 0.5818181818181818,
+      "oracle_multiclass_log_loss": 0.6758383409560428,
+      "oracle_multiclass_brier": 0.48285774948784976,
+      "groups_with_multiple_labels": 8
+    },
+    "joint": {
+      "groups": 18,
+      "evaluated": 770,
+      "oracle_correct": 463,
+      "oracle_accuracy": 0.6012987012987013,
+      "oracle_multiclass_log_loss": 0.6599938538388905,
+      "oracle_multiclass_brier": 0.46933052429648703,
+      "groups_with_multiple_labels": 13
+    }
+  },
+  "claims": [
+    "An initial-state-only deterministic point label is constant over replicate starts in each founder/context cell.",
+    "At most 1117/2304 observed six-class outcomes can be labelled correctly by the post-outcome joint cell-majority oracle.",
+    "An initial-state-only six-class prospective accuracy of 60% cannot be demonstrated on the existing outcomes with this deterministic information set.",
+    "Binary strict-order oracle 463/770 is post-selected and not all-start predictive accuracy."
+  ],
+  "do_not_claim": [
+    "Verified biological selection/segregation clock",
+    "Held-out generalization",
+    "Confidence intervals for post-hoc oracle",
+    "Original nine-provider ZIP reread",
+    "Independent 2304 ecological replicate units",
+    "Selection-gradient causal attribution",
+    "Confirmed ecological reversal or natural-order persistence benefit"
+  ],
+  "recompute": "python scripts/audit_chapter2_initial_clock_identifiability_20261013.py --input data/results/ecological_order_boundary_20261013.json --out /tmp/initial_clock_recompute.json"
+}

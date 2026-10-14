@@ -1,0 +1,12 @@
+{
+  "status": "COMPLETE_ARCHIVE_READBACK",
+  "archive_sha256": "8a2462910025b4a386e789583578cb1380349097393916dac4e50d01c9637b7e",
+  "bytes": 410326692,
+  "members": 12042,
+  "incremental_bytes": 980265810,
+  "conservative_worker_seconds": 1747.371372402,
+  "github_sha": "d92ac4324b6e1c8924dcc8e5f30e0750088a3acf",
+  "github_run_id": "38508868485",
+  "readout_sha256": "10e72db05792292e31862733d57b79589abc12ea3eec62caab64018a05d58cef",
+  "execution_sha256": "54549eeec37a225526883fad4f08ae11a417a87b12adede05346425114d83c93"
+}

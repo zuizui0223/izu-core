@@ -1,0 +1,96 @@
+{
+  "schema": "independent32_replay_admission_v1",
+  "status": "NUMERICS_MATCH_DECLARED_BYTES_DIVERGE_NOT_ORIGINAL_ADMISSION",
+  "groups": 512,
+  "post_trajectories": 4096,
+  "independent_histories": 32,
+  "numerical_agreement": true,
+  "declared_byte_agreement": false,
+  "shard_sha256": {
+    "demographic_independent32_shard_00.json": "a3c4abb97172569ab49a6f4ac517470ec3ffed3db7fb17a85199f254ad2e04c8",
+    "demographic_independent32_shard_01.json": "aec270829c17f55adc6707ad65c63972b1722ae642973e55a64005388c951e96",
+    "demographic_independent32_shard_02.json": "f81c701e75edbe22c7f0b8025c1e9fb32e59ce980188754d8fe0fb9d1132780b",
+    "demographic_independent32_shard_03.json": "6ef9b197a492351a457e0c9b33817f93fbcc1163d6494c31e527fddb524163b3",
+    "demographic_independent32_shard_04.json": "1f93a5ff1f7f2fecac6da296b77896f396d6d8e11f2ec9de2d86b1dc716f3eb7",
+    "demographic_independent32_shard_05.json": "7d1f1bc751c1e134dc85bccfb041207f266e9aff0774e164edb8044fd9df25db",
+    "demographic_independent32_shard_06.json": "1c4205964ace429af3c360200344690ffc115cb9b95a75b9626f3f9a360bc748",
+    "demographic_independent32_shard_07.json": "81afee9e054c7fbf5c0a0b03808acaf04b1d8bb78b1d4fb9c528c224b21c31f1"
+  },
+  "byte_mismatches": [
+    {
+      "member": "demographic_independent32_shard_02.json",
+      "observed_sha256": "f81c701e75edbe22c7f0b8025c1e9fb32e59ce980188754d8fe0fb9d1132780b",
+      "declared_sha256": "1feba5b72a393ddd0c2c941f3d4f68dc78eb1566218c6e18be9bfaf3540f7e92"
+    },
+    {
+      "member": "demographic_independent32_shard_03.json",
+      "observed_sha256": "6ef9b197a492351a457e0c9b33817f93fbcc1163d6494c31e527fddb524163b3",
+      "declared_sha256": "4ac96f4ca8b25848dc1b546f46a4090b5af1697d1f6a8e87fc9875c85841b4ff"
+    },
+    {
+      "member": "demographic_independent32_shard_04.json",
+      "observed_sha256": "1f93a5ff1f7f2fecac6da296b77896f396d6d8e11f2ec9de2d86b1dc716f3eb7",
+      "declared_sha256": "f22b8029dca9a92f8df7aace305a2087c10b0d942be78ce4978f41429a0ec0b5"
+    }
+  ],
+  "numerical_mismatches": [],
+  "pooled_primary": {
+    "mean": 0.1083984375,
+    "bootstrap95": [
+      0.0654296875,
+      0.1513671875
+    ]
+  },
+  "per_setting": [
+    {
+      "setting": "delayed_control",
+      "fixed_delta": 0.0390625,
+      "evolving_delta": 0.19140625,
+      "interaction": 0.15234375,
+      "bootstrap95": [
+        0.05859375,
+        0.24609375
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "fixed_delta": 0.01171875,
+      "evolving_delta": 0.0625,
+      "interaction": 0.05078125,
+      "bootstrap95": [
+        -0.01953125,
+        0.12109375
+      ]
+    },
+    {
+      "setting": "pollen_discount",
+      "fixed_delta": 0.0546875,
+      "evolving_delta": 0.15234375,
+      "interaction": 0.09765625,
+      "bootstrap95": [
+        0.01953125,
+        0.171875
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "fixed_delta": -0.0078125,
+      "evolving_delta": 0.125,
+      "interaction": 0.1328125,
+      "bootstrap95": [
+        0.07421875,
+        0.19140625
+      ]
+    }
+  ],
+  "bootstrap": {
+    "draws": 9999,
+    "seed": 3010082026,
+    "absolute_tolerance": 1e-12,
+    "relative_tolerance": 0
+  },
+  "original_genome_or_runtime_identity_authenticated": false,
+  "scope": "All-start numerical summaries and declared shard byte comparison only. A numerical match does not replace frozen original-identity admission; no retuning, new biological run or natural-order mediation.",
+  "input_design_sha256": "f02ba795970cdc1fb81ebc46f4b1bb67596fdde5e4f5032b5f9793aa3dfd4459",
+  "frozen_readout_sha256": "d0a263597703e1939c7d9956baa978ec2edbc0c08a4b058f012dc441d67a3df1"
+}

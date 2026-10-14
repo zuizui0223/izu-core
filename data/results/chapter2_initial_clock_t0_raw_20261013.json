@@ -1,0 +1,422 @@
+{
+  "schema": "chapter2_raw_initial_clock_t0_features_verified_v1",
+  "status": "ALL2304_ORIGINAL_INITIAL_FEATURES_ADMITTED",
+  "execution": {
+    "repo": "zuizui0223/izu-core",
+    "branch": "analysis/chapter2-initial-response-clock-exploratory-20261013",
+    "workflow_run": 38337931445,
+    "job_id": 115102169482,
+    "conclusion": "success",
+    "independent_input_sha256": "819741aa4a9f5bc1aaf2dadddbd56b79d158fc9295d07fc3bffe362693fc056a",
+    "original_source_execution_sha": "328548612e93469fcc8663f24548530a57399b9a",
+    "original_reader_output_source_blob": "5608ad2cdcbef167fe9062ab5f26318abf2e1bd9",
+    "no_biological_simulation": true
+  },
+  "original_starts": 2304,
+  "founder_contexts": 18,
+  "replicated_t0_invariance_verified": true,
+  "assurance_t0_response_zero_all": true,
+  "assurance_t0_expressed_variance_zero_all": true,
+  "expected_unmutated_f1_assurance_variance": 0.001953125,
+  "t0_investment_genetic_expected_response_signs": {
+    "toward_decline": 12,
+    "away_from_decline": 6,
+    "zero": 0
+  },
+  "t0_genetic_variance_by_founder": {
+    "main": 0.006317138671875,
+    "confirmation": 0.0047607421875
+  },
+  "exploratory_response_order_association": {
+    "initial_in_decline_contexts_mean_event_rate": 0.6901041666666666,
+    "initial_against_decline_contexts_mean_event_rate": 0.1015625,
+    "no_causal_inference": true
+  },
+  "original_raw_t0_feature_rows": [
+    {
+      "block": "confirmation",
+      "composition": "empty",
+      "context": 0,
+      "starts": 128,
+      "supply": 0,
+      "time0_only": {
+        "A_expected_F1_Mendelian_variance_no_mutation": 0.001953125,
+        "A_variance_allelic_proxy": 0.001953125,
+        "A_variance_expressed": 0,
+        "I_variance_allelic_proxy": 0.0047607421875,
+        "I_variance_expressed": 0.002685546875,
+        "founder_mean_A": 0.5,
+        "founder_mean_I": 0.515625,
+        "t0_I_away_from_decline": false,
+        "t0_I_in_decline_direction": true,
+        "t0_expected_A_response": 0,
+        "t0_expected_I_response": -0.0014225701267724556,
+        "t0_expected_investment_decline": 0.0014225701267724556
+      }
+    },
+    {
+      "block": "confirmation",
+      "composition": "matched",
+      "context": 1,
+      "starts": 128,
+      "supply": 0.03125,
+      "time0_only": {
+        "A_expected_F1_Mendelian_variance_no_mutation": 0.001953125,
+        "A_variance_allelic_proxy": 0.001953125,
+        "A_variance_expressed": 0,
+        "I_variance_allelic_proxy": 0.0047607421875,
+        "I_variance_expressed": 0.002685546875,
+        "founder_mean_A": 0.5,
+        "founder_mean_I": 0.515625,
+        "t0_I_away_from_decline": false,
+        "t0_I_in_decline_direction": true,
+        "t0_expected_A_response": 0,
+        "t0_expected_I_response": -0.0009262405782611482,
+        "t0_expected_investment_decline": 0.0009262405782611482
+      }
+    },
+    {
+      "block": "confirmation",
+      "composition": "separated",
+      "context": 2,
+      "starts": 128,
+      "supply": 0.03125,
+      "time0_only": {
+        "A_expected_F1_Mendelian_variance_no_mutation": 0.001953125,
+        "A_variance_allelic_proxy": 0.001953125,
+        "A_variance_expressed": 0,
+        "I_variance_allelic_proxy": 0.0047607421875,
+        "I_variance_expressed": 0.002685546875,
+        "founder_mean_A": 0.5,
+        "founder_mean_I": 0.515625,
+        "t0_I_away_from_decline": false,
+        "t0_I_in_decline_direction": true,
+        "t0_expected_A_response": 0,
+        "t0_expected_I_response": -0.001358554332909897,
+        "t0_expected_investment_decline": 0.001358554332909897
+      }
+    },
+    {
+      "block": "confirmation",
+      "composition": "matched",
+      "context": 3,
+      "starts": 128,
+      "supply": 0.125,
+      "time0_only": {
+        "A_expected_F1_Mendelian_variance_no_mutation": 0.001953125,
+        "A_variance_allelic_proxy": 0.001953125,
+        "A_variance_expressed": 0,
+        "I_variance_allelic_proxy": 0.0047607421875,
+        "I_variance_expressed": 0.002685546875,
+        "founder_mean_A": 0.5,
+        "founder_mean_I": 0.515625,
+        "t0_I_away_from_decline": true,
+        "t0_I_in_decline_direction": false,
+        "t0_expected_A_response": 0,
+        "t0_expected_I_response": 0.000122951296882163,
+        "t0_expected_investment_decline": -0.000122951296882163
+      }
+    },
+    {
+      "block": "confirmation",
+      "composition": "separated",
+      "context": 4,
+      "starts": 128,
+      "supply": 0.125,
+      "time0_only": {
+        "A_expected_F1_Mendelian_variance_no_mutation": 0.001953125,
+        "A_variance_allelic_proxy": 0.001953125,
+        "A_variance_expressed": 0,
+        "I_variance_allelic_proxy": 0.0047607421875,
+        "I_variance_expressed": 0.002685546875,
+        "founder_mean_A": 0.5,
+        "founder_mean_I": 0.515625,
+        "t0_I_away_from_decline": false,
+        "t0_I_in_decline_direction": true,
+        "t0_expected_A_response": 0,
+        "t0_expected_I_response": -0.0011827812387007139,
+        "t0_expected_investment_decline": 0.0011827812387007139
+      }
+    },
+    {
+      "block": "confirmation",
+      "composition": "matched",
+      "context": 5,
+      "starts": 128,
+      "supply": 0.5,
+      "time0_only": {
+        "A_expected_F1_Mendelian_variance_no_mutation": 0.001953125,
+        "A_variance_allelic_proxy": 0.001953125,
+        "A_variance_expressed": 0,
+        "I_variance_allelic_proxy": 0.0047607421875,
+        "I_variance_expressed": 0.002685546875,
+        "founder_mean_A": 0.5,
+        "founder_mean_I": 0.515625,
+        "t0_I_away_from_decline": true,
+        "t0_I_in_decline_direction": false,
+        "t0_expected_A_response": 0,
+        "t0_expected_I_response": 0.0017174747330851961,
+        "t0_expected_investment_decline": -0.0017174747330851961
+      }
+    },
+    {
+      "block": "confirmation",
+      "composition": "separated",
+      "context": 6,
+      "starts": 128,
+      "supply": 0.5,
+      "time0_only": {
+        "A_expected_F1_Mendelian_variance_no_mutation": 0.001953125,
+        "A_variance_allelic_proxy": 0.001953125,
+        "A_variance_expressed": 0,
+        "I_variance_allelic_proxy": 0.0047607421875,
+        "I_variance_expressed": 0.002685546875,
+        "founder_mean_A": 0.5,
+        "founder_mean_I": 0.515625,
+        "t0_I_away_from_decline": false,
+        "t0_I_in_decline_direction": true,
+        "t0_expected_A_response": 0,
+        "t0_expected_I_response": -0.0006609097110526694,
+        "t0_expected_investment_decline": 0.0006609097110526694
+      }
+    },
+    {
+      "block": "confirmation",
+      "composition": "matched",
+      "context": 7,
+      "starts": 128,
+      "supply": 1,
+      "time0_only": {
+        "A_expected_F1_Mendelian_variance_no_mutation": 0.001953125,
+        "A_variance_allelic_proxy": 0.001953125,
+        "A_variance_expressed": 0,
+        "I_variance_allelic_proxy": 0.0047607421875,
+        "I_variance_expressed": 0.002685546875,
+        "founder_mean_A": 0.5,
+        "founder_mean_I": 0.515625,
+        "t0_I_away_from_decline": true,
+        "t0_I_in_decline_direction": false,
+        "t0_expected_A_response": 0,
+        "t0_expected_I_response": 0.0021432003539179068,
+        "t0_expected_investment_decline": -0.0021432003539179068
+      }
+    },
+    {
+      "block": "confirmation",
+      "composition": "separated",
+      "context": 8,
+      "starts": 128,
+      "supply": 1,
+      "time0_only": {
+        "A_expected_F1_Mendelian_variance_no_mutation": 0.001953125,
+        "A_variance_allelic_proxy": 0.001953125,
+        "A_variance_expressed": 0,
+        "I_variance_allelic_proxy": 0.0047607421875,
+        "I_variance_expressed": 0.002685546875,
+        "founder_mean_A": 0.5,
+        "founder_mean_I": 0.515625,
+        "t0_I_away_from_decline": false,
+        "t0_I_in_decline_direction": true,
+        "t0_expected_A_response": 0,
+        "t0_expected_I_response": -0.00023671088948915312,
+        "t0_expected_investment_decline": 0.00023671088948915312
+      }
+    },
+    {
+      "block": "main",
+      "composition": "empty",
+      "context": 0,
+      "starts": 128,
+      "supply": 0,
+      "time0_only": {
+        "A_expected_F1_Mendelian_variance_no_mutation": 0.001953125,
+        "A_variance_allelic_proxy": 0.001953125,
+        "A_variance_expressed": 0,
+        "I_variance_allelic_proxy": 0.006317138671875,
+        "I_variance_expressed": 0.00921630859375,
+        "founder_mean_A": 0.5,
+        "founder_mean_I": 0.5078125,
+        "t0_I_away_from_decline": false,
+        "t0_I_in_decline_direction": true,
+        "t0_expected_A_response": 0,
+        "t0_expected_I_response": -0.004597226798409771,
+        "t0_expected_investment_decline": 0.004597226798409771
+      }
+    },
+    {
+      "block": "main",
+      "composition": "matched",
+      "context": 1,
+      "starts": 128,
+      "supply": 0.03125,
+      "time0_only": {
+        "A_expected_F1_Mendelian_variance_no_mutation": 0.001953125,
+        "A_variance_allelic_proxy": 0.001953125,
+        "A_variance_expressed": 0,
+        "I_variance_allelic_proxy": 0.006317138671875,
+        "I_variance_expressed": 0.00921630859375,
+        "founder_mean_A": 0.5,
+        "founder_mean_I": 0.5078125,
+        "t0_I_away_from_decline": false,
+        "t0_I_in_decline_direction": true,
+        "t0_expected_A_response": 0,
+        "t0_expected_I_response": -0.0033084551422105585,
+        "t0_expected_investment_decline": 0.0033084551422105585
+      }
+    },
+    {
+      "block": "main",
+      "composition": "separated",
+      "context": 2,
+      "starts": 128,
+      "supply": 0.03125,
+      "time0_only": {
+        "A_expected_F1_Mendelian_variance_no_mutation": 0.001953125,
+        "A_variance_allelic_proxy": 0.001953125,
+        "A_variance_expressed": 0,
+        "I_variance_allelic_proxy": 0.006317138671875,
+        "I_variance_expressed": 0.00921630859375,
+        "founder_mean_A": 0.5,
+        "founder_mean_I": 0.5078125,
+        "t0_I_away_from_decline": false,
+        "t0_I_in_decline_direction": true,
+        "t0_expected_A_response": 0,
+        "t0_expected_I_response": -0.004263136748868172,
+        "t0_expected_investment_decline": 0.004263136748868172
+      }
+    },
+    {
+      "block": "main",
+      "composition": "matched",
+      "context": 3,
+      "starts": 128,
+      "supply": 0.125,
+      "time0_only": {
+        "A_expected_F1_Mendelian_variance_no_mutation": 0.001953125,
+        "A_variance_allelic_proxy": 0.001953125,
+        "A_variance_expressed": 0,
+        "I_variance_allelic_proxy": 0.006317138671875,
+        "I_variance_expressed": 0.00921630859375,
+        "founder_mean_A": 0.5,
+        "founder_mean_I": 0.5078125,
+        "t0_I_away_from_decline": false,
+        "t0_I_in_decline_direction": true,
+        "t0_expected_A_response": 0,
+        "t0_expected_I_response": -0.0005534429419215684,
+        "t0_expected_investment_decline": 0.0005534429419215684
+      }
+    },
+    {
+      "block": "main",
+      "composition": "separated",
+      "context": 4,
+      "starts": 128,
+      "supply": 0.125,
+      "time0_only": {
+        "A_expected_F1_Mendelian_variance_no_mutation": 0.001953125,
+        "A_variance_allelic_proxy": 0.001953125,
+        "A_variance_expressed": 0,
+        "I_variance_allelic_proxy": 0.006317138671875,
+        "I_variance_expressed": 0.00921630859375,
+        "founder_mean_A": 0.5,
+        "founder_mean_I": 0.5078125,
+        "t0_I_away_from_decline": false,
+        "t0_I_in_decline_direction": true,
+        "t0_expected_A_response": 0,
+        "t0_expected_I_response": -0.0033453468243520605,
+        "t0_expected_investment_decline": 0.0033453468243520605
+      }
+    },
+    {
+      "block": "main",
+      "composition": "matched",
+      "context": 5,
+      "starts": 128,
+      "supply": 0.5,
+      "time0_only": {
+        "A_expected_F1_Mendelian_variance_no_mutation": 0.001953125,
+        "A_variance_allelic_proxy": 0.001953125,
+        "A_variance_expressed": 0,
+        "I_variance_allelic_proxy": 0.006317138671875,
+        "I_variance_expressed": 0.00921630859375,
+        "founder_mean_A": 0.5,
+        "founder_mean_I": 0.5078125,
+        "t0_I_away_from_decline": true,
+        "t0_I_in_decline_direction": false,
+        "t0_expected_A_response": 0,
+        "t0_expected_I_response": 0.0037750772581470536,
+        "t0_expected_investment_decline": -0.0037750772581470536
+      }
+    },
+    {
+      "block": "main",
+      "composition": "separated",
+      "context": 6,
+      "starts": 128,
+      "supply": 0.5,
+      "time0_only": {
+        "A_expected_F1_Mendelian_variance_no_mutation": 0.001953125,
+        "A_variance_allelic_proxy": 0.001953125,
+        "A_variance_expressed": 0,
+        "I_variance_allelic_proxy": 0.006317138671875,
+        "I_variance_expressed": 0.00921630859375,
+        "founder_mean_A": 0.5,
+        "founder_mean_I": 0.5078125,
+        "t0_I_away_from_decline": false,
+        "t0_I_in_decline_direction": true,
+        "t0_expected_A_response": 0,
+        "t0_expected_I_response": -0.000617849870977882,
+        "t0_expected_investment_decline": 0.000617849870977882
+      }
+    },
+    {
+      "block": "main",
+      "composition": "matched",
+      "context": 7,
+      "starts": 128,
+      "supply": 1,
+      "time0_only": {
+        "A_expected_F1_Mendelian_variance_no_mutation": 0.001953125,
+        "A_variance_allelic_proxy": 0.001953125,
+        "A_variance_expressed": 0,
+        "I_variance_allelic_proxy": 0.006317138671875,
+        "I_variance_expressed": 0.00921630859375,
+        "founder_mean_A": 0.5,
+        "founder_mean_I": 0.5078125,
+        "t0_I_away_from_decline": true,
+        "t0_I_in_decline_direction": false,
+        "t0_expected_A_response": 0,
+        "t0_expected_I_response": 0.005066526359891527,
+        "t0_expected_investment_decline": -0.005066526359891527
+      }
+    },
+    {
+      "block": "main",
+      "composition": "separated",
+      "context": 8,
+      "starts": 128,
+      "supply": 1,
+      "time0_only": {
+        "A_expected_F1_Mendelian_variance_no_mutation": 0.001953125,
+        "A_variance_allelic_proxy": 0.001953125,
+        "A_variance_expressed": 0,
+        "I_variance_allelic_proxy": 0.006317138671875,
+        "I_variance_expressed": 0.00921630859375,
+        "founder_mean_A": 0.5,
+        "founder_mean_I": 0.5078125,
+        "t0_I_away_from_decline": true,
+        "t0_I_in_decline_direction": false,
+        "t0_expected_A_response": 0,
+        "t0_expected_I_response": 0.0015981109714063406,
+        "t0_expected_investment_decline": -0.0015981109714063406
+      }
+    }
+  ],
+  "not_inferred": [
+    "Validated two-trait predictive response clock",
+    "Founder-only heldout logscore",
+    "Causal effect of mutation/standing variance",
+    "Natural sequence persistence effect",
+    "A continuous ecological threshold"
+  ]
+}

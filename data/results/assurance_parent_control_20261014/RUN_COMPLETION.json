@@ -1,0 +1,124 @@
+{
+  "status": "ALL4096_CONTROLLED_FUTURES_GENERATED_AWAITING_INDEPENDENT_PUBLIC_READBACK",
+  "source_commit": "90d586f8f54ed660ed1634f0a1119951c0700309",
+  "cases": 4096,
+  "updates": 819200,
+  "workers": 4,
+  "records": [
+    {
+      "shard": 0,
+      "cases": 256,
+      "updates": 51200,
+      "archive": "ASSURANCE_PARENT_CONTROL_SHARD_00_ORIGINAL_20261014.zip",
+      "sha256": "3e6a8e526a9a1373b6bb3151a55fd1448c9da5353f165121973cb974d9e34c95"
+    },
+    {
+      "shard": 1,
+      "cases": 256,
+      "updates": 51200,
+      "archive": "ASSURANCE_PARENT_CONTROL_SHARD_01_ORIGINAL_20261014.zip",
+      "sha256": "d160a866797b2a4bafca63de5fde0ce58eccd5b9afa492bc2c12cf669ab08833"
+    },
+    {
+      "shard": 2,
+      "cases": 256,
+      "updates": 51200,
+      "archive": "ASSURANCE_PARENT_CONTROL_SHARD_02_ORIGINAL_20261014.zip",
+      "sha256": "d447032a99e1a383a60097d665f3bb9ee3f28708eb223bad0402cb45cbd4813e"
+    },
+    {
+      "shard": 3,
+      "cases": 256,
+      "updates": 51200,
+      "archive": "ASSURANCE_PARENT_CONTROL_SHARD_03_ORIGINAL_20261014.zip",
+      "sha256": "d7da999c238d27bfac2e0105a4674c8f5f8a29b831791c8347aa5dc181868d4b"
+    },
+    {
+      "shard": 4,
+      "cases": 256,
+      "updates": 51200,
+      "archive": "ASSURANCE_PARENT_CONTROL_SHARD_04_ORIGINAL_20261014.zip",
+      "sha256": "12562159fcd8a733b9ce89785c74a7a897aa06076d9b9b9e0f3ecf4f9606a874"
+    },
+    {
+      "shard": 5,
+      "cases": 256,
+      "updates": 51200,
+      "archive": "ASSURANCE_PARENT_CONTROL_SHARD_05_ORIGINAL_20261014.zip",
+      "sha256": "2910b81d85fea1f8cbe5da43d16b63e242e3eb42d422bd28a5becff610d83057"
+    },
+    {
+      "shard": 6,
+      "cases": 256,
+      "updates": 51200,
+      "archive": "ASSURANCE_PARENT_CONTROL_SHARD_06_ORIGINAL_20261014.zip",
+      "sha256": "10042277800ce414d4db8618af6e41d8711aff26274ddde6bf33e94839b21d7f"
+    },
+    {
+      "shard": 7,
+      "cases": 256,
+      "updates": 51200,
+      "archive": "ASSURANCE_PARENT_CONTROL_SHARD_07_ORIGINAL_20261014.zip",
+      "sha256": "a67f22de11b0f889be3fcebef057b06d91709bdfc0cc5a3e551e5cf40e41553b"
+    },
+    {
+      "shard": 8,
+      "cases": 256,
+      "updates": 51200,
+      "archive": "ASSURANCE_PARENT_CONTROL_SHARD_08_ORIGINAL_20261014.zip",
+      "sha256": "0f5541cc43da8615537a9501be48fc6b253a1e76020c648d080e076433e0e21f"
+    },
+    {
+      "shard": 9,
+      "cases": 256,
+      "updates": 51200,
+      "archive": "ASSURANCE_PARENT_CONTROL_SHARD_09_ORIGINAL_20261014.zip",
+      "sha256": "0e3f874b07675f209b8cbafbc8397be8f1a586fa8b07751fce74797fb587f80a"
+    },
+    {
+      "shard": 10,
+      "cases": 256,
+      "updates": 51200,
+      "archive": "ASSURANCE_PARENT_CONTROL_SHARD_10_ORIGINAL_20261014.zip",
+      "sha256": "ec4e7312854411b7738ac3039860203e3adc050aa0a35fefd0844ffa3112bbb0"
+    },
+    {
+      "shard": 11,
+      "cases": 256,
+      "updates": 51200,
+      "archive": "ASSURANCE_PARENT_CONTROL_SHARD_11_ORIGINAL_20261014.zip",
+      "sha256": "6ce118a5ec16b602188544391484c997fb910014866bc54fa910f0833c07b39d"
+    },
+    {
+      "shard": 12,
+      "cases": 256,
+      "updates": 51200,
+      "archive": "ASSURANCE_PARENT_CONTROL_SHARD_12_ORIGINAL_20261014.zip",
+      "sha256": "46919ad6350840a94b659826be38bc9f249b4c8a208fe37da1090b6655579516"
+    },
+    {
+      "shard": 13,
+      "cases": 256,
+      "updates": 51200,
+      "archive": "ASSURANCE_PARENT_CONTROL_SHARD_13_ORIGINAL_20261014.zip",
+      "sha256": "6202aa976899c6d9dc94657b78782f59882a6f16723a26d51f8d404ec17edf0a"
+    },
+    {
+      "shard": 14,
+      "cases": 256,
+      "updates": 51200,
+      "archive": "ASSURANCE_PARENT_CONTROL_SHARD_14_ORIGINAL_20261014.zip",
+      "sha256": "c304401ce3c3bb5bf99e8d82a963e439684aa62758b34a26685d0d2d8579552c"
+    },
+    {
+      "shard": 15,
+      "cases": 256,
+      "updates": 51200,
+      "archive": "ASSURANCE_PARENT_CONTROL_SHARD_15_ORIGINAL_20261014.zip",
+      "sha256": "415e4320cb1907733440696e78e71e2c7408ecb61cac2b41f8270852b4a244fa"
+    }
+  ],
+  "scientific_readout": false,
+  "orchestration_sha256": "3cfc19748ef081c7ea168a75ad831e458e1dba9719de4038aebf05c7f3eb1fab",
+  "public_execution_source_sha256": "4b66b3b81b0fec04f8a826cf14ca6360a554511899312fcff8f488a8e04e38e3"
+}

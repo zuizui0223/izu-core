@@ -1,0 +1,13 @@
+{
+  "status": "ALL2304_DIRECTIONAL_SUPPORT_AND_ANCESTRY_INDEPENDENTLY_VERIFIED",
+  "cases": 2304,
+  "census_descriptor_checks": 2315520,
+  "parent_homolog_checks": 44236800,
+  "max_scalar_error": 6.938893903907228e-18,
+  "readout_sha256": "976dcf0be6d203220e221f3dffa83b69a6f6fe3624f6f3a1103c5063bedd26b1",
+  "cases_sha256": "5c8e3fe38d7f2953d2ba8b54e716261c7bdc9d4a92bf928182b5fcf621e5e665",
+  "arrays_sha256": "7096b864289e976f7eb443305bb42acdae78b0ea28f6f45b7237bc7c795981a4",
+  "verifier_sha256": "7a020caca991f3e918f18efdb03e7cbd17ba20e7a50db54590d07b35fd1849bb",
+  "producer_imported": false,
+  "new_biological_histories": 0
+}

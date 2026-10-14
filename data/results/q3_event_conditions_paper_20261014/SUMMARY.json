@@ -1,0 +1,97 @@
+{
+  "status": "ALL_DECLARED_PATH_RESTRICTIONS_PASS",
+  "exploratory": true,
+  "biological_updates": 0,
+  "original_slots": 64,
+  "triggered_pairs": 3904,
+  "nontrigger_policy_zero_slots": 3,
+  "all_observed_censuses_occupied": true,
+  "all_native_and_restored_supports_checked": true,
+  "all_native_event_predictions_match": true,
+  "all_observed_refixations_absorbing": true,
+  "original_primary": "unresolved",
+  "confirmation_margin_0_01": "unresolved",
+  "blocks": {
+    "causal_main": {
+      "original_slots": 32,
+      "triggered_slots": 31,
+      "policy_zero_slots": 1,
+      "pairs": 1984,
+      "support_classes": {
+        "gain_possible": 15,
+        "support_excluded": 9,
+        "all_support_eligible": 7,
+        "not_triggered": 1
+      },
+      "preexisting_states": 8,
+      "window_excluded_states": 0,
+      "gain_capable_states": 12,
+      "native_events": 640,
+      "restored_events": 1108,
+      "joint": {
+        "00": 876,
+        "01": 468,
+        "10": 0,
+        "11": 640
+      },
+      "refixation_by_joint": {
+        "00": {
+          "upper": 283,
+          "unfixed": 225,
+          "lower": 368
+        },
+        "01": {
+          "unfixed": 62,
+          "lower": 401,
+          "upper": 5
+        },
+        "10": {},
+        "11": {
+          "upper": 147,
+          "lower": 296,
+          "unfixed": 197
+        }
+      },
+      "terminal_mean_difference": 0.020933787027994793
+    },
+    "causal_confirmation": {
+      "original_slots": 32,
+      "triggered_slots": 30,
+      "policy_zero_slots": 2,
+      "pairs": 1920,
+      "support_classes": {
+        "loss_possible": 20,
+        "not_triggered": 2,
+        "support_excluded": 10
+      },
+      "preexisting_states": 3,
+      "window_excluded_states": 1,
+      "gain_capable_states": 0,
+      "native_events": 1280,
+      "restored_events": 1208,
+      "joint": {
+        "00": 640,
+        "01": 0,
+        "10": 72,
+        "11": 1208
+      },
+      "refixation_by_joint": {
+        "00": {
+          "lower": 371,
+          "upper": 117,
+          "unfixed": 152
+        },
+        "01": {},
+        "10": {
+          "upper": 72
+        },
+        "11": {
+          "lower": 632,
+          "upper": 424,
+          "unfixed": 152
+        }
+      },
+      "terminal_mean_difference": 0.01255607604980469
+    }
+  }
+}

@@ -1,0 +1,11 @@
+{
+  "PROTOCOL.md": "1587dcf1d977f657babdf94cd9998bd8549661890c4b19427ef54e232f0535ad",
+  "audit_loss.py": "58d11dff4a313fba7fde3ecc598126012f2aeb0d0517919563ee3b9531ebff6e",
+  "verify_loss.py": "7c36ba3c76bd4d765d9b7111f6d20088de5bf4adfe9c9c059c06d0b4d349860e",
+  "test_loss.py": "2817f92f2a3d7701431fefbe4fb9c200c88d98c8f6695d5bf3ee970d67b47fe7",
+  "RECIPE_SOURCE.py": "e8786b6f63e05947a96c52cbdef828dd0fd0bf3b3c7f67602b9d35df1f3cb152",
+  "native/__init__.py": "570943c83d3ce9417b496e5e899d35f9baca398ed4689d7da8df65d1c0ae2261",
+  "native/types.py": "b56b579c8821f0094e395d5bef42e49e557d59781f2dcf8ed14cff895bea292e",
+  "native/reproduction.py": "a1d2ad76a2b0d22cda19606fd7d115c3a0506c6dad05e49f3177cbd13ee51c82",
+  "native/population.py": "c03fc6fccdf4efb660ece8fa5ee016d4de14f84f3b234dfb6322666b89ec34c1"
+}

@@ -1,0 +1,15 @@
+{
+  "status": "ALL2304_SCALAR_ONSETS_AND18_ARCHIVED_NATIVE_F1_STATES_INDEPENDENTLY_MATCH",
+  "onset_comparisons": 9216,
+  "native_F1_checks": 306,
+  "max_native_error": 5.684341886080802e-14,
+  "counterexamples": {
+    "point": 299,
+    "sustained": 216
+  },
+  "new_biological_histories": 0,
+  "offspring_calls": 0,
+  "readout_sha256": "81b0f1fd2e015d2b1e857c2bc5c04400b14fdd1af034a2d07e91227e98df150c",
+  "all_cases_sha256": "1ff6a9e11dddb99c7b1f45cb42348e68f753bf09160b56bbba5522d66421cea6",
+  "verifier_sha256": "7cde2d03fdfe8851801d29ef9de554d5b350578252e250b1701b54d004d23e08"
+}

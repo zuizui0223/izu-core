@@ -1,0 +1,2314 @@
+{
+  "status": "ORIGINAL_OFFLINE_ZIP_DIRECTLY_AUTHENTICATED_AND_ACTUAL_REPLAY_LOGGED_FIELDS_MATCH",
+  "original_archive": {
+    "bytes": 335015,
+    "sha256": "cd9f998e38ec51e747c4495dbe94b1fe1168d48d31ef54a438250bfa0ace5a21",
+    "members": 27
+  },
+  "manifest_members_verified": [
+    {
+      "name": "demographic_independent32_readout.json",
+      "bytes": 43464,
+      "sha256": "7b725616470d4118fcfb5a6908d27d3cc8569a616242ba8083b42c9103f33e5f"
+    },
+    {
+      "name": "demographic_independent32_shard_00.json",
+      "bytes": 123395,
+      "sha256": "a3c4abb97172569ab49a6f4ac517470ec3ffed3db7fb17a85199f254ad2e04c8"
+    },
+    {
+      "name": "demographic_independent32_shard_01.json",
+      "bytes": 125594,
+      "sha256": "aec270829c17f55adc6707ad65c63972b1722ae642973e55a64005388c951e96"
+    },
+    {
+      "name": "demographic_independent32_shard_02.json",
+      "bytes": 123221,
+      "sha256": "1feba5b72a393ddd0c2c941f3d4f68dc78eb1566218c6e18be9bfaf3540f7e92"
+    },
+    {
+      "name": "demographic_independent32_shard_03.json",
+      "bytes": 125236,
+      "sha256": "4ac96f4ca8b25848dc1b546f46a4090b5af1697d1f6a8e87fc9875c85841b4ff"
+    },
+    {
+      "name": "demographic_independent32_shard_04.json",
+      "bytes": 123857,
+      "sha256": "f22b8029dca9a92f8df7aace305a2087c10b0d942be78ce4978f41429a0ec0b5"
+    },
+    {
+      "name": "demographic_independent32_shard_05.json",
+      "bytes": 126073,
+      "sha256": "7d1f1bc751c1e134dc85bccfb041207f266e9aff0774e164edb8044fd9df25db"
+    },
+    {
+      "name": "demographic_independent32_shard_06.json",
+      "bytes": 123438,
+      "sha256": "1c4205964ace429af3c360200344690ffc115cb9b95a75b9626f3f9a360bc748"
+    },
+    {
+      "name": "demographic_independent32_shard_07.json",
+      "bytes": 126138,
+      "sha256": "81afee9e054c7fbf5c0a0b03808acaf04b1d8bb78b1d4fb9c528c224b21c31f1"
+    },
+    {
+      "name": "demographic_midrange_shard_00.json",
+      "bytes": 122940,
+      "sha256": "16415b3f5da7e25813ed03963e05c3a9572afbeac0257596b75e22e354150064"
+    },
+    {
+      "name": "demographic_midrange_shard_01.json",
+      "bytes": 125443,
+      "sha256": "bed86e98beb0e61a10aba665fcdd8ff2bd8f32185c2269b6522caa0cf6802aad"
+    },
+    {
+      "name": "demographic_midrange_shard_02.json",
+      "bytes": 122249,
+      "sha256": "f84c87023dace8742edf0929ae707b9f88a01c82ac43b5e6733cf13974def856"
+    },
+    {
+      "name": "demographic_midrange_shard_03.json",
+      "bytes": 124305,
+      "sha256": "f45d40c4a5efcae9821c4f90467782ba0c146dd3ae39ad3adf8a541d430255f1"
+    },
+    {
+      "name": "demographic_midrange_summary.json",
+      "bytes": 35175,
+      "sha256": "4f86878114c150c23084fdc9999441f7a1c5e9a785d5a4f97c354260b1a1fcf5"
+    },
+    {
+      "name": "demographic_stress_pilot_shard_00.json",
+      "bytes": 122648,
+      "sha256": "36fa98a991bd52d18c5d2ab0855e0559d416b4649ff3f7e3d752c3bc9612177d"
+    },
+    {
+      "name": "demographic_stress_pilot_shard_01.json",
+      "bytes": 122767,
+      "sha256": "5b1b149e11ff42dc75eb9e78e4349d0b1b60fe15aea5d198ad968d9aff8d4201"
+    },
+    {
+      "name": "demographic_stress_pilot_shard_02.json",
+      "bytes": 122686,
+      "sha256": "d37f4ca7f587bcef60e04b9bc761599a08325b8777e5a0c0ac60c41f8bc71235"
+    },
+    {
+      "name": "demographic_stress_pilot_shard_03.json",
+      "bytes": 122751,
+      "sha256": "97eae02573f6deacd466748b30a364593af502c4cbb3aab9d03e3adc7a0271d7"
+    },
+    {
+      "name": "demographic_stress_pilot_summary.json",
+      "bytes": 35014,
+      "sha256": "d043ebb6dee82a5d43c315fd7f9a9276bd2acb4f6fc003a2db04574bb3acd8a8"
+    },
+    {
+      "name": "run_demographic_independent32.py",
+      "bytes": 4504,
+      "sha256": "a6e45578a890f0b39f1e4834a444e9841d717e114b55d9a2171612dc13832edb"
+    },
+    {
+      "name": "run_demographic_midrange_followup.py",
+      "bytes": 4508,
+      "sha256": "810f7a757427b210bb67d22107be6545e5f3297969fb3e7b04b2e99940b38f00"
+    },
+    {
+      "name": "run_demographic_stress_pilot.py",
+      "bytes": 4513,
+      "sha256": "62d38835b545c03d0110677d5b28c9bfdfd06ea71e833786b2a15f91441431c8"
+    },
+    {
+      "name": "sources.zip",
+      "bytes": 57910,
+      "sha256": "71a1b1d9c4d683b874c989fa7768a14e72c5353063d8213cbe42f42cd37473d4"
+    },
+    {
+      "name": "summarize_demographic_independent32.py",
+      "bytes": 3976,
+      "sha256": "afc23243b7cd3a6ea0d43ea597fef04a874b4f9e675ac1ed9017873f05de24b3"
+    },
+    {
+      "name": "summarize_demographic_midrange_followup.py",
+      "bytes": 2603,
+      "sha256": "39d4ea8fdca6aed211751b56f53743e563842919a5cfddd06877194f310dc1ca"
+    },
+    {
+      "name": "summarize_demographic_stress_pilot.py",
+      "bytes": 2589,
+      "sha256": "ae3f0aa36192d5c6f6cdccaa86e65a0d0024ce3ef12366db8351b1218fdfe94d"
+    }
+  ],
+  "nested_sources_verified": [
+    {
+      "name": "data/design/chapter2_assurance_generality_20261006.json",
+      "bytes": 5149,
+      "sha256": "c050c94eb385a9ab6beb48388f5ec96177c0540e22da53924b02eca19b824119"
+    },
+    {
+      "name": "data/design/model3_ch2_bridge_20260927.json",
+      "bytes": 7682,
+      "sha256": "0ca971aa9a453ab00a6e36fa9f2a99df3b36a8b13cda1cb48ea420556d3ff18a"
+    },
+    {
+      "name": "scripts/model3_island/__init__.py",
+      "bytes": 80,
+      "sha256": "f7e55e36abb6fbc720e3413505a2a2ea8ff784e9e5715fb097058a1b24956b16"
+    },
+    {
+      "name": "scripts/model3_island/assays.py",
+      "bytes": 2493,
+      "sha256": "3dbfee24a4473b220e463dc6dd0e7699f0a7de98771eeee9666c94d75700338d"
+    },
+    {
+      "name": "scripts/model3_island/audit.py",
+      "bytes": 7363,
+      "sha256": "7503b738281a0d648d7a536dfa508efada80b2e85d26538ceab413fcaedc9925"
+    },
+    {
+      "name": "scripts/model3_island/birth_diffusion.py",
+      "bytes": 1219,
+      "sha256": "ce6b8c63a964b02654fee63b023be9c79c1be9ebfa5eca7e5de04ffa6006a8e7"
+    },
+    {
+      "name": "scripts/model3_island/campaign.py",
+      "bytes": 10794,
+      "sha256": "b2a4d2acc785f1b4707353a74ce3684c347e84df2915dcb5c02fa1d407eb033b"
+    },
+    {
+      "name": "scripts/model3_island/density.py",
+      "bytes": 11047,
+      "sha256": "e293b031372da4f3b5d5b5ed9ffdea95b5a5cc449904f9dfa8880b8f0f2e4edf"
+    },
+    {
+      "name": "scripts/model3_island/design.py",
+      "bytes": 12181,
+      "sha256": "9184fba6fbdfed617d109eedc268103a49cfaf7c7eb1d51457ab03c5bee9cfbe"
+    },
+    {
+      "name": "scripts/model3_island/expectation.py",
+      "bytes": 1979,
+      "sha256": "422de5b82fa80b293b9173735c8d50bd4aec5bd61450ea233d27ecd9169db943"
+    },
+    {
+      "name": "scripts/model3_island/finite_audit.py",
+      "bytes": 3930,
+      "sha256": "47c567a7a450a81afa4d91c29ce91512702d7b066d289f60214a3cd543b5a49d"
+    },
+    {
+      "name": "scripts/model3_island/history.py",
+      "bytes": 6091,
+      "sha256": "28d22c7fde81d9be6a604fa9dd4cb6b48d78d388d4db85f798a935cf81415488"
+    },
+    {
+      "name": "scripts/model3_island/plot.py",
+      "bytes": 3806,
+      "sha256": "f0323311ccf55c0fe677d4afe35defcbc660ce98bc3705eacb5e8e80600d8b1a"
+    },
+    {
+      "name": "scripts/model3_island/population.py",
+      "bytes": 6128,
+      "sha256": "c959d18816da6666dbfb4e91bd9582c94af5453b25498d033f5747305b05fe0f"
+    },
+    {
+      "name": "scripts/model3_island/randomness.py",
+      "bytes": 873,
+      "sha256": "63522ae3c5ff8e11f114b5649a989945fa4ba2480fdca0f74857601b0e4b211f"
+    },
+    {
+      "name": "scripts/model3_island/reproduction.py",
+      "bytes": 3263,
+      "sha256": "885957edb8a165ee8528781ed1d2574c44143c608496b505f9663cbfac2c4081"
+    },
+    {
+      "name": "scripts/model3_island/run.py",
+      "bytes": 10802,
+      "sha256": "094f8ed635f13b3ff5809b721f1d11f78f89d7cc414f503805b007e436878743"
+    },
+    {
+      "name": "scripts/model3_island/selection.py",
+      "bytes": 4559,
+      "sha256": "79cbc2181493b1bf3c8631beb29801d46c756cc2ac45ef8167342be690bdb355"
+    },
+    {
+      "name": "scripts/model3_island/simulate.py",
+      "bytes": 7050,
+      "sha256": "78b043183ff55ba14c38204b47499b53e7c63f41789b982680a42966871e247b"
+    },
+    {
+      "name": "scripts/model3_island/storage.py",
+      "bytes": 1816,
+      "sha256": "c987b56139f7782e35749bda5f378f3cd60d0463b2de5a15c034f2c2a4c73647"
+    },
+    {
+      "name": "scripts/model3_island/summarize.py",
+      "bytes": 18256,
+      "sha256": "9e1b9a1c432e16cc35ca7e7a6075c044999faaa5b2aea84e0dec2cf1fee1b435"
+    },
+    {
+      "name": "scripts/model3_island/tensor_density.py",
+      "bytes": 3104,
+      "sha256": "223ad4926f3d748a744665386a3be6b02e19e8a50cb4f8d080e2170d58fbaac5"
+    },
+    {
+      "name": "scripts/model3_island/types.py",
+      "bytes": 8610,
+      "sha256": "a572e1e7f4fded181585871a63582b16f40292bd07b13e8efc9d6b6234eb21c5"
+    },
+    {
+      "name": "scripts/run_chapter2_assurance_generality.py",
+      "bytes": 9289,
+      "sha256": "88e7aef1ee559885559e63b46d3dcb76808981d7a787440693f836f3fafea924"
+    },
+    {
+      "name": "scripts/run_model3_persistent_isolation.py",
+      "bytes": 6964,
+      "sha256": "d573ffa85b7a1fef3f4619862cf00ab40cfc465d3ba4563df6504e0eea968e6e"
+    }
+  ],
+  "actual_replay": {
+    "run_id": 38272136110,
+    "sha256": "e73fce6c37fc928e22f73b3f370e510cf2e310c25f7aaa94745f5164df9192f1"
+  },
+  "shards": [
+    {
+      "shard": 0,
+      "groups": 64,
+      "post_cases": 512,
+      "original_sha256": "a3c4abb97172569ab49a6f4ac517470ec3ffed3db7fb17a85199f254ad2e04c8",
+      "actual_replay_sha256": "a3c4abb97172569ab49a6f4ac517470ec3ffed3db7fb17a85199f254ad2e04c8",
+      "byte_identical": true,
+      "logged_state_projection_sha256": "f18abc9746ee3142aa9cf2e6d03ec96ac9e89ecff94ea38f22b4deda40701ef9",
+      "projection_exact": true,
+      "diagnostic_differences": [],
+      "maximum_diagnostic_difference": 0.0
+    },
+    {
+      "shard": 1,
+      "groups": 64,
+      "post_cases": 512,
+      "original_sha256": "aec270829c17f55adc6707ad65c63972b1722ae642973e55a64005388c951e96",
+      "actual_replay_sha256": "24272e81f6e19b8f18e8fad119e4ced03092e1408fd3f17ab2d32010e08ea28e",
+      "byte_identical": false,
+      "logged_state_projection_sha256": "18e8d7b9959e6388e5bd036df5127f1e64b153445022a10562a2f97fb6951688",
+      "projection_exact": true,
+      "diagnostic_differences": [
+        {
+          "path": [
+            4,
+            "post_cases",
+            0,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.6067410554036395,
+          "replay": 0.6067410554036397,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            4,
+            "post_cases",
+            2,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.213482110807279,
+          "replay": 1.2134821108072793,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            4,
+            "post_cases",
+            3,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.5168526385090988,
+          "replay": 1.516852638509099,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            4,
+            "post_cases",
+            4,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.6067410554036395,
+          "replay": 0.6067410554036397,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            4,
+            "post_cases",
+            6,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.213482110807279,
+          "replay": 1.2134821108072793,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            4,
+            "post_cases",
+            7,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.5168526385090988,
+          "replay": 1.516852638509099,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            7,
+            "post_cases",
+            3,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.3740032369606872,
+          "replay": 1.3740032369606874,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            7,
+            "post_cases",
+            7,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.3740032369606872,
+          "replay": 1.3740032369606874,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            8,
+            "post_cases",
+            0,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.70567600624431,
+          "replay": 0.7056760062443099,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            8,
+            "post_cases",
+            2,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.41135201248862,
+          "replay": 1.4113520124886199,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            8,
+            "post_cases",
+            4,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.70567600624431,
+          "replay": 0.7056760062443099,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            8,
+            "post_cases",
+            6,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.41135201248862,
+          "replay": 1.4113520124886199,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            19,
+            "post_cases",
+            0,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.0352762772351582,
+          "replay": 1.035276277235158,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            19,
+            "post_cases",
+            2,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 2.0705525544703165,
+          "replay": 2.070552554470316,
+          "absolute_difference": 4.440892098500626e-16
+        },
+        {
+          "path": [
+            19,
+            "post_cases",
+            4,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.0352762772351582,
+          "replay": 1.035276277235158,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            19,
+            "post_cases",
+            6,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 2.0705525544703165,
+          "replay": 2.070552554470316,
+          "absolute_difference": 4.440892098500626e-16
+        },
+        {
+          "path": [
+            33,
+            "post_cases",
+            1,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.4205272205514918,
+          "replay": 1.420527220551492,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            33,
+            "post_cases",
+            5,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.4205272205514918,
+          "replay": 1.420527220551492,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            35,
+            "post_cases",
+            0,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.8749087302231336,
+          "replay": 0.8749087302231338,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            35,
+            "post_cases",
+            2,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.7498174604462673,
+          "replay": 1.7498174604462675,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            35,
+            "post_cases",
+            4,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.8749087302231336,
+          "replay": 0.8749087302231338,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            35,
+            "post_cases",
+            6,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.7498174604462673,
+          "replay": 1.7498174604462675,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            53,
+            "post_cases",
+            0,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.8474411845597168,
+          "replay": 0.847441184559717,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            53,
+            "post_cases",
+            2,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.6948823691194337,
+          "replay": 1.694882369119434,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            53,
+            "post_cases",
+            3,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 2.1186029613992923,
+          "replay": 2.1186029613992927,
+          "absolute_difference": 4.440892098500626e-16
+        },
+        {
+          "path": [
+            53,
+            "post_cases",
+            4,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.8474411845597168,
+          "replay": 0.847441184559717,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            53,
+            "post_cases",
+            6,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.6948823691194337,
+          "replay": 1.694882369119434,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            53,
+            "post_cases",
+            7,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 2.1186029613992923,
+          "replay": 2.1186029613992927,
+          "absolute_difference": 4.440892098500626e-16
+        }
+      ],
+      "maximum_diagnostic_difference": 4.440892098500626e-16
+    },
+    {
+      "shard": 2,
+      "groups": 64,
+      "post_cases": 512,
+      "original_sha256": "1feba5b72a393ddd0c2c941f3d4f68dc78eb1566218c6e18be9bfaf3540f7e92",
+      "actual_replay_sha256": "1feba5b72a393ddd0c2c941f3d4f68dc78eb1566218c6e18be9bfaf3540f7e92",
+      "byte_identical": true,
+      "logged_state_projection_sha256": "0f3c3624019b59ed7d50afb8f219a8024435049132e6e5820daf149fbe083216",
+      "projection_exact": true,
+      "diagnostic_differences": [],
+      "maximum_diagnostic_difference": 0.0
+    },
+    {
+      "shard": 3,
+      "groups": 64,
+      "post_cases": 512,
+      "original_sha256": "4ac96f4ca8b25848dc1b546f46a4090b5af1697d1f6a8e87fc9875c85841b4ff",
+      "actual_replay_sha256": "6ef9b197a492351a457e0c9b33817f93fbcc1163d6494c31e527fddb524163b3",
+      "byte_identical": false,
+      "logged_state_projection_sha256": "fd7f56ae15605c19ddf0c4e782f98ea72d600c11282d2d543575b91a97787807",
+      "projection_exact": true,
+      "diagnostic_differences": [
+        {
+          "path": [
+            1,
+            "post_cases",
+            1,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.927038703302693,
+          "replay": 0.9270387033026931,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            1,
+            "post_cases",
+            5,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.927038703302693,
+          "replay": 0.9270387033026931,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            18,
+            "post_cases",
+            3,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 2.7434123392721896,
+          "replay": 2.74341233927219,
+          "absolute_difference": 4.440892098500626e-16
+        },
+        {
+          "path": [
+            18,
+            "post_cases",
+            7,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 2.7434123392721896,
+          "replay": 2.74341233927219,
+          "absolute_difference": 4.440892098500626e-16
+        },
+        {
+          "path": [
+            30,
+            "post_cases",
+            0,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.6990524421431956,
+          "replay": 0.6990524421431955,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            30,
+            "post_cases",
+            2,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.3981048842863912,
+          "replay": 1.398104884286391,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            30,
+            "post_cases",
+            3,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.7476311053579892,
+          "replay": 1.7476311053579887,
+          "absolute_difference": 4.440892098500626e-16
+        },
+        {
+          "path": [
+            30,
+            "post_cases",
+            4,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.6990524421431956,
+          "replay": 0.6990524421431955,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            30,
+            "post_cases",
+            6,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.3981048842863912,
+          "replay": 1.398104884286391,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            30,
+            "post_cases",
+            7,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.7476311053579892,
+          "replay": 1.7476311053579887,
+          "absolute_difference": 4.440892098500626e-16
+        },
+        {
+          "path": [
+            52,
+            "post_cases",
+            3,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.7632863996512878,
+          "replay": 1.763286399651288,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            52,
+            "post_cases",
+            7,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.7632863996512878,
+          "replay": 1.763286399651288,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            54,
+            "post_cases",
+            1,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.2164158111805752,
+          "replay": 1.216415811180575,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            54,
+            "post_cases",
+            3,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 2.027359685300959,
+          "replay": 2.0273596853009583,
+          "absolute_difference": 4.440892098500626e-16
+        },
+        {
+          "path": [
+            54,
+            "post_cases",
+            5,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.2164158111805752,
+          "replay": 1.216415811180575,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            54,
+            "post_cases",
+            7,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 2.027359685300959,
+          "replay": 2.0273596853009583,
+          "absolute_difference": 4.440892098500626e-16
+        }
+      ],
+      "maximum_diagnostic_difference": 4.440892098500626e-16
+    },
+    {
+      "shard": 4,
+      "groups": 64,
+      "post_cases": 512,
+      "original_sha256": "f22b8029dca9a92f8df7aace305a2087c10b0d942be78ce4978f41429a0ec0b5",
+      "actual_replay_sha256": "1f93a5ff1f7f2fecac6da296b77896f396d6d8e11f2ec9de2d86b1dc716f3eb7",
+      "byte_identical": false,
+      "logged_state_projection_sha256": "7157ee12a0fd9610c61d1d9982b1b1a49bde9d92e0a54d40119a778e72c9ead0",
+      "projection_exact": true,
+      "diagnostic_differences": [
+        {
+          "path": [
+            1,
+            "post_cases",
+            1,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.9440163682398175,
+          "replay": 0.9440163682398176,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            1,
+            "post_cases",
+            3,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.573360613733029,
+          "replay": 1.5733606137330292,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            1,
+            "post_cases",
+            5,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.9440163682398175,
+          "replay": 0.9440163682398176,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            1,
+            "post_cases",
+            7,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.573360613733029,
+          "replay": 1.5733606137330292,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            2,
+            "post_cases",
+            0,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.6585526879493373,
+          "replay": 0.6585526879493375,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            2,
+            "post_cases",
+            2,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.3171053758986746,
+          "replay": 1.317105375898675,
+          "absolute_difference": 4.440892098500626e-16
+        },
+        {
+          "path": [
+            2,
+            "post_cases",
+            4,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.6585526879493373,
+          "replay": 0.6585526879493375,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            2,
+            "post_cases",
+            6,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.3171053758986746,
+          "replay": 1.317105375898675,
+          "absolute_difference": 4.440892098500626e-16
+        },
+        {
+          "path": [
+            11,
+            "post_cases",
+            1,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.0205197260233465,
+          "replay": 1.0205197260233463,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            11,
+            "post_cases",
+            5,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.0205197260233465,
+          "replay": 1.0205197260233463,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            17,
+            "post_cases",
+            1,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.0340584582256331,
+          "replay": 1.0340584582256334,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            17,
+            "post_cases",
+            5,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.0340584582256331,
+          "replay": 1.0340584582256334,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            19,
+            "post_cases",
+            0,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.7255207778387694,
+          "replay": 0.7255207778387696,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            19,
+            "post_cases",
+            2,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.451041555677539,
+          "replay": 1.4510415556775391,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            19,
+            "post_cases",
+            4,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.7255207778387694,
+          "replay": 0.7255207778387696,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            19,
+            "post_cases",
+            6,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.451041555677539,
+          "replay": 1.4510415556775391,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            20,
+            "post_cases",
+            0,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.925002855852774,
+          "replay": 0.9250028558527741,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            20,
+            "post_cases",
+            2,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.850005711705548,
+          "replay": 1.8500057117055482,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            20,
+            "post_cases",
+            3,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 2.3125071396319345,
+          "replay": 2.312507139631935,
+          "absolute_difference": 4.440892098500626e-16
+        },
+        {
+          "path": [
+            20,
+            "post_cases",
+            4,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.925002855852774,
+          "replay": 0.9250028558527741,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            20,
+            "post_cases",
+            6,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.850005711705548,
+          "replay": 1.8500057117055482,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            20,
+            "post_cases",
+            7,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 2.3125071396319345,
+          "replay": 2.312507139631935,
+          "absolute_difference": 4.440892098500626e-16
+        },
+        {
+          "path": [
+            22,
+            "post_cases",
+            1,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.51468775882573,
+          "replay": 1.5146877588257301,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            22,
+            "post_cases",
+            5,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.51468775882573,
+          "replay": 1.5146877588257301,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            30,
+            "post_cases",
+            1,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.4349783850626892,
+          "replay": 1.434978385062689,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            30,
+            "post_cases",
+            5,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.4349783850626892,
+          "replay": 1.434978385062689,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            32,
+            "post_cases",
+            0,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.8841925660369964,
+          "replay": 0.8841925660369963,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            32,
+            "post_cases",
+            2,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.7683851320739927,
+          "replay": 1.7683851320739925,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            32,
+            "post_cases",
+            4,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.8841925660369964,
+          "replay": 0.8841925660369963,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            32,
+            "post_cases",
+            6,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.7683851320739927,
+          "replay": 1.7683851320739925,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            44,
+            "post_cases",
+            0,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.6183083882160724,
+          "replay": 0.6183083882160725,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            44,
+            "post_cases",
+            1,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.9274625823241085,
+          "replay": 0.9274625823241087,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            44,
+            "post_cases",
+            2,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.2366167764321447,
+          "replay": 1.236616776432145,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            44,
+            "post_cases",
+            3,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.5457709705401808,
+          "replay": 1.5457709705401812,
+          "absolute_difference": 4.440892098500626e-16
+        },
+        {
+          "path": [
+            44,
+            "post_cases",
+            4,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.6183083882160724,
+          "replay": 0.6183083882160725,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            44,
+            "post_cases",
+            5,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.9274625823241085,
+          "replay": 0.9274625823241087,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            44,
+            "post_cases",
+            6,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.2366167764321447,
+          "replay": 1.236616776432145,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            44,
+            "post_cases",
+            7,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.5457709705401808,
+          "replay": 1.5457709705401812,
+          "absolute_difference": 4.440892098500626e-16
+        },
+        {
+          "path": [
+            46,
+            "post_cases",
+            1,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.895920317541625,
+          "replay": 0.8959203175416252,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            46,
+            "post_cases",
+            5,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.895920317541625,
+          "replay": 0.8959203175416252,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            51,
+            "post_cases",
+            0,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.7349461387029742,
+          "replay": 0.7349461387029743,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            51,
+            "post_cases",
+            2,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.4698922774059484,
+          "replay": 1.4698922774059486,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            51,
+            "post_cases",
+            4,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.7349461387029742,
+          "replay": 0.7349461387029743,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            51,
+            "post_cases",
+            6,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.4698922774059484,
+          "replay": 1.4698922774059486,
+          "absolute_difference": 2.220446049250313e-16
+        }
+      ],
+      "maximum_diagnostic_difference": 4.440892098500626e-16
+    },
+    {
+      "shard": 5,
+      "groups": 64,
+      "post_cases": 512,
+      "original_sha256": "7d1f1bc751c1e134dc85bccfb041207f266e9aff0774e164edb8044fd9df25db",
+      "actual_replay_sha256": "28acc743fd625eafc710d9df7eb31b8c7cf5b97be631d6cdbff3f7ce65f4dd65",
+      "byte_identical": false,
+      "logged_state_projection_sha256": "80402762f0ed58c71947ed3b51c59bdc2328181a0119e6f146c5c446840160f9",
+      "projection_exact": true,
+      "diagnostic_differences": [
+        {
+          "path": [
+            3,
+            "post_cases",
+            3,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.5107812884828276,
+          "replay": 1.5107812884828278,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            3,
+            "post_cases",
+            7,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.5107812884828276,
+          "replay": 1.5107812884828278,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            4,
+            "post_cases",
+            0,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.7200132579545205,
+          "replay": 0.7200132579545204,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            4,
+            "post_cases",
+            2,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.440026515909041,
+          "replay": 1.4400265159090408,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            4,
+            "post_cases",
+            4,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.7200132579545205,
+          "replay": 0.7200132579545204,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            4,
+            "post_cases",
+            6,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.440026515909041,
+          "replay": 1.4400265159090408,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            11,
+            "post_cases",
+            0,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.6993484971136198,
+          "replay": 0.6993484971136199,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            11,
+            "post_cases",
+            2,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.3986969942272396,
+          "replay": 1.3986969942272398,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            11,
+            "post_cases",
+            4,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.6993484971136198,
+          "replay": 0.6993484971136199,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            11,
+            "post_cases",
+            6,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.3986969942272396,
+          "replay": 1.3986969942272398,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            14,
+            "post_cases",
+            0,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.7226644812442915,
+          "replay": 0.7226644812442916,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            14,
+            "post_cases",
+            2,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.445328962488583,
+          "replay": 1.4453289624885832,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            14,
+            "post_cases",
+            4,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.7226644812442915,
+          "replay": 0.7226644812442916,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            14,
+            "post_cases",
+            6,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.445328962488583,
+          "replay": 1.4453289624885832,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            26,
+            "post_cases",
+            0,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.5124760395112896,
+          "replay": 0.5124760395112897,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            26,
+            "post_cases",
+            1,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.7687140592669345,
+          "replay": 0.7687140592669347,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            26,
+            "post_cases",
+            2,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.0249520790225792,
+          "replay": 1.0249520790225795,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            26,
+            "post_cases",
+            4,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.5124760395112896,
+          "replay": 0.5124760395112897,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            26,
+            "post_cases",
+            5,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.7687140592669345,
+          "replay": 0.7687140592669347,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            26,
+            "post_cases",
+            6,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.0249520790225792,
+          "replay": 1.0249520790225795,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            40,
+            "post_cases",
+            0,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.6161693023336539,
+          "replay": 0.616169302333654,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            40,
+            "post_cases",
+            2,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.2323386046673077,
+          "replay": 1.232338604667308,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            40,
+            "post_cases",
+            4,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.6161693023336539,
+          "replay": 0.616169302333654,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            40,
+            "post_cases",
+            6,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.2323386046673077,
+          "replay": 1.232338604667308,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            52,
+            "post_cases",
+            1,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.1469925135967212,
+          "replay": 1.1469925135967214,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            52,
+            "post_cases",
+            3,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.911654189327869,
+          "replay": 1.9116541893278691,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            52,
+            "post_cases",
+            5,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.1469925135967212,
+          "replay": 1.1469925135967214,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            52,
+            "post_cases",
+            7,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.911654189327869,
+          "replay": 1.9116541893278691,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            56,
+            "post_cases",
+            1,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.8829768111955605,
+          "replay": 0.8829768111955606,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            56,
+            "post_cases",
+            5,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.8829768111955605,
+          "replay": 0.8829768111955606,
+          "absolute_difference": 1.1102230246251565e-16
+        }
+      ],
+      "maximum_diagnostic_difference": 2.220446049250313e-16
+    },
+    {
+      "shard": 6,
+      "groups": 64,
+      "post_cases": 512,
+      "original_sha256": "1c4205964ace429af3c360200344690ffc115cb9b95a75b9626f3f9a360bc748",
+      "actual_replay_sha256": "43358664080777042a831e6e3ae3a8e2590573824874845d90721e8dc4696133",
+      "byte_identical": false,
+      "logged_state_projection_sha256": "e6d4b445adecf8c83f3275c2ea3f1e9d0c26ea277bf97b1b4f2d14236eb46281",
+      "projection_exact": true,
+      "diagnostic_differences": [
+        {
+          "path": [
+            3,
+            "post_cases",
+            1,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.9671294438478296,
+          "replay": 0.9671294438478297,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            3,
+            "post_cases",
+            5,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.9671294438478296,
+          "replay": 0.9671294438478297,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            6,
+            "post_cases",
+            1,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.1637349250867655,
+          "replay": 1.1637349250867657,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            6,
+            "post_cases",
+            5,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.1637349250867655,
+          "replay": 1.1637349250867657,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            16,
+            "post_cases",
+            1,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.4447502564273331,
+          "replay": 1.444750256427333,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            16,
+            "post_cases",
+            5,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.4447502564273331,
+          "replay": 1.444750256427333,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            17,
+            "post_cases",
+            1,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.5198944415246618,
+          "replay": 1.5198944415246616,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            17,
+            "post_cases",
+            5,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.5198944415246618,
+          "replay": 1.5198944415246616,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            21,
+            "post_cases",
+            0,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.8278186270908028,
+          "replay": 0.8278186270908029,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            21,
+            "post_cases",
+            2,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.6556372541816056,
+          "replay": 1.6556372541816058,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            21,
+            "post_cases",
+            4,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.8278186270908028,
+          "replay": 0.8278186270908029,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            21,
+            "post_cases",
+            6,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.6556372541816056,
+          "replay": 1.6556372541816058,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            25,
+            "post_cases",
+            1,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.3097434798619438,
+          "replay": 1.3097434798619436,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            25,
+            "post_cases",
+            5,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.3097434798619438,
+          "replay": 1.3097434798619436,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            27,
+            "post_cases",
+            3,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 2.0291058783361513,
+          "replay": 2.029105878336151,
+          "absolute_difference": 4.440892098500626e-16
+        },
+        {
+          "path": [
+            27,
+            "post_cases",
+            7,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 2.0291058783361513,
+          "replay": 2.029105878336151,
+          "absolute_difference": 4.440892098500626e-16
+        },
+        {
+          "path": [
+            36,
+            "post_cases",
+            1,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.0614102751037422,
+          "replay": 1.0614102751037424,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            36,
+            "post_cases",
+            5,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.0614102751037422,
+          "replay": 1.0614102751037424,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            45,
+            "post_cases",
+            3,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.5077593464957637,
+          "replay": 1.507759346495764,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            45,
+            "post_cases",
+            7,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.5077593464957637,
+          "replay": 1.507759346495764,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            46,
+            "post_cases",
+            0,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.6317999609493128,
+          "replay": 0.631799960949313,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            46,
+            "post_cases",
+            2,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.2635999218986256,
+          "replay": 1.263599921898626,
+          "absolute_difference": 4.440892098500626e-16
+        },
+        {
+          "path": [
+            46,
+            "post_cases",
+            3,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.579499902373282,
+          "replay": 1.5794999023732823,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            46,
+            "post_cases",
+            4,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.6317999609493128,
+          "replay": 0.631799960949313,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            46,
+            "post_cases",
+            6,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.2635999218986256,
+          "replay": 1.263599921898626,
+          "absolute_difference": 4.440892098500626e-16
+        },
+        {
+          "path": [
+            46,
+            "post_cases",
+            7,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.579499902373282,
+          "replay": 1.5794999023732823,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            55,
+            "post_cases",
+            0,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.727729036259434,
+          "replay": 0.7277290362594341,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            55,
+            "post_cases",
+            2,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.455458072518868,
+          "replay": 1.4554580725188682,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            55,
+            "post_cases",
+            4,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.727729036259434,
+          "replay": 0.7277290362594341,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            55,
+            "post_cases",
+            6,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.455458072518868,
+          "replay": 1.4554580725188682,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            63,
+            "post_cases",
+            0,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.5663802351506989,
+          "replay": 0.566380235150699,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            63,
+            "post_cases",
+            2,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.1327604703013978,
+          "replay": 1.132760470301398,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            63,
+            "post_cases",
+            4,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.5663802351506989,
+          "replay": 0.566380235150699,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            63,
+            "post_cases",
+            6,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.1327604703013978,
+          "replay": 1.132760470301398,
+          "absolute_difference": 2.220446049250313e-16
+        }
+      ],
+      "maximum_diagnostic_difference": 4.440892098500626e-16
+    },
+    {
+      "shard": 7,
+      "groups": 64,
+      "post_cases": 512,
+      "original_sha256": "81afee9e054c7fbf5c0a0b03808acaf04b1d8bb78b1d4fb9c528c224b21c31f1",
+      "actual_replay_sha256": "77a8714a8e240505e2e8540c665373ca7616292c784d5b76723a96deafc66f13",
+      "byte_identical": false,
+      "logged_state_projection_sha256": "34995dfb83bde73e57993031bb74ac7e8e5e23ee4b1aa4fd489f4f3f7fd605da",
+      "projection_exact": true,
+      "diagnostic_differences": [
+        {
+          "path": [
+            14,
+            "post_cases",
+            3,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.6281621042106251,
+          "replay": 1.6281621042106253,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            14,
+            "post_cases",
+            7,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.6281621042106251,
+          "replay": 1.6281621042106253,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            15,
+            "post_cases",
+            1,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.7978181441596971,
+          "replay": 0.7978181441596972,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            15,
+            "post_cases",
+            5,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.7978181441596971,
+          "replay": 0.7978181441596972,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            29,
+            "post_cases",
+            3,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.4803231534070347,
+          "replay": 1.480323153407035,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            29,
+            "post_cases",
+            7,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.4803231534070347,
+          "replay": 1.480323153407035,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            37,
+            "post_cases",
+            0,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.9395977806714362,
+          "replay": 0.9395977806714363,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            37,
+            "post_cases",
+            2,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.8791955613428724,
+          "replay": 1.8791955613428726,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            37,
+            "post_cases",
+            4,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.9395977806714362,
+          "replay": 0.9395977806714363,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            37,
+            "post_cases",
+            6,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.8791955613428724,
+          "replay": 1.8791955613428726,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            55,
+            "post_cases",
+            0,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.7921422715461149,
+          "replay": 0.792142271546115,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            55,
+            "post_cases",
+            2,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.5842845430922299,
+          "replay": 1.58428454309223,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            55,
+            "post_cases",
+            4,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 0.7921422715461149,
+          "replay": 0.792142271546115,
+          "absolute_difference": 1.1102230246251565e-16
+        },
+        {
+          "path": [
+            55,
+            "post_cases",
+            6,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.5842845430922299,
+          "replay": 1.58428454309223,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            56,
+            "post_cases",
+            3,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.2704965993715265,
+          "replay": 1.2704965993715267,
+          "absolute_difference": 2.220446049250313e-16
+        },
+        {
+          "path": [
+            56,
+            "post_cases",
+            7,
+            "initial_viable_maternal_per_capita"
+          ],
+          "original": 1.2704965993715265,
+          "replay": 1.2704965993715267,
+          "absolute_difference": 2.220446049250313e-16
+        }
+      ],
+      "maximum_diagnostic_difference": 2.220446049250313e-16
+    }
+  ],
+  "numerical_admission": {
+    "schema": "independent32_replay_admission_v1",
+    "status": "NUMERICS_AND_DECLARED_SHARD_BYTES_MATCH",
+    "groups": 512,
+    "post_trajectories": 4096,
+    "independent_histories": 32,
+    "numerical_agreement": true,
+    "declared_byte_agreement": true,
+    "shard_sha256": {
+      "demographic_independent32_shard_00.json": "a3c4abb97172569ab49a6f4ac517470ec3ffed3db7fb17a85199f254ad2e04c8",
+      "demographic_independent32_shard_01.json": "aec270829c17f55adc6707ad65c63972b1722ae642973e55a64005388c951e96",
+      "demographic_independent32_shard_02.json": "1feba5b72a393ddd0c2c941f3d4f68dc78eb1566218c6e18be9bfaf3540f7e92",
+      "demographic_independent32_shard_03.json": "4ac96f4ca8b25848dc1b546f46a4090b5af1697d1f6a8e87fc9875c85841b4ff",
+      "demographic_independent32_shard_04.json": "f22b8029dca9a92f8df7aace305a2087c10b0d942be78ce4978f41429a0ec0b5",
+      "demographic_independent32_shard_05.json": "7d1f1bc751c1e134dc85bccfb041207f266e9aff0774e164edb8044fd9df25db",
+      "demographic_independent32_shard_06.json": "1c4205964ace429af3c360200344690ffc115cb9b95a75b9626f3f9a360bc748",
+      "demographic_independent32_shard_07.json": "81afee9e054c7fbf5c0a0b03808acaf04b1d8bb78b1d4fb9c528c224b21c31f1"
+    },
+    "byte_mismatches": [],
+    "numerical_mismatches": [],
+    "pooled_primary": {
+      "mean": 0.1083984375,
+      "bootstrap95": [
+        0.0654296875,
+        0.1513671875
+      ]
+    },
+    "per_setting": [
+      {
+        "setting": "delayed_control",
+        "fixed_delta": 0.0390625,
+        "evolving_delta": 0.19140625,
+        "interaction": 0.15234375,
+        "bootstrap95": [
+          0.05859375,
+          0.24609375
+        ]
+      },
+      {
+        "setting": "prior_selfing",
+        "fixed_delta": 0.01171875,
+        "evolving_delta": 0.0625,
+        "interaction": 0.05078125,
+        "bootstrap95": [
+          -0.01953125,
+          0.12109375
+        ]
+      },
+      {
+        "setting": "pollen_discount",
+        "fixed_delta": 0.0546875,
+        "evolving_delta": 0.15234375,
+        "interaction": 0.09765625,
+        "bootstrap95": [
+          0.01953125,
+          0.171875
+        ]
+      },
+      {
+        "setting": "assurance_cost",
+        "fixed_delta": -0.0078125,
+        "evolving_delta": 0.125,
+        "interaction": 0.1328125,
+        "bootstrap95": [
+          0.07421875,
+          0.19140625
+        ]
+      }
+    ],
+    "bootstrap": {
+      "draws": 9999,
+      "seed": 3010082026,
+      "absolute_tolerance": 1e-12,
+      "relative_tolerance": 0
+    },
+    "original_genome_or_runtime_identity_authenticated": false,
+    "scope": "All-start numerical summaries and declared shard byte comparison only. A numerical match does not replace frozen original-identity admission; no retuning, new biological run or natural-order mediation."
+  },
+  "new_biological_histories": 0,
+  "original_annual_genomes_authenticated": false,
+  "historical_executed_runtime_authenticated": false,
+  "limits": [
+    "Direct original ZIP and all recorded-field comparison, not full annual-genome or runtime replay.",
+    "All archived source bytes verified as contents, not proof of historical execution.",
+    "Only the predeclared handoff diagnostic may differ within the existing1e-12 tolerance.",
+    "Earlier byte-divergence receipts preserved; pilot-informed grid and32-history study unit unchanged."
+  ],
+  "auditor_sha256": "b960fcba5c569c2568d4b26701084166b81a385d30841f3d509431f8c4ad3d68",
+  "numerical_auditor_sha256": "0bf6f5d67668ec7f0dec60a72aa62fff2d5bf7cfb4fb9509ecd1bf2e49cc0d33",
+  "design_sha256": "a911f9a9628090b9eb49893cafd032c54c35dab5d13a23b3c0e9dea2375aabf4",
+  "frozen_sha256": "0ca00a66b0f92180a198ff2199eebbe98c729da18212dee1f90f4c292bc3c869"
+}

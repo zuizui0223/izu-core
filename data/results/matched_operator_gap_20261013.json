@@ -1,0 +1,388 @@
+{
+  "status": "COMPLETE_MATCHED_OPERATOR_INVESTMENT_ACCOUNTING_NOT_UNIQUE_CAUSAL_ALLOCATION",
+  "cases": 320,
+  "updates": 64000,
+  "density_references": [
+    {
+      "context": [
+        "causal_main",
+        0.0,
+        "empty"
+      ],
+      "archive": "11b1a2b7232e15e9ad49c936.npz",
+      "sha256": "1fa4de5e5e31c2a2fead749f8d3267aba74467639ce1d394aa37f9e412f61e2e"
+    },
+    {
+      "context": [
+        "causal_confirmation",
+        0.125,
+        "separated"
+      ],
+      "archive": "2189b48a90d6789016125743.npz",
+      "sha256": "508b691e6ec38c28ec3acba257f56e6ec75e81fab185a2c059c0f03df81d6f9d"
+    },
+    {
+      "context": [
+        "causal_main",
+        1.0,
+        "matched"
+      ],
+      "archive": "59a88465d4eacf887c23715e.npz",
+      "sha256": "9018b2581094318f7d1f04519e25c2774e51c0c6f98f773d2be0c0c10614bec0"
+    },
+    {
+      "context": [
+        "causal_confirmation",
+        0.125,
+        "matched"
+      ],
+      "archive": "62f5f9752bb8077216f1c9df.npz",
+      "sha256": "99600f8e93d6b01d868dc213077fba56ec604fb87150faddb824565a0f8a2929"
+    },
+    {
+      "context": [
+        "causal_main",
+        0.125,
+        "separated"
+      ],
+      "archive": "8b2d572effe103b3051d44ba.npz",
+      "sha256": "c665ddeeb2275cbe3fec83269342c09004016689c10dde22c9014a53ac74ac5f"
+    },
+    {
+      "context": [
+        "causal_confirmation",
+        0.0,
+        "empty"
+      ],
+      "archive": "8ddbc6b0019ce776e1d489b0.npz",
+      "sha256": "b413d58a8343f4ac94b03dcd237d9dc60b75b5bdedfbfb5561510c39617777d8"
+    },
+    {
+      "context": [
+        "causal_confirmation",
+        1.0,
+        "separated"
+      ],
+      "archive": "a87c825c9e8595862ed1124b.npz",
+      "sha256": "7e5a2ac4f986fc0d3cb984ddf83804ed0adb99d3333795cbffd4d96ee6409dae"
+    },
+    {
+      "context": [
+        "causal_main",
+        1.0,
+        "separated"
+      ],
+      "archive": "aabc01d31992d76a7314abba.npz",
+      "sha256": "42e3832cbce2aea9f6e26950f4ae4f3cc3977585cf06c242aaae2e34ac0658b2"
+    },
+    {
+      "context": [
+        "causal_confirmation",
+        1.0,
+        "matched"
+      ],
+      "archive": "ac269e25a9686718c8ca5f47.npz",
+      "sha256": "714e3188bb7e29c55b6d24d97809ec3ef2370de4357a61b6db1f1be78147597b"
+    },
+    {
+      "context": [
+        "causal_main",
+        0.125,
+        "matched"
+      ],
+      "archive": "e903280aae9748776a94480f.npz",
+      "sha256": "f76b75181e21fb36f7d9f75112fb9ee69e84910faf769700513866b4f79d7fa9"
+    }
+  ],
+  "cohort_sha256": "7ae00916ed2cbb38323c3fb9ffc5824de3e8272df1f5a35785842c316191f918",
+  "input_sha256": "f0fd126f638e1c6bd130e640ce4491b3bb47aac3da1838359a902776c9a4e037",
+  "accounting_zip_sha256": "115636a338c847fdf1f80ae9e39cdfc622fcf38c7f70575e37d245bf7c41b098",
+  "source_manifest": "4b23f2106d798215c2e466191ac88e6922ef209c909825b9205b75647898afff",
+  "density_source_raw_sha256": "1507ab10ee6a297f35da61095deab51aaaac68ef67b3a1bb34a5f0cc998ce04e",
+  "density_source_normalized_sha256": "e293b031372da4f3b5d5b5ed9ffdea95b5a5cc449904f9dfa8880b8f0f2e4edf",
+  "contexts": [
+    {
+      "context": [
+        "causal_confirmation",
+        0.0,
+        "empty"
+      ],
+      "cases": 32,
+      "endpoint_gap": 0.015623485196570253,
+      "initial_gap": 0.0,
+      "components": {
+        "realized_sampling_transmission": -0.002402110996615971,
+        "finite_parent_operator": 1.861358289723114e-15,
+        "current_census_intervention": 1.734723475976807e-18,
+        "remaining_path_feedback": 0.018025596193184362
+      }
+    },
+    {
+      "context": [
+        "causal_confirmation",
+        0.125,
+        "matched"
+      ],
+      "cases": 32,
+      "endpoint_gap": 0.04804717669834074,
+      "initial_gap": 0.0,
+      "components": {
+        "realized_sampling_transmission": -0.00045119071573155103,
+        "finite_parent_operator": -0.004155251844776303,
+        "current_census_intervention": 0.0,
+        "remaining_path_feedback": 0.052653619258848594
+      }
+    },
+    {
+      "context": [
+        "causal_confirmation",
+        0.125,
+        "separated"
+      ],
+      "cases": 32,
+      "endpoint_gap": 0.01470396372597573,
+      "initial_gap": 0.0,
+      "components": {
+        "realized_sampling_transmission": -0.006102669682270311,
+        "finite_parent_operator": -0.0012334398381832826,
+        "current_census_intervention": 0.0,
+        "remaining_path_feedback": 0.02204007324642932
+      }
+    },
+    {
+      "context": [
+        "causal_confirmation",
+        1.0,
+        "matched"
+      ],
+      "cases": 32,
+      "endpoint_gap": -0.026170548140130128,
+      "initial_gap": 0.0,
+      "components": {
+        "realized_sampling_transmission": 0.0006764086151876281,
+        "finite_parent_operator": -0.0035176137339721497,
+        "current_census_intervention": 0.0,
+        "remaining_path_feedback": -0.023329343021345608
+      }
+    },
+    {
+      "context": [
+        "causal_confirmation",
+        1.0,
+        "separated"
+      ],
+      "cases": 32,
+      "endpoint_gap": -0.06529004902680687,
+      "initial_gap": 0.0,
+      "components": {
+        "realized_sampling_transmission": 0.009899241373290143,
+        "finite_parent_operator": -0.0062992729246458025,
+        "current_census_intervention": 0.0,
+        "remaining_path_feedback": -0.0688900174754512
+      }
+    },
+    {
+      "context": [
+        "causal_main",
+        0.0,
+        "empty"
+      ],
+      "cases": 32,
+      "endpoint_gap": 0.07030765116165533,
+      "initial_gap": 0.0,
+      "components": {
+        "realized_sampling_transmission": 0.007544645423560968,
+        "finite_parent_operator": 4.045375145977914e-15,
+        "current_census_intervention": 1.214306433183765e-17,
+        "remaining_path_feedback": 0.0627630057380903
+      }
+    },
+    {
+      "context": [
+        "causal_main",
+        0.125,
+        "matched"
+      ],
+      "cases": 32,
+      "endpoint_gap": 0.1223774019769499,
+      "initial_gap": 0.0,
+      "components": {
+        "realized_sampling_transmission": 0.030178741689771086,
+        "finite_parent_operator": -0.0054045130532228945,
+        "current_census_intervention": 0.0,
+        "remaining_path_feedback": 0.09760317334040172
+      }
+    },
+    {
+      "context": [
+        "causal_main",
+        0.125,
+        "separated"
+      ],
+      "cases": 32,
+      "endpoint_gap": 0.04669824719731336,
+      "initial_gap": 0.0,
+      "components": {
+        "realized_sampling_transmission": -0.022446117557560902,
+        "finite_parent_operator": -0.0014975775625832057,
+        "current_census_intervention": 0.0,
+        "remaining_path_feedback": 0.07064194231745746
+      }
+    },
+    {
+      "context": [
+        "causal_main",
+        1.0,
+        "matched"
+      ],
+      "cases": 32,
+      "endpoint_gap": -0.00814967481193074,
+      "initial_gap": 0.0,
+      "components": {
+        "realized_sampling_transmission": 0.0001734350035656959,
+        "finite_parent_operator": -0.0020537566721632247,
+        "current_census_intervention": 0.0,
+        "remaining_path_feedback": -0.006269353143333212
+      }
+    },
+    {
+      "context": [
+        "causal_main",
+        1.0,
+        "separated"
+      ],
+      "cases": 32,
+      "endpoint_gap": -0.02998050548702032,
+      "initial_gap": 0.0,
+      "components": {
+        "realized_sampling_transmission": -0.0027159703191130223,
+        "finite_parent_operator": -0.0048247932472895525,
+        "current_census_intervention": 0.0,
+        "remaining_path_feedback": -0.022439741920617748
+      }
+    }
+  ],
+  "max_closure_error": 0.0,
+  "max_source_account_error": 3.3306690738754696e-16,
+  "scope": "Post-outcome signed accounting; census/parent terms conditional on actual genotypes. Remaining path feedback includes genetic feedback and admitted numerical representation error; not pure drift, autonomous intervention or natural-order benefit.",
+  "actual_readback": {
+    "status": "ACTUAL_GITHUB_ALL320_AND64000_FULL_READBACK_MATCH",
+    "run": 38306641012,
+    "source": "3bb49963ab11cbc749904428a61eab90bcdb9c5f",
+    "provider_sha256": "2327353fd78a386da4528f9738a5346c8a944c942e35bed1850bbd7f183bbb4e",
+    "files": 321,
+    "float_checks": 707282,
+    "max_absolute_difference": 8.881784197001252e-15,
+    "scope": "Same-state retrospective accounting, not autonomous causal allocation."
+  },
+  "independent_pair_matrix": {
+    "status": "ALL64000_DIRECT_PAIR_MATRIX_MEANS_AND_SIGNED_ARITHMETIC_MATCH",
+    "cases": 320,
+    "updates": 64000,
+    "max_absolute_error": 1.4432899320127035e-15,
+    "producer_imported": false,
+    "secondary_postfixation": [
+      {
+        "context": [
+          "causal_confirmation",
+          0.0,
+          "empty"
+        ],
+        "cases": 32,
+        "fixed_before_final": 32,
+        "mean_postfix_gap_change_all32": 0.01487884377208529
+      },
+      {
+        "context": [
+          "causal_confirmation",
+          0.125,
+          "matched"
+        ],
+        "cases": 32,
+        "fixed_before_final": 30,
+        "mean_postfix_gap_change_all32": 0.04451638194046655
+      },
+      {
+        "context": [
+          "causal_confirmation",
+          0.125,
+          "separated"
+        ],
+        "cases": 32,
+        "fixed_before_final": 31,
+        "mean_postfix_gap_change_all32": 0.021168071782263244
+      },
+      {
+        "context": [
+          "causal_confirmation",
+          1.0,
+          "matched"
+        ],
+        "cases": 32,
+        "fixed_before_final": 29,
+        "mean_postfix_gap_change_all32": -0.018264011213411684
+      },
+      {
+        "context": [
+          "causal_confirmation",
+          1.0,
+          "separated"
+        ],
+        "cases": 32,
+        "fixed_before_final": 27,
+        "mean_postfix_gap_change_all32": -0.0376363340671892
+      },
+      {
+        "context": [
+          "causal_main",
+          0.0,
+          "empty"
+        ],
+        "cases": 32,
+        "fixed_before_final": 32,
+        "mean_postfix_gap_change_all32": 0.0370902139797703
+      },
+      {
+        "context": [
+          "causal_main",
+          0.125,
+          "matched"
+        ],
+        "cases": 32,
+        "fixed_before_final": 31,
+        "mean_postfix_gap_change_all32": 0.08153126021241901
+      },
+      {
+        "context": [
+          "causal_main",
+          0.125,
+          "separated"
+        ],
+        "cases": 32,
+        "fixed_before_final": 32,
+        "mean_postfix_gap_change_all32": 0.050577765755684664
+      },
+      {
+        "context": [
+          "causal_main",
+          1.0,
+          "matched"
+        ],
+        "cases": 32,
+        "fixed_before_final": 29,
+        "mean_postfix_gap_change_all32": -0.01693489778356056
+      },
+      {
+        "context": [
+          "causal_main",
+          1.0,
+          "separated"
+        ],
+        "cases": 32,
+        "fixed_before_final": 30,
+        "mean_postfix_gap_change_all32": -0.022088749425356994
+      }
+    ],
+    "scope": "Independent same-state equations and retrospective post-fixation identity; no new biological futures or unique causal mediation."
+  }
+}

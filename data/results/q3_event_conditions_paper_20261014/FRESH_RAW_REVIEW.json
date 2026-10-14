@@ -1,0 +1,10 @@
+{
+  "status": "INDEPENDENT_RAW_RECOMPUTATION_PASS",
+  "states": 64,
+  "pairs": 3904,
+  "verified_state_fields": 20,
+  "verified_pair_fields": 20,
+  "biological_updates": 0,
+  "new_random_draws": 0,
+  "verifier_sha256": "126d1b5e5ba008ef872ad1ae09553f05092edb31fda9cf4f160defaaaa394198"
+}

@@ -12,3 +12,42 @@ docs/atom_comparison_20261011/resolution_figures_20261011/* -text whitespace=cr-
 docs/atom_comparison_20261011/resolution_figures_20261011/*.svg -whitespace
 data/results/four_question_resolution_20261011/* -text whitespace=cr-at-eol
 docs/four_question_resolution_20261011/* -text whitespace=cr-at-eol
+
+# Retrospective response-onset source and receipts retain executed byte identities.
+scripts/expected_response_onset_20261013/* -text whitespace=cr-at-eol
+data/results/expected_response_onset_20261013/* -text whitespace=cr-at-eol
+
+scripts/kernel_expression_accounting_20261013/* -text whitespace=cr-at-eol
+data/results/kernel_expression_accounting_20261013/* -text whitespace=cr-at-eol
+
+scripts/kernel_channel_factorial_20261013/**/* -text whitespace=cr-at-eol
+data/results/kernel_channel_factorial_20261013/* -text whitespace=cr-at-eol
+
+scripts/directional_access_20261013/* -text whitespace=cr-at-eol
+data/results/directional_access_20261013/* -text whitespace=cr-at-eol
+scripts/audit_pr490_original_archive_20261014.py -text whitespace=cr-at-eol
+scripts/pr490_original_intake_20261014/* -text whitespace=cr-at-eol
+data/results/pr490_original_archive_*_20261014.json -text whitespace=cr-at-eol
+scripts/low_allele_loss_20261014/** -text whitespace=cr-at-eol
+data/results/low_allele_loss_20261014/** -text whitespace=cr-at-eol
+data/results/clock_native_technical_20261014/** -text whitespace=cr-at-eol
+data/results/genetic_access_pilot_20261014/** -text whitespace=cr-at-eol
+
+data/results/first_meiosis_access_20261014/** -text whitespace=cr-at-eol
+
+# Preserve newly admitted original control/audit source and receipt byte identities.
+data/results/assurance_parent_control_20261014/** -text whitespace=cr-at-eol
+data/results/restoration_access*_20261014.* -text whitespace=cr-at-eol
+scripts/audit_restoration_access_20261014.py -text whitespace=cr-at-eol
+scripts/verify_restoration_access_independent_20261014.py -text whitespace=cr-at-eol
+docs/CHAPTER2_RESTORATION_ACCESS_AUDIT_20261014.md -text whitespace=cr-at-eol
+docs/superpowers/plans/2026-10-14-restoration-access-audit.md -text whitespace=cr-at-eol
+tests/test_restoration_access_20261014.py -text whitespace=cr-at-eol
+
+# Frozen source records retain their original trailing blank line.
+data/results/assurance_parent_control_20261014/ANALYSIS_SOURCE.py -text whitespace=cr-at-eol,-blank-at-eof
+data/results/assurance_parent_control_20261014/INDEPENDENT_ARITHMETIC_SOURCE.py -text whitespace=cr-at-eol,-blank-at-eof
+
+# Preserve authenticated original Q3 source, results and independent admission bytes.
+data/results/q3_conditional_paper_20261014/** -text whitespace=cr-at-eol
+data/results/q3_event_conditions_paper_20261014/** -text whitespace=cr-at-eol

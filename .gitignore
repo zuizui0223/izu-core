@@ -13,3 +13,8 @@ dist/
 data/results/**/endpoints.csv.gz
 data/results/**/case_receipts.csv
 data/results/**/*.svg
+
+# Full signed kernel terms are immutable release companions, not checkout payloads.
+/data/results/kernel_expression_accounting_20261013/ALL_STATE_TIME_CONTRIBUTIONS.npz
+
+data/results/kernel_expression_accounting_20261013/READOUT.json

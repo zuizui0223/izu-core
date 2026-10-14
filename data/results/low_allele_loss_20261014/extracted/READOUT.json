@@ -1,0 +1,504 @@
+{
+  "status": "LAST_LOSS_CONDITIONAL_PARENT_AND_TRANSMISSION_ACCOUNTING_NOT_HISTORICAL_CAUSAL_SHARES",
+  "cases": 2304,
+  "eligible_loss": 1238,
+  "statuses": {
+    "no_exclusion": 1066,
+    "eligible_loss": 1238
+  },
+  "direction_counts": {
+    "favouring_needed": 315,
+    "opposing_needed": 923,
+    "screened_near_zero": 0
+  },
+  "original_categories": {
+    "assurance_first": 335,
+    "investment_first": 435,
+    "near_simultaneous": 358,
+    "assurance_only": 895,
+    "investment_only": 10,
+    "neither": 271
+  },
+  "expected_I_negative_with_needed_opposed": 84,
+  "partition_max_error": 2.3418766925686896e-17,
+  "return_max_error": 1.4210854715202004e-13,
+  "cells": [
+    {
+      "block": "main",
+      "context": 0,
+      "cases": 128,
+      "eligible_loss": 13,
+      "statuses": {
+        "no_exclusion": 115,
+        "eligible_loss": 13
+      },
+      "direction_counts": {
+        "favouring_needed": 9,
+        "opposing_needed": 4,
+        "screened_near_zero": 0
+      },
+      "original_categories": {
+        "assurance_first": 24,
+        "investment_first": 51,
+        "near_simultaneous": 46,
+        "assurance_only": 7,
+        "investment_only": 0,
+        "neither": 0
+      },
+      "expected_I_negative_with_needed_opposed": 0,
+      "partition_max_error": 1.951563910473908e-17,
+      "return_max_error": 0.0
+    },
+    {
+      "block": "main",
+      "context": 1,
+      "cases": 128,
+      "eligible_loss": 12,
+      "statuses": {
+        "no_exclusion": 116,
+        "eligible_loss": 12
+      },
+      "direction_counts": {
+        "favouring_needed": 8,
+        "opposing_needed": 4,
+        "screened_near_zero": 0
+      },
+      "original_categories": {
+        "assurance_first": 30,
+        "investment_first": 49,
+        "near_simultaneous": 38,
+        "assurance_only": 11,
+        "investment_only": 0,
+        "neither": 0
+      },
+      "expected_I_negative_with_needed_opposed": 0,
+      "partition_max_error": 7.37257477290143e-18,
+      "return_max_error": 2.842170943040401e-14
+    },
+    {
+      "block": "main",
+      "context": 2,
+      "cases": 128,
+      "eligible_loss": 10,
+      "statuses": {
+        "no_exclusion": 118,
+        "eligible_loss": 10
+      },
+      "direction_counts": {
+        "favouring_needed": 6,
+        "opposing_needed": 4,
+        "screened_near_zero": 0
+      },
+      "original_categories": {
+        "assurance_first": 24,
+        "investment_first": 49,
+        "near_simultaneous": 47,
+        "assurance_only": 8,
+        "investment_only": 0,
+        "neither": 0
+      },
+      "expected_I_negative_with_needed_opposed": 1,
+      "partition_max_error": 7.37257477290143e-18,
+      "return_max_error": 8.881784197001252e-16
+    },
+    {
+      "block": "main",
+      "context": 3,
+      "cases": 128,
+      "eligible_loss": 41,
+      "statuses": {
+        "no_exclusion": 87,
+        "eligible_loss": 41
+      },
+      "direction_counts": {
+        "favouring_needed": 26,
+        "opposing_needed": 15,
+        "screened_near_zero": 0
+      },
+      "original_categories": {
+        "assurance_first": 33,
+        "investment_first": 41,
+        "near_simultaneous": 18,
+        "assurance_only": 36,
+        "investment_only": 0,
+        "neither": 0
+      },
+      "expected_I_negative_with_needed_opposed": 2,
+      "partition_max_error": 1.0354130747236567e-17,
+      "return_max_error": 2.842170943040401e-14
+    },
+    {
+      "block": "main",
+      "context": 4,
+      "cases": 128,
+      "eligible_loss": 16,
+      "statuses": {
+        "no_exclusion": 112,
+        "eligible_loss": 16
+      },
+      "direction_counts": {
+        "favouring_needed": 10,
+        "opposing_needed": 6,
+        "screened_near_zero": 0
+      },
+      "original_categories": {
+        "assurance_first": 33,
+        "investment_first": 46,
+        "near_simultaneous": 36,
+        "assurance_only": 13,
+        "investment_only": 0,
+        "neither": 0
+      },
+      "expected_I_negative_with_needed_opposed": 4,
+      "partition_max_error": 9.324138683375338e-18,
+      "return_max_error": 5.684341886080802e-14
+    },
+    {
+      "block": "main",
+      "context": 5,
+      "cases": 128,
+      "eligible_loss": 127,
+      "statuses": {
+        "eligible_loss": 127,
+        "no_exclusion": 1
+      },
+      "direction_counts": {
+        "favouring_needed": 6,
+        "opposing_needed": 121,
+        "screened_near_zero": 0
+      },
+      "original_categories": {
+        "assurance_first": 0,
+        "investment_first": 1,
+        "near_simultaneous": 0,
+        "assurance_only": 87,
+        "investment_only": 2,
+        "neither": 38
+      },
+      "expected_I_negative_with_needed_opposed": 2,
+      "partition_max_error": 8.890457814381136e-18,
+      "return_max_error": 1.4210854715202004e-13
+    },
+    {
+      "block": "main",
+      "context": 6,
+      "cases": 128,
+      "eligible_loss": 77,
+      "statuses": {
+        "eligible_loss": 77,
+        "no_exclusion": 51
+      },
+      "direction_counts": {
+        "favouring_needed": 32,
+        "opposing_needed": 45,
+        "screened_near_zero": 0
+      },
+      "original_categories": {
+        "assurance_first": 26,
+        "investment_first": 23,
+        "near_simultaneous": 9,
+        "assurance_only": 68,
+        "investment_only": 1,
+        "neither": 1
+      },
+      "expected_I_negative_with_needed_opposed": 10,
+      "partition_max_error": 1.214306433183765e-17,
+      "return_max_error": 5.684341886080802e-14
+    },
+    {
+      "block": "main",
+      "context": 7,
+      "cases": 128,
+      "eligible_loss": 128,
+      "statuses": {
+        "eligible_loss": 128
+      },
+      "direction_counts": {
+        "favouring_needed": 10,
+        "opposing_needed": 118,
+        "screened_near_zero": 0
+      },
+      "original_categories": {
+        "assurance_first": 0,
+        "investment_first": 0,
+        "near_simultaneous": 0,
+        "assurance_only": 55,
+        "investment_only": 1,
+        "neither": 72
+      },
+      "expected_I_negative_with_needed_opposed": 1,
+      "partition_max_error": 1.6263032587282567e-17,
+      "return_max_error": 5.684341886080802e-14
+    },
+    {
+      "block": "main",
+      "context": 8,
+      "cases": 128,
+      "eligible_loss": 124,
+      "statuses": {
+        "eligible_loss": 124,
+        "no_exclusion": 4
+      },
+      "direction_counts": {
+        "favouring_needed": 9,
+        "opposing_needed": 115,
+        "screened_near_zero": 0
+      },
+      "original_categories": {
+        "assurance_first": 0,
+        "investment_first": 5,
+        "near_simultaneous": 0,
+        "assurance_only": 99,
+        "investment_only": 2,
+        "neither": 22
+      },
+      "expected_I_negative_with_needed_opposed": 3,
+      "partition_max_error": 2.168404344971009e-17,
+      "return_max_error": 5.684341886080802e-14
+    },
+    {
+      "block": "confirmation",
+      "context": 0,
+      "cases": 128,
+      "eligible_loss": 33,
+      "statuses": {
+        "no_exclusion": 95,
+        "eligible_loss": 33
+      },
+      "direction_counts": {
+        "favouring_needed": 12,
+        "opposing_needed": 21,
+        "screened_near_zero": 0
+      },
+      "original_categories": {
+        "assurance_first": 25,
+        "investment_first": 36,
+        "near_simultaneous": 36,
+        "assurance_only": 31,
+        "investment_only": 0,
+        "neither": 0
+      },
+      "expected_I_negative_with_needed_opposed": 9,
+      "partition_max_error": 1.702197410802242e-17,
+      "return_max_error": 0.0
+    },
+    {
+      "block": "confirmation",
+      "context": 1,
+      "cases": 128,
+      "eligible_loss": 43,
+      "statuses": {
+        "eligible_loss": 43,
+        "no_exclusion": 85
+      },
+      "direction_counts": {
+        "favouring_needed": 24,
+        "opposing_needed": 19,
+        "screened_near_zero": 0
+      },
+      "original_categories": {
+        "assurance_first": 26,
+        "investment_first": 36,
+        "near_simultaneous": 32,
+        "assurance_only": 34,
+        "investment_only": 0,
+        "neither": 0
+      },
+      "expected_I_negative_with_needed_opposed": 8,
+      "partition_max_error": 1.9949319973733282e-17,
+      "return_max_error": 5.684341886080802e-14
+    },
+    {
+      "block": "confirmation",
+      "context": 2,
+      "cases": 128,
+      "eligible_loss": 36,
+      "statuses": {
+        "no_exclusion": 92,
+        "eligible_loss": 36
+      },
+      "direction_counts": {
+        "favouring_needed": 20,
+        "opposing_needed": 16,
+        "screened_near_zero": 0
+      },
+      "original_categories": {
+        "assurance_first": 27,
+        "investment_first": 32,
+        "near_simultaneous": 38,
+        "assurance_only": 31,
+        "investment_only": 0,
+        "neither": 0
+      },
+      "expected_I_negative_with_needed_opposed": 6,
+      "partition_max_error": 2.3418766925686896e-17,
+      "return_max_error": 1.4210854715202004e-14
+    },
+    {
+      "block": "confirmation",
+      "context": 3,
+      "cases": 128,
+      "eligible_loss": 70,
+      "statuses": {
+        "eligible_loss": 70,
+        "no_exclusion": 58
+      },
+      "direction_counts": {
+        "favouring_needed": 44,
+        "opposing_needed": 26,
+        "screened_near_zero": 0
+      },
+      "original_categories": {
+        "assurance_first": 34,
+        "investment_first": 14,
+        "near_simultaneous": 14,
+        "assurance_only": 65,
+        "investment_only": 1,
+        "neither": 0
+      },
+      "expected_I_negative_with_needed_opposed": 13,
+      "partition_max_error": 1.3877787807814457e-17,
+      "return_max_error": 5.684341886080802e-14
+    },
+    {
+      "block": "confirmation",
+      "context": 4,
+      "cases": 128,
+      "eligible_loss": 40,
+      "statuses": {
+        "no_exclusion": 88,
+        "eligible_loss": 40
+      },
+      "direction_counts": {
+        "favouring_needed": 22,
+        "opposing_needed": 18,
+        "screened_near_zero": 0
+      },
+      "original_categories": {
+        "assurance_first": 30,
+        "investment_first": 29,
+        "near_simultaneous": 32,
+        "assurance_only": 37,
+        "investment_only": 0,
+        "neither": 0
+      },
+      "expected_I_negative_with_needed_opposed": 8,
+      "partition_max_error": 1.3877787807814457e-17,
+      "return_max_error": 2.842170943040401e-14
+    },
+    {
+      "block": "confirmation",
+      "context": 5,
+      "cases": 128,
+      "eligible_loss": 128,
+      "statuses": {
+        "eligible_loss": 128
+      },
+      "direction_counts": {
+        "favouring_needed": 9,
+        "opposing_needed": 119,
+        "screened_near_zero": 0
+      },
+      "original_categories": {
+        "assurance_first": 2,
+        "investment_first": 0,
+        "near_simultaneous": 1,
+        "assurance_only": 80,
+        "investment_only": 1,
+        "neither": 44
+      },
+      "expected_I_negative_with_needed_opposed": 1,
+      "partition_max_error": 1.1492543028346347e-17,
+      "return_max_error": 1.1368683772161603e-13
+    },
+    {
+      "block": "confirmation",
+      "context": 6,
+      "cases": 128,
+      "eligible_loss": 95,
+      "statuses": {
+        "eligible_loss": 95,
+        "no_exclusion": 33
+      },
+      "direction_counts": {
+        "favouring_needed": 51,
+        "opposing_needed": 44,
+        "screened_near_zero": 0
+      },
+      "original_categories": {
+        "assurance_first": 12,
+        "investment_first": 16,
+        "near_simultaneous": 9,
+        "assurance_only": 90,
+        "investment_only": 0,
+        "neither": 1
+      },
+      "expected_I_negative_with_needed_opposed": 9,
+      "partition_max_error": 8.673617379884035e-18,
+      "return_max_error": 5.684341886080802e-14
+    },
+    {
+      "block": "confirmation",
+      "context": 7,
+      "cases": 128,
+      "eligible_loss": 128,
+      "statuses": {
+        "eligible_loss": 128
+      },
+      "direction_counts": {
+        "favouring_needed": 9,
+        "opposing_needed": 119,
+        "screened_near_zero": 0
+      },
+      "original_categories": {
+        "assurance_first": 0,
+        "investment_first": 0,
+        "near_simultaneous": 0,
+        "assurance_only": 49,
+        "investment_only": 0,
+        "neither": 79
+      },
+      "expected_I_negative_with_needed_opposed": 0,
+      "partition_max_error": 2.3418766925686896e-17,
+      "return_max_error": 5.684341886080802e-14
+    },
+    {
+      "block": "confirmation",
+      "context": 8,
+      "cases": 128,
+      "eligible_loss": 117,
+      "statuses": {
+        "eligible_loss": 117,
+        "no_exclusion": 11
+      },
+      "direction_counts": {
+        "favouring_needed": 8,
+        "opposing_needed": 109,
+        "screened_near_zero": 0
+      },
+      "original_categories": {
+        "assurance_first": 9,
+        "investment_first": 7,
+        "near_simultaneous": 2,
+        "assurance_only": 94,
+        "investment_only": 2,
+        "neither": 14
+      },
+      "expected_I_negative_with_needed_opposed": 7,
+      "partition_max_error": 1.9949319973733282e-17,
+      "return_max_error": 5.684341886080802e-14
+    }
+  ],
+  "original_outer_sha256": "819741aa4a9f5bc1aaf2dadddbd56b79d158fc9295d07fc3bffe362693fc056a",
+  "input_cases_sha256": "5c8e3fe38d7f2953d2ba8b54e716261c7bdc9d4a92bf928182b5fcf621e5e665",
+  "source_sha256": "58d11dff4a313fba7fde3ecc598126012f2aeb0d0517919563ee3b9531ebff6e",
+  "protocol_sha256": "1587dcf1d977f657babdf94cd9998bd8549661890c4b19427ef54e232f0535ad",
+  "new_biological_histories": 0,
+  "reproduction_advances": 0,
+  "limits": [
+    "Loss-selected one-transition probabilities, not prospective hazards/p-values.",
+    "Residual combines parent choice and segregation, not pure drift or unique historical mediation.",
+    "No assurance causation, continuous ecological root or natural-order future benefit identified."
+  ],
+  "cases_sha256": "f1f0854d5cc73aadaf45a5980ac54d47dda476589f51e5e35fe4e293d33a60d3"
+}

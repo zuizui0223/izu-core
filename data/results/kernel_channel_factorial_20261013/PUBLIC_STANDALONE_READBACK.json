@@ -1,0 +1,8 @@
+{
+  "status": "PUBLIC_COMPANION_AND_STANDALONE_VERIFICATION_MATCH",
+  "public_zip_sha256": "c7c7c091d8ea202fecebcb9dd31605b86add813ead52587bbe6c129c94bdaaaf",
+  "payloads_verified": 19,
+  "standalone_independent_receipt_sha256": "60fb6306a1684d0e6589d4b8d5a0717b65b12760f32fec241339606f38945d4a",
+  "new_biological_histories": 0,
+  "original_V2_STOP_retained": true
+}
