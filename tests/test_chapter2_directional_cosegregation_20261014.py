@@ -165,3 +165,43 @@ def test_source_guard_rejects_wrong_census_or_genotype_model():
     wrong=population.subset(altered, np.arange(2))
     with pytest.raises(ValueError,match="48-adult"):
         directional_f1(wrong,ledger)
+
+
+def test_zero_signed_deviation_covariance_is_independently_enumerated():
+    """Both directions can co-occur more often without signed covariance."""
+    doc=original_fixture()
+    c,vis=original_context(doc,"main",3)
+    original=balanced_source(5)
+    edited=balanced_cocarriage(original,5,12)
+    led=reproduction.reproduce(edited,vis,c)
+    p=led.outcross.copy()
+    np.fill_diagonal(p,np.diag(p)+led.self_viable)
+    p/=p.sum()
+    product=meanA=meanI=0.
+    for father in range(48):
+        for mother in range(48):
+            weight=float(p[father,mother])
+            if weight==0: continue
+            Amean=(edited.alleles[father,2].mean()+
+                   edited.alleles[mother,2].mean())/2
+            Imean=(edited.alleles[father,1].mean()+
+                   edited.alleles[mother,1].mean())/2
+            for aF in (0,1):
+                for aM in (0,1):
+                    deltaA=(edited.alleles[father,2,aF]+
+                            edited.alleles[mother,2,aM])/2-Amean
+                    for iF in (0,1):
+                        for iM in (0,1):
+                            deltaI=(edited.alleles[father,1,iF]+
+                                    edited.alleles[mother,1,iM])/2-Imean
+                            w=weight/16
+                            meanA+=w*deltaA
+                            meanI+=w*deltaI
+                            product+=w*deltaA*deltaI
+    assert abs(meanA)<1e-14
+    assert abs(meanI)<1e-14
+    assert abs(product-meanA*meanI)<1e-14
+    # Quadrant tails are nevertheless nonzero.
+    joint=directional_f1(edited,led)
+    assert joint["p_A_up_and_I_down"]>0
+    assert joint["p_A_up_and_I_up"]>0
