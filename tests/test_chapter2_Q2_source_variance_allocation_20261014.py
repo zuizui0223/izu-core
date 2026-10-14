@@ -6,6 +6,7 @@ from scripts.audit_chapter2_Q2_source_variance_allocation_20261014 import (
     STATUS,
     allocation_variance,
     source_cluster_se_from_supplied_paired_differences,
+    source_overhead_cost_tradeoff,
     technical_report,
 )
 
@@ -92,3 +93,40 @@ def test_unauthorized_or_inadmissible_statistic_inputs_are_rejected(bad):
 def test_source_cluster_statistics_reject_invalid_or_pseudo_independent_cases(bad):
     with pytest.raises(ValueError):
         source_cluster_se_from_supplied_paired_differences(bad)
+
+
+def test_source_overhead_changes_the_candidate_history_tradeoff():
+    """All B/W and cost ratios are hypothetical, NOT estimated from Model3."""
+    scenarios=[
+        (0.04,.25,1.,1.,2.5),
+        (0.04,.25,4.,1.,5.0),
+        (0.04,.25,16.,1.,10.0),
+        (0.01,.25,4.,1.,10.0),
+    ]
+    for b,w,source_cost,history_cost,optimum in scenarios:
+        r=source_overhead_cost_tradeoff(b,w,source_cost,history_cost)
+        assert isclose(r["continuous_history_count_per_source"],
+                       optimum,abs_tol=1e-13)
+        assert r["not_a_source_distribution_effect_estimate"] is True
+        assert r["biological_futures_or_source_production"]==0
+    # With no source heterogeneity and nonzero setup cost, the formal
+    # continuous fixed-cost minimum has no finite interior H.
+    assert source_overhead_cost_tradeoff(0,.25,4,1)[
+        "continuous_history_count_per_source"] is None
+    # With negligible source setup overhead, one history/source can
+    # minimize the simplified objective, conditional on B>0.
+    assert source_overhead_cost_tradeoff(.04,.25,0,1)[
+        "continuous_history_count_per_source"]==1
+    report=technical_report()
+    assert len(report["hypothetical_cost_overhead_sensitivity"])==5
+
+
+@pytest.mark.parametrize("values",[
+    (float("nan"),.25,1.,1.),(.04,float("inf"),1.,1.),
+    (.04,.25,-1.,1.),(.04,.25,1.,0.),
+    (.04,.25,1.,True),(.04,.25,1.,float("nan")),
+    (.9,.25,1.,1.),(True,.25,1.,1.),
+])
+def test_source_cost_allocation_requires_finite_plausible_hypothetical_inputs(values):
+    with pytest.raises(ValueError):
+        source_overhead_cost_tradeoff(*values)
