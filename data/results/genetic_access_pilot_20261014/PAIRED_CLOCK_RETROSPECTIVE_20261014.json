@@ -1,5 +1,5 @@
 {
-  "schema": "chapter2_original_1536_pilot_paired_clock_posthoc_readout_v1",
+  "schema": "chapter2_original_1536_pilot_paired_clock_posthoc_readout_v2",
   "status": "EXPLORATORY_RETROSPECTIVE_EXISTING_SOURCE_NOT_INDEPENDENT_FOUNDER_CONFIRMATION",
   "source_verified_receipt_git_blobs": {
     "main_c0": "09bcbf77d1aa0e5da755d95da5f342ded00aecf2",
@@ -124,6 +124,70 @@
       "high_later": 176
     }
   },
+  "all_start_capped_first_onset": {
+    "A": {
+      "n_all_pairs": 768,
+      "cap_for_not_detected_by_181": 182,
+      "mean_high_minus_low_capped_updates": -51.302083333333336,
+      "detected_by_start_year_all_768": {
+        "10": {
+          "L": 10,
+          "H": 346
+        },
+        "25": {
+          "L": 134,
+          "H": 701
+        },
+        "50": {
+          "L": 362,
+          "H": 762
+        },
+        "100": {
+          "L": 631,
+          "H": 768
+        },
+        "150": {
+          "L": 721,
+          "H": 768
+        },
+        "181": {
+          "L": 742,
+          "H": 768
+        }
+      }
+    },
+    "I": {
+      "n_all_pairs": 768,
+      "cap_for_not_detected_by_181": 182,
+      "mean_high_minus_low_capped_updates": -2.5130208333333335,
+      "detected_by_start_year_all_768": {
+        "10": {
+          "L": 160,
+          "H": 145
+        },
+        "25": {
+          "L": 303,
+          "H": 308
+        },
+        "50": {
+          "L": 416,
+          "H": 429
+        },
+        "100": {
+          "L": 468,
+          "H": 476
+        },
+        "150": {
+          "L": 474,
+          "H": 493
+        },
+        "181": {
+          "L": 476,
+          "H": 494
+        }
+      }
+    }
+  },
   "six_founder_context_strata": [
     {
       "founder": "main",
@@ -184,6 +248,7 @@
     "Descriptive posthoc decomposition of the already admitted six original pilot shards; no new biological updates.",
     "Shared founder and future RNG histories across contexts/hidden-I are not independent island populations.",
     "A/I observed-on-both conditional clock differences are subject to event detection selection; do not interpret as all-start causal mediation.",
+    "The all-start capped onset statistic assigns 182 only as a fixed horizon code to no-detection; it is not a prediction of eventual response time.",
     "Response onset is not natural selection onset; 0.05 threshold geometry and the 20-census window are built into this statistic.",
     "Only the original 0.05 event receipts are present in these JSONs; 0.025/0.10 reclassification requires stored annual census originals.",
     "No founder-2+ generalization, independent source-co-carriage effect, proof of genetic rate mediator, or Q4 survival benefit.",
