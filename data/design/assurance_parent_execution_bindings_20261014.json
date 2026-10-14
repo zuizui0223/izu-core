@@ -20,6 +20,7 @@
     "scripts/model3_island/reproduction.py": "885957edb8a165ee8528781ed1d2574c44143c608496b505f9663cbfac2c4081",
     "scripts/model3_island/randomness.py": "63522ae3c5ff8e11f114b5649a989945fa4ba2480fdca0f74857601b0e4b211f",
     "scripts/model3_island/history.py": "28d22c7fde81d9be6a604fa9dd4cb6b48d78d388d4db85f798a935cf81415488",
-    "docs/CHAPTER2_ASSURANCE_PARENT_CONTROL_PROTOCOL_20261014.md": "8d9174ec01a47f5e43c73802338d1f98160557a617fbc9945364723a6de3cda7"
+    "docs/CHAPTER2_ASSURANCE_PARENT_CONTROL_PROTOCOL_20261014.md": "8d9174ec01a47f5e43c73802338d1f98160557a617fbc9945364723a6de3cda7",
+    "scripts/review_assurance_parent_control_20261014.py": "860680aa7ba248b43dad6e4e984f3af52fc23438014ca8b13246b72bbc167906"
   }
 }
