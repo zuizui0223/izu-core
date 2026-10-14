@@ -64,7 +64,7 @@ def test_rejects_extra_payload_even_when_zip_hash_matches(tmp_path):
         verify(p, expected_sha256=sha, expected_size=nbytes)
 
 def test_committed_source_receipt_preserves_private_backup_safety_boundary():
-    p = Path(__file__).resolve().parents[1] / "data/submission/chapter2_k48_shard18_fresh_actions_readback_20261014.json"
+    p = Path(__file__).resolve().parents[1] / "docs/audits/chapter2_k48_shard18_fresh_actions_readback_20261014.json"
     d = json.loads(p.read_text(encoding="utf-8"))
     raw = d["verified_original"]
     assert raw["observed_sha256"] == raw["expected_sha256"] == EXPECTED_SHA256
