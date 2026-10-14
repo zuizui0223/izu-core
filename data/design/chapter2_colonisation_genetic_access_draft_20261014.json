@@ -1,0 +1,83 @@
+{
+  "schema": "chapter2_colonisation_genetic_access_feasibility_v0",
+  "status": "DESIGN_CANDIDATE_NO_EXECUTION_NO_CONFIRMATION",
+  "date": "2026-10-14",
+  "source_context": {
+    "older_genetic_access_pilot": "PR506 integrated PR491; 1536 actual old pilot trajectories, 128 paired founder-history clusters",
+    "distinct_old_histories": "6144 threshold sensitivity, 2304 original ecological response histories, do not pool",
+    "previous_founder_capacity_protocol": "docs/CHAPTER2_ORTHOGONAL_FOUNDER_CAPACITY_PROTOCOL_20261009.md",
+    "native_biology_source": "328548612e93469fcc8663f24548530a57399b9a",
+    "new_biological_operators_allowed": false
+  },
+  "illustrative_mainland_source": {
+    "real_observed_mainland_data": false,
+    "adults": 48,
+    "expressed_A_for_every_adult": 0.5,
+    "A_heterozygote_adults": 12,
+    "A_neutral_homozygote_adults": 36,
+    "sample_without_replacement": true
+  },
+  "candidate_founder_samples": [
+    2,
+    8,
+    24,
+    48
+  ],
+  "controlled_genetic_only": {
+    "initial_plant_census": 48,
+    "carrying_capacity": 48,
+    "all_adult_expressed_A": 0.5,
+    "I_M_genotypes_and_initial_returns": "MUST_MATCH_BEFORE_LAUNCH",
+    "source_genotype_construction": "TBD_NO_EXECUTION",
+    "halfwidths": [
+      0.0625,
+      0.125
+    ],
+    "heterozygote_fractions": [
+      0.25,
+      1
+    ],
+    "ideal_variance_only": "q*h*h/2; assumes independent Mendelian gametes without selection"
+  },
+  "naturalistic_founder_sample": {
+    "source_pool_heterogeneity_mandatory": true,
+    "distinct_source_pools_and_new_seed_inventory": "NOT_REGISTERED",
+    "initial_census": "n_founders; varies across treatments",
+    "capacity": 48,
+    "cannot_label_genetic_only_effect": true,
+    "extinction_and_nonresponse_excluded": false
+  },
+  "outcome": {
+    "response_increment_A": 0.05,
+    "response_increment_I": -0.05,
+    "sustained_occupied_censuses": 20,
+    "near_simultaneous_cutoff": 5,
+    "classes": [
+      "assurance_first",
+      "investment_first",
+      "near_simultaneous",
+      "assurance_only",
+      "investment_only",
+      "neither"
+    ],
+    "score": "D=P(A_first)-P(I_first), all starts included",
+    "current_status": "NOT_SIMULATED"
+  },
+  "inferential_boundaries": {
+    "initial_units": "independent source pool, founder draw, future stochastic history nested and paired",
+    "predeclared_significance_test": false,
+    "final_power_or_new_independent_units_registered": false,
+    "speed_mediation_identified": false,
+    "pure_drift_causal_fraction_identified": false,
+    "natural_island_effect_identified": false,
+    "natural_order_persistence_causality_identified": false,
+    "ecological_genetic_only_pop_reconstruction": "TBD_NEEDS_EXPLICIT_ARTIFICIAL_DUPLICATION_OR_REASSORTMENT_SPECIFICATION"
+  },
+  "approval": {
+    "independent_scientific_review_complete": false,
+    "source_genotypes_and_rng_frozen": false,
+    "archived_full_genomes_verified": false,
+    "author_approval_for_new_biology": false,
+    "new_biological_histories": 0
+  }
+}
