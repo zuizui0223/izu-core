@@ -1,6 +1,7 @@
 """Render the submission-focused Chapter 2 manuscript.
 
-The active manuscript remains the full scientific record. This renderer keeps the
+This historical renderer uses its exact PR406 source snapshot. The current unified
+paper has a separate renderer and builder. This renderer keeps the
 confirmed 2026-10-05 process spine in the journal-facing main text and routes
 supporting diagnostics to SI without deleting them from the source manuscript.
 """
@@ -9,7 +10,7 @@ import argparse
 import re
 
 ROOT = Path(__file__).resolve().parents[1]
-SOURCE = ROOT / "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
+SOURCE = ROOT / "docs/archive/CHAPTER2_PROCESS_SOURCE_PR406_20261006.md"
 TITLE = "How island isolation generates floral change: selection conditions, evolutionary sequence and finite realization"
 
 METHODS = [

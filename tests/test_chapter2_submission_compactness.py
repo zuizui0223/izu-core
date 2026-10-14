@@ -1,7 +1,7 @@
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-MANUSCRIPT = ROOT / "docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md"
+MANUSCRIPT = ROOT / "docs/archive/CHAPTER2_PROCESS_SOURCE_PR408_20261006.md"
 
 
 def test_active_manuscript_is_compact_but_keeps_confirmed_core():

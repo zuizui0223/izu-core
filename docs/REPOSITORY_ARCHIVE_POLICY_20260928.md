@@ -37,3 +37,8 @@ That operation is intentionally **not** performed here because it is destructive
 5. a post-rewrite verification that the scientific frozen receipts and manuscript hashes still resolve.
 
 Until then, the correct operational move is to freeze growth, not to create another round of CI/debug commits.
+
+
+## Explicit all-open-PR integration revision (2026-10-14)
+
+The author requested integration of all 43 open PRs and validation before main merge. Their combined existing compact designs, readouts and verification receipts total 183,061,688 tracked data bytes, exceeding the previous combined-tree ceiling of 177,682,678 by 5,379,010 bytes. The total-tree ceiling is explicitly reset to exactly 183,061,688 for this reviewed integration. Individual file limits and all 16 exact grandfathered ceilings remain unchanged; no new oversized-file exemption or future growth allowance is introduced. No raw trajectory campaign or history rewrite is authorized by this revision. The PR/head inventory and resolution record is docs/audits/ALL_OPEN_PR_INTEGRATION_20261014.json.
