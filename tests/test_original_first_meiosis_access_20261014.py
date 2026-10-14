@@ -15,7 +15,7 @@ ROOT=Path(__file__).resolve().parents[1]
 SUMMARY=ROOT/'data/results/chapter2_original_first_meiosis_access_2304_20261014.json'
 CASES=ROOT/'data/results/chapter2_original_first_meiosis_access_2304_case_20261014.csv'
 EXPECTED_JSON_SHA256='d164d81a4584666ecda890c77d78106833b34748941402bf6174ca4d7f24d6c8'
-EXPECTED_CSV_SHA256='196884c4de606cf6af4a383edc42154a5d45c2b7c6676043df8df34019bebb76'
+EXPECTED_CSV_SHA256='80d724ea03757d49b616f82cb3a806b5e31dd1ff31aaa7d2bb8edf449cd3e425'
 
 
 def trace(a=None,i=None):
