@@ -1,0 +1,20 @@
+{
+  "status": "EXTERNAL_ALL_MEMBERS_RAW_LAYOUT_AND_PRIMARY_READBACK_PASS",
+  "github_run_id": "38508868485",
+  "github_sha": "d92ac4324b6e1c8924dcc8e5f30e0750088a3acf",
+  "archive_sha256": "8a2462910025b4a386e789583578cb1380349097393916dac4e50d01c9637b7e",
+  "members": 12042,
+  "scientific_paths": 7808,
+  "pairs": 3904,
+  "saved_censuses": 998528,
+  "plant_rows": 47929344,
+  "parent_rows": 47554560,
+  "native_calls_during_external_verification": 0,
+  "raw_endpoint_receipt_bindings": 7808,
+  "exact_execution_preflight_and_code_verified": true,
+  "secondary_events_rederived_externally": false,
+  "local_verification_seconds": 76.28099999995902,
+  "combined_conservative_worker_seconds": 1823.6523724019062,
+  "readout_sha256": "10e72db05792292e31862733d57b79589abc12ea3eec62caab64018a05d58cef",
+  "verifier_sha256": "db54db56f9dbc5904934ef371e76236905a90f9eb6da8ba7420d03837875c3df"
+}
