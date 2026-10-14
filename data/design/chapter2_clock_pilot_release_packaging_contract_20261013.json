@@ -1,0 +1,43 @@
+{
+  "schema": "chapter2_clock_factorial_original_shard_zip_packaging_preexecution_v1",
+  "date": "2026-10-13",
+  "status": "PACKAGER_ONLY_NO_BIOLOGICAL_PILOT_ARCHIVES_EXISTS",
+  "science_case_count": 1536,
+  "science_updates_if_approved": 307200,
+  "original_source_pilot_registry_git_blob": "f18eae09e3f569ae7edefe970ea17d93c64b1bd5",
+  "original_source_model_execution_commit": "328548612e93469fcc8663f24548530a57399b9a",
+  "registered_shard_names": ["main_c0", "main_c3", "main_c4", "confirmation_c0", "confirmation_c3", "confirmation_c4"],
+  "input_cases_per_shard": 256,
+  "allowed_pilot_updates_per_case": 200,
+  "packaged_zip_members_per_shard": 257,
+  "members": "256 original untouched native-model NPZ files plus _COMPLETION.json (no derived scientific readout)",
+  "reproducible_zip": "flat sorted filenames, ZIP_STORED original NPZ bytes, ZipInfo 1980-01-01 fixed date, regular-file mode 0644, original case SHA and ZIP CRC readback",
+  "before_packaging": [
+    "independent scientific run approval before the original Model 3 pilot",
+    "complete original 256-case source _COMPLETION.json with original biological/runtime/registry signatures",
+    "every source original NPZ hash and size matches its immutable completion receipt",
+    "all original six-category A/I events internally consistent with 20-census sustain and +/-5 update tie"
+  ],
+  "after_packaging": [
+    "compute immutable original ZIP SHA256 and original source member inventory",
+    "separately approved durable primary archive and differently administered mirror destination",
+    "actually re-download both primary and mirror ZIPs, not simply copy local files",
+    "verify source+mirror bytes, complete original registry and source-native 200-step replay with PR501 external reviewer",
+    "only then freeze external publication/reader receipt for the exploratory PR502 analysis"
+  ],
+  "prototype_tests_on_real_model3": false,
+  "prototype_tests_on_synthetic_raw_bytes_only": true,
+  "pilot_200_update_histories_executed_by_this_packager": 0,
+  "archives_physically_published_by_this_packager": 0,
+  "independent_source_readback_proven_by_this_packager": false,
+  "independent_deposit_provider": "PENDING_REVIEWED_RESEARCH_STORAGE_PROVIDER",
+  "public_persistent_identifier": null,
+  "required_external_mirror": "SEPARATE_PROVIDER_NOT_DECIDED",
+  "pilot_producer_approval_git_blob": null,
+  "not_a_substitute_for": [
+    "PR500 source-independent original genome and pedigree replay",
+    "PR501 independently re-downloaded six source and six distinct mirror ZIPs",
+    "PR502 pre-outcome six-class exploratory analysis contract",
+    "independent author approval for any data release, authorship/license/DOI"
+  ]
+}

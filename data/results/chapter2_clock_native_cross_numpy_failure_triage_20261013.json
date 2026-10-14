@@ -1,0 +1,68 @@
+{
+  "schema": "chapter2_clock_native_cross_numpy_failure_triage_20261013_v1",
+  "date": "2026-10-13",
+  "status": "CROSS_NUMPY_SHA_REPAIR_COMMITTED_NEW_HEAD_CI_NOT_YET_ADMITTED",
+  "failing_actual": {
+    "git_commit": "41b2bed4c64ae5085af6dda9a62d6203b1f3bcaf",
+    "github_workflow_run": 38351019210,
+    "outcome": {
+      "3.10": {
+        "conclusion": "success",
+        "numpy": "2.2.6"
+      },
+      "3.11": {
+        "conclusion": "failure",
+        "numpy": "2.4.6",
+        "one_new_test": "test_native_original_48_technical_paths_and_independent_birth_only_replay"
+      },
+      "3.12": {
+        "conclusion": "failure",
+        "numpy": "2.5.4",
+        "one_new_test": "test_native_original_48_technical_paths_and_independent_birth_only_replay"
+      }
+    },
+    "exact_failure": "ValueError: adjusted original genetic state altered t0 reproductive ledger",
+    "line_before_repair": 232,
+    "previous_archived_t0_sha_generated_under": "NumPy 2.2.6",
+    "mismatch_type": "Pinned-runtime archived floating-point aggregate byte digest compared against independently recomputed later NumPy ufunc output"
+  },
+  "source_review": {
+    "original_biological_git_commit": "328548612e93469fcc8663f24548530a57399b9a",
+    "model_module_git_blobs_unchanged": true,
+    "original_archived_fixture_git_blob": "4b529cce12bc44e06d43a22b10c325a52bbd967b",
+    "archived_reproductive_ledger_git_blob": "e1d4e58a8dde547a94b687d6f89d2843c8bfff0c",
+    "modified_numPy_2_3_5_supplemental_source_equivalent_reproduction": {
+      "founder_contexts": 6,
+      "treatment_comparisons": 24,
+      "within_runtime_identical_ledger_arrays": 24,
+      "maximum_abs_difference": 0,
+      "independent_144_native_birth_checks": false
+    }
+  },
+  "repair": {
+    "code_commit": "80dc839107d26350a60d1647c7edea02e571f986",
+    "tests_commit": "acb193a051da091b864e4cbe1292606728dbff4c",
+    "rationale": "Reconstruct exact archived original PlantState in each executing NumPy runtime; require bitwise original-vs-variant ledger equality within that runtime; preserve historical archive SHA under matching NumPy2.2.6; compare preserved first-year totals with original 1e-12 recorded numerical tolerance in every runtime.",
+    "fail_closed_regressions": [
+      "Any same-runtime changed F/P/S/pollen/ovule ledger array SHA causes failure",
+      "Wrong frozen NumPy2.2.6 original archived SHA causes failure",
+      "Original source model Git blob and original t0 typed fixture SHA remain pinned",
+      "Off-locus mutation, wrong parent IDs and population ledger mismatches remain separate native technical tests"
+    ]
+  },
+  "scientific_admission": {
+    "native_three_update_technical_cases": 48,
+    "native_expected_update_checks": 144,
+    "scientific_pilot_cases_executed": 0,
+    "pilot_target_cases": 1536,
+    "native_technical_gate_status": "PENDING_NEW_HEAD_FULL_CI",
+    "biological_claim_status": "NO_NEW_EVOLUTIONARY_MECHANISM_INFERRED",
+    "disallow": [
+      "reclassify previous cross-version CI as success",
+      "relax original biological source SHA",
+      "count technical paths as prospective pilot",
+      "dispatch pilot before technical/producer/readback review"
+    ]
+  },
+  "docs": "docs/CHAPTER2_CLOCK_NATIVE_BIRTH_TECHNICAL_20261013.md"
+}

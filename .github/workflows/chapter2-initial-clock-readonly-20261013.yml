@@ -1,0 +1,126 @@
+name: Chapter 2 initial clock read-only audit
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  original-t0-readonly:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install reader/test dependencies
+        run: python -m pip install 'numpy==2.2.6' 'scipy>=1.11' 'pytest>=8,<10'
+      - name: Verify actual frozen summary and tests
+        run: |
+          python -m pytest -q tests/test_chapter2_initial_clock_identifiability_20261013.py tests/test_chapter2_initial_clock_raw_20261013.py tests/test_chapter2_initial_clock_two_axis_cv_20261013.py
+          python scripts/audit_chapter2_initial_clock_identifiability_20261013.py \
+            --input data/results/ecological_order_boundary_20261013.json \
+            --out "$RUNNER_TEMP/initial_clock_summary_oracles.json"
+      - name: Download exact previously published original raw ZIP (no new biology)
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release download four-question-resolution-20261013 \
+            --repo zuizui0223/izu-core \
+            --pattern ecological_order_actual_github_38312090996.zip \
+            --dir "$RUNNER_TEMP"
+          printf '%s  %s\n' \
+            '819741aa4a9f5bc1aaf2dadddbd56b79d158fc9295d07fc3bffe362693fc056a' \
+            "$RUNNER_TEMP/ecological_order_actual_github_38312090996.zip" | sha256sum --check --status
+      - name: Audit original initial-genotype and genetic-return features
+        run: |
+          python -m scripts.audit_chapter2_initial_clock_raw_20261013 \
+            --outer "$RUNNER_TEMP/ecological_order_actual_github_38312090996.zip" \
+            --compact data/results/ecological_order_boundary_20261013.json \
+            --out "$RUNNER_TEMP/initial_clock_18_t0_features.json"
+          python - <<'PY'
+          import json,os,pathlib
+          p=pathlib.Path(os.environ['RUNNER_TEMP'])/'initial_clock_18_t0_features.json'
+          j=json.loads(p.read_text())
+          assert j['cases']==2304 and j['distinct_initial_profiles']==18
+          print('ALL2304_ORIGINAL_INITIAL_FEATURES_ADMITTED')
+          for r in j['t0_feature_profiles']:
+              print(json.dumps(r,sort_keys=True))
+          PY
+      - name: Verify nine original provider events and five-fold paired predictions
+        run: |
+          python - <<'PYCODE'
+          import os, pathlib, zipfile
+          outer = pathlib.Path(os.environ['RUNNER_TEMP'])/'ecological_order_actual_github_38312090996.zip'
+          destination = pathlib.Path(os.environ['RUNNER_TEMP'])/'original_shards'
+          destination.mkdir(exist_ok=True)
+          with zipfile.ZipFile(outer) as z:
+              for i in range(9):
+                  matches=[n for n in z.namelist() if pathlib.PurePosixPath(n).name==f'shard_{i}.zip']
+                  assert len(matches)==1, (i,matches)
+                  (destination/f'shard_{i}.zip').write_bytes(z.read(matches[0]))
+          PYCODE
+          shards=()
+          for i in {0..8}; do
+            shards+=("$RUNNER_TEMP/original_shards/shard_${i}.zip")
+          done
+          python -m scripts.audit_chapter2_initial_clock_paired_events_20261013 \
+            --compact data/results/ecological_order_boundary_20261013.json \
+            --shards "${shards[@]}" \
+            --out "$RUNNER_TEMP/initial_clock_paired_events.json"
+          cmp "$RUNNER_TEMP/initial_clock_paired_events.json" \
+            data/results/chapter2_initial_clock_paired_events_20261013.json
+          python -m scripts.audit_chapter2_initial_clock_transfer_20261013 \
+            --compact data/results/ecological_order_boundary_20261013.json \
+            --t0 data/results/chapter2_initial_clock_t0_raw_20261013.json \
+            --out "$RUNNER_TEMP/initial_clock_aggregate_cv.json"
+          python -m scripts.audit_chapter2_initial_clock_paired_cv_20261013 \
+            --compact data/results/ecological_order_boundary_20261013.json \
+            --t0 data/results/chapter2_initial_clock_t0_raw_20261013.json \
+            --paired "$RUNNER_TEMP/initial_clock_paired_events.json" \
+            --out "$RUNNER_TEMP/initial_clock_paired_cv.json"
+          python -m scripts.audit_chapter2_initial_clock_two_axis_cv_20261013 \
+            --compact data/results/ecological_order_boundary_20261013.json \
+            --t0 data/results/chapter2_initial_clock_t0_raw_20261013.json \
+            --paired "$RUNNER_TEMP/initial_clock_paired_events.json" \
+            --out "$RUNNER_TEMP/initial_clock_two_axis_cv.json"
+          python - <<'PYCODE'
+          import os,json,pathlib
+          a=json.loads((pathlib.Path(os.environ['RUNNER_TEMP'])/'initial_clock_paired_cv.json').read_text())
+          b=json.loads(pathlib.Path('data/results/chapter2_initial_clock_paired_cv_20261013.json').read_text())
+          assert a['cases']==b['cases'] and a['results'][1]['lambda']==b['results'][1]['lambda']
+          for ar,br in zip(a['results'],b['results']):
+              for model in ar['five_fold_out_of_history_scores']:
+                  for key in ('log_loss','brier','argmax_accuracy'):
+                      assert abs(ar['five_fold_out_of_history_scores'][model][key]-br['five_fold_out_of_history_scores'][model][key])<1e-8
+              for k in ('controlled_add_source_Price_vs_ecology_genetics',
+                        'full_vs_equal_complexity_quadratic'):
+                  for metric in ('log_loss_reduction','brier_reduction'):
+                      assert abs(ar[k][metric]-br[k][metric])<1e-8
+          ta=json.loads((pathlib.Path(os.environ['RUNNER_TEMP'])/'initial_clock_two_axis_cv.json').read_text())
+          tb=json.loads(pathlib.Path('data/results/chapter2_initial_clock_two_axis_cv_20261013.json').read_text())
+          assert ta['status']==tb['status'] and ta['cases']==tb['cases']==2304
+          for tr,br in zip(ta['results'],tb['results']):
+              assert tr['lambda']==br['lambda']
+              for model in tr['scores']:
+                  for metric in ('log_loss','brier','argmax_accuracy'):
+                      assert abs(tr['scores'][model][metric]-br['scores'][model][metric])<1e-7
+              for contrast in tr['comparisons']:
+                  for metric in ('log_loss_reduction','brier_reduction'):
+                      assert abs(tr['comparisons'][contrast][metric]-br['comparisons'][contrast][metric])<1e-7
+          print('ALL2304_DOUBLE_HELDOUT_SCORE_RECOMPUTATIONS_MATCH_SAVED_ORIGINAL')
+          print('ALL256_PAIRED_SEED_CV_METRICS_MATCH_ORIGINAL_PROVIDER_CASES')
+          PYCODE
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-initial-clock-paired-seed-readonly
+          path: |
+            ${{ runner.temp }}/initial_clock_summary_oracles.json
+            ${{ runner.temp }}/initial_clock_18_t0_features.json
+            ${{ runner.temp }}/initial_clock_paired_events.json
+            ${{ runner.temp }}/initial_clock_aggregate_cv.json
+            ${{ runner.temp }}/initial_clock_paired_cv.json
+            ${{ runner.temp }}/initial_clock_two_axis_cv.json
+          retention-days: 30

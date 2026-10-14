@@ -1,0 +1,58 @@
+{
+  "schema": "chapter2_clock_typed_original_t0_fixture_independent_admission_v1",
+  "status": "SIX_SOURCE_CONTEXTS_THIRTY_ORIGINAL_ARRAY_BYTE_COMPARISONS_PASS",
+  "source_fixture_git_blob": "4b529cce12bc44e06d43a22b10c325a52bbd967b",
+  "source_fixture_sha256": "ce557b17359d9e6fa128b83cd1ef52be876124ba13c9b3db357afde12934454e",
+  "historical_source_commit": "328548612e93469fcc8663f24548530a57399b9a",
+  "original_source_cases": 6,
+  "independent_array_comparisons": 30,
+  "original_reproduction_totals_rechecked": 6,
+  "original_genomes_modified": false,
+  "new_native_updates": 0,
+  "new_biological_histories": 0,
+  "original_shards_sha256": {
+    "0": "5b850eaad6104f572f56df2a37da00fbc8473503a827703c82f6870a87e9a881",
+    "3": "676e84ff0729ba88dcd91cb161efeb2dc63f10b6679458695c5d2909c017e9c2",
+    "4": "900d3d22a36fa59241a933b8efc4b2fb8f320e4b25637e592640f31c529314fe"
+  },
+  "source_cases": [
+    {
+      "original_case": "main_c0_r0.npz",
+      "sha256": "71261649af81c2f99300d86c12f813de33a8b3ed88879282201405943dbdddb2",
+      "source_context": 0,
+      "block": "main"
+    },
+    {
+      "original_case": "main_c3_r0.npz",
+      "sha256": "fd570afe04d114f2799c07d14adca0d2a0f48f958585edcb76b9d9ab70cfbe92",
+      "source_context": 3,
+      "block": "main"
+    },
+    {
+      "original_case": "main_c4_r0.npz",
+      "sha256": "cfbaedc812e91fb026acbaf8fb5441707c58d9357b60db2a8b5fc0dd4fa72796",
+      "source_context": 4,
+      "block": "main"
+    },
+    {
+      "original_case": "confirmation_c0_r0.npz",
+      "sha256": "3e351b29e473cb5c733349f5721704804f4dd46e416296dbabc72d8e75a7ff52",
+      "source_context": 0,
+      "block": "confirmation"
+    },
+    {
+      "original_case": "confirmation_c3_r0.npz",
+      "sha256": "49e87bacc0a7f7caa2b4fb0795de3c2358ea603a677d32ffba37b8315a9c3fd7",
+      "source_context": 3,
+      "block": "confirmation"
+    },
+    {
+      "original_case": "confirmation_c4_r0.npz",
+      "sha256": "d941455c01a0ef6c5250ecf7c8cf6a908bfa87da97a7e06c2b735dd0ab719bb1",
+      "source_context": 4,
+      "block": "confirmation"
+    }
+  ],
+  "verification_scope": "Independent bytes/metadata/config/first-year saved returns, not a new native population advance or scientific result",
+  "next_gate": "Original Model3 native short-birth technical test 48 cases 144 updates in source-specific CI"
+}
