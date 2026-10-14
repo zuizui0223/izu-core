@@ -4,8 +4,8 @@
   "approved_native_controls": 8,
   "human_approval": "この自殖能力に限定した親選択対照を進める",
   "input_sha256": "51a07a843a087059af3d67ad113f5d849644f5b03739a6df986d506bd636648f",
-  "production_gate_open": false,
-  "ruling": "Original4096 native histories independently authenticated at every birth with exact allele replay; public receipt re-downloaded identically. Production remains held pending eight native independent controls. No new controlled future.",
+  "production_gate_open": true,
+  "ruling": "All4096 original-reference births and native8 controls independently replayed exactly, archived publicly and retrieved byte-identically. Approved4096 within-class A parent-weight futures may run only after separate production source freeze/readback. No controlled outcome yet.",
   "normalized_source_sha256": {
     "scripts/assurance_parent_control_20261014.py": "4697ebfc1cd3c0ee116f50fd3c603baf390255b0aa1165eef339b89d7eb33919",
     "scripts/run_assurance_parent_control_20261014.py": "6faacb8cc2c4a9c47fb14d3f3f8f2163b9771022a401e2e0bc31dffd25e6f131",
@@ -29,5 +29,13 @@
     "receipt_sha256": "3f107e2841cff502be422061b1b182e0798b7579e662f75a992d16b4d370d68d",
     "historical_source_bindings_sha256": "57c7563fd6bb1c74cebe733a2a58e2bf6bba162233c525d1206cd2f5e496f522",
     "public_url": "https://github.com/zuizui0223/izu-core/releases/download/four-question-resolution-20261013/assurance_parent_reference_independent_20261014.json"
+  },
+  "technical_admission": {
+    "receipt_relative": "data/results/assurance_parent_control_20261014/native8_independent_admission.json",
+    "receipt_sha256": "9dd40166ce481b51d79f4c55ae7690217e5df65d85b02a936415b23cccc75088",
+    "historical_source_bindings_sha256": "9701f98569cb83f86e19ffa090ea4fe0b42fc5565bc7d412d4a19144b6ea1759",
+    "native_archive_sha256": "d7f1b0043d0b8f49cbab67a4a269d01b9f98ace74be8c3de547ddff1df1a0226",
+    "native_manifest_sha256": "708ff549e0dc089cae17a6938a9403d271bbd7e79507173386c3b5a94abb47e5",
+    "public_url": "https://github.com/zuizui0223/izu-core/releases/download/four-question-resolution-20261013/assurance_parent_native8_independent_20261014.json"
   }
 }
