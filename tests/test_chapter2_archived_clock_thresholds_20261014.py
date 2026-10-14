@@ -47,6 +47,7 @@ class TestArchivedQ2Thresholds(unittest.TestCase):
         means[20:] = np.nan
         self.assertIsNone(original_clock(means,census,0.05)["I"])
         census[100] = 1
+        means[100] = 0.0  # isolate the return-after-extinction contract from NaN validation
         with self.assertRaisesRegex(ValueError,"recolonize"):
             original_clock(means,census,0.05)
         means,census = self.make_arrays()
