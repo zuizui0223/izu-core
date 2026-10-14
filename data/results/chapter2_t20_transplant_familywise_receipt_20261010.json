@@ -1,0 +1,82 @@
+{
+  "schema": "chapter2_t20_transplant_12_familywise_readonly_source_v1",
+  "status": "POST_OUTCOME_EXACT_12_CONTRAST_FAMILYWISE_CI_VERIFIED_SOURCE_LOCKED",
+  "source_transplant_original_commit": "15edd960520b553a74dd43f916fd3e18fb4aad29",
+  "source_familywise_commit": "890cd6b69de34d543f3d4d2b0fd8b13c8c062d50",
+  "source_design_sha256": "9b11b1d103c46390716cf6977a33164d7f10a50a8c78790d9f45618c8a4d9bb6",
+  "source_full_raw_json_sha256": "1c15f1921817f573662615343623e3890c5dce99413484fdd41bb4c07ab52eaf",
+  "familywise_actions_run": 38017774544,
+  "familywise_artifact_id": 11657165278,
+  "familywise_complete_raw_json_sha256": "1c687f590cac52798f1734059af357b0c6bf1508100a04a8bc4efe79d06bbcdd",
+  "familywise_zip_sha256": "e3f504b091b6b1d1085e3f262a9185837729ae86bfecbcdb4f91ea1afa3a27dc",
+  "test_status": "focused tests and archived familywise full JSON PASS",
+  "n_reused_exposed_visitor_histories": 64,
+  "n_eligible_joint_t20_survivors": 50,
+  "n_conditional_genome_transplant_futures": 400,
+  "n_FWER_comparisons": 12,
+  "uncertainty": "Conservative source-matched exact paired discordance Bonferroni/Clopper-Pearson intervals, alpha_family=0.05 apportioned across all 12 contrasts and both mutually exclusive discordance probabilities; 95% family-wide coverage conditional on original 50 eligible histories",
+  "ROPE_absolute_prob": 0.05,
+  "n_FWER_positive_beyond_5pp": 2,
+  "n_FWER_inconclusive": 10,
+  "precommitted_primary": {
+    "comparison": "selected source t20 versus neutral source t20, future K48 and original selected future parentage",
+    "selected_occupied": 49,
+    "neutral_occupied": 41,
+    "estimated_difference": 0.16,
+    "familywise_interval": [
+      -0.08650220054803433,
+      0.36922381701078905
+    ],
+    "verdict": "INCONCLUSIVE"
+  },
+  "posthoc_secondary_genome_source_K8": {
+    "comparison": "selected source t20 versus neutral source t20, future K8 original selected future parentage",
+    "selected_occupied": 36,
+    "neutral_occupied": 15,
+    "estimated_difference": 0.42,
+    "familywise_interval": [
+      0.0318184271914346,
+      0.6940502112908815
+    ],
+    "verdict": "INCONCLUSIVE_vs_plus_5pp_ROPE",
+    "interpretation": "CI excludes exactly zero but fails prespecified >.05 relevance threshold; post-outcome conditional genomic source effect, not independent confirmatory proof"
+  },
+  "FWER_positive_capacity_effects_neutral_donor": [
+    {
+      "future_operator": "selected_source",
+      "recipient_N0": 8,
+      "source": "neutral_pre20",
+      "K48_occupied": 41,
+      "K8_occupied": 15,
+      "effect": 0.52,
+      "familywise_interval": [
+        0.17368757007972063,
+        0.7326961412574855
+      ]
+    },
+    {
+      "future_operator": "neutral_within_mating_channel",
+      "recipient_N0": 8,
+      "source": "neutral_pre20",
+      "K48_occupied": 39,
+      "K8_occupied": 14,
+      "effect": 0.5,
+      "familywise_interval": [
+        0.15617622411982934,
+        0.7154987456140802
+      ]
+    }
+  ],
+  "balanced_descriptive_effects": {
+    "source_genome_from_selected_history_plus_0_27": 0.27,
+    "future_K48_vs_K8_plus_0_39": 0.39,
+    "future_original_selected_parentage_plus_0_05": 0.05
+  },
+  "population_scope": [
+    "This source replay deliberately reuses the previously exposed 64 stochastic ecological visitor RNG history IDs. It is a post-outcome mechanistic probe, not a new 64 independent history validation.",
+    "Genome transplant effects are conditioned on source both-alive at t20, 50/64, and one eight-individual whole-genome resample per source history.",
+    "All genomic loci matching/investment/assurance and covariance are transplanted together; higher assurance allele source mean selected versus neutral (+0.08267) does not establish assurance locus-specific causality.",
+    "FWER intervals are a retrospective source-method sensitivity on the same data, not a preregistered independent primary or an evolutionary-suicide effect.",
+    "Future capacity compares N0=8 in both K arms and fixed B=48, but is not a real-island area experiment."
+  ]
+}

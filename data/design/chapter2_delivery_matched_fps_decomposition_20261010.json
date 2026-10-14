@@ -1,0 +1,63 @@
+{
+  "schema": "chapter2_delivery_matched_FPS_decomposition_v1",
+  "date": "2026-10-10",
+  "status": "POST_DISCOVERY_SOURCE_DELIVERY_MATCHED_SEX_ROUTE_DIAGNOSTIC",
+  "question": "After matching total pollen delivered, do paternal reproductive shares or investment log-gradient components still differ between visitor-optimum conditions even when group viable seed numbers nearly coincide?",
+  "starting_evidence": "36/36 matching successfully executed and source-locked in data/results/chapter2_visitor_delivery_matched_receipt_20261010.json",
+  "grid": {
+    "genotypes": [
+      "monomorphic",
+      "mixed_diploid"
+    ],
+    "parent_matching_means": [
+      0.2,
+      0.5,
+      0.8
+    ],
+    "visitor_breadths": [
+      0.12,
+      0.18,
+      0.3
+    ],
+    "visitor_effectiveness": [
+      0.5,
+      1
+    ],
+    "n_parent": 8,
+    "visitor_count": 4,
+    "reference_activity": 0.4
+  },
+  "arms": [
+    "reference",
+    "shifted_delivery_matched"
+  ],
+  "registered_blocks": 36,
+  "registered_arms": 72,
+  "registered_focals": 576,
+  "source_fixed": "B=48, N=K=8, delayed selfing, source Model3 reproduction and cost",
+  "formula": "W_i = .5 F_i + .5 P_i + S_i ; beta=beta_F+beta_P+beta_S. For each focal diploid adult, finite central +/- 0.005 source-investment perturbation with the matched ACTIVITY held fixed during the derivative. log-mean identity enforces exact additive log-gradient components.",
+  "group_measurements": [
+    "total viable seeds",
+    "maternal outcross F total",
+    "paternal outcross P total (must equal F total)",
+    "viable self seeds",
+    "recipient-total delivered pollen",
+    "donor P-share L1 difference between arm states"
+  ],
+  "diagnostics": [
+    "median absolute change beta_F/P/S and full beta",
+    "male share L1 difference at fixed total received",
+    "whether components sum to beta_j in both arms",
+    "whether matched maternal group seeds approximate equality without implying paternal identity",
+    "no original source result alterations"
+  ],
+  "classification_deadband": 0.02,
+  "scope": "Exploratory postoutcome source ledger; not novel eco histories, not observed mating, not genetic evolution, not replicate islands. Cannot identify historical selection or causal population survival.",
+  "limits": [
+    "equal total delivered pollen is not equal each mother's receipt",
+    "paternal share difference is genetic parentage routing, not a measured pollinator choice",
+    "residual beta effects not proof of adaptive fitness change",
+    "do not call 36 factorial cells independent ecological samples"
+  ],
+  "execution": "Run source-head CI with complete artifact+SHA and regression; restore temporary CI changes; keep #452 Draft"
+}

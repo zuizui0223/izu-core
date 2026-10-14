@@ -1,0 +1,102 @@
+{
+  "schema": "chapter2_joint_genetic_occupancy_bridge_engineering_v1",
+  "date": "2026-10-10",
+  "status": "SOURCE_RESTRICTED_ENGINEERING_PREFLIGHT_NO_NEW_ECOLOGICAL_OUTCOMES",
+  "source_document": "docs/CHAPTER2_EVOLUTION_TRANSMISSION_PERSISTENCE_CROSS_PR_SYNTHESIS_20261010.md",
+  "source_scopes": {
+    "finite_genetic_analysis_pr": 420,
+    "capacity_manuscript_pr": 451,
+    "supported_registered_K_contrast_pr": 442,
+    "confirmed_flower_investment_pr": 411
+  },
+  "one_step": {
+    "source": "deterministic eight-founder synthetic fixture from frozen source founder generator; two hand-authored visitor types; not natural plants",
+    "n_founders": 8,
+    "K": [
+      8,
+      48
+    ],
+    "B": 48,
+    "reproduction": "Chapter2 prior_selfing",
+    "ovule_budget": 8,
+    "gates": {
+      "baseline": [
+        1,
+        1
+      ],
+      "half_self": [
+        0.5,
+        1
+      ],
+      "half_outcross": [
+        1,
+        0.5
+      ]
+    },
+    "mutation_rate": 0,
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "measurements": [
+      "complete source reproductive ledger",
+      "conditional source offspring allele means for matching/investment/assurance",
+      "exact self/father/mother allele transmission decomposition",
+      "probability of zero next-generation plants",
+      "expected next census",
+      "occupied allele mean covariance"
+    ],
+    "required_null_invariants": [
+      "same initial diploid population across K",
+      "same visitor state across K",
+      "fixed B recipient-pollen denominator",
+      "same source ledger per viability gate across K",
+      "same first-step occupancy probability across K",
+      "same conditional mean offspring allele direction across K",
+      "smaller K may change mean next census and allele mean variance",
+      "extinct trait endpoints null not zero"
+    ],
+    "code_path": "scripts/audit_chapter2_joint_one_step_genetics_occupancy.py",
+    "test_path": "tests/test_chapter2_joint_one_step_genetics_occupancy.py"
+  },
+  "prospective_multigeneration": {
+    "status": "NOT_REGISTERED_NOT_RUN",
+    "selection_of_visitor_histories": "must be sealed before any relevant treatment outcomes; do not reuse 26110601–26110609, 37110801–37110864, 40110901–40110964, 41110901–41110964, 42110901–42110964 or other previously exposed cohorts",
+    "source_population": "identical founder genotypes and common prehistory for K treatments; use one named frozen biology and clearly specified 80-update horizon",
+    "treatments": {
+      "K": [
+        8,
+        48
+      ],
+      "B": [
+        48
+      ],
+      "seed_gates": [
+        "baseline",
+        "half_self",
+        "half_outcross"
+      ],
+      "expression_schedule": "decide in a subsequent separate lock whether using assigned A/I or unconstrained inherited evolution; never equate them"
+    },
+    "genetic_estimand": "within-parent+visitor history expectation change of source high allele frequency under randomized viability gate, each three loci separately; no autonomous genetic claim from one step",
+    "persistence_estimand": "unconditional occupancy probability difference baseline minus gate at 80 updates at a fixed K and B",
+    "interaction_estimand": "difference in absolute persistence gate sensitivity between K8 and K48 at B48; if A/I retained, require explicit additional A-I contrast and do not silently substitute",
+    "independent_inference_unit": "entire independently generated visitor RNG history; demographic repeats nested and histories paired across treatment cells",
+    "missing_gates": [
+      "preregister sample-size and power diagnostics before generation",
+      "fix event horizon, source histories, genetic mutation and schedule regime",
+      "pin artifact hashes of frozen source and seed lists",
+      "specify primary estimand and direction/meaningful-effect threshold",
+      "establish archive plan and independent download verification",
+      "record extinction with unconditional denominator, conditional genetic outcomes separately",
+      "perform negative control under matched census and separate pollen-background B"
+    ],
+    "no_outcomes_in_this_protocol": true
+  },
+  "claim_exclusions": [
+    "not a natural Izu Islands inference",
+    "not cross-PR causal mediation",
+    "not genetic mutation order identification",
+    "not validated SDE/SPDE",
+    "not prospective confirmation or new ecological history",
+    "not a model-wide fitness generalization"
+  ]
+}

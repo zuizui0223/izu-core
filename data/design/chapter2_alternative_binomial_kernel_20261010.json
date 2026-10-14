@@ -1,0 +1,110 @@
+{
+  "schema": "independent_binomial_diploid_prior_delayed_selfing_v1",
+  "date": "2026-10-10",
+  "status": "ALTERNATIVE_KERNEL_INPUT_LOCK_BEFORE_RESULTS",
+  "scientific_question": "Under what mate-limited census does a genetically favored shift to prior selfing reduce group viable-seed output, and does it reduce finite persistence relative to frozen expression?",
+  "prior_literature": [
+    "Lepers Dufay Billiard 2014 doi:10.1111/evo.12533",
+    "Cheptou 2019 doi:10.1093/aob/mcy144"
+  ],
+  "model_independence": "Independent one-locus diploid ovule-binomial model with seed-level draws and uniform cap lottery, not Model3 Poisson recruitment or Model3 three-locus genetic architecture.",
+  "constants": {
+    "ovules_per_plant": 2,
+    "ovule_maturation": 0.9,
+    "selfed_seed_viability": 0.6,
+    "allee_parameter": 1
+  },
+  "grid": {
+    "K": [
+      8,
+      48
+    ],
+    "pollen_supply": [
+      0.8,
+      0.4
+    ],
+    "timing": [
+      "prior",
+      "delayed"
+    ],
+    "expression_modes": [
+      "heritable",
+      "frozen_expression"
+    ],
+    "initial_N": 8,
+    "founder_alleles": [
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        0
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        0,
+        1
+      ],
+      [
+        1,
+        1
+      ]
+    ],
+    "generations": 80,
+    "checkpoints": [
+      20,
+      80
+    ],
+    "independent_demographic_repeats": 128,
+    "seed_first": 61031001,
+    "seed_last": 61031128,
+    "n_paths": 2048
+  },
+  "reproductive_kernel": {
+    "pollen_probability": "q_eff=0 at N<=1; else q*(N-1)/(N-1+A)",
+    "prior": "p_self=phi*a*v, p_outcross=phi*(1-a)*q_eff, p_fail=1-p_self-p_outcross",
+    "delayed": "p_self=phi*(1-q_eff)*a*v, p_outcross=phi*q_eff, p_fail=1-p_self-p_outcross",
+    "father": "uniform different adult for successful outcross; no pollen discount",
+    "genome": "single diploid 0/1-locus, expressed a=(allele1+allele2)/2 in heritable arm; frozen arm expresses founder mean for all adult genotypes but still segregates alleles",
+    "inheritance": "each selfed offspring inherits two independently drawn homologs from the same mother; each outcross offspring inherits one maternal and one paternal homolog",
+    "density": "sample each of two ovules per mother by multinomial; retain at most K viable embryos by uniform lottery; no immigration/mutation/adult survival"
+  },
+  "algebra": {
+    "local_prior_beta": "ovules*phi*(v-q_eff/2)>0 at all stated q,N in symmetric resident no pollen discount",
+    "group_prior_gamma_seed": "ovules*phi*(v-q_eff), sign switches at q_eff=v",
+    "abundant_q_0_8_boundary": "with A=1,v=.6, qeff(n=4)=.6, group slope positive for N<=3, zero at N=4, negative for N>=5",
+    "delayed_beta_gamma": "both ovules*phi*(1-q_eff)*v>0",
+    "male_accounting": "paternal rare-mutant slope 0 at fixed resident mating state; do not confuse zero paternal marginal effect with zero paternal contribution",
+    "discovery_status": "Known classic selfing transmission advantage; mathematical control not claim of original novel evolutionary-suicide law"
+  },
+  "analysis": {
+    "primary": "P(N80>0|heritable)-P(N80>0|frozen_expression) at prior, q=.8, K=8, unconditional across 128 independently seeded demographic trajectories",
+    "secondary": "All other seven timing/q/K settings and N20 persistence, survivor-only allele means with extinct values undefined",
+    "interval": "paired exclusive-event Bonferroni/Clopper-Pearson conservative 95% interval; ±.05 practical threshold; no across-cell confirmatory inference",
+    "stop": "exactly 128 seeds per all eight settings and two expression modes; all outcomes retained"
+  },
+  "limits": [
+    "Synthetic binomial diploid alternative, not other independently calibrated natural island population",
+    "Expression freeze does not freeze alleles or drift; a genetic-development intervention changes initial individual expression distribution",
+    "Analytic sign opposition intentionally parameter-constructed, so not a novel biological discovery",
+    "No deleterious-mutation accumulation, no pollen-discount evolution, no rare phenotype-invasion path guaranteed",
+    "Stochastic replications are demographic draws from one alternative kernel, not independent island systems"
+  ],
+  "preregistration_parameter_reason": "At N=8, q=.8, source a=.375, expected viable seeds per adult=2*.9*(.625*.7+.375*.6)=1.1925 >1, to avoid forcing immediate demographic extinction by design; q=.4 source mean yields <1, high assurance approaches 1.08. This was set from algebra only, before any stochastic outcome."
+}

@@ -1,0 +1,64 @@
+{
+  "schema": "chapter2_investment_trajectory_conflict_exposure_replay_v1",
+  "date": "2026-10-10",
+  "status": "RETROSPECTIVE_SOURCE_LOCKED_PILOT_REPLAY_NO_NEW_INDEPENDENT_ECOLOGICAL_HISTORIES",
+  "scientific_question": "Do segregating investment genotypes under actual visitor history remain in the source monomorphic β−/Γseed+ N6–9 window long enough to make a population-persistence effect plausible, and do the actual mixed-genotype source gradients agree with the monomorphic threshold?",
+  "prior_source": "data/results/chapter2_investment_commons_pilot_power_receipt_20261010.json",
+  "previous_raw_json_sha256": "3f528fcbe7585b6c4a5e713780d7260201630e7f8d4c752c6b5f65d1e1f5a459",
+  "study_scope": "Recompute EXACT same 384 original source-pilot paths; no new visitor seeds, founder genomes, conditions, K, budget, policies, or stochastic replications. Derived mechanism trace, not a test of a new confirmatory endpoint.",
+  "cohort": {
+    "seeds_first": 9701201,
+    "seeds_last": 9701216,
+    "n_history_seeds": 16,
+    "visitor_regimes": [
+      "static_matched4",
+      "stochastic_matched4"
+    ],
+    "K": [
+      8,
+      48
+    ],
+    "budgets": [
+      4.5,
+      6,
+      8
+    ],
+    "policy": [
+      "native",
+      "baseline_centered"
+    ],
+    "years": 80,
+    "n_paths": 384
+  },
+  "dynamic_conflict": {
+    "static_reference_only": "Monomorphic original source focal β<−.02 and group Γ_seed>+.02 occurs for N6–9 with four fixed visitor types and resident [.2,.35,.35] at B48. Do not assign these monomorphic signs to actual populations as facts.",
+    "actual_mixed_population_reproduction": "At each native-genotype-expression pre-reproductive census with N6–9, compute group Gamma_seed using source Model3 finite simultaneous ±.005 investment expression perturbation; compute each of N focal plant's finite log(.5 F+.5 P+S) derivative by moving that individual to focal index0 and applying central ±.005 source reproduction. These are *within-state instantaneous contrasts*, not invasion gradients or realized allele changes.",
+    "actual_beta_deadband": 0.02,
+    "actual_gamma_deadband": 0.02,
+    "actual_conflict_definition": "Gamma_seed>+.02 and at least half of original living N focal individuals have β<−.02 (exclude unresolved slopes from denominator only if explicitly reported; here fraction counts all N).",
+    "structural_conflict_window_N": [
+      6,
+      7,
+      8,
+      9
+    ],
+    "track": [
+      "N for every pre-reproduction year t0..t79 (0 after extinction)",
+      "all policy t20 and t80 alive, first extinction, original t1 genotype SHA",
+      "pre/post investment allele mean conditional on occupied only",
+      "number of model years with N6–9 under each arm",
+      "consecutive years in N6–9 and first exit via N<=5 or N>=10",
+      "under native original parentage, mixed-genotype actual β-negative focal count, Γseed sign, and net nonfocal maternal seed benefit when N6–9",
+      "at each N6–9 year actual visitor functional richness, never claim visitor recruitment caused by plant investment"
+    ],
+    "source_holdout_guard": "All output primary comparisons exploratory and no CI/p value or selective sample-size change. Preserve all original 384 source paths, including extinctions."
+  },
+  "verification": {
+    "whole_original_pilot_result_parity": "Each path t1 SHA, census t20/t80, first_extinction and survivor allele mean must match uploaded original pilot ZIP digest, with current repo receipt source counts as a secondary guard.",
+    "source_reproduction_and_population": "Use unchanged Model3 reproduce_kb, population.advance, future visitors and demographic_streams from original archived pilot. Diagnostic ledger calls must NEVER consume RNG or affect next state.",
+    "no_pseudoreplication": "80 years in one path, multiple plants in a year, and the two policies are repeated observations of one visitor-history unit.",
+    "max_compute": "Only per-focal gradients for source census N6–9 (otherwise record census; do not claim all-N actual gradient classification).",
+    "model_ecology": "Fixed four initial synthetic types; no natural islands or independent pollinator observations."
+  },
+  "scientific_stop_rule": "Do not launch a confirmatory 512-history effect search if >0 native paths fail original replay parity or if original source conflict occupancy lives mostly outside actual mixed-genotype conflict; report failure, occupancy floors/ceilings and unresolved mechanics."
+}

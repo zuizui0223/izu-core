@@ -1,0 +1,223 @@
+{
+  "schema": "chapter2_t20_assurance_locus_hybrid_source_lock_v1",
+  "date": "2026-10-10",
+  "status": "POST_OUTCOME_CONDITIONAL_LOCUS_HYBRID_FULL_REPLAY_COMPLETE_NOT_ECOLOGICAL_CONFIRMATION",
+  "executed_source_sha": "49dca0b2a810e03ecd04a4d09c15af8d18a791be",
+  "original_workflow_run": 38018139649,
+  "original_artifact_id": 11656913704,
+  "raw_result_json_sha256": "339d73f4522ee20bfb62b6796845e983a6169ca99c819975e388ca89a34d8106",
+  "raw_zip_sha256": "99f8eb22f9b562fe9f4dbf494b08f357732dedd92a576619ed5c080b0666896a",
+  "design_file": "data/design/chapter2_t20_assurance_locus_hybrid_replay_20261010.json",
+  "design_raw_sha256": "91d8147d569840f9a32386a11ecfe1b3eb43236baf28888097d16e430bd60f53",
+  "source_original": "data/results/chapter2_t20_joint_genome_transplant_receipt_20261010.json",
+  "source_history_count": 64,
+  "t20_selected_alive": 58,
+  "t20_neutral_alive": 52,
+  "t20_both_alive": 50,
+  "n_ineligible": 14,
+  "new_ecological_visitor_histories_created": 0,
+  "future_trajectories": 400,
+  "n_eligible_inference_units": 50,
+  "recipient_N0": 8,
+  "recipient_K": [
+    8,
+    48
+  ],
+  "background_B": 48,
+  "future_parentage": "selected_source (original canonical parentage)",
+  "genotype_arms": [
+    "neutral_all",
+    "selected_assurance_only",
+    "selected_nonassurance_only",
+    "selected_all"
+  ],
+  "cells": {
+    "K8": {
+      "neutral_all": 15,
+      "selected_assurance_only": 32,
+      "selected_nonassurance_only": 18,
+      "selected_all": 36
+    },
+    "K48": {
+      "neutral_all": 41,
+      "selected_assurance_only": 48,
+      "selected_nonassurance_only": 43,
+      "selected_all": 49
+    }
+  },
+  "locus_shapley_descriptive": {
+    "K8": {
+      "assurance_locus": 0.35,
+      "matching_and_investment_loci": 0.07,
+      "full_three_locus": 0.42,
+      "interaction": 0.02
+    },
+    "K48": {
+      "assurance_locus": 0.13,
+      "matching_and_investment_loci": 0.03,
+      "full_three_locus": 0.16,
+      "interaction": -0.02
+    }
+  },
+  "all_10_paired_secondary": [
+    {
+      "K": 8,
+      "name": "assurance_neutral_other",
+      "positive_only": 21,
+      "negative_only": 4,
+      "delta": 0.34,
+      "original_conservative95": [
+        0.05530359379267197,
+        0.5693514888260962
+      ],
+      "FWER_10_95_approx": [
+        -0.0404,
+        0.6306
+      ]
+    },
+    {
+      "K": 8,
+      "name": "assurance_selected_other",
+      "positive_only": 22,
+      "negative_only": 4,
+      "delta": 0.36,
+      "original_conservative95": [
+        0.0729223322151138,
+        0.5886564151365475
+      ],
+      "FWER_10_95_approx": [
+        -0.0241,
+        0.6491
+      ]
+    },
+    {
+      "K": 8,
+      "name": "other_neutral_assurance",
+      "positive_only": 6,
+      "negative_only": 3,
+      "delta": 0.06,
+      "original_conservative95": [
+        -0.14329900012233332,
+        0.2518621928419952
+      ],
+      "FWER_10_95_approx": [
+        -0.2077,
+        0.3109
+      ]
+    },
+    {
+      "K": 8,
+      "name": "other_selected_assurance",
+      "positive_only": 9,
+      "negative_only": 5,
+      "delta": 0.08,
+      "original_conservative95": [
+        -0.15975136093576292,
+        0.30595556861657747
+      ],
+      "FWER_10_95_approx": [
+        -0.2349,
+        0.3732
+      ]
+    },
+    {
+      "K": 8,
+      "name": "full_selected_minus_neutral",
+      "positive_only": 24,
+      "negative_only": 3,
+      "delta": 0.42,
+      "original_conservative95": [
+        0.1364794200313184,
+        0.634900634211476
+      ],
+      "FWER_10_95_approx": [
+        0.0387,
+        0.6904
+      ]
+    },
+    {
+      "K": 48,
+      "name": "assurance_neutral_other",
+      "positive_only": 8,
+      "negative_only": 1,
+      "delta": 0.14,
+      "original_conservative95": [
+        -0.05783894191535548,
+        0.3100085548341388
+      ],
+      "FWER_10_95_approx": [
+        -0.123,
+        0.3653
+      ]
+    },
+    {
+      "K": 48,
+      "name": "assurance_selected_other",
+      "positive_only": 6,
+      "negative_only": 0,
+      "delta": 0.12,
+      "original_conservative95": [
+        -0.04514887465679326,
+        0.26149250999850693
+      ],
+      "FWER_10_95_approx": [
+        -0.1011,
+        0.3151
+      ]
+    },
+    {
+      "K": 48,
+      "name": "other_neutral_assurance",
+      "positive_only": 4,
+      "negative_only": 2,
+      "delta": 0.04,
+      "original_conservative95": [
+        -0.1348209149906874,
+        0.2062769415533535
+      ],
+      "FWER_10_95_approx": [
+        -0.1912,
+        0.26
+      ]
+    },
+    {
+      "K": 48,
+      "name": "other_selected_assurance",
+      "positive_only": 2,
+      "negative_only": 1,
+      "delta": 0.02,
+      "original_conservative95": [
+        -0.11759251987629726,
+        0.1525583660076005
+      ],
+      "FWER_10_95_approx": [
+        -0.165,
+        0.2005
+      ]
+    },
+    {
+      "K": 48,
+      "name": "full_selected_minus_neutral",
+      "positive_only": 8,
+      "negative_only": 0,
+      "delta": 0.16,
+      "original_conservative95": [
+        -0.020785937177977373,
+        0.3102600988357772
+      ],
+      "FWER_10_95_approx": [
+        -0.0821,
+        0.3653
+      ]
+    }
+  ],
+  "multiplicity_note": "Bonferroni across all ten paired contrasts using two Clopper-Pearson bounds per contrast, .05/(2*10) marginal interval alpha. Read-only POST-OUTCOME sensitivity; none of ten FWER intervals has lower > +.05, so no source-selected >5pp locus contrast is multiplicity-confirmed.",
+  "limits": [
+    "This reuses the identical original 64 exposed visitor RNG history seeds and conditions on their 50 both-alive donor source states; no new independent ecological evidence.",
+    "Hybrid genotype states are synthetic cross-source full-locus mosaics combining separate diploid genotypes/ancestry from histories with selected and neutral parentage. Novel across-locus combinations arise by intervention.",
+    "Assurance-only comparison swaps an entire locus distribution including diploid variants and allele origins, not an isolated mean assurance expression shift.",
+    "Shapley contributions are two-order descriptive factorial contrasts, not a biological percentage of genetically mediated extinction or additively independent causes.",
+    "Only one whole-genome donor draw of eight offspring per original source history is sampled, so genotype-resampling variance is not independently estimated.",
+    "No natural island ecological data, genetic load/purging/mutation accumulation, independent model family or evolutionary-suicide verification."
+  ]
+}

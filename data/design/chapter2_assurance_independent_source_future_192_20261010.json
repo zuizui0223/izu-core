@@ -1,0 +1,96 @@
+{
+  "schema": "chapter2_assurance_locus_fresh_source_fresh_future_cohort_v1",
+  "date": "2026-10-10",
+  "status": "NEW_INDEPENDENT_MODEL_HISTORY_COHORT_SOURCE_LOCKED_BEFORE_ANY_OUTCOMES",
+  "motivation": "Previous post-outcome t20 assurance-locus mosaic predicted a stronger within-model survival contrast than the two other loci under K8; validation needs entirely NEW pre20 donor histories and independently generated post20 ecological innovations.",
+  "transparency": "Biological model, resource setting and focal locus were chosen AFTER previous model results; this is a prospective replication within ONE fixed simulator, not a preregistered new model family or an empirical island generalization.",
+  "history_design": {
+    "source_history_seed_first": 61028001,
+    "source_history_seed_last": 61028192,
+    "future_ecology_seed_first": 61029001,
+    "future_ecology_seed_last": 61029192,
+    "number_of_independent_source_environment_rng_histories": 192,
+    "independence": "Source and future visitor RNG seeds are disjoint from all earlier PR452 cohorts. The same original eight founder genotypes are fixed across histories for genetic-source control; independent visitor and demographic RNG histories supply stochastic replication.",
+    "initial_visitors": [
+      0.15,
+      0.35,
+      0.55,
+      0.75
+    ],
+    "initial_breadths": [
+      0.18,
+      0.18,
+      0.18,
+      0.18
+    ],
+    "source_state_t0": "original Model3 eight diploid founder plants from fixed seed 61024981 with standing variation at all 3 loci; same founding genotypes under selected and neutral parentage",
+    "source_K": 48,
+    "source_B": 48,
+    "source_ovule_budget": 8,
+    "source_selfed_viable_fraction": 0.5,
+    "source_outcross_viable_fraction": 1,
+    "source_pre20_updates": 20,
+    "source_parentage_modes": [
+      "selected_source",
+      "neutral_within_mating_channel"
+    ],
+    "eligible_if": "both selected and neutral parentage source populations alive at t20; no donor substitution for extinct sources; report all 192 admission and exclusion histories",
+    "future_visitor_policy": "Use completely new visitor-history RNG seed per source history, with inherited visitor composition at donor t20; random arrivals and losses over years20..79 generated independently of source/previous cohorts",
+    "source_seed_and_future_seed_map": "61028001+i paired with 61029001+i for i=0..191",
+    "future_K": [
+      8,
+      48
+    ],
+    "future_B": 48,
+    "future_N0": 8,
+    "future_parentage_mode": "selected_source",
+    "future_ovule_budget": 8,
+    "seed_gate": "half_self",
+    "genomic_compositions": [
+      "neutral_all",
+      "selected_assurance_only",
+      "selected_nonassurance_only",
+      "selected_all"
+    ],
+    "whole_diploid_resamples_per_eligible_source": 2,
+    "genome_resample_salt": 61029971,
+    "expected_max_future_paths": 3072,
+    "future_demographic_seed_coupling": "Identical future RNG seed across all mosaic-arm, genome-draw and K within the same source environmental history. Source RNG histories independent across 192 source indices.",
+    "n_independent_natural_island_systems": 0
+  },
+  "hypotheses": {
+    "primary": "At recipient K8, selected-assurance-locus only versus neutral-all genome origin increases 80-update unconditional post-transplant occupancy by >0.05 absolute probability.",
+    "null_and_falsifiers": [
+      "No clear positive response in new source donors",
+      "Beneficial response only in original exposed donor states",
+      "Matching/investment locus source explains equal or greater survival than assurance source",
+      "Strong genome resampling sensitivity leads to inconclusive cluster inference",
+      "Multiple-study transfer under this source model does not imply evolutionary suicide"
+    ],
+    "secondary": [
+      "K48 assurance-only versus neutral-all",
+      "other-loci-only at K8/K48",
+      "full-three-locus source effect",
+      "two-order descriptive allele block allocation and interaction"
+    ],
+    "exclude": "No post-outcome switch of primary to best-looking K/gate/assurance setting"
+  },
+  "inference": {
+    "unit": "one newly generated source visitor history, restricted after original paired-survival eligibility; two whole-genome draws nested. Future visitor innovation independent across source history, not a separate donor replicate.",
+    "primary_estimand": "mean over eligible new source histories of per-history mean across two genotype draws of [N80>0 under selected-assurance-only - N80>0 under neutral-all], K8; conditioning on survival of both donor source arms at t20",
+    "uncertainty_primary": "2999 cluster bootstrap percentile resamples of eligible source history IDs AND simultaneous distribution-free two-sided Hoeffding 95% bound on per-source bounded [-1,1] effects",
+    "bootstrap_seed": 61029999,
+    "significance": "Positive only if BOTH interval lower bounds >+0.05; negative only if BOTH upper bounds <−0.05; equivalence only if both wholly within ±0.05. Otherwise INCONCLUSIVE. No output-based sample-size changes.",
+    "secondary_intervals": "descriptive 2999 source-cluster bootstrap, conservative Hoeffding bounds, no family-wise claim of independently confirmed secondary conditions",
+    "meaningful_absolute_survival_delta": 0.05,
+    "stop": "exactly 192 source histories from predeclared RNG range, no extension based on outcomes; every failed and ineligible t20 original source retained. No forced minimum number eligible."
+  },
+  "scientific_boundaries": [
+    "Fresh within-model source ecological histories but founding genotypes and the model's biology shared; no independent ecological-model families or natural Izu populations.",
+    "Conditional on both source genotypes surviving t20, so it cannot identify total evolution-enabled versus frozen effect on unconditional from-t0 extinction.",
+    "Selected/neutral pre20 source operators differ in within-channel inheritance, not a complete freeze of genetic change; drift present.",
+    "Whole-locus mosaics combine source genealogies artificially and affect mean/variance/allele-origin/covariance, not a pure assurance-locus mean.",
+    "No deleterious load: fixed inbreeding depression, zero mutation, no purging or evolving mutation load.",
+    "The model-observed association of selected assurance source and persistence would not establish evolutionary suicide; test evaluates putative rescue-oriented direction."
+  ]
+}

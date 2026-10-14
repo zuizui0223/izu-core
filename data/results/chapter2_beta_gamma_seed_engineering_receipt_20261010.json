@@ -1,0 +1,135 @@
+{
+  "schema": "chapter2_beta_gamma_seed_source_locked_engineering_receipt_v1",
+  "date": "2026-10-10",
+  "status": "SOURCE_EXECUTED_COMPLETE_FINITE_FOCAL_BETA_GROUP_SEED_GAMMA_NOT_PERSISTENCE",
+  "source_sha": "fd543b821460820e63144b99c37162de644c560a",
+  "workflow_run_id": 38013728388,
+  "original_artifact_id": 11654822692,
+  "raw_artifact_url": "https://github.com/zuizui0223/izu-core/actions/runs/38013728388/artifacts/11654822692",
+  "original_json_sha256": "8dd7d5be4fd0366827d230990b757d04d3eea5b4fc179852e62c5f53ff49ca7b",
+  "original_zip_sha256": "fb9eae1cc2264b4a9d823f3ed9a4c7ec7e4268be440e741119cd331428dc8d92",
+  "full_machine_json_file": "chapter2-beta-gamma-seed-map.json",
+  "design_file": "data/design/chapter2_beta_gamma_seed_engineering_grid_20261010.json",
+  "implementation": "scripts/audit_chapter2_beta_gamma_seed_map.py",
+  "tests": "tests/test_chapter2_beta_gamma_seed_map.py",
+  "focussed_ci_and_artifact": "success",
+  "conditions": {
+    "total_cells": 384,
+    "all_values_reported_in_full_archive": true,
+    "simulated_visitor_histories": 0,
+    "natural_island_histories": 0,
+    "artificial_static_visitor_regimes": [
+      "none",
+      "matched4",
+      "shifted4"
+    ],
+    "K": [
+      8,
+      48
+    ],
+    "B": 48,
+    "ovule_budget": 8,
+    "reproductive_settings": [
+      "delayed_control",
+      "prior_selfing",
+      "pollen_discount",
+      "assurance_cost"
+    ],
+    "matching_values": [
+      0.2,
+      0.5
+    ],
+    "investment_values": [
+      0.35,
+      0.65
+    ],
+    "assurance_values": [
+      0.35,
+      0.65
+    ],
+    "central_difference_steps": [
+      0.005,
+      0.0025
+    ],
+    "deadband": 0.02
+  },
+  "counts": {
+    "aligned": 362,
+    "individual_advantage_group_harm": 0,
+    "individual_disadvantage_group_benefit": 14,
+    "inconclusive": 8,
+    "by_trait": {
+      "investment": {
+        "aligned": 172,
+        "individual_advantage_group_harm": 0,
+        "individual_disadvantage_group_benefit": 14,
+        "inconclusive": 6
+      },
+      "assurance": {
+        "aligned": 190,
+        "individual_advantage_group_harm": 0,
+        "individual_disadvantage_group_benefit": 0,
+        "inconclusive": 2
+      }
+    },
+    "by_setting": {
+      "delayed_control": {
+        "aligned": 91,
+        "individual_advantage_group_harm": 0,
+        "individual_disadvantage_group_benefit": 3,
+        "inconclusive": 2
+      },
+      "prior_selfing": {
+        "aligned": 91,
+        "individual_advantage_group_harm": 0,
+        "individual_disadvantage_group_benefit": 5,
+        "inconclusive": 0
+      },
+      "pollen_discount": {
+        "aligned": 91,
+        "individual_advantage_group_harm": 0,
+        "individual_disadvantage_group_benefit": 3,
+        "inconclusive": 2
+      },
+      "assurance_cost": {
+        "aligned": 89,
+        "individual_advantage_group_harm": 0,
+        "individual_disadvantage_group_benefit": 3,
+        "inconclusive": 4
+      }
+    }
+  },
+  "example": {
+    "setting": "delayed_control",
+    "visitor_regime": "matched4",
+    "K": 8,
+    "resident": [
+      0.2,
+      0.35,
+      0.35
+    ],
+    "trait": "investment",
+    "beta_one_individual": -0.0631736695408891,
+    "gamma_group_seed": 0.15822876051396761,
+    "beta_F": 0.13434561443076698,
+    "beta_P": 0.1569508050192735,
+    "beta_S": -0.3544700889909259,
+    "classification": "individual_disadvantage_group_benefit"
+  },
+  "numerical_quality": {
+    "max_abs_beta_refinement_diff": 0.00014579491032762348,
+    "max_abs_gamma_refinement_diff": 0.0001457949103222944,
+    "exact_father_mother_outcross_mass_conservation_in_tests": true,
+    "exact_source_F_P_S_gradient_sum_in_tests": true,
+    "no_visitor_outcross_components_zero_in_tests": true
+  },
+  "claim_boundaries": [
+    "Only finite one-individual focal reproductive contribution, not true rare-mutant N->infinity selection. One focal among N=8 is 12.5%.",
+    "Gamma is change in total expected viable seeds, NOT population survival or evolutionary-suicide statistic.",
+    "No zero-excluding history-bootstrap or ecological inferential uncertainty: visitor states are hand-authored fixed synthetic configurations.",
+    "Fourteen discordances are only beta-negative/gamma-positive; no beta-positive/gamma-negative was found in this grid.",
+    "F and P additive signed components describe genetic accounting; P is not necessarily zero sum if total viable outcross seed numbers change.",
+    "No genetic evolution, inherited genetic load, inbreeding depression evolution, mutation, field islands or independent model family used.",
+    "All parameter values are exploratory engineering settings, not posterior predictive confirmation or field calibration."
+  ]
+}

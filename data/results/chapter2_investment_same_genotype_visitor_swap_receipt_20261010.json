@@ -1,0 +1,82 @@
+{
+  "schema": "chapter2_actual_vs_fixed4_same_genotype_visitor_replacement_v1",
+  "date": "2026-10-10",
+  "status": "SOURCE_ARCHIVED_POST_OUTCOME_1533_INTRAYEAR_VISITOR_ASSEMBLAGE_INTERVENTIONS",
+  "executed_scientific_source_sha": "59065c6ddf5525356fb20f190e65a777ab934f6e",
+  "run_id": 38024307421,
+  "artifact_id": 11659582251,
+  "raw_json_sha256": "7499c2699acf8ed106dc8b328b5038f0b238917bf11c2c707927d9acae7b8922",
+  "raw_zip_sha256": "53dd58a466d6fb649e3c8e8b4bb03b5ec929a7606bcf97a672eea48ef26b3fb5",
+  "source_original_96_pilot_path_sha256": "94c45f63d6d2f34b50357aaf4bd55ed89a1a2094559b32b45dbae2e585d73db7",
+  "source_96_path_parity_verified": true,
+  "original_exposed_visitor_rng_history_count": 16,
+  "original_native_stochastic_paths": 96,
+  "annual_pre_reproduction_census_N6_to9_states": 1533,
+  "observed_mixed_genotype_conflict_count": 696,
+  "same_genotype_same_N_four_visitor_replacement_conflict_count": 1531,
+  "cross_classification": {
+    "both_conflict": 696,
+    "actual_only_conflict": 0,
+    "fixed4_only_conflict": 835,
+    "neither_conflict": 2
+  },
+  "comparison_design": "Model3 source complete three-locus genetic state and demographic census held unchanged; visitor state replaced only in ephemeral reproduce_kb ledger and finite signed β/Gamma calculations at each pre-reproduction N6–9 state, never fed to population.advance",
+  "by_original_current_visitor_type_count": [
+    {
+      "n_visitors": 1,
+      "n_years": 16,
+      "actual_conflict": 1,
+      "fixed4_counterfactual_conflict": 16
+    },
+    {
+      "n_visitors": 2,
+      "n_years": 104,
+      "actual_conflict": 18,
+      "fixed4_counterfactual_conflict": 103
+    },
+    {
+      "n_visitors": 3,
+      "n_years": 259,
+      "actual_conflict": 135,
+      "fixed4_counterfactual_conflict": 258
+    },
+    {
+      "n_visitors": 4,
+      "n_years": 505,
+      "actual_conflict": 329,
+      "fixed4_counterfactual_conflict": 505
+    },
+    {
+      "n_visitors": 5,
+      "n_years": 351,
+      "actual_conflict": 154,
+      "fixed4_counterfactual_conflict": 351
+    },
+    {
+      "n_visitors": 6,
+      "n_years": 159,
+      "actual_conflict": 44,
+      "fixed4_counterfactual_conflict": 159
+    },
+    {
+      "n_visitors": 7,
+      "n_years": 65,
+      "actual_conflict": 14,
+      "fixed4_counterfactual_conflict": 65
+    },
+    {
+      "n_visitors": 8,
+      "n_years": 45,
+      "actual_conflict": 1,
+      "fixed4_counterfactual_conflict": 45
+    }
+  ],
+  "scientific_inference": "Within this one source Model3 reproduction ledger, visitor availability/trait assemblage causally alters the instantaneous individual-minus-group seed payoff sign at identical N and diploid genotype (under an artificial experimental intervention), restoring source β<0/Gamma_seed>0 conflict in 835/1533 source states; this is not an independent ecological replication or evidence of persistent multi-generational population effects.",
+  "limitations": [
+    "All 1533 paired source-year states come from only 96 observed simulated trajectories driven by 16 original stochastic visitor history RNG seeds, not 1533 independent ecological histories.",
+    "The four visitor types are hand-authored; intervention changes number and trait identity of visitors simultaneously. Do not attribute causal effect to richness alone or to recruitment of actual pollinators.",
+    "Within-year signed slopes are finite one-adult log W derivatives and group log viable-seed derivatives, not selection on new mutations, long-term allele trajectories or survival probabilities.",
+    "Visitor replacement is used only for counterfactual reproduction ledger evaluation; no future visitor population, genotype evolution, female lifetime fitness, density or N80 trajectory is changed.",
+    "The program's existing first-year externality mechanism is supported, but no conservation or evolutionary commons tragedy survival outcome is proven."
+  ]
+}

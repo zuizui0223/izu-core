@@ -1,0 +1,121 @@
+{
+  "schema": "chapter2_selection_persistence_alignment_proposed_v1",
+  "date": "2026-10-10",
+  "status": "PROPOSED_NOT_PREREGISTERED_NOT_EXECUTED",
+  "central_question": "When does individual reproductive selection align with or oppose unconditional finite-population persistence, and can maternal outcross, paternal outcross and viable-self gene transmission predict the boundary before trajectories are observed?",
+  "scientific_program": "Predict alignment/discordance using a pre-outcome F/P/S decomposition, then falsify with independent finite-population evolutionary trajectories.",
+  "existing_evidence_not_reclassified": [
+    {
+      "pr": 411,
+      "meaning": "four-setting evolutionary non-necessity and attenuation result; original manuscript unchanged"
+    },
+    {
+      "pr": 420,
+      "meaning": "exploratory exact finite-genetic self/father/mother transmission accounting, nonuniversal direction reversal"
+    },
+    {
+      "pr": 451,
+      "meaning": "assigned expression-order capacity sensitivity; one supported registered K effect"
+    },
+    {
+      "pr": 452,
+      "meaning": "synthetic one-step and 80-generation engineering bridge, zero independent ecological histories"
+    }
+  ],
+  "separate_estimands": {
+    "individual_selection_beta": "d log(0.5*F_mutant+0.5*P_mutant+S_mutant)/dz_mutant at fixed resident pollen and competition; rare-mutant invasion gradient",
+    "group_seed_gamma": "d log E[total viable outcross offspring + total viable self offspring]/dz under simultaneous group trait-expression shift",
+    "group_persistence_gamma": "d P(N_H>0 | do(group trait expression shift), specified subsequent evolution policy)/dz; denominator ALL admitted populations including extinctions",
+    "evolutionary_persistence_contrast": "P(N_H>0 | allow specified trait evolution)-P(N_H>0 | matched freeze specified trait evolution), paired over previously unexposed independent visitor histories",
+    "independent_units": "visitor ecological histories; demographic, transplant-resampling and recruitment repeats nested"
+  },
+  "classification": [
+    {
+      "beta": "+",
+      "gamma_persist": "+",
+      "label": "aligned_positive"
+    },
+    {
+      "beta": "-",
+      "gamma_persist": "-",
+      "label": "aligned_negative"
+    },
+    {
+      "beta": "+",
+      "gamma_persist": "-",
+      "label": "individual_advantage_group_harm"
+    },
+    {
+      "beta": "-",
+      "gamma_persist": "+",
+      "label": "individual_disadvantage_group_benefit"
+    },
+    {
+      "beta": "unresolved",
+      "gamma_persist": "any",
+      "label": "inconclusive"
+    }
+  ],
+  "source_components": [
+    "maternal_outcross_F",
+    "paternal_outcross_P",
+    "viable_self_S"
+  ],
+  "competing_predictions": [
+    "higher discordance frequency where male siring shares change without increasing total viable group outcross output, versus seed-increment-matched controls",
+    "higher discordance frequency where prior selfing displaces viable outcrossed seeds after depression/cost accounting, versus unfilled-ovule delayed-self controls",
+    "changes of beta versus Gamma_seed and Gamma_persist signs across visitor supply, capacity, depression, mating costs and pollen discounting are outcome-neutral until assessed",
+    "strong evolutionary-suicide interpretation requires both individual-favored trait evolution and lower survival under a matched blocked-evolution counterfactual"
+  ],
+  "time20_transplant": {
+    "status": "PROPOSED_NOT_EXECUTED",
+    "conditioning": "21/24 surviving in both capacity arms at one earlier exposed synthetic budget does not imply common survivor identities; collect intersections and complete denominators",
+    "whole_joint_diploid_genotype_sampling": true,
+    "common_initial_census_N0": 8,
+    "donor_source_G": [
+      "donors evolved under K8",
+      "donors evolved under K48"
+    ],
+    "recipient_capacity_K": [
+      8,
+      48
+    ],
+    "pollen_background_B": 48,
+    "endpoint": "unconditional survival from t20 to t80 among all admitted transplant recipients",
+    "genetic_source_effect": "average of G48−G8 contrasts at target K8 and target K48",
+    "recipient_capacity_effect": "average of K48−K8 contrasts under donor G8 and donor G48",
+    "interaction": "separately report GxK difference-in-differences; never add it to both averaged main effects",
+    "further_identification": "initial census N0 must be independently factorialized to separate starting N from later K regulation",
+    "sham_controls": [
+      "whole-genotype resampling under self-donor distribution",
+      "identity donor/recipient within K",
+      "fixed-pollen B invariance"
+    ],
+    "caveat": "post-survival donor selection and ongoing genetic drift prevent simple labels of isolated historical genetics or pure demographic causality"
+  },
+  "dynamic_controls": {
+    "independent_genotype_redraw_is_not_no_drift": true,
+    "exact_count_clamp_may_be_infeasible_at_small_N": true,
+    "phenotypic_homogenization_changes_mendelian_variance": true,
+    "need_independent_preoutcome_controls": true
+  },
+  "exclusions": [
+    "not a completed preregistration",
+    "not published ecological generality",
+    "no genetic load, deleterious mutation accumulation or purging in zero-mutation fixed-depression Model3",
+    "no field-calibrated island extinction",
+    "not equivalent to assigned A-first vs I-first persistence interaction",
+    "do not reuse exposed confirmatory or synthetic visitor histories"
+  ],
+  "readiness": {
+    "predictions_defined": true,
+    "parameter_grid_locked": false,
+    "biologically_meaningful_effect_thresholds_locked": false,
+    "independent_history_seeds_locked": false,
+    "sample_size_power_justified": false,
+    "state_transplant_implemented": false,
+    "clamp_implemented": false,
+    "prospective_outcomes_generated": false,
+    "scientific_result_status": "HYPOTHESIS_ONLY"
+  }
+}
