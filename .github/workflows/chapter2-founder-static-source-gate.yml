@@ -28,7 +28,8 @@ jobs:
             tests/test_chapter2_founder_I_support_exact_20261014.py \
             tests/test_chapter2_source_assignment_candidate_QA_20261014.py \
             tests/test_chapter2_founder_F1_conditional_moments_20261014.py \
-            tests/test_chapter2_independent_synthetic_source_pools_20261014.py
+            tests/test_chapter2_independent_synthetic_source_pools_20261014.py \
+            tests/test_chapter2_balanced_cocarriage_20261014.py
       - name: Assert actual old t0 and 96 static checks, with no biology
         run: |
           python -m scripts.audit_chapter2_original_founder_compatibility_20261014 > original-t0-static-receipt.json
@@ -51,6 +52,10 @@ jobs:
         run: |
           python -m scripts.audit_chapter2_independent_synthetic_source_pools_20261014 > artificial-independent-t0-sources.json
           python -c "import json; r=json.load(open('artificial-independent-t0-sources.json')); assert r['n_source_genotype_inputs']==16 and r['native_t0_return_parity_checks']==768; assert r['n_realized_births_or_biological_future_updates']==0; print('SYNTHETIC T0 SOURCE GENOTYPE GATE PASSED')"
+      - name: Verify matched F1 A/I marginals versus joint segregation at t0
+        run: |
+          python -m scripts.audit_chapter2_balanced_cocarriage_20261014 > balanced-AI-cocarriage-pre-mutation.json
+          python -c "import json; r=json.load(open('balanced-AI-cocarriage-pre-mutation.json')); assert r['native_static_return_comparisons']==192 and r['new_biological_genotype_transmission_or_population_histories']==0; cells=[x for x in r['rows'] if x['visitor_context']==0]; assert all(x['p_joint_nonzero_A_and_I_segregation']==0 for x in cells if x['co_carriers_m']==0); assert all(abs(x['p_joint_nonzero_A_and_I_segregation']-0.0625)<1e-14 for x in cells if x['co_carriers_m']==12); print('MARGINALS-MATCHED JOINT MEIOSIS GATE PASSED')"
       - name: Preserve static audit receipts
         if: success()
         uses: actions/upload-artifact@v4
@@ -63,5 +68,6 @@ jobs:
             source-assignment-candidate-QA.json
             original-t0-conditional-zygote-moments.json
             artificial-independent-t0-sources.json
+            balanced-AI-cocarriage-pre-mutation.json
           if-no-files-found: error
           retention-days: 30
