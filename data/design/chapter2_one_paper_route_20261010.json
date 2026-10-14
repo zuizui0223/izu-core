@@ -134,7 +134,7 @@
     "ecology_letters_letter_main_max": 5000,
     "ecology_letters_letter_abstract_max": 150,
     "display_items_max": 6,
-    "current_integrated_main_words": 4977,
+    "current_integrated_main_words": 4201,
     "current_integrated_abstract_words": 140,
     "main_text_excess_words": 0,
     "abstract_excess_words": 0,
@@ -147,9 +147,9 @@
       "pollinator population collapse",
       "historically explained global island syndrome"
     ],
-    "current_main_text_words": 4977,
+    "current_main_text_words": 4201,
     "current_abstract_words": 140,
-    "updated_submission_scope": "Source main4977; abstract140. S24 adds independently reconstructed exploratory support/prefix event restrictions to S23; original64 primary and confirmation margin remain unresolved. No unique mediation or natural-order benefit.",
+    "updated_submission_scope": "Source main4201 after 2026-10-14 Q3/Q4 compression (1384 to 608 words); abstract140 unchanged. S24 adds independently reconstructed exploratory support/prefix event restrictions to S23; original64 primary and confirmation margin remain unresolved. No unique mediation or natural-order benefit.",
     "historical_precompression_counts": {
       "main_words": 6035,
       "abstract_words": 237,
