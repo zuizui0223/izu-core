@@ -30,7 +30,7 @@ BLOCKS = ("main", "confirmation")
 ORIGINAL_N = 48
 ORIGINAL_I_SHA = {
     "main": "1e2f173e46c20af3ecc811c81f95a38a5b09bf539e834542a6bdaf1281634930",
-    "confirmation": "13cbb1c08a8da3d79db6c6cacf7443a6c865f170c7f64f7881c211f916fbc43161",
+    "confirmation": "13cbb1c08a8da3d79db6c6cacf7443a6c865f170c7f64beea2d7f7639dbed114",
 }
 SOURCE_FIELDS = {
     "ids": ("<i8", (48,)),
