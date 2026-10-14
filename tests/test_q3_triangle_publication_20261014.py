@@ -47,6 +47,9 @@ def test_publication_streams_one_shard_and_never_publishes_partial_campaign(tmp_
         result = m.publish_campaign(tmp_path, dict(cases=cs), 'd'*64, dict(run_id='123', head='b'*40), cli, lambda:None)
         assert result['native_updates'] == 6687364
         assert len(uploaded) == 21
+        manifest = json.loads(uploaded['CAMPAIGN_MANIFEST.json'])
+        assert manifest['cumulative_accounting']['native_updates'] == 6687368
+        assert manifest['prior_technical_hold']['run_id'] == 38528315875
         assert commands[-1][:2] == ['release', 'edit'] and '--draft=false' in commands[-1]
     else:
         with pytest.raises(ValueError, match='incomplete raw'):

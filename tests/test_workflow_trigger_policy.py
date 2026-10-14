@@ -80,7 +80,7 @@ def test_pull_request_signal_is_limited_to_current_ci_surfaces() -> None:
                 "on:",
                 "  push:",
                 "    branches: [design/chapter2-q3-distribution-triangle-20261014]",
-                "    paths: [data/designs/q3_triangle_execution_20261014.json]",
+                "    paths: [data/designs/q3_triangle_continuation_20261014.json]",
             ]
         else:
             assert events == {"workflow_dispatch"}, (path.name, events)

@@ -10,6 +10,7 @@ import time
 from q3_triangle_contract_20261014 import require, summarize
 from q3_triangle_execution_gate_20261014 import authorize, digest, exclusive_json, LIMITS, job_deadline
 from verify_q3_triangle_archives_20261014 import verify_shard, verify_campaign, verify_summary
+from q3_triangle_continuation_20261014 import PRIOR, cumulative_accounting
 
 REPO = 'zuizui0223/izu-core'
 TAG = 'q3-distribution-triangle-20261014'
@@ -61,13 +62,15 @@ def publish_campaign(out, plan, execution_sha, identity, cli, guard):
         published.append(dict(shard=shard, filename=filename, bytes=receipt['bytes'],
                               sha256=receipt['archive_sha256'], triplets=488, trajectories=1464))
         remote.unlink();receipt_path.unlink()
-        require(2*sum(p['bytes'] for p in published)+16*1024**2 < LIMITS['max_remote_bytes'], 'remote two-copy ceiling')
+        require(2*sum(p['bytes'] for p in published)+16*1024**2+2*PRIOR['artifact_bytes'] < LIMITS['max_remote_bytes'], 'remote two-copy ceiling')
     accounting = verify_campaign(headers)
+    cumulative = cumulative_accounting(accounting)
     claim = summarize(records, plan['cases'])
     independent = verify_summary(claim, records, plan['cases'])
     manifest = dict(status='COMPLETE_ALL_RAW_EXTERNAL_BYTES_VERIFIED', run_id=identity['run_id'],
                     execution_sha256=execution_sha, head=identity['head'], release_tag=TAG,
-                    archives=published, accounting=accounting, native_updates_during_publication=0)
+                    archives=published, accounting=accounting, cumulative_accounting=cumulative,
+                    prior_technical_hold=PRIOR.copy(), native_updates_during_publication=0)
     documents = {'CAMPAIGN_MANIFEST.json': manifest, 'READOUT.json': claim,
                  'INDEPENDENT_VERIFICATION.json': independent}
     expected_assets = {p['filename']:p['bytes'] for p in published}
@@ -92,7 +95,7 @@ def main():
     a = p.parse_args()
     execution, execution_sha, identity = authorize(a.repo)
     out = a.out.resolve();out.mkdir(parents=True, exist_ok=False)
-    deadline = job_deadline(os.environ, minutes=30, tail_seconds=180)
+    deadline = job_deadline(os.environ, minutes=29, tail_seconds=180)
     def guard():
         require(time.monotonic() < deadline, 'aggregate readback deadline')
     def cli(args):

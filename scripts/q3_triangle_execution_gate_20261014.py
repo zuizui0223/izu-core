@@ -16,13 +16,16 @@ import time
 import urllib.request
 
 from q3_triangle_contract_20261014 import NAMESPACE, require
+from q3_triangle_continuation_20261014 import PRIOR, HOLD_FILE, SPEC_FILE, validate_prior
 
 REF = 'refs/heads/design/chapter2-q3-distribution-triangle-20261014'
-ACTIVATION = 'data/designs/q3_triangle_execution_20261014.json'
+ACTIVATION = 'data/designs/q3_triangle_continuation_20261014.json'
 PREFLIGHT_SHA = 'e6d08dc779688192e99b27c8f0344cfef8e633f4be32678a2c9f6d64a680067d'
 DESIGN_SHA = '00649680789935168017627a917288939d6786604e32fbcdb065e059a68c9ba3'
 ARCHIVE_SHA = '8a2462910025b4a386e789583578cb1380349097393916dac4e50d01c9637b7e'
 SOURCE_FILES = (
+    'scripts/q3_triangle_continuation_20261014.py',
+    HOLD_FILE,
     'scripts/q3_triangle_contract_20261014.py',
     'scripts/build_q3_triangle_preflight_20261014.py',
     'scripts/build_q3_triangle_activation_20261014.py',
@@ -57,6 +60,7 @@ def digest(path):
 def validate_document(doc):
     require(isinstance(doc, dict) and doc.get('approved') is True, 'explicit approval required')
     require(doc.get('namespace') == NAMESPACE, 'new experiment approval scope')
+    require(doc.get('continuation') == PRIOR, 'explicit pinned continuation required')
     approval = doc.get('approval', {})
     require(isinstance(approval, dict) and approval.get('scope') == NAMESPACE
             and isinstance(approval.get('reference'), str) and approval['reference'].strip(),
@@ -86,8 +90,12 @@ def validate_activation(doc, repo, env, evidence, *, runtime):
     require(evidence['added'] == [ACTIVATION] and evidence['changed'] == [ACTIVATION],
             'activation must only add a new manifest')
     runs = evidence['runs']
-    require(runs['total_count'] == 1 and len(runs['workflow_runs']) == 1, 'duplicate campaign')
-    run = runs['workflow_runs'][0]
+    require(runs['total_count'] == 2 and len(runs['workflow_runs']) == 2, 'duplicate campaign')
+    prior = [r for r in runs['workflow_runs'] if r['id'] == PRIOR['run_id']]
+    current = [r for r in runs['workflow_runs'] if r['id'] != PRIOR['run_id']]
+    require(len(prior) == len(current) == 1, 'two distinct pinned attempts')
+    validate_prior(prior[0], evidence['prior_jobs'])
+    run = current[0]
     require(str(run['id']) == env.get('GITHUB_RUN_ID') and run['head_sha'] == evidence['head']
             and type(run['run_attempt']) is int and run['run_attempt'] == 1, 'run identity or retry')
     for name, expected in doc['code_sha256'].items():
@@ -106,9 +114,16 @@ def observe(repo, env):
         'User-Agent': 'izu-q3-triangle-activation'})
     with urllib.request.urlopen(request, timeout=30) as response:
         runs = json.load(response)
+    request = urllib.request.Request(
+        f"https://api.github.com/repos/zuizui0223/izu-core/actions/runs/{PRIOR['run_id']}/jobs?filter=latest&per_page=100",
+        headers=dict(request.headers))
+    with urllib.request.urlopen(request, timeout=30) as response:
+        prior_jobs = json.load(response)
+    require(prior_jobs['total_count'] == len(prior_jobs['jobs']) == 19, 'prior job pagination')
     return dict(parent=git('rev-parse', 'HEAD^'), head=git('rev-parse', 'HEAD'),
                 added=git('diff', '--name-only', '--diff-filter=A', 'HEAD^', 'HEAD').splitlines(),
-                changed=git('diff', '--name-only', 'HEAD^', 'HEAD').splitlines(), runs=runs)
+                changed=git('diff', '--name-only', 'HEAD^', 'HEAD').splitlines(), runs=runs,
+                prior_jobs=prior_jobs['jobs'])
 
 
 def authorize(repo):
@@ -120,6 +135,8 @@ def authorize(repo):
             'preflight bytes')
     require(digest(repo/'docs/CHAPTER2_Q3_TRIANGLE_EXECUTION_DESIGN_20261014.md') == DESIGN_SHA,
             'design bytes')
+    require(digest(repo/HOLD_FILE) == PRIOR['hold_receipt_sha256'], 'prior HOLD evidence bytes')
+    require(digest(repo/SPEC_FILE) == PRIOR['specification_sha256'], 'continuation specification bytes')
     result = validate_activation(doc, repo, os.environ, observe(repo, os.environ),
                                  runtime=(platform.python_version(), importlib.metadata.version('numpy')))
     return doc, hashlib.sha256(raw).hexdigest(), result

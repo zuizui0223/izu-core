@@ -3,7 +3,7 @@ name: Q3 approved distribution triangle 20261014
 on:
   push:
     branches: [design/chapter2-q3-distribution-triangle-20261014]
-    paths: [data/designs/q3_triangle_execution_20261014.json]
+    paths: [data/designs/q3_triangle_continuation_20261014.json]
 
 permissions:
   contents: read
@@ -88,7 +88,7 @@ jobs:
     name: triangle-verify-and-publish
     needs: shard
     runs-on: ubuntu-24.04
-    timeout-minutes: 30
+    timeout-minutes: 29
     permissions:
       contents: write
       actions: read

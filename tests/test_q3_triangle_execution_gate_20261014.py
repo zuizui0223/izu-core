@@ -7,6 +7,7 @@ from pathlib import Path
 import sys
 
 import pytest
+from test_q3_triangle_continuation_20261014 import prior_evidence
 
 sys.path.insert(0, str(Path(__file__).resolve().parents[1] / 'scripts'))
 
@@ -23,7 +24,7 @@ def fixture(tmp_path):
         path.parent.mkdir(parents=True, exist_ok=True)
         path.write_bytes(b'synthetic source')
         hashes[name] = hashlib.sha256(path.read_bytes()).hexdigest()
-    document = dict(approved=True, namespace=g.NAMESPACE, reviewed_commit='a'*40,
+    document = dict(approved=True, namespace=g.NAMESPACE, reviewed_commit='a'*40, continuation=copy.deepcopy(g.PRIOR),
                     approval=dict(reference='conversation:explicit-campaign-approval',
                                   scope=g.NAMESPACE),
                     preflight_sha256=g.PREFLIGHT_SHA, design_sha256=g.DESIGN_SHA,
@@ -32,9 +33,10 @@ def fixture(tmp_path):
     env = dict(GITHUB_ACTIONS='true', GITHUB_RUN_ATTEMPT='1',
                GITHUB_REPOSITORY='zuizui0223/izu-core', GITHUB_REF=g.REF,
                GITHUB_RUN_ID='123', GITHUB_SHA='b'*40)
-    evidence = dict(parent='a'*40, head='b'*40, added=[g.ACTIVATION],
-                    changed=[g.ACTIVATION], runs=dict(total_count=1,
-                    workflow_runs=[dict(id=123, head_sha='b'*40, run_attempt=1)]))
+    prior_run, prior_jobs = prior_evidence()
+    evidence = dict(parent='a'*40, head='b'*40, added=[g.ACTIVATION], prior_jobs=prior_jobs,
+                    changed=[g.ACTIVATION], runs=dict(total_count=2,
+                    workflow_runs=[dict(id=123, head_sha='b'*40, run_attempt=1), prior_run]))
     return g, document, env, evidence
 
 
@@ -77,7 +79,9 @@ def test_rejects_foreign_environment(tmp_path, field, value):
 @pytest.mark.parametrize('mutation', [
     lambda d,e,x: x.update(added=[]),
     lambda d,e,x: x['changed'].append('unreviewed.py'),
-    lambda d,e,x: x['runs'].update(total_count=2),
+    lambda d,e,x: x['runs'].update(total_count=3),
+    lambda d,e,x: d.pop('continuation'),
+    lambda d,e,x: x.update(added=['data/designs/q3_triangle_execution_20261014.json']),
     lambda d,e,x: x['runs']['workflow_runs'][0].update(run_attempt=2),
     lambda d,e,x: x['runs']['workflow_runs'][0].update(head_sha='c'*40),
     lambda d,e,x: d['limits'].update(max_native_updates=9999999),

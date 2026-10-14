@@ -4,6 +4,7 @@ from pathlib import Path
 import re
 
 from q3_triangle_contract_20261014 import NAMESPACE, require
+from q3_triangle_continuation_20261014 import PRIOR
 from q3_triangle_execution_gate_20261014 import (
     SOURCE_FILES, LIMITS, PREFLIGHT_SHA, DESIGN_SHA, ARCHIVE_SHA, digest, exclusive_json)
 
@@ -15,7 +16,7 @@ def build_candidate(repo, reviewed_commit):
             'preflight identity')
     require(digest(repo/'docs/CHAPTER2_Q3_TRIANGLE_EXECUTION_DESIGN_20261014.md') == DESIGN_SHA,
             'design identity')
-    return dict(approved=False, namespace=NAMESPACE, reviewed_commit=reviewed_commit,
+    return dict(approved=False, namespace=NAMESPACE, reviewed_commit=reviewed_commit, continuation=PRIOR.copy(),
                 approval=dict(scope=NAMESPACE, reference=''),
                 preflight_sha256=PREFLIGHT_SHA, design_sha256=DESIGN_SHA, archive_sha256=ARCHIVE_SHA,
                 code_sha256={name: digest(repo/name) for name in SOURCE_FILES}, limits=LIMITS.copy(),
