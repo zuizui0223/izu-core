@@ -52,11 +52,15 @@ def test_threshold_6class_algebra_and_original_0p05_agreement():
         assert all(0 <= z <= 768 for z in record["detected_A"].values())
         assert all(0 <= z <= 768 for z in record["detected_I"].values())
         assert math.isclose(
-            (low["assurance_first"]+low["near_simultaneous"]+low["assurance_only"])/768,
+            (low["assurance_first"]+low["investment_first"]+low["near_simultaneous"]+low["assurance_only"])/768,
             record["detected_A"]["L"]/768,abs_tol=1e-12)
         assert math.isclose(
-            (high["assurance_first"]+high["near_simultaneous"]+high["assurance_only"])/768,
+            (high["assurance_first"]+high["investment_first"]+high["near_simultaneous"]+high["assurance_only"])/768,
             record["detected_A"]["H"]/768,abs_tol=1e-12)
+        for side, counts in (("L",low),("H",high)):
+            i_detected = (counts["assurance_first"]+counts["investment_first"]
+                          +counts["near_simultaneous"]+counts["investment_only"])
+            assert i_detected == record["detected_I"][side]
     p = json.loads(PAIRED.read_text(encoding="utf-8"))
     main = s["0.05"]
     assert main["source_768_case_classes_L"] == p["counts_all_starts"]["L"]
