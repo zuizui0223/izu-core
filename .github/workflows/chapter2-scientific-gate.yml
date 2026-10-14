@@ -65,10 +65,8 @@ jobs:
             tests/test_chapter2_1005_confirmed_result.py \
             tests/test_chapter2_assurance_generality.py \
             tests/test_chapter2_assurance_generality_result.py \
-<<<<<<< HEAD
             tests/test_chapter2_unified_payoff_evolution_persistence.py \
             tests/test_chapter2_unified_payoff_runner_smoke.py \
-=======
             tests/test_chapter2_island_demographic_independent32.py \
             tests/test_chapter2_island_mutational_priority.py \
             tests/test_chapter2_island_mutational_order_realization.py \
@@ -78,7 +76,6 @@ jobs:
             tests/test_chapter2_island_assurance_dispersion_ablation.py \
             tests/test_chapter2_island_empirical_mechanism_contract.py \
             tests/test_chapter2_island_persistence_evidence_rank.py \
->>>>>>> d60c8630d80f98705d073af96e105ec980a955f1
             tests/test_chapter2_process_review_confirmed.py \
             tests/test_chapter2_unified_one_paper_20261010.py \
             tests/test_chapter2_unified_el_review_bundle_20261010.py \
@@ -87,6 +84,7 @@ jobs:
             tests/test_chapter2_sequence_source_genome_replay_20261011.py \
             tests/test_chapter2_sequence_paired_original_replay_20261011.py \
             tests/test_chapter2_public_archive_manifest.py \
+            tests/test_chapter2_joe_submission.py \
             tests/test_chapter2_branch_identifiability_boundary.py \
             tests/test_chapter2_independent_unit_reporting.py \
             tests/test_chapter2_submission_closure_audit.py \
