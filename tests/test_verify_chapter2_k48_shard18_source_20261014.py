@@ -9,6 +9,7 @@ import zipfile
 import pytest
 
 from scripts.verify_chapter2_k48_shard18_source_20261014 import (
+    ARTIFACT_ID, SOURCE_RUN, EXPECTED_SIZE, EXPECTED_SHA256,
     EXPECTED_PROTOCOL_SHA256, EXPECTED_STATUS, MANIFEST_NAME, verify,
 )
 
@@ -61,3 +62,19 @@ def test_rejects_extra_payload_even_when_zip_hash_matches(tmp_path):
     p, sha, nbytes = fixture_archive(tmp_path, extra_member=True)
     with pytest.raises(ValueError, match="member count"):
         verify(p, expected_sha256=sha, expected_size=nbytes)
+
+def test_committed_source_receipt_preserves_private_backup_safety_boundary():
+    p = Path(__file__).resolve().parents[1] / "data/submission/chapter2_k48_shard18_fresh_actions_readback_20261014.json"
+    d = json.loads(p.read_text(encoding="utf-8"))
+    raw = d["verified_original"]
+    assert raw["observed_sha256"] == raw["expected_sha256"] == EXPECTED_SHA256
+    assert raw["observed_bytes"] == raw["expected_bytes"] == EXPECTED_SIZE
+    assert raw["source_cases_declared"] == raw["case_json_sha256_sidecars_checked"] == 32
+    assert raw["original_run_id"] == SOURCE_RUN and raw["artifact_id"] == ARTIFACT_ID
+    scope = d["archive_handoff_constraints"]
+    assert scope["private_drive_backup_coverage_remains"] == "520/521"
+    assert scope["private_external_copy_created"] is False
+    assert scope["provider_safety_block_bypassed"] is False
+    assert scope["do_not_bypass_provider_safety_block"] is True
+    assert scope["public_scientific_repository_deposit_performed"] is False
+    assert scope["doi_assigned"] is False
