@@ -48,3 +48,25 @@ def test_production_cannot_start_before_independent_reader_gate(monkeypatch, tmp
     with pytest.raises(ValueError, match='independent controlled reader'):
         runner.run(tmp_path / 'input', tmp_path / 'references', 0, tmp_path / 'out')
     assert not (tmp_path / 'out').exists()
+
+
+def test_old_self_reported_reference_receipt_is_insufficient(monkeypatch, tmp_path):
+    import json
+    root = tmp_path / 'references'
+    (root / 'verified').mkdir(parents=True)
+    raw = b'old outcomes'
+    (root / 'verified/all_start_outcomes.npz').write_bytes(raw)
+    (root / 'ADMISSION.json').write_text(json.dumps({
+        'status': 'ALL4096_ORIGINAL_MEAN_NATIVE_REFERENCES_ADMITTED',
+        'cases':4096,'prior_sha256':'f3045118f51947e9eaa2dd71f275b5bc1428aa2042dd0c2af95bcaa5ca2b14f5',
+        'outcome_npz_sha256':runner.old.digest(raw)}),encoding='utf-8')
+    monkeypatch.setattr(runner,'source_gate',lambda:{'production_gate_open':False})
+    with pytest.raises(ValueError,match='independent reference receipt'):
+        runner.admit_reference_root(root)
+
+
+def test_production_requires_independent_native_control_receipt_before_reference_loading(monkeypatch,tmp_path):
+    monkeypatch.setattr(runner,'source_gate',lambda:{'production_gate_open':True})
+    with pytest.raises(ValueError,match='independent native control receipt'):
+        runner.run(tmp_path/'input',tmp_path/'references',0,tmp_path/'out')
+    assert not (tmp_path/'out').exists()

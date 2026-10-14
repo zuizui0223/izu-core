@@ -5,6 +5,7 @@ import numpy as np
 from scripts import assurance_parent_control_20261014 as design
 from scripts import initial_assurance_mean_20261013 as mean
 from scripts import persistence_expression_mechanism_20261012 as old
+from scripts import assurance_parent_admission_20261014 as admission
 from scripts.run_initial_assurance_mean_20261013 import inputs,original_state,arrays,json_write
 from scripts.model3_island.types import Config,VisitorState
 from scripts.model3_island.population import advance,subset
@@ -116,6 +117,7 @@ def verify(z,initial,visitors,cfg,seed,policy,*,float_atol=0.):
 
 
 def admit_reference_root(root):
+    admission.reference_proof(root,source_gate(),ROOT)
     root=Path(root);r=json.loads((root/'ADMISSION.json').read_bytes())
     if r['status']!='ALL4096_ORIGINAL_MEAN_NATIVE_REFERENCES_ADMITTED' or r['cases']!=4096:
         raise ValueError('full reference admission required')
@@ -127,6 +129,7 @@ def admit_reference_root(root):
 
 
 def reference_case(root,task):
+    _,authenticated=admission.reference_proof(root,source_gate(),ROOT)
     t=dict(task,policy=mean.POLICY);key=old.case_key(t)
     folder=Path(root)/'shards'/f'initial-mean-shard-{old.shard_for(t)}'
     sr=json.loads((folder/'SHARD.json').read_bytes())
@@ -134,11 +137,13 @@ def reference_case(root,task):
     rows=[row for row in sr['records'] if row['task']==t]
     if len(rows)!=1 or rows[0]['archive']!=key+'.npz':raise ValueError('original task domain')
     raw=(folder/(key+'.npz')).read_bytes()
-    if old.digest(raw)!=rows[0]['sha256']:raise ValueError('original reference case changed')
+    if old.digest(raw)!=rows[0]['sha256'] or old.digest(raw)!=authenticated[key]:
+        raise ValueError('original independently authenticated reference case changed')
     return arrays(raw)
 
 
 def technical_gate(root,m,s,lookup,configs,visitors):
+    admission.technical_proof(root,source_gate(),ROOT)
     root=Path(root);tr=json.loads((root/'SHARD.json').read_bytes())
     expected={old.case_key(t):t for t in design.tasks() if t['replicate']==0}
     records=tr.get('records',[]);keys=[old.case_key(r['task']) for r in records]
@@ -172,6 +177,8 @@ def run(input_path,reference_root,shard,out,*,technical=False,technical_root=Non
     bindings=source_gate()
     if not technical and not bindings['production_gate_open']:
         raise ValueError('independent controlled reader/review gate must open before production')
+    if not technical:
+        admission.technical_proof(technical_root,bindings,ROOT)
     mean.source_gate();admit_reference_root(reference_root)
     m,s,baseline,lookup=inputs(input_path);configs={t:Config.from_dict(m['configs'][str(t)]) for t in old.TARGETS}
     visitors=VisitorState(np.arange(4),np.full(4,.5),np.full(4,.2),np.ones(4))
