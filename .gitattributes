@@ -22,3 +22,5 @@ scripts/model3_island/reproduction.py text eol=lf
 scripts/model3_island/population.py text eol=lf
 scripts/model3_island/randomness.py text eol=lf
 scripts/model3_island/history.py text eol=lf
+scripts/clock_approved_execution_20261014/** -text whitespace=cr-at-eol
+data/design/chapter2_clock_pilot_author_execution_approval_20261014.json -text whitespace=cr-at-eol
