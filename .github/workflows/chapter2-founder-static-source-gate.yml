@@ -31,7 +31,8 @@ jobs:
             tests/test_chapter2_independent_synthetic_source_pools_20261014.py \
             tests/test_chapter2_balanced_cocarriage_20261014.py \
             tests/test_chapter2_directional_cosegregation_20261014.py \
-            tests/test_chapter2_F1_founder_relative_tails_20261014.py
+            tests/test_chapter2_F1_founder_relative_tails_20261014.py \
+            tests/test_chapter2_colonisation_claim_gate_20261014.py
       - name: Assert actual old t0 and 96 static checks, with no biology
         run: |
           python -m scripts.audit_chapter2_original_founder_compatibility_20261014 > original-t0-static-receipt.json
@@ -66,6 +67,10 @@ jobs:
         run: |
           python -m scripts.audit_chapter2_F1_founder_relative_tails_20261014 > founder-relative-F1-phenotype-threshold-tails.json
           python -c "import json; r=json.load(open('founder-relative-F1-phenotype-threshold-tails.json')); assert r['matched_F1_single_offspring_contrasts']==192 and r['new_biological_futures_or_sustained_events']==0; assert len(r['rows'])==192; print('FOUNDER-RELATIVE ONE-OFFSPRING T0 GATE PASSED')"
+      - name: Assert no new biology and triage co-carriage claims by estimand
+        run: |
+          python -m scripts.audit_chapter2_colonisation_claim_gate_20261014 > chapter2-colonisation-claim-admission.json
+          python -c "import json; r=json.load(open('chapter2-colonisation-claim-admission.json')); assert r['new_biological_histories']==0; assert r['sustained_twenty_occupied_census_response']=='NOT_MEASURED'; assert len(r['context_summary'])==3; c=next(x for x in r['context_summary'] if x['visitor_context']==0); assert (c['founder_mean_one_child_positive_contrast_count'],c['founder_mean_one_child_negative_contrast_count'])==(5,11); print('SOURCE-BOUND CLAIM ADMISSION GATE PASSED')"
       - name: Preserve static audit receipts
         if: success()
         uses: actions/upload-artifact@v4
@@ -81,5 +86,6 @@ jobs:
             balanced-AI-cocarriage-pre-mutation.json
             balanced-AI-signed-directional-meiosis.json
             founder-relative-F1-phenotype-threshold-tails.json
+            chapter2-colonisation-claim-admission.json
           if-no-files-found: error
           retention-days: 30
