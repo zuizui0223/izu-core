@@ -66,6 +66,12 @@ def verify_review_design(d:dict)->dict:
         d.get("source_distribution_approved") is not False or
         d.get("observed_natural_islands") != 0 or
         d.get("source_pr512_head")!=EXPECTED_SOURCE_HEAD or
+        d.get("original_model3_biology_sha")!="328548612e93469fcc8663f24548530a57399b9a" or
+        d.get("original_model3_mutation_traits")!=[False,False,True] or
+        d.get("independent_scientific_review_complete") is not False or
+        d.get("source_pool_counts_are_options_not_approved") is not True or
+        d.get("actual_launch_case_budget")!="NOT_REGISTERED" or
+        d.get("original_archival_raw_genomes_and_independent_readback")!="REQUIRED_BEFORE_LAUNCH" or
         tuple(d.get("original_visitor_contexts",()))!=OLD_CONTEXTS or
         tuple(d.get("co_carriage_arms",()))!=ARMS or
         tuple(d.get("original_six_classes",()))!=CLASSES or
