@@ -1,0 +1,101 @@
+{
+  "schema": "chapter2_private_backup_status_v1",
+  "snapshot_date_jst": "2026-10-13",
+  "repository": "zuizui0223/izu-core",
+  "status": "PRIVATE_EXTERNAL_BYTES_520_OF_521_AUTHENTICATED_PUBLIC_DOI_NOT_DEPOSITED",
+  "total_original_actions_zip_count": 521,
+  "private_verified_original_zip_count": 520,
+  "private_verified_original_zip_bytes": 902977321,
+  "missing_original_zip_count": 1,
+  "cohorts": [
+    {
+      "id": "orthogonal",
+      "label": "Orthogonal matched-founder",
+      "original_zip_count": 130,
+      "private_verified_zip_count": 130,
+      "verified_original_zip_bytes": 227238776,
+      "primary_verdict": "inconclusive",
+      "evidence": "https://github.com/zuizui0223/izu-core/issues/436#issuecomment-6116274439",
+      "verification": "external full-byte SHA-256, size, ZIP CRC and member-count checks"
+    },
+    {
+      "id": "kb",
+      "label": "Independent demographic K×B",
+      "original_zip_count": 130,
+      "private_verified_zip_count": 130,
+      "verified_original_zip_bytes": 226003482,
+      "primary_verdict": "inconclusive",
+      "evidence": "https://github.com/zuizui0223/izu-core/issues/436#issuecomment-6118142415",
+      "verification": "three independent outer ZIP transports, all 130 unchanged source ZIPs retrieved and hashed"
+    },
+    {
+      "id": "fixed_b48",
+      "label": "Fixed-B48 independent K confirmation",
+      "original_zip_count": 131,
+      "private_verified_zip_count": 130,
+      "verified_original_zip_bytes": 224423683,
+      "primary_verdict": "supported_in_synthetic_model",
+      "evidence": "https://github.com/zuizui0223/izu-core/issues/436#issuecomment-6115830141",
+      "verification": "130 external source ZIPs retrieved, hashed and CRC checked; future-shard-18 missing after safety stop",
+      "missing": [
+        "chapter2-k48-future-shard-18.zip"
+      ]
+    },
+    {
+      "id": "timed",
+      "label": "Prospective early/late selfed-seed viability",
+      "original_zip_count": 130,
+      "private_verified_zip_count": 130,
+      "verified_original_zip_bytes": 225311380,
+      "primary_verdict": "inconclusive",
+      "evidence": "https://github.com/zuizui0223/izu-core/issues/436#issuecomment-6120405691",
+      "verification": "all 130 full external byte and CRC readbacks, pedigree/source and future links plus preregistered-primary independent recomputation",
+      "synthetic_histories": 64,
+      "verified_pedigree_edge_rows": 39321131,
+      "verified_future_cells": 229376,
+      "primary_effect": -0.0029649032337908093,
+      "primary_interval_95": [
+        -0.007263219057235159,
+        0.0013173206459429143
+      ],
+      "audit_receipts_sha256": {
+        "private_readback": "3d15dfb250f65f2e8b84e9cdd1fc0bc7264498171e986b2e784f2ab58009ce85",
+        "source_future_linkage": "38c35fa9968f7ac2b3bb15d7b2658a57d002df8e49fbe3982247e02f5a935a45",
+        "independent_primary": "3a2768108c5dd1efe53520f1c6df89570307d7c7b849aee29b43ac826690c187"
+      }
+    }
+  ],
+  "additional_source_groups_outside_521": {
+    "evolution_actions_zip_count": 50,
+    "tempo_local_archive_count": 1,
+    "evidence": "docs/CHAPTER2_INDEPENDENT_RAW_ARCHIVES_20261009.md",
+    "note": "These are separate inventories, not members of the 521 demographic Actions ZIPs. Neither is claimed to have a DOI."
+  },
+  "unresolved_deposit_metadata": {
+    "approved_repository": null,
+    "repository_account": null,
+    "ordered_creators": null,
+    "data_license": null,
+    "code_license": null,
+    "access_and_disclosure_approval": null,
+    "version": null,
+    "doi": null
+  },
+  "required_before_public_doi": [
+    "Determine ordered data creators and review publication/access rights with authors.",
+    "Choose and authenticate a suitable durable versioned data repository; confirm storage and access policy.",
+    "Determine data and code licenses and version/embargo/open-data decisions.",
+    "Resolve one missing privately replicated fixed-B48 ZIP by an approved route, not by evading a service safety control; retain protected original GitHub source and draft Release.",
+    "Deposit approved source and verification packages to an external durable repository, retrieve the deposit independently and validate every original ZIP hash and scientific source/pedigree/future/admission audit.",
+    "Only then add a verified persistent identifier/DOI and access language to current manuscript and REPRODUCE.md."
+  ],
+  "not_claimed": [
+    "Private Google Drive copies are not a DOI-backed scientific deposit or a public repository.",
+    "520 externally authenticated synthetic raw ZIPs are not 520 independent biological replicates.",
+    "The blocked fixed-B48 future-shard-18 is not part of the verified private copies.",
+    "No fresh full-byte scan or model rerun was performed in writing this dated status snapshot.",
+    "No new natural island observations, rescue effects, causal mediation or mutation-order law is identified.",
+    "No confirmed creator order, author approval, embargo, or license is asserted."
+  ],
+  "issue": "https://github.com/zuizui0223/izu-core/issues/436"
+}
