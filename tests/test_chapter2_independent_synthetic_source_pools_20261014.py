@@ -81,3 +81,24 @@ def test_changed_original_synthetic_source_alleles_do_not_pass_hidden_placement(
                     mutation_flags=old.mutation_flags,ids=old.ids,birth_years=old.birth_years)
     with pytest.raises(ValueError,match="source-authenticated synthetic F0"):
         assign_hidden_heterozygotes(fake,3,0)
+
+
+def test_carrier_overlap_alone_is_not_a_pure_I_weighted_access_treatment():
+    """Same A support, but changing I-carrier identity reweights inherited I."""
+    result=input_only_qa()
+    count_with_I_weighted_difference=0
+    for p in range(POOL_COUNT):
+        rows=[r for r in result["rows"]
+              if r["synthetic_source_pool"]==p and r["sample_n"]==48
+              and r["context"]==0]
+        assert len(rows)==4
+        assert {r["A_carriers"] for r in rows}=={12}
+        assert {r["I_carriers"] for r in rows}=={12}
+        A=[r["expected_single_offspring_A_variance"] for r in rows]
+        I=[r["expected_single_offspring_I_variance"] for r in rows]
+        assert max(A)-min(A)<1e-14
+        if max(I)-min(I)>1e-12:
+            count_with_I_weighted_difference+=1
+    # Source heterogeneity and reproductive weighting mean co-carriage
+    # changes I-selected gamete access even with identical marginal counts.
+    assert count_with_I_weighted_difference==POOL_COUNT
