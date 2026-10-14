@@ -127,6 +127,13 @@ def summarize(rows):
     event_status = {trait: {k: 0 for k in ("neither", "high_only", "low_only", "both")}
                     for trait in ("A", "I")}
     time_diffs = {"A": [], "I": []}
+    # Fixed-horizon descriptive statistic on ALL starts, avoiding
+    # conditioning on observed events in both arms. Not an imputation
+    # of biological response after the study horizon.
+    capped_first_onset_diffs = {"A": [], "I": []}
+    checkpoints = (10, 25, 50, 100, 150, 181)
+    detected_by = {trait: {str(t): {"L": 0, "H": 0} for t in checkpoints}
+                   for trait in ("A", "I")}
     strata = defaultdict(lambda: dict(n=0, dlo=0, dhi=0, direct=0))
     for (founder, context, _hidden, _history), pair in sorted(pairs.items()):
         lo, hi = pair["L"], pair["H"]
@@ -143,6 +150,11 @@ def summarize(rows):
         s["direct"] += int(lc == "investment_first" and hc == "assurance_first")
         for trait in ("A", "I"):
             lt, ht = lo[trait], hi[trait]
+            capped_first_onset_diffs[trait].append((182 if ht is None else ht) - (182 if lt is None else lt))
+            for t in checkpoints:
+                for w, onset in (("L", lt), ("H", ht)):
+                    if onset is not None and onset <= t:
+                        detected_by[trait][str(t)][w] += 1
             status = ("both" if lt is not None and ht is not None else
                       "low_only" if lt is not None else
                       "high_only" if ht is not None else "neither")
@@ -153,7 +165,7 @@ def summarize(rows):
     dlow = by_width["L"]["assurance_first"] - by_width["L"]["investment_first"]
     dhigh = by_width["H"]["assurance_first"] - by_width["H"]["investment_first"]
     return {
-        "schema": "chapter2_original_1536_pilot_paired_clock_posthoc_readout_v1",
+        "schema": "chapter2_original_1536_pilot_paired_clock_posthoc_readout_v2",
         "status": "EXPLORATORY_RETROSPECTIVE_EXISTING_SOURCE_NOT_INDEPENDENT_FOUNDER_CONFIRMATION",
         "source_verified_receipt_git_blobs": BLOBS,
         "original_case_records": 1536,
@@ -170,6 +182,13 @@ def summarize(rows):
         "paired_first_sustained_onset_differences": {
             trait: time_summary(time_diffs[trait]) for trait in ("A", "I")
         },
+        "all_start_capped_first_onset": {
+            trait: {
+                "n_all_pairs": 768, "cap_for_not_detected_by_181": 182,
+                "mean_high_minus_low_capped_updates": sum(capped_first_onset_diffs[trait])/768,
+                "detected_by_start_year_all_768": detected_by[trait],
+            } for trait in ("A", "I")
+        },
         "six_founder_context_strata": [
             {"founder": f, "context": c, "n_pairs": strata[(f,c)]["n"],
              "D_low": strata[(f,c)]["dlo"]/strata[(f,c)]["n"],
@@ -182,6 +201,7 @@ def summarize(rows):
             "Descriptive posthoc decomposition of the already admitted six original pilot shards; no new biological updates.",
             "Shared founder and future RNG histories across contexts/hidden-I are not independent island populations.",
             "A/I observed-on-both conditional clock differences are subject to event detection selection; do not interpret as all-start causal mediation.",
+            "The all-start capped onset statistic assigns 182 only as a fixed horizon code to no-detection; it is not a prediction of eventual response time.",
             "Response onset is not natural selection onset; 0.05 threshold geometry and the 20-census window are built into this statistic.",
             "Only the original 0.05 event receipts are present in these JSONs; 0.025/0.10 reclassification requires stored annual census originals.",
             "No founder-2+ generalization, independent source-co-carriage effect, proof of genetic rate mediator, or Q4 survival benefit.",
