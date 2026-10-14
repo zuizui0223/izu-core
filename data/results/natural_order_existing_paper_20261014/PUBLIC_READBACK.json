@@ -1,0 +1,24 @@
+{
+  "status": "PUBLIC_DOWNLOAD_ALL16_MEMBERS_BYTE_IDENTICAL",
+  "sha256": "bd7f1fb3f9ce001dba32fa2a71a72c8b30a338f8559a4e54bbdf76c5b4692ecc",
+  "bytes": 1005812,
+  "members": {
+    "SCOPE.json": "6195b4cc8f72bb1a4180cc1475ffc4e6059488526a2d7471bb136cf412751e5f",
+    "READOUT.json": "33eb80ca5e7f5f81d6bc05bd63dc9a0283545c1e0b22a82c55bbd43e3624fbb1",
+    "CASES.csv": "7a7eeedcb5af2af50bf3343801b764db3582eb20fdde85d701224b43fa0723e9",
+    "audit_natural_order_existing_v2_20261014.py": "4cac891f41f065948d363337970d6104b0f9b6d84b0e5ff4cc242020a02feb30",
+    "audit_natural_order_existing_20261014.py": "7758e995828c6df59246f89a1e837862c66b70e750291103e5da6d38b287ba83",
+    "NATURAL_ORDER_V1_PROVISIONAL_20261014.json": "85ef35772361036227c6d00749d5677706e6b413c3d487164146132688677f61",
+    "verify_natural_order_existing_independent_20261014.py": "c9eaf72c3190cd37ed69028fa073e4dd8d217e9861acba7bae2c1987dccdae1e",
+    "NATURAL_ORDER_EXISTING_INDEPENDENT_REVIEW_20261014.json": "69a74639d7ab5e7fe58773ba1d6e309896eb3eaafeb7a9f252d558228e63afbf",
+    "NATURAL_ORDER_EXISTING_AGGREGATE_REVIEW_20261014.json": "2542e864b8f3b3f475277f81e89e6c82afdc9a01f78fdd188aab217fe8e03191",
+    "NATURAL_ORDER_NATIVE_STATE_BANK_20261014.zip": "ec15316f234ec6f28c50d93bb099ad9db6f64b84a82f6c1a88370482f6f6d8b2",
+    "NATURAL_ORDER_STATE_BANK_ADMISSION_20261014.json": "b90eb98c02716c0ab72551cafef2f8f89ff7bf7818ba51cacf7505dd1d56b357",
+    "original_source/resolution.py": "91f3bf3d36e6b39c0c1bf40412769d3cfea850a085822fed3dd2a9973974e19e",
+    "original_source/producer.py": "5a7178c68efb0e969b6d467ff8781a9a045ee5d5f41603279af8ae2a80c89161",
+    "original_source/resolution_consumer.py": "e8d9db187085711aa06f603a872f29fd780256b4fb2513281f21cdd27320cff4",
+    "verify_natural_order_state_bank_20261014.py": "dc6c42599fc511bcc93e49c7f092f49b2f6b262ab6bd774c3882fdad0d7c5807",
+    "NATURAL_ORDER_STATE_BANK_INDEPENDENT_REVIEW_20261014.json": "74f287229e2d630347fccdd8a971c6165f349416d75f740ec30f903aab9bb328"
+  },
+  "url": "https://github.com/zuizui0223/izu-core/releases/download/four-question-resolution-20261013/NATURAL_ORDER_EXISTING_BANK_VERIFIED_REVIEW_20261014.zip"
+}

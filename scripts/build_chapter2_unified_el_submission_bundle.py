@@ -1118,6 +1118,9 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     members.update(q3_conditional);derivations.update(q3_conditional_derivations)
     q3_events,q3_event_derivations=q3_event_conditions_materials()
     members.update(q3_events);derivations.update(q3_event_derivations)
+    from scripts.natural_order_paper_admission_20261014 import materials as natural_order_materials
+    natural_order,natural_order_derivations=natural_order_materials(ROOT)
+    members.update(natural_order);derivations.update(natural_order_derivations)
     assurance_parent,assurance_parent_derivations=assurance_parent_materials()
     members.update(assurance_parent)
     derivations.update(assurance_parent_derivations)
@@ -1150,6 +1153,7 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
         "mechanism_evidence":"20480 full-genome-admitted futures and independent all-start arithmetic; lifelong expression policies, not initial-only or natural-order mediation; low-challenge terminal floor retained",
         "atom_evidence":"All10 two-grid numerical admissions and320 descriptive ABM histories;990 event and40 checkpoint independent array checks, no new raw-genome reconstruction or causal drift attribution",
         "resolution_evidence":"6144 boundary,3072 shared preparations,6144 branched challenges; genetic-access band and conditional all-start preparation-policy effects, not pure natural-order mediation",
+        "natural_order_evidence":"Retrospective raw-genotype join of1024 unrestricted preparations and2048 existing futures; all36 descriptive groups independently verified. Two fixed founders; not randomized order benefit, new simulation or primary family.",
         "kernel_expression_evidence":"All48 investment-expression pairs and12 endpoint-duration reversals; two exact reference-order/state-time decompositions. Pure-low positive/pure-high negative aggregate contributions; segregating signs reference-sensitive. Not unique fixation mediation or natural-order benefit",
         "response_onset_evidence":"All2304 archived on-path expected inherited response clocks;299 point/216 sustained earlier-I counterexamples among335 assurance-first cases. Descriptive refutation of universal start-time-only necessity; no invasion-gradient, causal or future-benefit claim",
         "initial_clock_evidence":"Read-only 2304 histories in18 identical-t0 profiles; native initial returns independently checked; observed six-class oracle is descriptive, not fitted/prospective accuracy, causal explanation or natural-order benefit",

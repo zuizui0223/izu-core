@@ -414,3 +414,10 @@ Independent S25 source review verifies all12 strict-order rows and all36 groups;
 ## Concurrent source integration, 2026-10-14
 
 Remote branch advanced tof93a0cf78219618f7bee8e04ccac9f1cb51a6f65 with Q3/Q4 compression and independent merge crosschecks while the S25 update was prepared. Preserve its entire compressed main and new test/ledger additions, then add the single descriptive S25 sentence. Final merged source main4214, blinded main4217, abstract140; earlier4990/4995 counts describe the pre-merge local preview only. Both source branches remain in history. Native operators and12 unrelated paths are byte-preserved. The2048 counterfuture candidate remains unapproved/unexecuted. New committed/public package verification remains pending.
+
+
+## S25 compact paper evidence intake, 2026-10-14
+
+All36 descriptive groups, compact independent raw-genome/state-bank checks and the sixteen-member public readback are now source-pinned under data/results/natural_order_existing_paper_20261014. The builder admits their canonical-LF hashes, complete original denominators, zero-native scope and observational limits, then replaces only the identifying repository prefix. Five admission tests include altered-count rejection, missing-review rejection, CRLF portability and actual ZIP inclusion. Full50 focused paper/merge/intake checks pass. Two independent reviews confirm source/table meaning and original compact evidence equality.
+
+The local intake preview contains143 members/142 payloads, four main/three supplementary figures and4217/140 words. It was built before the evidence-intake commit and remains a preview. Actual committed-source/public packet and exact-head CI are still separate gates. Earlier140-member/4995-word local preview and old0164 committed delivery are preserved, not relabeled current. The2048 mean-standardization candidate remains unapproved and unexecuted. No native biological operator or original result has changed.
