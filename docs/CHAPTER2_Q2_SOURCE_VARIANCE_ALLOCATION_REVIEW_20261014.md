@@ -66,6 +66,27 @@ H^*=\sqrt{\frac{Wc_s}{Bc_h}}\quad (H\geq1).
 
 これは「多くの独立源が最適」という単純化も「一つの源を大量反復するのが最適」という単純化も避ける追加ゲートである。実験のS/Hを承認する前に、源ゲノムの生成・検証・保存費用を、1つの6経路未来履歴の費用と同じ単位で概算する必要がある。scripts/audit_chapter2_Q2_source_variance_allocation_20261014.py はこの恒等式と仮想感度分析を実装し、独立したテストが不正な費用・分散入力を拒否する。
 
+### 実際の6分類を集約する順序（指標のすり替え禁止）
+
+分散の数式だけでは、将来のQ2進化結果をどう集計するかは決まらない。元6分類は**各個体群で必ず1つだけ**成立し、3送粉環境ごとにそれぞれm=0・m=12のカテゴリ確率の和が1となる。まず同じ源ゲノムsの各対応履歴hでm12−m0の**6次元差ベクトル**を計算し、源内で平均して \(\Delta_s\) を得る。この \(\Delta_s\) を真に独立なS源集団について平均した \(\bar\Delta=S^{-1}\sum_s\Delta_s\) が、主評価である**源集団平均の6分類確率差ベクトル**である。
+
+全変動距離（TV）を使う場合も、次の二つを**同じ指標と扱わない**。
+
+\[
+TV_{\mathrm{population}}=\frac12\sum_{k=1}^{6}|\bar\Delta_k|,
+\qquad
+\overline{TV_{\mathrm{source}}}
+=\frac1S\sum_s\left(\frac12\sum_{k=1}^{6}|\Delta_{s,k}|\right).
+\]
+
+前者は**源集団を平均したm0/m12のカテゴリ分布間距離**、後者は**個々の源に条件付けたカテゴリ分布差の絶対的な大きさの平均**で、後者は方向が打ち消されても大きいまま残る。絶対値の凸性から \(TV_{\mathrm{population}}\leq\overline{TV_{\mathrm{source}}}\)。平均する順序を入れ替えてはいけない。
+
+**反証的な人工入力:** 二つの独立と仮定した源S0/S1で、それぞれ対応m0→m12が「A先行100%→I先行100%」と「I先行100%→A先行100%」だったとする。**各源でのTVは1、源別TV平均も1**だが、両源を平均するとm0・m12ともA/I先行は各50%となり、**6分類差ベクトルは全部0、母集団平均TVは0、Dの差も0**。源ごとの効果が真逆で打ち消し合ったのに、源別のTV平均1を「大きい一貫した進化効果」と解釈するのは科学的に誤り。
+
+この検証を [scripts/audit_chapter2_Q2_sixclass_source_aggregation_20261014.py](../scripts/audit_chapter2_Q2_sixclass_source_aggregation_20261014.py) と [tests/test_chapter2_Q2_sixclass_source_aggregation_20261014.py](../tests/test_chapter2_Q2_sixclass_source_aggregation_20261014.py) へ実装した。前段の源ゲノム指紋・m0/m12と訪花条件の対応・6カテゴリ・乱数master重複拒否を**必ず先に通した場合**だけ、源平均ベクトル、集約後TV、源別TV平均、両者の差、二次的Dと符号が逆の源集団数を返す。テストデータは完全に人工の**分類ラベルのみ**で、原本二倍体ゲノム・未来更新・実際の新しいQ2進化結果はない。
+
+**未完了の推論境界：** 6カテゴリの主評価量は源平均差ベクトルであり、TVやDは別の二次的・記述的指標。これらを実データの有意差、方向の一致、Q4の存続効果として扱わない。真の源集団の独立性、原本ゲノムの保存・別実装による201センサス判定、S/Hと最小重要差、主・副次の多重比較や不確実性は新実験の実行前に独立の科学レビューを要する。
+
 ## 3. コードと判定の境界
 
 [scripts/audit_chapter2_Q2_source_variance_allocation_20261014.py](../scripts/audit_chapter2_Q2_source_variance_allocation_20261014.py) は旧デザインの5候補を参照して、\(B/S+W/(SH)\) の整数S/Hに対する厳密な値、SHを固定した源内項の不変性、B=0の完全な同率を検算する。対応[tests/test_chapter2_Q2_source_variance_allocation_20261014.py](../tests/test_chapter2_Q2_source_variance_allocation_20261014.py) は境界違反・非有限数・源集団が1以下の任意SE推定・架空カテゴリ差の絶対値が1を超える入力を拒否する。
