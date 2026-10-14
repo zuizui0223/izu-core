@@ -18,10 +18,10 @@ def minimal_mock():
        'schema':'chapter2_clock_A_access_by_I_hidden_homolog_pilot_design_v2',
        'pilot':{'total_trajectories':1536,'independent_stochastic_clusters':128,
                 'updates_per_trajectory':200,'replicates_per_founder':64,
-                'founder_blocks':2,'treatments_per_founder_seed':12,
+                'founder_blocks':2,
                 'original_outcome_threshold':.05,'event_sustain_censuses':20,
                 'tie_window_updates':5},
-       'factorial':{'I_mutation_allowed':False,'mutation_traits':[False,False,True]}}
+       'factorial':{'treatments_per_founder_seed':12,'I_mutation_allowed':False,'mutation_traits':[False,False,True]}}
     registry={'status':'PRE_BIOLOGICAL_EXPLICIT_PILOT_INPUTS_RECORDED_NO_EXECUTION',
               'total_input_trajectories':1536,
               'independent_stochastic_stream_clusters':128,

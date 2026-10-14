@@ -76,7 +76,7 @@ def audit(design:dict,registry:dict,power:dict)->dict:
         or design['pilot']['updates_per_trajectory']!=200
         or design['pilot']['replicates_per_founder']!=64
         or design['pilot']['founder_blocks']!=2
-        or design['pilot']['treatments_per_founder_seed']!=12
+        or design['factorial']['treatments_per_founder_seed']!=12
         or design['factorial']['I_mutation_allowed'] is not False
         or design['factorial']['mutation_traits']!=[False,False,True]
         or design['pilot']['original_outcome_threshold']!=.05
