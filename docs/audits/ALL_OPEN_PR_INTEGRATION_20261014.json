@@ -1,5 +1,5 @@
 {
-  "scope": "All 43 open PR heads in initial snapshot integrated by ancestry; current paper remains controlling.",
+  "scope": "All 43 initial open PR heads plus newly opened PR522 integrated by ancestry; current paper remains controlling.",
   "main_base": "7fde11a456230a3d8c84e548fc4fb81838bdc3e6",
   "initial_prs": [
     {
@@ -137,7 +137,7 @@
     },
     {
       "number": 496,
-      "title": "Design phenotype-matched A-access × hidden-I-variation pilot with power/no-go gates",
+      "title": "Design phenotype-matched A-access \u00d7 hidden-I-variation pilot with power/no-go gates",
       "headRefOid": "6ababcf025336e5cfddbb1c4807bef33818b4aec",
       "baseRefName": "codex/initial-clock-repair-20261013",
       "isDraft": true
@@ -179,7 +179,7 @@
     },
     {
       "number": 502,
-      "title": "Predeclare 2×2 genetic-access pilot six-class contrasts and cluster-level descriptive reporting",
+      "title": "Predeclare 2\u00d72 genetic-access pilot six-class contrasts and cluster-level descriptive reporting",
       "headRefOid": "4ba6774e15d00c8c22e34af6dad5fb3b25252143",
       "baseRefName": "analysis/chapter2-clock-external-six-archive-readback-20261013",
       "isDraft": true
@@ -214,7 +214,7 @@
     },
     {
       "number": 507,
-      "title": "Resolve Q1 threshold interpretation and clarify central Q1–Q4 evidence boundaries",
+      "title": "Resolve Q1 threshold interpretation and clarify central Q1\u2013Q4 evidence boundaries",
       "headRefOid": "8fafaba9f38201a04d92de626cf0cfecfd7d356b",
       "baseRefName": "main",
       "isDraft": false
@@ -311,9 +311,11 @@
     "PR413: preserve later exact biological-state replay (diagnostic rounding separately documented), workflow restrictions, and all test coverage.",
     "PR410/408/407/406/405/404: preserve current four-setting/unified-paper route over superseded single-setting submission surfaces; keep unique historical draft/code; retain PR405 test suite under unique filename.",
     "PR395: retain corrected selection claim ceiling rather than old ready status.",
-    "S26: admit completed PR516 conditional triangle results and maintenance-feasibility limits, retaining original unresolved outcomes."
+    "S26: admit completed PR516 conditional triangle results and maintenance-feasibility limits, retaining original unresolved outcomes.",
+    "S27: retain post hoc archived-threshold sensitivity without promoting it to prospective or independent-founder evidence."
   ],
   "validation_status": "Integrated tests and final-head CI pending; no main merge yet.",
   "new_biological_campaigns": 0,
-  "model3_native_source_diff_vs_main": false
+  "model3_native_source_diff_vs_main": false,
+  "additional_522_head": "40fe19d25d95882009fe014655c2ae28213faa2b"
 }

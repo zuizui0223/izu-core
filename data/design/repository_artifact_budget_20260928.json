@@ -4,7 +4,7 @@
   "baseline_commit": "8d145da1e312e9767b056fd81f3c4b6c3448d552",
   "rationale": "Prevent further repository growth while preserving frozen legacy provenance until a permanent external archive is fixed.",
   "thresholds_bytes": {
-    "max_tracked_data_tree": 183061688,
+    "max_tracked_data_tree": 183068172,
     "max_unlisted_design_file": 1048576,
     "max_unlisted_result_file": 2097152,
     "max_unlisted_generated_svg": 1048576
