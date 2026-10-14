@@ -1,0 +1,69 @@
+{
+  "schema": "model3_discrete_offspring_linear_noise_20261009_v1",
+  "status": "exact_fixed_census_one_step_normal_approximation_diagnostic_passed",
+  "provenance": {
+    "source_commit": "fd5d7f3bfcbe7bf3743abd80385cc56cd0e36c66",
+    "focused_workflow_id": 37866968137,
+    "focused_workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/37866968137",
+    "conclusion": "success",
+    "artifact_id": 11588726660,
+    "artifact_digest": "sha256:b94aad13ba81052044c02b6c2c3a8d8d67728462cfe007350228778401e75dcd"
+  },
+  "method": {
+    "source": "canonical Model3 reproduction() and Mendelian genotype law with fixed engineered 3-locus support",
+    "individual_investment_support": [
+      0.25,
+      0.5,
+      0.75
+    ],
+    "investment_probability_vector": [
+      0.4892983825038161,
+      0.20788804190709445,
+      0.30281357558908945
+    ],
+    "child_sample_size_conditional_on_exact_N": true,
+    "exact_law": "N-fold convolution of categorical offspring-investment distribution",
+    "approximation": "Gaussian with exact child trait mean and variance divided by N",
+    "distance": "Kolmogorov CDF discrepancy including both limits at every finite-probability atom",
+    "theoretical_bound": "Berry-Esseen, 0.56*E|Y-mu|^3/(sd(Y)^3*sqrt(N))",
+    "visitor_history_independent_replicates": 0,
+    "canonical_Model3_biology_modified": false
+  },
+  "results": [
+    {
+      "N": 8,
+      "kolmogorov_distance": 0.09010413417480584,
+      "berry_esseen_upper_bound": 0.23148250666935
+    },
+    {
+      "N": 16,
+      "kolmogorov_distance": 0.0625644828093011,
+      "berry_esseen_upper_bound": 0.1636828501919576
+    },
+    {
+      "N": 32,
+      "kolmogorov_distance": 0.044571229117697786,
+      "berry_esseen_upper_bound": 0.115741253334675
+    },
+    {
+      "N": 64,
+      "kolmogorov_distance": 0.03163206425926557,
+      "berry_esseen_upper_bound": 0.0818414250959788
+    },
+    {
+      "N": 128,
+      "kolmogorov_distance": 0.022407274754686846,
+      "berry_esseen_upper_bound": 0.0578706266673375
+    }
+  ],
+  "admissibility": {
+    "conditional_one_step_smooth_flower_investment_mean_only": true,
+    "does_not_simulate_full_population_size_distribution": true,
+    "mutation_enabled_full_genotype_LNA": false,
+    "rare_genotype_loss_equivalent": false,
+    "stochastic_multigeneration_field_validated": false,
+    "autonomous_continuous_time_SDE_validated": false,
+    "autonomous_trait_space_SPDE_validated": false,
+    "geographic_INLA_performed": false
+  }
+}

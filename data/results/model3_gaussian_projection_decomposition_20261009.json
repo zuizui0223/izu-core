@@ -1,0 +1,65 @@
+{
+  "schema": "model3_gaussian_projection_decomposition_20261009_v1",
+  "status": "post_outcome_exploratory_mechanistic_numerical_audit",
+  "provenance": {
+    "source_commit": "dea87b480c7abac2144127247008bd01a4714b67",
+    "focused_ci_run_id": 37868625529,
+    "focused_ci_url": "https://github.com/zuizui0223/izu-core/actions/runs/37868625529",
+    "focused_ci_conclusion": "success",
+    "artifact_id": 11588848706,
+    "artifact_zip_digest": "sha256:b021fca2e9dd57e4b977149099af4d28451d1788abf010a6a13129bb92fa306a"
+  },
+  "conditions": {
+    "source": "unaltered Model3 reproduction and full joint diploid Mendelian offspring genotype probabilities",
+    "three_locus_diploid_classes": 27,
+    "mutation_rate": 0,
+    "biological_mating_settings_unchanged": true,
+    "ovule_budget": 8,
+    "K": [
+      8,
+      32,
+      128
+    ],
+    "gaussian_shock_repeats_per_K": 8192,
+    "old_visitor_history_used": false,
+    "natural_island_data_used": false,
+    "INLA_used": false,
+    "post_outcome_exploratory": true
+  },
+  "cases": [
+    {
+      "K": 8,
+      "exact_multinomial_expected_class_richness": 6.106376959687035,
+      "after_gaussian_clip_normalize_then_conditional_multinomial_expected_richness": 5.6734023432338425,
+      "after_gaussian_clip_normalize_largest_remainder_expected_richness": 7.001708984375,
+      "gaussian_clipping_shift": -0.43297461645319224,
+      "additional_deterministic_rounding_shift": 1.3283066411411577,
+      "fraction_gaussian_draws_with_negative_genotype_count": 1
+    },
+    {
+      "K": 32,
+      "exact_multinomial_expected_class_richness": 13.828041028523227,
+      "after_gaussian_clip_normalize_then_conditional_multinomial_expected_richness": 12.600331349238886,
+      "after_gaussian_clip_normalize_largest_remainder_expected_richness": 15.185791015625,
+      "gaussian_clipping_shift": -1.2277096792843416,
+      "additional_deterministic_rounding_shift": 2.5854596663861136,
+      "fraction_gaussian_draws_with_negative_genotype_count": 0.9990234375
+    },
+    {
+      "K": 128,
+      "exact_multinomial_expected_class_richness": 22.072525207907262,
+      "after_gaussian_clip_normalize_then_conditional_multinomial_expected_richness": 20.255235020198988,
+      "after_gaussian_clip_normalize_largest_remainder_expected_richness": 22.565673828125,
+      "gaussian_clipping_shift": -1.8172901877082737,
+      "additional_deterministic_rounding_shift": 2.3104388079260127,
+      "fraction_gaussian_draws_with_negative_genotype_count": 0.91748046875
+    }
+  ],
+  "interpretation": [
+    "Within this fixed test, pre-integerization Gaussian clipping/normalization leads to fewer genotype classes than canonical exact multinomial sampling, while deterministic largest-remainder rounding shifts class richness upward and more than offsets that reduction.",
+    "The exact baseline is analytic and the conditional multinomial richness after each Gaussian clip is integrated exactly; noise remains only across the Gaussian realizations.",
+    "Because the decomposition is post-outcome, it is mechanism localization, not independent hypothesis confirmation or a retuned validation.",
+    "This does not show all Gaussian stochastic models are wrong; this specific 27-class projected Gaussian frequency/integerization implementation is unsuitable as an exact finite-genetic-diversity surrogate.",
+    "No biological code changes, no full mutation-enabled SDE or genotype SPDE proof, no field data analysis."
+  ]
+}

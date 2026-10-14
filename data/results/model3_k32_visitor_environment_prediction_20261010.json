@@ -1,0 +1,114 @@
+{
+  "schema": "original_model3_k32_visitor_environment_descriptors_group_heldout_prediction_v1",
+  "status": "dedicated_source_ci_passed_early_only_prediction_not_better_than_intercept_baseline",
+  "source": {
+    "commit": "b744edbcb3abc1f1d40e9c3d21b35dbf6a426cce",
+    "run_id": 37952017304,
+    "run_url": "https://github.com/zuizui0223/izu-core/actions/runs/37952017304",
+    "job": "model3-k32-new-visitor-history-stress",
+    "job_conclusion": "success",
+    "artifact_id": 11626158325,
+    "raw_artifact_url": "https://github.com/zuizui0223/izu-core/actions/runs/37952017304/artifacts/11626158325",
+    "raw_archive_sha256": "72f5313267de32de814e92c9c04a05121717b37e9ef0bc754cf4f3256fbb474f"
+  },
+  "source_conditions": {
+    "K": 32,
+    "mutation_rate": 0,
+    "generations": 8,
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "source_setting": "canonical Chapter2 prior_selfing, assurance_cost=0, investment_cost=.5",
+    "old_reference_visitor_seed": 26110601,
+    "new_visitor_seeds": [
+      26110602,
+      26110603,
+      26110604,
+      26110605,
+      26110606,
+      26110607,
+      26110608,
+      26110609
+    ],
+    "distinct_visitor_RNG_histories": 8,
+    "nested_demographic_paths_per_visitor_seed": 128,
+    "source_reproductive_code_modified": false,
+    "prospective_confirmatory_seeds_37110801_to_37110864_used": false,
+    "eight_new_seed_selection_after_outcome_exposure": true,
+    "same_eight_ecological_histories_reused_across_budgets": true
+  },
+  "forecast": {
+    "features_first_two_visitor_years_only": [
+      "mean effectiveness-weighted Gaussian source visitor affinity contrast at high matching trait=.75 versus low=.25",
+      "mean visitor functional richness (number of source visitor types)"
+    ],
+    "algorithm": "ridge regression, lambda=2 fixed, training fold standardized only; source matching expected allele direction year8 predicted under whole-history leave-one-out (7 train, 1 test) per budget",
+    "baselines": [
+      "training-only outcome mean",
+      "training-majority sign",
+      "observed year1 matching-direction sign persistence"
+    ],
+    "future_visitor_years_used_for_early_forecasts": false,
+    "retrospective_features_include_later_visitor_snapshots_but_not_in_forecast": true
+  },
+  "budget8": {
+    "new_visitor_histories": 8,
+    "matching_negative_to_positive": 4,
+    "late_matching_positive": 5,
+    "LOHO_ridge_early_only_mse": 0.00006400566005056844,
+    "LOHO_training_only_intercept_baseline_mse": 0.000053662453812710774,
+    "LOHO_ridge_sign_accuracy": 0.625,
+    "LOHO_training_majority_sign_accuracy": 0.625,
+    "LOHO_first_year_sign_persistence_accuracy": 0.375,
+    "retrospective_correlations_with_late_matching_direction": {
+      "early_two_year_matching_preference": 0.35071549872931995,
+      "early_two_year_visitor_richness": -0.2680839497882112,
+      "full_eight_year_matching_preference": 0.5387242832890223,
+      "matching_preference_late_minus_early": 0.5402656471755146,
+      "full_eight_year_visitor_richness": -0.12246644346185027,
+      "visitor_richness_late_minus_early": -0.24479359109206902
+    }
+  },
+  "budget3": {
+    "new_visitor_histories": 8,
+    "matching_negative_to_positive": 5,
+    "late_matching_positive": 6,
+    "LOHO_ridge_early_only_mse": 0.00003126746053380648,
+    "LOHO_training_only_intercept_baseline_mse": 0.000021051273826958645,
+    "LOHO_ridge_sign_accuracy": 0.75,
+    "LOHO_training_majority_sign_accuracy": 0.75,
+    "LOHO_first_year_sign_persistence_accuracy": 0.25,
+    "retrospective_correlations_with_late_matching_direction": {
+      "early_two_year_matching_preference": -0.1193354220518125,
+      "early_two_year_visitor_richness": -0.5660166869703018,
+      "full_eight_year_matching_preference": 0.08993057084410047,
+      "matching_preference_late_minus_early": 0.7823182606691247,
+      "full_eight_year_visitor_richness": -0.09574333011193797,
+      "visitor_richness_late_minus_early": -0.16315335314652335
+    }
+  },
+  "examples": [
+    {
+      "seed": 26110606,
+      "initial_two_year_high_minus_low_effective_affinity": 0.564,
+      "late_minus_early_affinity_contrast": -0.597,
+      "late_matching_expected_direction_budget8": -0.0010333159760997435,
+      "late_matching_expected_direction_budget3": -0.003994271618113572,
+      "interpretation": "visitor preference reversal is consistent with negative late expected direction but source parental genotype-state history also differs; not causal isolation"
+    },
+    {
+      "seed": 26110603,
+      "initial_two_year_high_minus_low_effective_affinity": -0.087,
+      "late_minus_early_affinity_contrast": 0.273,
+      "late_matching_expected_direction_budget8": 0.013872670378191135,
+      "late_matching_expected_direction_budget3": 0.008290935611612385,
+      "interpretation": "late ecology preference shift co-occurs with positive late source matching direction; no causal claim"
+    }
+  ],
+  "scientific_limits": [
+    "Early source visitor signatures did not improve year8 matching expected allele-direction prediction over training-only intercept under 8 leave-whole-history-out folds for either budget.",
+    "Correlation with changes in visitors over all eight years is retrospective, based on outcome-exposed exploratory features among only eight simulated histories; future visitor information would leak if used for early forecasting.",
+    "The source-affinity trait contrast is descriptive and does not encode full pollen export, maternal outcross allocation, plant frequency dependence, genotype/census state, or full ecological timing.",
+    "Budget8 and budget3 share visitor RNG histories and cannot be pooled as sixteen independent ecological systems; 128 demographic paths are nested, not ecology replication.",
+    "No frozen prospective visitor confirmation histories, independent real island observations, fitness intervention, causal pollinator ecology or validated continuous SDE/SPDE."
+  ]
+}

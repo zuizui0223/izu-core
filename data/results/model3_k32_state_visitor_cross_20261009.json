@@ -1,0 +1,171 @@
+{
+  "schema": "model3_k32_original_source_state_x_old_visitor_year_cross_source_locked_v1",
+  "status": "exact_original_reproduction_8x8_state_visitor_cross_ci_verified",
+  "evidence_type": "one_archived_visitor_history_conditional_old_model3_counterfactual_one_step_not_natural_islands",
+  "provenance": {
+    "scientific_source_sha": "a30f3676ced251f1c35ce30bbd6f585c6046ecfb",
+    "workflow_id": 37906280933,
+    "workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/37906280933",
+    "focused_job": "model3-k32-state-visitor-cross",
+    "focused_job_result": "success",
+    "raw_artifact_id": 11604264037,
+    "raw_artifact_url": "https://github.com/zuizui0223/izu-core/actions/runs/37906280933/artifacts/11604264037",
+    "raw_zip_sha256": "f3df76d366ea5c54a69930b0205db6d6318be784830efeb08e15a1d652ec9afe"
+  },
+  "conditions": {
+    "K": 32,
+    "mutation_rate": 0,
+    "generations": 8,
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "old_visitor_history": 26110601,
+    "environment": "near",
+    "independent_visitor_histories": 1,
+    "nested_source_demographic_paths": 512,
+    "early_parent_start": 1,
+    "late_parent_start": 8,
+    "early_visitor_snapshot": 1,
+    "late_visitor_snapshot": 8,
+    "same_replication_cohort_conditioned_on_surviving_to_parent_year8": true,
+    "source_model3_biology_edited": false,
+    "exact_original_reproduce_used_for_every_cross": true,
+    "counterfactual_visitor_temporal_swap_does_not_evolve_offdiagonal_parent_population": true,
+    "prospective_chapter2_confirmatory_histories_accessed": false,
+    "natural_field_data": false,
+    "locus_order": [
+      "pollinator_matching",
+      "floral_investment",
+      "reproductive_assurance"
+    ]
+  },
+  "analysis_definition": {
+    "expected_allele_direction": "q(C_t,V_v)-p(C_t), exact Mendelian offspring allele expectation from source canonical viable-self + cross parent ledger, conditional on offspring N>0",
+    "endpoint_state_symmetrized": ".5*[(D(8,1)-D(1,1))+(D(8,8)-D(1,8))]",
+    "endpoint_visitor_symmetrized": ".5*[(D(1,8)-D(1,1))+(D(8,8)-D(8,1))]",
+    "difference_in_differences": "D(8,8)-D(8,1)-D(1,8)+D(1,1)",
+    "reconstruction": "state_symmetrized+visitor_symmetrized=D(8,8)-D(1,1), pathwise exact",
+    "variance_scope": "paired MC standard errors reflect 512 source paths within only one old visitor history, or surviving subset"
+  },
+  "cases": [
+    {
+      "budget": 8,
+      "n_matched_surviving_parent_paths": 512,
+      "matching_locus_source_expected_direction_2x2": {
+        "early_parent_early_visitor": -0.06281488352848187,
+        "early_parent_late_visitor": -0.046188694787056526,
+        "late_parent_early_visitor": -0.0017233287472171956,
+        "late_parent_late_visitor": 0.005533038586286622
+      },
+      "matching_locus_attribution": {
+        "diagonal_change": 0.06834792211476849,
+        "state_symmetrized": 0.05640664407730391,
+        "visitor_symmetrized": 0.011941278037464581,
+        "state_share_of_diagonal_change": 0.82528,
+        "visitor_share_of_diagonal_change": 0.17472,
+        "state_mc_se": 0.0005869,
+        "visitor_mc_se": 0.0000987,
+        "diagonal_change_mc_se": 0.000635,
+        "state_visitor_interaction": -0.00936982140792153,
+        "interaction_mc_se": 0.0001974,
+        "state_effect_when_visitor_is_early": 0.06109155478126468,
+        "state_effect_when_visitor_is_late": 0.05172173337334315,
+        "visitor_effect_when_parent_is_early": 0.016626188741425345,
+        "visitor_effect_when_parent_is_late": 0.007256367333503818
+      },
+      "matching_original_early_vs_late_self_contribution": {
+        "early": -0.0348948,
+        "late": 0.0119812
+      },
+      "matching_original_early_vs_late_outcross_father_contribution": {
+        "early": -0.0145852,
+        "late": -0.0032295
+      },
+      "matching_original_early_vs_late_outcross_mother_contribution": {
+        "early": -0.0133349,
+        "late": -0.0032186
+      },
+      "all_three_loci_early_late": {
+        "observed_diagonal_change": [
+          0.06834792211476849,
+          0.0206806,
+          -0.0948403
+        ],
+        "state_symmetrized": [
+          0.05640664407730391,
+          0.0320098,
+          -0.0959926
+        ],
+        "visitor_symmetrized": [
+          0.011941278037464581,
+          -0.0113293,
+          0.0011522
+        ]
+      }
+    },
+    {
+      "budget": 3,
+      "n_matched_surviving_parent_paths": 506,
+      "matching_locus_source_expected_direction_2x2": {
+        "early_parent_early_visitor": -0.06281488352848186,
+        "early_parent_late_visitor": -0.04618869478705654,
+        "late_parent_early_visitor": 0.0017975651811253436,
+        "late_parent_late_visitor": 0.006607157586353892
+      },
+      "matching_locus_attribution": {
+        "diagonal_change": 0.06942204111483576,
+        "state_symmetrized": 0.058704150541508814,
+        "visitor_symmetrized": 0.010717890573326932,
+        "state_share_of_diagonal_change": 0.84561,
+        "visitor_share_of_diagonal_change": 0.15439,
+        "state_mc_se": 0.0010559,
+        "visitor_mc_se": 0.0000965,
+        "diagonal_change_mc_se": 0.001097,
+        "state_visitor_interaction": -0.01181659633619677,
+        "interaction_mc_se": 0.0001931,
+        "state_effect_when_visitor_is_early": 0.0646124487096072,
+        "state_effect_when_visitor_is_late": 0.05279585237341043,
+        "visitor_effect_when_parent_is_early": 0.016626188741425317,
+        "visitor_effect_when_parent_is_late": 0.004809592405228548
+      },
+      "matching_original_early_vs_late_self_contribution": {
+        "early": -0.0348948,
+        "late": 0.0103272
+      },
+      "matching_original_early_vs_late_outcross_father_contribution": {
+        "early": -0.0145852,
+        "late": -0.0018609
+      },
+      "matching_original_early_vs_late_outcross_mother_contribution": {
+        "early": -0.0133349,
+        "late": -0.0018592
+      },
+      "all_three_loci_early_late": {
+        "observed_diagonal_change": [
+          0.06942204111483576,
+          0.0220535,
+          -0.0962304
+        ],
+        "state_symmetrized": [
+          0.058704150541508814,
+          0.0323585,
+          -0.0969719
+        ],
+        "visitor_symmetrized": [
+          0.010717890573326932,
+          -0.010305,
+          0.0007415
+        ]
+      }
+    }
+  ],
+  "scientific_interpretation": [
+    "The change in genotype/census states accounts for approximately 82-85 percent of the specified two-order averaged matching-allele early/late expected direction shift in this one old visitor history.",
+    "Budget8 later-parent/early-visitor matching shift is still slightly negative (-.00172), so the actual sign reversal from early negative to late positive additionally requires the later visitor condition in this early/late factorial cross.",
+    "Budget3 later-parent/early-visitor matching shift is slightly positive (+.00180); the later parent-state distribution is sufficient to cross zero with early visitors in this engineering comparison.",
+    "Later visitor snapshots alone do not reverse sign when evaluated on initial parent states (both budgets -.04619).",
+    "Source selfed-seed contribution to matching expected direction switches from early negative to late positive, while outcross father and mother contributions remain negative under the original diagonal comparisons.",
+    "The state term combines genotype composition, allele frequency, census, past finite drift, and selective survivor conditioning and must not be attributed specifically to reproductive assurance without further genetic background manipulation.",
+    "One old visitor sequence provides only one ecological history despite 8 archived visitor snapshots; crossed transplant cells are not independently evolved environments nor natural field observations.",
+    "Expected one-generation directional change is not a unique natural-selection coefficient and does not recover already extinct ancestral alleles; no actual plant genotyping, independent islands or full SDE/SPDE validation."
+  ]
+}

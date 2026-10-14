@@ -1,0 +1,52 @@
+name: Model3 K32 three-arm old-history benchmark
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  compare:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Verify exact and approximation boundaries
+        run: python -m pytest -q tests/test_model3_three_arm_k32_old_history.py
+      - name: K32 eight generations archived near visitor history (source budget)
+        run: python -m scripts.run_model3_three_arm_k32_old_history --out model3-three-arm-k32-old-near-budget8.json --draws 256 --budget 8
+      - name: K32 eight generations archived near visitor history (resource stress)
+        run: python -m scripts.run_model3_three_arm_k32_old_history --out model3-three-arm-k32-old-near-budget3.json --draws 256 --budget 3
+      - name: Verify readout classifications and fixed conditions
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          for budget in (8, 3):
+              p = Path(f'model3-three-arm-k32-old-near-budget{budget}.json')
+              a = json.loads(p.read_text())
+              c = a['conditions']
+              assert (c['K'], c['mutation_rate'], c['generations']) == (32, 0., 8)
+              assert c['new_confirmatory_histories'] == 0
+              assert a['evidence_type'] == 'simulated_engineering_only_not_observed_island_data'
+              assert set(a['arms']) == {
+                  'exact_finite_markov', 'deterministic_expected_integer_plug_in',
+                  'projected_gaussian'
+              }
+              print(p, 'PASS', 'budget', budget,
+                    'extinction', {k: (round(v['extinction_probability'], 5)
+                                      if v['extinction_probability'] is not None else None)
+                                   for k, v in a['arms'].items()})
+          PY
+      - name: Archive simulation results (not natural observations)
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: model3-three-arm-k32-engineering
+          path: model3-three-arm-k32-old-near-budget*.json
+          if-no-files-found: warn
+          retention-days: 90

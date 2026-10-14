@@ -1,0 +1,203 @@
+{
+  "schema": "model3_k32_original_source_one_locus_diplotype_shuffle_reset_source_locked_v1",
+  "status": "dedicated_ci_success_exact_source_reproduction_genetic_input_interventions",
+  "evidence_type": "exploratory_artificial_parent_reassignment_in_single_archived_old_visitor_history",
+  "provenance": {
+    "executed_source_sha": "a01425b31cecdc608d6805c03d9da5d6eaa295a7",
+    "workflow_run_id": 37918381568,
+    "workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/37918381568",
+    "job": "model3-k32-locus-reassignment",
+    "job_conclusion": "success",
+    "raw_artifact_id": 11610733074,
+    "raw_artifact_url": "https://github.com/zuizui0223/izu-core/actions/runs/37918381568/artifacts/11610733074",
+    "archive_sha256": "c366c7b478209f46df346007f6cedeaea4a7ba669f2afc49915d2f66dba5e9c6"
+  },
+  "design": {
+    "K": 32,
+    "mutation_rate": 0,
+    "generations_original": 8,
+    "source_parent_year": 8,
+    "source_parent_history_years_evolved": 7,
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "old_visitor_history": 26110601,
+    "visitor_snapshots_compared": [
+      1,
+      8
+    ],
+    "independent_visitor_histories": 1,
+    "nested_source_demographic_paths": 512,
+    "permutations_per_locus_operator_per_path": 4,
+    "diploid_genotype_support": 27,
+    "locus_order": [
+      "pollinator_matching",
+      "floral_investment",
+      "reproductive_assurance"
+    ],
+    "source_model3_reproduce_biology_modified": false,
+    "source_genotype_process_evolved_unchanged": true,
+    "counterfactual_edits_parental_diploid_genotypes_only": true,
+    "every_shuffle_preserves_all_three_per_locus_diplotype_marginals": true,
+    "every_founder_reset_changes_selected_locus_diplotype_distribution_to_initial_founder_distribution": true,
+    "founder_reset_can_reintroduce_alleles_absent_in_original_source_paths": true,
+    "other_two_loci_and_parent_census_preserved": true,
+    "same_edited_parents_exposed_to_both_archived_visitor_years": true,
+    "prospective_confirmatory_histories_used": false,
+    "natural_genotyping_or_independent_islands_used": false
+  },
+  "metric": "mean original-Model3 one-step expected high-allele frequency change of matching locus, conditional on source parent genotype edited or unchanged and a single old visitor snapshot. Not a realized eight-year allele evolution difference.",
+  "cases": [
+    {
+      "budget": 8,
+      "n_parent_states": 512,
+      "original_matching_direction": {
+        "early_visitor": -0.0017233287472171956,
+        "late_visitor": 0.005533038586286622
+      },
+      "matching_direction_under_each_edited_parent": {
+        "shuffle_assurance": {
+          "early_visitor": -0.0042632,
+          "late_visitor": 0.0026893,
+          "late_visitor_edit_minus_source": -0.0028437101694648733,
+          "late_visitor_edit_minus_source_mc_se": 0.0004223
+        },
+        "reset_assurance": {
+          "early_visitor": -0.021589691309604128,
+          "late_visitor": -0.005895854534114032,
+          "late_visitor_edit_minus_source": -0.0114289,
+          "late_visitor_edit_minus_source_mc_se": 0.0008102
+        },
+        "shuffle_investment": {
+          "early_visitor": -0.0067064,
+          "late_visitor": -0.0001829,
+          "late_visitor_edit_minus_source": -0.0057159,
+          "late_visitor_edit_minus_source_mc_se": 0.0003777
+        },
+        "reset_investment": {
+          "early_visitor": -0.0103441,
+          "late_visitor": -0.0010651,
+          "late_visitor_edit_minus_source": -0.0065981,
+          "late_visitor_edit_minus_source_mc_se": 0.0003756
+        },
+        "shuffle_matching": {
+          "early_visitor": -0.0098374,
+          "late_visitor": -0.0034614,
+          "late_visitor_edit_minus_source": -0.0089944,
+          "late_visitor_edit_minus_source_mc_se": 0.0006311
+        },
+        "reset_matching": {
+          "early_visitor": -0.0071199,
+          "late_visitor": -0.0023411,
+          "late_visitor_edit_minus_source": -0.0078741,
+          "late_visitor_edit_minus_source_mc_se": 0.0006596
+        }
+      },
+      "marginal_high_allele_frequency_shifts": {
+        "all_three_loci_under_any_shuffle": [
+          0,
+          0,
+          0
+        ],
+        "reset_assurance": [
+          0,
+          0,
+          -0.466400146484375
+        ],
+        "reset_investment": [
+          0,
+          0.270751953125,
+          0
+        ],
+        "reset_matching": [
+          0.14031982421875,
+          0,
+          0
+        ]
+      },
+      "founder_assurance_reset_minus_shuffle_late_matching_direction": {
+        "mean": -0.008585182950935777,
+        "demographic_mc_se": 0.0006613303672831322
+      }
+    },
+    {
+      "budget": 3,
+      "n_parent_states": 506,
+      "original_matching_direction": {
+        "early_visitor": 0.0017975651811253436,
+        "late_visitor": 0.006607157586353892
+      },
+      "matching_direction_under_each_edited_parent": {
+        "shuffle_assurance": {
+          "early_visitor": -0.0004301,
+          "late_visitor": 0.0041588,
+          "late_visitor_edit_minus_source": -0.0024483423379979994,
+          "late_visitor_edit_minus_source_mc_se": 0.0008812
+        },
+        "reset_assurance": {
+          "early_visitor": -0.012686092439647568,
+          "late_visitor": -0.0017424577076611627,
+          "late_visitor_edit_minus_source": -0.0083496,
+          "late_visitor_edit_minus_source_mc_se": 0.0010989
+        },
+        "shuffle_investment": {
+          "early_visitor": -0.0032569,
+          "late_visitor": 0.0009891,
+          "late_visitor_edit_minus_source": -0.0056181,
+          "late_visitor_edit_minus_source_mc_se": 0.0005227
+        },
+        "reset_investment": {
+          "early_visitor": -0.0060973,
+          "late_visitor": 0.0002331,
+          "late_visitor_edit_minus_source": -0.0063741,
+          "late_visitor_edit_minus_source_mc_se": 0.0005199
+        },
+        "shuffle_matching": {
+          "early_visitor": -0.0056559,
+          "late_visitor": -0.001492,
+          "late_visitor_edit_minus_source": -0.0080992,
+          "late_visitor_edit_minus_source_mc_se": 0.0010781
+        },
+        "reset_matching": {
+          "early_visitor": -0.0047797,
+          "late_visitor": -0.0015905,
+          "late_visitor_edit_minus_source": -0.0081977,
+          "late_visitor_edit_minus_source_mc_se": 0.0010902
+        }
+      },
+      "marginal_high_allele_frequency_shifts": {
+        "all_three_loci_under_any_shuffle": [
+          0,
+          0,
+          0
+        ],
+        "reset_assurance": [
+          0,
+          0,
+          -0.4816432428734965
+        ],
+        "reset_investment": [
+          0,
+          0.29718838645712836,
+          0
+        ],
+        "reset_matching": [
+          0.10106916721636877,
+          0,
+          0
+        ]
+      },
+      "founder_assurance_reset_minus_shuffle_late_matching_direction": {
+        "mean": -0.0059012729560170485,
+        "demographic_mc_se": 0.0007966648510196664
+      }
+    }
+  ],
+  "scientific_conclusions": [
+    "In the original late-year parental states, assurance diplotype shuffling with exact preservation of assurance (and all other) locus marginal distributions reduces the expected matching high-allele direction but does not reverse its positive sign under late visitors for either budget.",
+    "Replacing assurance with artificial founder diplotype distribution (including restoration of source-lost alleles) changes assurance mean from near .97/.98 to near .5 and reverses the late-visitor matching direction negative under both budget regimes.",
+    "Reset-minus-shuffle matching direction difference has negative sign under both budgets but changes founder diploid marginal heterozygosity AND allelic frequency, not just mean allele frequency, and is not isolated causal effect of assurance allele frequency.",
+    "Shuffling investment or matching loci also reduces matching direction (and can turn it negative in budget8), demonstrating that other interlocus genotype alignments matter and assurance is not shown as the single exclusive driver.",
+    "All manipulations are artificial one-step parent states run through unmodified source reproduction, not autonomous evolutionary mechanisms, natural allele resurrection or external ecological confirmations.",
+    "No independent visitor histories or real island data; all Monte Carlo SE reflect nested demographic source paths and finite randomized genotype assignments."
+  ]
+}

@@ -1,0 +1,116 @@
+{
+  "schema": "model3_k32_linear_self_seed_quadratic_allele_transmission_source_locked_v1",
+  "status": "exact_original_source_self_numerator_and_denominator_decomposition_verified",
+  "evidence_type": "one_old_visitor_history_simulated_conditional_genetic_transmission_with_artificial_same_copy_het_edits",
+  "provenance": {
+    "scientific_source_sha": "de5ee0fff2d990e2a3b41f6ebe28a0d41060b957",
+    "actions_run_id": 37943660135,
+    "job": "model3-k32-self-transmission-curvature",
+    "job_status": "success",
+    "raw_artifact_id": 11622482942,
+    "raw_artifact_url": "https://github.com/zuizui0223/izu-core/actions/runs/37943660135/artifacts/11622482942",
+    "raw_zip_sha256": "e4b9214544fc6e16a6b2f08ae3c6e32da5c2949de5c7af8b1dd9a29d248e2d8c"
+  },
+  "source_fixed_conditions": {
+    "K": 32,
+    "mutation_rate": 0,
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "generations": 8,
+    "old_visitor_history": 26110601,
+    "environment": "near",
+    "independent_visitor_histories": 1,
+    "n_source_demographic_replicates_per_budget": 512,
+    "source_parent_years": [
+      1,
+      4,
+      8
+    ],
+    "visitor_snapshots": [
+      1,
+      8
+    ],
+    "assurance_cost": 0,
+    "investment_cost": 0.5,
+    "inbreeding_depression": 0.5,
+    "assurance_timing": "prior",
+    "ovule_budgets": [
+      8,
+      3
+    ],
+    "source_biological_model_files_modified": false,
+    "prospective_confirmatory_histories_used": false,
+    "n_parent_genotype_reassignments_per_path": 4
+  },
+  "exact_identities": {
+    "self_viable_seed_intensity": "s_i=B*(1-d)*exp(-.5*investment_i^2)*assurance_i: LINEAR in assurance; prior_selfing assurance_cost exactly zero",
+    "assurance_trait_dosage": "assurance_i=.25+.5*b_i, b_i in {0,.5,1} HIGH allele dosage",
+    "transmitted_self_high_numerator": "M=sum_i s_i*(b_i-p), p=current parent HIGH allele frequency; a_i*b_i=.25*b_i+.5*b_i^2",
+    "copy_conserved_edit_effect": "HET_UP (one LL+one HH -> two LH) changes sum a_i(b_i-p) by -.25; HET_DOWN changes it by +.25, regardless of parental p",
+    "two_edited_parent_investment_decomposition": "delta_M = B*(1-d)*[pair_mean_investment_weight * signed_0.25 + sum((individual_weight-pair_mean_weight)*individual_delta[a_i*(b_i-p)])]",
+    "conditional_self_direction": "delta(M/T)=delta_M/T_sham-M_edit*(delta_S+delta_O)/(T_sham*T_edit), total T=S+O. Split into quadratic dosage, investment alignment, self denominator, outcross denominator contributions.",
+    "self_seed_mass_linear": "With edited two parents assigned EQUAL investment weights, delta self-seed intensity is EXACTLY zero. For unequal investment, the entire self seed-mass change is investment alignment."
+  },
+  "year8_original_late_visitor_cases": [
+    {
+      "budget": 8,
+      "operator": "heterozygosity_up",
+      "n_eligible": 171,
+      "pair_mean_weight_dosage_component": -0.010204224170305032,
+      "investment_alignment_component": 0.00003931498985222535,
+      "self_mass_denominator_component": -0.0000014803032632787206,
+      "outcross_mass_denominator_component": 7.306787482748552e-7,
+      "exact_total_self_direction": -0.010165658804967812,
+      "delta_self_viable_seed_intensity": 0.006307178998535035,
+      "delta_outcross_viable_seed_intensity": 0.0006449179732682203,
+      "max_exact_reconstruction_error": 9.992007221626409e-15
+    },
+    {
+      "budget": 8,
+      "operator": "heterozygosity_down",
+      "n_eligible": 119,
+      "pair_mean_weight_dosage_component": 0.010150039297306748,
+      "investment_alignment_component": 0.00002324724489335627,
+      "self_mass_denominator_component": -0.00000353565965414392,
+      "outcross_mass_denominator_component": -8.240924067052004e-7,
+      "exact_total_self_direction": 0.010168926790139251,
+      "delta_self_viable_seed_intensity": 0.0025202215609922375,
+      "delta_outcross_viable_seed_intensity": -0.0007297998569751567,
+      "max_exact_reconstruction_error": 6.217248937900877e-15
+    },
+    {
+      "budget": 3,
+      "operator": "heterozygosity_up",
+      "n_eligible": 101,
+      "pair_mean_weight_dosage_component": -0.01890126711161094,
+      "investment_alignment_component": -0.00007438880110508646,
+      "self_mass_denominator_component": 0.000013508783508258024,
+      "outcross_mass_denominator_component": 0.0000022193302751869566,
+      "exact_total_self_direction": -0.018959927798932574,
+      "delta_self_viable_seed_intensity": 0.0019900399055134766,
+      "delta_outcross_viable_seed_intensity": 0.0012829557482859132,
+      "max_exact_reconstruction_error": 4.773959005888173e-15
+    },
+    {
+      "budget": 3,
+      "operator": "heterozygosity_down",
+      "n_eligible": 49,
+      "pair_mean_weight_dosage_component": 0.014318019188046111,
+      "investment_alignment_component": 0.000024932698289663554,
+      "self_mass_denominator_component": -0.0000027623856123942506,
+      "outcross_mass_denominator_component": -0.000007542888866710406,
+      "exact_total_self_direction": 0.014332646611856676,
+      "delta_self_viable_seed_intensity": 0.0014058895864241443,
+      "delta_outcross_viable_seed_intensity": 0.0032678134168255706,
+      "max_exact_reconstruction_error": 2.886579864025407e-15
+    }
+  ],
+  "limits": [
+    "The original prior_selfing assurance_cost is EXACTLY zero: do not claim a nonlinear intrinsic assurance-seed fecundity benefit or cost in these runs.",
+    "Quadratic allele dosage in the transmitted HIGH allele numerator is a consequence of the product of linear source self seed output with expected Mendelian HIGH allele probability; it is not a nonlinear source seed production function.",
+    "The common two-parent investment multiplier is one explicitly declared algebraic baseline; the investment pairing residual is exactly relative to that chosen baseline.",
+    "The four terms reconstruct the SAME-PARENT same-permutation-sham expected assurance-high self direction; they are not four separable causal pathways in real plants.",
+    "Edited genotypes are hypothetical, not original-model dynamics; HET_UP/DOWN feasible source cohort fractions shrink sharply with fixation, and comparison supports differ.",
+    "One archived visitor environment with 512 nested demographic source paths, no independent environments/natural island empirical data, no prospective confirmation cohorts, and no validated SDE/SPDE."
+  ]
+}

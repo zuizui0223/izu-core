@@ -1,0 +1,220 @@
+{
+  "schema": "model3_k32_source_original_new_eight_simulated_visitor_seeds_exploratory_20261009_v1",
+  "status": "dedicated_CI_passed_environmental_variation_and_nonuniversal_matching_direction_reversal",
+  "source_provenance": {
+    "source_commit": "5d84435e9e0c90246556f76edef80caadd9dfeae",
+    "ci_run_id": 37947205797,
+    "ci_url": "https://github.com/zuizui0223/izu-core/actions/runs/37947205797",
+    "job": "model3-k32-new-visitor-history-stress",
+    "job_conclusion": "success",
+    "raw_artifact_id": 11623478169,
+    "raw_artifact_url": "https://github.com/zuizui0223/izu-core/actions/runs/37947205797/artifacts/11623478169",
+    "raw_sha256": "9b1147964561ef0d8e6df6337034ba68101deb5c8c1d8d40058c19c4f2c76f14"
+  },
+  "design": {
+    "K": 32,
+    "mutation_rate": 0,
+    "generations": 8,
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "source_assurance_cost": 0,
+    "source_investment_cost": 0.5,
+    "source_reproduction_setting": "Chapter2_prior_selfing",
+    "visitor_arm": "near",
+    "old_discovery_history_seed": 26110601,
+    "new_exploratory_visitor_history_seeds": [
+      26110602,
+      26110603,
+      26110604,
+      26110605,
+      26110606,
+      26110607,
+      26110608,
+      26110609
+    ],
+    "n_environmental_RNG_histories_new": 8,
+    "n_nested_demographic_source_paths_per_history": 128,
+    "source_history_seed_predefined_before_executing_new_history_outcomes": true,
+    "new_histories_chosen_after_outcome_exposure": true,
+    "prospectively_frozen_confirmatory_seeds_37110801_to_37110864_used": false,
+    "source_biological_code_changed": false,
+    "same_survivor_parent_cohort_across_eight_years": true,
+    "history_environment_independence": "unique visitor RNG seeds, not independent natural islands",
+    "source_measured_statistic": "original one-step Mendelian q(C_t,V_t)-p(C_t), matched to same original demographic path identities surviving at start of parent-year8; not realized eight-year high-allele frequency return"
+  },
+  "cases": [
+    {
+      "budget": 8,
+      "n_eligible_new_histories": 8,
+      "n_neg_to_pos": 4,
+      "n_late_positive": 5,
+      "mean_early_late_direction_difference": 0.025193458831969447,
+      "min_early_late_difference": -0.022897787125997097,
+      "max_early_late_difference": 0.07026635341519244,
+      "mean_late_direction": 0.0035130369929255137,
+      "min_late_direction": -0.007223217924118561,
+      "max_late_direction": 0.013872670378191135,
+      "n_seed_start_negative": 6,
+      "per_seed": [
+        [
+          26110602,
+          128,
+          0.0004943196144372095,
+          0.009355878833475564
+        ],
+        [
+          26110603,
+          128,
+          -0.037581086980307654,
+          0.013872670378191135
+        ],
+        [
+          26110604,
+          128,
+          -0.028824980326020214,
+          0.00678424858732702
+        ],
+        [
+          26110605,
+          128,
+          -0.00277956234064039,
+          0.0019279004643463341
+        ],
+        [
+          26110606,
+          128,
+          0.021864471149897362,
+          -0.0010333159760997435
+        ],
+        [
+          26110607,
+          128,
+          -0.07748957133931098,
+          -0.007223217924118561
+        ],
+        [
+          26110608,
+          128,
+          -0.008030589219798458,
+          0.006373974949164099
+        ],
+        [
+          26110609,
+          128,
+          -0.04109637527060829,
+          -0.0019538433688817405
+        ]
+      ],
+      "old_reference": [
+        26110601,
+        128,
+        -0.06281488352848187,
+        0.005629477707729256
+      ],
+      "new_history_seed_fields": [
+        "seed",
+        "n_parent_year8_survivors",
+        "mean_matching_expected_allele_direction_initial",
+        "mean_matching_expected_allele_direction_late"
+      ],
+      "old_reference_fields": [
+        "old_seed",
+        "n_parent_year8_survivors",
+        "initial",
+        "late"
+      ],
+      "notes": "Negative-to-positive count denominator all 8 newly generated visitor RNG history trajectories; old reference excluded. All eight had >=1 source year8 parent survivor."
+    },
+    {
+      "budget": 3,
+      "n_eligible_new_histories": 8,
+      "n_neg_to_pos": 5,
+      "n_late_positive": 6,
+      "mean_early_late_direction_difference": 0.023698240566336105,
+      "min_early_late_difference": -0.02585874276801097,
+      "max_early_late_difference": 0.07504478976700023,
+      "mean_late_direction": 0.002017818727292211,
+      "min_late_direction": -0.003994271618113572,
+      "max_late_direction": 0.008290935611612385,
+      "n_seed_start_negative": 6,
+      "per_seed": [
+        [
+          26110602,
+          124,
+          0.0004943196144372441,
+          0.001514317667282374
+        ],
+        [
+          26110603,
+          125,
+          -0.03758108698030759,
+          0.008290935611612385
+        ],
+        [
+          26110604,
+          126,
+          -0.0288249803260202,
+          0.0051668208739303985
+        ],
+        [
+          26110605,
+          128,
+          -0.002779562340640432,
+          0.0006939468332001818
+        ],
+        [
+          26110606,
+          126,
+          0.021864471149897393,
+          -0.003994271618113572
+        ],
+        [
+          26110607,
+          125,
+          -0.077489571339311,
+          -0.0024447815723107305
+        ],
+        [
+          26110608,
+          128,
+          -0.008030589219798392,
+          0.006412246968367568
+        ],
+        [
+          26110609,
+          126,
+          -0.04109637527060819,
+          0.0005033350543690837
+        ]
+      ],
+      "old_reference": [
+        26110601,
+        125,
+        -0.06281488352848189,
+        0.003289195152044431
+      ],
+      "new_history_seed_fields": [
+        "seed",
+        "n_parent_year8_survivors",
+        "mean_matching_expected_allele_direction_initial",
+        "mean_matching_expected_allele_direction_late"
+      ],
+      "old_reference_fields": [
+        "old_seed",
+        "n_parent_year8_survivors",
+        "initial",
+        "late"
+      ],
+      "notes": "Negative-to-positive count denominator all 8 newly generated visitor RNG history trajectories; old reference excluded. All eight had >=1 source year8 parent survivor."
+    }
+  ],
+  "interpretation": [
+    "The original old-history matching-high expected reproductive direction reversal is NOT universal even under 8 newly generated independent ecological RNG visitor histories of the same simulator.",
+    "New histories have initial negative source expected direction in six of eight seeds; among these six, four switch positive at budget8 and five switch at budget3. Two new histories begin positive and hence cannot count as negative-to-positive reversals.",
+    "New near visitor seed 26110606 starts positive but ends negative under both budgets, demonstrating temporal direction shifts need not be monotonically toward a positive reproductive effect.",
+    "New near visitor seeds 26110607 and 26110609 remain negative at the final year under budget8; seed 26110607 remains negative under budget3.",
+    "The self allele-transmission algebra from unaltered original reproduction remains exact irrespective of these simulated visitor histories, but that identity does not entail sign reversal.",
+    "The new histories were chosen post discovery, though declared before computation; this is exploratory robustness/stress test, not preregistered ecological confirmation or natural population generalization.",
+    "The 128 nested demographic replicates improve within-visitor-history precision; the environmental randomness is represented by only 8 new visitor RNG trajectories; no real island replication, confirmatory cohort, or SDE/SPDE validation."
+  ]
+}
