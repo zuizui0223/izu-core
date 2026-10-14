@@ -1,0 +1,26 @@
+{
+  "status": "RAW_ONLY_DESIGN_ARITHMETIC_AND_FIRST_TRIGGERS_MATCH",
+  "cases": 64,
+  "pairs": 3904,
+  "blocks": {
+    "causal_confirmation": [
+      32,
+      30
+    ],
+    "causal_main": [
+      32,
+      31
+    ]
+  },
+  "remaining_updates": 7740,
+  "production_updates": 990720,
+  "total_with_one_replay_and_32_fixtures": 1981472,
+  "source_members_checked": 250,
+  "raw_state_parent_bytes": 6796972032,
+  "new_master_seeds_disjoint_from_original": true,
+  "no_native_model_imports": true,
+  "no_biological_updates": true,
+  "protocol_sha256": "e549464de272e5a792b45e61ea68f14af02ddf46ed1287a2a81249d0791f48e9",
+  "independent_script_sha256": "0e2e72ecc8717241eee7cba31dc913540590f07e03552d2567169e448b593200",
+  "preflight_sha256": "165a0d39f6f226ac4ccfbfb65fef4b2189fde272ccb0c0f33d840d542ae2760b"
+}
