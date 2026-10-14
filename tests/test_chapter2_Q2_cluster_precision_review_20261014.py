@@ -1,5 +1,6 @@
 """Pure source-cluster precision and future six-class schema review, NO Model3 runs."""
 from copy import deepcopy
+from hashlib import sha256
 from math import isclose
 
 import pytest
@@ -99,6 +100,8 @@ def toy_sixclass_rows():
                         category="assurance_only" if arm==0 else "neither"
                     rows.append({
                         "source_id":source,
+                        "original_source_genome_sha256":
+                            sha256(("TOY-SOURCE-"+source).encode()).hexdigest(),
                         "history_id":history,
                         "future_master_identity":f"TOY-NON-BIOLOGY-{source}-{history}",
                         "context":context,
@@ -116,6 +119,8 @@ def test_toy_paired_classification_keeps_six_class_denominators_and_clusters():
     assert r["independent_source_clusters"]==2
     assert r["paired_histories_per_source"]==2
     assert r["source_by_context_contrasts"]==6
+    assert r["distinct_source_genome_hashes"]==2
+    assert r["hash_validation_is_not_independence_proof"] is True
     assert r["no_source_genotypes_or_futures_generated"] is True
     s0=next(x for x in r["source_records"]
             if x["source_id"]=="S0" and x["context"]==0)
@@ -131,6 +136,8 @@ def test_toy_paired_classification_keeps_six_class_denominators_and_clusters():
 @pytest.mark.parametrize("mode",[
     "missing", "duplicate", "unknown_class", "unpaired_rng",
     "seed_reuse_across_sources", "unbalanced_future_history_counts",
+    "same_genome_different_sources", "inconsistent_genome_in_arm",
+    "invalid_source_genome_hash",
 ])
 def test_incomplete_or_pseudoreplicated_future_design_is_rejected(mode):
     rows=toy_sixclass_rows()
@@ -146,6 +153,16 @@ def test_incomplete_or_pseudoreplicated_future_design_is_rejected(mode):
         for row in rows:
             if row["source_id"]=="S1" and row["history_id"]=="h0":
                 row["future_master_identity"]="TOY-NON-BIOLOGY-S0-h0"
+    elif mode=="same_genome_different_sources":
+        for row in rows:
+            if row["source_id"]=="S1":
+                row["original_source_genome_sha256"]=sha256(
+                    b"TOY-SOURCE-S0").hexdigest()
+    elif mode=="inconsistent_genome_in_arm":
+        rows[0]["original_source_genome_sha256"]=sha256(
+            b"NEW_UNVERIFIED_SOURCE").hexdigest()
+    elif mode=="invalid_source_genome_hash":
+        rows[0]["original_source_genome_sha256"]="not_sha256"
     elif mode=="unbalanced_future_history_counts":
         rows=[r for r in rows if not
               (r["source_id"]=="S1" and r["history_id"]=="h1")]
