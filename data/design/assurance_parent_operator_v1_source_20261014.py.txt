@@ -1,0 +1,68 @@
+"""A-expression-only shadow parent weights; native reproductive class totals."""
+from dataclasses import replace
+import numpy as np
+
+from scripts import persistence_expression_mechanism_20261012 as native
+from scripts.future_parent_selection_20261013 import SamplingLedger
+
+POLICY = 'A_mean_equal_A_shadow_parents'
+
+
+def _validated(ledger):
+    o = np.asarray(ledger.outcross, dtype=float)
+    s = np.asarray(ledger.self_viable, dtype=float)
+    v = np.asarray(ledger.ovules, dtype=float)
+    if (s.ndim != 1 or o.shape != (len(s), len(s)) or v.shape != s.shape
+            or not all(np.isfinite(x).all() for x in (o, s, v))
+            or any((x < 0).any() for x in (o, s, v)) or np.any(np.diag(o) != 0)):
+        raise ValueError('invalid native/shadow sampling ledger')
+    return o, s, v
+
+
+def _rescale(values, target):
+    if target == 0:
+        return np.zeros_like(values)
+    total = float(values.sum())
+    if total <= 0:
+        raise ValueError('native-positive class has no shadow support')
+    result = values * (target / total)
+    np.testing.assert_allclose(result.sum(), target, atol=1e-12, rtol=0)
+    return result
+
+
+def rescale_shadow(biological, shadow):
+    """Conserve S/O viable totals; do not replace the ecological ledger."""
+    o, s, ovules = _validated(biological)
+    qo, qs, _ = _validated(shadow)
+    if qo.shape != o.shape:
+        raise ValueError('native/shadow parent dimensions differ')
+    result = SamplingLedger(_rescale(qo, float(o.sum())),
+                            _rescale(qs, float(s.sum())), ovules.copy())
+    p = result.outcross.copy()
+    np.fill_diagonal(p, result.self_viable)
+    original = o.copy()
+    np.fill_diagonal(original, s)
+    np.testing.assert_allclose(p.sum(), original.sum(), atol=1e-12, rtol=0)
+    return result
+
+
+def ledgers(state, visitors, config):
+    """Return native ecological ledger, sampler, and separately logged shadow."""
+    biological = native.expression_ledger(state, visitors, config, 'native')
+    n = len(state.ids)
+    if n < 2:
+        return biological, biological, biological
+    a = state.alleles[:, 2].mean(axis=1)
+    if np.all(a == a[0]):
+        return biological, biological, biological
+    shadow_genes = state.alleles.copy()
+    shadow_genes[:, 2, :] = float(a.mean())
+    shadow = native.expression_ledger(replace(state, alleles=shadow_genes),
+                                      visitors, config, 'native')
+    return biological, rescale_shadow(biological, shadow), shadow
+
+
+def tasks():
+    return [dict(block=b, replicate=r, origin=o, target=t, policy=POLICY)
+            for b in native.BLOCKS for r in range(512)
+            for o in native.ORIGINS for t in native.TARGETS]

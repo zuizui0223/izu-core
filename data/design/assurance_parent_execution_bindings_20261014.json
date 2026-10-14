@@ -1,0 +1,25 @@
+{
+  "schema": "assurance_parent_execution_bindings_v1",
+  "approved_future_cases": 4096,
+  "approved_native_controls": 8,
+  "human_approval": "この自殖能力に限定した親選択対照を進める",
+  "input_sha256": "51a07a843a087059af3d67ad113f5d849644f5b03739a6df986d506bd636648f",
+  "production_gate_open": false,
+  "ruling": "Approval is recorded. Production remains held until complete independent controlled-reader review, immutable public source/reference admission and all8 native controls. No new future outcome yet.",
+  "normalized_source_sha256": {
+    "scripts/assurance_parent_control_20261014.py": "4697ebfc1cd3c0ee116f50fd3c603baf390255b0aa1165eef339b89d7eb33919",
+    "scripts/run_assurance_parent_control_20261014.py": "f2154662087454acf6a873694c289d1d12def513a3ca16c7dd5d1cc0c63b7b2d",
+    "scripts/check_assurance_parent_initial_feasibility_20261014.py": "55163b7f8e9cb9e57f87fdd9420b537716157438dab95d6bbd7b4d9f4ee9beda",
+    "scripts/persistence_expression_mechanism_20261012.py": "da8be50f183732f4bafc0cd3f8e5760514911859a96134a3ba61fdf5e2e32d0d",
+    "scripts/initial_assurance_mean_20261013.py": "1af33520ac4524f27ad9eedf148d9564a776b9459b82084fe2f687eec497a5e6",
+    "scripts/run_initial_assurance_mean_20261013.py": "b422a6ffd5d6e66e037ecf23cb84dd0b6b288daaf42741da8996cea61d0d7b93",
+    "scripts/future_parent_selection_20261013.py": "45170028aa2e3c79e08eea3e7388da49dc73cbe21625daf05139d5b11da84d5c",
+    "scripts/chapter2_kb_reproduction.py": "79327794763f963f0f3399c8a94cdb94ad019093d306f2ac4c0bb59a92711863",
+    "scripts/model3_island/types.py": "a572e1e7f4fded181585871a63582b16f40292bd07b13e8efc9d6b6234eb21c5",
+    "scripts/model3_island/population.py": "c959d18816da6666dbfb4e91bd9582c94af5453b25498d033f5747305b05fe0f",
+    "scripts/model3_island/reproduction.py": "885957edb8a165ee8528781ed1d2574c44143c608496b505f9663cbfac2c4081",
+    "scripts/model3_island/randomness.py": "63522ae3c5ff8e11f114b5649a989945fa4ba2480fdca0f74857601b0e4b211f",
+    "scripts/model3_island/history.py": "28d22c7fde81d9be6a604fa9dd4cb6b48d78d388d4db85f798a935cf81415488",
+    "docs/CHAPTER2_ASSURANCE_PARENT_CONTROL_PROTOCOL_20261014.md": "8d9174ec01a47f5e43c73802338d1f98160557a617fbc9945364723a6de3cda7"
+  }
+}
