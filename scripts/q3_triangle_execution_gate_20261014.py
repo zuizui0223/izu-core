@@ -12,6 +12,7 @@ from pathlib import Path
 import platform
 import re
 import subprocess
+import time
 import urllib.request
 
 from q3_triangle_contract_20261014 import NAMESPACE, require
@@ -24,10 +25,13 @@ ARCHIVE_SHA = '8a2462910025b4a386e789583578cb1380349097393916dac4e50d01c9637b7e'
 SOURCE_FILES = (
     'scripts/q3_triangle_contract_20261014.py',
     'scripts/build_q3_triangle_preflight_20261014.py',
+    'scripts/build_q3_triangle_activation_20261014.py',
     'scripts/q3_triangle_execution_gate_20261014.py',
+    'scripts/q3_triangle_io_20261014.py',
     'scripts/run_q3_triangle_20261014.py',
     'scripts/verify_q3_triangle_paths_20261014.py',
     'scripts/verify_q3_triangle_archives_20261014.py',
+    'scripts/publish_q3_triangle_campaign_20261014.py',
     'scripts/q3_distribution_triangle_20261014.py',
     'scripts/q3_event_conditions_20261014.py',
     'scripts/q3_futures_contract_20261014.py',
@@ -127,6 +131,20 @@ def exclusive_json(path, value):
         handle.write('\n')
         handle.flush()
         os.fsync(handle.fileno())
+
+
+def job_deadline(env, *, minutes, tail_seconds, now_epoch=None, now_monotonic=None):
+    """Bound remaining work by the first workflow step, including slow setup."""
+    now_epoch = time.time() if now_epoch is None else now_epoch
+    now_monotonic = time.monotonic() if now_monotonic is None else now_monotonic
+    value = env.get('Q3_JOB_STARTED_EPOCH', '')
+    require(isinstance(value, str) and value.isdecimal(), 'job start timestamp required')
+    started = int(value)
+    require(started <= now_epoch, 'job start cannot be in future')
+    # Include a cushion for job startup before the timestamp-recording step.
+    remaining = started+minutes*60-tail_seconds-30-now_epoch
+    require(remaining > 0, 'insufficient remaining job time')
+    return now_monotonic+remaining
 
 
 class ShardBudget:

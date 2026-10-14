@@ -112,3 +112,39 @@ def test_event_window_crosses_intervention_and_requires_twenty_censuses():
     assert check.read_endpoints(original, future, 199)['event'] is True
     original['alleles'][181, 1] = .5
     assert check.read_endpoints(original, future, 199)['event'] is False
+
+
+def test_native_fixture_contract_uses_exactly_four_standin_calls(tmp_path, monkeypatch):
+    run, check, case, calls = prepared(tmp_path, monkeypatch)
+    result = run.native_fixtures(case, tmp_path, time.monotonic()+30)
+    assert result['native_updates'] == len(calls) == 4
+    assert result['scientific_trajectories'] == 0
+    assert result['equal_state_parentage'] is True
+    assert result['empty_continuation'] is True
+
+
+def test_interruption_retains_durable_censuses_and_parentage(tmp_path, monkeypatch):
+    run, check, case, calls = prepared(tmp_path, monkeypatch)
+    case.update(trigger=198, remaining_updates=2)
+    native = run.load_native(None);advance = native[1].advance
+    def interrupted(*args, **kwargs):
+        if len(calls) == 1:
+            raise RuntimeError('synthetic interruption')
+        return advance(*args, **kwargs)
+    monkeypatch.setattr(native[1], 'advance', interrupted)
+    with pytest.raises(RuntimeError, match='synthetic interruption'):
+        run.produce_triplet(case, 0, tmp_path, 'd'*64, time.monotonic()+30)
+    journal = tmp_path/'partial/synthetic__r000__A.journal'
+    assert journal.exists()
+    snapshots = list(run.read_journal(journal))
+    assert [r['year'].item() for r in snapshots] == [198, 199]
+    np.testing.assert_array_equal(snapshots[1]['parentage'][:, 0], np.arange(48, 96))
+    np.testing.assert_array_equal(snapshots[1]['ids'], np.arange(48, 96))
+    assert not (tmp_path/'raw/synthetic__r000__A.npz').exists()
+
+
+def test_expired_fixture_deadline_cannot_spend_native_calls(tmp_path, monkeypatch):
+    run, check, case, calls = prepared(tmp_path, monkeypatch)
+    with pytest.raises(ValueError, match='fixture deadline'):
+        run.native_fixtures(case, tmp_path, time.monotonic()-1)
+    assert calls == []

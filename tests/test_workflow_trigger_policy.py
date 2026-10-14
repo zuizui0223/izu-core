@@ -73,6 +73,15 @@ def test_pull_request_signal_is_limited_to_current_ci_surfaces() -> None:
                 "    branches: [design/chapter2-restoration-conditional-futures-20261014]",
                 "    paths: [data/designs/q3_futures_execution_20261014.json]",
             ]
+        elif path.name == "q3-distribution-triangle-20261014.yml":
+            # Separate, unapproved campaign: only an explicit manifest addition
+            # on this dedicated branch can request the fail-closed runner.
+            assert [line for line in _trigger_block(path) if line.strip()] == [
+                "on:",
+                "  push:",
+                "    branches: [design/chapter2-q3-distribution-triangle-20261014]",
+                "    paths: [data/designs/q3_triangle_execution_20261014.json]",
+            ]
         else:
             assert events == {"workflow_dispatch"}, (path.name, events)
 

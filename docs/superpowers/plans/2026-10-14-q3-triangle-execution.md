@@ -42,18 +42,18 @@ Interfaces: `seed_for(key, replicate, purpose) -> int`; `build_plan(cases) -> di
 
 Create `scripts/run_q3_triangle_20261014.py`, `scripts/verify_q3_triangle_paths_20261014.py`, and dedicated tests. Consume Task 1 seeds/plan; use the validated PR #515 constructor and frozen archived native modules.
 
-- [ ] Test absent/old/altered approval, namespace and source manifest failures before any kernel import; test cumulative counters and retries.
-- [ ] Implement 18 disjoint shards, explicit carrier permutations, original prefix/trigger binding, three arm futures, immutable raw writes and partial HOLD preservation.
-- [ ] Independently reconstruct assignments and replay every saved field/parentage; fixture call counter <=32.
-- [ ] Run only synthetic/mock tests before approval; reserve native fixtures for the approved campaign.
-- [ ] Review all executable source and failure paths before publishing the inert workflow and manifest builder.
+- [x] Test absent/old/altered approval, namespace and source manifest failures before any kernel import; test cumulative counters and retries.
+- [x] Implement 18 disjoint shards, explicit carrier permutations, original prefix/trigger binding, three arm futures, immutable raw writes and partial HOLD preservation.
+- [x] Implement independent reconstruction of assignments and replay of every saved field/parentage; fixture call counter <=32. Actual scientific replay remains Task 4.
+- [x] Run only synthetic/mock tests before approval; reserve native fixtures for the approved campaign.
+- [x] Review all executable source and failure paths before publishing the inert workflow and manifest builder; three Important findings fixed with regression tests.
 
 ### Task 3: archive readback, workflow and concrete approval package
 
 Create `scripts/verify_q3_triangle_archives_20261014.py`, `.github/workflows/q3-distribution-triangle-20261014.yml`, a manifest builder and tests. The workflow's trigger must obey the repository policy; any one-time branch activation must be registered narrowly without weakening unrelated workflow restrictions.
 
-- [ ] Test raw metadata, member hashes, shard coverage, full independent endpoint/statistic equality and one-archive-at-a-time handling.
-- [ ] Implement bounded upload/publication, stable release manifest and external byte readback; all-or-nothing scientific summaries.
+- [x] Test raw metadata, member hashes, shard coverage, full independent endpoint/statistic equality and one-archive-at-a-time handling with synthetic records.
+- [x] Implement bounded upload/publication, stable release manifest and external byte readback; all-or-nothing scientific summaries. Actual publication remains Task 4.
 - [ ] Complete pure preflight and CI; bind reviewed source/workflow hashes and resources in an unapproved manifest.
 - [ ] Request approval for exactly the concrete campaign and costs. Keep all biological entry points closed until approval.
 

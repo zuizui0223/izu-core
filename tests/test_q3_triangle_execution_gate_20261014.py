@@ -135,3 +135,17 @@ def test_reservations_are_persistent_nonrepeatable_and_shard_bound(tmp_path):
 def test_invalid_shards_fail(tmp_path, shard):
     with pytest.raises(ValueError):
         gate().ShardBudget(tmp_path, shard=shard, execution_sha='d'*64, run_id='123', cases=[])
+
+
+def test_job_deadline_includes_slow_setup_and_reserves_tail():
+    g = gate()
+    # 5 minutes have already elapsed. 15-minute job, 3-minute tail and
+    # 30-second startup cushion leave 390 seconds for all remaining work.
+    deadline = g.job_deadline({'Q3_JOB_STARTED_EPOCH':'1000'}, minutes=15,
+                             tail_seconds=180, now_epoch=1300, now_monotonic=20)
+    assert deadline == 410
+    with pytest.raises(ValueError, match='remaining'):
+        g.job_deadline({'Q3_JOB_STARTED_EPOCH':'1000'}, minutes=15,
+                       tail_seconds=180, now_epoch=1700, now_monotonic=20)
+    with pytest.raises(ValueError):
+        g.job_deadline({}, minutes=15, tail_seconds=180, now_epoch=1300, now_monotonic=20)
