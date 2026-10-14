@@ -32,7 +32,8 @@ jobs:
             tests/test_chapter2_balanced_cocarriage_20261014.py \
             tests/test_chapter2_directional_cosegregation_20261014.py \
             tests/test_chapter2_F1_founder_relative_tails_20261014.py \
-            tests/test_chapter2_colonisation_claim_gate_20261014.py
+            tests/test_chapter2_colonisation_claim_gate_20261014.py \
+            tests/test_chapter2_full_F1_joint_distribution_20261014.py
       - name: Assert actual old t0 and 96 static checks, with no biology
         run: |
           python -m scripts.audit_chapter2_original_founder_compatibility_20261014 > original-t0-static-receipt.json
@@ -71,6 +72,10 @@ jobs:
         run: |
           python -m scripts.audit_chapter2_colonisation_claim_gate_20261014 > chapter2-colonisation-claim-admission.json
           python -c "import json; r=json.load(open('chapter2-colonisation-claim-admission.json')); assert r['new_biological_histories']==0; assert r['sustained_twenty_occupied_census_response']=='NOT_MEASURED'; assert len(r['context_summary'])==3; c=next(x for x in r['context_summary'] if x['visitor_context']==0); assert (c['founder_mean_one_child_positive_contrast_count'],c['founder_mean_one_child_negative_contrast_count'])==(5,11); print('SOURCE-BOUND CLAIM ADMISSION GATE PASSED')"
+      - name: Verify full A/I single-child genotype marginals and joint distribution
+        run: |
+          python -m scripts.audit_chapter2_full_F1_joint_distribution_20261014 > F1-full-AI-conditional-joint-law.json
+          python -c "import json; r=json.load(open('F1-full-AI-conditional-joint-law.json')); assert r['source_profiles']==16 and r['conditional_first_offspring_distributions']==192 and r['actual_offspring_births']==0; assert r['long_run_evolution_order']=='NOT_MEASURED'; assert all(x['sources_with_nonzero_m12_vs_m0_joint_change']==16 for x in r['context_summary']); print('FULL F1 MARGINAL VS JOINT GATE PASSED')"
       - name: Preserve static audit receipts
         if: success()
         uses: actions/upload-artifact@v4
@@ -87,5 +92,6 @@ jobs:
             balanced-AI-signed-directional-meiosis.json
             founder-relative-F1-phenotype-threshold-tails.json
             chapter2-colonisation-claim-admission.json
+            F1-full-AI-conditional-joint-law.json
           if-no-files-found: error
           retention-days: 30
