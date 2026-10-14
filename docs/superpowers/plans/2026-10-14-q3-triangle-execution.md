@@ -36,7 +36,7 @@ Interfaces: `seed_for(key, replicate, purpose) -> int`; `build_plan(cases) -> di
 - [x] Test namespaced purpose-separated seeds, full state/replicate inventory, exact sample/resource totals, bounds and margin decisions; run RED.
 - [x] Implement pure deterministic seed/plan generation and statistics, including no-trigger policy zeros and all-or-none joint-survival gate.
 - [x] Test missing/duplicate/foreign triplets, invalid support, inconsistent survival/null values, unequal block patterns and any extinction; run GREEN.
-- [ ] Independently review conditional target and confidence-family interpretation, and publish source-bound prospective design/plan as a draft PR.
+- [x] Independently review conditional target and confidence-family interpretation, and publish source-bound prospective design/plan as a draft PR.
 
 ### Task 2: activated producer and independent replay
 
