@@ -67,6 +67,18 @@ def test_fail_closed_authorization_and_effect_definition():
     bad["source_distribution_approved"]=True
     with pytest.raises(ValueError,match="no-execution"):
         verify_review_design(bad)
+    for key,not_allowed in (
+        ("original_model3_mutation_traits",[True,True,True]),
+        ("original_model3_biology_sha","some_unreviewed_new_model_sha"),
+        ("independent_scientific_review_complete",True),
+        ("actual_launch_case_budget",1536),
+        ("source_pool_counts_are_options_not_approved",False),
+        ("original_archival_raw_genomes_and_independent_readback","SKIP"),
+    ):
+        bad=deepcopy(d)
+        bad[key]=not_allowed
+        with pytest.raises(ValueError,match="no-execution"):
+            verify_review_design(bad)
 
 
 def toy_sixclass_rows():
