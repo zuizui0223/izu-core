@@ -125,7 +125,7 @@
     "ecology_letters_letter_main_max": 5000,
     "ecology_letters_letter_abstract_max": 150,
     "display_items_max": 6,
-    "current_integrated_main_words": 4990,
+    "current_integrated_main_words": 4985,
     "current_integrated_abstract_words": 140,
     "main_text_excess_words": 0,
     "abstract_excess_words": 0,
@@ -138,7 +138,7 @@
       "pollinator population collapse",
       "historically explained global island syndrome"
     ],
-    "current_main_text_words": 4990,
+    "current_main_text_words": 4985,
     "current_abstract_words": 140,
     "updated_submission_scope": "Source main 4990 words; abstract140. S14 last-transition needed-allele-frequency loss accounting added to Q3; conditional parental expectation distinguished from mean investment and pure drift. S15 conditional-state identification argument and S16 unresolved parent-weighting family retained. No pure naturally realized order benefit established.",
     "historical_precompression_counts": {

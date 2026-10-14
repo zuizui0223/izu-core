@@ -1,0 +1,39 @@
+{
+  "schema": "chapter2_clock_external_6_shard_archive_receipt_v1",
+  "status": "RELEASE_ARCHIVED_AND_MIRROR_RECORDED",
+  "original_pilot_registry_blob": "f18eae09e3f569ae7edefe970ea17d93c64b1bd5",
+  "horizon_updates": 200,
+  "source_case_count": 1536,
+  "archives": {
+    "main_c0": {
+      "sha256": "03254e9034369b3718e602da28394676547183bba7a3bcc41bc880f2faf2b741",
+      "github_release_url": "https://github.com/zuizui0223/izu-core/releases/download/four-question-resolution-20261013/CLOCK_PILOT_main_c0_ORIGINAL_20261014.zip",
+      "separate_mirror_receipt": "Authenticated Google Drive connector upload and streamed fetch; actual separate-provider body/CRC/all257 members match public source. No independently administered custody or DOI asserted."
+    },
+    "main_c3": {
+      "sha256": "c413c7c5c3e378d7644263d713451ef6cf24ea60993a718da068ec0161026e41",
+      "github_release_url": "https://github.com/zuizui0223/izu-core/releases/download/four-question-resolution-20261013/CLOCK_PILOT_main_c3_ORIGINAL_20261014.zip",
+      "separate_mirror_receipt": "Authenticated Google Drive connector upload and streamed fetch; actual separate-provider body/CRC/all257 members match public source. No independently administered custody or DOI asserted."
+    },
+    "main_c4": {
+      "sha256": "60cc973d16c8d3e2df345f8f0ae58464b9215dbe45c163b8e24c1641913035e0",
+      "github_release_url": "https://github.com/zuizui0223/izu-core/releases/download/four-question-resolution-20261013/CLOCK_PILOT_main_c4_ORIGINAL_20261014.zip",
+      "separate_mirror_receipt": "Authenticated Google Drive connector upload and streamed fetch; actual separate-provider body/CRC/all257 members match public source. No independently administered custody or DOI asserted."
+    },
+    "confirmation_c0": {
+      "sha256": "65ba7f2054359c8cae397182aec2d3ec1679cfa4f64f7881c211f916fbc43161",
+      "github_release_url": "https://github.com/zuizui0223/izu-core/releases/download/four-question-resolution-20261013/CLOCK_PILOT_confirmation_c0_ORIGINAL_20261014.zip",
+      "separate_mirror_receipt": "Authenticated Google Drive connector upload and streamed fetch; actual separate-provider body/CRC/all257 members match public source. No independently administered custody or DOI asserted."
+    },
+    "confirmation_c3": {
+      "sha256": "65a83ee26593daa8205cad13cf0c5348eda6d1b56398b0706c02a9e6859dc0cc",
+      "github_release_url": "https://github.com/zuizui0223/izu-core/releases/download/four-question-resolution-20261013/CLOCK_PILOT_confirmation_c3_ORIGINAL_20261014.zip",
+      "separate_mirror_receipt": "Authenticated Google Drive connector upload and streamed fetch; actual separate-provider body/CRC/all257 members match public source. No independently administered custody or DOI asserted."
+    },
+    "confirmation_c4": {
+      "sha256": "19956b1c75a963952478478f0707bfac1426261f78849a254fd5748732e11a1a",
+      "github_release_url": "https://github.com/zuizui0223/izu-core/releases/download/four-question-resolution-20261013/CLOCK_PILOT_confirmation_c4_ORIGINAL_20261014.zip",
+      "separate_mirror_receipt": "Authenticated Google Drive connector upload and streamed fetch; actual separate-provider body/CRC/all257 members match public source. No independently administered custody or DOI asserted."
+    }
+  }
+}

@@ -1,0 +1,13 @@
+{
+  "schema": "independent_clock_pilot_demography_ceiling_review_v1",
+  "status": "PASS",
+  "source_readback_sha256": "8e5b77d63d62d34d15a8456f5e21da26b39ef259cebca58fec083b5cb944dcb4",
+  "cases": 1536,
+  "updates_per_case": 200,
+  "all_cases_source_genotype_record_years": 9600,
+  "all_cases_parent_pairs": 9600,
+  "total_source_genotype_record_years": 14745600,
+  "total_parent_pairs": 14745600,
+  "scope": "Immutable per-case reader counts, not a second raw-array/genome replay. With the source-verified N0=48 and K=48, each 200-year source and offspring count reaches its maximum, so every census t0..200 is 48.",
+  "interpretation": "No extinction or survival difference is observable in this pilot. Genotype/parent records are not independent histories."
+}

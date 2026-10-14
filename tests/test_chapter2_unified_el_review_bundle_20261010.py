@@ -250,6 +250,18 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
            "EVIDENCE/EVOLUTION_DESIGN.json",
             "EVIDENCE/EVOLUTION_RESULTS.json",
             "EVIDENCE/FUTURE_PARENT_READOUT.json",
+           "EVIDENCE/GENETIC_ACCESS_ALL_SIX_ORIGINAL_SOURCE_READBACK.json",
+           "EVIDENCE/GENETIC_ACCESS_EXTERNAL_SOURCE_AND_MIRROR_RECEIPT.json",
+           "EVIDENCE/GENETIC_ACCESS_FROZEN_EXPLORATORY_READOUT.json",
+           "EVIDENCE/GENETIC_ACCESS_INDEPENDENT_DEMOGRAPHY_CEILING_REVIEW.json",
+           "EVIDENCE/GENETIC_ACCESS_INDEPENDENT_EXPLORATORY_ARITHMETIC_REVIEW.json",
+           "EVIDENCE/GENETIC_ACCESS_confirmation_c0_independently_verified.json",
+           "EVIDENCE/GENETIC_ACCESS_confirmation_c3_independently_verified.json",
+           "EVIDENCE/GENETIC_ACCESS_confirmation_c4_independently_verified.json",
+           "EVIDENCE/GENETIC_ACCESS_main_c0_independently_verified.json",
+           "EVIDENCE/GENETIC_ACCESS_main_c3_independently_verified.json",
+           "EVIDENCE/GENETIC_ACCESS_main_c4_independently_verified.json",
+           "EVIDENCE/GENETIC_ACCESS_verify_exploratory_arithmetic_independent.py",
            "EVIDENCE/GENOME_RESPONSE_READOUT.json",
            "EVIDENCE/INITIAL_CLOCK_IDENTIFIABILITY.json",
            "EVIDENCE/INITIAL_CLOCK_INDEPENDENT_REVIEW.json",
@@ -305,7 +317,7 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
         assert m["doi_deposit_complete"] is False
         assert m["n_figures"]==4
         assert m["n_supplementary_figures"]==3
-        assert len(m["members"])==80
+        assert len(m["members"])==92
         for name,record in m["members"].items():
             raw=z.read(name)
             assert record=={"size":len(raw),"sha256":hashlib.sha256(raw).hexdigest()}

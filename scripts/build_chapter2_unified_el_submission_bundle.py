@@ -127,6 +127,29 @@ def pr490_original_materials():
         for name,value in members.items()}
 
 
+def genetic_access_pilot_materials():
+    """Admit exact independently replayed exploratory pilot evidence."""
+    data = ROOT / 'data/results/genetic_access_pilot_20261014'
+    pins = {'ALL_SIX_ORIGINAL_SOURCE_READBACK.json': '8e5b77d63d62d34d15a8456f5e21da26b39ef259cebca58fec083b5cb944dcb4', 'confirmation_c0_independently_verified.json': '6a2d1eea9064502d3c3ee3d8b565a1c1eac15a56db8a82f5d8a5e1272ed63666', 'confirmation_c3_independently_verified.json': 'bc7a15be4c6ab68999092473a569709710f0266d441a5010d7c0f865b96401b9', 'confirmation_c4_independently_verified.json': '0ac81d75f66935bfc9b2edaf205aa4b1bec4782a55c660303c8c2e98f302121c', 'EXTERNAL_SOURCE_AND_MIRROR_RECEIPT.json': 'dfa50e0eea4a1b2bcb1cd1d004f404ab2782dc4c95a8ce3de400904a9020545d', 'FROZEN_EXPLORATORY_READOUT.json': 'd02aec2b3d382f06ffc00b490eddfb696290d6ff5eb80e11cd467e1e7d2c620d', 'INDEPENDENT_DEMOGRAPHY_CEILING_REVIEW.json': '7663e232620a6f16e2d47529f59093f6ded3be2aaa5915bd1b8439e16617e56a', 'INDEPENDENT_EXPLORATORY_ARITHMETIC_REVIEW.json': '58f39f8589498b43b5f6005207118b9ed188ca58071f512bc86468a196eb07b6', 'main_c0_independently_verified.json': '898a1918d3928020ebdc99bb63a2ff372c97aa239867432434cba5ec435bb98a', 'main_c3_independently_verified.json': 'e8b893712c931ef23739fa94eea2b50e786b150c6d43ed0df3c102602187d722', 'main_c4_independently_verified.json': '9866070cd342e0c655086d799e8e1328de6dee17aefe615eb07df0db3d94ae21', 'verify_exploratory_arithmetic_independent.py': 'd346b2582e8db8bdd114da3ac33173e3083c7d2e15e6cf75e7d1ab081381efb9'}
+    members = {}
+    for name, digest in pins.items():
+        raw = (data / name).read_bytes()
+        if sha(raw) != digest:
+            raise ValueError('genetic-access frozen evidence differs: ' + name)
+        members['EVIDENCE/GENETIC_ACCESS_' + name] = raw.replace(
+            b'https://github.com/zuizui0223/izu-core/releases/download/four-question-resolution-20261013/',
+            b'PUBLIC_SOURCE_COMPANION/')
+    result = json.loads(members['EVIDENCE/GENETIC_ACCESS_FROZEN_EXPLORATORY_READOUT.json'])
+    review = json.loads(members['EVIDENCE/GENETIC_ACCESS_INDEPENDENT_EXPLORATORY_ARITHMETIC_REVIEW.json'])
+    if (result['all_starts'] != 1536 or review['status'] != 'PASS'
+            or review['reported_summary_sha256'] != pins['FROZEN_EXPLORATORY_READOUT.json']
+            or result['status'] != 'EXPLORATORY_SOURCE_BOUND_PILOT_DESCRIPTION_NOT_Q1_Q2_CONFIRMATION'):
+        raise ValueError('genetic-access exploratory admission scope differs')
+    return members, {name: dict(original_sha256=pins[name.removeprefix('EVIDENCE/GENETIC_ACCESS_')], derived_sha256=sha(value),
+        transformation='Identifying public URL prefix replaced with PUBLIC_SOURCE_COMPANION/ only; original hash retained. No ecological-root, clock-prediction or survival-benefit admission.')
+        for name, value in members.items()}
+
+
 def low_allele_loss_materials():
     data=ROOT/'data/results/low_allele_loss_20261014'
     raw=(data/'PUBLIC_READBACK.json').read_bytes()
@@ -859,6 +882,9 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     directional,directional_derivations=directional_access_materials()
     members.update(directional)
     derivations.update(directional_derivations)
+    pilot,pilot_derivations=genetic_access_pilot_materials()
+    members.update(pilot)
+    derivations.update(pilot_derivations)
     low_loss,low_loss_derivations=low_allele_loss_materials()
     members.update(low_loss)
     derivations.update(low_loss_derivations)
