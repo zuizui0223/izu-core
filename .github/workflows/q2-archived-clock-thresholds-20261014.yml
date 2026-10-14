@@ -1,11 +1,6 @@
 name: Q2 archived response-threshold sensitivity (read-only)
 
 on:
-  pull_request:
-    paths:
-      - '.github/workflows/q2-archived-clock-thresholds-20261014.yml'
-      - 'scripts/audit_chapter2_archived_clock_thresholds_20261014.py'
-      - 'tests/test_chapter2_archived_clock_thresholds_20261014.py'
   workflow_dispatch:
 
 permissions:
