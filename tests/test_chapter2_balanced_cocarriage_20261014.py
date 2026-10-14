@@ -22,7 +22,7 @@ def test_every_source_has_four_identical_adult_phenotypes_per_stratum():
         assert len(baseline.ids)==48
         assert baseline.alleles.shape==(48,3,2)
         assert np.all(baseline.alleles[:,2,:]==.5)
-        assert len(set(baseline.alleles.tobytes()[i:i+1] for i in range(10)))>0
+        assert len(np.unique(baseline.ids))==48
         for g in range(STRATA):
             group=baseline.alleles[4*g:4*g+COPY_PER_STRATUM]
             assert np.array_equal(group,np.repeat(group[0:1],4,axis=0))
@@ -149,7 +149,7 @@ def test_only_registered_source_and_overlap_treatments_are_allowed(pool,m):
 def test_a_missing_or_asymmetric_carrier_is_not_wrongly_admitted():
     base=balanced_source(0)
     bad=base.alleles.copy()
-    bad[0,1,0]=.5
+    bad[0,1,:]=.625 if base.alleles[0,1,0] != .625 else .375
     from scripts.model3_island.types import PlantState
     altered=PlantState(alleles=bad,allele_origin=base.allele_origin,
                        mutation_flags=base.mutation_flags,
