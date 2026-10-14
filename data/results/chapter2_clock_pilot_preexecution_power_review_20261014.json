@@ -1,0 +1,93 @@
+{
+  "schema": "chapter2_clock_pilot_preexecution_power_review_v1",
+  "status": "EXPLORATORY_PILOT_SAMPLE_PLAN_COHERENT__SCIENCE_RUN_NOT_AUTHORIZED",
+  "basis": {
+    "pilot_design_git_blob": "75d49de2781a240c14bdc3f9106212b0dbbda6aa",
+    "pilot_registry_git_blob": "f18eae09e3f569ae7edefe970ea17d93c64b1bd5",
+    "previous_assumption_power_git_blob": "e322106afec60f1e08d476ad35f1819673e6b7e5"
+  },
+  "pilot": {
+    "registered_paths": 1536,
+    "registered_original_model_updates": 307200,
+    "paired_history_clusters": 128,
+    "factorial_cells": 24,
+    "n_each_cell": 64,
+    "independent_natural_island_systems": 0,
+    "registered_pilot_histories_executed": 0
+  },
+  "power_contract": {
+    "assumed_logloss_difference": 0.02,
+    "two_sided_alpha": 0.05,
+    "target_power_for_future_confirmation": 0.8,
+    "min_future_confirm_clusters": 512,
+    "max_future_confirm_clusters": 1024,
+    "sd_floor": 0.15,
+    "GO_ONLY_IF_ASSUMED_SD_AT_OR_BELOW": 0.22844209623260275
+  },
+  "hypothetical_sensitivity": [
+    {
+      "assumed_per_history_logloss_sd": 0.1,
+      "hypothetical_128_cluster_pilot_power_if_tested": 0.6189824356497371,
+      "hypothetical_512_cluster_confirm_power": 0.9948489272598589,
+      "hypothetical_896_cluster_confirm_power": 0.999971715973444,
+      "hypothetical_1024_cluster_confirm_power": 0.9999955028087917,
+      "n_confirm_clusters": 512,
+      "decision": "POSSIBLE_IF_FUTURE_PILOT_SD_AND_FROZEN_CLOCK_ALLOW",
+      "raw_required_clusters_rounded": 512,
+      "n_original_model3_paths_if_launched": 6144
+    },
+    {
+      "assumed_per_history_logloss_sd": 0.15,
+      "hypothetical_128_cluster_pilot_power_if_tested": 0.3260873214816293,
+      "hypothetical_512_cluster_confirm_power": 0.854750222254602,
+      "hypothetical_896_cluster_confirm_power": 0.9788794633771511,
+      "hypothetical_1024_cluster_confirm_power": 0.9894642999206853,
+      "n_confirm_clusters": 512,
+      "decision": "POSSIBLE_IF_FUTURE_PILOT_SD_AND_FROZEN_CLOCK_ALLOW",
+      "raw_required_clusters_rounded": 512,
+      "n_original_model3_paths_if_launched": 6144
+    },
+    {
+      "assumed_per_history_logloss_sd": 0.2,
+      "hypothetical_128_cluster_pilot_power_if_tested": 0.2046636310710387,
+      "hypothetical_512_cluster_confirm_power": 0.6189824356497371,
+      "hypothetical_896_cluster_confirm_power": 0.849283085969045,
+      "hypothetical_1024_cluster_confirm_power": 0.8925190868765972,
+      "n_confirm_clusters": 896,
+      "decision": "POSSIBLE_IF_FUTURE_PILOT_SD_AND_FROZEN_CLOCK_ALLOW",
+      "raw_required_clusters_rounded": 896,
+      "n_original_model3_paths_if_launched": 10752
+    },
+    {
+      "assumed_per_history_logloss_sd": 0.25,
+      "hypothetical_128_cluster_pilot_power_if_tested": 0.14782765549355764,
+      "hypothetical_512_cluster_confirm_power": 0.4405543653284989,
+      "hypothetical_896_cluster_confirm_power": 0.6681153833430351,
+      "hypothetical_1024_cluster_confirm_power": 0.7257619758652161,
+      "n_confirm_clusters": null,
+      "decision": "NO_GO_OVER_1024",
+      "raw_required_clusters_rounded": 1280
+    }
+  ],
+  "maximally_uncertain_64_case_six_class_one_vs_rest_probability_wilson_95": [
+    0.3810209474394701,
+    0.6189790525605299
+  ],
+  "scientific_interpretation": [
+    "The 128-cluster pilot is for phenotype-matched two-axis access effects and estimating variability, not for testing a 0.02 log-loss gain against a not-yet-defined clock/null.",
+    "A single 64-case cell with 50 percent events has a wide illustrative Wilson interval; 24 cells and six uneven class probabilities require retaining zero and rare categories.",
+    "Do not treat 1536 matched treatment×ecology paths as 1536 independent ecological systems.",
+    "Original A-low threshold unreachability without mutation is coupled to the width intervention; mutation remains enabled, so not a clean scalar genetic variance effect.",
+    "Hidden I-homolog removal leaves all founding expressed I and between-adult I variance intact.",
+    "The pilot is not evidence of a universal Q1-Q2 two-stage response clock; a fully frozen predictive model and equally flexible null require later completely new seeds."
+  ],
+  "science_executed_here": false,
+  "execution_approved_here": false,
+  "required_before_pilot_execution": [
+    "source model and raw output/replay technical CI success (already confirmed on PR504)",
+    "reviewed immutable author/reviewer-approved original model 200-update execution receipt",
+    "reviewed separate-provider primary/mirror preservation and license/custody",
+    "single producer rather than pooled comparator branch"
+  ],
+  "provenance_note": "Hypothetical normal calculations independently computed from published fixed design values; no original source data or biological outcomes were loaded in this detached container. The code requires exact Git blob JSON source checks in the actual repo CI."
+}

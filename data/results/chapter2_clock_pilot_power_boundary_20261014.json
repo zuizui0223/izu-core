@@ -1,0 +1,270 @@
+{
+  "schema": "chapter2_clock_pilot_factorial_power_and_confirmation_boundary_v1",
+  "status": "ASSUMPTION_ONLY_PRE_OUTCOME_POWER_AUDIT_NO_BIOLOGICAL_RUN",
+  "as_of_date": "2026-10-14",
+  "source_frozen_design": {
+    "path": "data/design/chapter2_clock_factorial_pilot_protocol_20261013.json",
+    "git_blob": "75d49de2781a240c14bdc3f9106212b0dbbda6aa"
+  },
+  "source_frozen_analysis": {
+    "path": "data/design/chapter2_clock_factorial_pilot_analysis_contract_20261013.json",
+    "git_blob": "06c343b6e20a08c0575ddbe6ace5ef5fbdeb85ed",
+    "five_predeclared_descriptive_contrasts": [
+      "Awidth_to_A_incidence",
+      "Ihidden_to_I_incidence",
+      "Awidth_to_D",
+      "Ihidden_to_D",
+      "Awidth_x_Ihidden_to_D"
+    ]
+  },
+  "source_existing_power_envelope": {
+    "path": "data/results/chapter2_clock_power_envelope_20261013.json",
+    "original_procedure": "one_direction_ci_positive_probability matches original prospective six-class paired-history log-loss assumption envelope",
+    "uses_effect_from_pilot_for_confirmation_n": false
+  },
+  "pilot_grain": {
+    "original_founder_blocks": 2,
+    "paired_streams_per_founder": 64,
+    "independent_founder_stream_clusters": 128,
+    "contexts_per_cluster": 3,
+    "genotype_arms_per_context": 4,
+    "trajectories_per_cluster": 12,
+    "registered_trajectories": 1536,
+    "updates_per_trajectory_if_later_authorized": 200,
+    "actual_new_model3_histories_generated_in_this_audit": 0
+  },
+  "bounded_factorial_contrast_support": {
+    "A_incidence_and_I_incidence_main_factor_contrasts": [
+      -1,
+      1
+    ],
+    "D_all_start_order_score": [
+      -1,
+      1
+    ],
+    "D_main_factor_contrasts": [
+      -2,
+      2
+    ],
+    "D_Awidth_x_Ihidden_interaction": [
+      -4,
+      4
+    ],
+    "D_definition": "indicator(assurance_first)-indicator(investment_first); ties and single/no events contribute zero, all included in six-class denominator"
+  },
+  "normal_approximation": {
+    "two_sided_95pct_ci_lower_bound_z": 1.959963984540054,
+    "target_directional_success_probability": 0.8,
+    "z_for_80pct_directional_success": 0.8416212335729143,
+    "method": "P(estimated mean - z0.975*assumedSD/sqrt(n)>0) assuming Normal distribution of paired-cluster effect estimator",
+    "not_5_comparisons_familywise_adjusted": true,
+    "not_actual_confirmatory_power": true,
+    "not_empirical_SD_from_new_genotype_intervention": true
+  },
+  "illustrative_pilot_scenarios": [
+    {
+      "assumed_cluster_sd": 0.1,
+      "pilot_128_cluster_normal_95pct_directional_80pct_effect_threshold": 0.02476274882249591,
+      "pilot_64_one_founder_cluster_normal_95pct_directional_80pct_effect_threshold": 0.03501981522641211,
+      "pilot_128_cluster_standard_error_if_assumed_sd": 0.008838834764831844,
+      "effect_sensitivity": [
+        {
+          "assumed_effect": 0.02,
+          "directional_lower_95pct_bound_gt_zero_probability_normal": 0.6189703663026571
+        },
+        {
+          "assumed_effect": 0.05,
+          "directional_lower_95pct_bound_gt_zero_probability_normal": 0.9998908716858828
+        },
+        {
+          "assumed_effect": 0.1,
+          "directional_lower_95pct_bound_gt_zero_probability_normal": 1.0
+        },
+        {
+          "assumed_effect": 0.2,
+          "directional_lower_95pct_bound_gt_zero_probability_normal": 1.0
+        }
+      ]
+    },
+    {
+      "assumed_cluster_sd": 0.15,
+      "pilot_128_cluster_normal_95pct_directional_80pct_effect_threshold": 0.03714412323374386,
+      "pilot_64_one_founder_cluster_normal_95pct_directional_80pct_effect_threshold": 0.052529722839618154,
+      "pilot_128_cluster_standard_error_if_assumed_sd": 0.013258252147247764,
+      "effect_sensitivity": [
+        {
+          "assumed_effect": 0.02,
+          "directional_lower_95pct_bound_gt_zero_probability_normal": 0.325825594750103
+        },
+        {
+          "assumed_effect": 0.05,
+          "directional_lower_95pct_bound_gt_zero_probability_normal": 0.9649506352013126
+        },
+        {
+          "assumed_effect": 0.1,
+          "directional_lower_95pct_bound_gt_zero_probability_normal": 0.9999999881462887
+        },
+        {
+          "assumed_effect": 0.2,
+          "directional_lower_95pct_bound_gt_zero_probability_normal": 1.0
+        }
+      ]
+    },
+    {
+      "assumed_cluster_sd": 0.2,
+      "pilot_128_cluster_normal_95pct_directional_80pct_effect_threshold": 0.04952549764499182,
+      "pilot_64_one_founder_cluster_normal_95pct_directional_80pct_effect_threshold": 0.07003963045282421,
+      "pilot_128_cluster_standard_error_if_assumed_sd": 0.017677669529663688,
+      "effect_sensitivity": [
+        {
+          "assumed_effect": 0.02,
+          "directional_lower_95pct_bound_gt_zero_probability_normal": 0.2036673370654138
+        },
+        {
+          "assumed_effect": 0.05,
+          "directional_lower_95pct_bound_gt_zero_probability_normal": 0.8074295788138212
+        },
+        {
+          "assumed_effect": 0.1,
+          "directional_lower_95pct_bound_gt_zero_probability_normal": 0.9998908716858828
+        },
+        {
+          "assumed_effect": 0.2,
+          "directional_lower_95pct_bound_gt_zero_probability_normal": 1.0
+        }
+      ]
+    },
+    {
+      "assumed_cluster_sd": 0.3,
+      "pilot_128_cluster_normal_95pct_directional_80pct_effect_threshold": 0.07428824646748772,
+      "pilot_64_one_founder_cluster_normal_95pct_directional_80pct_effect_threshold": 0.10505944567923631,
+      "pilot_128_cluster_standard_error_if_assumed_sd": 0.02651650429449553,
+      "effect_sensitivity": [
+        {
+          "assumed_effect": 0.02,
+          "directional_lower_95pct_bound_gt_zero_probability_normal": 0.11396336191298306
+        },
+        {
+          "assumed_effect": 0.05,
+          "directional_lower_95pct_bound_gt_zero_probability_normal": 0.47036757702406257
+        },
+        {
+          "assumed_effect": 0.1,
+          "directional_lower_95pct_bound_gt_zero_probability_normal": 0.9649506352013126
+        },
+        {
+          "assumed_effect": 0.2,
+          "directional_lower_95pct_bound_gt_zero_probability_normal": 0.9999999881462887
+        }
+      ]
+    },
+    {
+      "assumed_cluster_sd": 0.5,
+      "pilot_128_cluster_normal_95pct_directional_80pct_effect_threshold": 0.12381374411247954,
+      "pilot_64_one_founder_cluster_normal_95pct_directional_80pct_effect_threshold": 0.17509907613206052,
+      "pilot_128_cluster_standard_error_if_assumed_sd": 0.044194173824159216,
+      "effect_sensitivity": [
+        {
+          "assumed_effect": 0.02,
+          "directional_lower_95pct_bound_gt_zero_probability_normal": 0.06585207559343009
+        },
+        {
+          "assumed_effect": 0.05,
+          "directional_lower_95pct_bound_gt_zero_probability_normal": 0.2036673370654139
+        },
+        {
+          "assumed_effect": 0.1,
+          "directional_lower_95pct_bound_gt_zero_probability_normal": 0.6189703663026572
+        },
+        {
+          "assumed_effect": 0.2,
+          "directional_lower_95pct_bound_gt_zero_probability_normal": 0.9948489272156245
+        }
+      ]
+    },
+    {
+      "assumed_cluster_sd": 1.0,
+      "pilot_128_cluster_normal_95pct_directional_80pct_effect_threshold": 0.24762748822495909,
+      "pilot_64_one_founder_cluster_normal_95pct_directional_80pct_effect_threshold": 0.35019815226412104,
+      "pilot_128_cluster_standard_error_if_assumed_sd": 0.08838834764831843,
+      "effect_sensitivity": [
+        {
+          "assumed_effect": 0.02,
+          "directional_lower_95pct_bound_gt_zero_probability_normal": 0.04148656735546552
+        },
+        {
+          "assumed_effect": 0.05,
+          "directional_lower_95pct_bound_gt_zero_probability_normal": 0.08161675140053354
+        },
+        {
+          "assumed_effect": 0.1,
+          "directional_lower_95pct_bound_gt_zero_probability_normal": 0.2036673370654139
+        },
+        {
+          "assumed_effect": 0.2,
+          "directional_lower_95pct_bound_gt_zero_probability_normal": 0.6189703663026572
+        }
+      ]
+    }
+  ],
+  "existing_future_prediction_score_rule_if_fully_reviewed": {
+    "target_mean_six_class_logloss_gain": 0.02,
+    "planning_sigma_floor": 0.15,
+    "minimum_independent_clusters": 512,
+    "maximum_independent_clusters": 1024,
+    "round_to_clusters": 128,
+    "assumed_logloss_cluster_sd_grid": [
+      {
+        "assumed_score_difference_cluster_sd": 0.15,
+        "planning_sd_with_previously_frozen_floor": 0.15,
+        "unrounded_required_clusters_approximate": 441.4994850571362,
+        "rounded_required_clusters": 512,
+        "decision_if_models_were_frozen_and_sd_were_valid": "FURTHER_MODEL_AND_SOURCE_REVIEW_REQUIRED",
+        "would_require_trajectories": 6144,
+        "scientific_confirmation_authorized": false,
+        "model_based_sigma_measured_from_current_pilot": false
+      },
+      {
+        "assumed_score_difference_cluster_sd": 0.2,
+        "planning_sd_with_previously_frozen_floor": 0.2,
+        "unrounded_required_clusters_approximate": 784.8879734349089,
+        "rounded_required_clusters": 896,
+        "decision_if_models_were_frozen_and_sd_were_valid": "FURTHER_MODEL_AND_SOURCE_REVIEW_REQUIRED",
+        "would_require_trajectories": 10752,
+        "scientific_confirmation_authorized": false,
+        "model_based_sigma_measured_from_current_pilot": false
+      },
+      {
+        "assumed_score_difference_cluster_sd": 0.225,
+        "planning_sd_with_previously_frozen_floor": 0.225,
+        "unrounded_required_clusters_approximate": 993.3738413785562,
+        "rounded_required_clusters": 1024,
+        "decision_if_models_were_frozen_and_sd_were_valid": "FURTHER_MODEL_AND_SOURCE_REVIEW_REQUIRED",
+        "would_require_trajectories": 12288,
+        "scientific_confirmation_authorized": false,
+        "model_based_sigma_measured_from_current_pilot": false
+      },
+      {
+        "assumed_score_difference_cluster_sd": 0.25,
+        "planning_sd_with_previously_frozen_floor": 0.25,
+        "unrounded_required_clusters_approximate": 1226.3874584920452,
+        "rounded_required_clusters": 1280,
+        "decision_if_models_were_frozen_and_sd_were_valid": "NO_GO_EXCEEDS_1024_CLUSTER_CAP",
+        "would_require_trajectories": null,
+        "scientific_confirmation_authorized": false,
+        "model_based_sigma_measured_from_current_pilot": false
+      }
+    ],
+    "predictive_clock_and_equal_or_more_flexible_null_currently_frozen": false,
+    "post_pilot_prediction_model_specific_sigma_currently_identified": false,
+    "pilot_factorial_contrast_sd_cannot_substitute_for_prediction_logloss_difference_sd": true
+  },
+  "scientific_judgement": [
+    "Pilot n=128 founder×seed streams is a feasibility and exploratory factorial effect-variance study, not 1,536 independent ecological-history observations.",
+    "The two founder blocks and three environments are fixed design contexts, not six random independently sampled natural islands or model families.",
+    "Within-simulation genotype interventions can describe model-specific effect of A allelic support and hidden I homolog accessibility; they do not alone identify natural-island historical selection.",
+    "The five outcome summaries have no preregistered formal hypothesis-testing multiplicity correction; normal thresholds here are illustrative, not 5 claimed p-values.",
+    "For future log-loss confirmation, the two-stage genetic-access clock and at-least-equally-flexible ecological×genetic null are NOT frozen; model-based sigma cannot be treated as already measured.",
+    "The original producer remains authorization-locked; all six genuine raw ZIPs and independent primary+mirror readback absent at the time of this design audit."
+  ]
+}
