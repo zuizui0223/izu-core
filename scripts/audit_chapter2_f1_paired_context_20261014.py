@@ -104,9 +104,23 @@ def audit_bytes(raw: bytes, *, require_pinned_blob: bool = True) -> dict:
         }
         if (has_A, has_I) != expected_presence[category]:
             raise ValueError(f"Sustained-event presence disagrees with category: {key}")
-        for field in ("A_transient_first", "I_transient_first",
-                      "A_sustained_first", "I_sustained_first"):
-            if row[field] and not (0 <= int(row[field]) <= 200):
+        a_start = int(row["A_sustained_first"]) if has_A else None
+        i_start = int(row["I_sustained_first"]) if has_I else None
+        if a_start is None:
+            implied = "neither" if i_start is None else "investment_only"
+        elif i_start is None:
+            implied = "assurance_only"
+        elif abs(a_start - i_start) <= 5:
+            implied = "near_simultaneous"
+        else:
+            implied = "assurance_first" if a_start < i_start else "investment_first"
+        if implied != category:
+            raise ValueError(f"Sustained-event ordering disagrees with category: {key}")
+        for field, last_valid_start in (
+            ("A_transient_first", 200), ("I_transient_first", 200),
+            ("A_sustained_first", 181), ("I_sustained_first", 181),
+        ):
+            if row[field] and not (0 <= int(row[field]) <= last_valid_start):
                 raise ValueError(f"Invalid original event year: {key}/{field}")
         by_key[key] = row
         all_category_counts[category] += 1
