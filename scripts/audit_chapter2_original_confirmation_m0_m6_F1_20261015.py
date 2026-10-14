@@ -169,7 +169,7 @@ def audit() -> dict:
         "limits":[
             "This is a conditional one-child F1 distribution integrated from native t0 parent returns; no actual birth or evolutionary history.",
             "All 48 original adults were A-heterozygous at baseline; in EACH arm 42 are artificially made A-homozygous while the other six retain the original symmetric A halfwidth. Original I homologs and all adult expressed traits are unchanged.",
-            "This is an I-preserving artificial A-locus reconstruction conditioned on one original source, NOT the untouched historical complete genotype."
+            "This is an I-preserving artificial A-locus reconstruction conditioned on one original source, NOT the untouched historical complete genotype.",
             "The two arms derive from ONE original founder source; none of the three pollinator contexts are independent genomic source replicates.",
             "Full single-offspring trait margins and static parental return parity do not guarantee equal long-run genetic variances, joint offspring distributions, sustained evolutionary order or population survival.",
             "The A-up/I-down child event is a single-offspring founder-relative diagnostic, not a sustained population-average response or proof of beneficial genotypes.",
