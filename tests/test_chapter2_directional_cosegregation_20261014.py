@@ -75,7 +75,7 @@ def test_sign_correct_against_full_meiosis_copy_enumeration(context,m):
         assert abs(target[key]-direct[checked])<2e-13, key
 
 
-def test_no_visitor_directional_signs_have_exact_m_over_768_law():
+def test_no_visitor_directional_signs_match_native_parental_selfing_weights():
     fixture=original_fixture()
     cfg,vis=original_context(fixture,"main",0)
     assert len(vis.ids)==0
@@ -97,7 +97,7 @@ def test_no_visitor_directional_signs_have_exact_m_over_768_law():
             assert abs(p["p_A_above_selected_parent_midpoint"]-.0625)<1e-14
             assert abs(p["p_I_below_selected_parent_midpoint"]-.0625)<1e-14
             assert p["p_A_up_and_I_down_from_outcross_parent_pair"]==0
-            assert abs(p["p_A_up_and_I_down_from_selfed_parent_pair"]-m/768)<1e-14
+            assert abs(p["p_A_up_and_I_down_from_selfed_parent_pair"]-true_weighted)<1e-14
 
 
 def test_pollen_enabled_crosses_can_combine_disjoint_carriers():
