@@ -1,0 +1,54 @@
+{
+  "schema": "chapter2_source_assignment_candidate_contract_20261014_v1",
+  "status": "UNAPPROVED_NO_BIOLOGY_TECHNICAL_RANDOMISATION_ONLY",
+  "dated": "2026-10-14",
+  "original_t0_fixture_git_blob": "4b529cce12bc44e06d43a22b10c325a52bbd967b",
+  "original_model_commit": "328548612e93469fcc8663f24548530a57399b9a",
+  "derived_seed_salt": "izu-core-pr512-founder-input-QA-nonbiological-v1",
+  "technical_assignments_per_founder_background": 32,
+  "founder_backgrounds": [
+    "main",
+    "confirmation"
+  ],
+  "source_co_carriage": [
+    0,
+    3,
+    6,
+    12
+  ],
+  "founder_draw_sizes": [
+    2,
+    8,
+    24,
+    48
+  ],
+  "ecological_conditions_not_executed": [
+    0,
+    3,
+    4
+  ],
+  "technical_source_draw_clusters": 64,
+  "technical_t0_case_count": 1024,
+  "candidate_future_arm_count_at_one_history_each": "NOT_REGISTERED_NOT_APPROVED",
+  "sampling": "new technical SHA256 source/draw/recipient seeds per founder background and assignment, reused across co-carriage and nested founding-size comparisons",
+  "future_history_seed_status": "NULL_NOT_AUTHORIZED",
+  "expected_case_level_technical_digest_sha256": "c16b07578c77b31f57cdb68a793c9a8489561d0441a0084330d1b999c3d2dd76",
+  "observed_technical_mismatch_counts_not_evolution": {
+    "I_carrier_absent_but_mutation_free_support_present": 83,
+    "I_carrier_present_but_mutation_free_support_absent": 20,
+    "note": "These are 1024 nested synthetic case-descriptor comparisons, not independent plant populations"
+  },
+  "no_model3_reproduction_or_future_updates": true,
+  "no_biological_history_generated": true,
+  "allow_pilot_execution": false,
+  "author_run_approval": false,
+  "source_randomizations_are_natural_independent_populations": false,
+  "phenotype_backgrounds_are_independent_source_populations": false,
+  "claim_limits": [
+    "Stored IDs and I/A heterozygote placements are synthetic intervention assignments",
+    "I carrier status and mutation-free lower allele support are not interchangeable",
+    "Actual sustained response-order classes and population survival not calculated",
+    "This contract is a reproducibility candidate, not a registered/approved prospective biological cohort",
+    "Future-genetic and visitor-history RNG family, initial-genome archival/independent readback, outcome inference, power and owner approval still need review"
+  ]
+}
