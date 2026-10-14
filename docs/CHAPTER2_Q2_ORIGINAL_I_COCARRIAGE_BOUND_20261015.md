@@ -35,6 +35,6 @@ m_{\max}=\sum_g \min(H_g,O_g).
 
 今回の制約により、元I相同染色体を改変せずにm=0対12を強行する設計は採用不能となる。機構的な共保有介入を継続するなら、**独立源集団のゲノム生成分布を新しい人工的仮定として事前登録**し、各個体のM/I/A発現・生殖リターン・A/Iそれぞれの初代全周辺分布を元生物モデルで照合する。正式なS/H、原本201センサス・全二倍体ゲノム保存、効果の最小重要差、第三者レビュー、作者の新生物試験承認はIssue #518で依然HOLDとする。
 
-検証原本：'data/design/chapter2_clock_original_t0_typed_fixture_20261013.json'（Git blob 4b529cce12bc44e06d43a22b10c325a52bbd967b）。読取専用再計算：'scripts/audit_chapter2_original_t0_carriage_swap_bound_20261015.py'、結果：'data/results/chapter2_Q2_original_founder_carriage_swap_bound_20261015.json'、テスト：'tests/test_chapter2_original_t0_carriage_swap_bound_20261015.py'。
+検証原本：'data/design/chapter2_clock_original_t0_typed_fixture_20261013.json'（Git blob 4b529cce12bc44e06d43a22b10c325a52bbd967b）。読取専用再計算：'scripts/audit_chapter2_original_t0_carriage_swap_bound_20261015.py'、結果：'docs/audits/chapter2_Q2_original_founder_carriage_swap_bound_20261015.json'、テスト：'tests/test_chapter2_original_t0_carriage_swap_bound_20261015.py'。
 
 **新しい出生、進化履歴、独立供給源ゲノムの生成：いずれも0件。**
