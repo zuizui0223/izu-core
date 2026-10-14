@@ -1,0 +1,40 @@
+name: Chapter 2 founder static source gate
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/chapter2-founder-static-source-gate.yml'
+      - 'data/design/chapter2_clock_original_t0_typed_fixture_20261013.json'
+      - 'data/design/chapter2_colonisation_genetic_access_draft_20261014.json'
+      - 'scripts/audit_chapter2_colonisation_genetic_access_feasibility_20261014.py'
+      - 'scripts/audit_chapter2_joint_founder_access_20261014.py'
+      - 'scripts/audit_chapter2_native_founder_source_20261014.py'
+      - 'scripts/audit_chapter2_original_founder_compatibility_20261014.py'
+      - 'tests/test_chapter2_colonisation_genetic_access_feasibility_20261014.py'
+      - 'tests/test_chapter2_joint_founder_access_20261014.py'
+      - 'tests/test_chapter2_native_founder_source_20261014.py'
+      - 'tests/test_chapter2_original_founder_compatibility_20261014.py'
+      - 'scripts/model3_island/types.py'
+      - 'scripts/model3_island/reproduction.py'
+
+permissions:
+  contents: read
+
+jobs:
+  original-t0-no-futures:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install deterministic technical dependencies
+        run: python -m pip install 'numpy==2.2.6' 'pytest==8.4.2'
+      - name: Run exact-source technical tests only
+        run: |
+          python -m pytest -q             tests/test_chapter2_colonisation_genetic_access_feasibility_20261014.py             tests/test_chapter2_joint_founder_access_20261014.py             tests/test_chapter2_native_founder_source_20261014.py             tests/test_chapter2_original_founder_compatibility_20261014.py
+      - name: Assert actual old t0 and 96 static checks, with no biology
+        run: |
+          python scripts/audit_chapter2_original_founder_compatibility_20261014.py > original-t0-static-receipt.json
+          python -c "import json; r=json.load(open('original-t0-static-receipt.json')); assert r['original_full48_return_checks']==6; assert r['technical_t0_reproductive_ledger_parity_checks']==96; assert r['all_biology_futures_or_new_evolutionary_histories']==0; print('ORIGINAL SOURCE STATIC GATE PASSED')"
