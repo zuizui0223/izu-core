@@ -30,3 +30,23 @@ def test_intervention_preserves_per_individual_phenotypes():
                                   old.alleles.mean(axis=2))
             assert np.array_equal(change.state.alleles[:, 0], old.alleles[:, 0])
             assert np.all(change.state.allele_origin[:, 1:, :] >= 10**12)
+
+
+def test_mismatched_source_or_founder_count_fails_closed():
+    from scripts.audit_chapter2_original_founder_compatibility_20261014 import (
+        manipulate_homologs, matched_draw
+    )
+    import pytest
+    d = original_fixture()
+    main = source_state(d, "main")
+    altered = main.alleles.copy()
+    altered[0, 2, :] = .5
+    from scripts.model3_island.types import PlantState
+    invalid = PlantState(alleles=altered, allele_origin=main.allele_origin,
+                         mutation_flags=main.mutation_flags,
+                         ids=main.ids, birth_years=main.birth_years)
+    with pytest.raises(ValueError, match="exact original source genome"):
+        manipulate_homologs(invalid, block="main", overlap=3)
+    treated = manipulate_homologs(main, block="main", overlap=3).state
+    with pytest.raises(ValueError, match="founder-sample"):
+        matched_draw(main, treated, 7)
