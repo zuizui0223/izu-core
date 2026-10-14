@@ -2,6 +2,7 @@
 import csv
 import importlib.util
 import io
+import json
 from pathlib import Path
 
 import pytest
@@ -22,6 +23,8 @@ def test_authentic_original_source_and_complete_paired_recount():
     raw = audit.SOURCE.read_bytes()
     assert audit.git_blob_sha(raw) == "ea2c4009fc77cc59813dda0142e8da73c33a26fd"
     out = audit.audit_source(raw)
+    stored = json.loads((ROOT / "data/results/chapter2_f1_paired_ecology_divergence_20261014.json").read_text(encoding="utf-8"))
+    assert out == stored, "recorded machine result differs from source-pinned independent Python recount"
     assert out["domain"] == {
         "original_starts": 2304,
         "founder_blocks": 2,
