@@ -1,0 +1,129 @@
+{
+  "NATURAL_ORDER_MEAN_FINAL_RESULT_INDEPENDENT_REVIEW_20261015.json": {
+    "original_sha256": "585692eef34bc714bcc048da78d10c319940eeaf01a86b2dde9fdd2f733605d9",
+    "summary": {
+      "archives": 2048,
+      "bank_sha256": "ec15316f234ec6f28c50d93bb099ad9db6f64b84a82f6c1a88370482f6f6d8b2",
+      "claim_limits": [
+        "Mean-policy comparison within two fixed founders and historically selected categories, not randomized past-order manipulation.",
+        "Identical initial seeds couple policies; state-dependent random consumption may diverge and does not fix all later draws.",
+        "Low challenge has only4/1024 normalized survivors; collapsed order occupancy gaps do not establish mean mediation or equivalence.",
+        "At high challenge normalized AF-minus-IF occupancy and duration signs disagree across founders.",
+        "Policy changes persistence in these model paths; no general natural-order causal benefit or unique mediation conclusion.",
+        "Original primary and negative scientific outputs retain their prior status; no new significance claim."
+      ],
+      "gap_count": 6,
+      "gaps": [
+        {
+          "block": "main",
+          "duration_attenuation": -13.846153846153847,
+          "native_duration_gap": -9.211538461538462,
+          "native_occupancy_gap": -0.038461538461538464,
+          "normalized_duration_gap": 4.634615384615385,
+          "normalized_occupancy_gap": 0.0,
+          "occupancy_attenuation": -0.038461538461538464,
+          "target": 1.05
+        },
+        {
+          "block": "main",
+          "duration_attenuation": 2.75,
+          "native_duration_gap": 0.0,
+          "native_occupancy_gap": 0.0,
+          "normalized_duration_gap": -2.75,
+          "normalized_occupancy_gap": -0.057692307692307696,
+          "occupancy_attenuation": 0.057692307692307696,
+          "target": 1.5
+        },
+        {
+          "block": "confirmation",
+          "duration_attenuation": 55.52283317800559,
+          "native_duration_gap": 45.11509785647716,
+          "native_occupancy_gap": 0.2712022367194781,
+          "normalized_duration_gap": -10.407735321528426,
+          "normalized_occupancy_gap": -0.02702702702702703,
+          "occupancy_attenuation": 0.2982292637465051,
+          "target": 1.05
+        },
+        {
+          "block": "confirmation",
+          "duration_attenuation": 1.402609506057782,
+          "native_duration_gap": 4.1891891891891895,
+          "native_occupancy_gap": 0.02702702702702703,
+          "normalized_duration_gap": 2.786579683131407,
+          "normalized_occupancy_gap": 0.014445479962721343,
+          "occupancy_attenuation": 0.012581547064305684,
+          "target": 1.5
+        },
+        {
+          "block": "pooled_descriptive",
+          "duration_attenuation": 24.06926406926407,
+          "native_duration_gap": 20.135353535353534,
+          "native_occupancy_gap": 0.13217893217893217,
+          "normalized_duration_gap": -3.933910533910534,
+          "normalized_occupancy_gap": -0.015873015873015872,
+          "occupancy_attenuation": 0.14805194805194805,
+          "target": 1.05
+        },
+        {
+          "block": "pooled_descriptive",
+          "duration_attenuation": 2.0766233766233766,
+          "native_duration_gap": 2.4603174603174605,
+          "native_occupancy_gap": 0.015873015873015872,
+          "normalized_duration_gap": 0.3836940836940837,
+          "normalized_occupancy_gap": -0.01616161616161616,
+          "occupancy_attenuation": 0.032034632034632034,
+          "target": 1.5
+        }
+      ],
+      "group_count": 36,
+      "max_float_difference_from_exact_rational": 2.4868995751603507e-14,
+      "native_calls": 0,
+      "new_biological_updates": 0,
+      "original_archives": 2048,
+      "readout_sha256": "40a3cc176e60c4f0d58087610b4717bab4f95048a5475c92c125d8ecf6d18096",
+      "review_findings": [],
+      "scope": "Own saved-array endpoint/group comparator; no producer summary imports, biological updates, native replay or new RNG. Existing full-array replay and inheritance admission remain separate evidence.",
+      "source_freeze_sha256": "c2f988abb1222288e4db1b47fb30d08e71e9f17476987e2a9c4e91a1a8dfb7ea",
+      "source_sha256": "91681d5015624205144ddab35e1ed35394dbe177a47d55e3db8912523c9945ed",
+      "status": "PASS_INDEPENDENT_ALL2048_ENDPOINTS_DURATIONS_36GROUPS_6GAPS",
+      "totals": [
+        {
+          "native_duration_sum": 71886,
+          "native_survivors": 123,
+          "normalized_duration_sum": 24518,
+          "normalized_survivors": 4,
+          "paired_gains": 3,
+          "paired_losses": 122,
+          "starts": 1024,
+          "target": 1.05
+        },
+        {
+          "native_duration_sum": 200761,
+          "native_survivors": 986,
+          "normalized_duration_sum": 191501,
+          "normalized_survivors": 882,
+          "paired_gains": 20,
+          "paired_losses": 124,
+          "starts": 1024,
+          "target": 1.5
+        }
+      ]
+    }
+  },
+  "NATURAL_ORDER_MEAN_FULL_ARRAY_INDEPENDENT_ADMISSION_20261015.json": {
+    "original_sha256": "1dc505071669707811887aacb0ab42e9c10b6356c08371aef1ed83604578878d",
+    "summary": {
+      "archives": 2048,
+      "genome_rows": 1639099,
+      "groups": 36,
+      "new_biological_updates": 0,
+      "parent_rows": 1622715,
+      "readout_sha256": "40a3cc176e60c4f0d58087610b4717bab4f95048a5475c92c125d8ecf6d18096",
+      "scope": "Reads saved arrays only. Matching locus transmission exact; I/A origin/flag constraints checked. Independent native replay is the separate preceding gate. No unique historical mediation or natural-order causal benefit.",
+      "source_freeze_sha256": "c2f988abb1222288e4db1b47fb30d08e71e9f17476987e2a9c4e91a1a8dfb7ea",
+      "source_sha256": "bcf14896c293459f24623879b1b9be0b85b8c3b646b01dadde7d270fec9234ac",
+      "status": "ALL2048_RAW_GENOME_SEED_PARENTAGE_AND36_GROUPS_INDEPENDENTLY_VERIFIED",
+      "strict_gaps": 6
+    }
+  }
+}

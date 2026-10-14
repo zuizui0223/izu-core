@@ -129,7 +129,7 @@ A registered three-policy follow-up separated same-support and same-variance com
 
 Separate mutation-access preparations produced conditional terminal occupancy contrasts of +2.83 percentage points [0.68,4.98] and +4.59 [1.86,7.32] in two common challenges. Equalizing initial mean assurance attenuated the contrasts by 3.13 and 4.49 points, but residual lifelong-expression and parental-weighting effects were unresolved (S8–S10,S16,S22). Conservative distribution-free intervals included zero, and the lower-growth challenge was floor-limited. These are preparation-policy effects, not causal benefits of naturally occurring assurance-first evolution. A distinct 96-kernel diagnostic also found increased terminal occupancy alongside shorter cumulative persistence in some artificial conditions (S12).
 
-Unrestricted-order associations differed between founders under the lower challenge; higher-challenge comparisons were ceiling-limited(S25).
+Unrestricted-order associations differed between founders under the lower challenge; higher-challenge comparisons were ceiling-limited(S25). Standardizing attained mean assurance to0.5 reduced occupied endpoints from123 to4 and986 to882 per1,024 starts across the two challenges. Lower-challenge extinction floors and opposing higher-challenge founder directions prevent interpreting this as mediation or a natural-order benefit(S28).
 
 ### Conditional demographic consequences of assigned reproductive expression history
 
