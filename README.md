@@ -10,6 +10,8 @@
 
 This repository is the Chapter 2 mechanism paper built around **one ecologically explicit Model 3**.
 
+A [compact Q1–Q4 scientific answer](docs/four_question_resolution_20261011/FOUR_QUESTION_LEDGER.md#一頁要約2026-10-14既存結果の整理のみ) now states what is supported, conditional, and still unidentifiable, including the deterministic-versus-finite Model 3 comparison. It does not alter the frozen manuscript or promote pending experiments.
+
 Original 2026-10-06 working title (now source provenance):
 
 > **Reproductive assurance compresses floral-investment divergence under pollinator limitation**
