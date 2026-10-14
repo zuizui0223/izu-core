@@ -187,7 +187,7 @@ def main():
         parser.error("Choose --check or --write")
     result = json.dumps(report(load_original()),ensure_ascii=False,indent=2,allow_nan=False) + "\n"
     if args.check:
-        if OUTPUT.read_text(encoding="utf-8") != result:
+        if json.loads(OUTPUT.read_text(encoding="utf-8")) != json.loads(result):
             raise SystemExit("FAIL: committed summary differs from original typed founder arrays")
         print("PASS: both original typed t0 blocks and their source-stratified overlap bounds agree")
     elif args.write:
