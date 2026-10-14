@@ -54,13 +54,13 @@ Create `scripts/verify_q3_triangle_archives_20261014.py`, `.github/workflows/q3-
 
 - [x] Test raw metadata, member hashes, shard coverage, full independent endpoint/statistic equality and one-archive-at-a-time handling with synthetic records.
 - [x] Implement bounded upload/publication, stable release manifest and external byte readback; all-or-nothing scientific summaries. Actual publication remains Task 4.
-- [ ] Complete pure preflight and CI; bind reviewed source/workflow hashes and resources in an unapproved manifest.
-- [ ] Request approval for exactly the concrete campaign and costs. Keep all biological entry points closed until approval.
+- [x] Complete pure preflight and CI; bind reviewed source/workflow hashes and resources in an unapproved manifest.
+- [x] Request approval for exactly the concrete campaign and costs. Keep all biological entry points closed until approval.
 
 ### Task 4: approved execution and scientific closeout
 
-- [ ] Only after explicit approval, create and verify one activation commit; run the frozen workflow once.
-- [ ] Follow live run handles, preserve partial results and prohibit automatic biological restarts.
-- [ ] Verify all trajectories/parents, raw publication, family decisions and independent receipts.
-- [ ] Answer the central question within the assigned-policy and joint-survivor limits; retain opposed, equivalent, unresolved and not-evaluable outcomes.
+- [x] Activate each separately approved run once: initial zero-science HOLD and the explicitly approved repaired continuation; preserve both identities and cumulative accounting.
+- [x] Follow live run handles, preserve partial results and prohibit automatic biological restarts.
+- [x] Verify all trajectories/parents, raw publication, family decisions and independent receipts.
+- [x] Answer the central question within the assigned-policy and joint-survivor limits; retain opposed, equivalent, unresolved and not-evaluable outcomes.
 - [ ] Audit the full active goal against scientific evidence; do not complete it based only on the design or green tests.

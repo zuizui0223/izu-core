@@ -1,0 +1,189 @@
+{
+  "accounting": {
+    "fixture_updates": 4,
+    "native_updates": 6687364,
+    "production_updates": 3343680,
+    "replay_updates": 3343680,
+    "shards": 18,
+    "status": "ALL_SHARDS_ACCOUNTED",
+    "trajectories": 26352,
+    "triplets": 8784
+  },
+  "archives": [
+    {
+      "bytes": 89725505,
+      "filename": "Q3_TRIANGLE_SHARD_00.zip",
+      "sha256": "e96e7c16118ac63e345e498fae2cfd076105d9bcc2ea6ab9c24de3114cd25c60",
+      "shard": 0,
+      "trajectories": 1464,
+      "triplets": 488
+    },
+    {
+      "bytes": 89590454,
+      "filename": "Q3_TRIANGLE_SHARD_01.zip",
+      "sha256": "335f75043d5e2f894335208f537882ecf28fdc85dae202480634eabb36bbcf01",
+      "shard": 1,
+      "trajectories": 1464,
+      "triplets": 488
+    },
+    {
+      "bytes": 89496914,
+      "filename": "Q3_TRIANGLE_SHARD_02.zip",
+      "sha256": "03e12340b0f2382d83b1f97dc1dab25efde61c3c39f79d9cbdeb383e7baf5a96",
+      "shard": 2,
+      "trajectories": 1464,
+      "triplets": 488
+    },
+    {
+      "bytes": 89687684,
+      "filename": "Q3_TRIANGLE_SHARD_03.zip",
+      "sha256": "bb82750b372494e3390c12632060a8af9d33333ae2dcfbc24eaf5b52c345d120",
+      "shard": 3,
+      "trajectories": 1464,
+      "triplets": 488
+    },
+    {
+      "bytes": 89550359,
+      "filename": "Q3_TRIANGLE_SHARD_04.zip",
+      "sha256": "7fe618d8563f52c31c75180cf6f0182aa4a231228917c3e203abefb66e0d85f4",
+      "shard": 4,
+      "trajectories": 1464,
+      "triplets": 488
+    },
+    {
+      "bytes": 89543723,
+      "filename": "Q3_TRIANGLE_SHARD_05.zip",
+      "sha256": "9b469b58f41bde7acedfef9f3fc135c57df0c74eb3a5dab025f4599f4d6026b4",
+      "shard": 5,
+      "trajectories": 1464,
+      "triplets": 488
+    },
+    {
+      "bytes": 89638237,
+      "filename": "Q3_TRIANGLE_SHARD_06.zip",
+      "sha256": "ebd3b7498db1255173814f1c00579ed265eb1cf40351170ce37fb7298b51ffbf",
+      "shard": 6,
+      "trajectories": 1464,
+      "triplets": 488
+    },
+    {
+      "bytes": 89658652,
+      "filename": "Q3_TRIANGLE_SHARD_07.zip",
+      "sha256": "09c5fc2d06e930ed99fe4d83355a615c2cb670ec8a49cf93ec38204942b4ac3b",
+      "shard": 7,
+      "trajectories": 1464,
+      "triplets": 488
+    },
+    {
+      "bytes": 89671754,
+      "filename": "Q3_TRIANGLE_SHARD_08.zip",
+      "sha256": "aca73b6a42be232ff06e28084c2589a381a589bff62ddcf97a49478e4e73681e",
+      "shard": 8,
+      "trajectories": 1464,
+      "triplets": 488
+    },
+    {
+      "bytes": 89509022,
+      "filename": "Q3_TRIANGLE_SHARD_09.zip",
+      "sha256": "490d05ef0e9e981d48162c8f191716107592d29bd2689fc9b834dce6dd2bb7bb",
+      "shard": 9,
+      "trajectories": 1464,
+      "triplets": 488
+    },
+    {
+      "bytes": 89307159,
+      "filename": "Q3_TRIANGLE_SHARD_10.zip",
+      "sha256": "06549ba610c895656055d2643f4c8a685498edca34b649873f91b0af54587701",
+      "shard": 10,
+      "trajectories": 1464,
+      "triplets": 488
+    },
+    {
+      "bytes": 89556753,
+      "filename": "Q3_TRIANGLE_SHARD_11.zip",
+      "sha256": "552f94e3dba224350919035478d655903ebcbeda224132ec6b3966de11155bb7",
+      "shard": 11,
+      "trajectories": 1464,
+      "triplets": 488
+    },
+    {
+      "bytes": 89449357,
+      "filename": "Q3_TRIANGLE_SHARD_12.zip",
+      "sha256": "8e712679cd390a8bcf153b741fb31d37fa80e9c1993ab62422c0c1a28c250e43",
+      "shard": 12,
+      "trajectories": 1464,
+      "triplets": 488
+    },
+    {
+      "bytes": 89598332,
+      "filename": "Q3_TRIANGLE_SHARD_13.zip",
+      "sha256": "5102d3dcbce81ee89db2f1c2a2da47a8335cd050bd977c4cc7a014ab35cb86a8",
+      "shard": 13,
+      "trajectories": 1464,
+      "triplets": 488
+    },
+    {
+      "bytes": 89598600,
+      "filename": "Q3_TRIANGLE_SHARD_14.zip",
+      "sha256": "f7a5dcc1fd26b2c165b7d85d9a8ffcdbcf8606cb5d671bf718b6955af06f169e",
+      "shard": 14,
+      "trajectories": 1464,
+      "triplets": 488
+    },
+    {
+      "bytes": 89740529,
+      "filename": "Q3_TRIANGLE_SHARD_15.zip",
+      "sha256": "4d178136d478e5ecc3814da63e8a9b35f45ab6bf331d29b5dd42d238b8ceeb41",
+      "shard": 15,
+      "trajectories": 1464,
+      "triplets": 488
+    },
+    {
+      "bytes": 89431258,
+      "filename": "Q3_TRIANGLE_SHARD_16.zip",
+      "sha256": "021fc17c08fdc1572e45a3fcc8e9a582832363737f1d7b070ecdb7e089e08d83",
+      "shard": 16,
+      "trajectories": 1464,
+      "triplets": 488
+    },
+    {
+      "bytes": 89583587,
+      "filename": "Q3_TRIANGLE_SHARD_17.zip",
+      "sha256": "589034865c7825551d41826bcf5933108e86fa8475baa0c1f68833bb3001cee8",
+      "shard": 17,
+      "trajectories": 1464,
+      "triplets": 488
+    }
+  ],
+  "cumulative_accounting": {
+    "continuation_hosted_runner_minutes": 299,
+    "continuation_native_updates": 6687364,
+    "fixture_updates": 8,
+    "native_updates": 6687368,
+    "prior_hosted_runner_minutes_reserved": 1,
+    "prior_native_updates": 4,
+    "prior_scientific_trajectories": 0,
+    "reserved_hosted_runner_minutes": 300,
+    "scientific_trajectories": 26352
+  },
+  "execution_sha256": "ef075456e80c4adf132816523519bb210c4ffba69029cf4bd4b6f6aa6611aea9",
+  "head": "3519e8704420bd3b7ce378e5678efb61bf66da50",
+  "native_updates_during_publication": 0,
+  "prior_technical_hold": {
+    "artifact_bytes": 10346505,
+    "artifact_sha256": "f2e0ea8a6682d2ce8e4ece88adec8d7530e089c5c8a555d4d9f7bb4c94e6e92e",
+    "continuation_hosted_runner_minutes": 299,
+    "execution_sha256": "af6af3ad9b350f4399d5861a222042a5c9ba4bf0bec5fe45adb7a14e2f8167d8",
+    "head": "b51c374ac77e04254cb99e07fa492fc87113b7dc",
+    "hold_receipt_sha256": "3d2dfdce61f5572fa81fc2d2172f199e9a0c87bca1bf1015e2154866b15b72ab",
+    "native_updates": 4,
+    "release_url": "https://github.com/zuizui0223/izu-core/releases/tag/q3-distribution-triangle-hold-20261014",
+    "reserved_hosted_runner_minutes": 1,
+    "run_id": 38528315875,
+    "scientific_trajectories": 0,
+    "specification_sha256": "428fcc24f8361218db84bd402d2298f112421d6c71092aad82640565d6996d73"
+  },
+  "release_tag": "q3-distribution-triangle-20261014",
+  "run_id": "38533099249",
+  "status": "COMPLETE_ALL_RAW_EXTERNAL_BYTES_VERIFIED"
+}

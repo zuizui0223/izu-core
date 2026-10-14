@@ -28,11 +28,11 @@
 - [x] Extend gate/builder with pinned continuation evidence and new activation filename.
 - [x] Change only trigger filename and final29-minute deadline; preserve all biological code/preflight.
 - [x] Add previous-run evidence to final manifest/accounting and remote storage accounting.
-- [ ] Run pure/synthetic tests; review diff and source closure; publish inert code and CI.
-- [ ] Publish unapproved candidate after exact-head CI and obtain concrete continuation approval.
+- [x] Run pure/synthetic tests; review diff and source closure; publish inert code and CI.
+- [x] Publish unapproved candidate after exact-head CI and obtain concrete continuation approval.
 
 ### Task2: scientific completion after approval
 
-- [ ] Activate once, observe the same live run without retries.
-- [ ] Verify all raw paths, cumulative budgets, external bytes, and scientific decisions.
-- [ ] Answer Q3 within the frozen claim ceiling and publish evidence in PR516.
+- [x] Activate once, observe the same live run without retries.
+- [x] Verify all raw paths, cumulative budgets, external bytes, and scientific decisions.
+- [x] Answer Q3 within the frozen claim ceiling and publish evidence in PR516.

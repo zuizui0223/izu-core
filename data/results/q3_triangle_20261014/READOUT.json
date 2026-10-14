@@ -1,0 +1,141 @@
+{
+  "blocks": {
+    "causal_confirmation": {
+      "contrasts": {
+        "D_A": {
+          "direction": "unresolved",
+          "estimate": 0.00338123462818287,
+          "half_width": 0.006055905978175599,
+          "interval": [
+            -0.002674671349992729,
+            0.009437140606358469
+          ],
+          "operational_margin": 0.01,
+          "practical": "operationally_equivalent"
+        },
+        "D_C": {
+          "direction": "unresolved",
+          "estimate": -0.00014834933810763917,
+          "half_width": 0.009083858967263398,
+          "interval": [
+            -0.009232208305371038,
+            0.008935509629155758
+          ],
+          "operational_margin": 0.01,
+          "practical": "operationally_equivalent"
+        },
+        "G_A": {
+          "direction": "unresolved",
+          "estimate": -0.0030381944444444445,
+          "half_width": 0.04844724782540479,
+          "interval": [
+            -0.05148544226984924,
+            0.045409053380960344
+          ],
+          "operational_margin": 0.05,
+          "practical": "unresolved"
+        },
+        "G_C": {
+          "direction": "unresolved",
+          "estimate": 0.005859375,
+          "half_width": 0.04844724782540479,
+          "interval": [
+            -0.04258787282540479,
+            0.05430662282540479
+          ],
+          "operational_margin": 0.05,
+          "practical": "unresolved"
+        }
+      },
+      "slots": 32,
+      "triggered_states": 30
+    },
+    "causal_main": {
+      "contrasts": {
+        "D_A": {
+          "direction": "unresolved",
+          "estimate": 0.004522252965856482,
+          "half_width": 0.006156010379327377,
+          "interval": [
+            -0.0016337574134708951,
+            0.010678263345183858
+          ],
+          "operational_margin": 0.01,
+          "practical": "unresolved"
+        },
+        "D_C": {
+          "direction": "unresolved",
+          "estimate": 0.00026801780418113375,
+          "half_width": 0.009234015568991064,
+          "interval": [
+            -0.00896599776480993,
+            0.009502033373172198
+          ],
+          "operational_margin": 0.01,
+          "practical": "operationally_equivalent"
+        },
+        "G_A": {
+          "direction": "positive",
+          "estimate": 0.05772569444444445,
+          "half_width": 0.049248083034619014,
+          "interval": [
+            0.008477611409825433,
+            0.10697377747906346
+          ],
+          "operational_margin": 0.05,
+          "practical": "unresolved"
+        },
+        "G_C": {
+          "direction": "unresolved",
+          "estimate": -0.04904513888888889,
+          "half_width": 0.049248083034619014,
+          "interval": [
+            -0.0982932219235079,
+            0.00020294414573012592
+          ],
+          "operational_margin": 0.05,
+          "practical": "unresolved"
+        }
+      },
+      "slots": 32,
+      "triggered_states": 31
+    }
+  },
+  "conditional_alpha": 0.05,
+  "decision": "evaluated_joint_survivor_conditional",
+  "directional_replication": {
+    "D_A": "unresolved",
+    "D_C": "unresolved",
+    "G_A": "unresolved",
+    "G_C": "unresolved"
+  },
+  "interval_family_size": 8,
+  "old_confirmation_margin_0_01": "unresolved_unchanged",
+  "original_primary": "unresolved_unchanged",
+  "original_slots": 64,
+  "policy_zero_slots": 3,
+  "raw_event_counts": {
+    "causal_confirmation": {
+      "A": 2856,
+      "B": 2870,
+      "C": 2897
+    },
+    "causal_main": {
+      "A": 2074,
+      "B": 1808,
+      "C": 1582
+    }
+  },
+  "survival_patterns": {
+    "000": 0,
+    "001": 0,
+    "010": 0,
+    "011": 0,
+    "100": 0,
+    "101": 0,
+    "110": 0,
+    "111": 8784
+  },
+  "target": "fixed_state_allocation_averaged_coupling_specific_joint_three_arm_survivor_conditional",
+  "triplets": 8784
+}
