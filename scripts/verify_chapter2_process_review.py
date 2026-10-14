@@ -1,4 +1,4 @@
-"""Redraw all four main figures from a freshly extracted review package."""
+"""Redraw the three main figures plus Supporting Figure S1 from a freshly extracted review package."""
 from pathlib import Path
 import hashlib
 import json
