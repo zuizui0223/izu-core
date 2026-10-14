@@ -93,3 +93,18 @@ def test_fail_closed_on_false_unmutated_f1_access():
         rows[0]["A_F1_has_unmutated_individual_above0p05"] = "False"
     with pytest.raises(ValueError, match="Unexpected first-offspring A access"):
         audit_bytes(modified_source(tamper), require_pinned_blob=False)
+
+
+def test_fail_closed_on_tie_mislabeled_as_strict_order():
+    def tamper(rows):
+        assert rows[0]["category"] == "near_simultaneous"
+        rows[0]["category"] = "investment_first"
+    with pytest.raises(ValueError, match="Sustained-event ordering disagrees"):
+        audit_bytes(modified_source(tamper), require_pinned_blob=False)
+
+
+def test_fail_closed_on_unattainable_sustained_start_year():
+    def tamper(rows):
+        rows[0]["A_sustained_first"] = "182"
+    with pytest.raises(ValueError, match="Invalid original event year"):
+        audit_bytes(modified_source(tamper), require_pinned_blob=False)
