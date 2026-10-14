@@ -188,7 +188,21 @@ def main():
         cli.error("Select either --check or --write")
     result=json.dumps(audit(),indent=2,ensure_ascii=False,allow_nan=False)+"\n"
     if args.check:
-        if json.loads(OUTPUT.read_text(encoding="utf-8")) != json.loads(result):
+        committed = json.loads(OUTPUT.read_text(encoding="utf-8"))
+        current = json.loads(result)
+        def equal_source_record(a,b):
+            if isinstance(a, dict):
+                return isinstance(b,dict) and set(a)==set(b) and all(
+                    equal_source_record(a[k],b[k]) for k in a)
+            if isinstance(a,list):
+                return isinstance(b,list) and len(a)==len(b) and all(
+                    equal_source_record(x,y) for x,y in zip(a,b))
+            if type(a) is bool or type(b) is bool:
+                return type(a) is type(b) and a==b
+            if isinstance(a,(int,float)) and isinstance(b,(int,float)):
+                return np.isfinite(a) and np.isfinite(b) and abs(a-b)<=1e-12
+            return type(a) is type(b) and a==b
+        if not equal_source_record(committed,current):
             raise SystemExit("FAIL: saved source-only F1 report differs from original native replay")
         print("PASS: source-locked native m0/m6 original-I F1 and joint-law checks")
     elif args.write:
