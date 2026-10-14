@@ -1,0 +1,110 @@
+{
+  "status": "ALL64_ALL32_CSV_FIELDS_INDEPENDENTLY_MATCH",
+  "input_sha256": {
+    "INVESTMENT_VARIATION_RESTORATION_64_20261013.zip": "90b9d063c564edf97f12d3a3917819486f72d4ecb8281a20ebdaf39ad7de14c6",
+    "RESTORED_PATHWISE_ACCOUNTING_REVIEW_20261013.zip": "07e86248551b1dce24ea91f1566c54e6a8c7f8932ac96479e2cd78e708ce572d",
+    "remote_atom_inputs_20261011.zip": "f0fd126f638e1c6bd130e640ce4491b3bb47aac3da1838359a902776c9a4e037",
+    "completed_atom_abm_20261011.zip": "7ae00916ed2cbb38323c3fb9ffc5824de3e8272df1f5a35785842c316191f918"
+  },
+  "independent_script_sha256": "c21b51beca5ae2f896d4618ce4de3ef1d1b572ca347c7b6a2c7f72f08e5a5abf",
+  "checked_csv_sha256": "f4b69a15e506507fd59800f9f9f41df6d59f03f6310b0e9c29ce0a45dab79fbe",
+  "checked_script_sha256": "734f58d76166c519ca26a73f9ce621f3e82e70b7f219387929f14f0d3cd3100d",
+  "checked_document_sha256": "3b0348c6ea09a3c760601ec246185cefff7dbfa2bd389641e0f5aa3ee6cb79d5",
+  "fields_per_case": 32,
+  "annual_updates": 7740,
+  "annual_max_error": 0.0,
+  "totals": {
+    "cases": 64,
+    "triggered": 61,
+    "target_supported": 42,
+    "previously_supported": 27,
+    "newly_supported": 15,
+    "excluded": 19,
+    "next_expressed": 61,
+    "refixed": 45,
+    "original_events": 31,
+    "restored_events": 35,
+    "gained_events": 7,
+    "lost_events": 3,
+    "completed_pre_trigger": 10,
+    "pathwise": {
+      "selection": -0.014843407326149185,
+      "parent_sampling": 0.0037858715188575165,
+      "transmission": 0.003570556640625005,
+      "observed_change": -0.007486979166666664
+    }
+  },
+  "blocks": {
+    "causal_main": {
+      "cases": 32,
+      "triggered": 31,
+      "target_supported": 22,
+      "previously_supported": 7,
+      "newly_supported": 15,
+      "excluded": 9,
+      "next_expressed": 31,
+      "refixed": 21,
+      "original_events": 11,
+      "restored_events": 18,
+      "gained_events": 7,
+      "lost_events": 0,
+      "completed_pre_trigger": 7,
+      "pathwise": {
+        "selection": -0.01830064424800599,
+        "parent_sampling": -0.006113418251994011,
+        "transmission": 0.004923502604166675,
+        "observed_change": -0.01949055989583333
+      }
+    },
+    "causal_confirmation": {
+      "cases": 32,
+      "triggered": 30,
+      "target_supported": 20,
+      "previously_supported": 20,
+      "newly_supported": 0,
+      "excluded": 10,
+      "next_expressed": 30,
+      "refixed": 24,
+      "original_events": 20,
+      "restored_events": 17,
+      "gained_events": 0,
+      "lost_events": 3,
+      "completed_pre_trigger": 3,
+      "pathwise": {
+        "selection": -0.011386170404292385,
+        "parent_sampling": 0.013685161289709046,
+        "transmission": 0.0022176106770833356,
+        "observed_change": 0.0045166015625
+      }
+    }
+  },
+  "no_trigger_keys": [
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r16_evolving",
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r2_evolving",
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r28_evolving"
+  ],
+  "late_cases": [
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r6_evolving"
+  ],
+  "no_producer_imports": true,
+  "no_new_biological_histories": true,
+  "expected_response": "Authenticated saved expected_response retained; not freshly recomputed in this review.",
+  "limitations": "Allele support is necessary but does not prove finite-time attainability or event completion. Descriptive post hoc counts are not new inference.",
+  "document_claims_checked": {
+    "refixation_range": [
+      19,
+      128
+    ],
+    "refixation_median": 51,
+    "right_censored_refixation": 16,
+    "all_seven_event_gains_among_newly_supported": true,
+    "initial_means": {
+      "causal_main": [
+        0.53125
+      ],
+      "causal_confirmation": [
+        0.4609375
+      ]
+    }
+  }
+}
