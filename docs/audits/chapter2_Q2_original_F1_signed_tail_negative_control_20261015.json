@@ -1,0 +1,85 @@
+{
+  "schema": "chapter2_original_I_F1_signed_quadrant_null_v1",
+  "status": "SOURCE_AUTHENTICATED_NATIVE_T0_SIGN_NULL_NO_NEW_BIOLOGY",
+  "base_source_json_git_blob": "27077b320532f2585ec598140593485f254d563c",
+  "genetic_source": "one original confirmation F0, synthetic A copies in both arms, original I/M exact",
+  "founder_relative_threshold": 0.05,
+  "signed_event_classes": [
+    "A_up_I_down",
+    "A_up_I_up",
+    "A_down_I_down",
+    "A_down_I_up"
+  ],
+  "new_biological_trajectories": 0,
+  "new_offspring_births": 0,
+  "contexts": [
+    {
+      "context": 0,
+      "m0_signed_events": {
+        "A_up_I_down": 0,
+        "A_up_I_up": 0,
+        "A_down_I_down": 0,
+        "A_down_I_up": 0
+      },
+      "m6_signed_events": {
+        "A_up_I_down": 0.007882283043081416,
+        "A_up_I_up": 0.007882283043081416,
+        "A_down_I_down": 0.007882283043081416,
+        "A_down_I_up": 0.007882283043081416
+      },
+      "m6_four_sign_equal_within_1e_12": true,
+      "one_child_joint_A_I_TV": 0.06305826434465106,
+      "source_original_A_heterozygotes": 48,
+      "reset_A_heterozygotes_per_arm": 42,
+      "original_I_homologs_unchanged": true
+    },
+    {
+      "context": 3,
+      "m0_signed_events": {
+        "A_up_I_down": 0,
+        "A_up_I_up": 0,
+        "A_down_I_down": 0,
+        "A_down_I_up": 0
+      },
+      "m6_signed_events": {
+        "A_up_I_down": 0.005759023740645459,
+        "A_up_I_up": 0.005759023740645459,
+        "A_down_I_down": 0.005759023740645459,
+        "A_down_I_up": 0.005759023740645459
+      },
+      "m6_four_sign_equal_within_1e_12": true,
+      "one_child_joint_A_I_TV": 0.08333094695887067,
+      "source_original_A_heterozygotes": 48,
+      "reset_A_heterozygotes_per_arm": 42,
+      "original_I_homologs_unchanged": true
+    },
+    {
+      "context": 4,
+      "m0_signed_events": {
+        "A_up_I_down": 0,
+        "A_up_I_up": 0,
+        "A_down_I_down": 0,
+        "A_down_I_up": 0
+      },
+      "m6_signed_events": {
+        "A_up_I_down": 0.007290369895191842,
+        "A_up_I_up": 0.007290369895191842,
+        "A_down_I_down": 0.007290369895191842,
+        "A_down_I_up": 0.007290369895191842
+      },
+      "m6_four_sign_equal_within_1e_12": true,
+      "one_child_joint_A_I_TV": 0.071500854975298,
+      "source_original_A_heterozygotes": 48,
+      "reset_A_heterozygotes_per_arm": 42,
+      "original_I_homologs_unchanged": true
+    }
+  ],
+  "conclusion": "All four signed A/I double-tail events are equally accessible at first child in m6, while all four are unavailable in m0, for this frozen artificial A/genetically original-I experiment.",
+  "cannot_establish": [
+    "The A-up/I-down event is not a selectively preferred outcome merely because its one-offspring access increases.",
+    "No selective fitness, reproduction in subsequent generations, 20-occupied-census six-class evolutionary order or Q4 persistence was measured.",
+    "Only one original source genome, with an explicitly reconstructed A locus; not independent empirical island sources.",
+    "This is a conditional Mendelian symmetry within the prepared parents, not a universal genome-wide evolutionary symmetry.",
+    "Original 0.05 event threshold and source-case pilot are not retuned or rerun."
+  ]
+}
