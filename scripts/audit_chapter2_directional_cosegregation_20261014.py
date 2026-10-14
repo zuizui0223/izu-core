@@ -116,10 +116,10 @@ def technical_report()->dict:
                     # Across artificial 4-adult phenotype strata, the selfing
                     # weights differ; intermediate m=3/6 is *not* m/768.
                     # Only the two endpoints are universal (0 and 1/64).
-                    both=((source.alleles[:,2,0]!=source.alleles[:,2,1]) &
-                          (source.alleles[:,1,0]!=source.alleles[:,1,1]))
-                    expected=float(ledger.self_viable[both].sum() /
-                                   ledger.self_viable.sum())/16
+                    both=((changed.alleles[:,2,0]!=changed.alleles[:,2,1]) &
+                          (changed.alleles[:,1,0]!=changed.alleles[:,1,1]))
+                    expected=float(source_ledger.self_viable[both].sum() /
+                                   source_ledger.self_viable.sum())/16
                     if abs(signed["p_A_up_and_I_down"] - expected)>1e-14:
                         raise ValueError("Selfing-only parental-weighted directional co-carriage identity failed")
                     if m==0 and signed["p_A_up_and_I_down"]!=0:
