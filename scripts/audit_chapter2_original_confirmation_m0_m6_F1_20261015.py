@@ -95,8 +95,7 @@ def audit() -> dict:
         raise ValueError("A source interventions no longer have m0/m6 overlap")
     # verify actual number of A/I co-carriers instead of trusting arm label
     for name,st in edited.items():
-        Ihet = np.any(st.alleles[:,1,0] != st.alleles[:,1,1]) if False else (
-            st.alleles[:,1,0] != st.alleles[:,1,1])
+        Ihet = st.alleles[:,1,0] != st.alleles[:,1,1]
         Ahet = st.alleles[:,2,0] != st.alleles[:,2,1]
         expected = 0 if name=="m0" else 6
         if int(np.count_nonzero(Ahet & Ihet)) != expected:
