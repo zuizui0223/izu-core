@@ -107,3 +107,28 @@ def test_source_never_calls_inherit_or_advance():
     assert "population.inherit(" not in code
     assert "model_history(" not in code
     assert "simulate(" not in code
+
+
+def test_no_visitor_original_source_weighted_access_matches_direct_formula():
+    """Independent algebra under original context0: only delayed selfing remains."""
+    doc=original_fixture()
+    targets={"main":0.00048271765838651986,
+             "confirmation":0.00048670724404252616}
+    for block, expected in targets.items():
+        state=source_state(doc,block)
+        altered=manipulate_homologs(state,block=block,overlap=0).state
+        c,v=original_context(doc,block,0)
+        assert len(v.ids)==0 and c.assurance_timing=="delayed"
+        assert c.investment_cost==.5 and c.depression==.5
+        assert np.all(state.alleles[:,:, :].mean(axis=2)[:,2]==.5)
+        I=state.alleles[:,1,:].mean(axis=1)
+        weights=np.exp(-c.investment_cost*I**2)
+        weights/=weights.sum()
+        carrier=np.any(altered.alleles[:,2,0,None]!=
+                       altered.alleles[:,2,1,None],axis=1)
+        weighted_homolog_access=(.0625**2/2)*float(weights[carrier].sum())
+        out=conditional_f1_moments(altered,reproduction.reproduce(altered,v,c))
+        assert abs(out["first_offspring_variance_M_I_A"][2]-expected)<1e-15
+        assert abs(out["segregation_contribution_M_I_A"][2]-
+                   weighted_homolog_access)<1e-15
+        assert abs(out["parent_pair_contribution_M_I_A"][2])<1e-15
