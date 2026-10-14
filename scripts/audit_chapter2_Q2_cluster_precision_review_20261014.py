@@ -8,6 +8,7 @@ Only the old frozen class vocabulary & threshold definitions are consulted.
 from __future__ import annotations
 
 import json
+import string
 from math import ceil, log, sqrt
 from pathlib import Path
 
@@ -152,14 +153,18 @@ def paired_source_level_class_contrasts(rows:list[dict])->dict:
     """
     if not isinstance(rows,list) or not rows:
         raise ValueError("No paired categorized future rows supplied")
-    expected_fields={"source_id","history_id","future_master_identity",
+    expected_fields={"source_id","original_source_genome_sha256","history_id","future_master_identity",
                      "context","m","category","extinct_by_horizon"}
     by_key={}
     future_identity_by_cluster={}
+    source_genome_by_id={}
     histories={}
     for row in rows:
         if (not isinstance(row,dict) or set(row)!=expected_fields
             or type(row["source_id"]) is not str or not row["source_id"]
+            or type(row["original_source_genome_sha256"]) is not str
+            or len(row["original_source_genome_sha256"])!=64
+            or any(ch not in string.hexdigits for ch in row["original_source_genome_sha256"])
             or type(row["history_id"]) is not str or not row["history_id"]
             or type(row["future_master_identity"]) is not str
             or not row["future_master_identity"]
@@ -173,12 +178,19 @@ def paired_source_level_class_contrasts(rows:list[dict])->dict:
         if key in by_key:
             raise ValueError("Duplicated source/history/context/arm future")
         by_key[key]=row
+        existing_genome=source_genome_by_id.setdefault(
+            row["source_id"],row["original_source_genome_sha256"]
+        )
+        if existing_genome!=row["original_source_genome_sha256"]:
+            raise ValueError("Unmodified source genome changed across matched contexts/arms")
         histories.setdefault(row["source_id"],set()).add(row["history_id"])
         prior=future_identity_by_cluster.setdefault(
             cluster,row["future_master_identity"]
         )
         if prior!=row["future_master_identity"]:
             raise ValueError("Arms/visitor contexts do not use same paired future master")
+    if len(set(source_genome_by_id.values()))!=len(source_genome_by_id):
+        raise ValueError("Duplicated unmodified source genotype disguised as independent source IDs")
     # A master seed belongs to exactly one independent source × history;
     # identical random streams are used ONLY within its paired treatment cells.
     if len(set(future_identity_by_cluster.values()))!=len(future_identity_by_cluster):
@@ -218,6 +230,8 @@ def paired_source_level_class_contrasts(rows:list[dict])->dict:
         "independent_source_clusters":len(histories),
         "paired_histories_per_source":n_histories,
         "source_by_context_contrasts":len(source_records),
+        "distinct_source_genome_hashes":len(source_genome_by_id),
+        "hash_validation_is_not_independence_proof":True,
         "not_an_event_reader":"Original raw-genome event classification must be verified separately",
         "no_source_genotypes_or_futures_generated":True,
         "source_records":source_records,
