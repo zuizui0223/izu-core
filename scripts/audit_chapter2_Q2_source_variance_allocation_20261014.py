@@ -93,6 +93,66 @@ def source_cluster_se_from_supplied_paired_differences(
     }
 
 
+
+def source_overhead_cost_tradeoff(
+    variance_between_sources:float,
+    variance_within_sources:float,
+    cost_per_verified_source:float,
+    cost_per_paired_history_bundle:float,
+)->dict:
+    """Continuous S,H review with source-validation overhead, NOT an approved optimum.
+
+    Suppose C = S*(c_source + H*c_history), with c_history priced as
+    ONE matched m0/m12 history bundle across the same three ecologies.
+    Substituting S=C/(c_source+H*c_history) in Var(mean):
+      C*Var(mean) = B*c_source + W*c_history
+                    + B*c_history*H + W*c_source/H.
+    For B>0, W>0, c_source>0, interior Hstar =
+        sqrt(W*c_source/(B*c_history)).
+    But biological replication requires INTEGER S and H>=1 and at least
+    two source clusters for empirical cluster uncertainty. The source/visitor
+    input, archive cost, true B,W and external validation are all unavailable.
+    """
+    b,w,c_source,c_hist=(variance_between_sources,variance_within_sources,
+                         cost_per_verified_source,cost_per_paired_history_bundle)
+    if any(type(x) not in (float,int) or not isfinite(x) for x in (
+            b,w,c_source,c_hist)) or min(b,w,c_source)<0 or c_hist<=0 or b+w>1+1e-12:
+        raise ValueError("Finite nonnegative hypothetical variance and source cost, positive future-bundle cost required")
+    if b==0:
+        optimal_h=None
+        interpretation=(
+            "If between-source variance B=0 and source overhead is positive, "
+            "greater H improves fixed-cost precision; without overhead all "
+            "allocations have same variance at equal bundled-history cost"
+        )
+    elif w==0 or c_source==0:
+        optimal_h=1.0
+        interpretation=(
+            "One conditional history per source minimizes the continuous "
+            "fixed-cost objective under zero W or zero source overhead"
+        )
+    else:
+        optimal_h=max(1.0,sqrt(w*c_source/(b*c_hist)))
+        interpretation=(
+            "Continuous interior optimum, NOT an integer executable design; "
+            "requires measured B, W and actual per-source/time-history cost"
+        )
+    return {
+        "status":"HYPOTHETICAL_COST_ADJUSTED_SOURCE_ALLOCATION_NOT_APPROVED",
+        "hypothetical_B_between":b,
+        "hypothetical_W_within":w,
+        "hypothetical_verified_source_overhead":c_source,
+        "hypothetical_paired_six_path_bundle_cost":c_hist,
+        "continuous_history_count_per_source":optimal_h,
+        "interpretation":interpretation,
+        "cost_definition":"C=S*(c_source+H*c_history), c_history includes both co-carriage arms and all three visitor contexts",
+        "fixed_cost_times_variance_identity":
+            "C Var(mean)=(B+W/H)*(c_source+H*c_history)",
+        "not_a_source_distribution_effect_estimate":True,
+        "biological_futures_or_source_production":0,
+    }
+
+
 def technical_report()->dict:
     source_contract=read_review_design()
     if (source_contract["status"]!="REVIEW_ONLY_BOUNDED_SOURCE_CLUSTER_PRECISION_NOT_POWER"
@@ -145,6 +205,10 @@ def technical_report()->dict:
         "mathematical_identity":"Var(grand_mean) = B/S + W/(S*H); B = Var(E[X|source]), W = E Var(X|source)",
         "estimand":"one original six-class category's m12-minus-m0 paired probability difference in one pollinator context",
         "multiple_contexts_and_classes":"Must be analyzed jointly by separate preregistered familywise uncertainty; not done here",
+        "hypothetical_cost_overhead_sensitivity":[
+            source_overhead_cost_tradeoff(b,.25,c,1.)
+            for b,c in ((.04,1.),(.04,4.),(.04,16.),(.01,4.),(0.,4.))
+        ],
         "illustrative_rows":rows,
         "limitations":[
             "B and W are hypothetical source/history variance components, not estimated co-carriage effects",
