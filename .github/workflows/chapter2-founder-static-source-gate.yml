@@ -29,7 +29,8 @@ jobs:
             tests/test_chapter2_source_assignment_candidate_QA_20261014.py \
             tests/test_chapter2_founder_F1_conditional_moments_20261014.py \
             tests/test_chapter2_independent_synthetic_source_pools_20261014.py \
-            tests/test_chapter2_balanced_cocarriage_20261014.py
+            tests/test_chapter2_balanced_cocarriage_20261014.py \
+            tests/test_chapter2_directional_cosegregation_20261014.py
       - name: Assert actual old t0 and 96 static checks, with no biology
         run: |
           python -m scripts.audit_chapter2_original_founder_compatibility_20261014 > original-t0-static-receipt.json
@@ -56,6 +57,10 @@ jobs:
         run: |
           python -m scripts.audit_chapter2_balanced_cocarriage_20261014 > balanced-AI-cocarriage-pre-mutation.json
           python -c "import json; r=json.load(open('balanced-AI-cocarriage-pre-mutation.json')); assert r['native_static_return_comparisons']==192 and r['new_biological_genotype_transmission_or_population_histories']==0; cells=[x for x in r['rows'] if x['visitor_context']==0]; assert all(x['p_joint_nonzero_A_and_I_segregation']==0 for x in cells if x['co_carriers_m']==0); assert all(abs(x['p_joint_nonzero_A_and_I_segregation']-0.0625)<1e-14 for x in cells if x['co_carriers_m']==12); print('MARGINALS-MATCHED JOINT MEIOSIS GATE PASSED')"
+      - name: Verify signed A-up/I-down gametic access without offspring births
+        run: |
+          python -m scripts.audit_chapter2_directional_cosegregation_20261014 > balanced-AI-signed-directional-meiosis.json
+          python -c "import json; r=json.load(open('balanced-AI-signed-directional-meiosis.json')); assert r['conditional_signed_first_offspring_cases']==192 and r['new_biological_offspring_or_population_futures']==0; rows=[x for x in r['rows'] if x['visitor_context']==0]; assert all(x['p_A_up_and_I_down']==0 for x in rows if x['co_carriers_m']==0); assert all(abs(x['p_A_up_and_I_down']-1/64)<1e-14 for x in rows if x['co_carriers_m']==12); assert all(x['p_A_up_and_I_down']==x['p_A_up_and_I_up'] for x in r['rows']); print('DIRECTIONAL PREMUTATION MEIOSIS GATE PASSED')"
       - name: Preserve static audit receipts
         if: success()
         uses: actions/upload-artifact@v4
@@ -69,5 +74,6 @@ jobs:
             original-t0-conditional-zygote-moments.json
             artificial-independent-t0-sources.json
             balanced-AI-cocarriage-pre-mutation.json
+            balanced-AI-signed-directional-meiosis.json
           if-no-files-found: error
           retention-days: 30
