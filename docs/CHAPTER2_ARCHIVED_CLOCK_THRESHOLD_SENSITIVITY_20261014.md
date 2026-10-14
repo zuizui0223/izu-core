@@ -28,7 +28,7 @@
 
 ## 原本照合後の数値結果（完了）
 
-**原本参照：** GitHub Actions [run 38573129057](https://github.com/zuizui0223/izu-core/actions/runs/38573129057)、原本SHA整合済み6 ZIP／計1,536件／L–H 768対応ペア。アップロードされた完全結果JSONは \`q2-threshold-sensitivity-source-only\`（artifact 11897604659）、元ZIP artifact SHA256 \`a7528e93145990ab711e6e13166d42c8824ecf65ce1d7a5420dbb46fa6c2bfaa\`、内部JSON SHA256 \`3cfb4bbb32016bb170a2797c81ea97b748c23d129c95abe3da2e98b8d45f4685\`。要点を \`data/results/genetic_access_pilot_20261014/ARCHIVE_THRESHOLD_SENSITIVITY_INTAKE_20261014.json\` に固定。
+**原本参照：** GitHub Actions [run 38573129057](https://github.com/zuizui0223/izu-core/actions/runs/38573129057)、原本SHA整合済み6 ZIP／計1,536件／L–H 768対応ペア。アップロードされた完全結果JSONは \`q2-threshold-sensitivity-source-only\`（artifact 11897604659）、解析結果を収めたActions artifact ZIP SHA256 \`a7528e93145990ab711e6e13166d42c8824ecf65ce1d7a5420dbb46fa6c2bfaa\`、内部JSON SHA256 \`3cfb4bbb32016bb170a2797c81ea97b748c23d129c95abe3da2e98b8d45f4685\`。要点を \`data/results/genetic_access_pilot_20261014/ARCHIVE_THRESHOLD_SENSITIVITY_INTAKE_20261014.json\` に固定。
 
 | 閾値 | D（L） | D（H） | ΔD（H−L） | A初開始・打切り込み差（更新） | A検出数 L→H |
 |---|---:|---:|---:|---:|---:|
