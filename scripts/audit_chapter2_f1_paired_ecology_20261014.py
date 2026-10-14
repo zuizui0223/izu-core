@@ -40,7 +40,7 @@ REPLICATES = tuple(range(128))
 
 def git_blob_sha(data: bytes) -> str:
     return hashlib.sha1(b"blob " + str(len(data)).encode("ascii")
-                        + b"\\0" + data).hexdigest()
+                        + b"\0" + data).hexdigest()
 
 
 def require(condition: bool, message: str) -> None:
