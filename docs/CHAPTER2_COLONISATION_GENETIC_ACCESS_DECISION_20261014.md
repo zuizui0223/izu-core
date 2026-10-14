@@ -57,13 +57,15 @@ The balanced four-adult-phenotype-stratum construction makes a stronger, directl
 
 A new source-pinned analytic auditor, [scripts/audit_chapter2_full_F1_joint_distribution_20261014.py](../scripts/audit_chapter2_full_F1_joint_distribution_20261014.py), computes the **complete conditional one-offspring A/I phenotype probability mass** on the exact 1/32 grid by integrating all original-model parent-pair weights and all 16 independent A/I maternal/paternal copy combinations. A separate [test implementation](../tests/test_chapter2_full_F1_joint_distribution_20261014.py) uses `numpy.bincount` rather than the primary `numpy.add.at` implementation. It evaluates 16 artificial source inputs × three original visitor contexts × four co-carrier treatments = **192 analytically integrated distributions**, with zero births and zero future updates.
 
+**2026-10-14 exact-range correction (post hoc descriptive, NOT preregistered):** The earlier table understated ranges for contexts 3 and 4 and a test incorrectly demanded that every TV maximum be below 0.10. Recomputing each of the 16 artificial source profiles from the original Model3 reproductive equations and all 16 A/I homolog-copy combinations gives the corrected ranges below (context 3 max **0.10463431991308235**, source pool 8). The lower and upper values are retained as source-locked regression snapshots, not meaningful biological thresholds, significance cutoffs or estimates of natural island effects.
+
 Independent calculation across those source inputs obtained the following m12-vs-m0 **joint-distribution total variation** ranges (0 = identical, 1 = disjoint), while the largest full *single-trait* marginal bin discrepancy across all artificial treatments was only ~2.5×10⁻¹⁴ (floating-point accumulation, acceptance tolerance 10⁻¹²):
 
 | Original Model3 visitor context | Joint A/I F1 total-variation range, 16 artificial source inputs |
 |---|---:|
-| 0, no visitors | 0.0308–0.0837 |
-| 3, matched visitor optima | 0.0295–0.0914 |
-| 4, separated visitor optima | 0.0310–0.0855 |
+| 0, no visitors | **0.030801659–0.083655115** |
+| 3, matched visitor optima | **0.026796927–0.104634320** |
+| 4, separated visitor optima | **0.030697584–0.089248021** |
 
 The **joint law can differ while both univariate laws stay constant**. Thus founder genetic co-carriage may change the multivariate combinations available to selection without changing the t0 individual-trait distribution. But changing the *joint probability distribution* is neither selecting a beneficial A-up/I-down genotype over equally likely unfavorable sign combinations nor establishing sustained evolutionary-order reversal. Joint total variation also need not increase monotonically for every intermediate m=3 and m=6 synthetic input.
 
