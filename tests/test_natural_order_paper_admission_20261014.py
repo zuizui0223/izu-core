@@ -61,10 +61,32 @@ def test_line_ending_portability_changes_no_delivered_value(tmp_path):
     assert all('LF' in item['transformation'] for item in provenance.values())
 
 
-def test_actual_review_archive_includes_the_independent_observational_evidence(tmp_path):
-    from scripts.build_chapter2_unified_el_submission_bundle import build
+def test_actual_review_archive_includes_the_independent_observational_evidence(tmp_path, monkeypatch):
+    from pypdf import PdfWriter
+    import scripts.build_chapter2_unified_el_submission_bundle as builder
+    # This checks evidence routing; actual publication figures are separately audited.
+    figures = {}
+    supplementary = {}
+    for mapping, names in ((figures, builder.PDF_FIGURES),
+                           (supplementary, builder.SUPPLEMENTARY_FIGURES)):
+        for name in names:
+            p = tmp_path / name
+            if p.suffix == '.pdf':
+                writer = PdfWriter()
+                writer.add_blank_page(width=100, height=100)
+                with p.open('wb') as stream:
+                    writer.write(stream)
+            else:
+                # The tracked, hash-admitted tempo SVG must retain its real source bytes.
+                p.write_bytes(Path(names[name]).read_bytes())
+            mapping[name] = p
+    # Defaults deliberately do not exist: ignored local PDFs cannot mask this regression.
+    monkeypatch.setattr(builder, 'PDF_FIGURES',
+                        {name: tmp_path / 'absent' / name for name in figures})
+    monkeypatch.setattr(builder, 'SUPPLEMENTARY_FIGURES',
+                        {name: tmp_path / 'absent' / name for name in supplementary})
     path = tmp_path / 'review.zip'
-    build(path)
+    builder.build(path, figures=figures, supplementary_figures=supplementary)
     with zipfile.ZipFile(path) as archive:
         summary = json.loads(archive.read('EVIDENCE/NATURAL_ORDER_SUMMARY.json'))
         review = json.loads(archive.read('EVIDENCE/NATURAL_ORDER_INDEPENDENT_REVIEW.json'))
