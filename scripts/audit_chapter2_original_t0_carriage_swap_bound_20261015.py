@@ -23,7 +23,7 @@ import struct
 
 ROOT = Path(__file__).resolve().parents[1]
 FIXTURE = ROOT / "data/design/chapter2_clock_original_t0_typed_fixture_20261013.json"
-OUTPUT = ROOT / "data/results/chapter2_Q2_original_founder_carriage_swap_bound_20261015.json"
+OUTPUT = ROOT / "docs/audits/chapter2_Q2_original_founder_carriage_swap_bound_20261015.json"
 SOURCE_GIT_BLOB = "4b529cce12bc44e06d43a22b10c325a52bbd967b"
 ORIGINAL_MODEL_COMMIT = "328548612e93469fcc8663f24548530a57399b9a"
 BLOCKS = ("main", "confirmation")
