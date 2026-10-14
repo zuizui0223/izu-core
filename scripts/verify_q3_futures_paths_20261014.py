@@ -1,6 +1,7 @@
 """Separate native replay from original state and seed; does not import producer."""
 import hashlib
 import json
+import math
 from pathlib import Path
 import time
 
@@ -36,6 +37,83 @@ def mean_path(a):
     for lo,hi in zip(a['offsets'][:-1],a['offsets'][1:]):
         result.append(float(a['alleles'][lo:hi,1].mean()) if hi>lo else None)
     return result
+
+
+def verify_primary(claimed, records, cases):
+    """Independent aggregation; never imports the producer's summary/classifier."""
+    require(len(cases)==64 and len({c['key'] for c in cases})==64,'independent slot inventory')
+    expected={(c['key'],i) for c in cases if c['trigger'] is not None for i in range(64)}
+    require(len(records)==3904 and len(records)==len(expected) and {(r['key'],r['replicate']) for r in records}==expected,'independent pair inventory')
+    lookup={c['key']:i for i,c in enumerate(cases)}
+    matrix=np.zeros((64,64))
+    totals={k:0 for k in ('both_alive','native_only','restored_only','both_extinct')}
+    blocks={b:dict(totals) for b in ('causal_main','causal_confirmation')}
+    for r in records:
+        a,b=r['native_I'],r['restored_I']
+        require(r['native_survived']==(a is not None) and r['restored_survived']==(b is not None),'independent survival fields')
+        label='both_alive' if a is not None and b is not None else 'native_only' if a is not None else 'restored_only' if b is not None else 'both_extinct'
+        totals[label]+=1
+        blocks[cases[lookup[r['key']]]['block']][label]+=1
+        if a is not None and b is not None:
+            require(np.isfinite(a) and np.isfinite(b) and abs(a-b)<=.0625+1e-14,'independent bounded contrast')
+            matrix[lookup[r['key']],r['replicate']]=a-b
+    require(claimed['pairs']==3904 and claimed['slots']==64 and claimed['policy_zero_slots']==3,'independent denominators')
+    require(claimed['survival']==totals and claimed['survival_by_block']==blocks,'independent survival totals')
+    if totals['both_alive']!=3904:
+        require(claimed['decision']=='not_evaluable' and claimed['means'] is None and claimed['directional_replication']=='not_evaluable','independent extinction gate')
+        return
+    require(claimed['decision']=='evaluated_conditional','independent primary gate')
+    answers={}
+    for name,N,n in [('all64',64,61),('causal_main',32,31),('causal_confirmation',32,30)]:
+        idx=[i for i,c in enumerate(cases) if name=='all64' or c['block']==name]
+        require(len(idx)==N and sum(cases[i]['trigger'] is not None for i in idx)==n,'independent block inventory')
+        mean=float(matrix[idx].mean())
+        width=math.sqrt(2*n*math.log(120)/(64*N*N))/16
+        lo,hi=mean-width,mean+width
+        direction='positive' if lo>0 else 'negative' if hi<0 else 'unresolved'
+        practical='positive' if lo>.01 else 'negative' if hi<-.01 else 'operationally_equivalent' if lo>=-.01 and hi<=.01 else 'unresolved'
+        actual=claimed['means'][name]
+        require(np.allclose([actual['estimate'],actual['half_width'],*actual['interval']],[mean,width,lo,hi],atol=1e-14,rtol=0),'independent interval/estimate')
+        require(actual['direction']==direction and actual['practical']==practical,'independent classification')
+        answers[name]=(direction,practical)
+    a,b=answers['causal_main'][0],answers['causal_confirmation'][0]
+    decision=a if a==b and a!='unresolved' else 'opposed' if {a,b}=={'positive','negative'} else 'unresolved'
+    require(claimed['directional_replication']==decision,'independent directional replication')
+    require(claimed['all_averages_operationally_equivalent']==all(v[1]=='operationally_equivalent' for v in answers.values()),'independent practical equivalence')
+
+
+def verify_readout(out, cases, guard=lambda: None):
+    out=Path(out)
+    records=[]
+    for p in sorted((out/'pairs').glob('*.json')):
+        guard();records.append(json.loads(p.read_text()))
+    raw=(out/'READOUT.json').read_bytes();claimed=json.loads(raw)
+    verify_primary(claimed,records,cases)
+    summaries={c['key']:c for c in claimed['case_summaries']}
+    require(len(summaries)==len(claimed['case_summaries'])==64 and set(summaries)=={c['key'] for c in cases},'independent secondary inventory')
+    for case in cases:
+        guard()
+        actual=summaries[case['key']]
+        require(actual['block']==case['block'] and actual['trigger']==case['trigger'],'secondary identity')
+        rows=[r for r in records if r['key']==case['key']]
+        if rows:
+            require(actual['pairs']==64,'secondary denominator')
+            for arm in ('native','restored'):
+                require(actual['event_counts'][arm]==sum(r[arm+'_event'] is not None for r in rows),'independent event counts')
+                require(actual['event_already_complete'][arm]==sum(r[arm+'_event'] is not None and r[arm+'_event']+19<=case['trigger'] for r in rows),'independent completed event counts')
+            survival={label:sum(r['native_survived']==a and r['restored_survived']==b for r in rows)
+                      for label,a,b in [('both_alive',True,True),('native_only',True,False),('restored_only',False,True),('both_extinct',False,False)]}
+            require(actual['survival']==survival,'independent per-case survival')
+            if survival['both_alive']==64:
+                require(abs(actual['conditional_sample_mean_difference']-np.mean([r['native_I']-r['restored_I'] for r in rows]))<1e-14,'independent per-case mean')
+            else:require(actual['conditional_sample_mean_difference'] is None,'independent per-case undefined mean')
+        else:
+            original=arrays(checked_bytes(out/'original'/(case['key']+'.npz'),case['original_npz_sha256']))
+            values=mean_path(original)
+            require(actual['pairs']==0 and actual['policy_zero'] is True and actual['original_event']==independent_event(values,values[0]),'independent no-trigger event')
+    return dict(status='INDEPENDENT_AGGREGATE_PRIMARY_AND_SECONDARIES_MATCH',pairs=3904,slots=64,
+                readout_sha256=hashlib.sha256(raw).hexdigest(),survival_blocks=2,
+                independent_summary=True,producer_summary_imported=False)
 
 
 def independent_event(values, baseline):

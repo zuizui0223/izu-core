@@ -7,8 +7,10 @@ import json
 import os
 from pathlib import Path
 import platform
+import re
 import shutil
 import sys
+import subprocess
 import time
 import traceback
 import urllib.request
@@ -16,9 +18,70 @@ import zipfile
 
 import numpy as np
 
-from q3_futures_contract_20261014 import (FIELDS, MAX_CALLS, MAX_DISK, Budget, admit, arrays,
+from q3_futures_contract_20261014 import (ARCHIVE_SHA, SOURCE_SHA, PROTOCOL_SHA, PREFLIGHT_SHA,
+    FIELDS, MAX_CALLS, MAX_DISK, Budget, admit, arrays,
     checked_bytes, event_start, load_native, require, restore, seed_for, sha, summarize, write_json)
-from verify_q3_futures_paths_20261014 import verify_pair, mean_path
+from verify_q3_futures_paths_20261014 import verify_pair, mean_path, verify_readout
+
+AUTHORIZATION_SHA='297aa3267a07dfc2fd14fe75f9f553b71447bd35d8288464d844ef91146fb9f8'
+REQUIRED_FILES=(
+    'scripts/q3_futures_contract_20261014.py', 'scripts/run_q3_futures_20261014.py',
+    'scripts/verify_q3_futures_paths_20261014.py', 'tests/test_q3_futures_contract_20261014.py',
+    'tests/test_q3_futures_replay_20261014.py', 'tests/test_q3_futures_execution_gate_20261014.py',
+    '.github/workflows/q3-restoration-futures-20261014.yml',
+    'docs/CHAPTER2_RESTORATION_CONDITIONAL_FUTURES_20261014.md',
+    'data/designs/restoration_futures_preflight_20261014.json',
+    'data/designs/q3_futures_authorization_20261014.json',
+    'docs/reviews/RESTORATION_FUTURES_EXECUTION_REVIEW_20261014.md')
+
+
+def validate_execution_document(execution):
+    require(execution['approved'] is True and execution['experiment']=='izu-q3-conditional-restoration-v1-20261014','approval gate')
+    require(execution['new_trajectories']==7808 and execution['delta']==.01 and execution['max_native_calls']==MAX_CALLS
+            and execution['max_worker_seconds']==28800 and execution['max_disk_bytes']==MAX_DISK and execution['workers']==2,'approved limits drift')
+    for name,expected in [('protocol_sha256',PROTOCOL_SHA),('preflight_sha256',PREFLIGHT_SHA),
+                          ('archive_sha256',ARCHIVE_SHA),('source_input_sha256',SOURCE_SHA),('authorization_sha256',AUTHORIZATION_SHA)]:
+        require(execution[name]==expected,'frozen identity: '+name)
+    require(re.fullmatch('[0-9a-f]{40}',execution['reviewed_commit']) is not None,'reviewed commit identity')
+    require(set(execution['code_sha256'])==set(REQUIRED_FILES),'complete executable hash inventory required')
+    require(all(isinstance(h,str) and re.fullmatch('[0-9a-f]{64}',h) for h in execution['code_sha256'].values()),'invalid executable hash')
+
+
+def check_runtime(execution):
+    require(platform.python_version()==execution['python']=='3.11.14' and np.__version__==execution['numpy']=='2.2.6','runtime identity')
+
+
+def file_digest(path, guard):
+    digest=hashlib.sha256()
+    with Path(path).open('rb') as f:
+        while True:
+            guard();part=f.read(1024*1024)
+            if not part:break
+            digest.update(part)
+    return digest.hexdigest()
+
+
+def package_archive(out, archive, members, guard):
+    with zipfile.ZipFile(archive,'x',compression=zipfile.ZIP_STORED) as z:
+        for path in sorted(Path(out).rglob('*')):
+            guard()
+            if not path.is_file():continue
+            with path.open('rb') as src,z.open(path.relative_to(out).as_posix(),'w',force_zip64=True) as dst:
+                while True:
+                    guard();part=src.read(1024*1024)
+                    if not part:break
+                    dst.write(part)
+    with zipfile.ZipFile(archive) as z:
+        require(len(z.namelist())==len(members)+1 and len(z.namelist())==len(set(z.namelist())),'archive inventory')
+        for name in z.namelist():
+            digest=hashlib.sha256()
+            with z.open(name) as f:
+                while True:
+                    guard();part=f.read(1024*1024)
+                    if not part:break
+                    digest.update(part)
+            if name in members:require(digest.hexdigest()==members[name],'archive SHA readback')
+            else:require(name=='MANIFEST.json' and digest.hexdigest()==file_digest(Path(out)/name,guard),'manifest readback')
 
 
 def context(case, out):
@@ -119,10 +182,13 @@ def authorize(repo):
     require(os.environ.get('GITHUB_REF')=='refs/heads/design/chapter2-restoration-conditional-futures-20261014','branch gate')
     raw=(repo/'data/designs/q3_futures_execution_20261014.json').read_bytes()
     execution=json.loads(raw)
-    require(execution['approved'] is True and execution['experiment']=='izu-q3-conditional-restoration-v1-20261014','approval gate')
-    require(execution['new_trajectories']==7808 and execution['delta']==.01 and execution['max_native_calls']==MAX_CALLS
-            and execution['max_worker_seconds']==28800 and execution['max_disk_bytes']==MAX_DISK and execution['workers']==2,'approved limits drift')
-    require(platform.python_version()==execution['python']=='3.11.14' and np.__version()==execution['numpy']=='2.2.6','runtime identity')
+    validate_execution_document(execution)
+    check_runtime(execution)
+    checked_bytes(repo/'data/designs/q3_futures_authorization_20261014.json',AUTHORIZATION_SHA)
+    parent=subprocess.check_output(['git','rev-parse','HEAD^'],cwd=repo,text=True).strip()
+    require(parent==execution['reviewed_commit'],'activation must follow reviewed commit')
+    changed=subprocess.check_output(['git','diff','--name-only','HEAD^','HEAD'],cwd=repo,text=True).splitlines()
+    require(changed==['data/designs/q3_futures_execution_20261014.json'],'activation commit must only add execution manifest')
     for name,digest in execution['code_sha256'].items():checked_bytes(repo/name,digest)
     token=os.environ['GH_TOKEN']
     url='https://api.github.com/repos/zuizui0223/izu-core/actions/workflows/q3-restoration-futures-20261014.yml/runs?per_page=100'
@@ -138,6 +204,7 @@ def main():
     for name in ('archive','source-input','out','repo'):p.add_argument('--'+name,type=Path,required=True)
     args=p.parse_args();repo=args.repo.resolve();out=args.out.resolve()
     started=time.monotonic();deadline=started+4*3600-120
+    def guard():require(time.monotonic()<deadline,'global deadline including packaging and readback')
     out.mkdir(parents=True,exist_ok=False)
     budget=Budget(out/'BUDGET.json')
     try:
@@ -170,10 +237,13 @@ def main():
                 while pending:
                     done,_=wait(pending,timeout=30,return_when=FIRST_COMPLETED)
                     require(time.monotonic()<deadline,'worker time ceiling')
+                    completed=[future.result() for future in done]
                     for future in done:
                         pending.pop(future)
-                        records.append(future.result())
+                    for result in completed:
+                        records.append(result)
                         if len(records)%64==0:print(f'verified pairs {len(records)}/3904',flush=True)
+                    for _ in completed:
                         launch()
             except BaseException:
                 (out/'ABORT').write_text('Technical HOLD; no new paths may start.\n')
@@ -185,9 +255,11 @@ def main():
         for name,digest in execution['code_sha256'].items():checked_bytes(repo/name,digest)
         for name,digest in inventory['frozen_source_sha256'].items():checked_bytes(out/'frozen_source'/name.removeprefix('FROZEN_SOURCE/'),digest)
         records.sort(key=lambda r:(r['key'],r['replicate']))
+        guard()
         readout=summarize(records,cases)
         case_summaries=[]
         for case in cases:
+            guard()
             subset=[r for r in records if r['key']==case['key']]
             if subset:
                 counts={arm:sum(r[arm+'_event'] is not None for r in subset) for arm in ('native','restored')}
@@ -205,6 +277,7 @@ def main():
         readout['case_summaries']=case_summaries
         readout['execution_sha256']=execution_sha
         write_json(out/'READOUT.json',readout)
+        write_json(out/'INDEPENDENT_READOUT.json',verify_readout(out,cases,guard))
         write_json(out/'INDEPENDENT_REPLAY.json',dict(status='ALL_7808_PATHS_REPLAYED_EXACTLY',pairs=len(records),
                    raw_paths=7808,native_updates=990720,state_field_checks=sum(r['state_field_checks'] for r in records),
                    parent_checks=sum(r['parent_checks'] for r in records),execution_sha256=execution_sha,
@@ -216,18 +289,16 @@ def main():
                    elapsed_seconds=elapsed,conservative_worker_seconds=2*elapsed,
                    measured_pair_worker_seconds=sum(r['worker_seconds'] for r in records),
                    bytes_before_packaging=tree_bytes(out.parent),max_disk_bytes=MAX_DISK))
-        members={str(p.relative_to(out)).replace('\\','/'):sha(p.read_bytes()) for p in sorted(out.rglob('*')) if p.is_file()}
+        guard()
+        members={str(p.relative_to(out)).replace('\\','/'):file_digest(p,guard) for p in sorted(out.rglob('*')) if p.is_file()}
         write_json(out/'MANIFEST.json',members)
         archive=out.parent/'Q3_CONDITIONAL_FUTURES_20261014.zip'
         require(tree_bytes(out.parent)+tree_bytes(out)+16*1024**2<MAX_DISK,'packaging disk ceiling')
-        with zipfile.ZipFile(archive,'x',compression=zipfile.ZIP_STORED) as z:
-            for path in sorted(out.rglob('*')):
-                if path.is_file():z.write(path,path.relative_to(out).as_posix())
-        with zipfile.ZipFile(archive) as z:
-            require(z.testzip() is None,'archive CRC readback')
-            require(all(sha(z.read(n))==h for n,h in members.items()),'archive SHA readback')
+        package_archive(out,archive,members,guard)
         require(tree_bytes(out.parent)<MAX_DISK and 2*(time.monotonic()-started)<28800,'final resource ceiling')
-        write_json(out.parent/'PUBLICATION_RECEIPT.json',dict(status='COMPLETE_ARCHIVE_READBACK',archive_sha256=sha(archive.read_bytes()),
+        archive_sha=file_digest(archive,guard)
+        guard()
+        write_json(out.parent/'PUBLICATION_RECEIPT.json',dict(status='COMPLETE_ARCHIVE_READBACK',archive_sha256=archive_sha,
                    bytes=archive.stat().st_size,members=len(members)+1,incremental_bytes=tree_bytes(out.parent),
                    conservative_worker_seconds=2*(time.monotonic()-started),github_sha=os.environ['GITHUB_SHA'],
                    github_run_id=os.environ['GITHUB_RUN_ID'],readout_sha256=sha((out/'READOUT.json').read_bytes()),

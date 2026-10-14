@@ -95,6 +95,9 @@ def summarize(records, cases):
     result = dict(pairs=len(records), slots=64, policy_zero_slots=3, survival=survival,
                   target='fixed_state_coupling_specific_paired_survivor_conditional',
                   original_primary='unresolved_unchanged', means=None)
+    by_key={c['key']:c['block'] for c in cases}
+    result['survival_by_block']={block:{label:sum(by_key[r['key']]==block and r['native_survived']==a and r['restored_survived']==b for r in records)
+        for label,a,b in [('both_alive',True,True),('native_only',True,False),('restored_only',False,True),('both_extinct',False,False)]} for block in BLOCKS}
     if survival['both_alive'] != len(records):
         result.update(decision='not_evaluable', reason='terminal_extinction', directional_replication='not_evaluable')
         return result

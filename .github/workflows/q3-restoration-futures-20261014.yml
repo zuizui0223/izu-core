@@ -24,13 +24,15 @@ jobs:
       OMP_NUM_THREADS: '1'
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11.14'
       - name: Exact runtime and raw-only unit checks
         run: |
           python -m pip install numpy==2.2.6 pytest==8.4.2
-          python -m pytest tests/test_q3_futures_contract_20261014.py tests/test_q3_futures_replay_20261014.py -q
+          python -m pytest tests/test_q3_futures_contract_20261014.py tests/test_q3_futures_replay_20261014.py tests/test_q3_futures_execution_gate_20261014.py -q
       - name: Download the two immutable published inputs
         run: |
           mkdir -p work/q3-run/inputs
@@ -52,6 +54,7 @@ jobs:
             work/q3-run/PUBLICATION_RECEIPT.json
             work/q3-run/output/READOUT.json
             work/q3-run/output/INDEPENDENT_REPLAY.json
+            work/q3-run/output/INDEPENDENT_READOUT.json
             work/q3-run/output/RESOURCES.json
             work/q3-run/output/ADMISSION.json
             work/q3-run/output/FIXTURES.json

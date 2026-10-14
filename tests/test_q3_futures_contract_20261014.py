@@ -103,3 +103,13 @@ def test_budget_reservation_counts_failed_attempts_and_never_overshoots(tmp_path
 def test_hash_failure_before_any_source_import(tmp_path):
     p=tmp_path/'bad.zip';p.write_bytes(b'wrong')
     with pytest.raises(ValueError, match='SHA256'):api().checked_bytes(p,'0'*64)
+
+
+def test_independent_primary_readout_rejects_tampered_aggregate():
+    import sys
+    sys.path.insert(0,str(Path(__file__).parents[1]/'scripts'))
+    import verify_q3_futures_paths_20261014 as v
+    rows=records();cases=inventory();result=api().summarize(rows,cases)
+    v.verify_primary(result,rows,cases)
+    result['means']['all64']['estimate']+=.001
+    with pytest.raises(ValueError):v.verify_primary(result,rows,cases)
