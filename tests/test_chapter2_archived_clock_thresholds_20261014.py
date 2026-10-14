@@ -13,7 +13,7 @@ class TestArchivedQ2Thresholds(unittest.TestCase):
     def make_arrays():
         census = np.full(201, 48, dtype=np.int64)
         means = np.zeros((201, 3), dtype=np.float64)
-        means[5:,2] = 0.075   # A first reaches 0.05 at t5.
+        means[5:,2] = 0.07    # A first reaches 0.05 at t5, not 0.075.
         means[12:,1] = -0.06  # I first reaches 0.05 at t12.
         return means, census
 
