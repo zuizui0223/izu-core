@@ -1,0 +1,205 @@
+{
+  "schema": "model3_k32_three_arm_old_history_result_20261009_v1",
+  "evidence_type": "simulation_engineering_only_not_natural_island_observations",
+  "provenance": {
+    "executed_commit": "b424ad550ef443fbbcfc36c8ebc83775aa8e1368",
+    "workflow_run_id": 37870461048,
+    "workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/37870461048",
+    "workflow_job_id": 113627114098,
+    "workflow_conclusion": "success",
+    "artifact_name": "model3-three-arm-k32-engineering",
+    "artifact_id": 11590585176,
+    "artifact_zip_digest": "sha256:685ecb31f2982971cc009df4b5384311bc3f0a1b4e14f55e765c9dbc6eae6660",
+    "log_extracted_summary_only": true
+  },
+  "controls": {
+    "source_model3_reproductive_code_modified": false,
+    "original_visitor_seed": 26110601,
+    "n_independent_visitor_histories": 1,
+    "nested_demographic_draws_per_stochastic_arm": 256,
+    "confirmatory_37110801_37110864_used": false
+  },
+  "primary": {
+    "conditions": {
+      "K": 32,
+      "mutation_rate": 0,
+      "generations": 8,
+      "ovule_budget": 8,
+      "survival": 0,
+      "seed_immigration": 0,
+      "reproductive_setting": "prior_selfing",
+      "source_visitor_history_seed": 26110601,
+      "source_visitor_arm": "near",
+      "old_history_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "founders": "preexisting engineered 4-genotype 27-class support cloned to K32",
+      "founder_support_sha256": "b0a99a2dd85f5273b72632983b30c45d64c10020e755588e20394604dbd1e633",
+      "initial_occupied_genotype_indices": [
+        7,
+        11,
+        13,
+        21
+      ],
+      "n_independent_visitor_histories": 1,
+      "nested_demographic_draws_per_stochastic_arm": 256,
+      "new_confirmatory_histories": 0,
+      "confirmatory_37110801_37110864_used": false
+    },
+    "arm_summary": {
+      "exact_finite_markov": {
+        "extinction_probability": 0,
+        "occupied_trait_mean": [
+          0.4307861328125,
+          0.350250244140625,
+          0.73919677734375
+        ],
+        "mean_genotype_classes": 4.2109375,
+        "mean_simpson_diversity": 0.5485000610351562,
+        "seconds_elapsed": 2.633594348999992
+      },
+      "projected_gaussian": {
+        "extinction_probability": 0,
+        "occupied_trait_mean": [
+          0.4434814453125,
+          0.3692626953125,
+          0.728271484375
+        ],
+        "mean_genotype_classes": 5.890625,
+        "mean_simpson_diversity": 0.5982208251953125,
+        "seconds_elapsed": 2.720199055000009
+      },
+      "deterministic_expected_integer_plug_in": {
+        "extinction_probability": null,
+        "occupied_trait_mean": [
+          0.4296875,
+          0.3359375,
+          0.75
+        ],
+        "mean_genotype_classes": 5,
+        "mean_simpson_diversity": 0.6640625,
+        "seconds_elapsed": 0.012154479000002993
+      }
+    },
+    "comparison_against_exact": {
+      "projected_gaussian": {
+        "extinction_comparison_definition": "independent_mc_extinction_rates",
+        "absolute_extinction_probability_difference": 0,
+        "absolute_mean_genotype_classes_difference": 1.6796875,
+        "absolute_conditional_diversity_difference": 0.04972076416015625,
+        "max_absolute_occupied_trait_mean_difference": 0.019012451171875,
+        "initial_genotype_absence_max_absolute_probability_difference": 0.1328125
+      },
+      "deterministic_expected_integer_plug_in": {
+        "extinction_comparison_definition": "heuristic_survival_product_vs_exact_mc",
+        "absolute_extinction_probability_difference": 0,
+        "absolute_mean_genotype_classes_difference": 0.7890625,
+        "absolute_conditional_diversity_difference": 0.11556243896484375,
+        "max_absolute_occupied_trait_mean_difference": 0.014312744140625,
+        "initial_genotype_absence_max_absolute_probability_difference": 0.91796875
+      }
+    }
+  },
+  "resource_stress_budget3": {
+    "conditions": {
+      "K": 32,
+      "mutation_rate": 0,
+      "generations": 8,
+      "ovule_budget": 3,
+      "survival": 0,
+      "seed_immigration": 0,
+      "reproductive_setting": "prior_selfing",
+      "source_visitor_history_seed": 26110601,
+      "source_visitor_arm": "near",
+      "old_history_indices": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7
+      ],
+      "founders": "preexisting engineered 4-genotype 27-class support cloned to K32",
+      "founder_support_sha256": "b0a99a2dd85f5273b72632983b30c45d64c10020e755588e20394604dbd1e633",
+      "initial_occupied_genotype_indices": [
+        7,
+        11,
+        13,
+        21
+      ],
+      "n_independent_visitor_histories": 1,
+      "nested_demographic_draws_per_stochastic_arm": 256,
+      "new_confirmatory_histories": 0,
+      "confirmatory_37110801_37110864_used": false
+    },
+    "arm_summary": {
+      "exact_finite_markov": {
+        "extinction_probability": 0.0234375,
+        "occupied_trait_mean": [
+          0.43632264106594143,
+          0.34272142925250365,
+          0.7443826247730394
+        ],
+        "mean_genotype_classes": 3.03125,
+        "mean_simpson_diversity": 0.41395112096178277,
+        "seconds_elapsed": 2.1406339770000073
+      },
+      "projected_gaussian": {
+        "extinction_probability": 0.01953125,
+        "occupied_trait_mean": [
+          0.4574230027241875,
+          0.36517049421745734,
+          0.733787261055445
+        ],
+        "mean_genotype_classes": 3.87109375,
+        "mean_simpson_diversity": 0.5033729871974358,
+        "seconds_elapsed": 2.1476059679999935
+      },
+      "deterministic_expected_integer_plug_in": {
+        "extinction_probability": null,
+        "occupied_trait_mean": [
+          0.42857142857142855,
+          0.33035714285714285,
+          0.75
+        ],
+        "mean_genotype_classes": 4,
+        "mean_simpson_diversity": 0.6352040816326531,
+        "seconds_elapsed": 0.010690573999994513
+      }
+    },
+    "comparison_against_exact": {
+      "projected_gaussian": {
+        "extinction_comparison_definition": "independent_mc_extinction_rates",
+        "absolute_extinction_probability_difference": 0.00390625,
+        "absolute_mean_genotype_classes_difference": 0.83984375,
+        "absolute_conditional_diversity_difference": 0.08942186623565307,
+        "max_absolute_occupied_trait_mean_difference": 0.02244906496495369,
+        "initial_genotype_absence_max_absolute_probability_difference": 0.05078125
+      },
+      "deterministic_expected_integer_plug_in": {
+        "extinction_comparison_definition": "heuristic_survival_product_vs_exact_mc",
+        "absolute_extinction_probability_difference": 0.023437499373755832,
+        "absolute_mean_genotype_classes_difference": 0.96875,
+        "absolute_conditional_diversity_difference": 0.2212529606708703,
+        "max_absolute_occupied_trait_mean_difference": 0.012364286395360802,
+        "initial_genotype_absence_max_absolute_probability_difference": 0.0859375
+      }
+    }
+  },
+  "interpretation_bounds": [
+    "The deterministic integer plug-in is a single approximate expected trajectory, not an exact finite-process expected value or a stochastic extinction frequency.",
+    "The Gaussian projected census preserves integer counts but can bias genotype richness and diversity; no SDE/SPDE process-level equivalence is certified.",
+    "All values are generated on engineered 27-class 3-locus founding genotype support; no wild field samples or new independent ecological histories.",
+    "Budget 3 stress varies a biological parameter while preserving canonical process rules; do not pool it with source-budget 8 baseline.",
+    "The companion PR #420 comparator that reads the default bridge Config can use delayed selfing rather than this prior_selfing setting; results must not be silently pooled."
+  ]
+}

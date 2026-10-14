@@ -1,0 +1,10 @@
+{
+  "status": "ALL_7808_PATHS_REPLAYED_EXACTLY",
+  "pairs": 3904,
+  "raw_paths": 7808,
+  "native_updates": 990720,
+  "state_field_checks": 4992640,
+  "parent_checks": 990720,
+  "execution_sha256": "54549eeec37a225526883fad4f08ae11a417a87b12adede05346425114d83c93",
+  "verifier_sha256": "7843882f58363c179474f31b4bfead482cc05610bcfac862a6bc2c79b982c27b"
+}

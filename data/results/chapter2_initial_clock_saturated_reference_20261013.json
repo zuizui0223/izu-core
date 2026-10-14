@@ -1,0 +1,60 @@
+{
+  "schema": "chapter2_initial_clock_saturated_lookup_exploratory_v1",
+  "status": "ALL256_PAIRED_SEEDS_FIVE_FOLD_LOOKUP_CONTROL_NOT_NOVEL_ECOLOGICAL_TRANSFER",
+  "source_original_biological_histories": 2304,
+  "paired_clusters": 256,
+  "source_profiles": 18,
+  "frozen_event_categories": [
+    "assurance_first",
+    "investment_first",
+    "near_simultaneous",
+    "assurance_only",
+    "investment_only",
+    "neither"
+  ],
+  "fold_rule": "replicate % 5; retain all nine context labels per founder-specific seed cluster in same fold",
+  "scores": [
+    {
+      "smoothing": 0.01,
+      "n": 2304,
+      "log_loss": 1.1473990671540115,
+      "brier": 0.6209095503785913,
+      "argmax_accuracy": 0.4722222222222222,
+      "correct": 1088,
+      "model": "18-cell saturated lookup (founder and ecological context are previously known)"
+    },
+    {
+      "smoothing": 0.5,
+      "n": 2304,
+      "log_loss": 1.1399286597052363,
+      "brier": 0.6207427493431898,
+      "argmax_accuracy": 0.4722222222222222,
+      "correct": 1088,
+      "model": "18-cell saturated lookup (founder and ecological context are previously known)"
+    },
+    {
+      "smoothing": 1.0,
+      "n": 2304,
+      "log_loss": 1.146755985072956,
+      "brier": 0.6209131776237338,
+      "argmax_accuracy": 0.4722222222222222,
+      "correct": 1088,
+      "model": "18-cell saturated lookup (founder and ecological context are previously known)"
+    },
+    {
+      "smoothing": 2.0,
+      "n": 2304,
+      "log_loss": 1.16315321282653,
+      "brier": 0.6220792030919325,
+      "argmax_accuracy": 0.4722222222222222,
+      "correct": 1088,
+      "model": "18-cell saturated lookup (founder and ecological context are previously known)"
+    }
+  ],
+  "limits": [
+    "Saturated lookup is inapplicable to unseen founder/ecological combinations.",
+    "Different parameter dimensions; cannot use lookup comparison to infer genetic-mechanism benefit.",
+    "No model refit uncertainty, no conditional t0 A access-time prediction, no prospective confirmation.",
+    "Original six-category histories stay separate; synthetic stochastic cluster is not ecological independent unit."
+  ]
+}

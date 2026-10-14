@@ -1,0 +1,86 @@
+{
+  "schema": "model3_stochastic_rounding_ablation_20261009_v1",
+  "status": "post_outcome_exploratory_gaussian_integerization_ablation_completed",
+  "provenance": {
+    "source_commit": "b48fba21d69f34f0719cecd7ba689e111ec6476c",
+    "focused_run_id": 37869332826,
+    "focused_run_url": "https://github.com/zuizui0223/izu-core/actions/runs/37869332826",
+    "conclusion": "success",
+    "artifact_id": 11589672717,
+    "artifact_digest": "sha256:a760757452fba6a8dbdc695994d6ac197701b3e1d7373ea84f251cec3ca7f288"
+  },
+  "scope": {
+    "post_outcome_exploratory": true,
+    "source": "canonical Model3 reproduction, individual pollen self-exclusion and fully joint three-locus diploid Mendelian offspring law",
+    "source_models_modified": false,
+    "genotype_classes": 27,
+    "mutation": 0,
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "field_and_INLA": false,
+    "independent_visitor_histories": 0,
+    "engineering_gaussian_draws_per_N": 8192,
+    "engineering_trajectories_per_arm": 512,
+    "all_sde_spde_validation": false
+  },
+  "one_step": [
+    {
+      "N": 8,
+      "exact_expected_class_richness": 6.106376959687035,
+      "largest_remainder": 7.0072021484375,
+      "stochastic_resampling_conditional_expected_richness": 5.6775629900495765,
+      "exact_covariance_trace": 0.11431267925363808,
+      "gaussian_plus_resampling_covariance_trace": 0.15695101106457182
+    },
+    {
+      "N": 32,
+      "exact_expected_class_richness": 13.828041028523227,
+      "largest_remainder": 15.2269287109375,
+      "stochastic_resampling_conditional_expected_richness": 12.621659497256339,
+      "exact_covariance_trace": 0.0285994736578477,
+      "gaussian_plus_resampling_covariance_trace": 0.04973585024500709
+    },
+    {
+      "N": 128,
+      "exact_expected_class_richness": 22.072525207907262,
+      "largest_remainder": 22.56396484375,
+      "stochastic_resampling_conditional_expected_richness": 20.252557367946565,
+      "exact_covariance_trace": 0.007150759064860989,
+      "gaussian_plus_resampling_covariance_trace": 0.013839135404718053
+    }
+  ],
+  "multigeneration": [
+    {
+      "K": 8,
+      "years": 3,
+      "ovule_budget": 3,
+      "abs_class_richness_gap": 0.0625,
+      "abs_occupancy_gap": 0.013671875,
+      "abs_survivor_trait_mean_max_gap": 0.06013150477145979
+    },
+    {
+      "K": 8,
+      "years": 8,
+      "ovule_budget": 3,
+      "abs_class_richness_gap": 0.0859375,
+      "abs_occupancy_gap": 0.044921875,
+      "abs_survivor_trait_mean_max_gap": 0.042626050845301744
+    },
+    {
+      "K": 32,
+      "years": 3,
+      "ovule_budget": 8,
+      "abs_class_richness_gap": 0.546875,
+      "abs_occupancy_gap": 0,
+      "abs_survivor_trait_mean_max_gap": 0.0189666748046875
+    }
+  ],
+  "exact_identity": "If P is random clipped Gaussian simplex, and C|P~Multinomial(N,P), then Cov(C/N)=E[(diag(P)-P P^T)/N]+Cov(P), which is generally not (diag(q)-q q^T)/N",
+  "interpretation": [
+    "Conditional multinomial resampling eliminates the largest-remainder overestimate in this source derived 27-class comparison but produces class-richness underestimation, not a calibrated unbiased correction.",
+    "The Gaussian simplex variation and conditional sampling contribute separately to genotype frequency covariance, which exceeds the source multinomial covariance in the checked cases.",
+    "At multi-generation K32 the class-richness gap is smaller than the prior largest-remainder run but experimental cohorts differ; this is an exploratory comparison, not clean causal mediation of the previous horizon gap.",
+    "Despite improved class-richness agreement at some horizons, occupied trait mean discrepancies, rare genotype loss, variance and survival still require independent source-matching validations.",
+    "No full mutation-enabled SDE/SPDE or convergence result; the faithful reference remains discrete finite genotype Markov recurrence."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "status": "HUMAN_APPROVED_SCOPE_IMPLEMENTATION_ADMISSION_PENDING",
+  "date_jst": "2026-10-14",
+  "user_message": "進め、githubでやって",
+  "context": "Reply to the explicit PR #514 execution request: 7,808 new trajectories, delta 0.01, 8 worker-hours and 16 GiB ceiling.",
+  "protocol_commit": "d7c18a6dc1ea547955aef75fbec0c53cf6fe950b",
+  "protocol_sha256": "e549464de272e5a792b45e61ea68f14af02ddf46ed1287a2a81249d0791f48e9",
+  "new_trajectories": 7808,
+  "fresh_pairs": 3904,
+  "max_native_calls_including_replay_and_fixtures": 1981472,
+  "delta": 0.01,
+  "max_worker_seconds": 28800,
+  "max_disk_bytes": 17179869184,
+  "max_workers": 2,
+  "github_execution_required": true,
+  "main_merge_authorized": false,
+  "new_biology_executed_at_registration": false
+}

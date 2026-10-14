@@ -1,0 +1,70 @@
+{
+  "schema_version": "1.0",
+  "declared_on": "2026-10-08",
+  "status": "explanatory_demographic_rng_repeatability_protocol_declared_before_new_repeats",
+  "question": "For identical historical genotypes and identical future visitor histories, is the full-donor versus bounded-mean-target 80-generation occupancy residual robust across demographic random-stream realizations, or dominated by conditional stochastic recruitment?",
+  "basis": "Existing independent16 allele mean/distribution donor experiment 35100801-35100816 reported near-identical first-generation viable output but history-dependent postshock occupancy differences. One postshock demographic realization per history is insufficient to assign the residual to variance, linkage or drift.",
+  "previous_source_design": "data/design/chapter2_island_assurance_donor_mean_distribution_20261008.json",
+  "historical_visitor_seeds": [
+    35100801,
+    35100802,
+    35100803,
+    35100804
+  ],
+  "historical_demographic_repeat_seed": 35101801,
+  "scope": "The FIRST FOUR visitor histories of the previously exposed independent16 cohort, deterministically chosen by seed order, not by favourable observed results. EXPLORATORY technical repeatability, no independent-history confirmation.",
+  "settings": [
+    "delayed_control",
+    "prior_selfing",
+    "pollen_discount",
+    "assurance_cost"
+  ],
+  "backgrounds": [
+    "near",
+    "far"
+  ],
+  "treatments": [
+    "full_donor",
+    "recipient_mean_target"
+  ],
+  "new_postshock_demographic_repeat_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "future_visitor_environments": [
+    "near",
+    "far"
+  ],
+  "post_ovule_budgets": [
+    3,
+    4
+  ],
+  "post_capacity": 8,
+  "post_updates": 80,
+  "n_historical_pairs": 16,
+  "n_bottleneck_populations": 32,
+  "n_treatment_genotype_states": 64,
+  "n_postshock_trajectories": 2048,
+  "randomization": "First 400 updates and eight-individual bottleneck use the frozen 16-history biology and repeat 35101801. For post stress, each random replicate gets a distinct deterministic SeedSequence([history,35101801,setting_idx,post_idx,budget_idx,713,repeat_id,20261008]); seed independent of historical background and treatment. Matched full donor and mean-target treatments receive identical visitor sequence and poststress streams. No immigration.",
+  "outcomes": [
+    "First-generation viable maternal output (identical across demographic repeats for fixed genotype)",
+    "Terminal occupancy and first extinction time for each demographic repeat",
+    "Paired full-donor minus mean-target occupancy difference within identical setting/history/background/post/budget/repeat",
+    "Within-history standard deviation of paired difference and across post-repeat mean",
+    "All 4 settings/backgrounds/post environments/budgets reported"
+  ],
+  "interpretive_guards": [
+    "The old 16-history target comparison pre-registered failure remains FAILED.",
+    "This is same 4 histories from exposed source, so do not bootstrap 8 new demographic repeats as 8 independent ecological histories.",
+    "Same demographic streams are common random numbers; this is still not a pure variance effect or proof of no genomic influence.",
+    "The two genotypes differ in their allele variance and covariance and potentially fixed-rank assignments.",
+    "Different postshock replicates reveal conditional demographic uncertainty only; additional independent visitor histories would be needed for ecological generality.",
+    "Do not tune budgets or narrow to one setting after outcomes."
+  ]
+}

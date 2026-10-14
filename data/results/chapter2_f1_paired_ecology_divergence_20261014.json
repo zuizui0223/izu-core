@@ -1,0 +1,181 @@
+{
+  "status": "RETROSPECTIVE_SOURCE_PINNED_DESCRIPTIVE_MATCHED_CONTEXT_AUDIT",
+  "source_original_model_commit": "328548612e93469fcc8663f24548530a57399b9a",
+  "source_genotype_summary_git_blob": "ea2c4009fc77cc59813dda0142e8da73c33a26fd",
+  "domain": {
+    "original_starts": 2304,
+    "founder_blocks": 2,
+    "contexts": 9,
+    "paired_founder_seed_clusters": 256,
+    "replicates_per_founder": 128
+  },
+  "all_six_class_counts": {
+    "assurance_first": 335,
+    "investment_first": 435,
+    "near_simultaneous": 358,
+    "assurance_only": 895,
+    "investment_only": 10,
+    "neither": 271
+  },
+  "clusters_with_identical_f1_metric_by_field": {
+    "N_first_offspring": 256,
+    "A_t0_expressed_variance": 256,
+    "A_t1_expressed_variance": 256,
+    "A_t1_any_individual_above_0p05": 256,
+    "A_F1_A_mutated_offspring": 256,
+    "A_F1_has_unmutated_individual_above0p05": 256,
+    "A_f1_mean_change": 256
+  },
+  "paired_context_outcome_divergence": {
+    "both_assurance_first_and_investment_first": 128,
+    "c0_to_c5_different_A_sustained_status": 85,
+    "c0_to_c5_different_I_sustained_status": 213,
+    "c0_to_c5_different_six_class": 233,
+    "c0_to_c7_different_A_sustained_status": 152,
+    "c0_to_c7_different_I_sustained_status": 217,
+    "c0_to_c7_different_six_class": 240,
+    "different_A_sustained_status": 191,
+    "different_I_sustained_status": 252,
+    "different_six_class": 255
+  },
+  "n_distinct_six_class_labels_per_cluster": {
+    "1": 1,
+    "2": 12,
+    "3": 52,
+    "4": 125,
+    "5": 63,
+    "6": 3
+  },
+  "F1_mean_change_sign_per_unique_cluster": {
+    "negative": 131,
+    "positive": 117,
+    "zero": 8
+  },
+  "per_context": {
+    "0": {
+      "n_starts": 256,
+      "A_sustained": 256,
+      "I_sustained": 218,
+      "categories": {
+        "assurance_first": 49,
+        "investment_first": 87,
+        "near_simultaneous": 82,
+        "assurance_only": 38,
+        "investment_only": 0,
+        "neither": 0
+      }
+    },
+    "1": {
+      "n_starts": 256,
+      "A_sustained": 256,
+      "I_sustained": 211,
+      "categories": {
+        "assurance_first": 56,
+        "investment_first": 85,
+        "near_simultaneous": 70,
+        "assurance_only": 45,
+        "investment_only": 0,
+        "neither": 0
+      }
+    },
+    "2": {
+      "n_starts": 256,
+      "A_sustained": 256,
+      "I_sustained": 217,
+      "categories": {
+        "assurance_first": 51,
+        "investment_first": 81,
+        "near_simultaneous": 85,
+        "assurance_only": 39,
+        "investment_only": 0,
+        "neither": 0
+      }
+    },
+    "3": {
+      "n_starts": 256,
+      "A_sustained": 255,
+      "I_sustained": 155,
+      "categories": {
+        "assurance_first": 67,
+        "investment_first": 55,
+        "near_simultaneous": 32,
+        "assurance_only": 101,
+        "investment_only": 1,
+        "neither": 0
+      }
+    },
+    "4": {
+      "n_starts": 256,
+      "A_sustained": 256,
+      "I_sustained": 206,
+      "categories": {
+        "assurance_first": 63,
+        "investment_first": 75,
+        "near_simultaneous": 68,
+        "assurance_only": 50,
+        "investment_only": 0,
+        "neither": 0
+      }
+    },
+    "5": {
+      "n_starts": 256,
+      "A_sustained": 171,
+      "I_sustained": 7,
+      "categories": {
+        "assurance_first": 2,
+        "investment_first": 1,
+        "near_simultaneous": 1,
+        "assurance_only": 167,
+        "investment_only": 3,
+        "neither": 82
+      }
+    },
+    "6": {
+      "n_starts": 256,
+      "A_sustained": 253,
+      "I_sustained": 96,
+      "categories": {
+        "assurance_first": 38,
+        "investment_first": 39,
+        "near_simultaneous": 18,
+        "assurance_only": 158,
+        "investment_only": 1,
+        "neither": 2
+      }
+    },
+    "7": {
+      "n_starts": 256,
+      "A_sustained": 104,
+      "I_sustained": 1,
+      "categories": {
+        "assurance_first": 0,
+        "investment_first": 0,
+        "near_simultaneous": 0,
+        "assurance_only": 104,
+        "investment_only": 1,
+        "neither": 151
+      }
+    },
+    "8": {
+      "n_starts": 256,
+      "A_sustained": 216,
+      "I_sustained": 27,
+      "categories": {
+        "assurance_first": 9,
+        "investment_first": 12,
+        "near_simultaneous": 2,
+        "assurance_only": 193,
+        "investment_only": 4,
+        "neither": 36
+      }
+    }
+  },
+  "claim_boundary": [
+    "Matched F1 metrics are summaries; exact individual t1 genotype equality is not tested.",
+    "Same seeds across ecological contexts are paired, not 2304 IID replicates.",
+    "This is a descriptive fixed-Model3 context contrast, not historical field causality.",
+    "F1 information is post-t0 and cannot be used as a founder-only prospective predictor.",
+    "Later divergence is not decomposed uniquely into selection, drift, mutation or feedback.",
+    "No new biological simulations, significance tests or natural-island extrapolations."
+  ]
+}

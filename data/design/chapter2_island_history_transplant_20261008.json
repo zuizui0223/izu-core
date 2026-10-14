@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "date_declared": "2026-10-08",
+  "status": "exploratory_pilot_protocol_locked_before_execution",
+  "title": "Island environmental history and post-switch evolutionary capacity",
+  "source_design": "data/design/chapter2_assurance_generality_20261006.json",
+  "project_scope": "post-establishment in-situ response, not an island-colonization filter",
+  "settings": [
+    "delayed_control",
+    "prior_selfing",
+    "pollen_discount",
+    "assurance_cost"
+  ],
+  "modes": [
+    "fixed",
+    "evolving"
+  ],
+  "pre_environments": [
+    "near",
+    "far"
+  ],
+  "post_environments": [
+    "near",
+    "far"
+  ],
+  "pre_periods": 400,
+  "post_periods": 400,
+  "pre_mutation_probability": 0.01,
+  "post_mutation_probabilities": [
+    0,
+    0.01
+  ],
+  "visitor_history_seeds": [
+    27120701,
+    27120702,
+    27120703,
+    27120704
+  ],
+  "demographic_repeat_seeds": [
+    27121701,
+    27121702
+  ],
+  "post_visitor_seed_offset": 1000000,
+  "founder_policy": "Identical 48-founder source state from frozen generality design; assurance alleles initially 0.5 for both modes",
+  "transfer_policy": "At period 400 replace the ENTIRE visitor community history with a separately seeded near or far sequence. This is a common-community swap, not gradual island repollination; no plant migration or seed arrivals are introduced.",
+  "common_randomization": "Within each setting x history x repeat x mode x pre group, run the first 400 years ONCE, then fork the exact finite plant state and RNG state into all four future scenarios. All same-post future visitor histories are paired across pre arms.",
+  "campaign": {
+    "groups": 128,
+    "post_cases_per_group": 4,
+    "total_cases": 512,
+    "distinct_visitor_histories": 4,
+    "repeats_nested_per_history": 2
+  },
+  "readouts": [
+    "pre-switch plant occupancy and three trait means/variances",
+    "immediate post-switch per-capita viable maternal output and outcross female output",
+    "post-switch 400-year occupancy and extinction",
+    "post-switch trait means/variances and 400-step realized trait response",
+    "0-vs-positive post-switch mutation interaction as realized adaptive accessibility"
+  ],
+  "comparisons": [
+    "far-to-near against near-to-near within matched setting/history/repeat/mode/post-mutation",
+    "near-to-far against far-to-far within matched setting/history/repeat/mode/post-mutation",
+    "post-mutation 0 against 0.01 within identical t400 state and destination",
+    "fixed versus evolving assurance interpreted as capacity-evolution intervention, not absence of selfing"
+  ],
+  "inference": "4 independent visitor histories; repeats nested; pilot descriptive only; no hypothesis gate, significance or journal-route change",
+  "safeguards": [
+    "never count 512 trajectories as independent histories",
+    "endpoints after extinction are null",
+    "do not infer adaptive genetic potential from standing variance alone",
+    "no direct evolution-order intervention; this tests ecological history, not that temporal order itself caused persistence",
+    "baseline capacity 48 may yield no extinctions and would not test population rescue",
+    "isolation encoded by visitor replenishment rate, not distance in kilometres, actual species, island size, archipelago topology or field validation",
+    "do not use post-hoc pilot findings to relabel existing prospectively confirmed four-setting results"
+  ],
+  "next_phase": "If pilot shows identifiable contrasts, freeze independent-history confirmatory design including demographic-risk scenario and an explicit order intervention before running new histories."
+}

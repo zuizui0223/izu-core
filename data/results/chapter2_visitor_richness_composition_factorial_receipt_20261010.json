@@ -1,0 +1,225 @@
+{
+  "schema": "model3_visitor_type_count_composition_source_receipt_v1",
+  "date": "2026-10-10",
+  "status": "EXECUTED_POST_OUTCOME_EXPLORATORY_SOURCE_LEDGER_ONLY",
+  "source_commit": "5453842f8e4cbd6e97fcaa7f03b231f75dfeb95e",
+  "source_workflow_run": 38027262398,
+  "source_artifact_id": 11660547248,
+  "source_artifact_url": "https://github.com/zuizui0223/izu-core/actions/runs/38027262398/artifacts/11660547248",
+  "source_file": "visitor-factorial-20261010.json",
+  "source_json_uncompressed_bytes": 15220,
+  "source_json_sha256": "80ad1216e424432b97efa17f6053bf36fd98a18aa79a09d07a8dc8434be95268",
+  "source_archive_verified": true,
+  "run_exit_status": "success",
+  "n_conditions": 16,
+  "n_independent_natural_systems": 0,
+  "n_new_visitor_history_seeds": 0,
+  "fixed_n": 8,
+  "fixed_capacity_K": 8,
+  "fixed_pollen_background_B": 48,
+  "numerical_values_rounded_to_six_decimal_places": true,
+  "columns": [
+    "parental_state",
+    "activity_mode",
+    "visitor_arm",
+    "viable_seeds",
+    "focal_beta_median",
+    "collective_gamma_log_seed",
+    "majority_beta_neg_gamma_pos_conflict"
+  ],
+  "rounded_rows": [
+    [
+      "monomorphic",
+      "fixed",
+      "two_unique",
+      12.738665,
+      0.054216,
+      0.361454,
+      false
+    ],
+    [
+      "monomorphic",
+      "fixed",
+      "four_clones",
+      12.738665,
+      0.054216,
+      0.361454,
+      false
+    ],
+    [
+      "monomorphic",
+      "fixed",
+      "four_distinct",
+      11.992566,
+      -0.063174,
+      0.158229,
+      true
+    ],
+    [
+      "monomorphic",
+      "fixed",
+      "four_shifted",
+      10.882506,
+      -0.273115,
+      -0.211788,
+      false
+    ],
+    [
+      "monomorphic",
+      "count_scaled",
+      "two_unique",
+      11.672641,
+      -0.118373,
+      0.05988,
+      true
+    ],
+    [
+      "monomorphic",
+      "count_scaled",
+      "four_clones",
+      12.738665,
+      0.054216,
+      0.361454,
+      false
+    ],
+    [
+      "monomorphic",
+      "count_scaled",
+      "four_distinct",
+      11.992566,
+      -0.063174,
+      0.158229,
+      true
+    ],
+    [
+      "monomorphic",
+      "count_scaled",
+      "four_shifted",
+      10.882506,
+      -0.273115,
+      -0.211788,
+      false
+    ],
+    [
+      "mixed_diploid",
+      "fixed",
+      "two_unique",
+      12.607853,
+      0.042927,
+      0.329437,
+      false
+    ],
+    [
+      "mixed_diploid",
+      "fixed",
+      "four_clones",
+      12.607853,
+      0.042927,
+      0.329437,
+      false
+    ],
+    [
+      "mixed_diploid",
+      "fixed",
+      "four_distinct",
+      11.931507,
+      -0.068689,
+      0.140508,
+      true
+    ],
+    [
+      "mixed_diploid",
+      "fixed",
+      "four_shifted",
+      10.888561,
+      -0.271715,
+      -0.210206,
+      false
+    ],
+    [
+      "mixed_diploid",
+      "count_scaled",
+      "two_unique",
+      11.603697,
+      -0.1256,
+      0.038981,
+      true
+    ],
+    [
+      "mixed_diploid",
+      "count_scaled",
+      "four_clones",
+      12.607853,
+      0.042927,
+      0.329437,
+      false
+    ],
+    [
+      "mixed_diploid",
+      "count_scaled",
+      "four_distinct",
+      11.931507,
+      -0.068689,
+      0.140508,
+      true
+    ],
+    [
+      "mixed_diploid",
+      "count_scaled",
+      "four_shifted",
+      10.888561,
+      -0.271715,
+      -0.210206,
+      false
+    ]
+  ],
+  "contrasts": [
+    {
+      "parental_state": "monomorphic",
+      "activity_mode": "fixed",
+      "count_clone_delta": 0,
+      "same_four_composition_delta": -0.7460993324345075,
+      "same_four_shift_delta": -1.1100597344935004
+    },
+    {
+      "parental_state": "monomorphic",
+      "activity_mode": "count_scaled",
+      "count_clone_delta": 1.0660241677944828,
+      "same_four_composition_delta": -0.7460993324345075,
+      "same_four_shift_delta": -1.1100597344935004
+    },
+    {
+      "parental_state": "mixed_diploid",
+      "activity_mode": "fixed",
+      "count_clone_delta": -1.7763568394002505e-15,
+      "same_four_composition_delta": -0.6763463083440922,
+      "same_four_shift_delta": -1.0429452691162169
+    },
+    {
+      "parental_state": "mixed_diploid",
+      "activity_mode": "count_scaled",
+      "count_clone_delta": 1.00415620003856,
+      "same_four_composition_delta": -0.6763463083440922,
+      "same_four_shift_delta": -1.0429452691162169
+    }
+  ],
+  "controls": [
+    "Identical-visitor-clone negative control passes for total seeds, maternal outcross, viable self, focal beta, and collective gamma in fixed-activity model in both genotype settings.",
+    "Count-scaled activity creates a count/encounter-intensity effect when visitor IDs are duplicated; distinct functional-optimum count stays two.",
+    "At equal four visitor IDs, changing optimum composition shifts viable seeds and beta/gamma signs in both genotype settings.",
+    "Shifting all four optima uniformly by +0.2 retains optimum spacing, breadth, effectiveness and count, but changes signs.",
+    "Every source row is an ephemeral reproductive-ledger intervention, not a simulated annual demographic/evolutionary outcome."
+  ],
+  "claims_admitted": [
+    "Within the original Model3 instantaneous reproductive ledger, changing visitor functional-optimum composition at equal visitor type count can reverse the sign of the individual-versus-group investment benefit conflict.",
+    "In the source activity_mode=fixed formula, exact duplicate visitor types add no new functional information and leave output invariant.",
+    "In count_scaled source activity law, duplicate visitor IDs alter encounter intensity and thereby generate an apparent visitor-count response."
+  ],
+  "claims_not_admitted": [
+    "Real-island or cross-archipelago biological confirmation",
+    "Observed natural species richness effect",
+    "Long-term individual/genetic selection or evolution",
+    "Population extinction, rescue, evolutionary suicide",
+    "Confidence interval or statistical generalization from 16 fixed operator states"
+  ]
+}

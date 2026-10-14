@@ -1,0 +1,12 @@
+{
+  "status": "ALL4096_INITIAL_A_SHADOW_PARENT_LEDGERS_FEASIBLE_WITHOUT_NEW_FUTURES",
+  "states": 2048,
+  "ledgers": 4096,
+  "input_sha256": "51a07a843a087059af3d67ad113f5d849644f5b03739a6df986d506bd636648f",
+  "sampler_normalized_sha256": "4697ebfc1cd3c0ee116f50fd3c603baf390255b0aa1165eef339b89d7eb33919",
+  "max_outcross_total_error": 4.440892098500626e-16,
+  "max_viable_self_total_error": 3.552713678800501e-15,
+  "max_recruitment_intensity_error": 7.105427357601002e-15,
+  "original_inherited_states_unchanged": true,
+  "new_future_outcomes_calculated": false
+}

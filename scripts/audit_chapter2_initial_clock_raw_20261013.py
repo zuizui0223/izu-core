@@ -180,7 +180,7 @@ def main() -> None:
         raise ValueError("Refuse to overwrite a previous audit")
     result = audit(args.outer, args.compact)
     args.out.parent.mkdir(parents=True, exist_ok=True)
-    with args.out.open("x", encoding="utf-8") as output:
+    with args.out.open("x", encoding="utf-8", newline="\n") as output:
         output.write(json.dumps(result, indent=2, allow_nan=False) + "\n")
     print(json.dumps({k: v for k, v in result.items() if k != "t0_feature_profiles"}, indent=2))
 

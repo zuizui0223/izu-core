@@ -1,0 +1,1870 @@
+{
+  "status": "all_2048_diploid_sources_229376_future_cells_admitted",
+  "n_independent_visitor_histories": 64,
+  "n_archived_baseline_futures": 57344,
+  "n_new_perturbed_futures": 172032,
+  "n_all_future_cells": 229376,
+  "experiment_hashes": {
+    "design": "ba518e41678511022646b234add7548cd04078bf4a28572034dc50eb8442b9cf",
+    "gate": "65c0b115663f787dc3eb933ee1e12e6247939afca714138d94f36d155542b805",
+    "old_protocol": "b6f6336875b04a131434ef35d6ec42b59dc14a1e4c59e7e4d6f2513e24a04fdd",
+    "old_followup": "39918e4fe6650f99b0eac4372449509bdef45e58318dc760906d7a8ca3d9fe30",
+    "biology": {
+      "data/design/chapter2_assurance_generality_20261006.json": "c050c94eb385a9ab6beb48388f5ec96177c0540e22da53924b02eca19b824119",
+      "data/results/chapter2_assurance_generality_20261006.json": "c0f21756ebc7b49bc41ed5196915a05e15a7c1f688c622714e22ad2407f77f6e",
+      "data/design/model3_ch2_bridge_20260927.json": "0ca971aa9a453ab00a6e36fa9f2a99df3b36a8b13cda1cb48ea420556d3ff18a",
+      "data/design/chapter2_order_expression_identification_20261008.json": "b6f6336875b04a131434ef35d6ec42b59dc14a1e4c59e7e4d6f2513e24a04fdd",
+      "scripts/plan_chapter2_order_expression_identification.py": "825436797d97e2262357b0da5ca2c17feafc3f375e7852753cc97470fe850ccc",
+      "scripts/chapter2_order_expression_phenotype.py": "7c14f6e7a83569bd13df58a9c5ea68e95ba937a5c2e1fdb4d76d6a379affa903",
+      "scripts/chapter2_order_expression_payoff.py": "113e759870f4e6387e821678066ac432423a9ceae8b3c66b2ec76acc20b2f59c",
+      "scripts/chapter2_order_expression_schedule.py": "84b104e01b33716e2d8062113eb4fded8681bd14a8c965547957ba42019925f8",
+      "scripts/chapter2_order_genetic_realization.py": "e81d7d5249816fa95bbaa91be0e8570d00b12f6308e56b38df75cfd30e5085ad",
+      "scripts/chapter2_order_prehistory_runner.py": "0dd60fc31f89b9b41aec3f8c1a6351f1cefb0413b061094b519114da7a9fb32b",
+      "scripts/chapter2_order_postshock_runner.py": "5f8abecc9458342b25340e339993a09ca5d1d764b3c60a1ad9652073067d7700",
+      "scripts/chapter2_order_confirmatory_readout.py": "620f277c30f6204af50299445d5cd8ffdf088a7f6b5b66d475f695aa52dfdc1c",
+      "scripts/run_chapter2_assurance_generality.py": "88e7aef1ee559885559e63b46d3dcb76808981d7a787440693f836f3fafea924",
+      "scripts/run_model3_persistent_isolation.py": "d573ffa85b7a1fef3f4619862cf00ab40cfc465d3ba4563df6504e0eea968e6e",
+      "scripts/model3_island/reproduction.py": "885957edb8a165ee8528781ed1d2574c44143c608496b505f9663cbfac2c4081",
+      "scripts/model3_island/population.py": "c959d18816da6666dbfb4e91bd9582c94af5453b25498d033f5747305b05fe0f",
+      "scripts/model3_island/types.py": "a572e1e7f4fded181585871a63582b16f40292bd07b13e8efc9d6b6234eb21c5",
+      "scripts/model3_island/randomness.py": "63522ae3c5ff8e11f114b5649a989945fa4ba2480fdca0f74857601b0e4b211f",
+      "scripts/model3_island/selection.py": "fc2d7354aadbf293c84c7ecab5c1d5b20cd702f850081e2d2d1df35539e32f5e",
+      "scripts/model3_island/history.py": "28d22c7fde81d9be6a604fa9dd4cb6b48d78d388d4db85f798a935cf81415488",
+      "scripts/model3_island/run.py": "094f8ed635f13b3ff5809b721f1d11f78f89d7cc414f503805b007e436878743"
+    }
+  },
+  "primary": {
+    "mean": 0.008145118059918143,
+    "bootstrap95": [
+      0.0037080829586071114,
+      0.012773054915678586
+    ],
+    "decision": "nonzero_controlled_self_viability_sensitivity",
+    "predeclared_min_abs": 0.005
+  },
+  "bootstrap": {
+    "draws": 9999,
+    "unit": "visitor_history",
+    "seed": 2026100927
+  },
+  "by_regime": {
+    "unbottlenecked_capacity48": {
+      "occupied": {
+        "schedule_by_gate": {
+          "baseline": {
+            "mean": 0.009237437175406312,
+            "bootstrap95": [
+              0.005389270211055638,
+              0.01315510736767691
+            ]
+          },
+          "attenuate_self": {
+            "mean": 0.01052033734292225,
+            "bootstrap95": [
+              0.006843720884025954,
+              0.014079520768396508
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": 0.0116134062294386,
+            "bootstrap95": [
+              0.007484411791969703,
+              0.015741651263053064
+            ]
+          },
+          "attenuate_both": {
+            "mean": 0.013047186541358861,
+            "bootstrap95": [
+              0.009402462724220666,
+              0.016661620612922402
+            ]
+          }
+        },
+        "factorial": {
+          "common_untreated_absolute_order_effect": {
+            "mean": 0.009237437175406312,
+            "bootstrap95": [
+              0.005389270211055638,
+              0.01315510736767691
+            ]
+          },
+          "primary_selfed_viability_sensitivity": {
+            "mean": -0.001282900167515937,
+            "bootstrap95": [
+              -0.004778138592771472,
+              0.002246147055758369
+            ]
+          },
+          "secondary_outcross_viability_sensitivity": {
+            "mean": -0.0023759690540322872,
+            "bootstrap95": [
+              -0.004916347687260038,
+              7.263849586992549e-05
+            ]
+          },
+          "secondary_joint_gate_absolute_order_effect": {
+            "mean": 0.013047186541358861,
+            "bootstrap95": [
+              0.009402462724220666,
+              0.016661620612922402
+            ]
+          },
+          "factorial_nonadditivity": {
+            "mean": 0.0001508801444043235,
+            "bootstrap95": [
+              -0.003068162686685834,
+              0.003465339681173584
+            ]
+          }
+        },
+        "near_by_gate": {
+          "baseline": {
+            "mean": 0.013117673787860065,
+            "bootstrap95": [
+              0.00626862282086772,
+              0.019961128106890505
+            ]
+          },
+          "attenuate_self": {
+            "mean": 0.011988775678435773,
+            "bootstrap95": [
+              0.006360901747599153,
+              0.017456314984833656
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": 0.015030424319109049,
+            "bootstrap95": [
+              0.008168660111458847,
+              0.0219384078967318
+            ]
+          },
+          "attenuate_both": {
+            "mean": 0.015366423107480893,
+            "bootstrap95": [
+              0.009659121694435351,
+              0.021054166432265632
+            ]
+          }
+        },
+        "far_by_gate": {
+          "baseline": {
+            "mean": 0.005357200562952561,
+            "bootstrap95": [
+              0.002380795987409273,
+              0.00852649119962436
+            ]
+          },
+          "attenuate_self": {
+            "mean": 0.009051899007408725,
+            "bootstrap95": [
+              0.0051282863072140165,
+              0.012931893383601222
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": 0.00819638813976815,
+            "bootstrap95": [
+              0.004434544441553453,
+              0.012077728580043507
+            ]
+          },
+          "attenuate_both": {
+            "mean": 0.01072794997523683,
+            "bootstrap95": [
+              0.00598377081016804,
+              0.01529874685394769
+            ]
+          }
+        }
+      },
+      "selfed_recruits": {
+        "schedule_by_gate": {
+          "baseline": {
+            "mean": 64.55200807561812,
+            "bootstrap95": [
+              48.987252492243634,
+              79.73352756934676
+            ]
+          },
+          "attenuate_self": {
+            "mean": 48.305243343478594,
+            "bootstrap95": [
+              37.30627269652806,
+              58.91823437232139
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": 61.57046564293799,
+            "bootstrap95": [
+              45.731711468769866,
+              77.0756010983864
+            ]
+          },
+          "attenuate_both": {
+            "mean": 51.638181205068705,
+            "bootstrap95": [
+              39.47448542456054,
+              63.625391318357266
+            ]
+          }
+        },
+        "factorial": {
+          "common_untreated_absolute_order_effect": {
+            "mean": 64.55200807561812,
+            "bootstrap95": [
+              48.987252492243634,
+              79.73352756934676
+            ]
+          },
+          "primary_selfed_viability_sensitivity": {
+            "mean": 16.246764732139525,
+            "bootstrap95": [
+              6.564433926933603,
+              26.11239190129732
+            ]
+          },
+          "secondary_outcross_viability_sensitivity": {
+            "mean": 2.981542432680128,
+            "bootstrap95": [
+              -1.0439741941637295,
+              7.173147182350816
+            ]
+          },
+          "secondary_joint_gate_absolute_order_effect": {
+            "mean": 51.638181205068705,
+            "bootstrap95": [
+              39.47448542456054,
+              63.625391318357266
+            ]
+          },
+          "factorial_nonadditivity": {
+            "mean": 6.314480294270244,
+            "bootstrap95": [
+              0.2167546062669552,
+              12.618329339966289
+            ]
+          }
+        },
+        "near_by_gate": {
+          "baseline": {
+            "mean": 82.950534227707,
+            "bootstrap95": [
+              57.94454737539916,
+              107.71083413901276
+            ]
+          },
+          "attenuate_self": {
+            "mean": 58.73040423712338,
+            "bootstrap95": [
+              41.03809634644038,
+              76.43063533719543
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": 78.39554991112271,
+            "bootstrap95": [
+              52.024927188348784,
+              104.62759808248846
+            ]
+          },
+          "attenuate_both": {
+            "mean": 62.1236327301047,
+            "bootstrap95": [
+              43.13712711167052,
+              81.36292721207853
+            ]
+          }
+        },
+        "far_by_gate": {
+          "baseline": {
+            "mean": 46.153481923529235,
+            "bootstrap95": [
+              31.15961312117355,
+              61.483946643504076
+            ]
+          },
+          "attenuate_self": {
+            "mean": 37.88008244983379,
+            "bootstrap95": [
+              25.114107359998606,
+              50.95264254363634
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": 44.74538137475325,
+            "bootstrap95": [
+              29.571804337871363,
+              60.366679970207954
+            ]
+          },
+          "attenuate_both": {
+            "mean": 41.15272968003271,
+            "bootstrap95": [
+              26.35856818621932,
+              55.36862787041231
+            ]
+          }
+        }
+      },
+      "outcross_recruits": {
+        "schedule_by_gate": {
+          "baseline": {
+            "mean": -30.142287613380255,
+            "bootstrap95": [
+              -40.129144126548255,
+              -20.432549234139366
+            ]
+          },
+          "attenuate_self": {
+            "mean": -21.67129396691514,
+            "bootstrap95": [
+              -31.337211832214347,
+              -12.474562577836286
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": -15.580395452891212,
+            "bootstrap95": [
+              -20.322302549048516,
+              -10.740059993989867
+            ]
+          },
+          "attenuate_both": {
+            "mean": -8.769044969706648,
+            "bootstrap95": [
+              -12.582718152080554,
+              -5.029114913860752
+            ]
+          }
+        },
+        "factorial": {
+          "common_untreated_absolute_order_effect": {
+            "mean": -30.142287613380255,
+            "bootstrap95": [
+              -40.129144126548255,
+              -20.432549234139366
+            ]
+          },
+          "primary_selfed_viability_sensitivity": {
+            "mean": -8.470993646465107,
+            "bootstrap95": [
+              -12.61731655963951,
+              -4.398197492883436
+            ]
+          },
+          "secondary_outcross_viability_sensitivity": {
+            "mean": -14.561892160489037,
+            "bootstrap95": [
+              -20.051685931837394,
+              -9.340899422777976
+            ]
+          },
+          "secondary_joint_gate_absolute_order_effect": {
+            "mean": -8.769044969706648,
+            "bootstrap95": [
+              -12.582718152080554,
+              -5.029114913860752
+            ]
+          },
+          "factorial_nonadditivity": {
+            "mean": -1.6596431632805428,
+            "bootstrap95": [
+              -5.22478426841697,
+              1.9812313477753358
+            ]
+          }
+        },
+        "near_by_gate": {
+          "baseline": {
+            "mean": -31.11061520820979,
+            "bootstrap95": [
+              -46.17996840878779,
+              -16.718476930182362
+            ]
+          },
+          "attenuate_self": {
+            "mean": -22.87988497145031,
+            "bootstrap95": [
+              -37.757221546021285,
+              -8.50161027502861
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": -15.405177562058455,
+            "bootstrap95": [
+              -23.010316257517076,
+              -8.108459504725806
+            ]
+          },
+          "attenuate_both": {
+            "mean": -7.614661530161151,
+            "bootstrap95": [
+              -13.35639376826181,
+              -2.0012643940748083
+            ]
+          }
+        },
+        "far_by_gate": {
+          "baseline": {
+            "mean": -29.173960018550712,
+            "bootstrap95": [
+              -41.30804645061483,
+              -17.634830563671628
+            ]
+          },
+          "attenuate_self": {
+            "mean": -20.46270296237997,
+            "bootstrap95": [
+              -31.35412668331928,
+              -9.817923852767693
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": -15.755613343723965,
+            "bootstrap95": [
+              -22.165944609780848,
+              -9.459599217307993
+            ]
+          },
+          "attenuate_both": {
+            "mean": -9.923428409252143,
+            "bootstrap95": [
+              -15.031979306025232,
+              -5.036673424109884
+            ]
+          }
+        }
+      },
+      "t0_maternal_viable": {
+        "schedule_by_gate": {
+          "baseline": {
+            "mean": 0.8476479041298279,
+            "bootstrap95": [
+              0.3754899409967931,
+              1.31510926347409
+            ]
+          },
+          "attenuate_self": {
+            "mean": -0.35237590255048556,
+            "bootstrap95": [
+              -0.8180637942650845,
+              0.09997609178837445
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": 1.6238477587452285,
+            "bootstrap95": [
+              1.19235228091516,
+              2.0450776378474016
+            ]
+          },
+          "attenuate_both": {
+            "mean": 0.4238239520649141,
+            "bootstrap95": [
+              0.18774497049839695,
+              0.657554631737045
+            ]
+          }
+        },
+        "factorial": {
+          "common_untreated_absolute_order_effect": {
+            "mean": 0.8476479041298279,
+            "bootstrap95": [
+              0.3754899409967931,
+              1.31510926347409
+            ]
+          },
+          "primary_selfed_viability_sensitivity": {
+            "mean": 1.2000238066803135,
+            "bootstrap95": [
+              0.9183841615638378,
+              1.478379981450986
+            ]
+          },
+          "secondary_outcross_viability_sensitivity": {
+            "mean": -0.7761998546154006,
+            "bootstrap95": [
+              -1.0801524403031293,
+              -0.4819352183735302
+            ]
+          },
+          "secondary_joint_gate_absolute_order_effect": {
+            "mean": 0.4238239520649141,
+            "bootstrap95": [
+              0.18774497049839695,
+              0.657554631737045
+            ]
+          },
+          "factorial_nonadditivity": {
+            "mean": -1.1518563880486e-15,
+            "bootstrap95": [
+              -2.2516710718178956e-15,
+              -1.0408340855860843e-16
+            ]
+          }
+        },
+        "near_by_gate": {
+          "baseline": {
+            "mean": 1.3908436794144543,
+            "bootstrap95": [
+              0.6474077880981857,
+              2.1383669057246832
+            ]
+          },
+          "attenuate_self": {
+            "mean": -0.09849234132088672,
+            "bootstrap95": [
+              -0.814288295026741,
+              0.5822469106446679
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": 2.18475786044257,
+            "bootstrap95": [
+              1.489261346133417,
+              2.88229652272204
+            ]
+          },
+          "attenuate_both": {
+            "mean": 0.6954218397072272,
+            "bootstrap95": [
+              0.32370389404909283,
+              1.0691834528623414
+            ]
+          }
+        },
+        "far_by_gate": {
+          "baseline": {
+            "mean": 0.3044521288452014,
+            "bootstrap95": [
+              -0.232627024330296,
+              0.8168285484213529
+            ]
+          },
+          "attenuate_self": {
+            "mean": -0.6062594637800842,
+            "bootstrap95": [
+              -1.1824625092976806,
+              -0.03552601105240102
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": 1.0629376570478875,
+            "bootstrap95": [
+              0.6299673263894779,
+              1.4858808880760015
+            ]
+          },
+          "attenuate_both": {
+            "mean": 0.15222606442260095,
+            "bootstrap95": [
+              -0.11631351216514797,
+              0.40841427421067683
+            ]
+          }
+        }
+      },
+      "t0_selfed_viable": {
+        "schedule_by_gate": {
+          "baseline": {
+            "mean": 2.4000476133606283,
+            "bootstrap95": [
+              1.836768323127678,
+              2.956759962901974
+            ]
+          },
+          "attenuate_self": {
+            "mean": 1.2000238066803142,
+            "bootstrap95": [
+              0.918384161563839,
+              1.478379981450987
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": 2.4000476133606283,
+            "bootstrap95": [
+              1.836768323127678,
+              2.956759962901974
+            ]
+          },
+          "attenuate_both": {
+            "mean": 1.2000238066803142,
+            "bootstrap95": [
+              0.918384161563839,
+              1.478379981450987
+            ]
+          }
+        },
+        "factorial": {
+          "common_untreated_absolute_order_effect": {
+            "mean": 2.4000476133606283,
+            "bootstrap95": [
+              1.836768323127678,
+              2.956759962901974
+            ]
+          },
+          "primary_selfed_viability_sensitivity": {
+            "mean": 1.2000238066803142,
+            "bootstrap95": [
+              0.918384161563839,
+              1.478379981450987
+            ]
+          },
+          "secondary_outcross_viability_sensitivity": {
+            "mean": -2.0816681711721685e-17,
+            "bootstrap95": [
+              -1.734723475976807e-16,
+              1.3183898417423734e-16
+            ]
+          },
+          "secondary_joint_gate_absolute_order_effect": {
+            "mean": 1.2000238066803142,
+            "bootstrap95": [
+              0.918384161563839,
+              1.478379981450987
+            ]
+          },
+          "factorial_nonadditivity": {
+            "mean": -2.0816681711721685e-17,
+            "bootstrap95": [
+              -1.734723475976807e-16,
+              1.3183898417423734e-16
+            ]
+          }
+        },
+        "near_by_gate": {
+          "baseline": {
+            "mean": 2.9786720414706847,
+            "bootstrap95": [
+              2.0809185420854703,
+              3.8862891586421155
+            ]
+          },
+          "attenuate_self": {
+            "mean": 1.4893360207353423,
+            "bootstrap95": [
+              1.0404592710427352,
+              1.9431445793210578
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": 2.9786720414706847,
+            "bootstrap95": [
+              2.0809185420854703,
+              3.8862891586421155
+            ]
+          },
+          "attenuate_both": {
+            "mean": 1.4893360207353423,
+            "bootstrap95": [
+              1.0404592710427352,
+              1.9431445793210578
+            ]
+          }
+        },
+        "far_by_gate": {
+          "baseline": {
+            "mean": 1.8214231852505722,
+            "bootstrap95": [
+              1.2247429324953159,
+              2.441195523189437
+            ]
+          },
+          "attenuate_self": {
+            "mean": 0.9107115926252862,
+            "bootstrap95": [
+              0.6123714662476578,
+              1.2205977615947186
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": 1.8214231852505725,
+            "bootstrap95": [
+              1.2247429324953156,
+              2.441195523189437
+            ]
+          },
+          "attenuate_both": {
+            "mean": 0.9107115926252862,
+            "bootstrap95": [
+              0.6123714662476578,
+              1.2205977615947186
+            ]
+          }
+        }
+      },
+      "t0_female_outcross": {
+        "schedule_by_gate": {
+          "baseline": {
+            "mean": -1.5523997092307995,
+            "bootstrap95": [
+              -2.160304880606257,
+              -0.9638704367470601
+            ]
+          },
+          "attenuate_self": {
+            "mean": -1.5523997092307995,
+            "bootstrap95": [
+              -2.160304880606257,
+              -0.9638704367470602
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": -0.7761998546153998,
+            "bootstrap95": [
+              -1.0801524403031284,
+              -0.4819352183735301
+            ]
+          },
+          "attenuate_both": {
+            "mean": -0.7761998546153998,
+            "bootstrap95": [
+              -1.0801524403031284,
+              -0.4819352183735301
+            ]
+          }
+        },
+        "factorial": {
+          "common_untreated_absolute_order_effect": {
+            "mean": -1.5523997092307995,
+            "bootstrap95": [
+              -2.160304880606257,
+              -0.9638704367470601
+            ]
+          },
+          "primary_selfed_viability_sensitivity": {
+            "mean": 2.6020852139652106e-18,
+            "bootstrap95": [
+              -1.457167719820518e-16,
+              1.5265566588595902e-16
+            ]
+          },
+          "secondary_outcross_viability_sensitivity": {
+            "mean": -0.7761998546153998,
+            "bootstrap95": [
+              -1.0801524403031282,
+              -0.48193521837352993
+            ]
+          },
+          "secondary_joint_gate_absolute_order_effect": {
+            "mean": -0.7761998546153998,
+            "bootstrap95": [
+              -1.0801524403031284,
+              -0.4819352183735301
+            ]
+          },
+          "factorial_nonadditivity": {
+            "mean": 2.6020852139652106e-18,
+            "bootstrap95": [
+              -1.457167719820518e-16,
+              1.5265566588595902e-16
+            ]
+          }
+        },
+        "near_by_gate": {
+          "baseline": {
+            "mean": -1.587828362056229,
+            "bootstrap95": [
+              -2.4988568859454254,
+              -0.6958019294121217
+            ]
+          },
+          "attenuate_self": {
+            "mean": -1.587828362056229,
+            "bootstrap95": [
+              -2.498856885945426,
+              -0.6958019294121216
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": -0.7939141810281145,
+            "bootstrap95": [
+              -1.249428442972713,
+              -0.3479009647060608
+            ]
+          },
+          "attenuate_both": {
+            "mean": -0.7939141810281145,
+            "bootstrap95": [
+              -1.249428442972713,
+              -0.3479009647060608
+            ]
+          }
+        },
+        "far_by_gate": {
+          "baseline": {
+            "mean": -1.51697105640537,
+            "bootstrap95": [
+              -2.2656286237834213,
+              -0.7877480347921502
+            ]
+          },
+          "attenuate_self": {
+            "mean": -1.51697105640537,
+            "bootstrap95": [
+              -2.2656286237834213,
+              -0.78774803479215
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": -0.758485528202685,
+            "bootstrap95": [
+              -1.1328143118917107,
+              -0.393874017396075
+            ]
+          },
+          "attenuate_both": {
+            "mean": -0.758485528202685,
+            "bootstrap95": [
+              -1.1328143118917107,
+              -0.393874017396075
+            ]
+          }
+        }
+      },
+      "t0_expected_pollen_export": {
+        "schedule_by_gate": {
+          "baseline": {
+            "mean": -4.784649587415378,
+            "bootstrap95": [
+              -6.916781011140701,
+              -2.762505013677532
+            ]
+          },
+          "attenuate_self": {
+            "mean": -4.784649587415377,
+            "bootstrap95": [
+              -6.916781011140701,
+              -2.7625050136775315
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": -4.784649587415377,
+            "bootstrap95": [
+              -6.916781011140701,
+              -2.7625050136775315
+            ]
+          },
+          "attenuate_both": {
+            "mean": -4.784649587415377,
+            "bootstrap95": [
+              -6.916781011140701,
+              -2.7625050136775315
+            ]
+          }
+        },
+        "factorial": {
+          "common_untreated_absolute_order_effect": {
+            "mean": -4.784649587415378,
+            "bootstrap95": [
+              -6.916781011140701,
+              -2.762505013677532
+            ]
+          },
+          "primary_selfed_viability_sensitivity": {
+            "mean": -2.185751579730777e-16,
+            "bootstrap95": [
+              -5.828670879282072e-16,
+              1.0755285551056204e-16
+            ]
+          },
+          "secondary_outcross_viability_sensitivity": {
+            "mean": -2.185751579730777e-16,
+            "bootstrap95": [
+              -5.828670879282072e-16,
+              1.0755285551056204e-16
+            ]
+          },
+          "secondary_joint_gate_absolute_order_effect": {
+            "mean": -4.784649587415377,
+            "bootstrap95": [
+              -6.916781011140701,
+              -2.7625050136775315
+            ]
+          },
+          "factorial_nonadditivity": {
+            "mean": -2.185751579730777e-16,
+            "bootstrap95": [
+              -5.828670879282072e-16,
+              1.0755285551056204e-16
+            ]
+          }
+        },
+        "near_by_gate": {
+          "baseline": {
+            "mean": -5.269890352619447,
+            "bootstrap95": [
+              -8.575164038469225,
+              -2.038909331389958
+            ]
+          },
+          "attenuate_self": {
+            "mean": -5.269890352619447,
+            "bootstrap95": [
+              -8.575164038469227,
+              -2.038909331389958
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": -5.269890352619447,
+            "bootstrap95": [
+              -8.575164038469227,
+              -2.038909331389958
+            ]
+          },
+          "attenuate_both": {
+            "mean": -5.269890352619447,
+            "bootstrap95": [
+              -8.575164038469227,
+              -2.038909331389958
+            ]
+          }
+        },
+        "far_by_gate": {
+          "baseline": {
+            "mean": -4.2994088222113085,
+            "bootstrap95": [
+              -7.060903983518282,
+              -1.554444762703922
+            ]
+          },
+          "attenuate_self": {
+            "mean": -4.2994088222113085,
+            "bootstrap95": [
+              -7.060903983518282,
+              -1.5544447627039217
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": -4.2994088222113085,
+            "bootstrap95": [
+              -7.060903983518282,
+              -1.5544447627039217
+            ]
+          },
+          "attenuate_both": {
+            "mean": -4.2994088222113085,
+            "bootstrap95": [
+              -7.060903983518282,
+              -1.5544447627039217
+            ]
+          }
+        }
+      }
+    },
+    "eight_founders_capacity8": {
+      "occupied": {
+        "schedule_by_gate": {
+          "baseline": {
+            "mean": 0.012089710485065148,
+            "bootstrap95": [
+              0.0067534738167247385,
+              0.01748077828166182
+            ]
+          },
+          "attenuate_self": {
+            "mean": 0.003944592425147006,
+            "bootstrap95": [
+              0.0012116864650016043,
+              0.006662889869836946
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": 0.011262881115218427,
+            "bootstrap95": [
+              0.006212305991697718,
+              0.016125809607690722
+            ]
+          },
+          "attenuate_both": {
+            "mean": 0.005045796365351081,
+            "bootstrap95": [
+              0.002659160187005516,
+              0.007421345894404533
+            ]
+          }
+        },
+        "factorial": {
+          "common_untreated_absolute_order_effect": {
+            "mean": 0.012089710485065148,
+            "bootstrap95": [
+              0.0067534738167247385,
+              0.01748077828166182
+            ]
+          },
+          "primary_selfed_viability_sensitivity": {
+            "mean": 0.008145118059918143,
+            "bootstrap95": [
+              0.0037080829586071114,
+              0.012773054915678586
+            ]
+          },
+          "secondary_outcross_viability_sensitivity": {
+            "mean": 0.0008268293698467219,
+            "bootstrap95": [
+              -0.0026802906060939178,
+              0.00412479961024803
+            ]
+          },
+          "secondary_joint_gate_absolute_order_effect": {
+            "mean": 0.005045796365351081,
+            "bootstrap95": [
+              0.002659160187005516,
+              0.007421345894404533
+            ]
+          },
+          "factorial_nonadditivity": {
+            "mean": 0.001928033310050796,
+            "bootstrap95": [
+              -0.0016586204144235222,
+              0.005515500739712461
+            ]
+          }
+        },
+        "near_by_gate": {
+          "baseline": {
+            "mean": 0.0165595731228406,
+            "bootstrap95": [
+              0.006947427938309712,
+              0.026270321253598076
+            ]
+          },
+          "attenuate_self": {
+            "mean": 0.00640962319819306,
+            "bootstrap95": [
+              0.002425482574882419,
+              0.010403148137219114
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": 0.0177583691747126,
+            "bootstrap95": [
+              0.009672384866812603,
+              0.025761441162512354
+            ]
+          },
+          "attenuate_both": {
+            "mean": 0.006605089056110761,
+            "bootstrap95": [
+              0.0031760032885598836,
+              0.009986314678235604
+            ]
+          }
+        },
+        "far_by_gate": {
+          "baseline": {
+            "mean": 0.007619847847289699,
+            "bootstrap95": [
+              0.0025180343233851513,
+              0.01257989305572425
+            ]
+          },
+          "attenuate_self": {
+            "mean": 0.001479561652100953,
+            "bootstrap95": [
+              -0.0017167338927910633,
+              0.004675108044610814
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": 0.0047673930557242524,
+            "bootstrap95": [
+              -0.0001926521527102972,
+              0.009676872649717167
+            ]
+          },
+          "attenuate_both": {
+            "mean": 0.0034865036745914003,
+            "bootstrap95": [
+              0.0005047793061016546,
+              0.006372925424535442
+            ]
+          }
+        }
+      },
+      "selfed_recruits": {
+        "schedule_by_gate": {
+          "baseline": {
+            "mean": 10.690128428167771,
+            "bootstrap95": [
+              7.683509773617459,
+              13.685822027134366
+            ]
+          },
+          "attenuate_self": {
+            "mean": 4.242118375049862,
+            "bootstrap95": [
+              2.826616494541167,
+              5.663277058366674
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": 9.46335228254662,
+            "bootstrap95": [
+              6.659251484196645,
+              12.218209082086133
+            ]
+          },
+          "attenuate_both": {
+            "mean": 4.382670393190366,
+            "bootstrap95": [
+              2.8058259640596153,
+              5.9209296585018745
+            ]
+          }
+        },
+        "factorial": {
+          "common_untreated_absolute_order_effect": {
+            "mean": 10.690128428167771,
+            "bootstrap95": [
+              7.683509773617459,
+              13.685822027134366
+            ]
+          },
+          "primary_selfed_viability_sensitivity": {
+            "mean": 6.44801005311791,
+            "bootstrap95": [
+              4.386407409608577,
+              8.518453928809551
+            ]
+          },
+          "secondary_outcross_viability_sensitivity": {
+            "mean": 1.2267761456211523,
+            "bootstrap95": [
+              0.14850374412548084,
+              2.295673440182497
+            ]
+          },
+          "secondary_joint_gate_absolute_order_effect": {
+            "mean": 4.382670393190366,
+            "bootstrap95": [
+              2.8058259640596153,
+              5.9209296585018745
+            ]
+          },
+          "factorial_nonadditivity": {
+            "mean": 1.367328163761655,
+            "bootstrap95": [
+              -0.041935444386429745,
+              2.75993561280809
+            ]
+          }
+        },
+        "near_by_gate": {
+          "baseline": {
+            "mean": 13.76059839027371,
+            "bootstrap95": [
+              8.736711974245482,
+              18.79917843672944
+            ]
+          },
+          "attenuate_self": {
+            "mean": 5.861887485243793,
+            "bootstrap95": [
+              3.592129570314581,
+              8.158344705407524
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": 13.338682656747928,
+            "bootstrap95": [
+              8.790448446817424,
+              17.86975274148135
+            ]
+          },
+          "attenuate_both": {
+            "mean": 5.725803570024283,
+            "bootstrap95": [
+              3.437557875466613,
+              7.929438022108105
+            ]
+          }
+        },
+        "far_by_gate": {
+          "baseline": {
+            "mean": 7.619658466061834,
+            "bootstrap95": [
+              4.611671355895233,
+              10.751809877990214
+            ]
+          },
+          "attenuate_self": {
+            "mean": 2.6223492648559326,
+            "bootstrap95": [
+              1.0903127403403887,
+              4.15106787000644
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": 5.588021908345311,
+            "bootstrap95": [
+              2.775757639527524,
+              8.418917759217257
+            ]
+          },
+          "attenuate_both": {
+            "mean": 3.0395372163564462,
+            "bootstrap95": [
+              1.3038965774456783,
+              4.812425513001373
+            ]
+          }
+        }
+      },
+      "outcross_recruits": {
+        "schedule_by_gate": {
+          "baseline": {
+            "mean": -3.6300849205047125,
+            "bootstrap95": [
+              -4.884119438881141,
+              -2.4259379746596803
+            ]
+          },
+          "attenuate_self": {
+            "mean": -2.744798766155499,
+            "bootstrap95": [
+              -3.884053172384155,
+              -1.6375216567506148
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": -1.9330568224830325,
+            "bootstrap95": [
+              -2.558593349930125,
+              -1.3121043599650342
+            ]
+          },
+          "attenuate_both": {
+            "mean": -1.1022405954571042,
+            "bootstrap95": [
+              -1.5097154316992392,
+              -0.7025695523480178
+            ]
+          }
+        },
+        "factorial": {
+          "common_untreated_absolute_order_effect": {
+            "mean": -3.6300849205047125,
+            "bootstrap95": [
+              -4.884119438881141,
+              -2.4259379746596803
+            ]
+          },
+          "primary_selfed_viability_sensitivity": {
+            "mean": -0.8852861543492136,
+            "bootstrap95": [
+              -1.5481526384414053,
+              -0.2552188364674485
+            ]
+          },
+          "secondary_outcross_viability_sensitivity": {
+            "mean": -1.6970280980216796,
+            "bootstrap95": [
+              -2.424497438043937,
+              -1.0197211765603762
+            ]
+          },
+          "secondary_joint_gate_absolute_order_effect": {
+            "mean": -1.1022405954571042,
+            "bootstrap95": [
+              -1.5097154316992392,
+              -0.7025695523480178
+            ]
+          },
+          "factorial_nonadditivity": {
+            "mean": -0.05446992732328512,
+            "bootstrap95": [
+              -0.6706437770871655,
+              0.558278422644453
+            ]
+          }
+        },
+        "near_by_gate": {
+          "baseline": {
+            "mean": -3.4129995520275695,
+            "bootstrap95": [
+              -5.293645258924282,
+              -1.5974485227499322
+            ]
+          },
+          "attenuate_self": {
+            "mean": -3.014678601734398,
+            "bootstrap95": [
+              -4.652120371595884,
+              -1.4163653649615087
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": -1.8783667595289386,
+            "bootstrap95": [
+              -2.838946117355539,
+              -0.957742014184337
+            ]
+          },
+          "attenuate_both": {
+            "mean": -1.0529289589788162,
+            "bootstrap95": [
+              -1.704400642213289,
+              -0.4298974406764532
+            ]
+          }
+        },
+        "far_by_gate": {
+          "baseline": {
+            "mean": -3.8471702889818555,
+            "bootstrap95": [
+              -5.411535425055261,
+              -2.3508658254513635
+            ]
+          },
+          "attenuate_self": {
+            "mean": -2.4749189305766,
+            "bootstrap95": [
+              -3.8226873671751607,
+              -1.2052509070619255
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": -1.9877468854371267,
+            "bootstrap95": [
+              -2.821313836622845,
+              -1.1808219456348588
+            ]
+          },
+          "attenuate_both": {
+            "mean": -1.1515522319353921,
+            "bootstrap95": [
+              -1.6916509471002135,
+              -0.6221294248742096
+            ]
+          }
+        }
+      },
+      "t0_maternal_viable": {
+        "schedule_by_gate": {
+          "baseline": {
+            "mean": 0.15938494234953554,
+            "bootstrap95": [
+              0.08088212060480714,
+              0.23710511526719272
+            ]
+          },
+          "attenuate_self": {
+            "mean": -0.03878571944544852,
+            "bootstrap95": [
+              -0.11257857285295715,
+              0.03237193600714604
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": 0.27786313296975196,
+            "bootstrap95": [
+              0.20382095354674828,
+              0.3500655547300027
+            ]
+          },
+          "attenuate_both": {
+            "mean": 0.07969247117476774,
+            "bootstrap95": [
+              0.04044106030240359,
+              0.11855255763359636
+            ]
+          }
+        },
+        "factorial": {
+          "common_untreated_absolute_order_effect": {
+            "mean": 0.15938494234953554,
+            "bootstrap95": [
+              0.08088212060480714,
+              0.23710511526719272
+            ]
+          },
+          "primary_selfed_viability_sensitivity": {
+            "mean": 0.19817066179498402,
+            "bootstrap95": [
+              0.15111698637568696,
+              0.24469637400990144
+            ]
+          },
+          "secondary_outcross_viability_sensitivity": {
+            "mean": -0.11847819062021644,
+            "bootstrap95": [
+              -0.16592002374618095,
+              -0.07261413426012508
+            ]
+          },
+          "secondary_joint_gate_absolute_order_effect": {
+            "mean": 0.07969247117476774,
+            "bootstrap95": [
+              0.04044106030240359,
+              0.11855255763359636
+            ]
+          },
+          "factorial_nonadditivity": {
+            "mean": -1.5785983631388945e-16,
+            "bootstrap95": [
+              -3.5128150388530344e-16,
+              3.122502256758253e-17
+            ]
+          }
+        },
+        "near_by_gate": {
+          "baseline": {
+            "mean": 0.2545152840104923,
+            "bootstrap95": [
+              0.13008320748079166,
+              0.37788615733973796
+            ]
+          },
+          "attenuate_self": {
+            "mean": 0.00531915025769685,
+            "bootstrap95": [
+              -0.10695460651787309,
+              0.11074217837534454
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": 0.37645377575804173,
+            "bootstrap95": [
+              0.25633745687571124,
+              0.4966953628986025
+            ]
+          },
+          "attenuate_both": {
+            "mean": 0.12725764200524614,
+            "bootstrap95": [
+              0.06504160374039585,
+              0.18894307866986895
+            ]
+          }
+        },
+        "far_by_gate": {
+          "baseline": {
+            "mean": 0.06425460068857873,
+            "bootstrap95": [
+              -0.02221124555752905,
+              0.14681093037809637
+            ]
+          },
+          "attenuate_self": {
+            "mean": -0.08289058914859389,
+            "bootstrap95": [
+              -0.17260759325093453,
+              0.005720313466340258
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": 0.17927249018146213,
+            "bootstrap95": [
+              0.10664805523183567,
+              0.2503802702494471
+            ]
+          },
+          "attenuate_both": {
+            "mean": 0.03212730034428937,
+            "bootstrap95": [
+              -0.011105622778764517,
+              0.07340546518904818
+            ]
+          }
+        }
+      },
+      "t0_selfed_viable": {
+        "schedule_by_gate": {
+          "baseline": {
+            "mean": 0.3963413235899683,
+            "bootstrap95": [
+              0.3022339727513743,
+              0.48939274801980276
+            ]
+          },
+          "attenuate_self": {
+            "mean": 0.19817066179498416,
+            "bootstrap95": [
+              0.15111698637568716,
+              0.24469637400990138
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": 0.3963413235899683,
+            "bootstrap95": [
+              0.3022339727513743,
+              0.48939274801980276
+            ]
+          },
+          "attenuate_both": {
+            "mean": 0.19817066179498416,
+            "bootstrap95": [
+              0.15111698637568716,
+              0.24469637400990138
+            ]
+          }
+        },
+        "factorial": {
+          "common_untreated_absolute_order_effect": {
+            "mean": 0.3963413235899683,
+            "bootstrap95": [
+              0.3022339727513743,
+              0.48939274801980276
+            ]
+          },
+          "primary_selfed_viability_sensitivity": {
+            "mean": 0.19817066179498416,
+            "bootstrap95": [
+              0.15111698637568716,
+              0.2446963740099014
+            ]
+          },
+          "secondary_outcross_viability_sensitivity": {
+            "mean": 1.214306433183765e-17,
+            "bootstrap95": [
+              -1.9949319973733282e-17,
+              4.423544863740858e-17
+            ]
+          },
+          "secondary_joint_gate_absolute_order_effect": {
+            "mean": 0.19817066179498416,
+            "bootstrap95": [
+              0.15111698637568716,
+              0.24469637400990138
+            ]
+          },
+          "factorial_nonadditivity": {
+            "mean": 1.214306433183765e-17,
+            "bootstrap95": [
+              -1.9949319973733282e-17,
+              4.423544863740858e-17
+            ]
+          }
+        },
+        "near_by_gate": {
+          "baseline": {
+            "mean": 0.4983922675055912,
+            "bootstrap95": [
+              0.34669898948787775,
+              0.650941658100692
+            ]
+          },
+          "attenuate_self": {
+            "mean": 0.2491961337527956,
+            "bootstrap95": [
+              0.17334949474393885,
+              0.32547082905034597
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": 0.4983922675055912,
+            "bootstrap95": [
+              0.3466989894878777,
+              0.6509416581006919
+            ]
+          },
+          "attenuate_both": {
+            "mean": 0.2491961337527956,
+            "bootstrap95": [
+              0.17334949474393885,
+              0.32547082905034597
+            ]
+          }
+        },
+        "far_by_gate": {
+          "baseline": {
+            "mean": 0.29429037967434546,
+            "bootstrap95": [
+              0.19585038574052982,
+              0.3970701136282034
+            ]
+          },
+          "attenuate_self": {
+            "mean": 0.1471451898371727,
+            "bootstrap95": [
+              0.09792519287026491,
+              0.19853505681410163
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": 0.2942903796743454,
+            "bootstrap95": [
+              0.19585038574052982,
+              0.39707011362820327
+            ]
+          },
+          "attenuate_both": {
+            "mean": 0.1471451898371727,
+            "bootstrap95": [
+              0.09792519287026491,
+              0.19853505681410163
+            ]
+          }
+        }
+      },
+      "t0_female_outcross": {
+        "schedule_by_gate": {
+          "baseline": {
+            "mean": -0.23695638124043267,
+            "bootstrap95": [
+              -0.33184004749236157,
+              -0.14522826852025003
+            ]
+          },
+          "attenuate_self": {
+            "mean": -0.23695638124043272,
+            "bootstrap95": [
+              -0.33184004749236157,
+              -0.14522826852025003
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": -0.11847819062021636,
+            "bootstrap95": [
+              -0.16592002374618078,
+              -0.07261413426012502
+            ]
+          },
+          "attenuate_both": {
+            "mean": -0.11847819062021636,
+            "bootstrap95": [
+              -0.16592002374618078,
+              -0.07261413426012502
+            ]
+          }
+        },
+        "factorial": {
+          "common_untreated_absolute_order_effect": {
+            "mean": -0.23695638124043267,
+            "bootstrap95": [
+              -0.33184004749236157,
+              -0.14522826852025003
+            ]
+          },
+          "primary_selfed_viability_sensitivity": {
+            "mean": 1.0842021724855044e-18,
+            "bootstrap95": [
+              -1.3888629829539308e-17,
+              1.6263032587282567e-17
+            ]
+          },
+          "secondary_outcross_viability_sensitivity": {
+            "mean": -0.11847819062021633,
+            "bootstrap95": [
+              -0.16592002374618078,
+              -0.072614134260125
+            ]
+          },
+          "secondary_joint_gate_absolute_order_effect": {
+            "mean": -0.11847819062021636,
+            "bootstrap95": [
+              -0.16592002374618078,
+              -0.07261413426012502
+            ]
+          },
+          "factorial_nonadditivity": {
+            "mean": 1.0842021724855044e-18,
+            "bootstrap95": [
+              -1.3888629829539308e-17,
+              1.6263032587282567e-17
+            ]
+          }
+        },
+        "near_by_gate": {
+          "baseline": {
+            "mean": -0.24387698349509876,
+            "bootstrap95": [
+              -0.38706707653433137,
+              -0.10407572494418774
+            ]
+          },
+          "attenuate_self": {
+            "mean": -0.2438769834950988,
+            "bootstrap95": [
+              -0.3870670765343314,
+              -0.10407572494418772
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": -0.1219384917475494,
+            "bootstrap95": [
+              -0.1935335382671657,
+              -0.05203786247209386
+            ]
+          },
+          "attenuate_both": {
+            "mean": -0.1219384917475494,
+            "bootstrap95": [
+              -0.1935335382671657,
+              -0.05203786247209386
+            ]
+          }
+        },
+        "far_by_gate": {
+          "baseline": {
+            "mean": -0.23003577898576663,
+            "bootstrap95": [
+              -0.3484822643545791,
+              -0.11547781693277108
+            ]
+          },
+          "attenuate_self": {
+            "mean": -0.23003577898576663,
+            "bootstrap95": [
+              -0.3484822643545791,
+              -0.11547781693277108
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": -0.11501788949288332,
+            "bootstrap95": [
+              -0.17424113217728954,
+              -0.05773890846638554
+            ]
+          },
+          "attenuate_both": {
+            "mean": -0.11501788949288332,
+            "bootstrap95": [
+              -0.17424113217728954,
+              -0.05773890846638554
+            ]
+          }
+        }
+      },
+      "t0_expected_pollen_export": {
+        "schedule_by_gate": {
+          "baseline": {
+            "mean": -0.7985322887641708,
+            "bootstrap95": [
+              -1.1598468150382903,
+              -0.45596030423738715
+            ]
+          },
+          "attenuate_self": {
+            "mean": -0.7985322887641708,
+            "bootstrap95": [
+              -1.1598468150382903,
+              -0.45596030423738715
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": -0.7985322887641708,
+            "bootstrap95": [
+              -1.1598468150382903,
+              -0.45596030423738715
+            ]
+          },
+          "attenuate_both": {
+            "mean": -0.7985322887641708,
+            "bootstrap95": [
+              -1.1598468150382903,
+              -0.45596030423738715
+            ]
+          }
+        },
+        "factorial": {
+          "common_untreated_absolute_order_effect": {
+            "mean": -0.7985322887641708,
+            "bootstrap95": [
+              -1.1598468150382903,
+              -0.45596030423738715
+            ]
+          },
+          "primary_selfed_viability_sensitivity": {
+            "mean": 6.418476861114186e-17,
+            "bootstrap95": [
+              0.0,
+              1.3877787807814457e-16
+            ]
+          },
+          "secondary_outcross_viability_sensitivity": {
+            "mean": 6.418476861114186e-17,
+            "bootstrap95": [
+              0.0,
+              1.3877787807814457e-16
+            ]
+          },
+          "secondary_joint_gate_absolute_order_effect": {
+            "mean": -0.7985322887641708,
+            "bootstrap95": [
+              -1.1598468150382903,
+              -0.45596030423738715
+            ]
+          },
+          "factorial_nonadditivity": {
+            "mean": 6.418476861114186e-17,
+            "bootstrap95": [
+              0.0,
+              1.3877787807814457e-16
+            ]
+          }
+        },
+        "near_by_gate": {
+          "baseline": {
+            "mean": -0.8701786352221004,
+            "bootstrap95": [
+              -1.4290067042508026,
+              -0.32521570677670525
+            ]
+          },
+          "attenuate_self": {
+            "mean": -0.8701786352221006,
+            "bootstrap95": [
+              -1.4290067042508026,
+              -0.32521570677670525
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": -0.8701786352221006,
+            "bootstrap95": [
+              -1.4290067042508026,
+              -0.32521570677670525
+            ]
+          },
+          "attenuate_both": {
+            "mean": -0.8701786352221006,
+            "bootstrap95": [
+              -1.4290067042508026,
+              -0.32521570677670525
+            ]
+          }
+        },
+        "far_by_gate": {
+          "baseline": {
+            "mean": -0.726885942306241,
+            "bootstrap95": [
+              -1.1974316201832245,
+              -0.2587451375381371
+            ]
+          },
+          "attenuate_self": {
+            "mean": -0.7268859423062412,
+            "bootstrap95": [
+              -1.1974316201832247,
+              -0.2587451375381371
+            ]
+          },
+          "attenuate_outcross": {
+            "mean": -0.7268859423062412,
+            "bootstrap95": [
+              -1.1974316201832247,
+              -0.2587451375381371
+            ]
+          },
+          "attenuate_both": {
+            "mean": -0.7268859423062412,
+            "bootstrap95": [
+              -1.1974316201832247,
+              -0.2587451375381371
+            ]
+          }
+        }
+      }
+    }
+  },
+  "cautions": [
+    "Old, already outcome-exposed historical states were reused under a prospectively declared NEW viability intervention.",
+    "Conditional sensitivity to seed viability is not natural genetic-order mediation.",
+    "Source-genotype history and genome-wide parental covariance not manipulated.",
+    "Original pooled interaction was practically equivalent; fixed resource-window follow-up failed confirmation.",
+    "Synthetic stress is not calibrated for natural Izu population persistence.",
+    "The 229376 future trajectories are correlated branches, never 229376 independent ecological replicates."
+  ]
+}

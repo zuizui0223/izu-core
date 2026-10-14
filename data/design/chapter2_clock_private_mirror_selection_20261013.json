@@ -1,0 +1,112 @@
+{
+  "schema": "chapter2_clock_private_mirror_provider_selection_v1",
+  "status": "AUTHOR_SELECTED_PRIVATE_MIRROR_NO_BIOLOGICAL_DATA_OR_EXECUTION_APPROVAL",
+  "decision_date_jst": "2026-10-13",
+  "pilot_scope": {
+    "original_biological_execution_commit": "328548612e93469fcc8663f24548530a57399b9a",
+    "registered_input_count": 1536,
+    "paired_founder_history_clusters": 128,
+    "source_shards": [
+      "main_c0",
+      "main_c3",
+      "main_c4",
+      "confirmation_c0",
+      "confirmation_c3",
+      "confirmation_c4"
+    ],
+    "cases_per_shard": 256,
+    "updates_per_case": 200
+  },
+  "private_mirror_provider_decision": {
+    "provider": "Google Drive",
+    "purpose": "Owner-only separate-provider private original-ZIP mirror and independent-readback receipt staging for this pilot",
+    "private_staging_provider_selected": true,
+    "source_provider_is_separate": true,
+    "provider_permission_metadata_checked_on_date_jst": "2026-10-13",
+    "storage_root_created_and_read_back": true,
+    "root_in_existing_private_chapter2_backup_area": true,
+    "raw_mirror_child_created_and_read_back": true,
+    "independent_receipt_child_created_and_read_back": true,
+    "metadata_returned_shared_false_owner_only": true,
+    "private_folder_identifiers_and_urls_committed_to_public_repo": false,
+    "original_zip_count_in_mirror_at_attestation": 0,
+    "independent_raw_readback_receipt_count_at_attestation": 0,
+    "independently_authenticated_storage_custody": false,
+    "independently_approved_long_term_data_repository": false
+  },
+  "prospective_source_publication_proposal": {
+    "source_staging_provider": "GitHub repository original source + separately reviewed immutable draft release",
+    "original_six_shard_release_created": false,
+    "github_release_as_scientific_public_doi_repository": false,
+    "public_distribution_approved": false,
+    "license_or_embargo_approved": false,
+    "separate_reviewer_and_data_custodian_approved": false
+  },
+  "current_frozen_source_blobs": {
+    "pilot_registry": {
+      "path": "data/design/chapter2_clock_factorial_pilot_input_inventory_20261013.json",
+      "git_blob": "f18eae09e3f569ae7edefe970ea17d93c64b1bd5"
+    },
+    "original_model3_producer": {
+      "path": "scripts/prepare_chapter2_clock_pilot_archive_20261013.py",
+      "git_blob": "9548f5a499c18c1c037e6ab9acc0d0a0d3d06632"
+    },
+    "independent_original_model3_reader": {
+      "path": "scripts/verify_chapter2_clock_pilot_raw_20261013.py",
+      "git_blob": "6d2feddeec461da2c5ac247ca3b13c7b09936ae2"
+    },
+    "all_six_reader_aggregation": {
+      "path": "scripts/aggregate_chapter2_clock_pilot_verified_shards_20261013.py",
+      "git_blob": "188f6daad2097c4909ed5e085841cda16a911244"
+    },
+    "lossless_shard_packer": {
+      "path": "scripts/package_chapter2_clock_pilot_shard_20261013.py",
+      "git_blob": "af7a88827c9d16b3e954397a1e5f80b1f9f0c537"
+    },
+    "external_release_and_mirror_reviewer": {
+      "path": "scripts/review_chapter2_clock_external_archives_20261013.py",
+      "git_blob": "8240a1ea201647a93196fc7638ca92a7fc5650e6"
+    },
+    "invalid_until_sources_exist_external_manifest": {
+      "path": "data/design/chapter2_clock_external_archive_receipt_TEMPLATE_20261013.json",
+      "git_blob": "2dcd3759eef73a1bd12525e3b3f2164c7764e63f"
+    },
+    "pre_outcome_factorial_report": {
+      "path": "data/design/chapter2_clock_factorial_pilot_analysis_contract_20261013.json",
+      "git_blob": "06c343b6e20a08c0575ddbe6ace5ef5fbdeb85ed"
+    },
+    "lossless_packaging_contract": {
+      "path": "data/design/chapter2_clock_pilot_release_packaging_contract_20261013.json",
+      "git_blob": "33005fc050b86d2fda5be7267da361d6607b1c71"
+    }
+  },
+  "execution_authorization": {
+    "registered_pilot_biological_cases_executed": 0,
+    "new_pilot_original_shards_uploaded": 0,
+    "real_source_mirror_pairs_independently_retrieved": 0,
+    "new_pilot_independent_shard_readbacks_admitted": 0,
+    "original_200_update_producer_approval_git_blob": null,
+    "independent_scientific_reviewer_approval": false,
+    "external_data_custody_and_preservation_signoff": false,
+    "scientific_pilot_run_authorized_by_this_record": false,
+    "source_zip_sha256s": null,
+    "public_persistent_identifier_doi": null
+  },
+  "previous_cohort_non_transfer": {
+    "historical_520_of_521_demographic_zip_backup_is_not_pilot_source": true,
+    "previous_provider_safety_block_must_not_be_bypassed": true
+  },
+  "conditions_required_before_source_run": [
+    "Independent source-model, registered input, six-class and raw-writer review",
+    "Separate source-producer reviewer explicitly authorizes one 1536-by-200 exploratory pilot on an immutable signed/hashed approval record",
+    "Authorized preservation route with primary source and owner-only Google Drive staging checked, including size, quota, custody, non-overwrite and lossless readback",
+    "Original human-reviewed storage and output data access/licensing/embargo choices where applicable",
+    "Frozen exploratory analysis and all-six external raw-source independent review contracts"
+  ],
+  "known_limits": [
+    "Owner-only Google Drive metadata is observed, not independently verified custody or a DOI backed research repository",
+    "Empty cloud folders do not constitute any original genotype data, mirror copy, or source replay",
+    "The saved source SHA files describe technical readiness, not scientific pilot outcome",
+    "Original external raw source workflow must never be enabled from this mirror selection decision alone"
+  ]
+}

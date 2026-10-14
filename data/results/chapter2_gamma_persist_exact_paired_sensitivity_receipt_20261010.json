@@ -1,0 +1,57 @@
+{
+  "schema": "chapter2_gamma_persist_exact_paired_sensitivity_source_receipt_v1",
+  "date": "2026-10-10",
+  "status": "POST_OUTCOME_METHOD_SENSITIVITY_COMPLETED_SOURCE_LOCKED",
+  "executed_source_commit": "d6553854ce8cd1d67be2e78150ff9bd8ca7cade8",
+  "workflow_run": 38015230004,
+  "artifact_id": 11656145347,
+  "raw_json_sha256": "4e4739bb28fac2777d7c7c478ab649d728dfe771722363ce9471c04d4bb00779",
+  "zip_sha256": "993f24d710d538d97fcadfc18e4833a7bd030cebf0c57df6b4c149a3e63f2fb9",
+  "original_64_history_receipt": "data/results/chapter2_gamma_persist_64_history_holdout_receipt_20261010.json",
+  "original_full_raw_sha256": "a96540fa9c6e96ba3f1e9c15d9dcc0690707742316911f730a425ec76c5275c7",
+  "analysis": "Source-preserved exact pair-exclusive discordance probability Clopper-Pearson marginal CIs with Bonferroni simultaneous 95%, probability difference CI via subtractive bounds",
+  "horizon20": {
+    "resolved_positive": 1,
+    "resolved_negative": 0,
+    "practically_equivalent": 0,
+    "inconclusive": 7
+  },
+  "horizon80": {
+    "resolved_positive": 0,
+    "resolved_negative": 0,
+    "practically_equivalent": 0,
+    "inconclusive": 8
+  },
+  "horizon20_supported_positive": {
+    "K": 48,
+    "assurance": 0.35,
+    "gate": "half_self",
+    "n_plus_occupied": 32,
+    "n_minus_occupied": 10,
+    "n_independent_visitor_histories": 64,
+    "paired_plus_only": 22,
+    "paired_minus_only": 0,
+    "absolute_probability_point_effect": 0.34375,
+    "conservative_simultaneous_95": [
+      0.1494296015696699,
+      0.4906892751337711
+    ]
+  },
+  "all_equal_endpoint_pair_interval": {
+    "n_histories": 64,
+    "paired_plus_only": 0,
+    "paired_minus_only": 0,
+    "conservative_simultaneous_95_approx": [
+      -0.0662,
+      0.0662
+    ],
+    "interpretation": "[0,0] naive percentile bootstrap on all equal observed survival pairs is not proof of ±5pp practical equivalence"
+  },
+  "limitations": [
+    "Status is post-outcome interval sensitivity; original preregistered percentile bootstrap output is not overwritten.",
+    "None of eight 80-update cells is resolved including in both directions and against equivalence bounds; cannot claim biological absence.",
+    "Histories are independent RNG draws within one source visitor simulator, not 64 independently observed ecological systems.",
+    "Source genotype is monomorphic and mutation zero: no evolution or evolutionary-suicide test.",
+    "The 20-update signal is not a formally tested time interaction with 80 updates."
+  ]
+}

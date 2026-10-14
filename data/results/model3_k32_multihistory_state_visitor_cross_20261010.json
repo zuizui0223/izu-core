@@ -1,0 +1,315 @@
+{
+  "schema": "original_model3_k32_multihistory_parent_state_visitor_cross_v1",
+  "status": "SOURCE_LOCKED_FOCUSED_CI_PASS_EXPLORATORY_8_VISITOR_HISTORIES",
+  "provenance": {
+    "executed_source_commit": "0abd8157a9d2f79527c1fb7bb07237cd953b946a",
+    "run_id": 37956149435,
+    "job_id": 113907677234,
+    "job_conclusion": "success",
+    "full_artifact_id": 11627938030,
+    "raw_artifact_url": "https://github.com/zuizui0223/izu-core/actions/runs/37956149435/artifacts/11627938030",
+    "archive_sha256": "03ce2a0abbbcc5c87057d8265211c9e539b05e2007a7d9331a18cfe86f1a26a8"
+  },
+  "source_design": {
+    "K": 32,
+    "mutation_rate": 0,
+    "generations": 8,
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "old_reference_seed_excluded": 26110601,
+    "new_visitor_seeds": [
+      26110602,
+      26110603,
+      26110604,
+      26110605,
+      26110606,
+      26110607,
+      26110608,
+      26110609
+    ],
+    "n_independent_rng_history_seeds": 8,
+    "n_nested_demographic_paths_per_seed": 128,
+    "budgets": [
+      8,
+      3
+    ],
+    "original_model3_reproductive_biology_modified": false,
+    "source_paths_conditioned_on_parent_year8_survival": true,
+    "source_parent_states_from_year1_and_year8": true,
+    "visitor_snapshots_from_year1_and_year8_within_same_seed": true,
+    "offdiagonal_cells_one_step_not_autonomous": true,
+    "frozen_prospective_chapter2_seed_cohorts_used": false
+  },
+  "cases": [
+    {
+      "budget": 8,
+      "history_summary": {
+        "n_new_histories": 8,
+        "n_early_negative_matching_direction": 6,
+        "n_late_positive_matching_direction": 5,
+        "n_negative_to_positive_matching_direction": 4,
+        "n_late_parent_positive_with_early_visitor": 7,
+        "n_early_parent_positive_with_late_visitor": 0,
+        "n_joint_conditions_necessary_among_negative_to_positive": 0,
+        "n_original_flip_with_late_parent_early_visitor_already_positive": 4,
+        "n_original_flip_with_early_parent_late_visitor_already_positive": 0,
+        "mean_state_contribution_matching": 0.03048492048049752,
+        "mean_visitor_contribution_matching": -0.0052914616485280706,
+        "range_state_contribution_matching": [
+          0.007024450408631596,
+          0.07026635341519243
+        ],
+        "range_visitor_contribution_matching": [
+          -0.029922237534628693,
+          0.01869237922060457
+        ],
+        "mean_state_visitor_interaction_matching": 0.007737630336304752,
+        "n_negative_state_contributions": 0,
+        "n_negative_visitor_contributions": 5,
+        "history_level_correlations_descriptive_only": {
+          "late_parent_matching_frequency_vs_state_contribution": -0.8688093841212103,
+          "visitor_contribution_vs_late_expected_direction": 0.5566153946781751,
+          "state_contribution_vs_late_expected_direction": -0.5431452082666093
+        }
+      },
+      "individual_visitor_histories": [
+        {
+          "seed": 26110602,
+          "alive": 128,
+          "matching": {
+            "early_parent_early_visitor": 0.0004943196144372095,
+            "early_parent_late_visitor": -0.010376793916867317,
+            "late_parent_early_visitor": 0.013138460714346052,
+            "late_parent_late_visitor": 0.00935587883347556
+          },
+          "state_contribution": 0.01618840692512587,
+          "visitor_contribution": -0.007326847706087512
+        },
+        {
+          "seed": 26110603,
+          "alive": 128,
+          "matching": {
+            "early_parent_early_visitor": -0.0375810869803077,
+            "early_parent_late_visitor": -0.012881750499887726,
+            "late_parent_early_visitor": 0.0011872484174019057,
+            "late_parent_late_visitor": 0.013872670378191137
+          },
+          "state_contribution": 0.03276137813789422,
+          "visitor_contribution": 0.01869237922060457
+        },
+        {
+          "seed": 26110604,
+          "alive": 128,
+          "matching": {
+            "early_parent_early_visitor": -0.02882498032602019,
+            "early_parent_late_visitor": -0.013745942967619452,
+            "late_parent_early_visitor": 0.0014986352840165188,
+            "late_parent_late_visitor": 0.00678424858732702
+          },
+          "state_contribution": 0.025426903582491618,
+          "visitor_contribution": 0.010182325330855621
+        },
+        {
+          "seed": 26110605,
+          "alive": 128,
+          "matching": {
+            "early_parent_early_visitor": -0.0027795623406403824,
+            "early_parent_late_visitor": -0.0343153821184735,
+            "late_parent_early_visitor": 0.009130041452959755,
+            "late_parent_late_visitor": 0.0019279004643463354
+          },
+          "state_contribution": 0.024076443188209964,
+          "visitor_contribution": -0.019368980383223242
+        },
+        {
+          "seed": 26110606,
+          "alive": 128,
+          "matching": {
+            "early_parent_early_visitor": 0.02186447114989733,
+            "early_parent_late_visitor": -0.021639496225686887,
+            "late_parent_early_visitor": 0.015307191717573354,
+            "late_parent_late_visitor": -0.001033315976099744
+          },
+          "state_contribution": 0.007024450408631596,
+          "visitor_contribution": -0.029922237534628693
+        },
+        {
+          "seed": 26110607,
+          "alive": 128,
+          "matching": {
+            "early_parent_early_visitor": -0.07748957133931107,
+            "early_parent_late_visitor": -0.07748957133931107,
+            "late_parent_early_visitor": -0.007223217924118559,
+            "late_parent_late_visitor": -0.007223217924118559
+          },
+          "state_contribution": 0.07026635341519243,
+          "visitor_contribution": 0
+        },
+        {
+          "seed": 26110608,
+          "alive": 128,
+          "matching": {
+            "early_parent_early_visitor": -0.008030589219798469,
+            "early_parent_late_visitor": -0.011795694105508842,
+            "late_parent_early_visitor": 0.005171166769865228,
+            "late_parent_late_visitor": 0.006373974949164097
+          },
+          "state_contribution": 0.015685712522168306,
+          "visitor_contribution": -0.0012811483532057467
+        },
+        {
+          "seed": 26110609,
+          "alive": 128,
+          "matching": {
+            "early_parent_early_visitor": -0.04109637527060826,
+            "early_parent_late_visitor": -0.0644809580724404,
+            "late_parent_early_visitor": 0.0012759413543654346,
+            "late_parent_late_visitor": -0.00195384336888174
+          },
+          "state_contribution": 0.05244971566426614,
+          "visitor_contribution": -0.013307183762539561
+        }
+      ]
+    },
+    {
+      "budget": 3,
+      "history_summary": {
+        "n_new_histories": 8,
+        "n_early_negative_matching_direction": 6,
+        "n_late_positive_matching_direction": 6,
+        "n_negative_to_positive_matching_direction": 5,
+        "n_late_parent_positive_with_early_visitor": 7,
+        "n_early_parent_positive_with_late_visitor": 0,
+        "n_joint_conditions_necessary_among_negative_to_positive": 0,
+        "n_original_flip_with_late_parent_early_visitor_already_positive": 5,
+        "n_original_flip_with_early_parent_late_visitor_already_positive": 0,
+        "mean_state_contribution_matching": 0.0288365417258996,
+        "mean_visitor_contribution_matching": -0.005138301159563499,
+        "range_state_contribution_matching": [
+          0.0015870294412704457,
+          0.07504478976700024
+        ],
+        "range_visitor_contribution_matching": [
+          -0.02744577220928142,
+          0.015414742840115323
+        ],
+        "mean_state_visitor_interaction_matching": 0.008043951314233869,
+        "n_negative_state_contributions": 0,
+        "n_negative_visitor_contributions": 5,
+        "history_level_correlations_descriptive_only": {
+          "late_parent_matching_frequency_vs_state_contribution": -0.8287706350367977,
+          "visitor_contribution_vs_late_expected_direction": 0.7802090950778371,
+          "state_contribution_vs_late_expected_direction": -0.16070622679666394
+        }
+      },
+      "individual_visitor_histories": [
+        {
+          "seed": 26110602,
+          "alive": 124,
+          "matching": {
+            "early_parent_early_visitor": 0.0004943196144372441,
+            "early_parent_late_visitor": -0.010376793916867298,
+            "late_parent_early_visitor": 0.0030036348861526307,
+            "late_parent_late_visitor": 0.0015143176672823735
+          },
+          "state_contribution": 0.007200213427932526,
+          "visitor_contribution": -0.006180215375087391
+        },
+        {
+          "seed": 26110603,
+          "alive": 125,
+          "matching": {
+            "early_parent_early_visitor": -0.03758108698030763,
+            "early_parent_late_visitor": -0.012881750499887656,
+            "late_parent_early_visitor": 0.0021607864118016917,
+            "late_parent_late_visitor": 0.008290935611612383
+          },
+          "state_contribution": 0.030457279751804657,
+          "visitor_contribution": 0.015414742840115323
+        },
+        {
+          "seed": 26110604,
+          "alive": 126,
+          "matching": {
+            "early_parent_early_visitor": -0.02882498032602013,
+            "early_parent_late_visitor": -0.013745942967619435,
+            "late_parent_early_visitor": 0.0018424702154770365,
+            "late_parent_late_visitor": 0.0051668208739303985
+          },
+          "state_contribution": 0.024790107191523518,
+          "visitor_contribution": 0.009201694008427077
+        },
+        {
+          "seed": 26110605,
+          "alive": 128,
+          "matching": {
+            "early_parent_early_visitor": -0.0027795623406404227,
+            "early_parent_late_visitor": -0.034315382118473285,
+            "late_parent_early_visitor": 0.004767143116563756,
+            "late_parent_late_visitor": 0.0006939468332001818
+          },
+          "state_contribution": 0.021278017204438893,
+          "visitor_contribution": -0.017804508030598278
+        },
+        {
+          "seed": 26110606,
+          "alive": 126,
+          "matching": {
+            "early_parent_early_visitor": 0.021864471149897362,
+            "early_parent_late_visitor": -0.021639496225686852,
+            "late_parent_early_visitor": 0.007393305424865009,
+            "late_parent_late_visitor": -0.003994271618113571
+          },
+          "state_contribution": 0.0015870294412704457,
+          "visitor_contribution": -0.02744577220928142
+        },
+        {
+          "seed": 26110607,
+          "alive": 125,
+          "matching": {
+            "early_parent_early_visitor": -0.07748957133931106,
+            "early_parent_late_visitor": -0.07748957133931106,
+            "late_parent_early_visitor": -0.00244478157231073,
+            "late_parent_late_visitor": -0.00244478157231073
+          },
+          "state_contribution": 0.07504478976700024,
+          "visitor_contribution": 0
+        },
+        {
+          "seed": 26110608,
+          "alive": 128,
+          "matching": {
+            "early_parent_early_visitor": -0.008030589219798384,
+            "early_parent_late_visitor": -0.011795694105508828,
+            "late_parent_early_visitor": 0.005885986859522896,
+            "late_parent_late_visitor": 0.0064122469683675675
+          },
+          "state_contribution": 0.016062258576598834,
+          "visitor_contribution": -0.0016194223884328648
+        },
+        {
+          "seed": 26110609,
+          "alive": 126,
+          "matching": {
+            "early_parent_early_visitor": -0.04109637527060821,
+            "early_parent_late_visitor": -0.06448095807244038,
+            "late_parent_early_visitor": 0.002464608495837897,
+            "late_parent_late_visitor": 0.0005033350543690839
+          },
+          "state_contribution": 0.05427263844662767,
+          "visitor_contribution": -0.012672928121650436
+        }
+      ]
+    }
+  ],
+  "exact_2x2_identity": "Let A=D(early_parent,early_visitors),B=D(early_parent,late_visitors),C=D(late_parent,early_visitors),D=D(late_parent,late_visitors) for exact original Mendelian expected allele direction q-p. State=0.5[(C-A)+(D-B)], visitor=0.5[(B-A)+(D-C)], interaction=D-C-B+A. State+visitor=D-A. All source self, outcross father and mother components also reconstruct exact mean.",
+  "scientific_interpretation": [
+    "All eight newly generated visitor RNG histories show a positive signed state contribution to the original model matching HIGH expected allele direction in both budgets, but five of eight show a negative signed visitor-year contribution. This is descriptive to original source genotype/census state and one simulator.",
+    "Every one of the 4 budget8 and 5 budget3 original negative-to-positive reversals also has a positive late-parent × EARLY-visitor source mean; none can be induced by LATE visitors on the EARLY parent states alone. These are nonautonomous one-step source comparisons.",
+    "Seed 26110607 is negative even under late-parent state with the same early/late visitors, because its initial early negative matching direction is extremely large. Positive state contribution is therefore NOT sufficient to guarantee late positive direction.",
+    "Seed 26110606 changes from positive early to negative late under both budgets; its visitor contribution is strongly negative and dominates the smaller positive source-state shift.",
+    "The earlier old-reference 82-85 percent signed state attribution is NOT generalized as a stable fraction to these new histories, since visitor components may be negative and small total shifts yield unstable signed percentages.",
+    "All eight visitor RNG histories were drawn after initial outcome exposure from the same visitor generator; no natural island or prospective independent ecology confirmations, frozen Chapter2 cohorts, or verified complete SDE/SPDE.",
+    "Original source parent genotype/census states are conditioned on start-year8 survival; the state contribution is an aggregate of all loci, N and past visitor/demographic selection, NOT assurance-allele causal fitness."
+  ]
+}

@@ -1,0 +1,5321 @@
+{
+  "status": "ALL_61_STATES_THREE_POLICY_CONSTRUCTIONS_FEASIBLE",
+  "scope": "existence_witness_not_future_outcomes_or_random_allocation",
+  "archive_sha256": "8a2462910025b4a386e789583578cb1380349097393916dac4e50d01c9637b7e",
+  "preflight_sha256": "165a0d39f6f226ac4ccfbfb65fef4b2189fde272ccb0c0f33d840d542ae2760b",
+  "constructor_sha256": "43100b79a16e9b698031f7e6fdabe99b94e1d0f826bb139a6f5deddedef1073a",
+  "frozen_domain_source": "frozen_source/scripts/model3_island/types.py",
+  "frozen_domain_source_sha256": "b56b579c8821f0094e395d5bef42e49e557d59781f2dcf8ed14cff895bea292e",
+  "native_calls": 0,
+  "new_random_draws": 0,
+  "constructed_states": 183,
+  "rows": [
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r0_evolving",
+      "trigger": 49,
+      "original_sha256": "2f2ef6c547354ddd17f0041ac050d94a708d5c46b239e1c8e401bdc27f288c46",
+      "fixed_I": 0.375,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "63d2d782229bc65f98a01ada5908b6ced8f0063af6f18a49c7534941696b6619"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "0acc418708b5ff2ff8bf4c918bcb594e82691f1d73e02530a9cbeb46ea75393d"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.25,
+            0.375,
+            0.5
+          ],
+          "allele_array_sha256": "04d8103aefa2223989f79cbfb8ec173e51ffbab8b72606b71d063e70e27bea1b"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r10_evolving",
+      "trigger": 55,
+      "original_sha256": "1ea60c152eccaa809317714401d9395ac99988db41e33b9f8ced552f80272fee",
+      "fixed_I": 0.375,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "0d8db5e65aad32eafff27f10515b9709cf0ae21965ab790b74aa8f40cc30ff2e"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "1deb07cd372c6383ca26e55383274ec362aac667baac34e87f41e7cd66a32b23"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.25,
+            0.375,
+            0.5
+          ],
+          "allele_array_sha256": "a0f708cf01a86c6458fdff6d04749cd97d2514d9c3bfb828755b1a1eb8330660"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r11_evolving",
+      "trigger": 115,
+      "original_sha256": "a7518c9b99bdefce96755244038219b71e7e85753a2ebec394720c19accbd42a",
+      "fixed_I": 0.375,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "b1ab6fa5fdd3602bdef947aa99eab41d1fd2b257771518baf89b6d2902c25023"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "a516b13ad538ce6bd27b130f0a0ce63e36153885304cce4a39ef870aad195016"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.25,
+            0.375,
+            0.5
+          ],
+          "allele_array_sha256": "dfea6a6be9be076cf87bc0615657d1694b0c47d0ac3821f22f6064957447cffc"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r12_evolving",
+      "trigger": 94,
+      "original_sha256": "7d0a84fb687587d21413c1083ba431e7673a934a62be8b485cf4fdab154d5d8f",
+      "fixed_I": 0.375,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "8b63a2c666e5b3452e66524a3e93278644116f76021a5b2476eac19995998a4a"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "2f064fcf2ca9bf62ab6baf06de9cbe83c713c9aeaa7aa745fd80df727af06431"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.25,
+            0.375,
+            0.5
+          ],
+          "allele_array_sha256": "125cdc24165597b2d389ccd9fd8d12d685b141db3055368f0f2fb5848b15883e"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r13_evolving",
+      "trigger": 35,
+      "original_sha256": "a508f59240d3ef82c099df33ec968e663b7bd63353fc8088e09179a6d5b101f8",
+      "fixed_I": 0.375,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "59666a4fe873a3435e6200ec2fa5153b445e993ab5f67130bc9358cf28c2133b"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "dc8a31794065f22b4fcb014093303aef9fec88687a610a485bc8a2674242da98"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.25,
+            0.375,
+            0.5
+          ],
+          "allele_array_sha256": "409252fb8c9ff4a860eaac2a4b124628826e3cdc8838726153ee1aa890131967"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r14_evolving",
+      "trigger": 70,
+      "original_sha256": "e4fa9267e9f6a1f06094394d742a546f7197807c5fd9801de23c5e6408ef541f",
+      "fixed_I": 0.375,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "d761a03460cd5856ef4881009baf9dbd767ea14e02f70229ad56b4a5ff93a8df"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "668f9c21e580aff83a1ac7acd2cea6b3e15a571e90425e9ddda5cf479d536802"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.25,
+            0.375,
+            0.5
+          ],
+          "allele_array_sha256": "3586dc868442c0ec72435015dd6a3de77eee7de099a454ad0c77841d7e2d31f6"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r15_evolving",
+      "trigger": 27,
+      "original_sha256": "f5073c07178d68d7f5ae7e963016372b1b10d0d941d800e38f0b40ced25f8f37",
+      "fixed_I": 0.375,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "13cb461e80abd1a77d9a9a78aa888fbc34bd3a94c135928f60bbc57acaf94118"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "5d1ca390481184e9cd642b2847c774a136d241505e5c1ba6bf8411b4a3479536"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.25,
+            0.375,
+            0.5
+          ],
+          "allele_array_sha256": "6f54a4450aa5e9df7ab29ca86af6adfee83c044b0b6b3745f1d987d9100225a7"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r17_evolving",
+      "trigger": 91,
+      "original_sha256": "091d8bb796e93ad46020dd1f075b8aadf90c0ac5dba688444f1abfefbd9257c8",
+      "fixed_I": 0.375,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "8be1312a93df7ab649c6454329067ac3f4577f61c0263cc477352c64ec9847f8"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "eca53b5e80d1b26a32401ed5b64e1f5a325d7aa35640d8c0db90a0edfbba730c"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.25,
+            0.375,
+            0.5
+          ],
+          "allele_array_sha256": "2719c9e3999e400fd9ba38b37aca25a5417bb6462198679f83fcf41c8ee5c210"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r18_evolving",
+      "trigger": 87,
+      "original_sha256": "639d0bf29a3114f21832810b6428e5b92af107fa3d0e7535300aac255ccabecd",
+      "fixed_I": 0.375,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "24eea9724a922319c91986136e7fb1291f131cc29a250579f285874c8247139e"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "49a032ceadde255af06156f8fa9a56a9ef03f954a1fa0916b7444e6f5b607109"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.25,
+            0.375,
+            0.5
+          ],
+          "allele_array_sha256": "db08a70f336b8ffe32133f5dcfd3a559e790b2afc1ed63b471e6094771f85062"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r19_evolving",
+      "trigger": 23,
+      "original_sha256": "8b7becd5269adc9c70e569aade25346d8e3d8f98cc697175241a1aafdb1c8870",
+      "fixed_I": 0.375,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "26991370bf9835e72ab68ee2658eac5e84dd7f23dda814048c5423266cb6e493"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "394e442c87c846be5eef30f8a71f03f5e134f5a3cc5d6c843144e68184b0021b"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.25,
+            0.375,
+            0.5
+          ],
+          "allele_array_sha256": "667ea83ae2e6faaa03f7e1552acd2b3f4d16f9b1316cee842fd04859f20fba11"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r1_evolving",
+      "trigger": 42,
+      "original_sha256": "79bb0f794adc514286820ddf4887586305bba07465b12b1f0d981ce2591c75e6",
+      "fixed_I": 0.625,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.5625,
+            0.625,
+            0.6875
+          ],
+          "allele_array_sha256": "0f08c1426afa13fcb2c9566a3b513fdfa12d82383df2a5519960405fd3b4616d"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.5625,
+            0.625,
+            0.6875
+          ],
+          "allele_array_sha256": "7ae75a45cbcf2c5415fdf2308ba27875ca2f5d38475f28a298e7fdd2432a7eb5"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.5,
+            0.625,
+            0.75
+          ],
+          "allele_array_sha256": "a5fc2de7d930513594e28644ea2069d51c65a8f127000539278deca347db469c"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r20_evolving",
+      "trigger": 50,
+      "original_sha256": "32cb26e7b4db4acac0df33ec85a45efa8744aaf0f3a1ad4af838f57562b4fbe8",
+      "fixed_I": 0.5,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "3f10226bb4af9e951e0c19f2200c8af312f70e44be2cfdc4b04b2100d8a293fd"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "6ef19c56c97652bc5f8b5fc86f09095680627500c79e68a002d00be69857abb3"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.375,
+            0.5,
+            0.625
+          ],
+          "allele_array_sha256": "3087f81507450074d285e51256f0bc362d3e1ecef94ef6501f5fa238bd040d45"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r21_evolving",
+      "trigger": 63,
+      "original_sha256": "183132c746f4c4a970f842eb201a7c524975c1e0c554a9b82c491158c6d600b4",
+      "fixed_I": 0.375,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "da3a86ced002020134d18a6c151adeeaf054bea7aa52884c4c18acf948fcde94"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "3c41445c7188bda16f5ef02464b3807cf6e478e54de9ab18646f8f03472a2b39"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.25,
+            0.375,
+            0.5
+          ],
+          "allele_array_sha256": "a532a7874a22f86c545699264113d5cd90a42e68e0d8b51bd3c64b29d4ff7f1d"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r22_evolving",
+      "trigger": 12,
+      "original_sha256": "564d9fa8dd05fb3a98cb823695b320cfb5c960d168ace54a218522d58f6c7ad4",
+      "fixed_I": 0.375,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "1bbb5942f63bed06c51157dc5cdd63157815c64d94a6654cbf2663157924c7ed"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "32e59e5c944ff4304827cebd82f1073c706093b556fee1d790ef2f5fea552c1a"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.25,
+            0.375,
+            0.5
+          ],
+          "allele_array_sha256": "b0050bc2ba4924ce703e3d3e63919d26c63464c49fb42df87caf72f67edda671"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r23_evolving",
+      "trigger": 40,
+      "original_sha256": "0f5bd296490e239ee7d3f76955c240f66e53eac76bdb50c12d2bdc726185c7af",
+      "fixed_I": 0.375,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "75d4bc164e93c220406077483daee4ef899e7b2c4672ca1e58822000c3379947"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "c6490378dcf2cad4572c97a9c0d19bb6c2e9d24bbbaa41e6c093bee6d9b26a4f"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.25,
+            0.375,
+            0.5
+          ],
+          "allele_array_sha256": "5bc9b152f38836d4d7275b5d7a080b152c168bc47dca6e67078aef3bbd44042c"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r24_evolving",
+      "trigger": 101,
+      "original_sha256": "5c542aa0ebbc15e61b1df6eadd6f732e588ce6cb7ef9af1040536bf1250f9ac6",
+      "fixed_I": 0.5,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "ebab7287b0ca1495d0b6f985d4fca3f7937d4b8d2c78ecaf6c699e70f3b53716"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "13e84f44d218a4555b97c780811e97b6132dd9ea6e72f6bf4a61aeaebcab1acc"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.375,
+            0.5,
+            0.625
+          ],
+          "allele_array_sha256": "f1c5bf3549c88e96ef4e791f1c5217b58d1abb51afe180d9e6338d2a9d3b082f"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r25_evolving",
+      "trigger": 25,
+      "original_sha256": "5a27068ef2d514a4fb49a7ed205d6d8c151f1a476d3fee5dad2b6f9904f3e005",
+      "fixed_I": 0.375,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "3b19562f080a75de68657eede2bd24dfb04b883ddfce84cca807a23f67bed1e5"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "5cbdd9732c96caf40c48ec166be5f6cd8c6fae3a30d10200dc9abd6606d0e988"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.25,
+            0.375,
+            0.5
+          ],
+          "allele_array_sha256": "d066a96f83561f02423fbf9a108ace4ae59a28fed26706c56a6567854a6a31e4"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r26_evolving",
+      "trigger": 34,
+      "original_sha256": "305e8273466f6487e5b1e4bc4fe280f06d78fd1f0980d55f2f9ed4562172d1c8",
+      "fixed_I": 0.375,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "e23980b1252421ce85c98af591efab498b1f82cfae1eca2c00ba3523cb065f31"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "4df680c8c6deeda265f2d8f128d419961680ede606ce3b446325c39e33e74425"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.25,
+            0.375,
+            0.5
+          ],
+          "allele_array_sha256": "2db22a094a2158e5d13a9e443b6f7946f78b24df0270f29894fbff4a9c8964e6"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r27_evolving",
+      "trigger": 108,
+      "original_sha256": "8f92b3df7290c3fcf70ae820a6fef3d63ea35aac085cc237cdb1838bfdba7e25",
+      "fixed_I": 0.375,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "a05240e0449274f3883195c7e2a4939ace6c20c5c44b7a62fe6951e0e886adf5"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "ae0bd18720af4eb3b07ac58def1769b11a6d53bd2817dad1a58d867e2e0a8d70"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.25,
+            0.375,
+            0.5
+          ],
+          "allele_array_sha256": "2670afe72370459068fc950af123e864bb90c559098aba9f50f3b13de64128ad"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r28_evolving",
+      "trigger": 59,
+      "original_sha256": "d59f8bf280871c9f9674eab903eca606418d58d9d91cab61adc63b7577d6e8ba",
+      "fixed_I": 0.625,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.5625,
+            0.625,
+            0.6875
+          ],
+          "allele_array_sha256": "6d97ad2705684ed081fa2c3669d8c430a95fd1df47340dbbaeeebc0aa3297a6a"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.5625,
+            0.625,
+            0.6875
+          ],
+          "allele_array_sha256": "e5d1f1a7f11f71b6c6fc324a5a01d0db2a097e8e4915f43ecc09a16c20e52272"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.5,
+            0.625,
+            0.75
+          ],
+          "allele_array_sha256": "4adb97817993caf66181a89a020beeb7147be4f173cdc56241701a50ffbfff06"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r29_evolving",
+      "trigger": 59,
+      "original_sha256": "7dd302b127bdb6a01e2fb6fd69017421c2104231c9a370f71d45aaef7d9dd6dd",
+      "fixed_I": 0.375,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "8a39c6e73d6fdaeaceb28b01b488314799ae18b834e6fe62ce368ec039003ae2"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "a7bb49ee15502bb6a78663d169a99cf79d69f75b8a221fab2476a30994b02b93"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.25,
+            0.375,
+            0.5
+          ],
+          "allele_array_sha256": "1d062ffa981f9f1a09ad0ae82c96f8fc2aa0560e6ed4396d9112e5705be1a4b7"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r30_evolving",
+      "trigger": 83,
+      "original_sha256": "8591a34b0e550765d19c7fb48ad7b21dd1a9d1cde2a0c0515f724d61aaf8849e",
+      "fixed_I": 0.5,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "a6579a58bb9f8ea8f0fa18323ba8b1e4dc04b57483abed94cb7ec46d7e0f5536"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "59da694fc3a45c5b9289589a1c9b2c8490c2be668aea32c727763cadc680dc2f"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.375,
+            0.5,
+            0.625
+          ],
+          "allele_array_sha256": "9f5abcc886ea3f547a8f63ab879b1f353d73ee866d675ca9fb592f794dae4791"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r31_evolving",
+      "trigger": 73,
+      "original_sha256": "bf40466079fb0ca9afb0c407643b3c44c586a1c9d1bcb5e9b53415734327ad31",
+      "fixed_I": 0.5,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "a5dfd178b8a87446c62a723df4c28b2df209f428d963fd2ff4e72f04a7586a08"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "4af10338543366b7fc783b90aedd9750bf01134d2fa57b765f096e8c28c58053"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.375,
+            0.5,
+            0.625
+          ],
+          "allele_array_sha256": "0aad4fb92e2b40b75a0f8ce117b412c444cd78350edebf9d75928a73383ec38e"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r3_evolving",
+      "trigger": 61,
+      "original_sha256": "f685e4950971fe56a6b563eced12b153d043842da2882a8558ae2dc7af23ff19",
+      "fixed_I": 0.5,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "b941a52e100b4acb36ff3983e5309270a81d5c7176c1ad435ec2f83f35b62462"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "aee7f36a51615f44db9360b55cfd1b1613f26eb8da1b4fcb5485f6b9979992ca"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.375,
+            0.5,
+            0.625
+          ],
+          "allele_array_sha256": "0cbe21d0c2e942d4c684b41426dd9ee16181fca25cd9401d9bea12f9d0682ad3"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r4_evolving",
+      "trigger": 31,
+      "original_sha256": "023e0c85d2bf34d5e2398c6a2dc47efd04389e914a47f5ccef2cf66128b3c573",
+      "fixed_I": 0.375,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "79544adadfdcddcb4f6b329f87c6633ca24ae02dfe25bc80bf86fd8ffe1d5686"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "88737aefe775e1fc774b9051a2b27ce2da0eff4fa958c9a99642c8f361537e2d"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.25,
+            0.375,
+            0.5
+          ],
+          "allele_array_sha256": "ce5089537349c84081e9812d1bfbd0721234e163e2015cd80818bd40172a4f07"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r5_evolving",
+      "trigger": 50,
+      "original_sha256": "746441c9b73b3ee4a6ccbe0cf2eec9ff0b311cf0f13efa29f3e2b93b21a268b5",
+      "fixed_I": 0.625,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.5625,
+            0.625,
+            0.6875
+          ],
+          "allele_array_sha256": "3cee76ddabb11ecd6895d2aac8c56446785921ea8a889fc86dde968ce0da87e6"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.5625,
+            0.625,
+            0.6875
+          ],
+          "allele_array_sha256": "2c694aac0390a9893fba7fbb79aa0e7c590ed1f87d1fe9cb4d452ca6fca0fd0d"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.5,
+            0.625,
+            0.75
+          ],
+          "allele_array_sha256": "b73002a8ba2ec84f730acecd73381f2760add3b485805ae9852fd15a54a01812"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r6_evolving",
+      "trigger": 197,
+      "original_sha256": "283c0f3519d5fca0eb7457bd2d5e04bde1cd4f563367ec1769d9c2fb41736f79",
+      "fixed_I": 0.5,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "bd7226c2d98ce485f644d7e008e4593a130848b879fc3f332494cf6255c7be5c"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "466e5b2b393e5d688582f9487fd6fde67a71cd4dd4d1afb6fec392e7a454feaf"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.375,
+            0.5,
+            0.625
+          ],
+          "allele_array_sha256": "577e54c837d4d385c0b2e27170078651194e63b6588caf82ef44e8bdcd81857c"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r7_evolving",
+      "trigger": 70,
+      "original_sha256": "e8aaed1d8ccb786b26fbe0dc468d6c0c1e9ab108bb3fb3f9228d9074e39cf64e",
+      "fixed_I": 0.5,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "7ab2cb22c153ca6b52443955e359508c93ec79c08401411c591d4c07bfb263fe"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "1b7bdb469c94a5887a8723345c06c2ee33a8f294cc729975ef2e383958d2ce3f"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.375,
+            0.5,
+            0.625
+          ],
+          "allele_array_sha256": "aef106df2b33feb0b3572670024021a0f81da31bbaa3cd753760c7b3eb64ca9f"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r8_evolving",
+      "trigger": 63,
+      "original_sha256": "1ca334aedcd35237904e6c59f052f20c1a543fcce16df4ce780a46c2df112e02",
+      "fixed_I": 0.375,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "0154dcdbeb7f0117c711ce02eba51be542f2273b4d3a1849039d348dc3dce99b"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "b21e50e0dd2c883a88ed53ba9efe2e5453edd52e9f4105fdeebb30e5616c0a57"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.25,
+            0.375,
+            0.5
+          ],
+          "allele_array_sha256": "7eeaf0d73c1757d12c04ce77abdd86998533432d8a693a1650416a783cfc80f8"
+        }
+      }
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r9_evolving",
+      "trigger": 54,
+      "original_sha256": "ca9a147c65f560e8c2b2a3b1f2053ce98a367f683d08959b48f3b1b55a64fcc9",
+      "fixed_I": 0.375,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "4faf187171e8a73bb4045555471d579c4abe92e9e18706270848b61b9296ea4e"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "fa115bbcc12274282bb032b65bc3d16ab0b26b46964bd4ca5a1eb8234dce2e67"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.25,
+            0.375,
+            0.5
+          ],
+          "allele_array_sha256": "d1a73c1058bb0d2bde82dd8807e49472016759baca6ceba3ffaf208611e26b15"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r0_evolving",
+      "trigger": 61,
+      "original_sha256": "c74c822c0d3898615ed8c39f0e94dcd3c0c94de34a06020207f745a3eee8ae54",
+      "fixed_I": 0.5,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "369b7bc3038840a6311d7e962276d9c63acec41aa3188e42201f4219d61942a6"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "1525d5ba8cfcaa7248727711d5010394a0b63447c6146859e534b148adf82714"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.375,
+            0.5,
+            0.625
+          ],
+          "allele_array_sha256": "7e1f6e23cb9b46d79b1fcc743a535cd0af7a215b49d5d1218eec31ac8d81e34f"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r10_evolving",
+      "trigger": 87,
+      "original_sha256": "5760208c696be1061886a36b0d156b5e04ef1d205193aa98144847dca4d82275",
+      "fixed_I": 0.5,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "0b92cc93a20bda8fd66e7a78ed3b5efc4b3956eadfaa5384fff954d80d902deb"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "154b31c0afa7fc3f814662dce8ff836126e60309f202c5bd40c003c964117423"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.375,
+            0.5,
+            0.625
+          ],
+          "allele_array_sha256": "e4a630da6ac7545b83b676c279fe21b70191923d4428f31d8f3bb5c4fdbecbbc"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r11_evolving",
+      "trigger": 113,
+      "original_sha256": "73a76e8b93d826e3cefba0640f935697348ee6b3625a010707c5c041bfeaa9f5",
+      "fixed_I": 0.625,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.5625,
+            0.625,
+            0.6875
+          ],
+          "allele_array_sha256": "5c8b5cf9c0a6f8b0622db551b87ec113dd99ba62f846c21f5c1eb9ee1e2fab2b"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.5625,
+            0.625,
+            0.6875
+          ],
+          "allele_array_sha256": "7d061cdebf4ccc930fa7a1d90c3d8c8d19097cf2c5b5f63782af725fe3bd640f"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.5,
+            0.625,
+            0.75
+          ],
+          "allele_array_sha256": "fd66aa7eed33f934550c04d3f2bdb66385d91b9017e94549e745456f95983f2e"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r12_evolving",
+      "trigger": 27,
+      "original_sha256": "f32b245b8d3f3dfbaaece97c294407ce2d0c0f6c3ee1c97bf141b1d60f301b72",
+      "fixed_I": 0.5,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "0a5e4c5db469c702e77addd5a0b0da60c613879186b5c76ce912d242ce857a08"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "d746ee3a1ff420abc373d709ba3418934c574376355512b94147434d9e6b1684"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.375,
+            0.5,
+            0.625
+          ],
+          "allele_array_sha256": "b58b03f043b3c3e37bf0c587fffcc57ec40f655eb396e4ac6ebca804c57aabca"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r13_evolving",
+      "trigger": 94,
+      "original_sha256": "bf125539bd4627ab00f4c19b8a16999fd7fa4504c75ac03c9d12a3bf6b184b15",
+      "fixed_I": 0.625,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.5625,
+            0.625,
+            0.6875
+          ],
+          "allele_array_sha256": "5b95368f7330fee4325325d66abe4c208c94a5f106b58afc7d273b32c2a28629"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.5625,
+            0.625,
+            0.6875
+          ],
+          "allele_array_sha256": "66ac6ebfe07bbf273a14e7a117e961ef8760e34db34560c82720e1c9e2edf4e9"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.5,
+            0.625,
+            0.75
+          ],
+          "allele_array_sha256": "2b4a1d194b0ac398338c1d13d6186c4ee497ae32d0b95ab08335a3393e95923a"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r14_evolving",
+      "trigger": 46,
+      "original_sha256": "5b9bbf15510dd0101d0b04e02f3a67247ef4ab4ef3b041cca6e9c9c9538d7303",
+      "fixed_I": 0.5,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "6b9d7e733bef1210564469eb6413c424ec17025784aae56e7bf7ddfb5bfc4b97"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "4895162c65059763ebcfe8420ee79e4b465b9f102166a38c4d548210d3316727"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.375,
+            0.5,
+            0.625
+          ],
+          "allele_array_sha256": "80055aaa183d84e540738280e63e9a1ae9bd537050468374228eb1c3c946af1b"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r15_evolving",
+      "trigger": 52,
+      "original_sha256": "1ee702f69f398a8ec7633d66e9abca0bdf9fd8524684d6d837e4f76063c5b29a",
+      "fixed_I": 0.5,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "3cef156c453e61b57ae5275faf973ff889f3c89e85c174e0c190ca4e40e0e1d1"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "491291998d571ce6b5ee9e3d52b7db55754227da58751b3723a61233e37594ec"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.375,
+            0.5,
+            0.625
+          ],
+          "allele_array_sha256": "b26b18bc9ec0c888b65a3e9d04af222b53aaa2ce8e38c22a415925748c7eac68"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r16_evolving",
+      "trigger": 15,
+      "original_sha256": "9a367188579d1f16de461a138091bc1e193f42aabeae4f391e325047a81e6667",
+      "fixed_I": 0.5,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "17f25aaffad89c57a4c03f91384a6571ec18bcaf4f8d24da7e8e491d98c3fb1f"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "a135ca194cfca6eb1649b6b0a16b242fdb58a3322ff8f0e913427bba6ddac676"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.375,
+            0.5,
+            0.625
+          ],
+          "allele_array_sha256": "ce316d2d088d01c193e36b3f5ebd7c0dbfbeb8204c136c946657e77d729d86f1"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r17_evolving",
+      "trigger": 60,
+      "original_sha256": "cef8d23fa4d1d547d5bfd185e806437ddf2a736bce00d52f26f39b8b59892837",
+      "fixed_I": 0.375,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "3fd597cd4bc6ef83601057b8cbacdd4a61dfd8b8e0546d3ad2d2a7ce669f4473"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "3f62c2bfa577af5e2ddb11b35dbb76303d09aeeefb8937af4d790aa4ed5cc33f"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.25,
+            0.375,
+            0.5
+          ],
+          "allele_array_sha256": "f24be397fb15b26335ee5383ef5515a10a184cb81d4d341d639f043b6c7c140e"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r18_evolving",
+      "trigger": 123,
+      "original_sha256": "5f2ecbc1b2e0f18655b31bf4874511b600648c39bdf937b9ca38ef8f99d16ed4",
+      "fixed_I": 0.375,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "903af46ba18bd387cef79bfc8ea4b9e08af86b79ee5b2df2e8bea988738ebf68"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "31212d6d45478e6c487bb6091590ee7f6758c1891c76fa46f421c70152c058dc"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.25,
+            0.375,
+            0.5
+          ],
+          "allele_array_sha256": "6de6e191b7c1be612d0025283ccc7fe2067f499ac14761a060699ae73e947f0d"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r19_evolving",
+      "trigger": 16,
+      "original_sha256": "48a326ecac684132dee4353c242c91bd50c71bf273ed8974d2de6d71575c8f38",
+      "fixed_I": 0.625,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.5625,
+            0.625,
+            0.6875
+          ],
+          "allele_array_sha256": "378778e7f7d6d0feb5724da05189e7902cb6155cfa292fc52fa0987f352023a8"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.5625,
+            0.625,
+            0.6875
+          ],
+          "allele_array_sha256": "8fa88ebd8766077579803a35ca9ef7e5f051022a73137a5eb44ba8a969179acf"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.5,
+            0.625,
+            0.75
+          ],
+          "allele_array_sha256": "548d7cc3936555b9f92c20b12de9f3e6a6bfadd51ca65b9582f332c06668189a"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r1_evolving",
+      "trigger": 46,
+      "original_sha256": "d2154e2beaa4a19a9b6d5c05e0b24fd1f0d622a609c5d2bd0099092dcf994d22",
+      "fixed_I": 0.5,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "2a8ce30a532db6f1b4648269382e58b961a980ecb4fb96195e2e9551fddb9ea5"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "4bbe0091cb558716c26e57625659885469ec1195f5c6c7f2829e8aa70ede4f00"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.375,
+            0.5,
+            0.625
+          ],
+          "allele_array_sha256": "5a104f9165d26072c9430ef4c21a04bbac1021d71d28946f3857d020a1a4073f"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r20_evolving",
+      "trigger": 40,
+      "original_sha256": "1a6bc65cdc3ce5d5f7d23b89b07f61815c02174e9f588eb87eb7e7f8697b24d2",
+      "fixed_I": 0.625,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.5625,
+            0.625,
+            0.6875
+          ],
+          "allele_array_sha256": "6acd3dada15e472510f0dfb407ac7c8eebab8304526e2b96fc15b70e8e995b25"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.5625,
+            0.625,
+            0.6875
+          ],
+          "allele_array_sha256": "b9460746716975aa3665179e9200f8846c5f56c7c8787b461ead90089a455d96"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.5,
+            0.625,
+            0.75
+          ],
+          "allele_array_sha256": "a8001336e69f7084989a8101da219ccdf03c462d357ad523d6e38f4f4923e529"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r21_evolving",
+      "trigger": 150,
+      "original_sha256": "92f0d8d1aaf00cebba6efcf1414c2104d24767dcccf551ad560a8cfea22e7920",
+      "fixed_I": 0.5,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "96effc30983c0f2858aa5d2bc8288f58217d3c2d0ef7cb2ec89d627b81f46052"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "4c34ea9a834dc830e70f13401f2d3c3de96b6eb984cfbf195b86da052b185b66"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.375,
+            0.5,
+            0.625
+          ],
+          "allele_array_sha256": "b8b67fcfb52668cb5477a386f057f9c9e4e58e369f0177a8332f186388f8ef03"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r22_evolving",
+      "trigger": 102,
+      "original_sha256": "0dc41d70d690dbfd8fc07f13cbd396347b707ac8b9f1296ecc10c52945b2f44c",
+      "fixed_I": 0.5,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "14fc6db6bd35d6e4c9b1ac92282c19942bf22eef5bd7341f2d62fb53feddc214"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "130d08b1ec9a03a94e50a9173a3fa3ee7c9b8d9fe1ec9a70dccdd8a1f5c929e5"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.375,
+            0.5,
+            0.625
+          ],
+          "allele_array_sha256": "36109e42f2cf2c29ec788016973ea6e9289bf89c9ddd353100fa39770a94d93d"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r23_evolving",
+      "trigger": 75,
+      "original_sha256": "cc3fea80368e6105d07e2fc641b74f4fe8492246e90bec53b84b2303b0da4f62",
+      "fixed_I": 0.625,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.5625,
+            0.625,
+            0.6875
+          ],
+          "allele_array_sha256": "44ff98c6fcdbda74754df6808f14689497655f611366b889e829bfda2cac8a08"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.5625,
+            0.625,
+            0.6875
+          ],
+          "allele_array_sha256": "102a02abb264ed3fb410080bd1ac5b8dfb2caae5470620e75d02922609f9fd37"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.5,
+            0.625,
+            0.75
+          ],
+          "allele_array_sha256": "0713e29642e2bdfc482ebef2357e0bf1284d01fae7f8d777dde2e5af9f476f5d"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r24_evolving",
+      "trigger": 37,
+      "original_sha256": "d9cc6a1fe5b3a3f37bcfa853f6cf64d5badae59bbb554342d36f5882662eacc9",
+      "fixed_I": 0.625,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.5625,
+            0.625,
+            0.6875
+          ],
+          "allele_array_sha256": "718fbf48212396797a28244030c930c00819a10be546e244146295e57e9dfa8d"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.5625,
+            0.625,
+            0.6875
+          ],
+          "allele_array_sha256": "6e96207760514f67e41e111a225b0bb897f6ba1e8f48a603f754ac287d3a49ee"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.5,
+            0.625,
+            0.75
+          ],
+          "allele_array_sha256": "03bdfac5e2f20f882cfd4c9ff2ff8e8a3a9e88c99444ed78a37d940f51e7443c"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r25_evolving",
+      "trigger": 83,
+      "original_sha256": "b785777821123b5851f850ad23b2162d1e257a0fd3c11b7d3616e46cb1cbc731",
+      "fixed_I": 0.5,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "4f4ee230789647f71b7cae1f9b7c0e7c1b81e760c2c93e4efb62481540391a9b"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "b4444441544f848499c026f03b8feeaffc7f4102bc636f79c1cc5040e4ededd7"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.375,
+            0.5,
+            0.625
+          ],
+          "allele_array_sha256": "ee6d6d90376b36e309db9c692d24d3d3707a2e247aea93a28e902d26dc0b873c"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r26_evolving",
+      "trigger": 83,
+      "original_sha256": "8c0432a9e077e45f373c77dd11c236a683a8b0d70b9b6d550b393d1d8cd384f2",
+      "fixed_I": 0.625,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.5625,
+            0.625,
+            0.6875
+          ],
+          "allele_array_sha256": "6f58c9e5eef54dda86efae610c8669bc1dc6aa9f0c827e6bbec9d777e9d1de15"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.5625,
+            0.625,
+            0.6875
+          ],
+          "allele_array_sha256": "0e9612ec37546df747ace5118216fa7d1e484b456720e6d8156d06cab9896e7b"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.5,
+            0.625,
+            0.75
+          ],
+          "allele_array_sha256": "ab1565a4a2ec7bd7b55d55e43f986b194aaf5214a420366f97e5b71642aa8df3"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r27_evolving",
+      "trigger": 103,
+      "original_sha256": "00c55f1a3c7913c623f5b2cc98874ab2b8e0b5aae07cee2c6b3eec9d32612183",
+      "fixed_I": 0.625,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.5625,
+            0.625,
+            0.6875
+          ],
+          "allele_array_sha256": "09131145b29c2ce1850075d302c1a5bbb4af5de87c8c9d6c2eb744878b784fc2"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.5625,
+            0.625,
+            0.6875
+          ],
+          "allele_array_sha256": "160ef8a60e32048fd934fd860d6096e662953981693130a0cd57f10c298b341e"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.5,
+            0.625,
+            0.75
+          ],
+          "allele_array_sha256": "f3ef0b5ebd99a19b9b722075a54e84db4201863348e3341d6d52cfa22a05d09d"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r29_evolving",
+      "trigger": 167,
+      "original_sha256": "1714e886069a786077c0675fbe6cead49c4622aaf97284fd4096e70b51e66688",
+      "fixed_I": 0.375,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "eb6fd591b0087b4b5c97e54e77378c8d6d1e36c3b1cb06549272815a3fd88dfd"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "6266d0299b1ace40621685b933ef017eddf86aa6c1be3687c4543292266534d4"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.25,
+            0.375,
+            0.5
+          ],
+          "allele_array_sha256": "e64b3f8c03686553b9b7dad3cc7cd61727a83289299a151d465d1503084e1fb9"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r2_evolving",
+      "trigger": 162,
+      "original_sha256": "6bd5d7b79de31781f57fbea97e105e60559dc3bd7f6b790795c134c2c18d9f06",
+      "fixed_I": 0.5,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "6acd7aac3c021240926dcde46d87499579f997961b8cab7708b79fbd9555e8ea"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "f430762631e51b2b21311c81fef2248040682ff0c95fa4d5b24d5280d82426ff"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.375,
+            0.5,
+            0.625
+          ],
+          "allele_array_sha256": "f7e780cb0187b5588bc6b64d4919590d89259a2e6838676ab1f4d448c68eb40b"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r30_evolving",
+      "trigger": 83,
+      "original_sha256": "b776347f68088300569279ea6753d50a56bf7710d10568ee88a713d81798e095",
+      "fixed_I": 0.375,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "1a15474abeb20a468f6d2c590892fec5ce8c885b70520a92efaf0ad8690bc256"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "db3ecd71179289de14a55f55d3c6d27e62e2933b3c387f158cbeb736425190ea"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.25,
+            0.375,
+            0.5
+          ],
+          "allele_array_sha256": "1010cc0a530eed57a7da4b66ba9a15c1288198ea9b3a9c67449cea5fc82cd6bb"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r31_evolving",
+      "trigger": 106,
+      "original_sha256": "79a3cfa8d2a618da19110b3f5e202dd02892de7324b39a87e5ea68295ddc5425",
+      "fixed_I": 0.375,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "1aa58d94f21e9f6e0f7f816338eecae9b0503fee0324b4fd297684686d87368e"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "f4b7890adc6bbbd5937b15170f5a56dee43a9fa243b7c83dd417d532bc0ed96c"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.25,
+            0.375,
+            0.5
+          ],
+          "allele_array_sha256": "bb5678cf8eb3846bb488e18d26e1045bec0534785751b5dc1e4d8d84675e73db"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r3_evolving",
+      "trigger": 33,
+      "original_sha256": "40e1c7a5f73a92e2cfbe916c6613e77e4db91683ccbb725b2272b9d62f4bdbf7",
+      "fixed_I": 0.625,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.5625,
+            0.625,
+            0.6875
+          ],
+          "allele_array_sha256": "a8d9de3f3f6e53895fdb1b610b61aed2bc1ab6fbb54f00d7f9fbf4d5d3bd7d28"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.5625,
+            0.625,
+            0.6875
+          ],
+          "allele_array_sha256": "61dbc88176bf0bd19b0892013ed8b590dbfa4539b4e0f7ea39d595adf18a5b48"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.5,
+            0.625,
+            0.75
+          ],
+          "allele_array_sha256": "c6d5b8ab11465674ee2cabb68e99efb59bdcca24f86cae8a3b972cf58da8a0b5"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r4_evolving",
+      "trigger": 37,
+      "original_sha256": "fc6917e6371f03e6acdd66b9db6212d5f91618cedf014f66b1e0a9dbbf57e50a",
+      "fixed_I": 0.5,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "279472dc48a41a2fb07b5a3b40c44138fbebd1cbf45691c19bc54f970da46911"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "a2bbd703dc95a1b2818a7abdc1e435da1c756dec2e8cd0676bcc62aee7badf97"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.375,
+            0.5,
+            0.625
+          ],
+          "allele_array_sha256": "c2fb5a77fcae132630af630efb0372dd2248c6cc9253a4fc08674025e0312228"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r5_evolving",
+      "trigger": 138,
+      "original_sha256": "cc9722fb555e74cde1f14e3d796d2ef5a938d789dcb2cef8382883199b0f0ee1",
+      "fixed_I": 0.5,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "764781516c70bc22da99059513bdc30c93b872baf8dedcae937d78e54f032f7a"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "b465572c5a99769f7d37d1941a45b2d9ab8d6ea5af28523ad583183c035c6431"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.375,
+            0.5,
+            0.625
+          ],
+          "allele_array_sha256": "0ae9ce878c0d8a7339a1187bc5957aa8d1b580dc413242a5d2edb6738e71a4cf"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r6_evolving",
+      "trigger": 77,
+      "original_sha256": "bd500f6d8027c033e4e2c40eeb51a00b3b023d48aa7a92048f97eea26c845f87",
+      "fixed_I": 0.375,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "c5d25ac2b49de09974e9897668333bb0355abbd5146e5ce91cae0041236129de"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "608f5bb03522020310f4c937c9bf10094fda63ec572927fe7f70a2ac0ed04997"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.25,
+            0.375,
+            0.5
+          ],
+          "allele_array_sha256": "a8d1989a695352b9eebae229838d746ac43f8ebd0033737bdab6f908f13be86a"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r7_evolving",
+      "trigger": 70,
+      "original_sha256": "74c072438975966f6424d18d5f39b0a5cd5df9f4f1e294983dc5c0767d1babe1",
+      "fixed_I": 0.375,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "2e8e31c99315f8037123acaddb3202c34919799cddfe9e839b97ea451688b479"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.3125,
+            0.375,
+            0.4375
+          ],
+          "allele_array_sha256": "23a7907ca7b409c62a8bc4be31665d9f000a291828fed23aeab8e6ef10108651"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.25,
+            0.375,
+            0.5
+          ],
+          "allele_array_sha256": "71ec0b81d57fede1db58525fafbb90154aa220f5e580ca7f4850a87f0f2824e0"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r8_evolving",
+      "trigger": 81,
+      "original_sha256": "b759c47764d2922bb45133b2360ce228848b172fa72982bf1d5800a762bc3df2",
+      "fixed_I": 0.5,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "c48fd861cc6924899dbb0cbc5daf6a18047a6a296d3369fbae1afb845ce48811"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "b7e6041ebcad18469463922630c6db7f9f9dac7552337de54073a077cbfcc726"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.375,
+            0.5,
+            0.625
+          ],
+          "allele_array_sha256": "b729369b9214526e4faa58c896dbcf0ae08e2a0963fd908b2865133d0331dc38"
+        }
+      }
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r9_evolving",
+      "trigger": 172,
+      "original_sha256": "a712a522176af9950820964dcff87dd07f054c511bad57720b98807b93ce6fea",
+      "fixed_I": 0.5,
+      "population": 48,
+      "policies": {
+        "A": {
+          "width": 0.0625,
+          "heterozygotes": 24,
+          "variance": 0.001953125,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11,
+            12,
+            13,
+            14,
+            15,
+            16,
+            17,
+            18,
+            19,
+            20,
+            21,
+            22,
+            23
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "b1c9559b4ac032310bbef727aa120041d9d596dfc173b0be7675dadd963b7eaf"
+        },
+        "B": {
+          "width": 0.0625,
+          "heterozygotes": 12,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7,
+            8,
+            9,
+            10,
+            11
+          ],
+          "support": [
+            0.4375,
+            0.5,
+            0.5625
+          ],
+          "allele_array_sha256": "91af854bbf3772117b7c6497581302ae4a42153a8f1f83c889f9dd42682511cf"
+        },
+        "C": {
+          "width": 0.125,
+          "heterozygotes": 3,
+          "variance": 0.0009765625,
+          "indices": [
+            0,
+            1,
+            2
+          ],
+          "support": [
+            0.375,
+            0.5,
+            0.625
+          ],
+          "allele_array_sha256": "ebf4a7803042384a412033fb088c9d9f5a05e0099856009beb61d0dafb07ccdb"
+        }
+      }
+    }
+  ]
+}

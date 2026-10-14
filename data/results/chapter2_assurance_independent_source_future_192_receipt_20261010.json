@@ -1,0 +1,103 @@
+{
+  "schema": "chapter2_assurance_fresh_192_source_future_verification_receipt_v1",
+  "date": "2026-10-10",
+  "status": "EXECUTED_FRESH_192_MODEL_SOURCE_AND_FUTURE_WITH_168_T20_DONORS_PRIMARY_STRICT_INCONCLUSIVE",
+  "executed_original_source_sha": "dd2376c73fcbb7df5d491d08c9584fd50fffc40e",
+  "workflow_run_id": 38019242017,
+  "artifact_id": 11657238247,
+  "raw_json_sha256": "ccc9f483a0099469e673752bd12faad8282d2641e88684b0e17c436a4c5c754b",
+  "raw_zip_sha256": "2528027e7029144ffbc568d1cdaee22023aea75c461265708565760e636578ed",
+  "raw_input_design_sha256": "a17889a48c1fc86a7ec5f5a93e9989f1561134707ddc9249a781b01712c196c8",
+  "original_json_bytes": 549868,
+  "design_file": "data/design/chapter2_assurance_independent_source_future_192_20261010.json",
+  "runner": "scripts/audit_chapter2_assurance_independent_source_future_192.py",
+  "unit_tests": "tests/test_chapter2_assurance_independent_source_future_192.py",
+  "executed_steps": {
+    "source_only_unit_tests": "success",
+    "all_fresh_source_future_simulations": "success",
+    "raw_json_upload": "success",
+    "repository_full_CI": "separate_in_progress"
+  },
+  "independent_model_source_visitor_rng_histories": 192,
+  "independent_model_future_visitor_rng_innovations": 192,
+  "source_history_seed_range": [
+    61028001,
+    61028192
+  ],
+  "future_history_seed_range": [
+    61029001,
+    61029192
+  ],
+  "old_outcome_exposed_source_history_ids_reused": 0,
+  "independent_natural_island_systems": 0,
+  "same_founder_eight_genotypes_across_stochastic_history_sources": true,
+  "source_pre20_pair_eligible": 168,
+  "source_pre20_pair_ineligible": 24,
+  "genotype_draws_nested_per_eligible_source": 2,
+  "new_future_trajectories": 2688,
+  "future_K": [
+    8,
+    48
+  ],
+  "recipient_N0": 8,
+  "background_pollen_denominator_B": 48,
+  "biological_source": "original Model3 + conditional artificial diploid source-genome mosaics",
+  "outcomes": {
+    "K8": {
+      "n_nested_genomes_per_arm": 336,
+      "occupied_counts": {
+        "neutral_all": 146,
+        "selected_assurance_only": 211,
+        "selected_nonassurance_only": 145,
+        "selected_all": 222
+      },
+      "primary_assurance_only_delta": 0.19345238095238096,
+      "primary_history_cluster_bootstrap_95": [
+        0.11011904761904762,
+        0.27976190476190477
+      ],
+      "primary_hoeffding_95": [
+        -0.016107232514991326,
+        0.4030119944197532
+      ],
+      "predeclared_strict_5pp_primary_verdict": "INCONCLUSIVE",
+      "other_loci_only_delta": -0.002976190476190476,
+      "full_source_genome_delta": 0.2261904761904762,
+      "two_order_assurance_allocation": 0.21130952380952378,
+      "two_order_other_loci_allocation": 0.014880952380952384
+    },
+    "K48": {
+      "n_nested_genomes_per_arm": 336,
+      "occupied_counts": {
+        "neutral_all": 284,
+        "selected_assurance_only": 314,
+        "selected_nonassurance_only": 290,
+        "selected_all": 317
+      },
+      "secondary_assurance_only_delta": 0.08928571428571429,
+      "secondary_history_cluster_bootstrap_95": [
+        0.041666666666666664,
+        0.14285714285714285
+      ],
+      "secondary_hoeffding_95": [
+        -0.120273899181658,
+        0.2988453277530866
+      ],
+      "secondary_strict_verdict": "INCONCLUSIVE",
+      "other_loci_only_delta": 0.017857142857142856,
+      "full_source_genome_delta": 0.09821428571428571,
+      "two_order_assurance_allocation": 0.0848214285714286,
+      "two_order_other_loci_allocation": 0.01339285714285715
+    }
+  },
+  "qualifications": [
+    "Compared with the earlier conditional old-donor/new-future 50-history study, the K8 assurance-only point contrast decreased from +0.30667 to +0.19345 in truly new source histories; direction remained positive.",
+    "Both lower bounds of pre-committed cluster-bootstrap and distribution-free Hoeffding had to exceed +0.05. Hoeffding K8 lower -0.0161, so primary did NOT pass.",
+    "New source histories share initial eight diploid founder genotypes and one source Model3 ecology; no independent populations or other model family.",
+    "The inference population is the paired-t20-survivor group: 168/192. Cannot infer unconditional from-t0 genetic mediation or natural population survival.",
+    "Genomic locus origin masks are artificial across-history inheritance associations; not precise physiological assurance-magnitude or isolated allele frequency parameter.",
+    "Two genotype draws per donor-history are nested, not 336 independent ecological histories.",
+    "The observed signal favors survival in selected assurance inheritance source, opposite to evolutionary-suicide scenario, but no evolutionary suicide or universal rescue claim is established.",
+    "Nature of falsification remains model-internal. Fixed depression/zero mutation exclude deleterious-load accumulation and mutation-driven extinction."
+  ]
+}

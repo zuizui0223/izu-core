@@ -1,0 +1,8 @@
+{
+  "status": "PASS",
+  "native_calls": 4,
+  "scientific_replicates": 0,
+  "native_noop_state_parent_equality": true,
+  "restoration_no_draws": true,
+  "extinct_continuation": true
+}

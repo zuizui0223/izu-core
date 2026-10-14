@@ -1,0 +1,50 @@
+{
+  "schema": "chapter2_n_graded_beta_gamma_capacity_recruitment_v1",
+  "date": "2026-10-10",
+  "status": "POST_PILOT_MECHANISTIC_DIAGNOSIS_NOT_INDEPENDENT_TEST",
+  "reason": "The original source investment β<0/Gamma_seed>0 is verified at census N8/B48 but β>0 at N48/B48. Only the new pilot K48/budget6 was nonsaturated; cannot carry N8 β sign to K48 full population.",
+  "source": "unmodified scripts/chapter2_kb_reproduction.py, scripts/model3_island/expectation.py capped_poisson_mean, original Model3 Config delayed_control",
+  "model_states": {
+    "source_matching": 0.2,
+    "source_investment": 0.35,
+    "source_assurance": 0.35,
+    "pollen_B": 48,
+    "static_visitors": [
+      0.15,
+      0.35,
+      0.55,
+      0.75
+    ],
+    "breadth": 0.18,
+    "effectiveness": 1
+  },
+  "grid": {
+    "source_N_min": 1,
+    "source_N_max": 48,
+    "capacity_K": [
+      8,
+      48
+    ],
+    "source_ovule_budget": [
+      4.5,
+      6,
+      8
+    ],
+    "initial_test_census": 8
+  },
+  "statistics": [
+    "per-N exact original source focal one-plant log genetic contribution derivative beta at h=.005 and .0025, not true rare-mutant gradient Nsmall",
+    "per-N original collective whole-population log viable seed gradient, at same h",
+    "per-N net viable seed response of OTHER mothers when one plant increases investment",
+    "source group viable seed intensity S_N, no stochastic results",
+    "exact model recruitment expectation E[min(Poisson(S_N),K)] with zero adult survival/immigration, and expected demographic next N minus current N",
+    "report source-classified β/Gamma sign at every census N=1..K and birth-intensity budget, including exact marginal N where beta sign shifts",
+    "separate unthinned seed reproductive growth from capped recruitment; no inference of viability selection or future persistence based on one-step expectations"
+  ],
+  "scope": [
+    "Derived after seeing complete 384-path pilot: diagnostic not a confirmation of predeclared persistence effects",
+    "Source monomorphic plant states do not reproduce genotype variation or temporally varying visitors, but test whether β attribution is mathematically stable over census size",
+    "No independent visitor histories or source fields; native Model3 only",
+    "No genotype mean clamp simulation, no H80 stochastic outcomes; protects source result from cherry-picked budget changes"
+  ]
+}

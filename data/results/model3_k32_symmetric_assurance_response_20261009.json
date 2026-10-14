@@ -1,0 +1,168 @@
+{
+  "schema": "model3_k32_symmetric_assurance_source_locked_v1",
+  "status": "exploratory_same_heterozygote_exact_conditional_source_sensitivity_passed",
+  "evidence_type": "single_archived_visitor_history_synthetic_Model3_numerical_mechanistic_intervention",
+  "provenance": {
+    "source_commit": "76e83d2917024da9dced0ce59bfbb224b2b92550",
+    "workflow_run_id": 37889777989,
+    "dedicated_job": "model3-k32-symmetric-assurance",
+    "dedicated_job_conclusion": "success",
+    "raw_artifact_id": 11598345415,
+    "raw_artifact_url": "https://github.com/zuizui0223/izu-core/actions/runs/37889777989/artifacts/11598345415",
+    "raw_artifact_sha256": "288171e084860c326de5528e336a1c5d4b057553f0b1c351e1cfacc0a6f58258"
+  },
+  "conditions": {
+    "capacity": 32,
+    "mutation_rate": 0,
+    "generations": 8,
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "setting": "canonical_Chapter2_prior_selfing",
+    "visitor_history": 26110601,
+    "environment": "near",
+    "independent_visitor_histories": 1,
+    "nested_demographic_source_paths_per_budget": 128,
+    "biological_source_operator_modified": false,
+    "counterfactual_intentionally_altered_mating": true,
+    "original_genotypes": "4 engineered founders cloned to 32; full 27 joint diploid genotype support",
+    "checkpoint_generations": [
+      3,
+      5,
+      7,
+      8
+    ],
+    "confirmatory_visitor_histories_reused": false
+  },
+  "definition": {
+    "perturbation": "choose ONE source individual heterozygote assurance 0.25/0.75, change same individual into either 0.25/0.25 or 0.75/0.75 in separate source states",
+    "parent_frequency_step": "+/-1/(2N) per assurance allele copy",
+    "matched_mean_null": "one-parameter tilted equal-parent full-Mendelian law fitted to ORIGINAL parent source conditional offspring assurance mean, theta frozen under BOTH allele flips",
+    "central_slope": "mean of upward and downward local response slopes, each evaluated at same parental diploid genotype background",
+    "source_minus_null_central_slope": "original_source_central_response minus mean_matched_null_central_response",
+    "curvature_contrast": "source [Q_plus + Q_minus - 2Q_base] minus matched directional null counterpart",
+    "fixation_boundary": "baseline p=0/1 or no heterozygote ineligible rather than assigned arbitrary mean-matched theta"
+  },
+  "cases": [
+    {
+      "budget": 8,
+      "by_generation": [
+        {
+          "generation": 3,
+          "n_comparable": 128,
+          "n_occupied": 128,
+          "source_minus_null_central_slope": -0.045983893671637174,
+          "mc_se": 0.008939,
+          "approximate_mc_95_interval": [
+            -0.063504,
+            -0.028464
+          ],
+          "source_minus_null_second_difference": 0.008113306739212461,
+          "curvature_mc_se": 0.0001545
+        },
+        {
+          "generation": 5,
+          "n_comparable": 119,
+          "n_occupied": 128,
+          "source_minus_null_central_slope": -0.09337912763022853,
+          "mc_se": 0.00948,
+          "approximate_mc_95_interval": [
+            -0.111959,
+            -0.074799
+          ],
+          "source_minus_null_second_difference": 0.007548566740394945,
+          "curvature_mc_se": 0.0001381
+        },
+        {
+          "generation": 7,
+          "n_comparable": 75,
+          "n_occupied": 128,
+          "source_minus_null_central_slope": -0.16797308526918808,
+          "mc_se": 0.010143,
+          "approximate_mc_95_interval": [
+            -0.187853,
+            -0.148093
+          ],
+          "source_minus_null_second_difference": 0.008507607551454107,
+          "curvature_mc_se": 0.0001569
+        },
+        {
+          "generation": 8,
+          "n_comparable": 49,
+          "n_occupied": 128,
+          "source_minus_null_central_slope": -0.16881174404494842,
+          "mc_se": 0.013538,
+          "approximate_mc_95_interval": [
+            -0.195346,
+            -0.142278
+          ],
+          "source_minus_null_second_difference": 0.008344150923162106,
+          "curvature_mc_se": 0.0001742
+        }
+      ]
+    },
+    {
+      "budget": 3,
+      "by_generation": [
+        {
+          "generation": 3,
+          "n_comparable": 122,
+          "n_occupied": 128,
+          "source_minus_null_central_slope": -0.06473903406033864,
+          "mc_se": 0.007525,
+          "approximate_mc_95_interval": [
+            -0.079487,
+            -0.049991
+          ],
+          "source_minus_null_second_difference": 0.013051669832986978,
+          "curvature_mc_se": 0.0004847
+        },
+        {
+          "generation": 5,
+          "n_comparable": 90,
+          "n_occupied": 128,
+          "source_minus_null_central_slope": -0.1342640089874125,
+          "mc_se": 0.011163,
+          "approximate_mc_95_interval": [
+            -0.156143,
+            -0.112385
+          ],
+          "source_minus_null_second_difference": 0.01726398148147803,
+          "curvature_mc_se": 0.0017878
+        },
+        {
+          "generation": 7,
+          "n_comparable": 41,
+          "n_occupied": 128,
+          "source_minus_null_central_slope": -0.20514390412153868,
+          "mc_se": 0.016018,
+          "approximate_mc_95_interval": [
+            -0.236539,
+            -0.173749
+          ],
+          "source_minus_null_second_difference": 0.014465275659117077,
+          "curvature_mc_se": 0.0015225
+        },
+        {
+          "generation": 8,
+          "n_comparable": 23,
+          "n_occupied": 128,
+          "source_minus_null_central_slope": -0.24757094651514508,
+          "mc_se": 0.015978,
+          "approximate_mc_95_interval": [
+            -0.278888,
+            -0.216253
+          ],
+          "source_minus_null_second_difference": 0.01335340801472269,
+          "curvature_mc_se": 0.0014836
+        }
+      ]
+    }
+  ],
+  "findings": [
+    "Across all tested checkpoint/budget combinations, mean original canonical Model3 central response slopes were lower than a posthoc one-parameter directional full-Mendelian comparator with identical unperturbed expected assurance frequency and identical starting heterozygote.",
+    "The same-background symmetric design removes a distinct-genotype selection confound present in separate high-to-low and low-to-high one-copy perturbation experiments.",
+    "All source-state baseline q and genotype-copy changes are exact finite Model3 mathematical kernel calculations; the ensemble averages and MC SEs are conditional on one archived visitor history.",
+    "Comparability collapses near fixation, particularly budget3 year8 (23/128 states); apparent time amplification is selection on nonfixed surviving source states and cannot be generalized to fixed states.",
+    "The local response difference is not a uniquely causal selection coefficient, ecological stabilizing feedback proof, independent history or eight-year variance regulation proof. The matched directional null is intentionally different reproductive biology and tuned on the original state."
+  ]
+}

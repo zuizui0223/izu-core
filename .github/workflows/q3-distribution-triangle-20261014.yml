@@ -1,0 +1,126 @@
+name: Q3 approved distribution triangle 20261014
+
+on:
+  push:
+    branches: [design/chapter2-q3-distribution-triangle-20261014]
+    paths: [data/designs/q3_triangle_continuation_20261014.json]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: q3-distribution-triangle-20261014
+  cancel-in-progress: false
+
+env:
+  GH_TOKEN: ${{ github.token }}
+  PYTHONUTF8: '1'
+  PYTHONDONTWRITEBYTECODE: '1'
+  OPENBLAS_NUM_THREADS: '1'
+  OMP_NUM_THREADS: '1'
+
+jobs:
+  shard:
+    name: triangle-shard-${{ matrix.shard }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    strategy:
+      fail-fast: true
+      max-parallel: 1
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+    steps:
+      - name: Record authoritative whole-job start
+        timeout-minutes: 1
+        run: |
+          started=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/jobs?filter=latest&per_page=100" --jq '.jobs[] | select(.name == "triangle-shard-${{ matrix.shard }}" and .status == "in_progress") | .started_at')
+          test -n "$started"
+          echo "Q3_JOB_STARTED_EPOCH=$(date --date="$started" +%s)" >> "$GITHUB_ENV"
+      - uses: actions/checkout@v4
+        timeout-minutes: 1
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        timeout-minutes: 2
+        with:
+          python-version: '3.11.14'
+      - name: Install exact runtime
+        timeout-minutes: 1
+        run: python -m pip install numpy==2.2.6
+      - name: Authorize before downloading or computing
+        timeout-minutes: 1
+        run: |
+          PYTHONPATH=scripts python -c "from pathlib import Path; from q3_triangle_execution_gate_20261014 import authorize; authorize(Path('.'))"
+          echo "SHARD_PADDED=$(printf '%02d' '${{ matrix.shard }}')" >> "$GITHUB_ENV"
+      - name: Retrieve frozen input
+        timeout-minutes: 2
+        run: |
+          mkdir -p work/q3-triangle/inputs
+          gh release download q3-conditional-futures-20261014 --repo "$GITHUB_REPOSITORY" --pattern Q3_CONDITIONAL_FUTURES_20261014.zip --dir work/q3-triangle/inputs
+      - name: Reserved production and complete independent replay
+        run: |
+          python -u scripts/run_q3_triangle_20261014.py --repo . --shard '${{ matrix.shard }}' --archive work/q3-triangle/inputs/Q3_CONDITIONAL_FUTURES_20261014.zip --out work/q3-triangle/output
+      - name: Preserve complete shard
+        timeout-minutes: 3
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: q3-triangle-shard-${{ env.SHARD_PADDED }}-${{ github.run_id }}
+          retention-days: 30
+          compression-level: 0
+          if-no-files-found: error
+          path: |
+            work/q3-triangle/Q3_TRIANGLE_SHARD_*.zip
+            work/q3-triangle/SHARD_*_RECEIPT.json
+      - name: Preserve partial failure without restarting biology
+        timeout-minutes: 3
+        if: failure() || cancelled()
+        uses: actions/upload-artifact@v4
+        with:
+          name: q3-triangle-hold-${{ matrix.shard }}-${{ github.run_id }}
+          retention-days: 30
+          compression-level: 1
+          if-no-files-found: warn
+          path: work/q3-triangle/output/
+
+  verify-and-publish:
+    name: triangle-verify-and-publish
+    needs: shard
+    runs-on: ubuntu-24.04
+    timeout-minutes: 29
+    permissions:
+      contents: write
+      actions: read
+    steps:
+      - name: Record authoritative whole-job start
+        timeout-minutes: 1
+        run: |
+          started=$(gh api "repos/$GITHUB_REPOSITORY/actions/runs/$GITHUB_RUN_ID/jobs?filter=latest&per_page=100" --jq '.jobs[] | select(.name == "triangle-verify-and-publish" and .status == "in_progress") | .started_at')
+          test -n "$started"
+          echo "Q3_JOB_STARTED_EPOCH=$(date --date="$started" +%s)" >> "$GITHUB_ENV"
+      - uses: actions/checkout@v4
+        timeout-minutes: 1
+        with:
+          fetch-depth: 2
+      - uses: actions/setup-python@v5
+        timeout-minutes: 2
+        with:
+          python-version: '3.11.14'
+      - name: Install exact reader runtime
+        timeout-minutes: 1
+        run: python -m pip install numpy==2.2.6
+      - name: One-archive readback, independent statistics and complete release
+        run: python -u scripts/publish_q3_triangle_campaign_20261014.py --repo . --out work/q3-publication
+      - name: Preserve publication receipts or technical HOLD
+        timeout-minutes: 3
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: q3-triangle-publication-${{ github.run_id }}
+          retention-days: 30
+          compression-level: 1
+          if-no-files-found: warn
+          path: |
+            work/q3-publication/*.json
+            work/q3-publication/*.md

@@ -1,0 +1,210 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-08",
+  "status": "offline_independent_frozen_gate_readout_global_gate_failed_4_of_5",
+  "protocol": "data/design/chapter2_island_payoff_confirmation_20261008.json",
+  "source": "archived 2026-10-06 model3 generality source snapshot, all 25 source hashes audited",
+  "verification_scope": "local independent new-history rerun; GitHub Actions workflow branch replay remains a separate verification route",
+  "n_independent_visitor_histories": 64,
+  "n_demographic_repeats_nested": 2,
+  "n_paired_far_near_groups": 1024,
+  "n_evolutionary_prehistories": 2048,
+  "bootstrap": {
+    "unit": "visitor_history",
+    "draws": 9999,
+    "seed": 2810082026,
+    "percentile95": true
+  },
+  "frozen_primary": [
+    {
+      "setting": "prior_selfing",
+      "metric": "viable_maternal",
+      "mode": "evolving",
+      "expected": "positive",
+      "mean": 0.329202,
+      "bootstrap95": [
+        0.258914,
+        0.401076
+      ],
+      "passed": true
+    },
+    {
+      "setting": "pollen_discount",
+      "metric": "viable_maternal",
+      "mode": "evolving",
+      "expected": "positive",
+      "mean": 0.353331,
+      "bootstrap95": [
+        0.27423,
+        0.436646
+      ],
+      "passed": true
+    },
+    {
+      "setting": "assurance_cost",
+      "metric": "viable_maternal",
+      "mode": "evolving",
+      "expected": "negative",
+      "mean": -0.013102,
+      "bootstrap95": [
+        -0.108022,
+        0.08334
+      ],
+      "passed": false
+    },
+    {
+      "setting": "prior_selfing",
+      "metric": "female_outcross",
+      "mode": "evolving",
+      "expected": "negative",
+      "mean": -0.141283,
+      "bootstrap95": [
+        -0.178161,
+        -0.104406
+      ],
+      "passed": true
+    },
+    {
+      "setting": "pollen_discount",
+      "metric": "female_outcross",
+      "mode": "evolving",
+      "expected": "negative",
+      "mean": -0.277364,
+      "bootstrap95": [
+        -0.383459,
+        -0.173956
+      ],
+      "passed": true
+    }
+  ],
+  "adjudication": {
+    "n_passed": 4,
+    "n_expected": 5,
+    "global_pass": false,
+    "rule": "all five simultaneously; failures may not be reclassified using secondary readouts"
+  },
+  "all_settings_viable_maternal": [
+    {
+      "setting": "delayed_control",
+      "fixed_mean": -0.3098,
+      "fixed95": [
+        -0.42753,
+        -0.183
+      ],
+      "evolving_mean": 0.28914,
+      "evolving95": [
+        0.18027,
+        0.39726
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "fixed_mean": -0.12409,
+      "fixed95": [
+        -0.19172,
+        -0.0553
+      ],
+      "evolving_mean": 0.3292,
+      "evolving95": [
+        0.25891,
+        0.40108
+      ]
+    },
+    {
+      "setting": "pollen_discount",
+      "fixed_mean": -0.11914,
+      "fixed95": [
+        -0.19443,
+        -0.04539
+      ],
+      "evolving_mean": 0.35333,
+      "evolving95": [
+        0.27423,
+        0.43665
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "fixed_mean": -0.2926,
+      "fixed95": [
+        -0.39766,
+        -0.17971
+      ],
+      "evolving_mean": -0.0131,
+      "evolving95": [
+        -0.10802,
+        0.08334
+      ]
+    }
+  ],
+  "post_outcome_explanatory_evolving_minus_fixed_history_difference": [
+    {
+      "setting": "delayed_control",
+      "mean": 0.59894,
+      "bootstrap95": [
+        0.47231,
+        0.725139
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "mean": 0.453294,
+      "bootstrap95": [
+        0.353602,
+        0.550651
+      ]
+    },
+    {
+      "setting": "pollen_discount",
+      "mean": 0.472476,
+      "bootstrap95": [
+        0.378296,
+        0.570038
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "mean": 0.279499,
+      "bootstrap95": [
+        0.147614,
+        0.411635
+      ]
+    }
+  ],
+  "post_outcome_explanatory_trait_mean_clamping_near_background": [
+    {
+      "setting": "delayed_control",
+      "investment_effect": -0.05895,
+      "assurance_effect": 0.33526
+    },
+    {
+      "setting": "prior_selfing",
+      "investment_effect": 0.07361,
+      "assurance_effect": 0.25796
+    },
+    {
+      "setting": "pollen_discount",
+      "investment_effect": 0.03967,
+      "assurance_effect": 0.30729
+    },
+    {
+      "setting": "assurance_cost",
+      "investment_effect": -0.08349,
+      "assurance_effect": 0.05048
+    }
+  ],
+  "provenance": {
+    "local_review_zip": "izu_core_island_payoff_independent64_20261008.zip",
+    "zip_sha256": "ef9fe697d8f9fdc1ab8b1a97d516e5b93aa45e3d4c8ba10186c9bea9e0200de7",
+    "raw_file_sha256": "5c81ff39c5142014c5d14ca8abe342b53614a0ba2df50ceddb6973d868e00160",
+    "frozen_source_archive_sha256": "71a1b1d9c4d683b874c989fa7768a14e72c5353063d8213cbe42f42cd37473d4"
+  },
+  "boundaries": [
+    "all five gate failed due assurance-cost sign uncertainty",
+    "viable maternal output per plant is not population persistence",
+    "immediate common-visitor perturbation is not a complete multigeneration evolutionary outcome",
+    "trait mean clamping removes I/A standing variance; not mediation",
+    "near/far are synthetic visitor replenishment histories not km or empirical island taxa",
+    "new results do not amend PR411 established attenuation or journal decision"
+  ]
+}

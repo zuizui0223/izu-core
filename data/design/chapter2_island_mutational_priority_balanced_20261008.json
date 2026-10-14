@@ -1,0 +1,135 @@
+{
+  "schema_version": "1.0",
+  "date_frozen": "2026-10-08",
+  "status": "balanced_mutational_opportunity_exploratory_before_execution",
+  "motivation": "The frozen 16-history confirmation of a prior-selfing versus pollen-discount mutational-order sign contrast FAILED. The original priority schedules supplied new mutation for 400 updates to the first-access trait and 250 updates to the second; a duration confound was identified before this new balanced design.",
+  "source_biology": "data/design/chapter2_assurance_generality_20261006.json",
+  "source_base_protocol": "data/design/chapter2_island_mutational_priority_pilot_20261008.json",
+  "settings": [
+    "delayed_control",
+    "prior_selfing",
+    "pollen_discount",
+    "assurance_cost"
+  ],
+  "pre_environments": [
+    "near",
+    "far"
+  ],
+  "post_environments": [
+    "near",
+    "far"
+  ],
+  "phase_boundaries": [
+    0,
+    150,
+    300,
+    400
+  ],
+  "mutation_rate": 0.01,
+  "mutation_sd": 0.05,
+  "schedules": {
+    "assurance_first": [
+      [
+        true,
+        false,
+        true
+      ],
+      [
+        true,
+        true,
+        false
+      ],
+      [
+        true,
+        true,
+        true
+      ]
+    ],
+    "investment_first": [
+      [
+        true,
+        true,
+        false
+      ],
+      [
+        true,
+        false,
+        true
+      ],
+      [
+        true,
+        true,
+        true
+      ]
+    ],
+    "both_early": [
+      [
+        true,
+        true,
+        true
+      ],
+      [
+        true,
+        false,
+        false
+      ],
+      [
+        true,
+        true,
+        true
+      ]
+    ],
+    "both_late": [
+      [
+        true,
+        false,
+        false
+      ],
+      [
+        true,
+        true,
+        true
+      ],
+      [
+        true,
+        true,
+        true
+      ]
+    ]
+  },
+  "mutation_access_generations_per_trait": 250,
+  "mutational_access_rule": "The total number of updates with mutational supply is exactly 250 for both I and A and identical across all four schedules. Already inherited variation can continue to be selected and segregated while further mutation supply is closed; no trait-expression reset.",
+  "founders": "Identical 48 genotypes per group, matching/access standing variation retained, I and A both fixed to 0.5 at t0.",
+  "new_history_seeds": [
+    33100801,
+    33100802,
+    33100803,
+    33100804
+  ],
+  "nested_repeats": [
+    33101801,
+    33101802
+  ],
+  "post_bottleneck_n": 8,
+  "post_capacity": 8,
+  "post_ovule_budgets": [
+    2,
+    3,
+    4,
+    5
+  ],
+  "post_seed_offset": 1000000,
+  "post_updates": 80,
+  "declared_prehistory_groups": 256,
+  "declared_post_cases": 2048,
+  "primary_pilot_estimand": "Paired far-pre minus near-pre poststress occupancy contrast, averaged across two post-visitor regimes × four budgets for each schedule, then assurance_first minus investment_first; report all settings and history-level contrasts and controls.",
+  "reporting": "Exploratory; no confirmatory gate, no CI or multi-run parameter tuning. Include the independent16 original-access failure in reporting.",
+  "boundaries": [
+    "Equal total mutation-access updates fixes only duration of mutational supply, not equal time under selection after each mutation",
+    "This does not directly force observed phenotypic transition order",
+    "The 4 visitor histories, nested repeats and outcome-informed stress grid cannot validate ecological generality",
+    "No natural-island calibration, no direct island extirpation or rescue inference",
+    "Any apparent positive/negative setting effect must be independently checked with new histories",
+    "Previously failed independent16 gate must stay failed and must not be rebranded"
+  ]
+}

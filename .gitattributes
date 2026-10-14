@@ -51,3 +51,14 @@ data/results/assurance_parent_control_20261014/INDEPENDENT_ARITHMETIC_SOURCE.py 
 # Preserve authenticated original Q3 source, results and independent admission bytes.
 data/results/q3_conditional_paper_20261014/** -text whitespace=cr-at-eol
 data/results/q3_event_conditions_paper_20261014/** -text whitespace=cr-at-eol
+# Clock pilot gates hash the original Git bytes, not platform newline variants.
+data/design/chapter2_clock*.json text eol=lf
+data/results/chapter2_clock*.json text eol=lf
+scripts/*chapter2_clock*.py text eol=lf
+scripts/model3_island/types.py text eol=lf
+scripts/model3_island/reproduction.py text eol=lf
+scripts/model3_island/population.py text eol=lf
+scripts/model3_island/randomness.py text eol=lf
+scripts/model3_island/history.py text eol=lf
+scripts/clock_approved_execution_20261014/** -text whitespace=cr-at-eol
+data/design/chapter2_clock_pilot_author_execution_approval_20261014.json -text whitespace=cr-at-eol

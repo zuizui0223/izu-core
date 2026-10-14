@@ -1,8 +1,9 @@
 # Chapter 2 2026-10-05 novelty and literature position — 2026-10-06
 
-Status: frozen literature-position note written before the new-history confirmatory
-outcome is available. This note does not change model parameters, success rules or
-simulation results.
+Status: post-confirmation literature-position note. The literature boundaries were
+frozen before the new-history outcome and are unchanged by the result. The
+prospectively frozen replication subsequently confirmed the primary delayed-selfing/
+costly positive-mutation claim; this document does not broaden that scope.
 
 ## Novelty claim to keep
 
@@ -113,5 +114,6 @@ reproductive-fitness literature.
 - "selfing causes floral reduction";
 - "pollen limitation is not fitness" as a standalone novelty claim;
 - "isolation distance" as calibrated geography;
-- "confirmation" for the 51/64 discovery before the new-history replication
-  passes the frozen gate.
+- "universal assurance-first sequence": the confirmed primary cell passed, but
+  prior-selfing with positive mutation did not show an assurance-first majority
+  at the primary 0.05 threshold.

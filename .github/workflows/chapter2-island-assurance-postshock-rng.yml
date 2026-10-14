@@ -1,0 +1,102 @@
+name: Chapter 2 assurance postshock demographic RNG repeatability
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: chapter2-assurance-postshock-rng-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - run: pytest -q tests/test_chapter2_island_assurance_postshock_rng_repeatability.py
+      - run: |
+          python -m scripts.run_chapter2_island_assurance_postshock_rng_repeatability \
+            --out outputs/assurance-postshock-rng --dry-run
+
+  paired-shards:
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 75
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        shard: [0, 1, 2, 3]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - run: |
+          python -m scripts.run_chapter2_island_assurance_postshock_rng_repeatability \
+            --out outputs/assurance-postshock-rng \
+            --shard-index ${{ matrix.shard }} \
+            --shard-count 4 --workers 2
+      - uses: actions/upload-artifact@v4
+        with:
+          name: assurance-postshock-rng-shard-${{ matrix.shard }}
+          retention-days: 90
+          if-no-files-found: error
+          path: outputs/assurance-postshock-rng/*
+
+  readout:
+    needs: paired-shards
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: assurance-postshock-rng-shard-*
+          merge-multiple: true
+          path: outputs/assurance-postshock-rng
+      - run: |
+          python -m scripts.summarize_chapter2_island_assurance_postshock_rng_repeatability \
+            --input outputs/assurance-postshock-rng \
+            --out outputs/assurance-postshock-rng/recomputed.json
+      - name: Compare every setting/background to the frozen exploratory readout
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          obtained=json.loads(Path("outputs/assurance-postshock-rng/recomputed.json").read_text())
+          recorded=json.loads(Path("data/results/chapter2_island_assurance_postshock_rng_repeatability_20261008.json").read_text())
+          assert obtained["n_stress_trajectories"]==recorded["n_postshock_trajectories"]==2048
+          assert obtained["n_matched_stress_pairs"]==recorded["n_paired_stress_outcomes"]==1024
+          for entry in obtained["results"]:
+              reference=next(x for x in recorded["findings"]
+                             if (x["setting"],x["recipient_background"])==
+                             (entry["setting"],entry["recipient_background"]))
+              for key in ("matched_postshock_pairs","discordant_pairs",
+                          "full_donor_higher_occupancy","mean_target_higher_occupancy"):
+                  assert entry[key]==reference[key],(key,entry,reference)
+              for key in ("mean_occupancy_difference","mean_immediate_viable_difference"):
+                  assert abs(entry[key]-reference[key])<1e-12,(key,entry,reference)
+              for a,b in zip(entry["by_history_integrated_occupancy_difference"],
+                             reference["by_history_integrated_occupancy_difference"]):
+                  assert abs(a-b)<1e-12
+          print("postshock demographic repeatability readout reproduced; previously failed primary remains failed")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: assurance-postshock-rng-recomputed
+          retention-days: 90
+          if-no-files-found: error
+          path: outputs/assurance-postshock-rng/recomputed.json

@@ -1,0 +1,17 @@
+{
+  "status": "INDEPENDENT_RAW_RECOMPUTATION_PASS",
+  "states": 64,
+  "pairs": 3904,
+  "verified_state_fields": 20,
+  "verified_pair_fields": 20,
+  "biological_updates": 0,
+  "new_random_draws": 0,
+  "verifier_sha256": "126d1b5e5ba008ef872ad1ae09553f05092edb31fda9cf4f160defaaaa394198",
+  "synthetic_tests_passed": 14,
+  "verified_outputs": {
+    "STATES.csv": "d1a6e5fc407560f55a86c45f40235f750b031bc4e177764afe5de849d15bfd23",
+    "PAIRS.csv": "c81875ba54ac514f1436982566168d0e0ae6d314e87292b58536bdd1e09a105d",
+    "SUMMARY.json": "4bc0aaada47b137bb8d83329886e1ae94f2481b2303cd23002d2e366c49158e3",
+    "PROVENANCE.json": "3b295dd749bcc2a20bae9640069c8614421c7c44d6e737c01659422784611744"
+  }
+}

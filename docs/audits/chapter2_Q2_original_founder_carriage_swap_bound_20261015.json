@@ -1,0 +1,336 @@
+{
+  "schema": "chapter2_q2_original_t0_phenotype_matched_carriage_swap_bound_v1",
+  "status": "AUTHENTICATED_OLD_T0_STATIC_CONSTRAINT_NO_NEW_BIOLOGY",
+  "frozen_original_t0_git_blob": "4b529cce12bc44e06d43a22b10c325a52bbd967b",
+  "original_model3_biology_commit": "328548612e93469fcc8663f24548530a57399b9a",
+  "blocks": {
+    "main": {
+      "original_adults": 48,
+      "original_source_alleles_sha256": "1e2f173e46c20af3ecc811c81f95a38a5b09bf539e834542a6bdaf1281634930",
+      "distinct_expressed_M_I_A_strata": 8,
+      "original_I_heterozygote_adults": 24,
+      "original_I_homozygote_adults": 24,
+      "exact_matched_A_carrier_swap_capacity_with_I_original": 0,
+      "all_strata_I_status_pure": true,
+      "m0_to_m12_without_rewriting_I_is_feasible_under_this_control": false,
+      "strata": [
+        {
+          "expressed_M_I_A": [
+            0.4375,
+            0.4375,
+            0.5
+          ],
+          "individual_ids": [
+            7,
+            15,
+            23,
+            31,
+            39,
+            47
+          ],
+          "individuals": 6,
+          "I_heterozygote_adults": 6,
+          "I_homozygote_adults": 0,
+          "I_heterozygote_halfwidths": [
+            0.0625
+          ],
+          "phenotype_stratified_A_carrier_swap_capacity": 0
+        },
+        {
+          "expressed_M_I_A": [
+            0.4375,
+            0.5,
+            0.5
+          ],
+          "individual_ids": [
+            5,
+            13,
+            21,
+            29,
+            37,
+            45
+          ],
+          "individuals": 6,
+          "I_heterozygote_adults": 6,
+          "I_homozygote_adults": 0,
+          "I_heterozygote_halfwidths": [
+            0.125
+          ],
+          "phenotype_stratified_A_carrier_swap_capacity": 0
+        },
+        {
+          "expressed_M_I_A": [
+            0.4375,
+            0.5625,
+            0.5
+          ],
+          "individual_ids": [
+            2,
+            10,
+            18,
+            26,
+            34,
+            42
+          ],
+          "individuals": 6,
+          "I_heterozygote_adults": 6,
+          "I_homozygote_adults": 0,
+          "I_heterozygote_halfwidths": [
+            0.0625
+          ],
+          "phenotype_stratified_A_carrier_swap_capacity": 0
+        },
+        {
+          "expressed_M_I_A": [
+            0.4375,
+            0.625,
+            0.5
+          ],
+          "individual_ids": [
+            0,
+            8,
+            16,
+            24,
+            32,
+            40
+          ],
+          "individuals": 6,
+          "I_heterozygote_adults": 0,
+          "I_homozygote_adults": 6,
+          "I_heterozygote_halfwidths": [],
+          "phenotype_stratified_A_carrier_swap_capacity": 0
+        },
+        {
+          "expressed_M_I_A": [
+            0.5,
+            0.375,
+            0.5
+          ],
+          "individual_ids": [
+            1,
+            9,
+            17,
+            25,
+            33,
+            41
+          ],
+          "individuals": 6,
+          "I_heterozygote_adults": 0,
+          "I_homozygote_adults": 6,
+          "I_heterozygote_halfwidths": [],
+          "phenotype_stratified_A_carrier_swap_capacity": 0
+        },
+        {
+          "expressed_M_I_A": [
+            0.5,
+            0.5625,
+            0.5
+          ],
+          "individual_ids": [
+            6,
+            14,
+            22,
+            30,
+            38,
+            46
+          ],
+          "individuals": 6,
+          "I_heterozygote_adults": 6,
+          "I_homozygote_adults": 0,
+          "I_heterozygote_halfwidths": [
+            0.0625
+          ],
+          "phenotype_stratified_A_carrier_swap_capacity": 0
+        },
+        {
+          "expressed_M_I_A": [
+            0.5,
+            0.625,
+            0.5
+          ],
+          "individual_ids": [
+            3,
+            11,
+            19,
+            27,
+            35,
+            43
+          ],
+          "individuals": 6,
+          "I_heterozygote_adults": 0,
+          "I_homozygote_adults": 6,
+          "I_heterozygote_halfwidths": [],
+          "phenotype_stratified_A_carrier_swap_capacity": 0
+        },
+        {
+          "expressed_M_I_A": [
+            0.5625,
+            0.375,
+            0.5
+          ],
+          "individual_ids": [
+            4,
+            12,
+            20,
+            28,
+            36,
+            44
+          ],
+          "individuals": 6,
+          "I_heterozygote_adults": 0,
+          "I_homozygote_adults": 6,
+          "I_heterozygote_halfwidths": [],
+          "phenotype_stratified_A_carrier_swap_capacity": 0
+        }
+      ]
+    },
+    "confirmation": {
+      "original_adults": 48,
+      "original_source_alleles_sha256": "13cbb1c08a8da3d79db6c6cacf7443a6c865f170c7f64beea2d7f7639dbed114",
+      "distinct_expressed_M_I_A_strata": 5,
+      "original_I_heterozygote_adults": 30,
+      "original_I_homozygote_adults": 18,
+      "exact_matched_A_carrier_swap_capacity_with_I_original": 6,
+      "all_strata_I_status_pure": false,
+      "m0_to_m12_without_rewriting_I_is_feasible_under_this_control": false,
+      "strata": [
+        {
+          "expressed_M_I_A": [
+            0.4375,
+            0.4375,
+            0.5
+          ],
+          "individual_ids": [
+            0,
+            8,
+            16,
+            24,
+            32,
+            40
+          ],
+          "individuals": 6,
+          "I_heterozygote_adults": 6,
+          "I_homozygote_adults": 0,
+          "I_heterozygote_halfwidths": [
+            0.0625
+          ],
+          "phenotype_stratified_A_carrier_swap_capacity": 0
+        },
+        {
+          "expressed_M_I_A": [
+            0.5,
+            0.5,
+            0.5
+          ],
+          "individual_ids": [
+            4,
+            12,
+            20,
+            28,
+            36,
+            44
+          ],
+          "individuals": 6,
+          "I_heterozygote_adults": 0,
+          "I_homozygote_adults": 6,
+          "I_heterozygote_halfwidths": [],
+          "phenotype_stratified_A_carrier_swap_capacity": 0
+        },
+        {
+          "expressed_M_I_A": [
+            0.5,
+            0.5625,
+            0.5
+          ],
+          "individual_ids": [
+            7,
+            15,
+            23,
+            31,
+            39,
+            47
+          ],
+          "individuals": 6,
+          "I_heterozygote_adults": 6,
+          "I_homozygote_adults": 0,
+          "I_heterozygote_halfwidths": [
+            0.0625
+          ],
+          "phenotype_stratified_A_carrier_swap_capacity": 0
+        },
+        {
+          "expressed_M_I_A": [
+            0.5,
+            0.625,
+            0.5
+          ],
+          "individual_ids": [
+            2,
+            10,
+            18,
+            26,
+            34,
+            42
+          ],
+          "individuals": 6,
+          "I_heterozygote_adults": 0,
+          "I_homozygote_adults": 6,
+          "I_heterozygote_halfwidths": [],
+          "phenotype_stratified_A_carrier_swap_capacity": 0
+        },
+        {
+          "expressed_M_I_A": [
+            0.5625,
+            0.5,
+            0.5
+          ],
+          "individual_ids": [
+            1,
+            3,
+            5,
+            6,
+            9,
+            11,
+            13,
+            14,
+            17,
+            19,
+            21,
+            22,
+            25,
+            27,
+            29,
+            30,
+            33,
+            35,
+            37,
+            38,
+            41,
+            43,
+            45,
+            46
+          ],
+          "individuals": 24,
+          "I_heterozygote_adults": 18,
+          "I_homozygote_adults": 6,
+          "I_heterozygote_halfwidths": [
+            0.125
+          ],
+          "phenotype_stratified_A_carrier_swap_capacity": 6
+        }
+      ]
+    }
+  },
+  "full_genome_model3_future_updates": 0,
+  "simulated_new_offspring": 0,
+  "new_independent_source_genomes": 0,
+  "matched_control_definition": "I homologs fixed exactly as in original t0; adult M/I/A expression fixed per ID; A symmetric heterozygote carriers may be reassigned only within groups of exactly equal expressed M/I/A, preserving A-carrier counts in each phenotype group between arms.",
+  "interpretation_limits": [
+    "For this exact within-phenotype-stratum swap, the largest possible change in I/A carrier overlap is sum over groups min(I-heterozygote, I-homozygote counts).",
+    "An m=0 to m=12 contrast is unavailable in EITHER of the two authenticated source genomes under unchanged I homologs and this phenotype-stratum matching rule.",
+    "This is not a proof that other synthetic interventions or statistical balancing schemes cannot produce m12; they would change genetic context, t0 controls, or both.",
+    "Exactly matched parental return law and the complete F1 marginals of a future intervention still need source-pinned native calculation; this capacity is only a necessary matching constraint, not proof of sufficiency.",
+    "Repeated phenotypes/genes in original Model3 t0 are simulation sources, not a measured mainland allele-frequency or true independent island sample.",
+    "Old published A-width pilot is a DIFFERENT genetic intervention and is not an estimate of a co-carriage effect, genetic speed mediation or Q4 persistence."
+  ]
+}

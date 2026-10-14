@@ -1,0 +1,189 @@
+{
+  "schema": "k32_old_history_same_parent_heterozygosity_source_locked_v1",
+  "status": "exact_source_conditional_mean_census_matched_variance_identity_numerically_verified",
+  "evidence_type": "one_archived_visitor_history_Model3_engineering_not_plant_observations",
+  "provenance": {
+    "source_commit": "76e83d2917024da9dced0ce59bfbb224b2b92550",
+    "ci_run_id": 37889777989,
+    "ci_url": "https://github.com/zuizui0223/izu-core/actions/runs/37889777989",
+    "focused_job": "model3-k32-same-parent-moments",
+    "focused_job_conclusion": "success",
+    "raw_artifact_id": 11597781387,
+    "raw_artifact_url": "https://github.com/zuizui0223/izu-core/actions/runs/37889777989/artifacts/11597781387",
+    "sha256_zip": "6d1ae5a0e57215cf8f4249b7c52d2dba7c279a46677ace39a1cdc68633081826"
+  },
+  "conditions": {
+    "K": 32,
+    "mutation_rate": 0,
+    "generations": 8,
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "old_history": 26110601,
+    "environment": "near",
+    "independent_ecological_visitor_histories": 1,
+    "demographic_replicates_per_case": 512,
+    "joint_diploid_genotype_classes": 27,
+    "original_biology_modified": false,
+    "neutral_counterfactual_changes_parent_pair_weights": true,
+    "neutral_parent_pairing_with_replacement_including_self": true,
+    "source_parent_state_held_exact": true,
+    "source_child_allele_mean_matched_exact": true,
+    "source_capped_Poisson_recruitment_law_matched_exact": true,
+    "compare_only_conditional_one_generation_not_autonomous_eight_year_counterfactual": true,
+    "confirmatory_cohorts_reused": false
+  },
+  "exact_identity": "Conditional on same parent C, expected high allele mu, and same N>0 law: Var(source mean offspring frequency) - Var(control) = -0.25*(P_source(heterozygote offspring)-P_control(heterozygote offspring))*E[1/N|N>0,C].",
+  "cases": [
+    {
+      "ovule_budget": 8,
+      "parent_states_at_generation8": 512,
+      "unmatched_states": 0,
+      "source_expected_high_allele_mean": 0.9777765503008757,
+      "source_offspring_heterozygote_probability": 0.019986631924699287,
+      "comparator_offspring_heterozygote_probability": 0.04053526127760792,
+      "source_minus_comparator_heterozygote_probability": -0.02054862935290865,
+      "source_conditional_next_frequency_variance": 0.0004772178955531376,
+      "comparator_conditional_next_frequency_variance": 0.00031668172873281717,
+      "source_minus_comparator_conditional_variance": 0.00016053616682032033,
+      "independent_demographic_path_MC_standard_error_variance_difference": 0.0000112,
+      "identity_max_absolute_error": 3.642919299551295e-17,
+      "per_generation": [
+        {
+          "generation": 1,
+          "mean_high_allele_frequency_approx": 0.608,
+          "source_heterozygote_probability_approx": 0.27436,
+          "control_heterozygote_probability_approx": 0.47667,
+          "mean_source_minus_control_next_frequency_variance_approx": 0.00158057
+        },
+        {
+          "generation": 2,
+          "mean_high_allele_frequency_approx": 0.72112,
+          "source_heterozygote_probability_approx": 0.18708,
+          "control_heterozygote_probability_approx": 0.39475,
+          "mean_source_minus_control_next_frequency_variance_approx": 0.00162241
+        },
+        {
+          "generation": 3,
+          "mean_high_allele_frequency_approx": 0.80795,
+          "source_heterozygote_probability_approx": 0.1412,
+          "control_heterozygote_probability_approx": 0.29905,
+          "mean_source_minus_control_next_frequency_variance_approx": 0.00123323
+        },
+        {
+          "generation": 4,
+          "mean_high_allele_frequency_approx": 0.87328,
+          "source_heterozygote_probability_approx": 0.10217,
+          "control_heterozygote_probability_approx": 0.21102,
+          "mean_source_minus_control_next_frequency_variance_approx": 0.00085034
+        },
+        {
+          "generation": 5,
+          "mean_high_allele_frequency_approx": 0.91509,
+          "source_heterozygote_probability_approx": 0.0746,
+          "control_heterozygote_probability_approx": 0.14709,
+          "mean_source_minus_control_next_frequency_variance_approx": 0.0005663
+        },
+        {
+          "generation": 6,
+          "mean_high_allele_frequency_approx": 0.94175,
+          "source_heterozygote_probability_approx": 0.05367,
+          "control_heterozygote_probability_approx": 0.10256,
+          "mean_source_minus_control_next_frequency_variance_approx": 0.00038197
+        },
+        {
+          "generation": 7,
+          "mean_high_allele_frequency_approx": 0.9653,
+          "source_heterozygote_probability_approx": 0.03139,
+          "control_heterozygote_probability_approx": 0.06251,
+          "mean_source_minus_control_next_frequency_variance_approx": 0.00024312
+        },
+        {
+          "generation": 8,
+          "mean_high_allele_frequency_approx": 0.9777765503008757,
+          "source_heterozygote_probability_approx": 0.019986631924699287,
+          "control_heterozygote_probability_approx": 0.04053526127760792,
+          "mean_source_minus_control_next_frequency_variance_approx": 0.00016053616682032033
+        }
+      ]
+    },
+    {
+      "ovule_budget": 3,
+      "parent_states_at_generation8": 509,
+      "unmatched_states": 0,
+      "source_expected_high_allele_mean": 0.9823184697999376,
+      "source_offspring_heterozygote_probability": 0.011804996069417694,
+      "comparator_offspring_heterozygote_probability": 0.02666876674453967,
+      "source_minus_comparator_heterozygote_probability": -0.014863770675121995,
+      "source_conditional_next_frequency_variance": 0.0009895000777103776,
+      "comparator_conditional_next_frequency_variance": 0.000687698152821823,
+      "source_minus_comparator_conditional_variance": 0.00030180192488855434,
+      "independent_demographic_path_MC_standard_error_variance_difference": 0.00006377,
+      "identity_max_absolute_error": 4.683753385137379e-17,
+      "per_generation": [
+        {
+          "generation": 1,
+          "mean_high_allele_frequency_approx": 0.608,
+          "source_heterozygote_probability_approx": 0.27436,
+          "control_heterozygote_probability_approx": 0.47667,
+          "mean_source_minus_control_next_frequency_variance_approx": 0.00197247
+        },
+        {
+          "generation": 2,
+          "mean_high_allele_frequency_approx": 0.72446,
+          "source_heterozygote_probability_approx": 0.17966,
+          "control_heterozygote_probability_approx": 0.38943,
+          "mean_source_minus_control_next_frequency_variance_approx": 0.00243978
+        },
+        {
+          "generation": 3,
+          "mean_high_allele_frequency_approx": 0.81817,
+          "source_heterozygote_probability_approx": 0.12393,
+          "control_heterozygote_probability_approx": 0.28346,
+          "mean_source_minus_control_next_frequency_variance_approx": 0.00226155
+        },
+        {
+          "generation": 4,
+          "mean_high_allele_frequency_approx": 0.88683,
+          "source_heterozygote_probability_approx": 0.08222,
+          "control_heterozygote_probability_approx": 0.18537,
+          "mean_source_minus_control_next_frequency_variance_approx": 0.00160347
+        },
+        {
+          "generation": 5,
+          "mean_high_allele_frequency_approx": 0.92746,
+          "source_heterozygote_probability_approx": 0.05283,
+          "control_heterozygote_probability_approx": 0.12012,
+          "mean_source_minus_control_next_frequency_variance_approx": 0.00127809
+        },
+        {
+          "generation": 6,
+          "mean_high_allele_frequency_approx": 0.95057,
+          "source_heterozygote_probability_approx": 0.03661,
+          "control_heterozygote_probability_approx": 0.07737,
+          "mean_source_minus_control_next_frequency_variance_approx": 0.00073949
+        },
+        {
+          "generation": 7,
+          "mean_high_allele_frequency_approx": 0.96995,
+          "source_heterozygote_probability_approx": 0.02059,
+          "control_heterozygote_probability_approx": 0.04636,
+          "mean_source_minus_control_next_frequency_variance_approx": 0.00061516
+        },
+        {
+          "generation": 8,
+          "mean_high_allele_frequency_approx": 0.9823184697999376,
+          "source_heterozygote_probability_approx": 0.011804996069417694,
+          "control_heterozygote_probability_approx": 0.02666876674453967,
+          "mean_source_minus_control_next_frequency_variance_approx": 0.00030180192488855434
+        }
+      ]
+    }
+  ],
+  "caveats": [
+    "A state-conditional, mean/census-matched one-generation comparison is not an autonomous eight-generation genotype-frequency prediction; it cannot explain the terminal population frequency variance or the historical negative covariance by itself.",
+    "Lower source heterozygosity and higher conditional variance are exact properties of the source vs a declared full-support equal-gamete comparator; they do not uniquely isolate selfing, assortative pollen, fitness, or stabilizing selection.",
+    "The control is a deliberately different mating operator, and its same-parent mean is fitted analytically to the original source offspring law; this is not a new independent confirmation.",
+    "Both cases reuse one archived visitor history and pre-existing 27-class artificial founders; Monte Carlo SE is only uncertainty over demographic source trajectories.",
+    "Source Model3 core biology untouched; no confirmatory 37110801-37110864 ecology histories, natural data, geographic INLA, or validated Ito SDE/SPDE."
+  ]
+}

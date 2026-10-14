@@ -1,0 +1,81 @@
+{
+  "schema_version": "1.0",
+  "date_frozen": "2026-10-08",
+  "status": "frozen_before_independent_payoff_confirmation",
+  "title": "Independent common-community confirmation of reproductive payoff rank reversals after contrasting pollinator histories",
+  "relation_to_previous": "The 4-history ×2-repeat exploratory island-history 512-case post-transfer campaign motivated, but does not count toward, this separate independent-histories confirmation. The frozen four-setting generality campaign in PR411 is unchanged.",
+  "current_branch": "chapter2/island-history-transplant-20261008",
+  "source_biology": "data/design/chapter2_assurance_generality_20261006.json",
+  "pre_periods": 400,
+  "post_switch_readout": "first reproductive period with exactly identical new visitor community in near- and far-history populations",
+  "first_post_visitor_seed_offset": 1000000,
+  "settings": [
+    "delayed_control",
+    "prior_selfing",
+    "pollen_discount",
+    "assurance_cost"
+  ],
+  "assurance_modes": [
+    "fixed",
+    "evolving"
+  ],
+  "pre_environments": [
+    "near",
+    "far"
+  ],
+  "mutation_probability_before_switch": 0.01,
+  "visitor_history_seeds": {
+    "first": 28100801,
+    "last": 28100864,
+    "count": 64
+  },
+  "nested_demographic_repeats": {
+    "first": 28101801,
+    "last": 28101802,
+    "count": 2
+  },
+  "founder_seed": 74001,
+  "fixed_assurance_alleles": 0.5,
+  "group_pairs": 1024,
+  "prehistories_cases": 2048,
+  "inference_unit": "independent visitor history, never individual demographic repeat or arm",
+  "readouts": [
+    "t400 resident size and trait means/variances",
+    "post-switch immediate viable maternal seed output per resident plant",
+    "immediate female outcross seed output per resident plant",
+    "immediate pollen export per resident plant",
+    "same-visitor fixed-state 2x2 clamped investment and assurance mean factorial, explanatory only"
+  ],
+  "admission": {
+    "minimum_terminal_occupancy_per_cell": 0.9,
+    "minimum_complete_independent_histories": 60,
+    "undefined_after_extinction": null
+  },
+  "paired_contrasts": "far-history minus near-history, matched by setting × mode × visitor-history × demographic-repeat, followed by averaging the two nested repeats within visitor-history",
+  "bootstrap": {
+    "unit": "visitor history",
+    "draws": 9999,
+    "seed": 2810082026,
+    "interval": "percentile_95",
+    "resample_all_metrics_by_same_history_indices": true
+  },
+  "frozen_primary_joint_rule": [
+    "prior_selfing + evolving: viable_maternal far-minus-near mean >0 and bootstrap95 lower >0",
+    "pollen_discount + evolving: viable_maternal far-minus-near mean >0 and bootstrap95 lower >0",
+    "assurance_cost + evolving: viable_maternal far-minus-near mean <0 and bootstrap95 upper <0",
+    "prior_selfing + evolving: female_outcross far-minus-near mean <0 and bootstrap95 upper <0",
+    "pollen_discount + evolving: female_outcross far-minus-near mean <0 and bootstrap95 upper <0"
+  ],
+  "all_other_settings_and_modes": "always report all metrics, including failures, mixed signs, convergence to zero, and counterexamples",
+  "factorial_scope": "post-hoc source of hypothesis; I/A mean-level clamping is a new fixed-state perturbation, not a mediation fraction. Factorial outcomes remain explanatory regardless of primary gate.",
+  "safeguards": [
+    "never relabel success without all five preregistered sign-and-interval rules",
+    "no parameter changes or expanded histories after reading outcomes",
+    "no ecological rescue claim when all 48 capacity populations remain occupied",
+    "initial near and far histories share genetically identical founders; post-switch visitor community for each pair is identical",
+    "no colonist-arrival filter or model-based natural-island calibration",
+    "fixed assay retains realized selfing at constant assurance capacity",
+    "selection gradients must use corrected rare-mutant fixed-resident formula, not whole-population derivative",
+    "all case receipts and source hashes required for confirmatory label"
+  ]
+}
