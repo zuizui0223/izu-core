@@ -438,3 +438,27 @@ The two policies change support width, allele variance and heterozygosity jointl
 Original executiond92ac4324b6e1c8924dcc8e5f30e0750088a3acf generated/replayed990,720 updates per phase, plus four technical calls:1,981,444 within1,981,472. The immutable original archive has12,042 members and SHA2568a2462910025b4a386e789583578cb1380349097393916dac4e50d01c9637b7e. Complete extra saved-array admission verified all hashes,7,808 typed paths,998,528 censuses,47,929,344 plant rows,47,554,560 parent rows, initial edits, every M/I birth transmission, every endpoint/event and all three primary intervals with zero native calls. It is not a second biological replay. A stalled Actions transport was replaced by authenticated Release retrieval; no registered calculation restarted. Reviewed V2 checker changes only the archive input-path interface; unrun V1 remains preserved.
 
 Evidence is delivered under `EVIDENCE/Q3_CONDITIONAL_`. The42-member original-source/full-array-review companion is permanently published with SHA256aceec1ebf3d8c5e6b1671cc08b94ec5da086750428e0de5f21a53e163d8e0e91. The original protocol retains its registration-stage header; execution and result records establish its subsequent completed status. Earlier cohorts and primary families remain separate.
+
+
+## S24. Why restored mean investment and threshold events need not agree
+
+This is an outcome-informed exploratory extraction from the same archived3,904 pairs in S23, not a new simulation, founder sample or inferential family. The complete source and20 fields for each of64 original-state rows and3,904 pair rows were independently reconstructed from the authenticated saved arrays. Biological updates and random draws were zero. Exact source files, full state/pair tables and the dependency protocol are preserved in the public companion pinned by EVIDENCE/Q3_EVENT_PUBLIC_ADMISSION.json; the compact readout, source provenance and fresh raw/public verification records are delivered as EVIDENCE/Q3_EVENT_SUMMARY.json, EVIDENCE/Q3_EVENT_PROVENANCE.json, EVIDENCE/Q3_EVENT_FRESH_RAW_REVIEW.json and EVIDENCE/Q3_EVENT_PUBLIC_READBACK.json.
+
+### Reachable values and inherited event history
+
+For original founder mean b, the existing reduction event requires mean investment at or below b−0.05 for20 consecutive censuses. At the original complete-fixation trigger the native value is v. Restoration replaces investment alleles with v−h and v+h, h=1/16, while every individual's expressed investment initially remains v. Segregation can subsequently express v−h, v or v+h. With investment mutation disabled and no immigrant seeds in these saved futures, their population mean remains within that support. This constrains threshold reachability without guaranteeing that a qualifying population trajectory occurs.
+
+If only the lower endpoint qualifies, restoration can permit a previously unavailable event; if lower and middle qualify, restoration can prevent an event by moving upward. When no endpoint qualifies, future investment cannot newly cross the threshold; when all endpoints qualify, investment support cannot prevent a qualifying future census. Original censuses through the trigger are retained. An event already completed before intervention cannot be removed by changing its future. For incomplete events, the existing trailing run and the remaining horizon also restrict whether20 consecutive qualifying censuses can be completed. These are necessary restrictions, not sufficient causes of attainment.
+
+| Original block | Triggered states / original slots | Gain-capable states | Preexisting event states | Native / restored events | Gains / losses |
+| --- | --- | --- | --- | --- | --- |
+| Main |31/32|12|8|640/1,108|468/0|
+| Confirmation |30/32|0|3|1,280/1,208|0/72|
+
+Main support classes were15 lower-only,9 excluded and7 all-eligible; one slot never triggered. Three lower-only states already completed the event, leaving12 gain-capable states. Confirmation had20 lower-plus-middle and10 excluded states, with two nontriggering policy-zero slots; no state was gain-capable. One confirmation state lacked sufficient remaining window. Counts retain all triggered pairs, including events that predated intervention, rather than selecting successful restorations. All native event predictions from the shared prefix and constant future v matched the saved paths.
+
+### Refixation is a witness, not an isolated mediator
+
+All72 confirmation losses ended in upper-allele fixation without prior event completion. However,424 confirmation pairs retaining the event also ended in upper fixation; five main gains likewise eventually fixed the upper allele. Timing and inherited event history therefore matter, and upper fixation alone is not a sufficient explanation. The absorbing refixation checks are descriptions of observed paths. No fixation-prevention intervention or independent variance/support separation was executed, so these observations do not identify refixation as the unique causal mediator.
+
+Both conditional terminal-mean contrasts in S23 remain positive despite opposite event-count directions. The original64-history primary and confirmation contrast relative to the operational0.01 margin remain unresolved. These restrictions explain which event changes were possible under this restoration policy; they do not establish a natural evolutionary-order benefit, survival benefit, ecological threshold or new-founder replication.

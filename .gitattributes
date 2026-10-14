@@ -50,3 +50,4 @@ data/results/assurance_parent_control_20261014/INDEPENDENT_ARITHMETIC_SOURCE.py 
 
 # Preserve authenticated original Q3 source, results and independent admission bytes.
 data/results/q3_conditional_paper_20261014/** -text whitespace=cr-at-eol
+data/results/q3_event_conditions_paper_20261014/** -text whitespace=cr-at-eol

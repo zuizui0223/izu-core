@@ -1,0 +1,15 @@
+{
+  "new_biological_updates": 0,
+  "pins": {
+    "FRESH_RAW_REVIEW.json": "563b6959f41aeb584660e60d626d63103a3b79c053eb0c620ad24433100872b5",
+    "PROVENANCE.json": "3b295dd749bcc2a20bae9640069c8614421c7c44d6e737c01659422784611744",
+    "PUBLIC_READBACK.json": "8154e9bd65bbfeda43e2f178a701787dc9c11ec2f75f23ecc632efa33552cd7c",
+    "SUMMARY.json": "4bc0aaada47b137bb8d83329886e1ae94f2481b2303cd23002d2e366c49158e3"
+  },
+  "public_companion_sha256": "61d9a198f8206ed4ae7b7b34e7172bb40f954da5db9f37226ff1e5f62d76f1d9",
+  "public_companion_url": "https://github.com/zuizui0223/izu-core/releases/download/four-question-resolution-20261013/PR515_EXACT_SOURCE_REVIEW_20261014.zip",
+  "raw_archive_sha256": "8a2462910025b4a386e789583578cb1380349097393916dac4e50d01c9637b7e",
+  "scope": "Exploratory necessary support/prefix restrictions and pathwise refixation witnesses; not identified mediation, new-founder replication or natural-order benefit.",
+  "source": "914b5040ff1dd75378277c643bad87c0d9132a62",
+  "status": "FULL64_STATES_3904_PAIRS_EXPLORATORY_RESTRICTIONS_ADMITTED"
+}

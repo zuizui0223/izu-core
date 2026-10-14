@@ -23,9 +23,9 @@
     ],
     "secondary_descriptive": [
       "two other cohort K-at-B48 estimates remain post-outcome secondary and unpooled",
-      "78–90 percent arm localization is post-confirmation accounting",
+      "78\u201390 percent arm localization is post-confirmation accounting",
       "near pollen supply x16 saturation feasibility failed; not new evolutionary history",
-      "public-goods seed-based β/Γ conflict not survival"
+      "public-goods seed-based \u03b2/\u0393 conflict not survival"
     ],
     "identification_limitations": [
       "No causal mediation from evolved investment to extinction established",
@@ -116,6 +116,15 @@
       "independent_birth_checks": 9031680,
       "pooled_with_primary_studies": false,
       "scope": "All-locus expected parental weighting after initial A-mean equalization; not pure A selection, unique mediation or natural-order benefit."
+    },
+    "q3_event_condition_extraction": {
+      "rank": "outcome-informed exploratory saved-array restrictions",
+      "result_directory": "data/results/q3_event_conditions_paper_20261014",
+      "original_slots": 64,
+      "pairs": 3904,
+      "new_biological_updates": 0,
+      "source": "914b5040ff1dd75378277c643bad87c0d9132a62",
+      "claim_ceiling": "Necessary support/prefix restrictions and pathwise refixation witnesses; not identified mediation or natural-order benefit."
     }
   },
   "data_requirement": "Issue #436 outstanding DOI-backed external raw archive verification",
@@ -125,7 +134,7 @@
     "ecology_letters_letter_main_max": 5000,
     "ecology_letters_letter_abstract_max": 150,
     "display_items_max": 6,
-    "current_integrated_main_words": 4958,
+    "current_integrated_main_words": 4977,
     "current_integrated_abstract_words": 140,
     "main_text_excess_words": 0,
     "abstract_excess_words": 0,
@@ -138,9 +147,9 @@
       "pollinator population collapse",
       "historically explained global island syndrome"
     ],
-    "current_main_text_words": 4958,
+    "current_main_text_words": 4977,
     "current_abstract_words": 140,
-    "updated_submission_scope": "Source main4958 and blinded main4963 words; abstract140. S21/S22 retain original64 audit and separate4096 parent control; S23 adds registered fixed-state conditional futures with both block mean directions positive, divergent descriptive events and original64 primary unresolved. No natural-order benefit or unique mechanism partition.",
+    "updated_submission_scope": "Source main4977; abstract140. S24 adds independently reconstructed exploratory support/prefix event restrictions to S23; original64 primary and confirmation margin remain unresolved. No unique mediation or natural-order benefit.",
     "historical_precompression_counts": {
       "main_words": 6035,
       "abstract_words": 237,
@@ -148,7 +157,7 @@
     }
   },
   "editorial_primary_claim": "Confirmed within one model family: assurance evolution not necessary for loss of investment, but compresses divergence in four frozen pollen-limited settings",
-  "editorial_secondary_claim": "Independent externally assigned expression-order K × viable selfed seed sensitivity (one registered small positive result), not an evolutionary-to-persistence mediator",
+  "editorial_secondary_claim": "Independent externally assigned expression-order K \u00d7 viable selfed seed sensitivity (one registered small positive result), not an evolutionary-to-persistence mediator",
   "review_package_builder": "scripts/build_chapter2_unified_el_submission_bundle.py",
   "review_package_expected_figures": [
     "Figure1.pdf",

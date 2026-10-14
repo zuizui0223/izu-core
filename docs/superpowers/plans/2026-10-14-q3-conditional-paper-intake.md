@@ -25,6 +25,6 @@
 - [x] TDD exact compact admission helper: valid result, corrupted source/readout and wrong conditional scope must fail closed.
 - [x] Integrate concise Q3 result plus S23 methods/results/limits; move technical detail to SI as needed, retaining old primaries and families. Recompute actual word counts.
 - [x] Verify focused tests, original staged-blob budget, actual anonymous packet and independent source/scientific review.
-- [ ] Commit only this intake, push existing paper branch, verify exact-head CI and publicly retrieve/review actual committed packet.
+- [x] Commit only this intake, push existing paper branch, verify exact-head CI and publicly retrieve/review actual committed packet.
 
 Ruling: Actions transport remained live but did not finish. Direct Release206 range retrieval authenticated the same410326692-byte archive; only redundant transport was cancelled. V1 audit source was preserved unrun; reviewed V2 changes only the archive input path interface and retains every source/scientific check. Registered biological execution was never restarted.

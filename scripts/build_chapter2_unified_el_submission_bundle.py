@@ -204,6 +204,54 @@ def q3_conditional_materials():
     return members,provenance
 
 
+def q3_event_conditions_materials():
+    """Admit retrospective necessary restrictions, not a new causal experiment."""
+    data=ROOT/'data/results/q3_event_conditions_paper_20261014'
+    raw=(data/'PUBLIC_ADMISSION.json').read_bytes()
+    if sha(raw)!='3cf8990ed835289d9dd9274a17d6d89cf56fe8f6f40d9ac81491916713f6aac6':
+        raise ValueError('Q3 event public admission differs')
+    admission=json.loads(raw)
+    for name,digest in admission['pins'].items():
+        if sha((data/name).read_bytes())!=digest:
+            raise ValueError('Q3 event frozen source/result differs: '+name)
+    summary=json.loads((data/'SUMMARY.json').read_bytes())
+    audit=json.loads((data/'FRESH_RAW_REVIEW.json').read_bytes())
+    public=json.loads((data/'PUBLIC_READBACK.json').read_bytes())
+    source=json.loads((data/'PROVENANCE.json').read_bytes())
+    if (admission['status']!='FULL64_STATES_3904_PAIRS_EXPLORATORY_RESTRICTIONS_ADMITTED'
+        or public['source']!=admission['source']
+        or public['public_archive_sha256']!=admission['public_companion_sha256']
+        or source['archive_sha256']!=admission['raw_archive_sha256']
+        or source['outputs']['SUMMARY.json']!=admission['pins']['SUMMARY.json']
+        or audit['status']!='INDEPENDENT_RAW_RECOMPUTATION_PASS'
+        or audit['states']!=64 or audit['pairs']!=3904
+        or audit['verified_state_fields']!=20 or audit['verified_pair_fields']!=20
+        or audit['biological_updates']!=0 or audit['new_random_draws']!=0
+        or public['independent_raw']!=audit
+        or summary['status']!='ALL_DECLARED_PATH_RESTRICTIONS_PASS'
+        or summary['exploratory'] is not True or summary['biological_updates']!=0
+        or summary['original_slots']!=64 or summary['triggered_pairs']!=3904
+        or summary['original_primary']!='unresolved'
+        or summary['confirmation_margin_0_01']!='unresolved'):
+        raise ValueError('Q3 event independent scope differs')
+    conditional=json.loads((ROOT/'data/results/q3_conditional_paper_20261014/READOUT.json').read_bytes())
+    for block,row in summary['blocks'].items():
+        counts={arm:sum(r['event_counts'][arm] for r in conditional['case_summaries']
+                       if r['block']==block and r['trigger'] is not None)
+                for arm in ('native','restored')}
+        if (row['native_events']!=counts['native'] or row['restored_events']!=counts['restored']
+            or row['restored_events']-row['native_events']!=row['joint']['01']-row['joint']['10']):
+            raise ValueError('Q3 event counts differ from conditional source')
+    members={};provenance={}
+    for name in ['PUBLIC_ADMISSION.json']+list(admission['pins']):
+        original=(data/name).read_bytes();key='EVIDENCE/Q3_EVENT_'+name
+        derived=original.replace(b'https://github.com/zuizui0223/izu-core/',b'PUBLIC_REPOSITORY_SOURCE/')
+        members[key]=derived
+        provenance[key]=dict(original_sha256=sha(original),derived_sha256=sha(derived),
+            transformation='Identifying repository prefix replaced only; exploratory support/prefix restrictions and refixation witnesses, not unique mediation or natural-order benefit. Zero biological updates.')
+    return members,provenance
+
+
 def assurance_parent_materials():
     """Admit all4096 controlled futures, complete raw replay and fixed comparisons."""
     data=ROOT/'data/results/assurance_parent_control_20261014'
@@ -1068,6 +1116,8 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     derivations.update(restoration_access_derivations)
     q3_conditional,q3_conditional_derivations=q3_conditional_materials()
     members.update(q3_conditional);derivations.update(q3_conditional_derivations)
+    q3_events,q3_event_derivations=q3_event_conditions_materials()
+    members.update(q3_events);derivations.update(q3_event_derivations)
     assurance_parent,assurance_parent_derivations=assurance_parent_materials()
     members.update(assurance_parent)
     derivations.update(assurance_parent_derivations)
