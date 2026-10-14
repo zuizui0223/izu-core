@@ -157,7 +157,7 @@ def test_replay_rejects_mislabeled_or_pseudoreplicated_input(error):
     if error=="wrong_category":
         entries[0]["archived_category"]="assurance_only"
     elif error=="wrong_extinction":
-        entries[-2]["archived_extinct_by_horizon"]=True
+        entries[-2]["archived_extinct_by_horizon"]=False  # contradict actual toy extinction
     elif error=="missing_arm":
         entries.pop()
     elif error=="duplicate_source_sha":
