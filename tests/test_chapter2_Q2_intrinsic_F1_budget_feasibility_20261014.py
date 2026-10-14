@@ -127,7 +127,7 @@ def test_all_192_source_scope_biology_execution_stays_closed():
 def test_bad_conditional_zygote_law_rejected():
     fixture=original_fixture()
     cfg,_=original_context(fixture,"main",0)
-    with pytest.raises(ValueError,match="source"):
+    with pytest.raises(ValueError,match="Only approved original Model3 evolving/delayed ovule genotype law"):
         one_child_intrinsic_budget_distribution(np.zeros((33,33)),cfg)
 
 
