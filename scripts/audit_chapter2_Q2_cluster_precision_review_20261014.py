@@ -136,6 +136,87 @@ def verify_review_design(d:dict)->dict:
     }
 
 
+
+def paired_source_level_class_contrasts(rows:list[dict])->dict:
+    """Validate a possible future *data schema* with six-class labels.
+
+    This does not load/run or synthesize biology: only supplied categorical
+    labels are checked. Caller is responsible for authenticated full-genome
+    replays and original sustained-event classification BEFORE this step.
+    """
+    if not isinstance(rows,list) or not rows:
+        raise ValueError("No paired categorized future rows supplied")
+    expected_fields={"source_id","history_id","future_master_identity",
+                     "context","m","category","extinct_by_horizon"}
+    by_key={}
+    future_identity_by_cluster={}
+    histories={}
+    for row in rows:
+        if (not isinstance(row,dict) or set(row)!=expected_fields
+            or type(row["source_id"]) is not str or not row["source_id"]
+            or type(row["history_id"]) is not str or not row["history_id"]
+            or type(row["future_master_identity"]) is not str
+            or not row["future_master_identity"]
+            or type(row["context"]) is not int or row["context"] not in OLD_CONTEXTS
+            or type(row["m"]) is not int or row["m"] not in ARMS
+            or row["category"] not in CLASSES
+            or type(row["extinct_by_horizon"]) is not bool):
+            raise ValueError("Incomplete original six-class paired source data contract")
+        cluster=(row["source_id"],row["history_id"])
+        key=cluster+(row["context"],row["m"])
+        if key in by_key:
+            raise ValueError("Duplicated source/history/context/arm future")
+        by_key[key]=row
+        histories.setdefault(row["source_id"],set()).add(row["history_id"])
+        prior=future_identity_by_cluster.setdefault(
+            cluster,row["future_master_identity"]
+        )
+        if prior!=row["future_master_identity"]:
+            raise ValueError("Arms/visitor contexts do not use same paired future master")
+    # A master seed belongs to exactly one independent source × history;
+    # identical random streams are used ONLY within its paired treatment cells.
+    if len(set(future_identity_by_cluster.values()))!=len(future_identity_by_cluster):
+        raise ValueError("Future random master reused across independent source histories")
+    required={(ctx,arm) for ctx in OLD_CONTEXTS for arm in ARMS}
+    for source in histories:
+        for history in histories[source]:
+            seen={(ctx,m) for (s,h,ctx,m) in by_key if (s,h)==(source,history)}
+            if seen!=required:
+                raise ValueError("Missing ecology/arm in paired independent source/history unit")
+    sizes=set(map(len,histories.values()))
+    if len(sizes)!=1:
+        raise ValueError("Different future history counts per source require preregistered weights")
+    n_histories=sizes.pop()
+    source_records=[]
+    for source in sorted(histories):
+        for context in OLD_CONTEXTS:
+            differences={}
+            for klass in CLASSES:
+                lo=sum(by_key[(source,h,context,ARMS[0])]["category"]==klass
+                       for h in histories[source])/n_histories
+                hi=sum(by_key[(source,h,context,ARMS[1])]["category"]==klass
+                       for h in histories[source])/n_histories
+                differences[klass]=hi-lo
+            if abs(sum(differences.values()))>1e-12:
+                raise AssertionError("All six-class frequencies do not sum to one per arm")
+            source_records.append({
+                "source_id":source,"context":context,
+                "paired_histories":n_histories,
+                "six_class_probability_differences_m12_minus_m0":differences,
+                "secondary_order_score_D_difference":
+                    differences["assurance_first"]-differences["investment_first"],
+            })
+    return {
+        "status":"CATEGORICAL_PAIRED_SOURCE_CLUSTER_SCHEMA_ONLY",
+        "already_given_rows":len(rows),
+        "independent_source_clusters":len(histories),
+        "paired_histories_per_source":n_histories,
+        "source_by_context_contrasts":len(source_records),
+        "not_an_event_reader":"Original raw-genome event classification must be verified separately",
+        "no_source_genotypes_or_futures_generated":True,
+        "source_records":source_records,
+    }
+
 def read_review_design()->dict:
     return verify_review_design(json.loads(DESIGN.read_text(encoding="utf-8")))
 
