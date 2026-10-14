@@ -129,3 +129,23 @@ def test_bad_conditional_zygote_law_rejected():
     cfg,_=original_context(fixture,"main",0)
     with pytest.raises(ValueError,match="source"):
         one_child_intrinsic_budget_distribution(np.zeros((33,33)),cfg)
+
+
+def test_original_source_native_intrinsic_ovule_difference_matches_independent_regression_snapshot():
+    """Source-locked descriptive regression values, not a minimum effect rule."""
+    report=technical_report()
+    snapshot={
+        0:(7.85439201678173e-07,9.536903924356466e-07),
+        3:(6.602497197860657e-07,8.358121714735489e-07),
+        4:(7.496123473060834e-07,9.232660431734985e-07),
+    }
+    assert len(report["context_comparisons"])==3
+    for row in report["context_comparisons"]:
+        lo,hi=snapshot[row["original_visitor_context"]]
+        assert abs(row["m12_minus_m0_expected_intrinsic_ovules_min"]-lo)<1e-11
+        assert abs(row["m12_minus_m0_expected_intrinsic_ovules_max"]-hi)<1e-11
+        assert row["m12_minus_m0_expected_intrinsic_ovules_positive_count"]==16
+        assert row["m12_minus_m0_expected_intrinsic_ovules_negative_count"]==0
+        # Deliberately small on the ORIGINAL source scale; not a proven
+        # long-term fitness benefit or a source-cluster effect size.
+        assert 0<row["m12_minus_m0_expected_intrinsic_ovules_max"]<1e-5
