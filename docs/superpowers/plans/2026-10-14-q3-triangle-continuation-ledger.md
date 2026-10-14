@@ -57,3 +57,11 @@ Final: Ruling: reject proposed broken-link finding because the live activation t
 Final: minor (deferred): optional single runnable raw-only recomputation example. Existing frozen functions and publication execution are available; no additional native experiment is authorized.
 
 Scientific report and four exact/transport JSON records are ready for explicit-file GitHub publication. Broader goal is not complete: persistence/timing policies and unique component attribution remain unmeasured/unidentified, as the report explains.
+
+## Deterministic maintenance feasibility follow-up
+
+Derived V <= (U-m)(m-L) from nonnegative (U-X)(X-L), with exact endpoint impossibility and necessary displacement for restoring variance. Directly read frozen reproduction.py and simulate.py from the verified shard00 archive; source hashes match the note. Exact-rational enumeration of all4,753 allele-count configurations at96copies passed. No new outcome extraction, native calls or RNG.
+
+Fresh-context proof review found no Critical/Important mathematical issues and independently verified both source hashes and trait averaging. Final: Ruling: treat two optional wording suggestions as required standalone scientific-scope clarifications, clarifying that the theorem constrains interventions rather than ruling out persistence as explanation and explicitly retaining both old unresolved questions. Both were applied; no change to mathematics. Cost if left ambiguous: readers could overstate mechanism exclusion or completion. No deferred findings for the proof.
+
+This follow-up establishes a necessary intervention-feasibility constraint, not a maintenance-policy effect. No further biological approval is assumed.
