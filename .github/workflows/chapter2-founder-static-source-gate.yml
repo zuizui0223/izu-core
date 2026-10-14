@@ -19,9 +19,15 @@ jobs:
         run: python -m pip install 'numpy==2.2.6' 'pytest==8.4.2'
       - name: Run exact-source technical tests only
         run: |
-          python -m pytest -q             tests/test_chapter2_colonisation_genetic_access_feasibility_20261014.py             tests/test_chapter2_joint_founder_access_20261014.py             tests/test_chapter2_native_founder_source_20261014.py             tests/test_chapter2_original_founder_compatibility_20261014.py \
+          python -m pytest -q \
+            tests/test_chapter2_colonisation_genetic_access_feasibility_20261014.py \
+            tests/test_chapter2_joint_founder_access_20261014.py \
+            tests/test_chapter2_native_founder_source_20261014.py \
+            tests/test_chapter2_original_founder_compatibility_20261014.py \
             tests/test_chapter2_original_founder_transplant_20261014.py \
-            tests/test_chapter2_founder_I_support_exact_20261014.py
+            tests/test_chapter2_founder_I_support_exact_20261014.py \
+            tests/test_chapter2_source_assignment_candidate_QA_20261014.py \
+            tests/test_chapter2_founder_F1_conditional_moments_20261014.py
       - name: Assert actual old t0 and 96 static checks, with no biology
         run: |
           python -m scripts.audit_chapter2_original_founder_compatibility_20261014 > original-t0-static-receipt.json
@@ -35,6 +41,11 @@ jobs:
         run: |
           python -m scripts.audit_chapter2_founder_I_support_exact_20261014 > original-I-support-exact-receipt.json
           python -c "import json; r=json.load(open('original-I-support-exact-receipt.json')); assert r['genetic_futures_or_simulation_histories_run']==0; assert len(r['rows'])==8; print('I SUPPORT EXACT GATE PASSED')"
+      - name: Confirm no-biology source assignments and F1 analytical moments
+        run: |
+          python -m scripts.audit_chapter2_source_assignment_candidate_QA_20261014 > source-assignment-candidate-QA.json
+          python -m scripts.audit_chapter2_founder_F1_conditional_moments_20261014 > original-t0-conditional-zygote-moments.json
+          python -c "import json; a=json.load(open('source-assignment-candidate-QA.json')); b=json.load(open('original-t0-conditional-zygote-moments.json')); assert a['n_source_assignment_m_x_n_cases']==1024 and a['n_biological_evolutionary_histories']==0; assert b['initial_state_contrasts']==192 and b['biological_histories_or_population_advance_calls']==0; print('SOURCE ASSIGNMENT + CONDITIONAL ZYGOTE MOMENT GATES PASSED')"
       - name: Preserve static audit receipts
         if: success()
         uses: actions/upload-artifact@v4
@@ -44,5 +55,7 @@ jobs:
             original-t0-static-receipt.json
             original-t0-fixed48-receipt.json
             original-I-support-exact-receipt.json
+            source-assignment-candidate-QA.json
+            original-t0-conditional-zygote-moments.json
           if-no-files-found: error
           retention-days: 30
