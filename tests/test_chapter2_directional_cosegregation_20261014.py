@@ -85,7 +85,15 @@ def test_no_visitor_directional_signs_have_exact_m_over_768_law():
             edited=balanced_cocarriage(base,pool,m)
             ledger=reproduction.reproduce(edited,vis,cfg)
             p=directional_f1(edited,ledger)
-            assert abs(p["p_A_up_and_I_down"]-m/768)<1e-14
+            carriers=((edited.alleles[:,1,0]!=edited.alleles[:,1,1]) &
+                      (edited.alleles[:,2,0]!=edited.alleles[:,2,1]))
+            true_weighted=float(ledger.self_viable[carriers].sum() /
+                                ledger.self_viable.sum())/16
+            assert abs(p["p_A_up_and_I_down"]-true_weighted)<1e-14
+            if m==0:
+                assert p["p_A_up_and_I_down"]==0
+            if m==12:
+                assert abs(p["p_A_up_and_I_down"]-1/64)<1e-14
             assert abs(p["p_A_above_selected_parent_midpoint"]-.0625)<1e-14
             assert abs(p["p_I_below_selected_parent_midpoint"]-.0625)<1e-14
             assert p["p_A_up_and_I_down_from_outcross_parent_pair"]==0
@@ -144,9 +152,7 @@ def test_exact_full_source_grid_and_no_evolution_or_survival_claims():
         assert abs(row["p_A_up_and_I_down"] -
                    row["p_A_up_and_I_down_from_selfed_parent_pair"] -
                    row["p_A_up_and_I_down_from_outcross_parent_pair"])<1e-14
-        assert row["direction_is_relative_to_selected_parent_midpoint_not_founder_mean"] if (
-            "direction_is_relative_to_selected_parent_midpoint_not_founder_mean" in row
-        ) else True
+    assert report["direction_is_relative_to_selected_parent_midpoint_not_founder_mean"] is True
 
 
 def test_source_guard_rejects_wrong_census_or_genotype_model():
