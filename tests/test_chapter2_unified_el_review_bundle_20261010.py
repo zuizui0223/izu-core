@@ -249,7 +249,14 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
            "EVIDENCE/ECOLOGICAL_ORDER_READOUT.json",
            "EVIDENCE/EVOLUTION_DESIGN.json",
             "EVIDENCE/EVOLUTION_RESULTS.json",
-            "EVIDENCE/FUTURE_PARENT_READOUT.json",
+            "EVIDENCE/FIRST_MEIOSIS_FROZEN_SOURCE_PINS.json",
+           "EVIDENCE/FIRST_MEIOSIS_INDEPENDENT_PROTOCOL.md",
+           "EVIDENCE/FIRST_MEIOSIS_INDEPENDENT_RAW_REVIEW.json",
+           "EVIDENCE/FIRST_MEIOSIS_INDEPENDENT_SOURCE.py",
+           "EVIDENCE/FIRST_MEIOSIS_ORIGINAL_CASES.csv",
+           "EVIDENCE/FIRST_MEIOSIS_ORIGINAL_RESULT.json",
+           "EVIDENCE/FIRST_MEIOSIS_V1_SERIALIZATION_STOP.md",
+           "EVIDENCE/FUTURE_PARENT_READOUT.json",
            "EVIDENCE/GENETIC_ACCESS_ALL_SIX_ORIGINAL_SOURCE_READBACK.json",
            "EVIDENCE/GENETIC_ACCESS_EXTERNAL_SOURCE_AND_MIRROR_RECEIPT.json",
            "EVIDENCE/GENETIC_ACCESS_FROZEN_EXPLORATORY_READOUT.json",
@@ -317,7 +324,7 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
         assert m["doi_deposit_complete"] is False
         assert m["n_figures"]==4
         assert m["n_supplementary_figures"]==3
-        assert len(m["members"])==92
+        assert len(m["members"])==99
         for name,record in m["members"].items():
             raw=z.read(name)
             assert record=={"size":len(raw),"sha256":hashlib.sha256(raw).hexdigest()}

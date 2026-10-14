@@ -127,6 +127,40 @@ def pr490_original_materials():
         for name,value in members.items()}
 
 
+def first_meiosis_access_materials():
+    """Admit original-cohort F1 access via complete raw-genotype reconstruction."""
+    data = ROOT / 'data/results/first_meiosis_access_20261014'
+    raw = (data / 'SOURCE_PINS.json').read_bytes()
+    if sha(raw) != '675afe147b2e372f2616045d6005c374a0c3a50814b4ffb90a434f35fc72f8aa':
+        raise ValueError('first-meiosis frozen evidence differs: source pins')
+    for relative, digest in json.loads(raw).items():
+        if sha((data / relative).read_bytes()) != digest:
+            raise ValueError('first-meiosis frozen evidence differs: ' + relative)
+    review_raw = (data / 'INDEPENDENT_RAW_REVIEW.json').read_bytes()
+    if sha(review_raw) != '61fec91183fe5d6f8e20a78c8f9203ce2f6ae1c78b8f1a704090cc27bafc1176':
+        raise ValueError('first-meiosis frozen evidence differs: independent raw review')
+    review = json.loads(review_raw)
+    if (review['status'] != 'ALL2304_RAW_GENOTYPE_CENSUSES_AND_PR508_EVENTS_INDEPENDENTLY_VERIFIED'
+            or review['source_manifest_sha256'] != sha(raw)
+            or review['cases'] != 2304 or review['trait_mean_components'] != 1389312
+            or review['producer_imported'] is not False or review['new_biological_histories'] != 0):
+        raise ValueError('first-meiosis admission scope differs')
+    names = {
+        'data/results/chapter2_original_first_meiosis_access_2304_20261014.json': 'ORIGINAL_RESULT.json',
+        'data/results/chapter2_original_first_meiosis_access_2304_case_20261014.csv': 'ORIGINAL_CASES.csv',
+        'independent_reader.py': 'INDEPENDENT_SOURCE.py',
+        'INDEPENDENT_PROTOCOL.md': 'INDEPENDENT_PROTOCOL.md',
+        'INDEPENDENT_RAW_REVIEW.json': 'INDEPENDENT_RAW_REVIEW.json',
+        'SOURCE_PINS.json': 'FROZEN_SOURCE_PINS.json',
+        'V1_SERIALIZATION_STOP.md': 'V1_SERIALIZATION_STOP.md',
+    }
+    members = {'EVIDENCE/FIRST_MEIOSIS_' + dest: (data / relative).read_bytes()
+               for relative, dest in names.items()}
+    return members, {name: dict(original_sha256=sha(value), derived_sha256=sha(value),
+        transformation='Exact original-cohort F1 diagnostic and independent raw-census/event admission; retrospective, not the separate new pilot or causal/predictive confirmation.')
+        for name, value in members.items()}
+
+
 def genetic_access_pilot_materials():
     """Admit exact independently replayed exploratory pilot evidence."""
     data = ROOT / 'data/results/genetic_access_pilot_20261014'
@@ -882,6 +916,9 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     directional,directional_derivations=directional_access_materials()
     members.update(directional)
     derivations.update(directional_derivations)
+    f1,f1_derivations=first_meiosis_access_materials()
+    members.update(f1)
+    derivations.update(f1_derivations)
     pilot,pilot_derivations=genetic_access_pilot_materials()
     members.update(pilot)
     derivations.update(pilot_derivations)
