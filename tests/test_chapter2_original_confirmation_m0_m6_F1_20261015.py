@@ -1,10 +1,11 @@
 """Native original t0 m0-vs-m6 F1 check; no births or biological futures."""
 from dataclasses import replace
+import json
 import numpy as np
 import pytest
 
 from scripts.audit_chapter2_original_confirmation_m0_m6_F1_20261015 import (
-    A_HALFWIDTH, N_A_CARRIERS, assign_A_only, audit, source_carriers,
+    A_HALFWIDTH, N_A_CARRIERS, OUTPUT, assign_A_only, audit, source_carriers,
 )
 from scripts.audit_chapter2_original_founder_compatibility_20261014 import (
     original_fixture, source_state,
@@ -65,3 +66,30 @@ def test_unregistered_carriers_and_I_genome_drift_fail():
     drift=replace(initial,alleles=original_alleles)
     with pytest.raises(ValueError,match="composition drift"):
         source_carriers(drift)
+
+
+def test_committed_source_bound_f1_readout_matches_all_three_contexts():
+    frozen=json.loads(OUTPUT.read_text(encoding="utf-8"))
+    actual=audit()
+    assert frozen.keys()==actual.keys()
+    assert frozen["status"]==actual["status"]
+    assert frozen["original_A_heterozygosity_reset_in_each_arm"]==42
+    assert frozen["original_I_allele_copies_preserved"] is True
+    assert frozen["new_Model3_future_updates"]==0
+    for rec,obs in zip(frozen["contexts"],actual["contexts"]):
+        assert rec.keys()==obs.keys()
+        for name in ("context","N_initial","m0_A_heterozygote_original_IDs",
+                     "m6_A_heterozygote_original_IDs"):
+            assert rec[name]==obs[name]
+        for name in ("F1_joint_A_I_total_variation",
+                     "entire_F1_A_marginal_max_bin_error",
+                     "entire_F1_I_marginal_max_bin_error"):
+            assert abs(rec[name]-obs[name])<1e-12
+        for arm in ("m0","m6"):
+            p0=rec["P_one_child_Aup_Itdown_relative_to_original_founder_mean"][arm]
+            p1=obs["P_one_child_Aup_Itdown_relative_to_original_founder_mean"][arm]
+            assert abs(p0-p1)<1e-12
+    assert all(r["P_one_child_Aup_Itdown_relative_to_original_founder_mean"]["m0"]==0
+               for r in frozen["contexts"])
+    assert all(r["P_one_child_Aup_Itdown_relative_to_original_founder_mean"]["m6"]>0
+               for r in frozen["contexts"])
