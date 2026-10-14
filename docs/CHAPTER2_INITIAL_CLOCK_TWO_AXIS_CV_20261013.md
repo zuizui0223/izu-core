@@ -46,6 +46,12 @@ All models include only initial ecological/genic descriptors. The original model
 - Across L2 settings `(0.025,0.15,0.6)`, Price-vs-same-complexity-quadratic Log-loss reductions are **(+0.02485,+0.02221,+0.00742)**; Price-vs-flexible-null reductions are **(+0.00047,−0.00510,−0.01885)**. Thus the exact t0 Price feature improves parsimonious six-class predictors but **does not establish unique or robust superiority over richer nonmechanistic descriptions**.
 - Unlike the previous known-profile saturated frequency lookup (seed-only heldout Log loss **1.13993**), this two-axis comparison actually excludes the entire tested ecological context, so **the saturated 18-cell lookup cannot be evaluated as a valid unseen-context model**. Do not compare its 1.13993 as if it were a two-axis score.
 
+## Distinct original-path response-onset falsifier (parent PR #491)
+
+The parent manuscript branch independently archived a **retrospective** [2,304-history expected-response-onset audit](https://github.com/zuizui0223/izu-core/blob/codex/four-question-resolution-20261013/data/results/expected_response_onset_20261013/READOUT.json), source-preserving all original six outcomes. It finds **299 assurance-first histories despite an earlier expected investment-decline response**, or **216** when the expected-direction onset must persist for 20 updates. This is a counterexample to the *onset ordering alone determines evolutionary ordering* hypothesis. It is not a new independent biological cohort and the response paths were only observed after each trajectory unfolded.
+
+The present t0-price feature is **only initial-state information**, in contrast to those hindsight yearly onset measurements. Even the best current t0 six-way predictor must not be relabelled an access-delay/response-time law. A future true predictive clock must allow early I response yet late I threshold crossing, genotype exhaustion, waiting for A segregation and multiple paths with shared t0 state. This finding strengthens the reason to require a novel A-accessibility manipulation before prospectively testing a two-stage clock.
+
 ## Scientific decision: hypothesis still open
 
 **Supported as a bounded exploratory numerical finding:** the early full-parent investment return carries useful predictive information about later investment/reproductive-response categories in this one synthetic model. The result withstands excluding the tested seed AND ecological context, but flexible ecology/genetic interactions can equal or outperform the exact Price feature.
