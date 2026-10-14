@@ -161,6 +161,92 @@ def first_meiosis_access_materials():
         for name, value in members.items()}
 
 
+def assurance_parent_materials():
+    """Admit all4096 controlled futures, complete raw replay and fixed comparisons."""
+    data=ROOT/'data/results/assurance_parent_control_20261014'
+    raw=(data/'PUBLIC_ADMISSION.json').read_bytes()
+    if sha(raw)!='a144bed854917db1c41acef99e1dfc93a076d9f7d5b1b751212b8360e0f48b9d':
+        raise ValueError('assurance-parent public admission differs')
+    public=json.loads(raw)
+    if (public['status']!='ALL4096_PUBLIC_FUTURES_AND_FULL_INDEPENDENT_COMPARISONS_ADMITTED_FOR_ONE_PAPER'
+        or public['new_futures']!=4096 or public['updates']!=819200 or public['native_controls']!=8
+        or public['public_companion_sha256']!='3ee1fd50d9bed5863a0b6057f43b2d62a52e9873d0cbc9939a5364f7d6c3431d'):
+        raise ValueError('assurance-parent public scope differs')
+    def source_bytes(name):
+        if name=='REFERENCE_ADMISSION.json' and not (data/name).exists():
+            import gzip
+            return gzip.decompress((data/(name+'.gz')).read_bytes())
+        return (data/name).read_bytes()
+    for name,digest in public['pins'].items():
+        if sha(source_bytes(name))!=digest:
+            raise ValueError('assurance-parent frozen source/result differs: '+name)
+    admission=json.loads((data/'ALL4096_INDEPENDENT_ADMISSION_V2.json').read_bytes())
+    arithmetic=json.loads((data/'INDEPENDENT_ARITHMETIC.json').read_bytes())
+    result=json.loads((data/'READOUT.json').read_bytes())
+    if (admission['status']!='ALL4096_PUBLIC_CONTROLLED_FUTURES_INDEPENDENTLY_REPLAYED_DOMAIN_VERIFIED'
+        or admission['cases']!=4096 or admission['updates']!=819200 or admission['shards']!=16
+        or admission['max_allele_replay_error']!=0
+        or arithmetic['status']!='ALL4096_ENDPOINTS_AND_FOUR_FIXED_COMPARISONS_INDEPENDENTLY_MATCH'
+        or arithmetic['analysis_helper_imported'] is not False
+        or arithmetic['primary_readout_sha256']!=public['pins']['READOUT.json']
+        or result['independent_admission_sha256']!=public['pins']['ALL4096_INDEPENDENT_ADMISSION_V2.json']
+        or result['cases']!=4096 or result['bootstrap_count']!=19999 or result['primary_family']!=4
+        or [r['decision'] for r in result['primary']]!=public['primary_decisions']):
+        raise ValueError('assurance-parent complete raw/arithmetic admission differs')
+    members={};provenance={}
+    for name in ['PUBLIC_ADMISSION.json']+list(public['pins']):
+        original=source_bytes(name);key='EVIDENCE/ASSURANCE_PARENT_'+name
+        derived=original.replace(b'https://github.com/zuizui0223/izu-core/releases/download/four-question-resolution-20261013/',b'PUBLIC_SOURCE_COMPANION/')
+        members[key]=derived
+        provenance[key]=dict(original_sha256=sha(original),derived_sha256=sha(derived),
+            transformation='Public identifying prefix replaced only; all4096 raw futures, native8/source gates and four unresolved comparisons preserved. Within-class A-expression weighting, not pure or natural-order mediation.')
+    return members,provenance
+
+
+def restoration_access_materials():
+    """Admit the unchanged64-pair descriptive audit with fresh raw verification."""
+    data=ROOT/'data/results'
+    public=(data/'restoration_access_public_admission_20261014.json').read_bytes()
+    if sha(public)!='744c6e7968c255db7c98cf337dccdad006e275574b63c78cbdc20546af9df843':
+        raise ValueError('restoration-access public admission differs')
+    admission=json.loads(public)
+    if (admission['status']!='PR513_FULL_PUBLIC_COMPANION_AND_FRESH_RAW_REVIEW_ADMITTED'
+        or admission['cases']!=64 or admission['annual_updates']!=7740
+        or admission['archive_sha256']!='7a6542e1b0f785e6618201a67039a3cd534c481417d4f65b967a874b75520a3d'):
+        raise ValueError('restoration-access admitted scope differs')
+    for path,digest in admission['pins'].items():
+        if sha((ROOT/path).read_bytes())!=digest:
+            raise ValueError('restoration-access original source/result differs: '+path)
+    fresh=(data/'restoration_access_fresh_independent_20261014.json').read_bytes()
+    if sha(fresh)!=admission['fresh_independent_sha256']:
+        raise ValueError('restoration-access fresh verification differs')
+    review=json.loads(fresh)
+    primary=json.loads((data/'restoration_access_audit_20261014.json').read_bytes())
+    if (review['status']!='ALL64_ALL32_CSV_FIELDS_INDEPENDENTLY_MATCH'
+        or review['fields_per_case']!=32 or review['annual_updates']!=7740 or review['annual_max_error']!=0
+        or review['no_producer_imports'] is not True or review['no_new_biological_histories'] is not True
+        or review['checked_csv_sha256']!=admission['pins']['data/results/restoration_access_cases_20261014.csv']
+        or primary['primary_preserved']['decision']!='unresolved'):
+        raise ValueError('restoration-access fresh raw admission scope differs')
+    paths={
+        'data/results/restoration_access_public_admission_20261014.json':'PUBLIC_ADMISSION.json',
+        'data/results/restoration_access_audit_20261014.json':'READOUT.json',
+        'data/results/restoration_access_cases_20261014.csv':'CASES.csv',
+        'data/results/restoration_access_fresh_independent_20261014.json':'FRESH_INDEPENDENT.json',
+        'docs/CHAPTER2_RESTORATION_ACCESS_AUDIT_20261014.md':'SOURCE_SCOPE.md',
+        'scripts/audit_restoration_access_20261014.py':'AUDIT_SOURCE.py',
+        'scripts/verify_restoration_access_independent_20261014.py':'INDEPENDENT_SOURCE.py'}
+    members={};provenance={}
+    for path,name in paths.items():
+        raw=(ROOT/path).read_bytes();key='EVIDENCE/RESTORATION_ACCESS_'+name
+        derived=raw.replace(b'https://github.com/zuizui0223/izu-core/releases/download/four-question-resolution-20261013/',b'PUBLIC_SOURCE_COMPANION/')
+        derived=derived.replace(b'https://github.com/zuizui0223/izu-core/',b'PUBLIC_SOURCE_COMPANION/REPOSITORY/')
+        members[key]=derived
+        provenance[key]=dict(original_sha256=sha(raw),derived_sha256=sha(derived),
+            transformation='Identifying public release/repository prefixes replaced only; unchanged64-pair primary and post hoc support/refixation constraints, no new biological history or unique cause.')
+    return members,provenance
+
+
 def genetic_access_pilot_materials():
     """Admit exact independently replayed exploratory pilot evidence."""
     data = ROOT / 'data/results/genetic_access_pilot_20261014'
@@ -662,6 +748,18 @@ def resolution_materials():
 
 def validate_member(name,raw):
     """Parse deliverable formats; visual and scientific inspection remain separate."""
+    if name == 'EVIDENCE/ASSURANCE_PARENT_OUTCOMES.npz':
+        import numpy as np
+        with np.load(io.BytesIO(raw),allow_pickle=False) as arrays:
+            if set(arrays.files)!={'occupied','curves'}:
+                raise ValueError('assurance-parent all-start outcome inventory differs')
+            occupied=arrays['occupied'];curves=arrays['curves']
+            if (occupied.shape!=(2,512,2,3,2) or curves.shape!=(2,512,2,3,2,201)
+                or occupied.dtype.kind not in 'iu' or curves.dtype.kind not in 'iu'
+                or not np.isin(occupied,[0,1]).all() or not np.isin(curves,[0,1]).all()
+                or not np.array_equal(occupied,curves[...,-1]) or np.any(np.diff(curves.astype(np.int8),axis=-1)>0)):
+                raise ValueError('assurance-parent complete endpoint/absorbing curves differ')
+        return
     if name == 'EVIDENCE/DIRECTIONAL_ACCESS_ARRAYS.npz':
         import numpy as np
         with np.load(io.BytesIO(raw), allow_pickle=False) as arrays:
@@ -922,6 +1020,12 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     pilot,pilot_derivations=genetic_access_pilot_materials()
     members.update(pilot)
     derivations.update(pilot_derivations)
+    restoration_access,restoration_access_derivations=restoration_access_materials()
+    members.update(restoration_access)
+    derivations.update(restoration_access_derivations)
+    assurance_parent,assurance_parent_derivations=assurance_parent_materials()
+    members.update(assurance_parent)
+    derivations.update(assurance_parent_derivations)
     low_loss,low_loss_derivations=low_allele_loss_materials()
     members.update(low_loss)
     derivations.update(low_loss_derivations)

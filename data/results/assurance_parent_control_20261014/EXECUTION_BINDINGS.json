@@ -1,0 +1,41 @@
+{
+  "schema": "assurance_parent_execution_bindings_v1",
+  "approved_future_cases": 4096,
+  "approved_native_controls": 8,
+  "human_approval": "この自殖能力に限定した親選択対照を進める",
+  "input_sha256": "51a07a843a087059af3d67ad113f5d849644f5b03739a6df986d506bd636648f",
+  "production_gate_open": true,
+  "ruling": "All4096 original-reference births and native8 controls independently replayed exactly, archived publicly and retrieved byte-identically. Approved4096 within-class A parent-weight futures may run only after separate production source freeze/readback. No controlled outcome yet.",
+  "normalized_source_sha256": {
+    "scripts/assurance_parent_control_20261014.py": "4697ebfc1cd3c0ee116f50fd3c603baf390255b0aa1165eef339b89d7eb33919",
+    "scripts/run_assurance_parent_control_20261014.py": "6faacb8cc2c4a9c47fb14d3f3f8f2163b9771022a401e2e0bc31dffd25e6f131",
+    "scripts/check_assurance_parent_initial_feasibility_20261014.py": "55163b7f8e9cb9e57f87fdd9420b537716157438dab95d6bbd7b4d9f4ee9beda",
+    "scripts/persistence_expression_mechanism_20261012.py": "da8be50f183732f4bafc0cd3f8e5760514911859a96134a3ba61fdf5e2e32d0d",
+    "scripts/initial_assurance_mean_20261013.py": "1af33520ac4524f27ad9eedf148d9564a776b9459b82084fe2f687eec497a5e6",
+    "scripts/run_initial_assurance_mean_20261013.py": "b422a6ffd5d6e66e037ecf23cb84dd0b6b288daaf42741da8996cea61d0d7b93",
+    "scripts/future_parent_selection_20261013.py": "45170028aa2e3c79e08eea3e7388da49dc73cbe21625daf05139d5b11da84d5c",
+    "scripts/chapter2_kb_reproduction.py": "79327794763f963f0f3399c8a94cdb94ad019093d306f2ac4c0bb59a92711863",
+    "scripts/model3_island/types.py": "a572e1e7f4fded181585871a63582b16f40292bd07b13e8efc9d6b6234eb21c5",
+    "scripts/model3_island/population.py": "c959d18816da6666dbfb4e91bd9582c94af5453b25498d033f5747305b05fe0f",
+    "scripts/model3_island/reproduction.py": "885957edb8a165ee8528781ed1d2574c44143c608496b505f9663cbfac2c4081",
+    "scripts/model3_island/randomness.py": "63522ae3c5ff8e11f114b5649a989945fa4ba2480fdca0f74857601b0e4b211f",
+    "scripts/model3_island/history.py": "28d22c7fde81d9be6a604fa9dd4cb6b48d78d388d4db85f798a935cf81415488",
+    "docs/CHAPTER2_ASSURANCE_PARENT_CONTROL_PROTOCOL_20261014.md": "8d9174ec01a47f5e43c73802338d1f98160557a617fbc9945364723a6de3cda7",
+    "scripts/review_assurance_parent_control_20261014.py": "860680aa7ba248b43dad6e4e984f3af52fc23438014ca8b13246b72bbc167906",
+    "scripts/assurance_parent_admission_20261014.py": "7c326b93317b860a2d90743ded2b65a8e88bb4723cfad43e25b1bb3638736051"
+  },
+  "reference_admission": {
+    "receipt_relative": "data/results/assurance_parent_control_20261014/reference_full_birth_admission.json",
+    "receipt_sha256": "3f107e2841cff502be422061b1b182e0798b7579e662f75a992d16b4d370d68d",
+    "historical_source_bindings_sha256": "57c7563fd6bb1c74cebe733a2a58e2bf6bba162233c525d1206cd2f5e496f522",
+    "public_url": "https://github.com/zuizui0223/izu-core/releases/download/four-question-resolution-20261013/assurance_parent_reference_independent_20261014.json"
+  },
+  "technical_admission": {
+    "receipt_relative": "data/results/assurance_parent_control_20261014/native8_independent_admission.json",
+    "receipt_sha256": "9dd40166ce481b51d79f4c55ae7690217e5df65d85b02a936415b23cccc75088",
+    "historical_source_bindings_sha256": "9701f98569cb83f86e19ffa090ea4fe0b42fc5565bc7d412d4a19144b6ea1759",
+    "native_archive_sha256": "d7f1b0043d0b8f49cbab67a4a269d01b9f98ace74be8c3de547ddff1df1a0226",
+    "native_manifest_sha256": "708ff549e0dc089cae17a6938a9403d271bbd7e79507173386c3b5a94abb47e5",
+    "public_url": "https://github.com/zuizui0223/izu-core/releases/download/four-question-resolution-20261013/assurance_parent_native8_independent_20261014.json"
+  }
+}

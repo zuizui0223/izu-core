@@ -34,3 +34,16 @@ data/results/clock_native_technical_20261014/** -text whitespace=cr-at-eol
 data/results/genetic_access_pilot_20261014/** -text whitespace=cr-at-eol
 
 data/results/first_meiosis_access_20261014/** -text whitespace=cr-at-eol
+
+# Preserve newly admitted original control/audit source and receipt byte identities.
+data/results/assurance_parent_control_20261014/** -text whitespace=cr-at-eol
+data/results/restoration_access*_20261014.* -text whitespace=cr-at-eol
+scripts/audit_restoration_access_20261014.py -text whitespace=cr-at-eol
+scripts/verify_restoration_access_independent_20261014.py -text whitespace=cr-at-eol
+docs/CHAPTER2_RESTORATION_ACCESS_AUDIT_20261014.md -text whitespace=cr-at-eol
+docs/superpowers/plans/2026-10-14-restoration-access-audit.md -text whitespace=cr-at-eol
+tests/test_restoration_access_20261014.py -text whitespace=cr-at-eol
+
+# Frozen source records retain their original trailing blank line.
+data/results/assurance_parent_control_20261014/ANALYSIS_SOURCE.py -text whitespace=cr-at-eol,-blank-at-eof
+data/results/assurance_parent_control_20261014/INDEPENDENT_ARITHMETIC_SOURCE.py -text whitespace=cr-at-eol,-blank-at-eof

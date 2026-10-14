@@ -230,6 +230,21 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
         assert "ATOM_FULL_TABLES.csv" in names
         assert "TEMPO_FULL_TABLES.md" in names
         assert sorted(x for x in names if x.startswith("EVIDENCE/"))==[
+           "EVIDENCE/ASSURANCE_PARENT_ALL4096_INDEPENDENT_ADMISSION_V2.json",
+           "EVIDENCE/ASSURANCE_PARENT_ANALYSIS_SOURCE.py",
+           "EVIDENCE/ASSURANCE_PARENT_DOMAIN_COLLECTOR_SOURCE.py",
+           "EVIDENCE/ASSURANCE_PARENT_DOMAIN_CORRECTION.md",
+           "EVIDENCE/ASSURANCE_PARENT_EXECUTION_BINDINGS.json",
+           "EVIDENCE/ASSURANCE_PARENT_INDEPENDENT_ARITHMETIC.json",
+           "EVIDENCE/ASSURANCE_PARENT_INDEPENDENT_ARITHMETIC_SOURCE.py",
+           "EVIDENCE/ASSURANCE_PARENT_INDEPENDENT_READER_SOURCE.py",
+           "EVIDENCE/ASSURANCE_PARENT_NATIVE8_ADMISSION.json",
+           "EVIDENCE/ASSURANCE_PARENT_OUTCOMES.npz",
+           "EVIDENCE/ASSURANCE_PARENT_PROTOCOL.md",
+           "EVIDENCE/ASSURANCE_PARENT_PUBLIC_ADMISSION.json",
+           "EVIDENCE/ASSURANCE_PARENT_READOUT.json",
+           "EVIDENCE/ASSURANCE_PARENT_REFERENCE_ADMISSION.json",
+           "EVIDENCE/ASSURANCE_PARENT_RUN_COMPLETION.json",
            "EVIDENCE/ATOM_ABM_COMPARISON.json",
            "EVIDENCE/CAPACITY_RESULTS.json",
            "EVIDENCE/DIRECTIONAL_ACCESS_ARRAYS.npz",
@@ -315,6 +330,13 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
            "EVIDENCE/RESPONSE_ONSET_PROTOCOL.md",
            "EVIDENCE/RESPONSE_ONSET_READOUT.json",
            "EVIDENCE/RESPONSE_ONSET_SOURCE.py",
+           "EVIDENCE/RESTORATION_ACCESS_AUDIT_SOURCE.py",
+           "EVIDENCE/RESTORATION_ACCESS_CASES.csv",
+           "EVIDENCE/RESTORATION_ACCESS_FRESH_INDEPENDENT.json",
+           "EVIDENCE/RESTORATION_ACCESS_INDEPENDENT_SOURCE.py",
+           "EVIDENCE/RESTORATION_ACCESS_PUBLIC_ADMISSION.json",
+           "EVIDENCE/RESTORATION_ACCESS_READOUT.json",
+           "EVIDENCE/RESTORATION_ACCESS_SOURCE_SCOPE.md",
            "EVIDENCE/TEMPO_AUDIT_SUMMARY.json",
            "EVIDENCE/TEMPO_DESIGN.json",
            "EVIDENCE/TEMPO_RESULTS.json.gz",
@@ -324,7 +346,7 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
         assert m["doi_deposit_complete"] is False
         assert m["n_figures"]==4
         assert m["n_supplementary_figures"]==3
-        assert len(m["members"])==99
+        assert len(m["members"])==121
         for name,record in m["members"].items():
             raw=z.read(name)
             assert record=={"size":len(raw),"sha256":hashlib.sha256(raw).hexdigest()}

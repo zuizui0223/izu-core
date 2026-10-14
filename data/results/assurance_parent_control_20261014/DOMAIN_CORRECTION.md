@@ -1,0 +1,7 @@
+# Independent controlled-history admission correction
+
+Before any controlled scientific readout, review identified that the V1 replay orchestrator labelled each completed independent receipt by the external completion row rather than requiring agreement with the actual shard returned by the frozen reader. V1 retains valid full birth/weight/genome replays and receipt hashes, but its counts-only aggregate is provisional for complete-cohort admission.
+
+The distinct V2 collector requires actual shard agreement, the exact unique two-founder ×512-seed ×two-origin ×two-challenge domain, correct replicate shard membership, the fixed execution commit, original archive hashes and frozen reader identity860680aa7ba248b43dad6e4e984f3af52fc23438014ca8b13246b72bbc167906. It writes ALL4096_INDEPENDENT_ADMISSION_V2.json with a DOMAIN_VERIFIED status and preserves the original V1 aggregate hash and all sixteen receipt hashes. Four positive/corruption tests pass; independent source review found no remaining material blocker.
+
+V1 birth replay remains live and unchanged. No history is regenerated and no valid replay is restarted. V2 analytical sources replace only the aggregate filename/status/hash binding. The four comparisons, 19,999 paired within-founder draws, seed sequence, family adjustment, all-start domain, biological operators, periods and conditions are unchanged. No controlled scientific result has been interpreted before this repair.

@@ -1,0 +1,87 @@
+{
+  "source_commit": "688bcdf563d4150e6f3618e27967469cbbaa341e",
+  "input_sha256": {
+    "restoration": "90b9d063c564edf97f12d3a3917819486f72d4ecb8281a20ebdaf39ad7de14c6",
+    "accounting": "07e86248551b1dce24ea91f1566c54e6a8c7f8932ac96479e2cd78e708ce572d",
+    "source_input": "f0fd126f638e1c6bd130e640ce4491b3bb47aac3da1838359a902776c9a4e037",
+    "cohort": "7ae00916ed2cbb38323c3fb9ffc5824de3e8272df1f5a35785842c316191f918"
+  },
+  "original_event_definition": {
+    "thresholds": [
+      0.025,
+      0.05,
+      0.1
+    ],
+    "primary": 0.05,
+    "sustained": 20,
+    "tie": 5
+  },
+  "event_source_sha256": "721769c22d22045d6d86ea5bc4692f9c004a310261a0819a4e59ba1710bfe2bf",
+  "cases": 64,
+  "triggers": 61,
+  "no_trigger": 3,
+  "primary_preserved": {
+    "decision": "unresolved",
+    "estimate": 0.007486979166666664,
+    "ci95": [
+      -0.005615234375000001,
+      0.020346069335937488
+    ],
+    "block_estimates": {
+      "causal_main": 0.01949055989583333,
+      "causal_confirmation": -0.0045166015625
+    },
+    "pairs": 64
+  },
+  "primary_interval_note": "Existing frozen interval retained; no new bootstrap or inference family.",
+  "counts": {
+    "restored_support": 42,
+    "already_supported_at_trigger": 27,
+    "newly_supported": 15,
+    "excluded_despite_restoration": 19,
+    "expressed_variance_next_census": 61,
+    "refixed_by_200": 45,
+    "original_events_all64": 31,
+    "restored_events_all64": 35,
+    "new_events_among_original_none": 7,
+    "lost_events": 3,
+    "triggered_with_at_least_20_censuses": 60
+  },
+  "trigger_range": [
+    12,
+    197
+  ],
+  "remaining_updates_range": [
+    3,
+    188
+  ],
+  "pathwise_blocks": {
+    "causal_main": {
+      "selection": -0.01830064424800599,
+      "parent_sampling": -0.006113418251994012,
+      "transmission": 0.004923502604166675,
+      "observed_change": -0.019490559895833332
+    },
+    "causal_confirmation": {
+      "selection": -0.011386170404292385,
+      "parent_sampling": 0.013685161289709046,
+      "transmission": 0.0022176106770833356,
+      "observed_change": 0.0045166015625
+    }
+  },
+  "no_new_histories": true,
+  "checks": [
+    "four ZIP hashes",
+    "all restoration manifest members",
+    "original64 byte identity against full cohort",
+    "source-manifest biology identity",
+    "64 paired raw receipts",
+    "annual genotype moments",
+    "first fixation and exact intervention fields",
+    "7740 raw parent/transmission updates against saved expected response",
+    "all64 primary mean and both blocks"
+  ],
+  "limitation": "Support is necessary, not sufficient; expected response is the authenticated saved quantity, not freshly recomputed reproduction. Descriptive post hoc audit, no unique cause, equivalence or natural-process intervention claim.",
+  "audit_script_sha256": "734f58d76166c519ca26a73f9ce621f3e82e70b7f219387929f14f0d3cd3100d",
+  "case_table_sha256": "f4b69a15e506507fd59800f9f9f41df6d59f03f6310b0e9c29ce0a45dab79fbe"
+}

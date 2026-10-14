@@ -1,0 +1,35 @@
+{
+  "status": "ALL4096_ENDPOINTS_AND_FOUR_FIXED_COMPARISONS_INDEPENDENTLY_MATCH",
+  "cases": 4096,
+  "bootstrap_count": 19999,
+  "primary_family": 4,
+  "analysis_helper_imported": false,
+  "independent_source_sha256": "09fc9a9f4d50f0cd50bd75e1107bce93c03caa6702d7e39c0e5d1499e39bbf7e",
+  "primary_readout_sha256": "efa2452e9418ebd37070d890ee192d5820d5e60984473ae0b20b376b5b9a3b00",
+  "results": [
+    {
+      "target": 1.05,
+      "index": 0,
+      "estimate": -0.0009765625,
+      "decision": "unresolved"
+    },
+    {
+      "target": 1.05,
+      "index": 1,
+      "estimate": -0.001953125,
+      "decision": "unresolved"
+    },
+    {
+      "target": 1.5,
+      "index": 2,
+      "estimate": -0.0224609375,
+      "decision": "unresolved"
+    },
+    {
+      "target": 1.5,
+      "index": 3,
+      "estimate": 0.0283203125,
+      "decision": "unresolved"
+    }
+  ]
+}

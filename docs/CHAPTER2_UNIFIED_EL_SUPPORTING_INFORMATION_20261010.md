@@ -360,3 +360,49 @@ Across all starts, the categories are316 assurance-first,416 investment-first,22
 Occurrence and order are distinct: the much larger width effect on D than on assurance-event incidence concerns which response happens first. Hidden investment effects are heterogeneous: in main/context3, investment-event incidence changes by-0.085938, whereas the confirmation/context3 contrast is+0.359375. Neither is promoted to a separately confirmed effect. The pilot shows model-conditional genotype-access effects on realized sequence at matched initial phenotypes/returns; it identifies neither a continuous ecological reversal root, a prospective clock's predictive performance, pure drift, nor a unique historical causal share.
 
 All cases contain9,600 source-year records and9,600 parent pairs. With authenticated N0=K=48 and the cap48, every census through200 is therefore48. This design supplies no extinction or survival-benefit contrast, including no equivalence result. Its1,536 cases are separate from the earlier2,304 ecological histories,64 restoration slots and primary64-history order study; categories and uncertainty units are not pooled. The exploratory source, original archives and independent receipts are permanently linked from the public four-question-resolution-20261013 release. Private mirror identifiers and authenticated download references are excluded from the repository and reviewer packet.
+
+## S21. What the existing64-pair variation restoration actually restores
+
+This retrospective audit adds no biological histories or inference family. The original all64 terminal-investment contrast remains+0.00748698, interval[−0.00561523,+0.02034607], unresolved. Three no-trigger slots retain zero policy effects. At the first investment fixation, the original intervention replaced homologs by the fixed value±1/16 while preserving every individual's expression. All61 triggered histories expressed investment variance at the next census, but19 lacked standing-allele support for the original founder-relative0.05 decline target. Of42 supported histories,27 already supported that target at fixation and15 newly gained support; all15 were in the main founder block.
+
+| Founder | Triggered | Target supported | Already supported | Newly supported | Unsupported | Refixed by200 | Events gained / lost |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| Main |31|22|7|15|9|21|7 /0|
+| Confirmation |30|20|20|0|10|24|0 /3|
+| Total |61|42|27|15|19|45|7 /3|
+
+Original mean investment was0.53125 in main founders and0.4609375 in confirmation founders. The same restoration width therefore supplied unequal access to the founder-relative target. Allele support is necessary, not proof of finite-time attainment. Forty-five histories refixed,19–128 updates after restoration(median51);16 were right-censored. One trigger at197 left only three updates, insufficient for a new20-census sustained response. Ten original events were completed before intervention. None of these post hoc counts uniquely explains the opposing founder effects.
+
+The fresh source audit authenticated four original ZIPs, every restoration manifest member and byte identity of all64 original NPZs against the full cohort. A separate reader reproduced all64×32 CSV fields and7,740 annual accounting terms with discrepancy0. Expected selection remains the authenticated previously audited quantity; it was not freshly recalculated here. Selection, realized parental sampling and Mendelian transmission retain their signed accounting interpretation. Delivered readout, cases, source and fresh verification are under `EVIDENCE/RESTORATION_ACCESS_`.
+
+## S22. Assurance expression in within-class future parent weights
+
+The separately approved control reuses2,048 original eight-resident states: two fixed founders,512 paired seeds and both assigned genetic-access preparation origins. Each faces both original200-update K8/B48 challenges, giving4,096 new futures. Initial mean assurance is mapped to0.5 without clipping. Native inheritance, I/A mutation, inbreeding depression and demographic operators remain unchanged.
+
+At every resident state, a separate parent-weight calculation assigns current mean assurance to each plant while retaining matching and investment. Its viable-self and outcross weights are rescaled separately to native class totals; actual inherited genomes are never replaced. Native ecological returns and effective parent weights are logged separately. This removes individual assurance-expression heterogeneity within classes, while preserving native A-dependent recruitment/class allocation and indirect selection through M/I associations. It is neither all assurance selection nor natural-order mediation. Unsupported positive classes require STOP, without epsilon or arbitrary parents; no such STOP occurred in the admitted cohort.
+
+Define D as terminal occupancy in the A-access-first origin minus the I-access-first origin, averaging founders equally. Four predeclared contrasts use19,999 paired within-founder bootstrap draws, seeds2026101407–2026101410 and family-adjusted percentile tails0.00625/0.99375. Existing initial-mean and all-parent families remain separate. Estimates and simultaneous intervals are percentage points:
+
+| Challenge | Contrast | Estimate | Simultaneous interval | Decision |
+|---|---|---:|---|---|
+|1.05|D(mean-native)−D(A-parent control)|−0.10|[−0.68,+0.39]|Unresolved|
+|1.05|D(A-parent control)−D(original A-fixed)|−0.20|[−0.78,+0.29]|Unresolved|
+|1.50|D(mean-native)−D(A-parent control)|−2.25|[−6.64,+2.25]|Unresolved|
+|1.50|D(A-parent control)−D(original A-fixed)|+2.83|[−1.86,+7.42]|Unresolved|
+
+All distribution-free bounds also include zero. Residuals contain initial heterogeneity, future mean effects, indirect selection and interactions; signed telescoping is reference-dependent accounting. It does not assign unique causal fractions. Zero-crossing intervals establish neither absence nor equivalence.
+
+The following descriptive counts and restricted occupied times retain every start. Origins are listed A-access-first /I-access-first; each denominator is1,024. Duration counts occupied censuses0–199, not the endpoint at200.
+
+| Challenge | Future policy | Occupied at200 | Restricted occupied time |
+|---|---|---|---|
+|1.05|Mean-native|0 /3|22.3438 /25.2959|
+|1.05|Within-class A-parent control|1 /3|22.2148 /23.9590|
+|1.05|Original A-fixed|0 /0|21.2197 /21.5225|
+|1.50|Mean-native|864 /863|184.4795 /183.9736|
+|1.50|Within-class A-parent control|794 /770|179.3828 /175.9102|
+|1.50|Original A-fixed|852 /857|184.0361 /184.9053|
+
+The lower challenge is endpoint-floor limited. At1.50, the control has lower observed occupancy in both origins while increasing their difference. Neither absolute descriptive counts nor this larger difference constitute a confirmed natural-order benefit.
+
+Execution source was publicly frozen/read back before generation. All4,096 old mean-native references and eight native controls were independently replayed first. All4,096 new futures,819,200 updates, native/effective weights, typed genomes and parent records then passed producer-independent replay with allele error0. A separate collector verified actual shard labels, frozen reader identity and the exact unique full domain, correcting provisional counts-only admission without restarting birth replay. Independent arithmetic reconstructed all-start endpoints and matched all four estimates, intervals and decisions. Complete original archives, source, correction and every receipt are preserved in the public companion; compact delivered evidence is under `EVIDENCE/ASSURANCE_PARENT_`. No conditions, periods, thresholds, counts or comparisons were retuned.
