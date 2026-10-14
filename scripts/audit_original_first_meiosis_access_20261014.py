@@ -201,7 +201,7 @@ def main():
      import csv
      args.case_csv.parent.mkdir(parents=True,exist_ok=True)
      with args.case_csv.open('x',encoding='utf-8',newline='') as f:
-         writer=csv.DictWriter(f,fieldnames=list(rows[0]));writer.writeheader();writer.writerows(rows)
+         writer=csv.DictWriter(f,fieldnames=list(rows[0]),lineterminator='\n');writer.writeheader();writer.writerows(rows)
  print(json.dumps({'status':report['status'],'access':report['all_start_genetic_access']},indent=2))
 
 if __name__=='__main__':main()
