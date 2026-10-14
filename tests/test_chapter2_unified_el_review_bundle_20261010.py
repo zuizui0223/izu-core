@@ -317,6 +317,9 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
            "EVIDENCE/MECHANISM_DESIGN.md",
            "EVIDENCE/MECHANISM_ORIGINAL.json.gz",
            "EVIDENCE/MECHANISM_READOUT.json",
+           "EVIDENCE/NATURAL_ORDER_INDEPENDENT_REVIEW.json",
+           "EVIDENCE/NATURAL_ORDER_PUBLIC_READBACK.json",
+           "EVIDENCE/NATURAL_ORDER_SUMMARY.json",
            "EVIDENCE/OPERATOR_GAP_READOUT.json",
            "EVIDENCE/PR490_ORIGINAL_AUDITOR.py",
            "EVIDENCE/PR490_ORIGINAL_DIRECT_ADMISSION.json",
@@ -364,7 +367,7 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
         assert m["doi_deposit_complete"] is False
         assert m["n_figures"]==4
         assert m["n_supplementary_figures"]==3
-        assert len(m["members"])==139
+        assert len(m["members"])==142
         for name,record in m["members"].items():
             raw=z.read(name)
             assert record=={"size":len(raw),"sha256":hashlib.sha256(raw).hexdigest()}
