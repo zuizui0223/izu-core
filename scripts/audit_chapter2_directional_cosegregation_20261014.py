@@ -113,8 +113,19 @@ def technical_report()->dict:
                     if (abs(fixed["A_signed_marginal"]-.0625)>1e-14 or
                         abs(fixed["I_signed_marginal"]-.0625)>1e-14):
                         raise ValueError("Selfed-only direction marginal no longer at exactly 1/16")
-                    if abs(signed["p_A_up_and_I_down"] - m/768)>1e-14:
-                        raise ValueError("Selfing-only directional co-carriage formula changed")
+                    # Across artificial 4-adult phenotype strata, the selfing
+                    # weights differ; intermediate m=3/6 is *not* m/768.
+                    # Only the two endpoints are universal (0 and 1/64).
+                    both=((source.alleles[:,2,0]!=source.alleles[:,2,1]) &
+                          (source.alleles[:,1,0]!=source.alleles[:,1,1]))
+                    expected=float(ledger.self_viable[both].sum() /
+                                   ledger.self_viable.sum())/16
+                    if abs(signed["p_A_up_and_I_down"] - expected)>1e-14:
+                        raise ValueError("Selfing-only parental-weighted directional co-carriage identity failed")
+                    if m==0 and signed["p_A_up_and_I_down"]!=0:
+                        raise ValueError("Disjoint carriers cannot co-segregate under selfing only")
+                    if m==12 and abs(signed["p_A_up_and_I_down"]-1/64)>1e-14:
+                        raise ValueError("All-strata co-carriage must give exact selfing 1/64")
                     if signed["p_A_up_and_I_down_from_outcross_parent_pair"]!=0:
                         raise ValueError("Unvisited context cannot provide outcross direction")
                 rows.append({
