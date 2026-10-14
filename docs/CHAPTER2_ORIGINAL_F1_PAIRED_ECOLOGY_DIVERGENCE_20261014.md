@@ -14,6 +14,7 @@ This contrast is narrower and more falsifiable than claiming that some histories
 - Frozen original Model3 biological source commit: `328548612e93469fcc8663f24548530a57399b9a`.
 - Original preregistered ecological-order protocol: `docs/CHAPTER2_ECOLOGICAL_ORDER_BOUNDARY_PROTOCOL_20261013.md`. Ecological context 0 is the empty/zero-supply setting; contexts 1–8 are fixed supply/visitor-composition treatments. The same seed is reused across all nine contexts for each founder×replicate, so **the 2,304 rows are not 2,304 independent histories**.
 - Reader: `scripts/audit_chapter2_f1_paired_ecology_20261014.py`, Python standard library only. Run `python scripts/audit_chapter2_f1_paired_ecology_20261014.py` for full machine-readable JSON.
+- Frozen machine-readable result: `data/results/chapter2_f1_paired_ecology_divergence_20261014.json`. The regression test compares this exact JSON object to a fresh, independent Python recount of the pinned CSV; any deviation fails closed.
 - Source/domain/tamper regression: `tests/test_chapter2_f1_paired_ecology_20261014.py`. The reader aborts on changed source bytes, missing/duplicate 2×9×128 cells, invalid original event classes or absent F1 individual support.
 
 ## Results (256 matched founder×replicate clusters)
