@@ -1,0 +1,93 @@
+{
+  "schema": "chapter2_founder_original_I_h0_necessary_support_exact_v1",
+  "status": "ORIGINAL_SOURCE_COMBINATORIAL_DIAGNOSTIC_NO_BIOLOGY",
+  "original_t0_fixture_git_blob": "4b529cce12bc44e06d43a22b10c325a52bbd967b",
+  "original_sources_per_block": 48,
+  "counterfactual": "Collapse both I homologs to each source adult's original expressed I mean; preserve between-adult differences",
+  "A_behavior": "Not measured here; assurance A mutation exists in original Model3",
+  "target": "I mean decline by 0.05 relative to each sampled founder population's own mean",
+  "outcome_definition": "Min founding I allele <= founding I mean - 0.05: necessary for mutation-free population-mean reachability, NOT sustained 20-census event",
+  "founder_blocks": 2,
+  "genetic_futures_or_simulation_histories_run": 0,
+  "rows": [
+    {
+      "n_founders": 2,
+      "total_combinations": 1128,
+      "mutation_free_necessary_support_count": 576,
+      "exact_support_probability": "24/47",
+      "decimal_support_probability": 0.5106382978723404,
+      "enumerated_phenotype_count_combinations": 15,
+      "original_founder_block": "main"
+    },
+    {
+      "n_founders": 8,
+      "total_combinations": 377348994,
+      "mutation_free_necessary_support_count": 374775360,
+      "exact_support_probability": "62462560/62891499",
+      "decimal_support_probability": 0.9931796982609684,
+      "enumerated_phenotype_count_combinations": 485,
+      "original_founder_block": "main"
+    },
+    {
+      "n_founders": 24,
+      "total_combinations": 32247603683100,
+      "mutation_free_necessary_support_count": 32247603683026,
+      "exact_support_probability": "435778428149/435778428150",
+      "decimal_support_probability": 0.9999999999977053,
+      "enumerated_phenotype_count_combinations": 5831,
+      "original_founder_block": "main"
+    },
+    {
+      "n_founders": 48,
+      "total_combinations": 1,
+      "mutation_free_necessary_support_count": 1,
+      "exact_support_probability": "1",
+      "decimal_support_probability": 1,
+      "enumerated_phenotype_count_combinations": 1,
+      "original_founder_block": "main"
+    },
+    {
+      "n_founders": 2,
+      "total_combinations": 1128,
+      "mutation_free_necessary_support_count": 252,
+      "exact_support_probability": "21/94",
+      "decimal_support_probability": 0.22340425531914893,
+      "enumerated_phenotype_count_combinations": 10,
+      "original_founder_block": "confirmation"
+    },
+    {
+      "n_founders": 8,
+      "total_combinations": 377348994,
+      "mutation_free_necessary_support_count": 249918573,
+      "exact_support_probability": "83306191/125782998",
+      "decimal_support_probability": 0.6623008858478632,
+      "enumerated_phenotype_count_combinations": 153,
+      "original_founder_block": "confirmation"
+    },
+    {
+      "n_founders": 24,
+      "total_combinations": 32247603683100,
+      "mutation_free_necessary_support_count": 31892773745925,
+      "exact_support_probability": "4887781417/4942161484",
+      "decimal_support_probability": 0.9889967037345799,
+      "enumerated_phenotype_count_combinations": 343,
+      "original_founder_block": "confirmation"
+    },
+    {
+      "n_founders": 48,
+      "total_combinations": 1,
+      "mutation_free_necessary_support_count": 1,
+      "exact_support_probability": "1",
+      "decimal_support_probability": 1,
+      "enumerated_phenotype_count_combinations": 1,
+      "original_founder_block": "confirmation"
+    }
+  ],
+  "limits": [
+    "Zero I within-individual heterozygosity does not remove standing among-adult I differences",
+    "Necessary allele lower-bound support does not prove evolution, selection, or persistence",
+    "These are all combinatorial draws from two fixed old source phenotypes, not independent natural islands",
+    "The event remains subject to mutation modes, parental selection, stochastic sampling, fixation and extinction",
+    "Do not interpret hypothetical I carrier retention as complete I-target access"
+  ]
+}
