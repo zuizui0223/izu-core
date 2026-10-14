@@ -19,7 +19,7 @@ from scripts.audit_chapter2_original_founder_compatibility_20261014 import (
 )
 
 ROOT=Path(__file__).resolve().parents[1]
-RESULT=ROOT / "data/results/chapter2_source_assignment_candidate_QA_20261014.json"
+CONTRACT=ROOT / "data/design/chapter2_source_assignment_candidate_contract_20261014.json"
 SALT="izu-core-pr512-founder-input-QA-nonbiological-v1"
 BLOCKS=("main","confirmation")
 SEEDS_PER_BLOCK=32
@@ -162,11 +162,33 @@ def audit()->dict:
 
 
 def check_committed()->dict:
-    r=audit()
-    saved=json.loads(RESULT.read_text(encoding="utf-8"))
-    if r!=saved:
-        raise ValueError("Candidate pre-biology randomisation receipt differs from original source replay")
-    return r
+    contract=json.loads(CONTRACT.read_text(encoding="utf-8"))
+    if (contract.get("status")!="UNAPPROVED_NO_BIOLOGY_TECHNICAL_RANDOMISATION_ONLY"
+            or contract.get("original_t0_fixture_git_blob")!=ORIGINAL_BLOB
+            or contract.get("derived_seed_salt")!=SALT
+            or contract.get("technical_assignments_per_founder_background")!=SEEDS_PER_BLOCK
+            or contract.get("founder_backgrounds")!=list(BLOCKS)
+            or contract.get("source_co_carriage")!=list(OVERLAPS)
+            or contract.get("founder_draw_sizes")!=list(FOUNDERS)
+            or contract.get("future_history_seed_status")!="NULL_NOT_AUTHORIZED"
+            or contract.get("allow_pilot_execution") is not False
+            or contract.get("author_run_approval") is not False
+            or contract.get("no_biological_history_generated") is not True):
+        raise ValueError("Technical source/draw contract was modified or promoted to a biological execution")
+    result=audit()
+    if (result["case_level_technical_digest_sha256"]!=
+            contract["expected_case_level_technical_digest_sha256"]
+            or result["nested_source_draw_seed_groups"]!=64
+            or result["n_source_assignment_m_x_n_cases"]!=1024):
+        raise ValueError("Source assignment or paired founding-row identities drifted")
+    mismatch=contract["observed_technical_mismatch_counts_not_evolution"]
+    rows=result["observed_synthetic_source_assignment_summary"]
+    left=sum(r["I_no_symmetric_heterozygotes_but_support"] for r in rows)
+    right=sum(r["I_symmetric_heterozygotes_but_no_support"] for r in rows)
+    if (left!=mismatch["I_carrier_absent_but_mutation_free_support_present"]
+            or right!=mismatch["I_carrier_present_but_mutation_free_support_absent"]):
+        raise ValueError("Original-source I carrier/support mismatch count changed")
+    return result
 
 
 if __name__=="__main__":
