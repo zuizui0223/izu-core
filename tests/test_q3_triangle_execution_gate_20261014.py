@@ -137,6 +137,29 @@ def test_invalid_shards_fail(tmp_path, shard):
         gate().ShardBudget(tmp_path, shard=shard, execution_sha='d'*64, run_id='123', cases=[])
 
 
+def test_every_frozen_case_can_be_reserved_without_running_biology(tmp_path):
+    g = gate()
+    plan = json.loads((Path(__file__).resolve().parents[1] /
+        'data/designs/q3_triangle_preflight_20261014.json').read_text(encoding='utf-8'))
+    cases = [c for c in plan['cases'] if c['trigger'] is not None]
+    budget = g.ShardBudget(tmp_path, shard=0, execution_sha='d'*64, run_id='123', cases=cases)
+    for case in cases:
+        receipt = budget.reserve(case, 0)
+        assert receipt['key'] == case['key']
+    assert len(list(tmp_path.glob('claim-*.json'))) == 61
+    assert budget.reserved_updates() == 6*7740
+
+
+@pytest.mark.parametrize('key', ['../x', 'x/child', 'x\\child', 'x:child', '..', '.x', 'x.', 'x..y'])
+def test_registered_unsafe_case_keys_still_cannot_create_claim_paths(tmp_path, key):
+    g = gate()
+    case = dict(key=key, trigger=12, remaining_updates=188)
+    budget = g.ShardBudget(tmp_path, shard=0, execution_sha='d'*64, run_id='123', cases=[case])
+    with pytest.raises(ValueError, match='case key'):
+        budget.reserve(case, 0)
+    assert not list(tmp_path.glob('claim-*.json'))
+
+
 def test_job_deadline_includes_slow_setup_and_reserves_tail():
     g = gate()
     # 5 minutes have already elapsed. 15-minute job, 3-minute tail and

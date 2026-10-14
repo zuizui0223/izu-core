@@ -174,7 +174,7 @@ class ShardBudget:
     def reserve(self, case, replicate):
         require(type(replicate) is int and self.shard*8 <= replicate < (self.shard+1)*8,
                 'replicate outside shard')
-        require(isinstance(case['key'], str) and re.fullmatch('[A-Za-z0-9_]+', case['key']),
+        require(isinstance(case['key'], str) and re.fullmatch(r'[A-Za-z0-9_]+(?:\.[A-Za-z0-9_]+)*', case['key']),
                 'case key')
         t = case['trigger']
         require(self.cases.get(case['key']) == (t, case['remaining_updates']), 'registered case schedule')
