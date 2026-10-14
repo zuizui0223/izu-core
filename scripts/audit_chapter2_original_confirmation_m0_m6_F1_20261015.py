@@ -58,12 +58,22 @@ def assign_A_only(base: types.PlantState, carriers: tuple[int, ...]) -> types.Pl
             or min(carriers) < 0 or max(carriers) >= 48):
         raise ValueError("Unexpected 6-carrier source-locked A intervention")
     a = base.alleles.copy()
+    # CRITICAL: the authenticated original t0 has 48/48 already A-heterozygous.
+    # Both arms therefore artificially reset ALL A homologs to 0.5/0.5,
+    # then assign exactly six A heterozygotes within the matched phenotype
+    # stratum. Original I and M copies are never edited.
+    if (not np.array_equal(a[:,2,0],np.full(48,.5-A_HALFWIDTH))
+            or not np.array_equal(a[:,2,1],np.full(48,.5+A_HALFWIDTH))):
+        raise ValueError("Authentic original A full-carrier source is not unchanged")
+    a[:,2,:] = .5
     a[list(carriers),2,0] = .5 - A_HALFWIDTH
     a[list(carriers),2,1] = .5 + A_HALFWIDTH
     origins = base.allele_origin.copy()
-    ix = np.asarray(carriers, dtype=np.int64)
-    origins[ix,2,0] = ARTIFICIAL_A_ORIGIN_BASE + ix * 2
-    origins[ix,2,1] = ARTIFICIAL_A_ORIGIN_BASE + ix * 2 + 1
+    ix = np.arange(48, dtype=np.int64)
+    # Reconstruct the entire manipulated A-locus origin as a synthetic
+    # allele provenance namespace; original I/M provenance remains exact.
+    origins[:,2,0] = ARTIFICIAL_A_ORIGIN_BASE + ix * 2
+    origins[:,2,1] = ARTIFICIAL_A_ORIGIN_BASE + ix * 2 + 1
     edited = replace(base, alleles=a, allele_origin=origins)
     if (not np.array_equal(edited.alleles.mean(axis=2),base.alleles.mean(axis=2))
             or not np.array_equal(edited.alleles[:,:2,:],base.alleles[:,:2,:])
@@ -151,12 +161,15 @@ def audit() -> dict:
         "new_Model3_future_updates":0,
         "new_sustained_6class_response_histories":0,
         "original_I_allele_copies_preserved":True,
+        "original_A_heterozygote_adults":48,
         "six_A_heterozygous_carriers_per_arm":6,
+        "original_A_heterozygosity_reset_in_each_arm":42,
         "arm_m0_vs_m6_I_A_co_carrier_counts":[0,6],
         "contexts":rows,
         "limits":[
             "This is a conditional one-child F1 distribution integrated from native t0 parent returns; no actual birth or evolutionary history.",
-            "The original I homologs and all adult expressed traits are untouched; only which original identical-phenotype parent carries artificial symmetric A heterozygosity changes.",
+            "All 48 original adults were A-heterozygous at baseline; in EACH arm 42 are artificially made A-homozygous while the other six retain the original symmetric A halfwidth. Original I homologs and all adult expressed traits are unchanged.",
+            "This is an I-preserving artificial A-locus reconstruction conditioned on one original source, NOT the untouched historical complete genotype."
             "The two arms derive from ONE original founder source; none of the three pollinator contexts are independent genomic source replicates.",
             "Full single-offspring trait margins and static parental return parity do not guarantee equal long-run genetic variances, joint offspring distributions, sustained evolutionary order or population survival.",
             "The A-up/I-down child event is a single-offspring founder-relative diagnostic, not a sustained population-average response or proof of beneficial genotypes.",
