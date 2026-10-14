@@ -50,6 +50,14 @@ class TestQ2PairedClock(unittest.TestCase):
         clock_I = actual["paired_first_sustained_onset_differences"]["I"]
         self.assertEqual(clock_I["n"], 375)
         self.assertAlmostEqual(clock_I["mean_high_minus_low_updates"], 0.5173333333333333, places=12)
+        # Whole-population fixed-horizon checks retain all 768 paired starts.
+        capped = actual["all_start_capped_first_onset"]
+        self.assertEqual(capped["A"]["n_all_pairs"], 768)
+        self.assertEqual(capped["A"]["cap_for_not_detected_by_181"], 182)
+        self.assertAlmostEqual(capped["A"]["mean_high_minus_low_capped_updates"], -51.302083333333336)
+        self.assertAlmostEqual(capped["I"]["mean_high_minus_low_capped_updates"], -2.5130208333333335)
+        self.assertEqual(capped["A"]["detected_by_start_year_all_768"]["25"], {"L": 134, "H": 701})
+        self.assertEqual(capped["I"]["detected_by_start_year_all_768"]["100"], {"L": 468, "H": 476})
         table = actual["paired_transition_counts_rows_low_columns_high"]
         self.assertEqual(table["investment_first"]["assurance_first"], 125)
         self.assertEqual(table["investment_first"]["near_simultaneous"], 124)
