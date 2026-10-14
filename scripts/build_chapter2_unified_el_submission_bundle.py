@@ -204,6 +204,28 @@ def q3_conditional_materials():
     return members,provenance
 
 
+def q3_triangle_materials():
+    """Admit completed triangle evidence; no simulation or inferential retuning."""
+    pins = {
+        'CAMPAIGN_MANIFEST.json': '8cd325bee8abaf609b85fa3f4eec1e60d96b0e6f88ec29d70d6c62d06f7ad5e7',
+        'READOUT.json': '7a3d5bf9cfd032cc625a3ae23a5a461123eec450aa0f17b48a917c28c01926c5',
+        'INDEPENDENT_VERIFICATION.json': '84843bca983665b95daa6a4cb2747248708f133b079a25b245b4429b9d413754',
+    }
+    members, derivations = {}, {}
+    for name, expected in pins.items():
+        path = 'data/results/q3_triangle_20261014/' + name
+        raw = (ROOT / path).read_bytes().replace(b'\r\n', b'\n')
+        if sha(raw) != expected:
+            raise ValueError('triangle source hash mismatch: ' + name)
+        delivered = raw.replace(b'https://github.com/zuizui0223/izu-core', b'ARCHIVED_REPOSITORY')
+        key = 'EVIDENCE/Q3_TRIANGLE_' + name
+        members[key] = delivered
+        derivations[key] = {'original_path': path, 'original_sha256': expected,
+                            'derived_sha256': sha(delivered),
+                            'change': 'Canonical LF; replace identifying repository prefix only. No outcome changes or new native calls.'}
+    return members, derivations
+
+
 def q3_event_conditions_materials():
     """Admit retrospective necessary restrictions, not a new causal experiment."""
     data=ROOT/'data/results/q3_event_conditions_paper_20261014'
@@ -1118,6 +1140,8 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     members.update(q3_conditional);derivations.update(q3_conditional_derivations)
     q3_events,q3_event_derivations=q3_event_conditions_materials()
     members.update(q3_events);derivations.update(q3_event_derivations)
+    triangle,triangle_derivations=q3_triangle_materials()
+    members.update(triangle);derivations.update(triangle_derivations)
     from scripts.natural_order_paper_admission_20261014 import materials as natural_order_materials
     natural_order,natural_order_derivations=natural_order_materials(ROOT)
     members.update(natural_order);derivations.update(natural_order_derivations)

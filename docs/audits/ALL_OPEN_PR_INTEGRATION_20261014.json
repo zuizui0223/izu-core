@@ -1,0 +1,319 @@
+{
+  "scope": "All 43 open PR heads in initial snapshot integrated by ancestry; current paper remains controlling.",
+  "main_base": "7fde11a456230a3d8c84e548fc4fb81838bdc3e6",
+  "initial_prs": [
+    {
+      "number": 395,
+      "title": "Evolution Letters submission candidate: theory-integrated Chapter 2",
+      "headRefOid": "3536f8d09a0d9b8c7a34ad1856aa4404dd940410",
+      "baseRefName": "chapter2/evolution-letters-rc-20261004",
+      "isDraft": true
+    },
+    {
+      "number": 403,
+      "title": "Prepare Journal of Ecology submission draft",
+      "headRefOid": "c41c126e66c17f511f3eb84e8909421bfd34cab1",
+      "baseRefName": "codex/model3-full-mutation-closeout-20261004",
+      "isDraft": true
+    },
+    {
+      "number": 404,
+      "title": "Close post-confirmation Chapter 2 route state",
+      "headRefOid": "5fae4315bd6d1d39a4e37dec35d7231dd538edea",
+      "baseRefName": "main",
+      "isDraft": false
+    },
+    {
+      "number": 405,
+      "title": "Prepare the confirmed 10-05 process paper for Journal of Ecology",
+      "headRefOid": "26b88e0c88905cf3fbc21a5752262bd642ca6a31",
+      "baseRefName": "main",
+      "isDraft": true
+    },
+    {
+      "number": 406,
+      "title": "Focus the confirmed process paper on its submission main text",
+      "headRefOid": "17d184871cd66f49b88355ede86da434929aa9b3",
+      "baseRefName": "main",
+      "isDraft": true
+    },
+    {
+      "number": 407,
+      "title": "Prepare the confirmed Chapter 2 process paper for Journal of Ecology",
+      "headRefOid": "7205b99c5332899f6062edf0e613e469085ade26",
+      "baseRefName": "main",
+      "isDraft": true
+    },
+    {
+      "number": 408,
+      "title": "Compress the confirmed Chapter 2 process manuscript for submission",
+      "headRefOid": "d0e3fa446e2be448d6844e6eb25a8baa973c7788",
+      "baseRefName": "main",
+      "isDraft": true
+    },
+    {
+      "number": 410,
+      "title": "Prepare Journal of Ecology submission surface for established Chapter 2 result",
+      "headRefOid": "9fbc4a43686524b8a877673f8028fc7bcb7927f1",
+      "baseRefName": "main",
+      "isDraft": true
+    },
+    {
+      "number": 413,
+      "title": "Probe island evolutionary memory with paired pollinator-history transplants",
+      "headRefOid": "d60c8630d80f98705d073af96e105ec980a955f1",
+      "baseRefName": "main",
+      "isDraft": true
+    },
+    {
+      "number": 417,
+      "title": "Record completed Chapter 2 assigned-expression-order cohort and preregistered equivalence result",
+      "headRefOid": "8aefe80555d1ad71a63507642933934a9ee66850",
+      "baseRefName": "main",
+      "isDraft": false
+    },
+    {
+      "number": 420,
+      "title": "Add exact finite Model 3 stochastic bridge and trait-space SPDE feasibility diagnostics",
+      "headRefOid": "ac69cd49a69c14106849e5dc41edd3b9de9739af",
+      "baseRefName": "main",
+      "isDraft": true
+    },
+    {
+      "number": 422,
+      "title": "Archive independent Chapter 2 budget-window nonreplication and practical equivalence",
+      "headRefOid": "5b454ee94a4fccc6acde1e64de345cddc2ce4fda",
+      "baseRefName": "main",
+      "isDraft": false
+    },
+    {
+      "number": 428,
+      "title": "Archive positive controlled selfed-seed viability sensitivity in Chapter 2 factorial",
+      "headRefOid": "302a1007c64059546aabc8f7e8d8c896de342f86",
+      "baseRefName": "main",
+      "isDraft": false
+    },
+    {
+      "number": 452,
+      "title": "Show floral-investment conflict depends on pollinator functional composition and census",
+      "headRefOid": "f51e81b1b53d72712f277807fc852283b0c42059",
+      "baseRefName": "main",
+      "isDraft": true
+    },
+    {
+      "number": 455,
+      "title": "Separate Model3 one-step parental lottery and Mendelian variance without new ecological histories",
+      "headRefOid": "99ae3559af256a6a73673a8234ec865b98a54f21",
+      "baseRefName": "main",
+      "isDraft": true
+    },
+    {
+      "number": 491,
+      "title": "Integrate verified threshold, sequence, realization and persistence evidence",
+      "headRefOid": "566800ddf5614f837ef2ef6dce3f20cb988eade6",
+      "baseRefName": "main",
+      "isDraft": false
+    },
+    {
+      "number": 492,
+      "title": "Record Chapter 2 private external preservation coverage and DOI gates",
+      "headRefOid": "40a366ddfce8678f1aace13d9063038bcc664ee8",
+      "baseRefName": "main",
+      "isDraft": true
+    },
+    {
+      "number": 494,
+      "title": "Test initial genetic-response predictors under paired-seed and ecological-context holdouts",
+      "headRefOid": "2ea83ba1008725b528715c7bbf09b8fbba8a938a",
+      "baseRefName": "codex/four-question-resolution-20261013",
+      "isDraft": true
+    },
+    {
+      "number": 495,
+      "title": "Repair source pairing and reproducible publication in initial-clock audits",
+      "headRefOid": "78a507ac81d4c04bf021e80003deec6089fceb7b",
+      "baseRefName": "analysis/chapter2-initial-response-clock-exploratory-20261013",
+      "isDraft": true
+    },
+    {
+      "number": 496,
+      "title": "Design phenotype-matched A-access × hidden-I-variation pilot with power/no-go gates",
+      "headRefOid": "6ababcf025336e5cfddbb1c4807bef33818b4aec",
+      "baseRefName": "codex/initial-clock-repair-20261013",
+      "isDraft": true
+    },
+    {
+      "number": 497,
+      "title": "Register 1,536 source-authenticated prospective clock pilot input cases without execution",
+      "headRefOid": "8b5513fe6b14612a83baa395a89089f82a86c6f6",
+      "baseRefName": "analysis/chapter2-clock-access-variance-factorial-20261013",
+      "isDraft": true
+    },
+    {
+      "number": 498,
+      "title": "Register all 1,536 original-source clock pilot inputs with independent byte readback",
+      "headRefOid": "436b06df1c4a7a35a5c96cb39c11c69a9762dcda",
+      "baseRefName": "analysis/chapter2-clock-access-variance-factorial-20261013",
+      "isDraft": true
+    },
+    {
+      "number": 499,
+      "title": "Prepare original Model3 six-shard pilot producer with independent genome replay verifier",
+      "headRefOid": "497f12e6ea16a1d1a6982395592552b6a67f3a40",
+      "baseRefName": "analysis/chapter2-clock-pilot-input-registration-20261013",
+      "isDraft": true
+    },
+    {
+      "number": 500,
+      "title": "Implement source-pinned 200-update pilot archive writer and independent raw-genome replay gate",
+      "headRefOid": "fc5555f762fa575bfc929480da320d72e5d9e6dc",
+      "baseRefName": "analysis/chapter2-clock-pilot-input-inventory-20261013",
+      "isDraft": true
+    },
+    {
+      "number": 501,
+      "title": "Fail-closed review of six externally archived clock-pilot raw ZIPs before scientific admission",
+      "headRefOid": "f43c669ea4c3949ab87d72bb9fbad40cd486e199",
+      "baseRefName": "analysis/chapter2-clock-native-producer-verifier-20261013",
+      "isDraft": true
+    },
+    {
+      "number": 502,
+      "title": "Predeclare 2×2 genetic-access pilot six-class contrasts and cluster-level descriptive reporting",
+      "headRefOid": "4ba6774e15d00c8c22e34af6dad5fb3b25252143",
+      "baseRefName": "analysis/chapter2-clock-external-six-archive-readback-20261013",
+      "isDraft": true
+    },
+    {
+      "number": 503,
+      "title": "Package immutable 256-case original-genome shards for external ZIP readback",
+      "headRefOid": "183a386f272fd3aa49429c2cdc24aba7c34c8361",
+      "baseRefName": "analysis/chapter2-clock-pilot-factorial-prereg-20261013",
+      "isDraft": true
+    },
+    {
+      "number": 504,
+      "title": "Record selected private Google Drive mirror and preserve Model3 pilot launch HOLD",
+      "headRefOid": "6c660e3068402010d6a929c28562e090a40c8930",
+      "baseRefName": "analysis/chapter2-clock-lossless-shard-packaging-20261013",
+      "isDraft": true
+    },
+    {
+      "number": 505,
+      "title": "Preserve frozen clock source identities on Windows checkout",
+      "headRefOid": "7709d03926b7591d2f9f574b7dc36a438dcd8e85",
+      "baseRefName": "analysis/chapter2-clock-lossless-shard-packaging-20261013",
+      "isDraft": true
+    },
+    {
+      "number": 506,
+      "title": "Activate explicitly approved fixed genotype-access pilot with immutable receipt",
+      "headRefOid": "f581ead189ac6d1b1309ede31d3fd640b1b8760b",
+      "baseRefName": "codex/clock-source-portability-20261014",
+      "isDraft": true
+    },
+    {
+      "number": 507,
+      "title": "Resolve Q1 threshold interpretation and clarify central Q1–Q4 evidence boundaries",
+      "headRefOid": "8fafaba9f38201a04d92de626cf0cfecfd7d356b",
+      "baseRefName": "main",
+      "isDraft": false
+    },
+    {
+      "number": 508,
+      "title": "Show original 2,304 Model3 histories all expose A segregation by F1 yet differ in sustained order",
+      "headRefOid": "08da965d511612656a6ccb6c8ca91069bf7d1126",
+      "baseRefName": "analysis/chapter2-initial-response-clock-exploratory-20261013",
+      "isDraft": true
+    },
+    {
+      "number": 509,
+      "title": "Audit matched F1 genetic access versus divergent later ecological response",
+      "headRefOid": "6e5fcc955b93ddf94a960d50fe966b87e7c94261",
+      "baseRefName": "codex/four-question-resolution-20261013",
+      "isDraft": true
+    },
+    {
+      "number": 510,
+      "title": "Audit matched F1 A access against divergent six-class outcomes in original 2,304 histories",
+      "headRefOid": "b0f0c05a1f02d314fa6aa46e837395859d6cbbc6",
+      "baseRefName": "codex/four-question-resolution-20261013",
+      "isDraft": true
+    },
+    {
+      "number": 511,
+      "title": "Test assurance-specific parent weighting with complete independent replay",
+      "headRefOid": "99b989cfd2b1891936551c83ea29c66fa46a0c41",
+      "baseRefName": "codex/clock-approved-execution-20261014",
+      "isDraft": true
+    },
+    {
+      "number": 512,
+      "title": "Design colonisation founder-sampling test for A/I genetic access without new biology",
+      "headRefOid": "3d98f8330472c4101aef1ae29280f0bb334dca45",
+      "baseRefName": "main",
+      "isDraft": false
+    },
+    {
+      "number": 513,
+      "title": "Audit target access and refixation in the existing 64-pair Q3 restoration",
+      "headRefOid": "f1b67a9a8968229ff6ccd79977e0f5ae31d7c71f",
+      "baseRefName": "main",
+      "isDraft": false
+    },
+    {
+      "number": 514,
+      "title": "Q3: verify conditional restoration lowers terminal investment in both fixed-state blocks",
+      "headRefOid": "d544f4f1a4f3d9f43000a8ed8c55b3de8a9f0506",
+      "baseRefName": "main",
+      "isDraft": false
+    },
+    {
+      "number": 515,
+      "title": "Q3: explain event-direction split and validate minimal distribution controls",
+      "headRefOid": "914b5040ff1dd75378277c643bad87c0d9132a62",
+      "baseRefName": "design/chapter2-restoration-conditional-futures-20261014",
+      "isDraft": false
+    },
+    {
+      "number": 516,
+      "title": "Q3: report verified distribution-policy contrasts and identification limits",
+      "headRefOid": "9b58ee5f43bda56377dbdc6faebc0c4a32797659",
+      "baseRefName": "analysis/chapter2-q3-event-conditions-20261014",
+      "isDraft": false
+    },
+    {
+      "number": 519,
+      "title": "Review Q2 co-carriage evolutionary-order design, source-level precision and nonlinear F1 ovule potential (no new biology)",
+      "headRefOid": "83c33f61f097a680f1a7e0edbfb52dd10fe4354b",
+      "baseRefName": "design/chapter2-colonisation-genetic-access-20261014",
+      "isDraft": false
+    },
+    {
+      "number": 520,
+      "title": "Review Q2 independent founder source versus within-source history allocation (variance identity; no biology)",
+      "headRefOid": "33aff23f5f64a8727e6968a8b78f34b31041f5f0",
+      "baseRefName": "design/chapter2-cocarriage-q2-review-20261014",
+      "isDraft": true
+    },
+    {
+      "number": 521,
+      "title": "Q2: audit paired response-onset acceleration in original genotype-access pilot",
+      "headRefOid": "e3626f29539e99c3820e61496e7d5ca299895f2c",
+      "baseRefName": "codex/four-question-resolution-20261013",
+      "isDraft": true
+    }
+  ],
+  "additional_491_head": "11c6ce7b994f7e8e3dedf58395a1ea42fdeb4a92",
+  "resolutions": [
+    "PR511: union exact-byte attributes and retain LF audit output.",
+    "PR508: retain authenticated paired-input/exclusive-output fixes; add onset falsifier.",
+    "PR413: preserve later exact biological-state replay (diagnostic rounding separately documented), workflow restrictions, and all test coverage.",
+    "PR410/408/407/406/405/404: preserve current four-setting/unified-paper route over superseded single-setting submission surfaces; keep unique historical draft/code; retain PR405 test suite under unique filename.",
+    "PR395: retain corrected selection claim ceiling rather than old ready status.",
+    "S26: admit completed PR516 conditional triangle results and maintenance-feasibility limits, retaining original unresolved outcomes."
+  ],
+  "validation_status": "Integrated tests and final-head CI pending; no main merge yet.",
+  "new_biological_campaigns": 0,
+  "model3_native_source_diff_vs_main": false
+}
