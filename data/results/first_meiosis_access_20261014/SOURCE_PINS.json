@@ -1,0 +1,10 @@
+{
+  "data/results/chapter2_original_first_meiosis_access_2304_20261014.json": "d164d81a4584666ecda890c77d78106833b34748941402bf6174ca4d7f24d6c8",
+  "data/results/chapter2_original_first_meiosis_access_2304_case_20261014.csv": "80d724ea03757d49b616f82cb3a806b5e31dd1ff31aaa7d2bb8edf449cd3e425",
+  "docs/CHAPTER2_ORIGINAL_F1_GENETIC_ACCESS_RESULTS_20261014.md": "8bbbe750b7e3affded82c043415bab0fe29c6f83df43d290f4e48b3ca4c226d1",
+  "INDEPENDENT_PROTOCOL.md": "5d2e1a639fcd391cd87893a4709d0c5217a426bec57f8b7e38ed0eb4fc10b51e",
+  "independent_reader.py": "7b2a908abc660076662906066e3571b49366bb19c2cf52398c39e3999397dd13",
+  "scripts/audit_original_first_meiosis_access_20261014.py": "16fcb7d2b6d7fc12461694646ffb64165525801d3a4475d8b820e110f953461a",
+  "tests/test_original_first_meiosis_access_20261014.py": "dca854bbc02ddd61397d4d52fd03b85b0997074e0f51b5b36d795a50f9fb9d7d",
+  "V1_SERIALIZATION_STOP.md": "c495bca3d02d96b51fb92b7085494b2f9c676b964ffb03511d09ddac6bdb2535"
+}

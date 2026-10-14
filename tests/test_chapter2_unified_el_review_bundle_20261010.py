@@ -17,6 +17,124 @@ from scripts.build_chapter2_unified_el_submission_bundle import (
 ROOT=Path(__file__).resolve().parents[1]
 
 
+def test_minimal_resolution_delivery_is_source_bound():
+    members, derivations = builder.minimal_resolution_materials()
+    value=json.loads(members['EVIDENCE/INITIAL_MEAN_READOUT.json'])
+    assert value['new_native_futures']==4096
+    assert [p['decision'] for p in value['primary']]==['positive','unresolved','positive','unresolved']
+    original=gzip.decompress(members['EVIDENCE/INITIAL_MEAN_ORIGINAL.json.gz'])
+    assert hashlib.sha256(original).hexdigest()==value['original_readout_sha256']
+    assert json.loads(members['EVIDENCE/GENOME_RESPONSE_READOUT.json'])['updates']==64000
+    assert json.loads(members['EVIDENCE/DURATION_READOUT.json'])['kernels']==96
+    assert len(derivations)==10
+    parent=json.loads(members['EVIDENCE/FUTURE_PARENT_READOUT.json'])
+    assert parent['status']=='ACTUAL_RAW_BIRTH_AND_FOUR_DECISIONS_INDEPENDENTLY_VERIFIED'
+    assert parent['cases']==4096 and parent['updates']==819200
+    assert parent['independent']['raw_replay_checks']==9031680
+    assert parent['independent']['producer_imports'] is False
+    assert len(parent['primary'])==4
+    assert all(p['decision']=='unresolved' for p in parent['primary'])
+    assert parent['occupied_counts'][1][:2]==[[864,863],[790,757]]
+    ecological=json.loads(members['EVIDENCE/ECOLOGICAL_ORDER_READOUT.json'])
+    assert ecological['cases']==2304 and ecological['updates']==460800
+    assert len(ecological['cells'])==18 and ecological['supported_supply_pairs']==[]
+    assert ecological['supported_composition_pairs']==[]
+    assert all(lo<=0<=hi for lo,hi in [c['simultaneous_interval'] for c in ecological['cells']])
+    assert json.loads(members['EVIDENCE/OPERATOR_GAP_READOUT.json'])['updates']==64000
+    intake=json.loads(members['EVIDENCE/DISCOVERY_ARCHIVE_INTAKE.json'])
+    assert intake['verification']['archive_identity_verified']
+    assert intake['counts']['discovery_cases_verified']==2048
+    assert intake['verification']['original_discovery_full_replay_completed'] is False
+
+
+def test_minimal_resolution_delivery_rejects_changed_mean_results(tmp_path, monkeypatch):
+    import shutil
+    copied=tmp_path/'results'
+    receipt='minimal_resolution_delivery_20261013.json'
+    names=json.loads((builder.MINIMAL_RESULTS/receipt).read_bytes())['sha256']
+    for name in [receipt,*names]:
+        p=copied/name;p.parent.mkdir(parents=True,exist_ok=True)
+        shutil.copyfile(builder.MINIMAL_RESULTS/name,p)
+    p=copied/'initial_assurance_mean_20261013/readout.json'
+    p.write_bytes(p.read_bytes()+b' ')
+    monkeypatch.setattr(builder,'MINIMAL_RESULTS',copied)
+    with pytest.raises(ValueError,match='minimal resolution source hash mismatch'):
+        builder.minimal_resolution_materials()
+
+
+def test_minimal_resolution_rejects_pending_parent_verification_even_with_matching_hash(tmp_path, monkeypatch):
+    import shutil
+    copied=tmp_path/'results'
+    receipt='minimal_resolution_delivery_20261013.json'
+    value=json.loads((builder.MINIMAL_RESULTS/receipt).read_bytes())
+    for name in [receipt,*value['sha256']]:
+        p=copied/name;p.parent.mkdir(parents=True,exist_ok=True)
+        shutil.copyfile(builder.MINIMAL_RESULTS/name,p)
+    name='future_parent_selection_readout_20261013.json'
+    p=copied/name;parent=json.loads(p.read_bytes())
+    parent['independent']['status']='PENDING'
+    raw=(json.dumps(parent,indent=2)+'\n').encode('utf-8');p.write_bytes(raw)
+    digest=hashlib.sha256(raw).hexdigest()
+    value['sha256'][name]=digest;value['source_raw_sha256'][name]=[digest]
+    (copied/receipt).write_text(json.dumps(value),encoding='utf-8')
+    monkeypatch.setattr(builder,'MINIMAL_RESULTS',copied)
+    with pytest.raises(ValueError,match='future parent independent admission differs'):
+        builder.minimal_resolution_materials()
+
+
+def test_minimal_resolution_explicit_text_newline_derivation_is_portable(tmp_path, monkeypatch):
+    copied=tmp_path/'portable';copied.mkdir()
+    receipt='minimal_resolution_delivery_20261013.json'
+    names=json.loads((builder.MINIMAL_RESULTS/receipt).read_bytes())['sha256']
+    for name in [receipt,*names]:
+        p=copied/name;p.parent.mkdir(parents=True,exist_ok=True)
+        raw=(builder.MINIMAL_RESULTS/name).read_bytes()
+        p.write_bytes(raw if name.endswith('.gz') else raw.replace(b'\r\n',b'\n'))
+    expected,_=builder.minimal_resolution_materials()
+    monkeypatch.setattr(builder,'MINIMAL_RESULTS',copied)
+    actual,_=builder.minimal_resolution_materials()
+    assert actual==expected
+
+
+def test_restoration_is_portable_and_keeps_independently_verified_unresolved_decision():
+    members,_=builder.minimal_resolution_materials()
+    value=json.loads(members['EVIDENCE/INVESTMENT_VARIATION_READOUT.json'])
+    assert value['histories']==64 and value['triggers']==61 and value['no_trigger']==3
+    assert value['primary']['decision']=='unresolved'
+    assert value['primary']['ci95'][0]<0<value['primary']['ci95'][1]
+    assert value['primary']['block_estimates']['causal_main']>0
+    assert value['primary']['block_estimates']['causal_confirmation']<0
+    assert value['independent_state_parent_checks']==123880
+    assert len(value['cases'])==64
+    assert builder.sha(members['EVIDENCE/INVESTMENT_VARIATION_PROTOCOL.md'])==value['protocol_sha256']
+    accounting=value['pathwise_accounting']
+    assert accounting['status']=='INDEPENDENT_ALL7740_RESTORED_PATHWISE_TERMS_MATCH'
+    assert accounting['updates']==7740 and accounting['new_histories']==0
+    assert all(v['selection']<0 for v in accounting['blocks'].values())
+    assert accounting['blocks']['causal_confirmation']['observed_change']>0
+
+
+@pytest.mark.parametrize('field',['status','pathwise_accounting.status'])
+def test_restoration_rejects_pending_independent_status_with_updated_byte_receipt(tmp_path,monkeypatch,field):
+    import shutil
+    root=tmp_path/'results';receipt='minimal_resolution_delivery_20261013.json'
+    value=json.loads((builder.MINIMAL_RESULTS/receipt).read_bytes())
+    for name in [receipt,*value['sha256']]:
+        p=root/name;p.parent.mkdir(parents=True,exist_ok=True)
+        shutil.copyfile(builder.MINIMAL_RESULTS/name,p)
+    name='investment_variation_restoration_readout_20261013.json';p=root/name
+    assert p.exists(),'restoration readout missing from scientific evidence inventory'
+    result=json.loads(p.read_bytes())
+    if field=='status':result['status']='PENDING'
+    else:result['pathwise_accounting']['status']='PENDING'
+    raw=(json.dumps(result,indent=2)+'\n').encode();p.write_bytes(raw)
+    value['sha256'][name]=builder.sha(raw);value['source_raw_sha256'][name]=[builder.sha(raw)]
+    (root/receipt).write_text(json.dumps(value),encoding='utf-8')
+    monkeypatch.setattr(builder,'MINIMAL_RESULTS',root)
+    with pytest.raises(ValueError,match='investment variation independent admission differs'):
+        builder.minimal_resolution_materials()
+
+
 def test_mechanism_delivery_is_source_bound_and_reports_predeclared_interaction():
     members, derivations = builder.mechanism_materials()
     value = json.loads(members["EVIDENCE/MECHANISM_READOUT.json"])
@@ -112,15 +230,134 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
         assert "ATOM_FULL_TABLES.csv" in names
         assert "TEMPO_FULL_TABLES.md" in names
         assert sorted(x for x in names if x.startswith("EVIDENCE/"))==[
+           "EVIDENCE/ASSURANCE_PARENT_ALL4096_INDEPENDENT_ADMISSION_V2.json",
+           "EVIDENCE/ASSURANCE_PARENT_ANALYSIS_SOURCE.py",
+           "EVIDENCE/ASSURANCE_PARENT_DOMAIN_COLLECTOR_SOURCE.py",
+           "EVIDENCE/ASSURANCE_PARENT_DOMAIN_CORRECTION.md",
+           "EVIDENCE/ASSURANCE_PARENT_EXECUTION_BINDINGS.json",
+           "EVIDENCE/ASSURANCE_PARENT_INDEPENDENT_ARITHMETIC.json",
+           "EVIDENCE/ASSURANCE_PARENT_INDEPENDENT_ARITHMETIC_SOURCE.py",
+           "EVIDENCE/ASSURANCE_PARENT_INDEPENDENT_READER_SOURCE.py",
+           "EVIDENCE/ASSURANCE_PARENT_NATIVE8_ADMISSION.json",
+           "EVIDENCE/ASSURANCE_PARENT_OUTCOMES.npz",
+           "EVIDENCE/ASSURANCE_PARENT_PROTOCOL.md",
+           "EVIDENCE/ASSURANCE_PARENT_PUBLIC_ADMISSION.json",
+           "EVIDENCE/ASSURANCE_PARENT_READOUT.json",
+           "EVIDENCE/ASSURANCE_PARENT_REFERENCE_ADMISSION.json",
+           "EVIDENCE/ASSURANCE_PARENT_RUN_COMPLETION.json",
            "EVIDENCE/ATOM_ABM_COMPARISON.json",
            "EVIDENCE/CAPACITY_RESULTS.json",
+           "EVIDENCE/DIRECTIONAL_ACCESS_ARRAYS.npz",
+           "EVIDENCE/DIRECTIONAL_ACCESS_CASES.csv",
+           "EVIDENCE/DIRECTIONAL_ACCESS_FROZEN_SOURCES.json",
+           "EVIDENCE/DIRECTIONAL_ACCESS_INDEPENDENT_REVIEW.json",
+           "EVIDENCE/DIRECTIONAL_ACCESS_INDEPENDENT_SOURCE.py",
+           "EVIDENCE/DIRECTIONAL_ACCESS_ORIGINAL_COMPACT.json",
+           "EVIDENCE/DIRECTIONAL_ACCESS_POPULATION_SOURCE.py",
+           "EVIDENCE/DIRECTIONAL_ACCESS_PROTOCOL.md",
+           "EVIDENCE/DIRECTIONAL_ACCESS_README.md",
+           "EVIDENCE/DIRECTIONAL_ACCESS_READOUT.json",
+           "EVIDENCE/DIRECTIONAL_ACCESS_SOURCE.py",
+           "EVIDENCE/DIRECTIONAL_ACCESS_TEST_SOURCE.py",
+           "EVIDENCE/DISCOVERY_ARCHIVE_INTAKE.json",
+           "EVIDENCE/DURATION_READOUT.json",
+           "EVIDENCE/ECOLOGICAL_ORDER_READOUT.json",
            "EVIDENCE/EVOLUTION_DESIGN.json",
-           "EVIDENCE/EVOLUTION_RESULTS.json",
+            "EVIDENCE/EVOLUTION_RESULTS.json",
+            "EVIDENCE/FIRST_MEIOSIS_FROZEN_SOURCE_PINS.json",
+           "EVIDENCE/FIRST_MEIOSIS_INDEPENDENT_PROTOCOL.md",
+           "EVIDENCE/FIRST_MEIOSIS_INDEPENDENT_RAW_REVIEW.json",
+           "EVIDENCE/FIRST_MEIOSIS_INDEPENDENT_SOURCE.py",
+           "EVIDENCE/FIRST_MEIOSIS_ORIGINAL_CASES.csv",
+           "EVIDENCE/FIRST_MEIOSIS_ORIGINAL_RESULT.json",
+           "EVIDENCE/FIRST_MEIOSIS_V1_SERIALIZATION_STOP.md",
+           "EVIDENCE/FUTURE_PARENT_READOUT.json",
+           "EVIDENCE/GENETIC_ACCESS_ALL_SIX_ORIGINAL_SOURCE_READBACK.json",
+           "EVIDENCE/GENETIC_ACCESS_EXTERNAL_SOURCE_AND_MIRROR_RECEIPT.json",
+           "EVIDENCE/GENETIC_ACCESS_FROZEN_EXPLORATORY_READOUT.json",
+           "EVIDENCE/GENETIC_ACCESS_INDEPENDENT_DEMOGRAPHY_CEILING_REVIEW.json",
+           "EVIDENCE/GENETIC_ACCESS_INDEPENDENT_EXPLORATORY_ARITHMETIC_REVIEW.json",
+           "EVIDENCE/GENETIC_ACCESS_confirmation_c0_independently_verified.json",
+           "EVIDENCE/GENETIC_ACCESS_confirmation_c3_independently_verified.json",
+           "EVIDENCE/GENETIC_ACCESS_confirmation_c4_independently_verified.json",
+           "EVIDENCE/GENETIC_ACCESS_main_c0_independently_verified.json",
+           "EVIDENCE/GENETIC_ACCESS_main_c3_independently_verified.json",
+           "EVIDENCE/GENETIC_ACCESS_main_c4_independently_verified.json",
+           "EVIDENCE/GENETIC_ACCESS_verify_exploratory_arithmetic_independent.py",
+           "EVIDENCE/GENOME_RESPONSE_READOUT.json",
+           "EVIDENCE/INITIAL_CLOCK_IDENTIFIABILITY.json",
+           "EVIDENCE/INITIAL_CLOCK_INDEPENDENT_REVIEW.json",
+           "EVIDENCE/INITIAL_CLOCK_RAW.json",
+           "EVIDENCE/INITIAL_MEAN_ORIGINAL.json.gz",
+           "EVIDENCE/INITIAL_MEAN_READOUT.json",
+           "EVIDENCE/INVESTMENT_VARIATION_PROTOCOL.md",
+           "EVIDENCE/INVESTMENT_VARIATION_READOUT.json",
+           "EVIDENCE/KERNEL_CHANNEL_ARRAYS_MANIFEST.json",
+           "EVIDENCE/KERNEL_CHANNEL_INDEPENDENT_REVIEW.json",
+           "EVIDENCE/KERNEL_CHANNEL_INDEPENDENT_SOURCE.py",
+           "EVIDENCE/KERNEL_CHANNEL_PROTOCOL.md",
+           "EVIDENCE/KERNEL_CHANNEL_READOUT.json",
+           "EVIDENCE/KERNEL_CHANNEL_SOURCE.py",
+           "EVIDENCE/KERNEL_CHANNEL_V2_BINDINGS.json",
+           "EVIDENCE/KERNEL_CHANNEL_V2_TECHNICAL_STOP.json",
+           "EVIDENCE/KERNEL_CHANNEL_V3_BINDINGS.json",
+           "EVIDENCE/KERNEL_CHANNEL_V3_CORRECTION.md",
+           "EVIDENCE/KERNEL_EXPRESSION_ARRAYS_MANIFEST.json",
+           "EVIDENCE/KERNEL_EXPRESSION_INDEPENDENT_REVIEW.json",
+           "EVIDENCE/KERNEL_EXPRESSION_INDEPENDENT_SOURCE.py",
+           "EVIDENCE/KERNEL_EXPRESSION_PROTOCOL.md",
+           "EVIDENCE/KERNEL_EXPRESSION_READOUT.json",
+           "EVIDENCE/KERNEL_EXPRESSION_SOURCE.py",
+           "EVIDENCE/LOW_ALLELE_LOSS_CASES.csv",
+           "EVIDENCE/LOW_ALLELE_LOSS_INDEPENDENT_REVIEW.json",
+           "EVIDENCE/LOW_ALLELE_LOSS_PROTOCOL.md",
+           "EVIDENCE/LOW_ALLELE_LOSS_READOUT.json",
+           "EVIDENCE/LOW_ALLELE_LOSS_SCOPE.md",
+           "EVIDENCE/LOW_ALLELE_LOSS_SOURCE_READBACK_NOTE.md",
            "EVIDENCE/MECHANISM_DESIGN.md",
            "EVIDENCE/MECHANISM_ORIGINAL.json.gz",
            "EVIDENCE/MECHANISM_READOUT.json",
+           "EVIDENCE/NATURAL_ORDER_INDEPENDENT_REVIEW.json",
+           "EVIDENCE/NATURAL_ORDER_PUBLIC_READBACK.json",
+           "EVIDENCE/NATURAL_ORDER_SUMMARY.json",
+           "EVIDENCE/OPERATOR_GAP_READOUT.json",
+           "EVIDENCE/PR490_ORIGINAL_AUDITOR.py",
+           "EVIDENCE/PR490_ORIGINAL_DIRECT_ADMISSION.json",
+           "EVIDENCE/PR490_ORIGINAL_INDEPENDENT_REVIEW.json",
+           "EVIDENCE/PR490_ORIGINAL_NUMERICAL_AUDITOR.py",
+           "EVIDENCE/Q3_CONDITIONAL_EXECUTION.json",
+           "EVIDENCE/Q3_CONDITIONAL_EXTERNAL_READBACK.json",
+           "EVIDENCE/Q3_CONDITIONAL_IDENTIFICATION_REVIEW.md",
+           "EVIDENCE/Q3_CONDITIONAL_INDEPENDENT_READOUT.json",
+           "EVIDENCE/Q3_CONDITIONAL_INDEPENDENT_REPLAY.json",
+           "EVIDENCE/Q3_CONDITIONAL_INDEPENDENT_SAVED_ARRAYS.json",
+           "EVIDENCE/Q3_CONDITIONAL_INDEPENDENT_VERIFIER_SOURCE.py",
+           "EVIDENCE/Q3_CONDITIONAL_PROTOCOL.md",
+           "EVIDENCE/Q3_CONDITIONAL_PUBLICATION_RECEIPT.json",
+           "EVIDENCE/Q3_CONDITIONAL_PUBLIC_ADMISSION.json",
+           "EVIDENCE/Q3_CONDITIONAL_READOUT.json",
+           "EVIDENCE/Q3_CONDITIONAL_RESOURCES.json",
+           "EVIDENCE/Q3_CONDITIONAL_RESULTS.md",
+           "EVIDENCE/Q3_EVENT_FRESH_RAW_REVIEW.json",
+           "EVIDENCE/Q3_EVENT_PROVENANCE.json",
+           "EVIDENCE/Q3_EVENT_PUBLIC_ADMISSION.json",
+           "EVIDENCE/Q3_EVENT_PUBLIC_READBACK.json",
+           "EVIDENCE/Q3_EVENT_SUMMARY.json",
            "EVIDENCE/RESOLUTION_DESIGN.md",
            "EVIDENCE/RESOLUTION_READOUT.json",
+           "EVIDENCE/RESPONSE_ONSET_ALL_CASES.csv",
+           "EVIDENCE/RESPONSE_ONSET_INDEPENDENT_REVIEW.json",
+           "EVIDENCE/RESPONSE_ONSET_INDEPENDENT_SOURCE.py",
+           "EVIDENCE/RESPONSE_ONSET_PROTOCOL.md",
+           "EVIDENCE/RESPONSE_ONSET_READOUT.json",
+           "EVIDENCE/RESPONSE_ONSET_SOURCE.py",
+           "EVIDENCE/RESTORATION_ACCESS_AUDIT_SOURCE.py",
+           "EVIDENCE/RESTORATION_ACCESS_CASES.csv",
+           "EVIDENCE/RESTORATION_ACCESS_FRESH_INDEPENDENT.json",
+           "EVIDENCE/RESTORATION_ACCESS_INDEPENDENT_SOURCE.py",
+           "EVIDENCE/RESTORATION_ACCESS_PUBLIC_ADMISSION.json",
+           "EVIDENCE/RESTORATION_ACCESS_READOUT.json",
+           "EVIDENCE/RESTORATION_ACCESS_SOURCE_SCOPE.md",
            "EVIDENCE/TEMPO_AUDIT_SUMMARY.json",
            "EVIDENCE/TEMPO_DESIGN.json",
            "EVIDENCE/TEMPO_RESULTS.json.gz",
@@ -130,7 +367,7 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
         assert m["doi_deposit_complete"] is False
         assert m["n_figures"]==4
         assert m["n_supplementary_figures"]==3
-        assert len(m["members"])==23
+        assert len(m["members"])==142
         for name,record in m["members"].items():
             raw=z.read(name)
             assert record=={"size":len(raw),"sha256":hashlib.sha256(raw).hexdigest()}
@@ -280,6 +517,9 @@ def test_tempo_archive_preserves_results_and_every_table_row_without_identifiers
             if name.endswith(".pdf"):
                 continue
             content=z.read(name)
+            if name.endswith('.npz'):
+                builder.validate_member(name, content)
+                continue
             text=(gzip.decompress(content) if name.endswith(".gz") else content).decode().lower()
             assert not any(token in text for token in ("zuizui0223","github.com","/workspace/","/home/","/root/")),name
     receipt=json.loads(out.with_suffix(".receipt.json").read_text())
@@ -337,3 +577,141 @@ def test_evidence_receipts_are_identified_and_not_pooled():
     assert all(x["passes_frozen_rule"] for x in evo["settings"])
     cap=json.loads((ROOT/FROZEN_RESULTS["CAPACITY_RESULTS.json"]).read_text())
     assert cap["primary_verdict"]=="supported_controlled_demographic_K_moderation_at_fixed_B48"
+
+
+def test_initial_clock_materials_preserve_scope_and_remove_repo_routing():
+    members, derivations = builder.initial_clock_materials()
+    assert len(members) == len(derivations) == 3
+    value = json.loads(members['EVIDENCE/INITIAL_CLOCK_RAW.json'])
+    assert value['original_starts'] == 2304
+    assert len(value['original_raw_t0_feature_rows']) == 18
+    assert 'repo' not in value['execution']
+    assert 'branch' not in value['execution']
+    for name, raw in members.items():
+        builder.validate_member(name, raw)
+
+
+def test_initial_clock_materials_reject_changed_unverified_source(tmp_path, monkeypatch):
+    root = tmp_path / 'data'; root.mkdir()
+    for filename in ['chapter2_initial_clock_identifiability_20261013.json',
+                     'chapter2_initial_clock_t0_raw_20261013.json',
+                     'chapter2_initial_clock_independent_review_20261013.json']:
+        (root / filename).write_bytes((builder.MINIMAL_RESULTS / filename).read_bytes())
+    p = root / 'chapter2_initial_clock_t0_raw_20261013.json'
+    value = json.loads(p.read_text()); value['original_starts'] = 2303
+    p.write_text(json.dumps(value))
+    monkeypatch.setattr(builder, 'MINIMAL_RESULTS', root)
+    with pytest.raises(ValueError, match='initial clock source hash'):
+        builder.initial_clock_materials()
+
+
+def test_response_onset_evidence_keeps_all_starts_and_counterexample_scope():
+    members, derivations = builder.response_onset_materials()
+    assert len(members) == len(derivations) == 6
+    value = json.loads(members['EVIDENCE/RESPONSE_ONSET_READOUT.json'])
+    assert value['cases'] == 2304
+    assert value['original_categories']['assurance_first'] == 335
+    assert value['assurance_first_despite_earlier_I_point'] == 299
+    assert value['assurance_first_despite_earlier_I_sustained'] == 216
+    for name, raw in members.items(): builder.validate_member(name, raw)
+
+
+def test_response_onset_materials_reject_changed_executed_source(tmp_path, monkeypatch):
+    results = tmp_path / 'data/results/expected_response_onset_20261013'
+    code = tmp_path / 'scripts/expected_response_onset_20261013'
+    results.mkdir(parents=True); code.mkdir(parents=True)
+    for name in ['READOUT.json', 'ALL_CASES.csv', 'INDEPENDENT_REVIEW.json']:
+        (results / name).write_bytes((builder.MINIMAL_RESULTS / 'expected_response_onset_20261013' / name).read_bytes())
+    for name in ['audit_response_onset.py', 'PROTOCOL.md', 'verify_response_onset_independent.py']:
+        (code / name).write_bytes((builder.ROOT / 'scripts/expected_response_onset_20261013' / name).read_bytes())
+    target = code / 'audit_response_onset.py'
+    target.write_bytes(target.read_bytes() + b'\n# changed after execution\n')
+    monkeypatch.setattr(builder, 'ROOT', tmp_path)
+    monkeypatch.setattr(builder, 'MINIMAL_RESULTS', tmp_path / 'data/results')
+    with pytest.raises(ValueError, match='response onset independent source admission'):
+        builder.response_onset_materials()
+
+
+def test_kernel_expression_materials_preserve_two_references_and_scope():
+    members, derivations = builder.kernel_expression_materials()
+    assert len(members) == len(derivations) == 6
+    value = json.loads(members['EVIDENCE/KERNEL_EXPRESSION_READOUT.json'])
+    assert value['pairs'] == 48 and value['original_reversals'] == 12
+    assert len(value['comparisons']) == 48
+    assert all(len(row['references']) == 2 for row in value['comparisons'])
+    assert value['policy'].startswith('expressed investment')
+    assert value['new_biological_histories'] == 0
+    for name, raw in members.items():
+        if not name.endswith('.npz'): builder.validate_member(name, raw)
+
+
+def test_kernel_expression_materials_reject_changed_signed_terms(tmp_path, monkeypatch):
+    data = tmp_path / 'data/results/kernel_expression_accounting_20261013'
+    code = tmp_path / 'scripts/kernel_expression_accounting_20261013'
+    data.mkdir(parents=True); code.mkdir(parents=True)
+    for name in ['READOUT.json.gz', 'INDEPENDENT_REVIEW.json', 'ARRAYS_MANIFEST.json']:
+        (data / name).write_bytes((builder.MINIMAL_RESULTS / 'kernel_expression_accounting_20261013' / name).read_bytes())
+    (data / 'ALL_STATE_TIME_CONTRIBUTIONS.npz').write_bytes(b'changed signed terms')
+    for name in ['audit_kernel_expression.py', 'PROTOCOL.md', 'verify_kernel_expression_independent.py']:
+        (code / name).write_bytes((builder.ROOT / 'scripts/kernel_expression_accounting_20261013' / name).read_bytes())
+    monkeypatch.setattr(builder, 'ROOT', tmp_path)
+    monkeypatch.setattr(builder, 'MINIMAL_RESULTS', tmp_path / 'data/results')
+    with pytest.raises(ValueError, match='kernel expression verified source admission'):
+        builder.kernel_expression_materials()
+
+
+def test_kernel_expression_materials_use_verified_companion_when_arrays_not_local(tmp_path, monkeypatch):
+    data = tmp_path / 'data/results/kernel_expression_accounting_20261013'
+    code = tmp_path / 'scripts/kernel_expression_accounting_20261013'
+    data.mkdir(parents=True); code.mkdir(parents=True)
+    for name in ['READOUT.json.gz', 'INDEPENDENT_REVIEW.json', 'ARRAYS_MANIFEST.json']:
+        (data / name).write_bytes((builder.MINIMAL_RESULTS / 'kernel_expression_accounting_20261013' / name).read_bytes())
+    for name in ['audit_kernel_expression.py', 'PROTOCOL.md', 'verify_kernel_expression_independent.py']:
+        (code / name).write_bytes((builder.ROOT / 'scripts/kernel_expression_accounting_20261013' / name).read_bytes())
+    monkeypatch.setattr(builder, 'ROOT', tmp_path)
+    monkeypatch.setattr(builder, 'MINIMAL_RESULTS', tmp_path / 'data/results')
+    members, _ = builder.kernel_expression_materials()
+    value = json.loads(members['EVIDENCE/KERNEL_EXPRESSION_ARRAYS_MANIFEST.json'])
+    assert value['bytes'] == 18547957
+    assert value['sha256'] == '3a39c3d37dda4eba126e01ea83ea1ff667d7f99860471dc2e15e8114f13d748a'
+
+
+def test_kernel_expression_materials_reject_changed_compressed_readout(tmp_path, monkeypatch):
+    import gzip
+    data = tmp_path / 'data/results/kernel_expression_accounting_20261013'
+    data.mkdir(parents=True)
+    original = builder.MINIMAL_RESULTS / 'kernel_expression_accounting_20261013'
+    (data / 'INDEPENDENT_REVIEW.json').write_bytes((original / 'INDEPENDENT_REVIEW.json').read_bytes())
+    (data / 'ARRAYS_MANIFEST.json').write_bytes((original / 'ARRAYS_MANIFEST.json').read_bytes())
+    changed = json.loads(gzip.decompress((original / 'READOUT.json.gz').read_bytes()))
+    changed['pairs'] = 47
+    (data / 'READOUT.json.gz').write_bytes(gzip.compress(json.dumps(changed).encode(), mtime=0))
+    monkeypatch.setattr(builder, 'MINIMAL_RESULTS', tmp_path / 'data/results')
+    with pytest.raises(ValueError, match='kernel expression verified source admission'):
+        builder.kernel_expression_materials()
+
+
+def test_kernel_channels_preserve_all_conditions_and_original_reversals():
+    members, derivations = builder.kernel_channel_materials()
+    assert len(members) == len(derivations) == 10
+    r = json.loads(members['EVIDENCE/KERNEL_CHANNEL_READOUT.json'])
+    assert len(r['comparisons']) == 48
+    assert sum(row['original_reversal'] for row in r['comparisons']) == 12
+    assert all(row['duration']['recruitment_only'] < 0 for row in r['comparisons'])
+    assert all(row['duration']['interaction'] > 0 for row in r['comparisons'])
+    assert max(abs(row['duration']['genotype_only']) for row in r['comparisons']) < 1e-12
+    for name, raw in members.items():
+        builder.validate_member(name, raw)
+
+
+def test_kernel_channels_reject_redirected_array_pointer(tmp_path, monkeypatch):
+    import shutil
+    src = builder.MINIMAL_RESULTS / 'kernel_channel_factorial_20261013'
+    data = tmp_path / 'kernel_channel_factorial_20261013'
+    shutil.copytree(src, data)
+    p = data / 'ARRAYS_MANIFEST.json'
+    value = json.loads(p.read_bytes()); value['companion_member'] = 'different.npz'
+    p.write_text(json.dumps(value), encoding='utf-8')
+    monkeypatch.setattr(builder, 'MINIMAL_RESULTS', tmp_path)
+    with pytest.raises(ValueError, match='kernel channel verified evidence'):
+        builder.kernel_channel_materials()

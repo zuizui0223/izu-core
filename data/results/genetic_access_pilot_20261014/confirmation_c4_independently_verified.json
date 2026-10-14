@@ -1,0 +1,3102 @@
+{
+  "schema": "chapter2_clock_factorial_producer_independent_raw_reader_v1",
+  "status": "ALL_256_PILOT_SHARD_RAW_GENOMES_REPLAYED",
+  "pilot_registry_git_blob": "f18eae09e3f569ae7edefe970ea17d93c64b1bd5",
+  "original_source_git_blobs": {
+    "types.py": "0bc427b3261e7baf1651648ee879b368f9bf935b",
+    "reproduction.py": "95314698a3296b6f13b8c053c36f2df0b7b744ca",
+    "population.py": "20e90f249f63e9f37e8801d19d9b75cade2fe193",
+    "randomness.py": "46f1ee55899e729cdd09d9dbb9332694ef1e2071",
+    "history.py": "0c58aee6f73ae133d96d8da4dd6678886ff3061c"
+  },
+  "cases": 256,
+  "updates": 51200,
+  "parent_pairs": 2457600,
+  "source_year_genetic_records": 2457600,
+  "producer_loaded_as_python_module": false,
+  "original_model3_biological_source_replayed": true,
+  "original_t0_historical_source_admitted": true,
+  "six_event_categories": [
+    "assurance_first",
+    "investment_first",
+    "near_simultaneous",
+    "assurance_only",
+    "investment_only",
+    "neither"
+  ],
+  "new_pilot_biological_histories": 256,
+  "original_case_receipts": [
+    {
+      "case_key": "confirmation_c4_AL_I0_r000",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "0c53b07d9ce99edd5e619d8148b92346eb127802275f226b5111eaf0b9ba3602",
+      "event_0p05": {
+        "A": 28,
+        "I": 52,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r000",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "3fbd6b3bcc26b547aab0e6af8bde30da0f0be24a964607e98bbc2429c3997be9",
+      "event_0p05": {
+        "A": 59,
+        "I": 14,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r000",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "641459098917a982df05b157985e53b76db9adb99b2d64d65889f91582239870",
+      "event_0p05": {
+        "A": 11,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r000",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "88c3e715aaff6a85e35cf83cbb03a2e460b2c50bdb833079f25ad08ca952155a",
+      "event_0p05": {
+        "A": 11,
+        "I": 59,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r001",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "89834771613f02b8e8039522e739362b0248c9c75ac0048bdebbf8509e88984b",
+      "event_0p05": {
+        "A": 35,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r001",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "531143a3bb9f2067f687dbb450d13f49673f6b0fd02649d450f7f37c49175036",
+      "event_0p05": {
+        "A": 14,
+        "I": 9,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r001",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "8950cfc0b8cd3ca7f9666556d3a66939fc1cdf8fe33fe8b3f09c0c543f9e433f",
+      "event_0p05": {
+        "A": 16,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r001",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "5848eba98623d182d993952572e605767691cd1898aa703c4cb534172b6e40b5",
+      "event_0p05": {
+        "A": 6,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r002",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "a9ddd4cd76e269821925815ef10cc58940795c3e753352f313a290489ee75f4b",
+      "event_0p05": {
+        "A": 39,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r002",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "23c9a59c17e242f3db6c833ed50958faeb772f8432576a7f8231e806e29664bf",
+      "event_0p05": {
+        "A": 37,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r002",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "3d5900ac2da332bacad34d8a569484d4285044ebea217a519df2640038551392",
+      "event_0p05": {
+        "A": 7,
+        "I": 100,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r002",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "655a7b5f7edcb1f5296aae5b85cbacb3060be5929826fd884b4cb36c29724432",
+      "event_0p05": {
+        "A": 7,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r003",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "efe38254fd956cf6ab09134a4b50277f30446da861a4060374b08660b4279237",
+      "event_0p05": {
+        "A": 77,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r003",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "a6d5fbe91c55de1d220e210ee3ebc99654fc3f87ed79630e4127a52498a4ea21",
+      "event_0p05": {
+        "A": 78,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r003",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "1d21038d62086d8be4419163f882f30c8746aa4fb64cc23a17ad2a835e8de5a5",
+      "event_0p05": {
+        "A": 13,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r003",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "217086506f5d534db2e7ad25ae970b7c8c9511f8512628d3baedab3400577c71",
+      "event_0p05": {
+        "A": 11,
+        "I": 9,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r004",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "edc1cd7cb5416293cb8e4b49855ec40ac8438519a5847cf5d7e8413e1c4ab656",
+      "event_0p05": {
+        "A": 108,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r004",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "9fcac64120a330fb8915553662d8a888c34afcb00d77247a9c0394ee26a252f3",
+      "event_0p05": {
+        "A": 48,
+        "I": 20,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r004",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "4fe7364b79a6264616ed337041f38db410937766b7345a2357f8e0b898206316",
+      "event_0p05": {
+        "A": 4,
+        "I": 30,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r004",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "704b48f17ff318e98a8baf442c0def55a924405089fa6c8ef1d13883bf3bdd59",
+      "event_0p05": {
+        "A": 4,
+        "I": 32,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r005",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "523b2b622b64fe7c1ad65f12cbd87278b292db8fe6cf352cd797ddaee984273e",
+      "event_0p05": {
+        "A": 17,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r005",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "4592120bdbfd8da32f81ee098c2ad45818b1d938bafdfb19e14bcec343c1672d",
+      "event_0p05": {
+        "A": 131,
+        "I": 49,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r005",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "bde6108bcdde414e3bfba64e0d444fe00476bfeb20c2cbf8570f6c8dcc54db77",
+      "event_0p05": {
+        "A": 16,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r005",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "4414617191f578aa636fb8f2bfd66bb5979e41b93e490ca99cf5e82f47018107",
+      "event_0p05": {
+        "A": 7,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r006",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "58359273b75a6a8c3af85ecf0ba2af71563f8cfb1a44fc5b0959acd524fc91bf",
+      "event_0p05": {
+        "A": 14,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r006",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "49be69ad0a291fdcf4696936f19505d625f00386223d91d7a9b731b2832be50f",
+      "event_0p05": {
+        "A": 68,
+        "I": 4,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r006",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "747fb209fee7ba11266f10dfd7e24580defed997700b42610be5f7774e4f94c6",
+      "event_0p05": {
+        "A": 11,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r006",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "09f0a2d73ff432ba9d8d68a54fd6ffd60006e3d5a88438c19ee5748699c3f3a1",
+      "event_0p05": {
+        "A": 10,
+        "I": 7,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r007",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "1b721e6e7cf25a8f8ff20e58952f29bc8b4f8c98dfceb94af234197a28a942ea",
+      "event_0p05": {
+        "A": 41,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r007",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "0823a868686966eab9aff56ded31438f24eacc389230e6ab84ffe49b9620a9d0",
+      "event_0p05": {
+        "A": 40,
+        "I": 34,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r007",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "ffb850d4e3f62a0d9179ad3b4676b3c10a79cb6e90e31789ddad1fd080626821",
+      "event_0p05": {
+        "A": 35,
+        "I": 48,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r007",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "c85643cc8bf60afb94eefb3defd3e7cbf17a8e5bc8a0c9e3346529bdd4ffc929",
+      "event_0p05": {
+        "A": 9,
+        "I": 49,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r008",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "ed4328d156fc2900894965469a31c8fafb5c0f0c0b84e4d12463da0cd3acbf31",
+      "event_0p05": {
+        "A": 80,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r008",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "ebf90a92b58373e94d11653c2e2a62c1e5cc7f8fcd986ec24ae0336fbcfdd31e",
+      "event_0p05": {
+        "A": 46,
+        "I": 49,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r008",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "e31f5d2d7b772d8dc5e9b89a25dee4961174caa4f5d99d84a336dcabf4368345",
+      "event_0p05": {
+        "A": 7,
+        "I": 38,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r008",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "2500a899bc0e356a4cf15a45b9721b4da1a93a6021b154693601bddee8d7754e",
+      "event_0p05": {
+        "A": 8,
+        "I": 26,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r009",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "dd98a8a55adb5c15b05807961fc3428ba0df1abb061bd23035eaa3a1a42d568f",
+      "event_0p05": {
+        "A": 78,
+        "I": 21,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r009",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "7a13669c7fe3e674806966ea2aa29c3ba7130b2e807125832945e3c8cdb732b6",
+      "event_0p05": {
+        "A": 137,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r009",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "f1261c5a1d6c43b02153e13005476511de6d5094133fb197f986fffe2de205dd",
+      "event_0p05": {
+        "A": 12,
+        "I": 11,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r009",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "b6ef0bbad45ce1d25341875b361aacefa9278009f02201cf86d4c1c9452e24e4",
+      "event_0p05": {
+        "A": 5,
+        "I": 22,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r010",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "99c3f2b5cd0123cc05ab221611ece70cae401f1ecd97e73b48afbe49df274e02",
+      "event_0p05": {
+        "A": 18,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r010",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "1dee1ae36507adfa9bc6be75b5e72403bfa31a11f443d62cac68a6f81f727f85",
+      "event_0p05": {
+        "A": 21,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r010",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "c71a32e95a5e55b3857f9d43d2423009ef069f032878f84d0e24b66d09cd86aa",
+      "event_0p05": {
+        "A": 12,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r010",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "099df5b4492bf887b1436b8fa4ae7884ebe793ed44b07e86f923dc187ab072ea",
+      "event_0p05": {
+        "A": 11,
+        "I": 35,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r011",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "1db1f729b4508f99488fdd9a2ec5e3ee82a47149bdc92933287d8ad0c42bc2ae",
+      "event_0p05": {
+        "A": 106,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r011",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "05312822a769d1d473502173f810337998b40b886f0c67d4a5c4e116320d7f2c",
+      "event_0p05": {
+        "A": 96,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r011",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "eacca2a8a4ad94e03ded1bdfb4157b9159b0195111eee526bc197ed93438c41f",
+      "event_0p05": {
+        "A": 20,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r011",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "53c0f37dd419d38ec82b8b0ed33d7ffbf94c846e1263e79a0fa96dc03dae6256",
+      "event_0p05": {
+        "A": 21,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r012",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "bab4b2708869caba5b4d138db255a48e6b3bbb23a9edec8eb5440c4bb3d39e02",
+      "event_0p05": {
+        "A": 60,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r012",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "99595b5e7679d26143786ec01849de15f55482d40ec044f935b21b60235d0e5a",
+      "event_0p05": {
+        "A": 95,
+        "I": 9,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r012",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "5e642698437272854a7c4f9322dcbf013d0148359dbb079f3401b79e6ffdf8c4",
+      "event_0p05": {
+        "A": 31,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r012",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "c14880ec28290085ee655dbe790cc7ecc022f02541af52e9da9170c66507e6e1",
+      "event_0p05": {
+        "A": 9,
+        "I": 10,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r013",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "206d23df3a30c9f6bf0b1318cce0ce97d5ea5c76d17569170f8f7921f6bbaa94",
+      "event_0p05": {
+        "A": 97,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r013",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "427a0ab6c0025c91677f435b95607b7f9ac4189fd1c8e9cde1f10ca98a17485c",
+      "event_0p05": {
+        "A": 93,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r013",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "a686bd703ceeb32a5cb7e7e201b839a848fbb289fc111adeb88c53bd0a48c2dd",
+      "event_0p05": {
+        "A": 14,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r013",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "7be75fad900ed7eb96361f02d17a3b3b35ae8200bd8d777001077bd0aacb8ab3",
+      "event_0p05": {
+        "A": 7,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r014",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "d418ab56d8280eddaec3452defb3d31aedcb1ef8eef23a7a54f8a94e40b37d76",
+      "event_0p05": {
+        "A": 46,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r014",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "66beb9c55d75afb1d8f006572abefabe7e9b2eee3316730fe8a205c6aa0275cc",
+      "event_0p05": {
+        "A": 25,
+        "I": 26,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r014",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "a3d00a23d67aab0e528271a0735694792a2bfdd0959d859c88cdec62acbcc7c8",
+      "event_0p05": {
+        "A": 15,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r014",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "c173263c57e12951ca0237330e50965a6fdb1f714e8be7ace71ea0976e2cda53",
+      "event_0p05": {
+        "A": 11,
+        "I": 5,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r015",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "9aabfb6c2b40bd3f03b78231d2c6227a07868488059270f61312246ef32dcbd5",
+      "event_0p05": {
+        "A": 86,
+        "I": 17,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r015",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "da59d31f729070174cc4fe8d24aac9f23dbeb7775af7813253d509623cca769f",
+      "event_0p05": {
+        "A": 89,
+        "I": 6,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r015",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "f2fc0ee2ce90c8baa19c8407b9581d0f0eb6d0d1a1f6ce4e3596b60ccdc63c0d",
+      "event_0p05": {
+        "A": 12,
+        "I": 46,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r015",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "f2018e285ec1710d62bbebdfb4bd48ecc76e6d9d079e26f9138839317d335881",
+      "event_0p05": {
+        "A": 5,
+        "I": 12,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r016",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "3b45df06513a09c9e1546eb86a6ddcbdf8368c314a8c523c720f380c7f9326aa",
+      "event_0p05": {
+        "A": 20,
+        "I": 30,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r016",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "cd83dfabe368ae82437b6493a5767b321525fdb93c2dc64a4c9697906aba3fca",
+      "event_0p05": {
+        "A": 27,
+        "I": 18,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r016",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "e1d66f5efe2c0feab81f7b1704eb6bbd4fb61fd50c020eeaa4297c714b773198",
+      "event_0p05": {
+        "A": 6,
+        "I": 48,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r016",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "cd7f969e1c9b8f26a8c6f630e4fa61cb392a9cc00964c0cecca83ccbdbca9746",
+      "event_0p05": {
+        "A": 10,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r017",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "c873160373faf51b92d029b0d9a89211fbfbc6bc995dadfd273e6957c7e19af8",
+      "event_0p05": {
+        "A": 51,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r017",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "f167b450b0ff210f3cbbd85f853b8724a98cb935efbc59559ce4429c1b086167",
+      "event_0p05": {
+        "A": 39,
+        "I": 37,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r017",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "4179b4573b9ad815c7e5234b2ec92291539eb3262bb4b87f3f9ca67f83794350",
+      "event_0p05": {
+        "A": 9,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r017",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "5f0c7e7ca3ff3d7ac5f32a992187d3687600a9261f22b034745595e3e23fdd20",
+      "event_0p05": {
+        "A": 12,
+        "I": 45,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r018",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "7c2a102ffc687f9a04e3420c0642c70791c85cbbf808e285c7d2f51a8e32d0ee",
+      "event_0p05": {
+        "A": 12,
+        "I": 32,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r018",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "3636a83e2111212ed8a663039ff307673518991d36be5b0c5d3dfeebdffe683c",
+      "event_0p05": {
+        "A": 67,
+        "I": 46,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r018",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "c1929339d594d17c3d3eedb39c6538d943671c80b7b62e3e83d66afc29419bf4",
+      "event_0p05": {
+        "A": 8,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r018",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "5649adec71221364dbbb5dc6db3d210156f8f61f712965146f3d740cfd62a0a9",
+      "event_0p05": {
+        "A": 8,
+        "I": 20,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r019",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "0e8a68e7d8327aeba0550f991c8f0af7280487ac7864f21f75351863b132f7bc",
+      "event_0p05": {
+        "A": 93,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r019",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "49a529d974afcbaf26bc3fedd28e0c273a1f561f6331c634ff2dea7ff72781de",
+      "event_0p05": {
+        "A": 71,
+        "I": 9,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r019",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "e33d9738654e124b9c7bccbdb65b74b75c2121660dc55398020e19664395dce5",
+      "event_0p05": {
+        "A": 14,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r019",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "f83c0ae8a909ac4ee332962218536ea30b3c5cfcf944ef72352633d25d11b288",
+      "event_0p05": {
+        "A": 10,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r020",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "c8548f61f357d960a4e39358ed2f07c5816514327e5cba1499b7118993734b36",
+      "event_0p05": {
+        "A": 22,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r020",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "4a73b2db49d803243a5eae343ffae9414bf0c9ae9ef187253e96076515e20c50",
+      "event_0p05": {
+        "A": 22,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r020",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "86306b19dc4b15487bbc836be22e3cda4973e633e70d3347d2233ba03eee7acc",
+      "event_0p05": {
+        "A": 13,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r020",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "3c0db7ed1e85d5b125d58e0de1c377c41b9a5b6ca2045624e7943b5760e8ac4a",
+      "event_0p05": {
+        "A": 9,
+        "I": 10,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r021",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "90b14aca5e60febd1011129a4c39444bcc9a603d1b16c0eac5fe99dc23911e3b",
+      "event_0p05": {
+        "A": 21,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r021",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "79bc77a2d1ff809ae0ec6a4078c021b95569e6e60b61ea9484668986eca2d2aa",
+      "event_0p05": {
+        "A": 118,
+        "I": 5,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r021",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "2b6fcdf53c23771695dc193f0c232e21a50fa3d6ee9ae47f9deec82d602046d3",
+      "event_0p05": {
+        "A": 7,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r021",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "12fcaa3510dd36b69d3477a8ab0719792147bfc272d95e4bafdf28f297ea1d73",
+      "event_0p05": {
+        "A": 8,
+        "I": 5,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r022",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "5e9c4e8f34c7cb98036cb91f7a3bbcc53970e2ed73f88e1e579bf0d4b5434dec",
+      "event_0p05": {
+        "A": 75,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r022",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "187328c25ac4f1e30dc5fc077aa3d949672b149aac275c3b44eb514bc9e9da55",
+      "event_0p05": {
+        "A": null,
+        "I": 7,
+        "category": "investment_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r022",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "c34475d176a7617bb5ed0c2715c0adb79fea3367794430ac2e0cc019ef1ca305",
+      "event_0p05": {
+        "A": 24,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r022",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "b33d663fbff39295f95a12c68e7e180ad1c0d15d1f764439cb92ded863ffe26b",
+      "event_0p05": {
+        "A": 10,
+        "I": 7,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r023",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "9043a25ffc9605f88e4630bc01f39bcaf0ec0bbc80af6b9629c511ba90f2e047",
+      "event_0p05": {
+        "A": 25,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r023",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "1da982e12c74ff5867a59197136c00f84f00e8a0e02aeac10ac95679aa7edcc3",
+      "event_0p05": {
+        "A": 70,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r023",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "0b8abb95d0e1d3d8ad1f692672e0c66d2b771b081766c3f056fb4105514a1944",
+      "event_0p05": {
+        "A": 14,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r023",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "331eae09d643fbb36e18eea411048c73b707aa9bdeea7044ecd4c9b53d49332e",
+      "event_0p05": {
+        "A": 14,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r024",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "5b13fa4eb25376fde1f79cb8a1ae3135bdda02f5f36b30c4b37514288b62043c",
+      "event_0p05": {
+        "A": 72,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r024",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "8fdc1ff9c24e60f91c07698bd1b9c02d536e433cfedee346b6efc98c2bdfa2c6",
+      "event_0p05": {
+        "A": 49,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r024",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "b57cb1d01fbae3f0ce6d38ae8bd2c4eb6b7d8b3fa9f97d92cf74dd2c902dec9a",
+      "event_0p05": {
+        "A": 6,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r024",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "a59c207ee7563cd13867117351269507080590a071b374a4f8fb98728bc7a786",
+      "event_0p05": {
+        "A": 44,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r025",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "b44fd1fb166f48bd325211b71602cda74fe1702129ed632d7a4e7b9f5b607782",
+      "event_0p05": {
+        "A": 48,
+        "I": 48,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r025",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "eee7f7a36d95e35c02c3b51b1f70455a93955756d4cd582bbb060d96d33dbf3a",
+      "event_0p05": {
+        "A": 45,
+        "I": 21,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r025",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "73dfecf13dbb4812c559870f50e5ffdfc4e686b38dcfb665ff4ccf687c86c7a4",
+      "event_0p05": {
+        "A": 14,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r025",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "f1e55867b22066b92c5176361ffbb60a486b38e6da34ad7374dbf53842c39c65",
+      "event_0p05": {
+        "A": 17,
+        "I": 17,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r026",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "b450903456710b05d7a540df327f1c24885f247660821ae36c7be221ad7426dd",
+      "event_0p05": {
+        "A": 80,
+        "I": 123,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r026",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "7cc3c78ceeee64c502fa13bc173b3456b8f2bf087c7b977d76a9cf91ed72371c",
+      "event_0p05": {
+        "A": 53,
+        "I": 14,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r026",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "f774c477e8581f99e4ee52ea323308463738739c838fbbd6c220102f97e32d10",
+      "event_0p05": {
+        "A": 5,
+        "I": 12,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r026",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "7de65fb4207e65f10bbf3c7789f6c6207e729c7fd9e3c1ad4a06ac072b11e4ce",
+      "event_0p05": {
+        "A": 8,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r027",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "ca3285601543e686d659b5ae636e333dc086e7c3e2a5e53cc899d7e984d85980",
+      "event_0p05": {
+        "A": 146,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r027",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "52f9e8bf8142b7eb2e80425b0eeb6366ea4a86e3928efd56335af979a91c5d80",
+      "event_0p05": {
+        "A": 16,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r027",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "811de4a96993a6103caaa40e51bf14bb6718a0e8cf389dca81ccbf1b30f962f8",
+      "event_0p05": {
+        "A": 7,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r027",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "aa19d7df328d98f2217038a768d700f1f337d7d765220889e1d81220891f39a8",
+      "event_0p05": {
+        "A": 7,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r028",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "eaf5396b2b41d2bb38774e4e82c7e7386c87e7b4dcdddc475f7871b9aa55c80f",
+      "event_0p05": {
+        "A": 171,
+        "I": 31,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r028",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "6cce25443f52aea69b216fe984188e476b165be75579650a35f63c620a5ce84c",
+      "event_0p05": {
+        "A": 106,
+        "I": 15,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r028",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "3ce12276defd6aa7da7c0c83651ba16837ef8f395ee9b9726537cae842968e84",
+      "event_0p05": {
+        "A": 6,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r028",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "ee61b6e4dcb7b6b6169301e5f4f517694f0471260b47d0f2d94618d033096710",
+      "event_0p05": {
+        "A": 8,
+        "I": 19,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r029",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "c00359690f8d7d768603b71c3a06b9a579350f30cae88db002cb92fb034b5a76",
+      "event_0p05": {
+        "A": null,
+        "I": null,
+        "category": "neither"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r029",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "d3323fc117271f4a6450af2b9d317507fb8a64a72004ee60e47fd98e54cf80ad",
+      "event_0p05": {
+        "A": 27,
+        "I": 10,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r029",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "cc6095f634d28834d185cf1a4fbba11e99b9a1a4a036d26b1644be73d96abebc",
+      "event_0p05": {
+        "A": 10,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r029",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "949b54c603db097c4a468697414f80d121c5dbe78df1c0f148a0db935e3762bf",
+      "event_0p05": {
+        "A": 9,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r030",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "6ebc897b696e5d692d526a6e084eefd372445ed0b5af7d67c7804fcb21f4fed3",
+      "event_0p05": {
+        "A": 93,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r030",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "b5ec99ce75b8c88da1f20782bea4b4b6f0c55dd24583ed1a27a254ef5bf66476",
+      "event_0p05": {
+        "A": 81,
+        "I": 30,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r030",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "fa412121632b86e1469a2dd3dfa47eb4c8b999eb303bae0738328c376d68be27",
+      "event_0p05": {
+        "A": 8,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r030",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "58c244dccbdaddfd05a39de505bbccbc20a6d2e0a8e332f03c3c0e511ebad0e8",
+      "event_0p05": {
+        "A": 6,
+        "I": 54,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r031",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "cf3105aca70ef010bf2fc920b306643eeeda2c549a657b1ac0f014f23f891775",
+      "event_0p05": {
+        "A": 60,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r031",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "f00408a681fbd498779ed353269199f9f5adb5e8c3d712e818ae31336e62adcd",
+      "event_0p05": {
+        "A": 27,
+        "I": 52,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r031",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "99343fa798373a619401f9f652279f66923368c2ad0f6902febb476e3c0d60e7",
+      "event_0p05": {
+        "A": 12,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r031",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "1e7b02c8907ed95e37106897e9919871a0d87fb140875a4005e85e06a8fec36e",
+      "event_0p05": {
+        "A": 11,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r032",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "dfb8978052c4020b49b278e9be41e6af30e4112fc68bb7e61c96b03d4005566c",
+      "event_0p05": {
+        "A": 11,
+        "I": 28,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r032",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "7a07d469ed0f8b825d45ca6a339ffb61c8be90db9bedfc67248c5457880127dd",
+      "event_0p05": {
+        "A": 11,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r032",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "2b97818e95efa1a69ae78d6172874ab01dd3c2cc23dd632d5d292b17f97256f4",
+      "event_0p05": {
+        "A": 4,
+        "I": 38,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r032",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "e9ef4dbbc7eeebd5a443d2bbbf21b29b65ce3db4c7f29f444068a41882939c86",
+      "event_0p05": {
+        "A": 4,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r033",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "eb9310bbd2bffe7ec50a2beded8e16610a2507714ebc38f8ae36abc873deb36d",
+      "event_0p05": {
+        "A": 52,
+        "I": 98,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r033",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "1f3a1b8ea1171ad64d5191198f6d7fdfabbee52cae65588f2eca071d977c36fe",
+      "event_0p05": {
+        "A": 53,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r033",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "79fa107ce3d688a9c683c6536c89b1f070fa12a93d32ad642107f808b39b590c",
+      "event_0p05": {
+        "A": 11,
+        "I": 40,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r033",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "32886f94a6f89f72c08aa3a549b1dfe78d422cdc25249f44156ad234debc1be1",
+      "event_0p05": {
+        "A": 13,
+        "I": 12,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r034",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "5cf2a99601799383380d86faa09a9378b94246ff470fe964dc83ecba448cfe43",
+      "event_0p05": {
+        "A": null,
+        "I": null,
+        "category": "neither"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r034",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "003f47698038a2dd8df330b46c2cf5fabad2f93bce8d5701f15c080a4c35cf1e",
+      "event_0p05": {
+        "A": null,
+        "I": 15,
+        "category": "investment_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r034",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "a00700dbfa6938e53a30c8c47c9acefc5ae886c1a78db6ebb1cc302dc44dfa0f",
+      "event_0p05": {
+        "A": 6,
+        "I": 14,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r034",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "15b6d75a2ca155dbd7f203b669f0e82ac01d108e6007caa9de6883d8c4af1f31",
+      "event_0p05": {
+        "A": 7,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r035",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "1b77574f118cae869abcc03a35270200893feb2d7bd197759dc35be8301a950a",
+      "event_0p05": {
+        "A": 56,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r035",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "d8bf7053e9df654fedd8961a2b336f87b72912cac8faf63598847c82785d363c",
+      "event_0p05": {
+        "A": 39,
+        "I": 13,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r035",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "727560dfed186b4dd0a37a03efcb532753924e85ece1e6330a3bab742c85d435",
+      "event_0p05": {
+        "A": 14,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r035",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "47b4e2f84d3fd03b6463e8cf2ce3385e75195a13526dc6feb8e4a697c25cf288",
+      "event_0p05": {
+        "A": 12,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r036",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "dc5527618aafecb49ae8c397beb82e62992439b6c1ac14637d9229371ec32c09",
+      "event_0p05": {
+        "A": 173,
+        "I": 33,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r036",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "97a2f7e652284db69a46e7c14281f1c6cc0258ef4b44bb36b233cf9362403d0e",
+      "event_0p05": {
+        "A": 134,
+        "I": 6,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r036",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "6ef2458564057ccb3e1d856b462bd557395f4371c4f9420f1695bdb842542b8f",
+      "event_0p05": {
+        "A": 13,
+        "I": 64,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r036",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "d592ca771646b2943b166932d73e00c50913d369d0515dcefb38c3ab9ab727b2",
+      "event_0p05": {
+        "A": 5,
+        "I": 6,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r037",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "b1641ea1a7f57db1f960c9d6513922b6c57cb7c4062888e46da6dcc78f7929b5",
+      "event_0p05": {
+        "A": 66,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r037",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "a654f7d29532acc9b1b5016e599773401545201b7312a1d7a614976cbfdbd7f7",
+      "event_0p05": {
+        "A": 71,
+        "I": 6,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r037",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "98b48ad903b093ae3209542d667d7c7084cd88ab26611992f81832b42057fbb2",
+      "event_0p05": {
+        "A": 14,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r037",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "921c4a6abd1ea0d47c727f6738833d69465da6ecab7ba4ccb73cb4a08ddce0b0",
+      "event_0p05": {
+        "A": 11,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r038",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "dc895ac18bb70aa88f8dd85ffd7fe181ec01a80ad70c9f2dbd27cbab4fab27b5",
+      "event_0p05": {
+        "A": 18,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r038",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "06d9510f648a3b52155651ece821a00fe0ff58a6a03dc6d72f948354381c067d",
+      "event_0p05": {
+        "A": 128,
+        "I": 45,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r038",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "35d08805b68c1dbef589d4065d21de936d933f51bcf495036a329a8a9d105774",
+      "event_0p05": {
+        "A": 42,
+        "I": 47,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r038",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "bbad55d96bc048dd1f3d0f82e4777cfeb420077a264e0bbe8646d282246ae9f5",
+      "event_0p05": {
+        "A": 13,
+        "I": 32,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r039",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "8b6afd612d422bda9cdb90a668c061e1cbc5e01b85337cb8eb6f26e49223ed92",
+      "event_0p05": {
+        "A": 140,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r039",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "a4386e1529b521572478fbcf966af7b180ec1ed0f9cc9be6a7766f5577abb7dd",
+      "event_0p05": {
+        "A": 35,
+        "I": 25,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r039",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "59d9bc67ac148c338364d2a58e45bc099ea30f98614683da54f1f1ddab4b41c8",
+      "event_0p05": {
+        "A": 10,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r039",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "566e552d4e91aa58371354fde25155a1209f93a7cdfd3c2a5cfcedcb25dfddd0",
+      "event_0p05": {
+        "A": 7,
+        "I": 27,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r040",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "d02731cbe3854084dc7c1b8d075be9f2fa2d87297bd86883001499f09f55849c",
+      "event_0p05": {
+        "A": 62,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r040",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "feb7fbd391c247ddc2bc2bafddd9c69f322eca69de13af5d024f9fde62e3c274",
+      "event_0p05": {
+        "A": 62,
+        "I": 23,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r040",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "a8acd7b91948fd32c780f009f486c4d963ae787a6b0b179d7a842e96346bcae2",
+      "event_0p05": {
+        "A": 15,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r040",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "747c8a51b0948cdde0803bf114806dcae89e3fb55ae844066f7e0bffd34fb2b3",
+      "event_0p05": {
+        "A": 14,
+        "I": 16,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r041",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "6780b70d3d0eb8080427263759a239a8edf00a996b4f0f5603095250febf62c6",
+      "event_0p05": {
+        "A": 100,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r041",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "f3e6664ca213a2cd0e37baadb81927e99b9d9aa9728e5f1d38991dd0638e7edd",
+      "event_0p05": {
+        "A": 84,
+        "I": 10,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r041",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "1acf6989f6acf15211e7723e76718394c5c63724e6733fc3400a8883b716cdc3",
+      "event_0p05": {
+        "A": 13,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r041",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "dca1d0c042667626cb9c77514bccbb8ecd0ffc68e3bfd9b7eedc003045d729af",
+      "event_0p05": {
+        "A": 32,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r042",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "94fbdfc00e4efa51a451c0ab34968a328de4e6bfbd0f5faae370fcd035104a5d",
+      "event_0p05": {
+        "A": 61,
+        "I": 17,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r042",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "f93bed6c6141139023598e940cded4b5d1ccc70289863eca9fb0d7ebaa99c77a",
+      "event_0p05": {
+        "A": 43,
+        "I": 7,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r042",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "6eeb7ed7a99d570b9329278d2f243a12c2f9e11bb7cad7ef0b12c4f00f16b261",
+      "event_0p05": {
+        "A": 7,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r042",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "c30d877cd93bad4c60a98b707a4b32bfae56685ef4342be4170395231bfc4d89",
+      "event_0p05": {
+        "A": 9,
+        "I": 19,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r043",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "81c29c13bf90b6e692c8cb042afdfa8dd9a1bf2a7bd136d52ddbfe5e63dabfb6",
+      "event_0p05": {
+        "A": 91,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r043",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "69e10d8e15ef2650fcf618b8e91d6a6627b58b4f726695aca99c0f0bada1d7d8",
+      "event_0p05": {
+        "A": 83,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r043",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "b20ddd216dd1e62153b6eaa496d10d921af83c12efb97fa21f5aaa1cb6b9e516",
+      "event_0p05": {
+        "A": 45,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r043",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "90523f38773334bb857e465ae6d64a76a877ee7dc738c3e6bc26f44c4b49c861",
+      "event_0p05": {
+        "A": 28,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r044",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "8118fbd0b99e526d2a8292311da3d04511e21f8484e2a83140187b4f4b8a4c5c",
+      "event_0p05": {
+        "A": 108,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r044",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "b1d311d0cd5396207b063096c1b38a9ad74e1271255402c48723e5ff3e8c9961",
+      "event_0p05": {
+        "A": 17,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r044",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "f64cda782d2ee448927d24ad9c79baa0252d22c72ca698a25d64c0fb182eb739",
+      "event_0p05": {
+        "A": 41,
+        "I": 31,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r044",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "0325ab76cffa024267bac9a736267020ae550cc5991e87f0e28edf065482ce4a",
+      "event_0p05": {
+        "A": 13,
+        "I": 8,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r045",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "51a175558c7849f6bacd315621436b124e6ab284766f06804219bddf57c8a4c9",
+      "event_0p05": {
+        "A": 138,
+        "I": 29,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r045",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "4e12907efd9ac19838025826e3b5777f288b4112fa4252b4dd9c68cc1a463c19",
+      "event_0p05": {
+        "A": 23,
+        "I": 21,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r045",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "b3a86abb967868bda6959f770c34989fac539d6ecb389a0c0c463d2a08ab7ee3",
+      "event_0p05": {
+        "A": 15,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r045",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "552d2c633fb83c77c182f0d74730a4b4d452a84dfef7221e65aa000320bc2626",
+      "event_0p05": {
+        "A": 32,
+        "I": 25,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r046",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "f34355b6be06726f66a71bb9e471c12a78f7a5b742d04e0c80782276c70c79f9",
+      "event_0p05": {
+        "A": 69,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r046",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "8b48cbece3c220dd1a254344250bdb1ff62d18f8ec04095ae23b46a7a6324b85",
+      "event_0p05": {
+        "A": 44,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r046",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "b8a76181ac632179b1d48fcbef1a3e1386bda7729f70650edaff6fde1b89ac00",
+      "event_0p05": {
+        "A": 66,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r046",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "a87afac414fb739381f01cdd070132f933cef126d8519fc475fcb72bd4ef51f2",
+      "event_0p05": {
+        "A": 37,
+        "I": 54,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r047",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "96a5d809fd6818b80f00869f572257bef3b87f7c5be2e8c101c765ba21ad1305",
+      "event_0p05": {
+        "A": 21,
+        "I": 153,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r047",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "c47c1ace524102dbd2d6816b6e3c38b33d24d8f1de88aa6ef7fef6d2036ef775",
+      "event_0p05": {
+        "A": 15,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r047",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "271bb3eb0ce1d406f9a04510bb782902bebd969beac22a3db682dbe915c4eb7f",
+      "event_0p05": {
+        "A": 10,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r047",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "f7fbc02d746498a77c7f9fdfbb94139ba3b897949f69cda25f88f9a071126b25",
+      "event_0p05": {
+        "A": 16,
+        "I": 13,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r048",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "7789dcb8bb1657a7f034b32670be1a2f27d2985fabf3256ede92abcc14cd0286",
+      "event_0p05": {
+        "A": 42,
+        "I": 6,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r048",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "8cfb68d3aa51ad21c4c0dfab7649c94a5a7a5da381a792d4b248b62e0c29a62b",
+      "event_0p05": {
+        "A": 38,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r048",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "b5338723ef4df13f0bb7585ff672d3ea96556fcb39d1b53cafba4462dc81fa7a",
+      "event_0p05": {
+        "A": 5,
+        "I": 18,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r048",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "29ec3c5d857ccac84dca4068b21cd458f28ac5754c9c28f19ff4b67175a0d932",
+      "event_0p05": {
+        "A": 11,
+        "I": 13,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r049",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "8fa703d3b06c512cd17b94563d2c0b9b80e0b7451b0f3100d6903351453e517b",
+      "event_0p05": {
+        "A": 91,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r049",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "2789aea14948371b72564a2a49bc67a9e377dc81867a54fae76d28eba2b615da",
+      "event_0p05": {
+        "A": 57,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r049",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "c91fed8b765e5be8d83dfe39e47a0f94a5a7df1fc0461912e7a8422b0fdafa6c",
+      "event_0p05": {
+        "A": 6,
+        "I": 21,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r049",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "943085dbfc94d3683909b77c4cf0b194cfd9d0a0a2bb38846f37c899f75dcde4",
+      "event_0p05": {
+        "A": 18,
+        "I": 16,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r050",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "6ef35cab593c4bcd70acf2d1b3462a2a626ecc84a39d6724044791e30ff189d6",
+      "event_0p05": {
+        "A": 91,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r050",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "e536e55b6dac8cdc3709a5d1ccfef54b172a17cebd46a3cda307d1a52def5682",
+      "event_0p05": {
+        "A": 70,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r050",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "8111574ede493a555e23738b57cca1239db216d7e52491c096c2c175f7f6a781",
+      "event_0p05": {
+        "A": 15,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r050",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "7e9a069db01b9e303df5e6e37c6d00379cb619e8f9b9f89b58ba3837c5f91cd4",
+      "event_0p05": {
+        "A": 7,
+        "I": 15,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r051",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "933aa1c55611d5b5f1489a314e477258de5afe88f051d6c67a3fd2aab7a010b1",
+      "event_0p05": {
+        "A": 42,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r051",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "ca680297aeda7e5c48291533e41f7571ba4bf61ec4cb42d2ffdf22c8e94411e1",
+      "event_0p05": {
+        "A": 44,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r051",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "b85a3b560afb3fd57a95027800d43095ecd2ef07b11789631016811f5bae9e3c",
+      "event_0p05": {
+        "A": 11,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r051",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "4d83ed62021c0c97e26d5d58cebb2ee3d7603bfb2880df6f8f45dce56f75cc1f",
+      "event_0p05": {
+        "A": 16,
+        "I": 58,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r052",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "e40a30715e64d4119683d52e05ceba10d1df623a6d789471a1485c9fa7e7c322",
+      "event_0p05": {
+        "A": 71,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r052",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "85a57cb0dc86708f192dc3bd34768117d718789131b08382c2f711f162cad303",
+      "event_0p05": {
+        "A": 71,
+        "I": 7,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r052",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "b4a2f5526b7d693e01d414bde97b2fae66d899c33a51501ca476e81a0e6e553f",
+      "event_0p05": {
+        "A": 10,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r052",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "8619f0859ffc50132bcf91556ff51e1a10b13a774cc51ead9ab4a1093025e6f8",
+      "event_0p05": {
+        "A": 9,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r053",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "a77cba4982b1a0848ff64141f625803fa614f7628ada3db585cb4cd96bd1484a",
+      "event_0p05": {
+        "A": 25,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r053",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "1b6cb09d06bb3c66d7a2a8b1585f42f9dfe8b70693fc9e46a9eaaccb98477eaf",
+      "event_0p05": {
+        "A": 28,
+        "I": 30,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r053",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "88eef3727fb0396b0de2057d774ad0d3ebd221e3ef160199a893f3cc705698b1",
+      "event_0p05": {
+        "A": 28,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r053",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "417be910afe2d9e6504d4935c6b9830fd9e762f02f444c000c0036d456b2ab85",
+      "event_0p05": {
+        "A": 10,
+        "I": 138,
+        "category": "assurance_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r054",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "f64f4fd1b7e08445dc2b56057ccfcf7026361cc7a501ccb453ca4bb87424a713",
+      "event_0p05": {
+        "A": 34,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r054",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "066f2fd15a4eead6e682a7dd39c07b9f92b5c0016abbccfc48775167244dbd2c",
+      "event_0p05": {
+        "A": 33,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r054",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "726280337ffa18909eba873939e90e0049f1e69b8169b794ba6dc4dcf2d5f13c",
+      "event_0p05": {
+        "A": 22,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r054",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "2b51b460d2f29330f8495fd5dc0ce6059504ff4cb973cd7f1e23a6392aaf4d6f",
+      "event_0p05": {
+        "A": 12,
+        "I": 17,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r055",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "41ad5638180972b18d7d4574f4ed54ec081722a92ca9922f204778566d582076",
+      "event_0p05": {
+        "A": 12,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r055",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "45986af659fa2979d7fcc390d42eec5a8dc570046bff8cde4f1958cbbc608c5a",
+      "event_0p05": {
+        "A": 97,
+        "I": 10,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r055",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "4a569311a512f9f0226c3da407091889314f674ecef66571a76f3b9935025c4f",
+      "event_0p05": {
+        "A": 15,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r055",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "0a8cfbd5a248733c19c049bb156e0bededcf19e93f43400860f287453ecc9be7",
+      "event_0p05": {
+        "A": 5,
+        "I": 6,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r056",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "9831e3619cb5290b6a012f564fa4967a1266ed01096001d95ae0eec7d2f99f5f",
+      "event_0p05": {
+        "A": 33,
+        "I": 35,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r056",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "8d113ced9111e8df3f8d9ec84c26e9847bc352576680d9213bf6335027fe011c",
+      "event_0p05": {
+        "A": 34,
+        "I": 7,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r056",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "37b47d3a4f46fc68e78f1775085097b4575930f3654744c23f6e5118932d2e93",
+      "event_0p05": {
+        "A": 6,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r056",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "0bc1e06efdbb1260dc540936609b10c23ddf62cafcd1d3fd454a7682e44ed5a0",
+      "event_0p05": {
+        "A": 11,
+        "I": 10,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r057",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "e20b67dbe441a6ef0f701ab5f4952f1a3101ad15a6b27ab41fc7f4bcd8e1a07b",
+      "event_0p05": {
+        "A": 66,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r057",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "f72e50ccc9b85ce86227a550bf0f7b363ae69f2383ee92ce2b04072e2ef39ffd",
+      "event_0p05": {
+        "A": 45,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r057",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "ace5ab3613e24594f723bbaefd8e6d68709346cc16e56572c5d2fe02ee443915",
+      "event_0p05": {
+        "A": 12,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r057",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "d7e09226d4090059c5b33eab95ff5c3b18219f098abb185f8c90f88dd2945ac2",
+      "event_0p05": {
+        "A": 14,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r058",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "8f409b790df76935f19437c4a6d09880b7905e8ebccb3f03e4f0170608dda48e",
+      "event_0p05": {
+        "A": 20,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r058",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "3b5d1c7f5d65b46df670f71a23788723b3e3d4e1cd5a1dd8fdeb7ae20205b0cc",
+      "event_0p05": {
+        "A": 61,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r058",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "c52964ab9f65037b02c5d28bafe443ac6f545195941a9fcf886be6bdde9066e6",
+      "event_0p05": {
+        "A": 19,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r058",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "a2c4671aa1bc662a148f05946e3fd9173e1e313408bea34e39978a633260cc1d",
+      "event_0p05": {
+        "A": 12,
+        "I": 9,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r059",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "4e7009a4c147c94b3262114fd503453f91f2a1478319624efd477d9c96025516",
+      "event_0p05": {
+        "A": 48,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r059",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "11471049fd2b022e0eb8283f16994fbdfc90491e33f060ce19bd3e1da5f04b04",
+      "event_0p05": {
+        "A": 31,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r059",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "c8cd43457b350ded95b448b7fc7a8f35aa6713697c79f1dafd1628939f61e17f",
+      "event_0p05": {
+        "A": 12,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r059",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "7ed7a2c3987043b0dc3ccef3e3b787184fb2e853e30a89d37ea1a41b2ec9d816",
+      "event_0p05": {
+        "A": 7,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r060",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "884a8ae4ba0e416ece353c34057e32e330e9572c7f604465e6e41ae57cb91b3b",
+      "event_0p05": {
+        "A": 26,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r060",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "2dbf01a0a815389fdab24c960def6385fdc8ceaa90c1b0758ec5399640c69b5d",
+      "event_0p05": {
+        "A": 144,
+        "I": 6,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r060",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "c55f18cc97d15b422923ca39cd0b84a0c0bbedbc1805097a3a3c1c29b67091ab",
+      "event_0p05": {
+        "A": 9,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r060",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "55ce910c890e25e86c7bf05d3fa53e43249292bf5e9ddb0f91f74b73263ea428",
+      "event_0p05": {
+        "A": 6,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r061",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "a23e0ba3c8cb1077d87ae892f3d3cc0e58e66d01ffa19f759d9dab8b7b4aec2b",
+      "event_0p05": {
+        "A": 82,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r061",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "808821c57d88cc50e17e79f44aff535aaa5c43f36cc7f62d7d00bb067d27c909",
+      "event_0p05": {
+        "A": 21,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r061",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "b589888a00d5255ac9a4a162ee4bca61e6bc7cd159e31728529bc329d156d88c",
+      "event_0p05": {
+        "A": 11,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r061",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "a3ff6d5bec8affc675a5ab80634353c23853b47f65be7f42eafd149f83987482",
+      "event_0p05": {
+        "A": 24,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r062",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "404f04fe47c876c6bc7bc8f9f8f18163649742c211ee7109a80449a708126e88",
+      "event_0p05": {
+        "A": 30,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r062",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "bb2646f55f372850c5ddd304655a8234674d239057e08cf70006fdd5a22b37d4",
+      "event_0p05": {
+        "A": 61,
+        "I": 34,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r062",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "6e3bcd1fa6e92b2a6d2f98615ba2dea5eba72b8d6bd365f8e688d8c61050e82c",
+      "event_0p05": {
+        "A": 14,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r062",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "182aefccafe6b21cf1493b7218eaad92376c99041f847639a7cbd68d774584df",
+      "event_0p05": {
+        "A": 11,
+        "I": null,
+        "category": "assurance_only"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r063",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "3d4953df448c15840fca204c6eaa13529951d78b0f2c739072b2efd8c8f52a77",
+      "event_0p05": {
+        "A": 63,
+        "I": 14,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r063",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "be79ed83154d8187809d122dd0282f7e83a044643df04eb07d7f907a694f9133",
+      "event_0p05": {
+        "A": 29,
+        "I": 3,
+        "category": "investment_first"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r063",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "554d8f6f8c19d3cc0fdfaf8c5fba915b9a0467554539d14454db147fe3a3bff9",
+      "event_0p05": {
+        "A": 16,
+        "I": 16,
+        "category": "near_simultaneous"
+      }
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r063",
+      "updates": 200,
+      "genotype_record_source_years": 9600,
+      "parent_pairs": 9600,
+      "case_sha256": "bfbb48fe018d5c4c560927eebe1c0ad9ca6e0af3eb18b03d9d78aa0bec061fb7",
+      "event_0p05": {
+        "A": 21,
+        "I": 29,
+        "category": "assurance_first"
+      }
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "status": "COMPLETE",
+  "reserved_calls": 1981444,
+  "actual_calls": 1981444,
+  "fixture_calls": 4,
+  "production_calls": 990720,
+  "replay_calls": 990720,
+  "workers": 2,
+  "elapsed_seconds": 869.862987698,
+  "conservative_worker_seconds": 1739.725975396,
+  "measured_pair_worker_seconds": 1697.7927653690008,
+  "bytes_before_packaging": 568037292,
+  "max_disk_bytes": 17179869184
+}

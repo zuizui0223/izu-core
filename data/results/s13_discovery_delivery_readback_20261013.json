@@ -1,0 +1,28 @@
+{
+  "status": "ACTUAL_DISCOVERY_SCOPE_AND_PUBLIC_ONE_PAPER_PACKAGE_VERIFIED",
+  "run": 38309561291,
+  "source": {
+    "commit": "ecd05d9e54fa9ac3e6250fc8d693190bdc7257a1",
+    "verifier_sha256": "5812e72335d1e623850f2e7980f45cab374ab47dcd5e06c9e88cb557a8931b27",
+    "no_biological_replay": true
+  },
+  "intake_counts": {
+    "zip_members_verified": 26673,
+    "manifest_records_verified": 26671,
+    "embedded_sources_verified": 23,
+    "discovery_cases_verified": 2048,
+    "genome_checkpoints_verified": 8192
+  },
+  "intake_verification": {
+    "archive_identity_verified": true,
+    "manifest_complete": true,
+    "embedded_sources_verified": true,
+    "discovery_endpoints_complete": true,
+    "original_discovery_full_replay_completed": false,
+    "runtime_identity_verified": false
+  },
+  "package_sha256": "adb5293c7d1c5e1f9bf4293625fccd16686220473ae1bb50530f2763a8b030ba",
+  "package_members": 30,
+  "all29_payload_hashes_match": true,
+  "submitted": false
+}

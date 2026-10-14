@@ -1,0 +1,22 @@
+{
+  "file": "ALL_STATE_TIME_CONTRIBUTIONS.npz",
+  "sha256": "3a39c3d37dda4eba126e01ea83ea1ff667d7f99860471dc2e15e8114f13d748a",
+  "bytes": 18547957,
+  "endpoint_shape": [
+    48,
+    2,
+    80,
+    165
+  ],
+  "duration_shape": [
+    48,
+    2,
+    80,
+    165
+  ],
+  "external_companion": "KERNEL_EXPRESSION_OPERATOR_REVIEW_20261013.zip",
+  "companion_sha256": "c5da14c2bb577e0c7a58dad481b611424045df37ad48cb81d397ebe3f667722a",
+  "companion_member": "kernel-expression-accounting-20261013/extracted/ALL_STATE_TIME_CONTRIBUTIONS.npz",
+  "prior_independent_state_time_checks": 2534400,
+  "prior_independent_switch_time_checks": 15360
+}

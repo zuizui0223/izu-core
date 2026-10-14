@@ -1,0 +1,51 @@
+{
+  "status": "ALL1024_RAW_PREPARATION_CATEGORIES_AND2048_FUTURE_CSV_FIELDS_AND36_GROUPS_INDEPENDENTLY_MATCH",
+  "records_sha256": "5ecf992e19dd7492709474dbb6c2f3c7aa41d30e31eb5e00dd68789b72bb1ae7",
+  "scope_sha256": "6195b4cc8f72bb1a4180cc1475ffc4e6059488526a2d7471bb136cf412751e5f",
+  "auditor_sha256": "c9eaf72c3190cd37ed69028fa073e4dd8d217e9861acba7bae2c1987dccdae1e",
+  "checked_readout_sha256": "33eb80ca5e7f5f81d6bc05bd63dc9a0283545c1e0b22a82c55bbd43e3624fbb1",
+  "checked_csv_sha256": "7a7eeedcb5af2af50bf3343801b764db3582eb20fdde85d701224b43fa0723e9",
+  "preparations": 1024,
+  "futures": 2048,
+  "groups": 36,
+  "saved_censuses": 617472,
+  "max_saved_mean_error": 1.1102230246251565e-15,
+  "categories": {
+    "assurance_only": 577,
+    "neither": 211,
+    "assurance_first": 110,
+    "investment_first": 63,
+    "investment_only": 47,
+    "near_simultaneous": 16
+  },
+  "empty_preparations": 0,
+  "empty_handoffs": 0,
+  "handoff_mean_map_feasibility": {
+    "eligible_preparations": 1024,
+    "ineligible_preparations": 0
+  },
+  "producer_imported": false,
+  "native_calls": 0,
+  "new_random_draws": 0,
+  "new_biological_updates": 0,
+  "scope": "Retrospective observational association in two fixed founders; no randomized natural-order effect, independent founder replication or prospective benefit claim.",
+  "state_bank_review": {
+    "status": "ALL1024_BANK_STATES_MATCH_BOTH2048_ORIGINAL_HANDOFFS_AND_CONFIGS",
+    "bank_sha256": "ec15316f234ec6f28c50d93bb099ad9db6f64b84a82f6c1a88370482f6f6d8b2",
+    "auditor_sha256": "dc6c42599fc511bcc93e49c7f092f49b2f6b262ab6bd774c3882fdad0d7c5807",
+    "states": 1024,
+    "original_futures": 2048,
+    "fields": [
+      "alleles",
+      "allele_origin",
+      "mutation_flags",
+      "ids",
+      "birth_years"
+    ],
+    "mean_map_feasible": 1024,
+    "native_calls": 0,
+    "new_random_draws": 0,
+    "new_biological_updates": 0
+  },
+  "raw_readout_sha256": "33eb80ca5e7f5f81d6bc05bd63dc9a0283545c1e0b22a82c55bbd43e3624fbb1"
+}

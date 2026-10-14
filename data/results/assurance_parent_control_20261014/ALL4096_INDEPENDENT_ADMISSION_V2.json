@@ -1,0 +1,145 @@
+{
+  "cases": 4096,
+  "updates": 819200,
+  "shards": 16,
+  "frozen_reader_sha256": "860680aa7ba248b43dad6e4e984f3af52fc23438014ca8b13246b72bbc167906",
+  "task_domain_sha256": "72dd843c025dababa93822c1c6017bae75b4c10b22640cd6ad13926214157cab",
+  "status": "ALL4096_PUBLIC_CONTROLLED_FUTURES_INDEPENDENTLY_REPLAYED_DOMAIN_VERIFIED",
+  "source_commit": "90d586f8f54ed660ed1634f0a1119951c0700309",
+  "provisional_counts_only_receipt_sha256": "4ce4e24deb6d5dab03043d08fce678cdf59a0c77dc6c740d2cfdc1aec3d3bf12",
+  "v2_collector_source_sha256": "09302922a5f90e671bc805751146085350215a26c85cf305ceba7e4fff431c12",
+  "max_allele_replay_error": 0.0,
+  "records": [
+    {
+      "shard": 0,
+      "cases": 256,
+      "updates": 51200,
+      "receipt": "shard-0.json",
+      "sha256": "4a9be26a4a3f763e119aec843f76e171a7e828a01d53b24571cfa9728884b49a",
+      "max_allele_replay_error": 0.0
+    },
+    {
+      "shard": 1,
+      "cases": 256,
+      "updates": 51200,
+      "receipt": "shard-1.json",
+      "sha256": "989c61a8607cc70daeaf6817f13e2180d328991fb56e9afedb0e210545e0b1f7",
+      "max_allele_replay_error": 0.0
+    },
+    {
+      "shard": 2,
+      "cases": 256,
+      "updates": 51200,
+      "receipt": "shard-2.json",
+      "sha256": "f963a753e429ec036fc255092b6a4c941854fd1f5bb1bfa02e70b0ed25bc4b44",
+      "max_allele_replay_error": 0.0
+    },
+    {
+      "shard": 3,
+      "cases": 256,
+      "updates": 51200,
+      "receipt": "shard-3.json",
+      "sha256": "d236c4329827c896df92488b471c674fb188ec0c48e4c4a8f592d9d21f17f3f2",
+      "max_allele_replay_error": 0.0
+    },
+    {
+      "shard": 4,
+      "cases": 256,
+      "updates": 51200,
+      "receipt": "shard-4.json",
+      "sha256": "e848db8d93c57cd7172237fb15c335385d9ae0c37b26ef8a98fa7482a9320e13",
+      "max_allele_replay_error": 0.0
+    },
+    {
+      "shard": 5,
+      "cases": 256,
+      "updates": 51200,
+      "receipt": "shard-5.json",
+      "sha256": "f14dec1f491fb14d0802e6a4c3f618f92cc922599a7947da6c062f0a953859ce",
+      "max_allele_replay_error": 0.0
+    },
+    {
+      "shard": 6,
+      "cases": 256,
+      "updates": 51200,
+      "receipt": "shard-6.json",
+      "sha256": "7542e17bdb4921dc7def224f7555cfe0479cf4a36ade0c95d35dedc80294b53f",
+      "max_allele_replay_error": 0.0
+    },
+    {
+      "shard": 7,
+      "cases": 256,
+      "updates": 51200,
+      "receipt": "shard-7.json",
+      "sha256": "7b3069a2a953e29b26d124e5fcd0991d5daaffab450894458cc1445c183302c4",
+      "max_allele_replay_error": 0.0
+    },
+    {
+      "shard": 8,
+      "cases": 256,
+      "updates": 51200,
+      "receipt": "shard-8.json",
+      "sha256": "c59093edc69e592ce4e90a7d47f0feb54f5c965ea8ae0b6402aec149fcaf2a02",
+      "max_allele_replay_error": 0.0
+    },
+    {
+      "shard": 9,
+      "cases": 256,
+      "updates": 51200,
+      "receipt": "shard-9.json",
+      "sha256": "28793ae130c05ef5827ab9b351ed704c844154c7b08037820438a4f90dbe3603",
+      "max_allele_replay_error": 0.0
+    },
+    {
+      "shard": 10,
+      "cases": 256,
+      "updates": 51200,
+      "receipt": "shard-10.json",
+      "sha256": "4c45bb9b66576412dd948781bdaa0db9579d453c2d57f2538cbe0869358aabc7",
+      "max_allele_replay_error": 0.0
+    },
+    {
+      "shard": 11,
+      "cases": 256,
+      "updates": 51200,
+      "receipt": "shard-11.json",
+      "sha256": "ec45897d5b396928a341d5c0ad4001ac805ad1b8b17df781ae3fcc714d523835",
+      "max_allele_replay_error": 0.0
+    },
+    {
+      "shard": 12,
+      "cases": 256,
+      "updates": 51200,
+      "receipt": "shard-12.json",
+      "sha256": "d16133a9ea6b00cc600a709c7e4b444960f2fb58680496baada55c7a2f3118b3",
+      "max_allele_replay_error": 0.0
+    },
+    {
+      "shard": 13,
+      "cases": 256,
+      "updates": 51200,
+      "receipt": "shard-13.json",
+      "sha256": "38508b638b8d4524663474375eb8b7a750585b87094ba16ea8b1a396f2ab4735",
+      "max_allele_replay_error": 0.0
+    },
+    {
+      "shard": 14,
+      "cases": 256,
+      "updates": 51200,
+      "receipt": "shard-14.json",
+      "sha256": "b311713d72462af6a100570f3fa9e2df57523a5d9973b25edb939590d1b50a93",
+      "max_allele_replay_error": 0.0
+    },
+    {
+      "shard": 15,
+      "cases": 256,
+      "updates": 51200,
+      "receipt": "shard-15.json",
+      "sha256": "09b1d5ef9d2cf38fea31e3b76e51b930ffe0f44be37d6e69a81f5ec60fb96ce0",
+      "max_allele_replay_error": 0.0
+    }
+  ],
+  "new_control_producer_imported": false,
+  "new_sampler_imported": false,
+  "correction": "V1 full native-operator birth replays are retained. V2 adds actual shard labels, frozen reader identity and exact unique all4096 domain; no new biological history or repeated birth replay."
+}

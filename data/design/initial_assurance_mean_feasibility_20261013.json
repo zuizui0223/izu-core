@@ -1,0 +1,12 @@
+{
+  "status": "ALL2048_INITIAL_MEAN_MAPPING_FEASIBLE_WITHOUT_NEW_FUTURES",
+  "states": 2048,
+  "input_sha256": "51a07a843a087059af3d67ad113f5d849644f5b03739a6df986d506bd636648f",
+  "A_transformed_min": 0.2725321917521506,
+  "A_transformed_max": 0.6980375942745023,
+  "max_mean_error": 1.6653345369377348e-16,
+  "max_allele_variance_error": 3.469446951953614e-18,
+  "max_unnormalized_phenotype_covariance_error": 2.42861286636753e-17,
+  "M_I_identical": true,
+  "new_future_outcomes_calculated": false
+}

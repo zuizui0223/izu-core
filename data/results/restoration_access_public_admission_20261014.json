@@ -1,0 +1,23 @@
+{
+  "status": "PR513_FULL_PUBLIC_COMPANION_AND_FRESH_RAW_REVIEW_ADMITTED",
+  "source_commit": "f1b67a9a8968229ff6ccd79977e0f5ae31d7c71f",
+  "archive_sha256": "7a6542e1b0f785e6618201a67039a3cd534c481417d4f65b967a874b75520a3d",
+  "members": 13,
+  "cases": 64,
+  "fields_per_case": 32,
+  "annual_updates": 7740,
+  "new_biological_histories": 0,
+  "primary_preserved": "unresolved",
+  "public_url": "https://github.com/zuizui0223/izu-core/releases/download/four-question-resolution-20261013/PR513_SOURCE_AND_FRESH_REVIEW_20261014.zip",
+  "pins": {
+    "data/results/restoration_access_audit_20261014.json": "3fd0619147e4d46fb520b78e6abc8918cd5cc371886cc4bde0ffb9bf0778683f",
+    "data/results/restoration_access_cases_20261014.csv": "f4b69a15e506507fd59800f9f9f41df6d59f03f6310b0e9c29ce0a45dab79fbe",
+    "data/results/restoration_access_independent_20261014.json": "33752773c92baa0a4921da497c27aed5a8f869a89ea6ec8acffb28f9d14bfd13",
+    "docs/CHAPTER2_RESTORATION_ACCESS_AUDIT_20261014.md": "3b0348c6ea09a3c760601ec246185cefff7dbfa2bd389641e0f5aa3ee6cb79d5",
+    "docs/superpowers/plans/2026-10-14-restoration-access-audit.md": "1a1b93b82100aa35fc97abec34777de922b635f1f90f7bfbbe957e7ceaa0ab65",
+    "scripts/audit_restoration_access_20261014.py": "734f58d76166c519ca26a73f9ce621f3e82e70b7f219387929f14f0d3cd3100d",
+    "scripts/verify_restoration_access_independent_20261014.py": "c21b51beca5ae2f896d4618ce4de3ef1d1b572ca347c7b6a2c7f72f08e5a5abf",
+    "tests/test_restoration_access_20261014.py": "be803beda3b0e95ca5586ca838c195ce21eefabb1cc7ab11625e487dd41c6990"
+  },
+  "fresh_independent_sha256": "33752773c92baa0a4921da497c27aed5a8f869a89ea6ec8acffb28f9d14bfd13"
+}

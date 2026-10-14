@@ -1,0 +1,407 @@
+{
+  "schema": "chapter2_clock_factorial_producer_independent_raw_reader_v1",
+  "status": "ALL_48_NATIVE_TECHNICAL_PATHS_REPRODUCED",
+  "pilot_registry_git_blob": "f18eae09e3f569ae7edefe970ea17d93c64b1bd5",
+  "original_source_git_blobs": {
+    "types.py": "0bc427b3261e7baf1651648ee879b368f9bf935b",
+    "reproduction.py": "95314698a3296b6f13b8c053c36f2df0b7b744ca",
+    "population.py": "20e90f249f63e9f37e8801d19d9b75cade2fe193",
+    "randomness.py": "46f1ee55899e729cdd09d9dbb9332694ef1e2071",
+    "history.py": "0c58aee6f73ae133d96d8da4dd6678886ff3061c"
+  },
+  "cases": 48,
+  "updates": 144,
+  "parent_pairs": 6912,
+  "source_year_genetic_records": 6912,
+  "producer_loaded_as_python_module": false,
+  "original_model3_biological_source_replayed": true,
+  "original_t0_historical_source_admitted": true,
+  "six_event_categories": null,
+  "new_pilot_biological_histories": 0,
+  "original_case_receipts": [
+    {
+      "case_key": "main_c0_AL_I0_r000",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "05a3136827c844045e43c038751e34f7a05dbdb1ab4fcccba5aaaa8c10c8e4ad",
+      "event_0p05": null
+    },
+    {
+      "case_key": "main_c0_AL_I1_r000",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "b7d47eb7811fa47da8fc3d320bc6d8343da76b41f158a428fe5c6d273db7bfe1",
+      "event_0p05": null
+    },
+    {
+      "case_key": "main_c0_AH_I0_r000",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "2169d7f942833d1ce21e664a0d72e00ff80a7aa769413dadb818d6a74dbf536d",
+      "event_0p05": null
+    },
+    {
+      "case_key": "main_c0_AH_I1_r000",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "3f29ccee19cebea1b95e90f77af01e5564e264b8d28200112af4bdcd30d7fd47",
+      "event_0p05": null
+    },
+    {
+      "case_key": "main_c3_AL_I0_r000",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "73340c7fbc1844c35c000aefebfc93652ef2efb201c083980cc5d3c0a64f40d3",
+      "event_0p05": null
+    },
+    {
+      "case_key": "main_c3_AL_I1_r000",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "7325f285ce65c97c075217fd92756973cf77d5eab8d4f9609dc06dfd92aed5df",
+      "event_0p05": null
+    },
+    {
+      "case_key": "main_c3_AH_I0_r000",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "0fb992b370849b2f9688723e165a87eda8691bbe4dbb3a09f2b39851181a3b6c",
+      "event_0p05": null
+    },
+    {
+      "case_key": "main_c3_AH_I1_r000",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "fdfca315d31a0657e177b197b6f6ee2d5a2078c116a3c1a899f5f8b357fb624e",
+      "event_0p05": null
+    },
+    {
+      "case_key": "main_c4_AL_I0_r000",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "8d13cd1670b7caf5e732d0e4a792a6acd936ff62dbd5f3232655505225c2e88f",
+      "event_0p05": null
+    },
+    {
+      "case_key": "main_c4_AL_I1_r000",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "d876b64a8cd7044bbf2f63f671236638fb99164910963c3028ebf08b47fd3d09",
+      "event_0p05": null
+    },
+    {
+      "case_key": "main_c4_AH_I0_r000",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "8d5dcdcfe73a005c1a9f8b0d9e7159f192dc686723d4b3e257a07e6a021ea9ad",
+      "event_0p05": null
+    },
+    {
+      "case_key": "main_c4_AH_I1_r000",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "27d02d645695adfa4aec99f314bd4e64af48abdd891c17441d7c130b05b6f949",
+      "event_0p05": null
+    },
+    {
+      "case_key": "main_c0_AL_I0_r001",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "cd5c8b62dd52474facb15496633b4e4a4a265952877d5fbd79672dbccbe08ddc",
+      "event_0p05": null
+    },
+    {
+      "case_key": "main_c0_AL_I1_r001",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "bd02858eaefeb46489d08f9a932a95c1e4075540a6616c5f13246a8d6a51fa0d",
+      "event_0p05": null
+    },
+    {
+      "case_key": "main_c0_AH_I0_r001",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "b855dedb05cc6f890637315e03bca1d79cf3f1af8af4432902aaf87d326e8c69",
+      "event_0p05": null
+    },
+    {
+      "case_key": "main_c0_AH_I1_r001",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "40ac599100f774e2ef614f4bb5468a22ff3024011570d303d1e53f01c4006650",
+      "event_0p05": null
+    },
+    {
+      "case_key": "main_c3_AL_I0_r001",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "92692184bb25159dee7f4c7b859d7cd6a5e35629e1cf0e83da3983ae63123910",
+      "event_0p05": null
+    },
+    {
+      "case_key": "main_c3_AL_I1_r001",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "f1d74168754d3bac8122c3571c181cb50aff4808bcaedb10c61e0b850d1d13e8",
+      "event_0p05": null
+    },
+    {
+      "case_key": "main_c3_AH_I0_r001",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "03c512c7c1e6b9040723bed5a3db1979373fd6978870a6ff74c6a9bdc06b5cd4",
+      "event_0p05": null
+    },
+    {
+      "case_key": "main_c3_AH_I1_r001",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "522c283861d6020803860792f5ce6254209d080aed2e4e82673a784954f306e2",
+      "event_0p05": null
+    },
+    {
+      "case_key": "main_c4_AL_I0_r001",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "4cf231965ac369ac71ada0c6904171822a4d24bdd02f3089e90eaa6e23b8ded2",
+      "event_0p05": null
+    },
+    {
+      "case_key": "main_c4_AL_I1_r001",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "2118e2aed15c273ce02a0495e108c72cb4331e7299335ff754c2d0d9e46e51f1",
+      "event_0p05": null
+    },
+    {
+      "case_key": "main_c4_AH_I0_r001",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "00d9cf275027d6a54b75aa2b6baa89e9e93c1b35a7f87bfb3f85ee94b9549d48",
+      "event_0p05": null
+    },
+    {
+      "case_key": "main_c4_AH_I1_r001",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "f52be2a46d6e8d913953934120aa68f5fb1d68aea144830ab04fcc8364b8b2f5",
+      "event_0p05": null
+    },
+    {
+      "case_key": "confirmation_c0_AL_I0_r000",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "89e3f7ec15ea509b92cc1691ae8702f4f4aa1868961d7671d16f67ba4cdbdba4",
+      "event_0p05": null
+    },
+    {
+      "case_key": "confirmation_c0_AL_I1_r000",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "19dd882cc3ef842c94a2e535e89f14a71fc9daa92b8d4724f9e16c0b85837445",
+      "event_0p05": null
+    },
+    {
+      "case_key": "confirmation_c0_AH_I0_r000",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "f6c26f4783e2f16bb12bdd2ada04d5779b6b2c4dba8532765477a5a1f93ef8a8",
+      "event_0p05": null
+    },
+    {
+      "case_key": "confirmation_c0_AH_I1_r000",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "a5440067b5c8035389347800b14c1d6d9390cc37846009f8a8be0e049d15c7d1",
+      "event_0p05": null
+    },
+    {
+      "case_key": "confirmation_c3_AL_I0_r000",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "b7cf150947ef77073e37ac40b2cb36681d16ee6d4dd6cd8c93d41d65edcdb4b5",
+      "event_0p05": null
+    },
+    {
+      "case_key": "confirmation_c3_AL_I1_r000",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "10961a56d9dd2887040f69ec6388b79e4441c9da4ff19520f59f43a1c6281192",
+      "event_0p05": null
+    },
+    {
+      "case_key": "confirmation_c3_AH_I0_r000",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "908e33796afff56a01993ea3ac523c88b2798ec73f80a54ccc98bf33aa0d9c5e",
+      "event_0p05": null
+    },
+    {
+      "case_key": "confirmation_c3_AH_I1_r000",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "437b11a0cac8599bae88f9fbcab49005b3b2792224bca487d1c534a5ada84316",
+      "event_0p05": null
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r000",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "06052e7af80a6017e4a6f11ffc07c761e94d2931bbcabdab20302976d98891d8",
+      "event_0p05": null
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r000",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "932c5ca2ff1e31ddaf6f660c3c49458600fbd8b147ee9637e0bab5ab86f15e12",
+      "event_0p05": null
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r000",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "df796548c7a6e241af5248449fc6cdd1e93563151ede111013e247c6b0f5b6ef",
+      "event_0p05": null
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r000",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "2999b04a7382aed32f4f83aaa5b9b6e6cf07863a50156bd05f0342b8a19700c3",
+      "event_0p05": null
+    },
+    {
+      "case_key": "confirmation_c0_AL_I0_r001",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "451608ab8e402c7145bc6b57e906ad49f1678ef3333225e4a2453652b81bfc58",
+      "event_0p05": null
+    },
+    {
+      "case_key": "confirmation_c0_AL_I1_r001",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "26e02c04c2e85372a60cfde16bdcfc68e35fface7423d723b204619d92321c2b",
+      "event_0p05": null
+    },
+    {
+      "case_key": "confirmation_c0_AH_I0_r001",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "d6830f04ef32cffb82670c088e8a2035ca24e67d0f12b2c0273b1116a03f4553",
+      "event_0p05": null
+    },
+    {
+      "case_key": "confirmation_c0_AH_I1_r001",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "ca764b60c774230775e097c25c4b4accae9ecc7b2175d1fea5c1feb6530dbf7d",
+      "event_0p05": null
+    },
+    {
+      "case_key": "confirmation_c3_AL_I0_r001",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "3b0c9538fb24d1ae2312140f665ad261033b6d5c101b4e3763bbeac205ee122e",
+      "event_0p05": null
+    },
+    {
+      "case_key": "confirmation_c3_AL_I1_r001",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "c272eb3df07f19f236d92e357ceb1ab625e9b1168ecf0f56775a6b53ce8fa51f",
+      "event_0p05": null
+    },
+    {
+      "case_key": "confirmation_c3_AH_I0_r001",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "184a3d3b3909483943075cf0e905b36492f34f8e455334a21c0782f5a48d3aba",
+      "event_0p05": null
+    },
+    {
+      "case_key": "confirmation_c3_AH_I1_r001",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "60623b5b3950eb8992f84391ddec25f6c033ae34e43c8aa3e8b0a61bf39c8b99",
+      "event_0p05": null
+    },
+    {
+      "case_key": "confirmation_c4_AL_I0_r001",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "18723c4a10225f1b5ee909fbecba7c6608b8b46d97e6196d9554bd0f675a765f",
+      "event_0p05": null
+    },
+    {
+      "case_key": "confirmation_c4_AL_I1_r001",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "0f007d8e3ad9bfd5dec9ed35bdf7ebb239adf457a107f9ee57b6fb8e88fc06fa",
+      "event_0p05": null
+    },
+    {
+      "case_key": "confirmation_c4_AH_I0_r001",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "3a54ca5c6283904dcc0e536edd84b6cfb2c8dc4312c2b033b5c7f33308c3a330",
+      "event_0p05": null
+    },
+    {
+      "case_key": "confirmation_c4_AH_I1_r001",
+      "updates": 3,
+      "genotype_record_source_years": 144,
+      "parent_pairs": 144,
+      "case_sha256": "a54d8532b85758cc728cefb60fef787376237040f44a7f4643bab458d702cf64",
+      "event_0p05": null
+    }
+  ]
+}

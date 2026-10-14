@@ -2,16 +2,422 @@ name: PR471 native output verification
 
 on:
   workflow_dispatch:
+    inputs:
+      diagnostic:
+        description: 'Original-data diagnostic or the predeclared fixed-access ecological assay'
+        type: choice
+        default: pr471-native
+        options: [pr471-native, independent32-admission, genome-response-accounting, persistence-duration-accounting, matched-operator-gap, discovery-original-intake, existing-response-timing, ecological-order-boundary, future-state-sufficiency, future-parent-selection, future-parent-recovery]
 
 permissions:
   contents: read
 
 concurrency:
-  group: pr471-native-${{ github.ref }}
-  cancel-in-progress: true
+  group: pr471-native-${{ github.ref }}-${{ inputs.diagnostic }}
+  cancel-in-progress: false
 
 jobs:
+  future-parent-recovery:
+    if: inputs.diagnostic == 'future-parent-recovery'
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    env:
+      PYTHONUTF8: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.2.6 scipy==1.15.3 psutil==7.2.2 threadpoolctl==3.6.0 pytest==8.4.2
+      - run: python -m pytest -q tests/test_future_parent_source_compatibility_20261013.py tests/test_future_parent_recovery_20261013.py tests/test_future_parent_selection_20261013.py tests/test_workflow_trigger_policy.py
+      - name: Fetch exact original outputs and input states
+        run: |
+          gh release download four-question-resolution-20261013 --repo zuizui0223/izu-core --pattern parent_selection_valid_shards_38320361326.zip --pattern parent_selection_actual_admission_38320361326.zip
+          gh release download persistence-mechanism-inputs-20261012 --repo zuizui0223/izu-core --pattern persistence_mechanism_inputs_20261012.zip
+      - name: Preserve eleven complete shards and execute only five missing slots
+        run: |
+          python -m scripts.recover_future_parent_selection_20261013 prepare --prior parent_selection_valid_shards_38320361326.zip --admission parent_selection_actual_admission_38320361326.zip --root outputs/recovery
+          python -m scripts.recover_future_parent_selection_20261013 run --input persistence_mechanism_inputs_20261012.zip --root outputs/recovery
+          git rev-parse HEAD > outputs/recovery/EXECUTION_COMMIT.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: parent-selection-recovery-${{ github.run_id }}
+          path: outputs/recovery/
+          if-no-files-found: error
+          retention-days: 90
+  future-parent-technical:
+    if: inputs.diagnostic == 'future-parent-selection'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PYTHONUTF8: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.2.6 scipy==1.15.3 psutil==7.2.2 threadpoolctl==3.6.0 pytest==8.4.2
+      - run: python -m pytest -q tests/test_future_parent_selection_20261013.py tests/test_workflow_trigger_policy.py
+      - run: |
+          gh release download persistence-mechanism-inputs-20261012 --repo zuizui0223/izu-core --pattern persistence_mechanism_inputs_20261012.zip
+          gh release download four-question-resolution-20261013 --repo zuizui0223/izu-core --pattern initial_assurance_mean_actual_github_38286055655.zip
+          python -m scripts.admit_parent_selection_references_20261013 --prior initial_assurance_mean_actual_github_38286055655.zip --input persistence_mechanism_inputs_20261012.zip --out original-reference
+          python -m scripts.run_future_parent_selection_20261013 --input persistence_mechanism_inputs_20261012.zip --references original-reference --shard 0 --technical --out stage/technical
+          python - <<'PY'
+          import shutil
+          from pathlib import Path
+          p=Path('stage/reference/verified');p.mkdir(parents=True)
+          shutil.copy2('original-reference/ADMISSION.json','stage/reference/ADMISSION.json')
+          shutil.copy2('original-reference/verified/all_start_outcomes.npz',p/'all_start_outcomes.npz')
+          PY
+          git rev-parse HEAD > stage/EXECUTION_COMMIT.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: parent-selection-admission-${{ github.run_id }}
+          path: stage/
+          if-no-files-found: error
+          retention-days: 90
+  future-parent-biological:
+    needs: future-parent-technical
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        shard: [0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      PYTHONUTF8: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.2.6 scipy==1.15.3 psutil==7.2.2 threadpoolctl==3.6.0
+      - uses: actions/download-artifact@v4
+        with:
+          name: parent-selection-admission-${{ github.run_id }}
+          path: admitted/
+      - run: |
+          gh release download persistence-mechanism-inputs-20261012 --repo zuizui0223/izu-core --pattern persistence_mechanism_inputs_20261012.zip
+          python -m scripts.run_future_parent_selection_20261013 --input persistence_mechanism_inputs_20261012.zip --references admitted/reference --technical-root admitted/technical --shard ${{ matrix.shard }} --out outputs/biological
+          git rev-parse HEAD > outputs/biological/EXECUTION_COMMIT.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: parent-selection-shard-${{ matrix.shard }}
+          path: outputs/biological/
+          if-no-files-found: error
+          retention-days: 90
+  future-parent-readback:
+    needs: future-parent-biological
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      PYTHONUTF8: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.2.6 scipy==1.15.3 psutil==7.2.2 threadpoolctl==3.6.0
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: parent-selection-shard-*
+          path: shards/
+      - uses: actions/download-artifact@v4
+        with:
+          name: parent-selection-admission-${{ github.run_id }}
+          path: admitted/
+      - run: |
+          gh release download persistence-mechanism-inputs-20261012 --repo zuizui0223/izu-core --pattern persistence_mechanism_inputs_20261012.zip
+          python -m scripts.aggregate_future_parent_selection_20261013 --input persistence_mechanism_inputs_20261012.zip --references admitted/reference --technical-root admitted/technical --shards shards --out outputs/readout
+          git rev-parse HEAD > outputs/readout/EXECUTION_COMMIT.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: parent-selection-full-readout-${{ github.run_id }}
+          path: outputs/readout/
+          if-no-files-found: error
+          retention-days: 90
+  future-state-sufficiency:
+    if: inputs.diagnostic == 'future-state-sufficiency'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      PYTHONUTF8: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.2.6 pytest==8.4.2
+      - run: python -m pytest -q tests/test_future_state_sufficiency_20261013.py tests/test_workflow_trigger_policy.py
+      - run: gh release download persistence-mechanism-inputs-20261012 --repo zuizui0223/izu-core --pattern persistence_mechanism_inputs_20261012.zip
+      - run: |
+          python -m scripts.audit_future_state_sufficiency_20261013 --input persistence_mechanism_inputs_20261012.zip --out outputs/future-state
+          git rev-parse HEAD > outputs/future-state/EXECUTION_COMMIT.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: future-state-sufficiency-${{ github.run_id }}
+          path: outputs/future-state/
+          if-no-files-found: error
+          retention-days: 90
+  ecological-order-technical:
+    if: inputs.diagnostic == 'ecological-order-boundary'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.2.6 scipy==1.15.3 psutil==7.2.2 threadpoolctl==3.6.0 pytest==8.4.2
+      - run: python -m pytest -q tests/test_ecological_order_boundary_20261013.py tests/test_workflow_trigger_policy.py
+      - name: Fetch fixed original source inputs
+        run: |
+          python - <<'PY'
+          import urllib.request
+          urllib.request.urlretrieve('https://github.com/zuizui0223/izu-core/releases/download/atom-cell-inputs-20261011/remote_atom_inputs_20261011.zip','original.zip')
+          PY
+      - name: Admit original operators, all18 inputs and four disjoint short fixtures
+        run: |
+          python scripts/run_ecological_order_boundary_20261013.py --input original.zip --source-dir original-source --out outputs/technical --technical
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path('outputs/technical/_COMPLETION.json').read_bytes())
+          assert r['status']=='TECHNICAL_ONLY' and r['cases']==4 and r['corruption_rejections']==32
+          PY
+          git rev-parse HEAD > outputs/technical/EXECUTION_COMMIT.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ecological-order-technical-${{ github.run_id }}
+          path: outputs/technical/
+          if-no-files-found: error
+          retention-days: 90
+  ecological-order-biological:
+    needs: ecological-order-technical
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        shard: [0,1,2,3,4,5,6,7,8]
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.2.6 scipy==1.15.3 psutil==7.2.2 threadpoolctl==3.6.0
+      - name: Fetch unchanged source inputs
+        run: |
+          python - <<'PY'
+          import urllib.request
+          urllib.request.urlretrieve('https://github.com/zuizui0223/izu-core/releases/download/atom-cell-inputs-20261011/remote_atom_inputs_20261011.zip','original.zip')
+          PY
+      - name: Execute exactly256 fixed biological traces
+        run: |
+          python scripts/run_ecological_order_boundary_20261013.py --input original.zip --source-dir original-source --out outputs/biological --shard ${{ matrix.shard }}
+          git rev-parse HEAD > outputs/biological/EXECUTION_COMMIT.txt
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: ecological-order-${{ github.run_id }}-shard-${{ matrix.shard }}
+          path: outputs/biological/
+          if-no-files-found: error
+          retention-days: 90
+
+  existing-response-timing:
+    if: inputs.diagnostic == 'existing-response-timing'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.2.6 pytest==8.4.2
+      - run: python -m pytest -q tests/test_existing_response_timing_20261013.py
+      - name: Read original admitted annual response accounts
+        run: |
+          python - <<'PY'
+          import urllib.request
+          urllib.request.urlretrieve('https://github.com/zuizui0223/izu-core/releases/download/four-question-resolution-20261013/genome_response_accounting_github_20261013.zip','original.zip')
+          PY
+          python scripts/audit_existing_response_timing_20261013.py --input original.zip --out outputs/response-timing/READOUT.json
+          python - <<'PY'
+          import subprocess,json,hashlib
+          from pathlib import Path
+          r=json.loads(Path('outputs/response-timing/READOUT.json').read_bytes())
+          assert r['cases']==320 and r['updates']==64000
+          Path('outputs/response-timing/EXECUTION_SOURCE.json').write_text(json.dumps(dict(commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),reader_sha256=hashlib.sha256(Path('scripts/audit_existing_response_timing_20261013.py').read_bytes()).hexdigest(),no_new_biological_histories=True),indent=2)+'\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: existing-response-timing-${{ github.run_id }}
+          path: outputs/response-timing/
+          if-no-files-found: error
+          retention-days: 90
+
+  discovery-original-intake:
+    if: inputs.diagnostic == 'discovery-original-intake'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.2.6 pytest==8.4.2
+      - run: python -m pytest -q tests/test_chapter2_discovery_archive_intake_20261011.py
+      - name: Read and authenticate the recovered original archive
+        run: |
+          python - <<'PY'
+          import urllib.request,hashlib
+          from pathlib import Path
+          name='model3_replenishment_evolution_20261005.zip'
+          urllib.request.urlretrieve('https://github.com/zuizui0223/izu-core/releases/download/four-question-resolution-20261013/'+name,name)
+          p=Path(name)
+          assert p.stat().st_size==763914318 and hashlib.sha256(p.read_bytes()).hexdigest()=='37bd0bd312734715392add19f424696121fbe88517dfa784d8e702173ec71b6c'
+          PY
+      - name: Apply unchanged fixed original-byte and endpoint gates
+        run: |
+          python scripts/audit_chapter2_discovery_archive_intake_20261011.py --archive model3_replenishment_evolution_20261005.zip --out outputs/discovery-original/INTAKE.json
+          python - <<'PY'
+          import json,subprocess,hashlib
+          from pathlib import Path
+          r=json.loads(Path('outputs/discovery-original/INTAKE.json').read_bytes())
+          assert r['status']=='ARCHIVE_BYTES_AND_DISCOVERY_ENDPOINTS_VERIFIED'
+          assert r['counts']['discovery_cases_verified']==2048 and r['counts']['genome_checkpoints_verified']==8192
+          assert not r['verification']['runtime_identity_verified'] and not r['verification']['original_discovery_full_replay_completed']
+          Path('outputs/discovery-original/EXECUTION_SOURCE.json').write_text(json.dumps(dict(commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),verifier_sha256=hashlib.sha256(Path('scripts/audit_chapter2_discovery_archive_intake_20261011.py').read_bytes()).hexdigest(),no_biological_replay=True),indent=2)+'\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: discovery-original-intake-${{ github.run_id }}
+          path: outputs/discovery-original/
+          if-no-files-found: error
+          retention-days: 90
+
+  matched-operator-gap:
+    if: inputs.diagnostic == 'matched-operator-gap'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.2.6 scipy==1.15.3 psutil==7.2.2 threadpoolctl==3.6.0 pytest==8.4.2
+      - run: python -m pytest -q tests/test_matched_operator_gap_20261013.py
+      - name: Read immutable original cases, source and birth-accounting outputs
+        run: |
+          python - <<'PY'
+          import urllib.request, hashlib
+          from pathlib import Path
+          inputs=[('atom-cell-inputs-20261011','completed_atom_abm_20261011.zip','7ae00916ed2cbb38323c3fb9ffc5824de3e8272df1f5a35785842c316191f918'),
+                  ('atom-cell-inputs-20261011','remote_atom_inputs_20261011.zip','f0fd126f638e1c6bd130e640ce4491b3bb47aac3da1838359a902776c9a4e037'),
+                  ('four-question-resolution-20261013','genome_response_accounting_github_20261013.zip','115636a338c847fdf1f80ae9e39cdfc622fcf38c7f70575e37d245bf7c41b098')]
+          for tag,name,digest in inputs:
+              urllib.request.urlretrieve('https://github.com/zuizui0223/izu-core/releases/download/'+tag+'/'+name,name)
+              assert hashlib.sha256(Path(name).read_bytes()).hexdigest()==digest
+          PY
+      - name: Account all320 cases and64000 updates without new evolution histories
+        run: |
+          python scripts/audit_matched_operator_gap_20261013.py --cohort completed_atom_abm_20261011.zip --input remote_atom_inputs_20261011.zip --account genome_response_accounting_github_20261013.zip --out outputs/operator-gap
+          python - <<'PY'
+          import hashlib,json,subprocess
+          from pathlib import Path
+          r=json.loads(Path('outputs/operator-gap/READOUT.json').read_bytes())
+          assert r['cases']==320 and r['updates']==64000 and r['max_closure_error']<=1e-10
+          sources={n:hashlib.sha256(Path(n).read_bytes()).hexdigest() for n in ['scripts/audit_matched_operator_gap_20261013.py','docs/CHAPTER2_MATCHED_OPERATOR_GAP_PROTOCOL_20261013.md']}
+          Path('outputs/operator-gap/EXECUTION_SOURCE.json').write_text(json.dumps(dict(commit=subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),sources=sources,no_new_biological_histories=True),indent=2)+'\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: matched-operator-gap-${{ github.run_id }}
+          path: outputs/operator-gap/
+          if-no-files-found: error
+          retention-days: 90
+
+  persistence-duration-accounting:
+    if: inputs.diagnostic == 'persistence-duration-accounting'
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: auditor
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: bb150519507c82d75c1ba4bef1d7e9b3d5889b7c
+          path: source
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -e './source[dev]'
+      - name: Test curve accounting and original lifetime identities
+        working-directory: auditor
+        run: python -m pytest -q tests/test_persistence_duration_accounting_20261013.py tests/test_pr471_fixation_lifetime_20261012.py tests/test_verify_chapter2_pr471_native_20261012.py
+      - name: Admit native source then account all96 kernels and48 curves
+        run: |
+          python auditor/scripts/audit_persistence_duration_accounting_20261013.py \
+            --source-root source --expected-csv auditor/data/results/chapter2_pr471_independent_baseline_20261012.csv \
+            --lifetime-csv auditor/data/results/pr471_fixation_lifetime_readout_20261012.csv \
+            --out "$RUNNER_TEMP/persistence-duration"
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: persistence-duration-accounting-${{ github.run_id }}
+          path: ${{ runner.temp }}/persistence-duration/
+          if-no-files-found: error
+          retention-days: 90
+
   native-source-comparison:
+    if: inputs.diagnostic == 'pr471-native'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
@@ -52,5 +458,103 @@ jobs:
         with:
           name: pr471-native-source-${{ github.run_id }}
           path: ${{ runner.temp }}/pr471-native/
+          if-no-files-found: error
+          retention-days: 90
+
+  genome-response-accounting:
+    if: inputs.diagnostic == 'genome-response-accounting'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    env:
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.2.6 scipy==1.15.3 pytest==8.4.2
+      - run: python -m pytest -q tests/test_genome_response_accounting_20261013.py
+      - name: Read immutable original cohort and source inputs
+        run: |
+          python - <<'PY'
+          import urllib.request, hashlib
+          from pathlib import Path
+          root='https://github.com/zuizui0223/izu-core/releases/download/atom-cell-inputs-20261011/'
+          inputs={'completed_atom_abm_20261011.zip':'7ae00916ed2cbb38323c3fb9ffc5824de3e8272df1f5a35785842c316191f918',
+                  'remote_atom_inputs_20261011.zip':'f0fd126f638e1c6bd130e640ce4491b3bb47aac3da1838359a902776c9a4e037'}
+          for name,digest in inputs.items():
+              urllib.request.urlretrieve(root+name,name)
+              assert hashlib.sha256(Path(name).read_bytes()).hexdigest()==digest
+          PY
+      - name: Audit all320 original ABM and64000 genetic-response updates
+        run: |
+          python scripts/audit_genome_response_accounting_20261013.py \
+            --cohort completed_atom_abm_20261011.zip --source-input remote_atom_inputs_20261011.zip \
+            --source-dir original-genome-source --out outputs/genome-response-accounting --workers 2
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path('outputs/genome-response-accounting/_COMPLETION.json').read_bytes())
+          assert r['status']=='COMPLETE_RETROSPECTIVE_320_RESPONSE_ACCOUNTING'
+          assert r['cases']==320 and r['audited_updates']==64000 and r['no_new_biological_histories']
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: genome-response-accounting-${{ github.run_id }}
+          path: outputs/genome-response-accounting/
+          if-no-files-found: error
+          retention-days: 90
+
+  independent32-admission:
+    if: inputs.diagnostic == 'independent32-admission'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install numpy==2.2.6 pytest==8.4.2
+      - run: python -m pytest -q tests/test_independent32_replay_admission_20261013.py
+      - name: Read back immutable original summary inputs
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib, urllib.request, zipfile, json
+          url='https://github.com/zuizui0223/izu-core/releases/download/four-question-resolution-20261013/independent32_summary_inputs_20261013.zip'
+          p=Path('independent32_summary_inputs_20261013.zip')
+          urllib.request.urlretrieve(url,p)
+          assert hashlib.sha256(p.read_bytes()).hexdigest()=='3196b295317eeec418d974bb0358d366df898d8a6d1ca29f4facf36c10edbdf8'
+          with zipfile.ZipFile(p) as z:
+              m=json.loads(z.read('MANIFEST.json'))
+              assert len(z.namelist())==11 and len(set(z.namelist()))==11
+              assert set(z.namelist())==set(m['sha256'])|{'MANIFEST.json'}
+              for name,digest in m['sha256'].items():
+                  assert '/' not in name and '\\' not in name
+                  assert hashlib.sha256(z.read(name)).hexdigest()==digest
+              z.extractall('independent32-inputs')
+          PY
+      - name: Distinguish frozen numerical agreement from original byte identity
+        run: |
+          python -m scripts.audit_independent32_replay_admission_20261013 \
+            --input independent32-inputs --design independent32-inputs/design.json \
+            --frozen independent32-inputs/frozen.json --out outputs/independent32_admission.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          actual=json.loads(Path('outputs/independent32_admission.json').read_bytes())
+          reference=json.loads(Path('data/results/independent32_replay_admission_20261013.json').read_bytes())
+          assert actual==reference, 'read-only audit differs from saved technical readback'
+          assert actual['numerical_agreement'] and not actual['declared_byte_agreement']
+          assert actual['status']=='NUMERICS_MATCH_DECLARED_BYTES_DIVERGE_NOT_ORIGINAL_ADMISSION'
+          PY
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: independent32-admission-${{ github.run_id }}
+          path: outputs/independent32_admission.json
           if-no-files-found: error
           retention-days: 90

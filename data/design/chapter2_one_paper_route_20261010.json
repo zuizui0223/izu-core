@@ -93,6 +93,57 @@
         "not pure natural-order benefit"
       ],
       "delivery": "data/results/persistence_mechanism_20261012/delivery.json"
+    },
+    "ecological_order_boundary": {
+      "rank": "separately frozen supplementary ecological test",
+      "traces": 2304,
+      "native_updates": 460800,
+      "contexts": 18,
+      "supported_replicated_reversal": false,
+      "limits": "All simultaneous intervals include zero; no absence, equivalence or unique threshold claim. Post-result fixed-genotype bound applies only under the same no-I-mutation/no-immigration law."
+    },
+    "future_parent_weighting": {
+      "rank": "separately frozen controlled supplementary intervention",
+      "cases": 4096,
+      "updates": 819200,
+      "primary_family": 4,
+      "primary_decisions": [
+        "unresolved",
+        "unresolved",
+        "unresolved",
+        "unresolved"
+      ],
+      "independent_birth_checks": 9031680,
+      "pooled_with_primary_studies": false,
+      "scope": "All-locus expected parental weighting after initial A-mean equalization; not pure A selection, unique mediation or natural-order benefit."
+    },
+    "q3_event_condition_extraction": {
+      "rank": "outcome-informed exploratory saved-array restrictions",
+      "result_directory": "data/results/q3_event_conditions_paper_20261014",
+      "original_slots": 64,
+      "pairs": 3904,
+      "new_biological_updates": 0,
+      "source": "914b5040ff1dd75378277c643bad87c0d9132a62",
+      "claim_ceiling": "Necessary support/prefix restrictions and pathwise refixation witnesses; not identified mediation or natural-order benefit."
+    },
+    "natural_order_retrospective": {
+      "rank": "post-outcome descriptive saved-genome association; no new simulation or primary test",
+      "original_preparations": 1024,
+      "original_futures": 2048,
+      "fixed_founder_blocks": 2,
+      "starts_per_founder": 512,
+      "strict_assurance_first": 110,
+      "strict_investment_first": 63,
+      "all_six_categories_retained": true,
+      "all_descriptive_groups": 36,
+      "period": "occupied global censuses201..400; endpoint400",
+      "pooled_with_primary_studies": false,
+      "mean_control_executed": false,
+      "public_companion": "NATURAL_ORDER_EXISTING_BANK_VERIFIED_REVIEW_20261014.zip",
+      "public_companion_sha256": "bd7f1fb3f9ce001dba32fa2a71a72c8b30a338f8559a4e54bbdf76c5b4692ecc",
+      "limit": "Opposing founder point associations at low challenge and high-challenge ceiling; attained mean differences are potential confounding, not unique mediation or randomized natural-order benefit.",
+      "compact_paper_evidence": "data/results/natural_order_existing_paper_20261014",
+      "source_admitter": "scripts/natural_order_paper_admission_20261014.py"
     }
   },
   "data_requirement": "Issue #436 outstanding DOI-backed external raw archive verification",
@@ -102,8 +153,8 @@
     "ecology_letters_letter_main_max": 5000,
     "ecology_letters_letter_abstract_max": 150,
     "display_items_max": 6,
-    "current_integrated_main_words": 4179,
-    "current_integrated_abstract_words": 142,
+    "current_integrated_main_words": 4214,
+    "current_integrated_abstract_words": 140,
     "main_text_excess_words": 0,
     "abstract_excess_words": 0,
     "editorial_status": "EL_format_word_limits_passed_data_DOI_pending",
@@ -115,9 +166,9 @@
       "pollinator population collapse",
       "historically explained global island syndrome"
     ],
-    "current_main_text_words": 4179,
-    "current_abstract_words": 142,
-    "updated_submission_scope": "Source main text 4179 words; abstract 142; 4 main figures and 3 supplementary figures. Four-question structure: thresholds, sequence, realization, persistence. Existing primary contracts and all separately registered cohort verdicts unchanged.",
+    "current_main_text_words": 4214,
+    "current_abstract_words": 140,
+    "updated_submission_scope": "Source main4214 retains latest Q3/Q4 compression; abstract140. S25 adds independently checked retrospective unrestricted-order associations from1024 preparations and2048 existing futures, not randomized order benefit. Original primaries, S23/S24 conditional/event distinctions and identification limits remain.",
     "historical_precompression_counts": {
       "main_words": 6035,
       "abstract_words": 237,

@@ -1,0 +1,76 @@
+{
+  "schema": "chapter2_clock_all_six_re_downloaded_native_review_v1",
+  "status": "SIX_ORIGINAL_EXTERNAL_RAW_ARCHIVES_INDEPENDENTLY_REPLAYED",
+  "source_manifest_sha256": "dfa50e0eea4a1b2bcb1cd1d004f404ab2782dc4c95a8ce3de400904a9020545d",
+  "raw_and_reader_sha256": {
+    "main_c0": {
+      "source_archive_sha256": "03254e9034369b3718e602da28394676547183bba7a3bcc41bc880f2faf2b741",
+      "separately_read_mirror_sha256": "03254e9034369b3718e602da28394676547183bba7a3bcc41bc880f2faf2b741",
+      "new_reader_receipt_sha256": "898a1918d3928020ebdc99bb63a2ff372c97aa239867432434cba5ec435bb98a"
+    },
+    "main_c3": {
+      "source_archive_sha256": "c413c7c5c3e378d7644263d713451ef6cf24ea60993a718da068ec0161026e41",
+      "separately_read_mirror_sha256": "c413c7c5c3e378d7644263d713451ef6cf24ea60993a718da068ec0161026e41",
+      "new_reader_receipt_sha256": "e8b893712c931ef23739fa94eea2b50e786b150c6d43ed0df3c102602187d722"
+    },
+    "main_c4": {
+      "source_archive_sha256": "60cc973d16c8d3e2df345f8f0ae58464b9215dbe45c163b8e24c1641913035e0",
+      "separately_read_mirror_sha256": "60cc973d16c8d3e2df345f8f0ae58464b9215dbe45c163b8e24c1641913035e0",
+      "new_reader_receipt_sha256": "9866070cd342e0c655086d799e8e1328de6dee17aefe615eb07df0db3d94ae21"
+    },
+    "confirmation_c0": {
+      "source_archive_sha256": "65ba7f2054359c8cae397182aec2d3ec1679cfa4f64f7881c211f916fbc43161",
+      "separately_read_mirror_sha256": "65ba7f2054359c8cae397182aec2d3ec1679cfa4f64f7881c211f916fbc43161",
+      "new_reader_receipt_sha256": "6a2d1eea9064502d3c3ee3d8b565a1c1eac15a56db8a82f5d8a5e1272ed63666"
+    },
+    "confirmation_c3": {
+      "source_archive_sha256": "65a83ee26593daa8205cad13cf0c5348eda6d1b56398b0706c02a9e6859dc0cc",
+      "separately_read_mirror_sha256": "65a83ee26593daa8205cad13cf0c5348eda6d1b56398b0706c02a9e6859dc0cc",
+      "new_reader_receipt_sha256": "bc7a15be4c6ab68999092473a569709710f0266d441a5010d7c0f865b96401b9"
+    },
+    "confirmation_c4": {
+      "source_archive_sha256": "19956b1c75a963952478478f0707bfac1426261f78849a254fd5748732e11a1a",
+      "separately_read_mirror_sha256": "19956b1c75a963952478478f0707bfac1426261f78849a254fd5748732e11a1a",
+      "new_reader_receipt_sha256": "0ac81d75f66935bfc9b2edaf205aa4b1bec4782a55c660303c8c2e98f302121c"
+    }
+  },
+  "whole_cohort": {
+    "schema": "chapter2_clock_factorial_independent_all_six_shards_admission_v1",
+    "status": "ALL1536_NEW_PILOT_CASES_SOURCE_VERIFIED_NOT_CAUSAL_CLOCK_CONFIRMATION",
+    "source_registry_blob": "f18eae09e3f569ae7edefe970ea17d93c64b1bd5",
+    "original_biological_commit": "328548612e93469fcc8663f24548530a57399b9a",
+    "original_shard_readback_files_sha256": {
+      "main_c0": "898a1918d3928020ebdc99bb63a2ff372c97aa239867432434cba5ec435bb98a",
+      "main_c3": "e8b893712c931ef23739fa94eea2b50e786b150c6d43ed0df3c102602187d722",
+      "main_c4": "9866070cd342e0c655086d799e8e1328de6dee17aefe615eb07df0db3d94ae21",
+      "confirmation_c0": "6a2d1eea9064502d3c3ee3d8b565a1c1eac15a56db8a82f5d8a5e1272ed63666",
+      "confirmation_c3": "bc7a15be4c6ab68999092473a569709710f0266d441a5010d7c0f865b96401b9",
+      "confirmation_c4": "0ac81d75f66935bfc9b2edaf205aa4b1bec4782a55c660303c8c2e98f302121c"
+    },
+    "all_starts": 1536,
+    "original_genotypic_founder_blocks": 2,
+    "ecological_contexts": 3,
+    "genetic_treatment_combinations": 4,
+    "paired_history_clusters": 128,
+    "registered_cases_per_shard": 256,
+    "total_native_reproductive_updates": 307200,
+    "source_genotype_population_years": 14745600,
+    "native_parent_pairs": 14745600,
+    "six_class_labels": {
+      "assurance_first": 316,
+      "investment_first": 416,
+      "near_simultaneous": 223,
+      "assurance_only": 555,
+      "investment_only": 15,
+      "neither": 11
+    },
+    "scientific_limitations": [
+      "Pilot is explicitly exploratory: no independent confirmation of Q1-Q2 response clocks, temporal genetic mediator or Q4 natural-order survival benefit.",
+      "Only 128 founder-stratified paired histories are stochastic replicate units, not 1,536 distinct ecological histories.",
+      "No claim without contemporaneously re-downloading independently archived original raw NPZs and all six verifier receipts.",
+      "Future predictor and equally-flexible biological/ecological null must be frozen before independent confirmatory histories."
+    ]
+  },
+  "independent_archive_provenance_caveat": "Two declared URLs/receipts are not proof of independent archival custody; validate actual external re-download, mirror bytes, and DOI separately.",
+  "new_biological_histories_generated_by_reviewer": 0
+}

@@ -1,0 +1,9 @@
+{
+  "status": "ALL4096_ORIGINAL_MEAN_NATIVE_REFERENCES_ADMITTED",
+  "prior_sha256": "f3045118f51947e9eaa2dd71f275b5bc1428aa2042dd0c2af95bcaa5ca2b14f5",
+  "cases": 4096,
+  "old_clamp_technical": 8,
+  "old_original_references": 8192,
+  "outcome_npz_sha256": "fbf0f1d43aaf3483320feb8edbfc86912c1a951688c4edc0518ba2acb20a8b85",
+  "scope": "Existing raw references readmitted; no new biological trajectories."
+}

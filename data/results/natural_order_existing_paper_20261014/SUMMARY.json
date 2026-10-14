@@ -1,0 +1,573 @@
+{
+  "status": "ALL1024_UNRESTRICTED_PREPARATIONS_AND2048_ORIGINAL_FUTURES_VERIFIED",
+  "scope_sha256": "6195b4cc8f72bb1a4180cc1475ffc4e6059488526a2d7471bb136cf412751e5f",
+  "records_sha256": "5ecf992e19dd7492709474dbb6c2f3c7aa41d30e31eb5e00dd68789b72bb1ae7",
+  "original_preparations": 1024,
+  "future_branches": 2048,
+  "saved_censuses_checked": 617472,
+  "exact_events_from_genotype_means": true,
+  "empty_preparations": 0,
+  "empty_handoffs": 0,
+  "categories": {
+    "assurance_only": 577,
+    "neither": 211,
+    "assurance_first": 110,
+    "investment_first": 63,
+    "investment_only": 47,
+    "near_simultaneous": 16
+  },
+  "handoff_A_mean_equalization_feasibility": {
+    "eligible_preparations": 1024,
+    "ineligible_preparations": 0
+  },
+  "groups": [
+    {
+      "target": 1.05,
+      "block": "main",
+      "category": "assurance_first",
+      "n": 52,
+      "survived": 10,
+      "occupied_updates_sum": 4431,
+      "mean_occupied_updates": 85.21153846153847,
+      "mean_features": {
+        "preparation_mean_A": 0.6638428186609239,
+        "preparation_mean_I": 0.4176370706956917,
+        "handoff_mean_A": 0.6631378457735911,
+        "handoff_mean_I": 0.41762744718363715
+      }
+    },
+    {
+      "target": 1.05,
+      "block": "main",
+      "category": "investment_first",
+      "n": 26,
+      "survived": 6,
+      "occupied_updates_sum": 2455,
+      "mean_occupied_updates": 94.42307692307692,
+      "mean_features": {
+        "preparation_mean_A": 0.6181087595849845,
+        "preparation_mean_I": 0.4175530549653426,
+        "handoff_mean_A": 0.6148276784838298,
+        "handoff_mean_I": 0.41533452626984757
+      }
+    },
+    {
+      "target": 1.05,
+      "block": "main",
+      "category": "near_simultaneous",
+      "n": 8,
+      "survived": 1,
+      "occupied_updates_sum": 555,
+      "mean_occupied_updates": 69.375,
+      "mean_features": {
+        "preparation_mean_A": 0.6546315788658499,
+        "preparation_mean_I": 0.4373280930621221,
+        "handoff_mean_A": 0.6546291476192311,
+        "handoff_mean_I": 0.44144707891151086
+      }
+    },
+    {
+      "target": 1.05,
+      "block": "main",
+      "category": "assurance_only",
+      "n": 287,
+      "survived": 35,
+      "occupied_updates_sum": 21321,
+      "mean_occupied_updates": 74.28919860627178,
+      "mean_features": {
+        "preparation_mean_A": 0.6435802723885424,
+        "preparation_mean_I": 0.500915299962526,
+        "handoff_mean_A": 0.6440037992768265,
+        "handoff_mean_I": 0.5002037967335518
+      }
+    },
+    {
+      "target": 1.05,
+      "block": "main",
+      "category": "investment_only",
+      "n": 28,
+      "survived": 1,
+      "occupied_updates_sum": 1299,
+      "mean_occupied_updates": 46.392857142857146,
+      "mean_features": {
+        "preparation_mean_A": 0.5317756013222695,
+        "preparation_mean_I": 0.4162334139913436,
+        "handoff_mean_A": 0.5295706679528306,
+        "handoff_mean_I": 0.41427498256235745
+      }
+    },
+    {
+      "target": 1.05,
+      "block": "main",
+      "category": "neither",
+      "n": 111,
+      "survived": 2,
+      "occupied_updates_sum": 4016,
+      "mean_occupied_updates": 36.18018018018018,
+      "mean_features": {
+        "preparation_mean_A": 0.5338535368601613,
+        "preparation_mean_I": 0.5026143471345667,
+        "handoff_mean_A": 0.5348802167334514,
+        "handoff_mean_I": 0.5033800453072447
+      }
+    },
+    {
+      "target": 1.05,
+      "block": "confirmation",
+      "category": "assurance_first",
+      "n": 58,
+      "survived": 22,
+      "occupied_updates_sum": 7415,
+      "mean_occupied_updates": 127.84482758620689,
+      "mean_features": {
+        "preparation_mean_A": 0.6598603337653419,
+        "preparation_mean_I": 0.414783908483952,
+        "handoff_mean_A": 0.6608121176899779,
+        "handoff_mean_I": 0.41413895762742503
+      }
+    },
+    {
+      "target": 1.05,
+      "block": "confirmation",
+      "category": "investment_first",
+      "n": 37,
+      "survived": 4,
+      "occupied_updates_sum": 3061,
+      "mean_occupied_updates": 82.72972972972973,
+      "mean_features": {
+        "preparation_mean_A": 0.6330455665821442,
+        "preparation_mean_I": 0.4056128875261612,
+        "handoff_mean_A": 0.6293189118761428,
+        "handoff_mean_I": 0.40601953334891705
+      }
+    },
+    {
+      "target": 1.05,
+      "block": "confirmation",
+      "category": "near_simultaneous",
+      "n": 8,
+      "survived": 3,
+      "occupied_updates_sum": 776,
+      "mean_occupied_updates": 97.0,
+      "mean_features": {
+        "preparation_mean_A": 0.6213479929114301,
+        "preparation_mean_I": 0.4127656575014089,
+        "handoff_mean_A": 0.6224665443690391,
+        "handoff_mean_I": 0.41655813335856506
+      }
+    },
+    {
+      "target": 1.05,
+      "block": "confirmation",
+      "category": "assurance_only",
+      "n": 290,
+      "survived": 39,
+      "occupied_updates_sum": 22239,
+      "mean_occupied_updates": 76.68620689655172,
+      "mean_features": {
+        "preparation_mean_A": 0.6387227951442548,
+        "preparation_mean_I": 0.5037184749390425,
+        "handoff_mean_A": 0.6384126510885516,
+        "handoff_mean_I": 0.5042348485276711
+      }
+    },
+    {
+      "target": 1.05,
+      "block": "confirmation",
+      "category": "investment_only",
+      "n": 19,
+      "survived": 0,
+      "occupied_updates_sum": 606,
+      "mean_occupied_updates": 31.894736842105264,
+      "mean_features": {
+        "preparation_mean_A": 0.5322239808280164,
+        "preparation_mean_I": 0.42079749308791486,
+        "handoff_mean_A": 0.5340519026949584,
+        "handoff_mean_I": 0.41997542596336596
+      }
+    },
+    {
+      "target": 1.05,
+      "block": "confirmation",
+      "category": "neither",
+      "n": 100,
+      "survived": 0,
+      "occupied_updates_sum": 3712,
+      "mean_occupied_updates": 37.12,
+      "mean_features": {
+        "preparation_mean_A": 0.5361653894917293,
+        "preparation_mean_I": 0.5009966706362728,
+        "handoff_mean_A": 0.5375643889472612,
+        "handoff_mean_I": 0.5035197474395732
+      }
+    },
+    {
+      "target": 1.05,
+      "block": "pooled_descriptive",
+      "category": "assurance_first",
+      "n": 110,
+      "survived": 32,
+      "occupied_updates_sum": 11846,
+      "mean_occupied_updates": 107.69090909090909,
+      "mean_features": {
+        "preparation_mean_A": 0.6617429629887079,
+        "preparation_mean_I": 0.41613267607495613,
+        "handoff_mean_A": 0.6619115527840496,
+        "handoff_mean_I": 0.4157880617812708
+      }
+    },
+    {
+      "target": 1.05,
+      "block": "pooled_descriptive",
+      "category": "investment_first",
+      "n": 63,
+      "survived": 10,
+      "occupied_updates_sum": 5516,
+      "mean_occupied_updates": 87.55555555555556,
+      "mean_features": {
+        "preparation_mean_A": 0.6268811700436338,
+        "preparation_mean_I": 0.41054057567566465,
+        "handoff_mean_A": 0.6233384028570931,
+        "handoff_mean_I": 0.409863816141682
+      }
+    },
+    {
+      "target": 1.05,
+      "block": "pooled_descriptive",
+      "category": "near_simultaneous",
+      "n": 16,
+      "survived": 4,
+      "occupied_updates_sum": 1331,
+      "mean_occupied_updates": 83.1875,
+      "mean_features": {
+        "preparation_mean_A": 0.63798978588864,
+        "preparation_mean_I": 0.4250468752817655,
+        "handoff_mean_A": 0.638547845994135,
+        "handoff_mean_I": 0.429002606135038
+      }
+    },
+    {
+      "target": 1.05,
+      "block": "pooled_descriptive",
+      "category": "assurance_only",
+      "n": 577,
+      "survived": 74,
+      "occupied_updates_sum": 43560,
+      "mean_occupied_updates": 75.49393414211438,
+      "mean_features": {
+        "preparation_mean_A": 0.6411389060092645,
+        "preparation_mean_I": 0.5023241747340854,
+        "handoff_mean_A": 0.641193690135406,
+        "handoff_mean_I": 0.5022298019680311
+      }
+    },
+    {
+      "target": 1.05,
+      "block": "pooled_descriptive",
+      "category": "investment_only",
+      "n": 47,
+      "survived": 1,
+      "occupied_updates_sum": 1905,
+      "mean_occupied_updates": 40.53191489361702,
+      "mean_features": {
+        "preparation_mean_A": 0.531956861122465,
+        "preparation_mean_I": 0.41807846724314884,
+        "handoff_mean_A": 0.5313822309336907,
+        "handoff_mean_I": 0.4165794171287227
+      }
+    },
+    {
+      "target": 1.05,
+      "block": "pooled_descriptive",
+      "category": "neither",
+      "n": 211,
+      "survived": 2,
+      "occupied_updates_sum": 7728,
+      "mean_occupied_updates": 36.62559241706161,
+      "mean_features": {
+        "preparation_mean_A": 0.534949201614459,
+        "preparation_mean_I": 0.501847675808361,
+        "handoff_mean_A": 0.5361523362660627,
+        "handoff_mean_I": 0.5034462548486325
+      }
+    },
+    {
+      "target": 1.5,
+      "block": "main",
+      "category": "assurance_first",
+      "n": 52,
+      "survived": 52,
+      "occupied_updates_sum": 10400,
+      "mean_occupied_updates": 200.0,
+      "mean_features": {
+        "preparation_mean_A": 0.6638428186609239,
+        "preparation_mean_I": 0.4176370706956917,
+        "handoff_mean_A": 0.6631378457735911,
+        "handoff_mean_I": 0.41762744718363715
+      }
+    },
+    {
+      "target": 1.5,
+      "block": "main",
+      "category": "investment_first",
+      "n": 26,
+      "survived": 26,
+      "occupied_updates_sum": 5200,
+      "mean_occupied_updates": 200.0,
+      "mean_features": {
+        "preparation_mean_A": 0.6181087595849845,
+        "preparation_mean_I": 0.4175530549653426,
+        "handoff_mean_A": 0.6148276784838298,
+        "handoff_mean_I": 0.41533452626984757
+      }
+    },
+    {
+      "target": 1.5,
+      "block": "main",
+      "category": "near_simultaneous",
+      "n": 8,
+      "survived": 8,
+      "occupied_updates_sum": 1600,
+      "mean_occupied_updates": 200.0,
+      "mean_features": {
+        "preparation_mean_A": 0.6546315788658499,
+        "preparation_mean_I": 0.4373280930621221,
+        "handoff_mean_A": 0.6546291476192311,
+        "handoff_mean_I": 0.44144707891151086
+      }
+    },
+    {
+      "target": 1.5,
+      "block": "main",
+      "category": "assurance_only",
+      "n": 287,
+      "survived": 281,
+      "occupied_updates_sum": 56964,
+      "mean_occupied_updates": 198.4808362369338,
+      "mean_features": {
+        "preparation_mean_A": 0.6435802723885424,
+        "preparation_mean_I": 0.500915299962526,
+        "handoff_mean_A": 0.6440037992768265,
+        "handoff_mean_I": 0.5002037967335518
+      }
+    },
+    {
+      "target": 1.5,
+      "block": "main",
+      "category": "investment_only",
+      "n": 28,
+      "survived": 27,
+      "occupied_updates_sum": 5452,
+      "mean_occupied_updates": 194.71428571428572,
+      "mean_features": {
+        "preparation_mean_A": 0.5317756013222695,
+        "preparation_mean_I": 0.4162334139913436,
+        "handoff_mean_A": 0.5295706679528306,
+        "handoff_mean_I": 0.41427498256235745
+      }
+    },
+    {
+      "target": 1.5,
+      "block": "main",
+      "category": "neither",
+      "n": 111,
+      "survived": 99,
+      "occupied_updates_sum": 20751,
+      "mean_occupied_updates": 186.94594594594594,
+      "mean_features": {
+        "preparation_mean_A": 0.5338535368601613,
+        "preparation_mean_I": 0.5026143471345667,
+        "handoff_mean_A": 0.5348802167334514,
+        "handoff_mean_I": 0.5033800453072447
+      }
+    },
+    {
+      "target": 1.5,
+      "block": "confirmation",
+      "category": "assurance_first",
+      "n": 58,
+      "survived": 58,
+      "occupied_updates_sum": 11600,
+      "mean_occupied_updates": 200.0,
+      "mean_features": {
+        "preparation_mean_A": 0.6598603337653419,
+        "preparation_mean_I": 0.414783908483952,
+        "handoff_mean_A": 0.6608121176899779,
+        "handoff_mean_I": 0.41413895762742503
+      }
+    },
+    {
+      "target": 1.5,
+      "block": "confirmation",
+      "category": "investment_first",
+      "n": 37,
+      "survived": 36,
+      "occupied_updates_sum": 7245,
+      "mean_occupied_updates": 195.8108108108108,
+      "mean_features": {
+        "preparation_mean_A": 0.6330455665821442,
+        "preparation_mean_I": 0.4056128875261612,
+        "handoff_mean_A": 0.6293189118761428,
+        "handoff_mean_I": 0.40601953334891705
+      }
+    },
+    {
+      "target": 1.5,
+      "block": "confirmation",
+      "category": "near_simultaneous",
+      "n": 8,
+      "survived": 7,
+      "occupied_updates_sum": 1475,
+      "mean_occupied_updates": 184.375,
+      "mean_features": {
+        "preparation_mean_A": 0.6213479929114301,
+        "preparation_mean_I": 0.4127656575014089,
+        "handoff_mean_A": 0.6224665443690391,
+        "handoff_mean_I": 0.41655813335856506
+      }
+    },
+    {
+      "target": 1.5,
+      "block": "confirmation",
+      "category": "assurance_only",
+      "n": 290,
+      "survived": 285,
+      "occupied_updates_sum": 57405,
+      "mean_occupied_updates": 197.94827586206895,
+      "mean_features": {
+        "preparation_mean_A": 0.6387227951442548,
+        "preparation_mean_I": 0.5037184749390425,
+        "handoff_mean_A": 0.6384126510885516,
+        "handoff_mean_I": 0.5042348485276711
+      }
+    },
+    {
+      "target": 1.5,
+      "block": "confirmation",
+      "category": "investment_only",
+      "n": 19,
+      "survived": 18,
+      "occupied_updates_sum": 3706,
+      "mean_occupied_updates": 195.05263157894737,
+      "mean_features": {
+        "preparation_mean_A": 0.5322239808280164,
+        "preparation_mean_I": 0.42079749308791486,
+        "handoff_mean_A": 0.5340519026949584,
+        "handoff_mean_I": 0.41997542596336596
+      }
+    },
+    {
+      "target": 1.5,
+      "block": "confirmation",
+      "category": "neither",
+      "n": 100,
+      "survived": 89,
+      "occupied_updates_sum": 18963,
+      "mean_occupied_updates": 189.63,
+      "mean_features": {
+        "preparation_mean_A": 0.5361653894917293,
+        "preparation_mean_I": 0.5009966706362728,
+        "handoff_mean_A": 0.5375643889472612,
+        "handoff_mean_I": 0.5035197474395732
+      }
+    },
+    {
+      "target": 1.5,
+      "block": "pooled_descriptive",
+      "category": "assurance_first",
+      "n": 110,
+      "survived": 110,
+      "occupied_updates_sum": 22000,
+      "mean_occupied_updates": 200.0,
+      "mean_features": {
+        "preparation_mean_A": 0.6617429629887079,
+        "preparation_mean_I": 0.41613267607495613,
+        "handoff_mean_A": 0.6619115527840496,
+        "handoff_mean_I": 0.4157880617812708
+      }
+    },
+    {
+      "target": 1.5,
+      "block": "pooled_descriptive",
+      "category": "investment_first",
+      "n": 63,
+      "survived": 62,
+      "occupied_updates_sum": 12445,
+      "mean_occupied_updates": 197.53968253968253,
+      "mean_features": {
+        "preparation_mean_A": 0.6268811700436338,
+        "preparation_mean_I": 0.41054057567566465,
+        "handoff_mean_A": 0.6233384028570931,
+        "handoff_mean_I": 0.409863816141682
+      }
+    },
+    {
+      "target": 1.5,
+      "block": "pooled_descriptive",
+      "category": "near_simultaneous",
+      "n": 16,
+      "survived": 15,
+      "occupied_updates_sum": 3075,
+      "mean_occupied_updates": 192.1875,
+      "mean_features": {
+        "preparation_mean_A": 0.63798978588864,
+        "preparation_mean_I": 0.4250468752817655,
+        "handoff_mean_A": 0.638547845994135,
+        "handoff_mean_I": 0.429002606135038
+      }
+    },
+    {
+      "target": 1.5,
+      "block": "pooled_descriptive",
+      "category": "assurance_only",
+      "n": 577,
+      "survived": 566,
+      "occupied_updates_sum": 114369,
+      "mean_occupied_updates": 198.21317157712306,
+      "mean_features": {
+        "preparation_mean_A": 0.6411389060092645,
+        "preparation_mean_I": 0.5023241747340854,
+        "handoff_mean_A": 0.641193690135406,
+        "handoff_mean_I": 0.5022298019680311
+      }
+    },
+    {
+      "target": 1.5,
+      "block": "pooled_descriptive",
+      "category": "investment_only",
+      "n": 47,
+      "survived": 45,
+      "occupied_updates_sum": 9158,
+      "mean_occupied_updates": 194.85106382978722,
+      "mean_features": {
+        "preparation_mean_A": 0.531956861122465,
+        "preparation_mean_I": 0.41807846724314884,
+        "handoff_mean_A": 0.5313822309336907,
+        "handoff_mean_I": 0.4165794171287227
+      }
+    },
+    {
+      "target": 1.5,
+      "block": "pooled_descriptive",
+      "category": "neither",
+      "n": 211,
+      "survived": 188,
+      "occupied_updates_sum": 39714,
+      "mean_occupied_updates": 188.218009478673,
+      "mean_features": {
+        "preparation_mean_A": 0.534949201614459,
+        "preparation_mean_I": 0.501847675808361,
+        "handoff_mean_A": 0.5361523362660627,
+        "handoff_mean_I": 0.5034462548486325
+      }
+    }
+  ],
+  "new_biological_updates": 0,
+  "new_random_draws": 0,
+  "native_calls": 0,
+  "interpretation": "Post-outcome observational order/future-state association only. Both traits had native access throughout preparation; order was not randomized. Founder, evolved state and bottleneck differences can confound order. No confidence interval, hypothesis test, natural-order causal benefit or mediation is claimed.",
+  "exploratory": true,
+  "randomized_order_effect": false,
+  "new_primary_family": false,
+  "mean_control_executed": false
+}

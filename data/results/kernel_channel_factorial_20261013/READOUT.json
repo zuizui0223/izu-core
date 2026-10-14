@@ -1,0 +1,2088 @@
+{
+  "status": "POSTDISCOVERY_CHANNEL_FACTORIAL_NOT_NATURAL_MEDIATION",
+  "input_sha256": "d34fc60c389775f88fa8a54051fdfe90a76ef7864b8f5a813b99d5f0b68ca172",
+  "duration_sha256": "cd4c2f8fc8584fce1b453d31a6a4bee9f96d7d22853831ccce95caf8c7253ba2",
+  "source_sha256": "5016c66c2e4b51fefc06e0596ae8f27548ed2d1b5dee7c0469891f6c403f42b9",
+  "protocol_sha256": "acef35024edd4c47ae0579f3b972f69a971bb1442f0a3901ca2d31d5611efb18",
+  "original_kernels": 96,
+  "pairs": 48,
+  "hybrid_laws": 192,
+  "states": 165,
+  "horizon": 80,
+  "new_biological_histories": 0,
+  "max_original_row_error": 8.881784197001252e-16,
+  "max_q_recovery_error": 6.661338147750939e-16,
+  "max_original_curve_error": 1.6431300764452317e-14,
+  "arrays_sha256": "80181d4c2465c2cd5dd18ae0f18c7a76edb783efb51f7863aa8235a014f80280",
+  "comparisons": [
+    {
+      "mismatch_fraction": 0.25,
+      "setting": "delayed_control",
+      "budget": 6.0,
+      "visitor_arm": "shifted4",
+      "original_reversal": true,
+      "corners": {
+        "00": {
+          "endpoint": 0.013372117309092695,
+          "duration": 22.307518526284454
+        },
+        "10": {
+          "endpoint": 0.012544292289043104,
+          "duration": 21.548282491036655
+        },
+        "01": {
+          "endpoint": 0.01337211730909268,
+          "duration": 22.30751852628444
+        },
+        "11": {
+          "endpoint": 0.013603815300692008,
+          "duration": 21.8120992977496
+        }
+      },
+      "endpoint": {
+        "recruitment_only": -0.0008278250200495912,
+        "genotype_only": -1.5612511283791264e-17,
+        "interaction": 0.0010595230116489194,
+        "full": 0.00023169799159931254,
+        "recruitment_native_reference": 0.00023169799159932815,
+        "genotype_native_reference": 0.0010595230116489038
+      },
+      "duration": {
+        "recruitment_only": -0.7592360352477989,
+        "genotype_only": -1.4210854715202004e-14,
+        "interaction": 0.2638168067129598,
+        "full": -0.4954192285348533,
+        "recruitment_native_reference": -0.4954192285348391,
+        "genotype_native_reference": 0.2638168067129456
+      },
+      "original_endpoint_error": 2.5326962749261384e-16,
+      "original_duration_error": 4.574118861455645e-14
+    },
+    {
+      "mismatch_fraction": 0.25,
+      "setting": "delayed_control",
+      "budget": 6.0,
+      "visitor_arm": "original4_statewise_equal_delivery",
+      "original_reversal": true,
+      "corners": {
+        "00": {
+          "endpoint": 0.013372117309092695,
+          "duration": 22.307518526284454
+        },
+        "10": {
+          "endpoint": 0.012544245698130323,
+          "duration": 21.548237466958476
+        },
+        "01": {
+          "endpoint": 0.013372117309092674,
+          "duration": 22.307518526284447
+        },
+        "11": {
+          "endpoint": 0.01360773194551784,
+          "duration": 21.813019791319757
+        }
+      },
+      "endpoint": {
+        "recruitment_only": -0.0008278716109623718,
+        "genotype_only": -2.0816681711721685e-17,
+        "interaction": 0.0010634862473875382,
+        "full": 0.00023561463642514553,
+        "recruitment_native_reference": 0.00023561463642516635,
+        "genotype_native_reference": 0.0010634862473875174
+      },
+      "duration": {
+        "recruitment_only": -0.7592810593259784,
+        "genotype_only": -7.105427357601002e-15,
+        "interaction": 0.26478232436128835,
+        "full": -0.4944987349646972,
+        "recruitment_native_reference": -0.4944987349646901,
+        "genotype_native_reference": 0.26478232436128124
+      },
+      "original_endpoint_error": 2.6194324487249787e-16,
+      "original_duration_error": 5.551115123125783e-14
+    },
+    {
+      "mismatch_fraction": 0.25,
+      "setting": "delayed_control",
+      "budget": 8.0,
+      "visitor_arm": "shifted4",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.852926546630593,
+          "duration": 74.34926722806972
+        },
+        "10": {
+          "endpoint": 0.8347909706985761,
+          "duration": 73.61800314852574
+        },
+        "01": {
+          "endpoint": 0.852926546630592,
+          "duration": 74.34926722806965
+        },
+        "11": {
+          "endpoint": 0.8404873430370272,
+          "duration": 73.822209009862
+        }
+      },
+      "endpoint": {
+        "recruitment_only": -0.018135575932016867,
+        "genotype_only": -9.992007221626409e-16,
+        "interaction": 0.005696372338452105,
+        "full": -0.012439203593565762,
+        "recruitment_native_reference": -0.012439203593564763,
+        "genotype_native_reference": 0.005696372338451106
+      },
+      "duration": {
+        "recruitment_only": -0.7312640795439762,
+        "genotype_only": -7.105427357601002e-14,
+        "interaction": 0.20420586133631957,
+        "full": -0.5270582182077277,
+        "recruitment_native_reference": -0.5270582182076566,
+        "genotype_native_reference": 0.20420586133624852
+      },
+      "original_endpoint_error": 8.659739592076221e-15,
+      "original_duration_error": 3.2152058793144533e-13
+    },
+    {
+      "mismatch_fraction": 0.25,
+      "setting": "delayed_control",
+      "budget": 8.0,
+      "visitor_arm": "original4_statewise_equal_delivery",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.8529265466305923,
+          "duration": 74.34926722806969
+        },
+        "10": {
+          "endpoint": 0.8347906507389066,
+          "duration": 73.61798012154483
+        },
+        "01": {
+          "endpoint": 0.8529265466305919,
+          "duration": 74.34926722806968
+        },
+        "11": {
+          "endpoint": 0.8405147508109483,
+          "duration": 73.82316936120348
+        }
+      },
+      "endpoint": {
+        "recruitment_only": -0.018135895891685738,
+        "genotype_only": -4.440892098500626e-16,
+        "interaction": 0.00572410007204216,
+        "full": -0.012411795819644023,
+        "recruitment_native_reference": -0.012411795819643578,
+        "genotype_native_reference": 0.005724100072041716
+      },
+      "duration": {
+        "recruitment_only": -0.7312871065248601,
+        "genotype_only": -1.4210854715202004e-14,
+        "interaction": 0.2051892396586652,
+        "full": -0.5260978668662091,
+        "recruitment_native_reference": -0.5260978668661949,
+        "genotype_native_reference": 0.205189239658651
+      },
+      "original_endpoint_error": 1.021405182655144e-14,
+      "original_duration_error": 3.8047343053904115e-13
+    },
+    {
+      "mismatch_fraction": 0.25,
+      "setting": "prior_selfing",
+      "budget": 6.0,
+      "visitor_arm": "shifted4",
+      "original_reversal": true,
+      "corners": {
+        "00": {
+          "endpoint": 0.009188885453140519,
+          "duration": 20.940650074558555
+        },
+        "10": {
+          "endpoint": 0.009656525615991094,
+          "duration": 20.30021449159654
+        },
+        "01": {
+          "endpoint": 0.009188885453140522,
+          "duration": 20.940650074558558
+        },
+        "11": {
+          "endpoint": 0.010811196380570293,
+          "duration": 20.649412442917342
+        }
+      },
+      "endpoint": {
+        "recruitment_only": 0.0004676401628505751,
+        "genotype_only": 3.469446951953614e-18,
+        "interaction": 0.001154670764579195,
+        "full": 0.0016223109274297737,
+        "recruitment_native_reference": 0.0016223109274297702,
+        "genotype_native_reference": 0.0011546707645791986
+      },
+      "duration": {
+        "recruitment_only": -0.640435582962013,
+        "genotype_only": 3.552713678800501e-15,
+        "interaction": 0.34919795132079656,
+        "full": -0.29123763164121286,
+        "recruitment_native_reference": -0.2912376316412164,
+        "genotype_native_reference": 0.3491979513208001
+      },
+      "original_endpoint_error": 1.0581813203458523e-16,
+      "original_duration_error": 2.2426505097428162e-14
+    },
+    {
+      "mismatch_fraction": 0.25,
+      "setting": "prior_selfing",
+      "budget": 6.0,
+      "visitor_arm": "original4_statewise_equal_delivery",
+      "original_reversal": true,
+      "corners": {
+        "00": {
+          "endpoint": 0.009188885453140519,
+          "duration": 20.940650074558555
+        },
+        "10": {
+          "endpoint": 0.009656497233915401,
+          "duration": 20.300180970527776
+        },
+        "01": {
+          "endpoint": 0.009188885453140515,
+          "duration": 20.940650074558555
+        },
+        "11": {
+          "endpoint": 0.010813428489374591,
+          "duration": 20.65005543040254
+        }
+      },
+      "endpoint": {
+        "recruitment_only": 0.00046761178077488197,
+        "genotype_only": -3.469446951953614e-18,
+        "interaction": 0.0011569312554591937,
+        "full": 0.0016245430362340722,
+        "recruitment_native_reference": 0.0016245430362340756,
+        "genotype_native_reference": 0.0011569312554591902
+      },
+      "duration": {
+        "recruitment_only": -0.6404691040307782,
+        "genotype_only": 0.0,
+        "interaction": 0.34987445987476207,
+        "full": -0.2905946441560161,
+        "recruitment_native_reference": -0.2905946441560161,
+        "genotype_native_reference": 0.34987445987476207
+      },
+      "original_endpoint_error": 1.1449174941446927e-16,
+      "original_duration_error": 2.8310687127941492e-14
+    },
+    {
+      "mismatch_fraction": 0.25,
+      "setting": "prior_selfing",
+      "budget": 8.0,
+      "visitor_arm": "shifted4",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.8260998978284014,
+          "duration": 73.28505339355317
+        },
+        "10": {
+          "endpoint": 0.8004642527380399,
+          "duration": 72.25155232739512
+        },
+        "01": {
+          "endpoint": 0.8260998978284028,
+          "duration": 73.28505339355324
+        },
+        "11": {
+          "endpoint": 0.8115476759025829,
+          "duration": 72.65190810021011
+        }
+      },
+      "endpoint": {
+        "recruitment_only": -0.025635645090361536,
+        "genotype_only": 1.3322676295501878e-15,
+        "interaction": 0.011083423164541695,
+        "full": -0.01455222192581851,
+        "recruitment_native_reference": -0.014552221925819842,
+        "genotype_native_reference": 0.011083423164543027
+      },
+      "duration": {
+        "recruitment_only": -1.0335010661580526,
+        "genotype_only": 7.105427357601002e-14,
+        "interaction": 0.40035577281491896,
+        "full": -0.6331452933430626,
+        "recruitment_native_reference": -0.6331452933431336,
+        "genotype_native_reference": 0.40035577281499
+      },
+      "original_endpoint_error": 1.2212453270876722e-15,
+      "original_duration_error": 4.285460875053104e-14
+    },
+    {
+      "mismatch_fraction": 0.25,
+      "setting": "prior_selfing",
+      "budget": 8.0,
+      "visitor_arm": "original4_statewise_equal_delivery",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.8260998978284014,
+          "duration": 73.28505339355317
+        },
+        "10": {
+          "endpoint": 0.8004639734671981,
+          "duration": 72.2515316845117
+        },
+        "01": {
+          "endpoint": 0.8260998978284018,
+          "duration": 73.28505339355321
+        },
+        "11": {
+          "endpoint": 0.8115751668303305,
+          "duration": 72.65288578536153
+        }
+      },
+      "endpoint": {
+        "recruitment_only": -0.02563592436120332,
+        "genotype_only": 3.3306690738754696e-16,
+        "interaction": 0.011111193363132044,
+        "full": -0.014524730998070945,
+        "recruitment_native_reference": -0.014524730998071278,
+        "genotype_native_reference": 0.011111193363132377
+      },
+      "duration": {
+        "recruitment_only": -1.033521709041466,
+        "genotype_only": 4.263256414560601e-14,
+        "interaction": 0.40135410084978673,
+        "full": -0.6321676081916365,
+        "recruitment_native_reference": -0.6321676081916792,
+        "genotype_native_reference": 0.40135410084982936
+      },
+      "original_endpoint_error": 2.220446049250313e-15,
+      "original_duration_error": 1.0191847366058937e-13
+    },
+    {
+      "mismatch_fraction": 0.25,
+      "setting": "pollen_discount",
+      "budget": 6.0,
+      "visitor_arm": "shifted4",
+      "original_reversal": true,
+      "corners": {
+        "00": {
+          "endpoint": 0.007920592216165678,
+          "duration": 20.448767453449094
+        },
+        "10": {
+          "endpoint": 0.008795003928878702,
+          "duration": 19.862216856791967
+        },
+        "01": {
+          "endpoint": 0.007920592216165678,
+          "duration": 20.44876745344909
+        },
+        "11": {
+          "endpoint": 0.009942615138149435,
+          "duration": 20.23604084905617
+        }
+      },
+      "endpoint": {
+        "recruitment_only": 0.0008744117127130243,
+        "genotype_only": 0.0,
+        "interaction": 0.0011476112092707325,
+        "full": 0.0020220229219837568,
+        "recruitment_native_reference": 0.0020220229219837568,
+        "genotype_native_reference": 0.0011476112092707325
+      },
+      "duration": {
+        "recruitment_only": -0.5865505966571263,
+        "genotype_only": -3.552713678800501e-15,
+        "interaction": 0.3738239922642066,
+        "full": -0.21272660439292324,
+        "recruitment_native_reference": -0.21272660439291968,
+        "genotype_native_reference": 0.37382399226420304
+      },
+      "original_endpoint_error": 1.3877787807814457e-17,
+      "original_duration_error": 4.718447854656915e-16
+    },
+    {
+      "mismatch_fraction": 0.25,
+      "setting": "pollen_discount",
+      "budget": 6.0,
+      "visitor_arm": "original4_statewise_equal_delivery",
+      "original_reversal": true,
+      "corners": {
+        "00": {
+          "endpoint": 0.007920592216165678,
+          "duration": 20.448767453449094
+        },
+        "10": {
+          "endpoint": 0.008794981125849293,
+          "duration": 19.862187971514206
+        },
+        "01": {
+          "endpoint": 0.007920592216165673,
+          "duration": 20.448767453449086
+        },
+        "11": {
+          "endpoint": 0.009945108575933337,
+          "duration": 20.236826879414913
+        }
+      },
+      "endpoint": {
+        "recruitment_only": 0.0008743889096836151,
+        "genotype_only": -5.204170427930421e-18,
+        "interaction": 0.001150127450084049,
+        "full": 0.002024516359767659,
+        "recruitment_native_reference": 0.002024516359767664,
+        "genotype_native_reference": 0.0011501274500840437
+      },
+      "duration": {
+        "recruitment_only": -0.5865794819348871,
+        "genotype_only": -7.105427357601002e-15,
+        "interaction": 0.37463890790071375,
+        "full": -0.21194057403418043,
+        "recruitment_native_reference": -0.21194057403417332,
+        "genotype_native_reference": 0.37463890790070664
+      },
+      "original_endpoint_error": 6.938893903907228e-18,
+      "original_duration_error": 2.7200464103316335e-15
+    },
+    {
+      "mismatch_fraction": 0.25,
+      "setting": "pollen_discount",
+      "budget": 8.0,
+      "visitor_arm": "shifted4",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.8148200037774399,
+          "duration": 72.83401225193754
+        },
+        "10": {
+          "endpoint": 0.7859561097908122,
+          "duration": 71.66725093336433
+        },
+        "01": {
+          "endpoint": 0.8148200037774402,
+          "duration": 72.83401225193755
+        },
+        "11": {
+          "endpoint": 0.799468410191847,
+          "duration": 72.15708446678221
+        }
+      },
+      "endpoint": {
+        "recruitment_only": -0.028863893986627698,
+        "genotype_only": 3.3306690738754696e-16,
+        "interaction": 0.01351230040103446,
+        "full": -0.015351593585592904,
+        "recruitment_native_reference": -0.015351593585593237,
+        "genotype_native_reference": 0.013512300401034794
+      },
+      "duration": {
+        "recruitment_only": -1.166761318573208,
+        "genotype_only": 1.4210854715202004e-14,
+        "interaction": 0.4898335334178654,
+        "full": -0.6769277851553284,
+        "recruitment_native_reference": -0.6769277851553426,
+        "genotype_native_reference": 0.4898335334178796
+      },
+      "original_endpoint_error": 2.55351295663786e-15,
+      "original_duration_error": 9.636735853746359e-14
+    },
+    {
+      "mismatch_fraction": 0.25,
+      "setting": "pollen_discount",
+      "budget": 8.0,
+      "visitor_arm": "original4_statewise_equal_delivery",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.8148200037774399,
+          "duration": 72.83401225193754
+        },
+        "10": {
+          "endpoint": 0.7859558540212213,
+          "duration": 71.6672318486944
+        },
+        "01": {
+          "endpoint": 0.8148200037774409,
+          "duration": 72.83401225193758
+        },
+        "11": {
+          "endpoint": 0.7995053816577009,
+          "duration": 72.15841119279649
+        }
+      },
+      "endpoint": {
+        "recruitment_only": -0.02886414975621865,
+        "genotype_only": 9.992007221626409e-16,
+        "interaction": 0.013549527636478653,
+        "full": -0.015314622119738996,
+        "recruitment_native_reference": -0.015314622119739996,
+        "genotype_native_reference": 0.013549527636479652
+      },
+      "duration": {
+        "recruitment_only": -1.1667804032431377,
+        "genotype_only": 4.263256414560601e-14,
+        "interaction": 0.49117934410205066,
+        "full": -0.6756010591410444,
+        "recruitment_native_reference": -0.675601059141087,
+        "genotype_native_reference": 0.4911793441020933
+      },
+      "original_endpoint_error": 2.6645352591003757e-15,
+      "original_duration_error": 9.092726571680032e-14
+    },
+    {
+      "mismatch_fraction": 0.25,
+      "setting": "assurance_cost",
+      "budget": 6.0,
+      "visitor_arm": "shifted4",
+      "original_reversal": true,
+      "corners": {
+        "00": {
+          "endpoint": 0.001193059227374027,
+          "duration": 16.080494100675903
+        },
+        "10": {
+          "endpoint": 0.0012313847132759406,
+          "duration": 15.632420515054566
+        },
+        "01": {
+          "endpoint": 0.0011930592273740265,
+          "duration": 16.080494100675903
+        },
+        "11": {
+          "endpoint": 0.0013554578630114093,
+          "duration": 15.775130802759751
+        }
+      },
+      "endpoint": {
+        "recruitment_only": 3.832548590191362e-05,
+        "genotype_only": -4.336808689942018e-19,
+        "interaction": 0.00012407314973546918,
+        "full": 0.00016239863563738237,
+        "recruitment_native_reference": 0.0001623986356373828,
+        "genotype_native_reference": 0.00012407314973546875
+      },
+      "duration": {
+        "recruitment_only": -0.44807358562133714,
+        "genotype_only": 0.0,
+        "interaction": 0.14271028770518512,
+        "full": -0.305363297916152,
+        "recruitment_native_reference": -0.305363297916152,
+        "genotype_native_reference": 0.14271028770518512
+      },
+      "original_endpoint_error": 7.806255641895632e-18,
+      "original_duration_error": 2.148281552649678e-14
+    },
+    {
+      "mismatch_fraction": 0.25,
+      "setting": "assurance_cost",
+      "budget": 6.0,
+      "visitor_arm": "original4_statewise_equal_delivery",
+      "original_reversal": true,
+      "corners": {
+        "00": {
+          "endpoint": 0.0011930592273740267,
+          "duration": 16.080494100675903
+        },
+        "10": {
+          "endpoint": 0.001231379179279741,
+          "duration": 15.632388129367836
+        },
+        "01": {
+          "endpoint": 0.001193059227374027,
+          "duration": 16.0804941006759
+        },
+        "11": {
+          "endpoint": 0.0013558851960144966,
+          "duration": 15.77558298232278
+        }
+      },
+      "endpoint": {
+        "recruitment_only": 3.8319951905714175e-05,
+        "genotype_only": 2.168404344971009e-19,
+        "interaction": 0.00012450601673475543,
+        "full": 0.00016282596864046982,
+        "recruitment_native_reference": 0.0001628259686404696,
+        "genotype_native_reference": 0.00012450601673475565
+      },
+      "duration": {
+        "recruitment_only": -0.44810597130806684,
+        "genotype_only": -3.552713678800501e-15,
+        "interaction": 0.14319485295494694,
+        "full": -0.30491111835312346,
+        "recruitment_native_reference": -0.3049111183531199,
+        "genotype_native_reference": 0.14319485295494339
+      },
+      "original_endpoint_error": 7.15573433840433e-18,
+      "original_duration_error": 2.0483614804334138e-14
+    },
+    {
+      "mismatch_fraction": 0.25,
+      "setting": "assurance_cost",
+      "budget": 8.0,
+      "visitor_arm": "shifted4",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.6800353683580114,
+          "duration": 67.2979645234412
+        },
+        "10": {
+          "endpoint": 0.6513003627157342,
+          "duration": 66.0116213496404
+        },
+        "01": {
+          "endpoint": 0.680035368358011,
+          "duration": 67.29796452344115
+        },
+        "11": {
+          "endpoint": 0.660991936978484,
+          "duration": 66.38890288819267
+        }
+      },
+      "endpoint": {
+        "recruitment_only": -0.028735005642277156,
+        "genotype_only": -3.3306690738754696e-16,
+        "interaction": 0.009691574262750136,
+        "full": -0.019043431379527354,
+        "recruitment_native_reference": -0.01904343137952702,
+        "genotype_native_reference": 0.009691574262749802
+      },
+      "duration": {
+        "recruitment_only": -1.2863431738008018,
+        "genotype_only": -4.263256414560601e-14,
+        "interaction": 0.3772815385523245,
+        "full": -0.9090616352485199,
+        "recruitment_native_reference": -0.9090616352484773,
+        "genotype_native_reference": 0.37728153855228186
+      },
+      "original_endpoint_error": 9.325873406851315e-15,
+      "original_duration_error": 4.43312053732825e-13
+    },
+    {
+      "mismatch_fraction": 0.25,
+      "setting": "assurance_cost",
+      "budget": 8.0,
+      "visitor_arm": "original4_statewise_equal_delivery",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.6800353683580114,
+          "duration": 67.2979645234412
+        },
+        "10": {
+          "endpoint": 0.6512998560063783,
+          "duration": 66.01158016991683
+        },
+        "01": {
+          "endpoint": 0.6800353683580127,
+          "duration": 67.29796452344127
+        },
+        "11": {
+          "endpoint": 0.6610366428597865,
+          "duration": 66.39060122597544
+        }
+      },
+      "endpoint": {
+        "recruitment_only": -0.028735512351633075,
+        "genotype_only": 1.3322676295501878e-15,
+        "interaction": 0.009736786853406842,
+        "full": -0.0189987254982249,
+        "recruitment_native_reference": -0.018998725498226232,
+        "genotype_native_reference": 0.009736786853408175
+      },
+      "duration": {
+        "recruitment_only": -1.2863843535243689,
+        "genotype_only": 7.105427357601002e-14,
+        "interaction": 0.37902105605854786,
+        "full": -0.90736329746575,
+        "recruitment_native_reference": -0.907363297465821,
+        "genotype_native_reference": 0.3790210560586189
+      },
+      "original_endpoint_error": 1.2434497875801753e-14,
+      "original_duration_error": 6.046274592108603e-13
+    },
+    {
+      "mismatch_fraction": 0.5,
+      "setting": "delayed_control",
+      "budget": 6.0,
+      "visitor_arm": "shifted4",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.002591546099438402,
+          "duration": 17.427876341252208
+        },
+        "10": {
+          "endpoint": 0.004895270452271347,
+          "duration": 17.211109173205475
+        },
+        "01": {
+          "endpoint": 0.002591546099438403,
+          "duration": 17.42787634125221
+        },
+        "11": {
+          "endpoint": 0.005860552048463112,
+          "duration": 17.75534368440675
+        }
+      },
+      "endpoint": {
+        "recruitment_only": 0.002303724352832945,
+        "genotype_only": 8.673617379884035e-19,
+        "interaction": 0.0009652815961917636,
+        "full": 0.0032690059490247097,
+        "recruitment_native_reference": 0.003269005949024709,
+        "genotype_native_reference": 0.0009652815961917645
+      },
+      "duration": {
+        "recruitment_only": -0.2167671680467329,
+        "genotype_only": 3.552713678800501e-15,
+        "interaction": 0.544234511201271,
+        "full": 0.3274673431545416,
+        "recruitment_native_reference": 0.32746734315453807,
+        "genotype_native_reference": 0.5442345112012745
+      },
+      "original_endpoint_error": 4.5102810375396984e-17,
+      "original_duration_error": 6.439293542825908e-15
+    },
+    {
+      "mismatch_fraction": 0.5,
+      "setting": "delayed_control",
+      "budget": 6.0,
+      "visitor_arm": "original4_statewise_equal_delivery",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.002591546099438402,
+          "duration": 17.427876341252208
+        },
+        "10": {
+          "endpoint": 0.004895265149895634,
+          "duration": 17.21109881713928
+        },
+        "01": {
+          "endpoint": 0.002591546099438402,
+          "duration": 17.42787634125222
+        },
+        "11": {
+          "endpoint": 0.005861228924813311,
+          "duration": 17.755720902302972
+        }
+      },
+      "endpoint": {
+        "recruitment_only": 0.0023037190504572322,
+        "genotype_only": 0.0,
+        "interaction": 0.0009659637749176763,
+        "full": 0.0032696828253749085,
+        "recruitment_native_reference": 0.0032696828253749085,
+        "genotype_native_reference": 0.0009659637749176763
+      },
+      "duration": {
+        "recruitment_only": -0.21677752411292772,
+        "genotype_only": 1.0658141036401503e-14,
+        "interaction": 0.5446220851636809,
+        "full": 0.32784456105076387,
+        "recruitment_native_reference": 0.3278445610507532,
+        "genotype_native_reference": 0.5446220851636916
+      },
+      "original_endpoint_error": 3.8163916471489756e-17,
+      "original_duration_error": 7.271960811294775e-15
+    },
+    {
+      "mismatch_fraction": 0.5,
+      "setting": "delayed_control",
+      "budget": 8.0,
+      "visitor_arm": "shifted4",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.7177865345220187,
+          "duration": 68.85711851249843
+        },
+        "10": {
+          "endpoint": 0.6599705311268217,
+          "duration": 66.30511615533942
+        },
+        "01": {
+          "endpoint": 0.7177865345220213,
+          "duration": 68.8571185124986
+        },
+        "11": {
+          "endpoint": 0.7026840238702383,
+          "duration": 67.95195185940118
+        }
+      },
+      "endpoint": {
+        "recruitment_only": -0.05781600339519699,
+        "genotype_only": 2.6645352591003757e-15,
+        "interaction": 0.04271349274341396,
+        "full": -0.015102510651780365,
+        "recruitment_native_reference": -0.01510251065178303,
+        "genotype_native_reference": 0.042713492743416626
+      },
+      "duration": {
+        "recruitment_only": -2.5520023571590116,
+        "genotype_only": 1.7053025658242404e-13,
+        "interaction": 1.646835704061587,
+        "full": -0.905166653097254,
+        "recruitment_native_reference": -0.9051666530974245,
+        "genotype_native_reference": 1.6468357040617576
+      },
+      "original_endpoint_error": 1.3100631690576847e-14,
+      "original_duration_error": 5.35238520171788e-13
+    },
+    {
+      "mismatch_fraction": 0.5,
+      "setting": "delayed_control",
+      "budget": 8.0,
+      "visitor_arm": "original4_statewise_equal_delivery",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.7177865345220187,
+          "duration": 68.85711851249843
+        },
+        "10": {
+          "endpoint": 0.6599704031084896,
+          "duration": 66.30510550904334
+        },
+        "01": {
+          "endpoint": 0.7177865345220201,
+          "duration": 68.85711851249847
+        },
+        "11": {
+          "endpoint": 0.7027197451431566,
+          "duration": 67.95332782872384
+        }
+      },
+      "endpoint": {
+        "recruitment_only": -0.05781613141352904,
+        "genotype_only": 1.4432899320127035e-15,
+        "interaction": 0.042749342034665516,
+        "full": -0.015066789378862078,
+        "recruitment_native_reference": -0.015066789378863521,
+        "genotype_native_reference": 0.04274934203466696
+      },
+      "duration": {
+        "recruitment_only": -2.5520130034550874,
+        "genotype_only": 4.263256414560601e-14,
+        "interaction": 1.6482223196804568,
+        "full": -0.9037906837745879,
+        "recruitment_native_reference": -0.9037906837746306,
+        "genotype_native_reference": 1.6482223196804995
+      },
+      "original_endpoint_error": 1.3988810110276972e-14,
+      "original_duration_error": 6.252776074688882e-13
+    },
+    {
+      "mismatch_fraction": 0.5,
+      "setting": "prior_selfing",
+      "budget": 6.0,
+      "visitor_arm": "shifted4",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.002460225610736458,
+          "duration": 17.310715377955567
+        },
+        "10": {
+          "endpoint": 0.004779723657270922,
+          "duration": 17.109175400891267
+        },
+        "01": {
+          "endpoint": 0.002460225610736456,
+          "duration": 17.310715377955567
+        },
+        "11": {
+          "endpoint": 0.005733850971560393,
+          "duration": 17.66035422915446
+        }
+      },
+      "endpoint": {
+        "recruitment_only": 0.0023194980465344643,
+        "genotype_only": -1.734723475976807e-18,
+        "interaction": 0.0009541273142894728,
+        "full": 0.0032736253608239355,
+        "recruitment_native_reference": 0.003273625360823937,
+        "genotype_native_reference": 0.0009541273142894711
+      },
+      "duration": {
+        "recruitment_only": -0.20153997706430005,
+        "genotype_only": 0.0,
+        "interaction": 0.5511788282631933,
+        "full": 0.34963885119889326,
+        "recruitment_native_reference": 0.34963885119889326,
+        "genotype_native_reference": 0.5511788282631933
+      },
+      "original_endpoint_error": 2.6454533008646308e-17,
+      "original_duration_error": 3.552713678800501e-15
+    },
+    {
+      "mismatch_fraction": 0.5,
+      "setting": "prior_selfing",
+      "budget": 6.0,
+      "visitor_arm": "original4_statewise_equal_delivery",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.002460225610736458,
+          "duration": 17.310715377955567
+        },
+        "10": {
+          "endpoint": 0.004779719578073731,
+          "duration": 17.109167296713032
+        },
+        "01": {
+          "endpoint": 0.0024602256107364552,
+          "duration": 17.310715377955564
+        },
+        "11": {
+          "endpoint": 0.005734248716048561,
+          "duration": 17.660580133229445
+        }
+      },
+      "endpoint": {
+        "recruitment_only": 0.0023194939673372734,
+        "genotype_only": -2.6020852139652106e-18,
+        "interaction": 0.000954529137974832,
+        "full": 0.003274023105312103,
+        "recruitment_native_reference": 0.0032740231053121054,
+        "genotype_native_reference": 0.0009545291379748294
+      },
+      "duration": {
+        "recruitment_only": -0.2015480812425352,
+        "genotype_only": -3.552713678800501e-15,
+        "interaction": 0.5514128365164161,
+        "full": 0.3498647552738774,
+        "recruitment_native_reference": 0.34986475527388095,
+        "genotype_native_reference": 0.5514128365164126
+      },
+      "original_endpoint_error": 2.905661822261152e-17,
+      "original_duration_error": 3.774758283725532e-15
+    },
+    {
+      "mismatch_fraction": 0.5,
+      "setting": "prior_selfing",
+      "budget": 8.0,
+      "visitor_arm": "shifted4",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.7127539045139809,
+          "duration": 68.6457046464924
+        },
+        "10": {
+          "endpoint": 0.6535783636209734,
+          "duration": 66.01532420564666
+        },
+        "01": {
+          "endpoint": 0.7127539045139814,
+          "duration": 68.64570464649242
+        },
+        "11": {
+          "endpoint": 0.6981144114123345,
+          "duration": 67.73940397579705
+        }
+      },
+      "endpoint": {
+        "recruitment_only": -0.05917554089300747,
+        "genotype_only": 4.440892098500626e-16,
+        "interaction": 0.04453604779136067,
+        "full": -0.014639493101646361,
+        "recruitment_native_reference": -0.014639493101646806,
+        "genotype_native_reference": 0.04453604779136111
+      },
+      "duration": {
+        "recruitment_only": -2.630380440845741,
+        "genotype_only": 1.4210854715202004e-14,
+        "interaction": 1.724079770150368,
+        "full": -0.9063006706953587,
+        "recruitment_native_reference": -0.9063006706953729,
+        "genotype_native_reference": 1.7240797701503823
+      },
+      "original_endpoint_error": 6.661338147750939e-16,
+      "original_duration_error": 5.5289106626332796e-14
+    },
+    {
+      "mismatch_fraction": 0.5,
+      "setting": "prior_selfing",
+      "budget": 8.0,
+      "visitor_arm": "original4_statewise_equal_delivery",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.7127539045139809,
+          "duration": 68.6457046464924
+        },
+        "10": {
+          "endpoint": 0.6535782623794815,
+          "duration": 66.01531573211349
+        },
+        "01": {
+          "endpoint": 0.7127539045139809,
+          "duration": 68.6457046464924
+        },
+        "11": {
+          "endpoint": 0.6981368826318088,
+          "duration": 67.74027213108191
+        }
+      },
+      "endpoint": {
+        "recruitment_only": -0.05917564213449944,
+        "genotype_only": 0.0,
+        "interaction": 0.044558620252327374,
+        "full": -0.014617021882172065,
+        "recruitment_native_reference": -0.014617021882172065,
+        "genotype_native_reference": 0.044558620252327374
+      },
+      "duration": {
+        "recruitment_only": -2.630388914378912,
+        "genotype_only": 0.0,
+        "interaction": 1.7249563989684162,
+        "full": -0.9054325154104959,
+        "recruitment_native_reference": -0.9054325154104959,
+        "genotype_native_reference": 1.7249563989684162
+      },
+      "original_endpoint_error": 6.661338147750939e-16,
+      "original_duration_error": 6.783462680459706e-14
+    },
+    {
+      "mismatch_fraction": 0.5,
+      "setting": "pollen_discount",
+      "budget": 6.0,
+      "visitor_arm": "shifted4",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.0024105774944597983,
+          "duration": 17.265259055232175
+        },
+        "10": {
+          "endpoint": 0.004734740487748001,
+          "duration": 17.06977307826664
+        },
+        "01": {
+          "endpoint": 0.0024105774944597987,
+          "duration": 17.26525905523218
+        },
+        "11": {
+          "endpoint": 0.005683113242691716,
+          "duration": 17.622666434236915
+        }
+      },
+      "endpoint": {
+        "recruitment_only": 0.002324162993288203,
+        "genotype_only": 4.336808689942018e-19,
+        "interaction": 0.0009483727549437142,
+        "full": 0.0032725357482319174,
+        "recruitment_native_reference": 0.003272535748231917,
+        "genotype_native_reference": 0.0009483727549437146
+      },
+      "duration": {
+        "recruitment_only": -0.1954859769655357,
+        "genotype_only": 3.552713678800501e-15,
+        "interaction": 0.5528933559702729,
+        "full": 0.35740737900474073,
+        "recruitment_native_reference": 0.3574073790047372,
+        "genotype_native_reference": 0.5528933559702764
+      },
+      "original_endpoint_error": 2.688821387764051e-17,
+      "original_duration_error": 2.3314683517128287e-15
+    },
+    {
+      "mismatch_fraction": 0.5,
+      "setting": "pollen_discount",
+      "budget": 6.0,
+      "visitor_arm": "original4_statewise_equal_delivery",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.0024105774944597983,
+          "duration": 17.265259055232175
+        },
+        "10": {
+          "endpoint": 0.00473473688103722,
+          "duration": 17.069765863814578
+        },
+        "01": {
+          "endpoint": 0.002410577494459799,
+          "duration": 17.265259055232175
+        },
+        "11": {
+          "endpoint": 0.005683574186989811,
+          "duration": 17.622932268497706
+        }
+      },
+      "endpoint": {
+        "recruitment_only": 0.002324159386577422,
+        "genotype_only": 8.673617379884035e-19,
+        "interaction": 0.0009488373059525898,
+        "full": 0.0032729966925300127,
+        "recruitment_native_reference": 0.003272996692530012,
+        "genotype_native_reference": 0.0009488373059525906
+      },
+      "duration": {
+        "recruitment_only": -0.19549319141759725,
+        "genotype_only": 0.0,
+        "interaction": 0.5531664046831288,
+        "full": 0.3576732132655316,
+        "recruitment_native_reference": 0.3576732132655316,
+        "genotype_native_reference": 0.5531664046831288
+      },
+      "original_endpoint_error": 2.688821387764051e-17,
+      "original_duration_error": 9.992007221626409e-16
+    },
+    {
+      "mismatch_fraction": 0.5,
+      "setting": "pollen_discount",
+      "budget": 8.0,
+      "visitor_arm": "shifted4",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.7107700794734717,
+          "duration": 68.562217646005
+        },
+        "10": {
+          "endpoint": 0.6510835801735868,
+          "duration": 65.90221485112478
+        },
+        "01": {
+          "endpoint": 0.7107700794734724,
+          "duration": 68.56221764600507
+        },
+        "11": {
+          "endpoint": 0.696272999682199,
+          "duration": 67.6540040096341
+        }
+      },
+      "endpoint": {
+        "recruitment_only": -0.0596864992998849,
+        "genotype_only": 6.661338147750939e-16,
+        "interaction": 0.04518941950861155,
+        "full": -0.014497079791272682,
+        "recruitment_native_reference": -0.014497079791273348,
+        "genotype_native_reference": 0.045189419508612216
+      },
+      "duration": {
+        "recruitment_only": -2.6600027948802136,
+        "genotype_only": 7.105427357601002e-14,
+        "interaction": 1.75178915850924,
+        "full": -0.9082136363709026,
+        "recruitment_native_reference": -0.9082136363709736,
+        "genotype_native_reference": 1.751789158509311
+      },
+      "original_endpoint_error": 3.9968028886505635e-15,
+      "original_duration_error": 1.7186252421197423e-13
+    },
+    {
+      "mismatch_fraction": 0.5,
+      "setting": "pollen_discount",
+      "budget": 8.0,
+      "visitor_arm": "original4_statewise_equal_delivery",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.7107700794734717,
+          "duration": 68.562217646005
+        },
+        "10": {
+          "endpoint": 0.6510834896176618,
+          "duration": 65.90220725482857
+        },
+        "01": {
+          "endpoint": 0.7107700794734714,
+          "duration": 68.56221764600497
+        },
+        "11": {
+          "endpoint": 0.6962990996804747,
+          "duration": 67.65501521408692
+        }
+      },
+      "endpoint": {
+        "recruitment_only": -0.05968658985580988,
+        "genotype_only": -3.3306690738754696e-16,
+        "interaction": 0.04521561006281316,
+        "full": -0.014470979792997052,
+        "recruitment_native_reference": -0.014470979792996719,
+        "genotype_native_reference": 0.04521561006281283
+      },
+      "duration": {
+        "recruitment_only": -2.660010391176428,
+        "genotype_only": -2.842170943040401e-14,
+        "interaction": 1.7528079592583765,
+        "full": -0.9072024319180798,
+        "recruitment_native_reference": -0.9072024319180514,
+        "genotype_native_reference": 1.752807959258348
+      },
+      "original_endpoint_error": 4.6629367034256575e-15,
+      "original_duration_error": 2.453592884421596e-13
+    },
+    {
+      "mismatch_fraction": 0.5,
+      "setting": "assurance_cost",
+      "budget": 6.0,
+      "visitor_arm": "shifted4",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.00016287435500454703,
+          "duration": 13.216162205546667
+        },
+        "10": {
+          "endpoint": 0.00043469354909795796,
+          "duration": 13.046849757824498
+        },
+        "01": {
+          "endpoint": 0.00016287435500454716,
+          "duration": 13.216162205546665
+        },
+        "11": {
+          "endpoint": 0.0005157061984710075,
+          "duration": 13.319188514641459
+        }
+      },
+      "endpoint": {
+        "recruitment_only": 0.0002718191940934109,
+        "genotype_only": 1.3552527156068805e-19,
+        "interaction": 8.101264937304944e-05,
+        "full": 0.0003528318434664605,
+        "recruitment_native_reference": 0.00035283184346646037,
+        "genotype_native_reference": 8.101264937304957e-05
+      },
+      "duration": {
+        "recruitment_only": -0.16931244772216836,
+        "genotype_only": -1.7763568394002505e-15,
+        "interaction": 0.2723387568169624,
+        "full": 0.10302630909479227,
+        "recruitment_native_reference": 0.10302630909479404,
+        "genotype_native_reference": 0.2723387568169606
+      },
+      "original_endpoint_error": 1.2630955309456127e-17,
+      "original_duration_error": 3.4111602431607935e-14
+    },
+    {
+      "mismatch_fraction": 0.5,
+      "setting": "assurance_cost",
+      "budget": 6.0,
+      "visitor_arm": "original4_statewise_equal_delivery",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.00016287435500454708,
+          "duration": 13.216162205546667
+        },
+        "10": {
+          "endpoint": 0.0004346930066316174,
+          "duration": 13.046842341858987
+        },
+        "01": {
+          "endpoint": 0.00016287435500454716,
+          "duration": 13.216162205546663
+        },
+        "11": {
+          "endpoint": 0.0005157603193429909,
+          "duration": 13.319367021101135
+        }
+      },
+      "endpoint": {
+        "recruitment_only": 0.0002718186516270703,
+        "genotype_only": 8.131516293641283e-20,
+        "interaction": 8.106731271137347e-05,
+        "full": 0.0003528859643384439,
+        "recruitment_native_reference": 0.0003528859643384438,
+        "genotype_native_reference": 8.106731271137355e-05
+      },
+      "duration": {
+        "recruitment_only": -0.16931986368767937,
+        "genotype_only": -3.552713678800501e-15,
+        "interaction": 0.2725246792421512,
+        "full": 0.10320481555446825,
+        "recruitment_native_reference": 0.10320481555447181,
+        "genotype_native_reference": 0.2725246792421476
+      },
+      "original_endpoint_error": 1.2305694657710475e-17,
+      "original_duration_error": 2.6478819137309983e-14
+    },
+    {
+      "mismatch_fraction": 0.5,
+      "setting": "assurance_cost",
+      "budget": 8.0,
+      "visitor_arm": "shifted4",
+      "original_reversal": true,
+      "corners": {
+        "00": {
+          "endpoint": 0.4814901562460059,
+          "duration": 58.299110071768055
+        },
+        "10": {
+          "endpoint": 0.43653094520318664,
+          "duration": 55.49133613451804
+        },
+        "01": {
+          "endpoint": 0.4814901562460058,
+          "duration": 58.299110071768055
+        },
+        "11": {
+          "endpoint": 0.485062238145612,
+          "duration": 57.682662739384526
+        }
+      },
+      "endpoint": {
+        "recruitment_only": -0.04495921104281925,
+        "genotype_only": -1.1102230246251565e-16,
+        "interaction": 0.048531292942425475,
+        "full": 0.0035720818996061166,
+        "recruitment_native_reference": 0.0035720818996062276,
+        "genotype_native_reference": 0.048531292942425364
+      },
+      "duration": {
+        "recruitment_only": -2.807773937250012,
+        "genotype_only": 0.0,
+        "interaction": 2.1913266048664823,
+        "full": -0.6164473323835296,
+        "recruitment_native_reference": -0.6164473323835296,
+        "genotype_native_reference": 2.1913266048664823
+      },
+      "original_endpoint_error": 1.7208456881689926e-15,
+      "original_duration_error": 8.404388296412435e-14
+    },
+    {
+      "mismatch_fraction": 0.5,
+      "setting": "assurance_cost",
+      "budget": 8.0,
+      "visitor_arm": "original4_statewise_equal_delivery",
+      "original_reversal": true,
+      "corners": {
+        "00": {
+          "endpoint": 0.4814901562460059,
+          "duration": 58.299110071768055
+        },
+        "10": {
+          "endpoint": 0.4365307967691194,
+          "duration": 55.49132076148587
+        },
+        "01": {
+          "endpoint": 0.48149015624600533,
+          "duration": 58.29911007176803
+        },
+        "11": {
+          "endpoint": 0.4851016782305425,
+          "duration": 57.68444029594658
+        }
+      },
+      "endpoint": {
+        "recruitment_only": -0.04495935947688651,
+        "genotype_only": -5.551115123125783e-16,
+        "interaction": 0.04857088146142369,
+        "full": 0.0036115219845366253,
+        "recruitment_native_reference": 0.0036115219845371804,
+        "genotype_native_reference": 0.04857088146142313
+      },
+      "duration": {
+        "recruitment_only": -2.807789310282182,
+        "genotype_only": -2.842170943040401e-14,
+        "interaction": 2.1931195344607346,
+        "full": -0.6146697758214756,
+        "recruitment_native_reference": -0.6146697758214472,
+        "genotype_native_reference": 2.193119534460706
+      },
+      "original_endpoint_error": 1.4988010832439613e-15,
+      "original_duration_error": 6.705747068735946e-14
+    },
+    {
+      "mismatch_fraction": 1.0,
+      "setting": "delayed_control",
+      "budget": 6.0,
+      "visitor_arm": "shifted4",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.0020257802010177073,
+          "duration": 16.887850808959204
+        },
+        "10": {
+          "endpoint": 0.004375255705934029,
+          "duration": 16.742079303749172
+        },
+        "01": {
+          "endpoint": 0.0020257802010177086,
+          "duration": 16.887850808959207
+        },
+        "11": {
+          "endpoint": 0.005282286331147397,
+          "duration": 17.31450177424454
+        }
+      },
+      "endpoint": {
+        "recruitment_only": 0.0023494755049163216,
+        "genotype_only": 1.3010426069826053e-18,
+        "interaction": 0.0009070306252133664,
+        "full": 0.0032565061301296893,
+        "recruitment_native_reference": 0.003256506130129688,
+        "genotype_native_reference": 0.0009070306252133677
+      },
+      "duration": {
+        "recruitment_only": -0.1457715052100319,
+        "genotype_only": 3.552713678800501e-15,
+        "interaction": 0.5724224704953649,
+        "full": 0.4266509652853365,
+        "recruitment_native_reference": 0.426650965285333,
+        "genotype_native_reference": 0.5724224704953684
+      },
+      "original_endpoint_error": 3.2959746043559335e-17,
+      "original_duration_error": 2.8199664825478976e-14
+    },
+    {
+      "mismatch_fraction": 1.0,
+      "setting": "delayed_control",
+      "budget": 6.0,
+      "visitor_arm": "original4_statewise_equal_delivery",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.0020257802010177073,
+          "duration": 16.887850808959204
+        },
+        "10": {
+          "endpoint": 0.004375255705664432,
+          "duration": 16.74207930317829
+        },
+        "01": {
+          "endpoint": 0.0020257802010177073,
+          "duration": 16.887850808959204
+        },
+        "11": {
+          "endpoint": 0.005282286365773392,
+          "duration": 17.31450179590195
+        }
+      },
+      "endpoint": {
+        "recruitment_only": 0.0023494755046467248,
+        "genotype_only": 0.0,
+        "interaction": 0.0009070306601089602,
+        "full": 0.003256506164755685,
+        "recruitment_native_reference": 0.003256506164755685,
+        "genotype_native_reference": 0.0009070306601089602
+      },
+      "duration": {
+        "recruitment_only": -0.1457715057809139,
+        "genotype_only": 0.0,
+        "interaction": 0.5724224927236605,
+        "full": 0.4266509869427466,
+        "recruitment_native_reference": 0.4266509869427466,
+        "genotype_native_reference": 0.5724224927236605
+      },
+      "original_endpoint_error": 4.336808689942018e-17,
+      "original_duration_error": 3.452793606584237e-14
+    },
+    {
+      "mismatch_fraction": 1.0,
+      "setting": "delayed_control",
+      "budget": 8.0,
+      "visitor_arm": "shifted4",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.6935853409909619,
+          "duration": 67.83539747109867
+        },
+        "10": {
+          "endpoint": 0.6296828735816155,
+          "duration": 64.91453543572209
+        },
+        "01": {
+          "endpoint": 0.6935853409909601,
+          "duration": 67.83539747109859
+        },
+        "11": {
+          "endpoint": 0.6810164446750172,
+          "duration": 66.93201255271183
+        }
+      },
+      "endpoint": {
+        "recruitment_only": -0.06390246740934646,
+        "genotype_only": -1.7763568394002505e-15,
+        "interaction": 0.05133357109340353,
+        "full": -0.012568896315944711,
+        "recruitment_native_reference": -0.012568896315942935,
+        "genotype_native_reference": 0.05133357109340175
+      },
+      "duration": {
+        "recruitment_only": -2.9208620353765866,
+        "genotype_only": -8.526512829121202e-14,
+        "interaction": 2.0174771169898236,
+        "full": -0.9033849183868483,
+        "recruitment_native_reference": -0.903384918386763,
+        "genotype_native_reference": 2.0174771169897383
+      },
+      "original_endpoint_error": 1.2212453270876722e-15,
+      "original_duration_error": 1.3300471835009375e-13
+    },
+    {
+      "mismatch_fraction": 1.0,
+      "setting": "delayed_control",
+      "budget": 8.0,
+      "visitor_arm": "original4_statewise_equal_delivery",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.6935853409909619,
+          "duration": 67.83539747109867
+        },
+        "10": {
+          "endpoint": 0.6296828735741923,
+          "duration": 64.91453543508578
+        },
+        "01": {
+          "endpoint": 0.6935853409909603,
+          "duration": 67.83539747109859
+        },
+        "11": {
+          "endpoint": 0.6810164469882556,
+          "duration": 66.93201264364707
+        }
+      },
+      "endpoint": {
+        "recruitment_only": -0.06390246741676964,
+        "genotype_only": -1.6653345369377348e-15,
+        "interaction": 0.05133357341406497,
+        "full": -0.012568894002706332,
+        "recruitment_native_reference": -0.012568894002704667,
+        "genotype_native_reference": 0.051333573414063305
+      },
+      "duration": {
+        "recruitment_only": -2.920862036012892,
+        "genotype_only": -8.526512829121202e-14,
+        "interaction": 2.017477208561374,
+        "full": -0.9033848274516032,
+        "recruitment_native_reference": -0.9033848274515179,
+        "genotype_native_reference": 2.0174772085612886
+      },
+      "original_endpoint_error": 1.3322676295501878e-15,
+      "original_duration_error": 1.5076828674409626e-13
+    },
+    {
+      "mismatch_fraction": 1.0,
+      "setting": "prior_selfing",
+      "budget": 6.0,
+      "visitor_arm": "shifted4",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.002025775421092916,
+          "duration": 16.88784580810988
+        },
+        "10": {
+          "endpoint": 0.004375251104432447,
+          "duration": 16.742074956638884
+        },
+        "01": {
+          "endpoint": 0.0020257754210929162,
+          "duration": 16.887845808109876
+        },
+        "11": {
+          "endpoint": 0.005282281214126295,
+          "duration": 17.31449771765214
+        }
+      },
+      "endpoint": {
+        "recruitment_only": 0.0023494756833395314,
+        "genotype_only": 4.336808689942018e-19,
+        "interaction": 0.000907030109693847,
+        "full": 0.003256505793033379,
+        "recruitment_native_reference": 0.0032565057930333784,
+        "genotype_native_reference": 0.0009070301096938474
+      },
+      "duration": {
+        "recruitment_only": -0.14577085147099567,
+        "genotype_only": -3.552713678800501e-15,
+        "interaction": 0.5724227610132608,
+        "full": 0.4266519095422616,
+        "recruitment_native_reference": 0.4266519095422652,
+        "genotype_native_reference": 0.5724227610132573
+      },
+      "original_endpoint_error": 5.117434254131581e-17,
+      "original_duration_error": 2.4369395390522186e-14
+    },
+    {
+      "mismatch_fraction": 1.0,
+      "setting": "prior_selfing",
+      "budget": 6.0,
+      "visitor_arm": "original4_statewise_equal_delivery",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.002025775421092916,
+          "duration": 16.88784580810988
+        },
+        "10": {
+          "endpoint": 0.004375251104220035,
+          "duration": 16.7420749561891
+        },
+        "01": {
+          "endpoint": 0.0020257754210929145,
+          "duration": 16.887845808109873
+        },
+        "11": {
+          "endpoint": 0.0052822812349701005,
+          "duration": 17.314497730618193
+        }
+      },
+      "endpoint": {
+        "recruitment_only": 0.002349475683127119,
+        "genotype_only": -1.3010426069826053e-18,
+        "interaction": 0.0009070301307500671,
+        "full": 0.0032565058138771846,
+        "recruitment_native_reference": 0.003256505813877186,
+        "genotype_native_reference": 0.0009070301307500658
+      },
+      "duration": {
+        "recruitment_only": -0.14577085192077988,
+        "genotype_only": -7.105427357601002e-15,
+        "interaction": 0.5724227744291,
+        "full": 0.42665192250831296,
+        "recruitment_native_reference": 0.42665192250832007,
+        "genotype_native_reference": 0.5724227744290928
+      },
+      "original_endpoint_error": 4.9439619065339e-17,
+      "original_duration_error": 2.2315482794965646e-14
+    },
+    {
+      "mismatch_fraction": 1.0,
+      "setting": "prior_selfing",
+      "budget": 8.0,
+      "visitor_arm": "shifted4",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.693585104337361,
+          "duration": 67.83538741613619
+        },
+        "10": {
+          "endpoint": 0.629682580864501,
+          "duration": 64.91452172765075
+        },
+        "01": {
+          "endpoint": 0.6935851043373615,
+          "duration": 67.83538741613623
+        },
+        "11": {
+          "endpoint": 0.6810162404440695,
+          "duration": 66.93200272875376
+        }
+      },
+      "endpoint": {
+        "recruitment_only": -0.06390252347285996,
+        "genotype_only": 5.551115123125783e-16,
+        "interaction": 0.051333659579567925,
+        "full": -0.012568863893291482,
+        "recruitment_native_reference": -0.012568863893292037,
+        "genotype_native_reference": 0.05133365957956848
+      },
+      "duration": {
+        "recruitment_only": -2.920865688485435,
+        "genotype_only": 4.263256414560601e-14,
+        "interaction": 2.017481001102965,
+        "full": -0.9033846873824274,
+        "recruitment_native_reference": -0.90338468738247,
+        "genotype_native_reference": 2.0174810011030075
+      },
+      "original_endpoint_error": 1.2212453270876722e-15,
+      "original_duration_error": 5.662137425588298e-15
+    },
+    {
+      "mismatch_fraction": 1.0,
+      "setting": "prior_selfing",
+      "budget": 8.0,
+      "visitor_arm": "original4_statewise_equal_delivery",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.693585104337361,
+          "duration": 67.83538741613619
+        },
+        "10": {
+          "endpoint": 0.6296825808586517,
+          "duration": 64.91452172714938
+        },
+        "01": {
+          "endpoint": 0.6935851043373614,
+          "duration": 67.83538741613621
+        },
+        "11": {
+          "endpoint": 0.6810162418621545,
+          "duration": 66.93200278443182
+        }
+      },
+      "endpoint": {
+        "recruitment_only": -0.06390252347870928,
+        "genotype_only": 4.440892098500626e-16,
+        "interaction": 0.05133366100350234,
+        "full": -0.0125688624752065,
+        "recruitment_native_reference": -0.012568862475206943,
+        "genotype_native_reference": 0.051333661003502784
+      },
+      "duration": {
+        "recruitment_only": -2.920865688986808,
+        "genotype_only": 2.842170943040401e-14,
+        "interaction": 2.01748105728241,
+        "full": -0.9033846317043697,
+        "recruitment_native_reference": -0.9033846317043981,
+        "genotype_native_reference": 2.0174810572824384
+      },
+      "original_endpoint_error": 6.661338147750939e-16,
+      "original_duration_error": 4.2743586448068527e-14
+    },
+    {
+      "mismatch_fraction": 1.0,
+      "setting": "pollen_discount",
+      "budget": 6.0,
+      "visitor_arm": "shifted4",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.0020257735464825725,
+          "duration": 16.887843846854118
+        },
+        "10": {
+          "endpoint": 0.004375249272510295,
+          "duration": 16.742073255958427
+        },
+        "01": {
+          "endpoint": 0.002025773546482572,
+          "duration": 16.88784384685412
+        },
+        "11": {
+          "endpoint": 0.005282279122607873,
+          "duration": 17.314496086237938
+        }
+      },
+      "endpoint": {
+        "recruitment_only": 0.0023494757260277225,
+        "genotype_only": -4.336808689942018e-19,
+        "interaction": 0.000907029850097578,
+        "full": 0.0032565055761253,
+        "recruitment_native_reference": 0.0032565055761253005,
+        "genotype_native_reference": 0.0009070298500975776
+      },
+      "duration": {
+        "recruitment_only": -0.14577059089569033,
+        "genotype_only": 3.552713678800501e-15,
+        "interaction": 0.5724228302795069,
+        "full": 0.42665223938382013,
+        "recruitment_native_reference": 0.4266522393838166,
+        "genotype_native_reference": 0.5724228302795105
+      },
+      "original_endpoint_error": 4.597017211338539e-17,
+      "original_duration_error": 2.0650148258027912e-14
+    },
+    {
+      "mismatch_fraction": 1.0,
+      "setting": "pollen_discount",
+      "budget": 6.0,
+      "visitor_arm": "original4_statewise_equal_delivery",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.0020257735464825725,
+          "duration": 16.887843846854118
+        },
+        "10": {
+          "endpoint": 0.0043752492723203125,
+          "duration": 16.742073255556132
+        },
+        "01": {
+          "endpoint": 0.002025773546482571,
+          "duration": 16.887843846854114
+        },
+        "11": {
+          "endpoint": 0.005282279147008363,
+          "duration": 17.314496101499653
+        }
+      },
+      "endpoint": {
+        "recruitment_only": 0.00234947572583774,
+        "genotype_only": -1.734723475976807e-18,
+        "interaction": 0.0009070298746880522,
+        "full": 0.0032565056005257904,
+        "recruitment_native_reference": 0.003256505600525792,
+        "genotype_native_reference": 0.0009070298746880505
+      },
+      "duration": {
+        "recruitment_only": -0.14577059129798542,
+        "genotype_only": -3.552713678800501e-15,
+        "interaction": 0.5724228459435245,
+        "full": 0.4266522546455356,
+        "recruitment_native_reference": 0.42665225464553913,
+        "genotype_native_reference": 0.572422845943521
+      },
+      "original_endpoint_error": 4.423544863740858e-17,
+      "original_duration_error": 2.5479618415147343e-14
+    },
+    {
+      "mismatch_fraction": 1.0,
+      "setting": "pollen_discount",
+      "budget": 8.0,
+      "visitor_arm": "shifted4",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.6935850115254185,
+          "duration": 67.83538347273252
+        },
+        "10": {
+          "endpoint": 0.6296824665195946,
+          "duration": 64.91451640264587
+        },
+        "01": {
+          "endpoint": 0.6935850115254176,
+          "duration": 67.83538347273249
+        },
+        "11": {
+          "endpoint": 0.6810161573850948,
+          "duration": 66.93199877157275
+        }
+      },
+      "endpoint": {
+        "recruitment_only": -0.06390254500582393,
+        "genotype_only": -8.881784197001252e-16,
+        "interaction": 0.0513336908655011,
+        "full": -0.012568854140323715,
+        "recruitment_native_reference": -0.012568854140322827,
+        "genotype_native_reference": 0.051333690865500214
+      },
+      "duration": {
+        "recruitment_only": -2.9208670700866435,
+        "genotype_only": -2.842170943040401e-14,
+        "interaction": 2.017482368926906,
+        "full": -0.9033847011597658,
+        "recruitment_native_reference": -0.9033847011597373,
+        "genotype_native_reference": 2.0174823689268777
+      },
+      "original_endpoint_error": 1.6542323066914832e-14,
+      "original_duration_error": 7.136513602290506e-13
+    },
+    {
+      "mismatch_fraction": 1.0,
+      "setting": "pollen_discount",
+      "budget": 8.0,
+      "visitor_arm": "original4_statewise_equal_delivery",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.6935850115254185,
+          "duration": 67.83538347273252
+        },
+        "10": {
+          "endpoint": 0.6296824665143628,
+          "duration": 64.91451640219744
+        },
+        "01": {
+          "endpoint": 0.6935850115254172,
+          "duration": 67.83538347273246
+        },
+        "11": {
+          "endpoint": 0.6810161590152082,
+          "duration": 66.93199883565381
+        }
+      },
+      "endpoint": {
+        "recruitment_only": -0.06390254501105574,
+        "genotype_only": -1.3322676295501878e-15,
+        "interaction": 0.05133369250084674,
+        "full": -0.012568852510210338,
+        "recruitment_native_reference": -0.012568852510209005,
+        "genotype_native_reference": 0.05133369250084541
+      },
+      "duration": {
+        "recruitment_only": -2.920867070535081,
+        "genotype_only": -5.684341886080802e-14,
+        "interaction": 2.0174824334564363,
+        "full": -0.9033846370787018,
+        "recruitment_native_reference": -0.9033846370786449,
+        "genotype_native_reference": 2.0174824334563795
+      },
+      "original_endpoint_error": 1.63202784619898e-14,
+      "original_duration_error": 7.30304705598428e-13
+    },
+    {
+      "mismatch_fraction": 1.0,
+      "setting": "assurance_cost",
+      "budget": 6.0,
+      "visitor_arm": "shifted4",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.000122411222102301,
+          "duration": 12.892767643114066
+        },
+        "10": {
+          "endpoint": 0.00038148205630639937,
+          "duration": 12.75720766040508
+        },
+        "01": {
+          "endpoint": 0.000122411222102301,
+          "duration": 12.892767643114066
+        },
+        "11": {
+          "endpoint": 0.0004553763143595342,
+          "duration": 13.043069177050599
+        }
+      },
+      "endpoint": {
+        "recruitment_only": 0.0002590708342040984,
+        "genotype_only": 0.0,
+        "interaction": 7.389425805313482e-05,
+        "full": 0.00033296509225723317,
+        "recruitment_native_reference": 0.00033296509225723317,
+        "genotype_native_reference": 7.389425805313482e-05
+      },
+      "duration": {
+        "recruitment_only": -0.13555998270898684,
+        "genotype_only": 0.0,
+        "interaction": 0.28586151664551984,
+        "full": 0.150301533936533,
+        "recruitment_native_reference": 0.150301533936533,
+        "genotype_native_reference": 0.28586151664551984
+      },
+      "original_endpoint_error": 6.1257422745431e-18,
+      "original_duration_error": 3.161360062620133e-14
+    },
+    {
+      "mismatch_fraction": 1.0,
+      "setting": "assurance_cost",
+      "budget": 6.0,
+      "visitor_arm": "original4_statewise_equal_delivery",
+      "original_reversal": false,
+      "corners": {
+        "00": {
+          "endpoint": 0.000122411222102301,
+          "duration": 12.892767643114066
+        },
+        "10": {
+          "endpoint": 0.0003814820562794663,
+          "duration": 12.757207659996306
+        },
+        "01": {
+          "endpoint": 0.00012241122210230096,
+          "duration": 12.89276764311407
+        },
+        "11": {
+          "endpoint": 0.0004553763170531915,
+          "duration": 13.043069187312348
+        }
+      },
+      "endpoint": {
+        "recruitment_only": 0.0002590708341771653,
+        "genotype_only": -2.710505431213761e-20,
+        "interaction": 7.38942607737252e-05,
+        "full": 0.00033296509495089053,
+        "recruitment_native_reference": 0.00033296509495089053,
+        "genotype_native_reference": 7.389426077372517e-05
+      },
+      "duration": {
+        "recruitment_only": -0.1355599831177603,
+        "genotype_only": 3.552713678800501e-15,
+        "interaction": 0.28586152731603853,
+        "full": 0.1503015441982818,
+        "recruitment_native_reference": 0.15030154419827824,
+        "genotype_native_reference": 0.2858615273160421
+      },
+      "original_endpoint_error": 5.7462715141731735e-18,
+      "original_duration_error": 2.864375403532904e-14
+    },
+    {
+      "mismatch_fraction": 1.0,
+      "setting": "assurance_cost",
+      "budget": 8.0,
+      "visitor_arm": "shifted4",
+      "original_reversal": true,
+      "corners": {
+        "00": {
+          "endpoint": 0.4514775934464029,
+          "duration": 56.82284895511974
+        },
+        "10": {
+          "endpoint": 0.40882213614015095,
+          "duration": 53.86106946870777
+        },
+        "01": {
+          "endpoint": 0.4514775934464028,
+          "duration": 56.82284895511974
+        },
+        "11": {
+          "endpoint": 0.46376139848836995,
+          "duration": 56.421611573508095
+        }
+      },
+      "endpoint": {
+        "recruitment_only": -0.042655457306251976,
+        "genotype_only": -1.1102230246251565e-16,
+        "interaction": 0.05493926234821911,
+        "full": 0.012283805041967022,
+        "recruitment_native_reference": 0.012283805041967133,
+        "genotype_native_reference": 0.054939262348219
+      },
+      "duration": {
+        "recruitment_only": -2.96177948641197,
+        "genotype_only": 0.0,
+        "interaction": 2.5605421048003265,
+        "full": -0.4012373816116437,
+        "recruitment_native_reference": -0.4012373816116437,
+        "genotype_native_reference": 2.5605421048003265
+      },
+      "original_endpoint_error": 3.0531133177191805e-15,
+      "original_duration_error": 1.9240165016753963e-13
+    },
+    {
+      "mismatch_fraction": 1.0,
+      "setting": "assurance_cost",
+      "budget": 8.0,
+      "visitor_arm": "original4_statewise_equal_delivery",
+      "original_reversal": true,
+      "corners": {
+        "00": {
+          "endpoint": 0.4514775934464029,
+          "duration": 56.82284895511974
+        },
+        "10": {
+          "endpoint": 0.40882213613189705,
+          "duration": 53.86106946781655
+        },
+        "01": {
+          "endpoint": 0.45147759344640304,
+          "duration": 56.82284895511975
+        },
+        "11": {
+          "endpoint": 0.4637614008983625,
+          "duration": 56.42161168576306
+        }
+      },
+      "endpoint": {
+        "recruitment_only": -0.042655457314505874,
+        "genotype_only": 1.1102230246251565e-16,
+        "interaction": 0.05493926476646532,
+        "full": 0.01228380745195956,
+        "recruitment_native_reference": 0.01228380745195945,
+        "genotype_native_reference": 0.054939264766465434
+      },
+      "duration": {
+        "recruitment_only": -2.9617794873031897,
+        "genotype_only": 1.4210854715202004e-14,
+        "interaction": 2.560542217946498,
+        "full": -0.4012372693566775,
+        "recruitment_native_reference": -0.4012372693566917,
+        "genotype_native_reference": 2.5605422179465123
+      },
+      "original_endpoint_error": 2.7755575615628914e-15,
+      "original_duration_error": 1.98507876802978e-13
+    }
+  ],
+  "limits": [
+    "Artificial statewise channel interventions, not unique natural mediation.",
+    "No new ecological order boundary or natural sequence benefit.",
+    "All original conditions retained; no inferential significance tests."
+  ]
+}

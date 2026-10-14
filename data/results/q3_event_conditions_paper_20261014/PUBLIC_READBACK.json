@@ -1,0 +1,71 @@
+{
+  "status": "EXACT_PR515_SOURCE_PUBLIC_READBACK_AND_FRESH_RAW_REVIEW_PASS",
+  "source": "914b5040ff1dd75378277c643bad87c0d9132a62",
+  "base": "d544f4f1a4f3d9f43000a8ed8c55b3de8a9f0506",
+  "public_archive_sha256": "61d9a198f8206ed4ae7b7b34e7172bb40f954da5db9f37226ff1e5f62d76f1d9",
+  "source_files": 21,
+  "archive_members": 23,
+  "independent_raw": {
+    "status": "INDEPENDENT_RAW_RECOMPUTATION_PASS",
+    "states": 64,
+    "pairs": 3904,
+    "verified_state_fields": 20,
+    "verified_pair_fields": 20,
+    "biological_updates": 0,
+    "new_random_draws": 0,
+    "verifier_sha256": "126d1b5e5ba008ef872ad1ae09553f05092edb31fda9cf4f160defaaaa394198"
+  },
+  "supplemental_tests": {
+    "passed": 35,
+    "failed": 0
+  },
+  "required_ci": [
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-14T06:10:18Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/zuizui0223/izu-core/actions/runs/38518724714/job/115703426202",
+      "name": "tests (3.10)",
+      "startedAt": "2026-10-14T05:50:08Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-14T05:50:30Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/zuizui0223/izu-core/actions/runs/38518724710/job/115703294150",
+      "name": "scientific-gate",
+      "startedAt": "2026-10-14T05:49:40Z",
+      "status": "COMPLETED",
+      "workflowName": "Chapter 2 scientific gate"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-14T06:08:48Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/zuizui0223/izu-core/actions/runs/38518724714/job/115703426259",
+      "name": "tests (3.11)",
+      "startedAt": "2026-10-14T05:50:08Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    },
+    {
+      "__typename": "CheckRun",
+      "completedAt": "2026-10-14T05:59:32Z",
+      "conclusion": "SUCCESS",
+      "detailsUrl": "https://github.com/zuizui0223/izu-core/actions/runs/38518724714/job/115703426034",
+      "name": "tests (3.12)",
+      "startedAt": "2026-10-14T05:50:08Z",
+      "status": "COMPLETED",
+      "workflowName": "CI"
+    }
+  ],
+  "scientific_scope": "Retrospective support and prefix restrictions; refixation is a pathwise witness, not a separately identified mediator. Original primary and conditional margin decisions unchanged.",
+  "not_executed": [
+    "distribution_triangle_futures",
+    "new_founder_futures"
+  ],
+  "new_biological_updates": 0,
+  "new_random_draws": 0
+}

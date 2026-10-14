@@ -44,6 +44,7 @@ ATOM_DOC=ROOT/"docs/atom_comparison_20261011"
 RESOLUTION_DATA=ROOT/"data/results/four_question_resolution_20261011"
 RESOLUTION_DOC=ROOT/"docs/four_question_resolution_20261011"
 MECHANISM_DATA=ROOT/"data/results/persistence_mechanism_20261012"
+MINIMAL_RESULTS=ROOT/"data/results"
 DENIED=("zuizui0223","github.com/","/workspace/","/home/","/root/",
         "issue #436","pr #452","pr #455")
 
@@ -96,6 +97,634 @@ def count_manuscript_words(text):
         "abstract":len(text.split("## Abstract",1)[1].split("## Keywords",1)[0].split()),
         "main_text":len(text.split("# Introduction",1)[1].split("# Primary figure assembly and captions",1)[0].split()),
     }
+
+
+def pr490_original_materials():
+    raw=(MINIMAL_RESULTS/'pr490_original_archive_direct_admission_20261014.json').read_bytes()
+    independent=(MINIMAL_RESULTS/'pr490_original_archive_independent_review_20261014.json').read_bytes()
+    if (sha(raw)!='d6f427af7fd8e7c14f593f7baac42d5c187bba28ab36197179396f751160916c'
+        or sha(independent)!='232f5934c1b159f2d5c8c4c47168432bfb1d68a4e7da6be773a73ad52b3e1cda'):
+        raise ValueError('PR490 original/independent receipt identity differs')
+    result=json.loads(raw);review=json.loads(independent)
+    source=(ROOT/'scripts/audit_pr490_original_archive_20261014.py').read_bytes()
+    numeric=(ROOT/'scripts/pr490_original_intake_20261014/NUMERICAL_AUDITOR_EXECUTED.py').read_bytes()
+    if (sha(source)!=result['auditor_sha256'] or sha(numeric)!=result['numerical_auditor_sha256']
+        or review['producer_receipt_sha256']!=sha(raw) or review['blockers']!=[]
+        or result['original_archive']['sha256']!=review['original_sha256']
+        or result['original_archive']['bytes']!=335015 or len(result['shards'])!=8
+        or len(result['manifest_members_verified'])!=26 or len(result['nested_sources_verified'])!=25
+        or result['numerical_admission']['pooled_primary']!=review['pooled_primary']
+        or result['original_annual_genomes_authenticated'] is not False
+        or result['historical_executed_runtime_authenticated'] is not False
+        or result['new_biological_histories']!=0):
+        raise ValueError('PR490 direct admission scope differs')
+    members={'EVIDENCE/PR490_ORIGINAL_DIRECT_ADMISSION.json':raw,
+             'EVIDENCE/PR490_ORIGINAL_INDEPENDENT_REVIEW.json':independent,
+             'EVIDENCE/PR490_ORIGINAL_AUDITOR.py':source,
+             'EVIDENCE/PR490_ORIGINAL_NUMERICAL_AUDITOR.py':numeric}
+    return members,{name:dict(original_sha256=sha(value),derived_sha256=sha(value),
+        independent_review_sha256=sha(independent),transformation='Exact recovered-original archive/logged-summary admission; prior failed receipts and annual-genome/runtime limits retained.')
+        for name,value in members.items()}
+
+
+def first_meiosis_access_materials():
+    """Admit original-cohort F1 access via complete raw-genotype reconstruction."""
+    data = ROOT / 'data/results/first_meiosis_access_20261014'
+    raw = (data / 'SOURCE_PINS.json').read_bytes()
+    if sha(raw) != '675afe147b2e372f2616045d6005c374a0c3a50814b4ffb90a434f35fc72f8aa':
+        raise ValueError('first-meiosis frozen evidence differs: source pins')
+    for relative, digest in json.loads(raw).items():
+        if sha((data / relative).read_bytes()) != digest:
+            raise ValueError('first-meiosis frozen evidence differs: ' + relative)
+    review_raw = (data / 'INDEPENDENT_RAW_REVIEW.json').read_bytes()
+    if sha(review_raw) != '61fec91183fe5d6f8e20a78c8f9203ce2f6ae1c78b8f1a704090cc27bafc1176':
+        raise ValueError('first-meiosis frozen evidence differs: independent raw review')
+    review = json.loads(review_raw)
+    if (review['status'] != 'ALL2304_RAW_GENOTYPE_CENSUSES_AND_PR508_EVENTS_INDEPENDENTLY_VERIFIED'
+            or review['source_manifest_sha256'] != sha(raw)
+            or review['cases'] != 2304 or review['trait_mean_components'] != 1389312
+            or review['producer_imported'] is not False or review['new_biological_histories'] != 0):
+        raise ValueError('first-meiosis admission scope differs')
+    names = {
+        'data/results/chapter2_original_first_meiosis_access_2304_20261014.json': 'ORIGINAL_RESULT.json',
+        'data/results/chapter2_original_first_meiosis_access_2304_case_20261014.csv': 'ORIGINAL_CASES.csv',
+        'independent_reader.py': 'INDEPENDENT_SOURCE.py',
+        'INDEPENDENT_PROTOCOL.md': 'INDEPENDENT_PROTOCOL.md',
+        'INDEPENDENT_RAW_REVIEW.json': 'INDEPENDENT_RAW_REVIEW.json',
+        'SOURCE_PINS.json': 'FROZEN_SOURCE_PINS.json',
+        'V1_SERIALIZATION_STOP.md': 'V1_SERIALIZATION_STOP.md',
+    }
+    members = {'EVIDENCE/FIRST_MEIOSIS_' + dest: (data / relative).read_bytes()
+               for relative, dest in names.items()}
+    return members, {name: dict(original_sha256=sha(value), derived_sha256=sha(value),
+        transformation='Exact original-cohort F1 diagnostic and independent raw-census/event admission; retrospective, not the separate new pilot or causal/predictive confirmation.')
+        for name, value in members.items()}
+
+
+def q3_conditional_materials():
+    """Admit the separate fixed-state paired-survivor follow-up, not an old-primary replacement."""
+    data=ROOT/'data/results/q3_conditional_paper_20261014'
+    raw=(data/'PUBLIC_ADMISSION.json').read_bytes()
+    if sha(raw)!='10e5c5f21e244fcf8cc560cae2763a91e40f162b22a8ccad04905a10854fc60d':
+        raise ValueError('Q3 conditional public admission differs')
+    admission=json.loads(raw)
+    for name,digest in admission['pins'].items():
+        if sha((data/name).read_bytes())!=digest:
+            raise ValueError('Q3 conditional frozen source/result differs: '+name)
+    result=json.loads((data/'READOUT.json').read_bytes())
+    audit=json.loads((data/'INDEPENDENT_SAVED_ARRAYS.json').read_bytes())
+    replay=json.loads((data/'INDEPENDENT_REPLAY.json').read_bytes())
+    resources=json.loads((data/'RESOURCES.json').read_bytes())
+    target='fixed_state_coupling_specific_paired_survivor_conditional'
+    if (admission['status']!='FULL7808_ORIGINAL_ARRAYS_AND_FIXED_CONDITIONAL_PRIMARY_ADMITTED'
+        or admission['public_companion_sha256']!='aceec1ebf3d8c5e6b1671cc08b94ec5da086750428e0de5f21a53e163d8e0e91'
+        or admission['raw_archive_sha256']!='8a2462910025b4a386e789583578cb1380349097393916dac4e50d01c9637b7e'
+        or audit['status']!='ALL7808_RAW_ARRAYS_ENDPOINTS_AND_FIXED_PRIMARY_INDEPENDENTLY_MATCH'
+        or audit['paths']!=7808 or audit['pairs']!=3904 or audit['members']!=12042
+        or audit['saved_censuses']!=998528 or audit['saved_replay_updates']!=990720
+        or audit['native_calls_during_this_audit']!=0 or audit['secondary_event_fields_reconstructed']!=7808
+        or audit['source_sha256']!=admission['pins']['INDEPENDENT_VERIFIER_SOURCE.py']
+        or audit['readout_sha256']!=admission['pins']['READOUT.json']
+        or replay['status']!='ALL_7808_PATHS_REPLAYED_EXACTLY' or replay['raw_paths']!=7808
+        or replay['native_updates']!=990720
+        or resources['actual_calls']!=1981444 or resources['workers']!=2
+        or result['target']!=target or result['original_primary']!='unresolved_unchanged'
+        or result['pairs']!=3904 or result['slots']!=64 or result['policy_zero_slots']!=3
+        or result['survival']!=dict(both_alive=3904,native_only=0,restored_only=0,both_extinct=0)
+        or result['decision']!='evaluated_conditional' or result['directional_replication']!='positive'
+        or result['means']['causal_confirmation']['practical']!='unresolved'):
+        raise ValueError('Q3 full-domain or conditional scope differs')
+    members={};provenance={}
+    for name in ['PUBLIC_ADMISSION.json']+list(admission['pins']):
+        original=(data/name).read_bytes();key='EVIDENCE/Q3_CONDITIONAL_'+name
+        derived=original.replace(b'https://github.com/zuizui0223/izu-core/',b'PUBLIC_REPOSITORY_SOURCE/')
+        members[key]=derived
+        provenance[key]=dict(original_sha256=sha(original),derived_sha256=sha(derived),
+            transformation='Identifying public repository prefix replaced only. Separate fixed-state paired-survivor study; old64 primary unchanged. Full raw-array audit makes zero native calls.')
+    return members,provenance
+
+
+def q3_event_conditions_materials():
+    """Admit retrospective necessary restrictions, not a new causal experiment."""
+    data=ROOT/'data/results/q3_event_conditions_paper_20261014'
+    raw=(data/'PUBLIC_ADMISSION.json').read_bytes()
+    if sha(raw)!='3cf8990ed835289d9dd9274a17d6d89cf56fe8f6f40d9ac81491916713f6aac6':
+        raise ValueError('Q3 event public admission differs')
+    admission=json.loads(raw)
+    for name,digest in admission['pins'].items():
+        if sha((data/name).read_bytes())!=digest:
+            raise ValueError('Q3 event frozen source/result differs: '+name)
+    summary=json.loads((data/'SUMMARY.json').read_bytes())
+    audit=json.loads((data/'FRESH_RAW_REVIEW.json').read_bytes())
+    public=json.loads((data/'PUBLIC_READBACK.json').read_bytes())
+    source=json.loads((data/'PROVENANCE.json').read_bytes())
+    if (admission['status']!='FULL64_STATES_3904_PAIRS_EXPLORATORY_RESTRICTIONS_ADMITTED'
+        or public['source']!=admission['source']
+        or public['public_archive_sha256']!=admission['public_companion_sha256']
+        or source['archive_sha256']!=admission['raw_archive_sha256']
+        or source['outputs']['SUMMARY.json']!=admission['pins']['SUMMARY.json']
+        or audit['status']!='INDEPENDENT_RAW_RECOMPUTATION_PASS'
+        or audit['states']!=64 or audit['pairs']!=3904
+        or audit['verified_state_fields']!=20 or audit['verified_pair_fields']!=20
+        or audit['biological_updates']!=0 or audit['new_random_draws']!=0
+        or public['independent_raw']!=audit
+        or summary['status']!='ALL_DECLARED_PATH_RESTRICTIONS_PASS'
+        or summary['exploratory'] is not True or summary['biological_updates']!=0
+        or summary['original_slots']!=64 or summary['triggered_pairs']!=3904
+        or summary['original_primary']!='unresolved'
+        or summary['confirmation_margin_0_01']!='unresolved'):
+        raise ValueError('Q3 event independent scope differs')
+    conditional=json.loads((ROOT/'data/results/q3_conditional_paper_20261014/READOUT.json').read_bytes())
+    for block,row in summary['blocks'].items():
+        counts={arm:sum(r['event_counts'][arm] for r in conditional['case_summaries']
+                       if r['block']==block and r['trigger'] is not None)
+                for arm in ('native','restored')}
+        if (row['native_events']!=counts['native'] or row['restored_events']!=counts['restored']
+            or row['restored_events']-row['native_events']!=row['joint']['01']-row['joint']['10']):
+            raise ValueError('Q3 event counts differ from conditional source')
+    members={};provenance={}
+    for name in ['PUBLIC_ADMISSION.json']+list(admission['pins']):
+        original=(data/name).read_bytes();key='EVIDENCE/Q3_EVENT_'+name
+        derived=original.replace(b'https://github.com/zuizui0223/izu-core/',b'PUBLIC_REPOSITORY_SOURCE/')
+        members[key]=derived
+        provenance[key]=dict(original_sha256=sha(original),derived_sha256=sha(derived),
+            transformation='Identifying repository prefix replaced only; exploratory support/prefix restrictions and refixation witnesses, not unique mediation or natural-order benefit. Zero biological updates.')
+    return members,provenance
+
+
+def assurance_parent_materials():
+    """Admit all4096 controlled futures, complete raw replay and fixed comparisons."""
+    data=ROOT/'data/results/assurance_parent_control_20261014'
+    raw=(data/'PUBLIC_ADMISSION.json').read_bytes()
+    if sha(raw)!='a144bed854917db1c41acef99e1dfc93a076d9f7d5b1b751212b8360e0f48b9d':
+        raise ValueError('assurance-parent public admission differs')
+    public=json.loads(raw)
+    if (public['status']!='ALL4096_PUBLIC_FUTURES_AND_FULL_INDEPENDENT_COMPARISONS_ADMITTED_FOR_ONE_PAPER'
+        or public['new_futures']!=4096 or public['updates']!=819200 or public['native_controls']!=8
+        or public['public_companion_sha256']!='3ee1fd50d9bed5863a0b6057f43b2d62a52e9873d0cbc9939a5364f7d6c3431d'):
+        raise ValueError('assurance-parent public scope differs')
+    def source_bytes(name):
+        if name=='REFERENCE_ADMISSION.json' and not (data/name).exists():
+            import gzip
+            return gzip.decompress((data/(name+'.gz')).read_bytes())
+        return (data/name).read_bytes()
+    for name,digest in public['pins'].items():
+        if sha(source_bytes(name))!=digest:
+            raise ValueError('assurance-parent frozen source/result differs: '+name)
+    admission=json.loads((data/'ALL4096_INDEPENDENT_ADMISSION_V2.json').read_bytes())
+    arithmetic=json.loads((data/'INDEPENDENT_ARITHMETIC.json').read_bytes())
+    result=json.loads((data/'READOUT.json').read_bytes())
+    if (admission['status']!='ALL4096_PUBLIC_CONTROLLED_FUTURES_INDEPENDENTLY_REPLAYED_DOMAIN_VERIFIED'
+        or admission['cases']!=4096 or admission['updates']!=819200 or admission['shards']!=16
+        or admission['max_allele_replay_error']!=0
+        or arithmetic['status']!='ALL4096_ENDPOINTS_AND_FOUR_FIXED_COMPARISONS_INDEPENDENTLY_MATCH'
+        or arithmetic['analysis_helper_imported'] is not False
+        or arithmetic['primary_readout_sha256']!=public['pins']['READOUT.json']
+        or result['independent_admission_sha256']!=public['pins']['ALL4096_INDEPENDENT_ADMISSION_V2.json']
+        or result['cases']!=4096 or result['bootstrap_count']!=19999 or result['primary_family']!=4
+        or [r['decision'] for r in result['primary']]!=public['primary_decisions']):
+        raise ValueError('assurance-parent complete raw/arithmetic admission differs')
+    members={};provenance={}
+    for name in ['PUBLIC_ADMISSION.json']+list(public['pins']):
+        original=source_bytes(name);key='EVIDENCE/ASSURANCE_PARENT_'+name
+        derived=original.replace(b'https://github.com/zuizui0223/izu-core/releases/download/four-question-resolution-20261013/',b'PUBLIC_SOURCE_COMPANION/')
+        members[key]=derived
+        provenance[key]=dict(original_sha256=sha(original),derived_sha256=sha(derived),
+            transformation='Public identifying prefix replaced only; all4096 raw futures, native8/source gates and four unresolved comparisons preserved. Within-class A-expression weighting, not pure or natural-order mediation.')
+    return members,provenance
+
+
+def restoration_access_materials():
+    """Admit the unchanged64-pair descriptive audit with fresh raw verification."""
+    data=ROOT/'data/results'
+    public=(data/'restoration_access_public_admission_20261014.json').read_bytes()
+    if sha(public)!='744c6e7968c255db7c98cf337dccdad006e275574b63c78cbdc20546af9df843':
+        raise ValueError('restoration-access public admission differs')
+    admission=json.loads(public)
+    if (admission['status']!='PR513_FULL_PUBLIC_COMPANION_AND_FRESH_RAW_REVIEW_ADMITTED'
+        or admission['cases']!=64 or admission['annual_updates']!=7740
+        or admission['archive_sha256']!='7a6542e1b0f785e6618201a67039a3cd534c481417d4f65b967a874b75520a3d'):
+        raise ValueError('restoration-access admitted scope differs')
+    for path,digest in admission['pins'].items():
+        if sha((ROOT/path).read_bytes())!=digest:
+            raise ValueError('restoration-access original source/result differs: '+path)
+    fresh=(data/'restoration_access_fresh_independent_20261014.json').read_bytes()
+    if sha(fresh)!=admission['fresh_independent_sha256']:
+        raise ValueError('restoration-access fresh verification differs')
+    review=json.loads(fresh)
+    primary=json.loads((data/'restoration_access_audit_20261014.json').read_bytes())
+    if (review['status']!='ALL64_ALL32_CSV_FIELDS_INDEPENDENTLY_MATCH'
+        or review['fields_per_case']!=32 or review['annual_updates']!=7740 or review['annual_max_error']!=0
+        or review['no_producer_imports'] is not True or review['no_new_biological_histories'] is not True
+        or review['checked_csv_sha256']!=admission['pins']['data/results/restoration_access_cases_20261014.csv']
+        or primary['primary_preserved']['decision']!='unresolved'):
+        raise ValueError('restoration-access fresh raw admission scope differs')
+    paths={
+        'data/results/restoration_access_public_admission_20261014.json':'PUBLIC_ADMISSION.json',
+        'data/results/restoration_access_audit_20261014.json':'READOUT.json',
+        'data/results/restoration_access_cases_20261014.csv':'CASES.csv',
+        'data/results/restoration_access_fresh_independent_20261014.json':'FRESH_INDEPENDENT.json',
+        'docs/CHAPTER2_RESTORATION_ACCESS_AUDIT_20261014.md':'SOURCE_SCOPE.md',
+        'scripts/audit_restoration_access_20261014.py':'AUDIT_SOURCE.py',
+        'scripts/verify_restoration_access_independent_20261014.py':'INDEPENDENT_SOURCE.py'}
+    members={};provenance={}
+    for path,name in paths.items():
+        raw=(ROOT/path).read_bytes();key='EVIDENCE/RESTORATION_ACCESS_'+name
+        derived=raw.replace(b'https://github.com/zuizui0223/izu-core/releases/download/four-question-resolution-20261013/',b'PUBLIC_SOURCE_COMPANION/')
+        derived=derived.replace(b'https://github.com/zuizui0223/izu-core/',b'PUBLIC_SOURCE_COMPANION/REPOSITORY/')
+        members[key]=derived
+        provenance[key]=dict(original_sha256=sha(raw),derived_sha256=sha(derived),
+            transformation='Identifying public release/repository prefixes replaced only; unchanged64-pair primary and post hoc support/refixation constraints, no new biological history or unique cause.')
+    return members,provenance
+
+
+def genetic_access_pilot_materials():
+    """Admit exact independently replayed exploratory pilot evidence."""
+    data = ROOT / 'data/results/genetic_access_pilot_20261014'
+    pins = {'ALL_SIX_ORIGINAL_SOURCE_READBACK.json': '8e5b77d63d62d34d15a8456f5e21da26b39ef259cebca58fec083b5cb944dcb4', 'confirmation_c0_independently_verified.json': '6a2d1eea9064502d3c3ee3d8b565a1c1eac15a56db8a82f5d8a5e1272ed63666', 'confirmation_c3_independently_verified.json': 'bc7a15be4c6ab68999092473a569709710f0266d441a5010d7c0f865b96401b9', 'confirmation_c4_independently_verified.json': '0ac81d75f66935bfc9b2edaf205aa4b1bec4782a55c660303c8c2e98f302121c', 'EXTERNAL_SOURCE_AND_MIRROR_RECEIPT.json': 'dfa50e0eea4a1b2bcb1cd1d004f404ab2782dc4c95a8ce3de400904a9020545d', 'FROZEN_EXPLORATORY_READOUT.json': 'd02aec2b3d382f06ffc00b490eddfb696290d6ff5eb80e11cd467e1e7d2c620d', 'INDEPENDENT_DEMOGRAPHY_CEILING_REVIEW.json': '7663e232620a6f16e2d47529f59093f6ded3be2aaa5915bd1b8439e16617e56a', 'INDEPENDENT_EXPLORATORY_ARITHMETIC_REVIEW.json': '58f39f8589498b43b5f6005207118b9ed188ca58071f512bc86468a196eb07b6', 'main_c0_independently_verified.json': '898a1918d3928020ebdc99bb63a2ff372c97aa239867432434cba5ec435bb98a', 'main_c3_independently_verified.json': 'e8b893712c931ef23739fa94eea2b50e786b150c6d43ed0df3c102602187d722', 'main_c4_independently_verified.json': '9866070cd342e0c655086d799e8e1328de6dee17aefe615eb07df0db3d94ae21', 'verify_exploratory_arithmetic_independent.py': 'd346b2582e8db8bdd114da3ac33173e3083c7d2e15e6cf75e7d1ab081381efb9'}
+    members = {}
+    for name, digest in pins.items():
+        raw = (data / name).read_bytes()
+        if sha(raw) != digest:
+            raise ValueError('genetic-access frozen evidence differs: ' + name)
+        members['EVIDENCE/GENETIC_ACCESS_' + name] = raw.replace(
+            b'https://github.com/zuizui0223/izu-core/releases/download/four-question-resolution-20261013/',
+            b'PUBLIC_SOURCE_COMPANION/')
+    result = json.loads(members['EVIDENCE/GENETIC_ACCESS_FROZEN_EXPLORATORY_READOUT.json'])
+    review = json.loads(members['EVIDENCE/GENETIC_ACCESS_INDEPENDENT_EXPLORATORY_ARITHMETIC_REVIEW.json'])
+    if (result['all_starts'] != 1536 or review['status'] != 'PASS'
+            or review['reported_summary_sha256'] != pins['FROZEN_EXPLORATORY_READOUT.json']
+            or result['status'] != 'EXPLORATORY_SOURCE_BOUND_PILOT_DESCRIPTION_NOT_Q1_Q2_CONFIRMATION'):
+        raise ValueError('genetic-access exploratory admission scope differs')
+    return members, {name: dict(original_sha256=pins[name.removeprefix('EVIDENCE/GENETIC_ACCESS_')], derived_sha256=sha(value),
+        transformation='Identifying public URL prefix replaced with PUBLIC_SOURCE_COMPANION/ only; original hash retained. No ecological-root, clock-prediction or survival-benefit admission.')
+        for name, value in members.items()}
+
+
+def low_allele_loss_materials():
+    data=ROOT/'data/results/low_allele_loss_20261014'
+    raw=(data/'PUBLIC_READBACK.json').read_bytes()
+    if sha(raw)!='25c1b872db116be164a1891aa05f82cde4ef95e861dee20c81b70bf57a557867':
+        raise ValueError('low-allele-loss public readback identity differs')
+    admission=json.loads(raw)
+    for path,digest in admission['pins'].items():
+        if sha((ROOT/path).read_bytes())!=digest:
+            raise ValueError('low-allele-loss frozen source/result differs: '+path)
+    names={
+        'data/results/low_allele_loss_20261014/extracted/READOUT.json':'READOUT.json',
+        'data/results/low_allele_loss_20261014/extracted/ALL_CASES.csv':'CASES.csv',
+        'data/results/low_allele_loss_20261014/INDEPENDENT_REVIEW.json':'INDEPENDENT_REVIEW.json',
+        'scripts/low_allele_loss_20261014/PROTOCOL.md':'PROTOCOL.md',
+        'data/results/low_allele_loss_20261014/COMPANION_README.md':'SCOPE.md',
+        'data/results/low_allele_loss_20261014/SOURCE_READBACK_NOTE.md':'SOURCE_READBACK_NOTE.md',
+    }
+    members={'EVIDENCE/LOW_ALLELE_LOSS_'+dest:(ROOT/path).read_bytes() for path,dest in names.items()}
+    result=json.loads(members['EVIDENCE/LOW_ALLELE_LOSS_READOUT.json'])
+    review=json.loads(members['EVIDENCE/LOW_ALLELE_LOSS_INDEPENDENT_REVIEW.json'])
+    if (result['cases']!=2304 or result['eligible_loss']!=1238
+        or result['direction_counts']!={'favouring_needed':315,'opposing_needed':923,'screened_near_zero':0}
+        or review['status']!='ALL2304_LAST_LOSS_RECORDS_INDEPENDENTLY_VERIFIED'
+        or review['readout_sha256']!=sha(members['EVIDENCE/LOW_ALLELE_LOSS_READOUT.json'])
+        or review['cases_sha256']!=sha(members['EVIDENCE/LOW_ALLELE_LOSS_CASES.csv'])
+        or review['producer_imported'] is not False
+        or any(v['new_biological_histories']!=0 or v['reproduction_advances']!=0 for v in (result,review))):
+        raise ValueError('low-allele-loss admission scope differs')
+    return members,{name:dict(original_sha256=sha(value),derived_sha256=sha(value),
+        public_companion_sha256=admission['archive_sha256'],
+        public_companion_name='LOW_ALLELE_LOSS_COMPLETE_REVIEW_20261014.zip',
+        transformation='Exact retrospective last-loss evidence; full frozen source/input companion publicly verified. Conditional parent-weighting and sampling/segregation terms, not pure drift or historical causal shares.')
+        for name,value in members.items()}
+
+
+def directional_access_materials():
+    data = MINIMAL_RESULTS / 'directional_access_20261013'
+    code = ROOT / 'scripts/directional_access_20261013'
+    receipt_raw = (data / 'INDEPENDENT_REVIEW.json').read_bytes()
+    frozen_raw = (code / 'FROZEN_SOURCES.json').read_bytes()
+    if (sha(receipt_raw) != '0b7522ad57903a819b1d630c56023edfa46c66d1b37edc721ce3471826952d0b'
+        or sha(frozen_raw) != '168fcc024a60157268239ecc37a1c11446931f0a4098a56cec20a77d047f10e9'):
+        raise ValueError('directional independent/source identity differs')
+    receipt = json.loads(receipt_raw)
+    frozen = json.loads(frozen_raw)
+    if set(frozen) != {'PROTOCOL.md','audit_access.py','verify_access.py','test_access.py','POPULATION_SOURCE.py'}:
+        raise ValueError('directional source inventory differs')
+    for name, identity in frozen.items():
+        if sha((code / name).read_bytes()) != identity:
+            raise ValueError('directional executed source differs')
+    readout_raw = (data / 'READOUT.json').read_bytes()
+    value = json.loads(readout_raw)
+    case_raw = (data / 'ALL_CASES.csv').read_bytes()
+    array_raw = (data / 'ALL_CENSUS_SUPPORT.npz').read_bytes()
+    compact_raw = (data / 'ORIGINAL_COMPACT.json').read_bytes()
+    blob = hashlib.sha1(b'blob ' + str(len(compact_raw)).encode() + b'\0' + compact_raw).hexdigest()
+    if (sha(readout_raw) != receipt['readout_sha256'] or sha(case_raw) != receipt['cases_sha256']
+        or sha(array_raw) != receipt['arrays_sha256'] or blob != value['compact_git_blob']
+        or blob != '5608ad2cdcbef167fe9062ab5f26318abf2e1bd9'
+        or value['source_sha256'] != frozen['audit_access.py']
+        or value['protocol_sha256'] != frozen['PROTOCOL.md']
+        or value['population_source_sha256'] != frozen['POPULATION_SOURCE.py']
+        or receipt['verifier_sha256'] != frozen['verify_access.py']
+        or value['cases'] != 2304 or len(value['cells']) != 18
+        or value['excluded_before_fixation'] != 703 or value['missing_I_excluded_before_fixation'] != 702
+        or value['missing_I_terminal_excluded_alive'] != 1159
+        or receipt['parent_homolog_checks'] != 44236800 or receipt['census_descriptor_checks'] != 2315520
+        or receipt['status'] != 'ALL2304_DIRECTIONAL_SUPPORT_AND_ANCESTRY_INDEPENDENTLY_VERIFIED'
+        or receipt['producer_imported'] is not False or value['new_biological_histories'] != 0):
+        raise ValueError('directional verified scope differs')
+    members = {
+        'EVIDENCE/DIRECTIONAL_ACCESS_READOUT.json': readout_raw,
+        'EVIDENCE/DIRECTIONAL_ACCESS_CASES.csv': case_raw,
+        'EVIDENCE/DIRECTIONAL_ACCESS_ARRAYS.npz': array_raw,
+        'EVIDENCE/DIRECTIONAL_ACCESS_INDEPENDENT_REVIEW.json': receipt_raw,
+        'EVIDENCE/DIRECTIONAL_ACCESS_ORIGINAL_COMPACT.json': compact_raw,
+        'EVIDENCE/DIRECTIONAL_ACCESS_FROZEN_SOURCES.json': frozen_raw,
+        'EVIDENCE/DIRECTIONAL_ACCESS_README.md': re.sub(rb'https://github\.com/[^\s]+',
+            b'External original raw archive (identity recorded below; source access supplied separately).',
+            (data / 'README.md').read_bytes()),
+    }
+    for name, dest in [('PROTOCOL.md','PROTOCOL.md'),('audit_access.py','SOURCE.py'),
+                       ('verify_access.py','INDEPENDENT_SOURCE.py'),('test_access.py','TEST_SOURCE.py'),
+                       ('POPULATION_SOURCE.py','POPULATION_SOURCE.py')]:
+        members['EVIDENCE/DIRECTIONAL_ACCESS_' + dest] = (code / name).read_bytes()
+    derivations = {name: dict(original_sha256=sha(raw), derived_sha256=sha(raw),
+        independent_review_sha256=sha(receipt_raw), transformation='Exact retrospective support diagnostic; original event definitions and all case/census records retained.')
+        for name, raw in members.items()}
+    derivations['EVIDENCE/DIRECTIONAL_ACCESS_README.md'].update(
+        original_sha256=sha((data / 'README.md').read_bytes()),
+        transformation='Remove identifying public source URL only; archive name, identity, verification command and scientific limits retained.')
+    return members, derivations
+
+
+def kernel_channel_materials():
+    data = MINIMAL_RESULTS / 'kernel_channel_factorial_20261013'
+    code = ROOT / 'scripts/kernel_channel_factorial_20261013'
+    receipt_raw = (data / 'INDEPENDENT_REVIEW_V3.json').read_bytes()
+    if sha(receipt_raw) != '60fb6306a1684d0e6589d4b8d5a0717b65b12760f32fec241339606f38945d4a':
+        raise ValueError('kernel channel independent receipt identity differs')
+    receipt = json.loads(receipt_raw)
+    raw = (data / 'READOUT.json').read_bytes()
+    readout = json.loads(raw)
+    arrays_raw = (data / 'ARRAYS_MANIFEST.json').read_bytes()
+    arrays = json.loads(arrays_raw)
+    if (sha(raw) != receipt['readout_sha256'] or arrays['sha256'] != receipt['arrays_sha256']
+        or arrays['companion_sha256'] != 'c7c7c091d8ea202fecebcb9dd31605b86add813ead52587bbe6c129c94bdaaaf'
+        or arrays['file'] != 'HYBRID_KERNELS_AND_CURVES.npz' or arrays['bytes'] != 32735765
+        or arrays['kernels_shape'] != [192,165,165] or arrays['occupancy_shape'] != [192,81]
+        or arrays['external_companion'] != 'KERNEL_CHANNEL_FACTORIAL_OPERATOR_REVIEW_20261013.zip'
+        or arrays['companion_member'] != 'kernel-channel-factorial-20261013/extracted/HYBRID_KERNELS_AND_CURVES.npz'
+        or readout['pairs'] != 48 or readout['original_kernels'] != 96 or readout['hybrid_laws'] != 192
+        or receipt['original_row_checks'] != 2613600 or receipt['hybrid_row_checks'] != 5227200
+        or receipt['occupancy_checks'] != 15552 or readout['new_biological_histories'] != 0):
+        raise ValueError('kernel channel verified evidence differs')
+    bindings = {}
+    for version, identity in [('v2','ce18d6aaabf70025967fb8d1583cdb89fae66d2888e203d97b3a5abc91b69982'),
+                              ('verification_v3','fcd512804c9398b7f44bad24359018813b23677cc1248a8c3fc813a9424296eb')]:
+        frozen_raw = (code / version / 'FROZEN_SOURCES.json').read_bytes()
+        if sha(frozen_raw) != identity:
+            raise ValueError('kernel channel frozen source identity differs')
+        frozen = json.loads(frozen_raw)
+        if set(frozen) != {'audit_channels.py','verify_channels.py','test_channels.py','PROTOCOL.md'}:
+            raise ValueError('kernel channel frozen inventory differs')
+        for name, source_sha in frozen.items():
+            if sha((code / version / name).read_bytes()) != source_sha:
+                raise ValueError('kernel channel executed source differs')
+        bindings[version] = frozen_raw
+    members = {
+        'EVIDENCE/KERNEL_CHANNEL_READOUT.json': raw,
+        'EVIDENCE/KERNEL_CHANNEL_ARRAYS_MANIFEST.json': arrays_raw,
+        'EVIDENCE/KERNEL_CHANNEL_INDEPENDENT_REVIEW.json': receipt_raw,
+        'EVIDENCE/KERNEL_CHANNEL_PROTOCOL.md': (code / 'v2/PROTOCOL.md').read_bytes(),
+        'EVIDENCE/KERNEL_CHANNEL_SOURCE.py': (code / 'v2/audit_channels.py').read_bytes(),
+        'EVIDENCE/KERNEL_CHANNEL_INDEPENDENT_SOURCE.py': (code / 'verification_v3/verify_channels.py').read_bytes(),
+        'EVIDENCE/KERNEL_CHANNEL_V2_BINDINGS.json': bindings['v2'],
+        'EVIDENCE/KERNEL_CHANNEL_V3_BINDINGS.json': bindings['verification_v3'],
+        'EVIDENCE/KERNEL_CHANNEL_V2_TECHNICAL_STOP.json': (data / 'INDEPENDENT_V2_TECHNICAL_STOP.json').read_bytes(),
+        'EVIDENCE/KERNEL_CHANNEL_V3_CORRECTION.md': (code / 'verification_v3/CORRECTION.md').read_bytes(),
+    }
+    if (sha(members['EVIDENCE/KERNEL_CHANNEL_PROTOCOL.md']) != readout['protocol_sha256']
+        or sha(members['EVIDENCE/KERNEL_CHANNEL_SOURCE.py']) != readout['source_sha256']
+        or sha(members['EVIDENCE/KERNEL_CHANNEL_INDEPENDENT_SOURCE.py']) != receipt['verifier_sha256']
+        or sha(members['EVIDENCE/KERNEL_CHANNEL_V2_TECHNICAL_STOP.json']) != '6de998527cbb90d1f11c158866f405629e00614cb7eb26c471ac9de1191eea9d'
+        or sha(members['EVIDENCE/KERNEL_CHANNEL_V3_CORRECTION.md']) != '09a11fd18bd28f9510be05560abb164f9efb3f5f95c2eb98da738fe44188cd9d'):
+        raise ValueError('kernel channel operator binding differs')
+    return members, {name: dict(original_sha256=sha(content), derived_sha256=sha(content),
+        independent_review_sha256=sha(receipt_raw), transformation='Exact diagnostic bytes; full arrays retained in pinned public companion.')
+        for name, content in members.items()}
+
+
+def kernel_expression_materials():
+    data = MINIMAL_RESULTS / 'kernel_expression_accounting_20261013'
+    code = ROOT / 'scripts/kernel_expression_accounting_20261013'
+    receipt_raw = (data / 'INDEPENDENT_REVIEW.json').read_bytes()
+    if sha(receipt_raw) != 'cf9a42c0099996a07105b718bbc4e12f20b8cbb002e2121974ce354274c37e6b':
+        raise ValueError('kernel expression independent receipt identity differs')
+    receipt = json.loads(receipt_raw)
+    readout_raw = gzip.decompress((data / 'READOUT.json.gz').read_bytes())
+    readout = json.loads(readout_raw)
+    arrays_raw = (data / 'ARRAYS_MANIFEST.json').read_bytes()
+    arrays = json.loads(arrays_raw)
+    optional_terms = data / 'ALL_STATE_TIME_CONTRIBUTIONS.npz'
+    if optional_terms.exists() and sha(optional_terms.read_bytes()) != receipt['all_terms_sha256']:
+        raise ValueError('kernel expression verified source admission differs: local signed terms')
+    source = (code / 'audit_kernel_expression.py').read_bytes()
+    protocol = (code / 'PROTOCOL.md').read_bytes()
+    verifier = (code / 'verify_kernel_expression_independent.py').read_bytes()
+    if (sha(readout_raw) != receipt['readout_sha256'] or arrays['sha256'] != receipt['all_terms_sha256'] or arrays['bytes'] != 18547957
+        or arrays['companion_sha256'] != 'c5da14c2bb577e0c7a58dad481b611424045df37ad48cb81d397ebe3f667722a'
+        or sha(source) != readout['executed_source_sha256'] or sha(protocol) != readout['protocol_sha256']
+        or sha(verifier) != receipt['verifier_sha256']
+        or readout['pairs'] != 48 or readout['kernels'] != 96 or readout['original_reversals'] != 12
+        or receipt['state_time_checks'] != 2534400 or receipt['switch_time_checks'] != 15360
+        or receipt['new_biological_histories'] != 0 or receipt['producer_imported']):
+        raise ValueError('kernel expression verified source admission differs')
+    manifest = json_bytes(dict(file='ALL_STATE_TIME_CONTRIBUTIONS.npz',sha256=arrays['sha256'],bytes=arrays['bytes'],
+        endpoint_shape=[48,2,80,165],duration_shape=[48,2,80,165],
+        external_companion='KERNEL_EXPRESSION_OPERATOR_REVIEW_20261013.zip',
+        scope='All signed state-time arrays preserved in separate public companion; not duplicated in reviewer ZIP.'))
+    members = {
+        'EVIDENCE/KERNEL_EXPRESSION_READOUT.json': readout_raw,
+        'EVIDENCE/KERNEL_EXPRESSION_ARRAYS_MANIFEST.json': manifest,
+        'EVIDENCE/KERNEL_EXPRESSION_INDEPENDENT_REVIEW.json': receipt_raw,
+        'EVIDENCE/KERNEL_EXPRESSION_PROTOCOL.md': protocol,
+        'EVIDENCE/KERNEL_EXPRESSION_SOURCE.py': source,
+        'EVIDENCE/KERNEL_EXPRESSION_INDEPENDENT_SOURCE.py': verifier,
+    }
+    return members, {name:dict(original_sha256=arrays['sha256'] if name.endswith('ARRAYS_MANIFEST.json') else sha(raw),
+        derived_sha256=sha(raw),independent_review_sha256=sha(receipt_raw),
+        transformation='Array manifest is a size/hash-bound pointer to full signed arrays; all other diagnostic bytes exact and unpooled.')
+        for name,raw in members.items()}
+
+
+def response_onset_materials():
+    data = MINIMAL_RESULTS / 'expected_response_onset_20261013'
+    code = ROOT / 'scripts/expected_response_onset_20261013'
+    independent_raw = (data / 'INDEPENDENT_REVIEW.json').read_bytes()
+    if sha(independent_raw) != '9d3c84e5068efa25bd9984a4b43118dbb2e3f6789214e7735499b89d5997ca05':
+        raise ValueError('response onset independent receipt identity differs')
+    independent = json.loads(independent_raw)
+    readout_raw = (data / 'READOUT.json').read_bytes()
+    readout = json.loads(readout_raw)
+    source = (code / 'audit_response_onset.py').read_bytes()
+    protocol = (code / 'PROTOCOL.md').read_bytes()
+    cases = (data / 'ALL_CASES.csv').read_bytes()
+    verifier = (code / 'verify_response_onset_independent.py').read_bytes()
+    if (sha(readout_raw) != independent['readout_sha256']
+        or sha(cases) != independent['all_cases_sha256']
+        or sha(verifier) != independent['verifier_sha256']
+        or sha(source) != readout['source_script_sha256']
+        or sha(protocol) != readout['protocol_sha256']
+        or readout['cases'] != 2304 or readout['profiles'] != 18
+        or readout['original_categories']['assurance_first'] != 335
+        or readout['assurance_first_despite_earlier_I_point'] != 299
+        or readout['assurance_first_despite_earlier_I_sustained'] != 216
+        or independent['onset_comparisons'] != 9216 or independent['native_F1_checks'] != 306
+        or independent['new_biological_histories'] != 0 or independent['offspring_calls'] != 0):
+        raise ValueError('response onset independent source admission differs')
+    members = {
+        'EVIDENCE/RESPONSE_ONSET_READOUT.json': readout_raw,
+        'EVIDENCE/RESPONSE_ONSET_ALL_CASES.csv': cases,
+        'EVIDENCE/RESPONSE_ONSET_INDEPENDENT_REVIEW.json': independent_raw,
+        'EVIDENCE/RESPONSE_ONSET_PROTOCOL.md': protocol,
+        'EVIDENCE/RESPONSE_ONSET_SOURCE.py': source,
+        'EVIDENCE/RESPONSE_ONSET_INDEPENDENT_SOURCE.py': verifier,
+    }
+    return members, {name:dict(original_sha256=sha(raw),derived_sha256=sha(raw),
+        independent_review_sha256=sha(independent_raw),transformation='Exact frozen read-only diagnostic bytes; no recoding, simulation or inferential pooling.')
+        for name,raw in members.items()}
+
+
+def initial_clock_materials():
+    """Admit independently checked read-only initial-state evidence, not a fitted clock."""
+    review_name = 'chapter2_initial_clock_independent_review_20261013.json'
+    review_raw = (MINIMAL_RESULTS / review_name).read_bytes()
+    review = json.loads(review_raw)
+    if (review['status'] != 'ALL2304_RAW_AND18_NATIVE_INITIAL_RETURN_CHECKS_VERIFIED'
+        or review['raw_cases'] != 2304 or not review['profiles_exact_match']
+        or review['native_return_checks'] != 144 or review['native_response_checks'] != 162):
+        raise ValueError('initial clock independent admission differs')
+    names = {
+        'chapter2_initial_clock_identifiability_20261013.json': 'EVIDENCE/INITIAL_CLOCK_IDENTIFIABILITY.json',
+        'chapter2_initial_clock_t0_raw_20261013.json': 'EVIDENCE/INITIAL_CLOCK_RAW.json',
+    }
+    members = {}; derivations = {}
+    for name, dest in names.items():
+        raw = (MINIMAL_RESULTS / name).read_bytes()
+        if sha(raw.replace(b'\r\n', b'\n')) != review['source_sha256'][name]:
+            raise ValueError('initial clock source hash differs: ' + name)
+        value = json.loads(raw)
+        if 'execution' in value:
+            value['execution'].pop('repo', None)
+            value['execution'].pop('branch', None)
+            if value['original_starts'] != 2304 or len(value['original_raw_t0_feature_rows']) != 18:
+                raise ValueError('initial clock raw scope differs')
+        else:
+            if (value['all_cases'] != 2304
+                or value['post_hoc_oracle_six_classes']['joint']['oracle_correct'] != 1117):
+                raise ValueError('initial clock observed scope differs')
+            value['source']['path'] = 'EVIDENCE/ECOLOGICAL_ORDER_READOUT.json'
+            value.pop('recompute', None)
+        members[dest] = json_bytes(value)
+        derivations[dest] = dict(original_sha256=sha(raw), derived_sha256=sha(members[dest]),
+            independent_review_sha256=sha(review_raw),
+            transformation='Remove repository/branch and internal execution routing only; numerical values and scientific ceilings unchanged.')
+    dest = 'EVIDENCE/INITIAL_CLOCK_INDEPENDENT_REVIEW.json'
+    members[dest] = review_raw
+    derivations[dest] = dict(original_sha256=sha(review_raw), derived_sha256=sha(review_raw), transformation='Exact independent review receipt.')
+    return members, derivations
+
+
+def minimal_resolution_materials():
+    receipt_raw=(MINIMAL_RESULTS/'minimal_resolution_delivery_20261013.json').read_bytes()
+    receipt=json.loads(receipt_raw)
+    sources={
+        'investment_variation_restoration_readout_20261013.json':'EVIDENCE/INVESTMENT_VARIATION_READOUT.json',
+        'future_parent_selection_readout_20261013.json':'EVIDENCE/FUTURE_PARENT_READOUT.json',
+        'ecological_order_boundary_20261013.json':'EVIDENCE/ECOLOGICAL_ORDER_READOUT.json',
+        'matched_operator_gap_20261013.json':'EVIDENCE/OPERATOR_GAP_READOUT.json',
+        'chapter2_discovery_archive_recovery_20261013.json':'EVIDENCE/DISCOVERY_ARCHIVE_INTAKE.json',
+        'genome_response_accounting_readout_20261013.json':'EVIDENCE/GENOME_RESPONSE_READOUT.json',
+        'persistence_duration_accounting_20261013.json':'EVIDENCE/DURATION_READOUT.json',
+        'initial_assurance_mean_20261013/readout.json':'EVIDENCE/INITIAL_MEAN_READOUT.json',
+        'initial_assurance_mean_20261013/original_readout.json.gz':'EVIDENCE/INITIAL_MEAN_ORIGINAL.json.gz',
+    }
+    if receipt['status']!='ACTUAL_RAW_AND_ARITHMETIC_VERIFIED' or set(receipt['sha256'])!=set(sources):
+        raise ValueError('minimal resolution admission inventory differs')
+    members={};derivations={}
+    for name,dest in sources.items():
+        raw=(MINIMAL_RESULTS/name).read_bytes()
+        canonical=raw if name.endswith('.gz') else raw.replace(b'\r\n',b'\n')
+        if sha(raw) not in receipt['source_raw_sha256'][name] or sha(canonical)!=receipt['sha256'][name]:
+            raise ValueError('minimal resolution source hash mismatch: '+name)
+        members[dest]=canonical
+        derivations[dest]=dict(source_delivery_sha256=sha(receipt_raw),original_sha256=sha(raw),derived_sha256=sha(canonical),transformation=receipt['transformation'])
+    value=json.loads(members['EVIDENCE/INITIAL_MEAN_READOUT.json'])
+    original=gzip.decompress(members['EVIDENCE/INITIAL_MEAN_ORIGINAL.json.gz'])
+    raw=json.loads(original)
+    if (sha(original)!=value['original_readout_sha256'] or value['primary']!=raw['primary']
+        or value['new_native_futures']!=4096 or value['new_clamp_identity_futures']!=8
+        or value['independent_arithmetic']['cases']!=4096 or value['source_execution_commit']!='615cd38156b0d0004a9415797ef498791b74257c'
+        or json.loads(members['EVIDENCE/GENOME_RESPONSE_READOUT.json'])['updates']!=64000
+        or json.loads(members['EVIDENCE/DURATION_READOUT.json'])['kernels']!=96):
+        raise ValueError('minimal resolution scientific admission differs')
+    gap=json.loads(members['EVIDENCE/OPERATOR_GAP_READOUT.json'])
+    intake=json.loads(members['EVIDENCE/DISCOVERY_ARCHIVE_INTAKE.json'])
+    if (gap['cases']!=320 or gap['updates']!=64000 or gap['actual_readback']['run']!=38306641012
+        or gap['independent_pair_matrix']['updates']!=64000
+        or intake['status']!='ARCHIVE_BYTES_AND_DISCOVERY_ENDPOINTS_VERIFIED'
+        or not intake['verification']['archive_identity_verified']
+        or intake['counts']['discovery_cases_verified']!=2048
+        or intake['verification']['runtime_identity_verified'] or intake['verification']['original_discovery_full_replay_completed']):
+        raise ValueError('matched gap/original archive admission differs')
+    eco=json.loads(members['EVIDENCE/ECOLOGICAL_ORDER_READOUT.json'])
+    if (eco['status']!='ALL2304_RAW_GENOTYPE_AND_ORDER_TRACES_ADMITTED' or eco['cases']!=2304
+        or eco['updates']!=460800 or len(eco['cells'])!=18 or eco['actual_readback']['run']!=38312090996
+        or eco['independent']['cases']!=2304 or eco['independent']['checks']!=6930
+        or eco['supported_supply_pairs'] or eco['supported_composition_pairs']
+        or not all(c['simultaneous_interval'][0]<=0<=c['simultaneous_interval'][1] for c in eco['cells'])):
+        raise ValueError('ecological order admission/negative decision differs')
+    parent=json.loads(members['EVIDENCE/FUTURE_PARENT_READOUT.json'])
+    if (parent['status']!='ACTUAL_RAW_BIRTH_AND_FOUR_DECISIONS_INDEPENDENTLY_VERIFIED'
+        or parent['cases']!=4096 or parent['updates']!=819200
+        or parent['actual_readback']['run']!=38322562488
+        or parent['independent']['status']!='INDEPENDENT_ALL4096_RAW_CASE_AND_FOUR_DECISIONS_MATCH'
+        or parent['independent']['raw_replay_checks']!=9031680
+        or parent['independent']['producer_imports'] is not False
+        or len(parent['primary'])!=4
+        or any(p['decision']!='unresolved' for p in parent['primary'])
+        or parent['occupied_counts'][1][:2]!=[[864,863],[790,757]]):
+        raise ValueError('future parent independent admission differs')
+    restoration=json.loads(members['EVIDENCE/INVESTMENT_VARIATION_READOUT.json'])
+    if (restoration['status']!='INDEPENDENT64_NATIVE_AND_RESTORED_SAVED_PATHS_PRIMARY_AND_SECONDARIES_MATCH'
+        or (restoration['histories'],restoration['triggers'],restoration['no_trigger'])!=(64,61,3)
+        or restoration['independent_state_parent_checks']!=123880
+        or restoration['independent_reproductive_variance_checks']!=54628
+        or restoration['independent_receipt_sha256']!='8fc957c4fcea4287541627abae5aaf572dccb82bd43e74f7c7f16fafa816f37e'
+        or restoration['source_commit']!='778474d9'
+        or restoration['primary']['decision']!='unresolved'
+        or not restoration['primary']['ci95'][0]<0<restoration['primary']['ci95'][1]
+        or len(restoration['cases'])!=64 or len({r['key'] for r in restoration['cases']})!=64
+        or any(r['original_I'] is None or r['restored_I'] is None for r in restoration['cases'])):
+        raise ValueError('investment variation independent admission differs')
+    values=restoration['cases']
+    accounting=restoration.get('pathwise_accounting',{})
+    if (accounting.get('status')!='INDEPENDENT_ALL7740_RESTORED_PATHWISE_TERMS_MATCH'
+        or accounting.get('updates')!=7740 or accounting.get('cases')!=64
+        or accounting.get('new_histories')!=0 or accounting.get('producer_imports') is not False
+        or accounting.get('independent_receipt_sha256')!='f98613093deca632475000556670be9faa28a31f17007b5fcc859997f1c95355'):
+        raise ValueError('investment variation independent admission differs')
+    for block,row in accounting['blocks'].items():
+        if abs(row['selection']+row['parent_sampling']+row['transmission']-row['observed_change'])>1e-12:
+            raise ValueError('investment variation signed accounting closure differs')
+    if abs(sum(r['original_I']-r['restored_I'] for r in values)/64-restoration['primary']['estimate'])>1e-12:
+        raise ValueError('investment variation primary differs from complete case inventory')
+    protocol=ROOT/'docs/CHAPTER2_INVESTMENT_VARIATION_RESTORATION_PROTOCOL_20261013.md'
+    original_protocol=protocol.read_bytes();canonical_protocol=original_protocol.replace(b'\r\n',b'\n')
+    if sha(canonical_protocol)!=restoration['protocol_sha256']:
+        raise ValueError('investment variation frozen protocol hash differs')
+    dest='EVIDENCE/INVESTMENT_VARIATION_PROTOCOL.md';members[dest]=canonical_protocol
+    derivations[dest]=dict(original_sha256=sha(original_protocol),derived_sha256=sha(canonical_protocol),
+        transformation='Exact approved protocol; CRLF to LF only; no numerical or decision changes.')
+    return members,derivations
 
 
 def anonymous_text(text,label):
@@ -210,6 +839,30 @@ def resolution_materials():
 
 def validate_member(name,raw):
     """Parse deliverable formats; visual and scientific inspection remain separate."""
+    if name == 'EVIDENCE/ASSURANCE_PARENT_OUTCOMES.npz':
+        import numpy as np
+        with np.load(io.BytesIO(raw),allow_pickle=False) as arrays:
+            if set(arrays.files)!={'occupied','curves'}:
+                raise ValueError('assurance-parent all-start outcome inventory differs')
+            occupied=arrays['occupied'];curves=arrays['curves']
+            if (occupied.shape!=(2,512,2,3,2) or curves.shape!=(2,512,2,3,2,201)
+                or occupied.dtype.kind not in 'iu' or curves.dtype.kind not in 'iu'
+                or not np.isin(occupied,[0,1]).all() or not np.isin(curves,[0,1]).all()
+                or not np.array_equal(occupied,curves[...,-1]) or np.any(np.diff(curves.astype(np.int8),axis=-1)>0)):
+                raise ValueError('assurance-parent complete endpoint/absorbing curves differ')
+        return
+    if name == 'EVIDENCE/DIRECTIONAL_ACCESS_ARRAYS.npz':
+        import numpy as np
+        with np.load(io.BytesIO(raw), allow_pickle=False) as arrays:
+            expected = {'keys','minimum','maximum','support_size','allele_variance','phenotype_variance'}
+            if set(arrays.files) != expected or arrays['keys'].shape != (2304,):
+                raise ValueError('directional census array inventory differs')
+            for field in expected - {'keys'}:
+                if arrays[field].shape != (2304,201) or arrays[field].dtype.kind not in 'fiu':
+                    raise ValueError('directional census descriptor shape differs')
+            for key in arrays['keys']:
+                anonymous_text(str(key), name)
+        return
     if name.endswith(".pdf"):
         try:
             if not raw.startswith(b"%PDF-"):
@@ -344,7 +997,7 @@ def blind_paper():
       "# Data accessibility\n\n"
       "The preservation status and verification limits of the frozen study designs, "
       "source code and simulation outputs are documented in the Supporting Information. "
-      "The earlier discovery cohort's original archive remains unavailable. "
+      "The original discovery archive and positive-mutation endpoints have been authenticated; historical execution/runtime and annual-genome replay remain unverified. "
       "A permanent DOI-backed raw-data archive has not yet been deposited. "
       "An appropriately anonymous, editor-approved access route is required "
       "before manuscript submission; depositing the underlying raw data "
@@ -405,6 +1058,10 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     si_text=si_text.replace("../data/results/persistence_mechanism_20261012/readout.json","EVIDENCE/MECHANISM_READOUT.json")
     si_text=si_text.replace("../data/results/persistence_mechanism_20261012/design.md","EVIDENCE/MECHANISM_DESIGN.md")
     si_text=si_text.replace("../data/results/persistence_mechanism_20261012/original_readout.json.gz","EVIDENCE/MECHANISM_ORIGINAL.json.gz")
+    si_text=si_text.replace('docs/CHAPTER2_INVESTMENT_VARIATION_RESTORATION_PROTOCOL_20261013.md',
+                            'EVIDENCE/INVESTMENT_VARIATION_PROTOCOL.md')
+    si_text=si_text.replace('data/results/investment_variation_restoration_readout_20261013.json',
+                            'EVIDENCE/INVESTMENT_VARIATION_READOUT.json')
     si=si_text.encode("utf-8")
     if any(token in si.lower().decode("utf-8") for token in DENIED):
         raise ValueError("blinded Supporting Information has identifying token")
@@ -430,6 +1087,49 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     mechanism,mechanism_derivations=mechanism_materials()
     members.update(mechanism)
     derivations.update(mechanism_derivations)
+    minimal,minimal_derivations=minimal_resolution_materials()
+    members.update(minimal)
+    derivations.update(minimal_derivations)
+    clock,clock_derivations=initial_clock_materials()
+    members.update(clock)
+    derivations.update(clock_derivations)
+    onset,onset_derivations=response_onset_materials()
+    members.update(onset)
+    derivations.update(onset_derivations)
+    kernel_expression,kernel_expression_derivations=kernel_expression_materials()
+    members.update(kernel_expression)
+    derivations.update(kernel_expression_derivations)
+    kernel_channel,kernel_channel_derivations=kernel_channel_materials()
+    members.update(kernel_channel)
+    derivations.update(kernel_channel_derivations)
+    directional,directional_derivations=directional_access_materials()
+    members.update(directional)
+    derivations.update(directional_derivations)
+    f1,f1_derivations=first_meiosis_access_materials()
+    members.update(f1)
+    derivations.update(f1_derivations)
+    pilot,pilot_derivations=genetic_access_pilot_materials()
+    members.update(pilot)
+    derivations.update(pilot_derivations)
+    restoration_access,restoration_access_derivations=restoration_access_materials()
+    members.update(restoration_access)
+    derivations.update(restoration_access_derivations)
+    q3_conditional,q3_conditional_derivations=q3_conditional_materials()
+    members.update(q3_conditional);derivations.update(q3_conditional_derivations)
+    q3_events,q3_event_derivations=q3_event_conditions_materials()
+    members.update(q3_events);derivations.update(q3_event_derivations)
+    from scripts.natural_order_paper_admission_20261014 import materials as natural_order_materials
+    natural_order,natural_order_derivations=natural_order_materials(ROOT)
+    members.update(natural_order);derivations.update(natural_order_derivations)
+    assurance_parent,assurance_parent_derivations=assurance_parent_materials()
+    members.update(assurance_parent)
+    derivations.update(assurance_parent_derivations)
+    low_loss,low_loss_derivations=low_allele_loss_materials()
+    members.update(low_loss)
+    derivations.update(low_loss_derivations)
+    original490,original490_derivations=pr490_original_materials()
+    members.update(original490)
+    derivations.update(original490_derivations)
     derivations["SUPPORTING_INFORMATION.md"]={
         "original_path":str(si_path.relative_to(ROOT)),"original_sha256":sha(si_original),
         "derived_sha256":sha(si),"transformation":"Relocate atom/resolution/mechanism companion source references and add the delivered supplementary-figure link; numerical text unchanged."}
@@ -453,6 +1153,11 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
         "mechanism_evidence":"20480 full-genome-admitted futures and independent all-start arithmetic; lifelong expression policies, not initial-only or natural-order mediation; low-challenge terminal floor retained",
         "atom_evidence":"All10 two-grid numerical admissions and320 descriptive ABM histories;990 event and40 checkpoint independent array checks, no new raw-genome reconstruction or causal drift attribution",
         "resolution_evidence":"6144 boundary,3072 shared preparations,6144 branched challenges; genetic-access band and conditional all-start preparation-policy effects, not pure natural-order mediation",
+        "natural_order_evidence":"Retrospective raw-genotype join of1024 unrestricted preparations and2048 existing futures; all36 descriptive groups independently verified. Two fixed founders; not randomized order benefit, new simulation or primary family.",
+        "kernel_expression_evidence":"All48 investment-expression pairs and12 endpoint-duration reversals; two exact reference-order/state-time decompositions. Pure-low positive/pure-high negative aggregate contributions; segregating signs reference-sensitive. Not unique fixation mediation or natural-order benefit",
+        "response_onset_evidence":"All2304 archived on-path expected inherited response clocks;299 point/216 sustained earlier-I counterexamples among335 assurance-first cases. Descriptive refutation of universal start-time-only necessity; no invasion-gradient, causal or future-benefit claim",
+        "initial_clock_evidence":"Read-only 2304 histories in18 identical-t0 profiles; native initial returns independently checked; observed six-class oracle is descriptive, not fitted/prospective accuracy, causal explanation or natural-order benefit",
+        "investment_variation_evidence":"64 outcome-informed mean-preserving allele-variation intervention slots,61 triggers and3 unchanged controls; independently replayed frozen-source paths; primary unresolved, not equivalence or unique causal allocation",
         "members":{name:{"size":len(b),"sha256":sha(b)}
                    for name,b in sorted(members.items())},
     }

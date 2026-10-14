@@ -1,0 +1,36 @@
+{
+  "status": "ALL4096_PUBLIC_FUTURES_AND_FULL_INDEPENDENT_COMPARISONS_ADMITTED_FOR_ONE_PAPER",
+  "source_commit": "90d586f8f54ed660ed1634f0a1119951c0700309",
+  "public_companion_sha256": "3ee1fd50d9bed5863a0b6057f43b2d62a52e9873d0cbc9939a5364f7d6c3431d",
+  "public_companion_members": 36,
+  "new_futures": 4096,
+  "updates": 819200,
+  "native_controls": 8,
+  "old_reference_replays": 4096,
+  "max_allele_replay_error": 0,
+  "primary_family": 4,
+  "primary_decisions": [
+    "unresolved",
+    "unresolved",
+    "unresolved",
+    "unresolved"
+  ],
+  "public_url": "https://github.com/zuizui0223/izu-core/releases/download/four-question-resolution-20261013/ASSURANCE_PARENT_COMPLETE_INDEPENDENT_REVIEW_20261014.zip",
+  "pins": {
+    "READOUT.json": "efa2452e9418ebd37070d890ee192d5820d5e60984473ae0b20b376b5b9a3b00",
+    "OUTCOMES.npz": "583d5ec409b510185babc2ef0b843b06fca11e5f8be0a8356947041033a460da",
+    "INDEPENDENT_ARITHMETIC.json": "0d3f2225413004d27ce5d368bde828a067ea35f96e099d7840dc846541240618",
+    "ALL4096_INDEPENDENT_ADMISSION_V2.json": "a691d1a6fdcb155b6468137914ad8ed2b27428d1c085a533f7201f3f4da7afba",
+    "REFERENCE_ADMISSION.json": "3f107e2841cff502be422061b1b182e0798b7579e662f75a992d16b4d370d68d",
+    "NATIVE8_ADMISSION.json": "9dd40166ce481b51d79f4c55ae7690217e5df65d85b02a936415b23cccc75088",
+    "DOMAIN_CORRECTION.md": "80692fda5f46a411710f9cfdbbd624792fd27aba347391bd272d358c052e3875",
+    "DOMAIN_COLLECTOR_SOURCE.py": "09302922a5f90e671bc805751146085350215a26c85cf305ceba7e4fff431c12",
+    "ANALYSIS_SOURCE.py": "a6eaa0f370609c5d59cb2ed5df9400b5f1192a0d2870421e70fa7b62318e0f5c",
+    "INDEPENDENT_ARITHMETIC_SOURCE.py": "09fc9a9f4d50f0cd50bd75e1107bce93c03caa6702d7e39c0e5d1499e39bbf7e",
+    "RUN_COMPLETION.json": "d2f42593a88ff87c58b2a0c5aa77ac47dda8bf36b24c2e995b3e05fa914f00d6",
+    "PROTOCOL.md": "8d9174ec01a47f5e43c73802338d1f98160557a617fbc9945364723a6de3cda7",
+    "INDEPENDENT_READER_SOURCE.py": "860680aa7ba248b43dad6e4e984f3af52fc23438014ca8b13246b72bbc167906",
+    "EXECUTION_BINDINGS.json": "10e537829a06650b0be9161ea9398e6d02239253f6cb474bfa4fbc143849669a"
+  },
+  "scope": "Within-class assurance-expression parent-weight intervention; all4 contrasts unresolved, not absence/equivalence or natural evolutionary-order benefit."
+}
