@@ -462,3 +462,73 @@ Main support classes were15 lower-only,9 excluded and7 all-eligible; one slot ne
 All72 confirmation losses ended in upper-allele fixation without prior event completion. However,424 confirmation pairs retaining the event also ended in upper fixation; five main gains likewise eventually fixed the upper allele. Timing and inherited event history therefore matter, and upper fixation alone is not a sufficient explanation. The absorbing refixation checks are descriptions of observed paths. No fixation-prevention intervention or independent variance/support separation was executed, so these observations do not identify refixation as the unique causal mediator.
 
 Both conditional terminal-mean contrasts in S23 remain positive despite opposite event-count directions. The original64-history primary and confirmation contrast relative to the operational0.01 margin remain unresolved. These restrictions explain which event changes were possible under this restoration policy; they do not establish a natural evolutionary-order benefit, survival benefit, ecological threshold or new-founder replication.
+
+## S25. Retrospective association in unrestricted preparation histories
+
+The original experiment included 1,024 unrestricted both-access preparations (512 for each of two fixed founder states). Both response traits could mutate throughout preparation. We retrospectively joined their original preparation order categories to all 2,048 already computed challenge futures. Categories were independently recomputed from archived genotypes with the original 0.05 threshold, 20-census sustained window, and five-census tie allowance. No new biological simulation was used. All preparations remained occupied and all challenge handoffs contained eight individuals.
+
+The six preparation categories comprised 110 assurance-first, 63 investment-first, 16 near-simultaneous, 577 assurance-only, 47 investment-only, and 211 neither. The 173 strict-order cases were not selected by future survival. They do not represent randomized order treatments.
+
+| Challenge | Founder stratum | Category | Starts | Occupied at census 400 | Mean occupied censuses 201–400 | Mean handoff assurance | Mean handoff investment |
+|---|---|---|---:|---:|---:|---:|---:|
+| 1.05 | main | assurance_first | 52 | 10/52 | 85.211538 | 0.663138 | 0.417627 |
+| 1.05 | main | investment_first | 26 | 6/26 | 94.423077 | 0.614828 | 0.415335 |
+| 1.05 | confirmation | assurance_first | 58 | 22/58 | 127.844828 | 0.660812 | 0.414139 |
+| 1.05 | confirmation | investment_first | 37 | 4/37 | 82.729730 | 0.629319 | 0.406020 |
+| 1.05 | pooled_descriptive | assurance_first | 110 | 32/110 | 107.690909 | 0.661912 | 0.415788 |
+| 1.05 | pooled_descriptive | investment_first | 63 | 10/63 | 87.555556 | 0.623338 | 0.409864 |
+| 1.5 | main | assurance_first | 52 | 52/52 | 200.000000 | 0.663138 | 0.417627 |
+| 1.5 | main | investment_first | 26 | 26/26 | 200.000000 | 0.614828 | 0.415335 |
+| 1.5 | confirmation | assurance_first | 58 | 58/58 | 200.000000 | 0.660812 | 0.414139 |
+| 1.5 | confirmation | investment_first | 37 | 36/37 | 195.810811 | 0.629319 | 0.406020 |
+| 1.5 | pooled_descriptive | assurance_first | 110 | 110/110 | 200.000000 | 0.661912 | 0.415788 |
+| 1.5 | pooled_descriptive | investment_first | 63 | 62/63 | 197.539683 | 0.623338 | 0.409864 |
+
+At the lower challenge, the assurance-first point association was negative in the main founder and positive in the confirmation founder. The pooled descriptive association therefore cannot establish a general order benefit. At the higher challenge, near-complete survival limits discrimination. Assurance-first states also had higher attained assurance means; this is potential confounding, neither proof nor refutation of a mean-only explanation. Differences in other retained state features may also matter.
+
+This post-outcome analysis describes two fixed founder cohorts. It does not provide independent founder replication, randomized natural-order causality, mediation identification, or equivalence evidence. The original assigned-access primary analyses remain unchanged. The mean-standardization counterfuture candidate is separately proposed and has not been executed.
+
+### Complete descriptive groups
+
+| Challenge | Founder stratum | Category | Starts | Survivors | Total occupied censuses |
+|---|---|---|---:|---:|---:|
+| 1.05 | main | assurance_first | 52 | 10 | 4431 |
+| 1.05 | main | investment_first | 26 | 6 | 2455 |
+| 1.05 | main | near_simultaneous | 8 | 1 | 555 |
+| 1.05 | main | assurance_only | 287 | 35 | 21321 |
+| 1.05 | main | investment_only | 28 | 1 | 1299 |
+| 1.05 | main | neither | 111 | 2 | 4016 |
+| 1.05 | confirmation | assurance_first | 58 | 22 | 7415 |
+| 1.05 | confirmation | investment_first | 37 | 4 | 3061 |
+| 1.05 | confirmation | near_simultaneous | 8 | 3 | 776 |
+| 1.05 | confirmation | assurance_only | 290 | 39 | 22239 |
+| 1.05 | confirmation | investment_only | 19 | 0 | 606 |
+| 1.05 | confirmation | neither | 100 | 0 | 3712 |
+| 1.05 | pooled_descriptive | assurance_first | 110 | 32 | 11846 |
+| 1.05 | pooled_descriptive | investment_first | 63 | 10 | 5516 |
+| 1.05 | pooled_descriptive | near_simultaneous | 16 | 4 | 1331 |
+| 1.05 | pooled_descriptive | assurance_only | 577 | 74 | 43560 |
+| 1.05 | pooled_descriptive | investment_only | 47 | 1 | 1905 |
+| 1.05 | pooled_descriptive | neither | 211 | 2 | 7728 |
+| 1.5 | main | assurance_first | 52 | 52 | 10400 |
+| 1.5 | main | investment_first | 26 | 26 | 5200 |
+| 1.5 | main | near_simultaneous | 8 | 8 | 1600 |
+| 1.5 | main | assurance_only | 287 | 281 | 56964 |
+| 1.5 | main | investment_only | 28 | 27 | 5452 |
+| 1.5 | main | neither | 111 | 99 | 20751 |
+| 1.5 | confirmation | assurance_first | 58 | 58 | 11600 |
+| 1.5 | confirmation | investment_first | 37 | 36 | 7245 |
+| 1.5 | confirmation | near_simultaneous | 8 | 7 | 1475 |
+| 1.5 | confirmation | assurance_only | 290 | 285 | 57405 |
+| 1.5 | confirmation | investment_only | 19 | 18 | 3706 |
+| 1.5 | confirmation | neither | 100 | 89 | 18963 |
+| 1.5 | pooled_descriptive | assurance_first | 110 | 110 | 22000 |
+| 1.5 | pooled_descriptive | investment_first | 63 | 62 | 12445 |
+| 1.5 | pooled_descriptive | near_simultaneous | 16 | 15 | 3075 |
+| 1.5 | pooled_descriptive | assurance_only | 577 | 566 | 114369 |
+| 1.5 | pooled_descriptive | investment_only | 47 | 45 | 9158 |
+| 1.5 | pooled_descriptive | neither | 211 | 188 | 39714 |
+
+### Evidence boundary
+
+The publicly preserved sixteen-member audit companion `NATURAL_ORDER_EXISTING_BANK_VERIFIED_REVIEW_20261014.zip` has SHA256 `bd7f1fb3f9ce001dba32fa2a71a72c8b30a338f8559a4e54bbdf76c5b4692ecc`. Public re-download matched every member. It includes the original audit source, full case/group readouts, independent raw-genotype review, and native state-bank verification. The bank contains all five native state fields for each handoff; all 1,024 states match both original challenge handoffs and complete configurations. No biological updates or random draws were generated by this audit. This section does not add a new primary test or identify a natural-order causal benefit.
