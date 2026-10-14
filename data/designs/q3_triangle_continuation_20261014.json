@@ -1,0 +1,60 @@
+{
+  "approval": {
+    "reference": "Explicit human continuation approval in Codex thread 01a137ec-75cf-7af2-aa7e-9525df9a8a6e on 2026-10-14 after repaired-source CI and cumulative cost presentation: \u4fee\u6b63\u6e08\u307f\u306e26,352\u7d4c\u8def\u306e\u518d\u958b\u3092\u627f\u8a8d",
+    "scope": "izu-q3-distribution-triangle-v1-20261014"
+  },
+  "approved": true,
+  "archive_sha256": "8a2462910025b4a386e789583578cb1380349097393916dac4e50d01c9637b7e",
+  "code_sha256": {
+    ".github/workflows/q3-distribution-triangle-20261014.yml": "6bce4744a2f60f93d8e6b2cf7eb96ea30d654c23ecbf423287d2efba4cf1eeff",
+    "data/results/q3_triangle_hold_20261014.json": "3d2dfdce61f5572fa81fc2d2172f199e9a0c87bca1bf1015e2154866b15b72ab",
+    "scripts/build_q3_triangle_activation_20261014.py": "06c51e4e513e9c85042cbe1904383816b7a7e954dce68b81e1346ea72cebe43a",
+    "scripts/build_q3_triangle_preflight_20261014.py": "f3bacf1a37c8bf6c919aef6a2e414bca9b34c59e51ea3c2d8445fd5ecde9a55b",
+    "scripts/publish_q3_triangle_campaign_20261014.py": "5157e431ba7ce491a0ec2a5e1ce0e5fa81412f6087c612e96331ba7ceda1a128",
+    "scripts/q3_distribution_triangle_20261014.py": "43100b79a16e9b698031f7e6fdabe99b94e1d0f826bb139a6f5deddedef1073a",
+    "scripts/q3_event_conditions_20261014.py": "e251b63406732f1d1d3d32e190328dea92a5cd86237e6ee16b1285d4f6402c3c",
+    "scripts/q3_futures_contract_20261014.py": "8ad0a13b7d5484fa0fffe02d19726f54748a5250469e0c3837c552ea8525409a",
+    "scripts/q3_triangle_continuation_20261014.py": "73d83061f57e9e1f9efc5749b51842326d53225ed6c1201f124351b5d5d88892",
+    "scripts/q3_triangle_contract_20261014.py": "8116b16eeb0eb75183bf496519760ead311515a5bccb80be84fe6fb439c9ea03",
+    "scripts/q3_triangle_execution_gate_20261014.py": "8782b30c0e6eb363a3f3afe8f512cd67a95ab8b3b7293f892b299b44fb2a96cb",
+    "scripts/q3_triangle_io_20261014.py": "0fa57622fff9423dd10802601caa7cf2b4ce285d25afbbfabd561e750dd3ea62",
+    "scripts/run_q3_triangle_20261014.py": "67cd6e91165923535aa66504c50e127ae903a6576327346663c131988e48632f",
+    "scripts/verify_q3_futures_paths_20261014.py": "7843882f58363c179474f31b4bfead482cc05610bcfac862a6bc2c79b982c27b",
+    "scripts/verify_q3_triangle_archives_20261014.py": "05891a1efbed73753a12e060b46ec4e23cca80ff6d393ebe298adac376dae200",
+    "scripts/verify_q3_triangle_paths_20261014.py": "cebbfa85dd3a5b719c456995edd84133dfb81b5b8cfeeffb92b9d81c9c8b2ff7"
+  },
+  "continuation": {
+    "artifact_bytes": 10346505,
+    "artifact_sha256": "f2e0ea8a6682d2ce8e4ece88adec8d7530e089c5c8a555d4d9f7bb4c94e6e92e",
+    "continuation_hosted_runner_minutes": 299,
+    "execution_sha256": "af6af3ad9b350f4399d5861a222042a5c9ba4bf0bec5fe45adb7a14e2f8167d8",
+    "head": "b51c374ac77e04254cb99e07fa492fc87113b7dc",
+    "hold_receipt_sha256": "3d2dfdce61f5572fa81fc2d2172f199e9a0c87bca1bf1015e2154866b15b72ab",
+    "native_updates": 4,
+    "release_url": "https://github.com/zuizui0223/izu-core/releases/tag/q3-distribution-triangle-hold-20261014",
+    "reserved_hosted_runner_minutes": 1,
+    "run_id": 38528315875,
+    "scientific_trajectories": 0,
+    "specification_sha256": "428fcc24f8361218db84bd402d2298f112421d6c71092aad82640565d6996d73"
+  },
+  "design_sha256": "00649680789935168017627a917288939d6786604e32fbcdb065e059a68c9ba3",
+  "limits": {
+    "archive_bound_per_shard": 1616530176,
+    "max_fixture_updates": 32,
+    "max_hosted_runner_minutes": 300,
+    "max_native_updates": 6687392,
+    "max_parallel_shards": 1,
+    "max_remote_bytes": 68719476736,
+    "minimum_free_local_bytes": 6442450944,
+    "native_workers": 2,
+    "new_trajectories": 26352,
+    "replicates_per_state": 144,
+    "shards": 18,
+    "triplets": 8784
+  },
+  "namespace": "izu-q3-distribution-triangle-v1-20261014",
+  "numpy": "2.2.6",
+  "preflight_sha256": "e6d08dc779688192e99b27c8f0344cfef8e633f4be32678a2c9f6d64a680067d",
+  "python": "3.11.14",
+  "reviewed_commit": "47bdc41aadb1eb27262b2b54f852db68bfed90aa"
+}

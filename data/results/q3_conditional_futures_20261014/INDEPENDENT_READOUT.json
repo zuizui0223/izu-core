@@ -1,0 +1,9 @@
+{
+  "status": "INDEPENDENT_AGGREGATE_PRIMARY_AND_SECONDARIES_MATCH",
+  "pairs": 3904,
+  "slots": 64,
+  "readout_sha256": "10e72db05792292e31862733d57b79589abc12ea3eec62caab64018a05d58cef",
+  "survival_blocks": 2,
+  "independent_summary": true,
+  "producer_summary_imported": false
+}

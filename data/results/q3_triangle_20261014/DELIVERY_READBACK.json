@@ -1,0 +1,29 @@
+{
+  "status": "PUBLISHED_DELIVERY_IDENTITY_AND_DIGESTS_MATCH",
+  "checked_at": "2026-10-14T09:52:52.999427+00:00",
+  "run_id": "38533099249",
+  "head": "3519e8704420bd3b7ce378e5678efb61bf66da50",
+  "release_id": 412554613,
+  "release_url": "https://github.com/zuizui0223/izu-core/releases/tag/q3-distribution-triangle-20261014",
+  "tag": "q3-distribution-triangle-20261014",
+  "release_asset_count": 21,
+  "successful_jobs": 19,
+  "documents": {
+    "CAMPAIGN_MANIFEST.json": {
+      "bytes": 6013,
+      "sha256": "8cd325bee8abaf609b85fa3f4eec1e60d96b0e6f88ec29d70d6c62d06f7ad5e7"
+    },
+    "READOUT.json": {
+      "bytes": 3799,
+      "sha256": "7a3d5bf9cfd032cc625a3ae23a5a461123eec450aa0f17b48a917c28c01926c5"
+    },
+    "INDEPENDENT_VERIFICATION.json": {
+      "bytes": 111,
+      "sha256": "84843bca983665b95daa6a4cb2747248708f133b079a25b245b4429b9d413754"
+    }
+  },
+  "archive_bytes": 1612337879,
+  "verification_scope": "Three documents downloaded and hashed locally; all 18 raw archive sizes/digests matched GitHub assets to campaign manifest. Full raw external byte readback performed by successful pinned publication job.",
+  "native_updates": 0,
+  "scientific_claims_verified_by_this_transport_audit": false
+}
