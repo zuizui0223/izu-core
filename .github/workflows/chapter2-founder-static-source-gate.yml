@@ -30,7 +30,8 @@ jobs:
             tests/test_chapter2_founder_F1_conditional_moments_20261014.py \
             tests/test_chapter2_independent_synthetic_source_pools_20261014.py \
             tests/test_chapter2_balanced_cocarriage_20261014.py \
-            tests/test_chapter2_directional_cosegregation_20261014.py
+            tests/test_chapter2_directional_cosegregation_20261014.py \
+            tests/test_chapter2_F1_founder_relative_tails_20261014.py
       - name: Assert actual old t0 and 96 static checks, with no biology
         run: |
           python -m scripts.audit_chapter2_original_founder_compatibility_20261014 > original-t0-static-receipt.json
@@ -61,6 +62,10 @@ jobs:
         run: |
           python -m scripts.audit_chapter2_directional_cosegregation_20261014 > balanced-AI-signed-directional-meiosis.json
           python -c "import json; r=json.load(open('balanced-AI-signed-directional-meiosis.json')); assert r['conditional_signed_first_offspring_cases']==192 and r['new_biological_offspring_or_population_futures']==0; rows=[x for x in r['rows'] if x['visitor_context']==0]; assert all(x['p_A_up_and_I_down']==0 for x in rows if x['co_carriers_m']==0); assert all(abs(x['p_A_up_and_I_down']-1/64)<1e-14 for x in rows if x['co_carriers_m']==12); assert all(x['p_A_up_and_I_down']==x['p_A_up_and_I_up'] for x in r['rows']); print('DIRECTIONAL PREMUTATION MEIOSIS GATE PASSED')"
+      - name: Verify founder-relative first-offspring single-child thresholds
+        run: |
+          python -m scripts.audit_chapter2_F1_founder_relative_tails_20261014 > founder-relative-F1-phenotype-threshold-tails.json
+          python -c "import json; r=json.load(open('founder-relative-F1-phenotype-threshold-tails.json')); assert r['matched_F1_single_offspring_contrasts']==192 and r['new_biological_futures_or_sustained_events']==0; assert len(r['rows'])==192; print('FOUNDER-RELATIVE ONE-OFFSPRING T0 GATE PASSED')"
       - name: Preserve static audit receipts
         if: success()
         uses: actions/upload-artifact@v4
@@ -75,5 +80,6 @@ jobs:
             artificial-independent-t0-sources.json
             balanced-AI-cocarriage-pre-mutation.json
             balanced-AI-signed-directional-meiosis.json
+            founder-relative-F1-phenotype-threshold-tails.json
           if-no-files-found: error
           retention-days: 30
