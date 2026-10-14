@@ -47,7 +47,7 @@ ORIGINAL_SOURCE_SHA = {
     },
     'confirmation': {
         'ids': '852c80a269cfde9f6b8cc6c4f19f4e92c636218d0620fedda0d379e77abc224b',
-        'alleles': '13cbb1c08a8da3d79db6c6cacf7443a6c865f170c7f7639dbed114',
+        'alleles': '13cbb1c08a8da3d79db6c6cacf7443a6c865f170c7f64beea2d7f7639dbed114',
         'allele_origin': 'ba1b53cae912da6d52ef63ea1bc6596d368e11e463348612a15dea36c45b41fc',
         'mutation_flags': '2d5565fb483d8ea4525a7a9229677d1038ad34b6e22c8d5152e1d7f7b9817597',
         'birth_years': 'a1a4f5721c1c4610af7f71078f3a68c330536d679803b0e0507ee8dc10c5dfca',
