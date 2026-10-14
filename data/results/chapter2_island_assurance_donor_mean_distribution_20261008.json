@@ -1,0 +1,137 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-08",
+  "status": "completed_post_outcome_explanatory_mean_vs_distribution_no_confirmation",
+  "design": "data/design/chapter2_island_assurance_donor_mean_distribution_20261008.json",
+  "independent_histories": 16,
+  "genetic_states": 512,
+  "poststress_cases": 2048,
+  "source_replay_check": {
+    "source": "archived independent16 genotype-state transplant",
+    "unchanged_native_and_full_donor_states_checked": 256,
+    "metric_mismatches": 0
+  },
+  "results": [
+    {
+      "setting": "delayed_control",
+      "background": "near",
+      "viable_maternal": {
+        "full_donor": 0.1382015,
+        "recipient_mean_target": 0.138104,
+        "donor_distribution_centered": 0.0000174
+      },
+      "occupancy": {
+        "full_donor": 0.296875,
+        "recipient_mean_target": 0.234375,
+        "donor_distribution_centered": -0.015625
+      }
+    },
+    {
+      "setting": "delayed_control",
+      "background": "far",
+      "viable_maternal": {
+        "full_donor": -0.1890152,
+        "recipient_mean_target": -0.1890486,
+        "donor_distribution_centered": 0.0000195
+      },
+      "occupancy": {
+        "full_donor": -0.328125,
+        "recipient_mean_target": -0.265625,
+        "donor_distribution_centered": -0.015625
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "background": "near",
+      "viable_maternal": {
+        "full_donor": 0.1227757,
+        "recipient_mean_target": 0.122702,
+        "donor_distribution_centered": -0.0000394
+      },
+      "occupancy": {
+        "full_donor": 0.203125,
+        "recipient_mean_target": 0.21875,
+        "donor_distribution_centered": -0.078125
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "background": "far",
+      "viable_maternal": {
+        "full_donor": -0.153463,
+        "recipient_mean_target": -0.1533916,
+        "donor_distribution_centered": -0.0000541
+      },
+      "occupancy": {
+        "full_donor": -0.21875,
+        "recipient_mean_target": -0.28125,
+        "donor_distribution_centered": 0.03125
+      }
+    },
+    {
+      "setting": "pollen_discount",
+      "background": "near",
+      "viable_maternal": {
+        "full_donor": 0.2158876,
+        "recipient_mean_target": 0.2159351,
+        "donor_distribution_centered": -0.0000834
+      },
+      "occupancy": {
+        "full_donor": 0.3125,
+        "recipient_mean_target": 0.3125,
+        "donor_distribution_centered": 0.046875
+      }
+    },
+    {
+      "setting": "pollen_discount",
+      "background": "far",
+      "viable_maternal": {
+        "full_donor": -0.2619914,
+        "recipient_mean_target": -0.2620209,
+        "donor_distribution_centered": 0.0001114
+      },
+      "occupancy": {
+        "full_donor": -0.28125,
+        "recipient_mean_target": -0.359375,
+        "donor_distribution_centered": 0.0625
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "background": "near",
+      "viable_maternal": {
+        "full_donor": 0.0191671,
+        "recipient_mean_target": 0.0196162,
+        "donor_distribution_centered": -0.0001485
+      },
+      "occupancy": {
+        "full_donor": 0,
+        "recipient_mean_target": 0.015625,
+        "donor_distribution_centered": -0.015625
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "background": "far",
+      "viable_maternal": {
+        "full_donor": -0.0609105,
+        "recipient_mean_target": -0.0609223,
+        "donor_distribution_centered": 0.000467
+      },
+      "occupancy": {
+        "full_donor": -0.0625,
+        "recipient_mean_target": -0.0625,
+        "donor_distribution_centered": 0.015625
+      }
+    }
+  ],
+  "main_interpretation": "At fixed recipient matching/investment background, bounded allele-mean targeting reproduces the immediate viable maternal effect of the full donor assurance-locus transfer almost exactly across four mating settings and both historical backgrounds. Finite 80-year occupancy effects have discrepancies. The centered donor distribution yields near-zero immediate maternal differences; occupancy can fluctuate in either direction.",
+  "inference_limits": [
+    "This is a post-outcome explanatory decomposition using previously exposed 16 histories; not independent confirmation.",
+    "Bounded affine mean targeting alters allele variance and is not a pure-mean mediation effect.",
+    "Centered donor distribution changes genotype rank associations and genetic provenance and is not a pure-variance effect.",
+    "Numerical values are model-unit effects at specific budgets 3/4 and 8-plant bottleneck, not estimated island population fitness.",
+    "Intervention results should never rescue the originally failed preregistered pollen_discount-minus-prior_selfing donor occupancy test.",
+    "The broader prospectively confirmed PR411 attenuation result and previous failed mutation-priority tests are unchanged."
+  ]
+}

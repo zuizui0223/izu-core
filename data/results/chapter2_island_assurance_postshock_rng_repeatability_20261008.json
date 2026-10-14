@@ -1,0 +1,158 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-08",
+  "status": "completed_exploratory_conditional_demographic_rng_repeatability_not_independent_confirmation",
+  "design": "data/design/chapter2_island_assurance_postshock_rng_repeatability_20261008.json",
+  "original_independent16_cohort_seed_subsample": [
+    35100801,
+    35100802,
+    35100803,
+    35100804
+  ],
+  "original_pre_repeat": 35101801,
+  "postshock_demographic_repeats": 8,
+  "independent_ecological_histories": 4,
+  "n_setting_history_pairs": 16,
+  "n_paired_stress_outcomes": 1024,
+  "n_postshock_trajectories": 2048,
+  "raw_sha256": "1d08f199a722ca6f9f6ce1c99fbcc57b17e8a19c09736bb9fb36438aa15f11e3",
+  "findings": [
+    {
+      "setting": "assurance_cost",
+      "recipient_background": "far",
+      "matched_postshock_pairs": 128,
+      "discordant_pairs": 3,
+      "full_donor_higher_occupancy": 2,
+      "mean_target_higher_occupancy": 1,
+      "mean_occupancy_difference": 0.0078125,
+      "mean_immediate_viable_difference": 0.00011792173073965628,
+      "by_history_integrated_occupancy_difference": [
+        0,
+        0.03125,
+        0,
+        0
+      ]
+    },
+    {
+      "setting": "assurance_cost",
+      "recipient_background": "near",
+      "matched_postshock_pairs": 128,
+      "discordant_pairs": 7,
+      "full_donor_higher_occupancy": 3,
+      "mean_target_higher_occupancy": 4,
+      "mean_occupancy_difference": -0.0078125,
+      "mean_immediate_viable_difference": -0.0003935848664801539,
+      "by_history_integrated_occupancy_difference": [
+        -0.03125,
+        0,
+        0.03125,
+        -0.03125
+      ]
+    },
+    {
+      "setting": "delayed_control",
+      "recipient_background": "far",
+      "matched_postshock_pairs": 128,
+      "discordant_pairs": 12,
+      "full_donor_higher_occupancy": 3,
+      "mean_target_higher_occupancy": 9,
+      "mean_occupancy_difference": -0.046875,
+      "mean_immediate_viable_difference": 0.000103792233850597,
+      "by_history_integrated_occupancy_difference": [
+        0.03125,
+        0,
+        -0.09375,
+        -0.125
+      ]
+    },
+    {
+      "setting": "delayed_control",
+      "recipient_background": "near",
+      "matched_postshock_pairs": 128,
+      "discordant_pairs": 5,
+      "full_donor_higher_occupancy": 1,
+      "mean_target_higher_occupancy": 4,
+      "mean_occupancy_difference": -0.0234375,
+      "mean_immediate_viable_difference": 0.00015991510752413896,
+      "by_history_integrated_occupancy_difference": [
+        -0.03125,
+        -0.03125,
+        -0.03125,
+        0
+      ]
+    },
+    {
+      "setting": "pollen_discount",
+      "recipient_background": "far",
+      "matched_postshock_pairs": 128,
+      "discordant_pairs": 15,
+      "full_donor_higher_occupancy": 13,
+      "mean_target_higher_occupancy": 2,
+      "mean_occupancy_difference": 0.0859375,
+      "mean_immediate_viable_difference": 0.0001579613968357707,
+      "by_history_integrated_occupancy_difference": [
+        0.125,
+        0.09375,
+        0.03125,
+        0.09375
+      ]
+    },
+    {
+      "setting": "pollen_discount",
+      "recipient_background": "near",
+      "matched_postshock_pairs": 128,
+      "discordant_pairs": 9,
+      "full_donor_higher_occupancy": 6,
+      "mean_target_higher_occupancy": 3,
+      "mean_occupancy_difference": 0.0234375,
+      "mean_immediate_viable_difference": -0.000003330236429510691,
+      "by_history_integrated_occupancy_difference": [
+        0.09375,
+        -0.03125,
+        0.03125,
+        0
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "recipient_background": "far",
+      "matched_postshock_pairs": 128,
+      "discordant_pairs": 8,
+      "full_donor_higher_occupancy": 5,
+      "mean_target_higher_occupancy": 3,
+      "mean_occupancy_difference": 0.015625,
+      "mean_immediate_viable_difference": -0.000009350425404147655,
+      "by_history_integrated_occupancy_difference": [
+        0.0625,
+        -0.03125,
+        0.03125,
+        0
+      ]
+    },
+    {
+      "setting": "prior_selfing",
+      "recipient_background": "near",
+      "matched_postshock_pairs": 128,
+      "discordant_pairs": 15,
+      "full_donor_higher_occupancy": 9,
+      "mean_target_higher_occupancy": 6,
+      "mean_occupancy_difference": 0.0234375,
+      "mean_immediate_viable_difference": -0.00007077167015687169,
+      "by_history_integrated_occupancy_difference": [
+        0.09375,
+        -0.0625,
+        0.0625,
+        0
+      ]
+    }
+  ],
+  "interpretation": "Full-donor vs bounded mean-target genotypes show near-zero immediate viable maternal output difference. The 80-update binary occupancy comparison is sensitive to demographic RNG for some identical initial-population contrasts; some treatment effects remain directionally consistent over four selected visitor histories (especially pollen discount far recipient), but no independent-history generality is established.",
+  "bounds": [
+    "All four visitor histories previously exposed in original independent16 analysis: this is a technical sensitivity check not an independent test.",
+    "Eight postshock RNG replicates are nested, not eight new visitor histories.",
+    "Paired genotype treatments differ in assurance variance and genotype covariance; the residual cannot be attributed exclusively to variance or demographic noise.",
+    "The pilot-informed ovule budgets and N=8 shock are synthetic; no natural island calibration.",
+    "Previously failed independent16 transplant contrast, independent16 mutation-priority contrast, and independent64 payoff global test remain failed.",
+    "Exploratory conditional effects cannot revise the established PR411 Ecology Letters manuscript."
+  ]
+}

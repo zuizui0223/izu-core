@@ -1,0 +1,93 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-08",
+  "status": "completed_balanced_mutational_access_pilot_exploratory",
+  "design": "data/design/chapter2_island_mutational_priority_balanced_20261008.json",
+  "independent_histories": 4,
+  "nested_demographic_repeats": 2,
+  "prehistories": 256,
+  "poststress_trajectories": 2048,
+  "mutation_access_generations_for_I_and_A_per_schedule": 250,
+  "all_locus_locks_passed": true,
+  "pooled_descriptive_priority_interaction": 0,
+  "per_setting": [
+    {
+      "setting": "delayed_control",
+      "priority_interaction": 0.015625,
+      "by_history": [
+        0.0625,
+        0,
+        0.125,
+        -0.125
+      ],
+      "far_minus_near_by_schedule": {
+        "assurance_first": 0.140625,
+        "investment_first": 0.125,
+        "both_early": 0.21875,
+        "both_late": 0.203125
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "priority_interaction": 0.03125,
+      "by_history": [
+        -0.0625,
+        0.1875,
+        0.0625,
+        -0.0625
+      ],
+      "far_minus_near_by_schedule": {
+        "assurance_first": 0.046875,
+        "investment_first": 0.015625,
+        "both_early": 0.125,
+        "both_late": 0.078125
+      }
+    },
+    {
+      "setting": "pollen_discount",
+      "priority_interaction": 0.046875,
+      "by_history": [
+        0.25,
+        0,
+        -0.1875,
+        0.125
+      ],
+      "far_minus_near_by_schedule": {
+        "assurance_first": 0.171875,
+        "investment_first": 0.125,
+        "both_early": 0.140625,
+        "both_late": 0.09375
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "priority_interaction": -0.09375,
+      "by_history": [
+        0,
+        0,
+        -0.1875,
+        -0.1875
+      ],
+      "far_minus_near_by_schedule": {
+        "assurance_first": 0.046875,
+        "investment_first": 0.140625,
+        "both_early": 0,
+        "both_late": 0.015625
+      }
+    }
+  ],
+  "provenance": {
+    "offline_full_source_sha256": "71a1b1d9c4d683b874c989fa7768a14e72c5353063d8213cbe42f42cd37473d4",
+    "raw_sha256": "cc65e729619eba4a756c88a307e074519c261607dffcc240dac10c88c5da3ec5",
+    "github_workflow_replay": false
+  },
+  "boundary": [
+    "Mutation input duration equal 250 updates for both I and A across all schedules",
+    "Early-mutated variants may experience longer selection; equal supply time does not prove pure temporal-order effect",
+    "No positive general direction; pooled n4 mean exactly zero and setting effects heterogeneous",
+    "Only 4 independent visitor histories, two demographic repeats nested",
+    "Underlying stress grid derived from previous outcome-informed exploration",
+    "Previously failed independent16 preregistered test remains failed and distinct",
+    "No wild island evidence, no direct genotype-level mediation"
+  ]
+}
