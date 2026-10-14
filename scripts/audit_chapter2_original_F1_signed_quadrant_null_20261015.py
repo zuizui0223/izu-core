@@ -142,7 +142,7 @@ def audit() -> dict:
             "context": context,
             "m0_signed_events": outcomes["m0"],
             "m6_signed_events": outcomes["m6"],
-            "m6_max_four_sign_residual": residual,
+            "m6_four_sign_equal_within_1e_12": residual <= ABS_TOL,
             "one_child_joint_A_I_TV": archived["F1_joint_A_I_total_variation"],
             "source_original_A_heterozygotes": 48,
             "reset_A_heterozygotes_per_arm": 42,
