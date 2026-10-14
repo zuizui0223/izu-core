@@ -36,6 +36,8 @@ def test_original_native_joint_f1_readback_all_visitor_contexts():
     result=audit()
     assert result["status"]=="ORIGINAL_I_UNMODIFIED_F1_ANALYTICAL_ONLY_NOT_EVOLUTION"
     assert result["source_founder_background"]=="confirmation"
+    assert result["original_A_heterozygote_adults"]==48
+    assert result["original_A_heterozygosity_reset_in_each_arm"]==42
     assert result["independent_source_genome_realizations"]==1
     assert result["arm_m0_vs_m6_I_A_co_carrier_counts"]==[0,6]
     assert (result["new_biological_born_offspring"],result["new_Model3_future_updates"],
