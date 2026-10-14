@@ -49,3 +49,22 @@ The hypothesis of *universal monotone* founder-relative favorable offspring asse
 If the future m contrast only alters first-offspring joint segregation but not the sustained six-class response with adequate independent source-level precision, the proposed genetic co-carriage explanation of evolutionary **order** is **not supported by that test**. If order shifts but survival remains at the N48 ceiling, Q4 persistence benefit is **not supported**; assess survival separately with a justified non-ceiling biological design.
 
 **Status at this document:** native t0 mathematical and reproducibility claims admitted only within the explicit synthetic source scope; new F1 biological births **0**, new Model3 future histories **0**, new natural mainland/island allele datasets **0**.
+
+
+## Full one-child F1 marginal versus joint distribution (supplement)
+
+The balanced four-adult-phenotype-stratum construction makes a stronger, directly testable claim than matched univariate moments: **for a given synthetic source and visitor ecology, the entire separate A and I offspring phenotype distributions agree across m=0/3/6/12, although the two-locus joint distribution changes**. This works because permuting an I carrier within a quartet of adults with identical expressed M/I/A does not alter its trait-specific original parental-return lottery. It does alter which parental identities jointly carry standing A and I homologs. Model3 segregation still draws A and I homolog copies independently **conditional on the chosen parent pair**; nothing implies physical linkage or a covariance in signed segregation deviations.
+
+A new source-pinned analytic auditor, [scripts/audit_chapter2_full_F1_joint_distribution_20261014.py](../scripts/audit_chapter2_full_F1_joint_distribution_20261014.py), computes the **complete conditional one-offspring A/I phenotype probability mass** on the exact 1/32 grid by integrating all original-model parent-pair weights and all 16 independent A/I maternal/paternal copy combinations. A separate [test implementation](../tests/test_chapter2_full_F1_joint_distribution_20261014.py) uses `numpy.bincount` rather than the primary `numpy.add.at` implementation. It evaluates 16 artificial source inputs × three original visitor contexts × four co-carrier treatments = **192 analytically integrated distributions**, with zero births and zero future updates.
+
+Independent calculation across those source inputs obtained the following m12-vs-m0 **joint-distribution total variation** ranges (0 = identical, 1 = disjoint), while the largest full *single-trait* marginal bin discrepancy across all artificial treatments was only ~2.5×10⁻¹⁴ (floating-point accumulation, acceptance tolerance 10⁻¹²):
+
+| Original Model3 visitor context | Joint A/I F1 total-variation range, 16 artificial source inputs |
+|---|---:|
+| 0, no visitors | 0.0308–0.0837 |
+| 3, matched visitor optima | 0.0295–0.0914 |
+| 4, separated visitor optima | 0.0310–0.0855 |
+
+The **joint law can differ while both univariate laws stay constant**. Thus founder genetic co-carriage may change the multivariate combinations available to selection without changing the t0 individual-trait distribution. But changing the *joint probability distribution* is neither selecting a beneficial A-up/I-down genotype over equally likely unfavorable sign combinations nor establishing sustained evolutionary-order reversal. Joint total variation also need not increase monotonically for every intermediate m=3 and m=6 synthetic input.
+
+This is still an artificially quartet-matched Model3 t0 source law. It does not demonstrate a natural founder bottleneck effect, a full F1 *population* outcome, a 20-occupied-census adaptation history, or Q4 persistence. The exact-head native tests and scientific gate must pass before this supplement is treated as a reproducibly admitted technical result.
