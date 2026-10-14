@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-08",
+  "status": "independent16_frozen_hypothesis_failed",
+  "design": "data/design/chapter2_island_mutational_priority_independent16_20261008.json",
+  "origin": "New independent visitor-history cohort after exploratory 4-history schedule comparison revealed prior-selfing > pollen-discount point contrast.",
+  "n_independent_histories": 16,
+  "n_demographic_repeats": 1,
+  "prehistories": 512,
+  "poststress_cases": 4096,
+  "frozen_primary": {
+    "label": "prior_selfing priority interaction minus pollen_discount priority interaction",
+    "mean": -0.0859375,
+    "bootstrap95": [
+      -0.2734375,
+      0.09375
+    ],
+    "passed": false,
+    "frozen_rule": "mean >0 and 95% history-bootstrap lower >0"
+  },
+  "per_setting": [
+    {
+      "setting": "delayed_control",
+      "mean": -0.0234375,
+      "bootstrap95": [
+        -0.109375,
+        0.0546875
+      ],
+      "far_minus_near_by_schedule": {
+        "assurance_first": 0.109375,
+        "investment_first": 0.1328125,
+        "both_early": 0.1171875,
+        "both_delayed": 0.078125
+      }
+    },
+    {
+      "setting": "prior_selfing",
+      "mean": -0.046875,
+      "bootstrap95": [
+        -0.1953125,
+        0.109375
+      ],
+      "far_minus_near_by_schedule": {
+        "assurance_first": 0.0859375,
+        "investment_first": 0.1328125,
+        "both_early": 0,
+        "both_delayed": 0.0859375
+      }
+    },
+    {
+      "setting": "pollen_discount",
+      "mean": 0.0390625,
+      "bootstrap95": [
+        -0.125,
+        0.1953125
+      ],
+      "far_minus_near_by_schedule": {
+        "assurance_first": 0.1875,
+        "investment_first": 0.1484375,
+        "both_early": 0.15625,
+        "both_delayed": 0.046875
+      }
+    },
+    {
+      "setting": "assurance_cost",
+      "mean": 0,
+      "bootstrap95": [
+        -0.078125,
+        0.1015625
+      ],
+      "far_minus_near_by_schedule": {
+        "assurance_first": 0.0703125,
+        "investment_first": 0.0703125,
+        "both_early": 0.0390625,
+        "both_delayed": 0.078125
+      }
+    }
+  ],
+  "all_mutational_locus_lock_checks_passed": true,
+  "provenance": {
+    "local_archived_biology_sha256": "71a1b1d9c4d683b874c989fa7768a14e72c5353063d8213cbe42f42cd37473d4",
+    "local_zip": "izu_core_mutational_priority_independent16_20261008.zip",
+    "zip_sha256": "28b03fc0ea5a20e8f5bd9b2b9e54ae8e3873f3fca9c8af5bae40d40099d57a28",
+    "raw_sha256": "c0dcd605f0f72292dc1e4f0a78a5c3c168c64e8b0f8cb5c967f62220e6d91aee",
+    "readout_sha256": "34b816276d739613ac98fce889f827c405321221f4eca2400cc81f4b2173bc17",
+    "github_actions_replay": false,
+    "public_doi": false
+  },
+  "claim_boundary": [
+    "Sign reversal from the n4 pilot did NOT replicate: prior-selfing shifted positive to negative, pollen-discount negative to positive",
+    "16 histories are the inferential unit, not 4096 cases",
+    "Mutation-access order is not an intervention on phenotypic crossing time and supplies unequal total exposure",
+    "No general priority-mediated persistence effect established",
+    "The earlier four-setting PR411 assured attenuation remains intact",
+    "The separate earlier 64-history first-generation payoff global 4/5 gate remains FAILED"
+  ]
+}

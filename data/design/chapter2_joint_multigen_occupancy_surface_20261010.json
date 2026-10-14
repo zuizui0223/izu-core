@@ -1,0 +1,52 @@
+{
+  "schema": "chapter2_joint_multigen_postoutcome_occupancy_surface_v1",
+  "status": "POST_OUTCOME_ENGINEERING_GRID_FROZEN_BEFORE_ITS_OWN_EXECUTION_NOT_PREREGISTERED_CONFIRMATION",
+  "date": "2026-10-10",
+  "motivation": "The earlier 80-update ovule_budget=3 synthetic pilot showed K8 terminal occupancy 0/48 in every gate; a complete fixed coarse grid is needed to diagnose floor/ceiling rather than choose a favorable result.",
+  "prior_exposed_result": "data/results/chapter2_joint_multigen_synthetic_pilot_receipt_20261010.json",
+  "source": "scripts/audit_chapter2_joint_multigen_engineering.py",
+  "runner": "scripts/audit_chapter2_joint_multigen_budget_surface.py",
+  "ovule_budgets": [
+    3,
+    4.5,
+    6,
+    8
+  ],
+  "horizons": [
+    40,
+    80
+  ],
+  "replicates_per_synthetic_environment": 24,
+  "founder_genotype_seed": 8904102,
+  "demographic_rng_master": 8904103,
+  "visitor_conditions": [
+    "two_hand_authored",
+    "no_visitors"
+  ],
+  "K": [
+    8,
+    48
+  ],
+  "B": 48,
+  "reproductive_setting": "prior_selfing",
+  "mutations": 0,
+  "adult_survival": 0,
+  "seed_immigration": 0,
+  "viability_gates": [
+    "baseline",
+    "half_self",
+    "half_outcross"
+  ],
+  "inference_unit": "single specified hand-authored environmental history for each regime; demographic RNG replicates are nested and cannot give independent ecological uncertainty",
+  "primary_objective": "diagnose whether 0/24 occupancy floors and 24/24 ceilings prevent bounded contrasts, not rank budgets by maximal effect",
+  "admission": "Report EVERY grid cell including all extinct or all alive, never select cells for confirmation",
+  "no_new_visitor_histories": true,
+  "no_preregistered_primary_hypothesis_test": true,
+  "no_A_first_I_first_expression_schedules": true,
+  "scientific_exclusions": [
+    "does not replace PR451 estimates",
+    "does not quantify natural selection or fitness",
+    "zero ecology-level replication",
+    "post-outcome engineering calibration"
+  ]
+}

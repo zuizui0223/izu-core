@@ -1,0 +1,257 @@
+{
+  "schema": "chapter2_original_1536_pilot_paired_clock_posthoc_readout_v2",
+  "status": "EXPLORATORY_RETROSPECTIVE_EXISTING_SOURCE_NOT_INDEPENDENT_FOUNDER_CONFIRMATION",
+  "source_verified_receipt_git_blobs": {
+    "main_c0": "09bcbf77d1aa0e5da755d95da5f342ded00aecf2",
+    "main_c3": "e978ec6316fe041f7afccd5181adbc9b7c89466c",
+    "main_c4": "a34d8c3aa7aaca031adb6eed3fc5ca7b7b9d3e1c",
+    "confirmation_c0": "761c9fd595a4ddaa98e7355bb6b6c7dbf3e42a38",
+    "confirmation_c3": "8f8c4f18c8afb68b683bcc66b9f9de1b7a33ca44",
+    "confirmation_c4": "5f7a3b4de5fa6cd9ab6db271d8edb24d77fc9282"
+  },
+  "original_case_records": 1536,
+  "matched_width_pairs": 768,
+  "distinct_original_founder_genotype_backgrounds": 2,
+  "nested_paired_founder_history_seed_clusters": 128,
+  "contexts": [
+    0,
+    3,
+    4
+  ],
+  "event_definition": "A+0.05/I-0.05 sustained over 20 occupied censuses; near +/-5; starts 0..181; original reader events only",
+  "counts_all_starts": {
+    "L": {
+      "assurance_first": 56,
+      "investment_first": 363,
+      "near_simultaneous": 42,
+      "assurance_only": 281,
+      "investment_only": 15,
+      "neither": 11
+    },
+    "H": {
+      "assurance_first": 260,
+      "investment_first": 53,
+      "near_simultaneous": 181,
+      "assurance_only": 274,
+      "investment_only": 0,
+      "neither": 0
+    }
+  },
+  "D_A_first_minus_I_first": {
+    "low": -0.3997395833333333,
+    "high": 0.26953125,
+    "high_minus_low": 0.6692708333333334
+  },
+  "paired_transition_counts_rows_low_columns_high": {
+    "assurance_first": {
+      "assurance_first": 30,
+      "investment_first": 2,
+      "near_simultaneous": 9,
+      "assurance_only": 15,
+      "investment_only": 0,
+      "neither": 0
+    },
+    "investment_first": {
+      "assurance_first": 125,
+      "investment_first": 40,
+      "near_simultaneous": 124,
+      "assurance_only": 74,
+      "investment_only": 0,
+      "neither": 0
+    },
+    "near_simultaneous": {
+      "assurance_first": 18,
+      "investment_first": 3,
+      "near_simultaneous": 12,
+      "assurance_only": 9,
+      "investment_only": 0,
+      "neither": 0
+    },
+    "assurance_only": {
+      "assurance_first": 79,
+      "investment_first": 8,
+      "near_simultaneous": 29,
+      "assurance_only": 165,
+      "investment_only": 0,
+      "neither": 0
+    },
+    "investment_only": {
+      "assurance_first": 6,
+      "investment_first": 0,
+      "near_simultaneous": 6,
+      "assurance_only": 3,
+      "investment_only": 0,
+      "neither": 0
+    },
+    "neither": {
+      "assurance_first": 2,
+      "investment_first": 0,
+      "near_simultaneous": 1,
+      "assurance_only": 8,
+      "investment_only": 0,
+      "neither": 0
+    }
+  },
+  "paired_event_detection": {
+    "A": {
+      "neither": 0,
+      "high_only": 26,
+      "low_only": 0,
+      "both": 742
+    },
+    "I": {
+      "neither": 173,
+      "high_only": 119,
+      "low_only": 101,
+      "both": 375
+    }
+  },
+  "paired_first_sustained_onset_differences": {
+    "A": {
+      "n": 742,
+      "mean_high_minus_low_updates": -47.320754716981135,
+      "median_high_minus_low_updates": -38,
+      "high_earlier": 723,
+      "equal": 3,
+      "high_later": 16
+    },
+    "I": {
+      "n": 375,
+      "mean_high_minus_low_updates": 0.5173333333333333,
+      "median_high_minus_low_updates": 0,
+      "high_earlier": 172,
+      "equal": 27,
+      "high_later": 176
+    }
+  },
+  "all_start_capped_first_onset": {
+    "A": {
+      "n_all_pairs": 768,
+      "cap_for_not_detected_by_181": 182,
+      "mean_high_minus_low_capped_updates": -51.302083333333336,
+      "detected_by_start_year_all_768": {
+        "10": {
+          "L": 10,
+          "H": 346
+        },
+        "25": {
+          "L": 134,
+          "H": 701
+        },
+        "50": {
+          "L": 362,
+          "H": 762
+        },
+        "100": {
+          "L": 631,
+          "H": 768
+        },
+        "150": {
+          "L": 721,
+          "H": 768
+        },
+        "181": {
+          "L": 742,
+          "H": 768
+        }
+      }
+    },
+    "I": {
+      "n_all_pairs": 768,
+      "cap_for_not_detected_by_181": 182,
+      "mean_high_minus_low_capped_updates": -2.5130208333333335,
+      "detected_by_start_year_all_768": {
+        "10": {
+          "L": 160,
+          "H": 145
+        },
+        "25": {
+          "L": 303,
+          "H": 308
+        },
+        "50": {
+          "L": 416,
+          "H": 429
+        },
+        "100": {
+          "L": 468,
+          "H": 476
+        },
+        "150": {
+          "L": 474,
+          "H": 493
+        },
+        "181": {
+          "L": 476,
+          "H": 494
+        }
+      }
+    }
+  },
+  "six_founder_context_strata": [
+    {
+      "founder": "main",
+      "context": 0,
+      "n_pairs": 128,
+      "D_low": -0.734375,
+      "D_high": 0.25,
+      "D_change": 0.984375,
+      "direct_I_first_to_A_first": 30
+    },
+    {
+      "founder": "main",
+      "context": 3,
+      "n_pairs": 128,
+      "D_low": -0.328125,
+      "D_high": 0.3046875,
+      "D_change": 0.6328125,
+      "direct_I_first_to_A_first": 19
+    },
+    {
+      "founder": "main",
+      "context": 4,
+      "n_pairs": 128,
+      "D_low": -0.5859375,
+      "D_high": 0.25,
+      "D_change": 0.8359375,
+      "direct_I_first_to_A_first": 26
+    },
+    {
+      "founder": "confirmation",
+      "context": 0,
+      "n_pairs": 128,
+      "D_low": -0.3828125,
+      "D_high": 0.3203125,
+      "D_change": 0.703125,
+      "direct_I_first_to_A_first": 26
+    },
+    {
+      "founder": "confirmation",
+      "context": 3,
+      "n_pairs": 128,
+      "D_low": -0.1328125,
+      "D_high": 0.265625,
+      "D_change": 0.3984375,
+      "direct_I_first_to_A_first": 10
+    },
+    {
+      "founder": "confirmation",
+      "context": 4,
+      "n_pairs": 128,
+      "D_low": -0.234375,
+      "D_high": 0.2265625,
+      "D_change": 0.4609375,
+      "direct_I_first_to_A_first": 14
+    }
+  ],
+  "claim_limits": [
+    "Descriptive posthoc decomposition of the already admitted six original pilot shards; no new biological updates.",
+    "Shared founder and future RNG histories across contexts/hidden-I are not independent island populations.",
+    "A/I observed-on-both conditional clock differences are subject to event detection selection; do not interpret as all-start causal mediation.",
+    "The all-start capped onset statistic assigns 182 only as a fixed horizon code to no-detection; it is not a prediction of eventual response time.",
+    "Response onset is not natural selection onset; 0.05 threshold geometry and the 20-census window are built into this statistic.",
+    "Only the original 0.05 event receipts are present in these JSONs; 0.025/0.10 reclassification requires stored annual census originals.",
+    "No founder-2+ generalization, independent source-co-carriage effect, proof of genetic rate mediator, or Q4 survival benefit.",
+    "The six independently verified case receipts do not substitute for a fresh, independent replay of every original genome."
+  ]
+}

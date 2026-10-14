@@ -1,0 +1,204 @@
+{
+  "schema": "chapter2_q2_archive_threshold_scientific_intake_v1",
+  "status": "COMPACT_READBACK_OF_COMPLETED_ORIGINAL_RELEASE_ARCHIVE_SENSITIVITY_NOT_NEW_BIOLOGY",
+  "origin": {
+    "pr": 522,
+    "run_id": 38573129057,
+    "source_job_id": 115883381001,
+    "artifact_id": 11897604659,
+    "artifact_name": "q2-threshold-sensitivity-source-only",
+    "source_artifact_zip_sha256": "a7528e93145990ab711e6e13166d42c8824ecf65ce1d7a5420dbb46fa6c2bfaa",
+    "full_readout_json_sha256": "3cfb4bbb32016bb170a2797c81ea97b748c23d129c95abe3da2e98b8d45f4685",
+    "full_readout_bytes": 14616,
+    "original_pr_head": "d1f260cef7419cf1790d5e1eb346a355cc312d6a",
+    "original_runner_status": "success",
+    "raw_zip_count": 6,
+    "archived_pilot_histories": 1536,
+    "matched_width_pairs": 768,
+    "independent_original_founder_backgrounds": 2
+  },
+  "posthoc_original_0p05_is_only_primary": true,
+  "classes": [
+    "assurance_first",
+    "investment_first",
+    "near_simultaneous",
+    "assurance_only",
+    "investment_only",
+    "neither"
+  ],
+  "contexts": [
+    "main_c0",
+    "main_c3",
+    "main_c4",
+    "confirmation_c0",
+    "confirmation_c3",
+    "confirmation_c4"
+  ],
+  "thresholds": {
+    "0.025": {
+      "source_768_case_classes_L": {
+        "assurance_first": 144,
+        "investment_first": 201,
+        "near_simultaneous": 164,
+        "assurance_only": 258,
+        "investment_only": 0,
+        "neither": 1
+      },
+      "source_768_case_classes_H": {
+        "assurance_first": 226,
+        "investment_first": 44,
+        "near_simultaneous": 259,
+        "assurance_only": 239,
+        "investment_only": 0,
+        "neither": 0
+      },
+      "D_L": -0.07421875,
+      "D_H": 0.23697916666666666,
+      "D_H_minus_L": 0.3111979166666667,
+      "all_start_A_capped_time_H_minus_L": -11.00390625,
+      "all_start_I_capped_time_H_minus_L": -4.109375,
+      "detected_A": {
+        "L": 767,
+        "H": 768
+      },
+      "detected_I": {
+        "L": 509,
+        "H": 529
+      },
+      "within_two_founders_six_ecologies_D_change": {
+        "main_c0": 0.4453125,
+        "main_c3": 0.2890625,
+        "main_c4": 0.359375,
+        "confirmation_c0": 0.265625,
+        "confirmation_c3": 0.296875,
+        "confirmation_c4": 0.2109375
+      }
+    },
+    "0.05": {
+      "source_768_case_classes_L": {
+        "assurance_first": 56,
+        "investment_first": 363,
+        "near_simultaneous": 42,
+        "assurance_only": 281,
+        "investment_only": 15,
+        "neither": 11
+      },
+      "source_768_case_classes_H": {
+        "assurance_first": 260,
+        "investment_first": 53,
+        "near_simultaneous": 181,
+        "assurance_only": 274,
+        "investment_only": 0,
+        "neither": 0
+      },
+      "D_L": -0.3997395833333333,
+      "D_H": 0.26953125,
+      "D_H_minus_L": 0.6692708333333334,
+      "all_start_A_capped_time_H_minus_L": -51.302083333333336,
+      "all_start_I_capped_time_H_minus_L": -2.5130208333333335,
+      "detected_A": {
+        "L": 742,
+        "H": 768
+      },
+      "detected_I": {
+        "L": 476,
+        "H": 494
+      },
+      "within_two_founders_six_ecologies_D_change": {
+        "main_c0": 0.984375,
+        "main_c3": 0.6328125,
+        "main_c4": 0.8359375,
+        "confirmation_c0": 0.703125,
+        "confirmation_c3": 0.3984375,
+        "confirmation_c4": 0.4609375
+      }
+    },
+    "0.075": {
+      "source_768_case_classes_L": {
+        "assurance_first": 36,
+        "investment_first": 328,
+        "near_simultaneous": 24,
+        "assurance_only": 271,
+        "investment_only": 58,
+        "neither": 51
+      },
+      "source_768_case_classes_H": {
+        "assurance_first": 177,
+        "investment_first": 173,
+        "near_simultaneous": 100,
+        "assurance_only": 317,
+        "investment_only": 0,
+        "neither": 1
+      },
+      "D_L": -0.3802083333333333,
+      "D_H": 0.005208333333333333,
+      "D_H_minus_L": 0.3854166666666667,
+      "all_start_A_capped_time_H_minus_L": -64.86848958333333,
+      "all_start_I_capped_time_H_minus_L": 0.4856770833333333,
+      "detected_A": {
+        "L": 659,
+        "H": 767
+      },
+      "detected_I": {
+        "L": 446,
+        "H": 450
+      },
+      "within_two_founders_six_ecologies_D_change": {
+        "main_c0": 0.46875,
+        "main_c3": 0.4140625,
+        "main_c4": 0.4140625,
+        "confirmation_c0": 0.453125,
+        "confirmation_c3": 0.2578125,
+        "confirmation_c4": 0.3046875
+      }
+    },
+    "0.1": {
+      "source_768_case_classes_L": {
+        "assurance_first": 15,
+        "investment_first": 267,
+        "near_simultaneous": 17,
+        "assurance_only": 285,
+        "investment_only": 90,
+        "neither": 94
+      },
+      "source_768_case_classes_H": {
+        "assurance_first": 34,
+        "investment_first": 266,
+        "near_simultaneous": 30,
+        "assurance_only": 341,
+        "investment_only": 50,
+        "neither": 47
+      },
+      "D_L": -0.328125,
+      "D_H": -0.3020833333333333,
+      "D_H_minus_L": 0.026041666666666668,
+      "all_start_A_capped_time_H_minus_L": -20.1953125,
+      "all_start_I_capped_time_H_minus_L": 2.01953125,
+      "detected_A": {
+        "L": 584,
+        "H": 671
+      },
+      "detected_I": {
+        "L": 389,
+        "H": 380
+      },
+      "within_two_founders_six_ecologies_D_change": {
+        "main_c0": 0.0078125,
+        "main_c3": 0.0625,
+        "main_c4": -0.1015625,
+        "confirmation_c0": 0.03125,
+        "confirmation_c3": 0.0859375,
+        "confirmation_c4": 0.0703125
+      }
+    }
+  },
+  "claim_limits": [
+    "Recomputed from frozen 201-census annual means in six SHA-matched original 200-update ZIPs; no new biological trajectories.",
+    "All 1,536 individual raw NPZ member SHA-256 match the previously independently native-replayed source receipts; original threshold 0.05 labels all match.",
+    "Only original 0.05 was registered; 0.025, 0.075 and 0.10 are posthoc descriptive sensitivities.",
+    "Same original two founder genotypes; not six independent ecological systems or new founder generalization.",
+    "The response clock is first 20-occupied-census phenotype threshold crossing, not onset of natural selection.",
+    "Source JSON is preserved in the run artifact; this committed compact result preserves its fixed SHA-256 and all-primary comparisons.",
+    "No genetic speed mediation, ecological reversal root, Q4 persistence benefit, new DOI or author biological approval claimed."
+  ]
+}

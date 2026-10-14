@@ -1,0 +1,413 @@
+{
+  "schema": "chapter2_original_first_meiosis_access_2304_source_replay_v1",
+  "status": "COMPLETE_ORIGINAL_2304_GENOTYPE_AND_EVENT_SHA_ADMITTED_EXPLORATORY",
+  "source": {
+    "frozen_original_biological_model_commit": "328548612e93469fcc8663f24548530a57399b9a",
+    "original_provider_zips": [
+      {
+        "original_provider": "ecological-original-shard-0.zip",
+        "sha256": "5b850eaad6104f572f56df2a37da00fbc8473503a827703c82f6870a87e9a881",
+        "cases": 256,
+        "original_producer_sha256": "cd9779c89c643c9daf4a9c9001ce14dcf5d3cf95300d98f50c4ba3a4d1998fae"
+      },
+      {
+        "original_provider": "ecological-original-shard-1.zip",
+        "sha256": "bc675e9eb231ec7f6ac4cb7c26a762cd55d75ad8fff51eae0aa8e28568172280",
+        "cases": 256,
+        "original_producer_sha256": "cd9779c89c643c9daf4a9c9001ce14dcf5d3cf95300d98f50c4ba3a4d1998fae"
+      },
+      {
+        "original_provider": "ecological-original-shard-2.zip",
+        "sha256": "3673b1b07ed2742669f1ba43494ba814d7968cb200c6832c62a5a1c1640fe554",
+        "cases": 256,
+        "original_producer_sha256": "cd9779c89c643c9daf4a9c9001ce14dcf5d3cf95300d98f50c4ba3a4d1998fae"
+      },
+      {
+        "original_provider": "ecological-original-shard-3.zip",
+        "sha256": "676e84ff0729ba88dcd91cb161efeb2dc63f10b6679458695c5d2909c017e9c2",
+        "cases": 256,
+        "original_producer_sha256": "cd9779c89c643c9daf4a9c9001ce14dcf5d3cf95300d98f50c4ba3a4d1998fae"
+      },
+      {
+        "original_provider": "ecological-original-shard-4.zip",
+        "sha256": "900d3d22a36fa59241a933b8efc4b2fb8f320e4b25637e592640f31c529314fe",
+        "cases": 256,
+        "original_producer_sha256": "cd9779c89c643c9daf4a9c9001ce14dcf5d3cf95300d98f50c4ba3a4d1998fae"
+      },
+      {
+        "original_provider": "ecological-original-shard-5.zip",
+        "sha256": "b45f10aae6ec8fa437179285eb50cb3b98a35e3cc3e8610f6e8d36358daeb6e8",
+        "cases": 256,
+        "original_producer_sha256": "cd9779c89c643c9daf4a9c9001ce14dcf5d3cf95300d98f50c4ba3a4d1998fae"
+      },
+      {
+        "original_provider": "ecological-original-shard-6.zip",
+        "sha256": "03d9dcc3b7b993fcba9486bb543e01b8dcd75e40bbb0d5684c6cf72292105a42",
+        "cases": 256,
+        "original_producer_sha256": "cd9779c89c643c9daf4a9c9001ce14dcf5d3cf95300d98f50c4ba3a4d1998fae"
+      },
+      {
+        "original_provider": "ecological-original-shard-7.zip",
+        "sha256": "7a304cab06107d3a48d18bd033f07c046dad5c4ecb95eb2a1a4916ebd9d51876",
+        "cases": 256,
+        "original_producer_sha256": "cd9779c89c643c9daf4a9c9001ce14dcf5d3cf95300d98f50c4ba3a4d1998fae"
+      },
+      {
+        "original_provider": "ecological-original-shard-8.zip",
+        "sha256": "35a6c2da91bb02d50806a919777e21a2c855ab55b5fccc95f917a7af7d77bf62",
+        "cases": 256,
+        "original_producer_sha256": "cd9779c89c643c9daf4a9c9001ce14dcf5d3cf95300d98f50c4ba3a4d1998fae"
+      }
+    ],
+    "verified_original_case_npzs": 2304,
+    "paired_history_clusters": 256,
+    "genetic_t0_profiles": 18
+  },
+  "all_six_original_outcomes": {
+    "near_simultaneous": 358,
+    "investment_first": 435,
+    "assurance_only": 895,
+    "assurance_first": 335,
+    "investment_only": 10,
+    "neither": 271
+  },
+  "all_start_genetic_access": {
+    "A_t0_phenotype_variance_zero": 2304,
+    "A_F1_expressed_variance_positive": 2304,
+    "A_F1_population_has_genotype_at_least_founder_plus0p05": 2304,
+    "A_F1_population_has_unmutated_genotype_at_least_founder_plus0p05": 2304,
+    "A_F1_zero_A_mutated_offspring_cases": 864,
+    "A_F1_new_mutated_offspring_distribution": {
+      "n": 2304,
+      "mean": 0.87890625,
+      "median": 1.0,
+      "min": 0.0,
+      "max": 4.0
+    },
+    "A_F1_expressed_variance_distribution": {
+      "n": 2304,
+      "mean": 0.0019303167805699612,
+      "median": 0.0019327100875849504,
+      "min": 0.001295301649305556,
+      "max": 0.002577039930555556
+    },
+    "A_after_F1_sustained_threshold_observed": 2023,
+    "A_transient_threshold_anytime": 2106,
+    "A_transient_without_20_consecutive_censuses": 83,
+    "I_transient_threshold_anytime": 1339,
+    "I_transient_without_20_consecutive_censuses": 201,
+    "A_sustained_onset_distribution": {
+      "n": 2023,
+      "mean": 33.45328719723183,
+      "median": 21.0,
+      "min": 4.0,
+      "max": 181.0
+    },
+    "I_sustained_onset_distribution": {
+      "n": 1138,
+      "mean": 21.966608084358523,
+      "median": 14.0,
+      "min": 2.0,
+      "max": 170.0
+    },
+    "A_first_transient_to_sustained_delay": {
+      "n": 2023,
+      "mean": 8.643598615916956,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 167.0
+    },
+    "I_first_transient_to_sustained_delay": {
+      "n": 1138,
+      "mean": 8.722319859402461,
+      "median": 0.0,
+      "min": 0.0,
+      "max": 124.0
+    }
+  },
+  "per_founder_context": [
+    {
+      "founder": "confirmation",
+      "context": 0,
+      "n": 128,
+      "A_F1_variance_mean": 0.0018964408804307076,
+      "A_F1_variance_min": 0.0013303233144337067,
+      "A_t1_genotype_at_least_plus0p05": 128,
+      "A_transient_no_stable": 0,
+      "categories": {
+        "near_simultaneous": 36,
+        "investment_first": 36,
+        "assurance_only": 31,
+        "assurance_first": 25
+      }
+    },
+    {
+      "founder": "confirmation",
+      "context": 1,
+      "n": 128,
+      "A_F1_variance_mean": 0.0018964408804307076,
+      "A_F1_variance_min": 0.0013303233144337067,
+      "A_t1_genotype_at_least_plus0p05": 128,
+      "A_transient_no_stable": 0,
+      "categories": {
+        "assurance_only": 34,
+        "investment_first": 36,
+        "near_simultaneous": 32,
+        "assurance_first": 26
+      }
+    },
+    {
+      "founder": "confirmation",
+      "context": 2,
+      "n": 128,
+      "A_F1_variance_mean": 0.0018964408804307076,
+      "A_F1_variance_min": 0.0013303233144337067,
+      "A_t1_genotype_at_least_plus0p05": 128,
+      "A_transient_no_stable": 0,
+      "categories": {
+        "investment_first": 32,
+        "assurance_first": 27,
+        "near_simultaneous": 38,
+        "assurance_only": 31
+      }
+    },
+    {
+      "founder": "confirmation",
+      "context": 3,
+      "n": 128,
+      "A_F1_variance_mean": 0.0018964408804307076,
+      "A_F1_variance_min": 0.0013303233144337067,
+      "A_t1_genotype_at_least_plus0p05": 128,
+      "A_transient_no_stable": 0,
+      "categories": {
+        "assurance_only": 65,
+        "assurance_first": 34,
+        "investment_first": 14,
+        "investment_only": 1,
+        "near_simultaneous": 14
+      }
+    },
+    {
+      "founder": "confirmation",
+      "context": 4,
+      "n": 128,
+      "A_F1_variance_mean": 0.0018964408804307076,
+      "A_F1_variance_min": 0.0013303233144337067,
+      "A_t1_genotype_at_least_plus0p05": 128,
+      "A_transient_no_stable": 0,
+      "categories": {
+        "investment_first": 29,
+        "near_simultaneous": 32,
+        "assurance_first": 30,
+        "assurance_only": 37
+      }
+    },
+    {
+      "founder": "confirmation",
+      "context": 5,
+      "n": 128,
+      "A_F1_variance_mean": 0.0018964408804307076,
+      "A_F1_variance_min": 0.0013303233144337067,
+      "A_t1_genotype_at_least_plus0p05": 128,
+      "A_transient_no_stable": 13,
+      "categories": {
+        "assurance_only": 80,
+        "investment_only": 1,
+        "neither": 44,
+        "assurance_first": 2,
+        "near_simultaneous": 1
+      }
+    },
+    {
+      "founder": "confirmation",
+      "context": 6,
+      "n": 128,
+      "A_F1_variance_mean": 0.0018964408804307076,
+      "A_F1_variance_min": 0.0013303233144337067,
+      "A_t1_genotype_at_least_plus0p05": 128,
+      "A_transient_no_stable": 0,
+      "categories": {
+        "assurance_only": 90,
+        "investment_first": 16,
+        "assurance_first": 12,
+        "near_simultaneous": 9,
+        "neither": 1
+      }
+    },
+    {
+      "founder": "confirmation",
+      "context": 7,
+      "n": 128,
+      "A_F1_variance_mean": 0.0018964408804307076,
+      "A_F1_variance_min": 0.0013303233144337067,
+      "A_t1_genotype_at_least_plus0p05": 128,
+      "A_transient_no_stable": 22,
+      "categories": {
+        "neither": 79,
+        "assurance_only": 49
+      }
+    },
+    {
+      "founder": "confirmation",
+      "context": 8,
+      "n": 128,
+      "A_F1_variance_mean": 0.0018964408804307076,
+      "A_F1_variance_min": 0.0013303233144337067,
+      "A_t1_genotype_at_least_plus0p05": 128,
+      "A_transient_no_stable": 6,
+      "categories": {
+        "assurance_only": 94,
+        "investment_first": 7,
+        "neither": 14,
+        "assurance_first": 9,
+        "near_simultaneous": 2,
+        "investment_only": 2
+      }
+    },
+    {
+      "founder": "main",
+      "context": 0,
+      "n": 128,
+      "A_F1_variance_mean": 0.0019641926807092147,
+      "A_F1_variance_min": 0.001295301649305556,
+      "A_t1_genotype_at_least_plus0p05": 128,
+      "A_transient_no_stable": 0,
+      "categories": {
+        "near_simultaneous": 46,
+        "investment_first": 51,
+        "assurance_first": 24,
+        "assurance_only": 7
+      }
+    },
+    {
+      "founder": "main",
+      "context": 1,
+      "n": 128,
+      "A_F1_variance_mean": 0.0019641926807092147,
+      "A_F1_variance_min": 0.001295301649305556,
+      "A_t1_genotype_at_least_plus0p05": 128,
+      "A_transient_no_stable": 0,
+      "categories": {
+        "investment_first": 49,
+        "near_simultaneous": 38,
+        "assurance_first": 30,
+        "assurance_only": 11
+      }
+    },
+    {
+      "founder": "main",
+      "context": 2,
+      "n": 128,
+      "A_F1_variance_mean": 0.0019641926807092147,
+      "A_F1_variance_min": 0.001295301649305556,
+      "A_t1_genotype_at_least_plus0p05": 128,
+      "A_transient_no_stable": 0,
+      "categories": {
+        "investment_first": 49,
+        "assurance_first": 24,
+        "near_simultaneous": 47,
+        "assurance_only": 8
+      }
+    },
+    {
+      "founder": "main",
+      "context": 3,
+      "n": 128,
+      "A_F1_variance_mean": 0.0019641926807092147,
+      "A_F1_variance_min": 0.001295301649305556,
+      "A_t1_genotype_at_least_plus0p05": 128,
+      "A_transient_no_stable": 0,
+      "categories": {
+        "investment_first": 41,
+        "assurance_only": 36,
+        "assurance_first": 33,
+        "near_simultaneous": 18
+      }
+    },
+    {
+      "founder": "main",
+      "context": 4,
+      "n": 128,
+      "A_F1_variance_mean": 0.0019641926807092147,
+      "A_F1_variance_min": 0.001295301649305556,
+      "A_t1_genotype_at_least_plus0p05": 128,
+      "A_transient_no_stable": 0,
+      "categories": {
+        "investment_first": 46,
+        "assurance_first": 33,
+        "near_simultaneous": 36,
+        "assurance_only": 13
+      }
+    },
+    {
+      "founder": "main",
+      "context": 5,
+      "n": 128,
+      "A_F1_variance_mean": 0.0019641926807092147,
+      "A_F1_variance_min": 0.001295301649305556,
+      "A_t1_genotype_at_least_plus0p05": 128,
+      "A_transient_no_stable": 10,
+      "categories": {
+        "neither": 38,
+        "assurance_only": 87,
+        "investment_only": 2,
+        "investment_first": 1
+      }
+    },
+    {
+      "founder": "main",
+      "context": 6,
+      "n": 128,
+      "A_F1_variance_mean": 0.0019641926807092147,
+      "A_F1_variance_min": 0.001295301649305556,
+      "A_t1_genotype_at_least_plus0p05": 128,
+      "A_transient_no_stable": 1,
+      "categories": {
+        "assurance_only": 68,
+        "investment_first": 23,
+        "assurance_first": 26,
+        "near_simultaneous": 9,
+        "neither": 1,
+        "investment_only": 1
+      }
+    },
+    {
+      "founder": "main",
+      "context": 7,
+      "n": 128,
+      "A_F1_variance_mean": 0.0019641926807092147,
+      "A_F1_variance_min": 0.001295301649305556,
+      "A_t1_genotype_at_least_plus0p05": 128,
+      "A_transient_no_stable": 16,
+      "categories": {
+        "neither": 72,
+        "assurance_only": 55,
+        "investment_only": 1
+      }
+    },
+    {
+      "founder": "main",
+      "context": 8,
+      "n": 128,
+      "A_F1_variance_mean": 0.0019641926807092147,
+      "A_F1_variance_min": 0.001295301649305556,
+      "A_t1_genotype_at_least_plus0p05": 128,
+      "A_transient_no_stable": 15,
+      "categories": {
+        "neither": 22,
+        "assurance_only": 99,
+        "investment_first": 5,
+        "investment_only": 2
+      }
+    }
+  ],
+  "limitations": [
+    "F1 segregation is an observed post-t0 mediator; it cannot be used as a t0-only prospective predictor without an explicit prospective segregation model.",
+    "A positive F1 within-population variance or one high-genotype individual does not imply persistent population-mean response, fixed selected alleles or first passage.",
+    "Original 2304 contexts share only 18 founder-by-visitors t0 biological states and 256 paired stochastic streams; no unpaired ecological replicate count is claimed.",
+    "This is a diagnostic of the already exposed retrospective source cohort, not new independent stochastic histories or the unrun prospective 1536 pilot.",
+    "The pilot deliberately changes A structural threshold support and I hidden homolog segregation. These effects are not isolated natural-island causal claims."
+  ],
+  "new_biological_histories_generated": 0,
+  "new_Q1Q2_clock_confirmed": false
+}

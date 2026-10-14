@@ -1,0 +1,201 @@
+{
+  "schema": "chapter2_model_internal_selection_neutral_parentage_source_receipt_v1",
+  "date": "2026-10-10",
+  "status": "SOURCE_EXECUTED_COMPLETE_64_HISTORY_SELECTED_VS_NEUTRAL_PARENTAGE_ALL_UNRESOLVED",
+  "commit_sha": "48eb9da3f709f40523c8bc13ce3068dc2dd97cf4",
+  "design_file": "data/design/chapter2_selected_neutral_parentage_new64_20261010.json",
+  "design_raw_sha256": "3aaa12452a05197c9150ebec22f100ccf7e372d0a63f21704381c45c0dd8c1f7",
+  "runner": "scripts/audit_chapter2_selected_vs_neutral_parentage_new64.py",
+  "tests": "tests/test_chapter2_selected_vs_neutral_parentage_new64.py",
+  "workflow_run": 38016780391,
+  "artifact_id": 11656058352,
+  "original_source_json_sha256": "d643ae6601ac0457984a89664617f5bc2d777c76a0f2523049527190d3540107",
+  "original_artifact_zip_sha256": "cd1dda99baaf5fa021dec33ef0081b3fa0b3ef410a12ac308753f8ef722d9998",
+  "raw_json_bytes": 888808,
+  "execution": {
+    "focused_tests": "PASS",
+    "full_1024_case_calculation": "PASS",
+    "complete_raw_upload": "PASS",
+    "full_repository_CI_at_receipt": "in_progress"
+  },
+  "source_conditions": {
+    "visitor_seed_first": 61024001,
+    "visitor_seed_last": 61024064,
+    "independent_visitor_RNG_histories": 64,
+    "independent_natural_island_systems": 0,
+    "source_model_family_count": 1,
+    "initial_census_N0": 8,
+    "K": [
+      8,
+      48
+    ],
+    "B": 48,
+    "ovule_budgets": [
+      6,
+      8
+    ],
+    "seed_gate": [
+      "baseline",
+      "half_self"
+    ],
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "mutation": 0,
+    "horizon": 80,
+    "source_genotype_SD": 0.08
+  },
+  "outcome_units": "source-matched visitor-history pairs; genotype-neutral transmission is an artificial postrecruitment operator conditional on exactly same realized source self/outcross recruit counts",
+  "outcomes_80": [
+    {
+      "K": 8,
+      "budget": 6,
+      "gate": "baseline",
+      "selected_occupied": 62,
+      "neutral_occupied": 59,
+      "paired_selected_only": 5,
+      "paired_neutral_only": 2,
+      "delta_selected_minus_neutral": 0.046875,
+      "conservative_95": [
+        -0.09938617612948954,
+        0.1849947526316727
+      ],
+      "classification": "inconclusive",
+      "both_surviving_histories": 57,
+      "exploratory_mean_assurance_locus_selected_minus_neutral_among_both_survivors": 0.06511,
+      "exploratory_mean_investment_locus_selected_minus_neutral_among_both_survivors": -0.01701
+    },
+    {
+      "K": 8,
+      "budget": 6,
+      "gate": "half_self",
+      "selected_occupied": 2,
+      "neutral_occupied": 0,
+      "paired_selected_only": 2,
+      "paired_neutral_only": 0,
+      "delta_selected_minus_neutral": 0.03125,
+      "conservative_95": [
+        -0.06354953427253386,
+        0.1209887515415175
+      ],
+      "classification": "inconclusive",
+      "both_surviving_histories": 0,
+      "exploratory_mean_assurance_locus_selected_minus_neutral_among_both_survivors": null,
+      "exploratory_mean_investment_locus_selected_minus_neutral_among_both_survivors": null
+    },
+    {
+      "K": 8,
+      "budget": 8,
+      "gate": "baseline",
+      "selected_occupied": 64,
+      "neutral_occupied": 64,
+      "paired_selected_only": 0,
+      "paired_neutral_only": 0,
+      "delta_selected_minus_neutral": 0,
+      "conservative_95": [
+        -0.06617774702077084,
+        0.06617774702077084
+      ],
+      "classification": "inconclusive",
+      "both_surviving_histories": 64,
+      "exploratory_mean_assurance_locus_selected_minus_neutral_among_both_survivors": 0.08086,
+      "exploratory_mean_investment_locus_selected_minus_neutral_among_both_survivors": -0.01169
+    },
+    {
+      "K": 8,
+      "budget": 8,
+      "gate": "half_self",
+      "selected_occupied": 25,
+      "neutral_occupied": 18,
+      "paired_selected_only": 17,
+      "paired_neutral_only": 10,
+      "delta_selected_minus_neutral": 0.109375,
+      "conservative_95": [
+        -0.13401844884766803,
+        0.3389716255671886
+      ],
+      "classification": "inconclusive",
+      "both_surviving_histories": 8,
+      "exploratory_mean_assurance_locus_selected_minus_neutral_among_both_survivors": 0.03561,
+      "exploratory_mean_investment_locus_selected_minus_neutral_among_both_survivors": 0.0116
+    },
+    {
+      "K": 48,
+      "budget": 6,
+      "gate": "baseline",
+      "selected_occupied": 64,
+      "neutral_occupied": 64,
+      "paired_selected_only": 0,
+      "paired_neutral_only": 0,
+      "delta_selected_minus_neutral": 0,
+      "conservative_95": [
+        -0.06617774702077084,
+        0.06617774702077084
+      ],
+      "classification": "inconclusive",
+      "both_surviving_histories": 64,
+      "exploratory_mean_assurance_locus_selected_minus_neutral_among_both_survivors": 0.12836,
+      "exploratory_mean_investment_locus_selected_minus_neutral_among_both_survivors": -0.02171
+    },
+    {
+      "K": 48,
+      "budget": 6,
+      "gate": "half_self",
+      "selected_occupied": 14,
+      "neutral_occupied": 5,
+      "paired_selected_only": 9,
+      "paired_neutral_only": 0,
+      "delta_selected_minus_neutral": 0.140625,
+      "conservative_95": [
+        -0.007207175636707329,
+        0.2664635671643921
+      ],
+      "classification": "inconclusive",
+      "both_surviving_histories": 5,
+      "exploratory_mean_assurance_locus_selected_minus_neutral_among_both_survivors": 0.09729,
+      "exploratory_mean_investment_locus_selected_minus_neutral_among_both_survivors": 0.0456
+    },
+    {
+      "K": 48,
+      "budget": 8,
+      "gate": "baseline",
+      "selected_occupied": 64,
+      "neutral_occupied": 64,
+      "paired_selected_only": 0,
+      "paired_neutral_only": 0,
+      "delta_selected_minus_neutral": 0,
+      "conservative_95": [
+        -0.06617774702077084,
+        0.06617774702077084
+      ],
+      "classification": "inconclusive",
+      "both_surviving_histories": 64,
+      "exploratory_mean_assurance_locus_selected_minus_neutral_among_both_survivors": 0.12023,
+      "exploratory_mean_investment_locus_selected_minus_neutral_among_both_survivors": -0.04934
+    },
+    {
+      "K": 48,
+      "budget": 8,
+      "gate": "half_self",
+      "selected_occupied": 58,
+      "neutral_occupied": 48,
+      "paired_selected_only": 12,
+      "paired_neutral_only": 2,
+      "delta_selected_minus_neutral": 0.15625,
+      "conservative_95": [
+        -0.029470956514592625,
+        0.3189463924394368
+      ],
+      "classification": "inconclusive",
+      "both_surviving_histories": 46,
+      "exploratory_mean_assurance_locus_selected_minus_neutral_among_both_survivors": 0.11243,
+      "exploratory_mean_investment_locus_selected_minus_neutral_among_both_survivors": -0.01367
+    }
+  ],
+  "scientific_readout": [
+    "The four reduced-viable-self gate cells show selected 2/25/14/58 versus neutral 0/18/5/48 surviving out of 64; direction all positive, but all conservative 95% intervals overlap zero and none establish >5pp improvement.",
+    "Untreated arms have three empirical saturation/ceiling cells and one small difference 62/64 versus 59/64.",
+    "Selected inheritance is associated with larger assurance allele values in several conditional common-survivor comparisons; those are survivor-conditioned post-outcome descriptions, NOT an identified mediation or general genetic selection coefficient.",
+    "The neutral operator retains original source absolute viable seed output and realized mating channel counts, but randomizes inheritance parent pairs uniformly within mating mode; genetic drift remains and physical maternal seed budgets do not describe the artificial reassignment.",
+    "No full genetic freezing, mutational load, validated evolutionary-suicide scenario, field islands, independent ecological systems, or robust 80-step persistence effect established."
+  ]
+}

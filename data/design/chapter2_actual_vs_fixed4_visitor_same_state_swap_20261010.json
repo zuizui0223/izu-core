@@ -1,0 +1,24 @@
+{
+  "schema": "chapter2_stochastic_visitor_replacement_within_exact_source_state_v1",
+  "date": "2026-10-10",
+  "status": "POST_OUTCOME_SAME_GENOTYPE_SAME_N_VISITOR_STATE_REPLACEMENT",
+  "target": "Original 96 stochastic-visitor pilot native investment-expression trajectories (16 already exposed visitor histories × K8/48 × budget4.5/6/8) at pre-reproduction census N6..9.",
+  "scientific_question": "Holding the actual 3-locus diploid genotypes, source N, K/B and budget fixed at each original annual state, does replacing the current visitor assemblage with the original matched four synthetic visitor types restore the majority individual β-negative / group Γseed-positive conflict?",
+  "source_exact_sha256": "94c45f63d6d2f34b50357aaf4bd55ed89a1a2094559b32b45dbae2e585d73db7",
+  "original_n_stochastic_states": 1533,
+  "visitor_replacement": "Only for computing temporary ledger and derivative: replace current visitor assemblage with fixed original matched4 optima [.15,.35,.55,.75], breadth .18, effectiveness1, with original ids. Do NOT modify demographic visitor history, inherited genotype, next state, or RNG. Changes richness and composition together; no attribution to richness alone.",
+  "source_kinetics": "Same original Model3 reproduce_kb, per-individual finite maternal/paternal/self W and all-individual group Gamma, h=.005, β/Γ absolute deadband .02; mixed-genotype majority conflict as source v1.",
+  "outputs": [
+    "For all original N6–9 states, 2×2 cross-classification actual stochastic visitor vs counterfactual static4 visitor conflict classifications",
+    "Exact source reproduction archive parity of all 96 stochastic native path records",
+    "Both visitor richness/count and state differences; gamma positive and beta-negative fraction shifts separately",
+    "Per-history (n=16 independent original seed ids) and budget/K descriptive paired breakdown",
+    "All null and sign-reversed cases archived, no p-value/pseudo replicate use"
+  ],
+  "limits": [
+    "Historical source visitor communities and selected genome states already exposed; no novel ecological history or confirmatory result",
+    "Reference four-type visitors are artificially chosen from original fixture, and replacement changes richness AND optimum/effectiveness profile",
+    "Does not intervene on whole future visitor history, genotype evolution, group persistence, or a natural magnet-effect mechanism",
+    "N6–9 annual states and all individuals within histories are correlated, not independent replicates"
+  ]
+}

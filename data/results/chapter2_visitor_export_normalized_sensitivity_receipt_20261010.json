@@ -1,0 +1,76 @@
+{
+  "schema": "model3_export_normalized_visitor_optimum_sensitivity_receipt_v1",
+  "date": "2026-10-10",
+  "status": "SOURCE_EXECUTED_EXPLORATORY_NO_NATURAL_VALIDATION",
+  "source_runner_commit": "32ab1346abb21ff57883283b4903343a3b2b59e4",
+  "source_ci_run_id": 38027964437,
+  "source_artifact_id": 11660358587,
+  "source_artifact_url": "https://github.com/zuizui0223/izu-core/actions/runs/38027964437/artifacts/11660358587",
+  "source_artifact_filename": "visitor-export-normalized-20261010.json",
+  "source_json_uncompressed_bytes": 106261,
+  "source_json_sha256": "924a29fd710aa00a5982a16477c17cdc58407d39e34358dd6f72fe84692d655d",
+  "archive_download_and_sha_verified": true,
+  "source_stage_status": "runner success; artifact uploaded; latest-head broad CI separately checked",
+  "n_synthetic_matched_blocks": 36,
+  "n_reproduction_rows": 108,
+  "n_new_visitor_histories": 0,
+  "n_natural_island_samples": 0,
+  "n_fixture_sign_flips_raw": 8,
+  "n_fixture_sign_flips_export_equalized": 7,
+  "n_negative_total_seed_deltas_raw": 20,
+  "n_positive_total_seed_deltas_raw": 16,
+  "n_negative_total_seed_deltas_export_equalized": 20,
+  "n_positive_total_seed_deltas_export_equalized": 16,
+  "max_absolute_equalized_pollen_export_error": 3.5837999234900053e-12,
+  "activity_match_range": [
+    0.26933721761349255,
+    2.002611749768523
+  ],
+  "source_fixture_checks": {
+    "monomorphic": {
+      "original_reference_beta": -0.063173669540878,
+      "original_reference_gamma": 0.15822876051396761,
+      "original_reference_total_seed": 11.992565534924456,
+      "original_shift_total_seed": 10.882505800430955,
+      "raw_total_seed_delta": -1.1100597344935004,
+      "normalized_total_seed_delta": -0.5187382014335622,
+      "reference_export": 10.093086,
+      "reference_delivered": 0.476752,
+      "normalized_export": 10.093086,
+      "normalized_delivered": 0.305494,
+      "normalized_activity": 1.1090502530367372,
+      "normalized_beta_median": -0.155916,
+      "normalized_gamma_log_seed": -0.001945,
+      "normalized_conflict": false
+    },
+    "mixed_diploid": {
+      "original_reference_beta": -0.06868910508269488,
+      "original_reference_gamma": 0.14050823583708905,
+      "original_reference_total_seed": 11.931506679026661,
+      "original_shift_total_seed": 10.888561409910444,
+      "raw_total_seed_delta": -1.0429452691162169,
+      "normalized_total_seed_delta": -0.47461573592109474,
+      "reference_export": 9.99597,
+      "reference_delivered": 0.456762,
+      "normalized_export": 9.99597,
+      "normalized_delivered": 0.300802,
+      "normalized_activity": 1.070808644526636,
+      "normalized_beta_median": -0.158783,
+      "normalized_gamma_log_seed": -0.010076,
+      "normalized_conflict": false
+    }
+  },
+  "scientific_interpretation": [
+    "At original source matching mean .2 / breadth .18 / effectiveness 1, the +0.2 visitor-optimum shift lowers collective viable seed output even after exact equalization of total exported pollen in both predesigned diploid states.",
+    "Equalized total exported pollen still corresponds to unequal delivered pollen and mating distributions in Model3. Thus this does not isolate a real-world pollen-routing causal effect.",
+    "At the representative equalized state collective gamma is near zero and INSIDE the original +/- 0.02 inconclusive deadband; do not claim a robust beta-negative/gamma-negative tradeoff after export normalization.",
+    "Across all 36 synthetic matched blocks, classified conflict flips appear in 8 raw and 7 equalized conditions. These are unweighted fixed design rows and no independent biological samples.",
+    "The model remains not sufficient to infer long-term evolved investment or population persistence."
+  ],
+  "no_promotions": [
+    "natural pollinator richness causal effect",
+    "new independent island-system meta-analysis",
+    "evolutionary suicide",
+    "selection-to-extinction link"
+  ]
+}

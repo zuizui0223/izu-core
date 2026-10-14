@@ -1,0 +1,21 @@
+{
+  "status": "READ_ONLY_ORIGINAL_PAIRING_AND_CV_REPRODUCTION_VERIFIED",
+  "reviewed_head": "d448c9c5ad8c6db38279aec4b6faaa44543b7a6e",
+  "source_delta_reviewed_from": "da4b84e49e0f62f85d68d867a6e6dec5a0a3e9ab",
+  "raw_cases": 2304,
+  "paired_clusters": 256,
+  "independent_pairs_exact": true,
+  "repaired_extractor_original_bytes_exact": true,
+  "cv_numeric_fields": 667,
+  "cv_max_abs_error": 7.452971573229661e-11,
+  "cv_retrospective_only": true,
+  "new_biological_histories": 0,
+  "scientific_decisions_changed": false,
+  "output_contract": "exclusive UTF-8 LF; reject changed paired Git blob before fit",
+  "evidence_sha256": {
+    "INDEPENDENT_PAIRED_EVENTS_20261013.json": "8e87cdc1f9639d27c09db610abcfdad822b5f3a497a93619708b1ea146be2ec1",
+    "PAIRED_CV_RECOMPUTED_EAE1DDA2_20261013.json": "ada44d5a65cdce3f026070149481e9dd0f4759e103ad775c1e9d72c284896317",
+    "PAIRED_CV_ALL_FIELDS_COMPARISON_20261013.json": "b6ee804d98a84180a275c510750a672eb94d19c0e76d34e17a2776464a2ba027",
+    "PAIRED_EVENTS_REPAIRED_LF_CLI_20261013.json": "d9d23dc5a0ce43e650ffbbe6459c417f33b8411f4d03bd62c8d66eee94e3f3fc"
+  }
+}

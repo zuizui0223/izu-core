@@ -1,0 +1,116 @@
+{
+  "schema": "chapter2_joint_multigen_synthetic_pilot_receipt_v1",
+  "status": "SOURCE_ARCHIVED_EXPLORATORY_NO_CONFIRMATORY_INFERENCE",
+  "source_sha": "40811ecbeddfc0f69aa43da381cb6fd27f46f634",
+  "execution": {
+    "ci_run": 38011492391,
+    "job": "tests (3.11)",
+    "archived_artifact_id": 11653441514,
+    "raw_json_sha256": "fdc240f65cfa5a962dc1d700ca4f0c4b2342f895f0e688e85e478a1cf9b61670",
+    "raw_zip_sha256": "f6580d18da0984316563f75662750368af5d0bee6755c0f72421b621260f59c5",
+    "raw_json_bytes": 19224,
+    "job_exploratory_pilot_step": "success",
+    "full_ci_status_at_receipt": "in_progress"
+  },
+  "conditions": {
+    "founders": 8,
+    "source_genetic_standing_variation": true,
+    "K": [
+      8,
+      48
+    ],
+    "B": 48,
+    "years": 80,
+    "ovule_budget": 3,
+    "mutation": 0,
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "demographic_repeats_per_fixed_visitor_regime": 48,
+    "n_independent_ecological_histories": 0,
+    "visitor_regimes": [
+      "two_hand_authored",
+      "no_visitors"
+    ],
+    "viability_gates": [
+      "baseline",
+      "half_self",
+      "half_outcross"
+    ],
+    "assigned_A_first_I_first": false,
+    "confirmed_cohorts_used": false
+  },
+  "outcomes_occupied_counts_of_48": {
+    "two_hand_authored": {
+      "K8": {
+        "baseline": 0,
+        "half_self": 0,
+        "half_outcross": 0
+      },
+      "K48": {
+        "baseline": 7,
+        "half_self": 0,
+        "half_outcross": 6
+      }
+    },
+    "no_visitors": {
+      "K8": {
+        "baseline": 0,
+        "half_self": 0,
+        "half_outcross": 0
+      },
+      "K48": {
+        "baseline": 3,
+        "half_self": 0,
+        "half_outcross": 3
+      }
+    }
+  },
+  "initial_one_generation_expected_allele_frequency_directions_by_regime_gate": {
+    "no_visitors": {
+      "baseline": [
+        -0.0007,
+        -0.0076,
+        0.0512
+      ],
+      "half_self": [
+        -0.0007,
+        -0.0076,
+        0.0512
+      ],
+      "half_outcross": [
+        -0.0007,
+        -0.0076,
+        0.0512
+      ]
+    },
+    "two_hand_authored": {
+      "baseline": [
+        -0.0005,
+        -0.0052,
+        0.0431
+      ],
+      "half_self": [
+        -0.0003,
+        -0.0032,
+        0.0367
+      ],
+      "half_outcross": [
+        -0.0006,
+        -0.0063,
+        0.0469
+      ]
+    }
+  },
+  "first_step_precision": "Rounded to 4 decimals here; exact original floats are in SHA-256-pinned artifact",
+  "negative_control": "With zero visitors, halving viable outcross offspring has exactly identical paired occupancy outcomes and no outcross recruits (48 of 48 paired draws at each K).",
+  "scientific_result": "At the prespecified engineered low ovule budget 3 and 80 updates, K8 has a terminal-occupancy floor (0/48 in every arm). This prevents identifying a nonzero K8 gate sensitivity from these outcomes; it must not be called a biological absence of seed-viability effects. K48 occupancy is rare and declines to 0/48 under half-self in both fixed synthetic visitor regimes. The original source first-step assurance-high expected direction is positive, while no K8 population survives to the 80-update endpoint in the sampled demographic paths. This is only a synthetic example of distinct conditional gene-transmission and demographic endpoints, not proof of natural fitness discordance.",
+  "restrictions": [
+    "One deterministic founder genotype state",
+    "One static visitor condition per regime, no independent ecological history sample",
+    "Demographic repeats conditional on the same fixed visitors; no ecological bootstrap",
+    "No A/I assigned expression schedules, so none of these effects estimates PR451's primary tau(K8)-tau(K48)",
+    "No cumulative self recruit total used as causal mediator",
+    "No inference that 0/48 is exactly zero true persistence probability",
+    "No confirmatory data, no natural islands, no absolute fitness inference"
+  ]
+}

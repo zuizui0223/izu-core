@@ -1,0 +1,38 @@
+{
+  "status": "PUBLISHED_RELEASE_ASSET_DIGESTS_AND_RECEIPT_READBACK_PASS",
+  "repository": "zuizui0223/izu-core",
+  "release_id": 412344508,
+  "release_url": "https://github.com/zuizui0223/izu-core/releases/tag/q3-conditional-futures-20261014",
+  "release_tag": "q3-conditional-futures-20261014",
+  "tag_commit": "d92ac4324b6e1c8924dcc8e5f30e0750088a3acf",
+  "release_immutable": false,
+  "published_at": "2026-10-14T04:56:25Z",
+  "assets": [
+    {
+      "id": 639243280,
+      "name": "Q3_CONDITIONAL_FUTURES_20261014.zip",
+      "size": 410326692,
+      "digest": "sha256:8a2462910025b4a386e789583578cb1380349097393916dac4e50d01c9637b7e",
+      "browser_download_url": "https://github.com/zuizui0223/izu-core/releases/download/q3-conditional-futures-20261014/Q3_CONDITIONAL_FUTURES_20261014.zip"
+    },
+    {
+      "id": 639243287,
+      "name": "PUBLICATION_RECEIPT.json",
+      "size": 529,
+      "digest": "sha256:3d508d6d97a7a9e5230a225d80c17f7cc940c010d0acefb5fcfa4e52a87786ff",
+      "browser_download_url": "https://github.com/zuizui0223/izu-core/releases/download/q3-conditional-futures-20261014/PUBLICATION_RECEIPT.json"
+    },
+    {
+      "id": 639243282,
+      "name": "EXTERNAL_READBACK.json",
+      "size": 910,
+      "digest": "sha256:f0962abe3a5ca66e36d81de1e7111c970bd29960f93f44f55d76a41f866b0d21",
+      "browser_download_url": "https://github.com/zuizui0223/izu-core/releases/download/q3-conditional-futures-20261014/EXTERNAL_READBACK.json"
+    }
+  ],
+  "source_github_run_id": 38508868485,
+  "source_actions_artifact_id": 11869656643,
+  "source_actions_artifact_sha256": "9b8a47839722176c76fd1484f77e5da4be02fc99b4e5b16af45099313a6f8b6e",
+  "binary_upload_verified_by": "GitHub server asset digest matched complete locally verified archive SHA256",
+  "receipt_assets_downloaded_and_byte_compared": true
+}

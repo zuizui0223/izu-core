@@ -1,0 +1,91 @@
+{
+  "schema": "chapter2_investment_ngraded_beta_gamma_cap_recruitment_v1",
+  "date": "2026-10-10",
+  "status": "EXECUTED_POST_PILOT_SOURCE_CENSUS_SCAN_NOT_AN_ECOLOGICAL_REPLICATION",
+  "source_sha": "27ac496271db16a855bbfc7f3733ab780166fda3",
+  "workflow_run": 38022592931,
+  "artifact_id": 11657999363,
+  "raw_json_sha256": "68142cc102798eb910af4728db06587ff7515d7ce8238d681b88300f8ea44ddc",
+  "raw_zip_sha256": "17e59b7e757d4cd7ca77e303c88b2524d3c1c88b3fc03bc52de56b540f5ffdd7",
+  "source_design_sha256": "5ccc5d457a0c7ec1d3ee56b7b66a976f38b1d26bc058a8a5f26650934a4ffff3",
+  "runner": "scripts/audit_chapter2_investment_density_selection.py",
+  "tests": "tests/test_chapter2_investment_density_selection.py",
+  "source_biology": "Unmodified Model3 delayed_control, monomorphic [.2,.35,.35], 4 fixed matched visitor types, B=48 across all source census sizes, source budgets4.5/6/8; exact Poisson cap recruited expectation",
+  "N_states": 168,
+  "source_all_B48_budget6": {
+    "N1": {
+      "beta": -0.35,
+      "gamma": -0.35,
+      "other_viable_seed_derivative": 0
+    },
+    "N2": {
+      "beta": -0.30141,
+      "gamma": -0.26121,
+      "other_viable_seed_derivative": 0.04403
+    },
+    "N5": {
+      "beta": -0.17214,
+      "gamma": -0.03006,
+      "other_viable_seed_derivative": 0.16601
+    },
+    "N6": {
+      "beta": -0.13381,
+      "gamma": 0.03692,
+      "other_viable_seed_derivative": 0.20355
+    },
+    "N8": {
+      "beta": -0.0631736695408891,
+      "gamma": 0.15822876051396761,
+      "other_viable_seed_derivative": 0.27435,
+      "uncapped_viable_seeds": 8.99442
+    },
+    "N9": {
+      "beta": -0.03057,
+      "gamma": 0.21323
+    },
+    "N10": {
+      "beta": 0.0004,
+      "gamma": 0.26486
+    },
+    "N11": {
+      "beta": 0.02986,
+      "gamma": 0.31337
+    },
+    "N48": {
+      "beta": 0.584002628056346,
+      "gamma": 1.0625497745341939
+    }
+  },
+  "classification_qualitative": {
+    "N1_to5": "individual_and_group_both_reduce_investment",
+    "N6_to9": "individual_reduces_but_group_increases_investment",
+    "N10": "individual_gradient_essentially_zero",
+    "N11_to48": "both_increase_investment"
+  },
+  "census_thresholds_in_source_K48_B48": {
+    "first_N_with_positive_gamma": 6,
+    "last_N_with_negative_beta": 9,
+    "first_numerical_beta_positive_N": 10,
+    "first_beta_greater_than_0_02_N": 11
+  },
+  "budget_invariance": "Local signed β and Γ and their N thresholds are unchanged across budgets 4.5,6,8 at fixed source phenotype/visitor types; absolute seed intensity changes with budget.",
+  "source_N8_at_budget6": {
+    "uncapped_viable_seeds": 8.99442,
+    "expected_capped_recruits_K8": 7.268,
+    "expected_recruits_K48": 8.99442,
+    "source_population_N": 8
+  },
+  "source_N8_at_budget8": {
+    "uncapped_viable_seeds": 11.9926,
+    "expected_capped_recruits_K8": 7.8332,
+    "expected_recruits_K48": 11.9926,
+    "source_population_N": 8
+  },
+  "critical_scientific_readout": "Original individual-vs-group reproductive conflict is a narrow census window N6..9 in the representative model. The K8 initial N8 seed replacement is capped below N despite total uncapped viable seed intensity exceeding N; K48 allows growth past selection gradient reversal N10. Neither setting is automatically a model of persistent tragedy-of-commons.",
+  "limits": [
+    "Post-outcome deterministic monomorphic source census diagnostics, no independent visitor histories or dynamic selection-gradient histories.",
+    "No claims of a viable K8 intermediate budget based on 16-path feasibility outcomes; none was found at declared 4.5/6/8.",
+    "No proof that the sign threshold is preserved under actual segregating alleles or variable visitor states.",
+    "No empirically observed island floral shrinkage or population extinction attributable to the public good."
+  ]
+}

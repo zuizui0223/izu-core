@@ -62,6 +62,26 @@ def test_pull_request_signal_is_limited_to_current_ci_surfaces() -> None:
             source = path.read_text(encoding="utf-8")
             assert "branches: [main]" in source
             assert "'data/design/chapter2_public_archive_manifest_20261006.json'" in source
+        elif path.name == "q3-restoration-futures-20261014.yml":
+            # Approved one-time activation on an isolated branch. The runner
+            # additionally checks the immutable manifest and first run/attempt.
+            # Match the entire trigger block so broader branches, paths, tags,
+            # schedules or PR events cannot enter through this exception.
+            assert [line for line in _trigger_block(path) if line.strip()] == [
+                "on:",
+                "  push:",
+                "    branches: [design/chapter2-restoration-conditional-futures-20261014]",
+                "    paths: [data/designs/q3_futures_execution_20261014.json]",
+            ]
+        elif path.name == "q3-distribution-triangle-20261014.yml":
+            # Separate, unapproved campaign: only an explicit manifest addition
+            # on this dedicated branch can request the fail-closed runner.
+            assert [line for line in _trigger_block(path) if line.strip()] == [
+                "on:",
+                "  push:",
+                "    branches: [design/chapter2-q3-distribution-triangle-20261014]",
+                "    paths: [data/designs/q3_triangle_continuation_20261014.json]",
+            ]
         else:
             assert events == {"workflow_dispatch"}, (path.name, events)
 

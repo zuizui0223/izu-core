@@ -1,0 +1,63 @@
+{
+  "schema": "model3_exploratory_visitor_type_count_redundancy_composition_v1",
+  "date": "2026-10-10",
+  "status": "EXPLORATORY_ORTHOGONAL_VISITOR_LEDGER_NEGATIVE_CONTROL_NOT_CONFIRMATORY",
+  "objective": "Separate mere number of distinct visitor IDs from functionally new optima at fixed Model3 diploid parental state, then inspect whether a count-scaled encounter rule changes the redundancy null.",
+  "exposed_context": "Designed AFTER seeing PR452's 1533 previous within-year pairs and 176/505 same-richness discordances; these fixtures are NOT independent confirmation.",
+  "N": 8,
+  "K": 8,
+  "B": 48,
+  "source_setting": "delayed_control / evolving assurance / ovule_budget 8 / original Model3 pollen formula",
+  "parental_states": [
+    "monomorphic",
+    "mixed_diploid"
+  ],
+  "visitor_optima": {
+    "two_unique": [
+      0.15,
+      0.55
+    ],
+    "four_clones": [
+      0.15,
+      0.15,
+      0.55,
+      0.55
+    ],
+    "four_distinct": [
+      0.15,
+      0.35,
+      0.55,
+      0.75
+    ],
+    "four_shifted": [
+      0.35,
+      0.55,
+      0.75,
+      0.95
+    ]
+  },
+  "activity_modes": [
+    "fixed",
+    "count_scaled"
+  ],
+  "visitor_breadth": 0.18,
+  "visitor_effectiveness": 1,
+  "classification_deadband": 0.02,
+  "finite_difference_step": 0.005,
+  "registered_comparisons": [
+    "four_clones versus two_unique: increases visitor IDs from 2 to 4 without adding any unique optimum or altering per-type breadth/effectiveness; fixed activity predicts exact no-change in all ledger outputs (negative control)",
+    "four_distinct versus four_clones: both have 4 visitor IDs, but optima differ; measures within-ledger functional-composition intervention at fixed count",
+    "four_shifted versus four_distinct: both have 4 visitor IDs; isolates optimum-location shift with constant breadth/effectiveness",
+    "count_scaled versus fixed activity: same visitor arm and genotype; source-model activity law changes, so count and effective pollen movement may be coupled"
+  ],
+  "acceptance_checks": [
+    "No change to canonical Model3 biology",
+    "No visitor-history paths sampled and no source pilot RNG reused",
+    "Holding a parental state fixed across all arms",
+    "All floating and sign outputs saved, including null outcomes",
+    "Under activity_mode=fixed, duplicating both exact visitor functional types leaves viable seed ledger, finite focal beta and collective gamma invariant within 1e-9 relative tolerance",
+    "Do not interpret numerical row count as independent island-system replication or as prospective confirmation"
+  ],
+  "interpretation_guardrail": "The four-clones arm represents redundant visitor IDs and has TWO functional optima. Therefore changing IDs 2→4 is NOT an increase in effective niche diversity; any no-effect validates source representation, not the ecological irrelevance of richness. In count_scaled mode duplicating identical types also doubles the activity factor relative to n=2 (source law).",
+  "future_after_gate": "If exploratory contrasts are stable, run pre-frozen independent visitor-type-distribution ensembles with explicit intensity and functional breadth controls, then independent ecological histories or data for external validity."
+}

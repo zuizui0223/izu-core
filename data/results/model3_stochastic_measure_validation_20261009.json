@@ -1,0 +1,74 @@
+{
+  "schema": "model3_stochastic_measure_validation_20261009_v1",
+  "status": "scoped_engineering_success_not_sde_spde_validated",
+  "verified_execution": {
+    "source_commit": "6225c43671f1616d21bd55d2437af41d3bb9985c",
+    "actions_run_id": 37864323482,
+    "actions_url": "https://github.com/zuizui0223/izu-core/actions/runs/37864323482",
+    "ci_conclusion": "success",
+    "artifact_name": "model3-stochastic-preflight"
+  },
+  "scientific_scope": {
+    "historical_visitor_seed": 26110601,
+    "n_independent_visitor_histories": 1,
+    "replicates_per_arm": 512,
+    "mutation_probability": 0.01,
+    "mutation_sd": 0.05,
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "population_capacity": 8,
+    "same_reproductive_and_inheritance_operator_as_model3": true,
+    "candidate_SDE_SPDE_validated": false,
+    "geographic_INLA_used": false
+  },
+  "controlled_results": [
+    {
+      "updates": 3,
+      "ovule_budget": 8,
+      "n_occupied_abm": 512,
+      "n_occupied_atomic_measure": 512,
+      "occupancy_difference": 0,
+      "mean_population_difference": 0.00390625,
+      "max_surviving_trait_mean_difference": 0.005327231974245672,
+      "mean_distinct_genotype_count_difference": 0.099609375,
+      "verdict": "engineering_gate_pass_no_extinction_event"
+    },
+    {
+      "updates": 8,
+      "ovule_budget": 8,
+      "n_occupied_abm": 512,
+      "n_occupied_atomic_measure": 512,
+      "occupancy_difference": 0,
+      "mean_population_difference": 0.01171875,
+      "max_surviving_trait_mean_difference": 0.004193528264596846,
+      "mean_distinct_genotype_count_difference": 0.013671875,
+      "verdict": "engineering_gate_pass_no_extinction_event"
+    },
+    {
+      "updates": 8,
+      "ovule_budget": 3,
+      "n_occupied_abm": 173,
+      "n_occupied_atomic_measure": 147,
+      "occupancy_difference": 0.05078125,
+      "mean_population_difference": 0.173828125,
+      "max_surviving_trait_mean_difference": 0.005301990345411456,
+      "mean_distinct_genotype_count_difference": 0.09765625,
+      "verdict": "engineering_gate_pass_extinction_observed_not_formal_equivalence"
+    }
+  ],
+  "mutation_conditioned_three_update_preflight": {
+    "max_absolute_trait_mean_error": 0.0018235240612695103,
+    "max_absolute_covariance_error": 0.0001461777639649108,
+    "max_absolute_extinction_probability_error": 1.0439914516618252e-8,
+    "verdict": "conditional_one_step_predictive_moment_gate_passed_at_three_states_not_independent_SDE"
+  },
+  "critical_boundaries": [
+    "Genotype empirical measure propagates independently and retains exact new mutant support, but calls the original Model3 reproduce/inherit code; this is not independent biology.",
+    "Original Model3 pathwise first-step parity and multi-generation Monte Carlo parity are engineering checks of equivalent finite stochastic laws.",
+    "All 512/512 endpoint occupancies at budget8 provide no information about extinction accuracy.",
+    "At budget3 the 173/512 versus147/512 survival difference is a sampling contrast within a loose engineering tolerance, not a confidence-interval-based equivalence finding.",
+    "Trait means are conditional on survival; no zero-valued imputation for extinct cohorts.",
+    "Population-size and genotype-frequency SDE/SPDE limits are not established; Gaussian/Dirichlet fields miss relevant boundary mechanisms.",
+    "No comparison with named natural island observations was attempted."
+  ]
+}

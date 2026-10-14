@@ -1,0 +1,87 @@
+{
+  "schema": "chapter2_Q2_cocarriage_source_cluster_design_review_v0",
+  "status": "UNREGISTERED_Q2_DESIGN_REVIEW_ONLY",
+  "date": "2026-10-14",
+  "issue_url": "https://github.com/zuizui0223/izu-core/issues/518",
+  "parent_pr_url": "https://github.com/zuizui0223/izu-core/pull/512",
+  "source_pr512_head": "3d98f8330472c4101aef1ae29280f0bb334dca45",
+  "original_model3_biology_sha": "328548612e93469fcc8663f24548530a57399b9a",
+  "original_model3_mutation_traits": [
+    false,
+    false,
+    true
+  ],
+  "source_distribution_approved": false,
+  "observed_natural_islands": 0,
+  "experimental_author_approval": false,
+  "biological_histories_generated": 0,
+  "may_launch_model3_histories": false,
+  "suppress_future_seed_generation": true,
+  "full_future_rng_registry_status": "NOT_REGISTERED",
+  "independent_source_pool_family": "TO_BE_SCIENTIFICALLY_JUSTIFIED_NOT_OLD_16_TECHNICAL_INPUTS",
+  "original_visitor_contexts": [
+    0,
+    3,
+    4
+  ],
+  "co_carriage_arms": [
+    0,
+    12
+  ],
+  "t0_census": 48,
+  "carrying_capacity": 48,
+  "original_model_updates": 200,
+  "response_A_founder_mean_delta": 0.05,
+  "response_I_founder_mean_delta": -0.05,
+  "sustained_occupied_censuses": 20,
+  "near_simultaneous_window_updates": 5,
+  "original_six_classes": [
+    "assurance_first",
+    "investment_first",
+    "near_simultaneous",
+    "assurance_only",
+    "investment_only",
+    "neither"
+  ],
+  "primary_outcome": "full_six_class_probability_vector_by_visitor_context",
+  "D_contrast_status": "SECONDARY_UNDIRECTIONED",
+  "uncertainty_unit": "genuinely independent synthetic source genotype pool; future histories nested and matched",
+  "source_stream_independence": "distinct master seed per pool and nested history; common stochastic random streams within paired m arms, not across independent sources",
+  "analysis_family": "3 visitor contexts times 6 classes = 18 class-probability contrasts; additionally 3 context-stratified secondary D contrasts, separate family",
+  "precision_method": "two-sided Hoeffding union bound on bounded independent source-cluster contrasts; 0.95 confidence, conservative upper bound only; NOT power",
+  "illustrative_allocations": [
+    [
+      16,
+      16
+    ],
+    [
+      32,
+      8
+    ],
+    [
+      64,
+      4
+    ],
+    [
+      128,
+      2
+    ],
+    [
+      256,
+      1
+    ]
+  ],
+  "source_pool_counts_are_options_not_approved": true,
+  "actual_launch_case_budget": "NOT_REGISTERED",
+  "original_archival_raw_genomes_and_independent_readback": "REQUIRED_BEFORE_LAUNCH",
+  "independent_scientific_review_complete": false,
+  "negative_and_falsification_requirements": [
+    "Do not infer beneficial sign bias merely from t0 joint genotype distribution differences",
+    "Report all six categories including absent responses, extinctions, near ties, singles and neither",
+    "No pooling with previous 1536 A-width pilot or historical 2304 and 6144 cohorts",
+    "Do not use source technical pilots as independent biological replications",
+    "Do not claim natural island co-carriage or colonisation survival effects",
+    "Q4 persistence requires separately powered non-ceiling density/demography design"
+  ],
+  "author_approval_request_text": "Issue #518: explicitly approve a NEW Model3 full-genome biological future study only after prospective source-family, future seeds, effect threshold, uncertainty and archiving plan are scientifically reviewed."
+}

@@ -1,0 +1,1371 @@
+{
+  "pairs": 3904,
+  "slots": 64,
+  "policy_zero_slots": 3,
+  "survival": {
+    "both_alive": 3904,
+    "native_only": 0,
+    "restored_only": 0,
+    "both_extinct": 0
+  },
+  "target": "fixed_state_coupling_specific_paired_survivor_conditional",
+  "original_primary": "unresolved_unchanged",
+  "means": {
+    "all64": {
+      "estimate": 0.01674493153889974,
+      "half_width": 0.00295014926963976,
+      "interval": [
+        0.013794782269259977,
+        0.0196950808085395
+      ],
+      "direction": "positive",
+      "practical": "positive"
+    },
+    "causal_main": {
+      "estimate": 0.020933787027994793,
+      "half_width": 0.004206199968024066,
+      "interval": [
+        0.016727587059970725,
+        0.02513998699601886
+      ],
+      "direction": "positive",
+      "practical": "positive"
+    },
+    "causal_confirmation": {
+      "estimate": 0.012556076049804688,
+      "half_width": 0.004137801914255729,
+      "interval": [
+        0.008418274135548957,
+        0.016693877964060418
+      ],
+      "direction": "positive",
+      "practical": "unresolved"
+    }
+  },
+  "survival_by_block": {
+    "causal_main": {
+      "both_alive": 1984,
+      "native_only": 0,
+      "restored_only": 0,
+      "both_extinct": 0
+    },
+    "causal_confirmation": {
+      "both_alive": 1920,
+      "native_only": 0,
+      "restored_only": 0,
+      "both_extinct": 0
+    }
+  },
+  "decision": "evaluated_conditional",
+  "directional_replication": "positive",
+  "all_averages_operationally_equivalent": false,
+  "secondary_scope": "Descriptive state-specific event counts; original baseline and full history; no secondary tests.",
+  "case_summaries": [
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r0_evolving",
+      "block": "causal_confirmation",
+      "trigger": 49,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 63
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.010701497395833332
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r10_evolving",
+      "block": "causal_confirmation",
+      "trigger": 55,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 56
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": -0.000691731770833333
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r11_evolving",
+      "block": "causal_confirmation",
+      "trigger": 115,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 59
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.000569661458333333
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r12_evolving",
+      "block": "causal_confirmation",
+      "trigger": 94,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 57
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.009541829427083334
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r13_evolving",
+      "block": "causal_confirmation",
+      "trigger": 35,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 62
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": -0.00567626953125
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r14_evolving",
+      "block": "causal_confirmation",
+      "trigger": 70,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 64
+      },
+      "event_already_complete": {
+        "native": 64,
+        "restored": 64
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.01995849609375
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r15_evolving",
+      "block": "causal_confirmation",
+      "trigger": 27,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 56
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": -0.0072021484375
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r16_evolving",
+      "block": "causal_confirmation",
+      "trigger": null,
+      "pairs": 0,
+      "policy_zero": true,
+      "original_event": null
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r17_evolving",
+      "block": "causal_confirmation",
+      "trigger": 91,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 64
+      },
+      "event_already_complete": {
+        "native": 64,
+        "restored": 64
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": -0.004740397135416667
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r18_evolving",
+      "block": "causal_confirmation",
+      "trigger": 87,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 54
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.0032755533854166652
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r19_evolving",
+      "block": "causal_confirmation",
+      "trigger": 23,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 62
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.030904134114583336
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r1_evolving",
+      "block": "causal_confirmation",
+      "trigger": 42,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 0
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.029541015625
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r20_evolving",
+      "block": "causal_confirmation",
+      "trigger": 50,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 0
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.018758138020833332
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r21_evolving",
+      "block": "causal_confirmation",
+      "trigger": 63,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 57
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.008585611979166668
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r22_evolving",
+      "block": "causal_confirmation",
+      "trigger": 12,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 61
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.00787353515625
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r23_evolving",
+      "block": "causal_confirmation",
+      "trigger": 40,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 60
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": -0.021687825520833336
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r24_evolving",
+      "block": "causal_confirmation",
+      "trigger": 101,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 0
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.032613118489583336
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r25_evolving",
+      "block": "causal_confirmation",
+      "trigger": 25,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 64
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.02008056640625
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r26_evolving",
+      "block": "causal_confirmation",
+      "trigger": 34,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 64
+      },
+      "event_already_complete": {
+        "native": 64,
+        "restored": 64
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.016642252604166664
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r27_evolving",
+      "block": "causal_confirmation",
+      "trigger": 108,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 56
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": -0.002380371093749999
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r28_evolving",
+      "block": "causal_confirmation",
+      "trigger": 59,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 0
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.03159586588541667
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r29_evolving",
+      "block": "causal_confirmation",
+      "trigger": 59,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 64
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.03314208984375
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r2_evolving",
+      "block": "causal_confirmation",
+      "trigger": null,
+      "pairs": 0,
+      "policy_zero": true,
+      "original_event": null
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r30_evolving",
+      "block": "causal_confirmation",
+      "trigger": 83,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 0
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.019612630208333332
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r31_evolving",
+      "block": "causal_confirmation",
+      "trigger": 73,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 0
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.040791829427083336
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r3_evolving",
+      "block": "causal_confirmation",
+      "trigger": 61,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 0
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.0308837890625
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r4_evolving",
+      "block": "causal_confirmation",
+      "trigger": 31,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 64
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.007914225260416666
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r5_evolving",
+      "block": "causal_confirmation",
+      "trigger": 50,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 0
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.025044759114583336
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r6_evolving",
+      "block": "causal_confirmation",
+      "trigger": 197,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 0
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.0014444986979166635
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r7_evolving",
+      "block": "causal_confirmation",
+      "trigger": 70,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 0
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.03338623046875
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r8_evolving",
+      "block": "causal_confirmation",
+      "trigger": 63,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 59
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.005330403645833333
+    },
+    {
+      "key": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r9_evolving",
+      "block": "causal_confirmation",
+      "trigger": 54,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 62
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.0059814453125
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r0_evolving",
+      "block": "causal_main",
+      "trigger": 61,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 46
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.026509602864583336
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r10_evolving",
+      "block": "causal_main",
+      "trigger": 87,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 64
+      },
+      "event_already_complete": {
+        "native": 64,
+        "restored": 64
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.015543619791666666
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r11_evolving",
+      "block": "causal_main",
+      "trigger": 113,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 0
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.016520182291666664
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r12_evolving",
+      "block": "causal_main",
+      "trigger": 27,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 48
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.03094482421875
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r13_evolving",
+      "block": "causal_main",
+      "trigger": 94,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 0
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.037333170572916664
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r14_evolving",
+      "block": "causal_main",
+      "trigger": 46,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 44
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.02325439453125
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r15_evolving",
+      "block": "causal_main",
+      "trigger": 52,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 45
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.02276611328125
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r16_evolving",
+      "block": "causal_main",
+      "trigger": 15,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 47
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.028483072916666668
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r17_evolving",
+      "block": "causal_main",
+      "trigger": 60,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 64
+      },
+      "event_already_complete": {
+        "native": 64,
+        "restored": 64
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.03566487630208333
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r18_evolving",
+      "block": "causal_main",
+      "trigger": 123,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 64
+      },
+      "event_already_complete": {
+        "native": 64,
+        "restored": 64
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.01263427734375
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r19_evolving",
+      "block": "causal_main",
+      "trigger": 16,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 0
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.01708984375
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r1_evolving",
+      "block": "causal_main",
+      "trigger": 46,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 31
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": -0.004801432291666664
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r20_evolving",
+      "block": "causal_main",
+      "trigger": 40,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 0
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.052734375
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r21_evolving",
+      "block": "causal_main",
+      "trigger": 150,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 23
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.0072021484375
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r22_evolving",
+      "block": "causal_main",
+      "trigger": 102,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 43
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.025288899739583336
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r23_evolving",
+      "block": "causal_main",
+      "trigger": 75,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 0
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.0220947265625
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r24_evolving",
+      "block": "causal_main",
+      "trigger": 37,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 0
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.024678548177083332
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r25_evolving",
+      "block": "causal_main",
+      "trigger": 83,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 64
+      },
+      "event_already_complete": {
+        "native": 64,
+        "restored": 64
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.009175618489583336
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r26_evolving",
+      "block": "causal_main",
+      "trigger": 83,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 0
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.027323404947916668
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r27_evolving",
+      "block": "causal_main",
+      "trigger": 103,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 0
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.03751627604166667
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r28_evolving",
+      "block": "causal_main",
+      "trigger": null,
+      "pairs": 0,
+      "policy_zero": true,
+      "original_event": 142
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r29_evolving",
+      "block": "causal_main",
+      "trigger": 167,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 64
+      },
+      "event_already_complete": {
+        "native": 64,
+        "restored": 64
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.028727213541666664
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r2_evolving",
+      "block": "causal_main",
+      "trigger": 162,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 13
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.007181803385416667
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r30_evolving",
+      "block": "causal_main",
+      "trigger": 83,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 64
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.010030110677083334
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r31_evolving",
+      "block": "causal_main",
+      "trigger": 106,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 64
+      },
+      "event_already_complete": {
+        "native": 64,
+        "restored": 64
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.030680338541666668
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r3_evolving",
+      "block": "causal_main",
+      "trigger": 33,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 0
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.023050944010416664
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r4_evolving",
+      "block": "causal_main",
+      "trigger": 37,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 45
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.0177001953125
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r5_evolving",
+      "block": "causal_main",
+      "trigger": 138,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 38
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.031290690104166664
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r6_evolving",
+      "block": "causal_main",
+      "trigger": 77,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 64
+      },
+      "event_already_complete": {
+        "native": 64,
+        "restored": 64
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": -0.00274658203125
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r7_evolving",
+      "block": "causal_main",
+      "trigger": 70,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 64
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.022623697916666668
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r8_evolving",
+      "block": "causal_main",
+      "trigger": 81,
+      "pairs": 64,
+      "event_counts": {
+        "native": 0,
+        "restored": 45
+      },
+      "event_already_complete": {
+        "native": 0,
+        "restored": 0
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.030314127604166664
+    },
+    {
+      "key": "causal_main_s0.125_matched_n48_standing_MI_new_A_r9_evolving",
+      "block": "causal_main",
+      "trigger": 172,
+      "pairs": 64,
+      "event_counts": {
+        "native": 64,
+        "restored": 64
+      },
+      "event_already_complete": {
+        "native": 64,
+        "restored": 64
+      },
+      "survival": {
+        "both_alive": 64,
+        "native_only": 0,
+        "restored_only": 0,
+        "both_extinct": 0
+      },
+      "conditional_sample_mean_difference": 0.0030721028645833348
+    }
+  ],
+  "execution_sha256": "54549eeec37a225526883fad4f08ae11a417a87b12adede05346425114d83c93"
+}

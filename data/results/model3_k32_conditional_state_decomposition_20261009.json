@@ -1,0 +1,107 @@
+{
+  "schema": "model3_k32_conditional_decomposition_source_locked_v1",
+  "evidence_type": "engineered_simulation_not_natural_observation_or_independent_ecological_confirmation",
+  "status": "source_locked_eight_generation_synthetic_decomposition_success",
+  "verified_execution": {
+    "commit_sha": "6b8450e46f2dc720bf8f43c086a780aa9d9b026d",
+    "workflow_run_id": 37884713976,
+    "workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/37884713976",
+    "job": "model3-k32-decomposition",
+    "job_conclusion": "success",
+    "raw_artifact_id": 11595707767,
+    "raw_artifact_url": "https://github.com/zuizui0223/izu-core/actions/runs/37884713976/artifacts/11595707767",
+    "artifact_sha256": "92b8f032cc8def68055b35a34196b42f28798b5851efa95a5f5b79c9519d5733"
+  },
+  "conditions": {
+    "K": 32,
+    "mutation_rate": 0,
+    "generations": 8,
+    "survival": 0,
+    "seed_immigration": 0,
+    "reproductive_setting": "canonical Chapter2 prior_selfing",
+    "old_visitor_history": 26110601,
+    "environment": "near",
+    "independent_visitor_histories": 1,
+    "finite_demographic_draws": 512,
+    "unbiased_parent_integerizations": 256,
+    "founders": "engineered 4-genotype 27-class 3-locus support, not natural founder data",
+    "canonical_biological_code_modified": false,
+    "confirmatory_cohorts_used": false
+  },
+  "generation_8": {
+    "budget8": {
+      "genotype_richness": {
+        "realized": 4.349609375,
+        "exact_conditional_average": 4.389301306513806,
+        "unbiased_rounded_mean_parent_expectation": 5.3285237078059,
+        "deterministic_rounded_parent_expectation": 4.941119177095986,
+        "realization_residual": -0.03969193151380601,
+        "state_distribution_contrast": -0.9392224012920938,
+        "rounding_convention_contrast": 0.38740453070991343,
+        "total_discrepancy": -0.5915098020959864,
+        "realization_residual_mc_se": 0.03864224129706305,
+        "rounding_mc_se": 0.020514833950263607
+      },
+      "allele_types_lost": {
+        "realized": 0.802734375,
+        "exact_conditional_average": 0.7893363725316955,
+        "deterministic_rounded_parent_expectation": 0.5836432725728774,
+        "realization_residual": 0.01339800246830447,
+        "state_distribution_contrast": 0.3563805921388782,
+        "rounding_convention_contrast": -0.15068749218006006
+      },
+      "next_census_variance": {
+        "expected_within_source_parent_states": 2.3466650890759772e-11,
+        "between_expected_recruitment_of_parent_states": 2.8971412910732557e-20,
+        "observed_next_census_variance": 0
+      }
+    },
+    "budget3": {
+      "genotype_richness": {
+        "realized": 3.078125,
+        "exact_conditional_average": 3.080679694073908,
+        "unbiased_rounded_mean_parent_expectation": 4.171712387245354,
+        "deterministic_rounded_parent_expectation": 4.138059526358105,
+        "realization_residual": -0.0025546940739080704,
+        "state_distribution_contrast": -1.0910326931714462,
+        "rounding_convention_contrast": 0.0336528608872495,
+        "total_discrepancy": -1.0599345263581048,
+        "realization_residual_mc_se": 0.028888692651072648,
+        "rounding_mc_se": 0.023366508004164316
+      },
+      "allele_types_lost": {
+        "realized": 1.44921875,
+        "exact_conditional_average": 1.4390812822279593,
+        "deterministic_rounded_parent_expectation": 1.0104565865359534,
+        "realization_residual": 0.01013746777204072,
+        "state_distribution_contrast": 0.6884098839402346,
+        "rounding_convention_contrast": -0.2597851882482287
+      },
+      "next_census": {
+        "realized": 21.375,
+        "exact_conditional_average": 21.666398105673654,
+        "deterministic_rounded_parent_expectation": 22.493782222521943
+      },
+      "next_census_variance": {
+        "expected_within_source_parent_states": 12.067091077956148,
+        "between_expected_recruitment_of_parent_states": 83.08263189060241,
+        "theoretical_total_under_empirical_parent_ensemble": 95.14972296855856,
+        "observed_next_census_variance": 98.140625
+      },
+      "next_extinction_rate": {
+        "realized": 0.01953125,
+        "exact_conditional_average": 0.017629520849902203,
+        "deterministic_rounded_parent_expectation": 1.6044331750286978e-10
+      }
+    }
+  },
+  "formula": "observed - deterministic_representative = finite_realization_residual + empirical_state_distribution_contrast + rounding_convention_contrast",
+  "limitations": [
+    "State-distribution contrast depends on an explicitly declared unbiased integer-rounding comparator and cannot be interpreted as a unique causal Jensen effect.",
+    "Finite-realization residual is Monte Carlo noise conditional on observed parental states and not a causal estimate of evolutionary drift.",
+    "Population-state heterogeneity carries prior demographic and genetic stochasticity together with nonlinear ecological responses.",
+    "Budget 8 fully saturates carrying capacity and has negligible next-census variance even while genotype sampling varies.",
+    "Single old visitor history, 512 nested demographic draws; not 512 independent ecological contexts.",
+    "No natural island data, no independent history confirmation and no justified continuous-time SDE/SPDE equivalence."
+  ]
+}

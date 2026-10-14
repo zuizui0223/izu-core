@@ -1,0 +1,16 @@
+{
+  "schema": "chapter2_clock_external_6_shard_archive_receipt_v1",
+  "status": "PENDING_RAW_ARCHIVES_NEVER_RUN",
+  "original_pilot_registry_blob": "f18eae09e3f569ae7edefe970ea17d93c64b1bd5",
+  "horizon_updates": 200,
+  "source_case_count": 1536,
+  "archives": {
+    "main_c0": {"sha256": null, "github_release_url": null, "separate_mirror_receipt": null},
+    "main_c3": {"sha256": null, "github_release_url": null, "separate_mirror_receipt": null},
+    "main_c4": {"sha256": null, "github_release_url": null, "separate_mirror_receipt": null},
+    "confirmation_c0": {"sha256": null, "github_release_url": null, "separate_mirror_receipt": null},
+    "confirmation_c3": {"sha256": null, "github_release_url": null, "separate_mirror_receipt": null},
+    "confirmation_c4": {"sha256": null, "github_release_url": null, "separate_mirror_receipt": null}
+  },
+  "DO_NOT_CLAIM": "This is a deliberately invalid, unsigned EMPTY template. Zero registered 200-update pilot histories have been run or archived. Never mark this as released, approved or source-admitted before independent publication and review."
+}

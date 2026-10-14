@@ -1,0 +1,178 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-08",
+  "status": "post_outcome_exploratory_raw_order_and_payoff_audit",
+  "rule": "First generation when the absolute population-mean departure of assurance or investment from founder value 0.5 reaches at least 0.05. One-trait-only and neither crossing are distinct outcomes.",
+  "archives": [
+    {
+      "variant": "independent16",
+      "local_archive": "izu_core_mutational_priority_independent16_20261008.zip",
+      "sha256": "28b03fc0ea5a20e8f5bd9b2b9e54ae8e3873f3fca9c8af5bae40d40099d57a28",
+      "historical_groups": 512,
+      "independent_visitor_histories": 16,
+      "demographic_repeats": 1
+    },
+    {
+      "variant": "balanced",
+      "local_archive": "izu_core_mutational_priority_balanced_20261008.zip",
+      "sha256": "758830ecdcd168a49d733037f4d985d98a2dda4b1bf38625e257774d98988a7e",
+      "historical_groups": 256,
+      "independent_visitor_histories": 4,
+      "demographic_repeats": 2
+    }
+  ],
+  "pooled_order_counts": {
+    "independent16": {
+      "assurance_first": {
+        "n": 128,
+        "A_before_I": 87,
+        "I_before_A": 7,
+        "A_only": 31,
+        "I_only": 3,
+        "neither": 0,
+        "tie": 0,
+        "intended_first_or_only": 118
+      },
+      "investment_first": {
+        "n": 128,
+        "A_before_I": 17,
+        "I_before_A": 92,
+        "A_only": 13,
+        "I_only": 5,
+        "neither": 1,
+        "tie": 0,
+        "intended_first_or_only": 97
+      },
+      "both_early": {
+        "n": 128,
+        "A_before_I": 83,
+        "I_before_A": 37,
+        "A_only": 8,
+        "I_only": 0,
+        "neither": 0,
+        "tie": 0
+      },
+      "both_delayed": {
+        "n": 128,
+        "A_before_I": 48,
+        "I_before_A": 38,
+        "A_only": 35,
+        "I_only": 4,
+        "neither": 3,
+        "tie": 0
+      }
+    },
+    "balanced": {
+      "assurance_first": {
+        "n": 64,
+        "A_before_I": 40,
+        "I_before_A": 5,
+        "A_only": 12,
+        "I_only": 5,
+        "neither": 2,
+        "tie": 0,
+        "intended_first_or_only": 52
+      },
+      "investment_first": {
+        "n": 64,
+        "A_before_I": 5,
+        "I_before_A": 50,
+        "A_only": 8,
+        "I_only": 1,
+        "neither": 0,
+        "tie": 0,
+        "intended_first_or_only": 51
+      },
+      "both_early": {
+        "n": 64,
+        "A_before_I": 22,
+        "I_before_A": 19,
+        "A_only": 14,
+        "I_only": 9,
+        "neither": 0,
+        "tie": 0
+      },
+      "both_late": {
+        "n": 64,
+        "A_before_I": 24,
+        "I_before_A": 23,
+        "A_only": 16,
+        "I_only": 1,
+        "neither": 0,
+        "tie": 0
+      }
+    }
+  },
+  "setting_level_descriptive_differences": {
+    "definition": "The difference (assurance_first minus investment_first) of the far-pre minus near-pre contrast, averaged over visitor-history units; immediate per-capita maternal viable output averages all post visitor regimes and all stress budgets at t400.",
+    "independent16": [
+      {
+        "setting": "delayed_control",
+        "A": 0.027604,
+        "I": 0.05593,
+        "immediate_viable": 0.02178,
+        "terminal_occupancy": -0.0234375
+      },
+      {
+        "setting": "prior_selfing",
+        "A": 0.036382,
+        "I": 0.048558,
+        "immediate_viable": 0.045915,
+        "terminal_occupancy": -0.046875
+      },
+      {
+        "setting": "pollen_discount",
+        "A": 0.055304,
+        "I": 0.054288,
+        "immediate_viable": 0.124576,
+        "terminal_occupancy": 0.0390625
+      },
+      {
+        "setting": "assurance_cost",
+        "A": 0.027315,
+        "I": 0.006789,
+        "immediate_viable": -0.010836,
+        "terminal_occupancy": 0
+      }
+    ],
+    "balanced": [
+      {
+        "setting": "delayed_control",
+        "A": 0.038227,
+        "I": 0.061786,
+        "immediate_viable": 0.015465,
+        "terminal_occupancy": 0.015625
+      },
+      {
+        "setting": "prior_selfing",
+        "A": -0.050966,
+        "I": 0.054181,
+        "immediate_viable": -0.099229,
+        "terminal_occupancy": 0.03125
+      },
+      {
+        "setting": "pollen_discount",
+        "A": 0.016185,
+        "I": -0.000102,
+        "immediate_viable": 0.037711,
+        "terminal_occupancy": 0.046875
+      },
+      {
+        "setting": "assurance_cost",
+        "A": -0.037588,
+        "I": -0.013547,
+        "immediate_viable": -0.161476,
+        "terminal_occupancy": -0.09375
+      }
+    ]
+  },
+  "interpretation": "Mutation timing intervention usually generated the intended finite-threshold phenotypic ordering. The independent16 preregistered persistence interaction FAILED and the balanced exploratory pooled persistence interaction was zero. Historical trait and immediate-payoff contrasts can therefore change without a stable improvement in survival under the declared stress.",
+  "claim_boundary": [
+    "Observed threshold order is not a direct intervention on phenotype",
+    "One-sided crossing does not establish the unobserved trait never experienced selection",
+    "Prehistory arms within each visitor history and nested repeats are not independent ecological histories",
+    "The viability audit is post-outcome explanatory, not a new confirmatory gate",
+    "A mismatch between immediate viability and final occupancy cannot be interpreted as viability causally unrelated to persistence, given finite demographic sampling",
+    "All natural-island interpretations remain hypotheses"
+  ]
+}

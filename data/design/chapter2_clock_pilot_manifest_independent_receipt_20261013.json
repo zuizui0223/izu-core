@@ -1,0 +1,12 @@
+{
+  "status": "ALL1536_REGISTERED_INPUTS_AND_ORIGINAL_FOUNDER_BYTES_INDEPENDENTLY_MATCH",
+  "n_cases": 1536,
+  "independent_paired_clusters": 128,
+  "genetic_conditions": 8,
+  "source_contexts": 6,
+  "source_field_and_config_checks": 108,
+  "canonical_case_inventory_sha256": "d0bc8f750650c9fa94e8e1b4eefeac9357ecd9e484db21cb69737760e683c956",
+  "new_biological_histories": 0,
+  "no_original_operator_import": true,
+  "scope": "Frozen original source inputs and procedural task allocation only; not native-genetics or pilot biological-result admission."
+}

@@ -1,0 +1,96 @@
+{
+  "schema": "model3_delivery_matched_visitor_composition_result_v1",
+  "date": "2026-10-10",
+  "status": "SOURCE_EXECUTED_POST_DISCOVERY_EXPLORATORY_NOT_NATURAL",
+  "source_commit": "cb92335b73c7ea54b6c2b3f1245128cb63ca3c19",
+  "source_workflow_run_id": 38029045241,
+  "original_artifact_id": 11661585364,
+  "original_artifact_url": "https://github.com/zuizui0223/izu-core/actions/runs/38029045241/artifacts/11661585364",
+  "original_json_filename": "delivery-matched-source-20261010.json",
+  "original_uncompressed_bytes": 103497,
+  "original_sha256": "52b55ff8ab4d7651ac86068a6cf256967d86275518f7dbb04b7909cd847ed7e3",
+  "independent_zip_download_sha_verification": "PASS",
+  "blocks_declared": 36,
+  "blocks_matched": 36,
+  "blocks_unmatchable": 0,
+  "rows_reference_and_raw": 72,
+  "rows_delivery_matched": 36,
+  "max_total_delivery_abs_match_error": 1.5154544286133387e-13,
+  "min_matched_activity": 0.264731139579746,
+  "max_matched_activity": 6.931966805412542,
+  "matched_shifted_to_reference_export_ratio_range": [
+    0.9692329323998506,
+    3.2691736983921698
+  ],
+  "no_original_Model3_biology_mutated": true,
+  "summary_by_parental_state": {
+    "monomorphic": {
+      "n": 18,
+      "mean_abs_seed_contrast_raw": 0.3688660693490977,
+      "mean_abs_seed_contrast_delivery_matched": 7.065952761169885e-14,
+      "max_abs_seed_contrast_delivery_matched": 4.618527782440651e-13,
+      "n_seed_delta_abs_gt_0p01_raw": 14,
+      "n_seed_delta_abs_gt_0p01_delivery_matched": 0,
+      "sign_agreement_raw_delivery_vs_seed": 18,
+      "conflict_classification_flips_delivery_matched": 0
+    },
+    "mixed_diploid": {
+      "n": 18,
+      "mean_abs_seed_contrast_raw": 0.35399821830135014,
+      "mean_abs_seed_contrast_delivery_matched": 0.0009039197843891955,
+      "mean_abs_matched_to_raw_seed_contrast_ratio": 0.002553458570290629,
+      "max_abs_seed_contrast_delivery_matched": 0.005644934866804618,
+      "n_seed_delta_abs_gt_0p01_raw": 14,
+      "n_seed_delta_abs_gt_0p01_delivery_matched": 0,
+      "sign_agreement_raw_delivery_vs_seed": 18,
+      "conflict_classification_flips_delivery_matched": 0
+    }
+  },
+  "previous_original_fixture": {
+    "monomorphic": {
+      "baseline_delivered": 0.47675164271993675,
+      "matched_delivered": 0.47675164271993686,
+      "baseline_seeds": 11.992565534924456,
+      "matched_seeds": 11.992565534924456,
+      "baseline_export": 10.093086187030222,
+      "matched_export": 15.751178329053646,
+      "baseline_beta_median": -0.063173669540878,
+      "matched_beta_median": -0.06548923921355643,
+      "baseline_gamma": 0.15822876051396761,
+      "matched_gamma": 0.15916635510770938,
+      "baseline_conflict": true,
+      "matched_conflict": true,
+      "activity_matched": 1.763914307987977
+    },
+    "mixed_diploid": {
+      "baseline_delivered": 0.4567623249170254,
+      "matched_delivered": 0.4567623249170264,
+      "baseline_seeds": 11.931506679026661,
+      "matched_seeds": 11.928116704824149,
+      "baseline_export": 9.99597039860673,
+      "matched_export": 15.173097504648812,
+      "baseline_beta_median": -0.06868910508269488,
+      "matched_beta_median": -0.07559984153883981,
+      "baseline_gamma": 0.14050823583708905,
+      "matched_gamma": 0.1359433820754763,
+      "baseline_conflict": true,
+      "matched_conflict": true,
+      "activity_matched": 1.6571924859978013
+    }
+  },
+  "interpretation": [
+    "Within 36 fixed source-operator blocks, equalizing total pollen receipt removes seed-output differences to floating-point precision for the exchangeable monomorphic mothers.",
+    "For mixed-diploid mothers, remaining collective seed-output differences after total delivery matching are small relative to unnormalized differences (mean absolute reduction approximately 99.745%, with maximum residual 0.005645 viable seeds). This does not establish a universal biological bound.",
+    "Previously observed export-normalized group-seed differences were predominantly differences in delivery amount, not evidence of a separate large partner-routing effect independent of total receipt.",
+    "Individual genetic return β may still depend on pollen donor/recipient routing; the seed-output equality result alone does not identify long-run genetic selection or adaptation.",
+    "All fixed-fixture classification changes relative to reference are absent once total delivery is matched (0/36), but this is within this one source operator."
+  ],
+  "scope_exclusions": [
+    "natural effective pollinator guild data",
+    "new independent island archipelagos",
+    "long-term evolutionary trajectory",
+    "causal persistence or extinction",
+    "true ecological mediation or external validity",
+    "empirical importance of tiny mixed-diploid seed residuals"
+  ]
+}

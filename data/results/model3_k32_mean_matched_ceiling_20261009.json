@@ -1,0 +1,101 @@
+{
+  "schema": "model3_k32_mean_matched_ceiling_source_locked_v1",
+  "status": "post_outcome_exploratory_simulation_numeric_gate_passed",
+  "evidence_type": "source_outcome_calibrated_model3_engineering_simulation_not_natural_plant_data",
+  "provenance": {
+    "source_commit": "ac2b2d6910d338913fbcff6e33e1ac81a4ec6c85",
+    "workflow_run_id": 37887043968,
+    "workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/37887043968",
+    "dedicated_job": "model3-k32-mean-matched-ceiling",
+    "dedicated_job_conclusion": "success",
+    "raw_artifact_id": 11596861798,
+    "raw_artifact_url": "https://github.com/zuizui0223/izu-core/actions/runs/37887043968/artifacts/11596861798",
+    "raw_artifact_digest": "sha256:01c68486d9baf17fdcddc97a6140801db4689b40c2cf862369cdf9c12f49ce95"
+  },
+  "design": {
+    "K": 32,
+    "mutation_rate": 0,
+    "generations": 8,
+    "adult_survival": 0,
+    "seed_immigration": 0,
+    "canonical_model3_setting": "prior_selfing",
+    "archived_visitor_history": 26110601,
+    "visitor_environment": "near",
+    "independent_visitor_histories": 1,
+    "nested_demographic_simulations_per_case": 512,
+    "paired_bootstrap_resamples": 1024,
+    "founder_genotypes": "engineered 4 founder genotypes on complete 27-class 3-locus diploid support",
+    "canonical_source_biology_modified": false,
+    "comparator_intentionally_altered_reproduction": true,
+    "mean_trajectory_source_outcome_calibrated": true,
+    "matched_demographic_census_each_trajectory_each_year": true,
+    "prospective_confirmatory_history_used": false
+  },
+  "experiments": [
+    {
+      "budget": 8,
+      "n_source_survivors": 512,
+      "source_endpoint_high_assurance_allele_mean": 0.978271484375,
+      "comparator_endpoint_high_assurance_allele_mean": 0.977996826171875,
+      "max_annual_sample_mean_abs_gap": 0.002105712890625,
+      "source_endpoint_variance": 0.0018882155418395996,
+      "comparator_endpoint_variance": 0.0008953502401709557,
+      "source_minus_comparator_variance": 0.000992865301668644,
+      "paired_demographic_bootstrap_95_variance_diff": [
+        0.0003044611541554332,
+        0.00173731071408838
+      ],
+      "comparator_over_source_variance": 0.47417798462704,
+      "source_twice_covariance_direction_sampling": -0.03359216985895247,
+      "comparator_twice_covariance_direction_sampling": -0.02071816309164094,
+      "source_minus_comparator_twice_covariance": -0.01287400676731153,
+      "paired_demographic_bootstrap_95_twice_covariance_diff": [
+        -0.01739991811150253,
+        -0.008099673603366817
+      ],
+      "source_fixation_fraction": 0.623046875,
+      "comparator_fixation_fraction": 0.482421875,
+      "paired_demographic_bootstrap_95_fixation_diff": [
+        0.083984375,
+        0.203125
+      ]
+    },
+    {
+      "budget": 3,
+      "n_source_survivors": 504,
+      "source_endpoint_high_assurance_allele_mean": 0.9857248341934143,
+      "comparator_endpoint_high_assurance_allele_mean": 0.9854064942660247,
+      "max_annual_sample_mean_abs_gap": 0.004681063896152082,
+      "source_endpoint_variance": 0.0015080488431326484,
+      "comparator_endpoint_variance": 0.0011754503222501135,
+      "source_minus_comparator_variance": 0.00033259852088253494,
+      "paired_demographic_bootstrap_95_variance_diff": [
+        -0.00043952030466100887,
+        0.001083254574288029
+      ],
+      "comparator_over_source_variance": 0.7794510951040334,
+      "source_twice_covariance_direction_sampling": -0.0436523689124012,
+      "comparator_twice_covariance_direction_sampling": -0.03339904928141997,
+      "source_minus_comparator_twice_covariance": -0.010253319630981222,
+      "paired_demographic_bootstrap_95_twice_covariance_diff": [
+        -0.019192970562170543,
+        -0.0017996488856718772
+      ],
+      "source_fixation_fraction": 0.8115079365079365,
+      "comparator_fixation_fraction": 0.7123015873015873,
+      "paired_demographic_bootstrap_95_fixation_diff": [
+        0.04960317460317454,
+        0.1507936507936508
+      ]
+    }
+  ],
+  "scientific_conclusions": [
+    "Matched mean trajectories and source-imposed census sizes are sufficient for a synthetic comparator to reproduce strong negative cumulative filtering-sampling covariance and low terminal variance; these signatures are not specific to the original mating/pollen biology.",
+    "The source has more negative covariance than the chosen matched-mean comparator in both tested budgets, under conditional paired bootstrap MC intervals; this does not uniquely identify adaptive stabilizing feedback.",
+    "The source terminal variance exceeds this particular comparator in budget8 with a conditional MC percentile interval excluding zero; budget3 terminal variance difference is unresolved by its interval.",
+    "The comparator is post-outcome fitted through per-year assurance-dosage exponential weighting, deliberately changing biology and not providing independent predictive validation.",
+    "Confidence intervals quantify only nested simulated demographic repetitions from one old visitor history, conditional on source survival, not field-level independent replication.",
+    "Near-fixed allele-frequency ceilings, nonlinear offspring weighting, multilocus state differences and mean-selection matching remain competing explanations; the results do not identify causal selection.",
+    "Original frozen Model3 biology unchanged; no geographical INLA, observations, validated Ito SDE/SPDE or confirmatory 37110801–37110864 cohorts."
+  ]
+}

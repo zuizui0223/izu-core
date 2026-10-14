@@ -1,0 +1,64 @@
+{
+  "schema": "chapter2_delivery_matched_visitor_composition_sensitivity_v1",
+  "date": "2026-10-10",
+  "status": "EXPLORATORY_POST_SOURCE_EXPORT_MATCHED_DELIVERY_CONTROL",
+  "source_precedent": "data/design/chapter2_visitor_export_normalized_sensitivity_20261010.json",
+  "purpose": "Test whether seed-output differences between four reference and uniformly shifted visitor-optimum configurations remain after total pollen DELIVERY (not just export) is exactly matched, while holding diploid genotype and N/K/B fixed.",
+  "parental_states": [
+    "monomorphic",
+    "mixed_diploid"
+  ],
+  "parent_matching_means": [
+    0.2,
+    0.5,
+    0.8
+  ],
+  "visitor_breadths": [
+    0.12,
+    0.18,
+    0.3
+  ],
+  "visitor_effectiveness": [
+    0.5,
+    1
+  ],
+  "reference_optima": [
+    0.15,
+    0.35,
+    0.55,
+    0.75
+  ],
+  "shifted_optima": [
+    0.35,
+    0.55,
+    0.75,
+    0.95
+  ],
+  "source_activity": 0.4,
+  "arms": [
+    "reference",
+    "shifted_raw",
+    "shifted_delivery_matched"
+  ],
+  "expected_blocks": 36,
+  "expected_raw_and_base_rows": 72,
+  "N": 8,
+  "K": 8,
+  "B": 48,
+  "source_reproduction_kernel": "unchanged Model3 reproduce_kb; delayed selfing; evolving assurance",
+  "root_bracket": "find monotonic scalar activity root of total delivered pollen = total reference delivered; expand up to 1048576; explicit unmatchable status if shifted reach cannot equal target; never drop a failed block",
+  "tolerance_abs": 1e-8,
+  "existing_export_match_audit": "must independently reproduce the prior 108-row source base and shifted raw cells; no alteration to source model",
+  "prediction": {
+    "monomorphic": "When recipient plants are genetically identical, they have equal ovules and selfing fraction; for exchangeable maternal pollen receipts, group viable seeds are a deterministic function of total delivered pollen. Exactly delivery-matched arms should show essentially zero seed difference. This is a source-kernel algebraic negative control, not biological generality.",
+    "mixed_diploid": "Matching total delivered pollen alone may leave maternal receipt distribution and genotype-dependent selfing/ovules different. If viable seed difference persists, total receipt is insufficient; if not, the previous discrepancy can be attributed to delivery quantity within this model fixture, not to experimentally observed ecological composition.",
+    "failure": "If any block cannot achieve delivery matching at attainable source activity, mark it unmatchable and report count and optimization boundary explicitly; do not silently exclude, refit or claim 36 successful matches."
+  },
+  "limits": [
+    "No new visitor ecological histories",
+    "No multi-generational evolution",
+    "No natural population data",
+    "No explicit visit intensity or empirical pollinator efficacy",
+    "No causal decomposition of fitness vs population persistence"
+  ]
+}

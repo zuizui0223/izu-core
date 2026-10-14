@@ -1,0 +1,289 @@
+{
+  "status": "all_2048_new_sources_57344_futures_admitted",
+  "independent_visitor_histories": 64,
+  "prehistories": 2048,
+  "future_branches": 57344,
+  "new_protocol_sha256": "39918e4fe6650f99b0eac4372449509bdef45e58318dc760906d7a8ca3d9fe30",
+  "underlying_biological_protocol_sha256": "b6f6336875b04a131434ef35d6ec42b59dc14a1e4c59e7e4d6f2513e24a04fdd",
+  "source_hashes": {
+    "data/design/chapter2_assurance_generality_20261006.json": "c050c94eb385a9ab6beb48388f5ec96177c0540e22da53924b02eca19b824119",
+    "data/results/chapter2_assurance_generality_20261006.json": "c0f21756ebc7b49bc41ed5196915a05e15a7c1f688c622714e22ad2407f77f6e",
+    "data/design/model3_ch2_bridge_20260927.json": "0ca971aa9a453ab00a6e36fa9f2a99df3b36a8b13cda1cb48ea420556d3ff18a",
+    "data/design/chapter2_order_expression_identification_20261008.json": "b6f6336875b04a131434ef35d6ec42b59dc14a1e4c59e7e4d6f2513e24a04fdd",
+    "scripts/plan_chapter2_order_expression_identification.py": "825436797d97e2262357b0da5ca2c17feafc3f375e7852753cc97470fe850ccc",
+    "scripts/chapter2_order_expression_phenotype.py": "7c14f6e7a83569bd13df58a9c5ea68e95ba937a5c2e1fdb4d76d6a379affa903",
+    "scripts/chapter2_order_expression_payoff.py": "113e759870f4e6387e821678066ac432423a9ceae8b3c66b2ec76acc20b2f59c",
+    "scripts/chapter2_order_expression_schedule.py": "84b104e01b33716e2d8062113eb4fded8681bd14a8c965547957ba42019925f8",
+    "scripts/chapter2_order_genetic_realization.py": "e81d7d5249816fa95bbaa91be0e8570d00b12f6308e56b38df75cfd30e5085ad",
+    "scripts/chapter2_order_prehistory_runner.py": "0dd60fc31f89b9b41aec3f8c1a6351f1cefb0413b061094b519114da7a9fb32b",
+    "scripts/chapter2_order_postshock_runner.py": "5f8abecc9458342b25340e339993a09ca5d1d764b3c60a1ad9652073067d7700",
+    "scripts/chapter2_order_confirmatory_readout.py": "620f277c30f6204af50299445d5cd8ffdf088a7f6b5b66d475f695aa52dfdc1c",
+    "scripts/run_chapter2_assurance_generality.py": "88e7aef1ee559885559e63b46d3dcb76808981d7a787440693f836f3fafea924",
+    "scripts/run_model3_persistent_isolation.py": "d573ffa85b7a1fef3f4619862cf00ab40cfc465d3ba4563df6504e0eea968e6e",
+    "scripts/model3_island/reproduction.py": "885957edb8a165ee8528781ed1d2574c44143c608496b505f9663cbfac2c4081",
+    "scripts/model3_island/population.py": "c959d18816da6666dbfb4e91bd9582c94af5453b25498d033f5747305b05fe0f",
+    "scripts/model3_island/types.py": "a572e1e7f4fded181585871a63582b16f40292bd07b13e8efc9d6b6234eb21c5",
+    "scripts/model3_island/randomness.py": "63522ae3c5ff8e11f114b5649a989945fa4ba2480fdca0f74857601b0e4b211f",
+    "scripts/model3_island/selection.py": "fc2d7354aadbf293c84c7ecab5c1d5b20cd702f850081e2d2d1df35539e32f5e",
+    "scripts/model3_island/history.py": "28d22c7fde81d9be6a604fa9dd4cb6b48d78d388d4db85f798a935cf81415488",
+    "scripts/model3_island/run.py": "094f8ed635f13b3ff5809b721f1d11f78f89d7cc414f503805b007e436878743"
+  },
+  "primary": {
+    "window_residual_mean": -0.01514919620708264,
+    "history_bootstrap95": [
+      -0.04882600383229595,
+      0.01803496305815173
+    ],
+    "smooth_cv_mse_improvement_mean": -4.8435463943130034e-05,
+    "smooth_cv_history_bootstrap95": [
+      -0.00014133282015199957,
+      4.262564118909442e-05
+    ],
+    "window_gate_passed": false,
+    "smooth_gate_passed": false,
+    "predeclared_joint_decision": "window_residual_practically_equivalent",
+    "histories": 64,
+    "criterion": "Two-sided 64-visitor-history bootstrap + heldout cubic smooth comparator"
+  },
+  "by_regime": {
+    "unbottlenecked_capacity48": {
+      "history_average_DID_by_budget": {
+        "0.5": 0.0,
+        "1": 0.0,
+        "2": 0.0009765625,
+        "3": -0.04296875,
+        "4": -0.0068359375,
+        "5": -0.015625,
+        "8": 0.0
+      },
+      "fixed_window_diagnostic": {
+        "window_residual_mean": -0.015926453420816198,
+        "history_bootstrap95": [
+          -0.0450242726836914,
+          0.011819891587306685
+        ],
+        "smooth_cv_mse_improvement_mean": -2.0813813258652077e-07,
+        "smooth_cv_history_bootstrap95": [
+          -8.696590165946803e-05,
+          9.061729542764889e-05
+        ],
+        "window_gate_passed": false,
+        "smooth_gate_passed": false,
+        "predeclared_joint_decision": "window_residual_practically_equivalent",
+        "histories": 64,
+        "criterion": "Two-sided 64-visitor-history bootstrap + heldout cubic smooth comparator"
+      },
+      "by_setting": {
+        "delayed_control": {
+          "did_by_budget": {
+            "0.5": 0.0,
+            "1": 0.0,
+            "2": -0.00390625,
+            "3": 0.0078125,
+            "4": -0.01953125,
+            "5": 0.0,
+            "8": 0.0
+          }
+        },
+        "prior_selfing": {
+          "did_by_budget": {
+            "0.5": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": -0.078125,
+            "4": -0.0078125,
+            "5": 0.0,
+            "8": 0.0
+          }
+        },
+        "pollen_discount": {
+          "did_by_budget": {
+            "0.5": 0.0,
+            "1": 0.0,
+            "2": 0.0078125,
+            "3": -0.10546875,
+            "4": -0.015625,
+            "5": -0.00390625,
+            "8": 0.0
+          }
+        },
+        "assurance_cost": {
+          "did_by_budget": {
+            "0.5": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.00390625,
+            "4": 0.015625,
+            "5": -0.05859375,
+            "8": 0.0
+          }
+        }
+      },
+      "absolute_occupancy_by_pre_environment_and_arm": {
+        "near": {
+          "assurance_first": {
+            "0.5": 0.0,
+            "1": 0.0,
+            "2": 0.0087890625,
+            "3": 0.5888671875,
+            "4": 0.8564453125,
+            "5": 0.9755859375,
+            "8": 1.0
+          },
+          "investment_first": {
+            "0.5": 0.0,
+            "1": 0.0,
+            "2": 0.0029296875,
+            "3": 0.525390625,
+            "4": 0.833984375,
+            "5": 0.9599609375,
+            "8": 1.0
+          }
+        },
+        "far": {
+          "assurance_first": {
+            "0.5": 0.0,
+            "1": 0.0,
+            "2": 0.0224609375,
+            "3": 0.7333984375,
+            "4": 0.9755859375,
+            "5": 1.0,
+            "8": 1.0
+          },
+          "investment_first": {
+            "0.5": 0.0,
+            "1": 0.0,
+            "2": 0.015625,
+            "3": 0.712890625,
+            "4": 0.9599609375,
+            "5": 1.0,
+            "8": 1.0
+          }
+        }
+      }
+    },
+    "eight_founders_capacity8": {
+      "history_average_DID_by_budget": {
+        "0.5": 0.0,
+        "1": 0.0,
+        "2": 0.0,
+        "3": 0.0029296875,
+        "4": -0.0625,
+        "5": -0.0244140625,
+        "8": -0.005859375
+      },
+      "fixed_window_diagnostic": {
+        "window_residual_mean": -0.01514919620708264,
+        "history_bootstrap95": [
+          -0.04882600383229595,
+          0.01803496305815173
+        ],
+        "smooth_cv_mse_improvement_mean": -4.8435463943130034e-05,
+        "smooth_cv_history_bootstrap95": [
+          -0.00014133282015199957,
+          4.262564118909442e-05
+        ],
+        "window_gate_passed": false,
+        "smooth_gate_passed": false,
+        "predeclared_joint_decision": "window_residual_practically_equivalent",
+        "histories": 64,
+        "criterion": "Two-sided 64-visitor-history bootstrap + heldout cubic smooth comparator"
+      },
+      "by_setting": {
+        "delayed_control": {
+          "did_by_budget": {
+            "0.5": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": -0.01953125,
+            "4": -0.03515625,
+            "5": -0.02734375,
+            "8": 0.0
+          }
+        },
+        "prior_selfing": {
+          "did_by_budget": {
+            "0.5": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0390625,
+            "4": -0.0859375,
+            "5": -0.0234375,
+            "8": 0.0
+          }
+        },
+        "pollen_discount": {
+          "did_by_budget": {
+            "0.5": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": -0.0078125,
+            "4": -0.08984375,
+            "5": -0.01953125,
+            "8": -0.00390625
+          }
+        },
+        "assurance_cost": {
+          "did_by_budget": {
+            "0.5": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.0,
+            "4": -0.0390625,
+            "5": -0.02734375,
+            "8": -0.01953125
+          }
+        }
+      },
+      "absolute_occupancy_by_pre_environment_and_arm": {
+        "near": {
+          "assurance_first": {
+            "0.5": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.2138671875,
+            "4": 0.6328125,
+            "5": 0.833984375,
+            "8": 0.9951171875
+          },
+          "investment_first": {
+            "0.5": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.16796875,
+            "4": 0.564453125,
+            "5": 0.8017578125,
+            "8": 0.9892578125
+          }
+        },
+        "far": {
+          "assurance_first": {
+            "0.5": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.396484375,
+            "4": 0.751953125,
+            "5": 0.9375,
+            "8": 1.0
+          },
+          "investment_first": {
+            "0.5": 0.0,
+            "1": 0.0,
+            "2": 0.0,
+            "3": 0.34765625,
+            "4": 0.74609375,
+            "5": 0.9296875,
+            "8": 1.0
+          }
+        }
+      }
+    }
+  },
+  "limits": [
+    "Only assigned phenotype-expression sequence is randomized; naturally realized genetic order is post-treatment.",
+    "The fixed window was selected from the earlier 64 exposed histories; only this new independent cohort confirms it.",
+    "A cubic log-budget baseline is a prespecified finite competitor, not every possible smooth resource mechanism.",
+    "Synthetic persistence stress, not natural island viability or ecological extinction risk.",
+    "The prior pooled practical equivalence and failed independent16 mutation-priority claim remain unchanged."
+  ]
+}

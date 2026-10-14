@@ -1,0 +1,78 @@
+{
+  "schema": "chapter2_t20_assurance_locus_hybrid_exposed_source_v1",
+  "date": "2026-10-10",
+  "status": "POST_OUTCOME_COMPONENT_DIAGNOSTIC_LOCKED_AFTER_WHOLE_GENOME_RESULT",
+  "source": "data/design/chapter2_t20_joint_genome_transplant_original_history_v1_20261010.json",
+  "source_full_artifact_sha256": "1c15f1921817f573662615343623e3890c5dce99413484fdd41bb4c07ab52eaf",
+  "source_cohort": "Previously exposed 61024001..61024064 visitor-history RNG seeds, ORIGINAL post20 transplanted-source experiment, NOT new ecological histories.",
+  "replay_source_pre20": {
+    "K": 48,
+    "B": 48,
+    "ovule_budget": 8,
+    "gate": "half_self",
+    "t0": 0,
+    "t1": 20,
+    "n_selected_surviving": 58,
+    "n_neutral_surviving": 52,
+    "n_both_eligible": 50
+  },
+  "whole_genome_source_draw": {
+    "N0": 8,
+    "donor_rng_salt": 61025971,
+    "exact_whole_individual_diploid_resamples_for_selected_and_neutral": true
+  },
+  "hybrid_genotype_arms": [
+    "neutral_all",
+    "selected_assurance_only",
+    "selected_nonassurance_only",
+    "selected_all"
+  ],
+  "genetic_composition": {
+    "neutral_all": "all three loci and allele origins/flags from neutral t20 source resample",
+    "selected_all": "all three loci and allele origins/flags from selected t20 source resample",
+    "selected_assurance_only": "matching and investment alleles/ancestry from neutral donor, entire assurance diploid allele pair/ancestry/flags from selected donor",
+    "selected_nonassurance_only": "both matching and investment diploid alleles/ancestry/flags from selected donor, entire assurance allele pair/ancestry/flags from neutral donor"
+  },
+  "future": {
+    "recipient_K": [
+      8,
+      48
+    ],
+    "B": 48,
+    "N0": 8,
+    "year_start": 20,
+    "year_end": 80,
+    "mode": "selected_source",
+    "seed_gate": "half_self",
+    "future_demographic_rng_salt": 61025972,
+    "ecological_visitor_history": "exact same source visitor history years 20-79, original exposed IDs reused",
+    "all_eligible_source_futures": 400
+  },
+  "quality_gates": [
+    "Source t20 selected58/neutral52/both50 counts exact.",
+    "Source neutral_all and selected_all baseline cells reproduce exactly original K8 15/36 and K48 41/49 whole-genome transplant source outcomes, no tolerance.",
+    "All four hybrid genotypes preserve each entire corresponding locus's two alleles, allele origins, mutation flags; unique current recipient IDs and birth year20.",
+    "Same original eight source-sampled recipient genotypes (before hybrid) and random demographic stream for all K and genotype composition conditions.",
+    "Do not condition post20 occupancy on future survival; donor eligibility based only on original both-surviving t20 statuses, 50/64.",
+    "No new genomic mutation, no allele-wise within-locus reshuffling, no new visitor RNG histories.",
+    "Report every hybrid condition, both K values, and all null/failed outcomes."
+  ],
+  "estimands": {
+    "assurance_only_effect_at_fixed_neutral_other_loci": "Y(selected_assurance_only)-Y(neutral_all)",
+    "assurance_effect_when_other_loci_selected": "Y(selected_all)-Y(selected_nonassurance_only)",
+    "other_loci_only_effect_at_neutral_assurance": "Y(selected_nonassurance_only)-Y(neutral_all)",
+    "other_loci_effect_when_assurance_selected": "Y(selected_all)-Y(selected_assurance_only)",
+    "interaction": "Y(selected_all)-Y(selected_assurance_only)-Y(selected_nonassurance_only)+Y(neutral_all)",
+    "assurance_shapley_style": "1/2 * (Y(selected_assurance_only)-Y(neutral_all)+Y(selected_all)-Y(selected_nonassurance_only))",
+    "other_loci_shapley_style": "1/2 * (Y(selected_nonassurance_only)-Y(neutral_all)+Y(selected_all)-Y(selected_assurance_only))",
+    "primary_decision": "No new confirmatory primary permitted: all contrasts are post-outcome mechanistic descriptive; use conservative paired exact intervals as sensitivity only, avoid significance promotion."
+  },
+  "limitations": [
+    "Artificially mosaiced whole-locus genotypes combine individuals from two counterfactual genealogies; novel across-locus associations may result. This is a source-level intervention, not a natural Mendelian field cross.",
+    "Shapley allocation averages two intervention orders and sums to total, but neither share is a unique natural genetic mediation fraction.",
+    "Assurance diploid genotype differs in mean, within-locus variation and ancestral origins jointly, so this is not a pure mean-allele effect.",
+    "Original donor selection conditions on both source populations alive at t20; effects are not total survival from t0, and no independent ecological replications arise.",
+    "One whole-genotype resampling draw per original donor/history; resampling stochasticity is not a biological replicate.",
+    "Fixed-depression, zero-mutation model excludes mutational load and genetic meltdown; no evolutionary-suicide claim."
+  ]
+}

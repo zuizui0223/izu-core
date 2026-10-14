@@ -1,0 +1,249 @@
+{
+  "schema_version": "1.0",
+  "date": "2026-10-08",
+  "status": "completed_exploratory_dispersion_ablation_not_independent_confirmation",
+  "design": "data/design/chapter2_island_assurance_dispersion_ablation_20261008.json",
+  "independent_visitor_histories": 4,
+  "nested_postshock_randomizations": 4,
+  "original_demographic_repeat_seed": 35101801,
+  "n_trajectories": 3072,
+  "n_matched_condition_sets": 1024,
+  "per_setting_background_mutation": [
+    {
+      "setting": "assurance_cost",
+      "recipient_background": "far",
+      "post_mutation_rate": 0,
+      "n_trajectories_per_scale": 64,
+      "terminal_occupancy_by_dispersion_scale": {
+        "0": 0.0625,
+        "1": 0.046875,
+        "0.5": 0.078125
+      },
+      "q0_minus_q1": 0.015625,
+      "q05_minus_q1": 0.03125
+    },
+    {
+      "setting": "assurance_cost",
+      "recipient_background": "far",
+      "post_mutation_rate": 0.01,
+      "n_trajectories_per_scale": 64,
+      "terminal_occupancy_by_dispersion_scale": {
+        "0": 0.078125,
+        "1": 0.046875,
+        "0.5": 0.0625
+      },
+      "q0_minus_q1": 0.03125,
+      "q05_minus_q1": 0.015625
+    },
+    {
+      "setting": "assurance_cost",
+      "recipient_background": "near",
+      "post_mutation_rate": 0,
+      "n_trajectories_per_scale": 64,
+      "terminal_occupancy_by_dispersion_scale": {
+        "0": 0.046875,
+        "1": 0.046875,
+        "0.5": 0.046875
+      },
+      "q0_minus_q1": 0,
+      "q05_minus_q1": 0
+    },
+    {
+      "setting": "assurance_cost",
+      "recipient_background": "near",
+      "post_mutation_rate": 0.01,
+      "n_trajectories_per_scale": 64,
+      "terminal_occupancy_by_dispersion_scale": {
+        "0": 0.046875,
+        "1": 0.0625,
+        "0.5": 0.046875
+      },
+      "q0_minus_q1": -0.015625,
+      "q05_minus_q1": -0.015625
+    },
+    {
+      "setting": "delayed_control",
+      "recipient_background": "far",
+      "post_mutation_rate": 0,
+      "n_trajectories_per_scale": 64,
+      "terminal_occupancy_by_dispersion_scale": {
+        "0": 0.953125,
+        "1": 0.953125,
+        "0.5": 0.953125
+      },
+      "q0_minus_q1": 0,
+      "q05_minus_q1": 0
+    },
+    {
+      "setting": "delayed_control",
+      "recipient_background": "far",
+      "post_mutation_rate": 0.01,
+      "n_trajectories_per_scale": 64,
+      "terminal_occupancy_by_dispersion_scale": {
+        "0": 0.9375,
+        "1": 0.9375,
+        "0.5": 0.9375
+      },
+      "q0_minus_q1": 0,
+      "q05_minus_q1": 0
+    },
+    {
+      "setting": "delayed_control",
+      "recipient_background": "near",
+      "post_mutation_rate": 0,
+      "n_trajectories_per_scale": 64,
+      "terminal_occupancy_by_dispersion_scale": {
+        "0": 0.4375,
+        "1": 0.4375,
+        "0.5": 0.4375
+      },
+      "q0_minus_q1": 0,
+      "q05_minus_q1": 0
+    },
+    {
+      "setting": "delayed_control",
+      "recipient_background": "near",
+      "post_mutation_rate": 0.01,
+      "n_trajectories_per_scale": 64,
+      "terminal_occupancy_by_dispersion_scale": {
+        "0": 0.453125,
+        "1": 0.4375,
+        "0.5": 0.4375
+      },
+      "q0_minus_q1": 0.015625,
+      "q05_minus_q1": 0
+    },
+    {
+      "setting": "pollen_discount",
+      "recipient_background": "far",
+      "post_mutation_rate": 0,
+      "n_trajectories_per_scale": 64,
+      "terminal_occupancy_by_dispersion_scale": {
+        "0": 0.734375,
+        "1": 0.75,
+        "0.5": 0.734375
+      },
+      "q0_minus_q1": -0.015625,
+      "q05_minus_q1": -0.015625
+    },
+    {
+      "setting": "pollen_discount",
+      "recipient_background": "far",
+      "post_mutation_rate": 0.01,
+      "n_trajectories_per_scale": 64,
+      "terminal_occupancy_by_dispersion_scale": {
+        "0": 0.734375,
+        "1": 0.6875,
+        "0.5": 0.71875
+      },
+      "q0_minus_q1": 0.046875,
+      "q05_minus_q1": 0.03125
+    },
+    {
+      "setting": "pollen_discount",
+      "recipient_background": "near",
+      "post_mutation_rate": 0,
+      "n_trajectories_per_scale": 64,
+      "terminal_occupancy_by_dispersion_scale": {
+        "0": 0.53125,
+        "1": 0.5,
+        "0.5": 0.515625
+      },
+      "q0_minus_q1": 0.03125,
+      "q05_minus_q1": 0.015625
+    },
+    {
+      "setting": "pollen_discount",
+      "recipient_background": "near",
+      "post_mutation_rate": 0.01,
+      "n_trajectories_per_scale": 64,
+      "terminal_occupancy_by_dispersion_scale": {
+        "0": 0.453125,
+        "1": 0.515625,
+        "0.5": 0.53125
+      },
+      "q0_minus_q1": -0.0625,
+      "q05_minus_q1": 0.015625
+    },
+    {
+      "setting": "prior_selfing",
+      "recipient_background": "far",
+      "post_mutation_rate": 0,
+      "n_trajectories_per_scale": 64,
+      "terminal_occupancy_by_dispersion_scale": {
+        "0": 0.765625,
+        "1": 0.71875,
+        "0.5": 0.765625
+      },
+      "q0_minus_q1": 0.046875,
+      "q05_minus_q1": 0.046875
+    },
+    {
+      "setting": "prior_selfing",
+      "recipient_background": "far",
+      "post_mutation_rate": 0.01,
+      "n_trajectories_per_scale": 64,
+      "terminal_occupancy_by_dispersion_scale": {
+        "0": 0.765625,
+        "1": 0.75,
+        "0.5": 0.765625
+      },
+      "q0_minus_q1": 0.015625,
+      "q05_minus_q1": 0.015625
+    },
+    {
+      "setting": "prior_selfing",
+      "recipient_background": "near",
+      "post_mutation_rate": 0,
+      "n_trajectories_per_scale": 64,
+      "terminal_occupancy_by_dispersion_scale": {
+        "0": 0.5625,
+        "1": 0.5625,
+        "0.5": 0.59375
+      },
+      "q0_minus_q1": 0,
+      "q05_minus_q1": 0.03125
+    },
+    {
+      "setting": "prior_selfing",
+      "recipient_background": "near",
+      "post_mutation_rate": 0.01,
+      "n_trajectories_per_scale": 64,
+      "terminal_occupancy_by_dispersion_scale": {
+        "0": 0.578125,
+        "1": 0.609375,
+        "0.5": 0.578125
+      },
+      "q0_minus_q1": -0.03125,
+      "q05_minus_q1": -0.03125
+    }
+  ],
+  "source_provenance": {
+    "source_model": "Archived original 2026-10-06 biology source (unchanged)",
+    "offline_shard_sha256": {
+      "assurance_dispersion_shard_00.json": "6ac0dd165bc192dde335b781f1cce5036475347e8a5d17a5db64e5c4538a1880",
+      "assurance_dispersion_shard_01.json": "83749b0c32d52dedbcf364d5ad78db4854b61456e09501040405bf54b180ce1e",
+      "assurance_dispersion_shard_02.json": "1f0389d531d001a7cc251f9b34806087b69fd70dfb74a95ff3534d6b1185b04e",
+      "assurance_dispersion_shard_03.json": "926a077fa5a58b8e2bf4ef38b4edc798b12eab32a3f291664c95fa3d83894766"
+    },
+    "offline_summary_sha256": "81c4283903c9bc409a3b111d7acfe8ab9fe0dd9fca9110c4b4e7a0e718e0cdeb",
+    "local_complete_zip": "izu_core_island_assurance_dispersion_ablation_20261008.zip",
+    "local_complete_zip_sha256": "dd3effcd0c2043e2dbb386587dfe653456c8a6cd87f41d66b5541d06f2e7a646",
+    "github_actions_reproduction": false
+  },
+  "structural_checks": [
+    "All 3072 declared cases exist in four SHA-verified shards, with unique condition keys.",
+    "Assurance locus mean at switch is equal for all q within each historical population.",
+    "Assurance allele variance is q^2 times original within each exact recipient.",
+    "For q=0, post mutation=0, surviving populations retain exactly zero A-locus variance."
+  ],
+  "interpretation": "Artificially removing standing assurance allele dispersion while fixing its mean changes conditional 80-update occupancy only weakly or inconsistently across these four already observed history seeds and investigator-chosen stress levels. Immediate viable maternal output changes are <=0.0009 model units in magnitude for the q=0 versus q=1 comparison. This does not prove genetic variance is irrelevant, since covariance and genotype association also change.",
+  "boundaries": [
+    "Four ecological histories were already inspected; this is exploratory conditional mechanism analysis.",
+    "Four postshock RNG replicates are nested, not four independent histories.",
+    "q=0 also destroys cross-trait genetic covariance involving A; cannot attribute any difference to variance alone.",
+    "Mutation rate=0 suppresses all new mutation, not just A mutation.",
+    "N=8 and ovule-budget 3/4 were chosen after earlier outcome-guided exploratory stress search.",
+    "Previous frozen independent16 transplant test and mutation-priority gate remain failed; PR411 prospective four-setting divergence-compression evidence is unaffected."
+  ]
+}

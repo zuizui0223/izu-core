@@ -1,0 +1,301 @@
+{
+  "schema": "chapter2_clock_factorial_original_t0_reproductive_ledger_v1",
+  "status": "SIX_ORIGINAL_SOURCE_STATES_TWENTY_FOUR_GENOTYPE_CONTRAST_LEDGERS_EXACT",
+  "original_reproduction_git_blob": "95314698a3296b6f13b8c053c36f2df0b7b744ca",
+  "original_provider_receipts": [
+    {
+      "context": 0,
+      "provider_sha256": "5b850eaad6104f572f56df2a37da00fbc8473503a827703c82f6870a87e9a881",
+      "bytes": 21210876
+    },
+    {
+      "context": 3,
+      "provider_sha256": "676e84ff0729ba88dcd91cb161efeb2dc63f10b6679458695c5d2909c017e9c2",
+      "bytes": 28260780
+    },
+    {
+      "context": 4,
+      "provider_sha256": "900d3d22a36fa59241a933b8efc4b2fb8f320e4b25637e592640f31c529314fe",
+      "bytes": 25372222
+    }
+  ],
+  "original_founder_by_context_source_states": 6,
+  "genotype_adjusted_fixed_state_ledger_calls": 24,
+  "original_source_reference_ledger_calls": 6,
+  "new_biological_histories": 0,
+  "population_advance_called": false,
+  "all_original_totals_match": true,
+  "all_adjusted_ledger_hashes_match_original": true,
+  "max_recorded_total_error": 1.4210854715202004e-14,
+  "records": [
+    {
+      "block": "main",
+      "original_context": 0,
+      "A_half_width": 0.046875,
+      "I_homolog_scale": 0.0,
+      "source_original_ledger_sha256": "a61fc6432286e5b74927083af36e227ee0f64fd34c4e51fe1b7eb4d355bf8b02",
+      "source_new_ledger_sha256": "a61fc6432286e5b74927083af36e227ee0f64fd34c4e51fe1b7eb4d355bf8b02",
+      "t0_all_individual_expressed_traits_preserved": true,
+      "exact_ledger_bitwise_equal": true,
+      "original_recorded_total_max_error": 0.0
+    },
+    {
+      "block": "main",
+      "original_context": 0,
+      "A_half_width": 0.046875,
+      "I_homolog_scale": 1.0,
+      "source_original_ledger_sha256": "a61fc6432286e5b74927083af36e227ee0f64fd34c4e51fe1b7eb4d355bf8b02",
+      "source_new_ledger_sha256": "a61fc6432286e5b74927083af36e227ee0f64fd34c4e51fe1b7eb4d355bf8b02",
+      "t0_all_individual_expressed_traits_preserved": true,
+      "exact_ledger_bitwise_equal": true,
+      "original_recorded_total_max_error": 0.0
+    },
+    {
+      "block": "main",
+      "original_context": 0,
+      "A_half_width": 0.078125,
+      "I_homolog_scale": 0.0,
+      "source_original_ledger_sha256": "a61fc6432286e5b74927083af36e227ee0f64fd34c4e51fe1b7eb4d355bf8b02",
+      "source_new_ledger_sha256": "a61fc6432286e5b74927083af36e227ee0f64fd34c4e51fe1b7eb4d355bf8b02",
+      "t0_all_individual_expressed_traits_preserved": true,
+      "exact_ledger_bitwise_equal": true,
+      "original_recorded_total_max_error": 0.0
+    },
+    {
+      "block": "main",
+      "original_context": 0,
+      "A_half_width": 0.078125,
+      "I_homolog_scale": 1.0,
+      "source_original_ledger_sha256": "a61fc6432286e5b74927083af36e227ee0f64fd34c4e51fe1b7eb4d355bf8b02",
+      "source_new_ledger_sha256": "a61fc6432286e5b74927083af36e227ee0f64fd34c4e51fe1b7eb4d355bf8b02",
+      "t0_all_individual_expressed_traits_preserved": true,
+      "exact_ledger_bitwise_equal": true,
+      "original_recorded_total_max_error": 0.0
+    },
+    {
+      "block": "main",
+      "original_context": 3,
+      "A_half_width": 0.046875,
+      "I_homolog_scale": 0.0,
+      "source_original_ledger_sha256": "644032a6cdfba8f29455a221b8a9a5a063cedecab8f885934c149ea8bc21c139",
+      "source_new_ledger_sha256": "644032a6cdfba8f29455a221b8a9a5a063cedecab8f885934c149ea8bc21c139",
+      "t0_all_individual_expressed_traits_preserved": true,
+      "exact_ledger_bitwise_equal": true,
+      "original_recorded_total_max_error": 0.0
+    },
+    {
+      "block": "main",
+      "original_context": 3,
+      "A_half_width": 0.046875,
+      "I_homolog_scale": 1.0,
+      "source_original_ledger_sha256": "644032a6cdfba8f29455a221b8a9a5a063cedecab8f885934c149ea8bc21c139",
+      "source_new_ledger_sha256": "644032a6cdfba8f29455a221b8a9a5a063cedecab8f885934c149ea8bc21c139",
+      "t0_all_individual_expressed_traits_preserved": true,
+      "exact_ledger_bitwise_equal": true,
+      "original_recorded_total_max_error": 0.0
+    },
+    {
+      "block": "main",
+      "original_context": 3,
+      "A_half_width": 0.078125,
+      "I_homolog_scale": 0.0,
+      "source_original_ledger_sha256": "644032a6cdfba8f29455a221b8a9a5a063cedecab8f885934c149ea8bc21c139",
+      "source_new_ledger_sha256": "644032a6cdfba8f29455a221b8a9a5a063cedecab8f885934c149ea8bc21c139",
+      "t0_all_individual_expressed_traits_preserved": true,
+      "exact_ledger_bitwise_equal": true,
+      "original_recorded_total_max_error": 0.0
+    },
+    {
+      "block": "main",
+      "original_context": 3,
+      "A_half_width": 0.078125,
+      "I_homolog_scale": 1.0,
+      "source_original_ledger_sha256": "644032a6cdfba8f29455a221b8a9a5a063cedecab8f885934c149ea8bc21c139",
+      "source_new_ledger_sha256": "644032a6cdfba8f29455a221b8a9a5a063cedecab8f885934c149ea8bc21c139",
+      "t0_all_individual_expressed_traits_preserved": true,
+      "exact_ledger_bitwise_equal": true,
+      "original_recorded_total_max_error": 0.0
+    },
+    {
+      "block": "main",
+      "original_context": 4,
+      "A_half_width": 0.046875,
+      "I_homolog_scale": 0.0,
+      "source_original_ledger_sha256": "7ec4a6cc0f96c0f382dddd3a08385579e4d9d90e347fc9085c5b38fe80652fc3",
+      "source_new_ledger_sha256": "7ec4a6cc0f96c0f382dddd3a08385579e4d9d90e347fc9085c5b38fe80652fc3",
+      "t0_all_individual_expressed_traits_preserved": true,
+      "exact_ledger_bitwise_equal": true,
+      "original_recorded_total_max_error": 1.4210854715202004e-14
+    },
+    {
+      "block": "main",
+      "original_context": 4,
+      "A_half_width": 0.046875,
+      "I_homolog_scale": 1.0,
+      "source_original_ledger_sha256": "7ec4a6cc0f96c0f382dddd3a08385579e4d9d90e347fc9085c5b38fe80652fc3",
+      "source_new_ledger_sha256": "7ec4a6cc0f96c0f382dddd3a08385579e4d9d90e347fc9085c5b38fe80652fc3",
+      "t0_all_individual_expressed_traits_preserved": true,
+      "exact_ledger_bitwise_equal": true,
+      "original_recorded_total_max_error": 1.4210854715202004e-14
+    },
+    {
+      "block": "main",
+      "original_context": 4,
+      "A_half_width": 0.078125,
+      "I_homolog_scale": 0.0,
+      "source_original_ledger_sha256": "7ec4a6cc0f96c0f382dddd3a08385579e4d9d90e347fc9085c5b38fe80652fc3",
+      "source_new_ledger_sha256": "7ec4a6cc0f96c0f382dddd3a08385579e4d9d90e347fc9085c5b38fe80652fc3",
+      "t0_all_individual_expressed_traits_preserved": true,
+      "exact_ledger_bitwise_equal": true,
+      "original_recorded_total_max_error": 1.4210854715202004e-14
+    },
+    {
+      "block": "main",
+      "original_context": 4,
+      "A_half_width": 0.078125,
+      "I_homolog_scale": 1.0,
+      "source_original_ledger_sha256": "7ec4a6cc0f96c0f382dddd3a08385579e4d9d90e347fc9085c5b38fe80652fc3",
+      "source_new_ledger_sha256": "7ec4a6cc0f96c0f382dddd3a08385579e4d9d90e347fc9085c5b38fe80652fc3",
+      "t0_all_individual_expressed_traits_preserved": true,
+      "exact_ledger_bitwise_equal": true,
+      "original_recorded_total_max_error": 1.4210854715202004e-14
+    },
+    {
+      "block": "confirmation",
+      "original_context": 0,
+      "A_half_width": 0.046875,
+      "I_homolog_scale": 0.0,
+      "source_original_ledger_sha256": "66d30100f25aceebb82d6c546c9dc03a4e67486f9313c1d438c90f98322dcebc",
+      "source_new_ledger_sha256": "66d30100f25aceebb82d6c546c9dc03a4e67486f9313c1d438c90f98322dcebc",
+      "t0_all_individual_expressed_traits_preserved": true,
+      "exact_ledger_bitwise_equal": true,
+      "original_recorded_total_max_error": 0.0
+    },
+    {
+      "block": "confirmation",
+      "original_context": 0,
+      "A_half_width": 0.046875,
+      "I_homolog_scale": 1.0,
+      "source_original_ledger_sha256": "66d30100f25aceebb82d6c546c9dc03a4e67486f9313c1d438c90f98322dcebc",
+      "source_new_ledger_sha256": "66d30100f25aceebb82d6c546c9dc03a4e67486f9313c1d438c90f98322dcebc",
+      "t0_all_individual_expressed_traits_preserved": true,
+      "exact_ledger_bitwise_equal": true,
+      "original_recorded_total_max_error": 0.0
+    },
+    {
+      "block": "confirmation",
+      "original_context": 0,
+      "A_half_width": 0.078125,
+      "I_homolog_scale": 0.0,
+      "source_original_ledger_sha256": "66d30100f25aceebb82d6c546c9dc03a4e67486f9313c1d438c90f98322dcebc",
+      "source_new_ledger_sha256": "66d30100f25aceebb82d6c546c9dc03a4e67486f9313c1d438c90f98322dcebc",
+      "t0_all_individual_expressed_traits_preserved": true,
+      "exact_ledger_bitwise_equal": true,
+      "original_recorded_total_max_error": 0.0
+    },
+    {
+      "block": "confirmation",
+      "original_context": 0,
+      "A_half_width": 0.078125,
+      "I_homolog_scale": 1.0,
+      "source_original_ledger_sha256": "66d30100f25aceebb82d6c546c9dc03a4e67486f9313c1d438c90f98322dcebc",
+      "source_new_ledger_sha256": "66d30100f25aceebb82d6c546c9dc03a4e67486f9313c1d438c90f98322dcebc",
+      "t0_all_individual_expressed_traits_preserved": true,
+      "exact_ledger_bitwise_equal": true,
+      "original_recorded_total_max_error": 0.0
+    },
+    {
+      "block": "confirmation",
+      "original_context": 3,
+      "A_half_width": 0.046875,
+      "I_homolog_scale": 0.0,
+      "source_original_ledger_sha256": "e66c078bf6dfdfc63e04b2abe3af78dbff1676bbc8fa47c6e72e5558908dfe1d",
+      "source_new_ledger_sha256": "e66c078bf6dfdfc63e04b2abe3af78dbff1676bbc8fa47c6e72e5558908dfe1d",
+      "t0_all_individual_expressed_traits_preserved": true,
+      "exact_ledger_bitwise_equal": true,
+      "original_recorded_total_max_error": 0.0
+    },
+    {
+      "block": "confirmation",
+      "original_context": 3,
+      "A_half_width": 0.046875,
+      "I_homolog_scale": 1.0,
+      "source_original_ledger_sha256": "e66c078bf6dfdfc63e04b2abe3af78dbff1676bbc8fa47c6e72e5558908dfe1d",
+      "source_new_ledger_sha256": "e66c078bf6dfdfc63e04b2abe3af78dbff1676bbc8fa47c6e72e5558908dfe1d",
+      "t0_all_individual_expressed_traits_preserved": true,
+      "exact_ledger_bitwise_equal": true,
+      "original_recorded_total_max_error": 0.0
+    },
+    {
+      "block": "confirmation",
+      "original_context": 3,
+      "A_half_width": 0.078125,
+      "I_homolog_scale": 0.0,
+      "source_original_ledger_sha256": "e66c078bf6dfdfc63e04b2abe3af78dbff1676bbc8fa47c6e72e5558908dfe1d",
+      "source_new_ledger_sha256": "e66c078bf6dfdfc63e04b2abe3af78dbff1676bbc8fa47c6e72e5558908dfe1d",
+      "t0_all_individual_expressed_traits_preserved": true,
+      "exact_ledger_bitwise_equal": true,
+      "original_recorded_total_max_error": 0.0
+    },
+    {
+      "block": "confirmation",
+      "original_context": 3,
+      "A_half_width": 0.078125,
+      "I_homolog_scale": 1.0,
+      "source_original_ledger_sha256": "e66c078bf6dfdfc63e04b2abe3af78dbff1676bbc8fa47c6e72e5558908dfe1d",
+      "source_new_ledger_sha256": "e66c078bf6dfdfc63e04b2abe3af78dbff1676bbc8fa47c6e72e5558908dfe1d",
+      "t0_all_individual_expressed_traits_preserved": true,
+      "exact_ledger_bitwise_equal": true,
+      "original_recorded_total_max_error": 0.0
+    },
+    {
+      "block": "confirmation",
+      "original_context": 4,
+      "A_half_width": 0.046875,
+      "I_homolog_scale": 0.0,
+      "source_original_ledger_sha256": "6a0f1a7fc8910074bede2b77fbf42d133cb68015323efb739aabf8f76de2883a",
+      "source_new_ledger_sha256": "6a0f1a7fc8910074bede2b77fbf42d133cb68015323efb739aabf8f76de2883a",
+      "t0_all_individual_expressed_traits_preserved": true,
+      "exact_ledger_bitwise_equal": true,
+      "original_recorded_total_max_error": 0.0
+    },
+    {
+      "block": "confirmation",
+      "original_context": 4,
+      "A_half_width": 0.046875,
+      "I_homolog_scale": 1.0,
+      "source_original_ledger_sha256": "6a0f1a7fc8910074bede2b77fbf42d133cb68015323efb739aabf8f76de2883a",
+      "source_new_ledger_sha256": "6a0f1a7fc8910074bede2b77fbf42d133cb68015323efb739aabf8f76de2883a",
+      "t0_all_individual_expressed_traits_preserved": true,
+      "exact_ledger_bitwise_equal": true,
+      "original_recorded_total_max_error": 0.0
+    },
+    {
+      "block": "confirmation",
+      "original_context": 4,
+      "A_half_width": 0.078125,
+      "I_homolog_scale": 0.0,
+      "source_original_ledger_sha256": "6a0f1a7fc8910074bede2b77fbf42d133cb68015323efb739aabf8f76de2883a",
+      "source_new_ledger_sha256": "6a0f1a7fc8910074bede2b77fbf42d133cb68015323efb739aabf8f76de2883a",
+      "t0_all_individual_expressed_traits_preserved": true,
+      "exact_ledger_bitwise_equal": true,
+      "original_recorded_total_max_error": 0.0
+    },
+    {
+      "block": "confirmation",
+      "original_context": 4,
+      "A_half_width": 0.078125,
+      "I_homolog_scale": 1.0,
+      "source_original_ledger_sha256": "6a0f1a7fc8910074bede2b77fbf42d133cb68015323efb739aabf8f76de2883a",
+      "source_new_ledger_sha256": "6a0f1a7fc8910074bede2b77fbf42d133cb68015323efb739aabf8f76de2883a",
+      "t0_all_individual_expressed_traits_preserved": true,
+      "exact_ledger_bitwise_equal": true,
+      "original_recorded_total_max_error": 0.0
+    }
+  ],
+  "limitations": [
+    "Original SHA-locked reproduction.py executed with source config and original restored visitor functional values; technical SimpleNamespace receivers do not replace the source model class validations.",
+    "This check stops before any population advance, mutation or stochastic offspring production and is not evidence of future evolutionary equivalence.",
+    "Original archive source is validated by archived totals and immutable biological-commit reproduction SHA; future pilot must validate full genotype/parentage birth operator and orchestrator separately."
+  ]
+}
