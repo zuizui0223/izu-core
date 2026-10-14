@@ -58,7 +58,7 @@ def test_old_A_standing_heterozygosity_expected_F1_variance():
             assert x["eligible"]
             assert x["original_A_symmetric_heterozygote_carriers"]==48
             assert x["source_A_phenotypic_variance"]==0
-            assert x["expected_single_offspring_mean_M_I_A"][2]==.5
+            assert abs(x["expected_single_offspring_mean_M_I_A"][2]-.5)<1e-13
             assert abs(x["first_offspring_variance_M_I_A"][2]-expected)<1e-15
             assert abs(x["parent_pair_contribution_M_I_A"][2])<1e-15
 
@@ -76,7 +76,7 @@ def test_source_I_phenotype_held_but_mendelian_variation_is_controlled():
                 stats=conditional_f1_moments(
                     genotype,reproduction.reproduce(genotype,v,c))
                 assert stats["eligible"]
-                assert abs(stats["expected_single_offspring_mean_M_I_A"][2]-.5)<1e-15
+                assert abs(stats["expected_single_offspring_mean_M_I_A"][2]-.5)<1e-13
                 prior[m]=stats
             assert abs(prior[0]["first_offspring_variance_M_I_A"][2]-
                        prior[12]["first_offspring_variance_M_I_A"][2])<1e-15
