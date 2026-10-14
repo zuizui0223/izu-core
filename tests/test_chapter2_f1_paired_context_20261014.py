@@ -105,6 +105,7 @@ def test_fail_closed_on_tie_mislabeled_as_strict_order():
 
 def test_fail_closed_on_unattainable_sustained_start_year():
     def tamper(rows):
-        rows[0]["A_sustained_first"] = "182"
+        row = next(row for row in rows if row["category"] == "assurance_only")
+        row["A_sustained_first"] = "182"
     with pytest.raises(ValueError, match="Invalid original event year"):
         audit_bytes(modified_source(tamper), require_pinned_blob=False)
