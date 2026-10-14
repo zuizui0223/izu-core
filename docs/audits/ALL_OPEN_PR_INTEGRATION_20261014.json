@@ -312,10 +312,12 @@
     "PR410/408/407/406/405/404: preserve current four-setting/unified-paper route over superseded single-setting submission surfaces; keep unique historical draft/code; retain PR405 test suite under unique filename.",
     "PR395: retain corrected selection claim ceiling rather than old ready status.",
     "S26: admit completed PR516 conditional triangle results and maintenance-feasibility limits, retaining original unresolved outcomes.",
-    "S27: retain post hoc archived-threshold sensitivity without promoting it to prospective or independent-founder evidence."
+    "S27: retain post hoc archived-threshold sensitivity without promoting it to prospective or independent-founder evidence.",
+    "Power audit: read treatments_per_founder_seed from the immutable factorial schema; real-input regression and five companion tests pass. PR491 final test removes dependency on ignored generated PDFs."
   ],
-  "validation_status": "Integrated tests and final-head CI pending; no main merge yet.",
+  "validation_status": "At this record: candidate dcb3e144 scientific gate and both reviewer packages passed (run38576310426); all145 delivered payload hashes/sizes independently verified. Final three-Python CI and main merge are recorded on PR523.",
   "new_biological_campaigns": 0,
   "model3_native_source_diff_vs_main": false,
-  "additional_522_head": "40fe19d25d95882009fe014655c2ae28213faa2b"
+  "additional_522_head": "40fe19d25d95882009fe014655c2ae28213faa2b",
+  "additional_491_final_test_head": "42be62ce3867b725ce2be332f759eb224ba14e01"
 }
