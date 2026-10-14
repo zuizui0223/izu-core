@@ -18,7 +18,10 @@ No critical or important mathematical finding. The protocol is suitable for publ
 
 ## Feasibility clarification verified
 
+Verified final protocol SHA256: `b3baf3a7909a1557451f4197398870b1574121b6533489381fef0744601264a0`.
+
 The revised protocol explicitly requires N=48, integral qN, and admitted values v-w and v+w, checked against every admitted state and frozen source. It prohibits clipping, rescaling, replacement and selective state removal to repair a failure. This resolves the nonblocking feasibility clarification raised during review. Algebraic feasibility is appropriately distinguished from model-wide feasibility. No outstanding revision request remains.
 
 The later allocation contract should define the actual heterozygote subset policy and the outcome scale for any interaction. The current requirement to freeze genotype subset allocation and endpoints provides an appropriate place for those details.
+
 
