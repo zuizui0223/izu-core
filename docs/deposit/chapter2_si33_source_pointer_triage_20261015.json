@@ -1,0 +1,679 @@
+{
+  "schema": "chapter2_si33_source_pointer_triage_v1",
+  "snapshot_date": "2026-10-15",
+  "source_main_commit": "c1b08577dd2a2432ce71df001df45a90ad0f0d74",
+  "si_source_path": "docs/CHAPTER2_UNIFIED_EL_SUPPORTING_INFORMATION_20261010.md",
+  "si_source_git_blob": "fdecc89abaee3479ae5eef3f476d5ba937505690",
+  "preflight_path": "docs/deposit/chapter2_zenodo_unpublished_preflight_20261015.json",
+  "preflight_git_blob": "a536d530d700fc5f8fa994d2cc813c34c2281105",
+  "addendum_path": "docs/deposit/chapter2_single_paper_raw_scope_addendum_20261015.json",
+  "addendum_git_blob": "ce439e1fbfc4b1af5f4c4f7cfb8b7fad20fba657",
+  "status": "LITERAL_POINTER_SCAN_AND_CANDIDATE_GROUP_CROSSWALK_NOT_RAW_SOURCE_ADMISSION",
+  "interpretation_limit": "Literal mentions are not original raw archives; missing literal mentions do not prove missing raw evidence. Candidate hints do not demonstrate complete coverage or cross-host admission.",
+  "sections_total": 33,
+  "sections_with_literal_file_token": 21,
+  "sections_without_literal_file_token": [
+    "S1",
+    "S2",
+    "S3",
+    "S4",
+    "S6",
+    "S7",
+    "S8",
+    "S15",
+    "S21",
+    "S22",
+    "S23",
+    "S32"
+  ],
+  "known_archive_candidates": [
+    {
+      "filename": "chapter2-orthogonal-130-original-shard-artifacts.tar",
+      "bytes": 227543040,
+      "sha256": "03e1292511219ea4ee64499d35ac0e5a5f824f1ee0fd420ecd7ca97f4f9ebf65",
+      "stage": "six_core_preflight"
+    },
+    {
+      "filename": "chapter2-kb-130-original-shard-artifacts.tar",
+      "bytes": 226304000,
+      "sha256": "7d367a9e4a9f4f60f25dbee2ccabc84ef0969f5d9b0096c7df07380314dcfff9",
+      "stage": "six_core_preflight"
+    },
+    {
+      "filename": "chapter2-fixedB48-all-original-131-artifacts.tar",
+      "bytes": 224860160,
+      "sha256": "3e522fc9d8da904ed70cc2213bc3b08816761c4e44a4badc72e0c87ba04bd42c",
+      "stage": "six_core_preflight"
+    },
+    {
+      "filename": "chapter2-timed-130-original-shard-artifacts.tar",
+      "bytes": 225617920,
+      "sha256": "b5ab3a99eeaf36da399290508a64fa022cacc734aa1d794cab3b8443707309aa",
+      "stage": "six_core_preflight"
+    },
+    {
+      "filename": "chapter2_public_archive_20261006.zip",
+      "bytes": 518372739,
+      "sha256": "0596de11afea2f9f0b5a781f6d0ddd1fa7ea772f048ec0ccfc06e9ecbbf60695",
+      "stage": "six_core_preflight"
+    },
+    {
+      "filename": "izu_core_functional_loss_tempo_full_20261011.zip",
+      "bytes": 268940123,
+      "sha256": "034e735d244228c1f4974897a76d16acef10767a81d5dd82f5f5204f48cf0738",
+      "stage": "six_core_preflight"
+    },
+    {
+      "filename": "model3_replenishment_evolution_20261005.zip",
+      "bytes": 763914318,
+      "sha256": "37bd0bd312734715392add19f424696121fbe88517dfa784d8e702173ec71b6c",
+      "stage": "prior_additional_candidate"
+    },
+    {
+      "filename": "completed_atom_abm_20261011.zip",
+      "bytes": 389730774,
+      "sha256": "7ae00916ed2cbb38323c3fb9ffc5824de3e8272df1f5a35785842c316191f918",
+      "stage": "prior_additional_candidate"
+    },
+    {
+      "filename": "ecological_order_actual_github_38312090996.zip",
+      "bytes": 251663558,
+      "sha256": "819741aa4a9f5bc1aaf2dadddbd56b79d158fc9295d07fc3bffe362693fc056a",
+      "stage": "new_addendum_candidate"
+    },
+    {
+      "filename": "izu_core_island_demographic_stress_20261008.zip",
+      "bytes": 335015,
+      "sha256": "cd9f998e38ec51e747c4495dbe94b1fe1168d48d31ef54a438250bfa0ace5a21",
+      "stage": "new_addendum_candidate"
+    }
+  ],
+  "si_sections": [
+    {
+      "section": "S1",
+      "heading": "Preregistered primary evolutionary study and four-setting result",
+      "literal_file_tokens": [],
+      "review_packet_member_literals": [],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S2",
+      "heading": "Original relative pollen availability and finite horizon",
+      "literal_file_tokens": [],
+      "review_packet_member_literals": [],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S3",
+      "heading": "Assigned expression-order and finite demographic study",
+      "literal_file_tokens": [],
+      "review_packet_member_literals": [],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S4",
+      "heading": "Original evolved-genome source checks and demographic nulls",
+      "literal_file_tokens": [],
+      "review_packet_member_literals": [],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S5",
+      "heading": "Separately frozen visitor-tempo supplement",
+      "literal_file_tokens": [
+        "EVIDENCE/TEMPO_AUDIT_SUMMARY.json",
+        "EVIDENCE/TEMPO_RESULTS.json.gz",
+        "MANIFEST.json"
+      ],
+      "review_packet_member_literals": [
+        "EVIDENCE/TEMPO_AUDIT_SUMMARY.json",
+        "EVIDENCE/TEMPO_RESULTS.json.gz"
+      ],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [
+        {
+          "filename": "izu_core_functional_loss_tempo_full_20261011.zip",
+          "basis": "preflight group tempo_synthetic_supplement and SI title",
+          "strength": "candidate_group_correspondence_only"
+        }
+      ],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S6",
+      "heading": "Data accessibility and source provenance",
+      "literal_file_tokens": [],
+      "review_packet_member_literals": [],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S7",
+      "heading": "Original-mutation numerical admission and matched finite-population realization",
+      "literal_file_tokens": [],
+      "review_packet_member_literals": [],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [
+        {
+          "filename": "completed_atom_abm_20261011.zip",
+          "basis": "preflight original_mutation_finite_ABM candidate plus section description",
+          "strength": "candidate_group_correspondence_only"
+        }
+      ],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S8",
+      "heading": "Conditional access boundaries and preparation-policy consequences",
+      "literal_file_tokens": [],
+      "review_packet_member_literals": [],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S9",
+      "heading": "Controlled-expression test of preparation-policy persistence contrasts",
+      "literal_file_tokens": [
+        "../data/results/persistence_mechanism_20261012/original_readout.json.gz",
+        "../data/results/persistence_mechanism_20261012/readout.json"
+      ],
+      "review_packet_member_literals": [],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [
+        "../data/results/persistence_mechanism_20261012/original_readout.json.gz",
+        "../data/results/persistence_mechanism_20261012/readout.json"
+      ],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S10",
+      "heading": "Initial-mean versus lifelong-expression contributions",
+      "literal_file_tokens": [
+        "EVIDENCE/INITIAL_MEAN_ORIGINAL.json.gz",
+        "EVIDENCE/INITIAL_MEAN_READOUT.json"
+      ],
+      "review_packet_member_literals": [
+        "EVIDENCE/INITIAL_MEAN_ORIGINAL.json.gz",
+        "EVIDENCE/INITIAL_MEAN_READOUT.json"
+      ],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S11",
+      "heading": "Full-genome finite-response accounting",
+      "literal_file_tokens": [
+        "EVIDENCE/GENOME_RESPONSE_READOUT.json"
+      ],
+      "review_packet_member_literals": [
+        "EVIDENCE/GENOME_RESPONSE_READOUT.json"
+      ],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S12",
+      "heading": "Final occupancy versus cumulative persistence",
+      "literal_file_tokens": [
+        "EVIDENCE/DURATION_READOUT.json",
+        "EVIDENCE/KERNEL_CHANNEL_ARRAYS_MANIFEST.json",
+        "EVIDENCE/KERNEL_CHANNEL_READOUT.json",
+        "EVIDENCE/KERNEL_EXPRESSION_ARRAYS_MANIFEST.json",
+        "EVIDENCE/KERNEL_EXPRESSION_INDEPENDENT_REVIEW.json",
+        "EVIDENCE/KERNEL_EXPRESSION_READOUT.json",
+        "KERNEL_CHANNEL_FACTORIAL_OPERATOR_REVIEW_20261013.zip",
+        "KERNEL_EXPRESSION_OPERATOR_REVIEW_20261013.zip"
+      ],
+      "review_packet_member_literals": [
+        "EVIDENCE/DURATION_READOUT.json",
+        "EVIDENCE/KERNEL_CHANNEL_ARRAYS_MANIFEST.json",
+        "EVIDENCE/KERNEL_CHANNEL_READOUT.json",
+        "EVIDENCE/KERNEL_EXPRESSION_ARRAYS_MANIFEST.json",
+        "EVIDENCE/KERNEL_EXPRESSION_INDEPENDENT_REVIEW.json",
+        "EVIDENCE/KERNEL_EXPRESSION_READOUT.json"
+      ],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [
+        "KERNEL_CHANNEL_FACTORIAL_OPERATOR_REVIEW_20261013.zip",
+        "KERNEL_EXPRESSION_OPERATOR_REVIEW_20261013.zip"
+      ],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S13",
+      "heading": "Matched finite–density investment-gap accounting and original archive recovery",
+      "literal_file_tokens": [
+        "EVIDENCE/DISCOVERY_ARCHIVE_INTAKE.json",
+        "EVIDENCE/OPERATOR_GAP_READOUT.json",
+        "EVIDENCE/PR490_ORIGINAL_DIRECT_ADMISSION.json",
+        "sources.json/sources.zip"
+      ],
+      "review_packet_member_literals": [
+        "EVIDENCE/DISCOVERY_ARCHIVE_INTAKE.json",
+        "EVIDENCE/OPERATOR_GAP_READOUT.json",
+        "EVIDENCE/PR490_ORIGINAL_DIRECT_ADMISSION.json"
+      ],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [
+        "sources.json/sources.zip"
+      ],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S14",
+      "heading": "Fixed-access ecological order boundary and absorbing states",
+      "literal_file_tokens": [
+        "EVIDENCE/DIRECTIONAL_ACCESS_READOUT.json",
+        "EVIDENCE/ECOLOGICAL_ORDER_READOUT.json",
+        "EVIDENCE/LOW_ALLELE_LOSS_READOUT.json"
+      ],
+      "review_packet_member_literals": [
+        "EVIDENCE/DIRECTIONAL_ACCESS_READOUT.json",
+        "EVIDENCE/ECOLOGICAL_ORDER_READOUT.json",
+        "EVIDENCE/LOW_ALLELE_LOSS_READOUT.json"
+      ],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [
+        {
+          "filename": "ecological_order_actual_github_38312090996.zip",
+          "basis": "current Q3 addendum associates 703/315 source readouts with same original 2304 histories",
+          "strength": "documented_original_cohort_candidate"
+        }
+      ],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S15",
+      "heading": "Conditional future-state sufficiency",
+      "literal_file_tokens": [],
+      "review_packet_member_literals": [],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S16",
+      "heading": "Controlled future parental weighting after initial-mean equalization",
+      "literal_file_tokens": [
+        "EVIDENCE/FUTURE_PARENT_READOUT.json"
+      ],
+      "review_packet_member_literals": [
+        "EVIDENCE/FUTURE_PARENT_READOUT.json"
+      ],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S17",
+      "heading": "Mean-preserving restoration of investment allele variation",
+      "literal_file_tokens": [
+        "data/results/investment_variation_restoration_readout_20261013.json"
+      ],
+      "review_packet_member_literals": [],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [
+        "data/results/investment_variation_restoration_readout_20261013.json"
+      ],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S18",
+      "heading": "What initial state can identify about realized order",
+      "literal_file_tokens": [
+        "EVIDENCE/INITIAL_CLOCK_IDENTIFIABILITY.json",
+        "EVIDENCE/INITIAL_CLOCK_INDEPENDENT_REVIEW.json",
+        "EVIDENCE/INITIAL_CLOCK_RAW.json"
+      ],
+      "review_packet_member_literals": [
+        "EVIDENCE/INITIAL_CLOCK_IDENTIFIABILITY.json",
+        "EVIDENCE/INITIAL_CLOCK_INDEPENDENT_REVIEW.json",
+        "EVIDENCE/INITIAL_CLOCK_RAW.json"
+      ],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S19",
+      "heading": "Expected-response onset does not determine realized sequence",
+      "literal_file_tokens": [
+        "EVIDENCE/RESPONSE_ONSET_INDEPENDENT_REVIEW.json",
+        "EVIDENCE/RESPONSE_ONSET_READOUT.json"
+      ],
+      "review_packet_member_literals": [
+        "EVIDENCE/RESPONSE_ONSET_INDEPENDENT_REVIEW.json",
+        "EVIDENCE/RESPONSE_ONSET_READOUT.json"
+      ],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S20",
+      "heading": "Hidden genetic access changes realized order at matched initial phenotypes",
+      "literal_file_tokens": [
+        "EVIDENCE/GENETIC_ACCESS_FROZEN_EXPLORATORY_READOUT.json"
+      ],
+      "review_packet_member_literals": [
+        "EVIDENCE/GENETIC_ACCESS_FROZEN_EXPLORATORY_READOUT.json"
+      ],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S21",
+      "heading": "What the existing64-pair variation restoration actually restores",
+      "literal_file_tokens": [],
+      "review_packet_member_literals": [],
+      "review_packet_prefix_literals": [
+        "EVIDENCE/RESTORATION_ACCESS_"
+      ],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S22",
+      "heading": "Assurance expression in within-class future parent weights",
+      "literal_file_tokens": [],
+      "review_packet_member_literals": [],
+      "review_packet_prefix_literals": [
+        "EVIDENCE/ASSURANCE_PARENT_"
+      ],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S23",
+      "heading": "Registered conditional futures from the original investment-fixation states",
+      "literal_file_tokens": [],
+      "review_packet_member_literals": [],
+      "review_packet_prefix_literals": [
+        "EVIDENCE/Q3_CONDITIONAL_"
+      ],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S24",
+      "heading": "Why restored mean investment and threshold events need not agree",
+      "literal_file_tokens": [
+        "EVIDENCE/Q3_EVENT_FRESH_RAW_REVIEW.json",
+        "EVIDENCE/Q3_EVENT_PROVENANCE.json",
+        "EVIDENCE/Q3_EVENT_PUBLIC_ADMISSION.json",
+        "EVIDENCE/Q3_EVENT_PUBLIC_READBACK.json",
+        "EVIDENCE/Q3_EVENT_SUMMARY.json"
+      ],
+      "review_packet_member_literals": [
+        "EVIDENCE/Q3_EVENT_FRESH_RAW_REVIEW.json",
+        "EVIDENCE/Q3_EVENT_PROVENANCE.json",
+        "EVIDENCE/Q3_EVENT_PUBLIC_ADMISSION.json",
+        "EVIDENCE/Q3_EVENT_PUBLIC_READBACK.json",
+        "EVIDENCE/Q3_EVENT_SUMMARY.json"
+      ],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S25",
+      "heading": "Retrospective association in unrestricted preparation histories",
+      "literal_file_tokens": [
+        "EVIDENCE/NATURAL_ORDER_INDEPENDENT_REVIEW.json",
+        "EVIDENCE/NATURAL_ORDER_PUBLIC_READBACK.json",
+        "EVIDENCE/NATURAL_ORDER_SUMMARY.json",
+        "NATURAL_ORDER_EXISTING_BANK_VERIFIED_REVIEW_20261014.zip"
+      ],
+      "review_packet_member_literals": [
+        "EVIDENCE/NATURAL_ORDER_INDEPENDENT_REVIEW.json",
+        "EVIDENCE/NATURAL_ORDER_PUBLIC_READBACK.json",
+        "EVIDENCE/NATURAL_ORDER_SUMMARY.json"
+      ],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [
+        "NATURAL_ORDER_EXISTING_BANK_VERIFIED_REVIEW_20261014.zip"
+      ],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S26",
+      "heading": "Registered distribution-policy contrasts and limits of maintenance identification",
+      "literal_file_tokens": [
+        "EVIDENCE/Q3_TRIANGLE_CAMPAIGN_MANIFEST.json",
+        "EVIDENCE/Q3_TRIANGLE_INDEPENDENT_VERIFICATION.json",
+        "EVIDENCE/Q3_TRIANGLE_READOUT.json"
+      ],
+      "review_packet_member_literals": [
+        "EVIDENCE/Q3_TRIANGLE_CAMPAIGN_MANIFEST.json",
+        "EVIDENCE/Q3_TRIANGLE_INDEPENDENT_VERIFICATION.json",
+        "EVIDENCE/Q3_TRIANGLE_READOUT.json"
+      ],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S27",
+      "heading": "Archived response-threshold sensitivity",
+      "literal_file_tokens": [
+        "data/results/genetic_access_pilot_20261014/ARCHIVE_THRESHOLD_SENSITIVITY_INTAKE_20261014.json"
+      ],
+      "review_packet_member_literals": [],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [
+        "data/results/genetic_access_pilot_20261014/ARCHIVE_THRESHOLD_SENSITIVITY_INTAKE_20261014.json"
+      ],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S28",
+      "heading": "Approved attained-mean control of unrestricted natural histories",
+      "literal_file_tokens": [
+        "EVIDENCE/NATURAL_ORDER_MEAN_INDEPENDENT_ADMISSION.json",
+        "EVIDENCE/NATURAL_ORDER_MEAN_PUBLIC_READBACK.json",
+        "EVIDENCE/NATURAL_ORDER_MEAN_READOUT.json.gz",
+        "NATURAL_ORDER_MEAN_COMPLETE_RAW_AND_REVIEW_20261015.zip"
+      ],
+      "review_packet_member_literals": [
+        "EVIDENCE/NATURAL_ORDER_MEAN_INDEPENDENT_ADMISSION.json",
+        "EVIDENCE/NATURAL_ORDER_MEAN_PUBLIC_READBACK.json",
+        "EVIDENCE/NATURAL_ORDER_MEAN_READOUT.json.gz"
+      ],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [
+        "NATURAL_ORDER_MEAN_COMPLETE_RAW_AND_REVIEW_20261015.zip"
+      ],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S29",
+      "heading": "Original-I-constrained F1 genetic access versus conditional reproductive returns",
+      "literal_file_tokens": [
+        "EVIDENCE/Q2_S29_FOUR_SIGN_MENDELIAN_F1.json",
+        "EVIDENCE/Q2_S29_ORIGINAL_I_M0_M6_F1.json",
+        "EVIDENCE/Q2_S29_ORIGINAL_T0_TYPED_SOURCE.json",
+        "EVIDENCE/Q2_S29_STATIC_FOCAL_W.json"
+      ],
+      "review_packet_member_literals": [
+        "EVIDENCE/Q2_S29_FOUR_SIGN_MENDELIAN_F1.json",
+        "EVIDENCE/Q2_S29_ORIGINAL_I_M0_M6_F1.json",
+        "EVIDENCE/Q2_S29_ORIGINAL_T0_TYPED_SOURCE.json",
+        "EVIDENCE/Q2_S29_STATIC_FOCAL_W.json"
+      ],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S30",
+      "heading": "Separately frozen investment-mutation renewal: unresolved ecological order reversal",
+      "literal_file_tokens": [
+        "STANDING_ACCESS_CASES.json.gz",
+        "STANDING_ACCESS_READOUT.json"
+      ],
+      "review_packet_member_literals": [],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S31",
+      "heading": "Original-birth accounting of nonresponse after renewed standing support",
+      "literal_file_tokens": [
+        "NONRESPONSE_CASES.json.gz",
+        "NONRESPONSE_READOUT.json"
+      ],
+      "review_packet_member_literals": [],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S32",
+      "heading": "Original-genome checkpoint diagnosis of the far-side assurance contrast",
+      "literal_file_tokens": [],
+      "review_packet_member_literals": [],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [],
+      "known_archive_candidate_context": [],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    },
+    {
+      "section": "S33",
+      "heading": "Independent 32-history prehistory-by-evolvability persistence under synthetic stress",
+      "literal_file_tokens": [
+        "../data/design/chapter2_island_demographic_independent32_20261008.json",
+        "../data/results/chapter2_island_demographic_independent32_replay_receipt_20261013.json",
+        "../scripts/run_chapter2_island_demographic_independent32.py"
+      ],
+      "review_packet_member_literals": [],
+      "review_packet_prefix_literals": [],
+      "literal_named_archive_tokens": [],
+      "repository_path_literals": [
+        "../data/design/chapter2_island_demographic_independent32_20261008.json",
+        "../data/results/chapter2_island_demographic_independent32_replay_receipt_20261013.json",
+        "../scripts/run_chapter2_island_demographic_independent32.py"
+      ],
+      "known_archive_candidate_context": [
+        {
+          "filename": "izu_core_island_demographic_stress_20261008.zip",
+          "basis": "current Q4 addendum explicitly identifies 32-history S33 raw archive",
+          "strength": "documented_original_cohort_candidate"
+        }
+      ],
+      "archive_coverage_status": "NOT_YET_VERIFIED_FOR_FULL_SI_SECTION",
+      "cross_host_independently_verified_by_this_audit": false
+    }
+  ],
+  "no_original_archive_bytes_downloaded_by_this_audit": true,
+  "no_external_deposit_or_doi_created_by_this_audit": true,
+  "explicit_unresolved_source_mapping_required": true
+}
