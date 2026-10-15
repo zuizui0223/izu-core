@@ -114,7 +114,7 @@ jobs:
           d=json.loads(Path("outputs/far-t200/full-64-history-readout.json").read_text())
           assert d["status"]=="FULL_64_HISTORY_CONDITIONAL_CONTINUATION_EXPLORATORY"
           assert d["independent_visitor_history_clusters"]==64
-          assert d["n_original_unique_t200_genotype_states"]==512
+          assert d["n_source_t200_origin_setting_history_slots"]==512
           assert d["n_future_cells_from_those_states"]==1024
           assert d["new_conditional_evolutionary_updates"]==819200
           assert d["primary_descriptive_cohort"]=="holdout_63_excluding_dev26110601"
