@@ -78,7 +78,7 @@ def test_s31_original_birth_reconstruction_and_selected_path_classes():
     for v in ("460,800","398,131,200","758","33","420","248","57","24"):
         assert v in s
     assert "not another biological cohort" in s
-    assert "conditional reproductive weighting" in s
+    assert "conditional response covariances" in s
     assert "causal" in s.lower()
     assert "Native advance calls/new trajectories=0." in source
     for label,count in (("late_reopening",33),("no_support_window",420),
