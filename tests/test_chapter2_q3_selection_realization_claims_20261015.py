@@ -98,7 +98,7 @@ def test_paper_fit_and_four_question_route_unchanged() -> None:
     main = paper.split("# Introduction", 1)[1].split("# Primary figure assembly and captions", 1)[0]
     abstract = paper.split("## Abstract", 1)[1].split("## Keywords", 1)[0]
     fit = route["journal_fit"]
-    assert len(main.split()) == fit["current_main_text_words"] == fit["current_integrated_main_words"] == 4923
+    assert len(main.split()) == fit["current_main_text_words"] == fit["current_integrated_main_words"] == 4961
     assert len(abstract.split()) == fit["current_abstract_words"] == fit["current_integrated_abstract_words"] == 143
     assert len(main.split()) <= fit["ecology_letters_letter_main_max"]
     assert len(abstract.split()) <= fit["ecology_letters_letter_abstract_max"]
@@ -130,6 +130,20 @@ def test_conditional_parent_sampling_explains_how_rare_alleles_can_disappear() -
     assert median(int(r["needed_copies_before"]) for r in fav) == 2
     chances = [float(r["conditional_loss_probability"]) for r in fav]
     assert math.isclose(median(chances), 0.3260053119547402, abs_tol=1e-12)
+    assert sum(float(r["self_response"]) > 1e-12 for r in fav) == 305
+    assert sum(float(r["female_response"]) < -1e-12 for r in fav) == 234
+    assert sum(float(r["paternal_response"]) < -1e-12 for r in fav) == 266
+    assert sum(
+        float(r["self_response"]) > 1e-12
+        and float(r["female_response"]) < -1e-12
+        and float(r["paternal_response"]) < -1e-12
+        for r in fav
+    ) == 234
+    assert max(
+        abs(sum(float(r[k]) for k in ("female_response", "paternal_response", "self_response"))
+            - float(r["parent_weighting_response"]))
+        for r in selected
+    ) < 1e-12
     # This source-law calculation integrates over hypothetical parent and
     # Mendelian draws at the *selected previous state*, not prospective losses.
     assert max(
@@ -141,9 +155,14 @@ def test_conditional_parent_sampling_explains_how_rare_alleles_can_disappear() -
     note = NOTE.read_text(encoding="utf-8")
     assert "two needed allele copies among 96 parental copies" in q3
     assert "median was 0.326" in q3
+    assert "selfed-offspring parental-weighting component was positive" in q3
+    assert "maternal and paternal outcross components were negative" in q3
     assert "loss-selected, one-transition" in q3
     assert "0.3260053119547402" in note
     si = (ROOT / "docs/CHAPTER2_UNIFIED_EL_SUPPORTING_INFORMATION_20261010.md").read_text(encoding="utf-8")
     s14 = si.split("## S14.", 1)[1].split("## S15.", 1)[0]
     assert "0.3260053119547402" in s14 and "two needed allele copies among 96 homologs" in s14
+    for number in ("305", "234", "266"):
+        assert number in s14
+    assert "not" in s14.lower()
     assert "not a new simulation" in note
