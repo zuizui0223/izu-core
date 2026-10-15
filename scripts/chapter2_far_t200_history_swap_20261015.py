@@ -135,7 +135,7 @@ def continuation(start_state, history, cfg, *, history_seed: int,
             ids[offset, :n] = state.ids
             ages[offset, :n] = state.birth_years
         annual[offset, :8] = [
-            year, n, len(history.visitors[year]) if year < len(history.visitors) else 0,
+            year, n, len(history.visitors[year].ids) if year < len(history.visitors) else 0,
             float(state.alleles[:, 1, :].mean()) if n else np.nan,
             (float(state.alleles[:, 2, :].mean())
              if cfg.assurance_mode == "evolving" and n else
