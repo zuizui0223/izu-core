@@ -1,6 +1,6 @@
 {
   "schema": "chapter2_readout_only_source_recovery_v1",
-  "status": "PREPARED_NOT_ACTIVATED",
+  "status": "ACTIVATE_READOUT_ONLY_ONCE",
   "date": "2026-10-15",
   "purpose": "Read back the 16 existing successful source-locked genotype arrays and repair only the false full-capacity-every-year admission condition; DO NOT create any new evolutionary histories",
   "source_run_id": 38720038469,
@@ -148,5 +148,11 @@
     "Compute originally declared 64-history and pilot-excluded 63-history effects, Bonferroni 98.75% CI on four primary interactions",
     "No rerun of source experiment and no automatic manuscript novelty promotion"
   ],
-  "activation_once_marker": null
+  "activation_once_marker": {
+    "activated_date": "2026-10-15",
+    "purpose": "Recover original already-run 2048 paths after fixing sole central readout census admission check",
+    "biological_paths_resimulated": 0,
+    "posthoc_source_checks": true,
+    "source_artifact_count": 16
+  }
 }
