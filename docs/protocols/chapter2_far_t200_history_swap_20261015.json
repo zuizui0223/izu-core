@@ -1,0 +1,68 @@
+{
+  "schema": "chapter2_far_t200_origin_future_policy_factorial_v1",
+  "date": "2026-10-15",
+  "status": "POST_OUTCOME_BEFORE_NEW_CONTINUATION_EXPLORATORY_DIAGNOSTIC",
+  "reference_paper": "https://pepite-depot.univ-lille.fr/LIBRE/EDSMRE/2015/50376-2015-Lepers.pdf",
+  "original_campaign": "data/design/chapter2_assurance_generality_20261006.json",
+  "authenticated_archive_contract": "data/design/chapter2_original_evolved_pollen_source_20261010.json",
+  "original_workflow_run_id": 37458098483,
+  "original_artifact_shards_0_1_2_3": [
+    11411031490,
+    11410452132,
+    11411051762,
+    11411155493
+  ],
+  "original_demographic_repeat_seed": 26111601,
+  "origin_checkpoint_t": 200,
+  "future_begin_t": 200,
+  "future_end_t": 1000,
+  "setting_order": [
+    "delayed_control",
+    "prior_selfing",
+    "pollen_discount",
+    "assurance_cost"
+  ],
+  "arm": "far",
+  "history_seed_first": 26110601,
+  "history_seed_last": 26110664,
+  "origins": [
+    "fixed",
+    "evolving"
+  ],
+  "future_policies": [
+    "fixed",
+    "evolving"
+  ],
+  "n_full_futures": 1024,
+  "original_mutation_rate": 0.01,
+  "original_fixed_A": 0.5,
+  "population_initial_identity": "SOURCE_CHECKED_DIPLOID_ALLELES_ONLY",
+  "followup_stream_policy": "independent_common_random_numbers_for_each_year_and_channel_for_all_four_cells_in_a_history",
+  "visitors": "Exact original far visitor sequence reused after t200; no new visitor histories.",
+  "future_fixed_assurance": "Clamps expressed A at 0.5 and disables A mutation, preserving source A allele diversity latent; not retroactive deletion of A alleles.",
+  "future_evolvable_assurance": "Original expressed A and A mutation allowed with same source reproduction/inheritance kernel.",
+  "primary_estimands": [
+    "Within each t200 source population, I(t1000)-I(t200) in future A evolvable minus fixed, matched on history and RNG",
+    "Contrast of this future-policy effect between the two different t200 source-genotype origins"
+  ],
+  "secondary_estimands": [
+    "Initial-origin-state difference within each same future policy, descriptive conditional on post-treatment states",
+    "Year-by-year mean I, expected one-step Price I and realized I changes",
+    "N, extinct/missing terminal trait, zero visitor exposure, realized parentage, genotype support"
+  ],
+  "decision_rules": [
+    "Do not drop extinct cells to compute I means; report occupancy and declare trait contrast undefined when required",
+    "No significance claim from one-history technical pilot; use all 64 visitor histories as inferential clusters for exploratory full readout",
+    "A replicated opposite-sign divergence across the origin×future-policy cells would support a history-dependent mechanism only conditionally, not natural-causal mediation",
+    "If all four t200 starts under same future policy converge regardless of genetic origin, the simple lasting-genotype-history hypothesis weakens",
+    "If future-policy effect within identical t200 origin is essentially zero, future A evolution after t200 does not explain a large conditional component",
+    "Preserve null/negative/mixed results and fixed original endpoints"
+  ],
+  "limits": [
+    "Source checkpoints store alleles and traces but not authentic original ID/age/ancestry/parentage at t200; new descendant parentage is simulated after t200 only.",
+    "The case is conditional on previously evolved different t200 genotype states; does not randomize past treatment histories.",
+    "New independently seeded future demographic streams deliberately do not reproduce the frozen original t200→t1000 trajectories.",
+    "Differences may reflect stochastic lineage composition, nonlinear feedback, genetic access, or bounds; no isolated pure-drift fraction.",
+    "Near arm and wild islands are not tested in this mechanistic pilot; the original near and far both had pollen limitation."
+  ]
+}
