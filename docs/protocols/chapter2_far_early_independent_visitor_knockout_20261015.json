@@ -97,5 +97,14 @@
     "outcome_exposed_before_full_run": true,
     "source_archive_sha256": "1fef68e29a5686c13398be36f9a96c8a6fdf337218e29258e8e06c78a48aebfa",
     "interpretation": "Exclude this already inspected seed from the primary descriptive confirmation view of the remaining 63 seeds, and also present the original full 64 design without duplicate counting. This prospective-to-full-histories amendment does not change effects, source kernels, settings, seed selection, or original outcomes."
+  },
+  "activation": {
+    "status": "ACTIVATE_ONCE",
+    "trigger": "Only the exact protocol path push on research/ch2-far-early-independent-visitor-knockout-20261015; no schedule or broad PR/push trigger",
+    "time_scope": "2026-10-15",
+    "frozen_before_full_sharded_run": true,
+    "observed_prior_to_activation": "One 32-trajectory engineering pilot for seed28110601, no complete cohort inference",
+    "full_cohort_outcomes_seen_at_activation": false,
+    "stop_policy": "Do not choose favorable signs, drop nulls or rerun after outcome; retain all 64 histories including technical pilot distinguished from the 63 others."
   }
 }
