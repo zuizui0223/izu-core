@@ -183,7 +183,7 @@ Our results concern one explicitly specified model class, not a measured histori
 
 # Conclusion
 
-Reproductive assurance evolution was not necessary for floral-investment decline under reduced visitor replenishment, but its evolution compressed investment divergence across four prespecified mating-system settings. A separate controlled demographic experiment identified a small, capacity-dependent sensitivity to viable selfed offspring and assigned expression order, without demonstrating that naturally evolved investment affects extinction. These results distinguish evolutionary selection, observed trait divergence and finite-population persistence, rather than treating them as a single serial island-syndrome pathway.
+Pollinator limitation changed the reproductive return to attraction: floral investment declined without assurance-capacity evolution, while permitting assurance evolution compressed environmental investment divergence across four prespecified reproductive settings. But a favoured reproductive return only reweights the possible parents. Finite parent choice and Mendelian transmission can eliminate rare low-investment alleles—even when their conditional expected frequency rises—and thereby close access to a specified future floral response before complete fixation under the no-investment-mutation law. **The key transition is from expected reproductive contribution to retained inherited alleles**, not simply from an earlier to a later trait response. Separately controlled assurance states modified occupancy in bounded demographic experiments; a survival benefit from naturally evolving first remains unidentified.
 
 # Primary figure assembly and captions
 
