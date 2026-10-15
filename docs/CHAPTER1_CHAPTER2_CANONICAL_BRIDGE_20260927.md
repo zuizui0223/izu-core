@@ -1,5 +1,7 @@
 # Chapter 1 → Chapter 2 canonical bridge — 2026-09-27
 
+> **2026-10-15 nonordinal H1–H4 ↔ Q1–Q4 map:** See [Chapter 1 H1–H4 to Chapter 2 Q1–Q4 evidence-role crosswalk](CHAPTER1_H1_H4_TO_CHAPTER2_Q1_Q4_CROSSWALK_20261015.md). This many-to-many *question-level* map preserves Ch1's observational/traitwise evidence and Ch2's separate model cohorts; it does **not** establish a four-region mechanistic fit or natural H→Q causal mediation.
+
 ## 2026-10-15: ecological question and finite-realization comparison
 
 Live Chapter1 main`2a1fd0591bf31a3aea2cd217cbe8e76886490eb0` retains the corrected traitwise contract. Its most recurrent trait is self-compatibility, not every selfing trait. Floral colour/structure and accessibility support remain regional. These observations motivate: **why can a recurrent reproductive constraint and function coexist with non-uniform floral outcomes?** They do not identify within-lineage change, pollinator loss, colonization or historical persistence as the cause.
