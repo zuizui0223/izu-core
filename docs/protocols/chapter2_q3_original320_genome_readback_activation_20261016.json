@@ -1,6 +1,6 @@
 {
   "schema": "ch2_Q3_original_mutation_native_genome_readback_20261016_v1",
-  "status": "PREPARED_NOT_ACTIVATED",
+  "status": "ACTIVATE_READONLY_ONCE",
   "original_release_tag": "atom-cell-inputs-20261011",
   "original_archive": "completed_atom_abm_20261011.zip",
   "original_archive_release_asset_id": 630963509,
@@ -54,5 +54,14 @@
     "access_or_embargo",
     "external_doi_release"
   ],
-  "external_doi_created": false
+  "external_doi_created": false,
+  "activation": {
+    "activation_date": "2026-10-16",
+    "kind": "one-shot read-only original release source-byte reaggregation",
+    "source_experiment_runs_created": 0,
+    "original_release_tags_unchanged": true,
+    "disclosure_unaffected": true,
+    "attempt_condition": "GitHub run_attempt==1",
+    "results_before_activation": "historical original 3/32 and 2/32 labels already published in working repo; not a prospective experiment"
+  }
 }
