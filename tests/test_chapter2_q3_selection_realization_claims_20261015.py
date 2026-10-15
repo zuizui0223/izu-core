@@ -84,6 +84,7 @@ def test_q3_text_has_positive_but_model_bounded_mechanism() -> None:
     assert "not" in q3.lower() and "drift" in q3.lower()
     assert "different 2,304-history" in q3
     assert "realization filter" in discussion
+    assert "expected reproductive contribution to retained inherited alleles" in paper.split("# Conclusion", 1)[1]
     assert "315/1,238" in note and "703 histories" in note
     assert "same 2,304 original histories" in note
     assert "not a drift effect size" in note.lower()
@@ -97,7 +98,7 @@ def test_paper_fit_and_four_question_route_unchanged() -> None:
     main = paper.split("# Introduction", 1)[1].split("# Primary figure assembly and captions", 1)[0]
     abstract = paper.split("## Abstract", 1)[1].split("## Keywords", 1)[0]
     fit = route["journal_fit"]
-    assert len(main.split()) == fit["current_main_text_words"] == fit["current_integrated_main_words"] == 4883
+    assert len(main.split()) == fit["current_main_text_words"] == fit["current_integrated_main_words"] == 4923
     assert len(abstract.split()) == fit["current_abstract_words"] == fit["current_integrated_abstract_words"] == 143
     assert len(main.split()) <= fit["ecology_letters_letter_main_max"]
     assert len(abstract.split()) <= fit["ecology_letters_letter_abstract_max"]
