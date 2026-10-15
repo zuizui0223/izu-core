@@ -88,7 +88,7 @@ def original_M_access(original: types.PlantState) -> dict:
                 or not np.array_equal(np.sort(x[2]),[.4375,.5625])):
             raise ValueError("Original source Mendelian M/I/A carriers changed")
     trait=original.alleles.mean(axis=2)
-    if not np.array_equal(trait[carrier_ids],
+    if not np.array_equal(trait[np.asarray(carrier_ids,dtype=np.int64)],
                           np.tile(np.array([.5625,.5,.5]),(6,1))):
         raise ValueError("Original source selected adults have distinct phenotype")
     return {
