@@ -353,6 +353,10 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
            "EVIDENCE/Q3_TRIANGLE_CAMPAIGN_MANIFEST.json",
            "EVIDENCE/Q3_TRIANGLE_INDEPENDENT_VERIFICATION.json",
            "EVIDENCE/Q3_TRIANGLE_READOUT.json",
+           "EVIDENCE/Q4_32_DESIGN.json",
+           "EVIDENCE/Q4_32_ORIGINAL_RUNNER.py",
+           "EVIDENCE/Q4_32_REPLAY_RECEIPT.json",
+           "EVIDENCE/Q4_32_RESULT.json",
            "EVIDENCE/RESOLUTION_DESIGN.md",
            "EVIDENCE/RESOLUTION_READOUT.json",
            "EVIDENCE/RESPONSE_ONSET_ALL_CASES.csv",
@@ -377,7 +381,7 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
         assert m["doi_deposit_complete"] is False
         assert m["n_figures"]==4
         assert m["n_supplementary_figures"]==3
-        assert len(m["members"])==152
+        assert len(m["members"])==156
         for name,record in m["members"].items():
             raw=z.read(name)
             assert record=={"size":len(raw),"sha256":hashlib.sha256(raw).hexdigest()}
