@@ -120,3 +120,54 @@ def test_config_admission_normalizes_json_tuple_only():
     saved={'source_allele_means':[.5,.5,.5],'activity':.2}
     assert runner.same_config(native,saved)
     assert not runner.same_config(native,dict(saved,activity=.21))
+
+
+def reference_fixture():
+    names=set(c.old.FIELDS)|{'offsets','means','population','parentage','parent_offsets','returns','sexual_selection'}
+    return {name:np.ones(1) for name in names}
+
+def test_reference_keeps_biology_exact_and_uses_original_diagnostic_screen():
+    from scripts import run_ecological_I_renewal_20261015 as runner
+    before=reference_fixture();after={k:v.copy() for k,v in before.items()}
+    after['returns'][0]+=1e-14;after['sexual_selection'][0]+=1e-14
+    r=runner.admit_reference(after,before)
+    assert r['biological_arrays_exact'] is True
+    for name in ('alleles','mutation_flags','means','parentage'):
+        bad={k:v.copy() for k,v in before.items()};bad[name][0]=np.nextafter(1.,2.)
+        with pytest.raises(AssertionError):runner.admit_reference(bad,before)
+
+@pytest.mark.parametrize('name',['returns','sexual_selection'])
+def test_reference_rejects_substantive_diagnostic_drift(name):
+    from scripts import run_ecological_I_renewal_20261015 as runner
+    before=reference_fixture();after={k:v.copy() for k,v in before.items()};after[name][0]+=.000001
+    with pytest.raises(AssertionError):runner.admit_reference(after,before)
+
+
+def test_technical_restart_requires_its_own_explicit_approval():
+    from scripts import run_ecological_I_renewal_20261015 as runner
+    a=dict(approved=False,prior_reserved_upper_bound=1616,combined_update_cap=924848,new_scientific_paths=2304)
+    with pytest.raises(ValueError,match='restart approval'):runner.require_restart_approval(a)
+    runner.require_restart_approval(dict(a,approved=True))
+    with pytest.raises(ValueError):runner.require_restart_approval(dict(a,approved=True,new_scientific_paths=2305))
+
+
+def test_false_restart_prevents_freeze_directory_or_input_reads(tmp_path,monkeypatch):
+    import json
+    from scripts import run_ecological_I_renewal_20261015 as runner
+    flag=tmp_path/'data/design/ecological_I_renewal_technical_restart_20261015.json'
+    flag.parent.mkdir(parents=True);flag.write_text(json.dumps(dict(approved=False)))
+    monkeypatch.setattr(runner,'ROOT',tmp_path)
+    out=tmp_path/'not_created'
+    with pytest.raises(ValueError,match='restart approval'):runner.freeze(tmp_path/'missing',tmp_path/'missing',out)
+    assert not out.exists()
+
+def test_false_restart_prevents_native_run_output(tmp_path,monkeypatch):
+    import json
+    from scripts import run_ecological_I_renewal_20261015 as runner
+    frozen=dict(closure={},source={},technical_restart_approval=dict(approved=False))
+    p=tmp_path/'freeze.json';p.write_bytes(json.dumps(frozen).encode())
+    monkeypatch.setattr(runner,'verify_closure',lambda *a:None)
+    monkeypatch.setattr(runner,'verify_original',lambda *a:None)
+    out=tmp_path/'not_created'
+    with pytest.raises(ValueError,match='restart approval'):runner.run(p,c.digest(p.read_bytes()),out)
+    assert not out.exists()

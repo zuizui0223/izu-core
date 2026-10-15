@@ -69,7 +69,7 @@ def closure():
            'scripts/run_ecological_I_renewal_20261015.py','scripts/run_ecological_order_boundary_20261013.py',
            'scripts/read_ecological_order_boundary_20261013.py','scripts/audit_genome_response_accounting_20261013.py',
            'tests/test_ecological_I_renewal_20261015.py','docs/ECOLOGICAL_INVESTMENT_RENEWAL_EXECUTION_20261015.md',
-           'data/design/ecological_I_renewal_approval_20261015.json','scripts/__init__.py']
+           'data/design/ecological_I_renewal_approval_20261015.json','data/design/ecological_I_renewal_technical_restart_20261015.json','scripts/__init__.py']
     return dict(python=sys.version,numpy=np.__version__,scipy=scipy.__version__,files={p:c.digest((ROOT/p).read_bytes().replace(b'\r\n',b'\n')) for p in paths})
 
 
@@ -82,7 +82,15 @@ def same_config(native,saved):
     return json.loads(json.dumps(native,allow_nan=False))==saved
 
 
+def require_restart_approval(a):
+    if (a.get('approved') is not True or a.get('prior_reserved_upper_bound')!=1616
+            or a.get('combined_update_cap')!=924848 or a.get('new_scientific_paths')!=2304):
+        raise ValueError('explicit bounded technical restart approval required')
+
+
 def freeze(input_zip,original_zip,base):
+    restart=json.loads((ROOT/'data/design/ecological_I_renewal_technical_restart_20261015.json').read_text(encoding='utf8'))
+    require_restart_approval(restart)
     base=Path(base);base.mkdir(exist_ok=False)
     if c.digest(Path(input_zip).read_bytes())!=INPUT_SHA or c.digest(Path(original_zip).read_bytes())!=ORIGINAL_SHA:raise ValueError('original external input identity')
     if np.__version__!='2.2.6':raise ValueError('original NumPy runtime')
@@ -126,7 +134,7 @@ def freeze(input_zip,original_zip,base):
     # Import the original decision reader before closing the source manifest.
     c.readout(rows,rows)
     frozen=dict(schema='ecological_I_renewal_freeze_v1',closure=closure(),source=source,original_zip_sha256=ORIGINAL_SHA,
-        original_input_sha256=INPUT_SHA,provider_capture_sha256=capture_sha,original_dir=str(originals.resolve()),baselines=rows,approval=approval,
+        original_input_sha256=INPUT_SHA,provider_capture_sha256=capture_sha,original_dir=str(originals.resolve()),baselines=rows,approval=approval,technical_restart_approval=restart,
         scientific_paths=2304,references=8,replays=2304,fixture_updates=16,scheduled_updates=c.SCHEDULED_UPDATES,
         update_cap=c.UPDATE_CAP,workers=2,seconds_cap=MAX_SECONDS,bytes_cap=MAX_BYTES,no_automatic_retry=True)
     write(base/'EXECUTION_FREEZE.json',frozen)
@@ -145,6 +153,22 @@ def initialize(frozen,out,deadline):
         verify_closure(frozen['closure']);modules=load_modules(frozen['source'])
         CTX=(frozen,Path(out),deadline,modules)
     except Exception as e:INIT_ERROR=repr(e)
+
+
+def admit_reference(actual,expected):
+    required=set(c.old.FIELDS)|{'offsets','means','population','parentage','parent_offsets','returns','sexual_selection'}
+    if set(actual)!=required or set(expected)!=required:raise ValueError('complete reference array inventory')
+    diagnostic={'returns':1e-10,'sexual_selection':1e-12}
+    exact=[];errors={}
+    for name in sorted(required):
+        if name in diagnostic:
+            np.testing.assert_allclose(actual[name],expected[name],atol=diagnostic[name],rtol=0,equal_nan=name=='sexual_selection')
+            difference=np.abs(actual[name]-expected[name]);finite=np.isfinite(difference)
+            errors[name]=float(np.max(difference[finite])) if finite.any() else 0.
+        else:
+            np.testing.assert_array_equal(actual[name],expected[name]);exact.append(name)
+    return dict(biological_arrays_exact=True,exact_arrays=exact,diagnostic_max_abs=errors,
+                original_source_diagnostic_atol=diagnostic,rtol=0)
 
 
 def work(job):
@@ -167,15 +191,16 @@ def work(job):
     else:
         actual=c.produce(t,modules,renew=stage=='production')
         c.old.validate_shapes(actual,200)
+        admission=None
         if stage=='reference':
             with np.load(io.BytesIO(raw),allow_pickle=False) as z:
-                for n,b in actual.items():np.testing.assert_array_equal(b,z[n])
+                admission=admit_reference(actual,{n:z[n].copy() for n in z.files if n!='metadata'})
         config,_,_=c.old.initial(t,modules)
         meta=dict(task=t,stage=stage,seed=c.old.seed(t),config=asdict(config),mutation_mask=list(c.NEW_MASK if stage=='production' else c.OLD_MASK),original_sha256=original['sha256'])
         buf=io.BytesIO();np.savez_compressed(buf,**actual,metadata=np.array(json.dumps(meta,sort_keys=True)));body=buf.getvalue()
         if len(body)>MAX_PATH_BYTES:raise ValueError('predeclared4MiB per-path bound')
         with target.open('xb') as f:f.write(body)
-        result=dict(task=t,events=c.old.events(actual['means'],actual['population']),sha256=c.digest(body))
+        result=dict(task=t,events=c.old.events(actual['means'],actual['population']),sha256=c.digest(body),reference_admission=admission)
     verify_closure(frozen['closure']);verify_original(frozen['source'])
     if time.time()>=deadline:raise TimeoutError('four-hour cap')
     return result
@@ -192,6 +217,7 @@ def run(freeze_path,expected_sha,out):
     raw=Path(freeze_path).read_bytes()
     if c.digest(raw)!=expected_sha:raise ValueError('published execution freeze identity')
     frozen=json.loads(raw);verify_closure(frozen['closure']);verify_original(frozen['source'])
+    require_restart_approval(frozen.get('technical_restart_approval',{}))
     if frozen['approval']['approved'] is not True:raise ValueError('execution approval')
     out=contained_output(freeze_path,out);out.mkdir(exist_ok=False);(out/'paths').mkdir();(out/'references').mkdir()
     (out/'EXECUTION_FREEZE.json').write_bytes(raw)

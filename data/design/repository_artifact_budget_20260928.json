@@ -4,7 +4,7 @@
   "baseline_commit": "8d145da1e312e9767b056fd81f3c4b6c3448d552",
   "rationale": "Prevent further repository growth while preserving frozen legacy provenance until a permanent external archive is fixed.",
   "thresholds_bytes": {
-    "max_tracked_data_tree": 183081107,
+    "max_tracked_data_tree": 183082236,
     "max_unlisted_design_file": 1048576,
     "max_unlisted_result_file": 2097152,
     "max_unlisted_generated_svg": 1048576
@@ -45,5 +45,9 @@
     "previous_cap_bytes": 183080473,
     "rationale": "Approved2304I-renewal campaign: add only compact human approval. All native/raw outputs and source freezes remain external release companions; no new grandfather or per-file relaxation.",
     "scientific_threshold_changed": false
+  },
+  "ecological_I_renewal_technical_hold_archive_revision_20261015": {
+    "previous_cap_bytes": 183081107,
+    "rationale": "Compact pending(false) technical-restart approval only; preserve original STOP externally and all original per-file/grandfather ceilings. No scientific count/threshold retuning and no native restart executed."
   }
 }
