@@ -71,7 +71,7 @@ def test_reconstruction_uses_two_segregation_draws_and_cumulative_flags():
 
 # Independent checks of *committed handoff tables*; these do not substitute
 # for the separately preserved original-array replay and source hashes.
-def _cell_table(path):
+def _cell_table(path, *, key_columns=2):
     from pathlib import Path
     doc = (Path(__file__).resolve().parents[1] / path).read_text(encoding="utf-8")
     rows = [
@@ -80,7 +80,8 @@ def _cell_table(path):
         if line.startswith("| main |") or line.startswith("| confirmation |")
     ]
     assert len(rows) == 18, path
-    assert len({(row[0], row[1]) for row in rows}) == 18
+    # Nonresponse/standing tables use block + context ID; renewal adds composition.
+    assert len({tuple(row[:key_columns]) for row in rows}) == 18, path
     return rows
 
 
@@ -102,7 +103,7 @@ def test_renewal_handoff_has_full_paired_cell_and_failure_partition():
 
 def test_renewed_six_class_table_and_signed_accounting_stay_coherent():
     from pathlib import Path
-    renewal = _cell_table("docs/ECOLOGICAL_INVESTMENT_RENEWAL_RESULTS_20261015.md")
+    renewal = _cell_table("docs/ECOLOGICAL_INVESTMENT_RENEWAL_RESULTS_20261015.md", key_columns=3)
     totals = [sum(int(r[i]) for r in renewal) for i in range(3, 9)]
     # A-first, I-first, ties and I-only all have the defined I event.
     assert totals == [479, 420, 341, 778, 6, 280]
