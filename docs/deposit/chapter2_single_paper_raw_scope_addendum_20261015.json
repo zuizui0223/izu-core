@@ -1,0 +1,67 @@
+{
+  "schema": "chapter2_merged_single_paper_raw_source_scope_addendum_v1",
+  "created_on": "2026-10-15",
+  "status": "PROVENANCE_ONLY_ADDITIONAL_SOURCE_CANDIDATES_NOT_DEPOSITED",
+  "active_manuscript": "docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md",
+  "parent_preflight": "docs/deposit/chapter2_zenodo_unpublished_preflight_20261015.json",
+  "parent_six_core_package_count": 6,
+  "parent_six_core_bytes": 1691637982,
+  "parent_existing_additional_candidate_count": 2,
+  "extra_source_candidates": [
+    {
+      "paper_role": "Q3 source-level finite realization: 2304 original genotype/pedigree histories and 1238 loss-selected transitions",
+      "original_cohort_count": 2304,
+      "filename": "ecological_order_actual_github_38312090996.zip",
+      "bytes": 251663558,
+      "sha256": "819741aa4a9f5bc1aaf2dadddbd56b79d158fc9295d07fc3bffe362693fc056a",
+      "location": "https://github.com/zuizui0223/izu-core/releases/download/four-question-resolution-20261013/ecological_order_actual_github_38312090996.zip",
+      "source_references": [
+        "data/results/directional_access_20261013/README.md",
+        "data/results/directional_access_20261013/READOUT.json",
+        "data/results/low_allele_loss_20261014/README.md",
+        "data/results/low_allele_loss_20261014/extracted/READOUT.json",
+        "docs/CHAPTER2_INITIAL_CLOCK_IDENTIFIABILITY_20261013.md"
+      ],
+      "prior_verification": "Prior read-only original source Run 38337931445 verified original outer SHA, nine nested provider ZIP digests and 2304 original case hashes; NOT downloaded anew in this source scope addendum.",
+      "already_in_parent_six_or_two_extra": false,
+      "externally_deposited_and_crosshost_verified": false,
+      "archive_to_readout_relation": "Both 703 pre-fixation loss and 315 favourable-weighting first-loss counts derive from the same 2304 original histories, not new independent histories"
+    },
+    {
+      "paper_role": "Q4 S33 independently confirmed 32-history pilot-informed conditional prehistory-by-assurance-evolvability occupancy interaction",
+      "original_cohort_count": 32,
+      "filename": "izu_core_island_demographic_stress_20261008.zip",
+      "bytes": 335015,
+      "sha256": "cd9f998e38ec51e747c4495dbe94b1fe1168d48d31ef54a438250bfa0ace5a21",
+      "location": "Prior source-recovered private Library review archive; no public external DOI or depositor-approved copy claimed.",
+      "source_references": [
+        "docs/CHAPTER2_ISLAND_DEMOGRAPHIC_PERSISTENCE_20261008.md",
+        "data/results/chapter2_island_demographic_independent32_20261008.json",
+        "data/results/chapter2_island_demographic_independent32_replay_receipt_20261013.json",
+        "docs/CHAPTER2_UNIFIED_EL_SUPPORTING_INFORMATION_20261010.md"
+      ],
+      "prior_verification": "Existing source receipt verifies raw archive SHA and 4096 postshock biological-state projections from GitHub replay, excluding only last-bit numerical diagnostic; NOT downloaded anew here.",
+      "already_in_parent_six_or_two_extra": false,
+      "externally_deposited_and_crosshost_verified": false,
+      "archive_to_readout_relation": "Q4 S33 was added to the one active Letter with PR #544; this original 32-history raw archive is distinct from four independent 64-history demographic tar containers."
+    }
+  ],
+  "possible_known_candidates_after_addendum": 10,
+  "this_is_a_complete_submission_source_inventory": false,
+  "deposit_status": {
+    "remote_zenodo_draft_created": false,
+    "bytes_uploaded_by_this_audit": 0,
+    "license_selected": false,
+    "ordered_creators_approved": false,
+    "external_version_or_doi_verified": false,
+    "user_or_depositor_authorization_obtained": false,
+    "fixed_b48_private_provider_safety_stop_remains": true
+  },
+  "next_predeposit_gates": [
+    "Complete cross-source manifest from exact final manuscript and SI, including Q3 future/restore/genotype and Q4 controls without double counting.",
+    "Obtain depositor approval of creator order, rights/licensing and data access/embargo plus authenticated external archive account.",
+    "Acquire and authenticate unchanged selected raw archive bytes and every inner provider source/case/pedigree receipt without circumventing blocked provider transfers.",
+    "Verify external deposition version, independent full-byte retrieval, source provenance and only then claim a DOI and update Data Availability."
+  ],
+  "note": "The existing 6-core/8-candidate preflight is preserved byte-for-byte and remains a historical partial proposal. These 2 additions are proposed raw archive candidates, not exactly all files required by the 33-section SI. No model or study result has been changed."
+}
