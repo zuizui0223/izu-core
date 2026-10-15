@@ -56,7 +56,7 @@ def test_ranked_novelty_note_does_not_reclassify_historical_nulls():
     assert "systematic review" in note.lower() and "not a new biological analysis" in note.lower()
     assert "Teixido & Aizen (2019)" in note and "three" in note.lower()
     assert "116:833–843" in note
-    assert "two original founder-genotype backgrounds" in note.lower()
+    assert "two original founder-genotype backgrounds" in note.lower().replace("**", "")
     for label in ("primary argument", "second strongest", "high-upside"):
         assert label in note.lower()
     for token in ("0.046875", "0.078125", "+0.6692708333", "+0.0338541667"):
