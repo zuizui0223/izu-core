@@ -1,5 +1,8 @@
 # Chapter 1 H1–H4 ↔ Chapter 2 Q1–Q4: nonordinal ecological crosswalk
 
+> **2026-10-15 editorial supersession:** The author's latest proposal restructures Chapter 1 into **H1.1–H1.3 (D–R, D–F, D–P)** and **H2.1–H2.3 (R–F, R–P, F–P)** rather than renumbering four original hypotheses. See [six-edge, two-family H1/H2 crosswalk](CHAPTER1_H1_H2_SIX_EDGE_STORY_20261015.md) and [the matching island PR #319](https://github.com/zuizui0223/island/pull/319). **The older old-H3→display-H1 / old-H1→display-H2 / old-H2→display-H3 idea recorded below is superseded editorial history, not the current proposal.** All old H1–H4 source keys still govern existing results; Chapter 2 Q1–Q4 remain unchanged, with non-one-to-one conceptual links and no Ch1 historical causal mediation inferred.
+
+
 ## Cross-repository numbering decision (2026-10-15)
 
 The operational answer to the request to reassign H/Q numbers is: **reorder their *exposition* now, keep their existing reproducibility IDs, and do not manufacture a one-to-one Hᵢ↔Qᵢ correspondence.** Chapter 1 records contemporaneous observational associations, whereas Chapter 2 tests within-model mechanism components in separate experiments. Corresponding numbers would not turn those observational associations into identified historical causes.
