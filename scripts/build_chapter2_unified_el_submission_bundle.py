@@ -1165,6 +1165,31 @@ def blind_paper():
     return manuscript.strip()+"\n"
 
 
+# Keep the source-ranked S1–S33 SI file byte-identical to its authenticated
+# source-pointer inventory. Only the anonymized reviewer packet gets revised
+# Figure 3/S1 figure-role prose, with both source and derived SHA in its receipt.
+SI_ORIGINAL_GIT_BLOB="fdecc89abaee3479ae5eef3f476d5ba937505690"
+SI_OLD_FIGURE_ROLE=("The four main figures retain their original evidence roles; "
+                    "the older finite-genetic realization figure is supplied "
+                    "separately as `SupplementaryFigureS1.pdf`.")
+SI_NEW_FIGURE_ROLE=("The original finite-genetic realization figure is delivered "
+                    "as main `Figure3.pdf`, while the fixed-plant pollen-deficit "
+                    "assay formerly main Figure 3 is now "
+                    "`SupplementaryFigureS1.pdf`. The finite-genetic figure "
+                    "includes a separate one-locus diagnostic, not the "
+                    "original-mutation 3/32 and 2/32 response-order cohort.")
+
+
+def derive_review_si_figure_roles(source: bytes) -> str:
+    blob=hashlib.sha1(b"blob "+str(len(source)).encode("ascii")+b"\\0"+source).hexdigest()
+    if blob!=SI_ORIGINAL_GIT_BLOB:
+        raise ValueError("frozen S1–S33 SI source Git blob does not match inventory")
+    text=source.decode("utf-8")
+    if text.count(SI_OLD_FIGURE_ROLE)!=1 or SI_NEW_FIGURE_ROLE in text:
+        raise ValueError("source SI figure-role text differs from pinned historical text")
+    return text.replace(SI_OLD_FIGURE_ROLE,SI_NEW_FIGURE_ROLE)
+
+
 def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     out=Path(out)
     figures=PDF_FIGURES if figures is None else figures
@@ -1178,7 +1203,7 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     manuscript=manuscript_text.encode("utf-8")
     si_path=ROOT/"docs/CHAPTER2_UNIFIED_EL_SUPPORTING_INFORMATION_20261010.md"
     si_original=si_path.read_bytes()
-    si_text=si_original.decode("utf-8")
+    si_text=derive_review_si_figure_roles(si_original)
     old_link="atom_comparison_20261011/ATOM_ABM_NUMERICAL_VERDICT_20261011.md"
     old_dir="data/results/atom_cell_completed_20261011/"
     if si_text.count(old_link)!=1 or si_text.count(old_dir)!=1:
@@ -1294,7 +1319,7 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     derivations.update(original490_derivations)
     derivations["SUPPORTING_INFORMATION.md"]={
         "original_path":str(si_path.relative_to(ROOT)),"original_sha256":sha(si_original),
-        "derived_sha256":sha(si),"transformation":"Relocate atom/resolution/mechanism companion source references and add the delivered supplementary-figure link; numerical text unchanged."}
+        "derived_sha256":sha(si),"transformation":"SHA-locked original S1–S33 SI preserved unchanged; in this anonymous reviewer derivative only, reassign old main Fig3 fixed-state pollen assay to Supplementary S1 and old Supplementary S1 finite-realization to main Fig3; relocate source references and supplied figure links without changing numerical evidence."}
     original_s2=next(row for row in admission["figures"] if row["path"].endswith(".svg"))
     if sha(members["SupplementaryFigureS2.svg"])!=original_s2["sha256"]:
         raise ValueError("tempo supplementary figure source hash mismatch")
