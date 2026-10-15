@@ -67,3 +67,72 @@ def test_reconstruction_uses_two_segregation_draws_and_cumulative_flags():
     np.testing.assert_array_equal(child[:, 1:, :], 1-np.abs(np.mod(a[:, 1:, :]+.2, 2)-1))
     assert flags[0, 0, 0] and flags[0, 1:, :].all()
     assert draws == 18
+
+
+# Independent checks of *committed handoff tables*; these do not substitute
+# for the separately preserved original-array replay and source hashes.
+def _cell_table(path):
+    from pathlib import Path
+    doc = (Path(__file__).resolve().parents[1] / path).read_text(encoding="utf-8")
+    rows = [
+        [x.strip() for x in line.split("|")[1:-1]]
+        for line in doc.splitlines()
+        if line.startswith("| main |") or line.startswith("| confirmation |")
+    ]
+    assert len(rows) == 18, path
+    assert len({(row[0], row[1]) for row in rows}) == 18
+    return rows
+
+
+def test_renewal_handoff_has_full_paired_cell_and_failure_partition():
+    non = _cell_table("docs/CHAPTER2_RENEWAL_NONRESPONSE_ACCOUNTING_RESULTS_20261015.md")
+    columns = [sum(int(r[i]) for r in non) for i in range(2, 9)]
+    # 758 re-opened failures; 156 event completers; 1390 never reopened.
+    assert columns == [33, 420, 248, 57, 64, 92, 1390]
+    assert sum(columns) == 2304
+    assert sum(columns[:4]) == 758
+    assert sum(columns[:6]) == 914
+    assert all(sum(int(r[i]) for i in range(2, 9)) == 128 for r in non)
+    access = _cell_table("docs/CHAPTER2_RENEWAL_STANDING_ACCESS_RESULTS_20261015.md")
+    archive_totals = [sum(int(r[i]) for r in access) for i in range(2, 8)]
+    # Previous and renewed arms are PAIRED, not independent replication.
+    assert archive_totals == [1238, 1214, 914, 92, 1138, 1246]
+    assert all(int(r[-1]) <= 128 for r in access)
+
+
+def test_renewed_six_class_table_and_signed_accounting_stay_coherent():
+    from pathlib import Path
+    renewal = _cell_table("docs/ECOLOGICAL_INVESTMENT_RENEWAL_RESULTS_20261015.md")
+    totals = [sum(int(r[i]) for r in renewal) for i in range(3, 9)]
+    # A-first, I-first, ties and I-only all have the defined I event.
+    assert totals == [479, 420, 341, 778, 6, 280]
+    assert sum(totals) == 2304
+    assert totals[0] + totals[1] + totals[2] + totals[4] == 1246
+    for row in renewal:
+        assert sum(int(row[i]) for i in range(3, 9)) == 128
+        assert abs((int(row[3])-int(row[4])) / 128 - float(row[9])) < 2e-6
+        lo, hi = [float(x) for x in row[10].strip("[]").split(",")]
+        assert lo <= 0 <= hi
+
+    source = (Path(__file__).resolve().parents[1] /
+              "docs/CHAPTER2_RENEWAL_NONRESPONSE_ACCOUNTING_RESULTS_20261015.md").read_text(encoding="utf-8")
+    channel_rows = [
+        [x.strip() for x in line.split("|")[1:-1]]
+        for line in source.splitlines()
+        if line.startswith("| late_reopening |") or line.startswith("| no_support_window |")
+        or line.startswith("| mean_never_reached |") or line.startswith("| mean_not_sustained |")
+    ]
+    assert [(r[0], int(r[1])) for r in channel_rows] == [
+        ("late_reopening", 33), ("no_support_window", 420),
+        ("mean_never_reached", 248), ("mean_not_sustained", 57),
+    ]
+    for row in channel_rows:
+        channels = [float(v) for v in row[2:8]]
+        observed = float(row[8])
+        assert abs(sum(channels) - observed) <= 3e-6  # six-decimal table rounding
+    mean_never = next(r for r in channel_rows if r[0] == "mean_never_reached")
+    expected_direction = sum(float(v) for v in mean_never[2:5])
+    assert abs(expected_direction - 0.02956) < 2e-6
+    # These outcome-selected conditional parental weights favour HIGHER I, not
+    # lower I; the 248 cases are not evidence of selection favouring target decline.
+    assert expected_direction > 0
