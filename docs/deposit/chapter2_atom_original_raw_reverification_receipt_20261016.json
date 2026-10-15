@@ -1,0 +1,50 @@
+{
+  "schema": "ch2_original_mutation_774member_320path_source_reverification_receipt_v1",
+  "verified_on": "2026-10-16",
+  "status": "ORIGINAL_SOURCE_BYTES_REDOWNLOADED_VERIFIED_AND_NATIVE_EVENT_READOUT_REPRODUCED",
+  "original_run_id": 38120835221,
+  "original_executor_sha": "e331e0fe2c0048f94197f41f34575dbcd77c0377",
+  "fresh_readback_workflow_run_id": 38825943134,
+  "source_full_release_asset": "atom-cell-inputs-20261011/completed_atom_abm_20261011.zip",
+  "original_zip_bytes": 389730774,
+  "original_zip_sha256": "7ae00916ed2cbb38323c3fb9ffc5824de3e8272df1f5a35785842c316191f918",
+  "source_zip_members": 774,
+  "ledger_files_sha256_size_and_crc_verified": 773,
+  "original_finite_ABM_paths": 320,
+  "original_density_archives": 30,
+  "loaded_density_finest_grid": 10,
+  "recomputed_native_event_labels": 990,
+  "recomputed_checkpoints": 40,
+  "readback_artifact_id": 12014702656,
+  "readback_actions_artifact_zip_sha256": "00fea6477ab6ce66bebdf8b510e02080c4c1d38390029e95d79d22044d569457",
+  "readback_inner_json_sha256": "565baa5d2633c1967d22fafe60661ba0a809f50a60e25fc4399e343133a84200",
+  "comparison": {
+    "rule": "A/I founder-relative threshold=0.05 sustained20 censuses; near-simultaneous within5 updates",
+    "focal": [
+      {
+        "context": "causal_main_s0.125_matched_n48_standing_MI_new_A_r0_evolving",
+        "density": "assurance_first",
+        "finite_ABM_assurance_first": 3,
+        "finite_ABM_assurance_only": 15,
+        "n_finite": 32,
+        "n_occupied_at200": 32
+      },
+      {
+        "context": "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r0_evolving",
+        "density": "assurance_first",
+        "finite_ABM_assurance_first": 2,
+        "finite_ABM_assurance_only": 7,
+        "n_finite": 32,
+        "n_occupied_at200": 32
+      }
+    ]
+  },
+  "source_workflow_status": "success",
+  "new_biological_simulations": 0,
+  "original_archived_finite_ABM_mean_and_census_arrays_audited": true,
+  "full_diploid_parental_genome_reconstruction_from_native_arrays": false,
+  "same_as_figure3_zero_mutation_or_one_locus": false,
+  "external_independent_doi_or_cross_host_raw_deposit": false,
+  "raw_390mb_archive_republished_to_public_provider": false,
+  "claim_ceiling": "Source re-download and direct archived mean/occupancy event reclassification; not pure drift, novel field ecology, stochastic expected ABM, original complete parentage reconstruction, or independently governed DOI deposition."
+}
