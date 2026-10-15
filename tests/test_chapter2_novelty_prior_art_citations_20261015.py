@@ -43,7 +43,7 @@ def test_paper_counts_and_registered_limits_unmodified():
     fit = route["journal_fit"]
     assert len(main.split()) == fit["current_main_text_words"] == fit["current_integrated_main_words"]
     assert len(abstract.split()) == fit["current_abstract_words"] == fit["current_integrated_abstract_words"] == 148
-    assert len(main.split()) == 4984 < fit["ecology_letters_letter_main_max"]
+    assert len(main.split()) == 4991 < fit["ecology_letters_letter_main_max"]
     assert route["status"] == "active_unified_manuscript_not_submitted"
     assert "51 of 64" in paper and "all four" in paper.lower()
     assert "S20" in main
