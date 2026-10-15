@@ -80,4 +80,4 @@ def test_receipt_not_equivalent_to_complete_raw_data_or_zenodo_deposit():
     assert "full_annual_genetic_trajectories_admitted" in source
     assert "external_deposit_or_doi_created" in source
     assert d["no_new_biological_runs"] is True
-    assert "NOT full native trajectories" in d["conclusion_scope"]
+    assert "full annual genomes were not preserved" in d["conclusion_scope"]
