@@ -143,4 +143,7 @@ def test_conditional_parent_sampling_explains_how_rare_alleles_can_disappear() -
     assert "median was 0.326" in q3
     assert "loss-selected, one-transition" in q3
     assert "0.3260053119547402" in note
+    si = (ROOT / "docs/CHAPTER2_UNIFIED_EL_SUPPORTING_INFORMATION_20261010.md").read_text(encoding="utf-8")
+    s14 = si.split("## S14.", 1)[1].split("## S15.", 1)[0]
+    assert "0.3260053119547402" in s14 and "two needed allele copies among 96 homologs" in s14
     assert "not a new simulation" in note
