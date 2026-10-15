@@ -166,7 +166,7 @@ def test_manuscript_si_and_route_preserve_denominators_and_limitations() -> None
     assert route["journal_fit"]["current_main_text_words"] == len(main.split())
     assert route["journal_fit"]["current_integrated_main_words"] == len(main.split())
     assert len(main.split()) < route["journal_fit"]["ecology_letters_letter_main_max"] == 5000
-    assert len(abstract.split()) == route["journal_fit"]["current_abstract_words"] == 144
+    assert len(abstract.split()) == route["journal_fit"]["current_abstract_words"] == 148
     assert route["status"] == "active_unified_manuscript_not_submitted"
     for token in ("2,304", "1,238", "703", "535", "315", "923"):
         assert token in q3 and token in s14
@@ -192,3 +192,4 @@ def test_manuscript_si_and_route_preserve_denominators_and_limitations() -> None
     assert "conditional parental weighting and realized inheritance point in opposite directions" in s14
     assert "not a continuous causal mediation estimated in a single synthetic cohort" in s14
     assert "genetically explicit plant–pollinator model" in abstract
+    assert "Both regimes remained pollen-limited." in abstract
