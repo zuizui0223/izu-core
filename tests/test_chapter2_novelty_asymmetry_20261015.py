@@ -41,7 +41,7 @@ def test_original_checkpoint_and_one_step_are_not_endpoint_estimates():
             < row["static_assurance_higher_minus_lower_gradient_far_t400"]
             < 0
         )
-    assert "historical cause of positive far E-F is not identified" in audit()["claim_ceiling"]
+    assert "the historical cause of positive far E-F is not identified" in audit()["claim_ceiling"]
 
 
 def test_original_named_attenuations_without_adding_novel_confirmations():
