@@ -12,6 +12,10 @@ This is a navigation and evidence-rank map, **not** an additional scientific res
 | Reproduce or audit evidence | [REPRODUCE.md](../REPRODUCE.md) and [data-deposit readiness](CHAPTER2_UNIFIED_DATA_DEPOSIT_READINESS_20261011.md) | Use source receipts, original data identities, independent-unit counts and readback checks; `outputs/` is generated work, not the source registry. |
 | Find historical work | [Legacy archive policy](../legacy/README.md) and [thesis positioning](../THESIS_CHAPTER_POSITIONING.md) | Model 2, older journal routes and earlier narratives are provenance, not the current submission. Some thesis passages retain explicitly historical statements. |
 
+### Detailed Q3 source reconciliation
+
+The [original-genome Q3 selection/realization source map](CHAPTER2_Q3_SELECTION_REALIZATION_SOURCE_MAP_20261015.md) preserves PR #537's **source-ranked** comparison among the 128-history bridge, independent 2,304-history genotype-support audit and its 1,238 selected first-loss transitions. The focused [native finite-transmission receipt test](../tests/test_q3_original_finite_loss_transition_receipt_20261015.py) ports the original-case numerical checks from PRs #537 and #538 **without** importing their stale manuscript wording, exact word counts or their unmerged 2026-10-15 editorial variants. Consult the [PR consolidation ledger](PR_CONSOLIDATION_AUDIT_20261015.md) for dated integration status.
+
 ## Which directories do what?
 
 | Location | Function | Maintenance rule |
