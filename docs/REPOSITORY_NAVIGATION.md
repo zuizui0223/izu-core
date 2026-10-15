@@ -2,6 +2,10 @@
 
 This is a navigation and evidence-rank map, **not** an additional scientific result or a change to any frozen analysis. It was audited against `main` at `a412b456b435f10dd9c71014b53f3e1f37634b41` on 2026-10-15. For later commits, re-check the machine-readable route and active manuscript; do not treat a dated statement below as automatically current.
 
+## Later verified consolidation checkpoint
+
+**Latest audited snapshot on 2026-10-15:** [merged-state, active paper, CI, source deposit and 500-branch inventory](REPOSITORY_MERGED_STATE_CHECKPOINT_20261015.md) at `main c1b08577`. That snapshot verifies **0 open PRs**, **one unsubmitted 4,944-main/147-abstract-word paper**, SI **S1–S33 without duplicates**, general CI **3.10/3.11/3.12** and the separate science gate. It supersedes the *open/closed statuses* in the original [PR overlap audit](PR_CONSOLIDATION_AUDIT_20261015.md), but does not change that historical audit's scientific SHA comparisons. External DOI deposition and [main branch protection](https://github.com/zuizui0223/izu-core/issues/548) remain unresolved.
+
 ## Start with one of these five entry points
 
 | Goal | Read first | Authority / limitation |
