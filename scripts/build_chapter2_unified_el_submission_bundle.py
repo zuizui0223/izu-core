@@ -1181,7 +1181,7 @@ SI_NEW_FIGURE_ROLE=("The original finite-genetic realization figure is delivered
 
 
 def derive_review_si_figure_roles(source: bytes) -> str:
-    blob=hashlib.sha1(b"blob "+str(len(source)).encode("ascii")+b"\\0"+source).hexdigest()
+    blob=hashlib.sha1(b"blob "+str(len(source)).encode("ascii")+b"\0"+source).hexdigest()
     if blob!=SI_ORIGINAL_GIT_BLOB:
         raise ValueError("frozen S1–S33 SI source Git blob does not match inventory")
     text=source.decode("utf-8")
