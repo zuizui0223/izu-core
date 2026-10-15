@@ -93,3 +93,17 @@ def test_review_is_about_one_active_manuscript_and_q4_is_retained():
     assert "Q4A" in text and "Q4B" in text
     assert "0.108398" in text and "0.0077457" in text
     assert "no claimed Q1→Q4 natural mediation" in text
+    paper = (ROOT / route["active_manuscript"]).read_text(encoding="utf-8")
+    si = (ROOT / "docs/CHAPTER2_UNIFIED_EL_SUPPORTING_INFORMATION_20261010.md"
+          ).read_text(encoding="utf-8")
+    main = paper.split("# Introduction", 1)[1].split(
+        "# Primary figure assembly and captions", 1
+    )[0]
+    abstract = paper.split("## Abstract", 1)[1].split("## Keywords", 1)[0]
+    assert len(main.split()) == 4991
+    assert len(abstract.split()) == 148
+    assert "0.1084 [0.0654,0.1514]" in paper
+    assert "A evolvability **continued during the future**" in paper
+    assert "+0.007746" in paper
+    assert "## S33. Conditional assurance-evolvability-by-history persistence" in si
+    assert "0.1083984375" in si and "+0.007745713876893593" in si
