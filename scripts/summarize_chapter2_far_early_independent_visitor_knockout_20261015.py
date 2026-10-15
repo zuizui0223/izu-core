@@ -74,8 +74,8 @@ def read_shards(folder):
         if arrays.shape!=(128,201,12) or geno.shape!=(128,4,48,3,2):
             raise AssertionError("incomplete original-operator trajectory arrays")
         for i,c in enumerate(r["cases"]):
-            key=(c["visitor_history"],c["original_founder_seed"],
-                 c["setting"],c["visitor_regime"],c["A_policy"])
+            key=(c["history"],c["founder"],
+                 c["setting"],c["visitors"],c["assurance"])
             if key in records:raise AssertionError("duplicate independent model cell")
             if not (
                FIRST+shard*4<=key[0]<=FIRST+shard*4+3
@@ -84,9 +84,9 @@ def read_shards(folder):
                 raise AssertionError("unregistered experimental cell")
             a=arrays[i];g=geno[i]
             if (not np.array_equal(a[:,0].astype(int), np.full(201,48))
-                or abs(a[0,1]-c["initial_mean_I"])>1e-12
-                or abs(a[-1,1]-c["terminal_mean_I"])>1e-12
-                or a[-1,0]!=c["terminal_population"]
+                or abs(a[0,1]-c["I_initial"])>1e-12
+                or abs(a[-1,1]-c["I_t200"])>1e-12
+                or a[-1,0]!=c["t200_N"]
                 or np.nanmin(g)<0 or np.nanmax(g)>1
                 or not np.isclose(g[0,:,1,:].mean(),a[0,1],atol=1e-12)
                 or not np.isclose(g[-1,:,1,:].mean(),a[-1,1],atol=1e-12)
