@@ -1,6 +1,6 @@
 # Chapter 2 novelty gate: coevolving assurance and the far-side floral-investment asymmetry (2026-10-15)
 
-**Status:** source-grounded, retrospective scientific/literature assessment. This file does not replace the active paper, create a new hypothesis family, change Model 3, reclassify a registered null, or establish worldwide priority. The open current-main paper revisions (#544, #542, #543, #536–538) have separate merge/CI gates; this note is intentionally limited to a new independent documentation/audit branch.
+**Status:** source-grounded, retrospective scientific/literature assessment. This file does not replace the active paper, create a new hypothesis family, change Model 3, reclassify a registered null, or establish worldwide priority. As of the 2026-10-15 source reconciliation, PR #542 (renewal S30–S32), #543 (Q3 original transition source), and #544 (independent Q4 as S33) are merged into `main`; superseded PRs #536–#538 were closed without merging their old manuscript variants. This document remains a separate retrospective novelty/provenance audit, not a revised or submitted active manuscript. Recheck newer PR statuses before treating this dated record as live.
 
 ## Decision first
 
