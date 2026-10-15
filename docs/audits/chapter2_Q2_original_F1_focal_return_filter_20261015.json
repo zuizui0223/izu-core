@@ -1,0 +1,471 @@
+{
+  "schema": "chapter2_q2_original_f1_native_focal_static_return_filter_v1",
+  "status": "AUTHENTICATED_T0_FOCAL_ONE_ADULT_RETURN_DIAGNOSTIC_NO_EVOLUTION",
+  "original_confirmation_genotype_from_authenticated_fixture": true,
+  "original_f0_biology_operator": "scripts/model3_island/reproduction.py::reproduce",
+  "source_signed_four_tail_git_blob": "46f62a81d36802b2e26f29d70725ef7ae7a0ebc4",
+  "independent_genetic_source_backgrounds": 1,
+  "matched_source_t0_adult_count": 48,
+  "only_one_original_adult_phenotype_replaced_at_a_time": true,
+  "focal_phenotype_is_exact_possible_first_child_not_observed_adult": true,
+  "focal_expected_return_estimand": "W=(maternal_outcross_F+paternal_outcross_P)/2 + viable_self_S",
+  "m6_signed_A_I_tail_probability_equal_across_four_signs": true,
+  "M_mendelian_support": {
+    "m6_original_carrier_ids": [
+      1,
+      3,
+      6,
+      9,
+      11,
+      14
+    ],
+    "M_F1_conditional_support": [
+      {
+        "M": 0.5,
+        "probability": 0.25
+      },
+      {
+        "M": 0.5625,
+        "probability": 0.5
+      },
+      {
+        "M": 0.625,
+        "probability": 0.25
+      }
+    ],
+    "M_F1_same_for_all_four_signed_A_I_events": true
+  },
+  "four_signs": [
+    "A_up_I_down",
+    "A_up_I_up",
+    "A_down_I_down",
+    "A_down_I_up"
+  ],
+  "context_mean_W_summary": [
+    {
+      "context": 0,
+      "equal_first_child_access_per_signed_class_m6": 0.007882283043081416,
+      "source_supported_conditional_M_averaged_focal_W_by_sign": {
+        "A_up_I_down": 1.790356194176006,
+        "A_up_I_up": 1.5799837958834697,
+        "A_down_I_down": 1.482307748591931,
+        "A_down_I_up": 1.3081319968095242
+      },
+      "max_expected_return_sign": "A_up_I_down",
+      "W_A_up_I_down_minus_second_highest": 0.2103723982925363,
+      "same_initial_sign_access_but_different_hypothetical_adult_returns": true
+    },
+    {
+      "context": 3,
+      "equal_first_child_access_per_signed_class_m6": 0.005759023740645459,
+      "source_supported_conditional_M_averaged_focal_W_by_sign": {
+        "A_up_I_down": 2.1056547403294417,
+        "A_up_I_up": 2.0376963603401697,
+        "A_down_I_down": 1.8340728886846778,
+        "A_down_I_up": 1.8138858851118524
+      },
+      "max_expected_return_sign": "A_up_I_down",
+      "W_A_up_I_down_minus_second_highest": 0.06795837998927201,
+      "same_initial_sign_access_but_different_hypothetical_adult_returns": true
+    },
+    {
+      "context": 4,
+      "equal_first_child_access_per_signed_class_m6": 0.007290369895191842,
+      "source_supported_conditional_M_averaged_focal_W_by_sign": {
+        "A_up_I_down": 1.8776932688296621,
+        "A_up_I_up": 1.7076675086350168,
+        "A_down_I_down": 1.5796660719085194,
+        "A_down_I_up": 1.4492113809223968
+      },
+      "max_expected_return_sign": "A_up_I_down",
+      "W_A_up_I_down_minus_second_highest": 0.17002576019464533,
+      "same_initial_sign_access_but_different_hypothetical_adult_returns": true
+    }
+  ],
+  "native_four_corner_rows": [
+    {
+      "context": 0,
+      "focal_original_id_replaced": 1,
+      "one_possible_F1_M": 0.5,
+      "M_probability_conditional_on_any_signed_double_tail": 0.25,
+      "frozen_resident_focal_baseline_W": 1.5576015661428098,
+      "static_focal_expected_returns_by_sign": {
+        "A_up_I_down": {
+          "female_outcross_F": 0,
+          "male_outcross_P": 0,
+          "viable_self_S": 1.790356194176006,
+          "parental_genome_W": 1.790356194176006,
+          "intrinsic_ovule_budget": 6.365710912625799
+        },
+        "A_up_I_up": {
+          "female_outcross_F": 0,
+          "male_outcross_P": 0,
+          "viable_self_S": 1.5799837958834697,
+          "parental_genome_W": 1.5799837958834697,
+          "intrinsic_ovule_budget": 5.617720163141225
+        },
+        "A_down_I_down": {
+          "female_outcross_F": 0,
+          "male_outcross_P": 0,
+          "viable_self_S": 1.482307748591931,
+          "parental_genome_W": 1.482307748591931,
+          "intrinsic_ovule_budget": 6.776263993563113
+        },
+        "A_down_I_up": {
+          "female_outcross_F": 0,
+          "male_outcross_P": 0,
+          "viable_self_S": 1.3081319968095242,
+          "parental_genome_W": 1.3081319968095242,
+          "intrinsic_ovule_budget": 5.980031985414968
+        }
+      },
+      "highest_focal_W_sign": "A_up_I_down",
+      "top_W_minus_runner_up": 0.2103723982925363,
+      "pollinator_community_held_at_original_t0": true,
+      "other_47_original_adult_phenotypes_unchanged": true
+    },
+    {
+      "context": 0,
+      "focal_original_id_replaced": 1,
+      "one_possible_F1_M": 0.5625,
+      "M_probability_conditional_on_any_signed_double_tail": 0.5,
+      "frozen_resident_focal_baseline_W": 1.5576015661428098,
+      "static_focal_expected_returns_by_sign": {
+        "A_up_I_down": {
+          "female_outcross_F": 0,
+          "male_outcross_P": 0,
+          "viable_self_S": 1.790356194176006,
+          "parental_genome_W": 1.790356194176006,
+          "intrinsic_ovule_budget": 6.365710912625799
+        },
+        "A_up_I_up": {
+          "female_outcross_F": 0,
+          "male_outcross_P": 0,
+          "viable_self_S": 1.5799837958834697,
+          "parental_genome_W": 1.5799837958834697,
+          "intrinsic_ovule_budget": 5.617720163141225
+        },
+        "A_down_I_down": {
+          "female_outcross_F": 0,
+          "male_outcross_P": 0,
+          "viable_self_S": 1.482307748591931,
+          "parental_genome_W": 1.482307748591931,
+          "intrinsic_ovule_budget": 6.776263993563113
+        },
+        "A_down_I_up": {
+          "female_outcross_F": 0,
+          "male_outcross_P": 0,
+          "viable_self_S": 1.3081319968095242,
+          "parental_genome_W": 1.3081319968095242,
+          "intrinsic_ovule_budget": 5.980031985414968
+        }
+      },
+      "highest_focal_W_sign": "A_up_I_down",
+      "top_W_minus_runner_up": 0.2103723982925363,
+      "pollinator_community_held_at_original_t0": true,
+      "other_47_original_adult_phenotypes_unchanged": true
+    },
+    {
+      "context": 0,
+      "focal_original_id_replaced": 1,
+      "one_possible_F1_M": 0.625,
+      "M_probability_conditional_on_any_signed_double_tail": 0.25,
+      "frozen_resident_focal_baseline_W": 1.5576015661428098,
+      "static_focal_expected_returns_by_sign": {
+        "A_up_I_down": {
+          "female_outcross_F": 0,
+          "male_outcross_P": 0,
+          "viable_self_S": 1.790356194176006,
+          "parental_genome_W": 1.790356194176006,
+          "intrinsic_ovule_budget": 6.365710912625799
+        },
+        "A_up_I_up": {
+          "female_outcross_F": 0,
+          "male_outcross_P": 0,
+          "viable_self_S": 1.5799837958834697,
+          "parental_genome_W": 1.5799837958834697,
+          "intrinsic_ovule_budget": 5.617720163141225
+        },
+        "A_down_I_down": {
+          "female_outcross_F": 0,
+          "male_outcross_P": 0,
+          "viable_self_S": 1.482307748591931,
+          "parental_genome_W": 1.482307748591931,
+          "intrinsic_ovule_budget": 6.776263993563113
+        },
+        "A_down_I_up": {
+          "female_outcross_F": 0,
+          "male_outcross_P": 0,
+          "viable_self_S": 1.3081319968095242,
+          "parental_genome_W": 1.3081319968095242,
+          "intrinsic_ovule_budget": 5.980031985414968
+        }
+      },
+      "highest_focal_W_sign": "A_up_I_down",
+      "top_W_minus_runner_up": 0.2103723982925363,
+      "pollinator_community_held_at_original_t0": true,
+      "other_47_original_adult_phenotypes_unchanged": true
+    },
+    {
+      "context": 3,
+      "focal_original_id_replaced": 1,
+      "one_possible_F1_M": 0.5,
+      "M_probability_conditional_on_any_signed_double_tail": 0.25,
+      "frozen_resident_focal_baseline_W": 1.9838109889404878,
+      "static_focal_expected_returns_by_sign": {
+        "A_up_I_down": {
+          "female_outcross_F": 0.5154731845475734,
+          "male_outcross_P": 0.494882761911264,
+          "viable_self_S": 1.6453793610220009,
+          "parental_genome_W": 2.1505573342514195,
+          "intrinsic_ovule_budget": 6.365710912625799
+        },
+        "A_up_I_up": {
+          "female_outcross_F": 0.6772438159915312,
+          "male_outcross_P": 0.7479792066889439,
+          "viable_self_S": 1.3895089726358516,
+          "parental_genome_W": 2.102120483976089,
+          "intrinsic_ovule_budget": 5.617720163141225
+        },
+        "A_down_I_down": {
+          "female_outcross_F": 0.548718348671635,
+          "male_outcross_P": 0.494882761911264,
+          "viable_self_S": 1.3622756098200108,
+          "parental_genome_W": 1.8840761651114604,
+          "intrinsic_ovule_budget": 6.776263993563113
+        },
+        "A_down_I_up": {
+          "female_outcross_F": 0.7209222894593713,
+          "male_outcross_P": 0.7479792066889439,
+          "viable_self_S": 1.1504302459902869,
+          "parental_genome_W": 1.8848809940644444,
+          "intrinsic_ovule_budget": 5.980031985414968
+        }
+      },
+      "highest_focal_W_sign": "A_up_I_down",
+      "top_W_minus_runner_up": 0.04843685027533029,
+      "pollinator_community_held_at_original_t0": true,
+      "other_47_original_adult_phenotypes_unchanged": true
+    },
+    {
+      "context": 3,
+      "focal_original_id_replaced": 1,
+      "one_possible_F1_M": 0.5625,
+      "M_probability_conditional_on_any_signed_double_tail": 0.5,
+      "frozen_resident_focal_baseline_W": 1.9838109889404878,
+      "static_focal_expected_returns_by_sign": {
+        "A_up_I_down": {
+          "female_outcross_F": 0.4695925758218946,
+          "male_outcross_P": 0.4496190983232977,
+          "viable_self_S": 1.658283282226098,
+          "parental_genome_W": 2.1178891192986944,
+          "intrinsic_ovule_budget": 6.365710912625799
+        },
+        "A_up_I_up": {
+          "female_outcross_F": 0.6183566760541492,
+          "male_outcross_P": 0.6801821909119917,
+          "viable_self_S": 1.40607098074324,
+          "parental_genome_W": 2.0553404142263103,
+          "intrinsic_ovule_budget": 5.617720163141225
+        },
+        "A_down_I_down": {
+          "female_outcross_F": 0.4998786949113716,
+          "male_outcross_P": 0.4496190983232977,
+          "viable_self_S": 1.3729592840800684,
+          "parental_genome_W": 1.8477081806974032,
+          "intrinsic_ovule_budget": 6.776263993563113
+        },
+        "A_down_I_up": {
+          "female_outcross_F": 0.6582372552945076,
+          "male_outcross_P": 0.6801821909119917,
+          "viable_self_S": 1.1641425972138506,
+          "parental_genome_W": 1.8333523203171003,
+          "intrinsic_ovule_budget": 5.980031985414968
+        }
+      },
+      "highest_focal_W_sign": "A_up_I_down",
+      "top_W_minus_runner_up": 0.06254870507238408,
+      "pollinator_community_held_at_original_t0": true,
+      "other_47_original_adult_phenotypes_unchanged": true
+    },
+    {
+      "context": 3,
+      "focal_original_id_replaced": 1,
+      "one_possible_F1_M": 0.625,
+      "M_probability_conditional_on_any_signed_double_tail": 0.25,
+      "frozen_resident_focal_baseline_W": 1.9838109889404878,
+      "static_focal_expected_returns_by_sign": {
+        "A_up_I_down": {
+          "female_outcross_F": 0.35422142842560933,
+          "male_outcross_P": 0.3368825136496989,
+          "viable_self_S": 1.6907314174313033,
+          "parental_genome_W": 2.0362833884689575,
+          "intrinsic_ovule_budget": 6.365710912625799
+        },
+        "A_up_I_up": {
+          "female_outcross_F": 0.46907259098295045,
+          "male_outcross_P": 0.5107814075419594,
+          "viable_self_S": 1.4480571296695148,
+          "parental_genome_W": 1.9379841289319697,
+          "intrinsic_ovule_budget": 5.617720163141225
+        },
+        "A_down_I_down": {
+          "female_outcross_F": 0.37706674778903027,
+          "male_outcross_P": 0.3368825136496989,
+          "viable_self_S": 1.3998243975130806,
+          "parental_genome_W": 1.7567990282324453,
+          "intrinsic_ovule_budget": 6.776263993563113
+        },
+        "A_down_I_up": {
+          "female_outcross_F": 0.49932517393159426,
+          "male_outcross_P": 0.5107814075419594,
+          "viable_self_S": 1.198904615011988,
+          "parental_genome_W": 1.7039579057487648,
+          "intrinsic_ovule_budget": 5.980031985414968
+        }
+      },
+      "highest_focal_W_sign": "A_up_I_down",
+      "top_W_minus_runner_up": 0.09829925953698782,
+      "pollinator_community_held_at_original_t0": true,
+      "other_47_original_adult_phenotypes_unchanged": true
+    },
+    {
+      "context": 4,
+      "focal_original_id_replaced": 1,
+      "one_possible_F1_M": 0.5,
+      "M_probability_conditional_on_any_signed_double_tail": 0.25,
+      "frozen_resident_focal_baseline_W": 1.6699394096406095,
+      "static_focal_expected_returns_by_sign": {
+        "A_up_I_down": {
+          "female_outcross_F": 0.10284564089218795,
+          "male_outcross_P": 0.09943316454699273,
+          "viable_self_S": 1.7614308576750781,
+          "parental_genome_W": 1.8625702603946686,
+          "intrinsic_ovule_budget": 6.365710912625799
+        },
+        "A_up_I_up": {
+          "female_outcross_F": 0.13772984762573243,
+          "male_outcross_P": 0.15117455886576023,
+          "viable_self_S": 1.5412472762387324,
+          "parental_genome_W": 1.6856994794844786,
+          "intrinsic_ovule_budget": 5.617720163141225
+        },
+        "A_down_I_down": {
+          "female_outcross_F": 0.10947861485359009,
+          "male_outcross_P": 0.09943316454699273,
+          "viable_self_S": 1.458359301592708,
+          "parental_genome_W": 1.5628151912929995,
+          "intrinsic_ovule_budget": 6.776263993563113
+        },
+        "A_down_I_up": {
+          "female_outcross_F": 0.1466126596251933,
+          "male_outcross_P": 0.15117455886576023,
+          "viable_self_S": 1.2760604775165132,
+          "parental_genome_W": 1.4249540867619899,
+          "intrinsic_ovule_budget": 5.980031985414968
+        }
+      },
+      "highest_focal_W_sign": "A_up_I_down",
+      "top_W_minus_runner_up": 0.17687078091018993,
+      "pollinator_community_held_at_original_t0": true,
+      "other_47_original_adult_phenotypes_unchanged": true
+    },
+    {
+      "context": 4,
+      "focal_original_id_replaced": 1,
+      "one_possible_F1_M": 0.5625,
+      "M_probability_conditional_on_any_signed_double_tail": 0.5,
+      "frozen_resident_focal_baseline_W": 1.6699394096406095,
+      "static_focal_expected_returns_by_sign": {
+        "A_up_I_down": {
+          "female_outcross_F": 0.1223990158602702,
+          "male_outcross_P": 0.11847227749908586,
+          "viable_self_S": 1.7559314709653049,
+          "parental_genome_W": 1.876367117644983,
+          "intrinsic_ovule_budget": 6.365710912625799
+        },
+        "A_up_I_up": {
+          "female_outcross_F": 0.1636720164767367,
+          "male_outcross_P": 0.1799579967485641,
+          "viable_self_S": 1.5339510412493875,
+          "parental_genome_W": 1.705766047862038,
+          "intrinsic_ovule_budget": 5.617720163141225
+        },
+        "A_down_I_down": {
+          "female_outcross_F": 0.13029307416025682,
+          "male_outcross_P": 0.11847227749908586,
+          "viable_self_S": 1.4538061386193748,
+          "parental_genome_W": 1.5781888144490461,
+          "intrinsic_ovule_budget": 6.776263993563113
+        },
+        "A_down_I_up": {
+          "female_outcross_F": 0.17422795461939883,
+          "male_outcross_P": 0.1799579967485641,
+          "viable_self_S": 1.2700196317365307,
+          "parental_genome_W": 1.447112607420512,
+          "intrinsic_ovule_budget": 5.980031985414968
+        }
+      },
+      "highest_focal_W_sign": "A_up_I_down",
+      "top_W_minus_runner_up": 0.17060106978294498,
+      "pollinator_community_held_at_original_t0": true,
+      "other_47_original_adult_phenotypes_unchanged": true
+    },
+    {
+      "context": 4,
+      "focal_original_id_replaced": 1,
+      "one_possible_F1_M": 0.625,
+      "M_probability_conditional_on_any_signed_double_tail": 0.25,
+      "frozen_resident_focal_baseline_W": 1.6699394096406095,
+      "static_focal_expected_returns_by_sign": {
+        "A_up_I_down": {
+          "female_outcross_F": 0.1494478285222807,
+          "male_outcross_P": 0.14484134593751852,
+          "viable_self_S": 1.7483239924041145,
+          "parental_genome_W": 1.895468579634014,
+          "intrinsic_ovule_budget": 6.365710912625799
+        },
+        "A_up_I_up": {
+          "female_outcross_F": 0.19940163636342925,
+          "male_outcross_P": 0.21967111098708572,
+          "viable_self_S": 1.523902085656255,
+          "parental_genome_W": 1.7334384593315126,
+          "intrinsic_ovule_budget": 5.617720163141225
+        },
+        "A_down_I_down": {
+          "female_outcross_F": 0.15908638535927422,
+          "male_outcross_P": 0.14484134593751852,
+          "viable_self_S": 1.4475076017945896,
+          "parental_genome_W": 1.599471467442986,
+          "intrinsic_ovule_budget": 6.776263993563113
+        },
+        "A_down_I_up": {
+          "female_outcross_F": 0.2122619370080244,
+          "male_outcross_P": 0.21967111098708572,
+          "viable_self_S": 1.2616996980890187,
+          "parental_genome_W": 1.4776662220865737,
+          "intrinsic_ovule_budget": 5.980031985414968
+        }
+      },
+      "highest_focal_W_sign": "A_up_I_down",
+      "top_W_minus_runner_up": 0.1620301203025014,
+      "pollinator_community_held_at_original_t0": true,
+      "other_47_original_adult_phenotypes_unchanged": true
+    }
+  ],
+  "n_contexts": 3,
+  "n_M_levels": 3,
+  "n_focal_trait_comparisons": 36,
+  "new_offspring_births": 0,
+  "new_population_advance_calls": 0,
+  "new_evolutionary_histories": 0,
+  "claim_ceiling": [
+    "This is an instantaneous one-adult-in-original-48 background expected parental-genome-return screen; it is not observed genotype frequency change or selection coefficient.",
+    "A high/low A/I corner is accessible under artificially constructed m6 F1, with a conditional 3-point M support, not a naturally documented new adult.",
+    "Each potential genotype replaces a focal site; other 47 adult phenotypes and the original visitor community are fixed but pollen transfer and density recipient totals are recomputed.",
+    "Differences in static reproductive W do not quantify actual F1 recruitment, stochastic inheritance, density feedback, later selection, 20-census ordering or Q4 survival.",
+    "The native result is conditional on one original confirmation source and its three source-authenticated artificial visitor contexts; no source-level sampling uncertainty.",
+    "Artificial A-homolog reconstruction (42 original A-heterozygotes reset per arm) is a separate source intervention, not original natural I mutation renewal or a natural island measurement.",
+    "The four equal Mendelian first-offspring access probabilities do NOT imply four equal fixed-state return values; the latter still does not prove long-term adaptive fixation."
+  ]
+}
