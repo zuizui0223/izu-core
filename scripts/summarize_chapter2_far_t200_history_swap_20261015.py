@@ -221,7 +221,8 @@ def aggregate(folder):
                         for s in seeds
                     ]
                     eff[origin+"_origin_future_E_minus_F_I"] = {
-                        "mean_survivors_only": float(np.nanmean(vals)),
+                        "mean_survivors_only": (float(np.nanmean(vals))
+                                                if np.isfinite(vals).any() else None),
                         "n_defined": int(np.isfinite(vals).sum()),
                     }
                 data["timepoints"][str(t)] = eff
@@ -232,7 +233,8 @@ def aggregate(folder):
         "source_original_demographic_repeat": 26111601,
         "input_shards_sha_locked": 16,
         "independent_visitor_history_clusters": 64,
-        "n_genetically_authentic_t200_input_cells": 1024,
+        "n_original_unique_t200_genotype_states": 512,
+        "n_future_cells_from_those_states": 1024,
         "new_conditional_evolutionary_updates": 819200,
         "development_history": DEVELOPMENT_HISTORY,
         "primary_descriptive_cohort": "holdout_63_excluding_dev26110601",
