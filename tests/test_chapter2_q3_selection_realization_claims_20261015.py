@@ -1,8 +1,12 @@
 """Source-ranked Q3 claim gate; numerical tests use frozen readouts, not simulation."""
 from __future__ import annotations
 
+import csv
+import hashlib
 import json
+import math
 from pathlib import Path
+from statistics import median
 
 ROOT = Path(__file__).resolve().parents[1]
 PAPER = ROOT / "docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md"
@@ -84,7 +88,7 @@ def test_q3_text_has_positive_but_model_bounded_mechanism() -> None:
     assert "same 2,304 original histories" in note
     assert "not a drift effect size" in note.lower()
     assert "density is **not** the ABM\'s stochastic expectation" in q3
-    assert "do **not** isolate pure drift" in q3
+    assert "do **not** identify pure drift" in q3
 
 
 def test_paper_fit_and_four_question_route_unchanged() -> None:
@@ -93,8 +97,8 @@ def test_paper_fit_and_four_question_route_unchanged() -> None:
     main = paper.split("# Introduction", 1)[1].split("# Primary figure assembly and captions", 1)[0]
     abstract = paper.split("## Abstract", 1)[1].split("## Keywords", 1)[0]
     fit = route["journal_fit"]
-    assert len(main.split()) == fit["current_main_text_words"] == fit["current_integrated_main_words"] == 4729
-    assert len(abstract.split()) == fit["current_abstract_words"] == fit["current_integrated_abstract_words"] == 137
+    assert len(main.split()) == fit["current_main_text_words"] == fit["current_integrated_main_words"] == 4883
+    assert len(abstract.split()) == fit["current_abstract_words"] == fit["current_integrated_abstract_words"] == 143
     assert len(main.split()) <= fit["ecology_letters_letter_main_max"]
     assert len(abstract.split()) <= fit["ecology_letters_letter_abstract_max"]
     assert route["status"] == "active_unified_manuscript_not_submitted"
@@ -103,3 +107,39 @@ def test_paper_fit_and_four_question_route_unchanged() -> None:
     assert "## Q1 —" in paper and "## Q2 —" in paper
     assert "## Q3 —" in paper and "## Q4 —" in paper
     assert "K8-versus-K48 moderator" in paper
+
+def test_conditional_parent_sampling_explains_how_rare_alleles_can_disappear() -> None:
+    """Only read the frozen *selected* first-loss transitions; not a hazard model."""
+    fp = ROOT / "data/results/low_allele_loss_20261014/extracted/ALL_CASES.csv"
+    raw = fp.read_bytes()
+    loss = _json("data/results/low_allele_loss_20261014/extracted/READOUT.json")
+    assert hashlib.sha256(raw).hexdigest() == loss["cases_sha256"]
+    rows = list(csv.DictReader(raw.decode("utf-8").splitlines()))
+    assert len(rows) == 2304
+    selected = [r for r in rows if r["transition_status"] == "eligible_loss"]
+    assert len(selected) == 1238
+    fav = [r for r in selected if r["loss_direction"] == "favouring_needed"]
+    assert len(fav) == loss["direction_counts"]["favouring_needed"] == 315
+    assert all(float(r["parent_weighting_response"]) > 0.0 for r in fav)
+    assert all(float(r["expected_frequency"]) > float(r["current_frequency"]) for r in fav)
+    assert all(int(r["retained_resident_count"]) == 48 for r in selected)
+    assert all(float(r["observed_change"]) == -float(r["current_frequency"]) for r in fav)
+    # In these pre-observed-loss states, the needed allele is often only a
+    # handful of homolog copies (48 diploid adults => 96 homologs).
+    assert median(int(r["needed_copies_before"]) for r in fav) == 2
+    chances = [float(r["conditional_loss_probability"]) for r in fav]
+    assert math.isclose(median(chances), 0.3260053119547402, abs_tol=1e-12)
+    # This source-law calculation integrates over hypothetical parent and
+    # Mendelian draws at the *selected previous state*, not prospective losses.
+    assert max(
+        abs(float(r["q0"]) ** int(r["retained_resident_count"]) -
+            float(r["conditional_loss_probability"]))
+        for r in selected
+    ) < 1e-12
+    q3 = PAPER.read_text(encoding="utf-8").split("## Q3 — ", 1)[1].split("## Q4 — ", 1)[0]
+    note = NOTE.read_text(encoding="utf-8")
+    assert "two needed allele copies among 96 parental copies" in q3
+    assert "median was 0.326" in q3
+    assert "loss-selected, one-transition" in q3
+    assert "0.3260053119547402" in note
+    assert "not a new simulation" in note
