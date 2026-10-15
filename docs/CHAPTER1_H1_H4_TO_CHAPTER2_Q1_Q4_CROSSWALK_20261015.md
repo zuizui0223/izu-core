@@ -1,5 +1,32 @@
 # Chapter 1 H1–H4 ↔ Chapter 2 Q1–Q4: nonordinal ecological crosswalk
 
+## Cross-repository numbering decision (2026-10-15)
+
+The operational answer to the request to reassign H/Q numbers is: **reorder their *exposition* now, keep their existing reproducibility IDs, and do not manufacture a one-to-one Hᵢ↔Qᵢ correspondence.** Chapter 1 records contemporaneous observational associations, whereas Chapter 2 tests within-model mechanism components in separate experiments. Corresponding numbers would not turn those observational associations into identified historical causes.
+
+**Chapter 1 proposed reader order:** original **H3 → H1 → H2 → H4**. See the matching [island PR #319 editorial H-story protocol](https://github.com/zuizui0223/island/pull/319), with the original H1–H4 statistical results and p/FDR classifications unchanged.
+
+| Reader stage | Ch1 current source ID | If a future *display-only* renumbering is approved | Ch2 mechanistic questions, not one-to-one matches |
+|---|---|---|---|
+| **1 — ecological reproductive pressure** | **old H3** (pollen-supplementation LRR associated with distance) | proposed display H1 | **Q1** (controlled visitor-return and selection mechanism); **not a direct calibrated distance-to-visitor effect** |
+| **2 — recurrent reproductive function, diverse floral responses** | **old H1** (traitwise SC recurrence, other traits region-contingent) | proposed display H2 | **Q1 + Q3** (model-specific selection and finite genetic-realization filter); **not natural attribution** |
+| **3 — independent-looking floral response after conditioning on selfing** | **old H2** (`selfing_core`-adjusted accessibility correlations) | proposed display H3 | **Q1 + Q2 + Q3** (non-necessary A evolution, conditional order, finite access); **statistical adjustment cannot infer chronology** |
+| **4 — contemporary functional compatibility** | **old H4** (trait scores correlated with current pollen limitation) | proposed display H4 | **Q1** for current reproductive payoffs, with **Q4** only as a separate hypothesis about future demographic occupancy, **not the same endpoint** |
+
+**Chapter 2 Q1–Q4 remain in their existing logical order:** Q1 source selection/return → Q2 temporal sequence and allele access → Q3 realized diploid inheritance → Q4 separately controlled occupancy consequences. This is a **conceptual ordering**, not one registered, directly observed four-stage historical causal mediation experiment.
+
+**Causal and measurement key**
+
+- **Chapter 1 — observational:** `distance ↔ pollen-limitation LRR` (old H3); `distance ↔ contemporary self-compatibility and floral traits` (old H1); `distance ↔ accessibility | measured selfing` (old H2); `reproductive/accessibility trait score ↔ current LRR` (old H4, post hoc). None of those associations supplies the temporal/historical arrow `past pollen limitation → within-lineage SC evolution → floral changes → island survival`.
+- **Chapter 2 Q1 — controlled inside one Model 3:** visitor functional-type replenishment affects compatible pollen transfer and maternal/paternal returns; locking versus evolving A tests whether capacity evolution is *necessary* for I decline and how permitting it changes the between-regime difference. This is a causal intervention **within the specified synthetic biology**, not a fit to H1–H4 data.
+- **Chapter 2 Q2 and Q3 — conditional chronology vs genetic realization:** Q2 measures sustained threshold-crossing chronology under declared model histories; Q3 separates expected parental weighting, finite parental/Mendelian transmission and attainable allele support. These study families are distinct; losing rare needed alleles in a finite family does **not establish** why the four real-world regions differ.
+- **Chapter 2 Q4 — different outcome and experiment:** imposed A-first/I-first phenotype-expression schedules, selfed-seed survival and demographic K at separately controlled B affect subsequent model *occupancy*. Chapter 1 H4 measures *current pollen limitation*, so H4 and Q4 share a broad interest in functional consequences **but not an estimand, unit, or mediation demonstration**.
+- **Three cross-domain non-identities:** current island self-compatibility SC ≠ heritable model autonomous capacity A; observed floral accessibility/colour ≠ scalar model floral investment I; geographic coastline distance and measured experimental LRR ≠ manipulated synthetic visitor arrival/replenishment. K is not measured island area.
+
+**If manuscript-level renumbering is ultimately desired:** preserve all source evidence keys `H1`–`H4` and `Q1`–`Q4` as legacy identifiers; only after synchronizing both published-facing manuscripts, SI, figure captions, link targets and reference text replace *display labels* consistently with an explicit `old ID ↔ display ID` table. In particular, old H4 refers to **old H2's frozen Direct-only trait scores**, so indiscriminate search/replace would silently corrupt provenance. **No physical source-ID migration is performed in this PR.**
+
+---
+
 **2026-10-15. Editorial synthesis only.** This is a many-to-many **question-and-mechanism alignment**, not a new simulation, new statistical test, empirical model fit, common-cohort genetic mediation analysis, or a claim that similarly numbered hypotheses/questions are identical. The separate published/archived source results, original frozen decisions, and cohort denominators are unchanged.
 
 ## Common research problem
