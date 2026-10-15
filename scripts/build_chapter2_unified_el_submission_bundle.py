@@ -25,10 +25,10 @@ OUT=ROOT/"outputs/chapter2_unified_el_delivery/EL_ONE_PAPER_REVIEW.zip"
 PDF_FIGURES={
  "Figure1.pdf":ROOT/"outputs/figures/model3_return_components_20261005/return_components.pdf",
  "Figure2.pdf":ROOT/"outputs/figures/model3_assurance_compression_20261006/assurance_compression.pdf",
- "Figure3.pdf":ROOT/"outputs/figures/model3_trait_pollen_20261005/trait_pollen_snapshot400.pdf",
+ "Figure3.pdf":ROOT/"outputs/figures/model3_genetic_realization_20261005/genetic_realization.pdf",
 }
 SUPPLEMENTARY_FIGURES={
- "SupplementaryFigureS1.pdf":ROOT/"outputs/figures/model3_genetic_realization_20261005/genetic_realization.pdf",
+ "SupplementaryFigureS1.pdf":ROOT/"outputs/figures/model3_trait_pollen_20261005/trait_pollen_snapshot400.pdf",
  "SupplementaryFigureS2.svg":ROOT/"figures/chapter2_functional_loss_tempo_20261011/crossing_by100.svg",
 }
 FROZEN_RESULTS={
