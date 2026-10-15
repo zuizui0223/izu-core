@@ -64,5 +64,50 @@
     "New independently seeded future demographic streams deliberately do not reproduce the frozen original t200→t1000 trajectories.",
     "Differences may reflect stochastic lineage composition, nonlinear feedback, genetic access, or bounds; no isolated pure-drift fraction.",
     "Near arm and wild islands are not tested in this mechanistic pilot; the original near and far both had pollen limitation."
+  ],
+  "primary_postpilot_cohort": {
+    "development_history_seed": 26110601,
+    "descriptive_heldout_history_seed_first": 26110602,
+    "descriptive_heldout_history_seed_last": 26110664,
+    "holdout_n": 63,
+    "all_original_history_n": 64,
+    "scope": "The source-selected visitor histories and first seed pilot are known; remaining 63 conditional continuation futures were not inspected at protocol amendment. Descriptive model-specific checks, NOT independent prospective ecological discovery."
+  },
+  "full_run_implementation": {
+    "shard_count": 16,
+    "history_seeds_per_shard": 4,
+    "cases_per_shard": 64,
+    "new_updates_per_shard": 51200,
+    "archive_readout_sha_required": true,
+    "full_new_conditional_futures": 1024,
+    "full_new_updates": 819200
+  },
+  "holdout_descriptive_statistics": {
+    "per_mating_setting": "64-history reference and pre-pilot-unseen 63-history primary descriptive set",
+    "unit": "original external visitor history, one t200 original demographic repeat per visitor history",
+    "bootstrap_seed": 20261015,
+    "history_bootstrap_draws": 4096,
+    "percentile_interval": [
+      0.025,
+      0.975
+    ],
+    "time_checkpoints": [
+      200,
+      300,
+      400,
+      600,
+      800,
+      1000
+    ],
+    "family": "2x2 difference in future I change from t200; other contrasts secondary",
+    "extinction": "if any 2x2 cell extinct, do not calculate an unconditional mean I contrast; retain occupancy and undefined history IDs",
+    "outcome_readout": "All signs, including failure to preserve I, plus paired four-cell per-history outcomes; no posthoc success criterion"
+  },
+  "null_predictions": [
+    "A future policy within identical t200 genotype origin produces negligible mean I change by t1000: no subsequent assurance-mediated effect detected",
+    "Origin-dependent final I differences disappear after subtracting t200 baseline under common future policies: no retained path dependence in conditional I change",
+    "Conditional future policy effects remain near zero despite original 1000-step far E-F endpoint being positive: original difference may have arisen before t200",
+    "Signs reverse across settings or histories: report heterogeneity and reject any universal one-sign mechanism",
+    "Zero-visitor selection gradient is -2*cI*I, not zero; no-pollen histories alone cannot establish cessation of selection"
   ]
 }
