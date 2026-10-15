@@ -1,6 +1,6 @@
 {
   "schema": "chapter2_q3_original_mutation_public_release_readback_once_v1",
-  "status": "PREPARED_NOT_ACTIVATED",
+  "status": "ACTIVATE_SOURCE_ONLY_ONCE",
   "date": "2026-10-16",
   "study": "2026-10-11 original Q3 atom-versus-ABM archived source, NOT a new experiment",
   "original_release_tag": "atom-cell-inputs-20261011",
@@ -57,5 +57,15 @@
     "claim independent natural ecology or pure drift coefficient"
   ],
   "no_externally_assigned_doi": true,
-  "literature_priority": "Original finite ABM context-specific comparison is not a first stochastic individual-based model claim."
+  "literature_priority": "Original finite ABM context-specific comparison is not a first stochastic individual-based model claim.",
+  "activation": {
+    "decision": "ACTIVATE_READ_ONLY_SOURCE_BYTES",
+    "date": "2026-10-16",
+    "workflow": "chapter2-q3-originalmutation-774-readback-20261016.yml",
+    "original_source_sha256_untouched": true,
+    "model_simulations_to_execute": 0,
+    "publication_or_deposit": 0,
+    "technical_result_prior_to_execution": "not yet verified in this independent source readback",
+    "scope": "exact source only; no new biology"
+  }
 }
