@@ -1,0 +1,97 @@
+name: Ch2 Q3 original 774 member source-only readback
+
+on:
+  push:
+    branches: [audit/ch2-q3-originalmutation-774-source-readback-20261016]
+    paths: [docs/protocols/chapter2_q3_originalmutation_774_archive_readback_20261016.json]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ch2-q3-original-774-once-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  original-native-readback:
+    if: github.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      GH_TOKEN: ${{ github.token }}
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Source-only contract and event-threshold technical unit checks
+        run: |
+          python -m pytest -q tests/test_chapter2_q3_original_mutation_774_source_20261016.py
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path('docs/protocols/chapter2_q3_originalmutation_774_archive_readback_20261016.json').read_text())
+          assert p['status']=='ACTIVATE_SOURCE_ONLY_ONCE'
+          assert p['native_finite_diploid_cases']==320
+          assert p['native_density_archive_cases']==30
+          assert p['original_full_archive_members']==774
+          assert p['no_externally_assigned_doi'] is True
+          print('original-source-only activation admitted; NO new evolutionary case')
+          PY
+      - name: Download exactly the original public Q3 source and input archives
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p originals
+          gh release download atom-cell-inputs-20261011 --repo zuizui0223/izu-core \
+            --pattern 'completed_atom_abm_20261011.zip' \
+            --pattern 'remote_atom_inputs_20261011.zip' --dir originals
+      - name: Verify original source and input outer release asset digests
+        run: |
+          python - <<'PY'
+          import hashlib,json
+          from pathlib import Path
+          p=json.loads(Path('docs/protocols/chapter2_q3_originalmutation_774_archive_readback_20261016.json').read_text())
+          for a in p['source_assets']:
+              target=Path('originals')/a['name']
+              assert target.stat().st_size==a['bytes'], a['name']
+              with target.open('rb') as fp:
+                  h=hashlib.file_digest(fp,'sha256').hexdigest()
+              assert h==a['sha256'], a['name']
+              print('original same-provider GitHub Release asset SHA256 confirmed:',a['name'],flush=True)
+          PY
+      - name: Authenticate all 774 source members, 320 diploid histories and 990 event checks
+        run: |
+          python -m scripts.verify_chapter2_q3_original_mutation_774_source_20261016 \
+            --archive originals/completed_atom_abm_20261011.zip \
+            --out outputs/ch2-q3-originalmutation-774-source.json
+      - name: Confirm two original lower-supply matched cases and NO external DOI
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          r=json.loads(Path('outputs/ch2-q3-originalmutation-774-source.json').read_text())
+          assert r['status']=='CHAPTER2_Q3_ORIGINALMUTATION_774_NATIVE_MEMBERS_AND_990_EVENTS_VERIFIED'
+          assert r['original_members_verified']==774
+          assert r['member_sha256_verified']==773
+          assert r['original_native_abm_genotype_cases']==320
+          assert r['source_density_257node_contexts']==10
+          assert r['original_numerical_npz_cases_in_full_archive']==30
+          assert r['original_event_classifications_recomputed']==990
+          assert r['original_checkpoints_recomputed']==40
+          assert r['original_allele_genotypes_recomputed_into_annual_means']
+          assert sorted(v['finite_A_first'] for v in r['low_supply_matched_original_mutation_0p05'].values())==[2,3]
+          assert sorted(v['finite_A_only'] for v in r['low_supply_matched_original_mutation_0p05'].values())==[7,15]
+          assert r['no_new_biological_updates'] and not r['externally_redeposited'] and not r['doi_published']
+          print('PASS: 774 source files, 320 native histories, 3/32 & 2/32; NO new biology/DOI')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-q3-original-774-source-readback
+          retention-days: 90
+          if-no-files-found: error
+          path: outputs/ch2-q3-originalmutation-774-source.json
