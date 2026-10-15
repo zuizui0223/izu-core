@@ -2,6 +2,12 @@
 
 **Status: editorial proposal.** The author's revised structure supersedes the earlier proposal to renumber the four historical H1–H4 results in ordinal order. Original code/results, source hypothesis IDs, source-specific inference families and main manuscript are unchanged. **No statistical or evolutionary causality is newly identified by this schema.**
 
+## How to present and answer all six questions
+
+For the actual Chapter 1 reader-facing wording, existing sample denominators, one-sentence answers and recommended figure grouping, see the [Chapter 1 six-question reader guide](https://github.com/zuizui0223/island/blob/docs/hypothesis-story-order-20261015/submission/chapter1_current/SIX_QUESTIONS_READER_GUIDE_20261015.md) on the matching editorial [island PR #319](https://github.com/zuizui0223/island/pull/319).
+
+The crucial biological interpretation is **not a six-step causal chain**. Isolation and contemporaneous pollen limitation are positively associated (old H3), and island floras show recurrent SC but contingent floral changes (old H1); separately, exact-species reproductive-assurance and accessibility scores are associated with *lower* contemporary pollen limitation (old H4). This is compatible with a background reproductive constraint coexisting with compensatory-function differences, but **actual buffering mediation is not estimated** because source sample units differ. The R–F coefficient in old H2b is the source for H2.1 only as a conditional descriptive finding; the same old model's *isolation coefficient* is H1.2 evidence. For example, the tropical all-analysis R coefficient for accessibility was **−0.0458**, whereas Direct-only was **+0.0239** (different evidence scopes, not a preregistered H2.1 family test).
+
 ## Research question
 
 Four conceptual variables: D = corrected geographic isolation, R = reproductive traits, F = floral traits, P = experimental pollen limitation.
