@@ -95,3 +95,25 @@ def test_raw_source_never_inferred_from_only_saved_manifest(tmp_path):
     corrupt.write_bytes(b"foo")
     with pytest.raises(AssertionError,match="original 389MB ZIP bytes differ"):
         verify(corrupt)
+
+
+def test_original_source_receipt_has_exact_original_runner_bytes():
+    import hashlib
+    saved=ROOT/"docs/deposit/chapter2_q3_originalmutation_774_readback_verified_20261016.json"
+    raw=saved.read_bytes()
+    assert len(raw)==1448
+    assert hashlib.sha256(raw).hexdigest()==(
+        "6c4a073baca79d052ae048885bc12fedbe116d56ef6600ba12528f1dc399722e"
+    )
+    d=json.loads(raw)
+    assert d["status"]=="CHAPTER2_Q3_ORIGINALMUTATION_774_NATIVE_MEMBERS_AND_990_EVENTS_VERIFIED"
+    assert d["original_members_verified"]==774
+    assert d["original_native_abm_genotype_cases"]==320
+    assert d["original_event_classifications_recomputed"]==990
+    assert d["original_checkpoints_recomputed"]==40
+    assert sorted(x["finite_A_first"] for x in
+         d["low_supply_matched_original_mutation_0p05"].values())==[2,3]
+    assert d["original_allele_genotypes_recomputed_into_annual_means"] is True
+    assert d["no_new_biological_updates"] is True
+    assert d["externally_redeposited"] is False
+    assert d["doi_published"] is False
