@@ -1,0 +1,334 @@
+{
+  "schema": "ch2_main_fig3_panelA_original_endpoints_17artifact_sha256_intake_v1",
+  "created_date": "2026-10-15",
+  "commit_context": "7ca36f13ede8c4032d47b2a24cee6ac7449216e2",
+  "source_original_run": 36311030639,
+  "status": "INDEPENDENT_ACTUAL_OUTER_ZIP_BYTES_SHA256_CRC_17_OF_17_AND_EIGHT_MEANS_MATCH",
+  "no_new_biological_runs": true,
+  "case_total": 24576,
+  "independent_visitor_histories": 128,
+  "within_history_initial_starts": 3,
+  "within_history_nested_demographic_repeats": 8,
+  "code_snapshot_member_count": 20,
+  "source_code_files_identical_across_16_shards": true,
+  "full_raw_annual_trajectories_in_original_shards": false,
+  "original_shard_scope_string": "compact endpoint export after full input/receipt/array hash verification; raw trajectories intentionally remain runner-local",
+  "separate_paper_evidence": "Figure 3 panel A zero-mutation bridge, NOT the one-locus panel B/C and NOT the separately original-mutation 3/32,2/32 study",
+  "summary_artifact": {
+    "artifact_id": 10929715247,
+    "original_artifact_name": "model3-ch2-bridge-prospective-summary",
+    "github_outer_sha256": "63215332a97f3140ea8cc4b7d380384023f5b25284713b3486f21ac47c3fb253",
+    "outer_bytes": 7912
+  },
+  "shards": [
+    {
+      "shard": 0,
+      "artifact_id": 10929606006,
+      "original_artifact_name": "model3-ch2-bridge-shard-0",
+      "github_outer_sha256": "22c175aa16730249af53fc8ec2e307987dcab0346b511e603fcbb508543c3b48",
+      "outer_bytes": 57435,
+      "expected_own_cases": 1536,
+      "expected_history_seeds": [
+        74001,
+        74017,
+        74033,
+        74049,
+        74065,
+        74081,
+        74097,
+        74113
+      ]
+    },
+    {
+      "shard": 1,
+      "artifact_id": 10929138811,
+      "original_artifact_name": "model3-ch2-bridge-shard-1",
+      "github_outer_sha256": "44b2f4c2aab76da9cf87d3108b46c9f86bc5c1115f35f378294406460f3391eb",
+      "outer_bytes": 57615,
+      "expected_own_cases": 1536,
+      "expected_history_seeds": [
+        74002,
+        74018,
+        74034,
+        74050,
+        74066,
+        74082,
+        74098,
+        74114
+      ]
+    },
+    {
+      "shard": 2,
+      "artifact_id": 10929600402,
+      "original_artifact_name": "model3-ch2-bridge-shard-2",
+      "github_outer_sha256": "33c500f16342d369b64ec8620005b096dc7497ad28a8f287fd4b6cc87c3a69d2",
+      "outer_bytes": 57576,
+      "expected_own_cases": 1536,
+      "expected_history_seeds": [
+        74003,
+        74019,
+        74035,
+        74051,
+        74067,
+        74083,
+        74099,
+        74115
+      ]
+    },
+    {
+      "shard": 3,
+      "artifact_id": 10929288258,
+      "original_artifact_name": "model3-ch2-bridge-shard-3",
+      "github_outer_sha256": "b6b66e289a38e1173d0e9059578040b2f7d103c398a41bd4f90b48a56191c28e",
+      "outer_bytes": 57382,
+      "expected_own_cases": 1536,
+      "expected_history_seeds": [
+        74004,
+        74020,
+        74036,
+        74052,
+        74068,
+        74084,
+        74100,
+        74116
+      ]
+    },
+    {
+      "shard": 4,
+      "artifact_id": 10928902440,
+      "original_artifact_name": "model3-ch2-bridge-shard-4",
+      "github_outer_sha256": "efeee414a9b4b576c37dc2dc05d28ab38802e4097c491500024785b4cc0cf176",
+      "outer_bytes": 57468,
+      "expected_own_cases": 1536,
+      "expected_history_seeds": [
+        74005,
+        74021,
+        74037,
+        74053,
+        74069,
+        74085,
+        74101,
+        74117
+      ]
+    },
+    {
+      "shard": 5,
+      "artifact_id": 10928817875,
+      "original_artifact_name": "model3-ch2-bridge-shard-5",
+      "github_outer_sha256": "849426d45dbac68cea5f6543d8bead63f83ff31623834bad94d43987fe3b30fd",
+      "outer_bytes": 57459,
+      "expected_own_cases": 1536,
+      "expected_history_seeds": [
+        74006,
+        74022,
+        74038,
+        74054,
+        74070,
+        74086,
+        74102,
+        74118
+      ]
+    },
+    {
+      "shard": 6,
+      "artifact_id": 10929427896,
+      "original_artifact_name": "model3-ch2-bridge-shard-6",
+      "github_outer_sha256": "8888c52b1032d6b9e80cc51d698fe9668f1fd3cb1f3962fd905ea89411e80b97",
+      "outer_bytes": 57314,
+      "expected_own_cases": 1536,
+      "expected_history_seeds": [
+        74007,
+        74023,
+        74039,
+        74055,
+        74071,
+        74087,
+        74103,
+        74119
+      ]
+    },
+    {
+      "shard": 7,
+      "artifact_id": 10929422680,
+      "original_artifact_name": "model3-ch2-bridge-shard-7",
+      "github_outer_sha256": "2e5882d8856a7c02817ca69c00683b2f69f566e2988d6bd5b6cf2bade7e82f3e",
+      "outer_bytes": 57564,
+      "expected_own_cases": 1536,
+      "expected_history_seeds": [
+        74008,
+        74024,
+        74040,
+        74056,
+        74072,
+        74088,
+        74104,
+        74120
+      ]
+    },
+    {
+      "shard": 8,
+      "artifact_id": 10929163732,
+      "original_artifact_name": "model3-ch2-bridge-shard-8",
+      "github_outer_sha256": "1e501b2fb5b4b563522c60ea30488bf416d5a7dc38c8e522391023186c644a16",
+      "outer_bytes": 57296,
+      "expected_own_cases": 1536,
+      "expected_history_seeds": [
+        74009,
+        74025,
+        74041,
+        74057,
+        74073,
+        74089,
+        74105,
+        74121
+      ]
+    },
+    {
+      "shard": 9,
+      "artifact_id": 10928694079,
+      "original_artifact_name": "model3-ch2-bridge-shard-9",
+      "github_outer_sha256": "c1ce5afd714e4d8a01e609ea0cbc72f0c61fd7fd07ce537c730a11b76d5ce50e",
+      "outer_bytes": 57387,
+      "expected_own_cases": 1536,
+      "expected_history_seeds": [
+        74010,
+        74026,
+        74042,
+        74058,
+        74074,
+        74090,
+        74106,
+        74122
+      ]
+    },
+    {
+      "shard": 10,
+      "artifact_id": 10929650543,
+      "original_artifact_name": "model3-ch2-bridge-shard-10",
+      "github_outer_sha256": "13db10981671031038b118a6788ee77edc8410f754b8dc7a73412f85f34e85cd",
+      "outer_bytes": 57369,
+      "expected_own_cases": 1536,
+      "expected_history_seeds": [
+        74011,
+        74027,
+        74043,
+        74059,
+        74075,
+        74091,
+        74107,
+        74123
+      ]
+    },
+    {
+      "shard": 11,
+      "artifact_id": 10929098912,
+      "original_artifact_name": "model3-ch2-bridge-shard-11",
+      "github_outer_sha256": "e3717ef235b772323c61836efc077e0c65b5aa5efa269989d570bdf1436d0b5b",
+      "outer_bytes": 57371,
+      "expected_own_cases": 1536,
+      "expected_history_seeds": [
+        74012,
+        74028,
+        74044,
+        74060,
+        74076,
+        74092,
+        74108,
+        74124
+      ]
+    },
+    {
+      "shard": 12,
+      "artifact_id": 10929263428,
+      "original_artifact_name": "model3-ch2-bridge-shard-12",
+      "github_outer_sha256": "ef16e9ae778495adc158654479215a4e6084a846f3f292b347897b980065dab0",
+      "outer_bytes": 57286,
+      "expected_own_cases": 1536,
+      "expected_history_seeds": [
+        74013,
+        74029,
+        74045,
+        74061,
+        74077,
+        74093,
+        74109,
+        74125
+      ]
+    },
+    {
+      "shard": 13,
+      "artifact_id": 10929187166,
+      "original_artifact_name": "model3-ch2-bridge-shard-13",
+      "github_outer_sha256": "bfe8471f43d9fa32b93ad25621a3a12703d145263c23d80c7c092030f2ada1d2",
+      "outer_bytes": 57566,
+      "expected_own_cases": 1536,
+      "expected_history_seeds": [
+        74014,
+        74030,
+        74046,
+        74062,
+        74078,
+        74094,
+        74110,
+        74126
+      ]
+    },
+    {
+      "shard": 14,
+      "artifact_id": 10928428806,
+      "original_artifact_name": "model3-ch2-bridge-shard-14",
+      "github_outer_sha256": "088a1470de6ef55d55626f7511e6c31b06566355a11711e5f93a57fad1480432",
+      "outer_bytes": 57513,
+      "expected_own_cases": 1536,
+      "expected_history_seeds": [
+        74015,
+        74031,
+        74047,
+        74063,
+        74079,
+        74095,
+        74111,
+        74127
+      ]
+    },
+    {
+      "shard": 15,
+      "artifact_id": 10928743005,
+      "original_artifact_name": "model3-ch2-bridge-shard-15",
+      "github_outer_sha256": "c91fd179cf7839bd2ea77aa6b2d69362e7305237f18c892a17c2f3b31f557c26",
+      "outer_bytes": 57184,
+      "expected_own_cases": 1536,
+      "expected_history_seeds": [
+        74016,
+        74032,
+        74048,
+        74064,
+        74080,
+        74096,
+        74112,
+        74128
+      ]
+    }
+  ],
+  "means": {
+    "natural": {
+      "individual": -0.1446356879340278,
+      "density": -0.45098306258395304
+    },
+    "richness_matched": {
+      "individual": 0.0333226521809896,
+      "density": 0.033757340770689925
+    },
+    "visitor_pool": {
+      "individual": -0.22594960530598965,
+      "density": -0.5560421532675063
+    },
+    "large_plants": {
+      "individual": -0.2716497209337017,
+      "density": -0.45098306258395304
+    }
+  },
+  "conclusion_scope": "All eight means directly recalculated from the original source endpoint 3×8 values per history; source metadata, CRC, source code parity passed; full annual genomes were not preserved. Not external DOI, full raw record, mathematical ABM expectation or measured ecological island effect.",
+  "source_code_renderer": "scripts/figure_model3_genetic_realization.py",
+  "committed_summary": "data/results/model3_ch2_bridge_summary_20260927/summary.json"
+}
