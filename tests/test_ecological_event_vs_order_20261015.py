@@ -2,7 +2,7 @@
 import pytest
 
 from scripts.audit_ecological_event_vs_order_20261015 import (
-    classify, pair_counts, support_status,
+    BLOCKS, CONTEXTS, classify, pair_counts, source_records, support_status,
 )
 
 
@@ -53,3 +53,16 @@ def test_joined_event_mismatch_and_invalid_times_fail_closed():
     for bad in [-1, 182, True, 1.5]:
         with pytest.raises(ValueError, match='onset'):
             classify(bad, None)
+
+
+def test_compact_primary_uses_complete_source_bound_baselines():
+    baselines = []
+    for b, seed in BLOCKS.items():
+        for c, (supply, composition) in enumerate(CONTEXTS):
+            for r in range(128):
+                baselines.append({'task': dict(block=b, block_seed=seed, context=c,
+                                               supply=supply, composition=composition,
+                                               replicate=r), 'events': ev(1, 20)})
+    assert len(source_records({'cases': 2304}, {'baselines': baselines})) == 2304
+    with pytest.raises(ValueError, match='inventory'):
+        source_records({'cases': 2304}, {'baselines': baselines[:-1]+baselines[:1]})

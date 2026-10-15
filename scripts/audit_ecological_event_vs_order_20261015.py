@@ -15,6 +15,7 @@ from scipy.stats import beta
 PRIMARY_SHA = '4a0b6ab3edf90b21c9513feecab0bec59bfc550f1af8350964ac3b3201220ce5'
 SUPPORT_SHA = '8cda8bfb12eb5424e6e5b4029277160983ac1b96075ccbdf5d8ce55ed4990a5f'
 SUPPORT_READOUT_SHA = '08211287952abb99d34f43c43943a3cbb1241b50b3ca87db1c63f40cd5559202'
+FREEZE_SHA = '97435b5aa1d0072d7ad4b2ea050ab323366d74425e640cfee32cca54be8f97b7'
 BLOCKS = {'main': 27200701, 'confirmation': 27210701}
 CONTEXTS = [(0., 'empty')] + [(s, c) for s in (.03125, .125, .5, 1.) for c in ('matched', 'separated')]
 CATEGORIES = ('assurance_first', 'investment_first', 'near_simultaneous', 'assurance_only', 'investment_only', 'neither')
@@ -100,16 +101,25 @@ def original_interval(a, i):
     return [al-ih, ah-il]
 
 
-def audit(primary_path, support_path, support_readout_path, output):
+def source_records(primary, frozen):
+    if primary['cases'] != 2304:
+        raise ValueError('original primary inventory')
+    return inventory(frozen['baselines'])
+
+
+def audit(primary_path, support_path, support_readout_path, freeze_path, output):
     if output.exists():
         raise ValueError('refuse result replacement')
     pb, sb, rb = primary_path.read_bytes(), gzip.decompress(support_path.read_bytes()), support_readout_path.read_bytes()
     if (sha(pb), sha(sb), sha(rb)) != (PRIMARY_SHA, SUPPORT_SHA, SUPPORT_READOUT_SHA):
         raise ValueError('frozen source SHA mismatch')
+    fb = freeze_path.read_bytes()
+    if sha(fb) != FREEZE_SHA:
+        raise ValueError('original baseline freeze SHA mismatch')
     primary, sr = json.loads(pb), json.loads(rb)
     if sr['case_records_sha256'] != SUPPORT_SHA or sr['cases'] != 2304:
         raise ValueError('standing-support receipt mismatch')
-    records, support = inventory(primary['records']), inventory(json.loads(sb))
+    records, support = source_records(primary, json.loads(fb)), inventory(json.loads(sb))
     original_cells = {(x['block'], x['context']): x for x in primary['cells']}
     if len(primary['cells']) != 18 or len(original_cells) != 18:
         raise ValueError('original cell inventory')
@@ -140,6 +150,7 @@ def audit(primary_path, support_path, support_readout_path, output):
             pairs.append(dict(block=block, left_context=left, right_context=right, contrast_kind=kind, **pair_counts(l, r)))
     result = dict(status='ALL2304_ORIGINAL_EVENTS_18_CELLS_72_PAIRED_CONTEXT_MATRICES',
                   primary_sha256=sha(pb), support_cases_sha256=sha(sb), support_readout_sha256=sha(rb),
+                  baseline_freeze_sha256=sha(fb),
                   reader_sha256=sha(Path(__file__).read_bytes()),
                   execution_commit=subprocess.check_output(['git', 'rev-parse', 'HEAD'], text=True).strip(),
                   trajectories=2304, paired_comparisons=9216, cells=cells, pairs=pairs,
@@ -154,8 +165,8 @@ def audit(primary_path, support_path, support_readout_path, output):
 
 if __name__ == '__main__':
     p = argparse.ArgumentParser(description=__doc__)
-    for name in ('primary', 'support', 'support-readout', 'output'):
+    for name in ('primary', 'support', 'support-readout', 'freeze', 'output'):
         p.add_argument('--'+name, required=True, type=Path)
     args = p.parse_args()
-    r = audit(args.primary, args.support, args.support_readout, args.output)
+    r = audit(args.primary, args.support, args.support_readout, args.freeze, args.output)
     print(json.dumps({k: v for k, v in r.items() if k not in ('cells', 'pairs')}, indent=2))
