@@ -109,7 +109,7 @@ def test_only_one_active_paper_and_q4_both_in_text_and_supplement():
     assert "A evolvability **continued during the future**" in manuscript
     assert "+0.0077457" in manuscript
     assert "no natural-order" in manuscript.lower() or "naturally evolved" in manuscript.lower()
-    assert "## S30. Independent 32-history" in si
+    assert "## S33. Independent 32-history" in si
     assert "0.1083984375" in si
     assert "+0.007745713876893593" in si
     assert "pre_mutation_rate" in si and "post_mutation_rate" in si
