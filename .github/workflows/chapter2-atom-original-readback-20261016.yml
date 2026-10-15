@@ -1,0 +1,88 @@
+name: Ch2 original mutation Q3 archived-source readback
+
+on:
+  push:
+    branches: [audit/ch2-q3-original-mutation-raw-readback-20261016]
+    paths: [docs/protocols/chapter2_atom_original_raw_activation_20261016.json]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ch2-atom-original-source-readback-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  original-774-member-source-readback:
+    if: github.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 70
+    env:
+      GH_TOKEN: ${{ github.token }}
+      PYTHONUTF8: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original native numerical readback dependencies
+        run: python -m pip install -e '.[dev]'
+      - name: Validate activation cannot expand existing biological case selection
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path('docs/protocols/chapter2_atom_original_raw_activation_20261016.json').read_text())
+          assert p['status']=='ACTIVATE_ONCE_READ_ONLY'
+          assert p['original_full_release_sha256']=='7ae00916ed2cbb38323c3fb9ffc5824de3e8272df1f5a35785842c316191f918'
+          assert p['original_release_asset_name']=='completed_atom_abm_20261011.zip'
+          assert p['original_experiment_run_id']==38120835221
+          assert p['n_original_finite_abm']==320
+          assert p['n_original_density']==30
+          assert p['new_biological_updates']==0
+          assert p['upload_original_390MB_binary'] is False
+          PY
+      - name: Fast existing scientific scope / threshold tests
+        run: |
+          pytest -q tests/test_chapter2_atom_original_raw_20261016.py tests/test_completed_atom_readout_20261011.py tests/test_workflow_trigger_policy.py
+      - name: Fetch ORIGINAL unchanged 389MB release asset
+        run: |
+          mkdir -p input
+          gh release download atom-cell-inputs-20261011 \
+            --repo zuizui0223/izu-core \
+            --pattern completed_atom_abm_20261011.zip \
+            --dir input
+      - name: Independently authenticate 774 source members and reclassify all320 histories
+        run: |
+          python -m scripts.verify_chapter2_atom_original_raw_20261016 \
+            --archive input/completed_atom_abm_20261011.zip \
+            --out output/original-q3-320-native-raw-readout.json
+      - name: Certify all source classifications and bounded original conclusions
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('output/original-q3-320-native-raw-readout.json')
+          r=json.loads(p.read_text())
+          assert r['status']=='ORIGINAL_ATOM_ABM_774_ARCHIVE_MEMBERS_NATIVE_SOURCE_REVERIFIED'
+          assert r['source_archive_members']==774 and r['member_sha256_rechecked']==773
+          assert r['original_finite_population_paths']==320
+          assert r['original_deterministic_density_archives']==30
+          assert r['event_classifications_recomputed']==990
+          assert r['checkpoint_rows_recomputed']==40
+          assert len(r['ten_contexts'])==10
+          assert sorted(x['observed_assurance_first_at_0_05'] for x in r['original_low_supply_matched_focal'])==[2,3]
+          assert all(x['all_32_occupied_at_t200'] for x in r['original_low_supply_matched_focal'])
+          assert r['no_new_model_updates'] is True
+          assert r['no_external_doi_deposit_or_publication'] is True
+          print('SOURCE-CHECKED 3/32, 2/32 with original 389MB archive; no new biology/DOI.')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ch2-original-mutation-774-member-320-history-readout
+          retention-days: 90
+          if-no-files-found: error
+          path: output/original-q3-320-native-raw-readout.json
