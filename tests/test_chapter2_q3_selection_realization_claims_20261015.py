@@ -99,7 +99,7 @@ def test_paper_fit_and_four_question_route_unchanged() -> None:
     abstract = paper.split("## Abstract", 1)[1].split("## Keywords", 1)[0]
     fit = route["journal_fit"]
     assert len(main.split()) == fit["current_main_text_words"] == fit["current_integrated_main_words"] == 4961
-    assert len(abstract.split()) == fit["current_abstract_words"] == fit["current_integrated_abstract_words"] == 143
+    assert len(abstract.split()) == fit["current_abstract_words"] == fit["current_integrated_abstract_words"] == 147
     assert len(main.split()) <= fit["ecology_letters_letter_main_max"]
     assert len(abstract.split()) <= fit["ecology_letters_letter_abstract_max"]
     assert route["status"] == "active_unified_manuscript_not_submitted"
