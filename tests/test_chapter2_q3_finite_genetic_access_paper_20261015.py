@@ -162,7 +162,7 @@ def test_manuscript_si_and_route_preserve_denominators_and_limitations() -> None
     abstract = paper.split("## Abstract", 1)[1].split("## Keywords", 1)[0]
     q3 = paper.split("## Q3 —", 1)[1].split("## Q4 —", 1)[0]
     s14 = si.split("## S14.", 1)[1].split("## S15.", 1)[0]
-    assert len(main.split()) == 4984
+    assert len(main.split()) == 4991
     assert route["journal_fit"]["current_main_text_words"] == len(main.split())
     assert route["journal_fit"]["current_integrated_main_words"] == len(main.split())
     assert len(main.split()) < route["journal_fit"]["ecology_letters_letter_main_max"] == 5000
