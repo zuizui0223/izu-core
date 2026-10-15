@@ -1,0 +1,21 @@
+# Separate response availability from order reversal in the frozen ecological assay
+
+## Ruling and exposed evidence
+
+The broad human goal authorizes saved-data decomposition. The18 original cells, all zero-containing primary intervals, and high-supply single-event counts are already exposed. This is retrospective descriptive accounting, not a newly prospective hypothesis test. It does not change the frozen2304-case design or add biological outcomes. The original protocol forbids outcome-dependent densification; no extra supply, founder, horizon, threshold, mutation rule or replicate is introduced.
+
+## Input and immutable decisions
+
+Use all2304 original records in `data/results/ecological_order_boundary_20261013.json`, raw SHA256`4a0b6ab3edf90b21c9513feecab0bec59bfc550f1af8350964ac3b3201220ce5`. The separately source-admitted standing-support cases have uncompressed SHA256`8cda8bfb12eb5424e6e5b4029277160983ac1b96075ccbdf5d8ce55ed4990a5f` and readout SHA256`08211287952abb99d34f43c43943a3cbb1241b50b3ca87db1c63f40cd5559202`. Join original-arm records only by exact block/context/replicate/task. Check complete two-founder/nine-context/128-seed inventory, absence of duplicate identities, original six-class event rules and exact event-onset agreement. Verify every original cell's categories, D and interval classification; preserve its bounds and primary conclusions verbatim. This reader does not re-admit rawNPZ genomes.
+
+## Fixed derived readout
+
+1. Report all18 context cells: original category counts; whether both event criteria, only assurance, only investment, or neither completed; I-event noncompletion partitioned by no observed support deficit, first deficit by181, or first deficit after181. The latter are observed-path labels, not causes of previous failure. Missing event times remain missing; onset0 is an event. Loss of standing support without I mutation/immigration bounds future threshold attainment but cannot retrospectively establish why earlier evolution did not occur.
+2. Within each founder, match the same128 replicate IDs across every one of the36 unordered context pairs. Emit all72 six-by-six category-transition matrices and paired gains/losses for each original event. Keep strict A-first→I-first and I-first→A-first switches separate from both-event→single/no-event transitions and their reverse. Total9216 paired comparisons reuse2304 trajectories; they are not additional independent histories. Label the12 same-composition supply pairs, four same-supply composition pairs, eight empty-to-positive pairs and12 other mixed contrasts separately within each founder. Do not pool them.
+3. Synthetic activity/supply and visitor optima are separate inputs; neither is measured geographic isolation, insect abundance or field-calibrated function. Equal-seed pairing supports a defined within-model input contrast, not a natural-order intervention or Ch1 historical attribution. Outcome-selected support classes are descriptive, not mediator shares. No new confidence intervals, p-values, regression, fitted boundary or confirmatory claim is added. All original intervals and reversal decisions retain priority.
+
+## Execution and verification
+
+Write meaningful synthetic tests first: strict switch versus event disappearance, onset0 versus missing, duplicate/missing pair rejection, and source-support event mismatch. Observe failure before implementation. Commit/push the plan and reader before the new paired summaries. Execute once into a new external output directory; refuse replacement. Store complete source-bound readout and all matrices without consuming tracked-data budget. Require an independent implementation to match all18 cells/all72 matrices/all9216 paired comparisons and review any prose/actual packet delta before GitHub delivery. Reuse existing readers, archives and manuscript; do not create another biological model or rerun completed histories.
+
+The next scientific decision is whether this decomposition narrows the missing boundary to a timing issue or an event-availability issue within the tested grid. A zero-containing interval is neither equivalence nor proof no boundary exists. Even an informative decomposition does not close the natural-order future-benefit or unique density-gap mediation requirements.
