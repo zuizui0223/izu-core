@@ -45,8 +45,8 @@ def test_conditional_price_exact_same_source_parentage_and_finite_shift():
     got = conditional_price(state, ledger)
     assert np.isfinite(got)
     I = state.alleles[:, 1, :].mean(axis=1)
-    W = .5 * (ledger.outcross.sum(axis=1) + ledger.outcross.sum(axis=0)) \\
-        + ledger.self_viable
+    W = (.5 * (ledger.outcross.sum(axis=1) + ledger.outcross.sum(axis=0))
+         + ledger.self_viable)
     expect = (np.dot(I, W) / W.sum()) - I.mean()
     assert got == pytest.approx(expect, abs=1e-12)
 
