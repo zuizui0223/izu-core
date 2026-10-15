@@ -7,7 +7,10 @@ refit source models or infer a causal genetic-drift effect.
 from __future__ import annotations
 
 import copy
+import csv
 import hashlib
+import math
+import statistics
 import json
 from pathlib import Path
 
@@ -19,6 +22,7 @@ ACCESS = ROOT / "data/results/directional_access_20261013/READOUT.json"
 ACCESS_REVIEW = ROOT / "data/results/directional_access_20261013/INDEPENDENT_REVIEW.json"
 LOSS = ROOT / "data/results/low_allele_loss_20261014/extracted/READOUT.json"
 LOSS_REVIEW = ROOT / "data/results/low_allele_loss_20261014/INDEPENDENT_REVIEW.json"
+LOSS_CASES = ROOT / "data/results/low_allele_loss_20261014/extracted/ALL_CASES.csv"
 PAPER = ROOT / "docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md"
 SI = ROOT / "docs/CHAPTER2_UNIFIED_EL_SUPPORTING_INFORMATION_20261010.md"
 ROUTE = ROOT / "data/design/chapter2_one_paper_route_20261010.json"
@@ -91,6 +95,49 @@ def test_reject_false_independent_loss_denominator() -> None:
         _check_counts(access, altered)
 
 
+def test_source_selected_loss_probabilities_follow_actual_parental_lottery() -> None:
+    """Loss-selected conditional probabilities: NOT all-trajectory failure rates."""
+    source = _load(LOSS)
+    raw = LOSS_CASES.read_bytes()
+    assert hashlib.sha256(raw).hexdigest() == source["cases_sha256"]
+    records = list(csv.DictReader(raw.decode("utf-8").splitlines()))
+    assert len(records) == source["cases"] == 2304
+    eligible = [r for r in records if r["transition_status"] == "eligible_loss"]
+    assert len(eligible) == source["eligible_loss"] == 1238
+    groups = {
+        k: [r for r in eligible if r["loss_direction"] == k]
+        for k in ("favouring_needed", "opposing_needed")
+    }
+    assert {k: len(v) for k, v in groups.items()} == {
+        "favouring_needed": 315, "opposing_needed": 923
+    }
+    for r in eligible:
+        n = int(r["retained_resident_count"])
+        assert n == 48
+        q0 = float(r["q0"])
+        probability = float(r["conditional_loss_probability"])
+        assert math.isclose(probability, q0**n, rel_tol=0, abs_tol=1e-13)
+        frequency = float(r["expected_frequency"])
+        current = float(r["current_frequency"])
+        weighting = float(r["parent_weighting_response"])
+        assert math.isclose(frequency-current, weighting, rel_tol=0, abs_tol=1e-13)
+        assert math.isclose(
+            float(r["sampling_transmission_residual"]), -frequency, rel_tol=0, abs_tol=1e-13
+        )
+        assert weighting > 0 if r["loss_direction"] == "favouring_needed" else weighting < 0
+    fav, opp = groups["favouring_needed"], groups["opposing_needed"]
+    assert statistics.median(int(r["needed_copies_before"]) for r in fav) == 2
+    assert statistics.median(float(r["expected_frequency"]) for r in fav) == pytest.approx(
+        0.021133482709469034, rel=0, abs=1e-13
+    )
+    assert statistics.median(float(r["conditional_loss_probability"]) for r in fav) == pytest.approx(
+        0.3260053119547402, rel=0, abs=1e-13
+    )
+    assert statistics.median(float(r["conditional_loss_probability"]) for r in opp) == pytest.approx(
+        0.38693881062178476, rel=0, abs=1e-13
+    )
+
+
 def test_original_prospective_bridge_remains_a_distinct_cohort() -> None:
     bridge = _load(BRIDGE)
     assert bridge["status"] == "frozen_complete_prospective_model3_ch2_bridge"
@@ -115,7 +162,7 @@ def test_manuscript_si_and_route_preserve_denominators_and_limitations() -> None
     abstract = paper.split("## Abstract", 1)[1].split("## Keywords", 1)[0]
     q3 = paper.split("## Q3 —", 1)[1].split("## Q4 —", 1)[0]
     s14 = si.split("## S14.", 1)[1].split("## S15.", 1)[0]
-    assert len(main.split()) == 4817
+    assert len(main.split()) == 4869
     assert route["journal_fit"]["current_main_text_words"] == len(main.split())
     assert route["journal_fit"]["current_integrated_main_words"] == len(main.split())
     assert len(main.split()) < route["journal_fit"]["ecology_letters_letter_main_max"] == 5000
@@ -134,10 +181,14 @@ def test_manuscript_si_and_route_preserve_denominators_and_limitations() -> None
     assert "not one experimentally established Q1-to-Q4 mediation chain" in paper
     assert "not a natural mediation analysis" in paper
     assert "conditional expected frequency e" in q3
+    assert "median of **two necessary low-I allele copies**" in q3
+    assert "median **0.326 probability" in q3
     assert "strictly negative realized sampling/transmission residual (−e)" in q3
     assert "no-I-mutation and no-immigration law" in q3
     assert "The mechanism: from reproductive returns to irreversible loss of a response option" in s14
     assert "e-p>0" in s14
+    assert "0.3260053" in s14 and "0.3869388" in s14
+    assert "outcome-selected set of loss transitions" in s14
     assert "conditional parental weighting and realized inheritance point in opposite directions" in s14
     assert "not a continuous causal mediation estimated in a single synthetic cohort" in s14
     assert "genetically explicit plant–pollinator model" in abstract
