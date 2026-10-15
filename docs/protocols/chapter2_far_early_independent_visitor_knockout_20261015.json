@@ -59,7 +59,9 @@
     "estimand": "For each mating rule, [I200_evolvable-I200_fixed] with native far visitors, minus the same with all visitors absent from t0.",
     "interpretation": "If consistently nonzero, visit availability changes the model-specific A-evolvability effect on I. This is a causal intervention on synthetic visitor histories only, not an identified natural-island mediation or unique drift mechanism.",
     "reporting": "Report exact interaction per mating rule and fourfold family of two-sided 98.75% history-cluster bootstrap percentile intervals (4096 resamples fixed seed 20261015), plus all signs and full null findings.",
-    "control": "Original-shared t0 founder genotypes equal in all four treatments; A-fixed retains autonomous selfing at A=0.5; no pollen local gradient remains -2*c_I*I, not zero."
+    "control": "Original-shared t0 founder genotypes equal in all four treatments; A-fixed retains autonomous selfing at A=0.5; no pollen local gradient remains -2*c_I*I, not zero.",
+    "holdout_reporting": "Report 63 source-new visitor seeds 28110602..28110664 separately as primary full-campaign descriptive readout because seed28110601 had an outcome-visible technical pilot. Also report original registered all64, retaining it exactly.",
+    "original_preregistered_64_unit": "Keep unchanged original 64 visitor-history contrast and fourfold Bonferroni 98.75% CI. The 63-history view is a transparent postpilot restriction, not a second preregistered hypothesis test."
   },
   "secondary": {
     "outcomes": [
@@ -86,5 +88,14 @@
     "Any phenotype out of [0,1], duplicate parent IDs, or non-telescoping per-year I response",
     "Refuse to publish a single sign as new law if Bonferroni fourfold interaction 98.75% cluster intervals do not exclude zero."
   ],
-  "scientific_priority": "Far-side asymmetry is a secondary unresolved Model3 mechanism; Q2 and Q3 remain the proposed Letter core, Q1 is existing-theory context, Q4 separately scoped."
+  "scientific_priority": "Far-side asymmetry is a secondary unresolved Model3 mechanism; Q2 and Q3 remain the proposed Letter core, Q1 is existing-theory context, Q4 separately scoped.",
+  "technical_pilot_after_original_design_freeze": {
+    "visitor_seed": 28110601,
+    "n_native_paths": 32,
+    "n_native_updates": 6400,
+    "status": "LOCAL_TECHNICAL_SMOKE_COMPLETED_NOT_INDEPENDENT_CONFIRMATION",
+    "outcome_exposed_before_full_run": true,
+    "source_archive_sha256": "1fef68e29a5686c13398be36f9a96c8a6fdf337218e29258e8e06c78a48aebfa",
+    "interpretation": "Exclude this already inspected seed from the primary descriptive confirmation view of the remaining 63 seeds, and also present the original full 64 design without duplicate counting. This prospective-to-full-histories amendment does not change effects, source kernels, settings, seed selection, or original outcomes."
+  }
 }
