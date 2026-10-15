@@ -65,10 +65,5 @@ def test_preservation_safety_and_source_identity_are_not_overwritten():
         validate_record(d)
     d = copy.deepcopy(proposal())
     d["six_core_packages"][2]["sha256"] = "0" * 64
-    with pytest.raises(ValueError):
-        # Internal schema is well-formed but *source* check must reject substitution.
-        # Keep source reading separate from the pure release authorization guard.
-        from scripts.verify_chapter2_zenodo_unpublished_preflight_20261015 import SOURCE_MD
-        source = (ROOT / SOURCE_MD).read_text(encoding="utf-8")
-        package = d["six_core_packages"][2]
-        assert package["sha256"] in source, "source digest mismatch"
+    with pytest.raises(ValueError, match="tar identity"):
+        validate_repo(record=d)
