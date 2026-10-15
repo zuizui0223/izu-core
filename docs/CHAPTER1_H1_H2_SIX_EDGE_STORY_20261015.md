@@ -32,6 +32,27 @@ The result is the six undirected edges of a four-variable graph, **not** a teste
 
 Source of truth: [Chapter 1 current frozen contract](https://github.com/zuizui0223/island/blob/main/config/chapter1_submission_current.json), [the accepted source manuscript](https://github.com/zuizui0223/island/blob/main/submission/chapter1_current/MANUSCRIPT.md), [evidence map](https://github.com/zuizui0223/island/blob/main/submission/chapter1_current/H1_H4_EVIDENCE_MAP.md). The companion editorial implementation is [island PR #319](https://github.com/zuizui0223/island/pull/319).
 
+## Where Q4 belongs: a distinct population-level outcome, not a missing Ch1 edge
+
+The six Ch1 relationships exhaust pairwise **associations among D (distance), R (reproductive traits), F (floral traits), and P (contemporaneous pollen limitation)**. They do **not** address **S (future population occupancy or persistence)**. Q4 keeps S visible as the distinct demographic endpoint after conditional expression/genetic-history preparation.
+
+**Corrected three-level story:**
+
+1. **Ch1 H1.1–H1.3:** how observed island isolation relates to R, F and P (different source universes/denominators).
+2. **Ch1 H2.1–H2.3:** R–F, R–P and F–P associations; no measured historical arrow among the three, and H2.2/H2.3 are post hoc GloPL associations.
+3. **Ch2 Q1–Q4:** how synthetic visitor limitation changes reproductive returns (**Q1**), what order of responses is realized (**Q2**), whether finite inheritance retains the alleles necessary for a specified response (**Q3**), and whether *different inherited/prepared reproductive states* change **future population occupancy S under imposed conditions (**Q4**).
+
+Q4 conceptually addresses how **persistence filtering** could affect the contemporary species/trait composition seen in Ch1 H1.1/H1.2 even when phenotypic evolution and colonization are different processes. **This is a hypothesis about unobserved assembly history, not a measured link.** It does **not** become Ch1 H2.4: Ch1 lacks matched longitudinal occupancy S and therefore cannot fit an S edge to R/F/P or estimate the causal survival contribution to island flora.
+
+The original Chapter 2 Q4 is narrower than generic "breeding system improves persistence." An independently prespecified, **assigned phenotype-expression-order × viable-selfed-seed treatment** experiment showed a small K8-versus-K48 contrast of treatment sensitivities with the pollen background B fixed at 48: **+0.0077457 occupancy-probability units**, 95% paired visitor-history bootstrap **[+0.0024972,+0.0130155]**. Its original near/far assigned-order effect was practically equivalent within its specified margin; separate resource-window and late-vs-early timing primary decisions did not pass. Other preparation/initial-mean results have distinct source cohorts and unresolved mediation. **Do not infer the future benefit of spontaneously evolving A first, or the origin of geographic SC/flower trait distribution from this result.**
+
+**Difference from Ch1 H2.2/H2.3:** those source coefficients predict **current pollen-addition log response ratio P**, not probability S of occupied population after 80 model updates. A reduction in current pollen limitation can coexist with no detectable occupancy gain under ceiling/floor or demographic regulation; the studies do not estimate an empirical P→S effect. The model's demographic capacity K is not geographic island area.
+
+**Reader-facing Japanese close:**
+> Q1–Q3の結果から、選択される形質と実際に遺伝する形質は一致しない場合がある。Q4はさらに、進化・準備された繁殖状態が集団の存続に及ぼす影響も人口学的条件に依存することを、別の操作実験として検証する。ただし、Ch1で観察した植物相がQ4による存続選別で形成されたという因果関係は未特定である。
+
+See the parallel [Ch1 six-question guide and explicit Q4 placement](https://github.com/zuizui0223/island/blob/docs/hypothesis-story-order-20261015/submission/chapter1_current/SIX_QUESTIONS_READER_GUIDE_20261015.md).
+
 ## Causal interpretation and hypotheses, not tested causal arrows
 
 **Observed:** D↔R, D↔F, D↔P within the relevant subsets. R↔P and F↔P in separately exact-species matched published pollen-addition data (post-hoc, with different sample sizes). R↔F terms are estimable within the existing conditional island-aggregated H2 model but are not a predeclared new primary six-edge test.
