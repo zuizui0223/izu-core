@@ -139,4 +139,4 @@ def test_manuscript_si_and_route_preserve_denominators_and_limitations() -> None
     assert "e-p>0" in s14
     assert "conditional parental weighting and realized inheritance point in opposite directions" in s14
     assert "not a continuous causal mediation estimated in a single synthetic cohort" in s14
-    assert "Model 3" in abstract
+    assert "genetically explicit plant–pollinator model" in abstract
