@@ -289,16 +289,30 @@ def main():
                         help="original 0,1,2,3 GitHub Actions ZIPs in order")
     parser.add_argument("--out", type=Path)
     parser.add_argument("--all-histories", action="store_true")
+    parser.add_argument("--shard-index", type=int)
+    parser.add_argument("--shard-count", type=int, default=16)
     parser.add_argument("--dry-run", action="store_true")
     args = parser.parse_args()
     p, design, source = load_protocol()
-    n_histories = 64 if args.all_histories else 1
+    if args.shard_index is not None:
+        if (not args.all_histories or args.shard_count < 1
+                or 64 % args.shard_count
+                or not 0 <= args.shard_index < args.shard_count):
+            parser.error("--shard-index requires --all-histories and a divisor of 64")
+    history_seeds = list(range(p["history_seed_first"],
+                                p["history_seed_last"] + 1)) if args.all_histories \
+                    else [p["history_seed_first"]]
+    if args.shard_index is not None:
+        history_seeds = [seed for i, seed in enumerate(history_seeds)
+                         if i % args.shard_count == args.shard_index]
+    n_histories = len(history_seeds)
     if args.dry_run:
         print(json.dumps({
             "status": "design_only_zero_new_updates",
             "original_shards": p["original_artifact_shards_0_1_2_3"],
             "source_repeat": 26111601,
             "n_histories": n_histories,
+            "history_seeds": history_seeds,
             "n_new_futures": 4 * n_histories * 4,
             "pilot_is_not_scientific_confirmation": not args.all_histories,
         }, indent=2))
@@ -311,8 +325,7 @@ def main():
     rows = []
     contrasts = []
     for setting in p["setting_order"]:
-        for seed in range(p["history_seed_first"],
-                          p["history_seed_first"] + n_histories):
+        for seed in history_seeds:
             four = []
             for origin in ORIGINS:
                 for future in FUTURES:
@@ -332,9 +345,14 @@ def main():
                                **four_cell_contrast(four)})
         print("finished conditional futures for", setting, flush=True)
     manifest = {
-        "status": "FULL_EXPLORATORY_CONDITIONAL_FUTURES"
-        if args.all_histories else "ONE_HISTORY_TECHNICAL_PILOT",
+        "status": ("EXPLORATORY_SHARD_BEFORE_AGGREGATION"
+                   if args.shard_index is not None
+                   else "FULL_EXPLORATORY_CONDITIONAL_FUTURES"
+                   if args.all_histories else "ONE_HISTORY_TECHNICAL_PILOT"),
         "n_original_history_clusters": n_histories,
+        "history_seeds": history_seeds,
+        "shard_index": args.shard_index,
+        "shard_count": args.shard_count if args.shard_index is not None else None,
         "source_original_repeat": 26111601,
         "original_four_shard_sha_checked": True,
         "source_genome_ids_ages_are_reconstructed": True,
