@@ -29,6 +29,12 @@ The following SHA checks were made with `fetch_file` on the **named heads**, not
 
 Identical documentation or test blobs mean only those files match. They do **not** prove that corresponding source archives, historical runtimes, reviewed effect denominators, CI states or biological claims are identical.
 
+## Branch inventory (counted, not pruned)
+
+The GitHub branch listing contained **492 branches** across five complete pages of 100/100/100/100/92 at this audit, including this housekeeping branch. Prefix counts: `codex/` **160**, `agent/` **140**, `chapter2/` **61**, `analysis/` **53**, and **78** across other prefixes/unprefixed branches. The `main` branch was reported as unprotected by the same listing. Branch names and shared head hashes are **not** tests of scientific redundancy.
+
+**No branch deletion or force update was performed.** Before reducing the branch count, protect `main`, all open PR heads, the #536 target/source branch, and any historical execution / frozen release / original-data recovery commit reachable only through a branch. For remaining candidates: inspect closed/merged PRs, unique commits, source/receipt SHA references and release/archive reachability; retain anything with unrecovered provenance. Only delete a branch after a recorded, independently verified preservation disposition.
+
 ## Safe integration sequence
 
 1. **Freeze a refreshed source inventory:** list each PR's exact head/base, full changed-file list, upstream results/receipts, novel code, independent validation and final-head CI. Preserve the original archive/release identities and all registered negative verdicts.
