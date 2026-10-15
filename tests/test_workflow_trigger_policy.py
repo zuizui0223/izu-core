@@ -104,6 +104,16 @@ def test_pull_request_signal_is_limited_to_current_ci_surfaces() -> None:
                 "    branches: [research/ch2-far-early-independent-visitor-knockout-20261015]",
                 "    paths: [docs/protocols/chapter2_far_early_readout_recovery_activation_20261015.json]",
             ]
+        elif path.name == "chapter2-q3-originalmutation-774-readback-20261016.yml":
+            # One immutable 390 MB release readback on its dedicated source
+            # branch, activated solely by the exact archived-source protocol.
+            # The workflow permits NO new biological simulation or upload.
+            assert [line for line in _trigger_block(path) if line.strip()] == [
+                "on:",
+                "  push:",
+                "    branches: [audit/ch2-q3-originalmutation-774-source-readback-20261016]",
+                "    paths: [docs/protocols/chapter2_q3_originalmutation_774_archive_readback_20261016.json]",
+            ]
         else:
             assert events == {"workflow_dispatch"}, (path.name, events)
 
