@@ -75,8 +75,8 @@ def validate_record(d: dict) -> None:
         raise ValueError("known incomplete source/review gate suppressed")
 
 
-def validate_repo(root: Path = ROOT) -> dict:
-    d = read(root, RECORD)
+def validate_repo(root: Path = ROOT, record: dict | None = None) -> dict:
+    d = read(root, RECORD) if record is None else record
     validate_record(d)
     hand = read(root, HANDOFF)
     if (hand["original_actions_zip_total"] != 521 or
