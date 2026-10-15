@@ -1,9 +1,6 @@
 name: Ch2 original far t0-200 exact genetic and parentage audit
 
 on:
-  push:
-    branches: [research/ch2-lepers-fulltext-t200-factorial-20261015]
-    paths: [.github/workflows/chapter2-far-original-0-200-20261015.yml]
   workflow_dispatch:
 
 permissions:
