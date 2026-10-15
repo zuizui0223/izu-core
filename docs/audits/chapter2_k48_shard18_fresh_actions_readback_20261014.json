@@ -1,0 +1,47 @@
+{
+  "schema": "izu_core_chapter2_k48_shard18_fresh_actions_readback_v1",
+  "audit_date_utc": "2026-10-14",
+  "source": "original_github_actions_artifact_read_only",
+  "verified_original": {
+    "file_name": "chapter2-k48-future-shard-18.zip",
+    "original_run_id": 37896872795,
+    "artifact_id": 11600619779,
+    "expected_bytes": 118143,
+    "observed_bytes": 118143,
+    "expected_sha256": "1b4c1450c387e24a844a97b25bcf01df20001ffe3afad64e2044e5d28cad3ff4",
+    "observed_sha256": "1b4c1450c387e24a844a97b25bcf01df20001ffe3afad64e2044e5d28cad3ff4",
+    "zip_member_count": 65,
+    "unique_zip_member_count": 65,
+    "zip_crc_errors": 0,
+    "case_json_sha256_sidecars_checked": 32,
+    "case_json_sha256_mismatches": 0,
+    "zip_uncompressed_payload_bytes": 977244,
+    "internal_shard_manifest": "k48_future_shard_18.json",
+    "history": 41110919,
+    "shard_index": 18,
+    "source_cases_declared": 32,
+    "future_conditions_declared": 1792,
+    "protocol_sha256": "64188a5c13a8681eb96c2237ab1c43c2f7b7f88910c230bcdb47bc81d3826672",
+    "manifest_status": "K_FIXEDB48_COMPLETE_32_SOURCES_1792_FUTURES_UNADJUDICATED"
+  },
+  "verification": {
+    "script": "scripts/verify_chapter2_k48_shard18_source_20261014.py",
+    "fixture_tests": "tests/test_verify_chapter2_k48_shard18_source_20261014.py",
+    "local_fixture_tests_passed": 4,
+    "independent_of_original_statistical_aggregator": true,
+    "biological_replay_performed": false,
+    "source_byte_readback_performed": true
+  },
+  "archive_handoff_constraints": {
+    "private_drive_backup_coverage_remains": "520/521",
+    "private_external_copy_created": false,
+    "provider_safety_block_bypassed": false,
+    "do_not_bypass_provider_safety_block": true,
+    "public_scientific_repository_deposit_performed": false,
+    "doi_assigned": false,
+    "current_manuscript_results_changed": false,
+    "archive_and_receipt_not_new_biological_replication": true,
+    "reference_handoff": "data/submission/chapter2_private_external_backup_deposit_handoff_20261013.json",
+    "open_issue": "https://github.com/zuizui0223/izu-core/issues/436"
+  }
+}

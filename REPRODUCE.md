@@ -16,7 +16,7 @@ python -m scripts.build_chapter2_unified_el_submission_bundle
 pytest -q tests/test_chapter2_unified_one_paper_20261010.py tests/test_chapter2_unified_el_review_bundle_20261010.py tests/test_chapter2_sequence_tempo_result_receipt_20261011.py
 ```
 
-`outputs/chapter2_unified_el_delivery/EL_ONE_PAPER_REVIEW.zip` contains the current anonymous manuscript and SI, four main figures, genetic-realization S1, tempo S2, complete tempo tables, six evidence files and a SHA-256 member manifest (16 members total). The builder parses each PDF/SVG/JSON, authenticates the tempo inputs against their admission receipt and reads back every ZIP member. Given identical input bytes, ZIP output is deterministic. Figure regeneration reuses stored results; it launches no biological campaign. Visual inspection of the rendered figures remains part of release review.
+`outputs/chapter2_unified_el_delivery/EL_ONE_PAPER_REVIEW.zip` contains the anonymous manuscript and Supporting Information, four main and three supplementary figures, and separately source-pinned evidence (including the observational S25 material). The merged 2026-10-14 PR #491 reviewer build contained **143 ZIP members / 142 manifest-listed payloads**; these counts are historical build facts, not fixed requirements for future versions. Use each generated `MANIFEST.json` and internal receipt to check current member hashes and counts. The builder checks PDF/SVG/JSON integrity, authenticates input receipts and reads back ZIP members. Given identical input bytes, ZIP output is deterministic. Figure regeneration reuses stored results; it launches no biological campaign. Visual inspection of the rendered figures remains part of release review.
 
 The exact official tempo gzip and frozen design are included without changing their bytes. Only the table's identifying repository link is replaced in the anonymous copy; all numerical rows are retained. A derived anonymous audit summary retains all 128 independently checked setting/outcome comparisons and the exclusion of all 156 secondary fields per setting. The original audit, admission record and original tables remain unchanged in the repository. `EL_ONE_PAPER_REVIEW.receipt.json` is a **separate internal provenance record**, with build commit/tree, source-to-derived hashes and any tracked worktree changes; it is not inside the anonymous reviewer ZIP. Its build identity must not be confused with the tempo execution-source identity.
 
@@ -41,6 +41,21 @@ The output must be separate from the original archive inputs and tracked source 
 The existing archive workflow now keeps GitHub authorization on the initial API request and pins supporting materials to the historical packaging checkout `94c051850a43b89047e78e653edae25b043624ab`. That checkout preserves the historical manuscript association; it does not replace the current unified paper. Future builds may have different outer ZIP timestamps/checksums, so retain each actual bundle receipt and verify every original inner ZIP against the frozen source manifest.
 
 The checker launches no biological simulation, selection replay, endpoint calculation or bootstrap. These archives store a 1,001-row trace and genomes at t0/t200/t400/t1000, not annual diploid genomes. They do not close the [original discovery-cohort replay gap](docs/CHAPTER2_SOURCE_REPLAY_COHORT_IDENTITY_20261011.md), or replace the separate demographic and tempo archive requirements.
+
+
+## Fixed-B48 source-only integrity check (2026-10-14)
+
+The original `chapter2-k48-future-shard-18.zip` remained accessible in GitHub Actions at artifact ID **11600619779** (workflow run **37896872795**). For an *authorized, locally obtained read-only source copy*, independently check the exact artifact SHA-256, ZIP CRC and 32 JSON/sidecar pairs:
+
+```bash
+python -m scripts.verify_chapter2_k48_shard18_source_20261014 \
+  /path/to/chapter2-k48-future-shard-18.zip \
+  --receipt outputs/source_verification/k48_shard18_source_readback.json
+```
+
+The source-only corruption and receipt fixtures live in `tests/test_verify_chapter2_k48_shard18_source_20261014.py`; they are exercised by the repository-wide `pytest -q` command below. They are not required for the fast manuscript-review scientific gate, which covers the paper's original scientific tests.
+
+The [2026-10-14 source readback](docs/audits/chapter2_k48_shard18_fresh_actions_readback_20261014.json) independently matched the complete original 118,143-byte ZIP and all 32 JSON SHA-256 sidecars. **This is not a new external private backup or an authorized DOI deposit:** the external service's prior safety check was not bypassed, and the fixed-B48 private external backup remains **130/131** (all four cohorts **520/521**). See [the deposit handoff](docs/CHAPTER2_PRIVATE_EXTERNAL_BACKUP_DEPOSIT_HANDOFF_20261013.md) and [open Issue #436](https://github.com/zuizui0223/izu-core/issues/436). This check does not recompute 1,792 biological future conditions or upgrade the study's inference.
 
 ## Historical isolation bridge: independent unit and denominator
 
