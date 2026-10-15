@@ -1,0 +1,239 @@
+{
+  "schema": "chapter2_far_asymmetry_new_source_archives_v1",
+  "date": "2026-10-15",
+  "status": "SOURCE_BYTES_CHECKED_IN_ACTIONS_NOT_EXTERNAL_ARCHIVED",
+  "source_original_evolution_run_id": 37458098483,
+  "source_original_evolution_archive_ids": [
+    11411031490,
+    11410452132,
+    11411051762,
+    11411155493
+  ],
+  "new_workflows": [
+    {
+      "name": "conditional_t200_1000",
+      "run_id": 38710296662,
+      "producer_sha": "39300e79649b4fae212a91c87ed45b273b185e69",
+      "source_original_cases": 1024,
+      "source_replayed_updates": 819200,
+      "artifacts": [
+        {
+          "name": "far-t200-full-64history-readout",
+          "artifact_id": 11960906229,
+          "zip_bytes": 5124,
+          "sha256_of_artifact_zip": "sha256:3dafd23b00e04545341211ffe1e1a242ca1cf345df1b5f3a7b492952dcd40c02",
+          "expires_at": "2027-01-13T09:04:52Z",
+          "expired": false,
+          "html_workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/38710296662/artifacts/11960906229"
+        },
+        {
+          "name": "far-t200-full-shard-0",
+          "artifact_id": 11959919162,
+          "zip_bytes": 16225646,
+          "sha256_of_artifact_zip": "sha256:0136b16cb59ca03ee66ca984832cfe9243f6e2b826aa5a167b352e0c2610a566",
+          "expires_at": "2027-01-13T09:04:52Z",
+          "expired": false,
+          "html_workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/38710296662/artifacts/11959919162"
+        },
+        {
+          "name": "far-t200-full-shard-1",
+          "artifact_id": 11960238671,
+          "zip_bytes": 16046911,
+          "sha256_of_artifact_zip": "sha256:f2c89e44d4cf0223d16152075697bef694ee1b612696e7a82384f0e488f754f4",
+          "expires_at": "2027-01-13T09:04:52Z",
+          "expired": false,
+          "html_workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/38710296662/artifacts/11960238671"
+        },
+        {
+          "name": "far-t200-full-shard-10",
+          "artifact_id": 11960302594,
+          "zip_bytes": 15972904,
+          "sha256_of_artifact_zip": "sha256:e9660c8200bd9f6b842641e6a191a514e8af58fa2fa3c7eeb1076b2f5a27b421",
+          "expires_at": "2027-01-13T09:04:52Z",
+          "expired": false,
+          "html_workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/38710296662/artifacts/11960302594"
+        },
+        {
+          "name": "far-t200-full-shard-11",
+          "artifact_id": 11959834841,
+          "zip_bytes": 16115266,
+          "sha256_of_artifact_zip": "sha256:f9ead4fe0588afa5a1518ab00708bd6617065d2f5b9122dc5f429bbd7ce37719",
+          "expires_at": "2027-01-13T09:04:52Z",
+          "expired": false,
+          "html_workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/38710296662/artifacts/11959834841"
+        },
+        {
+          "name": "far-t200-full-shard-12",
+          "artifact_id": 11961355053,
+          "zip_bytes": 16058227,
+          "sha256_of_artifact_zip": "sha256:9a46dc45bb1233c29984e1e480c7f14746220e6d36b75e0979d55fe7390764e5",
+          "expires_at": "2027-01-13T09:04:52Z",
+          "expired": false,
+          "html_workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/38710296662/artifacts/11961355053"
+        },
+        {
+          "name": "far-t200-full-shard-13",
+          "artifact_id": 11960831068,
+          "zip_bytes": 15881533,
+          "sha256_of_artifact_zip": "sha256:45182242946bc22841c8c3150d4146b775675c64945f916a0a9f054ef054d231",
+          "expires_at": "2027-01-13T09:04:52Z",
+          "expired": false,
+          "html_workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/38710296662/artifacts/11960831068"
+        },
+        {
+          "name": "far-t200-full-shard-14",
+          "artifact_id": 11960029944,
+          "zip_bytes": 16045138,
+          "sha256_of_artifact_zip": "sha256:b083d4d2258bd365b5e908080b00a1bc8a1a3a6c766d7046dc20d994232daaab",
+          "expires_at": "2027-01-13T09:04:52Z",
+          "expired": false,
+          "html_workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/38710296662/artifacts/11960029944"
+        },
+        {
+          "name": "far-t200-full-shard-15",
+          "artifact_id": 11960731420,
+          "zip_bytes": 16077125,
+          "sha256_of_artifact_zip": "sha256:9a736ac0f15b06c0d70ad7f48a88069f6d11771701ca47a70d4a37a26eb608b8",
+          "expires_at": "2027-01-13T09:04:52Z",
+          "expired": false,
+          "html_workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/38710296662/artifacts/11960731420"
+        },
+        {
+          "name": "far-t200-full-shard-2",
+          "artifact_id": 11961005099,
+          "zip_bytes": 16143665,
+          "sha256_of_artifact_zip": "sha256:6b0cf211306cf15d78ce187d44f4adb61c7d6b790fee02fec825f90b173a4855",
+          "expires_at": "2027-01-13T09:04:52Z",
+          "expired": false,
+          "html_workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/38710296662/artifacts/11961005099"
+        },
+        {
+          "name": "far-t200-full-shard-3",
+          "artifact_id": 11960073790,
+          "zip_bytes": 15956549,
+          "sha256_of_artifact_zip": "sha256:fb8b5c8e860ea4602eda07c03ade4ba8e2204022907398c3f7c82992debbcb4d",
+          "expires_at": "2027-01-13T09:04:52Z",
+          "expired": false,
+          "html_workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/38710296662/artifacts/11960073790"
+        },
+        {
+          "name": "far-t200-full-shard-4",
+          "artifact_id": 11960855506,
+          "zip_bytes": 16028065,
+          "sha256_of_artifact_zip": "sha256:dd19d7bcf7f94b9a96dc2931f4ecca6779d619df9f9c93d386ccac5714246803",
+          "expires_at": "2027-01-13T09:04:52Z",
+          "expired": false,
+          "html_workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/38710296662/artifacts/11960855506"
+        },
+        {
+          "name": "far-t200-full-shard-5",
+          "artifact_id": 11960970274,
+          "zip_bytes": 16245864,
+          "sha256_of_artifact_zip": "sha256:09602cda57ecd121d4d41b802fb6d619224d25322e2755aec537df90142dfce0",
+          "expires_at": "2027-01-13T09:04:52Z",
+          "expired": false,
+          "html_workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/38710296662/artifacts/11960970274"
+        },
+        {
+          "name": "far-t200-full-shard-6",
+          "artifact_id": 11959709817,
+          "zip_bytes": 16031745,
+          "sha256_of_artifact_zip": "sha256:12b753016a360209aa0018ce3b2254b3a4067553a1c18d98e31c62beeef07415",
+          "expires_at": "2027-01-13T09:04:52Z",
+          "expired": false,
+          "html_workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/38710296662/artifacts/11959709817"
+        },
+        {
+          "name": "far-t200-full-shard-7",
+          "artifact_id": 11960631062,
+          "zip_bytes": 15879016,
+          "sha256_of_artifact_zip": "sha256:24457546072db9c8dc34c0c91e811f81f749c043eb54bec792365cf68af03228",
+          "expires_at": "2027-01-13T09:04:52Z",
+          "expired": false,
+          "html_workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/38710296662/artifacts/11960631062"
+        },
+        {
+          "name": "far-t200-full-shard-8",
+          "artifact_id": 11960975749,
+          "zip_bytes": 16007518,
+          "sha256_of_artifact_zip": "sha256:9ec5caadb43fa8d4416d6730c7aff20db79a4f58d22ce94f975f1ae7d5cb3e5d",
+          "expires_at": "2027-01-13T09:04:52Z",
+          "expired": false,
+          "html_workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/38710296662/artifacts/11960975749"
+        },
+        {
+          "name": "far-t200-full-shard-9",
+          "artifact_id": 11961095260,
+          "zip_bytes": 16106099,
+          "sha256_of_artifact_zip": "sha256:cbeda726dbe38fc104541fdeda50b2e64c34db08b5452693fe0fe3de835dd303",
+          "expires_at": "2027-01-13T09:04:52Z",
+          "expired": false,
+          "html_workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/38710296662/artifacts/11961095260"
+        }
+      ],
+      "artifact_count": 17,
+      "all_zip_bytes": 256826395
+    },
+    {
+      "name": "exact_original_t0_200",
+      "run_id": 38712511100,
+      "producer_sha": "7ece820357e4f3e7633944e58b2e5ccf96cd5d86",
+      "source_original_cases": 512,
+      "source_replayed_updates": 102400,
+      "artifacts": [
+        {
+          "name": "far-original-0-200-64history-accounting",
+          "artifact_id": 11961502360,
+          "zip_bytes": 2949,
+          "sha256_of_artifact_zip": "sha256:ab2bffb34ae92c1f47606f0c642d2b0f4eeb30512425064b508d265873679fa9",
+          "expires_at": "2027-01-13T09:22:56Z",
+          "expired": false,
+          "html_workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/38712511100/artifacts/11961502360"
+        },
+        {
+          "name": "far-original-0-200-genomes-shard-0",
+          "artifact_id": 11960493773,
+          "zip_bytes": 11436230,
+          "sha256_of_artifact_zip": "sha256:cc82a0c7fd6fc37fa4dac9f8eee1ad54f2e538bc7877a11c9cd2a9263d610fda",
+          "expires_at": "2027-01-13T09:22:56Z",
+          "expired": false,
+          "html_workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/38712511100/artifacts/11960493773"
+        },
+        {
+          "name": "far-original-0-200-genomes-shard-1",
+          "artifact_id": 11961232718,
+          "zip_bytes": 11615723,
+          "sha256_of_artifact_zip": "sha256:b011ed762e38e4bb8f56f7e52aa8d4b85ee50f0e4aded384d5e0f5cbc25d3b40",
+          "expires_at": "2027-01-13T09:22:56Z",
+          "expired": false,
+          "html_workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/38712511100/artifacts/11961232718"
+        },
+        {
+          "name": "far-original-0-200-genomes-shard-2",
+          "artifact_id": 11960428880,
+          "zip_bytes": 11261160,
+          "sha256_of_artifact_zip": "sha256:2979de7c4bef1e4d6622071726a4f0b66388efd87be231b9dca9871843c7a838",
+          "expires_at": "2027-01-13T09:22:56Z",
+          "expired": false,
+          "html_workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/38712511100/artifacts/11960428880"
+        },
+        {
+          "name": "far-original-0-200-genomes-shard-3",
+          "artifact_id": 11961412529,
+          "zip_bytes": 11423038,
+          "sha256_of_artifact_zip": "sha256:0403e3bf5461cd5332d68c333edb34e1d8ea4f4a173a28eabe6f2315b41bbd83",
+          "expires_at": "2027-01-13T09:22:56Z",
+          "expired": false,
+          "html_workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/38712511100/artifacts/11961412529"
+        }
+      ],
+      "artifact_count": 5,
+      "all_zip_bytes": 45739100
+    }
+  ],
+  "total_artifact_zip_count": 22,
+  "total_zip_bytes": 302565495,
+  "claim": "Existing Actions artifact ZIPs and authenticated nested case receipts; not independent ecological visitor histories, external backups, DOI, Zenodo draft or manuscript-reviewed new science.",
+  "retention_risk": "Both workflows' artifacts expire 2027-01-13 unless preserved elsewhere; this manifest only preserves names/IDs/GitHub-provided SHA and byte sizes, not the raw ZIP bytes.",
+  "access_control": "Do not publish/deposit without author/rights/metadata/visibility approval per existing Zenodo preflight."
+}

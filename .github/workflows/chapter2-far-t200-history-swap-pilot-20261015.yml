@@ -1,0 +1,65 @@
+name: Chapter 2 far t200 history swap technical pilot
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: chapter2-far-t200-pilot-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  source-locked-pilot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install project runtime
+        run: python -m pip install -e '.[dev]'
+      - name: Technical/source-contract tests
+        run: |
+          pytest -q tests/test_chapter2_far_t200_history_swap_20261015.py
+          python -m scripts.chapter2_far_t200_history_swap_20261015 --dry-run
+      - name: Fetch all four authenticated original-archive shards
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p inputs
+          gh api -H 'Accept: application/vnd.github+json' /repos/zuizui0223/izu-core/actions/artifacts/11411031490/zip > inputs/shard0.zip
+          gh api -H 'Accept: application/vnd.github+json' /repos/zuizui0223/izu-core/actions/artifacts/11410452132/zip > inputs/shard1.zip
+          gh api -H 'Accept: application/vnd.github+json' /repos/zuizui0223/izu-core/actions/artifacts/11411051762/zip > inputs/shard2.zip
+          gh api -H 'Accept: application/vnd.github+json' /repos/zuizui0223/izu-core/actions/artifacts/11411155493/zip > inputs/shard3.zip
+      - name: Run ONE original-visitor-history technical 2x2 pilot in four mating settings
+        run: |
+          python -m scripts.chapter2_far_t200_history_swap_20261015 \
+            --shards inputs/shard0.zip inputs/shard1.zip inputs/shard2.zip inputs/shard3.zip \
+            --out outputs/chapter2-far-t200-pilot
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('outputs/chapter2-far-t200-pilot/readout.json')
+          r=json.loads(p.read_text())
+          assert r['status']=='ONE_HISTORY_TECHNICAL_PILOT'
+          assert r['n_original_history_clusters']==1
+          assert r['new_futures']==16
+          assert r['new_future_updates']==12800
+          assert len(r['treatments'])==4
+          for x in r['treatments']:
+              assert x['history']==26110601
+          print('Pilot complete; NO ecological confirmation / no historical mediation.')
+          PY
+      - name: Preserve conditional pilot with all genomic paths and receipts
+        uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-far-t200-conditional-pilot
+          retention-days: 90
+          path: outputs/chapter2-far-t200-pilot
+          if-no-files-found: error

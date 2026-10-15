@@ -1,0 +1,63 @@
+{
+  "schema": "chapter2_source_exact_0_200_price_parentage_v1",
+  "date": "2026-10-15",
+  "status": "POST_OUTCOME_SOURCE_RECONSTRUCTION_NOT_NEW_ECOLOGICAL_CONFIRMATION",
+  "rationale": "The four-setting first-repeat far evolved-fixed I level is already positive at update200 and weakens thereafter. Exact original t0→200 reproduction+RNG is needed to locate historical origin of this signed difference before attributing it to later gradients.",
+  "original_source_campaign": "data/design/chapter2_assurance_generality_20261006.json",
+  "original_workflow_run": 37458098483,
+  "source_archive_contract": "data/design/chapter2_original_evolved_pollen_source_20261010.json",
+  "original_source_shards": [
+    11411031490,
+    11410452132,
+    11411051762,
+    11411155493
+  ],
+  "settings": [
+    "delayed_control",
+    "prior_selfing",
+    "pollen_discount",
+    "assurance_cost"
+  ],
+  "arm": "far",
+  "modes": [
+    "fixed",
+    "evolving"
+  ],
+  "original_demographic_seed": 26111601,
+  "history_seed_first": 26110601,
+  "history_seed_last": 26110664,
+  "source_horizon_begin": 0,
+  "source_horizon_end": 200,
+  "expected_source_case_replays": 512,
+  "expected_original_source_updates": 102400,
+  "per_case_enrollment": "All 64 original far visitor histories and both already-frozen A policies in all four original reproductive settings.",
+  "source_parity": "Exact source t200 diploid state alleles from authentic source .npz and source trace, zero tolerance. No comparable source original ID/birth-year receipt exists.",
+  "annual_exact_arithmetic": "Let p be normalized conditional joint father-mother+self offspring genetic mean shift in I (Price response). For every transition with adult survivors s and resident recruits r, I_next-I_old = (s/Nnext)(I_surv-I_old)+(r/Nnext)*p+(r/Nnext)*(I_recruited-I_old-p). No immigrant seeds allowed. This is mathematical accounting, not causally unique selection/drift mediation.",
+  "per_case_fields": [
+    "all native diploid genomes/IDs/allele_origins/mutation_flags/birthyears at t0..t200",
+    "exact realized postreproduction parentage for t0..199",
+    "I_mean, A_expression, I allelic support, visitor richness, F/P/S",
+    "conditional one-step Price I, realized next I, and exact annual survivor/expected-recruit/realized-recruit decomposition"
+  ],
+  "temporal_probe_years": [
+    0,
+    10,
+    20,
+    50,
+    100,
+    150,
+    200
+  ],
+  "primary_retrospective_question": "At what source years does the mean far E-F I level turn positive, and is the exact early t0→200 difference in realized I numerically carried by Price-weighted parental, survivor-sampling or realized-recruited residual terms? Report all three without causal-share language.",
+  "analysis": "Pair fixed and evolvable histories within original external visitor seed; 64 independent history clusters; 4096 descriptive cluster-bootstrap draws for sums and t200 contrasts; no confirmatory p-values or new ecological-law claim.",
+  "negative_findings_preserved": [
+    "If all terms are heterogeneous or uncertainties overlap zero, mechanism remains unidentified.",
+    "A positive sum of any arithmetic contribution is not a natural mediation effect.",
+    "The positive t200 source E-F does not imply positive year-specific selection at t400.",
+    "No visitor-free state makes the investment-cost gradient zero: beta_I=-2*c_I*I.",
+    "No mutation rescue/new genetic founder/different visitor histories are generated."
+  ],
+  "source_evidence_limit": "Original archived source t200 contains alleles but not IDs, age or parentage; replay uses exact original RNG inputs and source code, and endpoint genotype equality, but original parentage arrays are not independently authenticated.",
+  "workflow_gate": "All four reproduction modes source t200 parity must pass and all 102400 annual accounting identities must hold. Keep raw arrays, case receipts, original source ZIP hashes, and source/producer commit SHA. All 64 histories must be included.",
+  "future_direction": "Combine source 0..200 accounting with prior post-t200 matched future experiment to isolate early divergence versus subsequent persistence; do not mix independent Q3, Q4 cohorts into source causal mediation."
+}
