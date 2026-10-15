@@ -51,7 +51,8 @@ def test_new_finite_study_not_silently_promoted_or_refigured():
     m=PAPER.read_text(encoding="utf-8")
     assert "Q3 figure handoff implemented, rendering review still required" in note
     assert "2,048" in note and "two founder" in note.lower()
-    assert "does *not* prove" in note or "does **not** prove" in note
+    assert "It **does not** prove" in note
+    assert "I increases absolutely" in note and "no-pollen I selection vanishes" in note
     assert "one unsubmitted EL Letter" in note
     assert "2048-path visitor-removal" not in m
 
