@@ -120,6 +120,6 @@ def test_deposit_claim_limit_and_distinct_atom_data_source():
         "NOT a direct source of plotted Figure 3",
         "3/32 and 2/32",
         "not a new biological simulation",
-        "do not",
+        "not freshly re-downloaded",
     ):
         assert phrase.lower() in note.lower(), phrase
