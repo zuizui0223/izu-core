@@ -1,0 +1,33 @@
+{
+  "status": "CHAPTER2_Q3_ORIGINALMUTATION_774_NATIVE_MEMBERS_AND_990_EVENTS_VERIFIED",
+  "original_release_tag": "atom-cell-inputs-20261011",
+  "original_release_asset": "completed_atom_abm_20261011.zip",
+  "original_sha256": "7ae00916ed2cbb38323c3fb9ffc5824de3e8272df1f5a35785842c316191f918",
+  "original_bytes": 389730774,
+  "original_members_verified": 774,
+  "member_sha256_verified": 773,
+  "original_native_abm_genotype_cases": 320,
+  "source_density_257node_contexts": 10,
+  "original_numerical_npz_cases_in_full_archive": 30,
+  "original_event_classifications_recomputed": 990,
+  "original_checkpoints_recomputed": 40,
+  "low_supply_matched_original_mutation_0p05": {
+    "causal_main_s0.125_matched_n48_standing_MI_new_A_r0_evolving": {
+      "density": "assurance_first",
+      "finite_A_first": 3,
+      "finite_A_only": 15,
+      "finite_occupied": 32
+    },
+    "causal_confirmation_s0.125_matched_n48_standing_MI_new_A_r0_evolving": {
+      "density": "assurance_first",
+      "finite_A_first": 2,
+      "finite_A_only": 7,
+      "finite_occupied": 32
+    }
+  },
+  "original_allele_genotypes_recomputed_into_annual_means": true,
+  "no_new_biological_updates": true,
+  "externally_redeposited": false,
+  "doi_published": false,
+  "claim_ceiling": "Original source ZIP / genetic time series authenticated on GitHub; not a prospective new Q3 result, not a natural island dataset, not an external DOI or identified pure drift share."
+}
