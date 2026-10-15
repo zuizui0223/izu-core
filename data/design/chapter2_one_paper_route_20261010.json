@@ -168,11 +168,17 @@
     ],
     "current_main_text_words": 4992,
     "current_abstract_words": 143,
-    "updated_submission_scope": "Main4992/abstract143. ONE EL Letter editorial Q2/Q3 conceptual center; Q1 registered 4/4 primary retained; Q2 51/64 focal, mating-rule dependent; Q3 distinct 3/32,2/32 finite order and 703/2304 genetic-access cases, not causal bridge; Q4 stress +0.108398 separately bounded; figures currently retain original order, data DOI pending.",
+    "updated_submission_scope": "Main4992/abstract143. ONE EL Letter editorial Q2/Q3 conceptual center; Q1 registered 4/4 primary retained; Q2 51/64 focal, mating-rule dependent; Q3 distinct 3/32,2/32 finite order and 703/2304 genetic-access cases, not causal bridge; Q4 stress +0.108398 separately bounded; original source-backed Figure3/S1 PDFs reassigned to prioritize Q3 (rendering review still required), data DOI pending.",
     "historical_precompression_counts": {
       "main_words": 6035,
       "abstract_words": 237,
       "scope": "Superseded October 10 integrated draft; not current manuscript counts."
+    },
+    "figure_role_reconciliation": {
+      "status": "main_Figure3_Q3_source_route_updated_not_yet_independently_render_reviewed",
+      "main_figure3_source": "outputs/figures/model3_genetic_realization_20261005/genetic_realization.pdf",
+      "supplementary_figureS1_source": "outputs/figures/model3_trait_pollen_20261005/trait_pollen_snapshot400.pdf",
+      "scope": "No change in original biology, figure data, or experiment admission; original density/ABM zero-mutation bridge plus separate one-locus diagnostic only; independent low-supply 3/32 and 2/32 cohort not included in Figure3"
     }
   },
   "editorial_primary_claim": "Conceptual focus: Q2 order and Q3 finite genetic realization; Q1 preregistered four-setting assurance-by-visitor contrast stays the strongest formally confirmed evolutionary baseline, and separate Q3 cohorts are not a causal mediation of Q1.",
