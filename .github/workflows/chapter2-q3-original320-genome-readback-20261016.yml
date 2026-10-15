@@ -1,0 +1,130 @@
+name: Q3 original 320 diploid annual genome readback (one-shot)
+
+on:
+  push:
+    branches: [audit/ch2-q3-original320-genome-readback-20261016]
+    paths: [docs/protocols/chapter2_q3_original320_genome_readback_activation_20261016.json]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: q3-original320-full-archive-once-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  q3-raw-readback:
+    if: github.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      GH_TOKEN: ${{ github.token }}
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+      PYTHONUTF8: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install original auditing requirements
+        run: python -m pip install -e '.[dev]'
+      - name: Fast source and event mathematical unit checks (no full archive)
+        run: |
+          pytest -q tests/test_chapter2_q3_original320_annual_genomes_20261016.py
+          pytest -q tests/test_workflow_trigger_policy.py
+      - name: Fail closed unless the exact source-only action is deliberately activated
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path('docs/protocols/chapter2_q3_original320_genome_readback_activation_20261016.json').read_text())
+          assert p['status']=='ACTIVATE_READONLY_ONCE'
+          assert p['original_release_tag']=='atom-cell-inputs-20261011'
+          assert p['original_archive_sha256']=='7ae00916ed2cbb38323c3fb9ffc5824de3e8272df1f5a35785842c316191f918'
+          assert p['original_input_sha256']=='f0fd126f638e1c6bd130e640ce4491b3bb47aac3da1838359a902776c9a4e037'
+          assert p['native_abm_genome_paths']==320
+          assert p['genotype_censuses_total']==64320
+          assert p['native_density_archives']==30
+          assert p['no_new_biological_trajectories'] is True
+          assert p['external_doi_created'] is False
+          assert p['publish_source_files'] is False
+          print('Source-only 320 genotype readback approved; no model execution or raw source publishing.')
+          PY
+      - name: Download two ORIGINAL Release source archives, no substitutions or new simulation
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p inputs
+          gh release download atom-cell-inputs-20261011 \
+            --repo zuizui0223/izu-core \
+            --pattern completed_atom_abm_20261011.zip \
+            --pattern remote_atom_inputs_20261011.zip \
+            --dir inputs
+      - name: Authenticate untouched original complete cohort and separate original inputs
+        run: |
+          python - <<'PY'
+          import hashlib
+          from pathlib import Path
+          expectations={
+             'completed_atom_abm_20261011.zip': (389730774,'7ae00916ed2cbb38323c3fb9ffc5824de3e8272df1f5a35785842c316191f918'),
+             'remote_atom_inputs_20261011.zip': (148159152,'f0fd126f638e1c6bd130e640ce4491b3bb47aac3da1838359a902776c9a4e037'),
+          }
+          for name,(length,expected) in expectations.items():
+             source=Path('inputs')/name
+             assert source.stat().st_size==length
+             sha=hashlib.sha256()
+             with source.open('rb') as f:
+                for chunk in iter(lambda:f.read(8*1024*1024),b''):sha.update(chunk)
+             assert sha.hexdigest()==expected, (name,sha.hexdigest())
+             print('Source SHA256 OK:',name,source.stat().st_size)
+          PY
+      - name: Independently reconstruct 64,320 original ABM censuses from original diploid genomes
+        run: |
+          python -m scripts.audit_chapter2_q3_original320_annual_genomes_20261016 \
+            --archive inputs/completed_atom_abm_20261011.zip \
+            --out outputs/q3_original320/Q3_ORIGINAL_GENOME_READBACK.json
+      - name: Verify exact original source corpus, primary count, scope and provenance
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import hashlib,json,subprocess
+          p=Path('outputs/q3_original320')
+          q=json.loads((p/'Q3_ORIGINAL_GENOME_READBACK.json').read_text())
+          assert q['status']=='Q3_ORIGINAL_320_DIPLOID_ANNUAL_GENOMES_10_DENSITY_CONTEXTS_AUTHENTICATED_20261016'
+          assert q['source_archive_members']==774
+          assert q['source_manifests_sha_checked']==773
+          assert q['native_ABM_original_paths']==320
+          assert q['original_ABM_annual_censuses_derived_from_diploid_alleles']==64320
+          assert q['original_numerical_archives']==30
+          assert q['original_contexts']==10
+          assert q['original_threshold_event_checks']==990
+          assert q['original_ABM_and_density_checkpoint_checks']==40
+          assert q['new_simulation_updates']==0
+          assert q['external_doi_deposit_created'] is False
+          assert sorted(x['ABM_order_counts']['assurance_first'] for x in
+                 q['original_low_supply_matched_threshold_0_05'])==[2,3]
+          assert all(x['density_order']=='assurance_first' and x['all_32_occupied_at_200']
+                     for x in q['original_low_supply_matched_threshold_0_05'])
+          receipt={
+            'status':'ORIGINAL_Q3_READONLY_SOURCE_ADMISSION_EXECUTED',
+            'original_320_genotypes_checked':True,
+            'source_archive_sha256':q['source_archive_sha256'],
+            'source_input_sha256':'f0fd126f638e1c6bd130e640ce4491b3bb47aac3da1838359a902776c9a4e037',
+            'script_sha256':hashlib.sha256(Path('scripts/audit_chapter2_q3_original320_annual_genomes_20261016.py').read_bytes()).hexdigest(),
+            'report_sha256':hashlib.sha256((p/'Q3_ORIGINAL_GENOME_READBACK.json').read_bytes()).hexdigest(),
+            'execution_commit':subprocess.check_output(['git','rev-parse','HEAD'],text=True).strip(),
+            'external_repository_publication':False,
+            'new_biological_trajectories':0,
+          }
+          (p/'EXECUTION_RECEIPT.json').write_text(json.dumps(receipt,indent=2)+'\n')
+          print('Q3 verified all genomes, event categories and saved densities with unchanged sources.')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: q3-original320-full-genome-readonly-admission
+          retention-days: 90
+          if-no-files-found: error
+          path: outputs/q3_original320/
