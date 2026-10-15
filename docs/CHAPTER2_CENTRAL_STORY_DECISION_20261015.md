@@ -1,5 +1,8 @@
 # Chapter 2 — 中心ストーリーの一時固定（2026-10-15）
 
+> **2026-10-15 ONE-paper code audit and integrated Q4:** see [source-level reviewer decision](CHAPTER2_ONE_PAPER_CODE_ENDPOINT_STORY_REVIEW_20261015.md). The same active [Ch2 manuscript](CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md) now contains the independently confirmed but pilot-informed **32-history A-evolvability-by-past-pollination terminal occupancy interaction +0.1084 [0.0654,0.1514]** in Q4, alongside its distinct fixed-B K moderator. Details and non-mediation limits are in [one SI section S33](CHAPTER2_UNIFIED_EL_SUPPORTING_INFORMATION_20261010.md). **No second manuscript or companion created.** Main text **4,991 words**, abstract **148 words**, unchanged. This later paper edit supersedes this historical note's statement that it was only an editorial decision and had not changed the main manuscript. Q4 A-mode was active in the future as well, not only the prehistory. This branch is a Draft PR and is not claimed merged or CI-cleared.
+
+
 **目的：論文の中心を一つにまとめるための編集判断。新しい生物学的解析・結果の昇格・原稿本文や凍結済み検定の変更ではない。** 原稿の出典は [統合Ch2論文](CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md)、元の実験・判定の出典は [Supporting Information](CHAPTER2_UNIFIED_EL_SUPPORTING_INFORMATION_20261010.md) と [Q1–Q4証拠台帳](CHAPTER2_FOUR_QUESTION_RESOLUTION_LEDGER_20261013.md)。こちらの読者向け説明は、本来の実験IDや異なる推論単位を併合しない。
 
 ## 一本の問いと答え
