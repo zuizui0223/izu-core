@@ -154,7 +154,7 @@
     "ecology_letters_letter_abstract_max": 150,
     "display_items_max": 6,
     "current_integrated_main_words": 4961,
-    "current_integrated_abstract_words": 143,
+    "current_integrated_abstract_words": 147,
     "main_text_excess_words": 0,
     "abstract_excess_words": 0,
     "editorial_status": "EL_format_word_limits_passed_data_DOI_pending",
@@ -167,8 +167,8 @@
       "historically explained global island syndrome"
     ],
     "current_main_text_words": 4961,
-    "current_abstract_words": 143,
-    "updated_submission_scope": "Main4961, abstract143. Q3 traces parent weights→finite homolog sampling→rare I allele loss (315/1238, conditional median q0^48=.326)→support exclusion (703/2304). No pure drift claim. S28 Q4 and S29 F1 remain distinct; DOI pending.",
+    "current_abstract_words": 147,
+    "updated_submission_scope": "Main4961, abstract147. Q3 traces parent weights→finite homolog sampling→rare I allele loss (315/1238, conditional median q0^48=.326)→support exclusion (703/2304). No pure drift claim. S28 Q4 and S29 F1 remain distinct; DOI pending.",
     "historical_precompression_counts": {
       "main_words": 6035,
       "abstract_words": 237,
