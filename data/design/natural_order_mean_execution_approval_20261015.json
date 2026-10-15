@@ -1,0 +1,16 @@
+{
+  "schema": "natural_order_mean_execution_approval_v1",
+  "approved": true,
+  "human_answer": "設計どおり実装・検証・実行を進める",
+  "question_item_id": "[\"request_user_input_async\",\"call_4ccf7235d98e47e4a7e340e0a459dcea\",0]",
+  "scientific_paths": 2048,
+  "native_references": 8,
+  "independent_replay_paths": 2048,
+  "workers": 2,
+  "elapsed_seconds_cap": 14400,
+  "additional_output_bytes_cap": 17179869184,
+  "native_updates_cap": 820832,
+  "preserve_model3_biology": true,
+  "automatic_retry": false,
+  "scope": "Frozen natural-state initial assurance mean intervention, not a randomized intervention on past order; no new significance family."
+}

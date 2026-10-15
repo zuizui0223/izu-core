@@ -1,0 +1,29 @@
+{
+  "archive_sha256": "79f9e7d27f0337653a7ce9cc48ab8203f77bedaaf5a05eb87395bb3a29aa9e1f",
+  "assets": {
+    "NATURAL_ORDER_MEAN_COMPLETE_RAW_AND_REVIEW_20261015.zip": {
+      "bytes": 27146610,
+      "sha256": "79f9e7d27f0337653a7ce9cc48ab8203f77bedaaf5a05eb87395bb3a29aa9e1f"
+    },
+    "NATURAL_ORDER_MEAN_COMPLETE_RAW_ARCHIVE_RECEIPT_20261015.json": {
+      "bytes": 336,
+      "sha256": "c0f4e94684dd755a27310a8b6a4bdcdbd7c02dafed74f7e6891fb69a4a7ac6dc"
+    },
+    "NATURAL_ORDER_MEAN_FINAL_RESULT_INDEPENDENT_REVIEW_20261015.json": {
+      "bytes": 211341,
+      "sha256": "585692eef34bc714bcc048da78d10c319940eeaf01a86b2dde9fdd2f733605d9"
+    },
+    "NATURAL_ORDER_MEAN_FULL_ARRAY_INDEPENDENT_ADMISSION_20261015.json": {
+      "bytes": 207618,
+      "sha256": "1dc505071669707811887aacb0ab42e9c10b6356c08371aef1ed83604578878d"
+    },
+    "READOUT.json": {
+      "bytes": 24560,
+      "sha256": "40a3cc176e60c4f0d58087610b4717bab4f95048a5475c92c125d8ecf6d18096"
+    }
+  },
+  "members_verified": 6184,
+  "new_biological_updates": 0,
+  "release_url": "https://github.com/zuizui0223/izu-core/releases/tag/natural-order-mean-control-20261015",
+  "status": "PUBLIC_DOWNLOAD_ALL6184_MEMBERS_BYTE_IDENTICAL"
+}

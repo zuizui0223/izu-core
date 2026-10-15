@@ -4,7 +4,7 @@
   "baseline_commit": "8d145da1e312e9767b056fd81f3c4b6c3448d552",
   "rationale": "Prevent further repository growth while preserving frozen legacy provenance until a permanent external archive is fixed.",
   "thresholds_bytes": {
-    "max_tracked_data_tree": 183068172,
+    "max_tracked_data_tree": 183080473,
     "max_unlisted_design_file": 1048576,
     "max_unlisted_result_file": 2097152,
     "max_unlisted_generated_svg": 1048576
@@ -35,5 +35,10 @@
     "Grandfathered files may not grow beyond their baseline byte size.",
     "The tracked data tree may grow by at most 1 MiB beyond the baseline without an explicit archive-policy revision.",
     "History rewriting is a separate destructive release operation and is not authorized by this policy."
-  ]
+  ],
+  "natural_order_mean_archive_policy_revision_20261015": {
+    "previous_cap_bytes": 183068172,
+    "rationale": "Approved completed2048-future study: compact readout and independent/public admissions only. Full27146610-byte raw companion externalized and re-downloaded, SHA25679f9e7d27f0337653a7ce9cc48ab8203f77bedaaf5a05eb87395bb3a29aa9e1f. Exact canonical indexed tree allowance; individual limits and all16 grandfathered ceilings unchanged. No scientific threshold change.",
+    "raw_archive_external": true
+  }
 }

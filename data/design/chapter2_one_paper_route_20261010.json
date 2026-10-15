@@ -153,7 +153,7 @@
     "ecology_letters_letter_main_max": 5000,
     "ecology_letters_letter_abstract_max": 150,
     "display_items_max": 6,
-    "current_integrated_main_words": 4261,
+    "current_integrated_main_words": 4296,
     "current_integrated_abstract_words": 140,
     "main_text_excess_words": 0,
     "abstract_excess_words": 0,
@@ -166,9 +166,9 @@
       "pollinator population collapse",
       "historically explained global island syndrome"
     ],
-    "current_main_text_words": 4261,
+    "current_main_text_words": 4296,
     "current_abstract_words": 140,
-    "updated_submission_scope": "Source main4261 retains latest Q3/Q4 compression and adds registered triangle limits (S26); abstract140. S25 adds independently checked retrospective unrestricted-order associations from1024 preparations and2048 existing futures, not randomized order benefit. Original primaries, S23/S24 conditional/event distinctions and identification limits remain.",
+    "updated_submission_scope": "Source main4296 and blinded main4299, abstract140. S28 adds approved attained-mean intervention:2048 new futures,8 original reference reproductions and2048 exact independent native replays. Extinction floor and founder disagreement prevent unique mediation or natural-order causal benefit; all original primaries and negative/conditional results remain.",
     "historical_precompression_counts": {
       "main_words": 6035,
       "abstract_words": 237,
@@ -197,5 +197,18 @@
     "sequence",
     "realization",
     "persistence"
-  ]
+  ],
+  "natural_order_mean_control_20261015": {
+    "status": "complete_independent_full_replay_and_public_readback",
+    "scientific_paths": 2048,
+    "reference_paths": 8,
+    "independent_replays": 2048,
+    "native_updates": 820804,
+    "fixed_founder_blocks": 2,
+    "raw_companion_sha256": "79f9e7d27f0337653a7ce9cc48ab8203f77bedaaf5a05eb87395bb3a29aa9e1f",
+    "result_directory": "data/results/natural_order_mean_20261015",
+    "supporting_section": "S28",
+    "claim_ceiling": "Attained-mean policy changes persistence; low-challenge floor and high-challenge founder disagreement prevent unique mediation or natural-order causal benefit.",
+    "new_primary_family": false
+  }
 }
