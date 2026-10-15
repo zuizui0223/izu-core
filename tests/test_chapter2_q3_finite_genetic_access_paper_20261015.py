@@ -1,0 +1,132 @@
+"""Read-only paper admission of the verified Model 3 Q3 source evidence.
+
+This checks original scientific readout/independent receipt identities and
+manuscript denominators. It does not regenerate biological trajectories,
+refit source models or infer a causal genetic-drift effect.
+"""
+from __future__ import annotations
+
+import copy
+import hashlib
+import json
+from pathlib import Path
+
+import pytest
+
+ROOT = Path(__file__).resolve().parents[1]
+BRIDGE = ROOT / "data/results/model3_ch2_bridge_prospective_frozen_20260927.json"
+ACCESS = ROOT / "data/results/directional_access_20261013/READOUT.json"
+ACCESS_REVIEW = ROOT / "data/results/directional_access_20261013/INDEPENDENT_REVIEW.json"
+LOSS = ROOT / "data/results/low_allele_loss_20261014/extracted/READOUT.json"
+LOSS_REVIEW = ROOT / "data/results/low_allele_loss_20261014/INDEPENDENT_REVIEW.json"
+PAPER = ROOT / "docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md"
+SI = ROOT / "docs/CHAPTER2_UNIFIED_EL_SUPPORTING_INFORMATION_20261010.md"
+ROUTE = ROOT / "data/design/chapter2_one_paper_route_20261010.json"
+
+
+def _load(path: Path) -> dict:
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
+def _check_counts(access: dict, loss: dict) -> None:
+    """These are overlapping source cases, NOT two independent populations."""
+    assert access["cases"] == loss["cases"] == 2304
+    assert access["ever_excluded"] == loss["eligible_loss"] == 1238
+    assert access["excluded_before_fixation"] == 703
+    assert access["excluded_with_expressed_variance"] == 703
+    assert access["excluded_at_fixation"] == 535
+    assert access["excluded_before_fixation"] + access["excluded_at_fixation"] == 1238
+    assert access["missing_I_excluded_before_fixation"] == 702
+    assert loss["statuses"] == {"no_exclusion": 1066, "eligible_loss": 1238}
+    assert loss["direction_counts"] == {
+        "favouring_needed": 315,
+        "opposing_needed": 923,
+        "screened_near_zero": 0,
+    }
+    assert sum(loss["direction_counts"].values()) == loss["eligible_loss"]
+    assert access["cases_sha256"] == loss["input_cases_sha256"]
+    assert access["new_biological_histories"] == loss["new_biological_histories"] == 0
+    assert loss["reproduction_advances"] == 0
+
+
+def test_source_rank_and_original_independent_receipts() -> None:
+    access, loss = _load(ACCESS), _load(LOSS)
+    _check_counts(access, loss)
+    a_review, l_review = _load(ACCESS_REVIEW), _load(LOSS_REVIEW)
+    assert a_review["status"] == "ALL2304_DIRECTIONAL_SUPPORT_AND_ANCESTRY_INDEPENDENTLY_VERIFIED"
+    assert l_review["status"] == "ALL2304_LAST_LOSS_RECORDS_INDEPENDENTLY_VERIFIED"
+    assert a_review["cases"] == l_review["cases"] == 2304
+    assert l_review["eligible_loss"] == 1238
+    assert l_review["gamete_enumerations"] == 10_994_304
+    assert a_review["readout_sha256"] == hashlib.sha256(ACCESS.read_bytes()).hexdigest()
+    assert l_review["readout_sha256"] == hashlib.sha256(LOSS.read_bytes()).hexdigest()
+    assert a_review["cases_sha256"] == access["cases_sha256"]
+    assert l_review["cases_sha256"] == loss["cases_sha256"]
+    assert a_review["new_biological_histories"] == l_review["new_biological_histories"] == 0
+
+
+@pytest.mark.parametrize("field,value", [
+    ("excluded_before_fixation", 704),
+    ("excluded_at_fixation", 534),
+    ("missing_I_excluded_before_fixation", 703),
+    ("ever_excluded", 1237),
+])
+def test_reject_altered_directional_source_counts(field: str, value: int) -> None:
+    access, loss = _load(ACCESS), _load(LOSS)
+    before = copy.deepcopy(access)
+    before[field] = value
+    with pytest.raises(AssertionError):
+        _check_counts(before, loss)
+
+
+def test_reject_false_independent_loss_denominator() -> None:
+    access, loss = _load(ACCESS), _load(LOSS)
+    altered = copy.deepcopy(loss)
+    altered["eligible_loss"] = 703
+    with pytest.raises(AssertionError):
+        _check_counts(access, altered)
+    altered = copy.deepcopy(loss)
+    altered["direction_counts"]["favouring_needed"] += 1
+    with pytest.raises(AssertionError):
+        _check_counts(access, altered)
+
+
+def test_original_prospective_bridge_remains_a_distinct_cohort() -> None:
+    bridge = _load(BRIDGE)
+    assert bridge["status"] == "frozen_complete_prospective_model3_ch2_bridge"
+    assert bridge["provenance"]["histories_verified"] == 128
+    assert bridge["provenance"]["cases_verified"] == 24576
+    reports = {(r["intervention"], r["model"]): r for r in bridge["reports"]}
+    assert reports["natural", "density"]["mean"] == pytest.approx(-0.4510, abs=0.00005)
+    assert reports["natural", "individual"]["mean"] == pytest.approx(-0.1446, abs=0.00005)
+    assert reports["natural", "density"]["mixed_counts"] == [0, 0, 0]
+    assert reports["natural", "individual"]["mixed_counts"] == [12, 8, 1]
+    assert reports["richness_matched", "density"]["mixed_counts"][0] == 16
+    assert reports["richness_matched", "individual"]["mixed_counts"][0] == 68
+    assert reports["visitor_pooled", "individual"]["mixed_counts"][0] == 0
+    assert reports["visitor_pooled", "density"]["mixed_counts"][0] == 0
+    assert reports["large_plant_capacity", "individual"]["mixed_counts"][0] == 1
+    assert reports["natural", "individual"]["repeat_disagreements"][0] == 97
+
+
+def test_manuscript_si_and_route_preserve_denominators_and_limitations() -> None:
+    paper, si, route = PAPER.read_text(encoding="utf-8"), SI.read_text(encoding="utf-8"), _load(ROUTE)
+    main = paper.split("# Introduction", 1)[1].split("# Primary figure assembly and captions", 1)[0]
+    abstract = paper.split("## Abstract", 1)[1].split("## Keywords", 1)[0]
+    q3 = paper.split("## Q3 —", 1)[1].split("## Q4 —", 1)[0]
+    s14 = si.split("## S14.", 1)[1].split("## S15.", 1)[0]
+    assert len(main.split()) == 4584
+    assert route["journal_fit"]["current_main_text_words"] == len(main.split())
+    assert route["journal_fit"]["current_integrated_main_words"] == len(main.split())
+    assert len(main.split()) < route["journal_fit"]["ecology_letters_letter_main_max"] == 5000
+    assert len(abstract.split()) == route["journal_fit"]["current_abstract_words"] == 140
+    assert route["status"] == "active_unified_manuscript_not_submitted"
+    for token in ("2,304", "1,238", "703", "535", "315", "923"):
+        assert token in q3 and token in s14
+    assert "not independent samples or a causal estimate of drift" in q3
+    assert "Density is not the stochastic expectation of the ABM" in q3
+    assert "Source-separated Q3 evidence map" in s14
+    assert "before complete fixation" in s14
+    assert "do not" in s14.lower() or "not" in s14.lower()
+    assert "near–far" in main
+    assert "not submitted" in paper
