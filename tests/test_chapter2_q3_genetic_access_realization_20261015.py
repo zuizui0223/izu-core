@@ -73,12 +73,13 @@ def test_unified_q3_makes_specific_positive_claim_without_drifts_or_survival_ove
     q3 = paper.split("## Q3 — Realization", 1)[1].split("## Q4 — Persistence", 1)[0]
     q4 = paper.split("## Q4 — Persistence", 1)[1].split("# Discussion", 1)[0]
     discussion = paper.split("# Discussion", 1)[1].split("# Conclusion", 1)[0]
-    for item in ("**703 histories**", "**1,238 first-exclusion transitions**",
-                 "**315**", "conditional expected frequency response", "S14"):
+    for item in ("703 before investment-allele fixation", "1,238 first exclusions",
+                 "315", "conditional parental weighting increased the expected frequency", "S14"):
+        q3 = q3.replace("**", "")
         assert item in q3
-    assert "a different denominator" in q3
-    assert "not** a causal drift fraction" in q3
-    assert "drift" in discussion and "Mendelian" in q3
+    assert "overlapping, differently conditioned diagnostics" in q3
+    assert "not independent samples or a causal estimate of drift" in q3
+    assert "drift" in discussion and "Mendelian" in paper
     assert "not the stochastic expectation of the ABM" in q3
     assert "+0.007746" in q4
     assert "without demonstrating that naturally" in paper.split("# Conclusion", 1)[1] or "not" in q4.lower()
