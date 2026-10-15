@@ -47,7 +47,7 @@ pytest -q
 # see REPRODUCE.md
 ```
 
-`CI` ([workflow](../.github/workflows/ci.yml)) runs tests for Python 3.10, 3.11 and 3.12. The [Chapter 2 scientific gate](../.github/workflows/chapter2-scientific-gate.yml) has its own scope and must also be checked when triggered. A green result on a predecessor commit does **not** validate an updated PR head.
+`CI` ([workflow](../.github/workflows/ci.yml)) runs tests for Python 3.10, 3.11 and 3.12. The [Chapter 2 scientific gate](../.github/workflows/chapter2-scientific-gate.yml) has its own scope and must also be checked when triggered. The [retired PR #420 CI job inventory](CI_PR420_RETIRED_JOB_PROVENANCE_20261015.md) preserves historical K32 workflow provenance without keeping 20 permanently skipped jobs in shared CI. A green result on a predecessor commit does **not** validate an updated PR head.
 
 ## Safe cleanup policy
 
