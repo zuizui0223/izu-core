@@ -1,0 +1,16 @@
+{
+  "repo": "zuizui0223/island",
+  "head": "2a1fd0591bf31a3aea2cd217cbe8e76886490eb0",
+  "files": [
+    {
+      "path": "config/chapter1_submission_current.json",
+      "blob": "8d284752eddcc01dfa2a979797d08388f98bef82",
+      "sha256": "070949a4c6a1909ce8e84811701d85c2597869fac1daae0e223d8a05283b3e01"
+    },
+    {
+      "path": "submission/chapter1_current/MANUSCRIPT.md",
+      "blob": "560a0b12c34469724a534cf5042cf2fd49949fe7",
+      "sha256": "7b462a1161d32f947ab4363f006de874e3a38a6d45c221834be256daa96af6ec"
+    }
+  ]
+}

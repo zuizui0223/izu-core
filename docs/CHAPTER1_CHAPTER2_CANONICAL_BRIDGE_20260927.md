@@ -1,5 +1,14 @@
 # Chapter 1 → Chapter 2 canonical bridge — 2026-09-27
 
+## 2026-10-15: ecological question and finite-realization comparison
+
+Live Chapter1 main`2a1fd0591bf31a3aea2cd217cbe8e76886490eb0` retains the corrected traitwise contract. Its most recurrent trait is self-compatibility, not every selfing trait. Floral colour/structure and accessibility support remain regional. These observations motivate: **why can a recurrent reproductive constraint and function coexist with non-uniform floral outcomes?** They do not identify within-lineage change, pollinator loss, colonization or historical persistence as the cause.
+
+The Chapter2 claim hierarchy is being critically reassessed in `CHAPTER2_CORE_CLAIMS_SYNTHESIS_20261015.md`. Four-setting non-necessity/compression remains supported, but strength of support is not itself novelty. A more direct bridge candidate is the gap between source-matched deterministic predictions of joint floral response and finite-population realization while populations remain occupied. In the original-mutation low-supply matched contexts, density predicts assurance-first; ABM realizes it in3/32 and2/32 histories, all occupied at200. Both mean investment responses are still negative: this is not proof of no floral evolution or two-background direction reversal. The event is threshold-dependent and the original comparison permits mutation in assurance only.
+
+Q1 characterizes reproductive returns; Q2 examines response order and access; Q3 quantifies finite realization; Q4 separately tests demographic consequences. No joint historical mediation is identified. Ch2 provides candidate mechanisms compatible with the Chapter1 pattern, not regional attribution or a literal flower-colour model. Method novelty from comparing stochastic and deterministic models is not claimed; the ecological content is the concrete prediction mismatch and its domain. No new calculation or new experiment is introduced by this editorial reassessment.
+
+
 ## Current Chapter 1 evidence override — 2026-10-10
 
 **Read this first.** The September bridge below was written against the then-current Chapter 1 v13/v14 evidence. The active scientific source of truth is now the Chapter 1 project file `config/chapter1_submission_current.json` (contract `chapter1_corrected_submission_traitwise_20261004_v1`, dated 2026-10-04), `submission/chapter1_current/MANUSCRIPT.md` and its corrected final seven-trait analyses. Where the September material says assurance and generalized accessibility *both recur across all four geographic strata*, read it with the following correction rather than promoting an outdated global claim:

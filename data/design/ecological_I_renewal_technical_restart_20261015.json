@@ -1,0 +1,17 @@
+{
+  "approved": true,
+  "human_answer": "承認",
+  "prior_execution_freeze_sha256": "284bc545e6638ec32bb19f34ec2d7cadd64704a9795cf5c1b1a58c3cc05da06b",
+  "prior_reserved_upper_bound": 1616,
+  "combined_update_cap": 924848,
+  "new_scientific_paths": 2304,
+  "new_reference_paths": 8,
+  "new_independent_replays": 2304,
+  "new_fixture_updates": 16,
+  "new_scheduled_updates": 923216,
+  "combined_scheduled_upper_bound": 924832,
+  "workers": 2,
+  "seconds_cap": 14400,
+  "bytes_cap": 17179869184,
+  "scope": "Technical restart after pre-production diagnostic-rounding STOP only. Native biological arrays exact; derived diagnostics use original source atol1e-10/1e-12,rtol0; all local new-production/replay arrays remain exact. Prior source/STOP preserved. No endpoint/count/horizon retuning."
+}
