@@ -153,7 +153,7 @@
     "ecology_letters_letter_main_max": 5000,
     "ecology_letters_letter_abstract_max": 150,
     "display_items_max": 6,
-    "current_integrated_main_words": 4803,
+    "current_integrated_main_words": 4817,
     "current_integrated_abstract_words": 144,
     "main_text_excess_words": 0,
     "abstract_excess_words": 0,
@@ -166,9 +166,9 @@
       "pollinator population collapse",
       "historically explained global island syndrome"
     ],
-    "current_main_text_words": 4803,
+    "current_main_text_words": 4817,
     "current_abstract_words": 144,
-    "updated_submission_scope": "Main4803/144. Q3 process: outcross return -> access -> parental weighting -> finite transmission -> support loss. 703 histories/315 of 1238 transitions overlap. No pure drift share, natural-order mediation or DOI.",
+    "updated_submission_scope": "Main4817/144. Q3 process: outcross return -> access -> parental weighting -> finite transmission -> support loss. 703 histories/315 of 1238 transitions overlap. No pure drift share, natural-order mediation or DOI.",
     "historical_precompression_counts": {
       "main_words": 6035,
       "abstract_words": 237,
