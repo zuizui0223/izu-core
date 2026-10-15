@@ -1,7 +1,7 @@
 {
   "schema": "chapter2_one_paper_route_20261010_v1",
   "status": "active_unified_manuscript_not_submitted",
-  "title": "Reproductive assurance compresses floral-investment divergence under pollinator limitation",
+  "title": "Selection, sequence and finite realization of floral evolution under pollinator limitation",
   "active_manuscript": "docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md",
   "renderer": "scripts/render_chapter2_unified_manuscript.py",
   "research_format": "ecology_letters_letter",
@@ -23,9 +23,9 @@
     ],
     "secondary_descriptive": [
       "two other cohort K-at-B48 estimates remain post-outcome secondary and unpooled",
-      "78\u201390 percent arm localization is post-confirmation accounting",
+      "78–90 percent arm localization is post-confirmation accounting",
       "near pollen supply x16 saturation feasibility failed; not new evolutionary history",
-      "public-goods seed-based \u03b2/\u0393 conflict not survival"
+      "public-goods seed-based β/Γ conflict not survival"
     ],
     "identification_limitations": [
       "No causal mediation from evolved investment to extinction established",
@@ -153,12 +153,12 @@
     "ecology_letters_letter_main_max": 5000,
     "ecology_letters_letter_abstract_max": 150,
     "display_items_max": 6,
-    "current_integrated_main_words": 4962,
-    "current_integrated_abstract_words": 147,
+    "current_integrated_main_words": 4992,
+    "current_integrated_abstract_words": 143,
     "main_text_excess_words": 0,
     "abstract_excess_words": 0,
     "editorial_status": "EL_format_word_limits_passed_data_DOI_pending",
-    "scientific_focus": "retain prospectively confirmed four-setting evolutionary-investment claim; demographic K sensitivity is a distinct result, not mediation",
+    "scientific_focus": "Reframe title/abstract/discussion on Q2 temporal precedence versus necessity and Q3 finite inherited realization, retaining Q1 four-setting prospective confirmation as reproductive baseline. Q4 remains a distinct conditional consequence; no extra confirmatory claim is created.",
     "high_upside_audit": "docs/CHAPTER2_HIGH_UPSIDE_QUESTION_AUDIT_20261010.md",
     "conditional_higher_target": "Nature Ecology & Evolution or equivalent broad ecology journal ONLY if a newly validated assurance-evolution -> communal pollen transfer -> demographic fitness chain and generality are established, not by reinterpretation alone",
     "never_promote_unproven": [
@@ -166,17 +166,17 @@
       "pollinator population collapse",
       "historically explained global island syndrome"
     ],
-    "current_main_text_words": 4962,
-    "current_abstract_words": 147,
-    "updated_submission_scope": "Main4962/abstract147. ONE EL Letter; Q1 4/4 primary; Q3 703/315 source findings; conditional Q4 stress +0.108398 (32 histories, postchallenge A-evolution retained; S33); fixed-B Q4 +0.0077457 distinct; no historical mediation; DOI pending.",
+    "current_main_text_words": 4992,
+    "current_abstract_words": 143,
+    "updated_submission_scope": "Main4992/abstract143. ONE EL Letter editorial Q2/Q3 conceptual center; Q1 registered 4/4 primary retained; Q2 51/64 focal, mating-rule dependent; Q3 distinct 3/32,2/32 finite order and 703/2304 genetic-access cases, not causal bridge; Q4 stress +0.108398 separately bounded; figures currently retain original order, data DOI pending.",
     "historical_precompression_counts": {
       "main_words": 6035,
       "abstract_words": 237,
       "scope": "Superseded October 10 integrated draft; not current manuscript counts."
     }
   },
-  "editorial_primary_claim": "Confirmed within one model family: assurance evolution not necessary for loss of investment, but compresses divergence in four frozen pollen-limited settings",
-  "editorial_secondary_claim": "Independent externally assigned expression-order K \u00d7 viable selfed seed sensitivity (one registered small positive result), not an evolutionary-to-persistence mediator",
+  "editorial_primary_claim": "Conceptual focus: Q2 order and Q3 finite genetic realization; Q1 preregistered four-setting assurance-by-visitor contrast stays the strongest formally confirmed evolutionary baseline, and separate Q3 cohorts are not a causal mediation of Q1.",
+  "editorial_secondary_claim": "Q4 conditional occupancy consequences remain a separate registered demographic question; neither naturally inherited A-first rescue nor evolutionary suicide was established.",
   "review_package_builder": "scripts/build_chapter2_unified_el_submission_bundle.py",
   "review_package_expected_figures": [
     "Figure1.pdf",
