@@ -35,7 +35,6 @@
   "no_new_biological_trajectories": true,
   "no_new_statistical_thresholds": true,
   "no_outcome_sign_stop": true,
-  "no_external_doi": false,
   "publish_source_files": false,
   "source_admission_level": "historical original GitHub release bytes, SHA256/CRC/manifest and annual genomes; source-independent final DOI cross-host verification remains future.",
   "output_expected": "readout/Q3_ORIGINAL_GENOME_READBACK.json",
@@ -54,5 +53,6 @@
     "dataset_version",
     "access_or_embargo",
     "external_doi_release"
-  ]
+  ],
+  "external_doi_created": false
 }
