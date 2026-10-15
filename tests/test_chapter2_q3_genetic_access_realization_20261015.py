@@ -59,7 +59,7 @@ def test_low_allele_access_and_expected_transmission_are_different_denominators(
     }
     assert sum(b["direction_counts"].values()) == 1238
     assert a["original_categories"] == b["original_categories"]
-    assert a["original_outer_sha256"] == b["original_outer_sha256"]
+    assert a["outer_sha256"] == b["original_outer_sha256"]
     assert a["cases_sha256"] == b["input_cases_sha256"]
     assert a["new_biological_histories"] == b["new_biological_histories"] == 0
     assert b["reproduction_advances"] == 0
