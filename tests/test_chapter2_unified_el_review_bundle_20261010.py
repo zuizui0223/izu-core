@@ -328,6 +328,10 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
            "EVIDENCE/PR490_ORIGINAL_DIRECT_ADMISSION.json",
            "EVIDENCE/PR490_ORIGINAL_INDEPENDENT_REVIEW.json",
            "EVIDENCE/PR490_ORIGINAL_NUMERICAL_AUDITOR.py",
+           "EVIDENCE/Q2_S29_FOUR_SIGN_MENDELIAN_F1.json",
+           "EVIDENCE/Q2_S29_ORIGINAL_I_M0_M6_F1.json",
+           "EVIDENCE/Q2_S29_ORIGINAL_T0_TYPED_SOURCE.json",
+           "EVIDENCE/Q2_S29_STATIC_FOCAL_W.json",
            "EVIDENCE/Q3_CONDITIONAL_EXECUTION.json",
            "EVIDENCE/Q3_CONDITIONAL_EXTERNAL_READBACK.json",
            "EVIDENCE/Q3_CONDITIONAL_IDENTIFICATION_REVIEW.md",
@@ -373,7 +377,7 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
         assert m["doi_deposit_complete"] is False
         assert m["n_figures"]==4
         assert m["n_supplementary_figures"]==3
-        assert len(m["members"])==148
+        assert len(m["members"])==152
         for name,record in m["members"].items():
             raw=z.read(name)
             assert record=={"size":len(raw),"sha256":hashlib.sha256(raw).hexdigest()}
@@ -721,3 +725,43 @@ def test_kernel_channels_reject_redirected_array_pointer(tmp_path, monkeypatch):
     monkeypatch.setattr(builder, 'MINIMAL_RESULTS', tmp_path)
     with pytest.raises(ValueError, match='kernel channel verified evidence'):
         builder.kernel_channel_materials()
+
+
+def test_s29_reviewer_archive_has_source_authenticated_anonymous_F1_and_W(tmp_path):
+    from scripts.verify_chapter2_q2_s29_source_bridge_20261015 import (
+        SOURCES, git_blob, verify,
+    )
+    assert verify()["native_focal_W_analytical_cells"]==36
+    labels={
+        "original":"EVIDENCE/Q2_S29_ORIGINAL_T0_TYPED_SOURCE.json",
+        "f1":"EVIDENCE/Q2_S29_ORIGINAL_I_M0_M6_F1.json",
+        "sign":"EVIDENCE/Q2_S29_FOUR_SIGN_MENDELIAN_F1.json",
+        "returns":"EVIDENCE/Q2_S29_STATIC_FOCAL_W.json",
+    }
+    members,derivations=builder.q2_s29_mechanism_materials()
+    assert set(members)==set(labels.values())==set(derivations)
+    for field,label in labels.items():
+        path,pin=SOURCES[field]
+        source=(ROOT/path).read_bytes()
+        assert git_blob(source)==pin
+        assert members[label]==source
+        assert derivations[label]["source_git_blob_sha1"]==pin
+        assert derivations[label]["original_sha256"]==hashlib.sha256(source).hexdigest()
+        assert derivations[label]["original_sha256"]==derivations[label]["derived_sha256"]
+        builder.validate_member(label,members[label])
+    output=tmp_path/"s29-review.zip"
+    receipt=build(output,figures=fake_pdfs(tmp_path),
+                  supplementary_figures=supplementary_figures(tmp_path))
+    with zipfile.ZipFile(output) as z:
+        assert set(labels.values()).issubset(set(z.namelist()))
+        assert all(z.read(label)==members[label] for label in labels.values())
+        manifest=json.loads(z.read("MANIFEST.json"))
+        assert "q2_s29_mechanism_evidence" in manifest
+        assert all(
+            receipt["source_derivations"][label]==derivations[label]
+            for label in labels.values()
+        )
+        si=z.read("SUPPORTING_INFORMATION.md").decode("utf-8")
+        assert "EVIDENCE/Q2_S29_STATIC_FOCAL_W.json" in si
+        assert "not independent source replication" in si
+        assert manifest["doi_deposit_complete"] is False
