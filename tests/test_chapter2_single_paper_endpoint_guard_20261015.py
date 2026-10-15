@@ -104,7 +104,7 @@ def test_only_one_active_paper_and_q4_both_in_text_and_supplement():
     assert len(abstract.split()) == fit["current_integrated_abstract_words"] == 147
     assert "Both regimes remained pollen-limited." in abstract
     assert fit["current_main_text_words"] == 4944
-    assert fit["current_abstract_words"] == 143
+    assert fit["current_abstract_words"] == len(abstract.split()) == 147
     assert "+0.1084 [0.0654,0.1514]" in manuscript
     assert "A evolvability **continued during the future**" in manuscript
     assert "+0.0077457" in manuscript
