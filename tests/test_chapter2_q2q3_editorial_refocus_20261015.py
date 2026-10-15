@@ -58,15 +58,27 @@ def test_new_finite_study_not_silently_promoted_or_refigured():
 
 def test_figure3_is_actual_q3_asset_and_fixed_trait_assay_is_s1():
     from scripts.build_chapter2_unified_el_submission_bundle import (
-        PDF_FIGURES, SUPPLEMENTARY_FIGURES,
+        PDF_FIGURES, SUPPLEMENTARY_FIGURES, derive_review_si_figure_roles,
     )
     assert PDF_FIGURES["Figure3.pdf"].name=="genetic_realization.pdf"
     assert SUPPLEMENTARY_FIGURES["SupplementaryFigureS1.pdf"].name=="trait_pollen_snapshot400.pdf"
     paper=PAPER.read_text(encoding="utf-8")
-    si=(ROOT/"docs/CHAPTER2_UNIFIED_EL_SUPPORTING_INFORMATION_20261010.md").read_text(encoding="utf-8")
+    original_si=(ROOT/"docs/CHAPTER2_UNIFIED_EL_SUPPORTING_INFORMATION_20261010.md").read_bytes()
+    si=derive_review_si_figure_roles(original_si)
+    assert "The four main figures retain their original evidence roles" in original_si.decode("utf-8")
+    assert "The original finite-genetic realization figure is delivered as main `Figure3.pdf`" in si
     assert "**Figure 3. Finite inherited floral responses" in paper
     assert "**Supplementary Figure S1. Pollen deficit" in paper
     assert "source-backed genetic-realization figure" in NOTE.read_text(encoding="utf-8")
-    assert "promoted to main Figure 3" in si
+    assert "`SupplementaryFigureS1.pdf`" in si
+    assert "original-mutation 3/32 and 2/32 response-order cohort" in si
     assert "separate one-locus history diagnostic" in paper
     assert "3/32 and 2/32" in paper
+
+
+def test_reviewer_si_transform_refuses_modified_source_blob():
+    import pytest
+    from scripts.build_chapter2_unified_el_submission_bundle import derive_review_si_figure_roles
+    raw=(ROOT/"docs/CHAPTER2_UNIFIED_EL_SUPPORTING_INFORMATION_20261010.md").read_bytes()
+    with pytest.raises(ValueError, match="frozen S1–S33 SI source Git blob"):
+        derive_review_si_figure_roles(raw+b" ")
