@@ -130,7 +130,9 @@ jobs:
           name: ch2-initial200-independent-shard-${{ matrix.shard }}
           retention-days: 90
           if-no-files-found: error
-          path: |\n            outputs/shard-*.npz\n            outputs/shard-*.json
+          path: |
+            outputs/shard-*.npz
+            outputs/shard-*.json
 
   full-readout:
     if: github.run_attempt == 1
