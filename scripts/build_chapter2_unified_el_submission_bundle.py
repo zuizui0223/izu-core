@@ -176,6 +176,71 @@ def q2_s29_mechanism_materials():
     return members,derivations
 
 
+
+def q4_independent32_materials():
+    """Source-authenticated and anonymous Q4A readout, design, replay and runner.
+
+    These are already completed original experiment receipts and original
+    source code, NOT raw 4,096-path time series, new Model3 futures, a
+    natural-island estimate, or an isolated past-assurance legacy effect.
+    """
+    from scripts.verify_chapter2_q2_s29_source_bridge_20261015 import git_blob
+    inventory={
+      "EVIDENCE/Q4_32_DESIGN.json": (
+          "data/design/chapter2_island_demographic_independent32_20261008.json",
+          "5f6c11aac76b93e1a67cbff1c971213fb08c7768"),
+      "EVIDENCE/Q4_32_RESULT.json": (
+          "data/results/chapter2_island_demographic_independent32_20261008.json",
+          "5c46c3c3a1a0f02c9526b265590fc6a6de54005c"),
+      "EVIDENCE/Q4_32_REPLAY_RECEIPT.json": (
+          "data/results/chapter2_island_demographic_independent32_replay_receipt_20261013.json",
+          "14a78981cd63dd2bf34799d3d76dc3adc417ca58"),
+      "EVIDENCE/Q4_32_ORIGINAL_RUNNER.py": (
+          "scripts/run_chapter2_island_demographic_independent32.py",
+          "b5f9d42d8423092c1524a2ed33993ca4f7f0d725"),
+    }
+    originals={};members={};derivations={}
+    for name,(path,expected) in inventory.items():
+        raw=(ROOT/path).read_bytes()
+        if git_blob(raw)!=expected:
+            raise ValueError("Q4 independent32 frozen original Git blob drift: "+path)
+        validate_member(name,raw) # no identifying URLs, personal paths or details
+        members[name]=raw
+        derivations[name]={
+          "source_git_blob_sha1":expected,
+          "original_sha256":sha(raw),
+          "derived_sha256":sha(raw),
+          "transformation":"Exact original file bytes; no data/biology changes. "
+            "Pilot-informed 32-history Q4A interaction under continued future "
+            "A evolvability, not isolated genetic legacy or a natural island rate.",
+        }
+        originals[name]=json.loads(raw) if path.endswith(".json") else raw.decode("utf-8")
+    design=originals["EVIDENCE/Q4_32_DESIGN.json"]
+    result=originals["EVIDENCE/Q4_32_RESULT.json"]
+    replay=originals["EVIDENCE/Q4_32_REPLAY_RECEIPT.json"]
+    runner=originals["EVIDENCE/Q4_32_ORIGINAL_RUNNER.py"]
+    primary=result["predeclared_pooled_primary"]
+    if (design["independent_visitor_histories"]["count"]!=32
+            or design["prehistories"]!=400 or design["post_updates"]!=80
+            or design["stress_ovule_budgets"]!=[2,3,4,5]
+            or design["pre_mutation_rate"]!=.01 or design["post_mutation_rate"]!=.01
+            or result["post_switch_trajectories"]!=4096
+            or result["independent_histories"]!=32
+            or primary["mean"]!=0.1083984375
+            or primary["bootstrap95"]!=[0.0654296875,0.1513671875]
+            or primary["pass"] is not True
+            or len(result["per_setting"])!=4
+            or replay["validation"]["all_eight_biological_projection_hashes_exact"] is not True
+            or replay["validation"]["pooled_primary_exact"] is not True
+            or replay["validation"]["bootstrap_interval_exact"] is not True
+            or replay["validation"]["post_trajectories"]!=4096
+            or 'd["pre_mutation_rate"]' not in runner
+            or "post_cfg = replace(" not in runner
+            or 'mutation_traits=(True, True, mode == "evolving")' not in runner):
+        raise ValueError("Q4 independent32 historical design/results/replay scope changed")
+    return members,derivations
+
+
 def first_meiosis_access_materials():
     """Admit original-cohort F1 access via complete raw-genotype reconstruction."""
     data = ROOT / 'data/results/first_meiosis_access_20261014'
@@ -1133,6 +1198,23 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
                             'EVIDENCE/INVESTMENT_VARIATION_PROTOCOL.md')
     si_text=si_text.replace('data/results/investment_variation_restoration_readout_20261013.json',
                             'EVIDENCE/INVESTMENT_VARIATION_READOUT.json')
+    q4_source_links={
+      "../data/design/chapter2_island_demographic_independent32_20261008.json":
+        "EVIDENCE/Q4_32_DESIGN.json",
+      "../data/results/chapter2_island_demographic_independent32_replay_receipt_20261013.json":
+        "EVIDENCE/Q4_32_REPLAY_RECEIPT.json",
+      "../scripts/run_chapter2_island_demographic_independent32.py":
+        "EVIDENCE/Q4_32_ORIGINAL_RUNNER.py",
+    }
+    if "## S33. Independent 32-history" not in si_text:
+        raise ValueError("Q4 S33 original-historical source section absent")
+    for old,new in q4_source_links.items():
+        if si_text.count(old)!=1:
+            raise ValueError("Q4 S33 original source-link count changed: "+old)
+        si_text=si_text.replace(old,new)
+    si_text=si_text.replace(
+      "## S33. Independent 32-history prehistory-by-evolvability persistence under synthetic stress",
+      "## S33. Independent 32-history prehistory-by-evolvability persistence under synthetic stress\n\nThe original [32-history endpoint result](EVIDENCE/Q4_32_RESULT.json), unchanged [frozen design](EVIDENCE/Q4_32_DESIGN.json), [native replay receipt](EVIDENCE/Q4_32_REPLAY_RECEIPT.json) and [original runner](EVIDENCE/Q4_32_ORIGINAL_RUNNER.py) are supplied in this anonymous reviewer packet; full original annual-genome archives remain separate source companions, not part of this ZIP.")
     si=si_text.encode("utf-8")
     if any(token in si.lower().decode("utf-8") for token in DENIED):
         raise ValueError("blinded Supporting Information has identifying token")
@@ -1197,6 +1279,8 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     from scripts.natural_order_mean_paper_admission_20261015 import materials as mean_control_materials
     mean_control,mean_derivations=mean_control_materials(ROOT)
     members.update(mean_control);derivations.update(mean_derivations)
+    q4a,q4a_derivations=q4_independent32_materials()
+    members.update(q4a);derivations.update(q4a_derivations)
     s29,s29_derivations=q2_s29_mechanism_materials()
     members.update(s29);derivations.update(s29_derivations)
     assurance_parent,assurance_parent_derivations=assurance_parent_materials()
@@ -1232,6 +1316,7 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
         "atom_evidence":"All10 two-grid numerical admissions and320 descriptive ABM histories;990 event and40 checkpoint independent array checks, no new raw-genome reconstruction or causal drift attribution",
         "resolution_evidence":"6144 boundary,3072 shared preparations,6144 branched challenges; genetic-access band and conditional all-start preparation-policy effects, not pure natural-order mediation",
         "natural_order_mean_control_evidence":"2048 approved attained-mean-controlled futures,8 original references,2048 exact native replays; two fixed founder blocks. Low-challenge extinction floor and heterogeneous high-challenge strict-order directions; not randomized past-order benefit or unique mediation. Full6184-member raw companion publicly re-downloaded and verified.",
+        "q4_independent32_evidence":"Original Git-blob-pinned and anonymous Q4A design, 4,096-path summary, eight-projection independent replay receipt, and historical runner. Pilot-informed 32 independent histories; original A mode active before and during future stress. No independent raw ZIP added, new Model3 futures, isolated prior A-legacy effect or natural island rescue claim.",
         "q2_s29_mechanism_evidence":"Four Git-blob-pinned original source/F1/sign/static-W JSON receipts supplied anonymously; synthetic A reconstructed, one original confirmation founder, three visitor settings, 36 fixed-adult W cells. No new biological histories, recruitment, directional selection, long-run six-class order or Q4 survival.",
         "natural_order_evidence":"Retrospective raw-genotype join of1024 unrestricted preparations and2048 existing futures; all36 descriptive groups independently verified. Two fixed founders; not randomized order benefit, new simulation or primary family.",
         "kernel_expression_evidence":"All48 investment-expression pairs and12 endpoint-duration reversals; two exact reference-order/state-time decompositions. Pure-low positive/pure-high negative aggregate contributions; segregating signs reference-sensitive. Not unique fixation mediation or natural-order benefit",
