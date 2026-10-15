@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import copy
+import sys
 import pytest
 
 from scripts import audit_chapter2_assurance_coupling_scope_20261015 as audit
@@ -66,10 +67,10 @@ def test_frozen_controls_cannot_be_silently_bypassed(monkeypatch):
         audit.audit()
 
 
-def test_no_overwrite_of_prior_audit(tmp_path):
+def test_no_overwrite_of_prior_audit(tmp_path, monkeypatch):
     out = tmp_path / "existing.json"
     out.write_text("already preserved", encoding="utf-8")
-    # The audit is inspectable directly; a caller must not overwrite a prior
-    # receipt by passing the same --out path.
-    assert out.exists()
-    assert "new_evolutionary_trajectories" in audit.audit()
+    monkeypatch.setattr(sys, "argv", ["audit", "--out", str(out)])
+    with pytest.raises(ValueError, match="refuse to overwrite prior audit"):
+        audit.main()
+    assert out.read_text(encoding="utf-8") == "already preserved"
