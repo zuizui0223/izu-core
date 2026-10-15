@@ -19,6 +19,7 @@ NEW_REFERENCES = (
     ("Zell", "10.1111/nph.20234"),
     ("Barrett", "10.1016/j.tree.2007.09.008"),
     ("Morgan", "10.1111/j.0014-3820.2005.tb01050.x"),
+    ("Lepers", "10.1111/evo.12533"),
 )
 
 
@@ -29,6 +30,7 @@ def test_missing_primary_precedents_are_now_cited_and_complete():
         assert name in paper.split("# References", 1)[0]
         assert name in refs and doi in refs
     assert "Teixido & Aizen (2019)" in paper
+    assert "Lepers et al. (2014) additionally combined adaptive dynamics with stochastic individual-based simulations" in paper
     assert "three" in paper.split("# Introduction", 1)[1].split("# Materials and Methods", 1)[0].lower()
     assert "116, 833–843" in refs
     for surname in ("Merrett", "Peterson", "Robertson"):
@@ -43,7 +45,7 @@ def test_paper_counts_and_registered_limits_unmodified():
     fit = route["journal_fit"]
     assert len(main.split()) == fit["current_main_text_words"] == fit["current_integrated_main_words"]
     assert len(abstract.split()) == fit["current_abstract_words"] == fit["current_integrated_abstract_words"] == 147
-    assert len(main.split()) == 4944 < fit["ecology_letters_letter_main_max"]
+    assert len(main.split()) == 4962 < fit["ecology_letters_letter_main_max"]
     assert route["status"] == "active_unified_manuscript_not_submitted"
     assert "51 of 64" in paper and "all four" in paper.lower()
     assert "+0.6693" in main and "+0.0339" in main
