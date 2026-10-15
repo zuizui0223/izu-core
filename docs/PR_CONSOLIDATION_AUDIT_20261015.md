@@ -1,5 +1,16 @@
 # Open-PR consolidation audit — 2026-10-15
 
+## Integration checkpoint — later on 2026-10-15 (supersedes the open/closed labels below)
+
+**Verified merged onto main**: [#535](https://github.com/zuizui0223/izu-core/pull/535) Q3/prior art at `fb8179a`, [#540](https://github.com/zuizui0223/izu-core/pull/540) exact original-genome Price accounting at `79bc570`, [#529](https://github.com/zuizui0223/izu-core/pull/529) original I-mutation renewal source at `d9403db`, and [#541](https://github.com/zuizui0223/izu-core/pull/541) navigation/index at `fa5ee7e`. Older rows recording them as open describe the first audit, **not current PR status**.
+
+**Pending integration**: [#536](https://github.com/zuizui0223/izu-core/pull/536) is a mutable draft with unresolved mainline conflicts, containing Q1–Q4 narrative, Ch1 crosswalks and overlapping already-merged sources; **do not merge or force-update blindly**. [#542](https://github.com/zuizui0223/izu-core/pull/542) is a separately drafted **clean S30–S32 and source-accounting integration** against current main; keep exact-head scientific gate, Python CI and reviewer-package source validation before merging. Preserve #536's unique Ch1 crosswalk/other audited work until reconciliation.
+
+**Source preservation from [#537](https://github.com/zuizui0223/izu-core/pull/537) / [#538](https://github.com/zuizui0223/izu-core/pull/538)**: their three-version manuscript/route edits are not safe to mass-merge. Original CI failures isolated an outdated exact *manuscript phrase* check in each branch, rather than establishing a numerical audit failure. The [Q3 source map](CHAPTER2_Q3_SELECTION_REALIZATION_SOURCE_MAP_20261015.md) and [read-only original-transition check](../tests/test_q3_original_finite_loss_transition_receipt_20261015.py) are proposed in this independent branch to preserve the unique 315/1,238, q0^48 and sex-specific accounting without imposing dated 4,869/4,961-word templates. This source-preservation PR must pass final-head CI **before** either superseded PR is considered safe to close. Its CI status is not pre-asserted in this ledger.
+
+All original raw numerical receipts, original allele/genome files, negative outcomes, model laws and original registered intervention definitions remain authoritative. Nothing here asserts four-question causal mediation, new biological runs or completed DOI/journal submission.
+
+
 **Read-only inventory / proposed integration order.** This page records observed repository state and SHA comparisons, not a decision to merge, close, rebase, delete or promote claims. Baseline: `main` at `a412b456b435f10dd9c71014b53f3e1f37634b41`. Re-fetch PR metadata and exact heads before performing an action: concurrent updates can invalidate this snapshot.
 
 ## Six open PRs on this snapshot
