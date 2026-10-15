@@ -1,0 +1,179 @@
+name: Ch2 independent early A x visitor knockout (registered once)
+
+on:
+  push:
+    branches: [research/ch2-far-early-independent-visitor-knockout-20261015]
+    paths: [docs/protocols/chapter2_far_early_independent_visitor_knockout_20261015.json]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: ch2-independent-initial200-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  validate:
+    if: github.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Reject activation until exact original protocol is manually committed
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path('docs/protocols/chapter2_far_early_independent_visitor_knockout_20261015.json').read_text())
+          assert p['status']=='PROSPECTIVELY_FROZEN_BEFORE_NEW_INDEPENDENT_MODEL_RUN'
+          assert p['activation']['status']=='ACTIVATE_ONCE'
+          assert p['factorization']['n_paths']==2048
+          assert p['factorization']['total_native_updates']==409600
+          assert p['technical_pilot_after_original_design_freeze']['visitor_seed']==28110601
+          print('Registered 64 visitors, two new genetic founders, one previously exposed pilot.')
+          PY
+      - run: pytest -q tests/test_chapter2_far_early_independent_visitor_knockout_20261015.py
+
+  shards:
+    if: github.run_attempt == 1
+    needs: validate
+    runs-on: ubuntu-latest
+    timeout-minutes: 85
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    env:
+      GH_TOKEN: ${{ github.token }}
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Download original 2026-10-06 frozen Model3 source archive
+        shell: bash
+        run: |
+          mkdir -p inputs
+          gh api -H 'Accept: application/vnd.github+json' /repos/zuizui0223/izu-core/actions/artifacts/11411051762/zip > inputs/original-far-source.zip
+      - name: Hash authenticate native original source and isolate it from current main
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import io,hashlib,json,zipfile,shutil
+          source=Path('inputs/original-far-source.zip').read_bytes()
+          assert hashlib.sha256(source).hexdigest()=='1fef68e29a5686c13398be36f9a96c8a6fdf337218e29258e8e06c78a48aebfa'
+          with zipfile.ZipFile(io.BytesIO(source)) as z:
+              frozen=z.read('shard-02/sources.zip')
+              manifest=z.read('shard-02/sources.json')
+          hashes=json.loads(manifest)
+          dest=Path('frozen')
+          with zipfile.ZipFile(io.BytesIO(frozen)) as z:
+              assert set(z.namelist())==set(hashes)
+              for p in z.namelist():
+                  raw=z.read(p)
+                  assert hashlib.sha256(raw).hexdigest()==hashes[p]
+                  target=dest/p
+                  target.parent.mkdir(parents=True,exist_ok=True)
+                  target.write_bytes(raw)
+          (dest/'frozen_source_manifest.json').write_bytes(manifest)
+          src=Path('scripts/run_chapter2_far_early_independent_visitor_knockout_20261015.py')
+          target=dest/src;target.parent.mkdir(parents=True,exist_ok=True)
+          shutil.copyfile(src,target)
+          protocol=Path('docs/protocols/chapter2_far_early_independent_visitor_knockout_20261015.json')
+          target=dest/protocol;target.parent.mkdir(parents=True,exist_ok=True)
+          shutil.copyfile(protocol,target)
+          print('25 archived source files byte-identical; no live model-kernel override')
+          PY
+      - name: Execute exact four history seeds, complete 128 native futures
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p outputs
+          START=$(( 28110601 + 4 * ${{ matrix.shard }} ))
+          END=$(( START + 3 ))
+          PAD=$(printf '%02d' ${{ matrix.shard }})
+          cd frozen
+          PYTHONPATH=. python -m scripts.run_chapter2_far_early_independent_visitor_knockout_20261015 \
+            --history-first "$START" --history-last "$END" \
+            --output "../outputs/shard-${PAD}.npz"
+      - name: Confirm full 128 paths, source fingerprint, and atomic archived data
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json,hashlib,os
+          from pathlib import Path
+          i=int(os.environ['SHARD'])
+          p=Path('outputs/shard-%02d.json'%i)
+          d=json.loads(p.read_text())
+          a=p.with_suffix('.npz')
+          assert d['status']=='NEW_INDEPENDENT_MODEL3_SUBSET'
+          assert d['subset_history_seeds']==[28110601+i*4,28110604+i*4]
+          assert d['n_paths']==128 and d['new_updates']==25600
+          assert len(d['cases'])==128 and a.is_file()
+          assert hashlib.sha256(a.read_bytes()).hexdigest()==d['array_npz_sha256']
+          print('FROZEN: source verified, 128 complete paths in shard',i)
+          PY
+        env:
+          SHARD: ${{ matrix.shard }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ch2-initial200-independent-shard-${{ matrix.shard }}
+          retention-days: 90
+          if-no-files-found: error
+          path: outputs/shard-*.npz\n            outputs/shard-*.json
+
+  full-readout:
+    if: github.run_attempt == 1
+    needs: shards
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: ch2-initial200-independent-shard-*
+          merge-multiple: true
+          path: outputs/independent-source
+      - name: Full new-cohort source readout, all64 visitors, both genetic founders, source-frozen identity
+        run: |
+          python -m scripts.summarize_chapter2_far_early_independent_visitor_knockout_20261015 \
+            --input outputs/independent-source \
+            --output outputs/independent-64-readout.json
+      - name: Inspect registered 98.75% bootstrap family and 63-seed postpilot panel
+        run: |
+          python - <<'PY'
+          import json
+          d=json.load(open('outputs/independent-64-readout.json'))
+          assert d['status']=='ALL_2048_NEW_INDEPENDENT_MODEL3_INITIAL200_FUTURES_VERIFIED'
+          assert d['new_evolutionary_trajectories']==2048
+          assert d['new_model_updates']==409600
+          assert d['postpilot_heldout_history_count']==63
+          assert len(d['new_results'])==4
+          for s,row in d['new_results'].items():
+              a=row['holdout_63_after_visible_1_seed_pilot']
+              b=row['all_64_registered_new_seeds']
+              assert a['source_new_visitor_histories']==63
+              assert b['source_new_visitor_histories']==64
+              assert a['effects']['interaction']['familywise_bonferroni_4']
+          print('Independent model results admitted without outcome-sign gate.')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ch2-initial200-independent-64history-readout
+          retention-days: 90
+          if-no-files-found: error
+          path: outputs/independent-64-readout.json
