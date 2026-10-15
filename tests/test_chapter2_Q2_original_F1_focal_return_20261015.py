@@ -116,5 +116,5 @@ def test_source_scope_is_not_realized_selection_or_Q4():
     assert result["independent_genetic_source_backgrounds"]==1
     assert result["only_one_original_adult_phenotype_replaced_at_a_time"]
     claims=" ".join(result["claim_ceiling"])
-    for word in ("density","evolution","20-census","Q4","one original"):
+    for word in ("density","selection","20-census","Q4","one original"):
         assert word in claims
