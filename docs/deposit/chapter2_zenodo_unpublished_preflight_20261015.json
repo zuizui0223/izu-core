@@ -1,0 +1,150 @@
+{
+  "schema": "izu_core_chapter2_zenodo_unpublished_draft_preflight_v1",
+  "prepared_on": "2026-10-15",
+  "repository": "zuizui0223/izu-core",
+  "source_main_commit": "333e9a8e0c1772adff106c52cde06d33651496c1",
+  "target_repository": "Zenodo",
+  "target_url": "https://zenodo.org",
+  "preflight_only": true,
+  "external_draft_created": false,
+  "external_record_id": null,
+  "external_uploads_performed": false,
+  "doi_reserved": false,
+  "doi_assigned": null,
+  "published": false,
+  "record": {
+    "type": "dataset",
+    "proposed_title": "Simulation source data for reproductive assurance and floral-investment divergence under pollinator limitation",
+    "proposed_description": "Source-preserved, model-generated outputs and provenance for the single unified Model 3 plant–pollinator manuscript. The initial core package plan distinguishes two original evolutionary campaigns, four separately generated 64-history demographic cohorts, and a prospectively frozen synthetic visitor-tempo study. These are separate inference units, not observed natural-island populations. The complete manuscript/SI source inventory has not been admitted for Zenodo deposit; additional original discovery, finite ABM and conditional intervention archives require review before final publication.",
+    "proposed_keywords": [
+      "plant–pollinator interactions",
+      "reproductive assurance",
+      "floral investment",
+      "evolutionary simulation",
+      "finite-population genetics",
+      "synthetic island systems"
+    ],
+    "ordered_creators": null,
+    "affiliations_and_identifiers": null,
+    "data_license": null,
+    "code_license": null,
+    "resource_version": null,
+    "access_or_embargo_choice": null,
+    "access_or_embargo_release_date": null,
+    "disclosure_and_rights_review_approved": false,
+    "depositor_account_authenticated": false,
+    "metadata_ready_for_zenodo_save": false
+  },
+  "limits_confirmed_from_zenodo_help": {
+    "maximum_files_per_record": 100,
+    "maximum_total_bytes_per_record": 50000000000,
+    "source": "https://help.zenodo.org/docs/deposit/manage-files/",
+    "creators_required": true,
+    "zenodo_drafts_not_publication": true,
+    "metadata_becomes_public_after_publication": true
+  },
+  "six_core_packages": [
+    {
+      "group": "four_independent_demographic_cohorts",
+      "cohort": "orthogonal",
+      "filename": "chapter2-orthogonal-130-original-shard-artifacts.tar",
+      "bytes": 227543040,
+      "sha256": "03e1292511219ea4ee64499d35ac0e5a5f824f1ee0fd420ecd7ca97f4f9ebf65",
+      "inner_original_zip_count": 130,
+      "source_receipt_path": "docs/CHAPTER2_UNIFIED_DATA_DEPOSIT_READINESS_20261011.md",
+      "availability_claim": "previously preserved in same-provider unpublished GitHub draft Release; external Zenodo availability not checked",
+      "fresh_container_byte_check_in_this_preflight": false
+    },
+    {
+      "group": "four_independent_demographic_cohorts",
+      "cohort": "kb",
+      "filename": "chapter2-kb-130-original-shard-artifacts.tar",
+      "bytes": 226304000,
+      "sha256": "7d367a9e4a9f4f60f25dbee2ccabc84ef0969f5d9b0096c7df07380314dcfff9",
+      "inner_original_zip_count": 130,
+      "source_receipt_path": "docs/CHAPTER2_UNIFIED_DATA_DEPOSIT_READINESS_20261011.md",
+      "availability_claim": "previously preserved in same-provider unpublished GitHub draft Release; external Zenodo availability not checked",
+      "fresh_container_byte_check_in_this_preflight": false
+    },
+    {
+      "group": "four_independent_demographic_cohorts",
+      "cohort": "fixed_b48",
+      "filename": "chapter2-fixedB48-all-original-131-artifacts.tar",
+      "bytes": 224860160,
+      "sha256": "3e522fc9d8da904ed70cc2213bc3b08816761c4e44a4badc72e0c87ba04bd42c",
+      "inner_original_zip_count": 131,
+      "source_receipt_path": "docs/CHAPTER2_UNIFIED_DATA_DEPOSIT_READINESS_20261011.md",
+      "availability_claim": "previously preserved in same-provider unpublished GitHub draft Release; external Zenodo availability not checked",
+      "fresh_container_byte_check_in_this_preflight": false
+    },
+    {
+      "group": "four_independent_demographic_cohorts",
+      "cohort": "timed",
+      "filename": "chapter2-timed-130-original-shard-artifacts.tar",
+      "bytes": 225617920,
+      "sha256": "b5ab3a99eeaf36da399290508a64fa022cacc734aa1d794cab3b8443707309aa",
+      "inner_original_zip_count": 130,
+      "source_receipt_path": "docs/CHAPTER2_UNIFIED_DATA_DEPOSIT_READINESS_20261011.md",
+      "availability_claim": "previously preserved in same-provider unpublished GitHub draft Release; external Zenodo availability not checked",
+      "fresh_container_byte_check_in_this_preflight": false
+    },
+    {
+      "group": "two_evolution_campaigns",
+      "filename": "chapter2_public_archive_20261006.zip",
+      "bytes": 518372739,
+      "sha256": "0596de11afea2f9f0b5a781f6d0ddd1fa7ea772f048ec0ccfc06e9ecbbf60695",
+      "inner_original_zip_count": 50,
+      "source_receipt_path": "data/submission/chapter2_evolution_archive_recovery_20261011.json",
+      "availability_claim": "historical private preserved-copy readback; exact outer bytes not fetched in this preflight",
+      "fresh_container_byte_check_in_this_preflight": false
+    },
+    {
+      "group": "tempo_synthetic_supplement",
+      "filename": "izu_core_functional_loss_tempo_full_20261011.zip",
+      "bytes": 268940123,
+      "sha256": "034e735d244228c1f4974897a76d16acef10767a81d5dd82f5f5204f48cf0738",
+      "inner_raw_member_count": 2099,
+      "source_receipt_path": "data/results/chapter2_sequence_abrupt_gradual_functional_loss_receipt_20261011.json",
+      "availability_claim": "private previously authenticated local source archive; no new upload or transfer in this preflight",
+      "fresh_container_byte_check_in_this_preflight": false
+    }
+  ],
+  "six_core_bytes": 1691637982,
+  "six_core_file_count": 6,
+  "six_core_original_demographic_ZIPs": 521,
+  "demographic_external_private_copy_verified": "520/521",
+  "fixed_b48_missing_external_private_original": "chapter2-k48-future-shard-18.zip",
+  "fixed_b48_original_actions_readback_verified": true,
+  "fixed_b48_private_provider_safety_stop_must_not_be_bypassed": true,
+  "additional_documented_archives_not_yet_admitted": [
+    {
+      "group": "discovery_provenance",
+      "filename": "model3_replenishment_evolution_20261005.zip",
+      "bytes": 763914318,
+      "sha256": "37bd0bd312734715392add19f424696121fbe88517dfa784d8e702173ec71b6c",
+      "source_receipt_path": "docs/CHAPTER2_SOURCE_REPLAY_COHORT_IDENTITY_20261011.md",
+      "status": "additional candidate only; original discovery execution-runtime identity remains unverified; not part of six-core total"
+    },
+    {
+      "group": "original_mutation_finite_ABM",
+      "filename": "completed_atom_abm_20261011.zip",
+      "bytes": 389730774,
+      "sha256": "7ae00916ed2cbb38323c3fb9ffc5824de3e8272df1f5a35785842c316191f918",
+      "source_receipt_path": "docs/CHAPTER2_UNIFIED_EL_SUPPORTING_INFORMATION_20261010.md",
+      "status": "additional candidate only; separate source-matched atom/density and finite-ABM comparison; not part of six-core total"
+    }
+  ],
+  "additional_candidate_bytes": 1153645092,
+  "eight_known_archive_bytes_if_all_admitted": 2845283074,
+  "missing_manifest_scope": [
+    "Full evidence-family inventory beyond six core packages (including Q3 conditioned restoration and other SI companion releases)",
+    "Direct fresh byte and SHA256 re-download of selected full source packages before Zenodo upload",
+    "Approved authors, affiliations/ORCID, licenses, access/embargo, host account, and final version",
+    "Approved cross-host transfer route for blocked fixed-B48 source without bypassing provider safeguards",
+    "Post-deposit independent full-container and all inner-original hashes plus analysis-input provenance verification"
+  ],
+  "current_backups": "four unpublished GitHub draft Releases; private external copies validated historically for 520/521; no independent public DOI",
+  "ready_to_upload_or_publish": false,
+  "paper_submitted": false,
+  "issue": "https://github.com/zuizui0223/izu-core/issues/436"
+}
