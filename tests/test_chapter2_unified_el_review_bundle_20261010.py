@@ -163,7 +163,7 @@ def test_current_blinded_paper_is_correct_and_within_EL_limits():
     paper=blind_paper()
     source=(ROOT/"docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md").read_text()
     historical=(ROOT/"docs/CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md").read_text()
-    assert paper.startswith("# Reproductive assurance compresses floral-investment divergence")
+    assert paper.startswith("# Selection, sequence and finite realization of floral evolution")
     assert paper != historical
     assert paper != source
     assert len(paper.split("## Abstract",1)[1].split("## Keywords",1)[0].split())<=150
