@@ -127,6 +127,55 @@ def pr490_original_materials():
         for name,value in members.items()}
 
 
+
+def q2_s29_mechanism_materials():
+    """Four immutable, anonymous F0/F1 source objects for SI S29 reviewers.
+
+    This is a read-only evidence-packet route. The staged scientific
+    subsection has a source-locked validator; do not infer biological
+    offspring, actual F1 recruitment, genetic selection, or Q4 persistence.
+    """
+    from scripts.verify_chapter2_q2_s29_source_bridge_20261015 import (
+        verify as verify_s29,
+        SOURCES as S29_SOURCES,
+        git_blob as original_git_blob,
+    )
+    admission=verify_s29(ROOT)
+    if (admission["status"]!="PASS_SOURCE_PINNED_S29_NO_NEW_BIOLOGY"
+            or admission["native_focal_W_analytical_cells"]!=36
+            or admission["native_Model3_population_updates"]!=0
+            or admission["not_a_persistence_or_evolutionary_order_effect"] is not True):
+        raise ValueError("S29 source admission is not a read-only F1 mechanism")
+    destinations={
+        "original":"EVIDENCE/Q2_S29_ORIGINAL_T0_TYPED_SOURCE.json",
+        "f1":"EVIDENCE/Q2_S29_ORIGINAL_I_M0_M6_F1.json",
+        "sign":"EVIDENCE/Q2_S29_FOUR_SIGN_MENDELIAN_F1.json",
+        "returns":"EVIDENCE/Q2_S29_STATIC_FOCAL_W.json",
+    }
+    members,derivations={},{}
+    for tag,name in destinations.items():
+        path,expected_blob=S29_SOURCES[tag]
+        original=(ROOT/path).read_bytes()
+        if original_git_blob(original)!=expected_blob:
+            raise ValueError("S29 original review blob drift: "+path)
+        # The original four data objects contain no identifying repo URL,
+        # user names or private filesystem paths. Refuse additions rather than
+        # remove unknown fields or silently modify numerical raw data.
+        validate_member(name,original)
+        members[name]=original
+        derivations[name]={
+            "source_git_blob_sha1":expected_blob,
+            "original_sha256":sha(original),
+            "derived_sha256":sha(original),
+            "transformation":"Exact original source bytes; anonymous. "
+                "F1 conditional probability and held-fixed adult W are not "
+                "realized selection, recruitment, historical order or survival.",
+        }
+    if len(members)!=4 or len(set(members))!=4:
+        raise ValueError("S29 reviewer evidence inventory incomplete")
+    return members,derivations
+
+
 def first_meiosis_access_materials():
     """Admit original-cohort F1 access via complete raw-genotype reconstruction."""
     data = ROOT / 'data/results/first_meiosis_access_20261014'
@@ -1148,6 +1197,8 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     from scripts.natural_order_mean_paper_admission_20261015 import materials as mean_control_materials
     mean_control,mean_derivations=mean_control_materials(ROOT)
     members.update(mean_control);derivations.update(mean_derivations)
+    s29,s29_derivations=q2_s29_mechanism_materials()
+    members.update(s29);derivations.update(s29_derivations)
     assurance_parent,assurance_parent_derivations=assurance_parent_materials()
     members.update(assurance_parent)
     derivations.update(assurance_parent_derivations)
@@ -1181,6 +1232,7 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
         "atom_evidence":"All10 two-grid numerical admissions and320 descriptive ABM histories;990 event and40 checkpoint independent array checks, no new raw-genome reconstruction or causal drift attribution",
         "resolution_evidence":"6144 boundary,3072 shared preparations,6144 branched challenges; genetic-access band and conditional all-start preparation-policy effects, not pure natural-order mediation",
         "natural_order_mean_control_evidence":"2048 approved attained-mean-controlled futures,8 original references,2048 exact native replays; two fixed founder blocks. Low-challenge extinction floor and heterogeneous high-challenge strict-order directions; not randomized past-order benefit or unique mediation. Full6184-member raw companion publicly re-downloaded and verified.",
+        "q2_s29_mechanism_evidence":"Four Git-blob-pinned original source/F1/sign/static-W JSON receipts supplied anonymously; synthetic A reconstructed, one original confirmation founder, three visitor settings, 36 fixed-adult W cells. No new biological histories, recruitment, directional selection, long-run six-class order or Q4 survival.",
         "natural_order_evidence":"Retrospective raw-genotype join of1024 unrestricted preparations and2048 existing futures; all36 descriptive groups independently verified. Two fixed founders; not randomized order benefit, new simulation or primary family.",
         "kernel_expression_evidence":"All48 investment-expression pairs and12 endpoint-duration reversals; two exact reference-order/state-time decompositions. Pure-low positive/pure-high negative aggregate contributions; segregating signs reference-sensitive. Not unique fixation mediation or natural-order benefit",
         "response_onset_evidence":"All2304 archived on-path expected inherited response clocks;299 point/216 sustained earlier-I counterexamples among335 assurance-first cases. Descriptive refutation of universal start-time-only necessity; no invasion-gradient, causal or future-benefit claim",
