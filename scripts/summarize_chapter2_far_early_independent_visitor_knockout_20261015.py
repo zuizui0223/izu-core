@@ -43,6 +43,14 @@ def interval(values,seed,*,bonferroni=False):
                 n_original_independent_seed_clusters=len(x))
 
 
+def valid_native_population_census(a):
+    """Native Model3 K=48 allows transient undersaturation, not only N=48."""
+    n=np.asarray(a)[:,0]
+    return bool(n.shape==(201,) and np.isfinite(n).all()
+                and np.all(n==np.floor(n))
+                and np.all((n>0)&(n<=48)))
+
+
 def read_shards(folder):
     contract=json.loads(PROTOCOL.read_text(encoding="utf-8"))
     digest=sha(PROTOCOL.read_bytes())
@@ -84,9 +92,7 @@ def read_shards(folder):
                and key[3] in VISITORS and key[4] in MODES):
                 raise AssertionError("unregistered experimental cell")
             a=arrays[i];g=geno[i]
-            if (not np.all(np.isfinite(a[:,0]))
-                or not np.all(a[:,0] == np.floor(a[:,0]))
-                or not np.all((a[:,0]>0) & (a[:,0]<=48))
+            if (not valid_native_population_census(a)
                 or abs(a[0,1]-c["I_initial"])>1e-12
                 or abs(a[-1,1]-c["I_t200"])>1e-12
                 or a[-1,0]!=c["t200_N"]
