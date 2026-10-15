@@ -153,7 +153,7 @@
     "ecology_letters_letter_main_max": 5000,
     "ecology_letters_letter_abstract_max": 150,
     "display_items_max": 6,
-    "current_integrated_main_words": 4984,
+    "current_integrated_main_words": 4991,
     "current_integrated_abstract_words": 148,
     "main_text_excess_words": 0,
     "abstract_excess_words": 0,
@@ -166,7 +166,7 @@
       "pollinator population collapse",
       "historically explained global island syndrome"
     ],
-    "current_main_text_words": 4984,
+    "current_main_text_words": 4991,
     "current_abstract_words": 148,
     "updated_submission_scope": "Main4984/abstract148. PR538 mechanism and S14; S29 retained; S30 renewal/accounting. Distinct cohorts; no pure-drift or natural-order benefit. DOI pending.",
     "historical_precompression_counts": {
