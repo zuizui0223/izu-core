@@ -652,3 +652,30 @@ In this repeat, investment in evolving-A minus fixed-A arms was already positive
 At400,50/64 far visitor histories had no visitors, compared with1/64 near. Under zero visits and positive viable selfing, the original weights factor as exp(−c_I I²) A exp(−c_A A²). Holding the A factor constant within each observed population changes expected investment slightly, with mixed signs across settings. This cross-sectional association therefore does not establish a common cause of the positive far endpoint. No unique drift, covariance, realized-selfing or inherited-feedback shares are assigned; annual intervening genomes are not available in these checkpoint archives.
 
 Source protocol SHA256:c1603de32c42ddd99d9407ccf5edbfa3824baccfd47feaf7d499fef95f4ba2c0. The derived source-audit ZIP SHA256 is55dc0a08b9d01a386eee9396f341cc9f26d9c623e449238e28d36c505c713db3; it contains the complete checkpoint/Price readout. Its specific source-readout job succeeded; the contemporaneous overall workflow failed the tracked-data budget, subsequently corrected by relocating the unchanged protocol to docs. Source authentication and one-step accounting are not a full independent1000-update biological replay, independent ecological replication, or a resolved explanation of Ch1's regional history.
+
+## S33. Independent 32-history prehistory-by-evolvability persistence under synthetic stress
+
+**A separate, pilot-informed but before-new-history-frozen Q4 experiment, not a Q1 mediation analysis.** [The original frozen design](../data/design/chapter2_island_demographic_independent32_20261008.json) was motivated by an earlier eight-history exploratory stress screen. New visitor histories 30100801–30100832 and one nested demographic realization per history were used for the confirmatory intervention. For each of four original mating settings, near/far × A-fixed/evolvable plant cohorts accumulated 400 model reproductive updates under their respective visitor histories, with matched founders. Survivors were subsampled to eight with matched RNG, then placed into 80-update future stress tests, crossing four ovule budgets [2, 3, 4, 5] with two future visitor contexts. There was no seed immigration.
+
+For each original visitor-history block, define the equal-eight-cell mean terminal occupancy for each arm. The preregistered primary is:
+
+`D = [(far_pre − near_pre)_(A evolving)] − [(far_pre − near_pre)_(A fixed)]`.
+
+All eight stress conditions, all four mating settings and all 4,096 postshock trajectories were included. The history-level pooled mean was **+0.1083984375 occupancy probability units** with a 95% percentile **32-history** bootstrap **[+0.0654296875,+0.1513671875]** (9,999 draws), passing the originally declared pooled criterion. The number of independent environmental histories was 32, not 4,096.
+
+| Original mating rule | A-evolvability × past-pollination occupancy interaction | 95% history-bootstrap |
+|---|---:|---|
+| Delayed selfing, no assurance cost | +0.15234375 | [+0.05859375, +0.24609375] |
+| Prior selfing | +0.05078125 | [−0.01953125, +0.12109375] |
+| Pollen discount | +0.09765625 | [+0.01953125, +0.17187500] |
+| Direct assurance cost | +0.13281250 | [+0.07421875, +0.19140625] |
+
+Thus the pooled result is a **conditional treatment interaction**, not four individually successful setting-level tests: the prior-selfing interval includes zero. The original archived offline source shards were later read back in a separate GitHub environment. [The replay receipt](../data/results/chapter2_island_demographic_independent32_replay_receipt_20261013.json) confirms exact identities for all eight biological-state projections and reproduces the pooled estimate and interval; a per-capita initial maternal seed diagnostic differs only by floating-point roundoff up to 4.44×10⁻¹⁶. No natural island survival rates follow from this result.
+
+**Source-level treatment limitation.** In [the unchanged original runner](../scripts/run_chapter2_island_demographic_independent32.py), `cfg=config(source,setting,d["pre_mutation_rate"],mode)` is constructed for each arm before the 400-update prehistory; the postshock `post_cfg=replace(cfg,capacity=8,ovule_budget=budget)` retains the same `assurance_mode`, and `advance(...mutation_traits=(True,True,mode=="evolving"))` continues to mutate A during the 80-update future whenever it was evolvable beforehand. Therefore D **does not isolate the allelic legacy of the first 400 updates**: both the evolved background and the continued capacity to evolve during future stress differ. In addition, the postshock changes to K and ovule budget also affect recipient-specific pollen transfer and density limitation, so the intervention is not a pure change in historical reproductive assurance or population size.
+
+The design includes separate `pre_mutation_rate` and `post_mutation_rate` inputs but the archived runner uses the pre value in both phases. **Both frozen rates equal 0.01**, so the original execution and the above numerical results are not inconsistent; using this runner for a future *unequal-rate* study without an explicit post-rate assignment would be a latent configuration error. Do not retroactively edit/reinterpret the pinned design or its biological output.
+
+**Keep distinct from the separate registered K-at-fixed-B48 Q4 result (S3/Fig. 4).** There, `tau(K8,B48)-tau(K48,B48)=+0.007745713876893593` (95% history-bootstrap [+0.002497158065469939,+0.013015478808429596]), where `tau` is sensitivity of the *imposed* A-first/I-first phenotype-expression occupancy difference to halving viable selfed seeds. The treatment, prospective inferential history units and estimand differ; effects must not be pooled. That Q4 result also does not identify natural mutation-order benefits.
+
+**Decision:** Q4 belongs in the same Chapter 2 paper because population persistence is a different biological endpoint from floral-investment response. It is not identified as the mediated downstream consequence of Q1's 8,192 original trajectories or Q3's no-I-mutation allele-loss episodes. All controlled nulls/inconclusive trials remain in the original Q4 SI.
