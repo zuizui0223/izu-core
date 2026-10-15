@@ -4,7 +4,7 @@
   "baseline_commit": "8d145da1e312e9767b056fd81f3c4b6c3448d552",
   "rationale": "Prevent further repository growth while preserving frozen legacy provenance until a permanent external archive is fixed.",
   "thresholds_bytes": {
-    "max_tracked_data_tree": 183082239,
+    "max_tracked_data_tree": 183088041,
     "max_unlisted_design_file": 1048576,
     "max_unlisted_result_file": 2097152,
     "max_unlisted_generated_svg": 1048576
@@ -49,5 +49,9 @@
   "ecological_I_renewal_technical_hold_archive_revision_20261015": {
     "previous_cap_bytes": 183081107,
     "rationale": "Compact pending(false) technical-restart approval only; preserve original STOP externally and all original per-file/grandfather ceilings. No scientific count/threshold retuning and no native restart executed."
+  },
+  "ecological_I_renewal_completed_archive_revision_20261015": {
+    "previous_cap_bytes": 183082239,
+    "rationale": "Completed approved2304I-renewal study: three small exact-byte gzip readout/admission records and one public receipt only. Full681891056-byte/6956-member companion externalized and publicly re-downloaded, SHA6977676f2d855e980a6ca8ed9f853abd4a08769f0a150e732ff645dd50f998e1. No per-file/grandfather/scientific threshold change."
   }
 }
