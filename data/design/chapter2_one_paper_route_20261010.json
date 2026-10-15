@@ -153,7 +153,7 @@
     "ecology_letters_letter_main_max": 5000,
     "ecology_letters_letter_abstract_max": 150,
     "display_items_max": 6,
-    "current_integrated_main_words": 4382,
+    "current_integrated_main_words": 4584,
     "current_integrated_abstract_words": 140,
     "main_text_excess_words": 0,
     "abstract_excess_words": 0,
@@ -166,9 +166,9 @@
       "pollinator population collapse",
       "historically explained global island syndrome"
     ],
-    "current_main_text_words": 4382,
+    "current_main_text_words": 4584,
     "current_abstract_words": 140,
-    "updated_submission_scope": "Main4382, abstract140. S28: 2048 Q4 native futures and exact replays; no natural-order mediation. S29: post hoc F1 genetic access versus fixed-state W, not selection or persistence. Original primaries and nulls retained; external DOI pending.",
+    "updated_submission_scope": "Main4584, abstract140. Q3: 2304 source histories; 703 pre-fixation threshold exclusions, 315/1238 favourable conditional-weight losses (same cases, not drift effects). S28/S29 and original nulls unchanged; DOI pending.",
     "historical_precompression_counts": {
       "main_words": 6035,
       "abstract_words": 237,
