@@ -153,7 +153,7 @@
     "ecology_letters_letter_main_max": 5000,
     "ecology_letters_letter_abstract_max": 150,
     "display_items_max": 6,
-    "current_integrated_main_words": 4968,
+    "current_integrated_main_words": 4990,
     "current_integrated_abstract_words": 140,
     "main_text_excess_words": 0,
     "abstract_excess_words": 0,
@@ -166,9 +166,9 @@
       "pollinator population collapse",
       "historically explained global island syndrome"
     ],
-    "current_main_text_words": 4968,
+    "current_main_text_words": 4990,
     "current_abstract_words": 140,
-    "updated_submission_scope": "Main4968/abstract140. Q3: 703 access losses before fixation; 315/1238 first-loss transitions oppose positive expected allele response (distinct denominators; no drift attribution). S28 conditional; S29 post hoc; no order rescue/DOI.",
+    "updated_submission_scope": "Main4990/abstract140. Q3: 703 access losses before fixation; 315/1238 first-loss transitions oppose positive expected allele response (distinct denominators; no drift attribution). S28 conditional; S29 post hoc; no order rescue/DOI.",
     "historical_precompression_counts": {
       "main_words": 6035,
       "abstract_words": 237,

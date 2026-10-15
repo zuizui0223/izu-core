@@ -123,7 +123,7 @@ Among335 assurance-first histories, investment-decline expected response began e
 
 ## Q3 — Realization: deterministic response and finite inheritance
 
-A separately frozen investment-mutation extension resolved no ecological order-reversal contrast across 18 cells (Supporting Information S30); it is not a mutation-robustness test of the different density-comparison cohort.
+An investment-mutation extension left all 18 order contrasts unresolved. Standing allele support reopened in 914 histories, yet 758 lacked a sustained investment response by update 200; 64 had already responded and 92 responded afterward. This separate cohort does not test mutation robustness of the density comparison (Supporting Information S30).
 
 We compared conditional deterministic genotype-density propagation (without demographic sampling) with a finite diploid ABM using the same reproductive and inheritance operator. In a separately frozen zero-mutation, 128-visitor-history near–far bridge, investment contrasts were −0.4510 (density) and −0.1446 (ABM); mixed-sign history labels occurred in 0/128 and 12/128 cases at zero deadband. Matching annual visitor counts reversed both mean contrasts (+0.0338 and +0.0333), but also changed visitor identity persistence and left 16/128 versus 68/128 mixed histories. Increasing plant capacity from 48 to 192 reduced finite mixed labels from 12/128 to 1/128 (Supplementary Fig. S1).
 

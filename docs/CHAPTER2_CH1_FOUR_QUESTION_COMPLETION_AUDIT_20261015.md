@@ -33,3 +33,8 @@ Do not restart finished runs or tune cells for a reversal. Any further intervent
 ## Verified integration gates
 
 The focused novelty, Q3 source, one-paper, actual-bundle and unchanged artifact-budget checks passed: 45 tests in20.48s. Independently reviewed precommit packet: 149 members/148 payload hashes, four main and three supplementary figures, source4,968/blinded4,971 words, abstract140. S29 and S30 coexist; exact-source SI URL withholding is traceable and all numerical scope remains intact. The reviewer found no scientific/anonymity blocker; its S25/S28 citation correction was checked against the SI headings and fixed here. Committed-source/public-delivery receipts remain separate from this precommit review and the scientific unknowns above.
+
+
+## Completed read-only renewal follow-up
+
+Plan7df4fd53 and reader4e390f67 decompose the already completed renewal, without another biological update. Independent source-array reconstruction verified4,608 trajectories/926,208 censuses and every case/cell. Standing allele support reopened in914 renewed histories;758 had no sustained response by200,64 had already completed it and92 completed afterward. These are temporal conditions, not causal rescue shares. A further post-audit timing description retains33 late first reopenings and725 with calendar time; persistent support and selection are not thereby identified. The original18 order intervals and the separate320-history density comparison retain their verdicts. Source main4,990/blinded4,993/abstract140;53 focused tests passed. This advances a concrete finite-inheritance mechanism but does not close the broader missing causal effects listed above.
