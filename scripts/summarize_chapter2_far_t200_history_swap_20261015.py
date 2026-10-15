@@ -233,7 +233,7 @@ def aggregate(folder):
         "source_original_demographic_repeat": 26111601,
         "input_shards_sha_locked": 16,
         "independent_visitor_history_clusters": 64,
-        "n_original_unique_t200_genotype_states": 512,
+        "n_source_t200_origin_setting_history_slots": 512,
         "n_future_cells_from_those_states": 1024,
         "new_conditional_evolutionary_updates": 819200,
         "development_history": DEVELOPMENT_HISTORY,
