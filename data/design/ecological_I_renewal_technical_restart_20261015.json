@@ -1,6 +1,6 @@
 {
-  "approved": false,
-  "human_answer": null,
+  "approved": true,
+  "human_answer": "承認",
   "prior_execution_freeze_sha256": "284bc545e6638ec32bb19f34ec2d7cadd64704a9795cf5c1b1a58c3cc05da06b",
   "prior_reserved_upper_bound": 1616,
   "combined_update_cap": 924848,
