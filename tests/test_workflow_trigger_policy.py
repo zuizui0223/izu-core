@@ -104,6 +104,17 @@ def test_pull_request_signal_is_limited_to_current_ci_surfaces() -> None:
                 "    branches: [research/ch2-far-early-independent-visitor-knockout-20261015]",
                 "    paths: [docs/protocols/chapter2_far_early_readout_recovery_activation_20261015.json]",
             ]
+        elif path.name == "chapter2-atom-original-readback-20261016.yml":
+            # The original 320 ABM and 30 density cases were already run in
+            # 2026-10-11. One exact manifest activation in a dedicated branch
+            # permits read-only, hash-locked re-download of the original ZIP.
+            # No schedule, broad push, PR re-run or new biological simulation.
+            assert [line for line in _trigger_block(path) if line.strip()] == [
+                "on:",
+                "  push:",
+                "    branches: [audit/ch2-q3-original-mutation-raw-readback-20261016]",
+                "    paths: [docs/protocols/chapter2_atom_original_raw_activation_20261016.json]",
+            ]
         else:
             assert events == {"workflow_dispatch"}, (path.name, events)
 
