@@ -1,14 +1,6 @@
 name: Chapter 2 far t200 history swap technical pilot
 
 on:
-  push:
-    branches:
-      - research/ch2-lepers-fulltext-t200-factorial-20261015
-    paths:
-      - scripts/chapter2_far_t200_history_swap_20261015.py
-      - tests/test_chapter2_far_t200_history_swap_20261015.py
-      - docs/protocols/chapter2_far_t200_history_swap_20261015.json
-      - .github/workflows/chapter2-far-t200-history-swap-pilot-20261015.yml
   workflow_dispatch:
 
 permissions:
