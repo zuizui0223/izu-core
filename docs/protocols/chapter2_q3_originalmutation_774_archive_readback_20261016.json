@@ -1,0 +1,61 @@
+{
+  "schema": "chapter2_q3_original_mutation_public_release_readback_once_v1",
+  "status": "PREPARED_NOT_ACTIVATED",
+  "date": "2026-10-16",
+  "study": "2026-10-11 original Q3 atom-versus-ABM archived source, NOT a new experiment",
+  "original_release_tag": "atom-cell-inputs-20261011",
+  "source_repository": "zuizui0223/izu-core",
+  "external_archive_host": "same-provider GitHub Releases, NOT external DOI",
+  "source_original_workflow_run_id": 38120835221,
+  "source_executor_commit": "e331e0fe2c0048f94197f41f34575dbcd77c0377",
+  "source_assets": [
+    {
+      "name": "completed_atom_abm_20261011.zip",
+      "release_asset_id": 630963509,
+      "bytes": 389730774,
+      "sha256": "7ae00916ed2cbb38323c3fb9ffc5824de3e8272df1f5a35785842c316191f918"
+    },
+    {
+      "name": "remote_atom_inputs_20261011.zip",
+      "release_asset_id": 630069066,
+      "bytes": 148159152,
+      "sha256": "f0fd126f638e1c6bd130e640ce4491b3bb47aac3da1838359a902776c9a4e037"
+    }
+  ],
+  "original_full_archive_members": 774,
+  "original_member_manifest_records": 773,
+  "native_finite_diploid_cases": 320,
+  "native_density_archive_cases": 30,
+  "original_contexts": 10,
+  "replicate_ids_per_context": 32,
+  "horizon_census_0_to_200": 201,
+  "event_thresholds": [
+    0.025,
+    0.05,
+    0.1
+  ],
+  "event_sustained_censuses": 20,
+  "near_simultaneous_tolerance_censuses": 5,
+  "original_independent_event_and_checkpoint_checks": [
+    990,
+    40
+  ],
+  "protected_raw": "All original release bytes and committed manuscript/source numerical results remain unchanged.",
+  "one_time_activation": "Only a change to THIS preflight JSON on this exact review branch triggers one read-only archived-source CI run.",
+  "allowed_actions": [
+    "retrieve source ZIP from original GitHub public release",
+    "SHA256/size/CRC/member identity check",
+    "reconstruct original finite genotype means and original event categories",
+    "write compact validation receipt in workflow artifact"
+  ],
+  "forbidden_actions": [
+    "new biological evolutionary updates",
+    "modify original ZIPs",
+    "alter event thresholds or sampling frame",
+    "grant new dataset publication license",
+    "publish/transfer to Zenodo",
+    "claim independent natural ecology or pure drift coefficient"
+  ],
+  "no_externally_assigned_doi": true,
+  "literature_priority": "Original finite ABM context-specific comparison is not a first stochastic individual-based model claim."
+}
