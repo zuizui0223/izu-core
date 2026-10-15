@@ -158,7 +158,7 @@
     "main_text_excess_words": 0,
     "abstract_excess_words": 0,
     "editorial_status": "EL_format_word_limits_passed_data_DOI_pending",
-    "scientific_focus": "Reframe title/abstract/discussion on Q2 temporal precedence versus necessity and Q3 finite inherited realization, retaining Q1 four-setting prospective confirmation as reproductive baseline. Q4 remains a distinct conditional consequence; no extra confirmatory claim is created.",
+    "scientific_focus": "Q2 conditional order, Q3 finite inherited realization; Q1 confirmed baseline, Q4 separate.",
     "high_upside_audit": "docs/CHAPTER2_HIGH_UPSIDE_QUESTION_AUDIT_20261010.md",
     "conditional_higher_target": "Nature Ecology & Evolution or equivalent broad ecology journal ONLY if a newly validated assurance-evolution -> communal pollen transfer -> demographic fitness chain and generality are established, not by reinterpretation alone",
     "never_promote_unproven": [
@@ -168,21 +168,15 @@
     ],
     "current_main_text_words": 4992,
     "current_abstract_words": 143,
-    "updated_submission_scope": "Main4992/abstract143. ONE EL Letter editorial Q2/Q3 conceptual center; Q1 registered 4/4 primary retained; Q2 51/64 focal, mating-rule dependent; Q3 distinct 3/32,2/32 finite order and 703/2304 genetic-access cases, not causal bridge; Q4 stress +0.108398 separately bounded; original source-backed Figure3/S1 PDFs reassigned to prioritize Q3 (rendering review still required), data DOI pending.",
+    "updated_submission_scope": "Main4992/abstract143; ONE EL Letter. Q2/Q3 focus; Q1 four-setting primary unchanged; Q4 separate; main Fig3 Q3, S1 fixed-state Q1; DOI pending.",
     "historical_precompression_counts": {
       "main_words": 6035,
       "abstract_words": 237,
       "scope": "Superseded October 10 integrated draft; not current manuscript counts."
-    },
-    "figure_role_reconciliation": {
-      "status": "main_Figure3_Q3_source_route_updated_not_yet_independently_render_reviewed",
-      "main_figure3_source": "outputs/figures/model3_genetic_realization_20261005/genetic_realization.pdf",
-      "supplementary_figureS1_source": "outputs/figures/model3_trait_pollen_20261005/trait_pollen_snapshot400.pdf",
-      "scope": "No change in original biology, figure data, or experiment admission; original density/ABM zero-mutation bridge plus separate one-locus diagnostic only; independent low-supply 3/32 and 2/32 cohort not included in Figure3"
     }
   },
-  "editorial_primary_claim": "Conceptual focus: Q2 order and Q3 finite genetic realization; Q1 preregistered four-setting assurance-by-visitor contrast stays the strongest formally confirmed evolutionary baseline, and separate Q3 cohorts are not a causal mediation of Q1.",
-  "editorial_secondary_claim": "Q4 conditional occupancy consequences remain a separate registered demographic question; neither naturally inherited A-first rescue nor evolutionary suicide was established.",
+  "editorial_primary_claim": "Q2/Q3 conceptual focus; Q1 prospectively confirmed four-setting genetic-evolution baseline remains primary in inferential rank.",
+  "editorial_secondary_claim": "Q4 remains a distinct, conditional demographic result; no causal A-first rescue.",
   "review_package_builder": "scripts/build_chapter2_unified_el_submission_bundle.py",
   "review_package_expected_figures": [
     "Figure1.pdf",
