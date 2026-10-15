@@ -1,0 +1,30 @@
+{
+  "schema": "ch2_original_mutation_full_source_archive_readback_v1",
+  "status": "ACTIVATE_ONCE_READ_ONLY",
+  "approved_scope": "original source archival byte recheck, not new evolutionary or ecological simulation",
+  "activated_on": "2026-10-16",
+  "original_release": "atom-cell-inputs-20261011",
+  "original_release_asset_name": "completed_atom_abm_20261011.zip",
+  "original_full_release_sha256": "7ae00916ed2cbb38323c3fb9ffc5824de3e8272df1f5a35785842c316191f918",
+  "original_full_release_bytes": 389730774,
+  "original_experiment_run_id": 38120835221,
+  "original_executor_head": "e331e0fe2c0048f94197f41f34575dbcd77c0377",
+  "n_archive_members": 774,
+  "n_manifest_members": 773,
+  "n_original_finite_abm": 320,
+  "n_original_density": 30,
+  "n_contexts": 10,
+  "n_expected_event_checks": 990,
+  "n_expected_checkpoint_checks": 40,
+  "original_density_case_focal_event_threshold": 0.05,
+  "original_target_order_counts": [
+    3,
+    2
+  ],
+  "new_biological_updates": 0,
+  "upload_original_390MB_binary": false,
+  "any_publish_or_transfer_of_original_zip": false,
+  "any_external_doi_created": false,
+  "readback_outputs_only": "small SHA-bound JSON verdict via GitHub Actions 90-day artifact",
+  "scope_ceiling": "No comparison of independent natural islands; no mediation or drift attribution; original native mean and census arrays only unless independently backed by historical genotype evidence."
+}
