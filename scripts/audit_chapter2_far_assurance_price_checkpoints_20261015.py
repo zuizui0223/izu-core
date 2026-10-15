@@ -23,7 +23,7 @@ from scripts.run_chapter2_assurance_generality import (
 from scripts.model3_island.reproduction import reproduce
 
 ROOT = Path(__file__).resolve().parents[1]
-PROTOCOL = ROOT / "data/design/chapter2_far_assurance_price_checkpoint_20261015.json"
+PROTOCOL = ROOT / "docs/protocols/chapter2_far_assurance_price_checkpoint_20261015.json"
 
 
 def protocol():
