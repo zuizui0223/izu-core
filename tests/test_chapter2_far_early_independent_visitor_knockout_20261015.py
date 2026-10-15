@@ -15,7 +15,7 @@ from scripts.run_chapter2_far_early_independent_visitor_knockout_20261015 import
     DEMOGRAPHY, FIRST, LAST, YEAR_END, founder_pair, price_ensemble,
 )
 from scripts.summarize_chapter2_far_early_independent_visitor_knockout_20261015 import (
-    interval,
+    interval, valid_native_population_census,
 )
 
 
@@ -85,3 +85,18 @@ def test_prespecified_bootstrap_is_seed_clustered_and_familywise():
     assert r["cluster_bootstrap_interval"]==pytest.approx([.025,.025])
     with pytest.raises(AssertionError):
         interval(np.ones(62),seed=10)
+
+def test_native_census_may_dip_below_capacity_and_recover():
+    """Regression: 14/2048 authenticated histories transiently had N<48."""
+    arr = np.full((201, 12), np.nan)
+    arr[:, 0] = 48
+    arr[50:53, 0] = [47, 44, 46]
+    assert valid_native_population_census(arr)
+    arr[52, 0] = 0
+    assert not valid_native_population_census(arr)
+    arr[52, 0] = 49
+    assert not valid_native_population_census(arr)
+    arr[52, 0] = 45.5
+    assert not valid_native_population_census(arr)
+    arr[52, 0] = np.nan
+    assert not valid_native_population_census(arr)
