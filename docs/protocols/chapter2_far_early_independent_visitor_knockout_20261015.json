@@ -1,0 +1,110 @@
+{
+  "schema": "chapter2_independent_far_initial200_visitor_knockout_v1",
+  "date": "2026-10-15",
+  "status": "PROSPECTIVELY_FROZEN_BEFORE_NEW_INDEPENDENT_MODEL_RUN",
+  "goal": "Test whether early evolvable-assurance relative preservation of I requires visitor presence using new visitor histories and new diploid founder genomes.",
+  "source_model": {
+    "immutable_source_archive_artifact_id": 11411051762,
+    "source_archive_outer_sha256": "1fef68e29a5686c13398be36f9a96c8a6fdf337218e29258e8e06c78a48aebfa",
+    "original_design": "data/design/chapter2_assurance_generality_20261006.json",
+    "model3_bridge": "data/design/model3_ch2_bridge_20260927.json",
+    "original_model_source_must_match_archive_manifest": true
+  },
+  "factorization": {
+    "settings": [
+      "delayed_control",
+      "prior_selfing",
+      "pollen_discount",
+      "assurance_cost"
+    ],
+    "visitor_regimes": [
+      "far_original_mechanism",
+      "zero_visitors_from_t0"
+    ],
+    "assurance_modes": [
+      "fixed",
+      "evolving"
+    ],
+    "founder_seeds": [
+      28111601,
+      28111602
+    ],
+    "visitor_history_seed_first": 28110601,
+    "visitor_history_seed_last": 28110664,
+    "paired_demographic_seeds_by_founder": [
+      28112601,
+      28112602
+    ],
+    "years": 200,
+    "mutation_probability": 0.01,
+    "mutation_sd": 0.05,
+    "founder_count": 48,
+    "founder_means": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "founder_allele_sd": 0.15,
+    "founder_assurance_alleles_clamped_t0": 0.5,
+    "visitor_removal": "All native visitor state arrays replaced by truly empty VisitorState from update0; original source seed candidate history and all plant config unchanged.",
+    "pair_matching": "For any history×founder×setting, both visitor regimes and both A policies restart the same original parental lottery, segregation and mutation random streams using source SeedSequence([new visitor seed, new demographic seed]) followed by unchanged stream(...)",
+    "n_histories": 64,
+    "n_founder_backgrounds": 2,
+    "n_paths": 2048,
+    "total_native_updates": 409600,
+    "no_plant_immigration": true
+  },
+  "primary_contrasts": {
+    "unit": "64 independently seeded visitor/demography clusters; within each cluster average the two paired, fixed founder backgrounds; do not count 2 founder x four mating rules as new visitor histories",
+    "estimand": "For each mating rule, [I200_evolvable-I200_fixed] with native far visitors, minus the same with all visitors absent from t0.",
+    "interpretation": "If consistently nonzero, visit availability changes the model-specific A-evolvability effect on I. This is a causal intervention on synthetic visitor histories only, not an identified natural-island mediation or unique drift mechanism.",
+    "reporting": "Report exact interaction per mating rule and fourfold family of two-sided 98.75% history-cluster bootstrap percentile intervals (4096 resamples fixed seed 20261015), plus all signs and full null findings.",
+    "control": "Original-shared t0 founder genotypes equal in all four treatments; A-fixed retains autonomous selfing at A=0.5; no pollen local gradient remains -2*c_I*I, not zero.",
+    "holdout_reporting": "Report 63 source-new visitor seeds 28110602..28110664 separately as primary full-campaign descriptive readout because seed28110601 had an outcome-visible technical pilot. Also report original registered all64, retaining it exactly.",
+    "original_preregistered_64_unit": "Keep unchanged original 64 visitor-history contrast and fourfold Bonferroni 98.75% CI. The 63-history view is a transparent postpilot restriction, not a second preregistered hypothesis test."
+  },
+  "secondary": {
+    "outcomes": [
+      "E-F I levels at t50, t100, t200 by visitor regime",
+      "A trajectory t50/100/200",
+      "total 0–200 parental Price and realized newborn residual difference within each intervention",
+      "actual no-visitor exposure in original far, finite N and occupancy"
+    ],
+    "scope": "Post-original-model-target exploratory; secondary intervals descriptive without promotion to independent law."
+  },
+  "scope_guards": [
+    "Use strictly new visitor history seeds 28110601..28110664 (not the already-inspected 26110601..26110664).",
+    "Use distinct founder seeds 28111601, 28111602; independently drawn starting genomes are shared within matched 2x2 and across mating settings for each background.",
+    "Use unchanged original-genome birth, sex-specific reproduction, diploid segregation, density and mutation operators.",
+    "When any treatment extinct by t200, retain its occupancy and mark I contrast undefined; do not exclude that history to force a sign.",
+    "No original-model parameter tuning, no posthoc stopping for significance, no generated biological histories beyond registered 2048.",
+    "Technical pilot is not a science confirmation and must not be silently pooled as extra independent data."
+  ],
+  "stop_conditions": [
+    "Source archive/manifests or expected config mismatch",
+    "Any paired common-random stream or frozen-visitor intervention contract mismatch",
+    "Original no-mutation fixed-vs-evolving technical parity fails",
+    "Total futures <2048, or any missing history or founder cell",
+    "Any phenotype out of [0,1], duplicate parent IDs, or non-telescoping per-year I response",
+    "Refuse to publish a single sign as new law if Bonferroni fourfold interaction 98.75% cluster intervals do not exclude zero."
+  ],
+  "scientific_priority": "Far-side asymmetry is a secondary unresolved Model3 mechanism; Q2 and Q3 remain the proposed Letter core, Q1 is existing-theory context, Q4 separately scoped.",
+  "technical_pilot_after_original_design_freeze": {
+    "visitor_seed": 28110601,
+    "n_native_paths": 32,
+    "n_native_updates": 6400,
+    "status": "LOCAL_TECHNICAL_SMOKE_COMPLETED_NOT_INDEPENDENT_CONFIRMATION",
+    "outcome_exposed_before_full_run": true,
+    "source_archive_sha256": "1fef68e29a5686c13398be36f9a96c8a6fdf337218e29258e8e06c78a48aebfa",
+    "interpretation": "Exclude this already inspected seed from the primary descriptive confirmation view of the remaining 63 seeds, and also present the original full 64 design without duplicate counting. This prospective-to-full-histories amendment does not change effects, source kernels, settings, seed selection, or original outcomes."
+  },
+  "activation": {
+    "status": "ACTIVATE_ONCE",
+    "trigger": "Only the exact protocol path push on research/ch2-far-early-independent-visitor-knockout-20261015; no schedule or broad PR/push trigger",
+    "time_scope": "2026-10-15",
+    "frozen_before_full_sharded_run": true,
+    "observed_prior_to_activation": "One 32-trajectory engineering pilot for seed28110601, no complete cohort inference",
+    "full_cohort_outcomes_seen_at_activation": false,
+    "stop_policy": "Do not choose favorable signs, drop nulls or rerun after outcome; retain all 64 histories including technical pilot distinguished from the 63 others."
+  }
+}

@@ -1,0 +1,158 @@
+{
+  "schema": "chapter2_readout_only_source_recovery_v1",
+  "status": "ACTIVATE_READOUT_ONLY_ONCE",
+  "date": "2026-10-15",
+  "purpose": "Read back the 16 existing successful source-locked genotype arrays and repair only the false full-capacity-every-year admission condition; DO NOT create any new evolutionary histories",
+  "source_run_id": 38720038469,
+  "source_producer_sha": "1376ccf4892b61fb2945cb3896af03fdc621824d",
+  "source_original_protocol_sha256": "330126dd47803b27443a62064260446255d359d791b2f33d08f9c837247d5a42",
+  "source_frozen_model_manifest_sha256": "d1ddc2e70a453d1cdec5334563a53aadda6e4999e097d1c96744aca901a47b4a",
+  "original_n_paths": 2048,
+  "original_native_updates": 409600,
+  "n_source_shards": 16,
+  "shards": [
+    {
+      "shard": 0,
+      "artifact_id": 11964870079,
+      "artifact_name": "ch2-initial200-independent-shard-0",
+      "artifact_zip_sha256": "62627bd3275c9e0001418851eb9e9f0683d09191b56c272dd1d819a851a65bd1",
+      "zip_bytes": 1211370,
+      "expires_at": "2027-01-13T10:24:26Z"
+    },
+    {
+      "shard": 1,
+      "artifact_id": 11964701046,
+      "artifact_name": "ch2-initial200-independent-shard-1",
+      "artifact_zip_sha256": "7425ba3a3ea7fe6894f40bd54dbae5d579911176725ad93bd26250a19cd45fd4",
+      "zip_bytes": 1233118,
+      "expires_at": "2027-01-13T10:24:26Z"
+    },
+    {
+      "shard": 2,
+      "artifact_id": 11964725850,
+      "artifact_name": "ch2-initial200-independent-shard-2",
+      "artifact_zip_sha256": "5835884d38d6eaeaf0386fbeb8386858de80a33699dc563cf6e3c7b1b87c8d3c",
+      "zip_bytes": 1219323,
+      "expires_at": "2027-01-13T10:24:26Z"
+    },
+    {
+      "shard": 3,
+      "artifact_id": 11964043223,
+      "artifact_name": "ch2-initial200-independent-shard-3",
+      "artifact_zip_sha256": "40d5f2c74a96344945849e015248ef253c39984f4adf4fb02f098e1ace85a606",
+      "zip_bytes": 1210564,
+      "expires_at": "2027-01-13T10:24:26Z"
+    },
+    {
+      "shard": 4,
+      "artifact_id": 11964178262,
+      "artifact_name": "ch2-initial200-independent-shard-4",
+      "artifact_zip_sha256": "839b4047aab7d95580c9f00e371ca191239b7301e3724c49340dce73e03a1223",
+      "zip_bytes": 1242331,
+      "expires_at": "2027-01-13T10:24:26Z"
+    },
+    {
+      "shard": 5,
+      "artifact_id": 11964626827,
+      "artifact_name": "ch2-initial200-independent-shard-5",
+      "artifact_zip_sha256": "6dfd6f2d00f2ff8110de4aa72f8e4caa5209f53430453ec758f010c267532150",
+      "zip_bytes": 1244739,
+      "expires_at": "2027-01-13T10:24:26Z"
+    },
+    {
+      "shard": 6,
+      "artifact_id": 11963564534,
+      "artifact_name": "ch2-initial200-independent-shard-6",
+      "artifact_zip_sha256": "ddee06ae70c2d4466fa70941b41a2ac59c893988097083aef6e8f7d5801677de",
+      "zip_bytes": 1232045,
+      "expires_at": "2027-01-13T10:24:26Z"
+    },
+    {
+      "shard": 7,
+      "artifact_id": 11964323975,
+      "artifact_name": "ch2-initial200-independent-shard-7",
+      "artifact_zip_sha256": "da175dffccd1cc3085aeb8d82676e4e60f658d94b40ddd2bb7c2ac69688ba556",
+      "zip_bytes": 1228414,
+      "expires_at": "2027-01-13T10:24:26Z"
+    },
+    {
+      "shard": 8,
+      "artifact_id": 11965800030,
+      "artifact_name": "ch2-initial200-independent-shard-8",
+      "artifact_zip_sha256": "6e54e1ddeb40f75ed0cfacc270bc0272e0b935d84eedf9931eadb8d989f4f05e",
+      "zip_bytes": 1232528,
+      "expires_at": "2027-01-13T10:24:26Z"
+    },
+    {
+      "shard": 9,
+      "artifact_id": 11964369104,
+      "artifact_name": "ch2-initial200-independent-shard-9",
+      "artifact_zip_sha256": "db9820c396efdc4061b3a949c26378dfa3f1c9283ae34dd1a035512b860b8208",
+      "zip_bytes": 1233951,
+      "expires_at": "2027-01-13T10:24:26Z"
+    },
+    {
+      "shard": 10,
+      "artifact_id": 11963829704,
+      "artifact_name": "ch2-initial200-independent-shard-10",
+      "artifact_zip_sha256": "e2770fd9bc493b767fff9b8f4cd3d91c3bbbdd4126248c9517361e60e268051a",
+      "zip_bytes": 1244795,
+      "expires_at": "2027-01-13T10:24:26Z"
+    },
+    {
+      "shard": 11,
+      "artifact_id": 11965525155,
+      "artifact_name": "ch2-initial200-independent-shard-11",
+      "artifact_zip_sha256": "e5bb5e5b8233dd3a227c4d05ea0ce397b02b8c70204316cf73ceedb856d1ce3f",
+      "zip_bytes": 1225239,
+      "expires_at": "2027-01-13T10:24:26Z"
+    },
+    {
+      "shard": 12,
+      "artifact_id": 11965610299,
+      "artifact_name": "ch2-initial200-independent-shard-12",
+      "artifact_zip_sha256": "ef80647b47ab6d71b1480970f13b9de82abcc70f8ce9b88c35ae889f10867070",
+      "zip_bytes": 1226002,
+      "expires_at": "2027-01-13T10:24:26Z"
+    },
+    {
+      "shard": 13,
+      "artifact_id": 11964379109,
+      "artifact_name": "ch2-initial200-independent-shard-13",
+      "artifact_zip_sha256": "266973c83a6a1984dee907783be66cc2e9163b85788e1f36c420667ae754b670",
+      "zip_bytes": 1242213,
+      "expires_at": "2027-01-13T10:24:26Z"
+    },
+    {
+      "shard": 14,
+      "artifact_id": 11965520400,
+      "artifact_name": "ch2-initial200-independent-shard-14",
+      "artifact_zip_sha256": "e488376b53d4327839085f1f4e8d3d9e32a03bf1e1d5fc7a58832f7760a1f891",
+      "zip_bytes": 1241323,
+      "expires_at": "2027-01-13T10:24:26Z"
+    },
+    {
+      "shard": 15,
+      "artifact_id": 11966065159,
+      "artifact_name": "ch2-initial200-independent-shard-15",
+      "artifact_zip_sha256": "7a93953db2c346c5ed36dd5fd4a738feb04f747e9d9daf6c259391a4fe9d9e46",
+      "zip_bytes": 1222416,
+      "expires_at": "2027-01-13T10:24:26Z"
+    }
+  ],
+  "validation_policy": [
+    "SHA256 verify 16 original outer artifacts and 16 embedded NPZ receipts",
+    "Read all 2048 original paths; verify annually expected and realized I identity, genotype 0..1 and initial matched founders",
+    "Permit 0<N<=K48 at intermediate censuses; preserve paths with N below carrying capacity, never interpolate or replace model bytes",
+    "Require all 2048 occupied at t200 and 64 paired visitor-history clusters",
+    "Compute originally declared 64-history and pilot-excluded 63-history effects, Bonferroni 98.75% CI on four primary interactions",
+    "No rerun of source experiment and no automatic manuscript novelty promotion"
+  ],
+  "activation_once_marker": {
+    "activated_date": "2026-10-15",
+    "purpose": "Recover original already-run 2048 paths after fixing sole central readout census admission check",
+    "biological_paths_resimulated": 0,
+    "posthoc_source_checks": true,
+    "source_artifact_count": 16
+  }
+}

@@ -82,6 +82,28 @@ def test_pull_request_signal_is_limited_to_current_ci_surfaces() -> None:
                 "    branches: [design/chapter2-q3-distribution-triangle-20261014]",
                 "    paths: [data/designs/q3_triangle_continuation_20261014.json]",
             ]
+        elif path.name == "chapter2-far-early-independent-knockout-20261015.yml":
+            # One registered synthetic visitor knockout on its dedicated branch.
+            # Tight trigger: immutable protocol activation file only; never
+            # broad pushes, PR runs, tags or schedules. Runtime verifies original
+            # frozen source hashes and first GitHub run attempt.
+            assert [line for line in _trigger_block(path) if line.strip()] == [
+                "on:",
+                "  push:",
+                "    branches: [research/ch2-far-early-independent-visitor-knockout-20261015]",
+                "    paths: [docs/protocols/chapter2_far_early_independent_visitor_knockout_20261015.json]",
+            ]
+        elif path.name == "chapter2-far-early-readout-recovery-20261015.yml":
+            # Original 2048 biological paths were executed and preserved.
+            # This permits ONE narrowly triggered read-only recovery of the
+            # initial aggregator's incorrect N==48 every-year admission rule.
+            # No original model trajectory, extra history or biological trial.
+            assert [line for line in _trigger_block(path) if line.strip()] == [
+                "on:",
+                "  push:",
+                "    branches: [research/ch2-far-early-independent-visitor-knockout-20261015]",
+                "    paths: [docs/protocols/chapter2_far_early_readout_recovery_activation_20261015.json]",
+            ]
         else:
             assert events == {"workflow_dispatch"}, (path.name, events)
 

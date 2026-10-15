@@ -1,0 +1,98 @@
+name: Ch2 readout-only recovery of 2048 original path artifacts
+
+on:
+  push:
+    branches: [research/ch2-far-early-independent-visitor-knockout-20261015]
+    paths: [docs/protocols/chapter2_far_early_readout_recovery_activation_20261015.json]
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: ch2-original-2048-readout-recovery-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  recover-readout-only:
+    if: github.run_attempt == 1
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    env:
+      GH_TOKEN: ${{ github.token }}
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+      MKL_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Recover ONLY frozen source artifacts with original outer and inner SHA identities
+        run: |
+          python - <<'PY'
+          import hashlib, io, json, subprocess, zipfile
+          from pathlib import Path
+          manifest = json.loads(Path("docs/protocols/chapter2_far_early_readout_recovery_activation_20261015.json").read_text())
+          assert manifest["status"] == "ACTIVATE_READOUT_ONLY_ONCE"
+          assert manifest["source_run_id"] == 38720038469
+          assert manifest["source_producer_sha"] == "1376ccf4892b61fb2945cb3896af03fdc621824d"
+          assert manifest["original_n_paths"] == 2048
+          assert manifest["original_native_updates"] == 409600
+          assert manifest["n_source_shards"] == len(manifest["shards"]) == 16
+          assert manifest["source_original_protocol_sha256"] == "330126dd47803b27443a62064260446255d359d791b2f33d08f9c837247d5a42"
+          target = Path("outputs/original-2048-shards")
+          target.mkdir(parents=True, exist_ok=True)
+          for i, a in enumerate(manifest["shards"]):
+              assert a["shard"] == i and a["artifact_name"] == f"ch2-initial200-independent-shard-{i}"
+              data = subprocess.check_output(["gh", "api", "-H", "Accept: application/vnd.github+json",
+                  f"/repos/zuizui0223/izu-core/actions/artifacts/{a['artifact_id']}/zip"])
+              assert hashlib.sha256(data).hexdigest() == a["artifact_zip_sha256"], i
+              with zipfile.ZipFile(io.BytesIO(data)) as original:
+                  assert set(original.namelist()) == {f"shard-{i:02d}.json", f"shard-{i:02d}.npz"}, i
+                  for name in original.namelist():
+                      out = target / name
+                      assert not out.exists(), name
+                      out.write_bytes(original.read(name))
+              print("authenticated unchanged original 2048 cohort shard", i, flush=True)
+          PY
+      - name: Run corrected readout, without advancing any genomes, parents, or visitor histories
+        run: |
+          python -m scripts.summarize_chapter2_far_early_independent_visitor_knockout_20261015 \
+            --input outputs/original-2048-shards \
+            --output outputs/far-independent-2048-readout.json
+      - name: Independently require full cohort, re-admitted transient N reductions, and both 64/63 panels
+        run: |
+          python - <<'PY'
+          import json, math
+          from pathlib import Path
+          r=json.loads(Path("outputs/far-independent-2048-readout.json").read_text())
+          assert r["status"]=="ALL_2048_NEW_INDEPENDENT_MODEL3_INITIAL200_FUTURES_VERIFIED"
+          assert r["new_evolutionary_trajectories"]==2048
+          assert r["new_model_updates"]==409600
+          assert r["new_independent_visitor_history_seeds"]==64
+          assert r["new_founder_genetic_backgrounds"]==2
+          assert r["n_paths_with_transient_below_capacity_census"]==14
+          assert r["all_paths_occupied_at_t200"] is True
+          assert len(r["paths_with_transient_census_dips"])==14
+          assert set(r["new_results"]) == {"delayed_control","prior_selfing","pollen_discount","assurance_cost"}
+          for key, scopes in r["new_results"].items():
+              for scope, n in [("holdout_63_after_visible_1_seed_pilot",63), ("all_64_registered_new_seeds",64)]:
+                  x=scopes[scope]
+                  assert x["source_new_visitor_histories"]==n
+                  assert x["founder_genomes_per_history"]==2
+                  assert x["effects"]["interaction"]["familywise_bonferroni_4"] is True
+                  assert len(x["effects"]["interaction"]["cluster_bootstrap_interval"])==2
+                  for name, values in x["effects"].items():
+                      assert all(math.isfinite(v) for v in values["cluster_bootstrap_interval"])
+                  calc=x["effects"]["far_EF"]["mean"]-x["effects"]["none_EF"]["mean"]
+                  assert abs(calc-x["effects"]["interaction"]["mean"])<1e-12
+          print("READOUT-ONLY success: 2048 immutable paths, 14 allowable census dips, all 4×63+64 effects.")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ch2-far-independent-2048-readout-only-verified
+          retention-days: 90
+          if-no-files-found: error
+          path: outputs/far-independent-2048-readout.json
