@@ -223,7 +223,7 @@ def q4_independent32_materials():
     if (design["independent_visitor_histories"]["count"]!=32
             or design["prehistories"]!=400 or design["post_updates"]!=80
             or design["stress_ovule_budgets"]!=[2,3,4,5]
-            or design["pre_mutation_rate"]!=design["post_mutation_rate"]!=.01
+            or design["pre_mutation_rate"]!=.01 or design["post_mutation_rate"]!=.01
             or result["post_switch_trajectories"]!=4096
             or result["independent_histories"]!=32
             or primary["mean"]!=0.1083984375
