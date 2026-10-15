@@ -83,7 +83,8 @@ def test_q3_text_has_positive_but_model_bounded_mechanism() -> None:
     assert "315/1,238" in note and "703 histories" in note
     assert "same 2,304 original histories" in note
     assert "not a drift effect size" in note.lower()
-    assert "actual" not in q3.lower() or "actual" in paper.lower()
+    assert "density is **not** the ABM\'s stochastic expectation" in q3
+    assert "do **not** isolate pure drift" in q3
 
 
 def test_paper_fit_and_four_question_route_unchanged() -> None:
