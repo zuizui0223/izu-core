@@ -1,5 +1,12 @@
 # Open-PR consolidation audit — 2026-10-15
 
+## Final merged checkpoint — after #549 (replaces all older “open” labels below)
+
+**Verified main `c1b08577dd2a2432ce71df001df45a90ad0f0d74` on 2026-10-15:** the GitHub endpoint returned **0 open PRs**. The paper/source/cleanup PRs **#529, #535, #540, #541, #542, #543, #544, #545, #546, #547 and #549 are merged**. Historical overlap/failed-template drafts **#536, #537 and #538 are closed without merge**, with original source checks preserved independently. All older statements on this page calling those PRs “open”, “pending” or “stacked” are preserved solely as **time-stamped decision provenance** and must not be treated as current instructions.
+
+The [mainline checkpoint](REPOSITORY_MERGED_STATE_CHECKPOINT_20261015.md) records the source-linked one-paper status (4,944 main / 147 abstract words, S1–S33), the now three-version-only CI definition, incomplete 10-candidate external deposit inventory, and **500 distinct branch names with `main` unprotected**. The prior branch count **492** was accurate at an earlier snapshot, not a currently verified count. Neither 0 open PRs nor a squash merge proves unused branches are safe to delete. See [Issue #548](https://github.com/zuizui0223/izu-core/issues/548) for protection and archival reachability; [Issue #436](https://github.com/zuizui0223/izu-core/issues/436) remains open for independent external raw-data deposition. This update leaves every historical experimental SHA and null conclusion untouched.
+
+
 ## Integration checkpoint — later on 2026-10-15 (supersedes the open/closed labels below)
 
 **Verified merged onto main**: [#535](https://github.com/zuizui0223/izu-core/pull/535) Q3/prior art at `fb8179a`, [#540](https://github.com/zuizui0223/izu-core/pull/540) exact original-genome Price accounting at `79bc570`, [#529](https://github.com/zuizui0223/izu-core/pull/529) original I-mutation renewal source at `d9403db`, and [#541](https://github.com/zuizui0223/izu-core/pull/541) navigation/index at `fa5ee7e`. Older rows recording them as open describe the first audit, **not current PR status**.
