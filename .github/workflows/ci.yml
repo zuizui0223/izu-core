@@ -1292,21 +1292,3 @@ jobs:
             multihistory-channel-competition.json
           if-no-files-found: warn
           retention-days: 90
-
-  q2-original-f1-native-focal-return:
-    if: github.event_name == 'pull_request' && github.head_ref == 'analysis/q2-original-f1-focal-reproductive-filter-20261015'
-    runs-on: ubuntu-latest
-    timeout-minutes: 15
-    permissions:
-      contents: read
-    steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      - name: Install frozen original Model3 source and test dependencies
-        run: python -m pip install -e '.[dev]'
-      - name: Native original-source F1 static focal-return crosscheck
-        run: |
-          python -m pytest -q tests/test_chapter2_Q2_original_F1_focal_return_20261015.py
-          python -m scripts.audit_chapter2_Q2_original_F1_focal_return_20261015 --check
