@@ -1,16 +1,6 @@
 name: Chapter 2 full 64-history t200 factorial exploratory continuations
 
 on:
-  push:
-    branches:
-      - research/ch2-lepers-fulltext-t200-factorial-20261015
-    paths:
-      - .github/workflows/chapter2-far-t200-history-swap-full-20261015.yml
-      - scripts/chapter2_far_t200_history_swap_20261015.py
-      - scripts/summarize_chapter2_far_t200_history_swap_20261015.py
-      - tests/test_chapter2_far_t200_history_swap_20261015.py
-      - tests/test_chapter2_far_t200_history_aggregation_20261015.py
-      - docs/protocols/chapter2_far_t200_history_swap_20261015.json
   workflow_dispatch:
 
 permissions:
