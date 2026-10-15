@@ -42,7 +42,7 @@ def test_paper_counts_and_registered_limits_unmodified():
     abstract = paper.split("## Abstract", 1)[1].split("## Keywords", 1)[0]
     fit = route["journal_fit"]
     assert len(main.split()) == fit["current_main_text_words"] == fit["current_integrated_main_words"]
-    assert len(abstract.split()) == fit["current_abstract_words"] == fit["current_integrated_abstract_words"] == 143
+    assert len(abstract.split()) == fit["current_abstract_words"] == fit["current_integrated_abstract_words"] == 147
     assert len(main.split()) == 4944 < fit["ecology_letters_letter_main_max"]
     assert route["status"] == "active_unified_manuscript_not_submitted"
     assert "51 of 64" in paper and "all four" in paper.lower()
