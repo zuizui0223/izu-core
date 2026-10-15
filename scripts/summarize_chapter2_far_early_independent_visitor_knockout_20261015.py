@@ -51,6 +51,7 @@ def read_shards(folder):
     assert contract["factorization"]["visitor_history_seed_last"]==LAST
     records={}
     starting_by_founder={}
+    transient_census_dips=[]
     source_fingerprint=None
     for shard in range(16):
         root=folder/f"shard-{shard:02d}"
@@ -83,7 +84,9 @@ def read_shards(folder):
                and key[3] in VISITORS and key[4] in MODES):
                 raise AssertionError("unregistered experimental cell")
             a=arrays[i];g=geno[i]
-            if (not np.array_equal(a[:,0].astype(int), np.full(201,48))
+            if (not np.all(np.isfinite(a[:,0]))
+                or not np.all(a[:,0] == np.floor(a[:,0]))
+                or not np.all((a[:,0]>0) & (a[:,0]<=48))
                 or abs(a[0,1]-c["I_initial"])>1e-12
                 or abs(a[-1,1]-c["I_t200"])>1e-12
                 or a[-1,0]!=c["t200_N"]
@@ -93,6 +96,10 @@ def read_shards(folder):
                 or not np.allclose(np.diff(a[:,1]),a[:-1,6],rtol=0,atol=1e-12)
                 or not np.allclose(a[:-1,6],a[:-1,7]+a[:-1,8],rtol=0,atol=1e-12)):
                 raise AssertionError("native yearly genome/Price/return accounting failed")
+            if np.any(a[:,0]<48):
+                transient_census_dips.append({"history":key[0],"founder":key[1],
+                    "setting":key[2],"visitors":key[3],"A_policy":key[4],
+                    "minimum_N":int(a[:,0].min()),"terminal_N":int(a[-1,0])})
             if (key[3]=="zero_visitors_from_t0" and not np.all(a[:-1,4]==0)):
                 raise AssertionError("visitor removal failed")
             if (key[4]=="fixed" and not np.all(a[:,2]==.5)):
@@ -114,11 +121,11 @@ def read_shards(folder):
             for f in FOUNDERS for s in SETTINGS for v in VISITORS for a in MODES}
     if set(records)!=expected or len(starting_by_founder)!=128:
         raise AssertionError("independent seed/founder/treatment grid incomplete")
-    return records,source_fingerprint
+    return records,source_fingerprint,transient_census_dips
 
 
 def aggregate(folder):
-    rows,source_fingerprint=read_shards(folder)
+    rows,source_fingerprint,transient_census_dips=read_shards(folder)
     results={}
     for idx,setting in enumerate(SETTINGS):
         history_contrasts=[]
@@ -175,6 +182,9 @@ def aggregate(folder):
       "new_founder_genetic_backgrounds":2,
       "new_evolutionary_trajectories":2048,
       "new_model_updates":409600,
+      "n_paths_with_transient_below_capacity_census":len(transient_census_dips),
+      "paths_with_transient_census_dips":transient_census_dips,
+      "all_paths_occupied_at_t200":True,
       "source_original_sha256_manifest":source_fingerprint,
       "postpilot_heldout_history_count":63,
       "fourfold_interaction_familywise_bootstrap_98_75":True,
