@@ -92,6 +92,7 @@ def test_original_labels_not_reinterpreted_as_universal_island_experiments():
     note = NOTE.read_text(encoding="utf-8").replace("**", "")
     assert "not a pure independent causal" in note.lower() or "not pure independent causal" in note.lower() or "not pure independent causal contributions" in note.lower() or "not pure independent causal" in note.lower()
     assert "not" in note.lower() and "stochastic expectation" in note.lower()
-    assert "different denominator" in note.lower() or "not a subset definition" in note.lower()
+    plain_note = note.lower().replace("**", "")
+    assert "different denominator" in plain_note or "not a subset definition" in plain_note
     assert "same run" in note.lower()
     assert "no new model 3 biological updates" in note.lower()
