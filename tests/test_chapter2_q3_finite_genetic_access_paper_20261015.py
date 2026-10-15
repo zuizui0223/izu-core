@@ -115,11 +115,11 @@ def test_manuscript_si_and_route_preserve_denominators_and_limitations() -> None
     abstract = paper.split("## Abstract", 1)[1].split("## Keywords", 1)[0]
     q3 = paper.split("## Q3 —", 1)[1].split("## Q4 —", 1)[0]
     s14 = si.split("## S14.", 1)[1].split("## S15.", 1)[0]
-    assert len(main.split()) == 4584
+    assert len(main.split()) == 4803
     assert route["journal_fit"]["current_main_text_words"] == len(main.split())
     assert route["journal_fit"]["current_integrated_main_words"] == len(main.split())
     assert len(main.split()) < route["journal_fit"]["ecology_letters_letter_main_max"] == 5000
-    assert len(abstract.split()) == route["journal_fit"]["current_abstract_words"] == 140
+    assert len(abstract.split()) == route["journal_fit"]["current_abstract_words"] == 144
     assert route["status"] == "active_unified_manuscript_not_submitted"
     for token in ("2,304", "1,238", "703", "535", "315", "923"):
         assert token in q3 and token in s14
@@ -130,3 +130,13 @@ def test_manuscript_si_and_route_preserve_denominators_and_limitations() -> None
     assert "do not" in s14.lower() or "not" in s14.lower()
     assert "near–far" in main
     assert "not submitted" in paper
+    assert "Three gates intervene" in paper
+    assert "not one experimentally established Q1-to-Q4 mediation chain" in paper
+    assert "conditional expected frequency e" in q3
+    assert "strictly negative realized sampling/transmission residual (−e)" in q3
+    assert "no-I-mutation and no-immigration law" in q3
+    assert "The mechanism: from reproductive returns to irreversible loss of a response option" in s14
+    assert "e-p>0" in s14
+    assert "conditional parental weighting and realized inheritance point in opposite directions" in s14
+    assert "not a continuous causal mediation estimated in a single synthetic cohort" in s14
+    assert "Model 3" in abstract
