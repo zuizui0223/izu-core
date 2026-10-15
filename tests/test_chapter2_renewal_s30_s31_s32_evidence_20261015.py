@@ -62,6 +62,9 @@ def test_s30_standing_reopening_remains_distinct_from_realized_event_and_test():
     assert "4,868" in x
     assert "968" in x and "278" in x and "170" in x and "888" in x
     assert "not equivalence" in x or "not equivalence" in x.lower()
+    assert "[frozen release](" not in x
+    assert "approved data route" in x
+    assert "not a DOI deposit" in x
     assert "Paired event table:968 present in both arms,278 renewal-only,170 original-only,888 neither." in s
     rows=_table(s,"## All18 unpooled cells")
     assert len(rows)==18
