@@ -88,7 +88,7 @@ def test_unified_q3_makes_specific_positive_claim_without_drifts_or_survival_ove
 
 
 def test_original_labels_not_reinterpreted_as_universal_island_experiments():
-    note = NOTE.read_text(encoding="utf-8")
+    note = NOTE.read_text(encoding="utf-8").replace("**", "")
     assert "not a pure independent causal" in note.lower() or "not pure independent causal" in note.lower() or "not pure independent causal contributions" in note.lower() or "not pure independent causal" in note.lower()
     assert "not" in note.lower() and "stochastic expectation" in note.lower()
     assert "different denominator" in note.lower() or "not a subset definition" in note.lower()

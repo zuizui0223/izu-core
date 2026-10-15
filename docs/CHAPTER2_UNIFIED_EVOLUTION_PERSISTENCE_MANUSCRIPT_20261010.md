@@ -123,6 +123,8 @@ Among335 assurance-first histories, investment-decline expected response began e
 
 ## Q3 — Realization: deterministic response and finite inheritance
 
+A separately frozen investment-mutation extension resolved no ecological order-reversal contrast across 18 cells (Supporting Information S30); it is not a mutation-robustness test of the different density-comparison cohort.
+
 We compared conditional deterministic genotype-density propagation (without demographic sampling) with a finite diploid ABM using the same reproductive and inheritance operator. In a separately frozen zero-mutation, 128-visitor-history near–far bridge, investment contrasts were −0.4510 (density) and −0.1446 (ABM); mixed-sign history labels occurred in 0/128 and 12/128 cases at zero deadband. Matching annual visitor counts reversed both mean contrasts (+0.0338 and +0.0333), but also changed visitor identity persistence and left 16/128 versus 68/128 mixed histories. Increasing plant capacity from 48 to 192 reduced finite mixed labels from 12/128 to 1/128 (Supplementary Fig. S1).
 
 A distinct original-birth-mutation genotype-density implementation passed both registered numerical-grid comparisons in ten founder/visitor contexts (S7). In two low-supply, functionally matched contexts, density predicted assurance-first; only 3/32 and 2/32 ABM histories realized that category at the 0.05/20-census threshold. All remained occupied at 200 updates; assurance-only events were not classified as assurance-first. Full-genome and variation-restoration audits showed sampling/transmission offsets and loss of accessible investment alleles, but did not isolate drift or a unique causal allocation (S11–S24). Controlled visitor composition can permit opposing deterministic directions, although the original isolation bridge's deterministic response was one-directional. **Density is not the stochastic expectation of the ABM**: these differences do not quantify drift or natural lineage frequencies.
@@ -162,6 +164,8 @@ With 64 fresh visitor-history clusters and matched founders, the preregistered K
 The separate preregistered late-versus-early selfed-seed viability moderator was −0.002965 [−0.007263,+0.001317], **inconclusive**. These assigned-expression, demographic and preparation-policy tests do not identify a natural genetic-order-to-persistence mediator.
 
 # Discussion
+
+Repeated reproductive constraints need not produce uniform floral outcomes: finite inheritance can separate the persistence of a population from the persistence of alleles needed for a specified floral response. This supplies a candidate mechanism for nonuniform island syndromes, rather than a reconstruction of observed regional histories.
 
 Pollinator limitation did not need to change reproductive-assurance capacity before floral investment could decline. Under fixed assurance, reduced visitor replenishment lowered the return to attraction, and inherited investment fell across all four preregistered reproductive settings. But allowing assurance to evolve did not magnify that reduction in the more limited environment. Instead, it **compressed** the difference between environments, predominantly by reducing investment in the higher-replenishment population. This separates a mechanism's necessity for floral decline from its effect on the amount of observable divergence.
 

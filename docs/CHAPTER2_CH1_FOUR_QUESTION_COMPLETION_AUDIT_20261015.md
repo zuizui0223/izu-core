@@ -1,0 +1,35 @@
+# Ch1 connection and four-question integration: completion audit
+
+The full human goal remains active. The preceding goal turn made progress by committing the source-pinned Ch1/novelty reassessment at `20317ac2108b38d4e9b533468193e57e3f782a8c`. This integration starts from PR535 `d87e3e74d2a9bc4f90c02b438d701bb5e89660ac`, preserving its original S29 and its separated Q3 evidence families. Completed renewal admission is `872f97795103d22ce3828c0fb8253f5ecd291bd7`; execution source is `0c46f851184ae26e4bac9aa2878a160154c2a99c`. No biological update was performed for this integration.
+
+## Requirement audit
+
+| Goal requirement | Evidence available | Still unproved |
+| --- | --- | --- |
+| Ecological order-reversal condition/boundary | Original S14 and completed S30 each retain all original 18-cell simultaneous decisions; no supported replicated supply/composition reversal. S30 is fully replayed and independently read. | A universal/continuous boundary is not located. Intervals including zero are not equivalence or absence of a boundary. Static F1 access/adult W cannot supply it. |
+| Natural-order causes and future benefit | Q2 separates access, reproductive return and threshold attainment; S25/S28 track original natural histories and the approved attained-mean intervention. | Past natural order was not randomized. Equalizing an attained mean changes a state/future policy, not the past. Pure natural-order benefit remains unidentified. |
+| Density/finite difference and genetic/demographic shares | The 128-history bridge, separate 320 ABM comparison, and separate 2,304 fixed-access allele-loss histories remain unpooled. 703 pre-fixation target exclusions and 315 positive-expected-response first-loss transitions have different selected denominators. | These are concrete inheritance mechanisms, not unique causal shares of the separate density gap. On-path parent/transmission/density/path-feedback accounting cannot isolate pure long-term drift or variance mediation. |
+| Preparation-to-persistence mechanisms | Original initial-mean, lifelong-expression, parent-choice, genotype and variation interventions keep their original decisions; S28 includes approved 2,048 future comparisons and replays. | Attained genotype and future expression do not uniquely decompose historical mediation. The original 64-slot unresolved variance primary and unreplicated directions stay unresolved. |
+| Endpoint/duration reversal | Existing 96-kernel accounting separates endpoint and restricted duration on saved kernels; Q4 keeps horizons and extinction floors. | This is not native genetic mediation or a natural-island long-term advantage. |
+| PR490 and discovery provenance | Original bytes/source intake and admitted discovery endpoint/checkpoint counts remain recorded. Completed new comparisons have their own source/replay evidence. | Missing historical annual genomes and original runtime identity are not recoverable from endpoint summaries; complete historical replay is not claimed. |
+| One-paper submission | One active manuscript; original S29 retained, completed renewal added as S30. Source main4,968/abstract140 words. Actual ZIP and independent review are separate delivery gates. | Submission, DOI deposit, exact new-head CI and the full scientific objective are not completed by this edit. |
+
+## Ch1 connection
+
+Current Ch1 source `zuizui0223/island@2a1fd0591bf31a3aea2cd217cbe8e76886490eb0` associates isolation with pollen limitation and recurrent self-compatibility across four regions; other selfing, colour and structural responses are regionally contingent. Exact contract/manuscript blobs and SHA256 values are in `audits/CHAPTER1_CURRENT_BRIDGE_SOURCE_20261015.json`.
+
+Ch2 asks why recurrent reproductive constraints need not imply uniform floral outcomes. Conditional density predictions, realized inheritance and occupancy are distinct. In two low-supply matched founder contexts, all finite histories remain occupied at update200 although only3/32 and2/32 meet the original assurance-first classification. Mean investment declines in both: no claim of absent floral change or reversal in both.
+
+Fixed-access histories show loss of alleles needed for a specified further response even while expressed variation remains. This is not complete evolutionary arrest; it is threshold-specific and conditional on no I mutation/immigration. S30 relaxes the mutation policy in a different founder/cohort construction, not a robustness test of the 320-history comparison. Neither Ch1 nor Ch2 identifies the observed regions' historical assembly, establishment, evolution and survival shares.
+
+## Delivery decisions and next step
+
+No Model3 kernel, threshold, event rule, cohort or denominator changes. No tracked-data payload is duplicated; renewal originals remain at the immutable admission/public archive. The data budget and grandfathered allowances stay unchanged. Public SI keeps the original release URL; the anonymous ZIP withholds only that exact identifying link and retains archive/source hashes with a recorded SI derivation.
+
+PR535's prose-check mismatch at `**not** a subset definition` is corrected by normalizing Markdown emphasis in that check, without changing scientific claims. The title and primary hierarchy remain pending a scientific-core decision; the broader island interpretation is a candidate, not EL novelty certification.
+
+Do not restart finished runs or tune cells for a reversal. Any further intervention needs a frozen identifiable estimand, admissible state edit, cases, budget and decision rule. Saved-data decomposition cannot replace randomization of past natural order or recreate unsaved genomes. These limitations remain explicit rather than marked solved.
+
+## Verified integration gates
+
+The focused novelty, Q3 source, one-paper, actual-bundle and unchanged artifact-budget checks passed: 45 tests in20.48s. Independently reviewed precommit packet: 149 members/148 payload hashes, four main and three supplementary figures, source4,968/blinded4,971 words, abstract140. S29 and S30 coexist; exact-source SI URL withholding is traceable and all numerical scope remains intact. The reviewer found no scientific/anonymity blocker; its S25/S28 citation correction was checked against the SI headings and fixed here. Committed-source/public-delivery receipts remain separate from this precommit review and the scientific unknowns above.

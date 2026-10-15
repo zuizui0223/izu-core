@@ -1084,6 +1084,11 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
                             'EVIDENCE/INVESTMENT_VARIATION_PROTOCOL.md')
     si_text=si_text.replace('data/results/investment_variation_restoration_readout_20261013.json',
                             'EVIDENCE/INVESTMENT_VARIATION_READOUT.json')
+    renewal_link = '[frozen release](https://github.com/zuizui0223/izu-core/releases/tag/ecological-I-renewal-restart-20261015)'
+    if si_text.count(renewal_link) != 1:
+        raise ValueError('renewal SI source-link boundary changed')
+    si_text = si_text.replace(renewal_link,
+        'frozen public release (repository location withheld in blinded materials; exact archive hash below)')
     si=si_text.encode("utf-8")
     if any(token in si.lower().decode("utf-8") for token in DENIED):
         raise ValueError("blinded Supporting Information has identifying token")
@@ -1159,7 +1164,7 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     derivations.update(original490_derivations)
     derivations["SUPPORTING_INFORMATION.md"]={
         "original_path":str(si_path.relative_to(ROOT)),"original_sha256":sha(si_original),
-        "derived_sha256":sha(si),"transformation":"Relocate atom/resolution/mechanism companion source references and add the delivered supplementary-figure link; numerical text unchanged."}
+        "derived_sha256":sha(si),"transformation":"Relocate atom/resolution/mechanism companion references, withhold the identifying S30 release URL while retaining exact archive hashes, and add the delivered supplementary-figure link; numerical text unchanged."}
     original_s2=next(row for row in admission["figures"] if row["path"].endswith(".svg"))
     if sha(members["SupplementaryFigureS2.svg"])!=original_s2["sha256"]:
         raise ValueError("tempo supplementary figure source hash mismatch")

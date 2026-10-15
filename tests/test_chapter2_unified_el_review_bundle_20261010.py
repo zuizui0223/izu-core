@@ -210,6 +210,21 @@ def supplementary_figures(tmp_path):
     }
 
 
+def test_unknown_renewal_release_link_refuses_anonymous_delivery(tmp_path, monkeypatch):
+    source = ROOT / 'docs/CHAPTER2_UNIFIED_EL_SUPPORTING_INFORMATION_20261010.md'
+    altered = tmp_path / 'docs' / source.name
+    altered.parent.mkdir()
+    altered.write_text(source.read_text(encoding='utf-8').replace(
+        'releases/tag/ecological-I-renewal-restart-20261015',
+        'releases/tag/unregistered-renewal-release'), encoding='utf-8')
+    monkeypatch.setattr(builder, 'ROOT', tmp_path)
+    out = tmp_path / 'must-not-exist.zip'
+    with pytest.raises(ValueError, match='renewal SI source-link boundary changed'):
+        build(out, figures=fake_pdfs(tmp_path),
+              supplementary_figures=supplementary_figures(tmp_path))
+    assert not out.exists()
+
+
 def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
     out=tmp_path/"EL_ONE_PAPER_REVIEW.zip"
     receipt=build(out,figures=fake_pdfs(tmp_path),
@@ -222,6 +237,14 @@ def test_review_package_has_four_main_and_three_supplementary_figures(tmp_path):
         names=z.namelist()
         assert names.count("MANUSCRIPT.md")==1
         assert names.count("SUPPORTING_INFORMATION.md")==1
+        si = z.read("SUPPORTING_INFORMATION.md").decode("utf-8")
+        assert "## S30." in si
+        assert "1,246/2,304" in si and "1,138/2,304" in si
+        assert "18 simultaneous cell intervals include zero" in si
+        assert "not** the 320-history" in si
+        assert "6977676f2d855e980a6ca8ed9f853abd4a08769f0a150e732ff645dd50f998e1" in si
+        assert "repository location withheld in blinded materials" in si
+        assert "github.com/" not in si
         assert [x for x in names if x.startswith("Figure")]==[
            "Figure1.pdf","Figure2.pdf","Figure3.pdf","Figure4.svg"]
         assert "Figure4.pdf" not in names
