@@ -101,7 +101,8 @@ def test_only_one_active_paper_and_q4_both_in_text_and_supplement():
     assert route["status"] == "active_unified_manuscript_not_submitted"
     assert route["active_manuscript_count"] == 1
     assert len(main.split()) == fit["current_integrated_main_words"] == 4944
-    assert len(abstract.split()) == fit["current_integrated_abstract_words"] == 143
+    assert len(abstract.split()) == fit["current_integrated_abstract_words"] == 147
+    assert "Both regimes remained pollen-limited." in abstract
     assert fit["current_main_text_words"] == 4944
     assert fit["current_abstract_words"] == 143
     assert "+0.1084 [0.0654,0.1514]" in manuscript
