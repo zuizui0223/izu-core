@@ -68,3 +68,21 @@ def test_original_saved_comparison_retains_two_distinct_low_supply_contexts():
     assert sorted(x[2] for x in focal)==[2,3]
     assert sorted(x[3] for x in focal)==[7,15]
     assert all(x[1]=="assurance_first" and x[4]==32 for x in focal)
+
+def test_successful_original_release_readback_receipt_is_pinned_and_scoped():
+    receipt=json.loads((Path(__file__).resolve().parents[1] /
+        "docs/deposit/chapter2_atom_original_raw_reverification_receipt_20261016.json"
+    ).read_text(encoding="utf-8"))
+    assert receipt["status"]=="ORIGINAL_SOURCE_BYTES_REDOWNLOADED_VERIFIED_AND_NATIVE_EVENT_READOUT_REPRODUCED"
+    assert receipt["fresh_readback_workflow_run_id"]==38825943134
+    assert receipt["original_zip_sha256"]==ORIGINAL_ZIP_SHA256
+    assert receipt["source_zip_members"]==774
+    assert receipt["ledger_files_sha256_size_and_crc_verified"]==773
+    assert receipt["original_finite_ABM_paths"]==320
+    assert receipt["recomputed_native_event_labels"]==990
+    assert receipt["recomputed_checkpoints"]==40
+    assert sorted(v["finite_ABM_assurance_first"] for v in receipt["comparison"]["focal"])==[2,3]
+    assert all(v["n_occupied_at200"]==32 for v in receipt["comparison"]["focal"])
+    assert receipt["new_biological_simulations"]==0
+    assert receipt["full_diploid_parental_genome_reconstruction_from_native_arrays"] is False
+    assert receipt["external_independent_doi_or_cross_host_raw_deposit"] is False
