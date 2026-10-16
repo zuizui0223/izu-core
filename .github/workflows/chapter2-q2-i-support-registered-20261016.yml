@@ -1,0 +1,120 @@
+name: Chapter 2 Q2 I-support registered experiment (manual approval only)
+
+# The workflow is NEVER triggered by a pull request or generic push. It will
+# fail closed until an approved source-hash-bound activation has been recorded.
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: q2-i-support-frozen-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Verify original model and explicit new owner approval (NO science yet)
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          from scripts.run_chapter2_q2_i_support_production_20261016 import admission
+          from scripts.chapter2_q2_i_support_order_20261016 import DEFAULT_DESIGN
+          p = Path("docs/protocols/chapter2_q2_i_support_order_20261016_activation.json")
+          if not p.is_file():
+              raise SystemExit("HOLD: no reviewer-authorized SHA-bound Q2 activation file")
+          design, sources = admission(p, DEFAULT_DESIGN)
+          assert design['status'] == 'prospective_design_frozen_before_new_biological_outcomes_execution_hold'
+          assert len(sources) >= 27
+          print("Source/design/owner activation admitted for original 384-case run.")
+          PY
+      - name: Re-check technical/genotype invariants without full biology
+        run: pytest -q tests/test_chapter2_q2_i_support_order_20261016.py tests/test_chapter2_q2_i_support_provenance_20261016.py
+
+  source-shards:
+    needs: preflight
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    strategy:
+      fail-fast: false
+      max-parallel: 4
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e .
+      - name: Source-pinned original Model3 run (12 of 384 registered paths)
+        env:
+          SHARD: ${{ matrix.shard }}
+        run: |
+          mkdir -p q2-original
+          folder="q2-original/shard-$(printf '%02d' "$SHARD")"
+          python -m scripts.run_chapter2_q2_i_support_production_20261016 \
+            --activation docs/protocols/chapter2_q2_i_support_order_20261016_activation.json \
+            --shard "$SHARD" \
+            --out "$folder"
+          ( cd q2-original && zip -q -r "original-shard-$SHARD.zip" "shard-$(printf '%02d' "$SHARD")" )
+      - uses: actions/upload-artifact@v4
+        with:
+          name: q2-i-support-original-shard-${{ matrix.shard }}
+          path: q2-original/original-shard-*.zip
+          if-no-files-found: error
+          retention-days: 90
+
+  independently-admit:
+    needs: source-shards
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e .
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: q2-i-support-original-shard-*
+          path: originals
+          merge-multiple: false
+      - name: Reconstruct exact 32-shard original inventory
+        run: |
+          mkdir -p full-originals
+          for i in $(seq 0 31); do
+            src="originals/q2-i-support-original-shard-$i/original-shard-$i.zip"
+            test -f "$src" || exit 1
+            unzip -q "$src" -d full-originals
+            test -f "full-originals/shard-$(printf '%02d' "$i")/COMPLETION.json" || exit 1
+          done
+          test "$(find full-originals -name 'COMPLETION.json' | wc -l)" -eq 32
+      - name: Verify every original genome, parentage and native replay; independently recompute six classes
+        run: |
+          python -m scripts.verify_chapter2_q2_i_support_order_20261016 \
+            --source-root full-originals \
+            --native-replay \
+            --out q2-i-support-independent-original-readout.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          result=json.loads(Path('q2-i-support-independent-original-readout.json').read_text())
+          assert result['full_cases']==384
+          assert result['native_model_full_path_replay'] is True
+          assert result['status']=='384_TYPED_SOURCE_PATHS_INDEPENDENT_EVENT_AND_BOOTSTRAP_RECHECKED'
+          print(result['joint_decision'])
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: q2-i-support-384-original-independent-readout
+          retention-days: 90
+          if-no-files-found: error
+          path: q2-i-support-independent-original-readout.json
