@@ -62,10 +62,10 @@ def test_genome_admission_detects_different_diploid_state_at_equal_mean():
 
 
 @pytest.mark.parametrize("invalid", [
-    lambda x: np.full(48, -1.),
-    lambda x: np.full(48, 49.),
-    lambda x: np.full(48, .5),
-    lambda x: np.full(48, np.nan),
+    lambda x: np.full(1001, -1.),
+    lambda x: np.full(1001, 49.),
+    lambda x: np.full(1001, .5),
+    lambda x: np.full(1001, np.nan),
 ])
 def test_invalid_census_never_qualifies_for_genome_result(tmp_path, invalid):
     d = {"updates": 1000, "founder_genomes": {"n": 48}}
