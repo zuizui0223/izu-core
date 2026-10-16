@@ -23,6 +23,8 @@ from scripts.run_model3_persistent_isolation import exposure
 
 
 ROOT = Path(__file__).resolve().parents[1]
+PIN_PATH = ROOT / "docs/protocols/chapter2_q2_original_model_source_pins_20261016.json"
+MODEL3_ORIGINAL_SOURCE_COMMIT = "8e2dcada6514381bd9304cb6e2ddc2b855a4148f"
 DEFAULT_DESIGN = ROOT / "docs/protocols/chapter2_q2_i_support_order_20261016.json"
 STATUS = "prospective_design_frozen_before_new_biological_outcomes_execution_hold"
 CLASSES = ("assurance_first", "investment_first", "near_simultaneous",
@@ -189,13 +191,53 @@ def simulate(d: dict, task: tuple, *, steps: int, capture_genomes: bool = True) 
     return result
 
 
+def verify_original_model_source_pins(current: dict, pinned: dict | None = None) -> int:
+    """Fail-closed original biological baseline check independent of activation.
+
+    A newly approved source digest may never silently substitute a changed
+    biological operator for the registered one. This is source identity, not
+    an independent biological model or an experiment outcome.
+    """
+    if pinned is None:
+        pinned = json.loads(PIN_PATH.read_text(encoding="utf-8"))
+    expected = pinned.get("source_sha256")
+    necessary = {
+        "scripts/model3_island/reproduction.py",
+        "scripts/model3_island/population.py",
+        "scripts/model3_island/types.py",
+        "scripts/model3_island/randomness.py",
+        "scripts/model3_island/history.py",
+        "scripts/run_model3_persistent_isolation.py",
+        "scripts/run_chapter2_assurance_generality.py",
+        "data/design/chapter2_assurance_generality_20261006.json",
+        "data/design/model3_ch2_bridge_20260927.json",
+    }
+    if (pinned.get("schema") != "chapter2_q2_I_support_model3_biological_source_pin_v1"
+            or pinned.get("baseline_commit") != MODEL3_ORIGINAL_SOURCE_COMMIT
+            or pinned.get("status") != "fixed_model3_source_baseline_do_not_repin_to_match_changed_code"
+            or not isinstance(expected, dict) or len(expected) != 25
+            or not necessary.issubset(expected)
+            or any(not isinstance(v, str) or len(v) != 64
+                   or any(ch not in "0123456789abcdef" for ch in v)
+                   for v in expected.values())):
+        raise ValueError("Invalid original Model 3 source pin baseline")
+    failed = sorted(path for path, digest in expected.items()
+                    if current.get(path) != digest)
+    if failed:
+        raise ValueError("Original Model 3 source SHA mismatch: " + ", ".join(failed))
+    return len(expected)
+
+
 def source_manifest(design_path: Path) -> dict:
-    paths = [Path(__file__), design_path, ROOT / "scripts/run_model3_persistent_isolation.py",
+    paths = [Path(__file__), design_path, PIN_PATH,
+             ROOT / "scripts/run_model3_persistent_isolation.py",
              ROOT / "scripts/run_chapter2_assurance_generality.py",
              ROOT / "data/design/chapter2_assurance_generality_20261006.json",
              ROOT / "data/design/model3_ch2_bridge_20260927.json"]
     paths.extend(sorted((ROOT / "scripts/model3_island").glob("*.py")))
-    return {str(p.relative_to(ROOT)): sha(p.read_bytes()) for p in paths}
+    manifest = {str(p.relative_to(ROOT)): sha(p.read_bytes()) for p in paths}
+    verify_original_model_source_pins(manifest)
+    return manifest
 
 
 

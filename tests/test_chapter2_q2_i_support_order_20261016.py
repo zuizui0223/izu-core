@@ -7,6 +7,7 @@ import pytest
 from scripts.chapter2_q2_i_support_order_20261016 import (
     CLASSES, declared_tasks, founder_state, load_protocol, native_config,
     response_class, simulate, technical_smoke, preflight_all_t0_ledgers,
+    source_manifest, verify_original_model_source_pins, PIN_PATH,
     DEFAULT_DESIGN,
 )
 from scripts.model3_island.reproduction import reproduce
@@ -140,3 +141,62 @@ def test_technical_smoke_never_masquerades_as_confirmatory():
     assert report["t0_complete_ledger_preflight"]["full_model_updates"] == 0
     assert report["no_full_200_update_scientific_cases_executed"] is True
     assert all(record["censuses"] == 13 for record in report["technical_cases"])
+
+
+
+def test_source_baseline_requires_byte_exact_original_model_and_historical_designs():
+    """Original raw-source SHA pins are independent of owner activation."""
+    import json
+    d = load_protocol()
+    manifest = source_manifest(DEFAULT_DESIGN)
+    record = json.loads(PIN_PATH.read_text(encoding="utf-8"))
+    assert d["source_baseline_commit"] == record["baseline_commit"]
+    assert verify_original_model_source_pins(manifest) == 25
+    assert set(record["source_sha256"]) <= set(manifest)
+    assert "docs/protocols/chapter2_q2_original_model_source_pins_20261016.json" in manifest
+    assert "scripts/model3_island/reproduction.py" in record["source_sha256"]
+    assert "scripts/model3_island/population.py" in record["source_sha256"]
+
+
+def test_baseline_cannot_be_silently_replaced_by_a_new_source_manifest():
+    import json
+    original = source_manifest(DEFAULT_DESIGN)
+    record = json.loads(PIN_PATH.read_text(encoding="utf-8"))
+    tampered = dict(original)
+    tampered["scripts/model3_island/reproduction.py"] = "0" * 64
+    with pytest.raises(ValueError, match="source SHA mismatch"):
+        verify_original_model_source_pins(tampered, record)
+    bad_pin = json.loads(json.dumps(record))
+    bad_pin["baseline_commit"] = "0" * 40
+    with pytest.raises(ValueError, match="Invalid original"):
+        verify_original_model_source_pins(original, bad_pin)
+    bad_pin = json.loads(json.dumps(record))
+    bad_pin["source_sha256"].pop("scripts/model3_island/population.py")
+    with pytest.raises(ValueError, match="Invalid original"):
+        verify_original_model_source_pins(original, bad_pin)
+    bad_pin = json.loads(json.dumps(record))
+    bad_pin["source_sha256"]["scripts/model3_island/types.py"] = "f" * 64
+    with pytest.raises(ValueError, match="source SHA mismatch"):
+        verify_original_model_source_pins(original, bad_pin)
+
+
+
+def test_pending_sha_bound_activation_proposal_cannot_execute_biology(tmp_path):
+    import json
+    from scripts.prepare_chapter2_q2_activation_template_20261016 import write_pending_template
+    from scripts.run_chapter2_q2_i_support_production_20261016 import admission
+    target = tmp_path / "proposal.json"
+    p = write_pending_template(target)
+    assert target.is_file()
+    assert p["status"] == "PENDING_AUTHOR_REVIEW_NOT_APPROVED"
+    assert p["owner_explicit_approval"] is False
+    assert p["approval_is_new_not_reused"] is False
+    assert p["declared_full_cases"] == 384
+    assert p["no_biological_runs"] is True
+    assert p["original_model_source_files_pinned"] == 25
+    assert p["model_baseline_sha"] == "8e2dcada6514381bd9304cb6e2ddc2b855a4148f"
+    assert json.loads(target.read_text()) == p
+    with pytest.raises(ValueError, match="Production HOLD"):
+        admission(target, DEFAULT_DESIGN)
+    with pytest.raises(FileExistsError):
+        write_pending_template(target)
