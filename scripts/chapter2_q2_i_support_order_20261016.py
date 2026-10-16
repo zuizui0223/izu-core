@@ -198,6 +198,48 @@ def source_manifest(design_path: Path) -> dict:
     return {str(p.relative_to(ROOT)): sha(p.read_bytes()) for p in paths}
 
 
+
+def preflight_all_t0_ledgers(d: dict) -> dict:
+    """Admit all 8×8×2 matched ecological cells before any full evolution.
+
+    This verifies only the t0 native reproductive ledger; it does not evolve
+    plants, estimate selection effects, or consume the predeclared 384 paths.
+    """
+    config = native_config(d)
+    f = d["founders"]
+    v = d["visitors"]
+    cases = 0
+    tested = []
+    for fs in range(f["first"], f["last"] + 1):
+        states = {policy: founder_state(d, fs, policy) for policy in d["policies"]}
+        base = next(iter(states.values()))
+        expressed = base.alleles.mean(axis=2)
+        for name,st in states.items():
+            if not np.array_equal(expressed, st.alleles.mean(axis=2)):
+                raise ValueError("Different initial parental phenotypes across I-support policies")
+            if not np.array_equal(st.ids, base.ids):
+                raise ValueError("Different founder IDs across matched I-support policies")
+        for vs in range(v["first"], v["last"] + 1):
+            for arm in v["arms"]:
+                visitors = exposure(vs, arm).visitors[0]
+                ledger = {name: reproduce(state, visitors, config)
+                          for name,state in states.items()}
+                original = next(iter(ledger.values()))
+                for result in list(ledger.values())[1:]:
+                    for field in ("maternal", "paternal", "outcross", "self_raw",
+                                  "self_viable", "ovules", "exported", "delivered", "lost"):
+                        if not np.array_equal(getattr(original, field), getattr(result, field)):
+                            raise ValueError("Intervention changed t0 native reproductive ledger")
+                cases += 1
+                tested.append((fs, vs, arm))
+    expected = f["count"] * v["count"] * len(v["arms"])
+    if cases != expected or len(tested) != len(set(tested)):
+        raise ValueError("Missing or repeated preflight founder–visitor cells")
+    return {"status": "T0_ORIGINAL_MODEL_LEDGER_MATCHES_ALL_POLICIES",
+            "matched_founder_visitor_arm_cells": cases,
+            "policy_evaluations": cases*len(d["policies"]),
+            "full_model_updates": 0, "independent_biological_histories": 0}
+
 def technical_smoke(d: dict, design_path: Path) -> dict:
     f, v = d["founders"]["first"], d["visitors"]["first"]
     c = native_config(d)
@@ -225,6 +267,7 @@ def technical_smoke(d: dict, design_path: Path) -> dict:
                           "terminal_N": int(run["trace"][-1, 0])})
     return {"status": "PASS_TECHNICAL_SMOKE_ONLY_NOT_SCIENTIFIC_RESULTS",
             "design_sha256": sha(design_path.read_bytes()), "sources": source_manifest(design_path),
+            "t0_complete_ledger_preflight": preflight_all_t0_ledgers(d),
             "cases": len(proof), "technical_cases": proof,
             "no_full_200_update_scientific_cases_executed": True}
 
