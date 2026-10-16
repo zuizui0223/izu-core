@@ -90,6 +90,24 @@ def test_q1_original_fixed_A_intervention_supports_negative_far_near_four():
     assert j["structural_control"]["status"] == "passed"
 
 
+def test_original_I_allele_support_exclusion_and_favourable_expected_loss_are_distinct():
+    report = _read("data/results/low_allele_loss_20261014/PRIOR_SUPPORT_READOUT.json")
+    loss = _read("data/results/low_allele_loss_20261014/extracted/READOUT.json")
+    independent = _read("data/results/low_allele_loss_20261014/INDEPENDENT_REVIEW.json")
+    assert report["cases"] == loss["cases"] == independent["cases"] == 2304
+    assert report["ever_excluded"] == loss["eligible_loss"] == 1238
+    assert report["excluded_before_fixation"] == 703
+    assert report["excluded_at_fixation"] == 535
+    assert report["missing_I_excluded_before_fixation"] == 702
+    assert report["excluded_with_expressed_variance"] == 703
+    assert loss["direction_counts"]["favouring_needed"] == 315
+    assert loss["direction_counts"]["opposing_needed"] == 923
+    assert sum(loss["direction_counts"].values()) == 1238
+    assert independent["eligible_loss"] == 1238
+    assert independent["new_biological_histories"] == 0
+    assert independent["max_scalar_error"] < 1e-11
+
+
 def test_registered_boundary_sensitivity_is_one_cohort_not_three_new_experiments():
     j = _read("data/results/four_question_resolution_20261011/boundary_access_diagnosis.json")
     assert len(j["rows"]) == 36
