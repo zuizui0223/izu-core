@@ -49,7 +49,7 @@ def test_all_original_source_paths_are_pinned_to_actual_checkout():
 def test_genome_admission_detects_different_diploid_state_at_equal_mean():
     original = _state()
     altered = original.copy()
-    altered[[0, 2], 0, :] = altered[[2, 0], 0, :]
+    altered[[1, 2], 0, :] = altered[[2, 1], 0, :]
     assert original.shape == altered.shape
     np.testing.assert_array_equal(original.mean(axis=(0, 2)),
                                   altered.mean(axis=(0, 2)))
