@@ -71,6 +71,7 @@ jobs:
             tests/test_repository_code_references_20261016.py \
             tests/test_chapter2_q1_full_founder_source_integrity_20261016.py \
             tests/test_chapter2_cohort_seed_independence_20261016.py \
+            tests/test_chapter2_two_propositions_source_audit_20261016.py \
             tests/test_chapter2_q4_finite_readout_invariants_20261016.py \
             tests/test_chapter2_q4_post_mutation_contract_20261016.py \
             tests/test_model3_cross_layer_logic_audit_20261016.py \
@@ -204,6 +205,56 @@ jobs:
           retention-days: 90
           if-no-files-found: error
           path: q1-full-genome-re-admission-20261016.json
+
+  two-proposition-original-q1-readback:
+    if: github.event_name == 'pull_request' && github.head_ref == 'research/ch2-two-proposition-proof-audit-20261016'
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    permissions:
+      actions: read
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Retrieve the ORIGINAL 32 signed Q1 source shards (no biological replay)
+        uses: actions/download-artifact@v4
+        with:
+          repository: ${{ github.repository }}
+          run-id: 38853989138
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          pattern: q1-new-founder-shard-*
+          path: q1-original-shards
+      - name: Recheck all 1088 original case SHA/genomes and prove four fixed-A reductions
+        run: |
+          python -m scripts.audit_chapter2_two_propositions_20261016 \
+            --input-root q1-original-shards \
+            --out two-proposition-original-readback-20261016.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d=json.loads(Path('two-proposition-original-readback-20261016.json').read_text())
+          assert d['fresh_original_archive']['admitted_cases']==1088
+          assert d['fresh_original_archive']['controls']==32
+          assert len(d['fresh_original_archive']['settings'])==4
+          assert d['historical']['source_bound_width_rows']==36
+          assert d['historical']['pre_fixation_exclusion']==703
+          assert d['historical']['favourably_weighted_but_realized_loss']==315
+          assert d['fresh_original_archive']['old_primary_D_adjudication']=='fresh_founder_4setting_inconclusive'
+          assert all(s['fixed_far_minus_near_bootstrap95'][1]<0
+                     and s['fixed_far_change_bootstrap95'][1]<0
+                     and s['negative_fixed_founder_means']==8
+                     for s in d['fresh_original_archive']['settings'])
+          print('PASS: 1088 original source-bound cases. Four fixed-A declines; theorem hypotheses and cohort denominators separated.')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-two-proposition-source-original-readback-20261016
+          retention-days: 90
+          if-no-files-found: error
+          path: two-proposition-original-readback-20261016.json
 
   confirmed-process-review-package:
     needs: scientific-gate
