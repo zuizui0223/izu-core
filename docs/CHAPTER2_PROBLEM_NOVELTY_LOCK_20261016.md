@@ -4,9 +4,11 @@
 
 ## Central question
 
-**When pollinator limitation favors reproductive assurance and reduced floral investment, why may an occupied finite diploid plant population fail to realize the *predicted joint order* or retain the alleles needed for a specified further response?**
+**To what extent do finite diploid plant populations reproduce the predicted relative responses of floral investment and reproductive assurance under pollinator limitation, and when does genetic accessibility constrain a specified further response?**
 
 An advantageous reproductive return, temporal first crossing, allelic accessibility, and population occupancy are separate estimands. The paper tests those distinctions in one explicitly specified Model 3, **not** a universal historical causal sequence for islands.
+
+**Causal-identification status:** We observed a discrepancy between conditional genotype-density and original finite trajectories, and independently verified a genotype-support exclusion route in a different cohort. We did **not** identify why the two focal founder conditions produced 3/32 and 2/32 A-first histories. The density calculation is not the finite stochastic expectation; genetic-access exclusion from the other cohort cannot be assigned as its mediator. Therefore the paper's answer concerns **extent of predictability and a separately demonstrated boundary on attainability**, not a full causal decomposition of forecast failure.
 
 ## Closest primary literature and negative priority claims
 
