@@ -31,4 +31,6 @@ pytest -q tests/test_chapter2_q2_i_support_order_20261016.py tests/test_chapter2
 python -m scripts.chapter2_q2_i_support_order_20261016 --mode technical-smoke --out q2_source_pin_technical_only.json
 ```
 
+**承認前のSHA付きひな型:** `scripts/prepare_chapter2_q2_activation_template_20261016.py` は、生物進化を1更新も実行せず、元設計SHAと25ソース固定のレシート、Q2実行器まで含めた現在のソース一覧SHAから、384ケースの承認**候補**を生成する。候補は `status=PENDING_AUTHOR_REVIEW_NOT_APPROVED`、`owner_explicit_approval=false`、`approval_is_new_not_reused=false` のまま保存され、`admission()` が明示的に**HOLD**することをCIで検証する。原本とは異なる `q2-384-pending-approval.json` としてActions artifactに保存し、承認済みactivationのフリをさせない。個人による正式承認・手動Actions起動はまだ行われていない。
+
 **実行ゲートの未解除:** 作者承認activation `docs/protocols/chapter2_q2_i_support_order_20261016_activation.json` は存在しない。384経路の200更新を通常CIやPR pushから起動せず、実験結果・CI通過の未確認箇所を成功と表記しない。
