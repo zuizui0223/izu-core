@@ -1,0 +1,22 @@
+{
+  "baseline_commit": "91d884e8fc46def450c6091f617b0f96776aad75",
+  "focused_after_consolidation": {
+    "name": "pytest",
+    "errors": "0",
+    "failures": "0",
+    "skipped": "0",
+    "tests": "142",
+    "time": "60.767",
+    "timestamp": "2026-10-16T18:22:56.433441+09:00",
+    "hostname": "LAPTOP-8SS23CTK"
+  },
+  "full_suite_final_tree_rerun": false,
+  "prior_full_suite_remaining_environment_failures": {
+    "windows_symlink_privilege": 7,
+    "windows_zip_fixture_separator_normalization": 1
+  },
+  "frozen_renderer_byte_identical": true,
+  "scientific_calculations_changed_by_consolidation": false,
+  "shared_helper_sha256": "7b31b6078daedc0a77a4d3746268d9c98d9bd2a90fe7450002a2a6c8e09d17ce",
+  "publication_scope": "dedicated branch only; no PR or main merge"
+}

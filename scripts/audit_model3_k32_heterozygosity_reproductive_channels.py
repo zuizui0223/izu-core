@@ -310,6 +310,9 @@ def main():
                    permutations=a.permutations)
     a.out.parent.mkdir(parents=True,exist_ok=True)
     a.out.write_text(json.dumps(r,indent=2,sort_keys=True,allow_nan=False)+"\n")
+    if r["status"] == "NOT_ENOUGH_SURVIVORS":
+        print(json.dumps({"status": r["status"], "budget": a.budget}))
+        return
     last=r["source_parent_years"]["8"]
     print(json.dumps({
         "status":r["status"],"budget":a.budget,

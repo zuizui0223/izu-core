@@ -18,6 +18,8 @@ from pathlib import Path
 
 import numpy as np
 
+from scripts.source_record_validation import equal_source_record
+
 from scripts.model3_island import reproduction
 from scripts.audit_chapter2_original_founder_compatibility_20261014 import (
     CONTEXTS, original_fixture, source_state, original_context, ledger_parity,
@@ -182,16 +184,8 @@ def main() -> None:
     data=json.dumps(result,indent=2,ensure_ascii=False,allow_nan=False)+"\n"
     if args.check:
         expected=json.loads(OUTPUT.read_text(encoding="utf-8"))
-        if expected.keys()!=result.keys():
-            raise SystemExit("Source audit structural schema mismatch")
-        # Native floating-point sums can differ at last few ULPs.
-        for old,new in zip(expected["contexts"],result["contexts"]):
-            if old.keys()!=new.keys() or old["context"]!=new["context"]:
-                raise SystemExit("Original signed quadrant source rows differ")
-            for arm in ("m0","m6"):
-                for key in SIGNED_CELLS:
-                    if abs(old[arm+"_signed_events"][key]-new[arm+"_signed_events"][key])>ABS_TOL:
-                        raise SystemExit("Original signed quadrant probabilities changed")
+        if not equal_source_record(expected, result, atol=ABS_TOL):
+            raise SystemExit("Original signed quadrant source record differs")
         print("PASS: original-I F1 signed four-quadrant negative control source matched")
     elif args.write:
         if OUTPUT.exists():

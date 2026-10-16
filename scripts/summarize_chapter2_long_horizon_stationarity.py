@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import argparse
 import json
+from itertools import product
 from pathlib import Path
 
 import numpy as np
@@ -208,9 +209,43 @@ def _summarize_mutation(rows, design):
     }
 
 
+
+def _validate_inventory(backbone, mutation, design):
+    if design.get("status") != "prospective_frozen_before_execution":
+        raise ValueError("prospective frozen stationarity design required")
+    years = design["checkpoints"]
+    parent = json.loads((Path(__file__).resolve().parents[1] /
+                         design["backbone"]["parent_design"]).read_text(encoding="utf-8"))
+    histories = parent["history_seeds"]
+    starts = design["backbone"]["starts"]
+    for axis in (years, histories, starts):
+        if not axis or len(axis) != len(set(axis)):
+            raise ValueError("empty or duplicate stationarity design axis")
+    expected = set(product(histories, starts, years))
+    observed = [(r["history_seed"], r["start_investment"], r["year"]) for r in backbone]
+    if len(observed) != len(expected) or set(observed) != expected:
+        raise ValueError("incomplete, duplicate or foreign backbone history/start/checkpoint")
+    m = design["mutation_accessibility"]
+    comparisons = {c["standing_regime"]: c for c in m["comparison"]}
+    expected = set(product(comparisons, m["capacities"], m["founder_seeds"],
+                           m["demographic_seeds"], m["visitor_histories"]))
+    observed = [(r["standing_regime"], r["capacity"], r["founder_seed"],
+                 r["demographic_seed"], r["visitor_history"]) for r in mutation]
+    if len(observed) != len(expected) or set(observed) != expected:
+        raise ValueError("incomplete, duplicate or foreign mutation trajectory")
+    for row in mutation:
+        comparison = comparisons[row["standing_regime"]]
+        if (row["standing_sd_investment"] != comparison["standing_sd_investment"]
+                or row["target_VM_over_VG0"] != comparison["VM_over_VG0"]):
+            raise ValueError("mutation treatment differs from declared design")
+        actual_years = [r["year"] for r in row["reports"]]
+        if len(actual_years) != len(years) or set(actual_years) != set(years):
+            raise ValueError("missing, duplicate or foreign mutation checkpoint")
+
 def summarize(design, folder):
     backbone_rows, backbone_files = _load_shards(folder, "backbone-shard-")
     mutation_rows, mutation_files = _load_shards(folder, "mutation-shard-")
+    _validate_inventory(backbone_rows, mutation_rows, design)
     backbone = _summarize_backbone(backbone_rows, design)
     mutation = _summarize_mutation(mutation_rows, design)
 

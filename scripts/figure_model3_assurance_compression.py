@@ -47,9 +47,12 @@ def main() -> None:
     generality = json.loads(GENERALITY.read_text(encoding="utf-8"))
     arm = json.loads(ARM.read_text(encoding="utf-8"))
     gradient = json.loads(GRADIENT.read_text(encoding="utf-8"))
-    assert generality["adjudication"]["status"] == "all_four_confirmed"
-    assert arm["status"] == "complete_arm_decomposition"
-    assert gradient["status"] == "complete_gradient_component_diagnostic"
+    if generality["adjudication"]["status"] != "all_four_confirmed":
+        raise ValueError("Generality results are not confirmed in all four settings")
+    if arm["status"] != "complete_arm_decomposition":
+        raise ValueError("Arm decomposition is not complete")
+    if gradient["status"] != "complete_gradient_component_diagnostic":
+        raise ValueError("Gradient diagnostic is not complete")
 
     g_rows = {r["setting"]: r for r in generality["settings"]}
     a_rows = {r["setting"]: r for r in arm["settings"]}
@@ -59,7 +62,8 @@ def main() -> None:
         if r["snapshot"] == 400
     }
     expected = {s for s, _ in SETTINGS}
-    assert set(g_rows) == set(a_rows) == set(d_rows) == expected
+    if not set(g_rows) == set(a_rows) == set(d_rows) == expected:
+        raise ValueError("Figure inputs do not contain the expected four settings")
 
     OUT.mkdir(parents=True, exist_ok=True)
     plt.rcParams.update({

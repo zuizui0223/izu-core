@@ -65,6 +65,14 @@ def summarize(design: dict, results: Path) -> dict:
     starts = [float(x) for x in design["starts"]]
     demos = [int(x) for x in design["demographic_seeds"]]
     arms = list(design["arms"])
+    if any(not axis or len(axis) != len(set(axis)) for axis in (histories, starts, demos, arms)):
+        raise ValueError("empty or duplicate design axis")
+    expected_slots = {(arm, start, hs, ds) for arm in arms for start in starts
+                      for hs in histories for ds in demos}
+    if len(expected_slots) != expected:
+        raise ValueError("design case count does not match its complete factorial domain")
+    manifest_hash = digest(design)
+    seen_slots = set()
     hix = {x: i for i, x in enumerate(histories)}
     six = {x: i for i, x in enumerate(starts)}
     dix = {x: i for i, x in enumerate(demos)}
@@ -92,13 +100,20 @@ def summarize(design: dict, results: Path) -> dict:
         raw = arrays.read_bytes()
         if sha256(raw).hexdigest() != rec.get("arrays_sha256"):
             raise ValueError(f"array digest mismatch: {folder.name}")
-        if canonical(case) != canonical(json.loads(inp.read_text(encoding="utf-8"))):
-            raise ValueError(f"input identity mismatch: {folder.name}")
+        if case.get("manifest_hash") != manifest_hash or rec.get("manifest_hash") != manifest_hash:
+            raise ValueError(f"case or receipt belongs to another design: {folder.name}")
 
         arm = case["id"].split("-s", 1)[0]
         start = float(case["cell"]["founders"]["means"][1])
         hs = int(case["history_seed"])
         ds = int(case["demographic_seed"])
+        slot = (arm, start, hs, ds)
+        if slot not in expected_slots or slot in seen_slots:
+            raise ValueError(f"unknown or duplicate design slot: {slot}")
+        expected_id = f"{arm}-s{int(round(start*10))}-h{hs}-d{ds}"
+        if case["id"] != expected_id:
+            raise ValueError(f"case ID differs from declared slot: {folder.name}")
+        seen_slots.add(slot)
         idx = (six[start], hix[hs], dix[ds])
         with np.load(arrays, allow_pickle=False) as a:
             tensors[arm, "individual"][idx] = _change(a, density=False)
@@ -111,7 +126,7 @@ def summarize(design: dict, results: Path) -> dict:
             visitor_counts[vk] = vc
         receipts += 1
 
-    if receipts != expected:
+    if receipts != expected or seen_slots != expected_slots:
         raise ValueError(f"campaign incomplete: {receipts}/{expected}")
 
     reports = []

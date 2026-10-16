@@ -305,6 +305,9 @@ def main():
                            permutations=a.permutations)
     a.out.parent.mkdir(parents=True,exist_ok=True)
     a.out.write_text(json.dumps(out,indent=2,sort_keys=True,allow_nan=False)+"\n")
+    if out["status"] == "INSUFFICIENT_SOURCE_YEAR8_PARENT_SURVIVORS":
+        print(json.dumps({"status": out["status"], "budget": a.budget}))
+        return
     print(json.dumps({
         "status":out["status"],"budget":a.budget,
         "year8_late_visitor":{

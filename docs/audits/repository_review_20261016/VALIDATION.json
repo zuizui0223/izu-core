@@ -1,0 +1,42 @@
+{
+  "baseline_commit": "91d884e8fc46def450c6091f617b0f96776aad75",
+  "branch": "codex/repository-review-20261016",
+  "coverage": {
+    "scripts_total": 593,
+    "full_source": 560,
+    "full_base_and_complete_diff": 33,
+    "pending": 0,
+    "scope": "tracked scripts Python at baseline, not every repository document or all historical campaign execution"
+  },
+  "full_suite_initial": {
+    "tests": 3308,
+    "failures": 10,
+    "errors": 0,
+    "skipped": 3
+  },
+  "final_focused": {
+    "tests": 131,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "short_path_retry": {
+    "tests": 1,
+    "failures": 0,
+    "errors": 0,
+    "skipped": 0
+  },
+  "resolved_full_failures": [
+    "pinned renderer restored; successor separated; source-to-DOI checks now pass",
+    "long path: exact failing test passes with short workspace basetemp"
+  ],
+  "remaining_full_failures": {
+    "windows_symlink_privilege": 7,
+    "windows_zip_fixture_separator_normalization": 1
+  },
+  "full_suite_final_tree_rerun": false,
+  "tracked_data_or_results_changed": false,
+  "frozen_genetic_renderer_restored_exactly": true,
+  "diff_check_exit": 0,
+  "disposition": "source review complete; final focused tests pass; full cross-platform validation not all green; no scientific campaigns run; no push or merge"
+}

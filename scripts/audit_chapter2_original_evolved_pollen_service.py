@@ -172,9 +172,11 @@ def source_audit(paths):
             for arm in d["arms"]:
                 visitor_states=source_visitors(seed,arm)
                 for t in d["periods"]:
-                    f=state_from_archive(zips,0 if arm=="near" else 2,
+                    fixed_shard=0 if arm=="near" else 2
+                    evolving_shard=fixed_shard+1
+                    f=state_from_archive(zips[fixed_shard],fixed_shard,
                                         setting,seed,arm,"fixed",t)
-                    e=state_from_archive(zips,1 if arm=="near" else 3,
+                    e=state_from_archive(zips[evolving_shard],evolving_shard,
                                         setting,seed,arm,"evolving",t)
                     if not len(f.ids) or not len(e.ids):
                         raise ValueError("original frozen treatment extinct in source block")

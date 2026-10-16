@@ -1,0 +1,5 @@
+{
+  "zipinfo_backslash_input": "a\\b",
+  "zipinfo_actual_filename": "a/b",
+  "explanation": "Windows ZipInfo constructor canonicalizes separators in this test fixture before the archive intake sees the bytes; intake still rejects manifest mismatch."
+}

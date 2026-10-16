@@ -27,7 +27,8 @@ def _contrast(summary, setting, arm):
 
 def main():
     summary = json.loads(SOURCE.read_text(encoding="utf-8"))
-    assert summary["status"] == "complete_exploratory_summary"
+    if summary["status"] != "complete_exploratory_summary":
+        raise ValueError("Trait-pollen summary is not complete")
     OUT.mkdir(parents=True, exist_ok=True)
 
     settings = ["assurance_cost", "prior_selfing"]

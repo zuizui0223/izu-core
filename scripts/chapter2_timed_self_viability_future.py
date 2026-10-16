@@ -152,20 +152,20 @@ def one_source(out,pre,task,d,biology,manifest):
                     raise AssertionError("K arm changed initial F8 founder abundance")
                 if rows[8]["t0"]!=rows[48]["t0"]:
                     raise AssertionError("K changed initial reproduction at fixed B48")
-        for K in (8,48):
-            by_gate={q["gate"]:q for q in futures
-                     if q["budget"]==budget and q["visitor"]==visitor and q["K"]==K}
-            if by_gate["baseline"]["t0"]!=by_gate["self_half_late"]["t0"]:
-                raise AssertionError("Late-only intervention altered t0")
-            if by_gate["self_half_early"]["t0"]!=by_gate["self_half_full"]["t0"]:
-                raise AssertionError("Early-only and full gate differ at t0")
-            if by_gate["baseline"]["t0"] is not None:
-                b=by_gate["baseline"]["t0"]
-                e=by_gate["self_half_early"]["t0"]
-                if (b["outcrossed_viable"]!=e["outcrossed_viable"]
-                        or b["exported_pollen"]!=e["exported_pollen"]
-                        or not np.isclose(e["selfed_viable"],0.5*b["selfed_viable"],rtol=0,atol=1e-10)):
-                    raise AssertionError("Timed gate changes wrong reproductive channel")
+            for K in (8,48):
+                by_gate={q["gate"]:q for q in futures
+                         if q["budget"]==budget and q["visitor"]==visitor and q["K"]==K}
+                if by_gate["baseline"]["t0"]!=by_gate["self_half_late"]["t0"]:
+                    raise AssertionError("Late-only intervention altered t0")
+                if by_gate["self_half_early"]["t0"]!=by_gate["self_half_full"]["t0"]:
+                    raise AssertionError("Early-only and full gate differ at t0")
+                if by_gate["baseline"]["t0"] is not None:
+                    b=by_gate["baseline"]["t0"]
+                    e=by_gate["self_half_early"]["t0"]
+                    if (b["outcrossed_viable"]!=e["outcrossed_viable"]
+                            or b["exported_pollen"]!=e["exported_pollen"]
+                            or not np.isclose(e["selfed_viable"],0.5*b["selfed_viable"],rtol=0,atol=1e-10)):
+                        raise AssertionError("Timed gate changes wrong reproductive channel")
     raw={
         "status":STATUS,"task":asdict(task),"source_sha256":source_digest,
         "sampled_founder_full_genotype_sha256":founder_hash,

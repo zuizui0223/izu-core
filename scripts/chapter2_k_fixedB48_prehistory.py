@@ -168,7 +168,7 @@ def main() -> None:
         print(json.dumps({
             "status": "PLAN_ONLY_NO_BIOLOGY",
             "shard": a.shard_index,
-            "sources": m["shards"][a.shard_index]["n_sources"],
+            "sources": m["shards"][a.shard_index]["sources"],
             "scientific_outcomes_generated": False,
         }))
         return

@@ -20,6 +20,8 @@ from pathlib import Path
 
 import numpy as np
 
+from scripts.source_record_validation import equal_source_record
+
 from scripts.model3_island import reproduction, types
 from scripts.audit_chapter2_original_founder_compatibility_20261014 import (
     original_fixture, source_state, original_context, archive_return_gate, CONTEXTS,
@@ -268,15 +270,8 @@ def main():
                 or saved["new_evolutionary_histories"]!=0
                 or len(saved["native_four_corner_rows"])!=len(result["native_four_corner_rows"])):
             raise SystemExit("Original static return full grid is incomplete")
-        for a,b in zip(saved["native_four_corner_rows"],result["native_four_corner_rows"]):
-            if (a["context"],a["one_possible_F1_M"])!=(b["context"],b["one_possible_F1_M"]):
-                raise SystemExit("Original signed source rows have been rearranged")
-            for sign in SIGN_VALUES:
-                for stat in ("parental_genome_W","female_outcross_F",
-                             "male_outcross_P","viable_self_S","intrinsic_ovule_budget"):
-                    if abs(a["static_focal_expected_returns_by_sign"][sign][stat]-
-                           b["static_focal_expected_returns_by_sign"][sign][stat])>TOL:
-                        raise SystemExit("Original native source W diagnostic changed")
+        if not equal_source_record(saved, result, atol=TOL):
+            raise SystemExit("Original native focal return source record differs")
         print("PASS: all original native focal W return contributions reproduce")
     elif args.out:
         if args.out==OUTPUT and OUTPUT.exists():

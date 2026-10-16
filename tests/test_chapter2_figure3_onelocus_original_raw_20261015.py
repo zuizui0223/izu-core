@@ -1,6 +1,7 @@
 """Read-only original one-locus trace archive Figure3 B/C source checks."""
 from pathlib import Path
 import hashlib
+import json
 import pytest
 
 from scripts.verify_chapter2_figure3_onelocus_original_raw_20261015 import (
@@ -49,3 +50,23 @@ def test_source_file_matches_historical_pinned_digest_and_separate_cohorts():
     assert s["raw_cases"]==64
     assert len(s["raw_hashes"])==64
     assert s["max_difference_from_existing_means"]==0
+
+
+@pytest.mark.parametrize("invalid", [float("nan"), float("inf"), -float("inf")])
+@pytest.mark.parametrize("source", ["variability", "summary"])
+def test_reject_nonfinite_stored_means(tmp_path, invalid, source):
+    """Valid original bytes must not authenticate a corrupt displayed mean."""
+    summary=json.loads(SUMMARY.read_text(encoding="utf-8"))
+    variability=json.loads(VARIABILITY.read_text(encoding="utf-8"))
+    if source=="variability":
+        variability["rows"][0]["mean"]=invalid
+    else:
+        row=next(row for row in summary["abm"]
+                 if row["common_environment_periods"]==800)
+        row["mean_allele_counts"][0]=invalid
+    summary_path=tmp_path/"summary.json"
+    variability_path=tmp_path/"variability.json"
+    summary_path.write_text(json.dumps(summary), encoding="utf-8")
+    variability_path.write_text(json.dumps(variability), encoding="utf-8")
+    with pytest.raises(AssertionError, match="means/CI differ from source"):
+        verify(summary=summary_path, variability=variability_path)

@@ -28,9 +28,19 @@ def _load(folder: Path):
     if len(histories)!=128 or len(set(histories))!=128:
         raise ValueError("history support mismatch")
     starts=docs[0]["starts"]; demos=docs[0]["demographic_seeds"]
+    arms=docs[0]["arms"]
+    if any(not axis or len(axis)!=len(set(axis)) for axis in (starts,demos,arms)):
+        raise ValueError("invalid shard axes")
+    if not {arm for pair in PAIRS.values() for arm in pair}.issubset(arms):
+        raise ValueError("missing contrast arms in shard axes")
+    expected_keys={f"{arm}|{mode}" for arm in arms for mode in ("individual","density")}
     shape=(len(starts),len(histories),len(demos)); hi={h:i for i,h in enumerate(histories)}
     values={k:np.full(shape,np.nan) for k in docs[0]["values"]}
     for d in docs:
+        if d["starts"]!=starts or d["demographic_seeds"]!=demos or d["arms"]!=arms:
+            raise ValueError("shard axes differ: starts, demographic seeds, or arms")
+        if set(d["values"])!=expected_keys:
+            raise ValueError("missing or unexpected shard tensor keys")
         hs=d["history_seeds"]
         for key,raw in d["values"].items():
             a=np.asarray(raw,float)

@@ -15,7 +15,8 @@ OUT = ROOT/"outputs/figures/model3_return_components_20261005"
 
 def main():
     summary = json.loads(SOURCE.read_text(encoding="utf-8"))
-    assert summary["status"] == "complete"
+    if summary["status"] != "complete":
+        raise ValueError("Return-component summary is not complete")
     OUT.mkdir(parents=True, exist_ok=True)
 
     rows = {

@@ -1,0 +1,8 @@
+{
+  "valid_fixture_admitted": true,
+  "starts_reversal_incorrectly_admitted": true,
+  "demographic_seeds_reversal_incorrectly_admitted": true,
+  "overlapping_history_incorrectly_admitted": true,
+  "synthetic_failure": true,
+  "failure_interpretation": "The post-hoc discovery generated a prospectively frozen prediction that history-specific continuous responses would be most reproducible at capacity 192, intermediate under natural finite demography, and weakest after visitor-history pooling. New demographic seeds reproduced that ordering."
+}

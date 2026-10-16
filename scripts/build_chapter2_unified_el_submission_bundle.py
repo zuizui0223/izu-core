@@ -1321,7 +1321,7 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
     derivations.update(original490_derivations)
     derivations["SUPPORTING_INFORMATION.md"]={
         "original_path":str(si_path.relative_to(ROOT)),"original_sha256":sha(si_original),
-        "derived_sha256":sha(si),"transformation":"SHA-locked original S1–S33 SI preserved unchanged; in this anonymous reviewer derivative only, reassign old main Fig3 fixed-state pollen assay to Supplementary S1 and old Supplementary S1 finite-realization to main Fig3; relocate source references and supplied figure links without changing numerical evidence."}
+        "derived_sha256":sha(si),"transformation":"SHA-locked original S1–S33 SI preserved unchanged; in this anonymous reviewer derivative only, reassign old main Fig3 fixed-state pollen assay to Supplementary S1 and old Supplementary S1 finite-realization to Supplementary S3; assign the original-mutation ten-context comparison to main Fig3; relocate source references and supplied figure links without changing numerical evidence."}
     original_s2=next(row for row in admission["figures"] if row["path"].endswith(".svg"))
     if sha(members["SupplementaryFigureS2.svg"])!=original_s2["sha256"]:
         raise ValueError("tempo supplementary figure source hash mismatch")

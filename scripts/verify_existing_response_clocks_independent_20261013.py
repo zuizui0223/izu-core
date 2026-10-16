@@ -9,9 +9,14 @@ import numpy as np
 def verify(original, readout):
     assert hashlib.sha256(Path(original).read_bytes()).hexdigest()=='115636a338c847fdf1f80ae9e39cdfc622fcf38c7f70575e37d245bf7c41b098'
     result=json.loads(Path(readout).read_bytes())
-    assert len(result['records'])==320
     checks=0
     with zipfile.ZipFile(original) as z:
+        names=z.namelist()
+        expected={name.removesuffix('.json') for name in names if name.endswith('_evolving.json')}
+        keys=[row['task']['key'] for row in result['records']]
+        if (len(names)!=len(set(names)) or len(expected)!=320 or
+                len(keys)!=320 or len(set(keys))!=320 or set(keys)!=expected):
+            raise ValueError('Original320 inventory: missing, duplicate, or foreign case')
         for r in result['records']:
             src=json.loads(z.read(r['task']['key']+'.json'))
             for name,j,sign in [('A',2,1),('I',1,-1)]:

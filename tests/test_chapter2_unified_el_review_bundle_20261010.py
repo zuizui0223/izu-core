@@ -430,6 +430,10 @@ def test_atom_supplement_preserves_all_contexts_and_relocates_si_links(tmp_path)
         assert "atom_comparison_20261011/" not in si
         assert "data/results/atom_cell_completed_20261011/" not in si
     assert "EVIDENCE/ATOM_ABM_COMPARISON.json" in receipt["source_derivations"]
+    transformation = receipt["source_derivations"]["SUPPORTING_INFORMATION.md"]["transformation"]
+    assert "original-mutation ten-context comparison to main Fig3" in transformation
+    assert "finite-realization to Supplementary S3" in transformation
+    assert "finite-realization to main Fig3" not in transformation
 
 
 def test_atom_evidence_drift_refuses_delivery(tmp_path,monkeypatch):

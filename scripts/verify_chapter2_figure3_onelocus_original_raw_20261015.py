@@ -112,6 +112,8 @@ def verify(*, archive:Path=ARCHIVE, summary:Path=SUMMARY,
                         interval=np.quantile(xs[resamples].mean(axis=1),[.025,.975])
                         if (row["seeds"]!=list(SEEDS) or row["occupied_repeats"]!=8
                             or not np.allclose(xs,row["repeats"],atol=1e-13,rtol=0)
+                            or not np.isfinite(row["mean"])
+                            or not np.isfinite(ref[field][past_no])
                             or abs(reconstructed_mean-row["mean"])>=1e-13
                             or abs(reconstructed_mean-ref[field][past_no])>=1e-13
                             or not np.allclose(interval,row["descriptive_bootstrap_95"],atol=1e-13,rtol=0)):

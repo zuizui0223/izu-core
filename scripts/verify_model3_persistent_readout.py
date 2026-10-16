@@ -6,6 +6,32 @@ import json
 import numpy as np
 
 
+def validate_inventory(result, plan, curves):
+    """Require the complete producer grid before any row-wise comparison."""
+    settings = ('assurance_cost', 'prior_selfing')
+    rates = (0., .01)
+    contrasts = ('paired_far_minus_near', 'near_change_from_founders',
+                 'far_change_from_founders')
+    expected_rows = {(s, r, c, t) for s in settings for r in rates
+                     for c in contrasts for t in plan['threshold_sensitivity']}
+    actual_rows = [(r['setting'], r['mutation_rate'], r['contrast'], r['threshold'])
+                   for r in result['temporal_order']]
+    expected_endpoints = {(s, r, t) for s in settings for r in rates for t in (200, 1000)}
+    actual_endpoints = [(r['setting'], r['mutation_rate'], r['period'])
+                       for r in result['endpoints']]
+    if (len(actual_rows) != len(expected_rows) or set(actual_rows) != expected_rows
+            or len(actual_endpoints) != len(expected_endpoints)
+            or set(actual_endpoints) != expected_endpoints):
+        raise ValueError('incomplete or duplicated persistent readout inventory')
+    expected_curves = {f'{s}_u{r}_{c}' for s in settings for r in rates for c in contrasts}
+    if set(curves) != expected_curves or any(curves[k].shape != (64, 1001, 3)
+                                           for k in expected_curves):
+        raise ValueError('incomplete persistent curve inventory or shape')
+    for row in result['temporal_order']:
+        if [e['history_seed'] for e in row['events']] != list(range(76001, 76065)):
+            raise ValueError('missing, duplicate or reordered history events')
+
+
 def main():
     root = Path(__file__).resolve().parents[1]
     result_path = root / 'data/results/model3_persistent_isolation_summary_20261005.json'
@@ -21,6 +47,7 @@ def main():
         assert sha(path) == result[key], (path, 'digest mismatch')
     event_count = 0
     with np.load(output / 'temporal_order_curves.npz') as curves:
+        validate_inventory(result, plan, curves)
         for row in result['temporal_order']:
             values = curves[f"{row['setting']}_u{row['mutation_rate']}_{row['contrast']}"]
             counts = Counter()
