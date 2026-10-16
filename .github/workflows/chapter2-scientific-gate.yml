@@ -64,6 +64,7 @@ jobs:
       - name: Validate active Model 3 2026-10-05 ecological submission surface
         run: |
           pytest -q \
+            tests/test_chapter2_q4_post_mutation_contract_20261016.py \
             tests/test_model3_cross_layer_logic_audit_20261016.py \
             tests/test_model3_mathematical_representation_audit_20261016.py \
             tests/test_chapter2_mechanistic_funnel.py \
