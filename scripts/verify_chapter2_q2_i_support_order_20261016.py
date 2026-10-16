@@ -168,7 +168,20 @@ def replay_native_history(data, offsets, parent_offsets, d, task):
         comparisons += 1
     return comparisons
 
-def _arrays_checked(archive, d, task, *, native_replay=False):
+
+def admit_exact_shard_inventory(directory, declared_case_keys):
+    """Refuse foreign, incomplete or unexpectedly duplicated original files."""
+    mandatory = {"SOURCES.json", "ACTIVATION_SHA256.txt", "DESIGN_SHA256.txt",
+                 "COMPLETION.json"}
+    declared = set(declared_case_keys)
+    expected = mandatory | {key + ext for key in declared
+                            for ext in (".npz", ".json")}
+    observed = {path.name for path in directory.iterdir()}
+    if observed != expected or any(not item.is_file() for item in directory.iterdir()):
+        raise ValueError("Unexpected or missing source-shard files")
+    return len(declared)
+
+def _arrays_checked(archive, d, task, *, native_replay=False, receipt=None):
     with np.load(archive, allow_pickle=False) as z:
         required = {"trace", "offsets", "parentage_offsets", "parentage",
                     "alleles", "allele_origin", "mutation_flags", "ids", "birth_years"}
@@ -184,6 +197,12 @@ def _arrays_checked(archive, d, task, *, native_replay=False):
             or np.any(np.diff(offsets) < 0) or np.any(np.diff(po) < 0)):
         raise ValueError("Invalid annual source array layout")
     n_all = int(offsets[-1])
+    if receipt is not None and (
+        receipt.get("typed_genotype_records") != n_all
+        or receipt.get("recorded_offspring_parentage") != len(data["parentage"])
+        or receipt.get("censuses") != len(t)
+    ):
+        raise ValueError("Archived readout receipt counts differ from original typed arrays")
     if (n_all != len(data["ids"]) or
             data["alleles"].shape != (n_all, 3, 2)
             or data["allele_origin"].shape != (n_all, 3, 2)
@@ -263,6 +282,7 @@ def _read_cases(root, d, design_path, *, native_replay=False):
                                                         (shard+1)*CASES_PER_SHARD]]
         if c.get("cases") != declared_subset or set(c.get("receipt_hashes", {})) != set(declared_subset):
             raise ValueError("Wrong original 12-case shard inventory")
+        admit_exact_shard_inventory(directory, declared_subset)
         for key in declared_subset:
             if key in found or key not in cases:
                 raise ValueError("Repeated or foreign original case")
@@ -277,7 +297,7 @@ def _read_cases(root, d, design_path, *, native_replay=False):
                     or receipt["source_manifest_sha256"] != source_digest
                     or receipt["censuses"] != 201):
                 raise ValueError("Invalid original source case admission")
-            trace = _arrays_checked(archive, d, cases[key], native_replay=native_replay)
+            trace = _arrays_checked(archive, d, cases[key], native_replay=native_replay, receipt=receipt)
             computed = classify_independently(trace, d["response"])
             if computed != receipt["events"]:
                 raise ValueError("Independent 20-census event recheck differs")

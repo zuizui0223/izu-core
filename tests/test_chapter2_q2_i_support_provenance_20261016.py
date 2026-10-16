@@ -14,7 +14,7 @@ from scripts.run_chapter2_q2_i_support_production_20261016 import (
     admission, case_key, execute_shard, save_case,
 )
 from scripts.verify_chapter2_q2_i_support_order_20261016 import (
-    _scores, _arrays_checked, classify_independently, readout,
+    _scores, _arrays_checked, admit_exact_shard_inventory, classify_independently, readout,
 )
 
 
@@ -151,3 +151,41 @@ def test_native_replay_detects_plausible_mutation_record_tamper(tmp_path):
     # But frozen native reproducibility detects the fabricated genome outcome.
     with pytest.raises(ValueError, match="native replay mismatch"):
         _arrays_checked(p, d, task, native_replay=True)
+
+
+
+def test_original_shard_file_set_has_no_extra_or_missing_inputs(tmp_path):
+    """An extra unadmitted result must not silently coexist with 12 admitted cases."""
+    keys = [f"case_{i}" for i in range(12)]
+    names = {"SOURCES.json", "ACTIVATION_SHA256.txt", "DESIGN_SHA256.txt",
+             "COMPLETION.json"} | {key+ext for key in keys
+                                    for ext in (".npz", ".json")}
+    for name in names:
+        (tmp_path/name).write_bytes(b"dummy")
+    assert admit_exact_shard_inventory(tmp_path, keys) == 12
+    (tmp_path/"unregistered.npz").write_bytes(b"unexpected")
+    with pytest.raises(ValueError, match="Unexpected or missing"):
+        admit_exact_shard_inventory(tmp_path, keys)
+    (tmp_path/"unregistered.npz").unlink()
+    (tmp_path/(keys[0]+".npz")).unlink()
+    with pytest.raises(ValueError, match="Unexpected or missing"):
+        admit_exact_shard_inventory(tmp_path, keys)
+
+
+def test_source_receipt_census_and_parentage_counts_are_checked(tmp_path):
+    source = load_protocol()
+    d = {**source, "horizon": 4}
+    task = declared_tasks(source)[0]
+    case = simulate(source, task, steps=4)
+    arrays = {k:v for k,v in case.items() if isinstance(v,np.ndarray)}
+    archive = tmp_path/"legitimate_genomes.npz"
+    np.savez_compressed(archive, **arrays)
+    counts = {"typed_genotype_records":len(case["alleles"]),
+              "recorded_offspring_parentage":len(case["parentage"]),
+              "censuses":len(case["trace"])}
+    np.testing.assert_array_equal(_arrays_checked(archive,d,task,receipt=counts),case["trace"])
+    for key in counts:
+        forged = dict(counts)
+        forged[key] += 1
+        with pytest.raises(ValueError, match="receipt counts"):
+            _arrays_checked(archive,d,task,receipt=forged)
