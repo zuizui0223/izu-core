@@ -66,6 +66,7 @@ jobs:
           pytest -q \
             tests/test_chapter2_repo_wide_python_inventory_20261016.py \
             tests/test_chapter2_q1_full_founder_source_integrity_20261016.py \
+            tests/test_chapter2_q4_finite_readout_invariants_20261016.py \
             tests/test_chapter2_q4_post_mutation_contract_20261016.py \
             tests/test_model3_cross_layer_logic_audit_20261016.py \
             tests/test_model3_mathematical_representation_audit_20261016.py \
