@@ -64,10 +64,11 @@ jobs:
             --activation docs/protocols/chapter2_q2_i_support_order_20261016_activation.json \
             --shard "$SHARD" \
             --out "$folder"
+          ( cd q2-original && zip -q -r "original-shard-$SHARD.zip" "shard-$(printf '%02d' "$SHARD")" )
       - uses: actions/upload-artifact@v4
         with:
           name: q2-i-support-original-shard-${{ matrix.shard }}
-          path: q2-original/shard-*
+          path: q2-original/original-shard-*.zip
           if-no-files-found: error
           retention-days: 90
 
@@ -90,10 +91,10 @@ jobs:
         run: |
           mkdir -p full-originals
           for i in $(seq 0 31); do
-            src="originals/q2-i-support-original-shard-$i"
-            dst="full-originals/shard-$(printf '%02d' "$i")"
-            test -f "$src/COMPLETION.json" || exit 1
-            mv "$src" "$dst"
+            src="originals/q2-i-support-original-shard-$i/original-shard-$i.zip"
+            test -f "$src" || exit 1
+            unzip -q "$src" -d full-originals
+            test -f "full-originals/shard-$(printf '%02d' "$i")/COMPLETION.json" || exit 1
           done
           test "$(find full-originals -name 'COMPLETION.json' | wc -l)" -eq 32
       - name: Verify every original genome, parentage and native replay; independently recompute six classes
