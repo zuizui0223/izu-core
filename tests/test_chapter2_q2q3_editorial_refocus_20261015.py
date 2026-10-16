@@ -74,7 +74,7 @@ def test_figure3_is_actual_q3_asset_and_fixed_trait_assay_is_s1():
     assert "source-backed genetic-realization figure" in NOTE.read_text(encoding="utf-8")
     assert "`SupplementaryFigureS1.pdf`" in si
     assert "distinct source cohorts" in si
-    assert "separate one-locus history diagnostic" in paper
+    assert "separate one-locus historical diagnostic" in paper
     assert "3/32 and 2/32" in paper
 
 
