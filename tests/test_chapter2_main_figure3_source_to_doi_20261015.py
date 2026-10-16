@@ -41,7 +41,7 @@ def test_figure3_sources_are_exact_pinned_three_jsons_not_atom_original_mutation
     assert figure.count("ROOT/'data/results/model3_mutation_variability_20261005.json'") == 1
     assert "completed_atom_abm_20261011.zip" not in figure
     reviewer = BUILDER.read_text(encoding="utf-8")
-    assert '"Figure3.pdf":ROOT/"outputs/figures/model3_genetic_realization_20261005/genetic_realization.pdf"' in reviewer
+    assert '"SupplementaryFigureS3.pdf":ROOT/"outputs/figures/model3_genetic_realization_20261005/genetic_realization.pdf"' in reviewer
     assert '"SupplementaryFigureS1.pdf":ROOT/"outputs/figures/model3_trait_pollen_20261005/trait_pollen_snapshot400.pdf"' in reviewer
 
 
