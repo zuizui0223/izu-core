@@ -210,6 +210,11 @@ def preflight_all_t0_ledgers(d: dict) -> dict:
     v = d["visitors"]
     cases = 0
     tested = []
+    # Visitor paths depend on visitor seed and arm, not founder seed. Resolve
+    # each original t0 exposure once to avoid rebuilding long native histories.
+    t0_visitors = {(vs, arm): exposure(vs, arm).visitors[0]
+                   for vs in range(v["first"], v["last"] + 1)
+                   for arm in v["arms"]}
     for fs in range(f["first"], f["last"] + 1):
         states = {policy: founder_state(d, fs, policy) for policy in d["policies"]}
         base = next(iter(states.values()))
@@ -221,7 +226,7 @@ def preflight_all_t0_ledgers(d: dict) -> dict:
                 raise ValueError("Different founder IDs across matched I-support policies")
         for vs in range(v["first"], v["last"] + 1):
             for arm in v["arms"]:
-                visitors = exposure(vs, arm).visitors[0]
+                visitors = t0_visitors[(vs, arm)]
                 ledger = {name: reproduce(state, visitors, config)
                           for name,state in states.items()}
                 original = next(iter(ledger.values()))
