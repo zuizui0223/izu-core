@@ -23,7 +23,7 @@ from scripts.run_model3_persistent_isolation import exposure
 
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_DESIGN = ROOT / "data/designs/chapter2_q2_i_support_order_20261016.json"
+DEFAULT_DESIGN = ROOT / "docs/protocols/chapter2_q2_i_support_order_20261016.json"
 STATUS = "prospective_design_frozen_before_new_biological_outcomes_execution_hold"
 CLASSES = ("assurance_first", "investment_first", "near_simultaneous",
            "assurance_only", "investment_only", "neither")
