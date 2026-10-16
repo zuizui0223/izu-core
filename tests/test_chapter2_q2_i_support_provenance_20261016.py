@@ -14,7 +14,7 @@ from scripts.run_chapter2_q2_i_support_production_20261016 import (
     admission, case_key, execute_shard, save_case,
 )
 from scripts.verify_chapter2_q2_i_support_order_20261016 import (
-    _scores, classify_independently, readout,
+    _scores, _arrays_checked, classify_independently, readout,
 )
 
 
@@ -99,3 +99,33 @@ def test_case_keys_bijectively_map_original_tasks():
     keys = [case_key(task) for task in declared_tasks(d)]
     assert len(keys) == len(set(keys)) == 384
     assert len(keys[:12]) == 12
+
+
+
+@pytest.mark.parametrize("damage", ["none", "wrong_origin", "duplicated_newborn",
+                                    "foreign_mother", "illegal_I_mutation"])
+def test_archived_technical_genomes_and_parentage_are_independently_verified(tmp_path, damage):
+    """Four-update fixtures only; exercise the full 201-point reader at H=4."""
+    original = load_protocol()
+    d = {**original, "horizon": 4}
+    task = declared_tasks(original)[0]
+    record = simulate(original, task, steps=4)
+    values = {name: value.copy() for name,value in record.items()
+              if isinstance(value,np.ndarray)}
+    newborn_offset = int(values["offsets"][1])
+    if damage == "wrong_origin":
+        values["allele_origin"][newborn_offset, 1, 0] = 999999999
+    elif damage == "duplicated_newborn":
+        assert len(values["parentage"]) >= 2
+        values["parentage"][1, 0] = values["parentage"][0, 0]
+    elif damage == "foreign_mother":
+        values["parentage"][0, 1] = 999999999
+    elif damage == "illegal_I_mutation":
+        values["mutation_flags"][newborn_offset, 1, 0] = True
+    p = tmp_path / "source_case.npz"
+    np.savez_compressed(p, **values)
+    if damage == "none":
+        np.testing.assert_array_equal(_arrays_checked(p, d, task), record["trace"])
+    else:
+        with pytest.raises(ValueError):
+            _arrays_checked(p, d, task)
