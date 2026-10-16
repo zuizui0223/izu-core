@@ -8,10 +8,20 @@ version = "0.3.0"
 description = "Model 3 simulations and submission tooling for island pollination-to-evolution dynamics."
 readme = "README.md"
 requires-python = ">=3.10"
-dependencies = []
+# The directly installed Model 3 numerical engine needs these at runtime.
+# Do not make a bare pip install of the package silently lack NumPy/SciPy.
+dependencies = ["numpy>=1.24", "scipy>=1.10", "psutil>=5.9", "threadpoolctl>=3.1"]
 
 [project.optional-dependencies]
-dev = ["pytest>=8.0", "pandas>=2.0", "statsmodels>=0.14", "scipy>=1.10", "numpy>=1.24", "matplotlib>=3.8", "openpyxl>=3.1", "xlrd>=2.0.1", "pypdf>=6.0", "psutil>=5.9", "threadpoolctl>=3.1"]
+plotting = ["matplotlib>=3.8"]
+dev = ["pytest>=8.0", "pandas>=2.0", "statsmodels>=0.14", "matplotlib>=3.8", "openpyxl>=3.1", "xlrd>=2.0.1", "pypdf>=6.0"]
+
+# Read-only/audit front doors. Frozen scientific producers keep explicit
+# python -m execution and source hashes, not mutable CLI entry points.
+[project.scripts]
+izu-core-source-audit = "scripts.audit_chapter2_repository_wide_static_20261016:main"
+izu-core-q4-contract = "scripts.audit_chapter2_q4_post_mutation_contract_20261016:main"
+izu-core-q1-readout = "scripts.summarize_chapter2_q1_fresh_founders_20261016:main"
 
 [tool.setuptools]
 packages = ["scripts", "scripts.model3_island"]
