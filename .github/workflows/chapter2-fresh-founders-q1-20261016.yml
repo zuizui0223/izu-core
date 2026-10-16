@@ -1,14 +1,6 @@
 name: Chapter 2 Q1 new founders (crossed preregistered cohort)
 
 on:
-  pull_request:
-    paths:
-      - "data/design/chapter2_q1_fresh_founder_generality_20261016.json"
-      - "scripts/run_chapter2_q1_fresh_founders_20261016.py"
-      - "scripts/summarize_chapter2_q1_fresh_founders_20261016.py"
-      - "tests/test_chapter2_q1_fresh_founders_20261016.py"
-      - "docs/CHAPTER2_Q1_FRESH_FOUNDER_GENERALITY_PROTOCOL_20261016.md"
-      - ".github/workflows/chapter2-fresh-founders-q1-20261016.yml"
   workflow_dispatch:
 
 permissions:
