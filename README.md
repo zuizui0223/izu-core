@@ -1,6 +1,9 @@
 # Izu Core — Model 3 island reproductive economics
 
-> **2026-10-16 統合済み研究・監査の入口：** [8つの発見とS1–S33の証拠序列](docs/CHAPTER2_EIGHT_FINDINGS_INDEX_20261016.md) · [適応度・トレードオフの論文化判断](docs/CHAPTER2_FITNESS_TRADEOFF_EDITORIAL_POSITION_20261016.md) · [コアコードと生態学的因果・循環の監査](docs/MODEL3_REPOSITORY_CODE_ECOLOGY_AUDIT_20261016.md) · [PDE/ODE/SDE/SPDEの成立・失敗範囲](docs/MODEL3_PDE_ODE_SDE_SPDE_FORMAL_AUDIT_20261016.md)。PR #566・#567でmainに統合済み。単一の現行Letterは未投稿で、全4質問が一つの自然史的因果媒介として証明されたわけではありません。
+> **2026-10-16 統合済み研究・監査の入口：** [8つの発見とS1–S33の証拠序列](docs/CHAPTER2_EIGHT_FINDINGS_INDEX_20261016.md) · [適応度・トレードオフの論文化判断](docs/CHAPTER2_FITNESS_TRADEOFF_EDITORIAL_POSITION_20261016.md) · [コアコードと生態学的因果・循環の監査](docs/MODEL3_REPOSITORY_CODE_ECOLOGY_AUDIT_20261016.md) · [PDE/ODE/SDE/SPDEの成立・失敗範囲](docs/MODEL3_PDE_ODE_SDE_SPDE_FORMAL_AUDIT_20261016.md)。PR #566〜#568でmainに統合済み。単一の現行Letterは未投稿で、全4質問が一つの自然史的因果媒介として証明されたわけではありません。
+
+
+> **2026-10-16 独立創始者ホールドアウト（PR #569）：** 元の単一創始者でのQ1 4/4設定の正の交互作用は、[新しく引き直した8創始者ゲノム×8訪花者履歴](docs/CHAPTER2_Q1_FRESH_FOUNDER_RESULTS_20261016.md)では**3/4設定でのみ登録基準を通過**。A直接費用ありは +0.04427［95%区間 −0.04406〜+0.13084］で未確定。低送粉側の相対的な花投資温存も2設定で逆符号。全1,088本・陰性対照32ペアは[元のGitHub Actions実行](https://github.com/zuizui0223/izu-core/actions/runs/38853989138)で検証済み。**元のQ1結果を否定したのではなく、創始者・新訪花者背景への一般性の限界を明確化した。** 原軌跡の外部DOI保存は未完了。
 
 > **Start here (navigation audited 2026-10-15):** [Repository map](docs/REPOSITORY_NAVIGATION.md) · [One-paper route and evidence boundary](data/design/chapter2_one_paper_route_20261010.json) · [Reproduction](REPRODUCE.md) · [Historical PR overlap audit](docs/PR_CONSOLIDATION_AUDIT_20261015.md). The one current Chapter 2 manuscript is a **draft, not a submitted paper**. The 2026-10-11 word counts and reviewer-package numbers below are historical snapshots; verify later edits against the active route, source readouts and rebuilt package rather than treating those counts as live.
 
