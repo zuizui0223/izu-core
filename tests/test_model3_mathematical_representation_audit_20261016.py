@@ -92,11 +92,19 @@ def test_exact_birth_jump_mutation_and_heat_pde_component_are_not_identical():
     sigma = item["mutation_sd"]
     lambda_ = (k * pi) ** 2 * sigma ** 2 / 2
     jump_multiplier = (1 - u) + u * exp(-lambda_)
-    heat_multiplier = exp(-u * lambda_)
-    assert abs(jump_multiplier - heat_multiplier) > 1e-5
+    # This archived audit uses the FIRST-ORDER diffusion generator per
+    # reproduction update, 1 - D*(mode*pi)^2, not the exact heat semigroup
+    # exp(-D*(mode*pi)^2). They differ at finite mutation step sizes.
+    generator_euler = 1 - u * lambda_
+    exact_heat_semigroup = exp(-u * lambda_)
+    assert abs(jump_multiplier - generator_euler) > 1e-5
+    assert abs(generator_euler - exact_heat_semigroup) > 1e-6
     assert isclose(item["exact_semigroup_multiplier"], jump_multiplier,
                    rel_tol=0, abs_tol=1e-12)
-    assert isclose(item["diffusion_multiplier"], heat_multiplier,
+    assert isclose(item["diffusion_multiplier"], generator_euler,
+                   rel_tol=0, abs_tol=1e-12)
+    assert isclose(item["abs_weak_mutation_multiplier_error"],
+                   abs(jump_multiplier - generator_euler),
                    rel_tol=0, abs_tol=1e-12)
 
 
