@@ -47,7 +47,9 @@ def seed_ids(raw: dict | None) -> set[int]:
 
 def _range(document: dict, key: str) -> set[int]:
     entry = document[key]
-    return seed_ids({"first": entry["first"], "last": entry["last"]})
+    first = "first" if "first" in entry else "first_seed"
+    last = "last" if "last" in entry else "last_seed"
+    return seed_ids({"first": entry[first], "last": entry[last]})
 
 
 def _declared_design_seeds(record: dict, data: dict, designs: dict[str, dict]):
