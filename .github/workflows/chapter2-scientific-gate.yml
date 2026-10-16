@@ -14,6 +14,8 @@ on:
       - 'scripts/build_chapter2_je_review.py'
       - 'scripts/verify_chapter2_je_review.py'
       - 'scripts/audit_chapter2_*'
+      - 'scripts/chapter2_q2_i_support_order_20261016.py'
+      - 'scripts/verify_chapter2_q2_i_support_order_20261016.py'
       - 'scripts/audit_repository_code_references_20261016.py'
       - 'scripts/run_chapter2_*'
       - 'scripts/summarize_chapter2_*'
@@ -25,6 +27,7 @@ on:
       - 'scripts/build_island_ecology_submission_bundle.py'
       - 'scripts/audit_chapter2_submission_closure.py'
       - 'docs/CHAPTER2_**'
+      - 'docs/protocols/chapter2_q2_i_support_order_20261016.json'
       - 'docs/REPOSITORY_CODE_CLEANUP_PHASE2_20261016.md'
       - 'docs/MODEL3_CH2_**'
       - 'data/design/chapter2_*'
@@ -69,6 +72,8 @@ jobs:
           pytest -q \
             tests/test_chapter2_repo_wide_python_inventory_20261016.py \
             tests/test_repository_code_references_20261016.py \
+            tests/test_chapter2_q2_i_support_order_20261016.py \
+            tests/test_chapter2_q2_i_support_provenance_20261016.py \
             tests/test_chapter2_q1_full_founder_source_integrity_20261016.py \
             tests/test_chapter2_q4_finite_readout_invariants_20261016.py \
             tests/test_chapter2_q4_post_mutation_contract_20261016.py \
@@ -116,6 +121,25 @@ jobs:
             tests/test_current_ci_surface.py \
             tests/test_model2_legacy_firewall.py \
             tests/test_workflow_trigger_policy.py
+      - name: Original Model 3 Q2 allele-access smoke (12 updates only, NOT biology)
+        run: |
+          python -m scripts.chapter2_q2_i_support_order_20261016 \
+            --mode technical-smoke --out q2-i-support-technical-only.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          d = json.loads(Path('q2-i-support-technical-only.json').read_text())
+          assert d['status'] == 'PASS_TECHNICAL_SMOKE_ONLY_NOT_SCIENTIFIC_RESULTS'
+          assert d['no_full_200_update_scientific_cases_executed'] is True
+          assert d['cases'] == 6
+          print('PASS: source-matched Q2 genotype/ledger smoke; no 200-update histories')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-q2-i-support-technical-only
+          retention-days: 90
+          if-no-files-found: error
+          path: q2-i-support-technical-only.json
       - name: Inventory all active Python source, syntax and high-risk patterns
         run: python -m scripts.audit_chapter2_repository_wide_static_20261016 --out active-python-static-audit-20261016.json
       - uses: actions/upload-artifact@v4
