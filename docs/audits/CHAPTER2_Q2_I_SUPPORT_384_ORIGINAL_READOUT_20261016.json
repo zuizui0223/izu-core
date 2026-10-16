@@ -1,0 +1,185 @@
+{
+  "schema": "chapter2_q2_I_support_384_original_source_admission_v1",
+  "date": "2026-10-16",
+  "scientific_status": "complete_preregistered_both_coprimary_inconclusive",
+  "original_run": {
+    "actions_url": "https://github.com/zuizui0223/izu-core/actions/runs/38918737325",
+    "run_id": 38918737325,
+    "trigger": "approved_manual_workflow_dispatch",
+    "source_head_sha": "f760f936b164df3dd3dceb9d9942d6b9805304eb",
+    "status": "completed_success",
+    "original_raw_shards": 32,
+    "original_cases": 384,
+    "registered_genetic_policies": 3,
+    "crossed_founder_labels": 8,
+    "crossed_visitor_history_labels": 8,
+    "environments": [
+      "far",
+      "near"
+    ],
+    "updates_per_case": 200,
+    "expected_original_updates": 76800,
+    "action_artifacts": 33,
+    "original_source_shard_artifact_name_template": "q2-i-support-original-shard-{0..31}",
+    "independent_readout_artifact_id": 12054486425,
+    "independent_readout_artifact_sha256_zip": "4ac98db1e04e8f9768f9d6a20717f40976ee96f9fcbebf51615be8f5bc28dbac",
+    "original_source_manifest_sha256": "69e6c2b789ff610214a46cbffd79e34c46ab0ee335ab20bc4e147443dd032030",
+    "original_design_sha256": "f4edc17fcda3b76e3274d10538c152faa46d67c7c56486f9c679aebe3e70d709",
+    "original_activation_sha256": "714081dbb822ef8936a7fa9a6e63ec20f8284e95a58429010344cb05ddcb2e2a"
+  },
+  "experimental_scope": "Synthetic Model 3, not natural islands. Policy interventions have exactly matched initial expression and pollen/maternal/paternal reproductive returns; they alter I-locus allele carrier fraction/standing genetic variance. Locus I has no new mutation or immigration.",
+  "registered_inference": {
+    "primary_environment": "far",
+    "all_start_denominator_per_policy_environment": 64,
+    "statistical_independent_axes": "8 founder labels crossed with 8 visitor-history labels, not 64 independent island systems",
+    "bootstraps": 9999,
+    "bootstrap_seed": 910763,
+    "method": "Paired two-way crossed independent resampling of 8 founder labels and 8 visitor-history labels; two-sided Bonferroni 97.5% intervals, familywise >=95%",
+    "co_primary_names": [
+      "carrier_order_score_delta",
+      "carrier_I_event_delta"
+    ],
+    "primary_joint_success_rule": "both intervals exclude zero; no new samples/seeds added for inconclusive results",
+    "result": "both_inconclusive"
+  },
+  "coprimary": {
+    "carrier_order_score_delta": {
+      "estimate": 0.109375,
+      "simultaneous_familywise_CI": [
+        -0.125,
+        0.34375
+      ],
+      "excludes_zero": false
+    },
+    "carrier_I_event_delta": {
+      "estimate": 0.1875,
+      "simultaneous_familywise_CI": [
+        -0.0625,
+        0.421875
+      ],
+      "excludes_zero": false
+    }
+  },
+  "six_class_labels": [
+    "assurance_first",
+    "investment_first",
+    "near_simultaneous",
+    "assurance_only",
+    "investment_only",
+    "neither"
+  ],
+  "original_six_class_cells": {
+    "far": {
+      "dense_reachable": {
+        "counts": [
+          14,
+          1,
+          5,
+          44,
+          0,
+          0
+        ],
+        "A_events": 64,
+        "I_events": 20,
+        "occupied_200": 64
+      },
+      "sparse_reachable": {
+        "counts": [
+          6,
+          0,
+          2,
+          56,
+          0,
+          0
+        ],
+        "A_events": 64,
+        "I_events": 8,
+        "occupied_200": 64
+      },
+      "dense_unreachable": {
+        "counts": [
+          0,
+          0,
+          0,
+          64,
+          0,
+          0
+        ],
+        "A_events": 64,
+        "I_events": 0,
+        "occupied_200": 64
+      }
+    },
+    "near": {
+      "dense_reachable": {
+        "counts": [
+          5,
+          0,
+          2,
+          53,
+          0,
+          4
+        ],
+        "A_events": 60,
+        "I_events": 7,
+        "occupied_200": 64
+      },
+      "sparse_reachable": {
+        "counts": [
+          3,
+          0,
+          0,
+          57,
+          0,
+          4
+        ],
+        "A_events": 60,
+        "I_events": 3,
+        "occupied_200": 64
+      },
+      "dense_unreachable": {
+        "counts": [
+          0,
+          0,
+          0,
+          60,
+          0,
+          4
+        ],
+        "A_events": 60,
+        "I_events": 0,
+        "occupied_200": 64
+      }
+    }
+  },
+  "far_within_paired_I_event_transition_counts": {
+    "both_absent": 39,
+    "gained_in_dense": 17,
+    "lost_in_dense": 5,
+    "both_present": 3,
+    "interpretation": "The net +12/64 difference includes 17 gain and 5 loss paired histories, so increasing carriers was not individually monotonic."
+  },
+  "independent_original_archive_readback": {
+    "audit_type": "separate read-only arithmetic + array, pedigree/segregation and SHA256 checks from all 32 original ZIPs, not a second native biological-run replication",
+    "original_archives": 32,
+    "original_npz_and_case_receipts": 384,
+    "sha_source_file_integrity": "all_passed",
+    "registered_case_inventory": "exact_384",
+    "annual_census_transitions_checked": 76800,
+    "typed_I_homologs_independently_mapped_to_parents": 7372754,
+    "original_offspring_parentage_records": 3686377,
+    "all_I_allele_values_within_t0_support": true,
+    "no_I_mutation_or_seed_arrivals_verified": true,
+    "independent_six_class_cells_exactly_match_original": true,
+    "independent_9999_crossed_bootstrap_exactly_match_original": true,
+    "original_action_independent_report_native_full_replay": true
+  },
+  "scientific_limits": [
+    "Both registered co-primary intervals include zero; they do not confirm a directional generalized effect of I-carrier density on temporal response ordering or I-event incidence across independent founders and visitor histories.",
+    "Reachability of the narrow I support policy is structurally impossible at founder-relative -0.05 given no I mutation/immigration; 0/64 far and 0/64 near are engineered negative controls, not novel independent selection laws.",
+    "Even fixed support, dense versus sparse changes allele frequencies, standing genetic variance and population genotype distribution together.",
+    "All 384 paths occupied at terminal update 200; this is a demographic ceiling and not a Q4 survival benefit test.",
+    "This is not a causal mediator identifying why separate native finite and genotype-density comparisons had 3/32 and 2/32 A-first histories.",
+    "All source ZIPs are stored as time-limited GitHub Actions artifacts; no permanent independent DOI-backed raw archive has yet been confirmed."
+  ]
+}
