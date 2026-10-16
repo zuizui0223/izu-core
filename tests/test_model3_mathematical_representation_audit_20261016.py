@@ -143,7 +143,7 @@ def test_gaussian_projection_can_err_in_both_directions_about_genetic_richness()
     rounding = _read(RESULTS / "model3_stochastic_rounding_ablation_20261009.json")
     assert projection["method"]["genotype_classes"] == 27
     assert projection["method"]["fixed_conditioned_child_census_equal_to_K"]
-    by_k = {r["K"]: r for r in rounding["one_step"]}
+    by_k = {r["N"]: r for r in rounding["one_step"]}
     assert set(by_k) == {8, 32, 128}
     for row in projection["cases"]:
         k = row["K"]
