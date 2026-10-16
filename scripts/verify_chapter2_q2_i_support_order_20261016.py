@@ -21,6 +21,11 @@ from scripts.chapter2_q2_i_support_order_20261016 import (
 from scripts.run_chapter2_q2_i_support_production_20261016 import (
     CASES_PER_SHARD, SHARDS, SOURCE_PATH, case_key,
 )
+from scripts.model3_island.reproduction import reproduce
+from scripts.model3_island.population import advance
+from scripts.model3_island.randomness import STREAM_IDS, stream
+from scripts.chapter2_q2_i_support_order_20261016 import native_config
+from scripts.run_model3_persistent_isolation import exposure
 
 
 def classify_independently(trace, contract):
@@ -127,7 +132,43 @@ def check_parentage_and_mendelian_I(data, offsets, year, parents):
                     ):
                         raise ValueError("Unmutated offspring locus not transmitted by parent")
 
-def _arrays_checked(archive, d, task):
+
+def replay_native_history(data, offsets, parent_offsets, d, task):
+    """Independent *execution loop* with immutable native Model 3 operators.
+
+    Reproduces the recorded same-RNG path exactly, comparing all ancestral
+    genomes and parentage each census. It is an audit of the native producer,
+    not a second independent biological draw or independent model family.
+    """
+    fs, vs, arm, policy = task
+    state = founder_state(d, fs, policy)
+    cfg = native_config(d)
+    visitors = exposure(vs, arm)
+    master = int(np.random.SeedSequence([
+        fs, vs, d["randomization"]["master_seed_salt"]]).generate_state(1)[0])
+    streams = {name: stream(master, name, 0) for name in STREAM_IDS}
+    fields = ("alleles", "allele_origin", "mutation_flags", "ids", "birth_years")
+    comparisons = 0
+    for year in range(d["horizon"] + 1):
+        start, end = int(offsets[year]), int(offsets[year+1])
+        for field in fields:
+            if not np.array_equal(getattr(state, field), data[field][start:end]):
+                raise ValueError(f"Original-genome native replay mismatch in {field} at {year}")
+            comparisons += 1
+        if year == d["horizon"]:
+            break
+        ledger = reproduce(state, visitors.visitors[year], cfg)
+        state, info = advance(state, ledger, visitors.seed_candidates[year],
+                              cfg, streams, year=year,
+                              mutation_traits=(True, False, True))
+        left = int(parent_offsets[year])
+        right = int(parent_offsets[year+1])
+        if not np.array_equal(info["parentage"], data["parentage"][left:right]):
+            raise ValueError(f"Original native replay parentage mismatch at {year}")
+        comparisons += 1
+    return comparisons
+
+def _arrays_checked(archive, d, task, *, native_replay=False):
     with np.load(archive, allow_pickle=False) as z:
         required = {"trace", "offsets", "parentage_offsets", "parentage",
                     "alleles", "allele_origin", "mutation_flags", "ids", "birth_years"}
@@ -182,6 +223,8 @@ def _arrays_checked(archive, d, task):
                     or not np.isin(parents[:, 1:], old_ids).all()):
                 raise ValueError("Parentage not compatible with consecutive censuses")
             check_parentage_and_mendelian_I(data, offsets, year, parents)
+    if native_replay:
+        replay_native_history(data, offsets, po, d, task)
     return t
 
 
@@ -191,7 +234,7 @@ def _expected_sources(design_path):
     return sources, sha(json.dumps(sources, sort_keys=True).encode("utf-8"))
 
 
-def _read_cases(root, d, design_path):
+def _read_cases(root, d, design_path, *, native_replay=False):
     expected = declared_tasks(d)
     cases = {case_key(x): x for x in expected}
     if len(cases) != 384:
@@ -234,7 +277,7 @@ def _read_cases(root, d, design_path):
                     or receipt["source_manifest_sha256"] != source_digest
                     or receipt["censuses"] != 201):
                 raise ValueError("Invalid original source case admission")
-            trace = _arrays_checked(archive, d, cases[key])
+            trace = _arrays_checked(archive, d, cases[key], native_replay=native_replay)
             computed = classify_independently(trace, d["response"])
             if computed != receipt["events"]:
                 raise ValueError("Independent 20-census event recheck differs")
@@ -258,9 +301,9 @@ def _scores(cells, d):
     return score
 
 
-def readout(root: Path, design_path: Path):
+def readout(root: Path, design_path: Path, *, native_replay=False):
     d = load_protocol(design_path)
-    cases = _read_cases(Path(root), d, design_path)
+    cases = _read_cases(Path(root), d, design_path, native_replay=native_replay)
     effects = _scores(cases, d)
     observed = effects.mean(axis=(0, 1))
     draws = d["inference"]["bootstrap_draws"]
@@ -307,6 +350,7 @@ def readout(root: Path, design_path: Path):
         "cells":cells,
         "confidence_note":"Two-way crossed founder/visitor 9999 bootstrap, two-sided Bonferroni 97.5% intervals, zero cases omitted",
         "no_Q3_density_ABM_causal_mediation":True,
+        "native_model_full_path_replay": bool(native_replay),
     }
 
 
@@ -314,11 +358,12 @@ def main():
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--design", type=Path, default=DEFAULT_DESIGN)
     p.add_argument("--source-root", type=Path, required=True)
+    p.add_argument("--native-replay", action="store_true", help="Re-execute all original RNG paths, compare every saved native genome/parentage. Not a new independent biological cohort.")
     p.add_argument("--out", type=Path, required=True)
     a = p.parse_args()
     if a.out.exists():
         p.error("Refuse original readout overwrite")
-    result = readout(a.source_root, a.design)
+    result = readout(a.source_root, a.design, native_replay=a.native_replay)
     a.out.parent.mkdir(parents=True, exist_ok=True)
     a.out.write_text(json.dumps(result, indent=2, allow_nan=False)+"\n", encoding="utf-8")
     print(json.dumps({"status":result["status"],"decision":result["joint_decision"]}))
