@@ -40,8 +40,8 @@ def load_protocol(path: Path = DEFAULT_DESIGN) -> dict:
     p = d["policies"]
     if (d["status"] != STATUS or d["reproduction_setting"] != "assurance_cost"
             or d["horizon"] != 200 or f["plants"] != 48
-            or f["count"] != f["last"] - f["first"] + 1 != 8
-            or v["count"] != v["last"] - v["first"] + 1 != 8
+            or f["count"] != 8 or f["last"] - f["first"] + 1 != 8
+            or v["count"] != 8 or v["last"] - v["first"] + 1 != 8
             or set(v["arms"]) != {"far", "near"}
             or set(p) != {"dense_reachable", "sparse_reachable", "dense_unreachable"}
             or (p["dense_reachable"]["I_halfwidth"], p["dense_reachable"]["carrier_count"]) != (.078125, 24)
