@@ -60,6 +60,15 @@ def test_unexplained_reuse_of_executed_visitor_histories_is_rejected():
         audit_registry(data, ROOT)
 
 
+def test_relabelling_visitor_generator_cannot_hide_a_real_seed_overlap():
+    data = _registry()
+    _row(data, "fhs_new_demography_20261003")["visitor_generator"] = (
+        "invented_independent_environment_rng"
+    )
+    with pytest.raises(ValueError, match="Unexpected visitor history generator lineage"):
+        audit_registry(data, ROOT)
+
+
 def test_independent_demography_claim_must_not_reuse_original_demography():
     data = _registry()
     _row(data, "fhs_new_demography_20261003")["demographic_seeds"]["ids"] = list(range(101, 105))
