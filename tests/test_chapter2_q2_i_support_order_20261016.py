@@ -178,3 +178,25 @@ def test_baseline_cannot_be_silently_replaced_by_a_new_source_manifest():
     bad_pin["source_sha256"]["scripts/model3_island/types.py"] = "f" * 64
     with pytest.raises(ValueError, match="source SHA mismatch"):
         verify_original_model_source_pins(original, bad_pin)
+
+
+
+def test_pending_sha_bound_activation_proposal_cannot_execute_biology(tmp_path):
+    import json
+    from scripts.prepare_chapter2_q2_activation_template_20261016 import write_pending_template
+    from scripts.run_chapter2_q2_i_support_production_20261016 import admission
+    target = tmp_path / "proposal.json"
+    p = write_pending_template(target)
+    assert target.is_file()
+    assert p["status"] == "PENDING_AUTHOR_REVIEW_NOT_APPROVED"
+    assert p["owner_explicit_approval"] is False
+    assert p["approval_is_new_not_reused"] is False
+    assert p["declared_full_cases"] == 384
+    assert p["no_biological_runs"] is True
+    assert p["original_model_source_files_pinned"] == 25
+    assert p["model_baseline_sha"] == "8e2dcada6514381bd9304cb6e2ddc2b855a4148f"
+    assert json.loads(target.read_text()) == p
+    with pytest.raises(ValueError, match="Production HOLD"):
+        admission(target, DEFAULT_DESIGN)
+    with pytest.raises(FileExistsError):
+        write_pending_template(target)
