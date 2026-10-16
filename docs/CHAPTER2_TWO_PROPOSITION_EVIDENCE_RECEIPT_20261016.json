@@ -1,0 +1,206 @@
+{
+  "schema": "chapter2_two_propositions_original_evidence_v1",
+  "date": "2026-10-16",
+  "status": "retrospective_source_receipt_and_independent_original_archive_readback_not_new_biological_evolution",
+  "claim_limits": [
+    "Q1 original 51/64 assurance-first and fixed-A control share the same biological mating condition but are separate registered cohorts/visitor histories; this is not within-path proof that first crossing was necessary.",
+    "The new 8-founder fixed-A absolute decline and 2-way crossed intervals are SOURCE-VERIFIED RETROSPECTIVE descriptive readouts of the predeclared 1088 case cohort, not a new prespecified four-setting success test.",
+    "Ability to evolve A is blocked at A=0.5, NOT autonomous selfing itself.",
+    "An allele support set cannot expand ONLY when locus mutation and immigration are both absent; the actual 0.01-mutating A-width cohort does not satisfy the no-mutation premise.",
+    "Initial assurance half-width changes standing genetic variance, support and later dynamics together, not segregation variance alone.",
+    "315 / 1238 is outcome-conditioned on first-exclusion transitions from same 2304 histories, not a prospective allele-loss probability or percentage of density finite discrepancies.",
+    "The 3/32, 2/32 genotype-density comparison is a separate original cohort; density omits individual self-pollen exclusion and is not the finite model's stochastic expectation.",
+    "Do not use unsupported rounded component tuple selection=-0.050, parent=+0.022, segregation=+0.008 for the 3/32,2/32 histories without a source-matched component table and identical estimand."
+  ],
+  "original_same_mating_condition": {
+    "source": "data/results/chapter2_1005_confirmatory_replication_20261006.json",
+    "biological_condition": "delayed selfing with direct assurance cost=0.5 and positive A mutation 0.01; separate matched intervention histories, not the same individual trajectories",
+    "assurance_first": {
+      "events": 51,
+      "visitor_histories": 64,
+      "history_bootstrap95": [
+        0.6875,
+        0.890625
+      ],
+      "event_definition": "A increase vs I decline each founder-relative 0.05 sustained for 20 censuses, ties within 5 updates"
+    },
+    "threshold_sensitivity": {
+      "A_first_count_by_threshold": {
+        "0.025": 48,
+        "0.05": 51,
+        "0.1": 59
+      }
+    },
+    "fixed_A_counterexample": {
+      "mean_far_minus_near": -0.435389,
+      "source_note": "See fixed_assurance record for full precision and interval; source is distinct 64-history confirmation"
+    },
+    "mathematical_scope": "One valid counterexample to a universal evolutionary-necessity claim; NOT proof selfing is unnecessary."
+  },
+  "original_four_setting_shared_founder": {
+    "source": "data/results/chapter2_assurance_generality_20261006.json",
+    "visitor_histories": 64,
+    "nested_demographic_repeats": 8,
+    "founder_seed": 74001,
+    "fixed_A_far_minus_near": {
+      "delayed_control": -0.44128242582930155,
+      "prior_selfing": -0.3017682772560246,
+      "pollen_discount": -0.3305353881101559,
+      "assurance_cost": -0.433700386719742
+    },
+    "fixed_A_capacity": 0.5,
+    "all_128_zero_mutation_mode_pairs_identical": true
+  },
+  "fresh_founder_q1": {
+    "original_execution_run": 38853989138,
+    "original_32_shard_case_count": 1088,
+    "positive_mutation_main_paths_SHA256_admitted": 1024,
+    "original_null_pairs_exact": 32,
+    "frozen_design": "data/design/chapter2_q1_fresh_founder_generality_20261016.json",
+    "archived_readout_name": "Q1_FRESH_FOUNDER_REGISTERED_READOUT.json",
+    "independent_founder_draws": 8,
+    "independent_exogenous_visitor_histories": 8,
+    "crossed_cells_per_setting": 64,
+    "bootstrap": {
+      "method": "two-way crossed founder and visitor bootstrap of raw 8x8 paired cells; 9999 resamples, seed 5606162026",
+      "interval": "percentile95",
+      "status": "retrospective independent descriptive fixed-A readout, not original primary prespecified D interval"
+    },
+    "settings": [
+      {
+        "setting": "delayed_control",
+        "fixed_far_minus_near_mean": -0.3419882565389718,
+        "fixed_far_minus_near_bootstrap95": [
+          -0.395293097764406,
+          -0.28849643218093524
+        ],
+        "fixed_far_change_from_actual_founder_mean": -0.21747828953491283,
+        "fixed_far_change_bootstrap95": [
+          -0.2760495695521909,
+          -0.16467359368980966
+        ],
+        "negative_far_minus_near_cases": 64,
+        "negative_far_change_cases": 63,
+        "negative_fixed_founder_means": 8,
+        "original_D": 0.09612172296330863
+      },
+      {
+        "setting": "prior_selfing",
+        "fixed_far_minus_near_mean": -0.2515464156409021,
+        "fixed_far_minus_near_bootstrap95": [
+          -0.31481028173943426,
+          -0.1861320866363725
+        ],
+        "fixed_far_change_from_actual_founder_mean": -0.27780237327916046,
+        "fixed_far_change_bootstrap95": [
+          -0.3261386062845822,
+          -0.22890175803102764
+        ],
+        "negative_far_minus_near_cases": 61,
+        "negative_far_change_cases": 64,
+        "negative_fixed_founder_means": 8,
+        "original_D": 0.1924651667465477
+      },
+      {
+        "setting": "pollen_discount",
+        "fixed_far_minus_near_mean": -0.2858500726264745,
+        "fixed_far_minus_near_bootstrap95": [
+          -0.35822951383330964,
+          -0.206804007905555
+        ],
+        "fixed_far_change_from_actual_founder_mean": -0.2868655296600111,
+        "fixed_far_change_bootstrap95": [
+          -0.3375498048050434,
+          -0.2366550762993715
+        ],
+        "negative_far_minus_near_cases": 62,
+        "negative_far_change_cases": 64,
+        "negative_fixed_founder_means": 8,
+        "original_D": 0.16301179218475836
+      },
+      {
+        "setting": "assurance_cost",
+        "fixed_far_minus_near_mean": -0.3549414425140087,
+        "fixed_far_minus_near_bootstrap95": [
+          -0.41583108630074284,
+          -0.2983249155565991
+        ],
+        "fixed_far_change_from_actual_founder_mean": -0.21904719753411,
+        "fixed_far_change_bootstrap95": [
+          -0.27739416118051236,
+          -0.1621326569656956
+        ],
+        "negative_far_minus_near_cases": 64,
+        "negative_far_change_cases": 62,
+        "negative_fixed_founder_means": 8,
+        "original_D": 0.04427079114203726
+      }
+    ],
+    "global_support": "A genetic-capacity evolution not necessary for far-side I decline in this Model3 family, all four settings and all 8 fresh-founder means; compression under A evolution positive 3/4, direct cost inconclusive"
+  },
+  "support_theorem": {
+    "hypotheses": "Per locus no new mutation and no immigration; ordinary Mendelian allele inheritance with bounded allelic values",
+    "statement": "If S_t is the set of allele values at locus L in extant plants then S_(t+1) subset S_t. Hence possible individual and population means of (allele_m+allele_p)/2 lie in [min S_0,max S_0]. If S_0={m-h,m+h} then maximal rise from initial m is h. Loss is absorbing under the same no-mutation/no-immigration law.",
+    "scope_warning": "Initial allele-width h is half-width around initial mean m, not the full diameter; when mutation occurs, S_t inclusion and an absorbing loss do not hold."
+  },
+  "support_loss": {
+    "source": "data/results/directional_access_20261013/READOUT.json",
+    "last_loss_source": "data/results/low_allele_loss_20261014/extracted/READOUT.json",
+    "cases": 2304,
+    "excluded_before_fixation": 703,
+    "excluded_before_fixation_with_positive_expressed_variance": 703,
+    "among_703_preexisting_I_event": 1,
+    "first_exclusion_transitions": 1238,
+    "conditional_expected_low_I_allele_frequency_favouring_but_realized_zero": 315,
+    "conditional_expected_low_I_allele_frequency_opposing": 923,
+    "exact_law": "No investment-locus mutation or immigration; historical cost/condition does not establish no A mutation.",
+    "inference_unit": "703 are original histories; 315/1238 are loss-selected transition records within those same original 2304 histories"
+  },
+  "allele_half_width_order_exploration": {
+    "source": "data/results/four_question_resolution_20261011/boundary_access_diagnosis.json",
+    "source_rows": 36,
+    "original_unique_biological_paths": 6144,
+    "two_founder_blocks_three_ecological_contexts": true,
+    "threshold": 0.025,
+    "n_starts_per_width": 3072,
+    "n_context_cells_per_width": 6,
+    "experiment_allows_A_mutation": true,
+    "halfw": [
+      {
+        "h": 0.046875,
+        "without_mutation_threshold_reachable": true,
+        "assurance_event_reached": 3064,
+        "assurance_first": 566,
+        "investment_first": 1003,
+        "all_start_D": -0.14225260416666666
+      },
+      {
+        "h": 0.078125,
+        "without_mutation_threshold_reachable": true,
+        "assurance_event_reached": 3072,
+        "assurance_first": 944,
+        "investment_first": 268,
+        "all_start_D": 0.22005208333333334
+      }
+    ],
+    "scope": "For d=0.025 both standing ranges allow the target; order-score sign changes at all six founder×context cells in the finite source grid; mutation A active, so no isolated causal selection-versus-segregation split or continuous visitor threshold."
+  },
+  "density_finite_realization": {
+    "source": "docs/CHAPTER2_Q3_SELECTION_REALIZATION_SOURCE_MAP_20261015.md",
+    "source_original_contexts": "docs/atom_comparison_20261011/ATOM_ABM_NUMERICAL_VERDICT_20261011.md",
+    "total_original_ABM_histories": 320,
+    "focal_founder_context_count": 2,
+    "ABM_history_per_focal_context": 32,
+    "density_predicts": "assurance_first",
+    "realized_A_first": [
+      3,
+      2
+    ],
+    "realized_A_only": [
+      15,
+      7
+    ],
+    "all_64_focal_ABM_occupied_at_update200": true,
+    "inference_limit": "Density non-equivalent to finite ABM; genetic loss in distinct 2304-history cohort not proven to mediate this forecast mismatch."
+  }
+}
