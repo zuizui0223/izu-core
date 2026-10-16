@@ -1,0 +1,101 @@
+name: Chapter 2 Q1 new founders (crossed preregistered cohort)
+
+on:
+  pull_request:
+    paths:
+      - "data/design/chapter2_q1_fresh_founder_generality_20261016.json"
+      - "scripts/run_chapter2_q1_fresh_founders_20261016.py"
+      - "scripts/summarize_chapter2_q1_fresh_founders_20261016.py"
+      - "tests/test_chapter2_q1_fresh_founders_20261016.py"
+      - "docs/CHAPTER2_Q1_FRESH_FOUNDER_GENERALITY_PROTOCOL_20261016.md"
+      - ".github/workflows/chapter2-fresh-founders-q1-20261016.yml"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  preflight:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e ".[dev]"
+      - name: Check frozen design, source identity, independent founders and technical nulls
+        run: |
+          pytest -q tests/test_chapter2_q1_fresh_founders_20261016.py
+          python - <<'PY'
+          from scripts.run_chapter2_q1_fresh_founders_20261016 import load_frozen, declared_tasks, source_manifest
+          d, _ = load_frozen()
+          assert len(declared_tasks(d)) == 1088
+          assert len(source_manifest()) >= 26
+          print("Admitted design only. No Q1 biological finding from smoke tests.")
+          PY
+
+  prospective-campaign:
+    needs: preflight
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    strategy:
+      fail-fast: false
+      max-parallel: 8
+      matrix:
+        shard: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e ".[dev]"
+      - name: Execute exact 1000-update trajectories in frozen 32-way shards
+        run: |
+          SHARD=$(printf '%02d' "${{ matrix.shard }}")
+          python -m scripts.run_chapter2_q1_fresh_founders_20261016 \
+            --out "q1-fresh-source/shard-${SHARD}" \
+            --shard-index "${{ matrix.shard }}" \
+            --shard-count 32 \
+            --workers 2
+      - name: Preserve each original SHA-verified trajectory and its source manifest
+        uses: actions/upload-artifact@v4
+        with:
+          name: q1-new-founder-shard-${{ matrix.shard }}
+          retention-days: 30
+          if-no-files-found: error
+          path: q1-fresh-source/shard-*
+
+  adjudicate-complete-cohort:
+    needs: [preflight, prospective-campaign]
+    if: needs.prospective-campaign.result == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - run: python -m pip install -e ".[dev]"
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: q1-new-founder-shard-*
+          path: q1-fresh-all
+      - name: Verify every original case and full 32 technical null pairs BEFORE interpretation
+        run: |
+          python -m scripts.summarize_chapter2_q1_fresh_founders_20261016 \
+            --input-root q1-fresh-all \
+            --out Q1_FRESH_FOUNDER_REGISTERED_READOUT.json \
+            | tee Q1_FRESH_FOUNDER_REGISTERED_READOUT.console.txt
+      - uses: actions/upload-artifact@v4
+        with:
+          name: q1-new-founder-registered-complete-readout
+          retention-days: 90
+          if-no-files-found: error
+          path: |
+            Q1_FRESH_FOUNDER_REGISTERED_READOUT.json
+            Q1_FRESH_FOUNDER_REGISTERED_READOUT.console.txt
