@@ -1,0 +1,116 @@
+{
+  "schema_version": "1.0",
+  "date_frozen": "2026-10-16",
+  "status": "frozen_before_any_new_founder_outcome",
+  "study": "Q1 evolutionary assurance versus investment under visitor replenishment",
+  "research_question": "Does the original four-setting A-evolvability x visitor-replenishment investment interaction persist across independently redrawn founding diploid genomes?",
+  "source_biology": "data/design/chapter2_assurance_generality_20261006.json",
+  "source_note": "Exactly the original Model3 reproduction, population, history and registered four mating settings; no biological retuning, different founder RNG seeds. Study is a NEW cohort, not a continuation of prior Q1 evidence.",
+  "founder_genomes": {
+    "first_seed": 560201,
+    "last_seed": 560208,
+    "n_independent": 8,
+    "n": 48,
+    "draw_count": 48,
+    "means": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "sd": 0.15,
+    "A_initial_alleles": [
+      0.5,
+      0.5
+    ],
+    "exclude_original_founder_seed": 74001
+  },
+  "visitor_histories": {
+    "first_seed": 560301,
+    "last_seed": 560308,
+    "n_independent": 8,
+    "arms": [
+      "near",
+      "far"
+    ],
+    "same_history_seed_crossed_with_all_founders": true,
+    "plant_and_pollinator_coevolution": false
+  },
+  "demography": {
+    "repeat_seed": 560401,
+    "nested_repeats_per_founder_visitor": 1,
+    "matched_recruitment_streams_within_all_four_treatment_cells": true
+  },
+  "settings": [
+    "delayed_control",
+    "prior_selfing",
+    "pollen_discount",
+    "assurance_cost"
+  ],
+  "modes": [
+    "fixed",
+    "evolving"
+  ],
+  "mutation_probability": 0.01,
+  "updates": 1000,
+  "outcome": "mean inherited investment I at period 1000 among occupied populations; never set extinct I=0",
+  "main_cases": 1024,
+  "null_control": {
+    "mutation_probability": 0,
+    "founder_seeds": [
+      560201,
+      560202
+    ],
+    "visitor_history_seeds": [
+      560301,
+      560302
+    ],
+    "settings": [
+      "delayed_control",
+      "prior_selfing",
+      "pollen_discount",
+      "assurance_cost"
+    ],
+    "arms": [
+      "near",
+      "far"
+    ],
+    "modes": [
+      "fixed",
+      "evolving"
+    ],
+    "cases": 64,
+    "exact_matched_fixed_evolving_pair_traces": 32
+  },
+  "total_cases": 1088,
+  "resource_constraints": {
+    "shards": 32,
+    "workers_per_shard": 2,
+    "max_parallel_shards": 8,
+    "max_shard_minutes": 45,
+    "results_upload_retention_days": 30,
+    "partial_results_not_interpretable": true
+  },
+  "primary_estimand": "For each setting and founder f and visitor seed h, D(f,h) = (I_evolving,far - I_evolving,near) - (I_fixed,far - I_fixed,near). Report original Model3 raw I units; all four cells same founder, visitor seed and demographic repeat.",
+  "inference_units": "8 independent founder draws x 8 independent exogenous visitor histories in a crossed design, not 64 independent island histories; outcomes in each 4-treatment cell share stochastic parent draws as matched common random numbers",
+  "eligibility": "Require every one of 1088 original-design cases and SHA-verified original readout, and all 32 exact 0-mutation fixed/evolving matched traces. If any terminal population extinct in the four matched main cells, report occupancy and declare endpoint-D classification inconclusive (do not select surviving groups silently).",
+  "bootstrap": {
+    "seed": 5606162026,
+    "draws": 9999,
+    "description": "Separately resample the 8 founding-genome IDs and the 8 visitor-history IDs with replacement. Use the full 8x8 crossed matrix (two-way crossed cluster bootstrap); do NOT resample 64 founder-visitor cells as independent islands.",
+    "interval": "percentile95",
+    "setting_multiplicity": "all four settings required (conjunctive gate); no individual nominal p-value as a universal law"
+  },
+  "registered_support_rule": "Confirmed fresh-founder model-conditional persistence of Q1 sign only if 1088-case provenance and null control all pass, all 1024 main paths occupied, and EVERY one of the four settings has D mean >0, 2-way crossed founder/visitor bootstrap lower 95% >0, and at least six of eight founder-specific D means >0.",
+  "registered_failure_rule": "If the exact cohort and null pass but ANY of four settings has D mean <=0, report not-general-across-four for this fresh-founder grid. If any bootstrap interval contains zero, fewer than 6/8 founders positive, missing data or extinction occurs, classify inconclusive; do not extend or tune the cohort based on outcomes.",
+  "report_all": "For every mating setting: 8x8 original four-cell endpoint means, all arm means and relative evolvable minus fixed within each arm, founder-specific means/signs, visitor-specific means/signs, occupancy, 2-way bootstrap, and all null-control pairs. Preserve failures and unhelpful results.",
+  "claim_limits": [
+    "Not external validation by another biological model; no real-island calibration or selfing-frequency measurement",
+    "Eight founder backgrounds and eight visitor histories are two crossed sources of variation; not 64 independent islands",
+    "Shared ecological equations and reproductive settings cannot validate that those equations are biologically correct",
+    "A-mode manipulation changes heritable capacity and all downstream feedback, not a unique direct mediation fraction",
+    "Both visitor regimes remain synthetic pollen-limited arms; no saturated mainland comparator",
+    "1000 updates finite-horizon endpoints, not equilibria",
+    "The original Q1 registered 4/4 finding remains unchanged even if this separate new cohort fails",
+    "No manuscript claim promotion before every prospectively frozen case, source manifest and readout are admitted"
+  ]
+}
