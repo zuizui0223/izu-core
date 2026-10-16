@@ -122,6 +122,66 @@ jobs:
           path: active-python-static-audit-20261016.json
 
 
+  code-review-original-q1-replay:
+    if: github.event_name == 'pull_request' && github.head_ref == 'audit/full-repository-code-integrity-20261016'
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    permissions:
+      actions: read
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - run: python -m pip install -e '.[dev]'
+      - name: Download exact original 32 SHA-verified new-founder source shards (NO new simulations)
+        uses: actions/download-artifact@v4
+        with:
+          repository: ${{ github.repository }}
+          run-id: 38853989138
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          pattern: q1-new-founder-shard-*
+          path: q1-original-shards
+      - name: Download registered original readout and independent two-way bootstrap result
+        uses: actions/download-artifact@v4
+        with:
+          repository: ${{ github.repository }}
+          run-id: 38853989138
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          name: q1-new-founder-registered-complete-readout
+          path: q1-original-registered
+      - name: Independently re-admit full initial diploid genomes, source SHA and ALL 1088 cases
+        run: |
+          python -m scripts.summarize_chapter2_q1_fresh_founders_20261016 \
+            --input-root q1-original-shards \
+            --out q1-full-genome-re-admission-20261016.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('q1-full-genome-re-admission-20261016.json')
+          r=json.loads(p.read_text())
+          q=json.loads(Path('q1-original-registered/Q1_FRESH_FOUNDER_REGISTERED_READOUT.json').read_text())
+          assert r['verified_original_cases']==q['verified_original_cases']==1088
+          assert r['source_checkout_manifest_verified'] is True
+          assert r['verified_matching_full_initial_genomes']==1024
+          assert r['independent_full_initial_genomes']==8
+          assert r['null_structural_gate']==q['null_structural_gate']
+          assert r['adjudication']==q['adjudication']=='fresh_founder_4setting_inconclusive'
+          for a,b in zip(r['settings'],q['settings']):
+              assert a['setting']==b['setting']
+              for term in ['D_mean','evolution_effect_near','evolution_effect_far',
+                           'positive_founders','D_two_way_crossed_bootstrap95']:
+                  assert a[term]==b[term], (a['setting'],term)
+          print('PASS: 1088-case archive source/checkpoint genome independent readback. All 4 scientific comparisons unchanged.')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-q1-1088-strict-genome-source-readmission-20261016
+          retention-days: 90
+          if-no-files-found: error
+          path: q1-full-genome-re-admission-20261016.json
+
   confirmed-process-review-package:
     needs: scientific-gate
     if: needs.scientific-gate.result == 'success'
