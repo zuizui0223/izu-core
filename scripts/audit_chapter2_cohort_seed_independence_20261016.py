@@ -104,6 +104,40 @@ def _verify_registry_documents(rows: list, root: Path) -> dict:
     return docs
 
 
+def _verify_generator_identity(rows: list[dict], designs: dict[str, dict]) -> None:
+    """Do not let relabelled generator namespaces hide reused visitor seeds.
+
+    This source-linked audit currently covers the seven explicitly registered
+    high-impact cohorts. A new generator family requires reviewed source
+    provenance, not an unchecked string assigned to a cohort.
+    """
+    original_bridge = "data/results/model3_ch2_bridge_resource_pilot_v2_20260927.sources.zip"
+    original_q1 = "data/design/chapter2_assurance_generality_20261006.json"
+    for r in rows:
+        ident, generator = r["id"], r["visitor_generator"]
+        if ident.startswith("fhs_"):
+            if generator != "model3_bridge_visitor_history_v2":
+                raise ValueError("Unexpected visitor history generator lineage: " + ident)
+            doc = designs[ident]
+            if ident == "fhs_new_demography_20261003":
+                source = doc["validation_source"]["exact_model_source"]
+            elif ident == "fhs_new_visitor_retired_20261003":
+                source = doc["validation_source"]["exact_model_source"]
+            elif ident == "fhs_new_visitor_20261004":
+                source = doc["execution"]["exact_source_snapshot"]
+            else:
+                source = original_bridge
+            if source != original_bridge:
+                raise ValueError("Archived visitor generator source snapshot mismatch")
+        else:
+            if generator != "model3_persistent_isolation_20261006":
+                raise ValueError("Unexpected visitor history generator lineage: " + ident)
+            doc = designs[ident]
+            if ident in ("q1_new_founders_20261016", "q4_island_independent32_20261008"):
+                if doc["source_biology"] != original_q1:
+                    raise ValueError("Q1/Q4 shared source biology design pointer changed")
+
+
 def _documented_outcome(r: dict, d: dict, root: Path) -> dict:
     status = r["execution"]
     if status == "superseded_before_execution":
@@ -149,6 +183,7 @@ def audit_registry(document: dict, root: Path = ROOT) -> dict:
     if not isinstance(rows, list) or len(rows) < 7:
         raise ValueError("Missing required cohort records")
     docs = _verify_registry_documents(rows, root)
+    _verify_generator_identity(rows, docs)
     by_id = {r["id"]: r for r in rows}
     expanded = {}
     cohorts = []
