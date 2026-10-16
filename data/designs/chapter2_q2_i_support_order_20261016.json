@@ -1,0 +1,134 @@
+{
+  "schema_version": "1.0",
+  "status": "prospective_design_frozen_before_new_biological_outcomes_execution_hold",
+  "date": "2026-10-16",
+  "purpose": "Directly test whether initial I-locus allele accessibility and carrier allocation alter the six-class temporal response order of assurance A and floral investment I in native finite Model 3.",
+  "source_baseline_commit": "8e2dcada6514381bd9304cb6e2ddc2b855a4148f",
+  "source_biology": "data/design/chapter2_assurance_generality_20261006.json",
+  "reproduction_setting": "assurance_cost",
+  "source_model": "scripts/model3_island/reproduction.py;population.py;types.py;randomness.py;run.py",
+  "inference_boundary": "Synthetic independent founder and visitor streams, not islands; intervention changes I allele support, variance and carrier distribution; no Q3 density/ABM mediation, Q4 survival rescue or source-selection effect identified.",
+  "founders": {
+    "first": 860101,
+    "last": 860108,
+    "count": 8,
+    "plants": 48,
+    "sd_original_draw": 0.15,
+    "expressed_I": 0.5,
+    "expressed_A": 0.5,
+    "A_halfwidth": 0.078125,
+    "carrier_assignment_salt": 910761
+  },
+  "visitors": {
+    "first": 860201,
+    "last": 860208,
+    "count": 8,
+    "arms": [
+      "far",
+      "near"
+    ],
+    "primary_arm": "far",
+    "relation": "independent synthetic visitor seeds, held common across genotype policies"
+  },
+  "policies": {
+    "dense_reachable": {
+      "I_halfwidth": 0.078125,
+      "carrier_count": 24
+    },
+    "sparse_reachable": {
+      "I_halfwidth": 0.078125,
+      "carrier_count": 12
+    },
+    "dense_unreachable": {
+      "I_halfwidth": 0.046875,
+      "carrier_count": 24
+    }
+  },
+  "mutations": {
+    "probability": 0.01,
+    "sd": 0.05,
+    "traits_enabled": {
+      "match": true,
+      "investment": false,
+      "assurance": true
+    },
+    "immigrant_seeds": false
+  },
+  "horizon": 200,
+  "response": {
+    "A_positive": 0.05,
+    "I_negative": 0.05,
+    "consecutive_occupied_censuses": 20,
+    "ties_within_updates": 5,
+    "all_six_classes": [
+      "assurance_first",
+      "investment_first",
+      "near_simultaneous",
+      "assurance_only",
+      "investment_only",
+      "neither"
+    ],
+    "extinct_trajectories": "Keep in denominator; report separate extinction status, never call extinction a completed trait event"
+  },
+  "design_matrix": {
+    "founder_count": 8,
+    "visitor_history_count": 8,
+    "settings": 1,
+    "environments": 2,
+    "genotype_policies": 3,
+    "replicates_per_cell": 1,
+    "total_full_trajectories": 384,
+    "total_full_updates": 76800
+  },
+  "randomization": {
+    "master_seed_salt": 910762,
+    "streams": "native independent survival/parents/segregation/mutation/recruitment streams; all are paired across genotype policies for founder, visitor, environment"
+  },
+  "primary_estimands": [
+    {
+      "name": "carrier_order_score_delta",
+      "description": "(P(A-first)-P(I-first)) dense_reachable minus sparse_reachable within far, all starts",
+      "sign": "two-sided"
+    },
+    {
+      "name": "carrier_I_event_delta",
+      "description": "P(I event) dense_reachable minus sparse_reachable in far, all starts",
+      "sign": "two-sided"
+    }
+  ],
+  "structural_controls": [
+    "All three policies have exactly the same expressed X/I/A vector per founder at t0 and identical native reproductive ledger in each mating/environment context.",
+    "The narrow dense_unreachable policy has minimum inherited I allele 0.453125 > 0.45 and no I mutation or immigration, so an I decrease >=0.05 is structurally unreachable.",
+    "dense and sparse policies have the same I allele support set, with different numbers of low-I carriers; zero-mutation I is enforced at every update."
+  ],
+  "secondary_estimands": [
+    "All six class probabilities, no excluded outcomes",
+    "Dense-reachable minus dense-unreachable I-event and order contrasts, with structural interpretation",
+    "Near-arm replication, descriptive, not used to replace far results",
+    "Allele-support loss incidence over trajectories and time, descriptive without selection/drift causal decomposition"
+  ],
+  "inference": {
+    "units": "8 founder labels crossed with 8 visitor-history labels, NOT 64 independent islands; same labels resampled across interventions",
+    "bootstrap_draws": 9999,
+    "bootstrap_seed": 910763,
+    "primary_familywise_alpha": 0.05,
+    "simultaneous_method": "Bonferroni two-sided 97.5% percentile intervals for two co-primary contrasts, independent two-way resampling of founders and visitors",
+    "decision": "BOTH co-primary contrasts exclude zero to confirm a coupled order+event change; otherwise partial, inconclusive, or null-directional findings reported unchanged",
+    "no_additional_seeds_on_inconclusive": true
+  },
+  "technical_smoke": {
+    "max_steps": 12,
+    "max_founders": 1,
+    "max_visitors": 1,
+    "cannot_adjudicate_biology": true
+  },
+  "required_for_full_execution": [
+    "Original Model 3 source file SHA-256 manifest and matching frozen study design",
+    "Fail-closed original source and full 384-case task inventory",
+    "Human-reviewed synthetic founder intervention and unchanged t0 ledgers",
+    "Full 201-point census, complete typed diploid genomes and parentage saved for every full case",
+    "Independent re-admission of source/full cases, yearwise events and bootstrap summaries",
+    "Explicit owner approval and protected activation before long production; no unreviewed PR push biology"
+  ],
+  "status_policy": "No permission to label technical smoke as research evidence; no large production launch from PR CI"
+}
