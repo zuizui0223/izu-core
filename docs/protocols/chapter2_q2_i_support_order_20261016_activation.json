@@ -1,0 +1,60 @@
+{
+  "schema": "chapter2_q2_i_support_activation_v1",
+  "status": "author_reviewed_scientific_execution_approved",
+  "study": "ch2_q2_I_support_order_20261016",
+  "approved_at_local": "2026-10-16T23:27:00+09:00",
+  "approval_source": "Explicit user authorization in current ChatGPT conversation; limited to the exact registered 384×200-update Q2 I-support/order experiment",
+  "owner_explicit_approval": true,
+  "approval_is_new_not_reused": true,
+  "owner_signoff": "Explicit approval received for 8 independently generated founder genomes × 8 visitor histories × 2 replenishment environments × 3 I-allele policies, 200 reproductive updates each; proceed only after CI and source integrity verification",
+  "declared_full_cases": 384,
+  "total_registered_updates": 76800,
+  "model_baseline_sha": "8e2dcada6514381bd9304cb6e2ddc2b855a4148f",
+  "source_pin_receipt_sha256": "c6de56b341068576da225ceacad1b6c06ac35d8a775971c8b463a09929571795",
+  "design_sha256": "f4edc17fcda3b76e3274d10538c152faa46d67c7c56486f9c679aebe3e70d709",
+  "source_manifest_sha256": "69e6c2b789ff610214a46cbffd79e34c46ab0ee335ab20bc4e147443dd032030",
+  "original_model_source_files_pinned": 25,
+  "certified_ci": {
+    "pull_request": 581,
+    "original_scientific_gate_run": 38908595712,
+    "original_all_python_versions_ci_run": 38908595748,
+    "both_completed_success": true,
+    "check_scope": "Model 3 source identity and technical fixtures; not a 384-case biological-result verification"
+  },
+  "scientific_conditions": {
+    "settings": [
+      "assurance_cost"
+    ],
+    "founder_genomes": 8,
+    "visitor_histories": 8,
+    "environments": [
+      "far",
+      "near"
+    ],
+    "policies": [
+      "dense_reachable",
+      "sparse_reachable",
+      "dense_unreachable"
+    ],
+    "horizon": 200,
+    "mutation_traits": {
+      "match": true,
+      "investment": false,
+      "assurance": true
+    },
+    "outcome": "All 6 response-order classes from all starts; 0.05 positive A / 0.05 negative I; 20 occupied censuses; 5-update tie",
+    "statistical_method": "Original registered crossed 8×8 founder/visitor bootstrap 9,999 draws and Bonferroni simultaneous primary intervals",
+    "full_raw_data": "All annual original typed diploid genotypes, allele ancestry, mutation flags, parentage and SHA-256 receipts for 384 exact tasks"
+  },
+  "execution_policy": {
+    "trigger": "Manual GitHub Actions workflow_dispatch only",
+    "workflow": ".github/workflows/chapter2-q2-i-support-registered-20261016.yml",
+    "source_ref": "main",
+    "no_automatic_push_trigger": true,
+    "no_unregistered_reruns": true,
+    "raw_and_native_replay_required": true,
+    "acknowledge_predeclared_negative_outcomes": true,
+    "do_not_claim_scientific_success_before_complete_original_readback": true
+  },
+  "provenance_caveat": "Approval is recorded from explicit user message, not a cryptographic human signature or peer-reviewed ecological validation."
+}
