@@ -75,6 +75,7 @@ jobs:
             tests/test_repository_code_references_20261016.py \
             tests/test_chapter2_q2_i_support_order_20261016.py \
             tests/test_chapter2_q2_i_support_provenance_20261016.py \
+            tests/test_chapter2_q2_activation_approved_20261016.py \
             tests/test_chapter2_q1_full_founder_source_integrity_20261016.py \
             tests/test_chapter2_cohort_seed_independence_20261016.py \
             tests/test_chapter2_two_propositions_source_audit_20261016.py \
