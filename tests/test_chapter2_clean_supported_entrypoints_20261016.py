@@ -37,7 +37,7 @@ def test_main_model3_numerical_runtime_deps_not_hidden_in_dev_extras():
 def test_readonly_cli_targets_exist_but_frozen_producers_are_not_console_scripts():
     project = (ROOT / "pyproject.toml").read_text(encoding="utf-8")
     section = project.split("[project.scripts]\n", 1)[1].split("\n[", 1)[0]
-    actual = dict(re.findall(r'^([a-z][a-z-]+)\s*=\s*"([\w.]+:[\w]+)"\s*$', section, re.M))
+    actual = dict(re.findall(r'^([a-z][a-z0-9-]*)\s*=\s*"([\w.]+:[\w]+)"\s*$', section, re.M))
     expected = {
         "izu-core-source-audit": "scripts.audit_chapter2_repository_wide_static_20261016:main",
         "izu-core-q4-contract": "scripts.audit_chapter2_q4_post_mutation_contract_20261016:main",
