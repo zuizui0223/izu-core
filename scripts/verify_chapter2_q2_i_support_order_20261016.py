@@ -1,0 +1,257 @@
+"""Independent source-archive admission and six-class readout for Q2 support intervention.
+
+Reads complete original typed genomes and recorded parentage. Re-derives event
+start times by an independent scalar loop, rather than importing the producer's
+convolution-based six-class classifier. Does NOT rerun Model 3 biology.
+"""
+from __future__ import annotations
+
+import argparse
+from collections import Counter
+import hashlib
+import json
+from pathlib import Path
+
+import numpy as np
+
+from scripts.chapter2_q2_i_support_order_20261016 import (
+    CLASSES, DEFAULT_DESIGN, ROOT, declared_tasks, founder_state, load_protocol,
+    sha, source_manifest,
+)
+from scripts.run_chapter2_q2_i_support_production_20261016 import (
+    CASES_PER_SHARD, SHARDS, SOURCE_PATH, case_key,
+)
+
+
+def classify_independently(trace, contract):
+    n = len(trace)
+    starts = {}
+    for loc, direction, threshold, name in (
+        (1, +1, float(contract["A_positive"]), "A"),
+        (2, -1, float(contract["I_negative"]), "I"),
+    ):
+        indicators = [
+            (trace[t, 0] > 0 and np.isfinite(trace[t, loc])
+             and direction * (trace[t, loc] - trace[0, loc]) >= threshold - 1e-12)
+            for t in range(n)
+        ]
+        window = int(contract["consecutive_occupied_censuses"])
+        starts[name] = next((s for s in range(n-window+1)
+                             if all(indicators[s:s+window])), None)
+    a, i = starts["A"], starts["I"]
+    tie = int(contract["ties_within_updates"])
+    if a is None and i is None:
+        category = "neither"
+    elif a is None:
+        category = "investment_only"
+    elif i is None:
+        category = "assurance_only"
+    elif abs(a-i) <= tie:
+        category = "near_simultaneous"
+    else:
+        category = "assurance_first" if a < i else "investment_first"
+    extinction = next((t for t in range(n) if trace[t, 0] == 0), None)
+    return dict(label=category, A_start=a, I_start=i,
+                A_event=a is not None, I_event=i is not None,
+                occupied_terminal=bool(trace[-1, 0] > 0),
+                first_extinction=extinction)
+
+
+def _arrays_checked(archive, d, task):
+    with np.load(archive, allow_pickle=False) as z:
+        required = {"trace", "offsets", "parentage_offsets", "parentage",
+                    "alleles", "allele_origin", "mutation_flags", "ids", "birth_years"}
+        if set(z.files) != required:
+            raise ValueError("Missing/foreign complete diploid-genome fields")
+        data = {k: z[k].copy() for k in z.files}
+    t, offsets, po = data["trace"], data["offsets"], data["parentage_offsets"]
+    count = d["horizon"]
+    if (t.shape != (count+1, 5) or offsets.shape != (count+2,)
+            or po.shape != (count+1,) or data["parentage"].ndim != 2
+            or data["parentage"].shape[1] != 3
+            or offsets[0] != 0 or po[0] != 0
+            or np.any(np.diff(offsets) < 0) or np.any(np.diff(po) < 0)):
+        raise ValueError("Invalid annual source array layout")
+    n_all = int(offsets[-1])
+    if (n_all != len(data["ids"]) or
+            data["alleles"].shape != (n_all, 3, 2)
+            or data["allele_origin"].shape != (n_all, 3, 2)
+            or data["mutation_flags"].shape != (n_all, 3, 2)
+            or data["birth_years"].shape != (n_all,)
+            or po[-1] != len(data["parentage"])):
+        raise ValueError("Invalid typed state or parentage size")
+    if not np.isfinite(t[:, 0]).all() or np.any(t[:, 0] < 0):
+        raise ValueError("Invalid population counts")
+    native_initial = founder_state(d, task[0], task[3])
+    for key in ("alleles", "allele_origin", "mutation_flags", "ids", "birth_years"):
+        if not np.array_equal(data[key][:offsets[1]], getattr(native_initial, key)):
+            raise ValueError("Original founder state not read back")
+    support = set(map(float, native_initial.alleles[:, 1, :].ravel()))
+    for year in range(count+1):
+        start, end = map(int, offsets[year:year+2])
+        alleles = data["alleles"][start:end]
+        n = end-start
+        if t[year, 0] != n or np.any(data["mutation_flags"][start:end, 1, :]):
+            raise ValueError("Original census or no-I-mutation mismatch")
+        if not set(map(float, alleles[:, 1, :].ravel())) <= support:
+            raise ValueError("Foreign I allele created without mutation or immigration")
+        if n:
+            traits = alleles.mean(axis=2)
+            reconstructed = [traits[:, 2].mean(), traits[:, 1].mean(),
+                             float(alleles[:, 1, :].min()),
+                             int(np.sum(alleles[:, 1, :] < .45))]
+            if not np.allclose(t[year, 1:], reconstructed, atol=1e-12, rtol=0):
+                raise ValueError("Annual phenotype not regenerated from genomes")
+        elif not np.isnan(t[year, 1:]).all():
+            raise ValueError("Extinction was converted into biological trait values")
+        if year < count:
+            parents = data["parentage"][po[year]:po[year+1]]
+            next_ids = data["ids"][offsets[year+1]:offsets[year+2]]
+            old_ids = data["ids"][start:end]
+            if (not np.isin(parents[:, 0], next_ids).all()
+                    or not np.isin(parents[:, 1:], old_ids).all()):
+                raise ValueError("Parentage not compatible with consecutive censuses")
+    return t
+
+
+def _expected_sources(design_path):
+    sources = source_manifest(design_path)
+    sources[str(SOURCE_PATH.relative_to(ROOT))] = sha(SOURCE_PATH.read_bytes())
+    return sources, sha(json.dumps(sources, sort_keys=True).encode("utf-8"))
+
+
+def _read_cases(root, d, design_path):
+    expected = declared_tasks(d)
+    cases = {case_key(x): x for x in expected}
+    if len(cases) != 384:
+        raise ValueError("Nonunique prospective task keys")
+    sources, source_digest = _expected_sources(design_path)
+    found = {}
+    activation_ids = set()
+    dirs = sorted(root.glob("shard-*"))
+    if len(dirs) != SHARDS:
+        raise ValueError("Require all 32 original producer shards")
+    for shard in range(SHARDS):
+        directory = root / f"shard-{shard:02d}"
+        if directory not in dirs:
+            raise ValueError("Missing expected named original shard")
+        c = json.loads((directory / "COMPLETION.json").read_text(encoding="utf-8"))
+        sr = json.loads((directory / "SOURCES.json").read_text(encoding="utf-8"))
+        if sr != sources or c.get("source_manifest_sha256") != source_digest:
+            raise ValueError("Original Model3 source identity mismatch")
+        if (c.get("shard") != shard or c.get("case_count") != CASES_PER_SHARD
+                or c.get("status") != "complete_source_produced_not_independently_read_back"
+                or c.get("design_sha256") != sha(design_path.read_bytes())
+                or (directory / "DESIGN_SHA256.txt").read_text().strip() != sha(design_path.read_bytes())):
+            raise ValueError("Invalid frozen design or shard inventory")
+        activation_ids.add((directory / "ACTIVATION_SHA256.txt").read_text().strip())
+        declared_subset = [case_key(x) for x in expected[shard*CASES_PER_SHARD:
+                                                        (shard+1)*CASES_PER_SHARD]]
+        if c.get("cases") != declared_subset or set(c.get("receipt_hashes", {})) != set(declared_subset):
+            raise ValueError("Wrong original 12-case shard inventory")
+        for key in declared_subset:
+            if key in found or key not in cases:
+                raise ValueError("Repeated or foreign original case")
+            receipt_path = directory / (key + ".json")
+            if sha(receipt_path.read_bytes()) != c["receipt_hashes"][key]:
+                raise ValueError("Original case receipt hash mismatch")
+            receipt = json.loads(receipt_path.read_text(encoding="utf-8"))
+            archive = directory / (key + ".npz")
+            if (receipt["status"] != "full_source_case_not_independently_read_back"
+                    or receipt["sha256"] != sha(archive.read_bytes())
+                    or receipt["task"] != list(cases[key])
+                    or receipt["source_manifest_sha256"] != source_digest
+                    or receipt["censuses"] != 201):
+                raise ValueError("Invalid original source case admission")
+            trace = _arrays_checked(archive, d, cases[key])
+            computed = classify_independently(trace, d["response"])
+            if computed != receipt["events"]:
+                raise ValueError("Independent 20-census event recheck differs")
+            found[key] = computed
+    if set(found) != set(cases) or len(activation_ids) != 1 or not next(iter(activation_ids)):
+        raise ValueError("Incomplete original full study or mixed activations")
+    return found
+
+
+def _scores(cells, d):
+    f = range(d["founders"]["first"], d["founders"]["last"]+1)
+    h = range(d["visitors"]["first"], d["visitors"]["last"]+1)
+    score = np.zeros((len(f), len(h), 2), dtype=float)
+    for i, fs in enumerate(f):
+        for j, vs in enumerate(h):
+            kd = cells[case_key((fs, vs, "far", "dense_reachable"))]
+            ks = cells[case_key((fs, vs, "far", "sparse_reachable"))]
+            rank = lambda row: int(row["label"]=="assurance_first")-int(row["label"]=="investment_first")
+            score[i, j, 0] = rank(kd)-rank(ks)
+            score[i, j, 1] = int(kd["I_event"])-int(ks["I_event"])
+    return score
+
+
+def readout(root: Path, design_path: Path):
+    d = load_protocol(design_path)
+    cases = _read_cases(Path(root), d, design_path)
+    effects = _scores(cases, d)
+    observed = effects.mean(axis=(0, 1))
+    draws = d["inference"]["bootstrap_draws"]
+    rng = np.random.default_rng(d["inference"]["bootstrap_seed"])
+    boot = np.empty((draws, 2), dtype=float)
+    for b in range(draws):
+        f = rng.integers(0, 8, 8)
+        h = rng.integers(0, 8, 8)
+        boot[b] = effects[np.ix_(f, h)].mean(axis=(0, 1))
+    alpha = d["inference"]["primary_familywise_alpha"]
+    lo, hi = np.quantile(boot, [alpha/4, 1-alpha/4], axis=0)
+    names = ["carrier_order_score_delta", "carrier_I_event_delta"]
+    primary = {
+        name: {"estimate":float(observed[k]),"familywise_conservative_CI":[float(lo[k]),float(hi[k])],
+               "excludes_zero":bool(lo[k] > 0 or hi[k] < 0)}
+        for k,name in enumerate(names)
+    }
+    cells = {}
+    for arm in d["visitors"]["arms"]:
+        cells[arm] = {}
+        for policy in d["policies"]:
+            rows = [case for key,case in cases.items()
+                    if key.endswith("_"+arm+"_"+policy)]
+            if len(rows) != 64:
+                raise ValueError("Incomplete inference cell")
+            counter = Counter(row["label"] for row in rows)
+            cells[arm][policy] = {
+                "six_class_counts":{label: counter[label] for label in CLASSES},
+                "I_event_count":sum(row["I_event"] for row in rows),
+                "A_event_count":sum(row["A_event"] for row in rows),
+                "terminal_occupancy_count":sum(row["occupied_terminal"] for row in rows),
+                "all_start_denominator":64,
+            }
+    if cells["far"]["dense_unreachable"]["I_event_count"] != 0 or cells["near"]["dense_unreachable"]["I_event_count"] != 0:
+        raise ValueError("Structural no-I-access control produced impossible event")
+    return {
+        "status":"384_TYPED_SOURCE_PATHS_INDEPENDENT_EVENT_AND_BOOTSTRAP_RECHECKED",
+        "experimental_scope":"synthetic within Model3 only; not natural islands",
+        "full_cases":len(cases),
+        "primary":primary,
+        "joint_decision":"both_supported" if all(x["excludes_zero"] for x in primary.values())
+                         else "partial_only" if any(x["excludes_zero"] for x in primary.values())
+                         else "both_inconclusive",
+        "cells":cells,
+        "confidence_note":"Two-way crossed founder/visitor 9999 bootstrap, two-sided Bonferroni 97.5% intervals, zero cases omitted",
+        "no_Q3_density_ABM_causal_mediation":True,
+    }
+
+
+def main():
+    p = argparse.ArgumentParser(description=__doc__)
+    p.add_argument("--design", type=Path, default=DEFAULT_DESIGN)
+    p.add_argument("--source-root", type=Path, required=True)
+    p.add_argument("--out", type=Path, required=True)
+    a = p.parse_args()
+    if a.out.exists():
+        p.error("Refuse original readout overwrite")
+    result = readout(a.source_root, a.design)
+    a.out.parent.mkdir(parents=True, exist_ok=True)
+    a.out.write_text(json.dumps(result, indent=2, allow_nan=False)+"\n", encoding="utf-8")
+    print(json.dumps({"status":result["status"],"decision":result["joint_decision"]}))
+
+
+if __name__ == "__main__":
+    main()
