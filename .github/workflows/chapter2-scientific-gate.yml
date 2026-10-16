@@ -14,6 +14,7 @@ on:
       - 'scripts/build_chapter2_je_review.py'
       - 'scripts/verify_chapter2_je_review.py'
       - 'scripts/audit_chapter2_*'
+      - 'scripts/audit_repository_code_references_20261016.py'
       - 'scripts/run_chapter2_*'
       - 'scripts/summarize_chapter2_*'
       - 'scripts/figure_model3_*'
@@ -24,12 +25,14 @@ on:
       - 'scripts/build_island_ecology_submission_bundle.py'
       - 'scripts/audit_chapter2_submission_closure.py'
       - 'docs/CHAPTER2_**'
+      - 'docs/REPOSITORY_CODE_CLEANUP_PHASE2_20261016.md'
       - 'docs/MODEL3_CH2_**'
       - 'data/design/chapter2_*'
       - 'data/design/repository_artifact_budget_20260928.json'
       - 'data/results/model3_ch2_bridge_prospective_frozen_20260927.json'
       - 'data/results/chapter2_*'
       - 'tests/test_chapter2_*'
+      - 'tests/test_repository_code_references_20261016.py'
       - 'tests/test_model3_cross_layer_logic_audit_20261016.py'
       - 'tests/test_model3_mathematical_representation_audit_20261016.py'
       - 'docs/MODEL3_REPOSITORY_CODE_ECOLOGY_AUDIT_20261016.md'
@@ -65,6 +68,7 @@ jobs:
         run: |
           pytest -q \
             tests/test_chapter2_repo_wide_python_inventory_20261016.py \
+            tests/test_repository_code_references_20261016.py \
             tests/test_chapter2_q1_full_founder_source_integrity_20261016.py \
             tests/test_chapter2_q4_finite_readout_invariants_20261016.py \
             tests/test_chapter2_q4_post_mutation_contract_20261016.py \
@@ -120,6 +124,14 @@ jobs:
           retention-days: 90
           if-no-files-found: error
           path: active-python-static-audit-20261016.json
+      - name: Inventory tracked code references and byte-identical scripts (no deletion)
+        run: python -m scripts.audit_repository_code_references_20261016 --out repository-code-references-20261016.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: repository-code-references-20261016
+          retention-days: 90
+          if-no-files-found: error
+          path: repository-code-references-20261016.json
 
 
   code-review-original-q1-replay:
