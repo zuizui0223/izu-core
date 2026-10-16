@@ -15,6 +15,24 @@ The original 2026-10-06 confirmatory campaign contains 8,192 positive-mutation e
 
 All four settings passed the original all-four outcome-independent decision rule. Post-confirmation algebraic near/far decomposition localizes 78–90% of the divergence attenuation to additional near-side investment decline; this is not an experimentally isolated mediator percentage. In the cost-free delayed setting, assurance has a structural direct benefit if viable selfing and unfilled ovules coexist, so four settings are not four equally challenging tests of assurance's invasion.
 
+
+### S1 supplementary: independent founder-genome holdout (2026-10-16, separate registered cohort)
+
+Following the original 64-visitor-history × eight demographic-repeat campaign (which held one diploid founder population constant), a **different prospectively frozen cohort** independently drew **eight 48-individual diploid founder populations** and crossed them with **eight new exogenous visitor histories**. The original four mating rules, near/far visitor generation, initial assurance alleles=0.5, mutation probability=0.01 and endpoint1000 were unchanged. The 8 × 8 factorial represents **two crossed randomization axes**, not 64 independently sampled islands or 64 independent founder populations. A separate 64-trajectory zero-mutation audit yielded **32/32 exact fixed/evolving paired traces**.
+
+All **1,088** declared trajectories (1,024 mutation-active, 64 null), original source SHA receipts, 32 shard completion records and all four terminal occupancy cells were admitted, with **no extinction at the endpoint**. Source execution: [Actions #38853989138](https://github.com/zuizui0223/izu-core/actions/runs/38853989138), frozen producer commit `0e5424f8ce47401a1a5049613a39021392d4a2bb`; [registered complete readout artifact #12026417015](https://github.com/zuizui0223/izu-core/actions/runs/38853989138/artifacts/12026417015). See the [original protocol](CHAPTER2_Q1_FRESH_FOUNDER_GENERALITY_PROTOCOL_20261016.md) and [full results with all founder means](CHAPTER2_Q1_FRESH_FOUNDER_RESULTS_20261016.md).
+
+| Reproductive rule | Fresh-founder D: Evolving−fixed far−near | Crossed founder×visitor bootstrap95 | Positive founder means | Prespecified verdict |
+| --- | ---: | ---: | ---: | --- |
+| Delayed control | +0.096122 | [+0.022020,+0.168607] | 8/8 | PASS |
+| Prior selfing | +0.192465 | [+0.110756,+0.275589] | 8/8 | PASS |
+| Pollen discount | +0.163012 | [+0.047329,+0.273690] | 7/8 | PASS |
+| Direct assurance cost | +0.044271 | [−0.044065,+0.130837] | 6/8 | **INCONCLUSIVE** |
+
+The registered rule required **all four** to pass, so **overall four-setting generality was inconclusive**, not confirmed and not a directional counterexample in the costly-A setting. The original single-founder four-setting result remains correctly registered as an earlier cohort; the two studies do not share the same variance structure and are not pooled. Importantly, the separate postconfirmation claim that A evolution always **relatively preserves far-side investment** is not robust: new `I_evolving − I_fixed` at far was **−0.032653** in delayed control and **−0.024790** under direct assurance cost, while the new near-arm contrasts were negative in all four settings. The different founder and visitor samples both changed, so their contributions to the far-side sign reversal remain causally unseparated.
+
+The complete 8×8 original readout was independently recounted from its archived matrices at 1e−12 arithmetic agreement. The experiment adds source-matched genetic-background sensitivity, not a new ecological theory, biologically independent model, pollen-sufficient mainland comparison, unique mediation of Q1 by allele covariance, or natural-island fitness inference. The original raw source-shard artifacts have time-limited Actions retention and have **not** been placed in a public DOI archive.
+
 ## S2. Original relative pollen availability and finite horizon
 
 The original independent static 48-plant/64-history snapshot-400 delayed-selfing assay at fixed assurance a=0.5 reports mean raw seed deficit 0.3901 near and 0.4948 far AFTER autonomous selfing. Since d_raw=(1−a)(1−F/O), the implied mean fractions of ovules fertilized by outcross pollen are approximately 0.2197 near and 0.0103 far. These are fixed-state assay quantities, NOT measurements of terminal evolving-population unfertilized ovules. An outcome-exposed source-only pollen-budget feasibility grid up to 16-fold failed the prespecified-within-grid near outcross saturation admission criterion. Hence the confirmed main effect is under TWO pollen-limited model regimes.
