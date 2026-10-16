@@ -103,7 +103,7 @@ def test_partial_or_wrapped_sha_is_not_a_source_reference(tmp_path):
     _fixture(tmp_path)
     sha256, blob = _fingerprints(tmp_path / "scripts/unreferenced.py")
     (tmp_path / "docs/source-receipts.md").write_text(
-        f"not_digest: x{sha256}x\nnot_git_blob: x{blob}x\n", encoding="utf-8"
+        f"not_digest: 9{sha256}9\nnot_git_blob: 9{blob}9\n", encoding="utf-8"
     )
     report = audit(tmp_path)
     record = next(row for row in report["scripts"]
