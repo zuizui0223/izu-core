@@ -45,10 +45,12 @@ def source_gate(root: Path = ROOT, receipt: dict | None = None) -> dict:
     }
     if thresholds != old["threshold_sensitivity"]["A_first_count_by_threshold"]:
         raise ValueError("Assurance-first threshold sensitivity no longer matches")
-    fixed = historical["fixed_assurance"]
-    # The 64-history fixed_A half-capacity counterfactual is independently
-    # registered under exactly the same biological setting, not same histories.
-    if abs(float(fixed["primary_far_minus_near"]["mean"]) -
+    # The 64-history fixed-A counterfactual is independently registered
+    # in the SAME reproductive setting, not the same population histories.
+    fixed = next(x for x in historical["fixed_assurance"] if (
+        x["setting"]=="assurance_cost" and x["mutation_rate"]==.01
+    ))
+    if abs(fixed["far_minus_near_investment"]["mean"] -
            old["fixed_A_counterexample"]["mean_far_minus_near"]) > 1e-5:
         raise ValueError("Historical fixed-A investment response changed")
 
