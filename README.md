@@ -1,6 +1,6 @@
 # Izu Core — Model 3 island reproductive economics
 
-> **2026-10-16 research findings (editorial index on this branch):** [8つの発見カード・S1–S33対応・未支持の主張](docs/CHAPTER2_EIGHT_FINDINGS_INDEX_20261016.md)。これが解析ファイル多数を科学的発見単位で読むための入り口です。本文で採用する結果と、条件付き・探索・否定・方法検証を分離しています。mainに統合されるまで、これは未マージの索引です。
+> **2026-10-16 統合済み研究・監査の入口：** [8つの発見とS1–S33の証拠序列](docs/CHAPTER2_EIGHT_FINDINGS_INDEX_20261016.md) · [適応度・トレードオフの論文化判断](docs/CHAPTER2_FITNESS_TRADEOFF_EDITORIAL_POSITION_20261016.md) · [コアコードと生態学的因果・循環の監査](docs/MODEL3_REPOSITORY_CODE_ECOLOGY_AUDIT_20261016.md) · [PDE/ODE/SDE/SPDEの成立・失敗範囲](docs/MODEL3_PDE_ODE_SDE_SPDE_FORMAL_AUDIT_20261016.md)。PR #566・#567でmainに統合済み。単一の現行Letterは未投稿で、全4質問が一つの自然史的因果媒介として証明されたわけではありません。
 
 > **Start here (navigation audited 2026-10-15):** [Repository map](docs/REPOSITORY_NAVIGATION.md) · [One-paper route and evidence boundary](data/design/chapter2_one_paper_route_20261010.json) · [Reproduction](REPRODUCE.md) · [Historical PR overlap audit](docs/PR_CONSOLIDATION_AUDIT_20261015.md). The one current Chapter 2 manuscript is a **draft, not a submitted paper**. The 2026-10-11 word counts and reviewer-package numbers below are historical snapshots; verify later edits against the active route, source readouts and rebuilt package rather than treating those counts as live.
 
