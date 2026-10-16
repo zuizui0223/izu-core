@@ -33,8 +33,10 @@ def source_gate(root: Path = ROOT, receipt: dict | None = None) -> dict:
     primary = historical["primary_sequence"]
     if (primary["setting"] != "assurance_cost"
             or primary["mutation_rate"] != .01
-            or primary["counts"]["assurance_first"] != old["assurance_first"]["events"] != 51
-            or historical["independent_visitor_histories"] != old["assurance_first"]["visitor_histories"] != 64):
+            or primary["counts"]["assurance_first"] != old["assurance_first"]["events"]
+            or old["assurance_first"]["events"] != 51
+            or historical["independent_visitor_histories"] != old["assurance_first"]["visitor_histories"]
+            or old["assurance_first"]["visitor_histories"] != 64):
         raise ValueError("Historical assurance precedence readout identity mismatch")
     if primary["assurance_first_bootstrap95"] != old["assurance_first"]["history_bootstrap95"]:
         raise ValueError("Historic assurance-first confidence interval drift")
@@ -51,7 +53,7 @@ def source_gate(root: Path = ROOT, receipt: dict | None = None) -> dict:
         x["setting"]=="assurance_cost" and x["mutation_rate"]==.01
     ))
     if abs(fixed["far_minus_near_investment"]["mean"] -
-           old["fixed_A_counterexample"]["mean_far_minus_near"]) > 1e-5:
+           old["fixed_A_counterexample"]["mean_far_minus_near"]) > 1e-12:
         raise ValueError("Historical fixed-A investment response changed")
 
     source = json.loads((root / data["original_four_setting_shared_founder"]["source"]).read_text())
