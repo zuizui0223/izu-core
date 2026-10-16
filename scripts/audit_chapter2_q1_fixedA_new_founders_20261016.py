@@ -62,6 +62,9 @@ def read_original_shards(root: Path) -> tuple[np.ndarray, np.ndarray, dict]:
                 raise ValueError("Missing/duplicate source manifest in " + source.name)
             if json.loads(archive.read(raw_manifest[0])) != manifest:
                 raise ValueError("Source snapshot differs from archived frozen producer")
+            source_digest = sha(json.dumps(
+                manifest, sort_keys=True, separators=(",", ":")
+            ).encode())
             entries = archive.namelist()
             names = {
                 Path(member).stem: member
@@ -82,7 +85,8 @@ def read_original_shards(root: Path) -> tuple[np.ndarray, np.ndarray, dict]:
                 if (receipt["task"] != list(task)
                         or receipt["sha256"] != sha(raw_npz)
                         or receipt.get("status") != "complete"
-                        or receipt.get("endpoint") != d["updates"]):
+                        or receipt.get("endpoint") != d["updates"]
+                        or receipt.get("manifest_sha256") != source_digest):
                     raise ValueError("Original NPZ/receipt pair differs: " + key)
                 seen[key] = source.name
                 with np.load(io.BytesIO(raw_npz), allow_pickle=False) as file:
