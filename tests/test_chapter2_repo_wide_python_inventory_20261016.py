@@ -1,7 +1,6 @@
 """Check broad review scope without pretending AST parsing proves correctness."""
 from __future__ import annotations
 
-from pathlib import Path
 from scripts.audit_chapter2_repository_wide_static_20261016 import ROOT, scan_source
 
 
