@@ -2,6 +2,30 @@
 
 The active Chapter 2 paper uses **one nested Model 3**. Older response-geometry / synthetic-`k` analyses are historical legacy provenance under `legacy/model2/`; they are excluded from the current manuscript, Supporting Information and reviewer archive.
 
+
+## Supported code entrypoints (current)
+
+The earlier `scripts/*.py` programs include source-hashed frozen experimental producers and historic diagnostics; running an arbitrary similarly named script is **not** equivalent to executing the current paper. See the [explicit supported-code and cleanup map](docs/CHAPTER2_ACTIVE_CODE_SURFACE_AND_CLEANUP_20261016.md).
+
+```bash
+# Minimal numerical model dependencies (NumPy, SciPy, psutil, threadpoolctl)
+python -m pip install -e .
+
+# All research/review tests, figures and data-tool dependencies
+python -m pip install -e '.[dev]'
+
+# The following commands read/check; they DO NOT regenerate biology:
+izu-core-source-audit --out outputs/model3-active-source-inventory.json
+izu-core-q4-contract
+izu-core-q1-readout --input-root /path/to/32-verified-q1-shards --out /path/to/new-q1-readout.json
+```
+
+`izu-core-q1-readout` requires every original Q1 source receipt, the 8 × 8 crossed founder/visitor grid and 32 zero-mutation control pairs. It fails if SHA-bound source code, full initial diploid genomes or registered task identities differ. `izu-core-q4-contract` checks the historical pre/post mutation-rate contract rather than launching the Q4 4,096-path assay.
+
+**Q4 recheck status:** a strict independent read-only validation of the previously source-matched **clean replay** eight shards, 512 historical groups and 4,096 future trajectories passed, with the original +0.1083984375 primary interaction and [0.0654296875, 0.1513671875] interval unchanged. The **original 335,015-byte off-line ZIP** was not opened in that check; see the [boundary note](docs/CHAPTER2_ACTIVE_CODE_SURFACE_AND_CLEANUP_20261016.md). Do not label the replay as a new 4,096-case biological experiment.
+
+No old producer, frozen `data/design`, original result, SI S1–S33 or native Model 3 calculation was changed by the code-cleanup PR.
+
 ## Current unified manuscript review package
 
 The active manuscript is `docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md` and its Supporting Information is `docs/CHAPTER2_UNIFIED_EL_SUPPORTING_INFORMATION_20261010.md`. Rebuild their reviewer package from stored evidence:

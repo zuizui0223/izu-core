@@ -1,7 +1,6 @@
 """Fail-closed Q4 input validation without changing frozen Q4 biology."""
 from __future__ import annotations
 
-from copy import deepcopy
 import pytest
 
 from scripts.summarize_chapter2_island_demographic_independent32 import (
