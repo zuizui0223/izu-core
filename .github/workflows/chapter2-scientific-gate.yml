@@ -70,6 +70,7 @@ jobs:
             tests/test_chapter2_repo_wide_python_inventory_20261016.py \
             tests/test_repository_code_references_20261016.py \
             tests/test_chapter2_q1_full_founder_source_integrity_20261016.py \
+            tests/test_chapter2_cohort_seed_independence_20261016.py \
             tests/test_chapter2_q4_finite_readout_invariants_20261016.py \
             tests/test_chapter2_q4_post_mutation_contract_20261016.py \
             tests/test_model3_cross_layer_logic_audit_20261016.py \
@@ -116,6 +117,16 @@ jobs:
             tests/test_current_ci_surface.py \
             tests/test_model2_legacy_firewall.py \
             tests/test_workflow_trigger_policy.py
+      - name: Strict cross-cohort RNG independence registry (not a new biological experiment)
+        run: |
+          python -m scripts.audit_chapter2_cohort_seed_independence_20261016 \
+            --out outputs/chapter2_cohort_seed_independence_20261016.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-cohort-seed-independence-20261016
+          retention-days: 90
+          if-no-files-found: error
+          path: outputs/chapter2_cohort_seed_independence_20261016.json
       - name: Inventory all active Python source, syntax and high-risk patterns
         run: python -m scripts.audit_chapter2_repository_wide_static_20261016 --out active-python-static-audit-20261016.json
       - uses: actions/upload-artifact@v4
