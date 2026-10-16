@@ -1,0 +1,215 @@
+{
+  "schema": "chapter2_cohort_seed_independence_v1",
+  "policy": "Only executed, source-evidenced cohorts count as repetitions. Seeds are compared within explicit biological RNG namespaces (visitor, demographic, founder), NOT across namespaces; shared histories are allowed for paired contrasts and new-demographic replications, but must not be reported as independent visitor-history cohorts.",
+  "scope": "Explicit seven high-impact Q1/Q4/repeatability cohort identities, including one superseded design; separate machine inventory of all JSON designs is supplementary and does not certify all historical scripts.",
+  "registered_date": "2026-10-16",
+  "cohorts": [
+    {
+      "id": "fhs_discovery_20261003",
+      "design": "data/design/chapter2_finite_history_signal_diagnostic_20261003.json",
+      "result": "data/results/chapter2_finite_history_signal_diagnostic_20261003.json",
+      "execution": "completed",
+      "scientific_role": "posthoc_source_evidenced_discovery",
+      "visitor_generator": "model3_bridge_visitor_history_v2",
+      "visitor_seeds": {
+        "first": 74001,
+        "last": 74128
+      },
+      "demographic_seeds": {
+        "first": 101,
+        "last": 108
+      },
+      "founder_seeds": null,
+      "claims_independent_visitor_from": [],
+      "claims_independent_demography_from": [],
+      "intentional_visitor_sharing_with": [],
+      "provenance": "Original 128 visitors and 8 demographic repeats; historical workflow 36311030639; initial visitor seed range also documented in the following prospective validation design."
+    },
+    {
+      "id": "fhs_new_demography_20261003",
+      "design": "data/design/chapter2_finite_history_signal_validation_20261003.json",
+      "result": "data/results/chapter2_finite_history_signal_validation_20261003.json",
+      "execution": "completed",
+      "scientific_role": "new_demographic_realization_same_visitor_history",
+      "visitor_generator": "model3_bridge_visitor_history_v2",
+      "visitor_seeds": {
+        "first": 74001,
+        "last": 74128
+      },
+      "demographic_seeds": {
+        "ids": [
+          201,
+          202,
+          203,
+          204
+        ]
+      },
+      "founder_seeds": null,
+      "claims_independent_visitor_from": [],
+      "claims_independent_demography_from": [
+        "fhs_discovery_20261003"
+      ],
+      "intentional_visitor_sharing_with": [
+        "fhs_discovery_20261003"
+      ],
+      "provenance": "The 128 original visitors reused by design. The new 201-204 demographic realizations are independent within this one synthetic-visitor-history ensemble; not new visitor histories."
+    },
+    {
+      "id": "fhs_new_visitor_retired_20261003",
+      "design": "data/design/chapter2_new_history_generalization_validation_20261003.json",
+      "result": null,
+      "execution": "superseded_before_execution",
+      "scientific_role": "retired_preexecution_protocol_not_biological_replication",
+      "visitor_generator": "model3_bridge_visitor_history_v2",
+      "visitor_seeds": {
+        "first": 75001,
+        "last": 75128
+      },
+      "demographic_seeds": {
+        "ids": [
+          301,
+          302,
+          303,
+          304
+        ]
+      },
+      "founder_seeds": null,
+      "claims_independent_visitor_from": [],
+      "claims_independent_demography_from": [],
+      "intentional_visitor_sharing_with": [],
+      "superseded_by": "fhs_new_visitor_20261004",
+      "provenance": "Explicit supersession timestamp 2026-10-03T21:32:52Z, first canonical execution 2026-10-03T21:35:35Z, outcomes_generated_under_earlier_design=false. Not a second experiment."
+    },
+    {
+      "id": "fhs_new_visitor_20261004",
+      "design": "data/design/chapter2_finite_history_signal_environment_validation_20261004.json",
+      "result": "data/results/chapter2_finite_history_signal_environment_validation_20261004.json",
+      "execution": "completed",
+      "scientific_role": "prospective_new_synthetic_visitor_history_holdout",
+      "visitor_generator": "model3_bridge_visitor_history_v2",
+      "visitor_seeds": {
+        "first": 75001,
+        "last": 75128
+      },
+      "demographic_seeds": {
+        "ids": [
+          301,
+          302,
+          303,
+          304
+        ]
+      },
+      "founder_seeds": null,
+      "claims_independent_visitor_from": [
+        "fhs_discovery_20261003",
+        "fhs_new_demography_20261003"
+      ],
+      "claims_independent_demography_from": [],
+      "intentional_visitor_sharing_with": [],
+      "provenance": "Sole executed 75001-75128 design; superseded pre-execution draft shares all seeds but produced no independent results. Synthetic visitor generator unchanged."
+    },
+    {
+      "id": "q1_single_founder_20261006",
+      "design": "data/design/chapter2_assurance_generality_20261006.json",
+      "result": "data/results/chapter2_assurance_generality_20261006.json",
+      "execution": "completed",
+      "scientific_role": "preregistered_q1_shared_48_genotype_founder_64_visitor_histories",
+      "visitor_generator": "model3_persistent_isolation_20261006",
+      "visitor_seeds": {
+        "first": 26110601,
+        "last": 26110664
+      },
+      "demographic_seeds": {
+        "first": 26111601,
+        "last": 26111608
+      },
+      "founder_seeds": {
+        "ids": [
+          74001
+        ]
+      },
+      "claims_independent_visitor_from": [],
+      "claims_independent_demography_from": [],
+      "intentional_visitor_sharing_with": [],
+      "provenance": "64 independent synthetic visitor histories × 8 nested demographic repeats. All start with one shared 48-individual founder draw 74001."
+    },
+    {
+      "id": "q1_new_founders_20261016",
+      "design": "data/design/chapter2_q1_fresh_founder_generality_20261016.json",
+      "result": "docs/CHAPTER2_Q1_FRESH_FOUNDER_RESULTS_20261016.md",
+      "execution": "completed",
+      "scientific_role": "preregistered_crossed_8_founders_8_new_visitor_histories",
+      "visitor_generator": "model3_persistent_isolation_20261006",
+      "visitor_seeds": {
+        "first": 560301,
+        "last": 560308
+      },
+      "demographic_seeds": {
+        "ids": [
+          560401
+        ]
+      },
+      "founder_seeds": {
+        "first": 560201,
+        "last": 560208
+      },
+      "claims_independent_visitor_from": [
+        "q1_single_founder_20261006"
+      ],
+      "claims_independent_demography_from": [],
+      "claims_independent_founder_from": [
+        "q1_single_founder_20261006"
+      ],
+      "intentional_visitor_sharing_with": [],
+      "provenance": "Original 1,088-case source-run 38853989138; 32 zero-mutation pair controls; 8 × 8 crossed randomization axes, NOT 64 independent islands. New result 3/4 support, direct assurance cost inconclusive."
+    },
+    {
+      "id": "q4_island_independent32_20261008",
+      "design": "data/design/chapter2_island_demographic_independent32_20261008.json",
+      "result": "data/results/chapter2_island_demographic_independent32_20261008.json",
+      "execution": "completed",
+      "scientific_role": "pilot_informed_independent_visitor_history_stress_holdout",
+      "visitor_generator": "model3_persistent_isolation_20261006",
+      "visitor_seeds": {
+        "first": 30100801,
+        "last": 30100832
+      },
+      "demographic_seeds": {
+        "ids": [
+          30101801
+        ]
+      },
+      "founder_seeds": {
+        "ids": [
+          74001
+        ]
+      },
+      "claims_independent_visitor_from": [
+        "q1_single_founder_20261006"
+      ],
+      "claims_independent_demography_from": [],
+      "intentional_visitor_sharing_with": [],
+      "provenance": "32 independent visitor histories × 1 demographic draw; one shared original founder genome 74001 (do not claim independently redrawn founder genomes). Q4 persistence interaction is conditional on pilot-informed stress grid."
+    }
+  ],
+  "known_dependent_readouts": [
+    {
+      "path": "data/results/chapter2_environment_validation_absolute_history_variance_20261004.json",
+      "parent_cohort": "fhs_new_visitor_20261004",
+      "role": "posthoc_secondary_reuse_of_the_same_visitor_histories_not_a_new_replication"
+    },
+    {
+      "path": "data/design/chapter2_el_repeatability_lock_20261003.json",
+      "parent_cohort": "fhs_new_visitor_20261004",
+      "role": "editorial_summary_not_independent_cohort"
+    }
+  ],
+  "explicit_limits": [
+    "Seed overlap alone does not establish biological-result duplication. Check execution state and source generator namespace.",
+    "Distinct numeric seeds are not proof of independence if generators are shared and experimental states are crossed or inherited.",
+    "Matching the same visitor history for treatment pairs is required for many difference-in-differences designs and must never be globally banned.",
+    "Founding seed 74001 and visitor seed 74001 are in different namespaces; equality of numbers is not RNG stream reuse.",
+    "Listed cohorts are an explicit high-impact claim audit, not automatic certainty about every historical script or external experiment.",
+    "Source manifests, original archival bytes, and external DOI deposition are separate provenance tasks."
+  ]
+}
