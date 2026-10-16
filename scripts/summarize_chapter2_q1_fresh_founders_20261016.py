@@ -15,8 +15,20 @@ import json
 import numpy as np
 
 from scripts.run_chapter2_q1_fresh_founders_20261016 import (
-    DESIGN, declared_tasks, load_frozen, sha, task_key,
+    DESIGN, declared_tasks, load_frozen, sha, source_manifest, task_key,
 )
+
+
+def admit_source_manifest(original_sources: dict, *, expected: dict | None = None) -> None:
+    """Require that a shard's own hash list matches the checked-out source.
+
+    Internal consistency of 32 shard receipts by itself does not prove that
+    their source was the registered Model 3 implementation. This additional
+    comparison closes that provenance gap without modifying the producer.
+    """
+    reference = source_manifest() if expected is None else expected
+    if not isinstance(original_sources, dict) or original_sources != reference:
+        raise ValueError("Archived Q1 source manifest differs from checked-out biology")
 
 
 def verify_complete(root: Path, design: dict) -> dict[tuple, Path]:
@@ -49,6 +61,7 @@ def verify_complete(root: Path, design: dict) -> dict[tuple, Path]:
             raise ValueError("Source hash mismatch across shards")
     if len(manifests) != 1 or any(doc != source_docs[0] for doc in source_docs):
         raise ValueError("Mixed biological source snapshots")
+    admit_source_manifest(source_docs[0])
     if len(observed) != len(expected) or set(observed) != set(expected):
         raise ValueError("Missing/repeated experimental cases")
     if len(set(observed)) != len(expected):
@@ -73,22 +86,50 @@ def verify_complete(root: Path, design: dict) -> dict[tuple, Path]:
     return found
 
 
-def load_trace(path: Path, design: dict) -> tuple[bool, float, float]:
+def register_initial_genome(reference: dict[int, str], founder_seed: int,
+                            genotype: np.ndarray) -> str:
+    """Fail if any setting, visitor history, or intervention changes t0 genes.
+
+    Comparing only founder investment means would miss a different diploid
+    matching/assurance genotype or differently paired I alleles.
+    """
+    genome = np.asarray(genotype)
+    if (genome.shape != (48, 3, 2)
+            or not np.isfinite(genome).all()
+            or (genome < 0).any() or (genome > 1).any()
+            or not np.all(genome[:, 2, :] == .5)):
+        raise ValueError("Invalid initial full-diploid founder genome")
+    digest = sha(np.ascontiguousarray(genome).tobytes())
+    previous = reference.setdefault(founder_seed, digest)
+    if previous != digest:
+        raise ValueError("Matched four-cell comparison has different t0 diploid genomes")
+    return digest
+
+
+def load_trace(path: Path, design: dict) -> tuple[bool, float, float, np.ndarray]:
     with np.load(path, allow_pickle=False) as z:
         trace = z["trace"]
         if trace.shape != (design["updates"] + 1, 10):
             raise ValueError("Unexpected trace dimensions: " + str(path))
-        if not (np.isfinite(trace[0, 2])
-                and np.isfinite(trace[:, 0]).all()
-                and trace[0, 0] == 48):
+        census = trace[:, 0]
+        if (not np.isfinite(census).all()
+                or (census < 0).any()
+                or (census > design["founder_genomes"]["n"]).any()
+                or not np.array_equal(census, np.floor(census))
+                or census[0] != 48):
             raise ValueError("Invalid original founder or census")
+        initial_genome = z["state_0"]
+        initial_i = float(np.asarray(initial_genome).mean(axis=(0, 2))[1])
+        if not (np.isfinite(trace[0, 2])
+                and np.isclose(initial_i, trace[0, 2], rtol=0, atol=1e-14)):
+            raise ValueError("Trace t0 investment disagrees with full diploid state")
         alive = bool(trace[-1, 0] > 0)
         final = float(trace[-1, 2]) if alive else None
         if alive and not (np.isfinite(final) and 0 <= final <= 1):
             raise ValueError("Occupied investment must be within bounds")
         if not alive and not np.isnan(trace[-1, 2]):
             raise ValueError("Extinct I must stay NaN, not zero")
-        return alive, float(trace[0, 2]), final
+        return alive, float(trace[0, 2]), final, initial_genome
 
 
 def null_gate(paths: dict[tuple, Path], d: dict) -> dict:
@@ -141,6 +182,8 @@ def summarize(paths: dict[tuple, Path], d: dict) -> dict:
     null = null_gate(paths, d)
     rows = []
     all_occupied = True
+    registered_initial_genomes: dict[int, str] = {}
+    initial_genomes_checked = 0
     for setting in d["settings"]:
         arms = {}
         for mode in d["modes"]:
@@ -152,7 +195,9 @@ def summarize(paths: dict[tuple, Path], d: dict) -> dict:
                     for j, vs in enumerate(visitors):
                         task = ("main", setting, d["mutation_probability"],
                                 fs, vs, rep, arm, mode)
-                        alive, init, result = load_trace(paths[task], d)
+                        alive, init, result, genome = load_trace(paths[task], d)
+                        register_initial_genome(registered_initial_genomes, fs, genome)
+                        initial_genomes_checked += 1
                         occupancy[i, j] = alive
                         t0[i, j] = init
                         if alive:
@@ -198,6 +243,8 @@ def summarize(paths: dict[tuple, Path], d: dict) -> dict:
                 "passes_registered_setting_rule": bool(good),
             })
         rows.append(row)
+    if len(registered_initial_genomes) != 8 or initial_genomes_checked != 1024:
+        raise ValueError("Incomplete full-genome founder matching gate")
     if null["status"] != "passed" or null["matched_pairs"] != 32:
         verdict = "invalid_original_source_null"
     elif not all_occupied:
@@ -217,6 +264,9 @@ def summarize(paths: dict[tuple, Path], d: dict) -> dict:
         "matched_crossed_cells": 64,
         "nested_demographic_repeats": 1,
         "verified_original_cases": len(paths),
+        "source_checkout_manifest_verified": True,
+        "verified_matching_full_initial_genomes": initial_genomes_checked,
+        "independent_full_initial_genomes": len(registered_initial_genomes),
         "null_structural_gate": null,
         "all_main_occupied": bool(all_occupied),
         "settings": rows,
