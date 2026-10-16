@@ -1,5 +1,7 @@
 # Izu Core — Model 3 island reproductive economics
 
+> **論文の新規性と証拠の三層（Q1〜Q4）:** [Lepers全文・PR #569を反映した主張の採用／不採用表](docs/CHAPTER2_THREE_TIER_FOUR_QUESTION_NOVELTY_REVIEW_20261016.md)。既知の自殖・花縮小理論との差、新しい遺伝的実現の検証、Q4の独立した存続効果を区別。原稿・原本・登録結果は変更していません。
+
 > **2026-10-16 統合済み研究・監査の入口：** [8つの発見とS1–S33の証拠序列](docs/CHAPTER2_EIGHT_FINDINGS_INDEX_20261016.md) · [適応度・トレードオフの論文化判断](docs/CHAPTER2_FITNESS_TRADEOFF_EDITORIAL_POSITION_20261016.md) · [コアコードと生態学的因果・循環の監査](docs/MODEL3_REPOSITORY_CODE_ECOLOGY_AUDIT_20261016.md) · [PDE/ODE/SDE/SPDEの成立・失敗範囲](docs/MODEL3_PDE_ODE_SDE_SPDE_FORMAL_AUDIT_20261016.md)。PR #566〜#568でmainに統合済み。単一の現行Letterは未投稿で、全4質問が一つの自然史的因果媒介として証明されたわけではありません。
 
 
