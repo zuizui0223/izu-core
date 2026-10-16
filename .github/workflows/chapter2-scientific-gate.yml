@@ -16,6 +16,7 @@ on:
       - 'scripts/audit_chapter2_*'
       - 'scripts/chapter2_q2_i_support_order_20261016.py'
       - 'scripts/verify_chapter2_q2_i_support_order_20261016.py'
+      - 'scripts/prepare_chapter2_q2_activation_template_20261016.py'
       - 'scripts/audit_repository_code_references_20261016.py'
       - 'scripts/run_chapter2_*'
       - 'scripts/summarize_chapter2_*'
@@ -152,6 +153,27 @@ jobs:
           retention-days: 90
           if-no-files-found: error
           path: q2-i-support-technical-only.json
+      - name: Prepare SHA-bound 384-case approval proposal (unapproved, NOT science)
+        run: |
+          python -m scripts.prepare_chapter2_q2_activation_template_20261016 \
+            --out q2-384-pending-approval.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=json.loads(Path('q2-384-pending-approval.json').read_text())
+          assert p['status']=='PENDING_AUTHOR_REVIEW_NOT_APPROVED'
+          assert p['owner_explicit_approval'] is False
+          assert p['approval_is_new_not_reused'] is False
+          assert p['no_biological_runs'] is True
+          assert p['declared_full_cases']==384
+          assert p['original_model_source_files_pinned']==25
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-q2-sha-bound-approval-PENDING-NOT-AUTHORIZED
+          retention-days: 90
+          if-no-files-found: error
+          path: q2-384-pending-approval.json
       - name: Inventory all active Python source, syntax and high-risk patterns
         run: python -m scripts.audit_chapter2_repository_wide_static_20261016 --out active-python-static-audit-20261016.json
       - uses: actions/upload-artifact@v4
