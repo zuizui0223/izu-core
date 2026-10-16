@@ -57,6 +57,76 @@ def classify_independently(trace, contract):
                 first_extinction=extinction)
 
 
+
+def check_parentage_and_mendelian_I(data, offsets, year, parents):
+    """Re-admit source offspring identity, ancestry and I-locus transmission.
+
+    This is an independent check of saved parentage and homologs, NOT a replay
+    of the original probability of drawing each parent or reproductive rate.
+    I carries no new mutations and no seed immigrants in this registered design.
+    """
+    start, end, nex, nxt = map(int, (
+        offsets[year], offsets[year+1], offsets[year+1], offsets[year+2]))
+    ids = data["ids"]
+    years = data["birth_years"]
+    old_ids = ids[start:end].tolist()
+    next_ids = ids[nex:nxt].tolist()
+    if len(old_ids) != len(set(map(int, old_ids))) or len(next_ids) != len(set(map(int, next_ids))):
+        raise ValueError("Nonunique source plant IDs in a census")
+    old_map = {int(ident): start+i for i,ident in enumerate(old_ids)}
+    next_map = {int(ident): nex+i for i,ident in enumerate(next_ids)}
+    offspring = [int(x) for x in parents[:, 0]]
+    newborn = [int(ids[pos]) for pos in range(nex, nxt)
+               if years[pos] == year+1]
+    if (len(offspring) != len(newborn) or len(set(offspring)) != len(offspring)
+            or set(offspring) != set(newborn)):
+        raise ValueError("Newborn offspring/parentage roster differs")
+    old_state_fields = ("alleles", "allele_origin", "mutation_flags", "birth_years")
+    # With no seed immigration, an older plant may only be an unchanged survivor.
+    for ident,pos in next_map.items():
+        if ident in offspring:
+            continue
+        if ident not in old_map or years[pos] > year:
+            raise ValueError("Unaccounted migrant or adult without original source")
+        old = old_map[ident]
+        if any(not np.array_equal(data[name][pos], data[name][old])
+               for name in old_state_fields):
+            raise ValueError("An adult survivor changed its diploid genome")
+    for child_id,mother_id,father_id in parents:
+        child_id,mother_id,father_id = map(int, (child_id,mother_id,father_id))
+        if child_id not in next_map or mother_id not in old_map or father_id not in old_map:
+            raise ValueError("Parentage ID not found in the adjacent original censuses")
+        child = next_map[child_id]
+        if years[child] != year+1:
+            raise ValueError("Child has inconsistent year of birth")
+        for homolog, parent_id in enumerate((mother_id, father_id)):
+            parent = old_map[parent_id]
+            for locus in range(3):
+                child_origin = data["allele_origin"][child,locus,homolog]
+                possible = np.flatnonzero(
+                    data["allele_origin"][parent,locus,:] == child_origin)
+                if not len(possible):
+                    raise ValueError("Offspring homolog origin absent from named parent")
+                child_flag = bool(data["mutation_flags"][child,locus,homolog])
+                if locus == 1:
+                    # I mutations are disabled: values, ancestral origin and
+                    # mutation flags must match an actual parental homolog.
+                    matches = [
+                        h for h in possible
+                        if data["alleles"][child,locus,homolog] == data["alleles"][parent,locus,h]
+                        and child_flag == bool(data["mutation_flags"][parent,locus,h])
+                    ]
+                    if not matches:
+                        raise ValueError("Non-Mendelian investment allele or mutation flag")
+                elif not child_flag:
+                    # Nonmutated M/A alleles must also match their parent.
+                    if not any(
+                        (not bool(data["mutation_flags"][parent,locus,h]))
+                        and data["alleles"][child,locus,homolog] == data["alleles"][parent,locus,h]
+                        for h in possible
+                    ):
+                        raise ValueError("Unmutated offspring locus not transmitted by parent")
+
 def _arrays_checked(archive, d, task):
     with np.load(archive, allow_pickle=False) as z:
         required = {"trace", "offsets", "parentage_offsets", "parentage",
@@ -111,6 +181,7 @@ def _arrays_checked(archive, d, task):
             if (not np.isin(parents[:, 0], next_ids).all()
                     or not np.isin(parents[:, 1:], old_ids).all()):
                 raise ValueError("Parentage not compatible with consecutive censuses")
+            check_parentage_and_mendelian_I(data, offsets, year, parents)
     return t
 
 
