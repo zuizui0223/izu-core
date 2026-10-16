@@ -153,8 +153,8 @@
     "ecology_letters_letter_main_max": 5000,
     "ecology_letters_letter_abstract_max": 150,
     "display_items_max": 6,
-    "current_integrated_main_words": 4994,
-    "current_integrated_abstract_words": 143,
+    "current_integrated_main_words": 4997,
+    "current_integrated_abstract_words": 144,
     "main_text_excess_words": 0,
     "abstract_excess_words": 0,
     "editorial_status": "EL_format_word_limits_passed_data_DOI_pending",
@@ -166,9 +166,9 @@
       "pollinator population collapse",
       "historically explained global island syndrome"
     ],
-    "current_main_text_words": 4994,
-    "current_abstract_words": 143,
-    "updated_submission_scope": "Main4994/abstract143; ONE EL Letter. Q2/Q3 focus; Q1 primary unchanged, Q4 separate. Fig3 original-mutation 320 paths; S3 128-history bridge and one-locus; S1 fixed pollen; DOI pending.",
+    "current_main_text_words": 4997,
+    "current_abstract_words": 144,
+    "updated_submission_scope": "Main4997/abstract144; ONE EL Letter. Q2/Q3 focus; Q1 primary unchanged, Q4 separate. Fig3 original-mutation 320 paths; S3 128-history bridge and one-locus; S1 fixed pollen; DOI pending.",
     "historical_precompression_counts": {
       "main_words": 6035,
       "abstract_words": 237,
