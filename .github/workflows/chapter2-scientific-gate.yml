@@ -30,6 +30,10 @@ on:
       - 'data/results/model3_ch2_bridge_prospective_frozen_20260927.json'
       - 'data/results/chapter2_*'
       - 'tests/test_chapter2_*'
+      - 'tests/test_model3_cross_layer_logic_audit_20261016.py'
+      - 'tests/test_model3_mathematical_representation_audit_20261016.py'
+      - 'docs/MODEL3_REPOSITORY_CODE_ECOLOGY_AUDIT_20261016.md'
+      - 'docs/MODEL3_PDE_ODE_SDE_SPDE_FORMAL_AUDIT_20261016.md'
       - 'tests/test_model3_ch2_bridge_prospective_summary.py'
       - 'tests/test_island_ecology_submission_bundle_builder.py'
       - 'tests/test_repository_artifact_budget.py'
@@ -60,6 +64,8 @@ jobs:
       - name: Validate active Model 3 2026-10-05 ecological submission surface
         run: |
           pytest -q \
+            tests/test_model3_cross_layer_logic_audit_20261016.py \
+            tests/test_model3_mathematical_representation_audit_20261016.py \
             tests/test_chapter2_mechanistic_funnel.py \
             tests/test_chapter2_model3_submission.py \
             tests/test_chapter2_submission_compactness.py \
