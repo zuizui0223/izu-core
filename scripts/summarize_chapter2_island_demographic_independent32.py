@@ -7,6 +7,7 @@ then the four-setting evolving-versus-fixed contrast within visitor history.
 from __future__ import annotations
 from itertools import product
 from pathlib import Path
+import math
 import argparse
 import hashlib
 import json
@@ -14,6 +15,45 @@ import json
 import numpy as np
 from scripts.run_chapter2_island_demographic_independent32 import load_frozen, tasks
 
+
+
+def validate_future_case(case: dict, d: dict) -> None:
+    """Strictly admit one historical Q4 terminal demographic outcome.
+
+    The existing reader checked the truthiness of terminal_N only, so negative
+    or above-capacity census and contradictory extinction metadata could be
+    accepted when their occupied flag had the same truth value. This validates
+    the original recorded postshock K8, no-plant-arrival process without
+    changing the experimental results or the frozen producer.
+    """
+    capacity = d["post_capacity"]
+    years = d["post_updates"]
+    count = case.get("terminal_N")
+    occupied = case.get("occupied")
+    minimum = case.get("min_N")
+    first = case.get("first_extinction")
+    end = case.get("end_traits")
+    immediate = case.get("initial_viable_maternal_per_capita")
+    if (type(count) is not int or not 0 <= count <= capacity
+            or type(occupied) is not int or occupied not in (0, 1)
+            or occupied != int(count > 0)
+            or type(minimum) is not int or not 0 <= minimum <= count
+            or (first is not None and
+                (type(first) is not int or not 1 <= first <= years))
+            or (first is None and minimum == 0)
+            or (first is not None and (minimum != 0 or count != 0))
+            or type(immediate) not in (int, float)
+            or not math.isfinite(immediate) or immediate < 0):
+        raise ValueError("Q4 impossible or invalid demographic endpoint")
+    if count == 0:
+        if end is not None:
+            raise ValueError("Extinct Q4 endpoints must have undefined traits")
+    else:
+        if (not isinstance(end, list) or len(end) != 3
+                or any(type(v) not in (int, float)
+                       or not math.isfinite(v) or not 0 <= v <= 1
+                       for v in end)):
+            raise ValueError("Occupied Q4 endpoints require bounded three-trait means")
 
 def read_shards(directory, d):
     observed = {}
@@ -37,10 +77,7 @@ def read_shards(directory, d):
             if actual != expected:
                 raise ValueError("incomplete stress grid " + str(key))
             for p in row["post_cases"]:
-                if p["occupied"] not in (0, 1):
-                    raise ValueError("invalid occupancy")
-                if bool(p["terminal_N"]) != bool(p["occupied"]):
-                    raise ValueError("occupancy contradicts endpoint")
+                validate_future_case(p, d)
             observed[key] = row
     expected_keys = set(tasks(d))
     if set(observed) != expected_keys or len(observed) != d["total_groups"]:
