@@ -25,11 +25,12 @@ OUT=ROOT/"outputs/chapter2_unified_el_delivery/EL_ONE_PAPER_REVIEW.zip"
 PDF_FIGURES={
  "Figure1.pdf":ROOT/"outputs/figures/model3_return_components_20261005/return_components.pdf",
  "Figure2.pdf":ROOT/"outputs/figures/model3_assurance_compression_20261006/assurance_compression.pdf",
- "Figure3.pdf":ROOT/"outputs/figures/model3_genetic_realization_20261005/genetic_realization.pdf",
+ "Figure3.pdf":ROOT/"docs/atom_comparison_20261011/resolution_figures_20261011/atom_abm.pdf",
 }
 SUPPLEMENTARY_FIGURES={
  "SupplementaryFigureS1.pdf":ROOT/"outputs/figures/model3_trait_pollen_20261005/trait_pollen_snapshot400.pdf",
  "SupplementaryFigureS2.svg":ROOT/"figures/chapter2_functional_loss_tempo_20261011/crossing_by100.svg",
+ "SupplementaryFigureS3.pdf":ROOT/"outputs/figures/model3_genetic_realization_20261005/genetic_realization.pdf",
 }
 FROZEN_RESULTS={
  "EVOLUTION_DESIGN.json":"data/design/chapter2_assurance_generality_20261006.json",
@@ -911,7 +912,7 @@ def atom_materials():
                  "new_biological_simulation":False,"causal_drift_decomposition":False,
                  "numerical_scope":"assurance-only original birth mutation; not heat/full-three-locus PDE/SPDE or stochastic ensemble mean"},
     }
-    members={"ATOM_FULL_TABLES.csv":table,"SupplementaryFigureS3.pdf":figure,
+    members={"ATOM_FULL_TABLES.csv":table,
              "EVIDENCE/ATOM_ABM_COMPARISON.json":json_bytes(derived)}
     derivations={"EVIDENCE/ATOM_ABM_COMPARISON.json":{
         "original_path":str((ATOM_DATA/"matched_comparison.json").relative_to(ROOT)),
@@ -921,8 +922,7 @@ def atom_materials():
         "final_readout_sha256":sha(final_raw),
         "derived_sha256":sha(members["EVIDENCE/ATOM_ABM_COMPARISON.json"]),
         "transformation":"Retain every comparison row and admission context; omit identifying source paths and select the independently verified scope."},
-        "ATOM_FULL_TABLES.csv":{"original_sha256":sha(table),"transformation":"Exact original bytes"},
-        "SupplementaryFigureS3.pdf":{"original_sha256":sha(figure),"transformation":"Exact original bytes"}}
+        "ATOM_FULL_TABLES.csv":{"original_sha256":sha(table),"transformation":"Exact original bytes"}}
     return members,derivations
 
 
@@ -1172,12 +1172,14 @@ SI_ORIGINAL_GIT_BLOB="fdecc89abaee3479ae5eef3f476d5ba937505690"
 SI_OLD_FIGURE_ROLE=("The four main figures retain their original evidence roles; "
                     "the older finite-genetic realization figure is supplied "
                     "separately as `SupplementaryFigureS1.pdf`.")
-SI_NEW_FIGURE_ROLE=("The original finite-genetic realization figure is delivered "
-                    "as main `Figure3.pdf`, while the fixed-plant pollen-deficit "
-                    "assay formerly main Figure 3 is now "
-                    "`SupplementaryFigureS1.pdf`. The finite-genetic figure "
-                    "includes a separate one-locus diagnostic, not the "
-                    "original-mutation 3/32 and 2/32 response-order cohort.")
+SI_NEW_FIGURE_ROLE=("The original-mutation ten-context genetic-order comparison "
+                    "(320 source-authenticated diploid paths) is delivered as main "
+                    "`Figure3.pdf`; this is where the 3/32 and 2/32 counts appear. "
+                    "The earlier zero-mutation 128-history bridge and a separate "
+                    "one-locus history diagnostic are now `SupplementaryFigureS3.pdf`. "
+                    "The fixed-plant pollen-deficit assay remains "
+                    "`SupplementaryFigureS1.pdf`. These are distinct source cohorts, "
+                    "not a pooled genetic-drift attribution.")
 
 
 def derive_review_si_figure_roles(source: bytes) -> str:
@@ -1210,7 +1212,7 @@ def build(out:Path=OUT, *, figures=None,supplementary_figures=None):
         raise ValueError("atom SI source-link boundary changed")
     si_text=si_text.replace(old_link,"ATOM_FULL_TABLES.csv").replace(old_dir,"EVIDENCE/ATOM_ABM_COMPARISON.json")
     si_text=si_text.replace("The supplemental figure does not replace existing main figures.",
-                            "[Supplementary Figure S3](SupplementaryFigureS3.pdf) does not replace existing main figures.")
+                            "[Main Figure 3](Figure3.pdf) shows all ten original-mutation density/finite-order contexts; [Supplementary Figure S3](SupplementaryFigureS3.pdf) contains the distinct zero-mutation bridge and one-locus diagnostics.")
     resolution_link="four_question_resolution_20261011/DESIGN.md"
     resolution_dir="data/results/four_question_resolution_20261011/"
     if si_text.count(resolution_link)!=1 or si_text.count(resolution_dir)!=1:

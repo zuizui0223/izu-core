@@ -204,9 +204,14 @@ def supplementary_figures(tmp_path):
     writer=PdfWriter()
     writer.add_blank_page(width=300,height=200)
     writer.write(p)
+    p3=tmp_path/"SupplementaryFigureS3.pdf"
+    writer3=PdfWriter()
+    writer3.add_blank_page(width=300,height=200)
+    writer3.write(p3)
     return {
         "SupplementaryFigureS1.pdf":p,
         "SupplementaryFigureS2.svg":ROOT/"figures/chapter2_functional_loss_tempo_20261011/crossing_by100.svg",
+        "SupplementaryFigureS3.pdf":p3,
     }
 
 
