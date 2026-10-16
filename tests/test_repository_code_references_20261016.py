@@ -79,7 +79,7 @@ def _fingerprints(path: Path):
     raw = path.read_bytes()
     return (
         hashlib.sha256(raw).hexdigest(),
-        hashlib.sha1(b"blob " + str(len(raw)).encode("ascii") + b"\\0" + raw).hexdigest(),
+        hashlib.sha1(b"blob " + str(len(raw)).encode("ascii") + b"\0" + raw).hexdigest(),
     )
 
 
@@ -87,7 +87,7 @@ def test_hash_only_references_preserve_unimported_research_source(tmp_path):
     _fixture(tmp_path)
     sha256, blob = _fingerprints(tmp_path / "scripts/unreferenced.py")
     (tmp_path / "docs/source-receipts.md").write_text(
-        f"approved_sha256: {sha256}\\nsource_git_blob: {blob}\\n", encoding="utf-8"
+        f"approved_sha256: {sha256}\nsource_git_blob: {blob}\n", encoding="utf-8"
     )
     report = audit(tmp_path)
     record = next(row for row in report["scripts"]
@@ -103,7 +103,7 @@ def test_partial_or_wrapped_sha_is_not_a_source_reference(tmp_path):
     _fixture(tmp_path)
     sha256, blob = _fingerprints(tmp_path / "scripts/unreferenced.py")
     (tmp_path / "docs/source-receipts.md").write_text(
-        f"not_digest: x{sha256}x\\nnot_git_blob: x{blob}x\\n", encoding="utf-8"
+        f"not_digest: x{sha256}x\nnot_git_blob: x{blob}x\n", encoding="utf-8"
     )
     report = audit(tmp_path)
     record = next(row for row in report["scripts"]
@@ -116,7 +116,7 @@ def test_same_bytes_in_two_archived_sources_are_both_protected(tmp_path):
     _fixture(tmp_path)
     sha256, _ = _fingerprints(tmp_path / "scripts/bar.py")
     (tmp_path / "docs/source-receipts.md").write_text(
-        f"original_sha256: {sha256}\\n", encoding="utf-8"
+        f"original_sha256: {sha256}\n", encoding="utf-8"
     )
     report = audit(tmp_path)
     records = {row["path"]: row for row in report["scripts"]}
