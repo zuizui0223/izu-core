@@ -6,7 +6,7 @@ import pytest
 
 from scripts.chapter2_q2_i_support_order_20261016 import (
     CLASSES, declared_tasks, founder_state, load_protocol, native_config,
-    response_class, simulate, technical_smoke,
+    response_class, simulate, technical_smoke, preflight_all_t0_ledgers,
     DEFAULT_DESIGN,
 )
 from scripts.model3_island.reproduction import reproduce
@@ -121,10 +121,22 @@ def test_native_four_update_replay_and_full_typed_state_receipt():
     assert "events" not in a
 
 
+
+def test_all_original_t0_ledger_cells_are_matched_before_long_runs():
+    evidence = preflight_all_t0_ledgers(_design())
+    assert evidence["status"] == "T0_ORIGINAL_MODEL_LEDGER_MATCHES_ALL_POLICIES"
+    assert evidence["matched_founder_visitor_arm_cells"] == 128
+    assert evidence["policy_evaluations"] == 384
+    assert evidence["full_model_updates"] == 0
+    assert evidence["independent_biological_histories"] == 0
+
+
 def test_technical_smoke_never_masquerades_as_confirmatory():
     d = _design()
     report = technical_smoke(d, DEFAULT_DESIGN)
     assert report["status"] == "PASS_TECHNICAL_SMOKE_ONLY_NOT_SCIENTIFIC_RESULTS"
     assert report["cases"] == 6
+    assert report["t0_complete_ledger_preflight"]["matched_founder_visitor_arm_cells"] == 128
+    assert report["t0_complete_ledger_preflight"]["full_model_updates"] == 0
     assert report["no_full_200_update_scientific_cases_executed"] is True
     assert all(record["censuses"] == 13 for record in report["technical_cases"])
