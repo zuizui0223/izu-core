@@ -126,6 +126,28 @@ def test_archived_technical_genomes_and_parentage_are_independently_verified(tmp
     np.savez_compressed(p, **values)
     if damage == "none":
         np.testing.assert_array_equal(_arrays_checked(p, d, task), record["trace"])
+        np.testing.assert_array_equal(_arrays_checked(p, d, task, native_replay=True), record["trace"])
     else:
         with pytest.raises(ValueError):
             _arrays_checked(p, d, task)
+
+
+
+def test_native_replay_detects_plausible_mutation_record_tamper(tmp_path):
+    """A genomic A-mutation flag can pass structural genealogy but fails exact RNG replay."""
+    original = load_protocol()
+    d = {**original, "horizon": 4}
+    task = declared_tasks(original)[0]
+    record = simulate(original, task, steps=4)
+    arrays = {k:v.copy() for k,v in record.items() if isinstance(v,np.ndarray)}
+    lo,hi = map(int, arrays["offsets"][1:3])
+    candidates = np.flatnonzero(~arrays["mutation_flags"][lo:hi,2,0])
+    assert len(candidates) > 0
+    arrays["mutation_flags"][lo+int(candidates[0]),2,0] = True
+    p = tmp_path / "source_mutation_tamper.npz"
+    np.savez_compressed(p, **arrays)
+    # The ancestral identity and source allele support are still coherent:
+    _arrays_checked(p, d, task)
+    # But frozen native reproducibility detects the fabricated genome outcome.
+    with pytest.raises(ValueError, match="native replay mismatch"):
+        _arrays_checked(p, d, task, native_replay=True)
