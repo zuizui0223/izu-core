@@ -26,7 +26,7 @@ def _subscript_name(node: ast.AST) -> tuple[str, str] | None:
             and isinstance(node.value, ast.Name)
             and isinstance(node.slice, ast.Constant)
             and isinstance(node.slice.value, str)):
-        return node.value.id, node.slice.value.value
+        return node.value.id, node.slice.value
     return None
 
 
