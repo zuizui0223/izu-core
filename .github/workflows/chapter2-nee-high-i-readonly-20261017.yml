@@ -3,6 +3,8 @@ on:
   pull_request:
     paths:
       - 'scripts/audit_chapter2_nee_high_i_support_20261017.py'
+      - 'scripts/verify_chapter2_nee_high_i_readback_20261017.py'
+      - 'data/results/chapter2_nee_high_i_support_source_readout_20261017.json'
       - 'tests/test_chapter2_nee_high_i_support_20261017.py'
       - 'tests/test_chapter2_nee_upgrade_20261017.py'
       - 'scripts/validate_chapter2_nee_upgrade_20261017.py'
@@ -29,6 +31,8 @@ jobs:
         run: |
           python -m scripts.audit_chapter2_nee_high_i_support_20261017 \
             --output "${RUNNER_TEMP}/HIGH_I_EXISTING_ARCHIVE_SOURCE_ONLY.json"
+      - name: Independently verify committed HIGH-I audit against original arrays
+        run: python -m scripts.verify_chapter2_nee_high_i_readback_20261017
       - name: Test result source consistency and negative controls
         run: pytest -q tests/test_chapter2_nee_high_i_support_20261017.py tests/test_chapter2_nee_upgrade_20261017.py
       - uses: actions/upload-artifact@v4
