@@ -184,7 +184,7 @@ def audit(root: Path = ROOT) -> dict:
             "LOW-I published pre-fixation loss mismatch")
     require(low_stats["at_I_fixation"] == receipt["excluded_at_fixation"] == 535,
             "LOW-I published fixation loss mismatch")
-    require(sum(x is not None and fixed[i] is not None and x < fixed[i]
+    require(sum(x is not None and (fixed[i] is None or x < fixed[i])
                 and phenotype_variance[i, x] > 0
                 for i, x in enumerate(lowers)) == receipt["excluded_with_expressed_variance"],
             "original low-loss nonzero-variance descriptor mismatch")
