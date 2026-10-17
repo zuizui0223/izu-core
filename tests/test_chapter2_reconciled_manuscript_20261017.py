@@ -31,7 +31,7 @@ def test_final_reconciled_source_and_anonymous_word_limits():
 def test_manuscript_fails_if_word_limit_exceeded():
     source = SOURCE.read_text(encoding="utf-8")
     oversized = source.replace("# Results\n", "# Results\n" + ("unregistered-word " * 15), 1)
-    with pytest.raises(ValueError, match="word limits"):
+    with pytest.raises(ValueError, match="letter limits"):
         verify_source(oversized)
 
 
