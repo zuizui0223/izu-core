@@ -73,3 +73,12 @@ def test_original_2304_archive_is_consistent_with_reverse_direction():
                for z in result["by_original_visitor_context"])
     assert "NOT IDENTIFIABLE" in " ".join(result["limits"])
     assert result["submission_claim"] == "NONE — source-only retrospective feasibility audit"
+
+
+def test_independent_existing_archive_high_i_readback():
+    from scripts.verify_chapter2_nee_high_i_readback_20261017 import verify
+    result = verify()
+    assert result["status"] == "INDEPENDENT_SCALAR_HIGH_I_RESULT_MATCHES_STORED_RECEIPT"
+    assert result["high_I_locked"] == 1455
+    assert result["locked_before_fixation"] == 758
+    assert result["new_biological_paths"] == 0
