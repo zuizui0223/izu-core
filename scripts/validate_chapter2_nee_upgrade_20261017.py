@@ -13,7 +13,7 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-ROUTE = "data/design/chapter2_active_publication_route_20261017.json"
+ROUTE = "docs/audits/CHAPTER2_NEE_ACTIVE_PUBLICATION_ROUTE_20261017.json"
 OLD = "data/design/chapter2_one_paper_route_20261010.json"
 NEE_ABSTRACT_HEAD = "## Abstract — provisional, existing evidence only; NOT for submission"
 NEE_INTRO_HEAD = "## Introduction"
