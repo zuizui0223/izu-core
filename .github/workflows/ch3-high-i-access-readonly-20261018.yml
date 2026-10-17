@@ -1,0 +1,36 @@
+name: Ch3 High-I Allele Access (read-only original Q3)
+on:
+  push:
+    branches:
+      - analysis/ch3-high-i-access-readonly-20261018
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  high-i-source-reconciliation:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install numerical audit dependencies
+        run: python -m pip install numpy pytest
+      - name: Read-only Q3 high-I source tests
+        run: python -m pytest -q tests/test_chapter3_high_i_access_20261018.py
+      - name: Original 2304 source-only high-I readout
+        run: |
+          python -m scripts.audit_chapter3_high_i_access_20261018 --output-dir ch3-high-i-audit-output | tee ch3-high-i-readout.log
+          test -s ch3-high-i-audit-output/HIGH_I_READOUT.json
+          test -s ch3-high-i-audit-output/HIGH_I_CASES.csv
+      - name: Archive audit-only outputs
+        uses: actions/upload-artifact@v4
+        with:
+          name: ch3-original-q3-high-i-readonly
+          path: |
+            ch3-high-i-audit-output/HIGH_I_READOUT.json
+            ch3-high-i-audit-output/HIGH_I_CASES.csv
+            ch3-high-i-readout.log
+          if-no-files-found: error
+          retention-days: 30
