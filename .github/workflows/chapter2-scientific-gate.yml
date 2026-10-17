@@ -14,6 +14,7 @@ on:
       - 'scripts/build_chapter2_je_review.py'
       - 'scripts/verify_chapter2_je_review.py'
       - 'scripts/audit_chapter2_*'
+      - 'scripts/validate_chapter2_future_power_20261017.py'
       - 'scripts/chapter2_q2_i_support_order_20261016.py'
       - 'scripts/verify_chapter2_q2_i_support_order_20261016.py'
       - 'scripts/prepare_chapter2_q2_activation_template_20261016.py'
@@ -28,6 +29,8 @@ on:
       - 'scripts/build_island_ecology_submission_bundle.py'
       - 'scripts/audit_chapter2_submission_closure.py'
       - 'docs/CHAPTER2_**'
+      - 'docs/audits/CHAPTER2_Q2_CROSSED_RETROSPECTIVE_PRECISION_20261017.json'
+      - 'docs/protocols/chapter2_future_registered_*.json'
       - 'docs/protocols/chapter2_q2_i_support_order_20261016.json'
       - 'docs/REPOSITORY_CODE_CLEANUP_PHASE2_20261016.md'
       - 'docs/MODEL3_CH2_**'
@@ -78,6 +81,7 @@ jobs:
             tests/test_chapter2_q2_activation_approved_20261016.py \
             tests/test_chapter2_q2_i_support_384_registered_result_20261016.py \
             tests/test_chapter2_main_hypothesis_decision_20261017.py \
+            tests/test_chapter2_future_crossed_power_gate_20261017.py \
             tests/test_chapter2_q1_full_founder_source_integrity_20261016.py \
             tests/test_chapter2_cohort_seed_independence_20261016.py \
             tests/test_chapter2_two_propositions_source_audit_20261016.py \
@@ -177,6 +181,16 @@ jobs:
           retention-days: 90
           if-no-files-found: error
           path: q2-384-pending-approval.json
+      - name: Enforce preregistered power and independent founder/visitor evidence for new studies only
+        run: |
+          python -m scripts.validate_chapter2_future_power_20261017 --out future_chapter2_power_contract_status.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          result=json.loads(Path('future_chapter2_power_contract_status.json').read_text())
+          assert result['status'] in ('PASS_NO_NEW_STUDIES','PASS_ALL_NEW_POWER_CONTRACTS')
+          print(result['status'],result['registered_new_power_contracts'])
+          PY
       - name: Inventory all active Python source, syntax and high-risk patterns
         run: python -m scripts.audit_chapter2_repository_wide_static_20261016 --out active-python-static-audit-20261016.json
       - uses: actions/upload-artifact@v4
