@@ -1,0 +1,40 @@
+name: Ch3 high-I source-only audit
+
+on:
+  pull_request:
+    paths:
+      - '.github/workflows/ch3-high-i-source-audit-20261017.yml'
+      - 'scripts/audit_ch3_high_i_support_20261017.py'
+      - 'tests/test_ch3_high_i_support_20261017.py'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  source-high-i:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install source-audit dependencies
+        run: python -m pip install 'numpy>=1.24,<3' 'pytest>=7,<10'
+      - name: Test source invariants
+        run: python -m pytest -q tests/test_ch3_high_i_support_20261017.py
+      - name: Generate original-source-only high-I report
+        run: |
+          python -m scripts.audit_ch3_high_i_support_20261017 --out "$RUNNER_TEMP/CH3_HIGH_I_SOURCE_REPORT.json" | tee "$RUNNER_TEMP/CH3_HIGH_I_SOURCE_OUTPUT.log"
+      - name: Archive exact summary and audit log
+        uses: actions/upload-artifact@v4
+        with:
+          name: ch3-high-i-source-audit
+          path: |
+            ${{ runner.temp }}/CH3_HIGH_I_SOURCE_REPORT.json
+            ${{ runner.temp }}/CH3_HIGH_I_SOURCE_OUTPUT.log
+          if-no-files-found: error
+          retention-days: 90
