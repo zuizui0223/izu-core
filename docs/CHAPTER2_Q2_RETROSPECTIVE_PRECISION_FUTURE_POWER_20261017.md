@@ -54,6 +54,27 @@ A **new study**, not a retroactive repair of the 384-path trial, must have a ver
 
 The new validator's **GO** means *ready for independent method review*, **never** automatic biological execution authorization. A true power certificate may require Monte Carlo simulation under the actual complex outcome distribution; this normal screen alone is insufficient to guarantee operating characteristics.
 
+## Reproducible implementation (technical only)
+
+The [read-only original Actions case audit](../scripts/audit_chapter2_q2_crossed_precision_20261017.py) accepts the original **32** wrapper ZIP files from the prior authenticated run in an external directory; it SHA-checks all **384** internal NPZs, reconstructs the two far paired 8×8 contrasts and 9,999 original two-axis bootstrap intervals, then records retrospective variance components and scenario-only MDEs. It runs **zero Model3 biological updates**.
+
+```bash
+python -m scripts.audit_chapter2_q2_crossed_precision_20261017 \
+  --archives /path/to/32-original-action-zips \
+  --out /path/to/Q2_384_RETROSPECTIVE_PRECISION.json
+```
+
+The [future-study validator](../scripts/validate_chapter2_future_power_20261017.py) refuses a plan that reuses a frozen Q2 study ID, duplicates pilot/future stream namespace, lacks a source SHA, omits SESOI or adverse crossed variance, or declares too few independently sampled founder/visitor groups. Start from the [non-executable template](protocols/CHAPTER2_FUTURE_POWER_CONTRACT_TEMPLATE_20261017.json), and only when a genuinely new study is proposed save the completed registration as `docs/protocols/chapter2_future_registered_<NEW_STUDY>.json`; CI recognizes that reserved name and requires method-review-ready power evidence **before new biology**. The template itself is NOT a registered trial or authorization.
+
+```bash
+python -m scripts.validate_chapter2_future_power_20261017 \
+  --plan docs/protocols/chapter2_future_registered_NEW_STUDY.json \
+  --pilot docs/IMMUTABLE_INDEPENDENT_PILOT.json \
+  --out /path/to/NEW_STUDY_POWER_DECISION.json
+```
+
+The validator's normal-approximation **GO** is permission for independent method review only. It does not trigger GitHub Actions, authorize a long new trial, guarantee 80% actual power or retrospectively alter Q2.
+
 ## Biological caveats to accompany the main hypothesis
 
 - The inherited-allele containment theorem holds **per locus with mutation and immigrant alleles both absent**. In the completed 384-trial, **I mutation was disabled but A and M mutations remained enabled** at the predeclared mutation settings. Thus A-only outcomes (far dense 44/64, far sparse 56/64) are partly shaped by this **designed evolutionary asymmetry** and the I access gate, not pure evidence that A is intrinsically faster. Exact allocation of the category frequencies to mutation availability versus selection cannot be identified from this experiment.
