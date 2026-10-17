@@ -22,6 +22,8 @@ FROZEN_PRODUCERS = frozenset({
 })
 SCRIPT_PATH = re.compile(r"\bscripts/[A-Za-z0-9_./-]+\.py\b")
 SCRIPT_MODULE = re.compile(r"\bscripts(?:\.[A-Za-z_]\w*)+\b")
+# Both source SHA-256 and Git blob SHA-1 can pin historical research bytes.
+SOURCE_FINGERPRINT = re.compile(r"(?<![A-Fa-f0-9])(?:[A-Fa-f0-9]{64}|[A-Fa-f0-9]{40})(?![A-Fa-f0-9])")
 REFERENCING_SUFFIXES = frozenset({".py", ".md", ".json", ".toml", ".yml", ".yaml", ".txt"})
 READ_MAX_BYTES = 300_000
 
@@ -80,7 +82,23 @@ def audit(root: Path = ROOT):
     code = {p for p in files if p.endswith(".py") and (
         p.startswith("scripts/") or p.startswith("tests/") or p.startswith("data/results/")
         or p.startswith("docs/"))}
+    # Protect source files referenced solely by a digest in original receipts.
+    # This index is independent of whether the script is currently imported.
+    fingerprints = defaultdict(set)
+    source_digest = {}
+    source_blob = {}
+    for filename in scripts:
+        data = files[filename].read_bytes()
+        digest = hashlib.sha256(data).hexdigest()
+        git_blob = hashlib.sha1(
+            b"blob " + str(len(data)).encode("ascii") + b"\0" + data
+        ).hexdigest()
+        source_digest[filename] = digest
+        source_blob[filename] = git_blob
+        fingerprints[digest].add(filename)
+        fingerprints[git_blob].add(filename)
     ref_by = defaultdict(set)
+    fingerprint_ref_by = defaultdict(set)
     parse_errors = []
     text_examined = 0
     for p, path in files.items():
@@ -93,6 +111,11 @@ def audit(root: Path = ROOT):
         except (OSError, UnicodeError):
             continue
         text_examined += 1
+        for identifier in SOURCE_FINGERPRINT.findall(content):
+            for target in fingerprints.get(identifier.lower(), ()):
+                if target != p:
+                    ref_by[target].add(p)
+                    fingerprint_ref_by[target].add(p)
         for match in SCRIPT_PATH.findall(content):
             if match in scripts and match != p:
                 ref_by[match].add(p)
@@ -121,16 +144,21 @@ def audit(root: Path = ROOT):
         frozen = p.startswith("scripts/model3_island/") or p in FROZEN_PRODUCERS
         if frozen:
             phase = "frozen_model_or_producer_protect"
+        elif fingerprint_ref_by[p]:
+            phase = "source_fingerprint_reference_protect"
         elif any(x.startswith(".github/workflows/") for x in references):
             phase = "workflow_reference_check_before_edit"
         elif references:
             phase = "referenced_review_before_edit"
         else:
             phase = "unresolved_do_not_delete"
-        digest = hashlib.sha256(path.read_bytes()).hexdigest()
+        digest = source_digest[p]
         hashes[digest].append(p)
         phases[phase] += 1
         rows.append({"path": p, "category": phase, "sha256": digest,
+                     "git_blob_sha1": source_blob[p],
+                     "fingerprint_references_count": len(fingerprint_ref_by[p]),
+                     "fingerprint_references_examples": sorted(fingerprint_ref_by[p])[:8],
                      "references_count": len(references),
                      "references_examples": references[:8],
                      "truncated_references": max(0, len(references)-8)})
@@ -148,6 +176,7 @@ def audit(root: Path = ROOT):
         "scripts": rows,
         "limits": [
             "No detected reference does not mean unused, safe to delete, or biologically obsolete",
+            "Source fingerprint references protect retention, not scientific validity",
             "Dynamic import, shell construction, external notebooks and private original manifests may be missed",
             "Identical source bytes can represent intentionally separate immutable experiments",
             "Static import/reference counts are not an execution trace, semantic correctness review or cross-host provenance audit",
