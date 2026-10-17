@@ -1,16 +1,5 @@
 name: NEE high-I archived-source diagnostic
 on:
-  pull_request:
-    paths:
-      - 'scripts/audit_chapter2_nee_high_i_support_20261017.py'
-      - 'scripts/verify_chapter2_nee_high_i_readback_20261017.py'
-      - 'data/results/chapter2_nee_high_i_support_source_readout_20261017.json'
-      - 'tests/test_chapter2_nee_high_i_support_20261017.py'
-      - 'tests/test_chapter2_nee_upgrade_20261017.py'
-      - 'scripts/validate_chapter2_nee_upgrade_20261017.py'
-      - 'docs/CHAPTER2_UNIFIED_NEE_ARTICLE_WORKING_20261017.md'
-      - 'data/design/chapter2_active_publication_route_20261017.json'
-      - '.github/workflows/chapter2-nee-high-i-readonly-20261017.yml'
   workflow_dispatch:
 
 permissions:
