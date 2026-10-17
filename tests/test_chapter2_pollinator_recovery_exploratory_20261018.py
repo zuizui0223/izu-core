@@ -52,12 +52,19 @@ def test_exploratory_one_crossed_cell_executes_and_replays_exactly():
     assert a == b
     assert a["status"] == "EXPLORATORY_PILOT_ONLY_NO_CONFIRMATORY_CLAIM"
     assert a["independent_crossed_blocks"] == 1
-    assert a["future_trajectories"] == 4
-    assert len(a["by_arm"]) == 4
+    assert a["future_trajectories"] == 6
+    assert len(a["by_arm"]) == 6
     assert all(x["conditional_stream_paths"] == 1 for x in a["by_arm"])
     assert all(x["target_founder_mean_I"] == investment_mean(make_founders(181001))
                for x in a["paths"])
     assert all(x["historical_occupied"] or not x["high_I_sustained_and_occupied_final"]
+               for x in a["paths"])
+    assert any(x["future_assurance_policy"] == "freeze_at_attained_A" for x in a["paths"])
+    assert set(x["historical_assurance_policy"] for x in a["paths"]) == {"fixed", "evolving"}
+    assert all(x["regained_if_declined"] is None or x["declined_by_0p05_at_checkpoint"]
+               for x in a["paths"])
+    assert all(x["relative_focal_gradient_after_restoration"] is None or
+               np.isfinite(x["relative_focal_gradient_after_restoration"])
                for x in a["paths"])
 
 
