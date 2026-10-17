@@ -57,8 +57,8 @@ def evaluate(plan:dict,pilot:bytes)->dict:
           "declared_total_updates","number_of_coprimary_outcomes")
     if any(type(plan.get(x)) is not int or plan[x]<1 for x in keys):
         raise ValueError("HOLD: missing crossed biological cases and budget")
-    nf,nv,ne,np_,h,n,k=(plan[x] for x in keys)
-    if nf<3 or nv<3 or n!=nf*nv*ne*np_ or n*h!=plan["declared_total_updates"]:
+    nf,nv,ne,np_,h,n,total_updates,k=(plan[x] for x in keys)
+    if nf<3 or nv<3 or n!=nf*nv*ne*np_ or n*h!=total_updates:
         raise ValueError("HOLD: mismatch in factorial cases/independent source axes")
     alpha=plan.get("familywise_alpha")
     power=plan.get("minimum_joint_directional_power")
