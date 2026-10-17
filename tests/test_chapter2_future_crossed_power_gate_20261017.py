@@ -63,3 +63,24 @@ def test_prior_and_future_cohorts_do_not_mix():
     with pytest.raises(ValueError,match="HOLD"):evaluate(p,PILOT)
     p=plan()
     with pytest.raises(ValueError,match="HOLD"):evaluate(p,b"other source")
+
+
+
+def test_retrospective_precision_is_source_receipt_compatible_not_power_claim():
+    from pathlib import Path
+    import json
+    root=Path(__file__).resolve().parents[1]
+    check=json.loads((root/"docs/audits/CHAPTER2_Q2_CROSSED_RETROSPECTIVE_PRECISION_20261017.json").read_text())
+    source=json.loads((root/"docs/audits/CHAPTER2_Q2_I_SUPPORT_384_ORIGINAL_READOUT_20261016.json").read_text())
+    assert check["original_cases"]==source["original_run"]["original_cases"]==384
+    assert check["status"]=="RETROSPECTIVE_ONLY_NOT_NEW_PROSPECTIVE_POWER_OR_BIOLOGY"
+    for metric in ("carrier_order_score_delta","carrier_I_event_delta"):
+        d=check["co_primary"][metric]
+        o=source["coprimary"][metric]
+        assert d["estimate"]==o["estimate"]
+        assert d["simultaneous_CI"]==o["simultaneous_familywise_CI"]
+        assert d["ANOVA_nonnegative_founder_component"]>=0
+        assert d["ANOVA_nonnegative_visitor_component"]>=0
+        assert d["interaction_plus_path_noise_MS"]>0
+    assert all(-.125<=x<=.5 for x in check["co_primary"]["carrier_order_score_delta"]["founder_conditional_means"])
+    assert len(check["co_primary"]["carrier_I_event_delta"]["visitor_conditional_means"])==8
