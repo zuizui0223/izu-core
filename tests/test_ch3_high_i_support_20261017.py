@@ -25,6 +25,10 @@ def test_high_I_and_original_low_I_source_audit():
     assert output["declared_interpretation"]["does_not_measure_pollinator_extirpation_T_E"]
     assert output["declared_interpretation"]["does_not_identify_assurance_evolution_effect"]
     assert output["declared_interpretation"]["absence_of_loss_is_not_recovery"]
+    assert output["the_three_high_I_criteria_have_identical_first_loss_times"] is True
+    overlap = output["high_vs_low_loss_same_original_histories"]
+    assert overlap["both_high_and_low"] + overlap["high_only"] + overlap["low_only"] + overlap["neither"] == 2304
+    assert overlap["both_high_first"] + overlap["both_low_first"] + overlap["both_same_census"] == overlap["both_high_and_low"]
     targets = output["high_i_loss"]
     assert set(targets) == {
         "return_to_actual_founder_I", "founder_I_plus_0.05",
