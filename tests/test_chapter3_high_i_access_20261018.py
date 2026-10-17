@@ -40,6 +40,14 @@ def test_archived_2304_q3_high_vs_low_source_reconciliation(tmp_path):
     all_=result["all"]
     assert result["status"]=="SOURCE_ONLY_RETROSPECTIVE_HIGH_I_STRUCTURAL_ACCESS"
     assert all_["cases"]==2304
+    # Source-observed RETROSPECTIVE counts, not prospectively registered results.
+    assert all_["first_high_loss"]==1455
+    assert all_["high_loss_before_fixation"]==758
+    assert all_["high_loss_at_fixation"]==697
+    assert all_["high_loss_and_nonzero_expressed_variance"]==758
+    assert all_["terminally_extinct"]==0
+    assert result["by_founder"]["main"]["first_high_loss"]==714
+    assert result["by_founder"]["confirmation"]["first_high_loss"]==741
     assert all_["overlap_with_old_low_I_loss"]+all_[
         "old_low_I_loss_without_high_loss"]==1238
     assert all_["first_high_loss"]+all_["still_high_reachable_at_end"]==2304
