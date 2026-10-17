@@ -1,0 +1,175 @@
+{
+  "schema": "chapter2_model3_manuscript_primary_claim_decision_v1",
+  "date": "2026-10-17",
+  "status": "EDITORIAL_PRIMARY_CLAIM_LOCKED_WITH_REGISTERED_INFERENCE_UNCHANGED",
+  "source_baseline_main": "0ed464d58479fa0c3dd0c51b26b46e877a0938bf",
+  "purpose": "Select the strongest manuscript-level scientific claim from already executed source-verified Q1–Q4; not to retroactively replace any preregistered primary estimand.",
+  "primary_manuscript_hypothesis": {
+    "id": "H_MAIN_NONSEQUENTIAL_NECESSITY",
+    "question": "Does an observed A-first temporal response prove that A evolution is necessary for subsequent floral-investment decline under pollinator limitation?",
+    "decision": "REJECT_UNIVERSAL_EVOLUTIONARY_NECESSITY_WITHIN_DECLARED_MODEL3_CONDITIONS",
+    "claim": "In a pollen-limited finite-diploid Model 3, reproductive assurance A may cross a sustained response threshold before investment I declines; nevertheless, I can decline when A evolution is blocked at nonzero A=0.5. Temporal precedence therefore does not establish evolutionary necessity within this model.",
+    "assurance_first_original_history": {
+      "successes": 51,
+      "visitor_histories": 64,
+      "population": "synthetic delayed-selfing, direct assurance-cost",
+      "threshold": 0.05,
+      "sustained_censuses": 20,
+      "tie_updates": 5,
+      "evidence": "data/results/chapter2_1005_confirmatory_replication_20261006.json"
+    },
+    "fixed_A_counterexample": {
+      "fixed_expressed_A": 0.5,
+      "still_selfing": true,
+      "old_four_settings_all_negative_far_minus_near": true,
+      "new_eight_founder_fixed_A_far_change_from_founder_means": [
+        -0.21747828953491283,
+        -0.27780237327916046,
+        -0.2868655296600111,
+        -0.21904719753411
+      ],
+      "new_eight_founder_fixed_A_far_change_cis": [
+        [
+          -0.2760495695521909,
+          -0.16467359368980966
+        ],
+        [
+          -0.3261386062845822,
+          -0.22890175803102764
+        ],
+        [
+          -0.3375498048050434,
+          -0.2366550762993715
+        ],
+        [
+          -0.27739416118051236,
+          -0.1621326569656956
+        ]
+      ],
+      "new_founder_support": "4/4 setting means and 8/8 founder-specific fixed-A far-minus-near means negative in each setting; retrospective archive readback, not new prospective primary test",
+      "evidence": "docs/CHAPTER2_TWO_PROPOSITIONS_PROOF_AND_RESULT_20261016.md"
+    },
+    "interpretation_limits": [
+      "Observed A-first and fixed-A counterexample came from different registered source cohorts, not exact path-matched 51 interventions.",
+      "A evolution was disabled, not self-fertilization; expressed A remained 0.5.",
+      "Exhibiting counterexamples refutes a universal prerequisite claim in the tested model, but does not prove every real species or island evolves independently of assurance.",
+      "Neither the first mutational event nor a natural genetic/evolutionary rescue path was inferred from the 0.05/20-census crossing metric."
+    ]
+  },
+  "supporting_logic": [
+    {
+      "id": "H_ACCESS_SUPPORT_BOUND",
+      "status": "MATHEMATICAL_UNDER_PREMISES_AND_SOURCE_OBSERVED",
+      "claim": "Without mutation at I and seed immigration, the inherited I-allele support S(t+1) is a subset of S(t); losing needed low-I alleles can close a specified future 0.05 investment decline before complete I fixation.",
+      "numeric_evidence": {
+        "cohort": 2304,
+        "excluded_before_fixation": 703,
+        "excluded_before_fixation_without_prior_I_event": 702,
+        "conditioned_first_exclusion_transitions": 1238,
+        "conditioned_positive_parental_weighting_but_zero_child_copies": 315
+      },
+      "proof_scope": "No I mutation and no immigrant I alleles; not universal for positive mutation/immigration.",
+      "source": "docs/CHAPTER2_TWO_PROPOSITIONS_PROOF_AND_RESULT_20261016.md"
+    },
+    {
+      "id": "H_Q1_ASSURANCE_EFFECT_ON_DIVERGENCE",
+      "status": "ORIGINAL_4_OF_4_REGISTERED_FRESH_FOUNDER_3_OF_4",
+      "claim": "Allowing A to evolve can change the near/far floral-investment divergence, but the four-setting generality of the E-minus-F compression did not transport fully to fresh founders (direct A-cost unresolved).",
+      "source": "docs/CHAPTER2_Q1_FRESH_FOUNDER_RESULTS_20261016.md"
+    },
+    {
+      "id": "H_Q2_CARRIER_NUMBER_ORDER_AND_EVENT",
+      "status": "REGISTERED_BOTH_COPRIMARY_INCONCLUSIVE",
+      "study_scope": "One new approved finite Model 3 campaign, eight founder labels crossed with eight visitor-history labels, two artificial pollen-limited environments, three I-genotype policies: 384 paths each with 200 updates.",
+      "co_primary": [
+        {
+          "name": "Delta[P(A-first)-P(I-first)]",
+          "estimate": 0.109375,
+          "bonferroni_simultaneous_97_5_CI": [
+            -0.125,
+            0.34375
+          ],
+          "excludes_zero": false
+        },
+        {
+          "name": "Delta[P(I event)]",
+          "estimate": 0.1875,
+          "bonferroni_simultaneous_97_5_CI": [
+            -0.0625,
+            0.421875
+          ],
+          "excludes_zero": false
+        }
+      ],
+      "registered_joint_gate": "BOTH co-primary adjusted intervals must exclude zero",
+      "joint_result": "both_inconclusive",
+      "descriptive_far_I_events_dense_24": 20,
+      "descriptive_far_I_events_sparse_12": 8,
+      "each_arm_denominator": 64,
+      "structural_control_far_I_events": 0,
+      "structural_control_near_I_events": 0,
+      "interpretation_limits": [
+        "Do not claim significance or a demonstrated zero effect; both adjusted intervals straddle zero.",
+        "The genetically unreachable 0/64 arms are mathematically engineered negative controls, not an independent discovered selection mechanism.",
+        "Carrier number affects standing allele frequencies, genotype distribution and genetic variance jointly; variance-specific mediation not identified.",
+        "No outcome-driven added seeds, power rescue, thresholds or unregistered new co-primary inference."
+      ],
+      "source": "docs/audits/CHAPTER2_Q2_I_SUPPORT_384_ORIGINAL_READOUT_20261016.json",
+      "original_action_run": 38918737325
+    },
+    {
+      "id": "H_Q3_DENSITY_FINITE_REALIZATION",
+      "status": "SEPARATE_MODEL_CONDITIONAL_PREDICTION_REALIZATION_GAP",
+      "claim": "Conditional genotype-density predictions of A-first did not occur as A-first in most matched finite Model 3 paths (3/32 and 2/32 in two contexts) despite occupancy.",
+      "limits": "Density is not exact finite-ABM ensemble expectation; differs in individual self-pollen exclusion; cannot uniquely attribute mismatch to genetic drift or allele loss from another source cohort.",
+      "source": "docs/CHAPTER2_TWO_PROPOSITIONS_PROOF_AND_RESULT_20261016.md"
+    },
+    {
+      "id": "H_Q4_CONDITIONAL_OCCUPANCY",
+      "status": "SUPPORTED_SEPARATE_REGISTERED_STRESS_INTERACTION_NO_ORDER_MEDIATION",
+      "pooled_interaction_points": 10.83984375,
+      "ci_points": [
+        6.54296875,
+        15.13671875
+      ],
+      "limits": "Future A evolvability continues; no spontaneous A-first order-mediated survival rescue identified.",
+      "source": "data/results/chapter2_island_demographic_independent32_20261008.json"
+    }
+  ],
+  "paper_evidence_layers": [
+    {
+      "id": "tier1",
+      "interpretation": "Source-confirmed within declared model/counterfactual/theorem; not global natural-island law",
+      "findings": [
+        "H_MAIN_NONSEQUENTIAL_NECESSITY",
+        "H_ACCESS_SUPPORT_BOUND"
+      ]
+    },
+    {
+      "id": "tier2",
+      "interpretation": "Supported conditional model-setting effects with limited transport",
+      "findings": [
+        "H_Q1_ASSURANCE_EFFECT_ON_DIVERGENCE",
+        "H_Q4_CONDITIONAL_OCCUPANCY"
+      ]
+    },
+    {
+      "id": "tier3",
+      "interpretation": "Observed heterogeneity / incomplete causal attribution / prospectively inconclusive contrast",
+      "findings": [
+        "H_Q2_CARRIER_NUMBER_ORDER_AND_EVENT",
+        "H_Q3_DENSITY_FINITE_REALIZATION"
+      ]
+    }
+  ],
+  "manuscript_decision": {
+    "center": "Precedence is not evolutionary necessity; expected response direction, genetic reachability, realized path and persistence are distinct model-dependent propositions.",
+    "not_replace_original_preregistered_primaries": true,
+    "not_claim": "Carrier count determines direction of evolution or initial standing variation solely drives the order.",
+    "not_ascribe_to_wild_islands": true,
+    "not_treat_multi_cohort_logic_as_one_identified_mediation_chain": true,
+    "manuscript": "docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md",
+    "existing_paper_state": "single active unsubmitted Ecology Letters Letter; preserve Q1-Q4 results and original figures"
+  },
+  "further_work_status": "No additional biological cohorts authorized or necessary to finalize this editorial decision; future confirmation of the inconclusive carrier effect would need an independently justified and preregistered new study rather than ad hoc seed expansion."
+}
