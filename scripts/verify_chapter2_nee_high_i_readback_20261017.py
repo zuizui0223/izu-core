@@ -20,7 +20,7 @@ import numpy as np
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / "data/results/directional_access_20261013"
-READOUT = ROOT / "data/results/chapter2_nee_high_i_support_source_readout_20261017.json"
+READOUT = ROOT / "docs/audits/CHAPTER2_NEE_HIGH_I_SUPPORT_SOURCE_READOUT_20261017.json"
 
 
 def sha(raw):
