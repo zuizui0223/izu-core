@@ -43,7 +43,16 @@
     "q3": {
       "old_cases": 2304,
       "loss_before_fixation_for_further_LOW_I_decline": 703,
-      "high_I_recovery_support_loss": "NOT_YET_AUDITED_FOR_NEW_STUDY"
+      "high_I_founder_mean_retrospective_support_exclusion": {
+        "source_only_readout": "data/results/chapter2_nee_high_i_support_source_readout_20261017.json",
+        "high_I_structurally_unreachable_original_founder_mean": 1455,
+        "original_histories": 2304,
+        "before_fixation": 758,
+        "at_fixation": 697,
+        "distinct_from_original_low_I_703": true,
+        "title_scope": "retrospective founder-mean target under zero I mutation/immigration; not visitor-restored recovery, no A-evolvability contrast or time to permanent pollinator extinction"
+      },
+      "high_I_restored_pollination_recovery_outcome": "NOT_EXECUTED"
     },
     "q4": {
       "registered_pooled_interaction": 0.1083984375,
@@ -62,7 +71,7 @@
     "optional source-qualified independent world-island empirical contrast: no invented geologic-age proxy"
   ],
   "current_submission_blockers": [
-    "No new historical-restoration intervention run",
+    "No new historical-restoration intervention run (read-only high-I source audit is not the new recovery experiment)",
     "No confirmed recoverability/no-return timing or sign",
     "No external island-data matching proof or independent validation",
     "Original raw data externally deposited DOI pending issue #436",
