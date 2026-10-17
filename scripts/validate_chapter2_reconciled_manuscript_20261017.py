@@ -116,6 +116,9 @@ def audit(root: Path = ROOT) -> dict:
     source = original.decode("utf-8")
     source_n = verify_source(source)
     anonymous = anonymous_review_text(source)
+    preview = root / "docs/CHAPTER2_ANONYMOUS_REVIEW_20261017.md"
+    if preview.read_text(encoding="utf-8") != anonymous:
+        raise ValueError("Anonymous reviewer preview differs from source-derived text")
     return {
         "schema": "chapter2_reconciled_manuscript_review_v1",
         "status": "WORD_COUNT_AND_ANONYMITY_PASS_NOT_SUBMITTED",
@@ -123,6 +126,7 @@ def audit(root: Path = ROOT) -> dict:
         "anonymous_sha256": hashlib.sha256(anonymous.encode("utf-8")).hexdigest(),
         "source_word_counts": source_n,
         "anonymous_word_counts": lengths(anonymous),
+        "anonymous_preview_matches_reconciled_source": True,
         "figure_roster": ["Figure1.pdf", "Figure2.pdf", "Figure3.pdf", "Figure4.svg",
                           "SupplementaryFigureS1.pdf", "SupplementaryFigureS2.svg",
                           "SupplementaryFigureS3.pdf"],
