@@ -1,0 +1,1295 @@
+{
+  "analyses": {
+    "founder_mean_plus_0p05": {
+      "all": {
+        "at_fixation": 697,
+        "before_fixation": 758,
+        "cases": 2304,
+        "first_high_I_support_loss": 1455,
+        "high_I_lost_at_or_after_original_A_window_complete": 491,
+        "high_I_lost_before_original_A_window_complete": 943,
+        "historically_extinct": 0,
+        "initially_accessible": 2304,
+        "initially_inaccessible_to_exploratory_target": 0,
+        "loss_count_by_original_Q2_category": {
+          "assurance_first": 328,
+          "assurance_only": 321,
+          "investment_first": 429,
+          "investment_only": 6,
+          "near_simultaneous": 356,
+          "neither": 15
+        },
+        "loss_time_min_q25_median_q75_max": [
+          7,
+          18,
+          28,
+          46,
+          199
+        ],
+        "still_I_var_positive": 758,
+        "terminally_occupied_and_high_I_locked": 1455
+      },
+      "by_block": {
+        "confirmation": {
+          "at_fixation": 320,
+          "before_fixation": 421,
+          "cases": 1152,
+          "first_high_I_support_loss": 741,
+          "high_I_lost_at_or_after_original_A_window_complete": 251,
+          "high_I_lost_before_original_A_window_complete": 475,
+          "historically_extinct": 0,
+          "initially_accessible": 1152,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 162,
+            "assurance_only": 235,
+            "investment_first": 167,
+            "investment_only": 3,
+            "near_simultaneous": 162,
+            "neither": 12
+          },
+          "loss_time_min_q25_median_q75_max": [
+            7,
+            18,
+            28,
+            47,
+            196
+          ],
+          "still_I_var_positive": 421,
+          "terminally_occupied_and_high_I_locked": 741
+        },
+        "main": {
+          "at_fixation": 377,
+          "before_fixation": 337,
+          "cases": 1152,
+          "first_high_I_support_loss": 714,
+          "high_I_lost_at_or_after_original_A_window_complete": 240,
+          "high_I_lost_before_original_A_window_complete": 468,
+          "historically_extinct": 0,
+          "initially_accessible": 1152,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 166,
+            "assurance_only": 86,
+            "investment_first": 262,
+            "investment_only": 3,
+            "near_simultaneous": 194,
+            "neither": 3
+          },
+          "loss_time_min_q25_median_q75_max": [
+            7,
+            18,
+            28,
+            45,
+            199
+          ],
+          "still_I_var_positive": 337,
+          "terminally_occupied_and_high_I_locked": 714
+        }
+      },
+      "by_cell": [
+        {
+          "at_fixation": 55,
+          "before_fixation": 73,
+          "block": "main",
+          "cases": 128,
+          "context": 0,
+          "first_high_I_support_loss": 128,
+          "high_I_lost_at_or_after_original_A_window_complete": 28,
+          "high_I_lost_before_original_A_window_complete": 100,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 24,
+            "assurance_only": 7,
+            "investment_first": 51,
+            "investment_only": 0,
+            "near_simultaneous": 46,
+            "neither": 0
+          },
+          "loss_time_min_q25_median_q75_max": [
+            7,
+            14.75,
+            21.5,
+            29.25,
+            56
+          ],
+          "still_I_var_positive": 73,
+          "terminally_occupied_and_high_I_locked": 128
+        },
+        {
+          "at_fixation": 68,
+          "before_fixation": 60,
+          "block": "main",
+          "cases": 128,
+          "context": 1,
+          "first_high_I_support_loss": 128,
+          "high_I_lost_at_or_after_original_A_window_complete": 36,
+          "high_I_lost_before_original_A_window_complete": 92,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 30,
+            "assurance_only": 11,
+            "investment_first": 49,
+            "investment_only": 0,
+            "near_simultaneous": 38,
+            "neither": 0
+          },
+          "loss_time_min_q25_median_q75_max": [
+            8,
+            18,
+            24,
+            39,
+            98
+          ],
+          "still_I_var_positive": 60,
+          "terminally_occupied_and_high_I_locked": 128
+        },
+        {
+          "at_fixation": 67,
+          "before_fixation": 60,
+          "block": "main",
+          "cases": 128,
+          "context": 2,
+          "first_high_I_support_loss": 127,
+          "high_I_lost_at_or_after_original_A_window_complete": 29,
+          "high_I_lost_before_original_A_window_complete": 98,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 24,
+            "assurance_only": 7,
+            "investment_first": 49,
+            "investment_only": 0,
+            "near_simultaneous": 47,
+            "neither": 0
+          },
+          "loss_time_min_q25_median_q75_max": [
+            7,
+            16,
+            21,
+            30,
+            111
+          ],
+          "still_I_var_positive": 60,
+          "terminally_occupied_and_high_I_locked": 127
+        },
+        {
+          "at_fixation": 60,
+          "before_fixation": 49,
+          "block": "main",
+          "cases": 128,
+          "context": 3,
+          "first_high_I_support_loss": 109,
+          "high_I_lost_at_or_after_original_A_window_complete": 52,
+          "high_I_lost_before_original_A_window_complete": 57,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 33,
+            "assurance_only": 17,
+            "investment_first": 41,
+            "investment_only": 0,
+            "near_simultaneous": 18,
+            "neither": 0
+          },
+          "loss_time_min_q25_median_q75_max": [
+            10,
+            26,
+            41,
+            67,
+            190
+          ],
+          "still_I_var_positive": 49,
+          "terminally_occupied_and_high_I_locked": 109
+        },
+        {
+          "at_fixation": 71,
+          "before_fixation": 54,
+          "block": "main",
+          "cases": 128,
+          "context": 4,
+          "first_high_I_support_loss": 125,
+          "high_I_lost_at_or_after_original_A_window_complete": 51,
+          "high_I_lost_before_original_A_window_complete": 74,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 33,
+            "assurance_only": 10,
+            "investment_first": 46,
+            "investment_only": 0,
+            "near_simultaneous": 36,
+            "neither": 0
+          },
+          "loss_time_min_q25_median_q75_max": [
+            8,
+            22,
+            31,
+            43,
+            185
+          ],
+          "still_I_var_positive": 54,
+          "terminally_occupied_and_high_I_locked": 125
+        },
+        {
+          "at_fixation": 10,
+          "before_fixation": 1,
+          "block": "main",
+          "cases": 128,
+          "context": 5,
+          "first_high_I_support_loss": 11,
+          "high_I_lost_at_or_after_original_A_window_complete": 6,
+          "high_I_lost_before_original_A_window_complete": 4,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 0,
+            "assurance_only": 9,
+            "investment_first": 1,
+            "investment_only": 0,
+            "near_simultaneous": 0,
+            "neither": 1
+          },
+          "loss_time_min_q25_median_q75_max": [
+            34,
+            54.5,
+            89,
+            110.5,
+            135
+          ],
+          "still_I_var_positive": 1,
+          "terminally_occupied_and_high_I_locked": 11
+        },
+        {
+          "at_fixation": 38,
+          "before_fixation": 33,
+          "block": "main",
+          "cases": 128,
+          "context": 6,
+          "first_high_I_support_loss": 71,
+          "high_I_lost_at_or_after_original_A_window_complete": 35,
+          "high_I_lost_before_original_A_window_complete": 35,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 22,
+            "assurance_only": 17,
+            "investment_first": 22,
+            "investment_only": 1,
+            "near_simultaneous": 9,
+            "neither": 0
+          },
+          "loss_time_min_q25_median_q75_max": [
+            7,
+            28,
+            47,
+            73.5,
+            199
+          ],
+          "still_I_var_positive": 33,
+          "terminally_occupied_and_high_I_locked": 71
+        },
+        {
+          "at_fixation": 2,
+          "before_fixation": 3,
+          "block": "main",
+          "cases": 128,
+          "context": 7,
+          "first_high_I_support_loss": 5,
+          "high_I_lost_at_or_after_original_A_window_complete": 2,
+          "high_I_lost_before_original_A_window_complete": 1,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 0,
+            "assurance_only": 3,
+            "investment_first": 0,
+            "investment_only": 1,
+            "near_simultaneous": 0,
+            "neither": 1
+          },
+          "loss_time_min_q25_median_q75_max": [
+            36,
+            57,
+            64,
+            98,
+            171
+          ],
+          "still_I_var_positive": 3,
+          "terminally_occupied_and_high_I_locked": 5
+        },
+        {
+          "at_fixation": 6,
+          "before_fixation": 4,
+          "block": "main",
+          "cases": 128,
+          "context": 8,
+          "first_high_I_support_loss": 10,
+          "high_I_lost_at_or_after_original_A_window_complete": 1,
+          "high_I_lost_before_original_A_window_complete": 7,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 0,
+            "assurance_only": 5,
+            "investment_first": 3,
+            "investment_only": 1,
+            "near_simultaneous": 0,
+            "neither": 1
+          },
+          "loss_time_min_q25_median_q75_max": [
+            24,
+            42.75,
+            50.5,
+            70,
+            95
+          ],
+          "still_I_var_positive": 4,
+          "terminally_occupied_and_high_I_locked": 10
+        },
+        {
+          "at_fixation": 41,
+          "before_fixation": 85,
+          "block": "confirmation",
+          "cases": 128,
+          "context": 0,
+          "first_high_I_support_loss": 126,
+          "high_I_lost_at_or_after_original_A_window_complete": 29,
+          "high_I_lost_before_original_A_window_complete": 97,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 25,
+            "assurance_only": 29,
+            "investment_first": 36,
+            "investment_only": 0,
+            "near_simultaneous": 36,
+            "neither": 0
+          },
+          "loss_time_min_q25_median_q75_max": [
+            7,
+            14.25,
+            19.5,
+            31,
+            140
+          ],
+          "still_I_var_positive": 85,
+          "terminally_occupied_and_high_I_locked": 126
+        },
+        {
+          "at_fixation": 48,
+          "before_fixation": 75,
+          "block": "confirmation",
+          "cases": 128,
+          "context": 1,
+          "first_high_I_support_loss": 123,
+          "high_I_lost_at_or_after_original_A_window_complete": 34,
+          "high_I_lost_before_original_A_window_complete": 89,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 26,
+            "assurance_only": 29,
+            "investment_first": 36,
+            "investment_only": 0,
+            "near_simultaneous": 32,
+            "neither": 0
+          },
+          "loss_time_min_q25_median_q75_max": [
+            7,
+            17,
+            23,
+            37,
+            105
+          ],
+          "still_I_var_positive": 75,
+          "terminally_occupied_and_high_I_locked": 123
+        },
+        {
+          "at_fixation": 48,
+          "before_fixation": 76,
+          "block": "confirmation",
+          "cases": 128,
+          "context": 2,
+          "first_high_I_support_loss": 124,
+          "high_I_lost_at_or_after_original_A_window_complete": 29,
+          "high_I_lost_before_original_A_window_complete": 95,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 27,
+            "assurance_only": 27,
+            "investment_first": 32,
+            "investment_only": 0,
+            "near_simultaneous": 38,
+            "neither": 0
+          },
+          "loss_time_min_q25_median_q75_max": [
+            7,
+            15.75,
+            22,
+            35.25,
+            99
+          ],
+          "still_I_var_positive": 76,
+          "terminally_occupied_and_high_I_locked": 124
+        },
+        {
+          "at_fixation": 56,
+          "before_fixation": 45,
+          "block": "confirmation",
+          "cases": 128,
+          "context": 3,
+          "first_high_I_support_loss": 101,
+          "high_I_lost_at_or_after_original_A_window_complete": 56,
+          "high_I_lost_before_original_A_window_complete": 44,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 34,
+            "assurance_only": 39,
+            "investment_first": 14,
+            "investment_only": 1,
+            "near_simultaneous": 13,
+            "neither": 0
+          },
+          "loss_time_min_q25_median_q75_max": [
+            9,
+            28,
+            43,
+            78,
+            157
+          ],
+          "still_I_var_positive": 45,
+          "terminally_occupied_and_high_I_locked": 101
+        },
+        {
+          "at_fixation": 51,
+          "before_fixation": 73,
+          "block": "confirmation",
+          "cases": 128,
+          "context": 4,
+          "first_high_I_support_loss": 124,
+          "high_I_lost_at_or_after_original_A_window_complete": 46,
+          "high_I_lost_before_original_A_window_complete": 78,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 30,
+            "assurance_only": 33,
+            "investment_first": 29,
+            "investment_only": 0,
+            "near_simultaneous": 32,
+            "neither": 0
+          },
+          "loss_time_min_q25_median_q75_max": [
+            7,
+            18,
+            28,
+            47,
+            106
+          ],
+          "still_I_var_positive": 73,
+          "terminally_occupied_and_high_I_locked": 124
+        },
+        {
+          "at_fixation": 10,
+          "before_fixation": 8,
+          "block": "confirmation",
+          "cases": 128,
+          "context": 5,
+          "first_high_I_support_loss": 18,
+          "high_I_lost_at_or_after_original_A_window_complete": 5,
+          "high_I_lost_before_original_A_window_complete": 7,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 2,
+            "assurance_only": 9,
+            "investment_first": 0,
+            "investment_only": 1,
+            "near_simultaneous": 1,
+            "neither": 5
+          },
+          "loss_time_min_q25_median_q75_max": [
+            13,
+            35,
+            54,
+            95.25,
+            141
+          ],
+          "still_I_var_positive": 8,
+          "terminally_occupied_and_high_I_locked": 18
+        },
+        {
+          "at_fixation": 36,
+          "before_fixation": 38,
+          "block": "confirmation",
+          "cases": 128,
+          "context": 6,
+          "first_high_I_support_loss": 74,
+          "high_I_lost_at_or_after_original_A_window_complete": 37,
+          "high_I_lost_before_original_A_window_complete": 37,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 10,
+            "assurance_only": 42,
+            "investment_first": 14,
+            "investment_only": 0,
+            "near_simultaneous": 8,
+            "neither": 0
+          },
+          "loss_time_min_q25_median_q75_max": [
+            8,
+            24.5,
+            39.5,
+            73.25,
+            184
+          ],
+          "still_I_var_positive": 38,
+          "terminally_occupied_and_high_I_locked": 74
+        },
+        {
+          "at_fixation": 8,
+          "before_fixation": 1,
+          "block": "confirmation",
+          "cases": 128,
+          "context": 7,
+          "first_high_I_support_loss": 9,
+          "high_I_lost_at_or_after_original_A_window_complete": 2,
+          "high_I_lost_before_original_A_window_complete": 3,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 0,
+            "assurance_only": 5,
+            "investment_first": 0,
+            "investment_only": 0,
+            "near_simultaneous": 0,
+            "neither": 4
+          },
+          "loss_time_min_q25_median_q75_max": [
+            24,
+            39,
+            51,
+            88,
+            161
+          ],
+          "still_I_var_positive": 1,
+          "terminally_occupied_and_high_I_locked": 9
+        },
+        {
+          "at_fixation": 22,
+          "before_fixation": 20,
+          "block": "confirmation",
+          "cases": 128,
+          "context": 8,
+          "first_high_I_support_loss": 42,
+          "high_I_lost_at_or_after_original_A_window_complete": 13,
+          "high_I_lost_before_original_A_window_complete": 25,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 8,
+            "assurance_only": 22,
+            "investment_first": 6,
+            "investment_only": 1,
+            "near_simultaneous": 2,
+            "neither": 3
+          },
+          "loss_time_min_q25_median_q75_max": [
+            12,
+            27,
+            46.5,
+            78,
+            196
+          ],
+          "still_I_var_positive": 20,
+          "terminally_occupied_and_high_I_locked": 42
+        }
+      ],
+      "definition": "initial_founder_mean_plus_0.05_exploratory"
+    },
+    "return_to_founder_mean": {
+      "all": {
+        "at_fixation": 697,
+        "before_fixation": 758,
+        "cases": 2304,
+        "first_high_I_support_loss": 1455,
+        "high_I_lost_at_or_after_original_A_window_complete": 491,
+        "high_I_lost_before_original_A_window_complete": 943,
+        "historically_extinct": 0,
+        "initially_accessible": 2304,
+        "initially_inaccessible_to_exploratory_target": 0,
+        "loss_count_by_original_Q2_category": {
+          "assurance_first": 328,
+          "assurance_only": 321,
+          "investment_first": 429,
+          "investment_only": 6,
+          "near_simultaneous": 356,
+          "neither": 15
+        },
+        "loss_time_min_q25_median_q75_max": [
+          7,
+          18,
+          28,
+          46,
+          199
+        ],
+        "still_I_var_positive": 758,
+        "terminally_occupied_and_high_I_locked": 1455
+      },
+      "by_block": {
+        "confirmation": {
+          "at_fixation": 320,
+          "before_fixation": 421,
+          "cases": 1152,
+          "first_high_I_support_loss": 741,
+          "high_I_lost_at_or_after_original_A_window_complete": 251,
+          "high_I_lost_before_original_A_window_complete": 475,
+          "historically_extinct": 0,
+          "initially_accessible": 1152,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 162,
+            "assurance_only": 235,
+            "investment_first": 167,
+            "investment_only": 3,
+            "near_simultaneous": 162,
+            "neither": 12
+          },
+          "loss_time_min_q25_median_q75_max": [
+            7,
+            18,
+            28,
+            47,
+            196
+          ],
+          "still_I_var_positive": 421,
+          "terminally_occupied_and_high_I_locked": 741
+        },
+        "main": {
+          "at_fixation": 377,
+          "before_fixation": 337,
+          "cases": 1152,
+          "first_high_I_support_loss": 714,
+          "high_I_lost_at_or_after_original_A_window_complete": 240,
+          "high_I_lost_before_original_A_window_complete": 468,
+          "historically_extinct": 0,
+          "initially_accessible": 1152,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 166,
+            "assurance_only": 86,
+            "investment_first": 262,
+            "investment_only": 3,
+            "near_simultaneous": 194,
+            "neither": 3
+          },
+          "loss_time_min_q25_median_q75_max": [
+            7,
+            18,
+            28,
+            45,
+            199
+          ],
+          "still_I_var_positive": 337,
+          "terminally_occupied_and_high_I_locked": 714
+        }
+      },
+      "by_cell": [
+        {
+          "at_fixation": 55,
+          "before_fixation": 73,
+          "block": "main",
+          "cases": 128,
+          "context": 0,
+          "first_high_I_support_loss": 128,
+          "high_I_lost_at_or_after_original_A_window_complete": 28,
+          "high_I_lost_before_original_A_window_complete": 100,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 24,
+            "assurance_only": 7,
+            "investment_first": 51,
+            "investment_only": 0,
+            "near_simultaneous": 46,
+            "neither": 0
+          },
+          "loss_time_min_q25_median_q75_max": [
+            7,
+            14.75,
+            21.5,
+            29.25,
+            56
+          ],
+          "still_I_var_positive": 73,
+          "terminally_occupied_and_high_I_locked": 128
+        },
+        {
+          "at_fixation": 68,
+          "before_fixation": 60,
+          "block": "main",
+          "cases": 128,
+          "context": 1,
+          "first_high_I_support_loss": 128,
+          "high_I_lost_at_or_after_original_A_window_complete": 36,
+          "high_I_lost_before_original_A_window_complete": 92,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 30,
+            "assurance_only": 11,
+            "investment_first": 49,
+            "investment_only": 0,
+            "near_simultaneous": 38,
+            "neither": 0
+          },
+          "loss_time_min_q25_median_q75_max": [
+            8,
+            18,
+            24,
+            39,
+            98
+          ],
+          "still_I_var_positive": 60,
+          "terminally_occupied_and_high_I_locked": 128
+        },
+        {
+          "at_fixation": 67,
+          "before_fixation": 60,
+          "block": "main",
+          "cases": 128,
+          "context": 2,
+          "first_high_I_support_loss": 127,
+          "high_I_lost_at_or_after_original_A_window_complete": 29,
+          "high_I_lost_before_original_A_window_complete": 98,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 24,
+            "assurance_only": 7,
+            "investment_first": 49,
+            "investment_only": 0,
+            "near_simultaneous": 47,
+            "neither": 0
+          },
+          "loss_time_min_q25_median_q75_max": [
+            7,
+            16,
+            21,
+            30,
+            111
+          ],
+          "still_I_var_positive": 60,
+          "terminally_occupied_and_high_I_locked": 127
+        },
+        {
+          "at_fixation": 60,
+          "before_fixation": 49,
+          "block": "main",
+          "cases": 128,
+          "context": 3,
+          "first_high_I_support_loss": 109,
+          "high_I_lost_at_or_after_original_A_window_complete": 52,
+          "high_I_lost_before_original_A_window_complete": 57,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 33,
+            "assurance_only": 17,
+            "investment_first": 41,
+            "investment_only": 0,
+            "near_simultaneous": 18,
+            "neither": 0
+          },
+          "loss_time_min_q25_median_q75_max": [
+            10,
+            26,
+            41,
+            67,
+            190
+          ],
+          "still_I_var_positive": 49,
+          "terminally_occupied_and_high_I_locked": 109
+        },
+        {
+          "at_fixation": 71,
+          "before_fixation": 54,
+          "block": "main",
+          "cases": 128,
+          "context": 4,
+          "first_high_I_support_loss": 125,
+          "high_I_lost_at_or_after_original_A_window_complete": 51,
+          "high_I_lost_before_original_A_window_complete": 74,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 33,
+            "assurance_only": 10,
+            "investment_first": 46,
+            "investment_only": 0,
+            "near_simultaneous": 36,
+            "neither": 0
+          },
+          "loss_time_min_q25_median_q75_max": [
+            8,
+            22,
+            31,
+            43,
+            185
+          ],
+          "still_I_var_positive": 54,
+          "terminally_occupied_and_high_I_locked": 125
+        },
+        {
+          "at_fixation": 10,
+          "before_fixation": 1,
+          "block": "main",
+          "cases": 128,
+          "context": 5,
+          "first_high_I_support_loss": 11,
+          "high_I_lost_at_or_after_original_A_window_complete": 6,
+          "high_I_lost_before_original_A_window_complete": 4,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 0,
+            "assurance_only": 9,
+            "investment_first": 1,
+            "investment_only": 0,
+            "near_simultaneous": 0,
+            "neither": 1
+          },
+          "loss_time_min_q25_median_q75_max": [
+            34,
+            54.5,
+            89,
+            110.5,
+            135
+          ],
+          "still_I_var_positive": 1,
+          "terminally_occupied_and_high_I_locked": 11
+        },
+        {
+          "at_fixation": 38,
+          "before_fixation": 33,
+          "block": "main",
+          "cases": 128,
+          "context": 6,
+          "first_high_I_support_loss": 71,
+          "high_I_lost_at_or_after_original_A_window_complete": 35,
+          "high_I_lost_before_original_A_window_complete": 35,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 22,
+            "assurance_only": 17,
+            "investment_first": 22,
+            "investment_only": 1,
+            "near_simultaneous": 9,
+            "neither": 0
+          },
+          "loss_time_min_q25_median_q75_max": [
+            7,
+            28,
+            47,
+            73.5,
+            199
+          ],
+          "still_I_var_positive": 33,
+          "terminally_occupied_and_high_I_locked": 71
+        },
+        {
+          "at_fixation": 2,
+          "before_fixation": 3,
+          "block": "main",
+          "cases": 128,
+          "context": 7,
+          "first_high_I_support_loss": 5,
+          "high_I_lost_at_or_after_original_A_window_complete": 2,
+          "high_I_lost_before_original_A_window_complete": 1,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 0,
+            "assurance_only": 3,
+            "investment_first": 0,
+            "investment_only": 1,
+            "near_simultaneous": 0,
+            "neither": 1
+          },
+          "loss_time_min_q25_median_q75_max": [
+            36,
+            57,
+            64,
+            98,
+            171
+          ],
+          "still_I_var_positive": 3,
+          "terminally_occupied_and_high_I_locked": 5
+        },
+        {
+          "at_fixation": 6,
+          "before_fixation": 4,
+          "block": "main",
+          "cases": 128,
+          "context": 8,
+          "first_high_I_support_loss": 10,
+          "high_I_lost_at_or_after_original_A_window_complete": 1,
+          "high_I_lost_before_original_A_window_complete": 7,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 0,
+            "assurance_only": 5,
+            "investment_first": 3,
+            "investment_only": 1,
+            "near_simultaneous": 0,
+            "neither": 1
+          },
+          "loss_time_min_q25_median_q75_max": [
+            24,
+            42.75,
+            50.5,
+            70,
+            95
+          ],
+          "still_I_var_positive": 4,
+          "terminally_occupied_and_high_I_locked": 10
+        },
+        {
+          "at_fixation": 41,
+          "before_fixation": 85,
+          "block": "confirmation",
+          "cases": 128,
+          "context": 0,
+          "first_high_I_support_loss": 126,
+          "high_I_lost_at_or_after_original_A_window_complete": 29,
+          "high_I_lost_before_original_A_window_complete": 97,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 25,
+            "assurance_only": 29,
+            "investment_first": 36,
+            "investment_only": 0,
+            "near_simultaneous": 36,
+            "neither": 0
+          },
+          "loss_time_min_q25_median_q75_max": [
+            7,
+            14.25,
+            19.5,
+            31,
+            140
+          ],
+          "still_I_var_positive": 85,
+          "terminally_occupied_and_high_I_locked": 126
+        },
+        {
+          "at_fixation": 48,
+          "before_fixation": 75,
+          "block": "confirmation",
+          "cases": 128,
+          "context": 1,
+          "first_high_I_support_loss": 123,
+          "high_I_lost_at_or_after_original_A_window_complete": 34,
+          "high_I_lost_before_original_A_window_complete": 89,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 26,
+            "assurance_only": 29,
+            "investment_first": 36,
+            "investment_only": 0,
+            "near_simultaneous": 32,
+            "neither": 0
+          },
+          "loss_time_min_q25_median_q75_max": [
+            7,
+            17,
+            23,
+            37,
+            105
+          ],
+          "still_I_var_positive": 75,
+          "terminally_occupied_and_high_I_locked": 123
+        },
+        {
+          "at_fixation": 48,
+          "before_fixation": 76,
+          "block": "confirmation",
+          "cases": 128,
+          "context": 2,
+          "first_high_I_support_loss": 124,
+          "high_I_lost_at_or_after_original_A_window_complete": 29,
+          "high_I_lost_before_original_A_window_complete": 95,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 27,
+            "assurance_only": 27,
+            "investment_first": 32,
+            "investment_only": 0,
+            "near_simultaneous": 38,
+            "neither": 0
+          },
+          "loss_time_min_q25_median_q75_max": [
+            7,
+            15.75,
+            22,
+            35.25,
+            99
+          ],
+          "still_I_var_positive": 76,
+          "terminally_occupied_and_high_I_locked": 124
+        },
+        {
+          "at_fixation": 56,
+          "before_fixation": 45,
+          "block": "confirmation",
+          "cases": 128,
+          "context": 3,
+          "first_high_I_support_loss": 101,
+          "high_I_lost_at_or_after_original_A_window_complete": 56,
+          "high_I_lost_before_original_A_window_complete": 44,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 34,
+            "assurance_only": 39,
+            "investment_first": 14,
+            "investment_only": 1,
+            "near_simultaneous": 13,
+            "neither": 0
+          },
+          "loss_time_min_q25_median_q75_max": [
+            9,
+            28,
+            43,
+            78,
+            157
+          ],
+          "still_I_var_positive": 45,
+          "terminally_occupied_and_high_I_locked": 101
+        },
+        {
+          "at_fixation": 51,
+          "before_fixation": 73,
+          "block": "confirmation",
+          "cases": 128,
+          "context": 4,
+          "first_high_I_support_loss": 124,
+          "high_I_lost_at_or_after_original_A_window_complete": 46,
+          "high_I_lost_before_original_A_window_complete": 78,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 30,
+            "assurance_only": 33,
+            "investment_first": 29,
+            "investment_only": 0,
+            "near_simultaneous": 32,
+            "neither": 0
+          },
+          "loss_time_min_q25_median_q75_max": [
+            7,
+            18,
+            28,
+            47,
+            106
+          ],
+          "still_I_var_positive": 73,
+          "terminally_occupied_and_high_I_locked": 124
+        },
+        {
+          "at_fixation": 10,
+          "before_fixation": 8,
+          "block": "confirmation",
+          "cases": 128,
+          "context": 5,
+          "first_high_I_support_loss": 18,
+          "high_I_lost_at_or_after_original_A_window_complete": 5,
+          "high_I_lost_before_original_A_window_complete": 7,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 2,
+            "assurance_only": 9,
+            "investment_first": 0,
+            "investment_only": 1,
+            "near_simultaneous": 1,
+            "neither": 5
+          },
+          "loss_time_min_q25_median_q75_max": [
+            13,
+            35,
+            54,
+            95.25,
+            141
+          ],
+          "still_I_var_positive": 8,
+          "terminally_occupied_and_high_I_locked": 18
+        },
+        {
+          "at_fixation": 36,
+          "before_fixation": 38,
+          "block": "confirmation",
+          "cases": 128,
+          "context": 6,
+          "first_high_I_support_loss": 74,
+          "high_I_lost_at_or_after_original_A_window_complete": 37,
+          "high_I_lost_before_original_A_window_complete": 37,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 10,
+            "assurance_only": 42,
+            "investment_first": 14,
+            "investment_only": 0,
+            "near_simultaneous": 8,
+            "neither": 0
+          },
+          "loss_time_min_q25_median_q75_max": [
+            8,
+            24.5,
+            39.5,
+            73.25,
+            184
+          ],
+          "still_I_var_positive": 38,
+          "terminally_occupied_and_high_I_locked": 74
+        },
+        {
+          "at_fixation": 8,
+          "before_fixation": 1,
+          "block": "confirmation",
+          "cases": 128,
+          "context": 7,
+          "first_high_I_support_loss": 9,
+          "high_I_lost_at_or_after_original_A_window_complete": 2,
+          "high_I_lost_before_original_A_window_complete": 3,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 0,
+            "assurance_only": 5,
+            "investment_first": 0,
+            "investment_only": 0,
+            "near_simultaneous": 0,
+            "neither": 4
+          },
+          "loss_time_min_q25_median_q75_max": [
+            24,
+            39,
+            51,
+            88,
+            161
+          ],
+          "still_I_var_positive": 1,
+          "terminally_occupied_and_high_I_locked": 9
+        },
+        {
+          "at_fixation": 22,
+          "before_fixation": 20,
+          "block": "confirmation",
+          "cases": 128,
+          "context": 8,
+          "first_high_I_support_loss": 42,
+          "high_I_lost_at_or_after_original_A_window_complete": 13,
+          "high_I_lost_before_original_A_window_complete": 25,
+          "historically_extinct": 0,
+          "initially_accessible": 128,
+          "initially_inaccessible_to_exploratory_target": 0,
+          "loss_count_by_original_Q2_category": {
+            "assurance_first": 8,
+            "assurance_only": 22,
+            "investment_first": 6,
+            "investment_only": 1,
+            "near_simultaneous": 2,
+            "neither": 3
+          },
+          "loss_time_min_q25_median_q75_max": [
+            12,
+            27,
+            46.5,
+            78,
+            196
+          ],
+          "still_I_var_positive": 20,
+          "terminally_occupied_and_high_I_locked": 42
+        }
+      ],
+      "definition": "initial_founder_mean"
+    }
+  },
+  "basis_git_commit": "439099ca6e3b8137f7884132f143d56d5e72e8be",
+  "cases": 2304,
+  "censuses_each": 201,
+  "distinct_founder_blocks": 2,
+  "distinct_visitor_contexts": 9,
+  "model_boundaries": [
+    "Outcome-informed retrospective re-expression of original 2304 histories",
+    "Higher-investment genetic loss is NOT the prior low-investment 703 histories",
+    "First maximum below target is a sufficient impossibility of that target only",
+    "No mutation at investment locus and no seed immigration in this cohort",
+    "No restored-pollinator future, selectivity reversal, or independent A-policy comparison",
+    "No imposed pollinator disappearance time exists; cannot compare clocks",
+    "Loss while occupied must be kept distinct from historical extinction",
+    "The strict additional +0.05 high-I target is sensitivity only, not a registered response",
+    "Source replicates across the two blocks and nine contexts are not 2304 independent islands"
+  ],
+  "new_biological_histories": 0,
+  "original_low_I_exclusions_at_fixation": 535,
+  "original_low_I_exclusions_before_fixation": 703,
+  "original_low_I_first_exclusions": 1238,
+  "schema": "ch3_original_source_high_I_exclusion_retrospective_v1",
+  "simulation_updates_executed": 0,
+  "source_cases_sha256": "5c8e3fe38d7f2953d2ba8b54e716261c7bdc9d4a92bf928182b5fcf621e5e665",
+  "source_git_blob_readout": "36aa40f63506313cbdb9c110f91f760df344bd0c",
+  "source_npz_sha256": "7096b864289e976f7eb443305bb42acdae78b0ea28f6f45b7237bc7c795981a4",
+  "source_original_archive_sha256": "819741aa4a9f5bc1aaf2dadddbd56b79d158fc9295d07fc3bffe362693fc056a",
+  "source_reused_stochastic_streams_per_cell": 128,
+  "status": "READ_ONLY_ORIGINAL_SUPPORT_DESCRIPTOR_NO_RESTORATION_EXPERIMENT",
+  "unconditional_independent_islands": false
+}
