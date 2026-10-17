@@ -63,8 +63,22 @@ def test_audit_is_clear_about_unfinished_data_deposit_and_figure_bytes():
     assert result["status"] == "WORD_COUNT_AND_ANONYMITY_PASS_NOT_SUBMITTED"
     assert result["source_word_counts"]["main_text"] == 4995
     assert result["anonymous_word_counts"]["main_text"] <= 5000
+    assert result["anonymous_preview_matches_reconciled_source"] is True
     assert result["registered_results_modified"] is False
     assert result["figure_bytes_reverified_in_this_audit"] is False
     assert result["external_doi_deposited"] is False
     assert result["original_manuscript_overwritten"] is False
     assert len(result["figure_roster"]) == 7
+
+
+def test_saved_anonymous_preview_drift_is_rejected(tmp_path):
+    import shutil
+    for name in ("CHAPTER2_MANUSCRIPT_RECONCILED_20261017.md",
+                 "CHAPTER2_ANONYMOUS_REVIEW_20261017.md"):
+        to = tmp_path / "docs" / name
+        to.parent.mkdir(parents=True, exist_ok=True)
+        shutil.copyfile(ROOT / "docs" / name, to)
+    preview = tmp_path / "docs" / "CHAPTER2_ANONYMOUS_REVIEW_20261017.md"
+    preview.write_text(preview.read_text(encoding="utf-8") + "quiet untracked addition\n", encoding="utf-8")
+    with pytest.raises(ValueError, match="preview differs"):
+        audit(tmp_path)
