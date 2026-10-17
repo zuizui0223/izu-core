@@ -66,6 +66,14 @@ In each cell below the same two founder blocks contribute 128 paths each. The 12
 
 The fixed-count **matched versus separated** comparison at supply 0.5 is a strong **candidate** context contrast: 29/256 versus 145/256. The original design held visitor supply while changing functional matching composition and used the same founder templates and reused stochastic labels; it was not newly randomized for high-I-access recovery. Do not interpret this 116-path difference as a preregistered causal restoration result, a direct genetic-selection mediation coefficient or a natural-island frequency.
 
+## High-I support can disappear without literal visitor extinction
+
+The original nine ecological contexts include one completely empty visitor arm and **eight static four-functional-type visitor environments** with positive encounter activity. Across the eight nonzero-visitor contexts, **1,201/2,048** originally occupied histories lost high-I access to founder mean during the 200-update window, including **600** before I fixation. The empty-visitor arm accounts for the other **254/256** high-I losses (158 pre-fixation).
+
+This is an exact original-context count: **the standing genetic route to the founder mean can close while functional visitor types remain present** in the source model. It is **not** yet an experiment with falling visitors, the particular calendar time of visitor extirpation, guaranteed positive selection for high I after restoration, or an assurance-evolvable versus fixed-A clock shift. The static nonzero arms do not have any declared permanent extinction time `T_E`, so this does **not** estimate a time lead `T_E-t^*`.
+
+Within the four-type arms, counts depend strongly on nominal supply and functional matching. At supply0.5 the matched four-optimum arm records29/256 high-I losses, compared with145/256 in the separated-optimum arm. Because the original contexts share founder templates and reused replicate streams, these are **retrospective conditional-context diagnostics**; no source-independent variance estimate, confirmed sign-reversal or natural island mechanism follows.
+
 ## Hypothesis-admission decision
 
 - **H1 (Letter)**: no new analysis or result modification. Fixed A=0.5 still allows selfing; all eight fresh-founder fixed-A means negative does not imply all four new-founder attenuation tests passed.
