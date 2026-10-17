@@ -9,6 +9,7 @@ from __future__ import annotations
 import argparse
 import hashlib
 import json
+import re
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -96,10 +97,9 @@ def validate(root: Path = ROOT):
             "main_text_max_words_excluding_abstract_methods_references_figure_legends"],
             "NEE Article main body out of scope")
     fig = split_once(text, NEE_FIGURES_HEAD, "## Data accessibility")
-    figures = [row for row in fig.splitlines() if row.lstrip().startswith(
-        ("1. **Figure", "2. **Figure", "3. **Figure",
-         "4. **Figure", "5. **Figure", "6. **Figure"))]
-    require(len(figures) == 6 and len(figures) <= bounds["display_items_max"],
+    figures = re.findall(r"(?m)^(\d+)\.\s+\*\*Figure\s+(\d+)\b", fig)
+    require(len(figures) == 6 and len(figures) <= bounds["display_items_max"]
+            and [(int(a), int(b)) for a, b in figures] == [(i, i) for i in range(1, 7)],
             "NEE display figure cap or numbering invalid")
     require("NOT EXECUTED" in text and text.count("**NOT EXECUTED.**") >= 4
             and "PENDING" in NEE_PENDING_HEAD and route["ready_for_nee_submission"] is False,
@@ -110,7 +110,7 @@ def validate(root: Path = ROOT):
         "both were inconclusive",
         "HIGH-I", "LOW-I", "3/32 and 2/32",
         "no I-locus mutation or seed immigration",
-        "no current_submission" if False else "NOT A SUBMISSION-READY ARTICLE",
+        "NOT A SUBMISSION-READY ARTICLE",
         "geological age", "NEE",
     ):
         require(required.lower() in text.lower(), "NEE scientific source boundary missing " + required)
