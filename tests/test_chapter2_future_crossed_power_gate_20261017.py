@@ -84,3 +84,27 @@ def test_retrospective_precision_is_source_receipt_compatible_not_power_claim():
         assert d["interaction_plus_path_noise_MS"]>0
     assert all(-.125<=x<=.5 for x in check["co_primary"]["carrier_order_score_delta"]["founder_conditional_means"])
     assert len(check["co_primary"]["carrier_I_event_delta"]["visitor_conditional_means"])==8
+
+
+
+def test_template_is_explicitly_pending_and_not_an_activation():
+    import json
+    from pathlib import Path
+    p=Path(__file__).resolve().parents[1]
+    template=json.loads((p/"docs/protocols/CHAPTER2_FUTURE_POWER_CONTRACT_TEMPLATE_20261017.json").read_text())
+    assert template["status"]=="TEMPLATE_NOT_EXECUTABLE"
+    assert template["pilot_cohort_nonoverlap_confirmed"] is False
+    assert template["new_biological_runs_started"] is False
+    with pytest.raises(ValueError,match="HOLD"):
+        evaluate(template,PILOT)
+
+
+def test_future_registry_uses_reserved_names_and_requires_pilot_bytes(tmp_path):
+    from scripts.validate_chapter2_future_power_20261017 import validate_registry
+    source=tmp_path/"docs"/"protocols"
+    source.mkdir(parents=True)
+    assert validate_registry(source)["status"]=="PASS_NO_NEW_STUDIES"
+    path=source/"chapter2_future_registered_new_exp.json"
+    path.write_text("{}",encoding="utf-8")
+    with pytest.raises(ValueError,match="HOLD"):
+        validate_registry(source)
