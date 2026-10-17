@@ -76,3 +76,31 @@ def test_source_digest_guard_refuses_modified_raw_alleles(tmp_path):
         f.write("unauthorized historical row\n")
     with pytest.raises(ValueError,match="hash mismatch"):
         audit(tmp_path)
+
+
+def test_versioned_high_i_readout_reconciles_original_cell_mapping():
+    from collections import defaultdict
+    folder=ROOT/"data/results/directional_access_20261013"
+    signed=json.loads((folder/"ORIGINAL_COMPACT.json").read_text())
+    fixed=json.loads((ROOT/"data/results/chapter3_high_i_access_20261018/READOUT.json").read_text())
+    derived=audit()
+    original_cells={(row["block"],row["context"]):row for row in signed["cells"]}
+    assert len(original_cells)==18
+    by_condition=defaultdict(lambda:[0,0])
+    for cell in derived["by_cell"]:
+        historic=original_cells[cell["block"],cell["context"]]
+        key=(historic["supply"],historic["composition"])
+        by_condition[key][0]+=cell["first_high_loss"]
+        by_condition[key][1]+=cell["cases"]
+    for row in fixed["by_original_visitor_context"]:
+        assert by_condition[row["supply"],row["composition"]]==[
+            row["high_I_excluded"],row["n"]]
+    assert derived["all"]["first_high_loss"]==fixed["results"]["high_I_access_excluded"]
+    assert derived["all"]["high_loss_before_fixation"]==fixed["results"][
+        "excluded_before_single_allele_fixation"]
+    assert derived["all"]["high_loss_at_fixation"]==fixed["results"][
+        "excluded_at_fixation"]
+    assert derived["all"]["overlap_with_old_low_I_loss"]==fixed["results"][
+        "low_I_direction_cross_classification"]["both"]
+    assert fixed["new_biological_histories"]==0
+    assert fixed["new_restoration_simulations"]==0
