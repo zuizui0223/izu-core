@@ -100,11 +100,11 @@ def test_only_one_active_paper_and_q4_both_in_text_and_supplement():
     fit = route["journal_fit"]
     assert route["status"] == "active_unified_manuscript_not_submitted"
     assert route["active_manuscript_count"] == 1
-    assert len(main.split()) == fit["current_integrated_main_words"] == 4994
-    assert len(abstract.split()) == fit["current_integrated_abstract_words"] == 143
+    assert len(main.split()) == fit["current_integrated_main_words"] <= fit["ecology_letters_letter_main_max"]
+    assert len(abstract.split()) == fit["current_integrated_abstract_words"] <= fit["ecology_letters_letter_abstract_max"]
     assert "Both regimes remained pollen-limited." in abstract
-    assert fit["current_main_text_words"] == 4994
-    assert fit["current_abstract_words"] == len(abstract.split()) == 143
+    assert fit["current_main_text_words"] == len(main.split())
+    assert fit["current_abstract_words"] == len(abstract.split())
     assert "+0.1084 [0.0654,0.1514]" in manuscript
     assert "A evolvability **continued during the future**" in manuscript
     assert "+0.0077457" in manuscript

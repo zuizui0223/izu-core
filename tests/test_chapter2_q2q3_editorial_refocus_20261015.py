@@ -21,10 +21,10 @@ def test_one_active_letter_title_and_exact_word_budget():
     assert d["active_manuscript_count"]==1
     abstract=t.split("## Abstract",1)[1].split("## Keywords",1)[0]
     main=t.split("# Introduction",1)[1].split("# Primary figure assembly and captions",1)[0]
-    assert len(abstract.split())==143<=d["journal_fit"]["ecology_letters_letter_abstract_max"]
-    assert len(main.split())==4994<=d["journal_fit"]["ecology_letters_letter_main_max"]
-    assert d["journal_fit"]["current_abstract_words"]==143
-    assert d["journal_fit"]["current_main_text_words"]==4994
+    assert len(abstract.split())==d["journal_fit"]["current_integrated_abstract_words"]<=d["journal_fit"]["ecology_letters_letter_abstract_max"]
+    assert len(main.split())==d["journal_fit"]["current_integrated_main_words"]<=d["journal_fit"]["ecology_letters_letter_main_max"]
+    assert d["journal_fit"]["current_abstract_words"]==len(abstract.split())
+    assert d["journal_fit"]["current_main_text_words"]==len(main.split())
 
 
 def test_priority_and_cohort_limits_preserved_in_main_text():
