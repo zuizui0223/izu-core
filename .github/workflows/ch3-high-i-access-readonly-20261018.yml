@@ -24,6 +24,8 @@ jobs:
           python -m scripts.audit_chapter3_high_i_access_20261018 --output-dir ch3-high-i-audit-output | tee ch3-high-i-readout.log
           test -s ch3-high-i-audit-output/HIGH_I_READOUT.json
           test -s ch3-high-i-audit-output/HIGH_I_CASES.csv
+      - name: Independent vectorized original Q3 high-I readback
+        run: python -m scripts.verify_chapter3_high_i_access_20261018
       - name: Archive audit-only outputs
         uses: actions/upload-artifact@v4
         with:
