@@ -93,7 +93,7 @@ def configuration(policy: str) -> Config:
         raise ValueError("unknown historical assurance policy")
     base = json.loads(DESIGN.read_text(encoding="utf-8"))["base_config"]
     base.update(
-        years=HISTORICAL_HORIZON, assurance_mode=policy, fixed_assurance=.5,
+        years=HISTORICAL_HORIZON + FUTURE_HORIZON, assurance_mode=policy, fixed_assurance=.5,
         assurance_timing="delayed", assurance_cost=.5,
         mutation_rate=0., survival=0., activity=.4,
         activity_mode="count_scaled",
@@ -267,7 +267,7 @@ def execute_micro_pilot(*, founder_ids=FOUNDER_IDS, visitor_ids=VISITOR_IDS,
                     "historic_extinctions_counted_as_failures": sum(
                         not r["historical_occupied"] for r in sub),
                     "high_I_support_closures_in_occupied_snapshots": sum(
-                        r["high_I_support_structurally_excluded"] is True for r in sub) // (len(FUTURE_ENVIRONMENTS) if False else future_replicates),
+                        r["high_I_support_structurally_excluded"] is True for r in sub) // future_replicates,
                 })
     return {
         "status": "EXPLORATORY_PILOT_ONLY_NO_CONFIRMATORY_CLAIM",
