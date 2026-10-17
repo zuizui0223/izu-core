@@ -220,6 +220,31 @@ def audit(root: Path = ROOT) -> dict:
     require(sum(x["denominator_original_histories"] for x in
                 results["return_to_actual_founder_I"]["by_founder_block_and_visitor_context"])
             == 2304, "cell denominators do not sum")
+    # Exploratory joint timing within the SAME original cohort; this is not
+    # an assurance-capacity intervention or a new confirmatory time-order test.
+    overlap = {
+        "both_high_and_low": sum(h is not None and l is not None
+                                 for h, l in zip(high_return, lowers)),
+        "high_only": sum(h is not None and l is None
+                         for h, l in zip(high_return, lowers)),
+        "low_only": sum(h is None and l is not None
+                        for h, l in zip(high_return, lowers)),
+        "neither": sum(h is None and l is None
+                       for h, l in zip(high_return, lowers)),
+        "both_high_first": sum(h is not None and l is not None and h < l
+                              for h, l in zip(high_return, lowers)),
+        "both_low_first": sum(h is not None and l is not None and l < h
+                             for h, l in zip(high_return, lowers)),
+        "both_same_census": sum(h is not None and l is not None and l == h
+                               for h, l in zip(high_return, lowers)),
+    }
+    require(sum(overlap[x] for x in ("both_high_and_low", "high_only", "low_only", "neither")) == 2304,
+            "joint high/low loss inventory changed")
+    require(sum(overlap[x] for x in ("both_high_first", "both_low_first", "both_same_census"))
+            == overlap["both_high_and_low"], "joint loss ordering incomplete")
+    # In this source cohort the two high-I phenotype targets and loss of the
+    # original largest I allele are not separately discriminating interventions.
+    target_equivalence = high_return == high_extra == top_allele
     firsts = np.asarray([float(row["initial_I"]) for row in rows])
     return {
         "schema": "ch3_source_high_i_recoverability_preflight_v1",
@@ -245,6 +270,8 @@ def audit(root: Path = ROOT) -> dict:
             },
         },
         "high_i_loss": results,
+        "high_vs_low_loss_same_original_histories": overlap,
+        "the_three_high_I_criteria_have_identical_first_loss_times": target_equivalence,
         "declared_interpretation": {
             "return_target": "The exact, path-specific realized founder I mean, not a universal ancestral island phenotype",
             "supplementary_target": "Path-specific founder I mean +0.05, not a registered recovery endpoint",
