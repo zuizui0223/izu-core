@@ -1,4 +1,5 @@
 # Reproducing the current Chapter 2 submission state
+> **現行の投稿ルート上書き（2026-10-17）：** [単一NEE Article開発ルート](data/design/chapter2_active_publication_route_20261017.json)、[NEE作業原稿](docs/CHAPTER2_UNIFIED_NEE_ARTICLE_WORKING_20261017.md)。以下のEcology Letters用再現手順は**歴史的な原本再現専用**で、現在の投稿用NEEパッケージを構築しません。回復可能性の新しい結果・外部DOI保存は未完了です。
 
 The active Chapter 2 paper uses **one nested Model 3**. Older response-geometry / synthetic-`k` analyses are historical legacy provenance under `legacy/model2/`; they are excluded from the current manuscript, Supporting Information and reviewer archive.
 
