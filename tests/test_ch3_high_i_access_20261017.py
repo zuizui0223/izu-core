@@ -109,3 +109,36 @@ def test_source_sha_guard_refuses_a_reformatted_original_receipt(tmp_path):
     receipt.write_text(text + " ", encoding="utf-8")
     with pytest.raises(ValueError, match="Git blob changed"):
         audit(tmp_path)
+
+
+def test_committed_18_cell_result_is_exactly_recomputable_from_original_npz():
+    stored = json.loads(
+        (ROOT / "data/results/ch3_high_i_access_original_retrospective_20261017.json")
+        .read_text(encoding="utf-8")
+    )
+    independently_recomputed = audit()
+    assert stored == independently_recomputed
+    assert stored["analyses"]["return_to_founder_mean"]["all"][
+        "first_high_I_support_loss"
+    ] == 1455
+    assert stored["analyses"]["return_to_founder_mean"]["all"][
+        "before_fixation"
+    ] == 758
+    assert stored["analyses"]["return_to_founder_mean"]["all"][
+        "at_fixation"
+    ] == 697
+    assert stored["analyses"]["return_to_founder_mean"]["all"][
+        "historically_extinct"
+    ] == 0
+
+
+def test_coarse_three_allele_grid_makes_plus_005_sensitivity_redundant():
+    result = audit(include_cases=True)
+    for case in result["case_details"]:
+        old = case["restoration_targets"]["return_to_founder_mean"]
+        higher = case["restoration_targets"]["founder_mean_plus_0p05"]
+        assert old["first_high_exclusion"] == higher["first_high_exclusion"]
+        assert old["baseline_support"] == higher["baseline_support"]
+    assert result["analyses"]["return_to_founder_mean"]["all"] == (
+        result["analyses"]["founder_mean_plus_0p05"]["all"]
+    )
