@@ -1,5 +1,7 @@
 # Izu Core — Model 3 island reproductive economics
 
+> **Q2の事前登録384経路本解析（2026-10-16）：** [全六分類・原ゲノム独立再読込結果](docs/CHAPTER2_Q2_I_SUPPORT_384_REGISTERED_RESULT_20261016.md)。元の32シャード×12経路をすべて取得し、7,372,754本のI座子相同染色体・9,999回の二軸bootstrapまで元原本と照合。farでIイベントは24保有20/64対12保有8/64だったが、**進化順序差+0.109375 [−0.125, +0.34375]、Iイベント差+0.1875 [−0.0625, +0.421875]は両方とも多重比較補正区間が0を含み、主判定`both_inconclusive`。** 遺伝的到達可能性の構造的定理と、創始者間で一般化された方向性効果を区別する。新規384経路は[Actions #38918737325](https://github.com/zuizui0223/izu-core/actions/runs/38918737325)で完了。外部DOI原本保存は未完。
+
 > **実装の入口（2026-10-16）：** [現行Model 3のコード範囲・整理方針・実行コマンド](docs/CHAPTER2_ACTIVE_CODE_SURFACE_AND_CLEANUP_20261016.md) · [再現手順](REPRODUCE.md)。生殖・遺伝の凍結済みコードは変更せず、古い解析も削除せずに保存。現在使う数値計算と読み取りツールを明示し、Q4の厳格な再実行検証の限界も記録しています。
 
 > **2026-10-16 統合済み研究・監査の入口：** [8つの発見とS1–S33の証拠序列](docs/CHAPTER2_EIGHT_FINDINGS_INDEX_20261016.md) · [適応度・トレードオフの論文化判断](docs/CHAPTER2_FITNESS_TRADEOFF_EDITORIAL_POSITION_20261016.md) · [コアコードと生態学的因果・循環の監査](docs/MODEL3_REPOSITORY_CODE_ECOLOGY_AUDIT_20261016.md) · [PDE/ODE/SDE/SPDEの成立・失敗範囲](docs/MODEL3_PDE_ODE_SDE_SPDE_FORMAL_AUDIT_20261016.md)。PR #566〜#570でmainに統合済み。単一の現行Letterは未投稿で、全4質問が一つの自然史的因果媒介として証明されたわけではありません。

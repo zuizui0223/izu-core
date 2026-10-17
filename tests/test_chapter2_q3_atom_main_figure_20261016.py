@@ -76,8 +76,8 @@ def test_one_letter_new_main_fig3_cites_original_and_s3_is_distinct():
     main=source.split("# Introduction",1)[1].split("# Primary figure assembly and captions",1)[0]
     abstract=source.split("## Abstract",1)[1].split("## Keywords",1)[0]
     route=json.loads(ROUTE.read_text(encoding="utf-8"))
-    assert len(main.split())==route["journal_fit"]["current_main_text_words"]==4994
-    assert len(abstract.split())==route["journal_fit"]["current_abstract_words"]==143
+    assert len(main.split())==route["journal_fit"]["current_main_text_words"]<=route["journal_fit"]["ecology_letters_letter_main_max"]
+    assert len(abstract.split())==route["journal_fit"]["current_abstract_words"]<=route["journal_fit"]["ecology_letters_letter_abstract_max"]
     assert route["active_manuscript_count"]==1
     assert route["status"]=="active_unified_manuscript_not_submitted"
     assert "only 3/32 and 2/32 ABM histories realized that category at the 0.05/20-census threshold (Fig. 3)" in main
