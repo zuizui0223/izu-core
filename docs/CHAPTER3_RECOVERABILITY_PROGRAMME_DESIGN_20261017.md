@@ -50,24 +50,34 @@ Original source pointers:
 
 ## Candidate predeclared outcomes (NOT frozen or powered yet)
 
-At checkpoint t, with founder/visitor history h, baseline founder information B, assurance policy a, and restored visitor regime E0, define
+At checkpoint t, with a matched initial founder distribution and visitor-history label, assurance policy a (assigned at the **start of evolution**), and a common restoration regime E0, define the **population-level policy estimand**
 
-    R_a(t;H,L,I_star) =
-        P( alive AND I reaches >= I_star for L consecutive censuses
-           by t+H | saved full state at t, do(E_future=E0), policy a ).
+    Y_a(t;H,L,I_star) =
+        1{population occupied at checkpoint t AND at terminal t+H,
+          AND some L consecutive occupied censuses within [t,t+H]
+          achieve expressed mean I >= I_star after do(E_future=E0)}.
 
-Here the probability is over independently named FUTURE biological random streams. Predefine target I_star, recovery horizon H, consecutive length L, and the minimum ecological effect worth detecting BEFORE new confirmatory outcomes. Confirm that the founder allelic support makes the target reachable in at least the intended baseline cases. Source high-replenishment is still pollen-limited and **not automatically a floral-investment-favouring restoration**: also assay whether high-I selection is actually positive after E0 at each state.
+    R_a^population(t;H,L,I_star) = E[Y_a(t;H,L,I_star)].
 
-Report at least four different quantities, never substituting one for another:
+The expectation is over independently crossed **new founder genotypes × new exogenous visitor histories** and correctly nested demographic / future RNG replicates. **Extinct historical branches have Y=0**; do not condition the primary E versus F contrast on historical survival. The registered policy effect, if later powered and registered, is Δ_R(t) = R_E^population(t) − R_F^population(t). The restoration at t is a forced environment schedule, not inferred from a temporary zero-visitor year.
 
-1. **Unconditional occupied-and-recovered probability** R_a, with extinction a recovery failure (no zero-filled extinct trait).
-2. **Probability of occupancy to H** S_a and **recovery conditional on occupancy** C_a. Conditional contrasts may be selected by survival and are NOT an unconditional treatment effect.
-3. **High-I support-loss incidence** with **competing extinction** before/after the loss. No double-counting extinct branches as a genetic loss.
-4. **Time-to-threshold summary** or curve-based area/integrated loss and a strict T_E comparison only under predeclared no-return-point convention. No claim of a single irreversible tipping time if the curve recovers or mutation reopens genetic access.
+For each **particular occupied archived state** s_t, a separate mechanistic quantity is
 
-Main randomization: cross **independent founder genotypes × independent exogenous visitor histories** with treatments matched on named histories; new demographic/future draws are NESTED within that cross and are not independent new islands. Standardized interventions must keep matched random-state semantics and original phenotype-at-time-zero parity.
+    r_a(s_t;t,H) = P(recovery and terminal occupancy | s_t, restored E0, future policy a),
 
-A-only, I-only, both-events, tie and neither categories must retain an all-start denominator. They are distinct from restoration success or occupancy and are optional mediators/secondary observations, not substitutes for the recovery estimand.
+where probability is only over new FUTURE streams from that specific saved genotype/census state. This state-conditional probability is **not** the unconditional policy effect of historical A evolvability; comparing s_t from the two historical policies conditions on post-treatment survival, allele content and population size.
+
+Predefine I_star, horizon H, consecutive length L, ecological effect size and threshold-curve uncertainty BEFORE new confirmatory outcomes. Confirm target support at reference founders. Source higher-replenishment is still pollen-limited and **not automatically a high-I-favouring restoration**: separately assay local focal and maternal/paternal selection after E0 without using outcomes to select a successful subset.
+
+Report at least four nonexchangeable quantities:
+
+1. **Unconditional occupied-and-recovered probability** R_a^population(t) across the whole founder×visitor randomized policy population, with pre-checkpoint extinction a failure (no zero-filled extinct traits).
+2. **Historical and future occupancy** S_a and **recovery conditional on occupancy**, with denominators explicitly reported. Conditional contrasts may be selected by survival and are NOT an unconditional treatment effect.
+3. **HIGH-I support-loss incidence** with **competing extinction** before/after the loss. No double-counting extinct branches as a genetic loss or comparing allele support between undefined extinct phenotypes.
+4. **Time-to-threshold** T_R or curve-integrated recoverability, and T_R relative to externally imposed T_E, only under a preregistered sustained-crossing convention. Do not infer literal permanent irreversibility from a finite H or monotonicity from a first noisy crossing.
+
+At fixed source-level variance and support, classify the six Q2 response-order types with the ALL-start denominator separately, without treating them as recovered/not recovered. A-only, I-only, tie and neither are different outcomes from restoration success and from occupancy.
+
 
 ## Proposed causal arms — freeze only after independent pilot and feasibility gate
 
