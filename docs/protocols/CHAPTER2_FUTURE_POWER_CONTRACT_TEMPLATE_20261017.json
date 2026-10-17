@@ -1,0 +1,74 @@
+{
+  "schema": "chapter2_future_crossed_power_contract_v1",
+  "status": "TEMPLATE_NOT_EXECUTABLE",
+  "study_id": "REPLACE_WITH_NEW_INDEPENDENT_STUDY_ID",
+  "pilot_study_id": "REPLACE_WITH_SEPARATE_PREEXISTING_PILOT_ID",
+  "pilot_source_repo_path": "docs/REPLACE_WITH_FROZEN_PILOT_READOUT.json",
+  "pilot_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+  "pilot_stream_namespace": "REPLACE_OLDER_STREAM",
+  "future_stream_namespace": "REPLACE_NEW_DISJOINT_STREAM",
+  "pilot_precedes_registration": false,
+  "pilot_cohort_nonoverlap_confirmed": false,
+  "new_biological_runs_started": false,
+  "endpoint_rule_frozen_before_new_outcomes": false,
+  "finite_cost_budget_documented": false,
+  "founder_count": 0,
+  "visitor_history_count": 0,
+  "number_of_environments": 0,
+  "number_of_policies": 0,
+  "updates_per_case": 0,
+  "declared_full_paths": 0,
+  "declared_total_updates": 0,
+  "number_of_coprimary_outcomes": 2,
+  "familywise_alpha": 0.05,
+  "minimum_joint_directional_power": 0.8,
+  "outcomes": [
+    {
+      "name": "REPLACE_PREDECLARED_ORDER_SCORE",
+      "minimum_scientifically_meaningful_abs_effect": null,
+      "sesoi_scientific_justification": ""
+    },
+    {
+      "name": "REPLACE_PREDECLARED_EVENT_INCIDENCE",
+      "minimum_scientifically_meaningful_abs_effect": null,
+      "sesoi_scientific_justification": ""
+    }
+  ],
+  "variance_uncertainty_scenarios": [
+    {
+      "name": "baseline",
+      "by_endpoint": {
+        "REPLACE_PREDECLARED_ORDER_SCORE": {
+          "founder": null,
+          "visitor": null,
+          "interaction": null
+        },
+        "REPLACE_PREDECLARED_EVENT_INCIDENCE": {
+          "founder": null,
+          "visitor": null,
+          "interaction": null
+        }
+      }
+    },
+    {
+      "name": "adverse",
+      "by_endpoint": {
+        "REPLACE_PREDECLARED_ORDER_SCORE": {
+          "founder": null,
+          "visitor": null,
+          "interaction": null
+        },
+        "REPLACE_PREDECLARED_EVENT_INCIDENCE": {
+          "founder": null,
+          "visitor": null,
+          "interaction": null
+        }
+      }
+    }
+  ],
+  "notes": [
+    "Example deliberately fails the pre-execution gate until all source SHA, independent-stream and variance inputs are validated.",
+    "Never rename an already executed/frozen Q2 trial to pass the new protocol. A future study needs separate prospective approval.",
+    "The normal proxy review is not exact power; separately preregister operating-characteristic simulations if distributions or dependence demand them."
+  ]
+}
