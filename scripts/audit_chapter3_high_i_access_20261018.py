@@ -158,7 +158,6 @@ def audit(root: Path = ROOT, out: Path | None = None) -> dict:
         require(float(low[0]) <= target + EPS and target <= float(high[0]) + EPS,
                 "initial founder target is outside founder support")
         high_t = first_loss(high,target)
-        low_t = first_loss(-low,-(target-0.05)) if False else None
         # The old DOWNWARD loss event is min_I > initial_I-0.05.
         old_low = np.flatnonzero(alive & (low > (target-0.05)+EPS))
         low_t = int(old_low[0]) if len(old_low) else None
