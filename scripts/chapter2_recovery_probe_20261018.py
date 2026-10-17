@@ -131,7 +131,7 @@ def native_future(state, history, cfg, population, reproduction, randomness,
     success=bool(occupied_terminal and first_sustained_recovery(path[1:],target,sustained))
     return dict(success=success,occupied_terminal=occupied_terminal,
                 terminal_I=path[-1],terminal_n=count_path[-1],
-                restored_outcross_sum=float(sum(outcross_path)),
+                outcross_sum=float(sum(outcross_path)),
                 path_I=path, path_n=count_path,
                 high_I_allele_max=high_bound)
 
@@ -146,6 +146,18 @@ def native_gradient(state, visitors, config, selection) -> dict:
     except (ArithmeticError,FloatingPointError,ValueError):
         return dict(gradient=None,sign='undefined')
     return dict(gradient=g,sign='positive' if g>1e-9 else 'negative' if g< -1e-9 else 'near_zero')
+
+
+def gradient_series(state, history, cfg, selection) -> dict:
+    """Frozen resident trait against actual future visitor assemblies, not time-evolving genotypes."""
+    values=[native_gradient(state,v,cfg,selection) for v in history.visitors]
+    good=[x['gradient'] for x in values if x['gradient'] is not None]
+    if not good:
+        return dict(sign='undefined', mean=None, positive_fraction=None, negative_fraction=None, defined=0)
+    signs={x['sign'] for x in values if x['gradient'] is not None}
+    sign=next(iter(signs)) if len(signs)==1 else 'mixed'
+    return dict(sign=sign, mean=float(np.mean(good)), positive_fraction=sum(x>1e-9 for x in good)/len(good),
+                negative_fraction=sum(x< -1e-9 for x in good)/len(good),defined=len(good),total=len(values))
 
 
 def classify_failure(*, was_occupied: bool, genetic_closed: bool | None,
@@ -208,6 +220,7 @@ def run(archive: Path, source_input: Path, out: Path, *, repeats: int, horizon: 
             raise ValueError('restoration does not increase expected arrival pressure')
         future_cfg=replace(cfg,visitor_arrival=new_arrival,island_history='separation',
                            initial_visitors=len(visitor0.ids),years=horizon)
+        sham_cfg=replace(cfg,island_history='separation',initial_visitors=len(visitor0.ids),years=horizon)
         target=float(extract_occupied_state(a,0,types).alleles[:,1,:].mean())
         # Exact source-only first high-I closure time (all original censuses).
         source_closure=None
@@ -221,33 +234,55 @@ def run(archive: Path, source_input: Path, out: Path, *, repeats: int, horizon: 
             state=extract_occupied_state(a,t,types)
             support=investment_support(state.alleles,target,mutation_I=False,seed_immigration=False)
             historical_I=float(state.alleles[:,1,:].mean()) if len(state.ids) else None
-            grad=native_gradient(state,visitor0,future_cfg,selection_mod)
+            before_gradient=native_gradient(state,visitor0,future_cfg,selection_mod)
             declined=historical_I is not None and historical_I <= target-.05
             successors=[]
             if len(state.ids):
                 for rep in range(repeats):
                     v_seed=seed_for(c['key'],t,rep,'visitors')
                     d_seed=seed_for(c['key'],t,rep,'population')
-                    # make_history creates a new exogenous *near* future with original visitors inherited.
-                    visitors=history_mod.make_history(future_cfg,seed=v_seed,inherited_visitors=visitor0)
-                    successes=native_future(state,visitors,future_cfg,pop,reproduction,randomness,
+                    # Pair original replenishment against externally restored arrivals.
+                    # Both preserve the original visitor cohort, biological operators and
+                    # named future random streams. Changed arrival counts need not match.
+                    future_visitors=history_mod.make_history(future_cfg,seed=v_seed,inherited_visitors=visitor0)
+                    sham_visitors=history_mod.make_history(sham_cfg,seed=v_seed,inherited_visitors=visitor0)
+                    restored=native_future(state,future_visitors,future_cfg,pop,reproduction,randomness,
                                 seed=d_seed,start=t,target=target,horizon=horizon,sustained=sustained)
+                    sham=native_future(state,sham_visitors,sham_cfg,pop,reproduction,randomness,
+                                seed=d_seed,start=t,target=target,horizon=horizon,sustained=sustained)
+                    restored_gradient=gradient_series(state,future_visitors,future_cfg,selection_mod)
+                    sham_gradient=gradient_series(state,sham_visitors,sham_cfg,selection_mod)
                     successors.append(dict(replicate=rep,visitor_seed=v_seed,demographic_seed=d_seed,
-                                           **successes))
+                                           restored=restored,sham=sham,restored_gradient=restored_gradient,
+                                           sham_gradient=sham_gradient,
+                                           paired_success_delta=int(restored['success'])-int(sham['success']),
+                                           paired_outcross_delta=restored['outcross_sum']-sham['outcross_sum'],
+                                           visitor_count_restored=[len(x.ids) for x in future_visitors.visitors],
+                                           visitor_count_sham=[len(x.ids) for x in sham_visitors.visitors]))
             # Fixed-state, conditional results. Disallow selected paths as independent founders.
-            n_success=sum(x['success'] for x in successors)
+            n_success=sum(x['restored']['success'] for x in successors)
+            n_sham=sum(x['sham']['success'] for x in successors)
             interval=wilson(n_success,len(successors),z=z_adjusted)
+            mean_outcross_gain=float(np.mean([x['paired_outcross_delta'] for x in successors])) if successors else None
+            realized_service_gain=bool(mean_outcross_gain>0) if mean_outcross_gain is not None else False
             for x in successors:
                 x['failure_class']=classify_failure(was_occupied=bool(len(state.ids)),
-                          genetic_closed=support['closed'],local_gradient_sign=grad['sign'],success=x['success'])
+                          genetic_closed=support['closed'],local_gradient_sign=x['restored_gradient']['sign'],
+                          success=x['restored']['success'])
                 counts[x['failure_class']]+=1
             data.append(dict(key=c['key'],block=c['block'],t=t,original_status='SOURCE_CONDITIONAL_EXPLORATORY',
                              initial_I=target,current_I=historical_I,historical_decline=declined,
                              first_source_high_I_closure=source_closure,
-                             occupied=bool(len(state.ids)),I_support=support,local_gradient_proxy=grad,
-                             target_attainments=n_success,futures=len(successors),
+                             occupied=bool(len(state.ids)),I_support=support,
+                             initial_visitor_gradient_proxy=before_gradient,
+                             target_attainments=n_success,sham_target_attainments=n_sham,
+                             paired_recovery_gain=(n_success-n_sham)/len(successors) if successors and declined else None,
+                             paired_outcross_gain=mean_outcross_gain,
+                             achieved_effective_outcross_gain=realized_service_gain,
+                             futures=len(successors),
                              conditional_p=n_success/len(successors) if successors and declined else None,
-                             conditional_interval=interval if declined else None,
+                             conditional_interval=interval if declined and realized_service_gain else None,
+                             sham_conditional_p=n_sham/len(successors) if successors and declined else None,
                              descriptive_maintenance_p=n_success/len(successors) if successors and not declined else None,
                              successors=successors))
     window={}
@@ -257,7 +292,8 @@ def run(archive: Path, source_input: Path, out: Path, *, repeats: int, horizon: 
     outjson=dict(status='EXPLORATORY_SOURCE_CONDITIONAL_NOT_PREREGISTERED',
                  claim_limit='No independent founder effect, Q3 A-policy contrast, full-population success, confirmed irreversible t*, or naturally dated pollinator extirpation.',
                  namespace=NAMESPACE,case_count=len(selected),checkpoint_times=list(checkpoint_times),
-                 new_biological_futures=sum(r['futures'] for r in data),
+                 new_biological_futures=2*sum(r['futures'] for r in data),
+                 paired_future_replicates=sum(r['futures'] for r in data),
                  source_scope='Two previously defined A-evolving founder blocks; no paired A-fixed history, no permanent visitor-extirpation date.',
                  threshold_definition='Exploratory first eligible checkpoint with all LATER measured Bonferroni-adjusted Wilson upper limits below cutoff; no between-point or permanent inference.',
                  threshold_cutoff=cutoff,sustained=sustained,horizon=horizon,repeats=repeats,
