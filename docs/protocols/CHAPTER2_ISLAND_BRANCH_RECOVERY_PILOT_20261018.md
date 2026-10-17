@@ -1,40 +1,56 @@
-# One-paper island divergence: Q3 pollinator-return feasibility pilot (2026-10-18)
+# Chapter 2 — the three-question pollinator-return recoverability study
 
-**Status:** EXPLORATORY protocol drafted before pilot outcomes; NOT a registered confirmatory experiment, no authorization to replace frozen Chapter 2 decisions. Branches from PR #590's one-NEE-Article working route. The Ecology Letters historical source, archived 2,304 genomes, Q2 384-path `both_inconclusive`, all figures and original receipts remain unchanged.
+**Pre-outcome exploratory micro-pilot — 2026-10-18. Single-Article program: PR #590.**
+This is a *proposed pilot implementation*, not an executed experiment, registered confirmation, supported ratchet/lifeboat claim, or second manuscript. The 2026-10-13/17 historical data, Q1 results, Q2 384-case `both_inconclusive`, paper figures, archived sources and receipts remain frozen.
 
-## One question, three conditional tests
+## One overarching island-evolution question
 
-Why do island plant lineages exposed to limited effective pollination fail to converge on one reproductive syndrome, and what keeps the resulting reproductive changes from reversing?
+Is a floral island syndrome a reversible adaptation to pollinator scarcity, or can evolutionary recovery become unavailable **while plants still survive**?
 
-- **Q1 / common response:** Floral investment I can fall while evolutionary assurance A is fixed at expressed 0.5; this is **not** prohibition of self-fertilization and does not directly establish change in dioecious plants.
-- **Q2 / divergence (UNTESTED):** Compare (a) evolved selfing and (b) sex-separated reproduction, with a third *colonization-filtering-only* alternative. Male sterility alone produces females + hermaphrodites, not complete dioecy. The classical second female-sterility/male-specialization step, linkage, sex-specific gamete constraints, pollen limitation and inbreeding-depression dynamics need separate pre-implementation validation. Scarce pollinators need not favor de novo dioecy. Do not equate dioecy in island floras to local evolution.
-- **Q3 / reversibility (THIS PILOT):** Ask whether high-I ancestral expression is attainable following an imposed functional-pollinator return, whether original high-I alleles were lost, and whether enabling A evolution alters unconditional *probability of returning to high I*. No sex-locus or deleterious-mutation model in this pilot.
+Three questions ONLY:
 
-## An existing result, not a restoration result
+1. **Necessity (existing Q1):** Under effective pollinator limitation, does lower floral investment I require evolution of reproductive assurance A? **No, within the tested finite Model3**, including separately tested independent founders; importantly A **fixed at expressed 0.5** still allows selfing. It is NOT a no-selfing intervention.
+2. **Recoverability (new main Q2):** If functional pollinator services are restored at time t, what is the conditional probability that an **occupied and already-declined** plant population regains founder-relative high-I expression within horizon H? Estimate whether a sustainable no-return-window exists; distinguish biological recovery from simple post-return survival or states that never declined.
+3. **Assurance (new causal Q3):** Does assigning A to **evolve vs remain expressed at 0.5 throughout history** change the recovery curve? Within saved evolving-A states, additionally **freeze expressed A at its attained checkpoint mean** in the future to explore how continuing A evolution differs from carrying the already-evolved A level.
 
-The read-only source review in PR #590 and independent PRs #591/#592 found 1,455/2,304 original occupied finite Model3 paths with upper-I allele support below that path's founder I mean; 758 before I fixation, 697 at fixation. The older 703/2,304 counts LOWER-I access closure. Neither numerator is a pollinator-restoration trial, an unconditional A-policy effect, nor an estimate of loss before permanent pollinator extirpation.
+### Outcome and selection requirements
 
-## Fixed exploratory micro-pilot only
+`I_star` is each founder's measured t=0 population mean of I (not a fitted optimum). A history is an eligible recovery *state* only if alive at checkpoint t and mean `I_t <= I_star − 0.05`. Count recovery only when the population remains extant and the mean I is >= `I_star` for >=5 consecutive future occupied censuses within H=25. A checkpoint is never relabeled as recovered solely because I was already high when visitors returned.
 
-- **Biological operator:** unchanged `scripts.model3_island.reproduction.reproduce`, `population.advance`, `history.reflect_unit` and the original `PlantState`/`VisitorState` data types. Finite-plant trajectories only; density is not used as finite expectation.
-- **Config anchor:** read `data/design/model3_island_v2.json` `base_config`. Preserve ovule, pollen, saturation, selfing timing, selfed viability, capacity 48 and two-episode ledgers. For this pilot explicitly set delayed selfing, assurance cost 0.5, I/M/A mutation rate 0, plant seed supply 0, annual survival 0, count-scaled visitor activity 0.4. These are artificial values; no real island/annual calendar calibration.
-- **Population:** two independently seeded synthetic founder blocks; each has 48 diploid plants and standing three-valued I alleles 0.375/0.5/0.625. Target `I_star` is that founder's true initial expressed mean.
-- **Exogenous visitors:** two independently drawn visitor histories crossed with the founders, matched across policies. Functional service starts with six visitor types (periods 0–4), falls to a single type (periods 5–34), and is set to zero from **T_E=35** onward with no replenishment. This is an **imposed** permanent removal on the unrescued historical arm, unlike a sampled empty year.
-- **Historical policy:** assign `A_evolving` vs `A_fixed_0.5` at time zero; two histories per founder, 2×2×2=8 full historical paths to census 45; no post-hoc survivor selection. Matched initial genotypes, environmental history and stream *namespaces*; finite divergence of RNG consumption is allowed and is not individual-event coupling.
-- **Checkpoints:** t=10, 30, 45 (two before imposed T_E and one after). Record complete living state including ID, age, origin, mutation marks and diploid genome.
-- **Counterfactual futures:** from every saved checkpoint run two **externally assigned** futures: `functional_pollinators_restored` (the same six functional visitor types) and `continued_pollinator_loss` (no functional visitors), for H=25 reproductive updates and two independently seeded conditional futures per state and environment. Restore visitors, **not high-I alleles**. No seed immigration or mutation.
-- **Time/domain:** 8×3×2×2 = **96 exploratory future trajectories**, 2,400 future updates + 360 historical updates; no other conditions, search or adaptive repeats. Independent inferential blocks remain 2×2 founder×visitor, not 96 independent islands.
-- **Diagnostics:** exact high-I support theorem (occupied `max I-allele < I_star`), founder-relative current I, finite-H high-I return requiring 5 consecutive post-return living censuses with mean I >= `I_star`, at-H occupancy, a fixed focal-mutant positive-selection diagnostic after return, no-mutational rescue guarantee, and the full unconditional denominator including previously extinct histories. A declined-population-only result is optional description, NOT causal policy contrast.
-- **Pairing:** a future stream is separately keyed by founder, visitor, checkpoint, future replicate, and environment, and reused for both historical A policy labels. Same stream ID does not guarantee synchronous individual draws if policies yielded different resident states.
-- **Output:** explicit new `--out` path only; deterministic JSON with source SHA256, design and independent-block identifiers; refuse overwrite.
-- **Scientific success criteria:** this pilot checks whether the experimental implementation and data products can measure the estimand. It does **NOT** assign ratchet/lifeboat, infer `T_R`, compute inferential confidence intervals, or support the Baker–dioecy mechanism. A confirmed A-policy effect requires separate fresh-founder × fresh-visitor power/SESOI design and pre-execution review under #585.
+Keep separate outcomes:
 
-## Two clocks and four mechanistic states
+- **State-specific recovery probability**: repeated future streams conditional on being alive and having declined at t; undefined when no such states.
+- **Policy effect**: unconditional joint survival-and-high-I attainment over **all originally randomized founder×visitor blocks**, with deaths before t retained as failures; this is not synonymous with regain-after-decline and must never silently condition on survivors.
+- **Selection diagnostic**: local marginal relative focal maternal+paternal output for a +0.02 increase in I, with donor/recipient redistribution; compare visitors restored vs absent. This is **not** a formally validated long-term rare-mutant invasion fitness gradient.
+- **Genetic support theorem**: if no mutation at I and no seed immigration, the maximum resident I allele cannot increase. For a living state with max I allele < `I_star`, high-I recovery is structurally impossible under the specified rules. Conversely, retained support does **not** guarantee recovery.
 
-`T_E` is a policy-imposed permanent absence date in the untreated history. `T_R` would be the earliest pre-registered, uncertainty-supported, sustained loss of restoration success **despite positive ecological selection for higher I**. This pilot cannot identify `T_R`. A structural high-I support closure supplies one sufficient mechanism for failure only when I mutation and migration are forbidden; retained upper support does not imply realized return.
+Two independent sufficient explanations can coexist: (i) higher I lacks an immediate positive relative reproductive return even with visitors restored, (ii) high-I alleles needed for the target have vanished. **Do not force every failed finite-H history into only these two causes.** States with both criteria permissive can fail because of finite sampling, drift, short horizon, frequency dependence or unforeseen model states. Report these as finite-time nonrealization / unresolved, never as a third proof of irreversibility. Population extinction is distinct.
 
-Never treat loss of floral investment as proof of an evolutionary trajectory to dioecy, nor equate Baker's law (self-compatibility as a colonization advantage) with a prediction that every colonist actually self-fertilizes. Independence of island contrasts and colonization filtering versus within-lineage changes must be tested with external data.
+### Candidate no-return clock, not a demonstrated tipping point
+
+`T_E=35` is the *artificially imposed* time that all visitors are removed, without repopulation, on the historical declining regime. Earlier sparse visitors must not be called permanent extirpation.
+
+A future confirmatory `t^*` requires **predeclared probability threshold**, independently resolved founder×visitor uncertainty, repeatable failure at later t and adequately long H, with positive return selection separately verified. A time-point effect in this sparse pilot is only a **screened time-specific recovery frequency**, not `t^*`. No extrapolation past the last checkpoint or from geological island age to time since loss.
+
+## Micro-pilot intervention and resource cap
+
+- Import the **unchanged** finite Model3 `reproduce` and `advance` operators from `scripts/model3_island`. No new sexual-system loci, inbreeding-load genetics, or density/finite equality assumptions.
+- Read `data/design/model3_island_v2.json` for Config; explicit override: `K=48`, adult survival 0, delayed selfing, assurance cost 0.5, A-fixed=0.5 versus A-evolving, selfed-depression 0.5, per-allele mutation 0 and plant seed immigration 0.
+- Two artificial founders (48 diploid plants each; I from {0.375,0.5,0.625}) crossed with two independent exogenous visitor histories. Keep initial genetic states identical for both historical policy assignments. Historical functional visitors: six until t=5, one during 5..34, **none starting T_E=35**; duration 45 updates.
+- Retain complete in-memory `PlantState` at checkpoint t=10,30,45, with ID, genotype, origin, mutation marks and birth census. Checkpoint t=10 and 30 are before artificial T_E; t=45 is after.
+- For every occupied or extinct checkpoint in each of **2×2×2 = 8** matched historical paths, branch into 25 additional reproductive updates with constant, externally imposed **six functional visitor types** vs continued absence, each with 2 independent future streams. This imposes actual *visitor availability*, not just a rate of hypothetical arrivals.
+- Future policies: (a) historical fixed 0.5 remains fixed; (b) historical evolving A continues evolving; (c) from historical evolving A states, set expressed A to their current population mean without modifying standing A genotypes (freezing at reached A). This third future intervention is **conditional on the evolved historical state**, NOT an independently randomized historical treatment.
+- Maximum intended biological paths: **8 history + 144 future trajectories** (2×2 founder–visitor blocks × 3 t × 2 visitor futures × 2 RNG repeats × 3 future-A policy combinations); 360 history updates + 3,600 continuation updates. If a checkpoint is extinct, any attained-A value is undefined; represent that arm as structurally ineligible, not as a numeric A=0.5 substitute. All initially randomized history paths still count in unconditional comparisons.
+- Save the complete casewise readout with source code, protocol and design SHA256, refuse file overwrite. This is the **maximum exploratory cap**, not a power calculation. Four independent founder×visitor blocks cannot provide precise population-wide effect or a formal `t^*`.
+- Do not treat 144 nested follow-on paths as 144 independent islands. Repeated future RNGs estimate conditional futures from four original block pairs; expand only under a separate protocol and #585 design-power gate.
+
+## Existing evidence boundaries
+
+- The frozen Q1 model counterexample shows I may decline with expressed assurance 0.5 held constant. It does NOT demonstrate floral change in dioecious plants or absence of any selfing.
+- The 2,304 original Q3 paths show upper-I support exclusion in **1,455/2,304**, with 758 before and 697 at I fixation. The **703/2,304** old finding refers to lack of LOW-I alleles for *further decline*, not recovery. Neither is a pollinator-return result, pre-extirpation clock, or causal comparison of evolving vs fixed historical A.
+- The existing one-time **investment-allele variation restoration** in 64 fixed histories concerned another, lower-I target, not restoring pollinators and high-I expression; it cannot substitute for this study.
+- Large-scale island dioecy and colonization filtering are **not** part of the present Article causal test. Save as later research; do not add a new broad Q2.
 
 ## Exit gate
 
-Advance Q2 sex genetics only after the exploratory operator/readout has passed adversarial validation; then model (1) sex-specific male and female functions and both fertility-loss paths, (2) dynamic genetic load and purging with appropriate within-family inheritance, (3) independently identifiable colonization filtering. A full Q2/Q3 joint-power study must pass #585 **before** its confirmatory run; the present pilot is never repurposed as that confirmation.
+Check new source/test integrity and CI. Separately derive exact checkpoint allelic upper bounds, conditional state outcomes and unconditional policy denominators. If the real restored-visitor local marginal return is nonpositive at most states, a genetic no-return conclusion is not warranted there. A confirmatory `t^*`, ecological fitness assay, crossed power, multiple settings and independent observation-based comparisons are required **before** interpreting the proposed new main figures as established. This protocol is a *prospective exploratory* screen only.
