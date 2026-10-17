@@ -76,7 +76,7 @@ def test_rejects_original_low_I_source_classification_mismatch():
 
 def test_rejects_absent_census_as_zero_phenotype():
     arrays = list(toy_arrays())
-    arrays[0][4] = 0.
+    arrays[0][5] = 0.  # noncontiguous reappearance after a missing census
     with pytest.raises(ValueError, match="resurrected|noncontiguous"):
         interpret_case(synthetic_row(), *arrays)
 
