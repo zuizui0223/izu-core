@@ -1,0 +1,86 @@
+{
+  "schema": "chapter2_single_unified_nee_upgrade_v1",
+  "date": "2026-10-17",
+  "status": "NEE_ARTICLE_CANDIDATE_UNDER_DEVELOPMENT_NO_SUBMISSION",
+  "target_journal": "Nature Ecology & Evolution",
+  "article_type": "Article",
+  "effective_active_paper_count": 1,
+  "scope": "ONE combined Chapter 2 paper: old Q1-Q4 initiation/order/genetic access/demography PLUS genuinely new prospective restoration-recoverability core; NO separate Chapter 3 / NEE paper",
+  "active_manuscript": "docs/CHAPTER2_UNIFIED_NEE_ARTICLE_WORKING_20261017.md",
+  "active_manuscript_readiness": "SOURCE_BACKED_FOUNDATION_ONLY_RESTORATION_CORE_UNRUN",
+  "source_commit": "439099ca6e3b8137f7884132f143d56d5e72e8be",
+  "previous_el_surfaces_retained_for_reproduction_not_current_submissions": [
+    "data/design/chapter2_one_paper_route_20261010.json",
+    "docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md",
+    "docs/CHAPTER2_MANUSCRIPT_RECONCILED_20261017.md",
+    "docs/CHAPTER2_ANONYMOUS_REVIEW_20261017.md",
+    "docs/CHAPTER2_UNIFIED_EL_SUPPORTING_INFORMATION_20261010.md",
+    "scripts/build_chapter2_unified_el_submission_bundle.py"
+  ],
+  "superseded_split_plan": "PR #589 draft stand-alone Chapter 3 framing; merged into the one-paper NEE study plan only; do not treat it as a separate article",
+  "article_guidelines": {
+    "source": "https://www.nature.com/natecolevol/content",
+    "main_text_max_words_excluding_abstract_methods_references_figure_legends": 3500,
+    "abstract_max_words": 200,
+    "display_items_max": 6,
+    "preliminary_main_figures_proposed": 6,
+    "references_typical_max": 50,
+    "word_count_convention": "whitespace tokens in Introduction + Results + Discussion only; not a journal's definitive editorial count",
+    "online_methods_not_in_main_word_count": true
+  },
+  "evidence": {
+    "q1": {
+      "original_registered_settings_supported": "4/4",
+      "fresh_founder_supported": "3/4",
+      "fixed_A_expressed": 0.5,
+      "selfing_still_possible": true
+    },
+    "q2": {
+      "historical_A_first": "51/64 in one delayed/cost setting",
+      "prior_selfing_A_first": "30/64",
+      "registered_I_carrier_384_both_primary": "INCONCLUSIVE"
+    },
+    "q3": {
+      "old_cases": 2304,
+      "loss_before_fixation_for_further_LOW_I_decline": 703,
+      "high_I_founder_mean_retrospective_support_exclusion": {
+        "source_only_readout": "docs/audits/CHAPTER2_NEE_HIGH_I_SUPPORT_SOURCE_READOUT_20261017.json",
+        "high_I_structurally_unreachable_original_founder_mean": 1455,
+        "original_histories": 2304,
+        "before_fixation": 758,
+        "at_fixation": 697,
+        "distinct_from_original_low_I_703": true,
+        "title_scope": "retrospective founder-mean target under zero I mutation/immigration; not visitor-restored recovery, no A-evolvability contrast or time to permanent pollinator extinction"
+      },
+      "high_I_restored_pollination_recovery_outcome": "NOT_EXECUTED"
+    },
+    "q4": {
+      "registered_pooled_interaction": 0.1083984375,
+      "pilot_informed_grid": true,
+      "not_a_natural_order_effect": true
+    }
+  },
+  "required_new_evidence": [
+    "predeclared fixed-restoration-state high-I return sign and target feasibility",
+    "HIGH-I support-loss timing under correct no-I-mutation/immigration conditions",
+    "randomized A-evolvable vs expressed A-fixed=0.5 unconditional population recovery probability",
+    "forced permanent pollinator extirpation clock and future functional pollinator restoration",
+    "separated allele access vs restored pollinator vs both causal intervention",
+    "prospective independent founder × visitor crossed power gate and source-bound raw reproducibility",
+    "separate inbreeding depression, cost, capacity/background, mutation access and alternate minimal model sensitivity",
+    "optional source-qualified independent world-island empirical contrast: no invented geologic-age proxy"
+  ],
+  "current_submission_blockers": [
+    "No new historical-restoration intervention run (read-only high-I source audit is not the new recovery experiment)",
+    "No confirmed recoverability/no-return timing or sign",
+    "No external island-data matching proof or independent validation",
+    "Original raw data externally deposited DOI pending issue #436",
+    "NEE exact figure/render/author/full journal editorial preparation missing"
+  ],
+  "data_and_statistics_policy": "Keep ALL old predeclared negative and null results unchanged; no selective rebranding, no cross-cohort pooling, no new confirmatory run before approval",
+  "no_current_submission": true,
+  "no_near_term_external_DOI_claim": true,
+  "no_new_biological_run_from_this_route": true,
+  "old_el_renderer_scope": "historical full-fidelity recreation only; not the NEE manuscript routing selector",
+  "ready_for_nee_submission": false
+}
