@@ -4,6 +4,10 @@ on:
     paths:
       - 'scripts/audit_chapter2_nee_high_i_support_20261017.py'
       - 'tests/test_chapter2_nee_high_i_support_20261017.py'
+      - 'tests/test_chapter2_nee_upgrade_20261017.py'
+      - 'scripts/validate_chapter2_nee_upgrade_20261017.py'
+      - 'docs/CHAPTER2_UNIFIED_NEE_ARTICLE_WORKING_20261017.md'
+      - 'data/design/chapter2_active_publication_route_20261017.json'
       - '.github/workflows/chapter2-nee-high-i-readonly-20261017.yml'
   workflow_dispatch:
 
@@ -26,7 +30,7 @@ jobs:
           python -m scripts.audit_chapter2_nee_high_i_support_20261017 \
             --output "${RUNNER_TEMP}/HIGH_I_EXISTING_ARCHIVE_SOURCE_ONLY.json"
       - name: Test result source consistency and negative controls
-        run: pytest -q tests/test_chapter2_nee_high_i_support_20261017.py
+        run: pytest -q tests/test_chapter2_nee_high_i_support_20261017.py tests/test_chapter2_nee_upgrade_20261017.py
       - uses: actions/upload-artifact@v4
         with:
           name: nee-high-i-existing-source-only
