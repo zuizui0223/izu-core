@@ -82,6 +82,7 @@ jobs:
             tests/test_chapter2_q2_i_support_384_registered_result_20261016.py \
             tests/test_chapter2_main_hypothesis_decision_20261017.py \
             tests/test_chapter2_future_crossed_power_gate_20261017.py \
+            tests/test_chapter2_q2_future_power_cost_boundary_20261017.py \
             tests/test_chapter2_q1_full_founder_source_integrity_20261016.py \
             tests/test_chapter2_cohort_seed_independence_20261016.py \
             tests/test_chapter2_two_propositions_source_audit_20261016.py \
