@@ -1,0 +1,150 @@
+{
+  "schema": "chapter2_same_seed_high_i_genetic_clock_ci_source_readout_v1",
+  "date": "2026-10-18",
+  "evidence": "POST_OUTCOME_EXPLORATORY_SAME_SEED_HISTORY_REPLAY_NOT_INDEPENDENT_CONFIRMATION",
+  "basis": "Old eight Model3 artificial histories; 2 founder seeds x 2 visitor seeds x 2 historical A policies. 46 snapshots each. Historical genotypes reproduced with original named seeds; not newly independently sampled generations.",
+  "source": {
+    "repository": "zuizui0223/izu-core",
+    "source_head_sha": "3a1343016ea7daa56be1f5f8766147da835f3331",
+    "workflow_run_id": 39091151353,
+    "workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/39091151353",
+    "logs": [
+      {
+        "python": "3.12",
+        "job_id": 117568111902
+      },
+      {
+        "python": "3.10",
+        "job_id": 117568112022
+      },
+      {
+        "python": "3.11",
+        "job_id": 117568112144
+      }
+    ],
+    "same_readout_all_three_python_versions": true,
+    "auditor_code_sha256": "dc0df32ea25ad990f442fc2e9feb8964bce08c272c9d6b675d9d4e9cd2da254c",
+    "model_source_sha256": {
+      "data/design/model3_island_v2.json": "0dcf6190c27f5fc9c50b07a270826932691f8c21886ff4b148c6fe299bf3135e",
+      "docs/protocols/CHAPTER2_ISLAND_BRANCH_RECOVERY_PILOT_20261018.md": "6a9906a8ef9b8809a9ea37d3111760df1e2b866959820b69d6900715bfcf74f3",
+      "scripts/explore_chapter2_pollinator_recovery_20261018.py": "25a9e0646636abc6624d05effd8e5c4c0c285fb854462102b7b90f876a2a441c",
+      "scripts/model3_island/history.py": "28d22c7fde81d9be6a604fa9dd4cb6b48d78d388d4db85f798a935cf81415488",
+      "scripts/model3_island/population.py": "c959d18816da6666dbfb4e91bd9582c94af5453b25498d033f5747305b05fe0f",
+      "scripts/model3_island/randomness.py": "63522ae3c5ff8e11f114b5649a989945fa4ba2480fdca0f74857601b0e4b211f",
+      "scripts/model3_island/reproduction.py": "885957edb8a165ee8528781ed1d2574c44143c608496b505f9663cbfac2c4081",
+      "scripts/model3_island/types.py": "a572e1e7f4fded181585871a63582b16f40292bd07b13e8efc9d6b6234eb21c5"
+    },
+    "source_test": "tests/test_chapter2_recovery_genetic_clock_source_20261018.py"
+  },
+  "design": {
+    "imposed_functional_visitor_extirpation_TE": 35,
+    "first_support_loss_definition": "First occupied census at which max retained I allele < realized founder mean I, with no I mutation/seed immigration",
+    "census_indices": "0..45, inclusive",
+    "randomization_unit": "2 crossed founder x 2 visitor seeds; 4 crossing cells",
+    "future_biological_paths": 0,
+    "registered_historical_paths": 8
+  },
+  "observations": {
+    "by_policy": {
+      "evolving": {
+        "histories_extinct_by_t45": 0,
+        "source_history_count": 4,
+        "strict_support_losses_before_TE": 0,
+        "strict_support_losses_by_t45": 1
+      },
+      "fixed": {
+        "histories_extinct_by_t45": 0,
+        "source_history_count": 4,
+        "strict_support_losses_before_TE": 0,
+        "strict_support_losses_by_t45": 0
+      }
+    },
+    "per_path": [
+      {
+        "first_extinction": null,
+        "first_high_I_support_loss": null,
+        "founder_index": 0,
+        "historical_A": "fixed",
+        "precedes_TE": null,
+        "visitor_history_index": 0
+      },
+      {
+        "first_extinction": null,
+        "first_high_I_support_loss": 39,
+        "founder_index": 0,
+        "historical_A": "evolving",
+        "precedes_TE": false,
+        "visitor_history_index": 0
+      },
+      {
+        "first_extinction": null,
+        "first_high_I_support_loss": null,
+        "founder_index": 0,
+        "historical_A": "fixed",
+        "precedes_TE": null,
+        "visitor_history_index": 1
+      },
+      {
+        "first_extinction": null,
+        "first_high_I_support_loss": null,
+        "founder_index": 0,
+        "historical_A": "evolving",
+        "precedes_TE": null,
+        "visitor_history_index": 1
+      },
+      {
+        "first_extinction": null,
+        "first_high_I_support_loss": null,
+        "founder_index": 1,
+        "historical_A": "fixed",
+        "precedes_TE": null,
+        "visitor_history_index": 0
+      },
+      {
+        "first_extinction": null,
+        "first_high_I_support_loss": null,
+        "founder_index": 1,
+        "historical_A": "evolving",
+        "precedes_TE": null,
+        "visitor_history_index": 0
+      },
+      {
+        "first_extinction": null,
+        "first_high_I_support_loss": null,
+        "founder_index": 1,
+        "historical_A": "fixed",
+        "precedes_TE": null,
+        "visitor_history_index": 1
+      },
+      {
+        "first_extinction": null,
+        "first_high_I_support_loss": null,
+        "founder_index": 1,
+        "historical_A": "evolving",
+        "precedes_TE": null,
+        "visitor_history_index": 1
+      }
+    ],
+    "distinct_structural_loss_cases": [
+      {
+        "first_extinction": null,
+        "first_high_I_support_loss": 39,
+        "founder_index": 0,
+        "historical_A": "evolving",
+        "precedes_TE": false,
+        "visitor_history_index": 0
+      }
+    ],
+    "all_8_occupied_until_t45": true
+  },
+  "inference_limits": [
+    "This is an exact replay of source code using original seeds, not a fresh independent-founder or new experimental replicate.",
+    "All 8 history paths persisted to t45; one A-evolving history first lost the specific founder-level HIGH-I target at census t39, four updates AFTER artificial TE=35.",
+    "Structural allele support closure is sufficient for inability to achieve the specified high-I target under no mutation or immigration; nonclosure does not guarantee realized recovery.",
+    "The 1/4 versus 0/4 comparison is descriptive and cannot establish an A policy effect or the probability of irreversible floral evolution.",
+    "The original 144 post-return experimental futures used different environment-indexed stochastic streams and are NOT random-number matched across ecological treatment arms.",
+    "t_G (genetic upper-allele support loss) must not be called t-star (stochastic restored-pollinator no-return window).",
+    "Three Python logs are same-producer cross-runtime replications, not independent native model implementations.",
+    "Do not pool these paths with separate original 2,304 genotype histories or use geological island age as time since functional pollinator loss."
+  ]
+}
