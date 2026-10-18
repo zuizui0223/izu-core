@@ -1,8 +1,5 @@
 name: Ch3 High-I Allele Access (read-only original Q3)
 on:
-  push:
-    branches:
-      - analysis/ch3-high-i-access-readonly-20261018
   workflow_dispatch:
 permissions:
   contents: read
