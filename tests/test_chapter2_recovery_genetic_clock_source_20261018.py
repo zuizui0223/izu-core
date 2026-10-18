@@ -23,7 +23,10 @@ def test_source_only_8_history_genotype_upper_support_clock_and_snapshot_identit
         assert [s["t"] for s in series] == list(range(46))
         target = row["founder_mean_I_target"]
         closed = False
+        closed_A = False
+        previous_min_A = None
         last_values = None
+        founder_A = row["founder_mean_A_target"]
         for s in series:
             if s["census"] > 0:
                 assert s["max_retained_I_allele"] >= s["mean_I"] - 1e-12
@@ -34,6 +37,20 @@ def test_source_only_8_history_genotype_upper_support_clock_and_snapshot_identit
                 if last_values is not None:
                     assert values <= last_values
                 last_values=values
+                min_A = s["min_retained_A_allele"]
+                assert 0 <= min_A <= 1
+                if previous_min_A is not None:
+                    assert min_A >= previous_min_A - 1e-12
+                previous_min_A = min_A
+                if row["historical_A"] == "evolving":
+                    expected_A_closed = min_A > founder_A + 1e-12
+                    assert s["ancestral_low_A_founder_mean_structurally_closed"] is bool(expected_A_closed)
+                    if expected_A_closed:
+                        closed_A = True
+                    if closed_A:
+                        assert s["ancestral_low_A_founder_mean_structurally_closed"] is True
+                else:
+                    assert s["ancestral_low_A_founder_mean_structurally_closed"] is None
                 if s["high_I_founder_mean_structurally_closed"]:
                     assert s["max_retained_I_allele"] < target
                     closed = True
@@ -47,12 +64,19 @@ def test_source_only_8_history_genotype_upper_support_clock_and_snapshot_identit
         "source_mode": result["status"],
         "TE": result["imposed_functional_pollinator_extirpation_TE"],
         "by_policy": result["by_historical_assurance_policy"],
+        "evolving_assurance_first_A_loss_times":[
+            r["first_ancestral_low_A_support_loss_while_occupied"]
+            for r in result["histories"] if r["historical_A"]=="evolving"
+        ],
         "first_loss_by_historical_path": [
             {
                 "founder_index": r["founder_index"],
                 "visitor_history_index": r["visitor_history_index"],
                 "historical_A": r["historical_A"],
                 "first_high_I_support_loss": r["first_strict_high_I_loss_while_occupied"],
+                "first_ancestral_low_A_support_loss": r["first_ancestral_low_A_support_loss_while_occupied"],
+                "founder_mean_A_target":r["founder_mean_A_target"],
+                "A_loss_before_I_loss":r["temporal_A_loss_before_I_loss"],
                 "first_extinction": r["first_extinction"],
                 "precedes_TE": r["structural_loss_precedes_imposed_TE"],
             } for r in result["histories"]
@@ -74,3 +98,21 @@ def test_source_only_8_history_genotype_upper_support_clock_and_snapshot_identit
     }
     warnings.warn("Q2_SAME_SEED_HISTORICAL_GENETIC_CLOCK=" + json.dumps(
         summary, sort_keys=True, separators=(",", ":"), allow_nan=False), stacklevel=1)
+
+
+
+def test_ancestral_A_clock_uses_original_genotype_support_not_expressed_fixed_policy():
+    result=replay_original_historical_clock()
+    evolving=[r for r in result["histories"] if r["historical_A"]=="evolving"]
+    assert len(evolving)==4
+    assert result["by_historical_assurance_policy"]["fixed"]["ancestral_low_A_support_loss_by_t45"] is None
+    # Earlier 40-state source assay found low-A closed at all four evolved states by census 30.
+    assert result["by_historical_assurance_policy"]["evolving"]["ancestral_low_A_support_loss_by_t45"]==4
+    assert all(r["first_ancestral_low_A_support_loss_while_occupied"] is not None
+               and 0 < r["first_ancestral_low_A_support_loss_while_occupied"] <= 30
+               for r in evolving)
+    e=next(r for r in evolving
+           if (r["founder_index"],r["visitor_history_index"])==(0,0))
+    assert e["first_ancestral_low_A_support_loss_while_occupied"] < 39
+    assert e["first_strict_high_I_loss_while_occupied"]==39
+    assert e["temporal_A_loss_before_I_loss"] is True
