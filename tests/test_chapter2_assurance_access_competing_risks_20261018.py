@@ -77,6 +77,7 @@ def test_unconditional_competing_incidence_and_current_survival_partition():
 def test_fault_floor_is_ovule_weighted_and_not_population_survival():
     assert maternal_fault_floor([1.,3.],[0.,1.],.5)==.375
     assert maternal_fault_floor([4.,4.],[.5,.5],.5)==.25
+    assert maternal_fault_floor([4.,4.],[.5,.5],.5,timing="prior")==1/3
     assert maternal_fault_floor([1.,1.],[1.,1.],0.)==1.
     with pytest.raises(ValueError):
         maternal_fault_floor([0.,0.],[0.,0.],.5)
@@ -132,3 +133,10 @@ def test_high_I_genetic_loss_requires_no_mutation_and_no_immigration():
     r["seed_immigration_permitted"]=True
     with pytest.raises(ValueError,match="immigration"):
         history_events(r)
+
+
+def test_prior_floor_undefined_if_even_perfect_fertilization_cannot_yield_seeds():
+    with pytest.raises(ValueError,match="denominator"):
+        maternal_fault_floor([1.,1.],[1.,1.],1.,timing="prior")
+    with pytest.raises(ValueError,match="fault floor"):
+        maternal_fault_floor([1.],[.5],.5,timing="undocumented")
