@@ -180,6 +180,17 @@ def native_gradient(state, visitors, config, selection) -> dict:
     return dict(gradient=g,sign='positive' if g>1e-9 else 'negative' if g< -1e-9 else 'near_zero')
 
 
+def fixed_genotype_service_assay(state, visitors, cfg, reproduction) -> float:
+    """Expected outcross across a prescribed visitor sequence at ONE frozen state.
+
+    This uses the native reproductive ledger without transmission, demographic
+    change or mutation. It measures restored-versus-sham pollen opportunity at
+    identical resident genotypes/census; it is NOT realized evolved seed gain.
+    """
+    return float(sum(float(reproduction.reproduce(state, v, cfg).outcross.sum())
+                     for v in visitors))
+
+
 def gradient_series(state, history, cfg, selection) -> dict:
     """Frozen resident trait against actual future visitor assemblies, not time-evolving genotypes."""
     values=[native_gradient(state,v,cfg,selection) for v in history.visitors]
@@ -279,6 +290,22 @@ def run(archive: Path, source_input: Path, out: Path, *, repeats: int, horizon: 
                     # named future random streams. Changed arrival counts need not match.
                     future_visitors=history_mod.make_history(future_cfg,seed=v_seed,inherited_visitors=visitor0)
                     sham_visitors=history_mod.make_history(sham_cfg,seed=v_seed,inherited_visitors=visitor0)
+                    # Source history used a fixed pollen-service context.
+                    # Both futures start from the same visitor0, but these are
+                    # deliberately NEW dynamic arrival/loss regimes, not a
+                    # literal replay of the historical static visitor series.
+                    if not (np.array_equal(future_visitors.visitors[0].ids,sham_visitors.visitors[0].ids)
+                            and np.array_equal(future_visitors.visitors[0].optima,sham_visitors.visitors[0].optima)
+                            and np.array_equal(future_visitors.visitors[0].breadths,sham_visitors.visitors[0].breadths)
+                            and np.array_equal(future_visitors.visitors[0].effectiveness,sham_visitors.visitors[0].effectiveness)):
+                        raise AssertionError('paired future initial visitor state differs')
+                    # Explicitly assay pollen-return potential on the SAME
+                    # saved genotype state to remove census-size mediation.
+                    restored_static_service=fixed_genotype_service_assay(
+                        state,future_visitors.visitors,future_cfg,reproduction)
+                    sham_static_service=fixed_genotype_service_assay(
+                        state,sham_visitors.visitors,sham_cfg,reproduction)
+                    static_service_gain=restored_static_service-sham_static_service
                     restored=native_future(state,future_visitors,future_cfg,pop,reproduction,randomness,
                                 seed=d_seed,start=t,target=target,horizon=horizon,sustained=sustained)
                     sham=native_future(state,sham_visitors,sham_cfg,pop,reproduction,randomness,
@@ -290,6 +317,7 @@ def run(archive: Path, source_input: Path, out: Path, *, repeats: int, horizon: 
                                            sham_gradient=sham_gradient,
                                            paired_success_delta=int(restored['success'])-int(sham['success']),
                                            paired_outcross_delta=restored['outcross_sum']-sham['outcross_sum'],
+                                           paired_fixed_genotype_service_gain=static_service_gain,
                                            visitor_count_restored=[len(x.ids) for x in future_visitors.visitors],
                                            visitor_count_sham=[len(x.ids) for x in sham_visitors.visitors]))
             # Fixed-state, conditional results. Disallow selected paths as independent founders.
@@ -297,7 +325,14 @@ def run(archive: Path, source_input: Path, out: Path, *, repeats: int, horizon: 
             n_sham=sum(x['sham']['success'] for x in successors)
             interval=wilson(n_success,len(successors),z=z_adjusted)
             mean_outcross_gain=float(np.mean([x['paired_outcross_delta'] for x in successors])) if successors else None
-            realized_service_gain=bool(mean_outcross_gain>0) if mean_outcross_gain is not None else False
+            # Check visitor-opportunity efficacy at a COMMON genotype, not an
+            # outcross total mediated by different evolved census sizes.
+            mean_fixed_genotype_service_gain=(
+                float(np.mean([x['paired_fixed_genotype_service_gain'] for x in successors]))
+                if successors else None)
+            opportunity_gain_evaluable=bool(
+                mean_fixed_genotype_service_gain is not None
+                and mean_fixed_genotype_service_gain>1e-12)
             for x in successors:
                 x['failure_class']=classify_failure(was_occupied=bool(len(state.ids)),
                           genetic_closed=support['closed'],local_gradient_sign=x['restored_gradient']['sign'],
@@ -311,10 +346,11 @@ def run(archive: Path, source_input: Path, out: Path, *, repeats: int, horizon: 
                              target_attainments=n_success,sham_target_attainments=n_sham,
                              paired_recovery_gain=(n_success-n_sham)/len(successors) if successors and declined else None,
                              paired_outcross_gain=mean_outcross_gain,
-                             achieved_effective_outcross_gain=realized_service_gain,
+                             paired_fixed_genotype_pollen_service_gain=mean_fixed_genotype_service_gain,
+                             achieved_effective_outcross_gain=opportunity_gain_evaluable,
                              futures=len(successors),
                              conditional_p=n_success/len(successors) if successors and declined else None,
-                             conditional_interval=interval if declined and realized_service_gain else None,
+                             conditional_interval=interval if declined and opportunity_gain_evaluable else None,
                              sham_conditional_p=n_sham/len(successors) if successors and declined else None,
                              descriptive_maintenance_p=n_success/len(successors) if successors and not declined else None,
                              successors=successors))
@@ -322,7 +358,18 @@ def run(archive: Path, source_input: Path, out: Path, *, repeats: int, horizon: 
     for case in selected:
         rows=[r for r in data if r['key']==case['key']]
         window[case['key']]=threshold_window(rows,cutoff=cutoff)
+    source_file=Path(__file__).resolve()
+    protocol_file=source_file.parents[1]/'docs/protocols/CHAPTER2_RECOVERY_EXPLORATION_20261018.md'
+    execution_source_identity=dict(
+        implementation_sha256=hashlib.sha256(source_file.read_bytes()).hexdigest(),
+        protocol_sha256=hashlib.sha256(protocol_file.read_bytes()).hexdigest(),
+        original_case_archive_sha256=archive_contract.ARCHIVE_SHA,
+        archived_model_source_input_sha256=archive_contract.SOURCE_SHA)
     outjson=dict(status='EXPLORATORY_SOURCE_CONDITIONAL_NOT_PREREGISTERED',
+                 execution_source_identity=execution_source_identity,
+                 historical_visitor_context='STATIC ORIGINAL visitor-state/functional supply; NOT historically recorded stochastic arrivals and losses',
+                 future_scenario='NEW stochastic visitor arrival/loss; restored vs sham START at identical original visitor0; sham is NOT exact historical static continuation',
+                 pollen_efficacy_gate='native expected outcross at IDENTICAL saved genotype and census across the two assigned future visitor sequences',
                  claim_limit='No independent founder effect, Q3 A-policy contrast, full-population success, confirmed irreversible t*, or naturally dated pollinator extirpation.',
                  namespace=NAMESPACE,case_count=len(selected),checkpoint_times=list(checkpoint_times),
                  new_biological_futures=2*sum(r['futures'] for r in data),
