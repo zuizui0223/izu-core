@@ -64,3 +64,47 @@ def test_no_return_clock_has_explicit_zero_success_precision_floor():
     assert resolved['best_possible_zero_success_upper_95']<.2
     with pytest.raises(ValueError):
         probe.threshold_precision_feasibility(0,.2,6)
+
+
+def test_static_genotype_pollen_service_assay_has_no_population_updates():
+    """Technical fake ledger: fixed census, no mutation, parentage or advance."""
+    from types import SimpleNamespace
+    state=object()
+    cfg=object()
+    calls=[]
+    class Ledger:
+        def reproduce(self, resident, visitor, conf):
+            assert resident is state and conf is cfg
+            calls.append(visitor)
+            return SimpleNamespace(outcross=np.array([[float(visitor)]]))
+    observed=probe.fixed_genotype_service_assay(state,(0,2,4),cfg,Ledger())
+    assert observed==6.
+    assert calls==[0,2,4]
+
+
+def test_visitor_histories_start_from_same_exact_assigned_original_community():
+    """Uses the existing exogenous history kernel only; NO plant updates."""
+    import json
+    from dataclasses import replace
+    from pathlib import Path
+    from scripts.model3_island.types import Config, VisitorState
+    from scripts.model3_island.history import make_history
+
+    base=Path(__file__).resolve().parents[1]/'data/design/model3_island_v2.json'
+    config=Config.from_dict(json.loads(base.read_text())['base_config'])
+    config=replace(config,years=20,island_history='separation',initial_visitors=3)
+    initial=VisitorState(
+        np.array([10,11,12],dtype=np.int64),
+        np.array([.3,.5,.7]),
+        np.full(3,.2),np.ones(3))
+    sham=make_history(config,seed=172941,inherited_visitors=initial)
+    stronger=replace(config,visitor_arrival=replace(config.visitor_arrival,supply=.3,distance=0.))
+    return_arm=make_history(stronger,seed=172941,inherited_visitors=initial)
+    for name in ('ids','optima','breadths','effectiveness'):
+        np.testing.assert_array_equal(getattr(sham.visitors[0],name),
+                                      getattr(return_arm.visitors[0],name))
+    np.testing.assert_array_equal(
+        np.array([len(v.ids) for v in return_arm.visitors]),
+        np.array([len(v.ids) for v in make_history(
+            stronger,seed=172941,inherited_visitors=initial).visitors]))
+    assert len(sham.visitors)==len(return_arm.visitors)==20
