@@ -1,0 +1,158 @@
+{
+  "CIF_G_strictly_before_TE": {
+    "evolving": 18,
+    "fixed": 7
+  },
+  "accessible_census_time": {
+    "evolving": 53.56944444444444,
+    "fixed": 63.93055555555556
+  },
+  "adverse_scenario_is_assumption_not_estimated_bound": {
+    "founder": 0.05,
+    "interaction": 0.2,
+    "visitor": 0.05,
+    "within_cell": 0.4
+  },
+  "bootstrap_access_time": {
+    "count_vector_pairs": 213444,
+    "lower95": -20.166666666666668,
+    "lower975": -21.569444444444443,
+    "mean": -10.36111111111111,
+    "ordered_resample_weight": 2176782336,
+    "scope": "Exact empirical bootstrap weights; nominal percentile coverage NOT exact; post-outcome sensitivity only.",
+    "upper95": -0.4027777777777778,
+    "upper975": 1.0277777777777777
+  },
+  "bootstrap_risk": {
+    "count_vector_pairs": 213444,
+    "lower95": 0.0,
+    "lower975": -0.041666666666666664,
+    "mean": 0.2222222222222222,
+    "ordered_resample_weight": 2176782336,
+    "scope": "Exact empirical bootstrap weights; nominal percentile coverage NOT exact; post-outcome sensitivity only.",
+    "upper95": 0.4583333333333333,
+    "upper975": 0.5
+  },
+  "counts": {
+    "all_alive": 144,
+    "evolving_high_I_loss": 58,
+    "fixed_high_I_loss": 42,
+    "founders": 6,
+    "nested_repeats": 2,
+    "per_policy": 72,
+    "visitors": 6
+  },
+  "evolving_A_support_loss_by_80": 72,
+  "formal_confirmation_authorized": false,
+  "gate_status": "HOLD: six independent levels per axis; survival has no events; no justified SESOI/adverse variance/full joint-power decision.",
+  "limits": [
+    "All event times transcribed from CI summaries; no independently validated genotype archive in this review.",
+    "Crossed seed draws: 144 paths and 72 matched pairs are not 144/72 independent island systems.",
+    "Bootstrap resamples each independent axis, retains both policies and averages nested repeats; no exact finite-sample coverage guarantee.",
+    "97.5% marginal intervals are a post-outcome two-endpoint sensitivity, not a retrospectively registered test.",
+    "The 42/72 vs 58/72 contrast suggests faster/larger genetic closure under this policy and model, not a confirmed universal effect.",
+    "All groups survived: no rescue benefit or statistical equivalence in survival is established.",
+    "No actual restored-descendant trajectories, natural islands, stochastic recovery t-star or mediation measured.",
+    "No new biological simulations executed by this arithmetic audit; no old results, seeds or original protocols modified."
+  ],
+  "paired_joint_I_loss_counts": {
+    "both": 36,
+    "evolving_only": 22,
+    "fixed_only": 6,
+    "neither": 8
+  },
+  "paired_risk_variance_components": {
+    "founder": 0.023333333333333345,
+    "interaction": 0.06555555555555553,
+    "visitor": 0.0,
+    "within_cell": 0.2777777777777778
+  },
+  "per_founder_risk_differences": [
+    0.5833333333333334,
+    0.16666666666666666,
+    0.16666666666666666,
+    0.4166666666666667,
+    0.08333333333333333,
+    -0.08333333333333333
+  ],
+  "per_visitor_risk_differences": [
+    0.25,
+    0.25,
+    0.3333333333333333,
+    0.25,
+    0.25,
+    0.0
+  ],
+  "prospective_precision_sensitivity": [
+    {
+      "assumed_stress_I_loss_MDE": 0.5871590488582579,
+      "baseline_I_loss_MDE": 0.3446000613971081,
+      "founders": 6,
+      "paths": 144,
+      "repeats": 2,
+      "updates": 11520,
+      "visitors": 6
+    },
+    {
+      "assumed_stress_I_loss_MDE": 0.37135198863403657,
+      "baseline_I_loss_MDE": 0.20433734798535327,
+      "founders": 12,
+      "paths": 576,
+      "repeats": 2,
+      "updates": 46080,
+      "visitors": 12
+    },
+    {
+      "assumed_stress_I_loss_MDE": 0.31138810881203816,
+      "baseline_I_loss_MDE": 0.16736607953319246,
+      "founders": 16,
+      "paths": 1024,
+      "repeats": 2,
+      "updates": 81920,
+      "visitors": 16
+    },
+    {
+      "assumed_stress_I_loss_MDE": 0.2456262526987363,
+      "baseline_I_loss_MDE": 0.12834197889585539,
+      "founders": 24,
+      "paths": 2304,
+      "repeats": 2,
+      "updates": 184320,
+      "visitors": 24
+    },
+    {
+      "assumed_stress_I_loss_MDE": 0.20888549360664557,
+      "baseline_I_loss_MDE": 0.10736745477885506,
+      "founders": 32,
+      "paths": 4096,
+      "repeats": 2,
+      "updates": 327680,
+      "visitors": 32
+    },
+    {
+      "assumed_stress_I_loss_MDE": 0.1673660795331924,
+      "baseline_I_loss_MDE": 0.08446613929538405,
+      "founders": 48,
+      "paths": 9216,
+      "repeats": 2,
+      "updates": 737280,
+      "visitors": 48
+    },
+    {
+      "assumed_stress_I_loss_MDE": 0.14354282563324702,
+      "baseline_I_loss_MDE": 0.07172448805657836,
+      "founders": 64,
+      "paths": 16384,
+      "repeats": 2,
+      "updates": 1310720,
+      "visitors": 64
+    }
+  ],
+  "restricted_access_census_difference": -10.36111111111111,
+  "risk_difference": 0.2222222222222222,
+  "source_event_sha256": "0caeed0e2494f617a362d7ca11dc49e145953a013dcb59be6b23c01a572ff726",
+  "source_run": 39106340477,
+  "status": "POST_OUTCOME_EQUALA_PILOT_SOURCE_REVIEW_NOT_CONFIRMATION",
+  "survival_endpoint_is_saturated": true,
+  "time_unit": "count of accessible censuses among t=0..80 inclusive (81 slots), not exact no-return time"
+}
