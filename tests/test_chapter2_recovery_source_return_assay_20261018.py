@@ -29,6 +29,13 @@ def test_old_eight_history_source_return_assay_is_complete_and_source_consistent
         assert r["census"]>0
         assert r["expected_outcross_return_gain"]>0
         assert 0<=r["maternal_no_service_fraction"]<=.5+1e-12
+        assert 0.<=r["min_retained_A_allele"]<=r["max_retained_A_allele"]<=1.
+        predicted_low_A_bound=(r["min_retained_A_allele"] >
+                               r["ancestral_founder_A_mean"]+1e-12)
+        if r["policy"]=="evolving":
+            assert r["ancestral_low_A_target_structurally_closed"] is bool(predicted_low_A_bound)
+        else:
+            assert r["ancestral_low_A_target_structurally_closed"] is None
         if r["policy"]=="fixed":
             assert abs(r["maternal_no_service_fraction"]-.25)<1e-12
         for kind in ("I","A"):
@@ -51,6 +58,9 @@ def test_old_eight_history_source_return_assay_is_complete_and_source_consistent
                 "t":t,"historical_A":policy,"saved_genotypes":len(subset),
                 "high_I_support_closed":sum(x["high_I_support_closed"] is True
                                            for x in subset),
+                "ancestral_low_A_support_closed":sum(
+                    x["ancestral_low_A_target_structurally_closed"] is True
+                    for x in subset),
                 "I_focal_positive":nsign("I","positive"),
                 "I_focal_negative":nsign("I","negative"),
                 "I_focal_undefined":nsign("I","undefined"),
