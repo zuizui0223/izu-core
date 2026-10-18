@@ -82,7 +82,7 @@ def test_versioned_high_i_readout_reconciles_original_cell_mapping():
     from collections import defaultdict
     folder=ROOT/"data/results/directional_access_20261013"
     signed=json.loads((folder/"ORIGINAL_COMPACT.json").read_text())
-    fixed=json.loads((ROOT/"data/results/chapter3_high_i_access_20261018/READOUT.json").read_text())
+    fixed=json.loads((ROOT/"docs/audits/CHAPTER3_HIGH_I_ACCESS_SOURCE_READOUT_20261018.json").read_text())
     derived=audit()
     original_cells={(row["block"],row["context"]):row for row in signed["cells"]}
     assert len(original_cells)==18
