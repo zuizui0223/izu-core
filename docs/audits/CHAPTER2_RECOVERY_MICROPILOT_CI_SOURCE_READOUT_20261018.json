@@ -37,50 +37,50 @@
         "historical_A": "fixed",
         "future_A": "continue_historical_policy",
         "n_eligible_nested_futures": 2,
-        "n_eligible_independent_states": 1,
         "n_success_nested_futures": 0,
         "conditional_fraction": 0,
-        "high_I_upper_support_excluded_states": 0
+        "high_I_upper_support_excluded_states": 0,
+        "n_eligible_distinct_source_states": 1
       },
       {
         "time": 30,
         "historical_A": "evolving",
         "future_A": "continue_historical_policy",
         "n_eligible_nested_futures": 4,
-        "n_eligible_independent_states": 2,
         "n_success_nested_futures": 1,
         "conditional_fraction": 0.25,
-        "high_I_upper_support_excluded_states": 0
+        "high_I_upper_support_excluded_states": 0,
+        "n_eligible_distinct_source_states": 2
       },
       {
         "time": 45,
         "historical_A": "fixed",
         "future_A": "continue_historical_policy",
         "n_eligible_nested_futures": 6,
-        "n_eligible_independent_states": 3,
         "n_success_nested_futures": 1,
         "conditional_fraction": 0.16666666666666666,
-        "high_I_upper_support_excluded_states": 0
+        "high_I_upper_support_excluded_states": 0,
+        "n_eligible_distinct_source_states": 3
       },
       {
         "time": 45,
         "historical_A": "evolving",
         "future_A": "continue_historical_policy",
         "n_eligible_nested_futures": 2,
-        "n_eligible_independent_states": 1,
         "n_success_nested_futures": 0,
         "conditional_fraction": 0,
-        "high_I_upper_support_excluded_states": 1
+        "high_I_upper_support_excluded_states": 1,
+        "n_eligible_distinct_source_states": 1
       },
       {
         "time": 45,
         "historical_A": "evolving",
         "future_A": "freeze_at_attained_A",
         "n_eligible_nested_futures": 2,
-        "n_eligible_independent_states": 1,
         "n_success_nested_futures": 1,
         "conditional_fraction": 0.5,
-        "high_I_upper_support_excluded_states": 1
+        "high_I_upper_support_excluded_states": 1,
+        "n_eligible_distinct_source_states": 1
       }
     ],
     "complete_18_cell_readout": [
@@ -303,6 +303,7 @@
     ]
   },
   "interpretation_guardrails": [
+    "The inferred distinct source-state count N_eligible/2 is NOT an independent-sample count: crossed cells reuse founder and visitor axes.",
     "At t10 there are zero eligible previously-declined living states: unconditional high-I attainment is maintenance/attainment, NOT recovery.",
     "At t30 and t45 conditional numbers are tiny and nested; neither the sign nor timing of the historical A-policy effect is confirmed.",
     "At t45 upper-allele exclusion occurs in one of four evolved-A historical crossed states (two future repeats per state), zero of four fixed-A states. Descriptive only.",
