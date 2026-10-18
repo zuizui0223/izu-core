@@ -11,7 +11,7 @@ The read-only audit `scripts/audit_chapter3_high_i_access_20261018.py` operated 
 - Original 201-census NPZ SHA-256: `7096b864289e976f7eb443305bb42acdae78b0ea28f6f45b7237bc7c795981a4`.
 - Original all-case CSV SHA-256: `5c8e3fe38d7f2953d2ba8b54e716261c7bdc9d4a92bf928182b5fcf621e5e665`.
 - [Successful exact-head Actions run 39046357278](https://github.com/zuizui0223/izu-core/actions/runs/39046357278), head `a5e734235b0802d7b8017aaf1d83302b61876812`. Focused read-only tests, whole-cohort audit and evidence-artifact upload all passed. Artifact ID `12106450406` (30-day transient Actions storage); the checked-out input is already archived in Git.
-- **New biological histories and new pollinator-restoration futures: both ZERO.**
+- **New biological histories and new pollinator-restoration futures: both ZERO.** The exact retrospective derived JSON is preserved byte-identically in [`docs/audits/CHAPTER3_HIGH_I_ACCESS_SOURCE_READOUT_20261018.json`](audits/CHAPTER3_HIGH_I_ACCESS_SOURCE_READOUT_20261018.json), outside the frozen tracked-data budget; all original `data/results/directional_access_20261013` bytes remain unchanged.
 
 ## Structural target: return to founding investment mean
 
