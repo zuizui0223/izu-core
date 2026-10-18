@@ -51,3 +51,16 @@ def test_fresh_seed_namespace_unique_and_repeatable():
     assert seeds==[probe.seed_for('a',t,r,kind) for kind in ('visitors','population') for t in (25,50) for r in range(10)]
     assert all(0<x<2**31-1 for x in seeds[:20])
     with pytest.raises(ValueError):probe.seed_for('a',25,0,'undefined')
+
+def test_no_return_clock_has_explicit_zero_success_precision_floor():
+    """No biological draw: exact Wilson width and strict 0.2 cutoff arithmetic."""
+    gate=probe.threshold_precision_feasibility(8,.2,6)
+    assert gate['future_replicates_per_occupied_state']==8
+    assert gate['minimum_nested_futures_for_zero_success_upper_strictly_below_cutoff']==28
+    assert abs(gate['best_possible_zero_success_upper_95']-0.4652549912165375)<1e-12
+    assert gate['any_candidate_threshold_possible_at_this_replicate_count'] is False
+    resolved=probe.threshold_precision_feasibility(28,.2,6)
+    assert resolved['any_candidate_threshold_possible_at_this_replicate_count'] is True
+    assert resolved['best_possible_zero_success_upper_95']<.2
+    with pytest.raises(ValueError):
+        probe.threshold_precision_feasibility(0,.2,6)
