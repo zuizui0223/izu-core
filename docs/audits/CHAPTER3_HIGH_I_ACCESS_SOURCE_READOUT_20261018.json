@@ -1,0 +1,127 @@
+{
+  "schema": "chapter3_high_I_retrospective_structural_readout_v1",
+  "analysis_date": "2026-10-18",
+  "status": "INDEPENDENT_VECTOR_RECONCILED_SOURCE_ONLY_NOT_RESTORATION",
+  "input_scope": {
+    "original_Q3_cases": 2304,
+    "census_times": 201,
+    "founder_blocks": 2,
+    "visitor_contexts": 9,
+    "replicates_per_founder_context": 128,
+    "replicates_reused_across_visitor_contexts": true,
+    "investment_mutation": false,
+    "seed_immigration": false,
+    "source_npz_sha256": "7096b864289e976f7eb443305bb42acdae78b0ea28f6f45b7237bc7c795981a4",
+    "source_cases_sha256": "5c8e3fe38d7f2953d2ba8b54e716261c7bdc9d4a92bf928182b5fcf621e5e665",
+    "original_provider_zip_sha256": "819741aa4a9f5bc1aaf2dadddbd56b79d158fc9295d07fc3bffe362693fc056a"
+  },
+  "source_actions": {
+    "primary_run": 39046357278,
+    "verification_run": 39046844806,
+    "independent_vector_status": "INDEPENDENT_VECTOR_RECONCILED_FROM_SAVED_ORIGINAL_ARRAYS"
+  },
+  "predeclared_target_for_this_retrospective_measurement": "Founding realized investment mean I0, NOT a restored-visitor optimum",
+  "sufficient_exclusion_condition": "living and max(current I alleles) < I0 under absence of I mutation and seed immigration",
+  "results": {
+    "high_I_access_excluded": 1455,
+    "denominator_original_histories": 2304,
+    "excluded_before_single_allele_fixation": 758,
+    "excluded_at_fixation": 697,
+    "excluded_after_fixation": 0,
+    "before_fixation_with_positive_investment_phenotype_variance": 758,
+    "retained_high_I_allelic_support": 849,
+    "extinct_by_census_200": 0,
+    "time_first_loss_if_lost": {
+      "min": 7,
+      "q25": 18,
+      "median": 28,
+      "q75": 46,
+      "max": 199
+    },
+    "by_founder": {
+      "main": {
+        "high_loss": 714,
+        "n": 1152
+      },
+      "confirmation": {
+        "high_loss": 741,
+        "n": 1152
+      }
+    },
+    "low_I_direction_cross_classification": {
+      "both": 404,
+      "high_I_only": 1051,
+      "low_I_only": 834,
+      "neither": 15
+    },
+    "original_low_I_total_exclusions": 1238,
+    "original_low_I_pre_fixation_exclusions": 703
+  },
+  "by_original_visitor_context": [
+    {
+      "supply": 0,
+      "composition": "empty",
+      "high_I_excluded": 254,
+      "n": 256
+    },
+    {
+      "supply": 0.03125,
+      "composition": "matched",
+      "high_I_excluded": 251,
+      "n": 256
+    },
+    {
+      "supply": 0.03125,
+      "composition": "separated",
+      "high_I_excluded": 251,
+      "n": 256
+    },
+    {
+      "supply": 0.125,
+      "composition": "matched",
+      "high_I_excluded": 210,
+      "n": 256
+    },
+    {
+      "supply": 0.125,
+      "composition": "separated",
+      "high_I_excluded": 249,
+      "n": 256
+    },
+    {
+      "supply": 0.5,
+      "composition": "matched",
+      "high_I_excluded": 29,
+      "n": 256
+    },
+    {
+      "supply": 0.5,
+      "composition": "separated",
+      "high_I_excluded": 145,
+      "n": 256
+    },
+    {
+      "supply": 1,
+      "composition": "matched",
+      "high_I_excluded": 14,
+      "n": 256
+    },
+    {
+      "supply": 1,
+      "composition": "separated",
+      "high_I_excluded": 52,
+      "n": 256
+    }
+  ],
+  "claim_limits": [
+    "No forced permanent pollinator loss time T_E was tested",
+    "No pollinator restoration, high-I selection under restored conditions, or recovery probability was tested",
+    "No matched historical A-fixed versus A-evolving intervention in this original cohort",
+    "1455 represents a sufficient genotype-support impossibility for this I0 target, not recovered-visitor evolutionary irreversibility",
+    "Visitor-context contrasts are retrospective and do not estimate a new preregistered causal effect",
+    "No new biological simulation; no confirmatory p-values or independently sampled real island systems"
+  ],
+  "new_biological_histories": 0,
+  "new_restoration_simulations": 0,
+  "retrospective": true
+}
