@@ -43,7 +43,7 @@ The archived no-I-mutation source also permits a separate **exact first HIGH-I u
 
 ## Execution and gate
 
-The adapter is created as an **exploratory analysis harness** only; no CI task auto-runs numerical biology. Five isolated deterministic technical tests check theorem scope, sustained-event duration, conservative threshold handling, overlapping reasons and stream identity. Before conducting any fresh biological paths, complete the independent founder×visitor power/source and SESOI review in #585, affirm the scoped resource/study-ID budget and verify original archive/source hashes. A small engineering fixture may be tested without claiming an ecological outcome; actual archival-state biological output remains **PENDING**.
+The adapter is created as an **exploratory analysis harness** only; no CI task auto-runs numerical biology. Six isolated deterministic technical tests check theorem scope, sustained-event duration, conservative threshold handling, overlapping reasons and stream identity. Before conducting any fresh biological paths, complete the independent founder×visitor power/source and SESOI review in #585, affirm the scoped resource/study-ID budget and verify original archive/source hashes. A small engineering fixture may be tested without claiming an ecological outcome; actual archival-state biological output remains **PENDING**.
 
 When the explicit pre-execution gates are satisfied and the two authenticated original ZIPs are available, the following is the limited diagnostic invocation (no new model source edits):
 
@@ -58,6 +58,35 @@ python -m scripts.chapter2_recovery_probe_20261018 \
 ```
 
 Expected scheduled *maximum* `4 source cases × 6 checkpoints × 8 paired repeats × 2 arms × 40 annual advances = 15,360 native updates`, fewer if source states are extinct. This is a **planning arithmetic bound, not completed updates**. Missing archives / source-hash mismatches / coverage failure yield no scientific verdict. Never treat a missing source as a zero effect.
+
+
+## Post-design, pre-biological-execution precision feasibility (2026-10-18)
+
+The planned **8 conditional future streams per occupied source state cannot, even
+in the mathematical best case of eight failed recoveries, produce a multiple-
+checkpoint-adjusted 95% Wilson upper endpoint below the illustrative cutoff
+0.20**. With six registered time points, z = 2.6382572735 and the best upper
+endpoint is 6.96040144 / (8 + 6.96040144) = **0.4652549912**. A strict
+upper endpoint below 0.20 with *zero* successes requires a **minimum of 28
+nested futures per state**. This is a necessary arithmetic screen for such
+an interval, NOT a joint statistical power analysis or an approved change to
+the 8-future pre-outcome cap.
+
+Therefore, under the current design `candidate_grid_t_star` is *necessarily
+null* regardless of the biological outcome. Do not interpret its null as
+biological reversibility or a missing evolutionary lock. The planned 8
+futures can still supply descriptive conditional direction and mechanistic
+diagnostics, subject to archived source admission and service efficacy.
+A future confirmation must separately define SESOI, independently crossed
+founder/visitor variation, full-population estimands, power and resource
+budget under #585; simply increasing conditional RNG repeats cannot solve
+the lack of independently sampled founder histories.
+
+The standalone source-only calculation is validated in
+`tests/test_chapter2_recovery_probe_20261018.py`; the exploratory adapter
+now records the exact `threshold_precision_preflight` field in any later
+result. **No archived-source biological futures were run or inferred by this
+preflight update.**
 
 ## What next figures can and cannot say
 
