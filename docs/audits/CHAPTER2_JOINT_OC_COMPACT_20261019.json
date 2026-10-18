@@ -1,0 +1,271 @@
+{
+  "schema": "q3_joint_method_readout_v1",
+  "status": "SPECIFIED_JOINT_STATISTICAL_SCENARIOS_PASS_NOT_BIOLOGICAL_CONFIRMATION",
+  "date": "2026-10-19",
+  "source_PR": 597,
+  "source_base": "9e6f38b857264b05dbb2538c1e4b4dac725907df",
+  "pre_outcome_plan_commit": "1cba5710e6bafd9ef72b948df48279420895a33c",
+  "plan_sha256": "683520d2551b30a60d208df7de9654e4f8292dcef82b9ee405052a46014883db",
+  "source_sha256": {
+    "scripts/q3_joint_inference_20261019.py": "f6322a715d6353fb6816e3dde64e68f8345323539cd973a077c36cd314649183",
+    "scripts/validate_q3_joint_oc_20261019.py": "237063f194be3f52439f133ff54dcd8531afdf73c1621e218a1ab9360b75785e"
+  },
+  "prior_96000_review_artifact_sha256": "a94d9f34a02d667508a5db4e39fc573c18d4fca5205c9d5dda7f87536569193b",
+  "retained_statistical_experiments": 60000,
+  "scenario_count": 6,
+  "independent_axes": [
+    160,
+    160
+  ],
+  "full_survival_interaction_domain": [
+    -2,
+    2
+  ],
+  "two_sided_marginal_interval": 0.975,
+  "MC_interval_family_count": 12,
+  "MC_familywise_error": 0.05,
+  "all_specified_power_checks_pass": true,
+  "all_specified_null_checks_pass": true,
+  "minimum_joint_power_MC_lower": 0.8608203022163675,
+  "maximum_null_FWER_MC_upper": 0.036833209184178706,
+  "candidate_biological_budget": {
+    "F": 160,
+    "V": 160,
+    "R": 1,
+    "shared_prefix_policy_paths": 51200,
+    "prefix_updates": 1792000,
+    "terminal_branches": 102400,
+    "branch_updates": 4608000,
+    "unique_updates": 6400000,
+    "rectangular_maximum_updates": 8192000
+  },
+  "scientific_SESOI_approved": false,
+  "independent_method_review_approved": false,
+  "Model3_specific_power_validated": false,
+  "Model3_histories_started": 0,
+  "execution_authorized": false,
+  "results": [
+    {
+      "id": "full_aligned_null",
+      "truth": [
+        0.0,
+        0.0
+      ],
+      "mean_correlation": 0.7502019947689541,
+      "replications": 10000,
+      "joint_positive_rate": 0.0024,
+      "joint_positive_MC_interval": [
+        0.001233922516641586,
+        0.004170096769581964
+      ],
+      "null_FWER": 0.0315,
+      "null_FWER_MC_interval": [
+        0.026718209788210625,
+        0.036833209184178706
+      ],
+      "counts": {
+        "positive_each": [
+          75,
+          83
+        ],
+        "rejected_each": [
+          187,
+          198
+        ],
+        "joint_positive": 24,
+        "joint_negative": 46,
+        "false_reject_any_true_null": 315,
+        "simultaneous_coverage": 9685,
+        "degenerate_each": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "full_aligned_alt",
+      "truth": [
+        0.1,
+        0.1
+      ],
+      "mean_correlation": 0.7518765206925125,
+      "replications": 10000,
+      "joint_positive_rate": 0.9018,
+      "joint_positive_MC_interval": [
+        0.8929884973226331,
+        0.9101412018203668
+      ],
+      "null_FWER": null,
+      "null_FWER_MC_interval": null,
+      "counts": {
+        "positive_each": [
+          9318,
+          9382
+        ],
+        "rejected_each": [
+          9318,
+          9382
+        ],
+        "joint_positive": 9018,
+        "joint_negative": 0,
+        "false_reject_any_true_null": 0,
+        "simultaneous_coverage": 9679,
+        "degenerate_each": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "full_opposed_null",
+      "truth": [
+        0.0,
+        0.0
+      ],
+      "mean_correlation": -0.7512470341229136,
+      "replications": 10000,
+      "joint_positive_rate": 0.0,
+      "joint_positive_MC_interval": [
+        0.0,
+        0.0006171880714294873
+      ],
+      "null_FWER": 0.0307,
+      "null_FWER_MC_interval": [
+        0.025980565831588066,
+        0.03597188621034101
+      ],
+      "counts": {
+        "positive_each": [
+          93,
+          87
+        ],
+        "rejected_each": [
+          179,
+          180
+        ],
+        "joint_positive": 0,
+        "joint_negative": 0,
+        "false_reject_any_true_null": 307,
+        "simultaneous_coverage": 9693,
+        "degenerate_each": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "full_opposed_alt",
+      "truth": [
+        0.1,
+        0.1
+      ],
+      "mean_correlation": -0.7691284629246573,
+      "replications": 10000,
+      "joint_positive_rate": 0.8707,
+      "joint_positive_MC_interval": [
+        0.8608203022163675,
+        0.8801461914441232
+      ],
+      "null_FWER": null,
+      "null_FWER_MC_interval": null,
+      "counts": {
+        "positive_each": [
+          9332,
+          9375
+        ],
+        "rejected_each": [
+          9332,
+          9375
+        ],
+        "joint_positive": 8707,
+        "joint_negative": 0,
+        "false_reject_any_true_null": 0,
+        "simultaneous_coverage": 9672,
+        "degenerate_each": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "near_boundary_partial_null",
+      "truth": [
+        0.0,
+        0.95
+      ],
+      "mean_correlation": -0.23982100266460096,
+      "replications": 10000,
+      "joint_positive_rate": 0.0087,
+      "joint_positive_MC_interval": [
+        0.0062737209436232386,
+        0.011711097440193692
+      ],
+      "null_FWER": 0.02,
+      "null_FWER_MC_interval": [
+        0.016217636642501754,
+        0.024349154655878367
+      ],
+      "counts": {
+        "positive_each": [
+          87,
+          10000
+        ],
+        "rejected_each": [
+          200,
+          10000
+        ],
+        "joint_positive": 87,
+        "joint_negative": 0,
+        "false_reject_any_true_null": 200,
+        "simultaneous_coverage": 9533,
+        "degenerate_each": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "id": "near_boundary_alt",
+      "truth": [
+        0.1,
+        0.95
+      ],
+      "mean_correlation": -0.18215492594571422,
+      "replications": 10000,
+      "joint_positive_rate": 0.9342,
+      "joint_positive_MC_interval": [
+        0.9267907743265895,
+        0.9411001910975787
+      ],
+      "null_FWER": null,
+      "null_FWER_MC_interval": null,
+      "counts": {
+        "positive_each": [
+          9342,
+          10000
+        ],
+        "rejected_each": [
+          9342,
+          10000
+        ],
+        "joint_positive": 9342,
+        "joint_negative": 0,
+        "false_reject_any_true_null": 0,
+        "simultaneous_coverage": 9555,
+        "degenerate_each": [
+          0,
+          0
+        ]
+      }
+    }
+  ],
+  "limits": [
+    "Full-range S extremes are adversarial method stresses, not predictions that the source B8 survival ceiling fails.",
+    "Near-boundary survival is a separate feasible statistical sensitivity, not a fitted biological probability.",
+    "Previous method selection was data-informed; these are fresh statistical seeds for follow-up assessment, not an independent scientific review.",
+    "Finite scenario success cannot prove universal coverage or Model3-specific power.",
+    "No method-review approval, effect-margin approval, biological execution permission or new biological seed allocation is conferred.",
+    "One shell session stopped after its first completed scenario; remaining scenarios were resumed separately from their already frozen seeds. No retained results were overwritten and partial duplicate computation adds no independent repetitions.",
+    "Variance formula checked by exhaustive small-array enumeration; saved scalar decisions independently recalculated. Generator itself not independently reimplemented."
+  ]
+}
