@@ -50,6 +50,7 @@ def assayed_source():
     for fi,fseed in enumerate(FOUNDER_IDS):
         founder=make_founders(fseed)
         target=investment_mean(founder)
+        founder_A_target=float(founder.alleles[:,2,:].mean())
         for vi,vseed in enumerate(VISITOR_IDS):
             full,sparse=make_visitors(vseed)
             master=seeded(1,fi,vi)
@@ -90,6 +91,12 @@ def assayed_source():
                                 census=n,founder_I_target=target,
                                 high_I_support_closed=support_bound(state,target),
                                 max_retained_I=float(state.alleles[:,1,:].max()),
+                                ancestral_founder_A_mean=founder_A_target,
+                                min_retained_A_allele=float(state.alleles[:,2,:].min()),
+                                max_retained_A_allele=float(state.alleles[:,2,:].max()),
+                                ancestral_low_A_target_structurally_closed=(
+                                    bool(state.alleles[:,2,:].min()>founder_A_target+1e-12)
+                                    if policy=="evolving" else None),
                                 expected_outcross_return_gain=float(
                                     r.outcross.sum()-absent.outcross.sum()),
                                 maternal_no_service_fraction=fault_floor,
@@ -119,6 +126,10 @@ def assayed_source():
         focal_assay_scope="one finite adult, two central-difference widths, not rare-mutant invasion",
         return_pollen_assay_scope="same saved plant genotypes, functional visitors full versus absent",
         t39_source_example=one[39],path_rows=rows,
+        A_support_assay_scope=(
+            "Ancestral founder-A-mean reachability only in the evolving-A history: "
+            "min surviving A allele exceeding founder mean A under no A mutation or seed immigration. "
+            "This is a target-specific sufficient bound, not realized selection response."),
     )
 
 
