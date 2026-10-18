@@ -1,0 +1,84 @@
+{
+  "status": "READ_ONLY_POST_OUTCOME_DENOMINATOR_AUDIT_NOT_CONFIRMATORY",
+  "source_run_id": 39045405754,
+  "statistical_independence": "2 founders x 2 visitor histories crossed; nested future streams",
+  "results": [
+    {
+      "t": 10,
+      "historical_policies": {
+        "fixed": {
+          "unconditional_high_I_attainment_restored": 1,
+          "unconditional_high_I_attainment_no_visitors": 0.375,
+          "eligible_declined_nested_futures": 0,
+          "eligible_declined_source_states": 0,
+          "conditional_regaining_fraction": null,
+          "occupied_source_genetic_support_closures": 0
+        },
+        "evolving": {
+          "unconditional_high_I_attainment_restored": 1,
+          "unconditional_high_I_attainment_no_visitors": 0.75,
+          "eligible_declined_nested_futures": 0,
+          "eligible_declined_source_states": 0,
+          "conditional_regaining_fraction": null,
+          "occupied_source_genetic_support_closures": 0
+        }
+      },
+      "descriptive_unconditional_historical_A_evolving_minus_fixed": 0,
+      "descriptive_conditional_evolving_minus_fixed": null
+    },
+    {
+      "t": 30,
+      "historical_policies": {
+        "fixed": {
+          "unconditional_high_I_attainment_restored": 0.625,
+          "unconditional_high_I_attainment_no_visitors": 0.25,
+          "eligible_declined_nested_futures": 2,
+          "eligible_declined_source_states": 1,
+          "conditional_regaining_fraction": 0,
+          "occupied_source_genetic_support_closures": 0
+        },
+        "evolving": {
+          "unconditional_high_I_attainment_restored": 0.625,
+          "unconditional_high_I_attainment_no_visitors": 0.5,
+          "eligible_declined_nested_futures": 4,
+          "eligible_declined_source_states": 2,
+          "conditional_regaining_fraction": 0.25,
+          "occupied_source_genetic_support_closures": 0
+        }
+      },
+      "descriptive_unconditional_historical_A_evolving_minus_fixed": 0,
+      "descriptive_conditional_evolving_minus_fixed": 0.25
+    },
+    {
+      "t": 45,
+      "historical_policies": {
+        "fixed": {
+          "unconditional_high_I_attainment_restored": 0.375,
+          "unconditional_high_I_attainment_no_visitors": 0.25,
+          "eligible_declined_nested_futures": 6,
+          "eligible_declined_source_states": 3,
+          "conditional_regaining_fraction": 0.16666666666666666,
+          "occupied_source_genetic_support_closures": 0
+        },
+        "evolving": {
+          "unconditional_high_I_attainment_restored": 0.5,
+          "unconditional_high_I_attainment_no_visitors": 0.5,
+          "eligible_declined_nested_futures": 2,
+          "eligible_declined_source_states": 1,
+          "conditional_regaining_fraction": 0,
+          "occupied_source_genetic_support_closures": 1
+        }
+      },
+      "descriptive_unconditional_historical_A_evolving_minus_fixed": 0.125,
+      "descriptive_conditional_evolving_minus_fixed": -0.16666666666666666
+    }
+  ],
+  "inference_limits": [
+    "Unconditional high-I attainment includes states that never declined, so is not per se regaining after decline.",
+    "Conditional regaining selects on surviving and declined states after historical A assignment, not a randomized policy estimand.",
+    "A historical A effect is not confirmed with 4 crossed founder/visitor cells; neither point difference is a powered causal estimate.",
+    "Original restored-versus-no-visitor demographic RNG seeds differ by environmental arm; ecological comparison is NOT common-RNG paired.",
+    "No clinical, field, natural-island, t-star or independent source replication inference.",
+    "All original historical Q1–Q4 and the previous 144-path pilot outcomes remain unchanged."
+  ]
+}
