@@ -1,0 +1,315 @@
+{
+  "schema": "chapter2_pollinator_recovery_micro_pilot_ci_log_readout_v1",
+  "evidence_status": "POST_OUTCOME_EXPLORATORY_CI_LOG_EXTRACTION_NOT_CONFIRMATORY",
+  "date": "2026-10-18",
+  "paper_identity": "Single developing NEE Article candidate in PR #590; no second paper.",
+  "source": {
+    "repo": "zuizui0223/izu-core",
+    "pr": 593,
+    "head_sha": "1623f8f0cf6e90245e0f4ca43524da0350e9466a",
+    "workflow_run_id": 39045405754,
+    "workflow_url": "https://github.com/zuizui0223/izu-core/actions/runs/39045405754",
+    "python_3_10_job_id": 117433096558,
+    "python_3_11_job_id": 117433096651,
+    "python_3_12_job_id": 117433096736,
+    "all_three_job_readouts_bitwise_equal": true,
+    "readout_origin": "Warning emitted by end-to-end exploratory CI test, not an independent raw NPZ audit"
+  },
+  "inventory": {
+    "historical_paths": 8,
+    "conditional_future_paths": 144,
+    "founder_seeds": 2,
+    "visitor_history_seeds": 2,
+    "crossed_cells": 4,
+    "conditional_future_repeats": 2,
+    "historical_TE": 35,
+    "checkpoints": [
+      10,
+      30,
+      45
+    ],
+    "statistical_unit_warning": "The four cells share 2 founders and 2 visitor histories; future streams and checkpoints are nested/reused. Do NOT treat 144 futures as independent islands."
+  },
+  "results": {
+    "t_30_and_45_eligible_restored_cases": [
+      {
+        "time": 30,
+        "historical_A": "fixed",
+        "future_A": "continue_historical_policy",
+        "n_eligible_nested_futures": 2,
+        "n_eligible_independent_states": 1,
+        "n_success_nested_futures": 0,
+        "conditional_fraction": 0,
+        "high_I_upper_support_excluded_states": 0
+      },
+      {
+        "time": 30,
+        "historical_A": "evolving",
+        "future_A": "continue_historical_policy",
+        "n_eligible_nested_futures": 4,
+        "n_eligible_independent_states": 2,
+        "n_success_nested_futures": 1,
+        "conditional_fraction": 0.25,
+        "high_I_upper_support_excluded_states": 0
+      },
+      {
+        "time": 45,
+        "historical_A": "fixed",
+        "future_A": "continue_historical_policy",
+        "n_eligible_nested_futures": 6,
+        "n_eligible_independent_states": 3,
+        "n_success_nested_futures": 1,
+        "conditional_fraction": 0.16666666666666666,
+        "high_I_upper_support_excluded_states": 0
+      },
+      {
+        "time": 45,
+        "historical_A": "evolving",
+        "future_A": "continue_historical_policy",
+        "n_eligible_nested_futures": 2,
+        "n_eligible_independent_states": 1,
+        "n_success_nested_futures": 0,
+        "conditional_fraction": 0,
+        "high_I_upper_support_excluded_states": 1
+      },
+      {
+        "time": 45,
+        "historical_A": "evolving",
+        "future_A": "freeze_at_attained_A",
+        "n_eligible_nested_futures": 2,
+        "n_eligible_independent_states": 1,
+        "n_success_nested_futures": 1,
+        "conditional_fraction": 0.5,
+        "high_I_upper_support_excluded_states": 1
+      }
+    ],
+    "complete_18_cell_readout": [
+      {
+        "t": 10,
+        "historical_A": "fixed",
+        "future_A": "continue_historical_policy",
+        "service": "functional_pollinators_restored",
+        "N_nested": 8,
+        "N_eligible": 0,
+        "P_regain_conditional": null,
+        "N_unconditional_success": 8,
+        "N_high_I_support_closed_states": 0,
+        "N_positive_local_return_states": 4
+      },
+      {
+        "t": 10,
+        "historical_A": "fixed",
+        "future_A": "continue_historical_policy",
+        "service": "continued_pollinator_loss",
+        "N_nested": 8,
+        "N_eligible": 0,
+        "P_regain_conditional": null,
+        "N_unconditional_success": 3,
+        "N_high_I_support_closed_states": 0,
+        "N_positive_local_return_states": 4
+      },
+      {
+        "t": 10,
+        "historical_A": "evolving",
+        "future_A": "continue_historical_policy",
+        "service": "functional_pollinators_restored",
+        "N_nested": 8,
+        "N_eligible": 0,
+        "P_regain_conditional": null,
+        "N_unconditional_success": 8,
+        "N_high_I_support_closed_states": 0,
+        "N_positive_local_return_states": 4
+      },
+      {
+        "t": 10,
+        "historical_A": "evolving",
+        "future_A": "continue_historical_policy",
+        "service": "continued_pollinator_loss",
+        "N_nested": 8,
+        "N_eligible": 0,
+        "P_regain_conditional": null,
+        "N_unconditional_success": 6,
+        "N_high_I_support_closed_states": 0,
+        "N_positive_local_return_states": 4
+      },
+      {
+        "t": 10,
+        "historical_A": "evolving",
+        "future_A": "freeze_at_attained_A",
+        "service": "functional_pollinators_restored",
+        "N_nested": 8,
+        "N_eligible": 0,
+        "P_regain_conditional": null,
+        "N_unconditional_success": 7,
+        "N_high_I_support_closed_states": 0,
+        "N_positive_local_return_states": 4
+      },
+      {
+        "t": 10,
+        "historical_A": "evolving",
+        "future_A": "freeze_at_attained_A",
+        "service": "continued_pollinator_loss",
+        "N_nested": 8,
+        "N_eligible": 0,
+        "P_regain_conditional": null,
+        "N_unconditional_success": 4,
+        "N_high_I_support_closed_states": 0,
+        "N_positive_local_return_states": 4
+      },
+      {
+        "t": 30,
+        "historical_A": "fixed",
+        "future_A": "continue_historical_policy",
+        "service": "functional_pollinators_restored",
+        "N_nested": 8,
+        "N_eligible": 2,
+        "P_regain_conditional": 0,
+        "N_unconditional_success": 5,
+        "N_high_I_support_closed_states": 0,
+        "N_positive_local_return_states": 4
+      },
+      {
+        "t": 30,
+        "historical_A": "fixed",
+        "future_A": "continue_historical_policy",
+        "service": "continued_pollinator_loss",
+        "N_nested": 8,
+        "N_eligible": 2,
+        "P_regain_conditional": 0,
+        "N_unconditional_success": 2,
+        "N_high_I_support_closed_states": 0,
+        "N_positive_local_return_states": 4
+      },
+      {
+        "t": 30,
+        "historical_A": "evolving",
+        "future_A": "continue_historical_policy",
+        "service": "functional_pollinators_restored",
+        "N_nested": 8,
+        "N_eligible": 4,
+        "P_regain_conditional": 0.25,
+        "N_unconditional_success": 5,
+        "N_high_I_support_closed_states": 0,
+        "N_positive_local_return_states": 4
+      },
+      {
+        "t": 30,
+        "historical_A": "evolving",
+        "future_A": "continue_historical_policy",
+        "service": "continued_pollinator_loss",
+        "N_nested": 8,
+        "N_eligible": 4,
+        "P_regain_conditional": 0,
+        "N_unconditional_success": 4,
+        "N_high_I_support_closed_states": 0,
+        "N_positive_local_return_states": 4
+      },
+      {
+        "t": 30,
+        "historical_A": "evolving",
+        "future_A": "freeze_at_attained_A",
+        "service": "functional_pollinators_restored",
+        "N_nested": 8,
+        "N_eligible": 4,
+        "P_regain_conditional": 0,
+        "N_unconditional_success": 4,
+        "N_high_I_support_closed_states": 0,
+        "N_positive_local_return_states": 4
+      },
+      {
+        "t": 30,
+        "historical_A": "evolving",
+        "future_A": "freeze_at_attained_A",
+        "service": "continued_pollinator_loss",
+        "N_nested": 8,
+        "N_eligible": 4,
+        "P_regain_conditional": 0,
+        "N_unconditional_success": 4,
+        "N_high_I_support_closed_states": 0,
+        "N_positive_local_return_states": 4
+      },
+      {
+        "t": 45,
+        "historical_A": "fixed",
+        "future_A": "continue_historical_policy",
+        "service": "functional_pollinators_restored",
+        "N_nested": 8,
+        "N_eligible": 6,
+        "P_regain_conditional": 0.16666666666666666,
+        "N_unconditional_success": 3,
+        "N_high_I_support_closed_states": 0,
+        "N_positive_local_return_states": 4
+      },
+      {
+        "t": 45,
+        "historical_A": "fixed",
+        "future_A": "continue_historical_policy",
+        "service": "continued_pollinator_loss",
+        "N_nested": 8,
+        "N_eligible": 6,
+        "P_regain_conditional": 0,
+        "N_unconditional_success": 2,
+        "N_high_I_support_closed_states": 0,
+        "N_positive_local_return_states": 4
+      },
+      {
+        "t": 45,
+        "historical_A": "evolving",
+        "future_A": "continue_historical_policy",
+        "service": "functional_pollinators_restored",
+        "N_nested": 8,
+        "N_eligible": 2,
+        "P_regain_conditional": 0,
+        "N_unconditional_success": 4,
+        "N_high_I_support_closed_states": 1,
+        "N_positive_local_return_states": 4
+      },
+      {
+        "t": 45,
+        "historical_A": "evolving",
+        "future_A": "continue_historical_policy",
+        "service": "continued_pollinator_loss",
+        "N_nested": 8,
+        "N_eligible": 2,
+        "P_regain_conditional": 0,
+        "N_unconditional_success": 4,
+        "N_high_I_support_closed_states": 1,
+        "N_positive_local_return_states": 4
+      },
+      {
+        "t": 45,
+        "historical_A": "evolving",
+        "future_A": "freeze_at_attained_A",
+        "service": "functional_pollinators_restored",
+        "N_nested": 8,
+        "N_eligible": 2,
+        "P_regain_conditional": 0.5,
+        "N_unconditional_success": 5,
+        "N_high_I_support_closed_states": 1,
+        "N_positive_local_return_states": 4
+      },
+      {
+        "t": 45,
+        "historical_A": "evolving",
+        "future_A": "freeze_at_attained_A",
+        "service": "continued_pollinator_loss",
+        "N_nested": 8,
+        "N_eligible": 2,
+        "P_regain_conditional": 0,
+        "N_unconditional_success": 4,
+        "N_high_I_support_closed_states": 1,
+        "N_positive_local_return_states": 4
+      }
+    ]
+  },
+  "interpretation_guardrails": [
+    "At t10 there are zero eligible previously-declined living states: unconditional high-I attainment is maintenance/attainment, NOT recovery.",
+    "At t30 and t45 conditional numbers are tiny and nested; neither the sign nor timing of the historical A-policy effect is confirmed.",
+    "At t45 upper-allele exclusion occurs in one of four evolved-A historical crossed states (two future repeats per state), zero of four fixed-A states. Descriptive only.",
+    "The positive-local-return column is evaluated under visitors restored, including labels for continued-loss future environments, and is not a validated rare-mutant invasion derivative.",
+    "The two-state future A-freeze-at-attained policy is conditional on historically evolved A, not an independently assigned historical policy.",
+    "The three Python versions all executed the same source/test, so exact numerical agreement is NOT an independent biological implementation or source-archive replay.",
+    "Do not estimate T_R or t-star from three checkpoints or infer effects in natural islands.",
+    "No new biological paths are executed by this post-outcome log audit; it does not amend the earlier protocol or change historical Q1/Q2/Q3/Q4 verdicts."
+  ]
+}
