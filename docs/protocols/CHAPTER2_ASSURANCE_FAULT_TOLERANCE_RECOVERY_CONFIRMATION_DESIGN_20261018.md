@@ -24,6 +24,14 @@ reproductive fault buffering? **No effect direction is selected.**
 
 ## Before studying any new outcomes: the two policies
 
+### Pre-assignment phenotype matching is essential
+
+**Correction after code review, before any future confirmation:** "same genotype" alone does NOT guarantee comparable initial expressed assurance. In the earlier bundled-policy exploratory pilots, all adults in the fixed-A arm expressed exactly 0.5 but original evolving-A adults varied in phenotype because each inherited allele was independently drawn. Such a study changes initial A heterogeneity AND ability to evolve, so it cannot isolate the causal effect of evolvability alone.
+
+For a genuinely focused NEW study, require EVERY initial adult in BOTH policy arms to express precisely A=0.5, while the inherited A gene remains polymorphic. A prospective technical construction is each adult's diploid A allele pair assigned from the balanced categories (0.25,0.75), (0.5,0.5), (0.75,0.25), with source-paired alleles summing to exactly one, 16 adults of each category for 48 founders. Matching/M and investment/I genotype alleles, all individual IDs, birth records and allele-origin identity are unchanged. Both historical policies receive the SAME constructed PlantState, and only the ASSURANCE EXPRESSION POLICY differs after start. Keep A mutation off in both policies for this strict-access primary; genetic assortment and segregation can generate expressed-A variance in subsequent offspring. Starting allelic diversity is not equal to initial expressed phenotype variance.
+
+A fail-closed construction/validation helper is implemented in `scripts/chapter2_q3_balanced_assurance_founders_20261018.py` with pure-source tests. DO NOT use it to silently retrofit or re-run the already-frozen PR #596 6×6 exploratory variance pilot. That pilot may inform the variance of its original bundled policy effect but is not pure A-evolvability inference. An independent post-design variance calibration with matched t0 A expression must precede any causally identified confirmatory Q3 effect test and its full #585 power/SESOI method gate.
+
 Cross NEW independent founder-genotype draws (F) with NEW independent
 functional visitor-history draws (V). Each F-by-V cell receives both
 historical policies from exactly the same t=0 genetic state, visitor history
