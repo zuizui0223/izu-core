@@ -17,6 +17,19 @@ def test_exploratory_micro_pilot_complete_four_blocks_and_log_readout():
     assert d["historical_paths"] == 8
     assert d["independent_crossed_blocks"] == 4
     assert d["restoration_checkpoints"] == list(CHECKPOINTS)
+
+    # Theory-to-realization invariant under no I mutation or seed immigration:
+    # a state without founder-level HIGH-I allele support cannot subsequently
+    # attain the ancestral mean, even when functional visitors are restored.
+    # This assertion reuses the SAME historical/future paths already evaluated
+    # by this exploratory test: it does not add another biological study.
+    for p in d["paths"]:
+        if p["high_I_support_structurally_excluded"] is True:
+            assert p["high_I_sustained_and_occupied_final"] is False
+            assert p["regained_if_declined"] in (False, None)
+        if not p["historical_occupied"]:
+            assert p["high_I_sustained_and_occupied_final"] is False
+        assert p["historical_population"] >= 0
     # Three prospective future-A modes per founder x visitor x checkpoint.
     # If historic extinction prevents specifying attained A, affected cells
     # become undefined rather than silently generating a survivor.
