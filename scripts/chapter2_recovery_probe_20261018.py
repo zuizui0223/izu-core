@@ -74,6 +74,38 @@ def wilson(k: int, n: int, z: float=1.959963984540054) -> tuple[float,float] | N
     return max(0., mid-span), min(1.,mid+span)
 
 
+
+def threshold_precision_feasibility(repeats: int, cutoff: float,
+                                    checkpoint_count: int) -> dict:
+    """Outcome-free necessary precision gate for a *conditional* grid threshold.
+
+    Even with zero successes the exact Wilson upper endpoint cannot be lower
+    than z²/(n+z²), so this is a necessary numerical feasibility calculation,
+    NOT a statistical-power calculation or permission for further runs.
+    """
+    if (type(repeats) is not int or repeats < 1
+            or type(checkpoint_count) is not int or checkpoint_count < 1
+            or not 0 < cutoff < 1):
+        raise ValueError('invalid threshold precision preflight')
+    z = NormalDist().inv_cdf(1-0.05/(2*checkpoint_count))
+    upper = wilson(0, repeats, z=z)[1]
+    minimum = max(1, int(math.floor(z*z*(1-cutoff)/cutoff))+1)
+    while wilson(0, minimum, z=z)[1] >= cutoff:
+        minimum += 1
+    return dict(
+        future_replicates_per_occupied_state=repeats,
+        number_of_predeclared_checkpoints=checkpoint_count,
+        cutoff=cutoff,
+        adjusted_wilson_z=z,
+        best_possible_zero_success_upper_95=upper,
+        minimum_nested_futures_for_zero_success_upper_strictly_below_cutoff=minimum,
+        any_candidate_threshold_possible_at_this_replicate_count=bool(upper < cutoff),
+        warning=('This is an upper-bound feasibility screen, not power; future'
+                 ' replicates are nested in original histories. A failure to'
+                 ' detect t-star cannot mean no evolutionary lock was present.'),
+    )
+
+
 def threshold_window(rows: list[dict], cutoff: float=.2) -> int | None:
     """First point whose *all subsequent* Wilson upper bounds fall below cutoff.
 
@@ -186,6 +218,7 @@ def run(archive: Path, source_input: Path, out: Path, *, repeats: int, horizon: 
             and checkpoint_times and len(set(checkpoint_times))==len(checkpoint_times)
             and all(0<=t<=200 for t in checkpoint_times)):
         raise ValueError('invalid bounded EXPLORATORY design')
+    threshold_precision=threshold_precision_feasibility(repeats,cutoff,len(checkpoint_times))
     cohort=load_cases(archive,source_input,out)
     types,pop,reproduction,randomness=archive_contract.load_native(out/'frozen_source')
     history_mod=importlib.import_module(types.__package__+'.history')
@@ -296,7 +329,8 @@ def run(archive: Path, source_input: Path, out: Path, *, repeats: int, horizon: 
                  paired_future_replicates=sum(r['futures'] for r in data),
                  source_scope='Two previously defined A-evolving founder blocks; no paired A-fixed history, no permanent visitor-extirpation date.',
                  threshold_definition='Exploratory first eligible checkpoint with all LATER measured Bonferroni-adjusted Wilson upper limits below cutoff; no between-point or permanent inference.',
-                 threshold_cutoff=cutoff,sustained=sustained,horizon=horizon,repeats=repeats,
+                 threshold_cutoff=cutoff,threshold_precision_preflight=threshold_precision,
+                 sustained=sustained,horizon=horizon,repeats=repeats,
                  interval_scope='Within each fixed source history, 95% Bonferroni-adjusted Wilson for grid checkpoints, fresh nested future streams; not across source histories.',
                  reason_counts=dict(counts),candidate_grid_t_star=window,case_rows=data)
     target=out/'RECOVERY_PROBE_READOUT.json'
