@@ -17,21 +17,27 @@ EXPECTED_FIELDS = {"founder_id", "visitor_id", "replicate_id", "policy",
                    "I_mutation_permitted", "seed_immigration_permitted"}
 
 
-def maternal_fault_floor(ovules, expressed_A, depression):
-    """No-service viable maternal seed fraction of ideal q=1 ovule output.
+def maternal_fault_floor(ovules, expressed_A, depression, *, timing="delayed"):
+    """No-service maternal seed ratio to ideal q=1 output at identical state.
 
-    Ovule-weighted, so this is NOT always (1-delta)*mean(A).
-    It does not measure pollen export, finite offspring recruitment or survival.
+    Delayed and prior selfing have DIFFERENT full-service denominators.
+    Never treat this as pollen export, recruitment or survival.
     """
     os = list(ovules)
     aa = list(expressed_A)
-    if (not os or len(os) != len(aa)
+    if (timing not in ("delayed","prior")
+            or not os or len(os) != len(aa)
             or not 0 <= depression <= 1
             or any(not math.isfinite(x) or x < 0 for x in os)
             or any(not math.isfinite(x) or not 0 <= x <= 1 for x in aa)
             or not sum(os) > 0):
         raise ValueError("fault floor needs positive, finite matched source ovules/A")
-    return (1-depression)*sum(o*a for o, a in zip(os,aa))/sum(os)
+    no_service=(1-depression)*sum(o*a for o, a in zip(os,aa))
+    full_service=(sum(os) if timing=="delayed"
+                  else sum(o*(1-depression*a) for o,a in zip(os,aa)))
+    if full_service <= 0:
+        raise ValueError("ideal service viable seed denominator is zero")
+    return no_service/full_service
 
 
 def history_events(record):
