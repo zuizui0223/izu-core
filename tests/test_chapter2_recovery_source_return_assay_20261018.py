@@ -36,6 +36,50 @@ def test_old_eight_history_source_return_assay_is_complete_and_source_consistent
             assert d["sign"] in ("positive","negative","mixed_or_near_zero",
                                  "undefined")
             assert len(d["slopes"])==2
+    # The 40 states are repeated nested historical snapshots, not 40
+    # independent plant lineages or new descendant restoration outcomes.
+    rows = result["path_rows"]
+    table = []
+    for t in TEST_TIMES:
+        for policy in ("fixed", "evolving"):
+            subset=[r for r in rows if r["t"]==t and r["policy"]==policy]
+            assert len(subset)==4
+            def nsign(trait, sign):
+                return sum(x["full_genetic_focal_gradients"][trait]["sign"]==sign
+                           for x in subset)
+            table.append({
+                "t":t,"historical_A":policy,"saved_genotypes":len(subset),
+                "high_I_support_closed":sum(x["high_I_support_closed"] is True
+                                           for x in subset),
+                "I_focal_positive":nsign("I","positive"),
+                "I_focal_negative":nsign("I","negative"),
+                "I_focal_undefined":nsign("I","undefined"),
+                "A_focal_negative":nsign("A","negative"),
+                "A_focal_positive":nsign("A","positive"),
+                "A_focal_undefined":nsign("A","undefined"),
+                "restored_outcross_positive":sum(
+                    x["expected_outcross_return_gain"]>0 for x in subset),
+                "source_positive_I_and_closed":sum(
+                    x["high_I_support_closed"] is True
+                    and x["full_genetic_focal_gradients"]["I"]["sign"]=="positive"
+                    for x in subset),
+            })
+    selected=[r for r in rows if (r["founder"],r["visitor"],r["policy"])
+              ==(0,0,"evolving")]
+    assert len(selected)==len(TEST_TIMES)
+    warning_data={
+        "status":"POST_OUTCOME_GENOTYPE_STATE_SIGN_MATRIX_NOT_INDEPENDENT_CONF",
+        "selected_source_timeline":selected,
+        "time_policy_counts":table,
+        "predeclared_source_times":list(TEST_TIMES),
+        "historical_sources":8,"saved_state_time_cells":40,
+        "new_biological_history_paths":0,
+        "source_sha256":result["original_source_sha256"],
+        "auditor_sha256":result["auditor_sha256"],
+    }
+    warnings.warn("Q2_RESTORED_SOURCE_SIGN_MATRIX="+json.dumps(
+        warning_data,sort_keys=True,separators=(",",":"),allow_nan=False),
+        stacklevel=1)
     warnings.warn("Q2_RESTORED_T39_SOURCE_ASSAY="+json.dumps(
         {"status":result["status"],
          "source_sha256":result["original_source_sha256"],
