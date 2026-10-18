@@ -23,9 +23,17 @@ def test_source_only_8_history_genotype_upper_support_clock_and_snapshot_identit
         assert [s["t"] for s in series] == list(range(46))
         target = row["founder_mean_I_target"]
         closed = False
+        last_values = None
         for s in series:
             if s["census"] > 0:
                 assert s["max_retained_I_allele"] >= s["mean_I"] - 1e-12
+                values=set(s["retained_I_allele_values"])
+                assert s["number_retained_I_allele_values"] == len(values)
+                assert s["I_allele_copy_variance"] >= 0
+                assert s["I_expressed_population_variance"] >= 0
+                if last_values is not None:
+                    assert values <= last_values
+                last_values=values
                 if s["high_I_founder_mean_structurally_closed"]:
                     assert s["max_retained_I_allele"] < target
                     closed = True
@@ -51,6 +59,18 @@ def test_source_only_8_history_genotype_upper_support_clock_and_snapshot_identit
         ],
         "source_sha256": result["source_sha256"],
         "auditor_sha256": result["auditor_sha256"],
+        "loss_genotype_environment_snapshots": [
+            {
+                "founder_index": r["founder_index"],
+                "visitor_history_index": r["visitor_history_index"],
+                "historical_A": r["historical_A"],
+                "target_I": r["founder_mean_I_target"],
+                "first_loss_t": r["first_strict_high_I_loss_while_occupied"],
+                "snapshots": [r["series"][t] for t in (35, 38, 39, 45)],
+            }
+            for r in result["histories"]
+            if r["first_strict_high_I_loss_while_occupied"] is not None
+        ],
     }
     warnings.warn("Q2_SAME_SEED_HISTORICAL_GENETIC_CLOCK=" + json.dumps(
         summary, sort_keys=True, separators=(",", ":"), allow_nan=False), stacklevel=1)
