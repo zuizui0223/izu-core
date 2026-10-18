@@ -45,6 +45,13 @@ def replay_original_historical_clock() -> dict:
                     occupied = len(state.ids) > 0
                     mean_i = investment_mean(state)
                     max_i = float(np.max(state.alleles[:, 1, :])) if occupied else None
+                    retained_i = (np.unique(state.alleles[:, 1, :])
+                                  if occupied else np.empty(0, dtype=float))
+                    copy_variance = (float(np.var(state.alleles[:, 1, :]))
+                                     if occupied else None)
+                    expressed_variance = (
+                        float(np.var(state.alleles[:, 1, :].mean(axis=1)))
+                        if occupied else None)
                     support_closed = support_bound(state, target)
                     if support_closed is True and first_strict_loss is None:
                         first_strict_loss = t
@@ -61,6 +68,10 @@ def replay_original_historical_clock() -> dict:
                         "t": t, "census": len(state.ids),
                         "mean_I": mean_i,
                         "max_retained_I_allele": max_i,
+                        "number_retained_I_allele_values": len(retained_i) if occupied else None,
+                        "retained_I_allele_values": retained_i.tolist(),
+                        "I_allele_copy_variance": copy_variance,
+                        "I_expressed_population_variance": expressed_variance,
                         "high_I_founder_mean_structurally_closed": support_closed,
                     })
                     if t == HISTORICAL_HORIZON:
