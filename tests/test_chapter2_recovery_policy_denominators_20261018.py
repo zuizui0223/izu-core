@@ -47,3 +47,11 @@ def test_duplicate_cell_or_broken_conditional_inference_fails_closed():
         assert "eligibility" in str(exc)
     else:
         raise AssertionError("zero eligible falsely assigned a recovery rate")
+
+
+def test_committed_exploratory_denominator_readout_matches_fresh_source_only_arithmetic():
+    from pathlib import Path
+    expected_path = INPUT.parents[0] / "CHAPTER2_RECOVERY_POLICY_DENOMINATORS_READOUT_20261018.json"
+    committed=json.loads(expected_path.read_text(encoding="utf-8"))
+    derived=compare_readout(json.loads(INPUT.read_text(encoding="utf-8")))
+    assert derived == committed
