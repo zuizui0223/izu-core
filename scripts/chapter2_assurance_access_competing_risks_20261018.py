@@ -13,7 +13,8 @@ import math
 POLICIES = ("fixed", "evolving")
 EXPECTED_FIELDS = {"founder_id", "visitor_id", "replicate_id", "policy",
                    "founder_genome_sha256", "visitor_history_sha256",
-                   "historical_demographic_seed", "target_I", "censuses"}
+                   "historical_demographic_seed", "target_I", "censuses",
+                   "I_mutation_permitted", "seed_immigration_permitted"}
 
 
 def maternal_fault_floor(ovules, expressed_A, depression):
@@ -37,6 +38,9 @@ def history_events(record):
     """First HIGH-I support loss while living vs competing source extinction."""
     if not EXPECTED_FIELDS <= set(record) or record["policy"] not in POLICIES:
         raise ValueError("invalid paired historical policy record")
+    if (record["I_mutation_permitted"] is not False
+            or record["seed_immigration_permitted"] is not False):
+        raise ValueError("closed-allele clock requires I mutation and seed immigration off")
     target = record["target_I"]
     if not isinstance(target,(int,float)) or not math.isfinite(target) or not 0 <= target <= 1:
         raise ValueError("founder I target absent")
