@@ -22,7 +22,8 @@ def make_case(founder,visitor,policy,upper,*,dead=None):
                 founder_genome_sha256="synthetic-founder-"+founder,
                 visitor_history_sha256="synthetic-visitor-"+visitor,
                 historical_demographic_seed=1234+int(founder[-1])*2+int(visitor[-1]),
-                target_I=.5,censuses=rows)
+                target_I=.5,censuses=rows,
+                I_mutation_permitted=False,seed_immigration_permitted=False)
 
 
 def crossed_fixture():
@@ -120,3 +121,14 @@ def test_source_first_event_extinction_after_loss_remains_genetic_first():
     assert e["status_by_year"]==[
         "alive_accessible","alive_accessible",
         "alive_closed","alive_closed","extinct"]
+
+
+def test_high_I_genetic_loss_requires_no_mutation_and_no_immigration():
+    r=make_case("f0","v0","evolving",[.7,.6,.45,.45,.45])
+    r["I_mutation_permitted"]=True
+    with pytest.raises(ValueError,match="mutation"):
+        history_events(r)
+    r["I_mutation_permitted"]=False
+    r["seed_immigration_permitted"]=True
+    with pytest.raises(ValueError,match="immigration"):
+        history_events(r)
