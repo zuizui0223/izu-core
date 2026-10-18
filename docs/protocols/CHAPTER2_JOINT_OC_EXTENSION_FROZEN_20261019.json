@@ -1,0 +1,202 @@
+{
+  "schema": "chapter2_joint_OC_extension_v1",
+  "status": "FROZEN_BEFORE_NEW_STATISTICAL_OUTCOMES_NOT_BIOLOGICAL_CONFIRMATION",
+  "date": "2026-10-19",
+  "parent_pr": 597,
+  "parent_source_sha": "9e6f38b857264b05dbb2538c1e4b4dac725907df",
+  "scope": "Validate candidate PH-variance t intervals on the actual joint G difference and four-binary-arm S interaction ranges; no Model3 operators or reserved biological seeds.",
+  "method": "pigeonhole_variance_t_only_selected_from_prior_review",
+  "axis_size": 160,
+  "replications_per_scenario": 10000,
+  "total_statistical_experiments": 60000,
+  "batch_size": 24,
+  "master_seed_prefix": [
+    20261019,
+    106
+  ],
+  "scenario_seed_rule": "SHA256(scenario ID) first 8 bytes as unsigned big endian, appended to prefix",
+  "familywise_alpha": 0.05,
+  "two_sided_marginal_confidence": 0.975,
+  "t_degrees_freedom": 159,
+  "MC_simultaneous_alpha_per_interval": 0.004166666666666667,
+  "MC_interval_family": "12 binomial intervals over 6 predeclared scenarios x 2 summaries; Bonferroni total .05",
+  "criteria": {
+    "joint_positive_MC_lower_minimum": 0.8,
+    "familywise_null_MC_upper_maximum": 0.05
+  },
+  "output_domain": {
+    "G": [
+      -1,
+      0,
+      1
+    ],
+    "S": [
+      -2,
+      -1,
+      0,
+      1,
+      2
+    ]
+  },
+  "scenarios": [
+    {
+      "id": "full_aligned_null",
+      "n": 160,
+      "mu": [
+        0.0,
+        0.0
+      ],
+      "components": [
+        [
+          0.05,
+          0.05,
+          0.85
+        ],
+        [
+          0.05,
+          0.05,
+          0.85
+        ]
+      ],
+      "S_tail_mass": [
+        0.04,
+        0.08
+      ],
+      "coupling": "aligned"
+    },
+    {
+      "id": "full_aligned_alt",
+      "n": 160,
+      "mu": [
+        0.1,
+        0.1
+      ],
+      "components": [
+        [
+          0.05,
+          0.05,
+          0.85
+        ],
+        [
+          0.05,
+          0.05,
+          0.85
+        ]
+      ],
+      "S_tail_mass": [
+        0.04,
+        0.08
+      ],
+      "coupling": "aligned"
+    },
+    {
+      "id": "full_opposed_null",
+      "n": 160,
+      "mu": [
+        0.0,
+        0.0
+      ],
+      "components": [
+        [
+          0.05,
+          0.05,
+          0.85
+        ],
+        [
+          0.05,
+          0.05,
+          0.85
+        ]
+      ],
+      "S_tail_mass": [
+        0.04,
+        0.08
+      ],
+      "coupling": "opposed"
+    },
+    {
+      "id": "full_opposed_alt",
+      "n": 160,
+      "mu": [
+        0.1,
+        0.1
+      ],
+      "components": [
+        [
+          0.05,
+          0.05,
+          0.85
+        ],
+        [
+          0.05,
+          0.05,
+          0.85
+        ]
+      ],
+      "S_tail_mass": [
+        0.04,
+        0.08
+      ],
+      "coupling": "opposed"
+    },
+    {
+      "id": "near_boundary_partial_null",
+      "n": 160,
+      "mu": [
+        0.0,
+        0.95
+      ],
+      "components": [
+        [
+          0.05,
+          0.05,
+          0.85
+        ],
+        [
+          0.002,
+          0.002,
+          0.0435
+        ]
+      ],
+      "S_tail_mass": [
+        0.0,
+        0.0
+      ],
+      "coupling": "opposed"
+    },
+    {
+      "id": "near_boundary_alt",
+      "n": 160,
+      "mu": [
+        0.1,
+        0.95
+      ],
+      "components": [
+        [
+          0.05,
+          0.05,
+          0.85
+        ],
+        [
+          0.002,
+          0.002,
+          0.0435
+        ]
+      ],
+      "S_tail_mass": [
+        0.0,
+        0.0
+      ],
+      "coupling": "opposed"
+    }
+  ],
+  "limits": [
+    "Full-range S extremes are adversarial method stresses, not predictions that the source B8 survival ceiling fails.",
+    "Near-boundary survival is a separate feasible statistical sensitivity, not a fitted biological probability.",
+    "Previous method selection was data-informed; these are fresh statistical seeds for follow-up assessment, not an independent scientific review.",
+    "Finite scenario success cannot prove universal coverage or Model3-specific power.",
+    "No method-review approval, effect-margin approval, biological execution permission or new biological seed allocation is conferred."
+  ],
+  "Model3_histories_started": 0,
+  "execution_authorized": false
+}
