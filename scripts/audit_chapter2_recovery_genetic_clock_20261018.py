@@ -28,6 +28,7 @@ def replay_original_historical_clock() -> dict:
     for fi, fseed in enumerate(FOUNDER_IDS):
         founder = make_founders(fseed)
         target = investment_mean(founder)
+        founder_A_target = float(founder.alleles[:,2,:].mean())
         for vi, vseed in enumerate(VISITOR_IDS):
             full, sparse = make_visitors(vseed)
             master = seeded(1, fi, vi)
@@ -40,6 +41,7 @@ def replay_original_historical_clock() -> dict:
                 cfg = configuration(policy)
                 series = []
                 first_strict_loss = None
+                first_A_loss = None
                 first_extinction = None
                 for t in range(HISTORICAL_HORIZON+1):
                     occupied = len(state.ids) > 0
@@ -53,6 +55,11 @@ def replay_original_historical_clock() -> dict:
                         float(np.var(state.alleles[:, 1, :].mean(axis=1)))
                         if occupied else None)
                     support_closed = support_bound(state, target)
+                    min_A = float(np.min(state.alleles[:,2,:])) if occupied else None
+                    low_A_closed = (bool(min_A > founder_A_target + 1e-12)
+                                    if occupied and policy=='evolving' else None)
+                    if low_A_closed is True and first_A_loss is None:
+                        first_A_loss = t
                     if support_closed is True and first_strict_loss is None:
                         first_strict_loss = t
                     if not occupied and first_extinction is None:
@@ -73,6 +80,8 @@ def replay_original_historical_clock() -> dict:
                         "I_allele_copy_variance": copy_variance,
                         "I_expressed_population_variance": expressed_variance,
                         "high_I_founder_mean_structurally_closed": support_closed,
+                        "min_retained_A_allele": min_A,
+                        "ancestral_low_A_founder_mean_structurally_closed": low_A_closed,
                     })
                     if t == HISTORICAL_HORIZON:
                         break
@@ -82,6 +91,12 @@ def replay_original_historical_clock() -> dict:
                     "founder_index": fi, "visitor_history_index": vi,
                     "historical_A": policy,
                     "founder_mean_I_target": target,
+                    "founder_mean_A_target": founder_A_target,
+                    "first_ancestral_low_A_support_loss_while_occupied": first_A_loss,
+                    "temporal_A_loss_before_I_loss": (
+                        first_A_loss < first_strict_loss
+                        if first_A_loss is not None and first_strict_loss is not None
+                        else None),
                     "first_strict_high_I_loss_while_occupied": first_strict_loss,
                     "first_extinction": first_extinction,
                     "structural_loss_precedes_imposed_TE": (
@@ -104,6 +119,9 @@ def replay_original_historical_clock() -> dict:
             "strict_support_losses_by_t45": sum(
                 r["first_strict_high_I_loss_while_occupied"] is not None for r in sub),
             "histories_extinct_by_t45": sum(r["first_extinction"] is not None for r in sub),
+            "ancestral_low_A_support_loss_by_t45": sum(
+                r["first_ancestral_low_A_support_loss_while_occupied"] is not None for r in sub)
+                if policy=='evolving' else None,
         }
     # Guard the previous source-extracted exploratory final-state statement.
     if (by_policy["evolving"]["strict_support_losses_by_t45"] != 1
@@ -118,6 +136,11 @@ def replay_original_historical_clock() -> dict:
         "new_unique_random_streams": 0,
         "new_pollinator_restoration_futures": 0,
         "imposed_functional_pollinator_extirpation_TE": EXTIRPATION,
+        "A_target_rule": (
+            "In evolving-A paths only and with A mutation/immigration forbidden: "
+            "current min A allele exceeding its own realized founder A mean "
+            "makes reattainment of the low-A founder target structurally impossible. "
+            "This is not a direction of selection or a fixed-A intervention outcome."),
         "genetic_test": (
             "current max retained I allele below original founder population mean;"
             " no I mutation or seed immigration; upper-support theorem only"),
