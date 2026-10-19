@@ -34,6 +34,13 @@ Completed [bounded transfer](CHAPTER2_READAPTATION_RESULTS_20261019.md): 64 seed
 4. Keep all inconclusive/failed controls (fresh founder 3/4, Q2 384 both inconclusive, original assigned-order outcomes, distribution-policy replication failure, Q4 prior-selfing unresolved). No retrospective threshold, seed or experimental-arm changes.
 5. After scientific reordering, repair tests and validate the **single existing manuscript**. Methods and data archive/DOI, complete literature priority analysis, final figure visual QA and natural empirical transport remain open. Do not label the paper submitted.
 
+## Corrections actually applied in PR #609
+
+- The active NEE working manuscript's main Results now explicitly mark **Q1–Q4**, restore the fixed-state Q1 selection derivative (+0.579/−0.700), and give original 128-history density-versus-finite and visitor-count-matched Q3 responses their own main-Results paragraph. Original Q4 preparation-policy contrasts (+2.83/+4.59 pp) and the unresolved order-to-survival boundaries are also reinstated in main.
+- The model-derived analytical insurance identities have been **moved to Online Methods**; they are not presented as empirical ecological Results. This preserves the scientific explanation without displacing original four-part evidence under the Article body-word budget.
+- Main Figure 3 has been refocused from Q2/posthoc repeatability to **Q2 sequence + Q3 finite realization and inherited genetic accessibility**; its predecessor is retained as an exploratory supplement draft. These are source-based plots, not new simulations. All plot/source regression tests should be rerun at the latest PR head; test success does not convert descriptive or selected-path evidence into registered confirmation.
+- The [completed-only Article text proof](CHAPTER2_NEE_SUPPORTED_RESULTS_ARTICLE_EXTRACT_20261019.md) is a derived editorial version of the **same** paper; it excludes unexecuted recovery-window proposals, which remain in the working-version design notes. No second manuscript or submission is created.
+
 ## Actual review coverage and unexamined scope
 
 **Confirmed in this audit:** exact old four-part headings and paper text; Q1/2 source readouts and registered report; Q3 frozen prospective bridge source, Q3 original genetic access receipts/interpretation; Q4 independent32 machine readout and originally claimed preparation effects; new G/S source JSON, I-duration readback, 384 pollen and conditional transfer source reports; PR #609's original manuscript, summary tables, current figure claims and selected source-linked validators.
