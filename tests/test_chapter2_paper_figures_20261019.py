@@ -142,36 +142,65 @@ def test_figure_01_q1_fixed_and_fresh_founder_results():
     assert receipt["fresh_founder_q1"]["global_support"].startswith("A genetic-capacity evolution not necessary")
 
 
-def test_figure_03_order_q2_and_posthoc_reliability():
+def test_figure_03_order_q2_and_source_separated_finite_realization():
     r, meta = load("figure_03_order_repeatability.svg")
+    assert meta["interpretation"].startswith("No retrospective Q1-Q4")
+    assert meta["denominators"] == {"seq": 64, "bridge": 128, "access": 2304, "first_exclusions": 1238}
     sequence = json.loads((ROOT / "data/results/chapter2_1005_confirmatory_replication_20261006.json").read_text(encoding="utf-8"))
     q2 = src("CHAPTER2_Q2_I_SUPPORT_384_ORIGINAL_READOUT_20261016.json")
-    repeat = json.loads((ROOT / "data/results/chapter2_history_demography_repeatability_audit_20261003.json").read_text(encoding="utf-8"))
-    matched = src("CHAPTER2_MATCHED_AI_REPEATABILITY_20261019.json")
+    bridge = json.loads((ROOT / "data/results/model3_ch2_bridge_prospective_frozen_20260927.json").read_text(encoding="utf-8"))
+    access = json.loads((ROOT / "data/results/directional_access_20261013/READOUT.json").read_text(encoding="utf-8"))
     assert len(marks(r, "chronology")) == 2
-    counts = {"assurance_cost": sequence["primary_sequence"]["counts"]["assurance_first"],
-              "prior_selfing": next(x for x in sequence["threshold_sensitivity"]
-                                    if x["setting"] == "prior_selfing" and x["mutation_rate"] == .01
-                                    and x["threshold"] == .05)["counts"]["assurance_first"]}
-    assert counts == {"assurance_cost": 51, "prior_selfing": 30}
+    count = {
+        "assurance_cost": sequence["primary_sequence"]["counts"]["assurance_first"],
+        "prior_selfing": next(x for x in sequence["threshold_sensitivity"]
+                              if x["setting"] == "prior_selfing" and x["mutation_rate"] == .01
+                              and x["threshold"] == .05)["counts"]["assurance_first"]
+    }
+    assert count == {"assurance_cost": 51, "prior_selfing": 30}
     for bar in marks(r, "chronology"):
-        assert int(bar.get("data-count")) == counts[bar.get("data-setting")]
+        assert int(bar.get("data-count")) == count[bar.get("data-setting")]
         assert int(bar.get("data-denom")) == 64
-    assert len(marks(r, "q2")) == 2 and q2["registered_inference"]["result"] == "both_inconclusive"
-    for mark in marks(r, "q2"):
-        row = q2["coprimary"][mark.get("data-endpoint")]
-        same(mark.get("data-value"), row["estimate"])
-        same(mark.get("data-low"), row["simultaneous_familywise_CI"][0])
-        same(mark.get("data-high"), row["simultaneous_familywise_CI"][1])
+    assert q2["registered_inference"]["result"] == "both_inconclusive"
+    assert len(marks(r, "q2")) == 2
+    for bar in marks(r, "q2"):
+        row = q2["coprimary"][bar.get("data-endpoint")]
+        same(bar.get("data-value"), row["estimate"])
+        same(bar.get("data-low"), row["simultaneous_familywise_CI"][0])
+        same(bar.get("data-high"), row["simultaneous_familywise_CI"][1])
         assert row["simultaneous_familywise_CI"][0] <= 0 <= row["simultaneous_familywise_CI"][1]
-    assert len(marks(r, "reliability")) == 3
-    for bar in marks(r, "reliability"):
-        key = bar.get("data-treatment")
-        assert key in ("natural", "large_capacity", "visitor_pooled")
-        same(bar.get("data-value"), repeat["reports"][key]["eight_repeat_mean_reliability"])
-    assert len(marks(r, "endpoint_agree")) == 8
-    for bar in marks(r, "endpoint_agree"):
-        row = matched["settings"][bar.get("data-setting")]["central"][bar.get("data-locus")]
-        assert int(bar.get("data-count")) == row["far_identical_endpoint_contexts"]
-        assert int(bar.get("data-denom")) == 128
-    assert meta["q2"] == "both_inconclusive"
+    assert len(marks(r, "q3_response")) == 4
+    for bar in marks(r, "q3_response"):
+        row = next(x for x in bridge["reports"] if x["intervention"] == bar.get("data-intervention")
+                   and x["model"] == bar.get("data-model"))
+        same(bar.get("data-mean"), row["mean"])
+        assert int(bar.get("data-mixed")) == row["mixed_counts"][0]
+        assert int(bar.get("data-denom")) == bridge["provenance"]["histories_verified"] == 128
+    assert len(marks(r, "q3_access")) == 3
+    groups = {
+        "before-fixation": access["excluded_before_fixation"],
+        "at-fixation": access["excluded_at_fixation"],
+        "not-excluded": access["cases"] - access["ever_excluded"]
+    }
+    assert sum(groups.values()) == access["cases"] == 2304
+    for bar in marks(r, "q3_access"):
+        assert int(bar.get("data-count")) == groups[bar.get("data-category")]
+        assert int(bar.get("data-denom")) == access["cases"]
+    assert len(marks(r, "q3_selected")) == 2
+    selected = {"favorable-but-lost": 315, "other-first-exclusions": 923}
+    for bar in marks(r, "q3_selected"):
+        assert int(bar.get("data-count")) == selected[bar.get("data-category")]
+        assert int(bar.get("data-denom")) == access["ever_excluded"] == 1238
+
+
+def test_original_four_question_contract_and_figure_03_synthesis():
+    original = (ROOT / "docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md").read_text(encoding="utf8")
+    active = (ROOT / "docs/CHAPTER2_UNIFIED_NEE_ARTICLE_WORKING_20261017.md").read_text(encoding="utf8")
+    crosswalk = (ROOT / "docs/CHAPTER2_Q1_Q4_ORIGINAL_FOUR_PARTS_AUDIT_20261019.md").read_text(encoding="utf8")
+    assert all(("## Q" + str(i) + " —") in original for i in range(1, 5))
+    assert all(("### Q" + str(i) + " —") in active for i in range(1, 5))
+    assert "density is not the ABM" in active.lower()
+    assert "−0.4510" in active and "−0.1446" in active
+    assert "+2.83 and +4.59" in active
+    assert "selection → sequence → finite realization → persistence" in crosswalk
+    assert "entire mediation chain" in crosswalk
