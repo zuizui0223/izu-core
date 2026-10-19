@@ -25,7 +25,8 @@ def bundle(tmp_path):
     m=dict(format='readaptation_cohorts_v1',contract_sha256=hashlib.sha256(canonical(c)).hexdigest(),files=files)
     (tmp_path/'manifest.json').write_text(json.dumps(m))
     source={name:getattr(donor,name) for name in STATE_FIELDS}
-    donors=[(source,dict(key=[0,0,'evolving'],donor_sha256=cohort_digest(donor)))]
+    donors=[(source,dict(key=[0,0,'evolving'],donor_sha256=cohort_digest(donor),
+                         founder_targets=dict(I=.5,A=.5)))]
     return c,digests,donors
 
 
@@ -34,6 +35,7 @@ def test_cohort_archive_binds_to_admitted_donor(tmp_path):
     result=_audit_cohort_files(tmp_path,c,digests,iter(donors))
     assert result['cohorts']==2 and result['donors']==1
     assert result['production_probability_replay'] is False
+    assert result['founder_targets']==[dict(key=[0,0,'evolving'],I=.5,A=.5)]
 
 
 @pytest.mark.parametrize('damage',['donor','future_digest','missing_donor'])

@@ -65,5 +65,7 @@ def iter_donors(directory,contract):
                 receipt=dict(key=selected['key'],source_commit=contract['source_commit'],
                              archive=zipname,archive_sha256=hashes[zipname],member=member,
                              member_sha256=manifest[member],payload_sha256=meta['payload_sha256'],
-                             donor_sha256=raw_state_digest(flat,0),census=80,population=n)
+                             donor_sha256=raw_state_digest(flat,0),census=80,population=n,
+                             founder_targets=dict(I=float(initial['alleles'][:,1,:].mean()),
+                                                  A=float(initial['alleles'][:,2,:].mean())))
                 yield state,receipt

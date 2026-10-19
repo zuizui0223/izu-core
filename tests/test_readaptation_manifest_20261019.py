@@ -72,11 +72,12 @@ def test_streaming_archive_integration_on_empty_synthetic_fixture(tmp_path):
             receipts.append(save_future(tmp_path/f'future-{destination}-{repeat}.npz',key,d))
     m=dict(format='readaptation_manifest_v1',contract_sha256=hashlib.sha256(canonical(c)).hexdigest(),
            cohorts=[dict(key=[0,0,'fixed',0],cohort_sha256=cohort_digest(state))],futures=receipts)
-    result=_audit_files(tmp_path,m,c,base)
+    result=_audit_files(tmp_path,m,c,base,support_targets={(0,0,'fixed'):dict(I=.5,A=.5)})
     assert result['allocated']==64 and result['cohorts']==1
     assert result['source_admission'] is False
     assert result['biological_replay'] is False
     assert all(g['occupancy']['count']==0 for g in result['groups'])
+    assert result['groups'][0]['support_by_repeat'][0]['targets']==dict(I=.5,A=.5)
     # An extra orphan file is not silently omitted from the inventory.
     (tmp_path/'orphan.npz').write_bytes(b'orphan')
     with pytest.raises(ValueError,match='file inventory'):

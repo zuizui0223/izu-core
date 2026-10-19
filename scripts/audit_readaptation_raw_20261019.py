@@ -70,12 +70,17 @@ def audit_archive(path,contract,*,source_directory=None):
     base=json.loads((root/'data/design/model3_island_v2.json').read_text())['base_config']
     path=Path(path)
     manifest=json.loads((path/'manifest.json').read_text(encoding='utf8'))
-    result=_audit_files(path,manifest,contract,base)
+    source_audit=None; targets=None
     if source_directory is not None:
         from scripts.readaptation_sources_20261019 import iter_donors
         _,digests=admit_manifest(manifest,contract)
-        result['cohort_source_audit']=_audit_cohort_files(
+        source_audit=_audit_cohort_files(
             path/'cohorts',contract,digests,iter_donors(source_directory,contract))
+        targets={tuple(row['key']):{k:row[k] for k in ('I','A')}
+                 for row in source_audit['founder_targets']}
+    result=_audit_files(path,manifest,contract,base,support_targets=targets)
+    if source_audit is not None:
+        result['cohort_source_audit']=source_audit
         result['source_admission']=True
         result['status']='PASS_ARCHIVE_AND_SOURCE_LINEAGE'
         result['limitation']='Source lineage and raw arithmetic checked; biological probability replay remains unverified'
@@ -103,11 +108,15 @@ def _audit_cohort_files(path,contract,digests,admitted_donors):
         files[key]=entry; names.add(name)
     require(set(files)==expected and {p.name for p in path.glob('*.npz')}==names,
             'cohort file inventory')
-    seen=set(); cohorts=0
+    seen=set(); cohorts=0; targets=[]
     for donor,source in admitted_donors:
         donor_key=tuple(source['key'])
         require(donor_key not in seen and donor_key in {k[:3] for k in expected},'unexpected/duplicate donor')
         seen.add(donor_key)
+        target=source['founder_targets']
+        require(set(target)=={'I','A'} and all(isinstance(v,(float,int)) and np.isfinite(v)
+                and 0<=v<=1 for v in target.values()),'source founder targets')
+        targets.append(dict(key=list(donor_key),**target))
         for draw in range(contract['cohort_draws']):
             key=(*donor_key,draw); entry=files[key]; file=path/entry['file']
             require(not file.is_symlink() and file.is_file() and file.stat().st_size==entry['bytes'],
@@ -123,14 +132,16 @@ def _audit_cohort_files(path,contract,digests,admitted_donors):
             audit_cohort(donor,{k:raw[k] for k in FIELDS},receipt)
             cohorts+=1
     require(seen=={k[:3] for k in expected},'missing admitted donor')
-    return dict(status='PASS_COHORT_SOURCE_LINEAGE',cohorts=cohorts,donors=len(seen),
+    return dict(status='PASS_COHORT_SOURCE_LINEAGE',cohorts=cohorts,donors=len(seen),founder_targets=targets,
                 production_probability_replay=False)
 
 
-def _audit_files(path,manifest,contract,base):
+def _audit_files(path,manifest,contract,base,*,support_targets=None):
     """Internal streaming reader; contract and base must already be admitted."""
     path=Path(path)
     keys,cohorts=admit_manifest(manifest,contract)
+    if support_targets is not None:
+        require(set(support_targets)=={k[:3] for k in keys},'founder target inventory')
     expected={row['file'] for row in manifest['futures']}
     require({p.name for p in path.glob('*.npz')}==expected,'future file inventory mismatch')
     summaries=[]
@@ -142,6 +153,8 @@ def _audit_files(path,manifest,contract,base):
         record=load_future(file,receipt['sha256'],key)
         audit_identity(record,key,contract,base,cohort_sha)
         summary=audit_future(record)
+        if support_targets is not None:
+            summary['support_diagnostics']=support_diagnostics(record,support_targets[tuple(key[:3])])
         summary.update(key=key,cohort_sha256=cohort_sha)
         summaries.append(summary)
         del record
@@ -418,6 +431,35 @@ def indicator_interval(count,n):
                 one_sided_upper_95=upper,scope='pointwise conditional; not simultaneous')
 
 
+def support_diagnostics(d,targets):
+    """Founder-relative allele bounds on audited states, not realized recovery.
+
+    A high-I target is excluded when it exceeds the maximum retained I allele;
+    a low-A target is excluded when it is below the minimum retained A allele. Extinction is separate.
+    """
+    require(set(targets)=={'I','A'} and all(isinstance(v,(int,float)) and np.isfinite(v)
+            and 0<=v<=1 for v in targets.values()),'support targets')
+    alive=np.asarray(d['population'])>0
+    upper=np.asarray(d['allele_max'])[:,1]; lower=np.asarray(d['allele_min'])[:,2]
+    require(alive.shape==(81,) and upper.shape==lower.shape==(81,),'support census shape')
+    require(np.isfinite(upper[alive]).all() and np.isfinite(lower[alive]).all(),'support allele bounds')
+    deaths=np.flatnonzero(~alive)
+    rows=[]
+    for epsilon in (0.,.005,.01,.02,.05):
+        has_I=upper>=targets['I']-epsilon-1e-12
+        has_A=lower<=targets['A']+epsilon+1e-12
+        lost_I=np.flatnonzero(alive & ~has_I); lost_A=np.flatnonzero(alive & ~has_A)
+        rows.append(dict(epsilon=epsilon,
+                         initial_I_support=bool(has_I[0]) if alive[0] else None,
+                         final_I_support=bool(has_I[-1]) if alive[-1] else None,
+                         initial_A_support=bool(has_A[0]) if alive[0] else None,
+                         final_A_support=bool(has_A[-1]) if alive[-1] else None,
+                         first_I_exclusion=int(lost_I[0]) if len(lost_I) else None,
+                         first_A_exclusion=int(lost_A[0]) if len(lost_A) else None))
+    return dict(targets=dict(targets),rows=rows,first_extinction=int(deaths[0]) if len(deaths) else None,
+                scope='founder-relative structural bounds; not recovery probability or observed adaptation')
+
+
 def summarize_allocations(rows,expected_keys):
     """Summarize admitted rows; caller must independently admit raw archives first.
 
@@ -497,6 +539,7 @@ def summarize_allocations(rows,expected_keys):
                      endpoints_by_repeat=[r['final_mean'] for r in values],
                      final_assays_by_repeat=[r['final_assay'] for r in values],
                      assay_changes_by_repeat=[r['assay_change'] for r in values],
+                     support_by_repeat=[r.get('support_diagnostics') for r in values],
                      survivor_endpoint_variance=np.var([r['final_mean'] for r in alive],axis=0,ddof=1).tolist()
                          if len(alive)>1 else None,
                      changes_by_repeat=[r['change'] for r in values],
