@@ -2,6 +2,8 @@
 
 **Scientific/editorial decision, 2026-10-19 (PR #609).** This is a critique of the existing paper relative to prior literature and the original registered evidence, plus one **post-outcome, descriptive-only** arithmetic decomposition of the admitted 160×160 result. It is neither a new biological experiment, a new preregistration, a reclassification of original null results, an exhaustive global priority review nor a journal-submission or acceptance claim.
 
+**推論上の注意（日本語要約）：** 以下の3状態（生存かつ到達可能／生存したが到達不能／絶滅）および資源間差は、監査済み原票から導いた**探索的な事後算術集計**である。**事前登録**されたG・Sの共主要評価量や判定を改変するものではなく、新しい有意差検定・同時信頼区間・因果媒介の証明は行っていない。
+
 ## Recommendation / 現時点の投稿戦略
 
 **NOW:** Keep one **mechanistic theoretical/evolutionary-ecology Article**, but make the main question *whether reproductive buffering predicts preservation of the genetic capacity for a later floral response*, not “selfing causes a dead end” or “pollinator decline always makes flowers smaller.” Keep original Q1–Q4 as **non-equivalent estimands**, and place the completed one-time transfer as a conditional test of later responses, not as a demonstrated continuous restoration clock. The stronger, source-backed contrast is that the same A policy may affect **persistence and retention of target-compatible alleles differently across resources**. The registered G and S experiments independently support two policy endpoints; the exploratory all-start three-state view unifies their **presentation**, not their causal identification.
