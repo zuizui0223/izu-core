@@ -96,5 +96,9 @@
     "No causal genetic mediation",
     "No natural island assembly or independently validated island prediction",
     "No universal trait direction or timing order"
-  ]
+  ],
+  "active_supplement": "docs/CHAPTER2_COMPLETED_EVIDENCE_SUPPLEMENT_20261019.md",
+  "historical_results_disposition": "docs/CHAPTER2_HISTORICAL_RESULTS_DISPOSITION_20261019.md",
+  "repository_coverage": "docs/CHAPTER2_REPOSITORY_SYNTHESIS_COVERAGE_20261019.md",
+  "selected_completed_evidence_validator": "scripts/validate_chapter2_completed_evidence_20261019.py"
 }

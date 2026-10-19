@@ -97,3 +97,41 @@ def test_extinction_in_prefix_records_actual_first_census(monkeypatch):
   return m.empty(),None
  monkeypatch.setattr(m,'step',extinct_step)
  assert all(x['first_extinction_census']==1 for x in run_pair(d,'weak_baseline_limitation',.3,810101,1))
+
+
+def synthetic_pollen_observations():
+ # Arithmetic-only fixture: distinct q values identify each endpoint's census.
+ snapshot=dict(n=1,M=.5,I=.5,A=.5,max_I=.5,min_A=.5,
+  genetic_support={t:dict(allele_values=[.5],allele_counts=[2],
+   genotype_mean_variance=0.) for t in ('M','I','A')})
+ records=[dict(year=y,q=(y+1)/100,occupancy=1,ovules=100.,
+  outcross_expected=float(y+1),self_raw_expected=0.,self_viable_expected=0.,
+  resident_selfed_recruits=0,resident_outcross_recruits=1) for y in range(80)]
+ return dict(t0=deepcopy(snapshot),t_prefix=deepcopy(snapshot),t_end=deepcopy(snapshot),
+  updates=80,prefix_updates=30,reproduction_records=records,
+  q_first=.01,q_pre_last=.30,q_future_first=.31,q_future_last=.80)
+
+
+@pytest.mark.parametrize('field,index',[
+ ('q_first',0),('q_pre_last',29),('q_future_first',30),('q_future_last',79)])
+@pytest.mark.parametrize('corruption',['value','missing','undefined','nan'])
+def test_pollen_endpoint_must_match_ledger(field,index,corruption):
+ from scripts.audit_chapter2_pollen_baseline_factorial_20261019 import check_observations
+ row=synthetic_pollen_observations()
+ check_observations(row)
+ if corruption=='value':row[field]=.99
+ elif corruption=='missing':row[field]=None
+ elif corruption=='nan':row[field]=float('nan')
+ else:
+  row['reproduction_records'][index].update(ovules=0.,outcross_expected=0.,q=None)
+ with pytest.raises(ValueError,match='q endpoint ledger mismatch'):
+  check_observations(row)
+
+
+def test_pollen_endpoint_accepts_matching_undefined_and_roundoff():
+ from scripts.audit_chapter2_pollen_baseline_factorial_20261019 import check_observations
+ row=synthetic_pollen_observations()
+ row['q_first']+=5e-13
+ row['q_future_last']=None
+ row['reproduction_records'][79].update(ovules=0.,outcross_expected=0.,q=None)
+ check_observations(row)

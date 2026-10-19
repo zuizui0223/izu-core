@@ -1,5 +1,5 @@
 # Izu Core — Model 3 island reproductive economics
-> **現行の論文化方針（2026-10-17） — ELを独立のCh3へ分割せず、一つのNEE Article候補へ統合：** [最新の一論文ルート](docs/audits/CHAPTER2_NEE_ACTIVE_PUBLICATION_ROUTE_20261017.json) · [統合NEE作業原稿](docs/CHAPTER2_UNIFIED_NEE_ARTICLE_WORKING_20261017.md)。既存Q1〜Q4を基盤とし、送粉者復元後の高Iアレルと回復可能性を**未実施の中心実験**とする。旧Ecology Letters原稿・レンダラー・登録結果は再現用の履歴であり、別投稿対象ではない。**NEE投稿準備は未完了。**
+> **現行の論文化方針（2026-10-19） — ELを独立のCh3へ分割せず、一つのNEE Article候補へ統合：** [最新の一論文ルート](docs/audits/CHAPTER2_NEE_ACTIVE_PUBLICATION_ROUTE_20261017.json) · [統合NEE作業原稿](docs/CHAPTER2_UNIFIED_NEE_ARTICLE_WORKING_20261017.md)。既存Q1〜Q4に、完了した160×160確認・花粉制限384経路・保存変異解析・限定的再適応を統合する。[現行の成果補足](docs/CHAPTER2_COMPLETED_EVIDENCE_SUPPLEMENT_20261019.md)と[S1〜S33・F1〜F8の配置表](docs/CHAPTER2_HISTORICAL_RESULTS_DISPOSITION_20261019.md)で陰性・未決も追跡する。全回復確率の時計は未検証であり、今回の統合に新規実験を追加しない。旧Ecology Letters原稿・レンダラー・登録結果は再現用の履歴であり、別投稿対象ではない。**NEE投稿準備は未完了。**
 
 > **論文の新規性と証拠の三層（Q1〜Q4）:** [Lepers全文・PR #569を反映した主張の採用／不採用表](docs/CHAPTER2_THREE_TIER_FOUR_QUESTION_NOVELTY_REVIEW_20261016.md)。既知の自殖・花縮小理論との差、新しい遺伝的実現の検証、Q4の独立した存続効果を区別。原稿・原本・登録結果は変更していません。
 
