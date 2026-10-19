@@ -1,0 +1,380 @@
+{
+  "schema": "chapter2_source_historical_i_a_inverse_access_sign_matrix_v1",
+  "status": "POST_OUTCOME_REPLAY_DIAGNOSTIC_NOT_NEW_EVOLUTION_NOT_CONFIRMATORY",
+  "source": {
+    "repository": "zuizui0223/izu-core",
+    "exact_head_sha": "245546f3d4cde886e02411c6fb34d0051a942ab1",
+    "github_run": 39099825789,
+    "run_url": "https://github.com/zuizui0223/izu-core/actions/runs/39099825789",
+    "jobs": [
+      {
+        "py": "3.10",
+        "id": 117593852181
+      },
+      {
+        "py": "3.11",
+        "id": 117593852103
+      },
+      {
+        "py": "3.12",
+        "id": 117593852160
+      }
+    ],
+    "source_code_sha256": "a139151917014e2584be8ff4193ad5fc318b0d0ecd957cb48d1e624ee0aa712b",
+    "source_model_sha256": {
+      "data/design/model3_island_v2.json": "0dcf6190c27f5fc9c50b07a270826932691f8c21886ff4b148c6fe299bf3135e",
+      "docs/protocols/CHAPTER2_ISLAND_BRANCH_RECOVERY_PILOT_20261018.md": "6a9906a8ef9b8809a9ea37d3111760df1e2b866959820b69d6900715bfcf74f3",
+      "scripts/explore_chapter2_pollinator_recovery_20261018.py": "25a9e0646636abc6624d05effd8e5c4c0c285fb854462102b7b90f876a2a441c",
+      "scripts/model3_island/history.py": "28d22c7fde81d9be6a604fa9dd4cb6b48d78d388d4db85f798a935cf81415488",
+      "scripts/model3_island/population.py": "c959d18816da6666dbfb4e91bd9582c94af5453b25498d033f5747305b05fe0f",
+      "scripts/model3_island/randomness.py": "63522ae3c5ff8e11f114b5649a989945fa4ba2480fdca0f74857601b0e4b211f",
+      "scripts/model3_island/reproduction.py": "885957edb8a165ee8528781ed1d2574c44143c608496b505f9663cbfac2c4081",
+      "scripts/model3_island/types.py": "a572e1e7f4fded181585871a63582b16f40292bd07b13e8efc9d6b6234eb21c5"
+    }
+  },
+  "three_python_replays": {
+    "readout_all_same_except_float_roundoff": true,
+    "max_abs_float_delta": 6.591949208711867e-14,
+    "independent_native_code_replications": 0
+  },
+  "pilot_identity": {
+    "initial_founder_seed_blocks": 2,
+    "visitor_history_seed_blocks": 2,
+    "historical_A_arms": 2,
+    "original_historical_paths": 8,
+    "source_censuses": [
+      30,
+      35,
+      38,
+      39,
+      45
+    ],
+    "saved_state_time_cells": 40,
+    "new_future_biological_paths": 0,
+    "new_seeds": 0
+  },
+  "time_A_I_support_selection_matrix": [
+    {
+      "A_focal_negative": 0,
+      "A_focal_positive": 0,
+      "A_focal_undefined": 4,
+      "I_focal_negative": 0,
+      "I_focal_positive": 4,
+      "I_focal_undefined": 0,
+      "ancestral_low_A_support_closed": 0,
+      "high_I_support_closed": 0,
+      "historical_A": "fixed",
+      "restored_outcross_positive": 4,
+      "saved_genotypes": 4,
+      "source_positive_I_and_closed": 0,
+      "t": 30
+    },
+    {
+      "A_focal_negative": 3,
+      "A_focal_positive": 1,
+      "A_focal_undefined": 0,
+      "I_focal_negative": 0,
+      "I_focal_positive": 4,
+      "I_focal_undefined": 0,
+      "ancestral_low_A_support_closed": 4,
+      "high_I_support_closed": 0,
+      "historical_A": "evolving",
+      "restored_outcross_positive": 4,
+      "saved_genotypes": 4,
+      "source_positive_I_and_closed": 0,
+      "t": 30
+    },
+    {
+      "A_focal_negative": 0,
+      "A_focal_positive": 0,
+      "A_focal_undefined": 4,
+      "I_focal_negative": 0,
+      "I_focal_positive": 4,
+      "I_focal_undefined": 0,
+      "ancestral_low_A_support_closed": 0,
+      "high_I_support_closed": 0,
+      "historical_A": "fixed",
+      "restored_outcross_positive": 4,
+      "saved_genotypes": 4,
+      "source_positive_I_and_closed": 0,
+      "t": 35
+    },
+    {
+      "A_focal_negative": 4,
+      "A_focal_positive": 0,
+      "A_focal_undefined": 0,
+      "I_focal_negative": 0,
+      "I_focal_positive": 4,
+      "I_focal_undefined": 0,
+      "ancestral_low_A_support_closed": 4,
+      "high_I_support_closed": 0,
+      "historical_A": "evolving",
+      "restored_outcross_positive": 4,
+      "saved_genotypes": 4,
+      "source_positive_I_and_closed": 0,
+      "t": 35
+    },
+    {
+      "A_focal_negative": 0,
+      "A_focal_positive": 0,
+      "A_focal_undefined": 4,
+      "I_focal_negative": 0,
+      "I_focal_positive": 4,
+      "I_focal_undefined": 0,
+      "ancestral_low_A_support_closed": 0,
+      "high_I_support_closed": 0,
+      "historical_A": "fixed",
+      "restored_outcross_positive": 4,
+      "saved_genotypes": 4,
+      "source_positive_I_and_closed": 0,
+      "t": 38
+    },
+    {
+      "A_focal_negative": 3,
+      "A_focal_positive": 1,
+      "A_focal_undefined": 0,
+      "I_focal_negative": 0,
+      "I_focal_positive": 4,
+      "I_focal_undefined": 0,
+      "ancestral_low_A_support_closed": 4,
+      "high_I_support_closed": 0,
+      "historical_A": "evolving",
+      "restored_outcross_positive": 4,
+      "saved_genotypes": 4,
+      "source_positive_I_and_closed": 0,
+      "t": 38
+    },
+    {
+      "A_focal_negative": 0,
+      "A_focal_positive": 0,
+      "A_focal_undefined": 4,
+      "I_focal_negative": 0,
+      "I_focal_positive": 4,
+      "I_focal_undefined": 0,
+      "ancestral_low_A_support_closed": 0,
+      "high_I_support_closed": 0,
+      "historical_A": "fixed",
+      "restored_outcross_positive": 4,
+      "saved_genotypes": 4,
+      "source_positive_I_and_closed": 0,
+      "t": 39
+    },
+    {
+      "A_focal_negative": 4,
+      "A_focal_positive": 0,
+      "A_focal_undefined": 0,
+      "I_focal_negative": 0,
+      "I_focal_positive": 4,
+      "I_focal_undefined": 0,
+      "ancestral_low_A_support_closed": 4,
+      "high_I_support_closed": 1,
+      "historical_A": "evolving",
+      "restored_outcross_positive": 4,
+      "saved_genotypes": 4,
+      "source_positive_I_and_closed": 1,
+      "t": 39
+    },
+    {
+      "A_focal_negative": 0,
+      "A_focal_positive": 0,
+      "A_focal_undefined": 4,
+      "I_focal_negative": 0,
+      "I_focal_positive": 4,
+      "I_focal_undefined": 0,
+      "ancestral_low_A_support_closed": 0,
+      "high_I_support_closed": 0,
+      "historical_A": "fixed",
+      "restored_outcross_positive": 4,
+      "saved_genotypes": 4,
+      "source_positive_I_and_closed": 0,
+      "t": 45
+    },
+    {
+      "A_focal_negative": 4,
+      "A_focal_positive": 0,
+      "A_focal_undefined": 0,
+      "I_focal_negative": 0,
+      "I_focal_positive": 4,
+      "I_focal_undefined": 0,
+      "ancestral_low_A_support_closed": 4,
+      "high_I_support_closed": 1,
+      "historical_A": "evolving",
+      "restored_outcross_positive": 4,
+      "saved_genotypes": 4,
+      "source_positive_I_and_closed": 1,
+      "t": 45
+    }
+  ],
+  "selected_genotype_timeline": [
+    {
+      "ancestral_founder_A_mean": 0.4921875,
+      "ancestral_low_A_target_structurally_closed": true,
+      "census": 48,
+      "expected_outcross_return_gain": 112.26521027794632,
+      "founder": 0,
+      "founder_I_target": 0.51171875,
+      "full_genetic_focal_gradients": {
+        "A": {
+          "sign": "negative",
+          "slopes": [
+            -0.013479279605296303,
+            -0.013480916161125178
+          ]
+        },
+        "I": {
+          "sign": "positive",
+          "slopes": [
+            0.4436019212510672,
+            0.4435942332011819
+          ]
+        }
+      },
+      "high_I_support_closed": false,
+      "maternal_no_service_fraction": 0.3443621441065482,
+      "max_retained_A_allele": 0.75,
+      "max_retained_I": 0.625,
+      "min_retained_A_allele": 0.5,
+      "policy": "evolving",
+      "t": 30,
+      "visitor": 0
+    },
+    {
+      "ancestral_founder_A_mean": 0.4921875,
+      "ancestral_low_A_target_structurally_closed": true,
+      "census": 48,
+      "expected_outcross_return_gain": 114.72347541846874,
+      "founder": 0,
+      "founder_I_target": 0.51171875,
+      "full_genetic_focal_gradients": {
+        "A": {
+          "sign": "negative",
+          "slopes": [
+            -0.05511514211657845,
+            -0.055116502043790296
+          ]
+        },
+        "I": {
+          "sign": "positive",
+          "slopes": [
+            0.276733277782792,
+            0.2767277191559741
+          ]
+        }
+      },
+      "high_I_support_closed": false,
+      "maternal_no_service_fraction": 0.350355802770768,
+      "max_retained_A_allele": 0.75,
+      "max_retained_I": 0.625,
+      "min_retained_A_allele": 0.5,
+      "policy": "evolving",
+      "t": 35,
+      "visitor": 0
+    },
+    {
+      "ancestral_founder_A_mean": 0.4921875,
+      "ancestral_low_A_target_structurally_closed": true,
+      "census": 48,
+      "expected_outcross_return_gain": 105.28886483059743,
+      "founder": 0,
+      "founder_I_target": 0.51171875,
+      "full_genetic_focal_gradients": {
+        "A": {
+          "sign": "negative",
+          "slopes": [
+            -0.04714188666244713,
+            -0.04714329264389264
+          ]
+        },
+        "I": {
+          "sign": "positive",
+          "slopes": [
+            0.26132634784111175,
+            0.2613209460486928
+          ]
+        }
+      },
+      "high_I_support_closed": false,
+      "maternal_no_service_fraction": 0.37360796999114765,
+      "max_retained_A_allele": 0.75,
+      "max_retained_I": 0.625,
+      "min_retained_A_allele": 0.5,
+      "policy": "evolving",
+      "t": 38,
+      "visitor": 0
+    },
+    {
+      "ancestral_founder_A_mean": 0.4921875,
+      "ancestral_low_A_target_structurally_closed": true,
+      "census": 48,
+      "expected_outcross_return_gain": 104.65538985971435,
+      "founder": 0,
+      "founder_I_target": 0.51171875,
+      "full_genetic_focal_gradients": {
+        "A": {
+          "sign": "negative",
+          "slopes": [
+            -0.045708161170711185,
+            -0.04570957271258502
+          ]
+        },
+        "I": {
+          "sign": "positive",
+          "slopes": [
+            0.2618680950035547,
+            0.2618626959594604
+          ]
+        }
+      },
+      "high_I_support_closed": true,
+      "maternal_no_service_fraction": 0.37361131208405235,
+      "max_retained_A_allele": 0.75,
+      "max_retained_I": 0.5,
+      "min_retained_A_allele": 0.5,
+      "policy": "evolving",
+      "t": 39,
+      "visitor": 0
+    },
+    {
+      "ancestral_founder_A_mean": 0.4921875,
+      "ancestral_low_A_target_structurally_closed": true,
+      "census": 48,
+      "expected_outcross_return_gain": 108.15393631123705,
+      "founder": 0,
+      "founder_I_target": 0.51171875,
+      "full_genetic_focal_gradients": {
+        "A": {
+          "sign": "negative",
+          "slopes": [
+            -0.05184631836984647,
+            -0.05184770369347225
+          ]
+        },
+        "I": {
+          "sign": "positive",
+          "slopes": [
+            0.2626481347956163,
+            0.2626427006195215
+          ]
+        }
+      },
+      "high_I_support_closed": true,
+      "maternal_no_service_fraction": 0.37499999999999994,
+      "max_retained_A_allele": 0.75,
+      "max_retained_I": 0.5,
+      "min_retained_A_allele": 0.75,
+      "policy": "evolving",
+      "t": 45,
+      "visitor": 0
+    }
+  ],
+  "constraints": [
+    "A is allowed to evolve from standing inherited A alleles but A mutation is off in this synthetic history. Do not extrapolate its closed allele minimum to older mutation-enabled experiments.",
+    "The t39 A min of 0.5 exceeds founder A mean 0.4921875, so the specific ancestral low-A mean target is unreachable without mutation or immigration. This does not imply irreversible selfing capacity in nature.",
+    "The t39 I maximum of 0.5 falls below its own founder mean 0.51171875, so that high-I target is structurally unreachable under the original closed Model3 transmission.",
+    "Positive local I and negative local A signs are each finite one-focal-adult native parentage source probes, NOT rare-mutant polymorphic population selection gradients.",
+    "Founder x visitor origin is 2x2 and 40 repeated snapshots are NOT independent island populations; both support-loss directions remain descriptive.",
+    "In fixed A policy the latent genomic A min is deliberately not interpreted as expressed A ancestral return. Fixed expressed A=0.5 still allows autonomous selfing.",
+    "Viable maternal output fraction at no pollen is not proof of unconditional population survival; private versus group sign conflict is a distinct mechanism.",
+    "Selection and necessary allele support can point in different directions; neither alone estimates the stochastic visitor-restoration no-return time or historical assurance policy effect."
+  ]
+}
