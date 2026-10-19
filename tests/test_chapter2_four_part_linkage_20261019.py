@@ -36,7 +36,7 @@ def test_q1_original_and_fresh_are_not_four_independent_confirmations():
     # The 8x8 four-setting joint verdict remains inconclusive because
     # the direct-cost confidence interval includes zero.
     paper = (ROOT/"docs/CHAPTER2_Q1_FRESH_FOUNDER_RESULTS_20261016.md").read_text(encoding="utf-8")
-    assert "3/4" in paper and "INCONCLUSIVE" in paper
+    assert "Three reproductive settings pass" in paper and "inconclusive" in paper.lower()
     assert f["fresh_founder_q1"]["original_32_shard_case_count"] == 1088
 
 
@@ -123,7 +123,7 @@ def test_context_changes_sign_and_occupied_time_is_competing_risk():
     for policy in ("fixed","evolving"):
         v = next(x for x in variation["results"] if x["budget"]=="B4p5"
                  and x["policy"]==policy and x["trait"]=="I")
-        assert len(v["curves"]["extinct"])==80
+        assert len(v["curves"]["extinct"])==81  # Censuses 0..80 inclusive; duration uses 0..79
     # Duration at B4.5 ends when population goes extinct; not pure fixation time.
 
 
