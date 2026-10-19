@@ -199,7 +199,7 @@ def test_original_four_question_contract_and_figure_03_synthesis():
     crosswalk = (ROOT / "docs/CHAPTER2_Q1_Q4_ORIGINAL_FOUR_PARTS_AUDIT_20261019.md").read_text(encoding="utf8")
     assert all(("## Q" + str(i) + " —") in original for i in range(1, 5))
     assert all(("### Q" + str(i) + " —") in active for i in range(1, 5))
-    assert "density is not the ABM" in active.lower()
+    assert "density is not the abm" in active.lower()
     assert "−0.4510" in active and "−0.1446" in active
     assert "+2.83 and +4.59" in active
     assert "selection → sequence → finite realization → persistence" in crosswalk
