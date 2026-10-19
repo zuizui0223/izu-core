@@ -1,5 +1,16 @@
 # Factorial readaptation Implementation Plan
 
+**User scope correction:** numerical sections below describe the withdrawn
+expanded proposal. The authoritative replacement is
+`docs/CHAPTER2_READAPTATION_LOCAL_DESIGN_20261019.md` and the strict
+`docs/protocols/CHAPTER2_READAPTATION_PROPOSED_20261019.json` local contract.
+Tasks 1-5 remain the implementation sequence, with five destinations, one future
+cost, two cohorts, 32 repeats and two assay dates. Do not implement or run the
+13-destination/cost-zero variants below. Add single-trajectory streaming and the
+local RAM/disk guards to Task 3. The user has authorized implementation and
+synthetic technical tests; no further design approval is required for these
+bounded corrections. Production remains separately gated.
+
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
 **Goal:** Measure destination-dependent readaptation and within-cohort repeatability after standardized seed transfer, with independently auditable ancestry and all-start outcomes.

@@ -1,5 +1,11 @@
 # New-environment readaptation and repeatability: design proposal
 
+**Superseded in scope and numerical design:** the user requested a central-
+hypothesis-only experiment feasible on the local PC. Use
+[the bounded local design](CHAPTER2_READAPTATION_LOCAL_DESIGN_20261019.md).
+The expanded composition/cost variants below are historical proposals, not
+active implementation requirements or execution authorization.
+
 Status: **proposal for review; no new biological futures executed or registered**.
 This document records the user's 2026-10-19 choice to compare visitation activity
 separately from visitor composition/floral matching. It does not change the
