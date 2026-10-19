@@ -25,6 +25,14 @@ def record():
     assay=dict(occupied=True,population=1,reference_competitors=47,maternal_outcross=[2.],
                paternal_outcross=[6.],viable_self=[3.],genetic_return=[7.],mean_genetic_return=7.)
     d['assays']={'0':copy.deepcopy(assay),'80':copy.deepcopy(assay)}
+    d.update(stream_key=1,config={},visitors={},
+             parentage_keys=['child_id','mother_id','father_id'],
+             reproductive_keys=['ovules','outcross','self_raw','self_viable','exported','delivered'],
+             demographic_keys=['survivors','resident_potential','immigrant_candidates','immigrant_settled',
+                               'resident_recruits','immigrant_recruits','parent_age_sum','parent_contributions',
+                               'resident_selfed_recruits','resident_outcross_recruits'],
+             reproductive=np.tile([8.,0.,4.,2.,0.,0.],(80,1)),
+             demographic=np.tile(np.array([0,1,0,0,1,0,2,2,1,0],dtype=np.int64),(80,1)))
     return d
 
 
@@ -74,6 +82,8 @@ def extinct_record(at):
     for key in ('trait_mean','trait_variance','allele_min','allele_max'):
         d[key][at:]=np.nan
     d['first_extinction']=at
+    d['demographic'][max(0,at-1):]=0
+    d['reproductive'][at:]=0
     d['state_sha256']=[raw_state_digest(d,t) for t in range(81)]
     empty=dict(occupied=False,population=0,reference_competitors=47,
                maternal_outcross=[],paternal_outcross=[],viable_self=[],
@@ -152,3 +162,23 @@ def test_all_destination_pairs_include_nonzero_comparators():
     assert len(result['paired_destinations'])==6
     assert any(p['destination']==2 and p['reference_destination']==1
                for p in result['paired_destinations'])
+
+
+@pytest.mark.parametrize('damage',['missing','negative','nan','labels','shape','recruits',
+                                  'selfed','parent_age','fractional','mass_balance'])
+def test_review_telemetry_corruption_fails(damage):
+    d=record()
+    if damage=='missing':
+        for name in ('demographic','demographic_keys','reproductive','reproductive_keys','parentage_keys'):
+            del d[name]
+    elif damage=='negative': d['demographic'][:]=-999
+    elif damage=='nan': d['reproductive'][:]=np.nan
+    elif damage=='labels': d['parentage_keys'].reverse()
+    elif damage=='shape': d['reproductive']=np.zeros(17*1024**2//8)
+    elif damage=='recruits': d['demographic'][0,4]=2
+    elif damage=='selfed': d['demographic'][0,8:]=[0,1]
+    elif damage=='parent_age': d['demographic'][0,6]=3
+    elif damage=='fractional': d['demographic']=d['demographic'].astype(float)
+    else: d['reproductive'][0,1]=9
+    with pytest.raises(ValueError):
+        audit_future(d)

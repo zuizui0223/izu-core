@@ -308,6 +308,11 @@ def _assay(a,n):
 
 
 def audit_future(d):
+    required={'schema','stream_key','config','visitors','horizon','population','trait_mean',
+              'trait_variance','allele_min','allele_max','first_extinction','state_offsets',
+              'state_sha256','parentage','parentage_offsets','parentage_keys','reproductive',
+              'reproductive_keys','demographic','demographic_keys','assays'}|{'state_'+k for k in FIELDS}
+    require(set(d)==required,'future record schema inventory')
     require(d['schema']=='readaptation_future_v1' and d['horizon']==80,'future schema/horizon')
     pop=np.asarray(d['population'])
     require(pop.shape==(81,) and pop.dtype.kind in 'iu' and ((pop>=0)&(pop<=48)).all(),
@@ -328,6 +333,34 @@ def audit_future(d):
             np.array_equal(parent_offsets,np.r_[0,np.cumsum(pop[1:])]),'parent offsets')
     parents=np.asarray(d['parentage'])
     require(parents.shape==(int(pop[1:].sum()),3) and parents.dtype.kind in 'iu','parent inventory')
+    require(d['parentage_keys']==['child_id','mother_id','father_id'],'parentage labels')
+    demographic_keys=['survivors','resident_potential','immigrant_candidates','immigrant_settled',
+                      'resident_recruits','immigrant_recruits','parent_age_sum','parent_contributions',
+                      'resident_selfed_recruits','resident_outcross_recruits']
+    reproductive_keys=['ovules','outcross','self_raw','self_viable','exported','delivered']
+    require(d['demographic_keys']==demographic_keys and d['reproductive_keys']==reproductive_keys,
+            'telemetry labels')
+    demographic=np.asarray(d['demographic']); reproductive=np.asarray(d['reproductive'])
+    require(demographic.shape==(80,10) and demographic.dtype.kind in 'iu'
+            and (demographic>=0).all(),'demographic shape/type/value')
+    require(reproductive.shape==(80,6) and reproductive.dtype.kind=='f'
+            and np.isfinite(reproductive).all() and (reproductive>=0).all(),
+            'reproductive shape/type/value')
+    require(not demographic[:,[0,2,3,5]].any(),'survival/immigration must be absent')
+    require(np.array_equal(demographic[:,4],pop[1:]) and
+            np.array_equal(np.minimum(demographic[:,1],48),pop[1:]),'recruitment count mismatch')
+    require(np.array_equal(demographic[:,6],2*pop[1:]) and
+            np.array_equal(demographic[:,7],2*pop[1:]),'parent age/contribution count mismatch')
+    for t in range(80):
+        p=parents[parent_offsets[t]:parent_offsets[t+1]]
+        selfed=int(np.sum(p[:,1]==p[:,2]))
+        require(demographic[t,8]==selfed and demographic[t,9]==len(p)-selfed,
+                'selfed/outcross recruitment mismatch')
+    require(not reproductive[pop[:-1]==0].any(),'empty-state reproductive output')
+    require(np.all(reproductive[:,1]+reproductive[:,2]<=reproductive[:,0]+1e-10)
+            and np.all(reproductive[:,5]<=reproductive[:,4]+1e-10)
+            and np.allclose(reproductive[:,3],.5*reproductive[:,2],rtol=0,atol=1e-10),
+            'reproductive arithmetic constraints')
     means=np.full((81,3),np.nan)
     variances=means.copy(); lows=means.copy(); highs=means.copy()
     for t in range(81):
