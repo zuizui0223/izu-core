@@ -9,10 +9,12 @@ import numpy as np
 import pytest
 
 from scripts.chapter2_two_origins_technical_20261019 import (
-    HORIZON, POLICIES, REPEATS, Island, SourceLineage, attempt,
-    score_binary, source_genotype, source_traits, stage_accounting,
-    technical_fixture,
+    HORIZON, POLICIES, ESTABLISHMENT_MODES, REPEATS,
+    Island, SourceLineage, _config, _neutral_establishment_state, _visitors,
+    attempt, score_binary, source_genotype, source_traits,
+    stage_accounting, technical_fixture,
 )
+from scripts.model3_island.reproduction import reproduce
 
 
 @lru_cache(maxsize=1)
@@ -30,16 +32,17 @@ def test_technical_fixture_is_bounded_and_not_scientific_evidence():
     assert d["horizon"] == HORIZON == 6
     assert d["archipelago_resets"] == REPEATS == 2
     assert (d["lineages"], d["islands"]) == (6, 2)
-    assert len(d["records"]) == 6 * 2 * REPEATS * len(POLICIES) == 96
-    assert len(d["exact_stage_accounting"]) == 2 * REPEATS * len(POLICIES)
+    assert len(d["records"]) == 6 * 2 * REPEATS * len(POLICIES) * len(ESTABLISHMENT_MODES) == 192
+    assert len(d["exact_stage_accounting"]) == 2 * REPEATS * len(POLICIES) * len(ESTABLISHMENT_MODES)
+    assert set(d["establishment_modes"]) == set(ESTABLISHMENT_MODES)
     assert all(r["technical_fixture_only"] is True for r in d["records"])
 
 
 def test_arrival_and_native_establishment_are_common_across_later_policies():
     groups = defaultdict(list)
     for r in fixture()["records"]:
-        groups[(r["island_id"], r["reset_id"], r["lineage_id"])].append(r)
-    assert len(groups) == 24
+        groups[(r["island_id"], r["reset_id"], r["lineage_id"], r["establishment_mode"])].append(r)
+    assert len(groups) == 48
     for values in groups.values():
         assert {r["policy"] for r in values} == set(POLICIES)
         assert len({r["arrived"] for r in values}) == 1
@@ -113,7 +116,8 @@ def test_arrival_zero_is_not_imputed_as_extinction_after_establishment():
 
 def test_telescope_pure_synthetic_inventory_with_separate_filters():
     def row(id, source, arrived, established, persist, delta=0):
-        return dict(lineage_id=id, island_id="synthetic", reset_id=0, policy="native",
+        return dict(lineage_id=id, island_id="synthetic", reset_id=0,
+                    establishment_mode="native", policy="native",
                     source_traits=dict(A=source, I=source), arrived=arrived,
                     established=established, persisted=persist,
                     final_expressed_traits={"A": source + delta, "I": source + delta}
@@ -155,6 +159,39 @@ def test_invalid_contracts_fail_closed():
         stage_accounting([], "A")
     with pytest.raises(ValueError):
         stage_accounting([dict(lineage_id=1)], "not-a-trait")
+
+
+def test_neutral_establishment_has_no_native_phenotype_based_fecundity_difference():
+    """The source-genotype distribution does not enter the neutralized reproduction ledger."""
+    low = SourceLineage(201, .25, .35, 10201, 1.)
+    high = SourceLineage(202, .75, .65, 10202, 1.)
+    island = Island("technical-neutral-check", 4.5, 4)
+    cfg = _config(island, assurance_mode="fixed", initial_a=.5)
+    visitors = _visitors(island)
+    l1 = reproduce(_neutral_establishment_state(source_genotype(low)), visitors, cfg)
+    l2 = reproduce(_neutral_establishment_state(source_genotype(high)), visitors, cfg)
+    for field in ("ovules", "outcross", "self_viable", "maternal", "paternal"):
+        assert np.array_equal(getattr(l1, field), getattr(l2, field))
+    assert source_traits(source_genotype(low)) != source_traits(source_genotype(high))
+
+
+def test_neutral_and_native_early_filter_have_same_arrival_and_same_source_genotypes():
+    groups = defaultdict(list)
+    for r in fixture()["records"]:
+        groups[(r["island_id"], r["reset_id"], r["lineage_id"], r["policy"])].append(r)
+    assert len(groups) == 2 * REPEATS * 6 * len(POLICIES)
+    for values in groups.values():
+        assert {r["establishment_mode"] for r in values} == set(ESTABLISHMENT_MODES)
+        assert len({r["arrived"] for r in values}) == 1
+        assert len({tuple(sorted(r["source_traits"].items())) for r in values}) == 1
+        # Establishment may differ because the two ledgers are deliberately manipulated.
+        assert all(z["persisted"] <= z["established"] <= z["arrived"] for z in values)
+
+
+def test_invalid_establishment_policy_fails_closed():
+    with pytest.raises(ValueError, match="establishment"):
+        attempt(SourceLineage(4, .5, .5, 44, .5),
+                Island("x", 4.5, 0), 0, establishment_mode="unregistered")
 
 
 def test_proper_scores_available_only_with_predicted_outcomes():
