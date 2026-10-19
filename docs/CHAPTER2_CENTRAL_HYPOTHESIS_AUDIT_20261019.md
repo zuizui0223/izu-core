@@ -7,8 +7,9 @@ audit have now finished. Its registered B8 genetic-closure contrast is+8.33pp
 crossed-source inference assumptions. See the [admitted result](CHAPTER2_CONFIRM160_RESULTS_20261019.md).
 The pilot interpretation below is retained as historical exploratory evidence;
 its outstanding-confirmation language is superseded only for those G/S
-endpoints. Actual readaptation, a universal closure clock, load evolution and
-island-flora assembly remain untested. The secondary10pp reference does not
+endpoints. The later bounded readaptation experiment is now complete; a full recovery
+window, a universal closure clock, load evolution and island-flora assembly
+remain untested. The secondary10pp reference does not
 jointly pass and is not a biologically endorsed equivalence threshold.
 
 Source reviewed: `0bb0fddd1450ee0bf7ac7bd44ec14d010e2f8ea2`; known merge-base
@@ -143,3 +144,17 @@ tests). A separate reviewer independently recomputed all five tables, paired
 categories and original event matches from the retained arrays without importing
 simulation code. This audit deliberately rejects extinction cases and cannot
 be reused for the budget companion without competing-risk handling.
+
+
+## Subsequent evidence, 2026-10-19
+
+The historical pilot above is not the final evidence boundary. Completed
+[baseline-pollen factorial results](CHAPTER2_BASELINE_POLLEN_384_RESULTS_20261019.md)
+support an exploratory baseline-regime/history interaction in the incremental
+A response to activity decline. The [variation-clock readback](CHAPTER2_VARIATION_CLOCK_RESULTS_20261019.md)
+shows opposite I-polymorphic-duration policy effects across resource regimes:
+shorter with evolving assurance at B8, longer at B4.5 alongside survival rescue.
+The [central-question reset](CHAPTER2_CENTRAL_QUESTION_CLAIM_RESET_20261019.md)
+and working article preserve these conditions and the earlier inconclusive Q2
+result. Neither analysis establishes natural island filtering or universal
+irreversibility.

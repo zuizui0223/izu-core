@@ -1,0 +1,65 @@
+{
+  "confirmation_claim": false,
+  "counts": {
+    "demographic_repeats": 4,
+    "independent_founders": 12,
+    "paired_contrasts": 192,
+    "rows": 384
+  },
+  "source_contract_sha256": "87af92484af9988181b4f3bed6760d39325de70cca8c0b4e1cec19c47b8c9849",
+  "status": "EXPLORATORY_BOUNDED_FACTORIAL_ALL_ALLOCATIONS_ADMITTED",
+  "summary": [
+    {
+      "allocated_pairs": 48,
+      "baseline": "strong_baseline_limitation",
+      "both_survived": 48,
+      "pre_decline_A_change_mean": 0.26654730902777785,
+      "pre_decline_I_change_mean": 0.008951822916666678,
+      "start_A": 0.3,
+      "survived_to_prefix": 48,
+      "terminal_decline_minus_control_A": 0.008734809027777778,
+      "terminal_decline_minus_control_I": -0.08024088541666667,
+      "terminal_survival_count_control": 48,
+      "terminal_survival_count_decline": 48
+    },
+    {
+      "allocated_pairs": 48,
+      "baseline": "weak_baseline_limitation",
+      "both_survived": 48,
+      "pre_decline_A_change_mean": -0.03217230902777777,
+      "pre_decline_I_change_mean": 0.13091362847222224,
+      "start_A": 0.3,
+      "survived_to_prefix": 48,
+      "terminal_decline_minus_control_A": 0.11241319444444446,
+      "terminal_decline_minus_control_I": 0.020724826388888885,
+      "terminal_survival_count_control": 48,
+      "terminal_survival_count_decline": 48
+    },
+    {
+      "allocated_pairs": 48,
+      "baseline": "strong_baseline_limitation",
+      "both_survived": 48,
+      "pre_decline_A_change_mean": 0.18679470486111108,
+      "pre_decline_I_change_mean": -0.04210069444444444,
+      "start_A": 0.5,
+      "survived_to_prefix": 48,
+      "terminal_decline_minus_control_A": 0.0046115451388888855,
+      "terminal_decline_minus_control_I": -0.035698784722222224,
+      "terminal_survival_count_control": 48,
+      "terminal_survival_count_decline": 48
+    },
+    {
+      "allocated_pairs": 48,
+      "baseline": "weak_baseline_limitation",
+      "both_survived": 48,
+      "pre_decline_A_change_mean": -0.06727430555555557,
+      "pre_decline_I_change_mean": 0.11664496527777779,
+      "start_A": 0.5,
+      "survived_to_prefix": 48,
+      "terminal_decline_minus_control_A": 0.0881618923611111,
+      "terminal_decline_minus_control_I": 0.02463107638888889,
+      "terminal_survival_count_control": 48,
+      "terminal_survival_count_decline": 48
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+{
+  "status": "SOURCE_AND_RELEASE_READBACK_VERIFIED",
+  "run_id": 39233450099,
+  "artifact_id": 12178257738,
+  "source_sha": "eb785dc6865ca1842ec9d6c7d511778c74e03478",
+  "sha256": "10bb8bdd52b53b32429e350c2f392ed2aeaa791683ede1d563ae6627c5ecb35e",
+  "bytes": 1857529,
+  "release_tag": "pollen384-eb785dc6-20261019",
+  "draft": true,
+  "strict_local_equality": false,
+  "float_difference_count": 34,
+  "maximum_absolute_difference": 5.551115123125783e-16,
+  "technical_comparison": "Post-run reconciliation: categorical/integer fields exact; differing float paths retained, absolute tolerance 1e-12; no changed raw data, estimates, intervals or inference"
+}

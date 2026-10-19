@@ -95,3 +95,38 @@ outdated: the authorized160x160 G/S experiment is complete, independently audite
 and merged in PR602. Its G/S results do not formally rank A/I repeatability or
 test actual readaptation. Lineage-level assembly/selection remains untested and
 is not silently added to this local follow-up. The bounded experimental component is complete; manuscript integration and repository verification are separate delivery gates. Universal determinism, permanent irreversibility and natural lineage filtering remain unidentified, rather than silently treated as confirmed.
+
+
+## Completed baseline-pollen factorial and variation clocks (2026-10-19)
+
+The new [384-path factorial](CHAPTER2_BASELINE_POLLEN_384_RESULTS_20261019.md)
+is distinct from Q2's completed 384-path support intervention. All paths survived.
+Additional activity decline produced larger A responses after weak than strong
+baseline limitation: weak-minus-strong interactions +0.103678 and +0.083550
+for nominal initial A=0.3 and 0.5, with descriptive founder-bootstrap 95%
+intervals [0.069499,0.137804] and [0.041450,0.128147]. This is exploratory evidence
+from 12 founders; the two starts share founders and are not independent replications.
+Strong-limitation populations had already increased A, and 22/48 or 10/48
+prefixes were A-monomorphic versus 1/48 in each weak stratum. The factorial
+identifies a baseline-effectiveness regime/history interaction, not instantaneous
+pollen deficit alone or fixation as the sole mediator. Additional I responses
+were negative in strong and positive in weak baseline regimes; universal I
+decline under every activity reduction is not supported.
+
+The [stored-genome readback](CHAPTER2_VARIATION_CLOCK_RESULTS_20261019.md)
+adds no simulations. At B8 with complete survival, evolving assurance shortened
+occupied I-polymorphic duration by 2.628 updates; at B4.5 it extended that
+duration by 12.684 alongside substantially improved survival. Fixed-policy A
+alleles are latent genetic variation despite constant expressed A=0.5.
+Most absent I polymorphism in the transferred seed cohorts was already absent
+in donors; transfer added two I monomorphisms in evolving-history cohorts.
+
+The current mechanism statement is therefore conditional: baseline pollen
+service shapes selection and prior trait change; inherited variation and
+persistence shape subsequent realization. Assurance and investment remain
+separable, but neither universal temporal order nor a universal assurance-driven
+loss of future adaptability follows. Natural island-flora filtering, genetic
+mediation and permanent irreversibility remain outside the established evidence.
+The [working article](CHAPTER2_UNIFIED_NEE_ARTICLE_WORKING_20261017.md) incorporates
+these positive effects, sign changes and limitations without rewriting earlier
+registered null results or adding simulations beyond the frozen allocation.
