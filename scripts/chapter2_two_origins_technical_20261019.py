@@ -31,6 +31,7 @@ SOURCE_VERSION = "two-origins-technical-20261019-v2"  # stable genotype/arrival 
 PROTOCOL_VERSION = "two-origins-technical-20261019-v3"
 FIELDS = ("alleles", "allele_origin", "mutation_flags", "ids", "birth_years")
 POLICIES = ("native", "clamp_A", "clamp_I", "clamp_A_I")
+OPTIONAL_TECHNICAL_POLICIES = ("center_A_mean",)
 ESTABLISHMENT_MODES = ("native", "neutral_A", "neutral_I", "neutral_A_I", "trait_neutral")
 TRAITS = ("A", "I")
 CAPACITY = 12
@@ -147,6 +148,32 @@ def _expressed_state(state: PlantState, source_i: float, freeze_i: bool) -> Plan
     return replace(state, alleles=values)
 
 
+def _center_A_expression_preserve_genotypic_spread(state: PlantState, source_A: float) -> PlantState:
+    """Artificial reproductive phenotype intervention: hold mean A, NOT its spread.
+
+    Apply one constant offset to EVERY diploid A allele *for reproduction
+    only*, so the population mean expressed assurance equals its original
+    source mean while all current individual and allelic deviations remain
+    unchanged. Offspring inherit the original, unshifted state.
+    Fail closed rather than clipping at 0/1. This is not cessation of
+    genetic evolution or a natural causal indirect-effect isolation.
+    """
+    if not len(state.ids):
+        return state
+    if not 0 <= source_A <= 1:
+        raise ValueError("source assurance mean outside [0,1]")
+    state_values = state.alleles.copy()
+    source_mean = float(state_values[:, 2, :].mean())
+    offset = float(source_A - source_mean)
+    candidate = state_values[:, 2, :] + offset
+    if not np.isfinite(candidate).all() or (candidate < 0).any() or (candidate > 1).any():
+        raise ValueError("centering A would exceed valid [0,1] allelic expression range")
+    state_values[:, 2, :] = candidate
+    if abs(float(state_values[:, 2, :].mean()) - source_A) > 1e-12:
+        raise ArithmeticError("source mean A not preserved")
+    return replace(state, alleles=state_values)
+
+
 def _neutral_establishment_state(state: PlantState) -> PlantState:
     """Stage-1 trait-neutral phenotype only; true alleles transmit unchanged.
 
@@ -173,7 +200,7 @@ def attempt(lineage: SourceLineage, island: Island, reset_id: int, *,
     """Identical candidate, arrival draw and establishment fork in all policies."""
     if type(reset_id) is not int or reset_id < 0:
         raise ValueError("reset ID must be a nonnegative integer")
-    if len(set(policies)) != len(policies) or not set(policies) <= set(POLICIES):
+    if len(set(policies)) != len(policies) or not set(policies) <= set(POLICIES + OPTIONAL_TECHNICAL_POLICIES):
         raise ValueError("unknown/duplicate policy")
     if establishment_mode not in ESTABLISHMENT_MODES:
         raise ValueError("unknown establishment intervention")
@@ -217,6 +244,7 @@ def attempt(lineage: SourceLineage, island: Island, reset_id: int, *,
     for policy in policies:
         frozen_a = policy in ("clamp_A", "clamp_A_I")
         frozen_i = policy in ("clamp_I", "clamp_A_I")
+        centered_a = policy == "center_A_mean"
         state = first
         if established:
             cfg = _config(island, assurance_mode="fixed" if frozen_a else "evolving",
@@ -225,6 +253,8 @@ def attempt(lineage: SourceLineage, island: Island, reset_id: int, *,
                             lineage.lineage_id)
             for year in range(1, HORIZON):
                 parental = _expressed_state(state, src["I"], frozen_i)
+                if centered_a:
+                    parental = _center_A_expression_preserve_genotypic_spread(parental, src["A"])
                 state, _ = advance(
                     state, reproduce(parental, observed, cfg), _empty(state),
                     cfg, rngs, year=year, mutation_traits=(False, False, False),
@@ -233,7 +263,7 @@ def attempt(lineage: SourceLineage, island: Island, reset_id: int, *,
                     break
         alive = bool(established and len(state.ids))
         final_traits = None if not alive else {
-            "A": src["A"] if frozen_a else float(state.alleles[:, 2, :].mean()),
+            "A": src["A"] if (frozen_a or centered_a) else float(state.alleles[:, 2, :].mean()),
             "I": src["I"] if frozen_i else float(state.alleles[:, 1, :].mean()),
         }
         rows.append(dict(
