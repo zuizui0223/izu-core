@@ -4,8 +4,10 @@ Single-future admission only; full allocation/archive admission remains separate
 Reproductive probabilities and assay biology require native replay, not this audit.
 """
 import hashlib
+import itertools
 import json
 from pathlib import Path
+import re
 import zipfile
 
 import numpy as np
@@ -13,6 +15,86 @@ from scipy.stats import beta
 
 
 FIELDS=('alleles','allele_origin','mutation_flags','ids','birth_years')
+
+
+def _canonical(value):
+    return json.dumps(value,sort_keys=True,separators=(',',':'),allow_nan=False).encode()
+
+
+def admit_manifest(manifest,contract):
+    """Check every declared allocation before opening any trajectory file."""
+    require(set(manifest)=={'format','contract_sha256','cohorts','futures'} and
+            manifest['format']=='readaptation_manifest_v1','manifest schema')
+    require(manifest['contract_sha256']==hashlib.sha256(_canonical(contract)).hexdigest(),
+            'manifest contract mismatch')
+    cohorts=list(itertools.product(contract['founder_indices'],contract['visitor_indices'],
+                                   contract['donor_policies'],range(contract['cohort_draws'])))
+    keys=[(*k,d,c,r) for k in cohorts
+          for d in range(1+len(contract['activity'])*len(contract['optima']))
+          for c in contract['future_costs'] for r in range(contract['future_repeats'])]
+    def sha(value):
+        return isinstance(value,str) and re.fullmatch('[0-9a-f]{64}',value) is not None
+    admitted={}
+    for row in manifest['cohorts']:
+        require(set(row)=={'key','cohort_sha256'},'cohort receipt schema')
+        key=tuple(row['key'])
+        require(key in cohorts and key not in admitted and sha(row['cohort_sha256']),
+                'cohort receipt mismatch')
+        admitted[key]=row['cohort_sha256']
+    require(set(admitted)==set(cohorts),'missing cohort receipt')
+    seen=set(); filenames=set(); expected=set(keys)
+    for row in manifest['futures']:
+        require(set(row)=={'key','file','sha256','bytes'},'future receipt schema')
+        key=tuple(row['key']); filename=row['file']
+        require(key in expected and key not in seen,'unknown/duplicate future allocation')
+        require(isinstance(filename,str) and re.fullmatch('[a-z0-9_-]+[.]npz',filename)
+                and filename not in filenames,'unsafe or duplicate future path')
+        require(sha(row['sha256']) and type(row['bytes']) is int and 0<row['bytes']<=16*1024**2,
+                'future receipt hash/size')
+        seen.add(key); filenames.add(filename)
+    require(seen==expected,'missing future allocation')
+    return keys,admitted
+
+
+def audit_identity(d,key,contract,base_config,cohort_sha256):
+    """Bind raw metadata to an externally admitted contract/base/cohort digest.
+
+    This does not itself verify the supplied contract or the donor archive.
+    Configuration is compared in full, including fields not changed by treatment.
+    """
+    require(len(key)==7,'allocation key shape')
+    f,v,policy,cohort,destination,cost,repeat=key
+    require(all(type(x) is int for x in (f,v,cohort,destination,repeat)),'integer allocation indices')
+    require(f in contract['founder_indices'] and v in contract['visitor_indices']
+            and policy in contract['donor_policies'] and 0<=cohort<contract['cohort_draws']
+            and 0<=repeat<contract['future_repeats'] and cost in contract['future_costs']
+            and 0<=destination<1+len(contract['activity'])*len(contract['optima']),
+            'allocation key outside contract')
+    seed=int.from_bytes(hashlib.sha256(_canonical([contract['namespace'],'future',list(key)])).digest()[:16],'big')
+    require(type(d['stream_key']) is int and d['stream_key']==seed,'future stream mismatch')
+    require(raw_state_digest(d,0)==cohort_sha256,'initial cohort mismatch')
+    expected=json.loads(json.dumps(base_config))
+    expected.update(capacity=contract['capacity'],years=contract['horizon'],
+                    assurance_mode=contract['future_assurance_mode'],assurance_cost=cost,
+                    assurance_timing=contract['assurance_timing'],pollen_discount=contract['pollen_discount'],
+                    depression=contract['depression'],survival=contract['survival'],
+                    mutation_rate=contract['mutation_rate'],ovule_budget=contract['future_budget'],
+                    activity_mode=contract['activity_mode'])
+    expected['seed_arrival']['supply']=0
+    expected['visitor_arrival']['supply']=0
+    if destination==0:
+        expected['activity']=0
+        visitors=dict(ids=[],optima=[],breadths=[],effectiveness=[])
+    else:
+        ai,mi=divmod(destination-1,len(contract['optima']))
+        expected['activity']=float(contract['activity'][ai])
+        optima=contract['optima'][mi]; n=len(optima)
+        visitors=dict(ids=list(range(n)),optima=optima,breadths=[contract['breadth']]*n,
+                      effectiveness=[float(contract['effectiveness'])]*n)
+    # Numeric equality is appropriate for validated Config scalar values;
+    # canonical JSON handles tuple/list normalization after serialization.
+    require(json.loads(_canonical(d['config']))==expected,'future configuration mismatch')
+    require(d['visitors']==visitors,'future destination mismatch')
 
 
 def load_future(path,expected_sha256,expected_key):

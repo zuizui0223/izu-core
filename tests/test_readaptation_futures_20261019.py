@@ -90,3 +90,28 @@ def test_destination_validation_and_nonzero_service():
         run_future(state,replace(config,activity=.5),visitors,345,80)
     with pytest.raises(ValueError):
         run_future(state,config,replace(visitors,optima=np.full(6,.6)),345,80)
+
+
+def test_saved_future_binds_to_contract_and_initial_cohort(tmp_path):
+    import copy
+    from scripts.readaptation_contract_20261019 import load_contract, seed_for
+    from scripts.readaptation_storage_20261019 import save_future
+    from scripts.audit_readaptation_raw_20261019 import load_future, audit_identity
+    state,config,visitors=fixture()
+    contract=load_contract()
+    key=[0,0,'fixed',0,0,.5,0]
+    raw=run_future(state,config,visitors,seed_for(contract,'future',key),80)
+    path=tmp_path/'one.npz'
+    receipt=save_future(path,key,raw)
+    loaded=load_future(path,receipt['sha256'],key)
+    base=json.loads((ROOT/'data/design/model3_island_v2.json').read_text())['base_config']
+    assert audit_identity(loaded,key,contract,base,cohort_digest(state)) is None
+    for component in ('stream','cohort','config','destination','key'):
+        altered=copy.deepcopy(loaded); altered_key=list(key); digest=cohort_digest(state)
+        if component=='stream': altered['stream_key']+=1
+        elif component=='cohort': digest='f'*64
+        elif component=='config': altered['config']['pollen_budget']+=1
+        elif component=='destination': altered['visitors']['optima']=[.5]
+        else: altered_key[-1]=32
+        with pytest.raises(ValueError):
+            audit_identity(altered,altered_key,contract,base,digest)
