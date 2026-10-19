@@ -39,9 +39,11 @@ def test_absorbing_extinction_retains_every_census(n,assurance,extinction):
 
 
 def test_exact_replay_unaltered_cohort_and_native_parentage():
+    from scripts.audit_readaptation_raw_20261019 import audit_future
     state,config,visitors=fixture()
     digest=cohort_digest(state)
     one=run_future(state,config,visitors,234,80)
+    assert audit_future(one)['status']=='PASS_RAW_STATE_ARITHMETIC'
     two=run_future(state,config,visitors,234,80)
     assert cohort_digest(state)==digest==one['state_sha256'][0]
     for key,value in one.items():
