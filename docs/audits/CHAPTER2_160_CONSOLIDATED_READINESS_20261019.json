@@ -1,0 +1,127 @@
+{
+  "all_pinned_sources": {
+    "docs/audits/CHAPTER2_JOINT_OC_COMPACT_20261019.json": {
+      "bytes": 7430,
+      "git_blob": "794f4915b8b08f80674dfa0db11ede1db655449e",
+      "sha256": "2c13dbf6319b97a040112e7b331019f0678e2db9f7064d3e4e1dd8fef20c9a50"
+    },
+    "scripts/chapter2_q3_balanced_assurance_founders_20261018.py": {
+      "bytes": 3399,
+      "git_blob": "5e1c82afd2369c6117f847be8d7f3715814cc102",
+      "sha256": "e3522e629e3b94f49e0095fe5702e44a68f0b3e50e85c11cd2641a20d5625c08"
+    },
+    "scripts/model3_island/__init__.py": {
+      "bytes": 80,
+      "git_blob": "b385daf32fb3d1a2435ef97fce62f47c8f56e81f",
+      "sha256": "f7e55e36abb6fbc720e3413505a2a2ea8ff784e9e5715fb097058a1b24956b16"
+    },
+    "scripts/model3_island/history.py": {
+      "bytes": 6091,
+      "git_blob": "0c58aee6f73ae133d96d8da4dd6678886ff3061c",
+      "sha256": "28d22c7fde81d9be6a604fa9dd4cb6b48d78d388d4db85f798a935cf81415488"
+    },
+    "scripts/model3_island/population.py": {
+      "bytes": 6128,
+      "git_blob": "20e90f249f63e9f37e8801d19d9b75cade2fe193",
+      "sha256": "c959d18816da6666dbfb4e91bd9582c94af5453b25498d033f5747305b05fe0f"
+    },
+    "scripts/model3_island/randomness.py": {
+      "bytes": 873,
+      "git_blob": "46f1ee55899e729cdd09d9dbb9332694ef1e2071",
+      "sha256": "63522ae3c5ff8e11f114b5649a989945fa4ba2480fdca0f74857601b0e4b211f"
+    },
+    "scripts/model3_island/reproduction.py": {
+      "bytes": 3263,
+      "git_blob": "95314698a3296b6f13b8c053c36f2df0b7b744ca",
+      "sha256": "885957edb8a165ee8528781ed1d2574c44143c608496b505f9663cbfac2c4081"
+    },
+    "scripts/model3_island/types.py": {
+      "bytes": 8610,
+      "git_blob": "0bc427b3261e7baf1651648ee879b368f9bf935b",
+      "sha256": "a572e1e7f4fded181585871a63582b16f40292bd07b13e8efc9d6b6234eb21c5"
+    },
+    "scripts/q3_joint_inference_20261019.py": {
+      "bytes": 3272,
+      "git_blob": "61f10f1bb680310068136ea1b481f0c466c0f314",
+      "sha256": "f6322a715d6353fb6816e3dde64e68f8345323539cd973a077c36cd314649183"
+    },
+    "scripts/q3_native_runner_20261019.py": {
+      "bytes": 17057,
+      "git_blob": "9c8ba3297df8c5a7655e0c5d1590af84de6858bd",
+      "sha256": "f31b0b9baa8762135bc41ed6e636edf998ba413012de0eb2278b559f488cbe92"
+    },
+    "scripts/q3_partitioned_runner_20261019.py": {
+      "bytes": 14259,
+      "git_blob": "4daf07b6147210c14026a77270c98eb0212ce502",
+      "sha256": "b0c9a134e839c5992d5216e7c360ff7c135dd9a40020bd12af7ba0bfa4911953"
+    }
+  },
+  "analysis_alignment": {
+    "Model3_specific_power_validated": false,
+    "joint_detection_MC_lower": 0.8608203022163675,
+    "null_error_MC_upper": 0.036833209184178706,
+    "scenario_conditional": true,
+    "statistical_trials": 60000
+  },
+  "assignment_gzip_sha256": "292d107cc969fe481489ea16f45f702c01a0025bdf715b5b890f56f9e665feba",
+  "assignment_uncompressed_sha256": "8c2d50a387b77d1634a8347bebcda241ecad507610d174cd484dfcdd3320d576",
+  "biological_rng_calls": 0,
+  "candidate_sha256": "d17d229a721ea8d26675dc55d0403bd9b00abc6b5ff0ef4975db7dfcedad2123",
+  "counts": {
+    "planned_crossings": 25600,
+    "proposed_task_files": 153600,
+    "stage_master_keys": 51200
+  },
+  "date": "2026-10-19",
+  "execution_authorized": false,
+  "existing_technical_tests_replayed_not_new_science": true,
+  "local_tests": {
+    "combined": 38,
+    "final_log": "evidence_release160/GREEN_FINAL.log",
+    "new": 8
+  },
+  "manifest_bytes_compressed": 1296660,
+  "new_biological_updates": 0,
+  "parent_PR": 597,
+  "plan_source": "scripts/q3_release160_20261019.py",
+  "previous_head_CI": {
+    "CI": 39181286310,
+    "both_conclusions": "success",
+    "scientific_gate": 39181286315
+  },
+  "producer_sha256": "2f901afaa19b38ada022c4adee8fab8f98ccf496486c08d930f4bb8a65f48927",
+  "recomputed_normal_proxy": {
+    "adverse_both": 0.09038304708615744,
+    "baseline": {
+      "genetic_loss": 0.07116465470774719,
+      "survival_interaction": 0.014596173438690891
+    },
+    "is_independent_585_approval": false,
+    "variance_envelope_is_assumption": true
+  },
+  "registered": false,
+  "resource": {
+    "admitted": false,
+    "free_bytes": 31975096320,
+    "is_reserved_quota": false,
+    "observation": "live filesystem",
+    "parent": "/mnt/data",
+    "persistence_established": false,
+    "proposed_reserve_bytes": 100000000000,
+    "raw_shortfall_bytes": 42368942080,
+    "reserve_shortfall_bytes": 68024903680,
+    "uncompressed_baseline_not_a_compressed_size_lower_bound": true,
+    "uncompressed_two_copy_baseline_bytes": 74344038400
+  },
+  "schema": "q3_consolidated160_planning_receipt_v1",
+  "source_head": "d31ae2f3fa981f2bb523357cd434a1a66ef0c818",
+  "status": "PLANNING_VERIFIED_EXECUTION_ON_HOLD",
+  "unchanged_old136_plan_git_blob": "1491a6523eb2b13d0e8a42508990c7e80c869819",
+  "unresolved": [
+    "independent_method_and_margin_review_missing",
+    "production_runner_binding_missing",
+    "archive_location_and_retention_not_approved",
+    "final_registration_and_execution_approval_missing",
+    "insufficient_planning_capacity"
+  ]
+}
