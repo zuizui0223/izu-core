@@ -124,3 +124,19 @@ def test_arrival_is_excluded_from_conditional_establishment_but_included_elsewhe
     assert n_candidate == {768}
     assert len(n_arrived)==1
     assert 0 < next(iter(n_arrived)) < 768
+
+
+
+def test_emit_scoped_source_disjoint_technical_scores():
+    x = readout()
+    for d in x["heldout_prediction_scores"]:
+        z = d["result"]
+        print("SOURCE-DISJOINT TECHNICAL SCREEN ONLY:",
+              d["endpoint"], d["model"], f"n={z['n']}",
+              f"Brier={z['brier']:.6f}",
+              f"delta_vs_ecology={d['delta_brier_vs_ecology_only']:+.6f}",
+              f"logloss={z['log_loss']:.6f}",
+              f"source_groups={d['source_validation_groups']}")
+    print("NO SCIENTIFIC CONFIRMATION; NO HELD-OUT ISLAND-CLASS CLAIM;"
+          " 24 new train + 24 new heldout artificial genotypes."
+          " Four factorial synthetic island environments, eight nested repeats.")
