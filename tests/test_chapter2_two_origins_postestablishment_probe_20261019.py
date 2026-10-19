@@ -2,6 +2,11 @@
 from __future__ import annotations
 from functools import lru_cache
 import math
+import numpy as np
+
+from scripts.chapter2_two_origins_technical_20261019 import (
+    SourceLineage, source_genotype, _center_A_expression_preserve_genotypic_spread
+)
 
 from scripts.chapter2_two_origins_postestablishment_probe_20261019 import (
     STATUS, new_source_registry, technical_policy_probe
@@ -29,7 +34,8 @@ def test_all_candidate_and_policy_forks_share_establishment():
     assert d["status"]==STATUS
     assert d["new_source_genotype_count"]==24
     assert d["candidate_assignments"]==768
-    assert d["paired_policy_paths"]==3072
+    assert d["paired_policy_paths"]==3840
+    assert set(d["technical_policy_roster"])=={"native","clamp_A","clamp_I","clamp_A_I","center_A_mean"}
     assert d["independent_demographic_resets_per_source_island"]==8
     assert d["primary_inference_performed"] is False
     assert d["causal_mediation_identified"] is False
@@ -37,7 +43,7 @@ def test_all_candidate_and_policy_forks_share_establishment():
     original={(r["island"],r["reset"],r["source_id"]) for r in d["groups"]}
     assert len(original)==768
     for r in d["groups"]:
-        assert set(r["arms"])=={"native","clamp_A","clamp_I","clamp_A_I"}
+        assert set(r["arms"])=={"native","clamp_A","clamp_I","clamp_A_I","center_A_mean"}
         assert not r["established"] or r["arrived"]
         for name,v in r["arms"].items():
             assert not v["alive"] or r["established"]
@@ -75,7 +81,7 @@ def test_policy_counts_strata_and_paired_differences_conserve_denominators():
                        q["survival"][name]["persisted"] == \
                        paired["native_only"]-paired["policy_only"]
         assert sum(v["n_candidates"] for v in x["by_source_A"].values()) == 192
-        for policy in ("native","clamp_A","clamp_I","clamp_A_I"):
+        for policy in ("native","clamp_A","clamp_I","clamp_A_I","center_A_mean"):
             assert sum(v["survival"][policy]["persisted"]
                        for v in x["by_source_A"].values()) == \
                    b["survival"][policy]["persisted"]
@@ -84,14 +90,31 @@ def test_policy_counts_strata_and_paired_differences_conserve_denominators():
 def test_postestablishment_expression_clamps_retain_original_source_values():
     for r in readout()["groups"]:
         A,I=r["source_A"],r["source_I"]
-        for name in ("clamp_A","clamp_I","clamp_A_I"):
+        for name in ("clamp_A","clamp_I","clamp_A_I","center_A_mean"):
             arm=r["arms"][name]
             if not arm["alive"]:
                 continue
-            if name in ("clamp_A","clamp_A_I"):
+            if name in ("clamp_A","clamp_A_I","center_A_mean"):
                 assert arm["final_traits"]["A"]==A
             if name in ("clamp_I","clamp_A_I"):
                 assert arm["final_traits"]["I"]==I
+
+
+
+def test_center_A_mean_preserves_allele_and_individual_deviations():
+    source=SourceLineage(987,.2,.7,929191,1.0)
+    state=source_genotype(source)
+    original=state.alleles[:,2,:].copy()
+    target=.5
+    centered=_center_A_expression_preserve_genotypic_spread(state,target)
+    seen=centered.alleles[:,2,:]
+    assert abs(float(seen.mean())-target)<1e-14
+    assert np.allclose(seen-seen.mean(),original-original.mean(),atol=1e-14,rtol=0)
+    assert np.array_equal(state.alleles[:,2,:],original)
+    assert np.array_equal(centered.allele_origin,state.allele_origin)
+    assert np.array_equal(centered.alleles[:,:2,:],state.alleles[:,:2,:])
+    with np.testing.assert_raises(ValueError):
+        _center_A_expression_preserve_genotypic_spread(state,.9999)
 
 
 def test_emit_bounded_nonconfirmatory_fork_differences():
@@ -99,7 +122,7 @@ def test_emit_bounded_nonconfirmatory_fork_differences():
     for island,record in sorted(d["summary"].items()):
         b=record["all_source_strata"]
         counts=" ".join(f"{p}={b['survival'][p]['persisted']}/{b['n_candidates']}"
-                        for p in ("native","clamp_A","clamp_I","clamp_A_I"))
+                        for p in ("native","clamp_A","clamp_I","clamp_A_I","center_A_mean"))
         print("TECHNICAL DISJOINT SOURCE POSTESTABLISHMENT ONLY",island,
               f"arrived={b['n_arrived']}/{b['n_candidates']}",
               f"established={b['n_established']}/{b['n_candidates']}",
@@ -127,7 +150,7 @@ def test_emit_paired_discordances_and_successor_trait_differences():
               f"n={q['n_candidates']}", f"arrived={q['n_arrived']}",
               f"established={q['n_established']}",
               "native_survival",q["survival"]["native"]["persisted"])
-        for policy in ("clamp_A","clamp_I","clamp_A_I"):
+        for policy in ("clamp_A","clamp_I","clamp_A_I","center_A_mean"):
             p=q["paired"][policy]
             assert p["both"]+p["native_only"]+p["policy_only"]+p["neither"] == 192
             pair=[g for g in d["groups"] if g["island"]==island and
