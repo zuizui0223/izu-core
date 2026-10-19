@@ -71,3 +71,23 @@ def test_current_manuscript_does_not_call_posthoc_contrast_confirmed():
     assert "43.89453125" in text
     assert "探索的" in text
     assert "事前登録" in text
+
+
+
+def test_noncausal_product_identity_not_a_mediation_estimate():
+    d = derive(read())
+    q = d["budgets"]
+    for budget in ("B8", "B4p5"):
+        row = q[budget]["descriptive_product_identity_not_mediation"]
+        assert row["survivor_conditioning_selection_bias_possible"] is True
+        assert abs(row["sum_pp"] - q[budget]["evolving_minus_fixed_accessible_alive_pp"]) < 1e-11
+        assert abs(row["survival_prevalence_term_pp"] +
+                   row["survivor_conditional_composition_term_pp"] -
+                   row["sum_pp"]) < 1e-11
+    b8=q["B8"]["descriptive_product_identity_not_mediation"]
+    assert b8["survival_prevalence_term_pp"] == 0
+    assert abs(b8["survivor_conditional_composition_term_pp"] + 8.328125) < 1e-11
+    b4=q["B4p5"]["descriptive_product_identity_not_mediation"]
+    assert abs(b4["survival_prevalence_term_pp"] - 21.74655607397929) < 1e-11
+    assert abs(b4["survivor_conditional_composition_term_pp"] - 13.81985017602072) < 1e-11
+    assert "mediator" not in d["status"].lower()
