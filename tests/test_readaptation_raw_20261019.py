@@ -41,6 +41,8 @@ def test_hand_constructed_path():
     assert result['occupied'] is True and result['initial_population']==1
     assert result['change']==[0.,0.,0.]
     assert result['assay_change']==0
+    assert result['initial_mean']==[.5,.5,.5]==result['final_mean']
+    assert result['initial_assay']==7.==result['final_assay']
     json.dumps(result,allow_nan=False)
 
 
@@ -110,6 +112,8 @@ def summaries():
         occupied=key[-1]!=0
         rows.append(dict(key=list(key),cohort_sha256=str(key[3])*64,
                          occupied=occupied,change=[.1,0.,-.1] if occupied else None,
+                         initial_mean=[.5,.5,.5],final_mean=[.6,.5,.4] if occupied else None,
+                         initial_assay=1.,final_assay=3. if occupied else None,
                          first_extinction=None if occupied else 4,
                          assay_change=2. if occupied else None))
     return keys,rows
@@ -127,6 +131,10 @@ def test_preserves_cohort_denominators_and_extinction():
         assert group['directions']['I']['extinct']['count']==1
         assert group['directions']['I']['zero']['denominator']==32
         assert group['survivor_mean_change']==pytest.approx([.1,0.,-.1])
+        assert group['endpoints_by_repeat']==[None]+[[.6,.5,.4]]*31
+        assert group['assay_changes_by_repeat']==[None]+[2.]*31
+        assert group['final_assays_by_repeat']==[None]+[3.]*31
+        assert group['survivor_endpoint_variance']==pytest.approx([0.,0.,0.],abs=1e-28)
     assert len(result['paired_destinations'])==2
     assert result['paired_destinations'][0]['occupancy_difference']==0
     json.dumps(result,allow_nan=False)
@@ -182,3 +190,14 @@ def test_review_telemetry_corruption_fails(damage):
     else: d['reproductive'][0,1]=9
     with pytest.raises(ValueError):
         audit_future(d)
+
+
+def test_endpoint_and_assay_changes_must_match_their_levels():
+    keys,rows=summaries()
+    rows[1]['final_mean']=[.7,.5,.4]
+    with pytest.raises(ValueError,match='endpoint'):
+        summarize_allocations(rows,keys)
+    keys,rows=summaries()
+    rows[1]['final_assay']=4.
+    with pytest.raises(ValueError,match='assay'):
+        summarize_allocations(rows,keys)

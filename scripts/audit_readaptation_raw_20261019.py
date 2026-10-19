@@ -400,6 +400,9 @@ def audit_future(d):
     last=_assay(d['assays']['80'],int(pop[-1]))
     return dict(status='PASS_RAW_STATE_ARITHMETIC',initial_population=int(pop[0]),
                 final_population=int(pop[-1]),occupied=bool(pop[-1]),first_extinction=extinction,
+                initial_mean=means[0].tolist() if pop[0] else None,
+                final_mean=means[-1].tolist() if pop[-1] else None,
+                initial_assay=first,final_assay=last,
                 change=(means[-1]-means[0]).tolist() if pop[0] and pop[-1] else None,
                 assay_change=last-first if first is not None and last is not None else None,
                 limitation='No allocation admission or biological probability replay')
@@ -425,7 +428,7 @@ def summarize_allocations(rows,expected_keys):
     require(len(expected)==len(set(expected)) and len(expected)>0,'duplicate/empty expected allocation')
     require(all(len(k)==7 for k in expected),'allocation key shape')
     expected_set=set(expected)
-    seen=set(); hashes={}; groups={}
+    seen=set(); hashes={}; groups={}; initial_means={}; initial_assays={}
     for row in rows:
         key=tuple(row['key'])
         require(key in expected_set and key not in seen,'unknown or duplicate allocation')
@@ -436,6 +439,20 @@ def summarize_allocations(rows,expected_keys):
                 all(c in '0123456789abcdef' for c in digest),'invalid cohort digest')
         require(cohort not in hashes or hashes[cohort]==digest,'cohort identity mismatch')
         hashes[cohort]=digest
+        initial=row['initial_mean']
+        if initial is not None:
+            a=np.asarray(initial,dtype=float)
+            require(a.shape==(3,) and np.isfinite(a).all() and ((a>=0)&(a<=1)).all(),
+                    'initial endpoint values')
+            require(isinstance(row['initial_assay'],(float,int)) and
+                    np.isfinite(row['initial_assay']) and row['initial_assay']>=0,'initial assay')
+        else:
+            require(row['initial_assay'] is None and row['first_extinction']==0,'absent initial endpoint')
+        require(cohort not in initial_means or initial_means[cohort]==initial,'initial endpoint cohort mismatch')
+        initial_means[cohort]=initial
+        require(key[:6] not in initial_assays or initial_assays[key[:6]]==row['initial_assay'],
+                'initial assay differs between repeats')
+        initial_assays[key[:6]]=row['initial_assay']
         require(type(row['occupied']) is bool,'occupancy must be boolean')
         if row['occupied']:
             change=np.asarray(row['change'],dtype=float)
@@ -443,8 +460,17 @@ def summarize_allocations(rows,expected_keys):
             require(row['first_extinction'] is None,'survivor extinction inconsistency')
             require(isinstance(row['assay_change'],(int,float)) and np.isfinite(row['assay_change']),
                     'occupied assay change')
+            final=np.asarray(row['final_mean'],dtype=float)
+            require(initial is not None and final.shape==(3,) and np.isfinite(final).all()
+                    and ((final>=0)&(final<=1)).all()
+                    and np.allclose(final-np.asarray(initial),change,rtol=0,atol=1e-12),
+                    'endpoint/change mismatch')
+            require(isinstance(row['final_assay'],(int,float)) and np.isfinite(row['final_assay'])
+                    and row['final_assay']>=0 and np.isclose(row['final_assay']-row['initial_assay'],
+                    row['assay_change'],rtol=0,atol=1e-12),'assay level/change mismatch')
         else:
             require(row['change'] is None and row['assay_change'] is None,'extinct traits must be undefined')
+            require(row['final_mean'] is None and row['final_assay'] is None,'extinct endpoints must be undefined')
             require(type(row['first_extinction']) is int and 0<=row['first_extinction']<=80,
                     'extinction census')
         groups.setdefault(key[:6],[]).append(row)
@@ -467,6 +493,12 @@ def summarize_allocations(rows,expected_keys):
                      directions=directions,
                      survivor_mean_change=np.mean([r['change'] for r in alive],axis=0).tolist() if alive else None,
                      survivor_mean_assay_change=float(np.mean([r['assay_change'] for r in alive])) if alive else None,
+                     initial_mean=values[0]['initial_mean'],initial_assay=values[0]['initial_assay'],
+                     endpoints_by_repeat=[r['final_mean'] for r in values],
+                     final_assays_by_repeat=[r['final_assay'] for r in values],
+                     assay_changes_by_repeat=[r['assay_change'] for r in values],
+                     survivor_endpoint_variance=np.var([r['final_mean'] for r in alive],axis=0,ddof=1).tolist()
+                         if len(alive)>1 else None,
                      changes_by_repeat=[r['change'] for r in values],
                      extinction_censuses_by_repeat=[r['first_extinction'] for r in values])
         summaries.append(summary); lookup[key]=summary
