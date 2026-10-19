@@ -5,7 +5,9 @@ import json
 import numpy as np
 import pytest
 
-from scripts.audit_readaptation_raw_20261019 import audit_future, raw_state_digest
+from scripts.audit_readaptation_raw_20261019 import (
+    audit_future, raw_state_digest, summarize_allocations, indicator_interval,
+)
 
 
 def record():
@@ -89,3 +91,64 @@ def test_same_empty_endpoint_retains_distinct_timing(at):
     assert result['change'] is None and result['assay_change'] is None
     assert result['occupied'] is False
     json.dumps(result,allow_nan=False)
+
+
+def summaries():
+    keys=[(0,0,'fixed',c,d,.5,r) for c in range(2) for d in range(2) for r in range(32)]
+    rows=[]
+    for key in keys:
+        occupied=key[-1]!=0
+        rows.append(dict(key=list(key),cohort_sha256=str(key[3])*64,
+                         occupied=occupied,change=[.1,0.,-.1] if occupied else None,
+                         first_extinction=None if occupied else 4,
+                         assay_change=2. if occupied else None))
+    return keys,rows
+
+
+def test_preserves_cohort_denominators_and_extinction():
+    keys,rows=summaries()
+    result=summarize_allocations(rows,keys)
+    assert result['allocated']==128 and result['cohorts']==2
+    assert len(result['groups'])==4
+    for group in result['groups']:
+        assert group['repeats']==32
+        assert group['occupancy']['count']==31
+        assert group['directions']['I']['zero']['count']==31
+        assert group['directions']['I']['extinct']['count']==1
+        assert group['directions']['I']['zero']['denominator']==32
+        assert group['survivor_mean_change']==pytest.approx([.1,0.,-.1])
+    assert len(result['paired_destinations'])==2
+    assert result['paired_destinations'][0]['occupancy_difference']==0
+    json.dumps(result,allow_nan=False)
+
+
+@pytest.mark.parametrize('damage',['missing','duplicate','hash','unknown'])
+def test_allocation_failure_is_closed(damage):
+    keys,rows=summaries()
+    if damage=='missing': rows.pop()
+    elif damage=='duplicate': rows.append(copy.deepcopy(rows[0]))
+    elif damage=='hash': rows[0]['cohort_sha256']='f'*64
+    else: rows[0]['key'][3]=999
+    with pytest.raises(ValueError):
+        summarize_allocations(rows,keys)
+
+
+def test_exact_zero_failure_bound_is_pointwise_and_not_pooled():
+    for n in (32,64):
+        interval=indicator_interval(0,n)
+        assert interval['one_sided_upper_95']==pytest.approx(1-.05**(1/n))
+        assert interval['interval_95'][0]==0
+        assert interval['interval_95'][1]==pytest.approx(1-.025**(1/n))
+        assert interval['scope']=='pointwise conditional; not simultaneous'
+
+
+def test_all_destination_pairs_include_nonzero_comparators():
+    keys,rows=summaries()
+    for row in list(rows):
+        if row['key'][4]==1:
+            extra=copy.deepcopy(row); extra['key'][4]=2
+            rows.append(extra); keys.append(tuple(extra['key']))
+    result=summarize_allocations(rows,keys)
+    assert len(result['paired_destinations'])==6
+    assert any(p['destination']==2 and p['reference_destination']==1
+               for p in result['paired_destinations'])

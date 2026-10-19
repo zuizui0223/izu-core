@@ -7,6 +7,7 @@ import hashlib
 import json
 
 import numpy as np
+from scipy.stats import beta
 
 
 FIELDS=('alleles','allele_origin','mutation_flags','ids','birth_years')
@@ -106,3 +107,82 @@ def audit_future(d):
                 change=(means[-1]-means[0]).tolist() if pop[0] and pop[-1] else None,
                 assay_change=last-first if first is not None and last is not None else None,
                 limitation='No allocation admission or biological probability replay')
+
+
+def indicator_interval(count,n):
+    """Exact binomial bounds conditional on one fixed starting cohort/environment."""
+    require(type(count) is int and type(n) is int and 0<=count<=n and n>0,'indicator counts')
+    low=0. if count==0 else float(beta.ppf(.025,count,n-count+1))
+    high=1. if count==n else float(beta.ppf(.975,count+1,n-count))
+    upper=1. if count==n else float(beta.ppf(.95,count+1,n-count))
+    return dict(count=count,denominator=n,proportion=count/n,interval_95=[low,high],
+                one_sided_upper_95=upper,scope='pointwise conditional; not simultaneous')
+
+
+def summarize_allocations(rows,expected_keys):
+    """Summarize admitted rows; caller must independently admit raw archives first.
+
+    Expected keys come from the frozen contract, never from observed successes.
+    Cohorts are kept separate; this helper does not validate a production contract.
+    """
+    expected=[tuple(k) for k in expected_keys]
+    require(len(expected)==len(set(expected)) and len(expected)>0,'duplicate/empty expected allocation')
+    require(all(len(k)==7 for k in expected),'allocation key shape')
+    expected_set=set(expected)
+    seen=set(); hashes={}; groups={}
+    for row in rows:
+        key=tuple(row['key'])
+        require(key in expected_set and key not in seen,'unknown or duplicate allocation')
+        seen.add(key)
+        cohort=key[:4]
+        digest=row['cohort_sha256']
+        require(isinstance(digest,str) and len(digest)==64 and
+                all(c in '0123456789abcdef' for c in digest),'invalid cohort digest')
+        require(cohort not in hashes or hashes[cohort]==digest,'cohort identity mismatch')
+        hashes[cohort]=digest
+        require(type(row['occupied']) is bool,'occupancy must be boolean')
+        if row['occupied']:
+            change=np.asarray(row['change'],dtype=float)
+            require(change.shape==(3,) and np.isfinite(change).all(),'occupied trait change')
+            require(row['first_extinction'] is None,'survivor extinction inconsistency')
+            require(isinstance(row['assay_change'],(int,float)) and np.isfinite(row['assay_change']),
+                    'occupied assay change')
+        else:
+            require(row['change'] is None and row['assay_change'] is None,'extinct traits must be undefined')
+            require(type(row['first_extinction']) is int and 0<=row['first_extinction']<=80,
+                    'extinction census')
+        groups.setdefault(key[:6],[]).append(row)
+    require(seen==expected_set,'missing allocation')
+    summaries=[]; lookup={}
+    for key,values in sorted(groups.items()):
+        values.sort(key=lambda r:r['key'][-1])
+        require([r['key'][-1] for r in values]==list(range(32)),
+                'each cohort/destination requires its own 32 repeats')
+        n=len(values)
+        alive=[r for r in values if r['occupied']]
+        directions={}
+        for locus,name in enumerate(('M','I','A')):
+            counts=dict(negative=0,zero=0,positive=0,extinct=n-len(alive))
+            for row in alive:
+                value=row['change'][locus]
+                counts['positive' if value>0 else 'negative' if value<0 else 'zero']+=1
+            directions[name]={label:indicator_interval(count,n) for label,count in counts.items()}
+        summary=dict(key=list(key),repeats=n,occupancy=indicator_interval(len(alive),n),
+                     directions=directions,
+                     survivor_mean_change=np.mean([r['change'] for r in alive],axis=0).tolist() if alive else None,
+                     survivor_mean_assay_change=float(np.mean([r['assay_change'] for r in alive])) if alive else None,
+                     changes_by_repeat=[r['change'] for r in values],
+                     extinction_censuses_by_repeat=[r['first_extinction'] for r in values])
+        summaries.append(summary); lookup[key]=summary
+    pairs=[]
+    for key,summary in sorted(lookup.items()):
+        baseline_key=(*key[:4],0,key[5])
+        require(baseline_key in lookup,'missing paired zero-visitor destination')
+        for other_key,base in sorted(lookup.items()):
+            if other_key[:4]!=key[:4] or other_key[5]!=key[5] or other_key[4]>=key[4]:
+                continue
+            pairs.append(dict(cohort=list(key[:4]),destination=key[4],reference_destination=other_key[4],cost=key[5],
+                              occupancy_difference=summary['occupancy']['proportion']-base['occupancy']['proportion'],
+                              scope='same cohort, independent future streams; descriptive difference'))
+    return dict(allocated=len(seen),cohorts=len(hashes),groups=summaries,paired_destinations=pairs,
+                scope='conditional estimation; no pooling cohorts into independent repeats')
