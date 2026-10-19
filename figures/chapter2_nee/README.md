@@ -19,4 +19,4 @@ The figure numbers follow the [single working NEE Article](../../docs/CHAPTER2_U
 
 ## Supplementary descriptive panel
 
-The [older endpoint-repeatability SVG](figure_03_order_repeatability.svg) remains preserved as exploratory supporting material. It summarizes posthoc history-based reliability and survivor-conditioned A/I endpoint agreement, **not** a seventh display item or evidence for a universal deterministic distinction between A and I.
+A [separate source-locked Q2/Q3 bridge SVG](figure_03_order_repeatability.svg) retains the 128-history density/finite comparison, LOW-I support-loss grouping and the 315/1,238 retrospective selected transitions. This is supplementary derived evidence, **not** a seventh main display or an independent replication of the original model. The posthoc repeatability result remains described in its [original report](../../docs/CHAPTER2_HISTORY_DEMOGRAPHY_REPEATABILITY_AUDIT_20261003.md), not in this SVG.
