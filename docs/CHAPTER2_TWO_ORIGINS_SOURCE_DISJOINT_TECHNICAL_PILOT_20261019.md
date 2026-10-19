@@ -39,6 +39,34 @@ Brier score is **lower when a forecast is better**. Models fit half-pseudocount-
 
 Original log rounded the Brier and differences to six decimal places; the displayed differences may not match subtraction of the displayed scores in the last digit. A-only reduced held-out Brier error **about 20% relative to ecology-only** for this artificial 6-update survival outcome; I-only reduced it about 0.7%. The held-out **log-loss rankings also favored A over I** for survival, as independently printed in the source job (`0.529273` A versus `0.635694` I versus `0.639429` ecological baseline). The full-genotype **oracle** is NOT a fitted out-of-source model; it uses the same native reproductive kernel whose outcomes were generated and is a reference ceiling, not independently validated accuracy.
 
+## HELDOUT origin accounting: A and I filtering versus within-survivor change
+
+A second successful source-tested gate on [Actions run 39276592614](https://github.com/zuizui0223/izu-core/actions/runs/39276592614) (job `118142894661`, source SHA `388380510d6f55e7bed4e855773bce9c02b2a856`) printed the exact **stage accounting of the HELDOUT 24-source cohorts** across the same four contexts and eight stochastic resets. For a trait `z` its *descriptive* terms are:
+
+`source→survivors' original genotype mean = arrival composition + initial establishment filtering + later persistence filtering`, while `survivors' final mean − survivors' original source mean = within-survivor change`. This is an exact telescoping identity, not genetically identified mediation. Each stage has original candidate denominator 24 per reset, and a complete empty-island frame would retain undefined means.
+
+| Source-genotype heldout context | Mean A source-composition change (filter) | Mean A within surviving lineages | Mean I source-composition change (filter) | Mean I within surviving lineages |
+| --- | ---: | ---: | ---: | ---: |
+| B4.5 / 0 visitors | +0.206155 | +0.004755 | −0.034436 | +0.001590 |
+| B4.5 / 4 visitors | +0.140909 | +0.005510 | −0.042112 | +0.001678 |
+| B8 / 0 visitors | +0.124707 | +0.002319 | −0.018302 | −0.001022 |
+| B8 / 4 visitors | +0.068275 | −0.000688 | −0.003634 | −0.001780 |
+
+All **8/8** heldout reset frames had at least one retained lineage in each environment. Each mean is a signed average across those eight artificial archipelago resets; repeated frames share the same 24 source-genotype constructions. The magnitudes can cancel across resets; neither these averages nor a ratio of A/I effects estimates a universal trait-specific ecological law.
+
+Original **all-candidate** destination states were:
+
+| Context | Not arrived | Arrived, failed first establishment | Established, later extinct | Surviving I increased beyond +0.05 | Surviving I decreased beyond −0.05 | Surviving I within ±0.05 |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: |
+| B4.5 / 0 visitors | 39 | 40 | 71 | 2 | 1 | 39 |
+| B4.5 / 4 visitors | 40 | 25 | 65 | 2 | 3 | 57 |
+| B8 / 0 visitors | 39 | 10 | 40 | 3 | 4 | 96 |
+| B8 / 4 visitors | 46 | 10 | 28 | 2 | 2 | 104 |
+
+Each row sums to **192** candidate source×repeat attempts (24 independent starting-genotype labels × eight nested repeats). Across all conditions, **315** of 768 candidate paths survived and **19** of these survivors differed in I from their own source mean by more than the *descriptive* ±0.05 cut. This short six-update technical horizon, founding size two, no mutation/immigration, and conservative M/I reproductive system are **not** sufficient to infer that insular I traits never evolve, nor that A must have become fixed before arrival.
+
+**Interpretation:** Within this deliberately narrow finite technical model, A-sorting of existing source genotypes is stronger in magnitude than the observed six-update within-survivor A changes, consistent with a source-state filtering mechanism. However, **I ALSO has nonzero filtering contributions**, and the expected distinct strong post-establishment I evolution was not observed over this horizon. The exclusive **“A imported/sorted; I created only after settlement”** dichotomy is **not confirmed by this new-source screen**. Further evaluation must isolate whether A evolvability *after* establishment matters by matching descendant policy arms, and must use independent source/archipelago contexts before generalizing.
+
 ## What the result does and DOES NOT imply
 
 **Supported in this bounded technical screen:** Source A category materially improves prediction of early *six-year* lineage persistence on source genotypes not used in training. The same source I category yields little improvement for this particular outcome and synthetic distribution. Source A also improves conditional **first-establishment** prediction, although much less than it improves later survival. This is an informative consequence of the existing Model 3 reproductive mechanism under a fully artificial source distribution.
