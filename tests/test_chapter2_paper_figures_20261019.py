@@ -116,6 +116,7 @@ def test_fig06_cohorts_and_survivor_means():
 def test_figure_links_in_single_manuscript():
     manuscript=(ROOT/"docs"/"CHAPTER2_UNIFIED_NEE_ARTICLE_WORKING_20261017.md").read_text(encoding="utf-8")
     for name in ("figure_01_q1_mechanism.svg","figure_02_baseline_pollen.svg",
+                 "figure_03_sequence_realization.svg",
                  "figure_03_order_repeatability.svg","figure_04_access_survival.svg",
                  "figure_05_variation_duration.svg","figure_06_late_transfer.svg"):
         assert "figures/chapter2_nee/"+name in manuscript
@@ -226,3 +227,62 @@ def test_q4_original_vs_new_cohorts_are_separate():
     assert "policy-by-budget interaction" in manuscript
     # The two studies are separate experiments and the Q4 result is not a genetic mediation estimate.
     assert "not" in manuscript.split("### Q4 — Persistence", 1)[1].split("### Confirmed policy effects", 1)[0].lower()
+
+
+def test_main_figure_03_sequence_and_realization_sources():
+    """All four Q2/Q3 panels use separate, original, admitted cohorts."""
+    r, m = load("figure_03_sequence_realization.svg")
+    sequence = json.loads((ROOT/"data/results/chapter2_1005_confirmatory_replication_20261006.json").read_text(encoding="utf8"))
+    assigned = json.loads((ROOT/"results/chapter2/order_expression_full_cohort_20261009.json").read_text(encoding="utf8"))
+    carrier = src("CHAPTER2_Q2_I_SUPPORT_384_ORIGINAL_READOUT_20261016.json")
+    atom = (ROOT/"docs/atom_comparison_20261011/ATOM_ABM_NUMERICAL_VERDICT_20261011.md").read_text(encoding="utf8")
+    access = json.loads((ROOT/"data/results/directional_access_20261013/READOUT.json").read_text(encoding="utf8"))
+    high = src("CHAPTER2_NEE_HIGH_I_SUPPORT_SOURCE_READOUT_20261017.json")
+    assert m["scientific_status"] == "SOURCE_BACKED_FOUR_COHORT_DESCRIPTIVE_FIGURE_NO_POOLING"
+    assert len(marks(r,"A-first")) == 2
+    expected = {"assurance_cost": sequence["primary_sequence"]["counts"]["assurance_first"],
+                "prior_selfing": next(x for x in sequence["threshold_sensitivity"]
+                    if x["setting"]=="prior_selfing" and x["threshold"]==.05 and
+                    x["mutation_rate"]==.01)["counts"]["assurance_first"]}
+    for x in marks(r,"A-first"):
+        assert int(x.get("data-count")) == expected[x.get("data-setting")]
+        assert int(x.get("data-denom")) == 64
+    assert len(marks(r,"assigned-order")) == 1
+    a = marks(r,"assigned-order")[0]
+    d = assigned["main_order_history_DID"]
+    assert d["decision"] == "equivalent_within_predeclared_ROPE"
+    same(a.get("data-value"), d["pooled_mean"])
+    same(a.get("data-low"), d["history_bootstrap95"][0])
+    same(a.get("data-high"), d["history_bootstrap95"][1])
+    assert -.05 < d["history_bootstrap95"][0] < d["history_bootstrap95"][1] < .05
+    assert len(marks(r,"carrier-Q2")) == 2
+    assert carrier["registered_inference"]["result"]=="both_inconclusive"
+    for x in marks(r,"carrier-Q2"):
+        target=carrier["coprimary"][x.get("data-endpoint")]
+        same(x.get("data-value"),target["estimate"])
+        same(x.get("data-low"),target["simultaneous_familywise_CI"][0])
+        same(x.get("data-high"),target["simultaneous_familywise_CI"][1])
+        assert target["simultaneous_familywise_CI"][0] < 0 < target["simultaneous_familywise_CI"][1]
+    assert len(marks(r,"finite-Q3")) == 6
+    for block in ("Main","Confirmation"):
+        line=next(x for x in atom.splitlines() if x.startswith("| "+block+" | 0.125 | matched"))
+        col=[v.strip() for v in line.split("|")[1:-1]]
+        assert col[3]=="A first"
+        assert sum(map(int,col[4:]))==32
+        cats={"A-first":int(col[4]),"A-only":int(col[5]),
+              "other":sum(map(int,col[6:]))}
+        for cat,count in cats.items():
+            row=[x for x in marks(r,"finite-Q3") if x.get("data-founder")==block and
+                 x.get("data-category")==cat]
+            assert len(row)==1 and int(row[0].get("data-count"))==count
+            assert int(row[0].get("data-denom"))==32
+    assert len(marks(r,"access-Q3"))==3
+    groups={"before":access["excluded_before_fixation"],
+            "at":access["excluded_at_fixation"],
+            "never":access["cases"]-access["ever_excluded"]}
+    assert sum(groups.values())==2304
+    for x in marks(r,"access-Q3"):
+        assert int(x.get("data-count"))==groups[x.get("data-class")]
+        assert int(x.get("data-denom"))==2304
+    assert m["high_ever"]==high["overall"]["high_I_founder_mean_excluded"]==1455
+    # No independent-genetic-loss mediator or natural extinction inference is made.
