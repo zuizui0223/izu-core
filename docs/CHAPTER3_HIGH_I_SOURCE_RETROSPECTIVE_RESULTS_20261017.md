@@ -64,7 +64,7 @@
 - 原 `ALL_CENSUS_SUPPORT.npz` SHA-256: `7096b864289e976f7eb443305bb42acdae78b0ea28f6f45b7237bc7c795981a4` （2,304×201の各アレル最大値・最小値・分散・支持アレル数）。
 - 原 `ALL_CASES.csv` SHA-256: `5c8e3fe38d7f2953d2ba8b54e716261c7bdc9d4a92bf928182b5fcf621e5e665`。
 - 原zipソース SHA-256: `819741aa4a9f5bc1aaf2dadddbd56b79d158fc9295d07fc3bffe362693fc056a`。**今回zip全体を再ダウンロード／再ハッシュしたのではない**。NPZ/CSVそのものを独立で照合した。
-- [原データの配列と独立検証](../data/results/directional_access_20261013/README.md)。[今回の全18セルJSON](../data/results/ch3_high_i_access_original_retrospective_20261017.json)、[読み取り専用監査コード](../scripts/audit_ch3_high_i_access_20261017.py)、[改変データ検出テスト](../tests/test_ch3_high_i_access_20261017.py)。
+- [原データの配列と独立検証](../data/results/directional_access_20261013/README.md)。[今回の全18セルJSON](audits/ch3_high_i_access_original_retrospective_20261017.json)、[読み取り専用監査コード](../scripts/audit_ch3_high_i_access_20261017.py)、[改変データ検出テスト](../tests/test_ch3_high_i_access_20261017.py)。
 - [GitHub実行 39033545229](https://github.com/zuizui0223/izu-core/actions/runs/39033545229)：Source-ONLY監査／Python3.11ユニットテスト成功。採取された一時[監査結果artifact #12101466397](https://github.com/zuizui0223/izu-core/actions/runs/39033545229/artifacts/12101466397)は期限つきなので、機械可読結果は本リポジトリへ版管理した。
 
 原計算自体は元の独立検証で全個体ゲノム・親子相続まで比較済み。**今回の新解析はNPZ/CSVからの派生的な独立集計**であり元2,304履歴を生物学的に再生成したものではない。

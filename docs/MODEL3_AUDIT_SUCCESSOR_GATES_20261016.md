@@ -4,7 +4,7 @@
 
 ## Repaired interfaces
 
-1. `scripts/model3_island/selection_expressed_v2.py` is a versioned, opt-in local gradient evaluator. Under fixed-A, reproduction expresses `config.fixed_assurance`, not potentially different non-expressed stored A alleles. The successor validates input and substitutes the expressed A only for diagnostic calculation. Evolving-mode formula remains the historical analytic evaluator; fixed-A joint A/I evolutionary thresholds are rejected.
+1. `scripts/selection_expressed_v2.py` is a versioned, opt-in local gradient evaluator. Under fixed-A, reproduction expresses `config.fixed_assurance`, not potentially different non-expressed stored A alleles. The successor validates input and substitutes the expressed A only for diagnostic calculation. Evolving-mode formula remains the historical analytic evaluator; fixed-A joint A/I evolutionary thresholds are rejected.
 2. `scripts/kernel_expression_accounting_20261013/verify_kernel_expression_independent_v2.py` requires **48 unique declared comparisons**, **96 native/fixed-expression kernels**, the original 165 K8 genotype-census states, 81-point curves, and the original **48×2×80×165** signed contributions. It binds each signed-array row to its metadata, pins the source-kernel SHA and computes both reference-order identities. Empty, duplicated, truncated or foreign inputs cannot produce an `ALL48` verdict.
 
 Historical source files, producers, archived data, and SHA-pinned `INDEPENDENT_REVIEW.json` remain unchanged. The successor is a new read-only source check, not a rewrite of an older receipt. A green unit-test run does **not** authenticate the externally retained full native source NPZ.

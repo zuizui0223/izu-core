@@ -11,6 +11,17 @@ audit added. Biological source implementations were not manually reconciled.
 
 ## Evidence accounting
 
+Integration repairs keep the two historical high-I workflows manual-only and
+create the missing test-fixture docs directory. The opt-in expression diagnostic
+is located at `scripts/selection_expressed_v2.py`, outside the historical
+model-folder glob used by Q2 source admission. Its bytes are unchanged; the
+25 original source pins and exact POSIX activation-manifest digest match again.
+Native Windows admission still uses platform-specific path separators; Linux
+CI remains the authoritative original-entrypoint check. The two added historical
+high-I derived JSON reports are preserved byte-for-byte in `docs/audits/`, with
+links and readback tests updated, keeping the existing tracked-data budget.
+Neither approval hashes nor capacity limits were relaxed.
+
 - PRs 591, 592 and 595 re-read the same historical 2,304-path source cohort.
   Preserve all audit methods and receipts, but count the cohort only once.
 - PR 593 contains exploratory visitor-return and genetic/selection readouts;

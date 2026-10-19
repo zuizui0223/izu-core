@@ -7,7 +7,7 @@ import numpy as np
 import pytest
 
 from scripts.model3_island.selection import investment_invasion_terms, syndrome_thresholds
-from scripts.model3_island.selection_expressed_v2 import (
+from scripts.selection_expressed_v2 import (
     investment_invasion_terms_expressed, evolvable_joint_syndrome_thresholds,
 )
 from scripts.model3_island.types import Config, VisitorState

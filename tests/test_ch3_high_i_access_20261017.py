@@ -113,7 +113,7 @@ def test_source_sha_guard_refuses_a_reformatted_original_receipt(tmp_path):
 
 def test_committed_18_cell_result_is_exactly_recomputable_from_original_npz():
     stored = json.loads(
-        (ROOT / "data/results/ch3_high_i_access_original_retrospective_20261017.json")
+        (ROOT / "docs/audits/ch3_high_i_access_original_retrospective_20261017.json")
         .read_text(encoding="utf-8")
     )
     independently_recomputed = audit()

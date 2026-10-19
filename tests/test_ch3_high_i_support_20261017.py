@@ -15,7 +15,7 @@ from scripts.audit_ch3_high_i_support_20261017 import (
 
 def test_high_I_and_original_low_I_source_audit():
     output = audit()
-    readout = json.loads((ROOT / "data/results/ch3_high_i_source_readout_20261017.json").read_text(encoding="utf-8"))
+    readout = json.loads((ROOT / "docs/audits/ch3_high_i_source_readout_20261017.json").read_text(encoding="utf-8"))
     assert readout == output, "Committed machine readout no longer matches frozen source arrays"
     assert output["status"] == "PASS_RETROSPECTIVE_HIGH_I_SUPPORT_BOUNDS_ONLY"
     source = output["original_source"]
