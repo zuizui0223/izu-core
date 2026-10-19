@@ -286,3 +286,58 @@ def test_main_figure_03_sequence_and_realization_sources():
         assert int(x.get("data-denom"))==2304
     assert m["high_ever"]==high["overall"]["high_I_founder_mean_excluded"]==1455
     # No independent-genetic-loss mediator or natural extinction inference is made.
+
+
+def test_figure_04_three_state_panel_preserves_registered_contrasts_and_denominators():
+    """Read-only post-outcome graphic is an exact all-start partition, not a third registered test."""
+    r, m = load("figure_04_access_survival.svg")
+    original = src("CHAPTER2_CONFIRM160_COMPACT_RESULTS_20261019.json")
+    assert m["source"] == "docs/audits/CHAPTER2_CONFIRM160_COMPACT_RESULTS_20261019.json"
+    extra = m["descriptive_three_state"]
+    assert extra["status"] == "POST_OUTCOME_DESCRIPTIVE_NOT_REGISTERED_NO_NEW_INTERVAL"
+    assert extra["all_start_denominator"] == original["crossings"] == 25600
+    assert len(marks(r, "three_state")) == 12
+    expected = {}
+    for budget in ("B8", "B4p5"):
+        for policy in ("fixed", "evolving"):
+            arm = original["arms"][policy + "_" + budget]
+            expected[budget, policy] = {
+                "alive_accessible": arm["alive_accessible"],
+                "alive_closed": arm["alive"] - arm["alive_accessible"],
+                "extinct": original["crossings"] - arm["alive"],
+            }
+    for (budget, policy), states in expected.items():
+        found = [x for x in marks(r, "three_state")
+                 if x.get("data-budget") == budget and x.get("data-policy") == policy]
+        assert len(found) == 3
+        row = {}
+        for item in found:
+            key = item.get("data-state")
+            assert key in states and key not in row
+            row[key] = int(item.get("data-count"))
+            assert int(item.get("data-denom")) == 25600
+        assert row == states and sum(row.values()) == 25600
+        # The plotted bars must be exactly adjacent and scaled to their actual counts;
+        # hiding a tiny cell must not alter its denominator.
+        by_state = {x.get("data-state"): x for x in found}
+        order = ("alive_accessible", "alive_closed", "extinct")
+        start = 282.0
+        for key in order:
+            item = by_state[key]
+            same(float(item.get("x")), start)
+            same(float(item.get("width")), 945 * states[key] / 25600)
+            start += float(item.get("width"))
+        same(start, 282 + 945)
+        assert len({x.get("y") for x in found}) == 1
+    from scripts.audit_chapter2_three_state_publication_20261019 import derive
+    derived = derive(original)
+    same(extra["delta_B8_pp"], derived["budgets"]["B8"]["evolving_minus_fixed_accessible_alive_pp"])
+    same(extra["delta_B4p5_pp"], derived["budgets"]["B4p5"]["evolving_minus_fixed_accessible_alive_pp"])
+    same(extra["difference_of_descriptive_differences_pp"],
+         derived["descriptive_budget_interaction_pp"])
+    title = r.find("s:title", NS).text
+    desc = r.find("s:desc", NS).text
+    assert "three possible final population states" in title
+    assert "not a third preregistered test" in desc
+    assert original["primary"]["joint_positive"] is True
+    assert original["actual_restoration_tested"] is False
