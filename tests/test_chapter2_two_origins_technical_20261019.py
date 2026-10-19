@@ -32,7 +32,7 @@ def test_technical_fixture_is_bounded_and_not_scientific_evidence():
     assert d["horizon"] == HORIZON == 6
     assert d["archipelago_resets"] == REPEATS == 2
     assert (d["lineages"], d["islands"]) == (6, 2)
-    assert len(d["records"]) == 6 * 2 * REPEATS * len(POLICIES) * len(ESTABLISHMENT_MODES) == 192
+    assert len(d["records"]) == 6 * 2 * REPEATS * len(POLICIES) * len(ESTABLISHMENT_MODES) == 480
     assert len(d["exact_stage_accounting"]) == 2 * REPEATS * len(POLICIES) * len(ESTABLISHMENT_MODES)
     assert set(d["establishment_modes"]) == set(ESTABLISHMENT_MODES)
     assert all(r["technical_fixture_only"] is True for r in d["records"])
@@ -42,7 +42,7 @@ def test_arrival_and_native_establishment_are_common_across_later_policies():
     groups = defaultdict(list)
     for r in fixture()["records"]:
         groups[(r["island_id"], r["reset_id"], r["lineage_id"], r["establishment_mode"])].append(r)
-    assert len(groups) == 48
+    assert len(groups) == 2 * REPEATS * 6 * len(ESTABLISHMENT_MODES)
     for values in groups.values():
         assert {r["policy"] for r in values} == set(POLICIES)
         assert len({r["arrived"] for r in values}) == 1
@@ -205,12 +205,28 @@ def test_source_establishment_probability_is_exact_and_rng_is_paired():
         groups[key].append(row)
     assert len(groups) == 24
     for entries in groups.values():
-        assert len(entries) == 8
+        assert len(entries) == len(ESTABLISHMENT_MODES) * len(POLICIES)
         assert len({r['descendant_rng_master_hex'] for r in entries}) == 1
         for mode in ESTABLISHMENT_MODES:
             subset = [r for r in entries if r['establishment_mode'] == mode]
             assert len(subset) == 4
             assert len({r['establishment_probability_if_arrived'] for r in subset}) == 1
+
+
+def test_early_A_and_I_factorial_modes_are_matched():
+    for island in ("no_visitors_harsh", "visitors_milder"):
+        for lineage_id in range(6):
+            modes = {r["establishment_mode"]: r for r in fixture()["records"]
+                     if r["island_id"] == island and r["lineage_id"] == lineage_id
+                     and r["reset_id"] == 0 and r["policy"] == "native"}
+            assert set(modes) == set(ESTABLISHMENT_MODES)
+            assert len({tuple(sorted(r["source_traits"].items()))
+                        for r in modes.values()}) == 1
+            assert len({r["arrived"] for r in modes.values()}) == 1
+            for r in modes.values():
+                assert 0 <= r["establishment_probability_if_arrived"] <= 1
+                assert r["expected_recruits_if_arrived"] >= 0
+
 
 def test_proper_scores_available_only_with_predicted_outcomes():
     d = score_binary([0, 1], [.2, .8])
