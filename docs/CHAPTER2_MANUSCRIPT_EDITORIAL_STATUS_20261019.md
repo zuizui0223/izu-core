@@ -15,12 +15,12 @@ The paper does not claim that all flowers shrink, that assurance is intrinsicall
 - Preserved the original inconclusive registered Q2 intervention, directional support counts and distinct inference units.
 - Expanded Discussion around the mechanisms supported by completed data and their limits.
 - Added the crossed confirmation estimands and inference convention to Methods.
-- Replaced unexecuted main-figure proposals with six source-linked caption/panel specifications. These are not rendered figures.
+- Established six source-linked main figure descriptions, then rendered four source-bound draft SVGs (Figures 2, 4, 5 and 6). Figure 1 and Figure 3 remain unrendered; all four plotted figures retain machine-checked numeric marks and no new biological simulations.
 - Updated active-route metadata: completed transfer, factorial and genome readback are admitted; broader recovery-window experiments remain historical proposals rather than required new simulations.
 
 ## Remaining publication work
 
-1. Render the six display items from existing readouts, verify each panel against its source, and decide which detailed historical analyses belong in supplementary material.
+1. Complete the two still-unrendered display items (Figures 1 and 3), visually check all six panels, and bring the four generated SVG drafts to final publication figure standards; the new source-value tests check numbers but not visual quality.
 2. Complete the reproducible Methods and supplementary package, retaining cohort-specific parameters, inference units and raw-archive identities.
 3. Finish reference coverage, author information, contributions, declarations and journal-specific editorial checks. Nature Ecology & Evolution remains a candidate route, not a verified acceptance fit or a submitted paper.
 4. Complete the source-linked archival work tracked under issue #436. Hash-verified draft releases are retained storage, not immutable DOI deposits.
@@ -36,3 +36,10 @@ The revised introductory statements were checked against the primary papers on 2
 - Lande and Porcher (2015), quantitative genetic variance under partial selfing: https://pmc.ncbi.nlm.nih.gov/articles/PMC4512550/
 
 This spot-check is not a completed reference audit of the entire manuscript.
+
+## 2026-10-19 publication execution addendum
+
+- [Source-locked Figures 2, 4, 5 and 6](../figures/chapter2_nee/README.md) now exist as SVG files, with figure-mark/source regression tests included in Chapter 2 scientific CI. No underlying cohort or inference was changed.
+- The active manuscript links the four SVGs and removes Discussion subheadings to match the stated Article structure. The original undeployed restoration-window proposals remain marked non-results elsewhere in the working draft; they still need removal/movement before submission-ready typesetting.
+- [Nature Ecology & Evolution Article content requirements](https://www.nature.com/natecolevol/content) currently specify an unreferenced abstract up to 200 words, main text up to 3,500 words excluding Methods/abstract/references/figure legends, and six display items. As updated, the internal whitespace count is about 189 for the abstract section and 3,361 for the Introduction–Discussion source block. These are conservative internal checks, not final typeset counts.
+- Submission readiness remains false: Figures 1/3, figure accessibility/visual verification, pending-results relocation, complete reference and author checks and the DOI-backed archive gate remain unfinished.
