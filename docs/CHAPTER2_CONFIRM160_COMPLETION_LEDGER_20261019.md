@@ -33,3 +33,22 @@ source update therefore cannot silently trigger another160x160 campaign.
 - Exact-head integration CI/scientific checks pass before merging approved work.
 
 Status: calculation and closeout in progress; full goal not complete.
+
+## Independent raw admission command
+
+After the original collector succeeds, download only `raw-shard-*.zip`,
+`seal-*.json`, `hashes-*.txt` and `SUMMARY160.json` into one new local directory.
+Exactly97files must be present. Partial checkpoint assets and archive-admission
+metadata remain retained remotely but are not part of this complete-only input.
+Run `python -m scripts.audit_q3_confirm160_raw_20261019 --root ASSET_DIRECTORY
+--out NEW_AUDIT.json`, with the output outside that directory. The default source
+commit is the original `f7792629b35b07e93ac9c98f8feb4d3894da85eb`; fetch that
+commit first if using a shallow checkout. Do not substitute current checkout
+hashes for production provenance.
+
+This independent reader imports no biological simulation/producer module and
+checks full checkpoint payloads, source identities, all assignments and forks,
+inheritance, source-matched founders, endpoint arrays and crossed inference.
+It does not independently reimplement every native biological transition or
+establish universal inferential coverage. No partial outcome is used to choose
+the design, thresholds or stop time.

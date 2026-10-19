@@ -25,6 +25,14 @@ pollination environment is a proposed extension; restoration of the ancestral
 phenotype is only one possible assay, not the definition of adaptation. The
 running160x160 G/S experiment contains no such environmental-transfer futures.
 
+Separate local selection conditions for investment and assurance do not imply
+a fixed order of evolutionary change. Founder variation and finite transmission
+determine how those conditional advantages are realized and when genetic
+accessibility closes. The [selection and realization evidence map](CHAPTER2_SELECTION_REALIZATION_FRAME_20261019.md)
+also distinguishes individual genetic contribution from collective viable-seed
+output: their local signs can differ without establishing a persistence cost
+or a population optimum.
+
 The collapse of a mutualism can precede the disappearance of either partner. When pollinators become unreliable, autonomous self-fertilization gives individual plants an alternative reproductive route, whereas floral structures retain maternal pollen-receipt and paternal pollen-export functions. An evolutionarily reduced flower need not indicate reduced current reproduction, and the persistence of plants does not prove the persistence of their historical evolutionary potential.
 
 The ecological-evolutionary problem spans two temporal stages. First, does selfing evolution need to occur before floral investment can decline? Second, **after a population has experienced that decline, does selfing evolution determine whether higher floral investment can be re-evolved when pollinators return?** These are not two separate questions requiring two papers: they are complementary questions in one mechanistic framework, addressed under different interventions and time horizons, not an already demonstrated causal chain. An observed order of response is not proof of necessity, nor is a failure to recover by a finite deadline proof of permanent genetic irreversibility.
