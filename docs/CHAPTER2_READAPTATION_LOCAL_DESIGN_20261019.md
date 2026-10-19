@@ -1,5 +1,11 @@
 # Bounded local test of the remaining central hypothesis
 
+**Priority update:** the user's subsequent framing puts repeated responses to
+pollinator reduction first. See the [central-question claim audit](CHAPTER2_CENTRAL_QUESTION_CLAIM_RESET_20261019.md).
+Preserve this bounded transfer design and implementation; inspect existing A/I
+repeat data before proceeding to new-environment future execution. No futures
+have been launched.
+
 **Current design, superseding the expanded factorial proposal.** On 2026-10-19
 the user directed that the experiment stay within the central hypothesis and be
 feasible on the actual PC. The 68-million-update / 437-GiB proposal is withdrawn.
