@@ -1,0 +1,545 @@
+{
+  "status": "INDEPENDENT_SAVED_DATA_RECOMPUTATION_PASS",
+  "source_sha": "eb785dc6865ca1842ec9d6c7d511778c74e03478",
+  "protocol_sha256": "87af92484af9988181b4f3bed6760d39325de70cca8c0b4e1cec19c47b8c9849",
+  "file_hashes_verified": [
+    "ENVIRONMENT.txt",
+    "PROTOCOL.json",
+    "SOURCE_SHA.txt",
+    "audit.json",
+    "strong.json",
+    "summary.json",
+    "weak.json"
+  ],
+  "rows": 384,
+  "all_survive": true,
+  "independent_founders": 12,
+  "interactions": [
+    {
+      "start_A": 0.3,
+      "founder_interactions": {
+        "A": {
+          "810101": 0.09309895833333334,
+          "810102": -0.018229166666666664,
+          "810103": 0.21419270833333334,
+          "810104": 0.16341145833333331,
+          "810105": 0.10481770833333333,
+          "810106": 0.05403645833333333,
+          "810107": 0.10611979166666667,
+          "810108": 0.08658854166666667,
+          "810109": 0.031250000000000014,
+          "810110": 0.123046875,
+          "810111": 0.119140625,
+          "810112": 0.16666666666666666
+        },
+        "I": {
+          "810101": 0.06640625,
+          "810102": 0.2109375,
+          "810103": 0.20963541666666666,
+          "810104": 0.06901041666666666,
+          "810105": 0.07877604166666666,
+          "810106": -0.01822916666666667,
+          "810107": 0.14322916666666666,
+          "810108": 0.1015625,
+          "810109": 0.10481770833333334,
+          "810110": 0.16861979166666663,
+          "810111": 0.07291666666666666,
+          "810112": 0.00390625
+        }
+      },
+      "A": {
+        "mean": 0.10367838541666667,
+        "bootstrap_95": [
+          0.06949869791666667,
+          0.13780381944444445
+        ],
+        "positive": 11,
+        "negative": 1,
+        "zero": 0
+      },
+      "I": {
+        "mean": 0.10096571180555555,
+        "bootstrap_95": [
+          0.060980902777777776,
+          0.14046223958333331
+        ],
+        "positive": 11,
+        "negative": 1,
+        "zero": 0
+      }
+    },
+    {
+      "start_A": 0.5,
+      "founder_interactions": {
+        "A": {
+          "810101": 0.15950520833333331,
+          "810102": 0.10286458333333333,
+          "810103": 0.09635416666666667,
+          "810104": 0.02604166666666667,
+          "810105": 0.2506510416666667,
+          "810106": -0.01627604166666667,
+          "810107": 0.03580729166666667,
+          "810108": 0.13541666666666669,
+          "810109": -0.04492187499999997,
+          "810110": 0.11197916666666669,
+          "810111": 0.05273437499999997,
+          "810112": 0.09244791666666666
+        },
+        "I": {
+          "810101": 0.0703125,
+          "810102": 0.06510416666666666,
+          "810103": -0.0078125,
+          "810104": 0.12174479166666669,
+          "810105": 0.068359375,
+          "810106": 0.072265625,
+          "810107": 0.09440104166666666,
+          "810108": 0.03190104166666667,
+          "810109": 0.10286458333333334,
+          "810110": -0.01888020833333333,
+          "810111": 0.025390625,
+          "810112": 0.0983072916666667
+        }
+      },
+      "A": {
+        "mean": 0.08355034722222222,
+        "bootstrap_95": [
+          0.04144965277777778,
+          0.1281467013888889
+        ],
+        "positive": 10,
+        "negative": 2,
+        "zero": 0
+      },
+      "I": {
+        "mean": 0.06032986111111112,
+        "bootstrap_95": [
+          0.035590277777777776,
+          0.08279079861111112
+        ],
+        "positive": 10,
+        "negative": 2,
+        "zero": 0
+      }
+    }
+  ],
+  "strata": [
+    {
+      "start_A": 0.3,
+      "baseline": "strong_baseline_limitation",
+      "arm": "control",
+      "n": 48,
+      "A": {
+        "t0": {
+          "mean": 0.2996961805555555,
+          "fixed": 0,
+          "zero_variance": 0
+        },
+        "t_prefix": {
+          "mean": 0.5662434895833334,
+          "fixed": 22,
+          "zero_variance": 22
+        },
+        "t_end": {
+          "mean": 0.5902235243055556,
+          "fixed": 46,
+          "zero_variance": 46
+        }
+      },
+      "I": {
+        "t0": {
+          "mean": 0.5015190972222222,
+          "fixed": 0,
+          "zero_variance": 0
+        },
+        "t_prefix": {
+          "mean": 0.5104709201388888,
+          "fixed": 7,
+          "zero_variance": 7
+        },
+        "t_end": {
+          "mean": 0.5027669270833334,
+          "fixed": 25,
+          "zero_variance": 25
+        }
+      },
+      "q_means": {
+        "q_first": 0.09958833911644437,
+        "q_pre_last": 0.14166091680296952,
+        "q_future_first": 0.14203108157272842,
+        "q_future_last": 0.14324501939637782
+      }
+    },
+    {
+      "start_A": 0.3,
+      "baseline": "strong_baseline_limitation",
+      "arm": "decline",
+      "n": 48,
+      "A": {
+        "t0": {
+          "mean": 0.2996961805555555,
+          "fixed": 0,
+          "zero_variance": 0
+        },
+        "t_prefix": {
+          "mean": 0.5662434895833334,
+          "fixed": 22,
+          "zero_variance": 22
+        },
+        "t_end": {
+          "mean": 0.5989583333333334,
+          "fixed": 48,
+          "zero_variance": 48
+        }
+      },
+      "I": {
+        "t0": {
+          "mean": 0.5015190972222222,
+          "fixed": 0,
+          "zero_variance": 0
+        },
+        "t_prefix": {
+          "mean": 0.5104709201388888,
+          "fixed": 7,
+          "zero_variance": 7
+        },
+        "t_end": {
+          "mean": 0.4225260416666667,
+          "fixed": 44,
+          "zero_variance": 44
+        }
+      },
+      "q_means": {
+        "q_first": 0.09958833911644437,
+        "q_pre_last": 0.14166091680296952,
+        "q_future_first": 0.017201855374627227,
+        "q_future_last": 0.013672898639116178
+      }
+    },
+    {
+      "start_A": 0.3,
+      "baseline": "weak_baseline_limitation",
+      "arm": "control",
+      "n": 48,
+      "A": {
+        "t0": {
+          "mean": 0.2996961805555555,
+          "fixed": 0,
+          "zero_variance": 0
+        },
+        "t_prefix": {
+          "mean": 0.2675238715277778,
+          "fixed": 1,
+          "zero_variance": 1
+        },
+        "t_end": {
+          "mean": 0.2099609375,
+          "fixed": 18,
+          "zero_variance": 18
+        }
+      },
+      "I": {
+        "t0": {
+          "mean": 0.5015190972222222,
+          "fixed": 0,
+          "zero_variance": 0
+        },
+        "t_prefix": {
+          "mean": 0.6324327256944444,
+          "fixed": 2,
+          "zero_variance": 2
+        },
+        "t_end": {
+          "mean": 0.6971028645833334,
+          "fixed": 20,
+          "zero_variance": 20
+        }
+      },
+      "q_means": {
+        "q_first": 0.929299335105051,
+        "q_pre_last": 0.9978791642730167,
+        "q_future_first": 0.9979891791198439,
+        "q_future_last": 0.999061201840413
+      }
+    },
+    {
+      "start_A": 0.3,
+      "baseline": "weak_baseline_limitation",
+      "arm": "decline",
+      "n": 48,
+      "A": {
+        "t0": {
+          "mean": 0.2996961805555555,
+          "fixed": 0,
+          "zero_variance": 0
+        },
+        "t_prefix": {
+          "mean": 0.2675238715277778,
+          "fixed": 1,
+          "zero_variance": 1
+        },
+        "t_end": {
+          "mean": 0.3223741319444444,
+          "fixed": 16,
+          "zero_variance": 16
+        }
+      },
+      "I": {
+        "t0": {
+          "mean": 0.5015190972222222,
+          "fixed": 0,
+          "zero_variance": 0
+        },
+        "t_prefix": {
+          "mean": 0.6324327256944444,
+          "fixed": 2,
+          "zero_variance": 2
+        },
+        "t_end": {
+          "mean": 0.7178276909722222,
+          "fixed": 35,
+          "zero_variance": 35
+        }
+      },
+      "q_means": {
+        "q_first": 0.929299335105051,
+        "q_pre_last": 0.9978791642730167,
+        "q_future_first": 0.5422193690191708,
+        "q_future_last": 0.607614094886705
+      }
+    },
+    {
+      "start_A": 0.5,
+      "baseline": "strong_baseline_limitation",
+      "arm": "control",
+      "n": 48,
+      "A": {
+        "t0": {
+          "mean": 0.5,
+          "fixed": 0,
+          "zero_variance": 0
+        },
+        "t_prefix": {
+          "mean": 0.6867947048611112,
+          "fixed": 10,
+          "zero_variance": 10
+        },
+        "t_end": {
+          "mean": 0.7452799479166666,
+          "fixed": 42,
+          "zero_variance": 42
+        }
+      },
+      "I": {
+        "t0": {
+          "mean": 0.5015190972222222,
+          "fixed": 0,
+          "zero_variance": 0
+        },
+        "t_prefix": {
+          "mean": 0.4594184027777778,
+          "fixed": 10,
+          "zero_variance": 10
+        },
+        "t_end": {
+          "mean": 0.4275716145833333,
+          "fixed": 36,
+          "zero_variance": 36
+        }
+      },
+      "q_means": {
+        "q_first": 0.09966098000637033,
+        "q_pre_last": 0.12020229045042957,
+        "q_future_first": 0.12079612205066739,
+        "q_future_last": 0.1166663476281573
+      }
+    },
+    {
+      "start_A": 0.5,
+      "baseline": "strong_baseline_limitation",
+      "arm": "decline",
+      "n": 48,
+      "A": {
+        "t0": {
+          "mean": 0.5,
+          "fixed": 0,
+          "zero_variance": 0
+        },
+        "t_prefix": {
+          "mean": 0.6867947048611112,
+          "fixed": 10,
+          "zero_variance": 10
+        },
+        "t_end": {
+          "mean": 0.7498914930555556,
+          "fixed": 47,
+          "zero_variance": 47
+        }
+      },
+      "I": {
+        "t0": {
+          "mean": 0.5015190972222222,
+          "fixed": 0,
+          "zero_variance": 0
+        },
+        "t_prefix": {
+          "mean": 0.4594184027777778,
+          "fixed": 10,
+          "zero_variance": 10
+        },
+        "t_end": {
+          "mean": 0.3918728298611111,
+          "fixed": 44,
+          "zero_variance": 44
+        }
+      },
+      "q_means": {
+        "q_first": 0.09966098000637033,
+        "q_pre_last": 0.12020229045042957,
+        "q_future_first": 0.01441606424931029,
+        "q_future_last": 0.011931089189712136
+      }
+    },
+    {
+      "start_A": 0.5,
+      "baseline": "weak_baseline_limitation",
+      "arm": "control",
+      "n": 48,
+      "A": {
+        "t0": {
+          "mean": 0.5,
+          "fixed": 0,
+          "zero_variance": 0
+        },
+        "t_prefix": {
+          "mean": 0.4327256944444444,
+          "fixed": 1,
+          "zero_variance": 1
+        },
+        "t_end": {
+          "mean": 0.3765733506944444,
+          "fixed": 22,
+          "zero_variance": 22
+        }
+      },
+      "I": {
+        "t0": {
+          "mean": 0.5015190972222222,
+          "fixed": 0,
+          "zero_variance": 0
+        },
+        "t_prefix": {
+          "mean": 0.6181640625,
+          "fixed": 6,
+          "zero_variance": 6
+        },
+        "t_end": {
+          "mean": 0.6785481770833334,
+          "fixed": 22,
+          "zero_variance": 22
+        }
+      },
+      "q_means": {
+        "q_first": 0.9295521409075315,
+        "q_pre_last": 0.997202777660609,
+        "q_future_first": 0.9971750652344789,
+        "q_future_last": 0.9987495181434654
+      }
+    },
+    {
+      "start_A": 0.5,
+      "baseline": "weak_baseline_limitation",
+      "arm": "decline",
+      "n": 48,
+      "A": {
+        "t0": {
+          "mean": 0.5,
+          "fixed": 0,
+          "zero_variance": 0
+        },
+        "t_prefix": {
+          "mean": 0.4327256944444444,
+          "fixed": 1,
+          "zero_variance": 1
+        },
+        "t_end": {
+          "mean": 0.4647352430555556,
+          "fixed": 13,
+          "zero_variance": 13
+        }
+      },
+      "I": {
+        "t0": {
+          "mean": 0.5015190972222222,
+          "fixed": 0,
+          "zero_variance": 0
+        },
+        "t_prefix": {
+          "mean": 0.6181640625,
+          "fixed": 6,
+          "zero_variance": 6
+        },
+        "t_end": {
+          "mean": 0.7031792534722222,
+          "fixed": 28,
+          "zero_variance": 28
+        }
+      },
+      "q_means": {
+        "q_first": 0.9295521409075315,
+        "q_pre_last": 0.997202777660609,
+        "q_future_first": 0.5287133509919169,
+        "q_future_last": 0.5961646657294964
+      }
+    }
+  ],
+  "limitations": [
+    "No producer/auditor imports and no simulations performed",
+    "State hashes checked for format and pair equality; original full states are not archived so their digests cannot be reconstructed",
+    "Bootstrap is descriptive and conditional on model setting; baseline intervention spans prefix history and future effectiveness",
+    "Exactly-once remote execution not independently queried by this saved-artifact review"
+  ],
+  "pair_contrasts": [
+    {
+      "start_A": 0.3,
+      "baseline": "strong_baseline_limitation",
+      "A_decline_minus_control": 0.008734809027777778,
+      "zero_A_contrast_pairs": 45,
+      "prefix_fixed_A_pairs": 22,
+      "prefix_fixed_pairs_all_remain_same_A": true
+    },
+    {
+      "start_A": 0.3,
+      "baseline": "weak_baseline_limitation",
+      "A_decline_minus_control": 0.11241319444444445,
+      "zero_A_contrast_pairs": 8,
+      "prefix_fixed_A_pairs": 1,
+      "prefix_fixed_pairs_all_remain_same_A": true
+    },
+    {
+      "start_A": 0.5,
+      "baseline": "strong_baseline_limitation",
+      "A_decline_minus_control": 0.0046115451388888855,
+      "zero_A_contrast_pairs": 42,
+      "prefix_fixed_A_pairs": 10,
+      "prefix_fixed_pairs_all_remain_same_A": true
+    },
+    {
+      "start_A": 0.5,
+      "baseline": "weak_baseline_limitation",
+      "A_decline_minus_control": 0.0881618923611111,
+      "zero_A_contrast_pairs": 8,
+      "prefix_fixed_A_pairs": 1,
+      "prefix_fixed_pairs_all_remain_same_A": true
+    }
+  ],
+  "claim_assessment": {
+    "supported": "Exploratory model-conditional causal interaction: baseline pollen-effectiveness regime, including its 30-update evolutionary history and continuing future regime, changes the additional terminal assurance response to imposed activity decline.",
+    "not_identified": [
+      "Pure instantaneous q effect",
+      "Causal mediation of interaction exclusively by fixation",
+      "Natural island or general evolutionary law",
+      "Absence of selection from a small terminal contrast"
+    ],
+    "fixation_evidence": "At census30 A is fixed in 22/48 and 10/48 strong-limit pairs versus 1/48 in each weak-limit stratum. All prefix-fixed pairs retain the same A in both futures; mutation and immigration are zero. This supports a constraint on realized response without identifying the sole mechanism."
+  }
+}

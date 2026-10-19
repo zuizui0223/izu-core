@@ -75,3 +75,13 @@ census. Founder-level surviving-pair counts and the equal-founder-weight,
 baseline-specific survivor-conditioned interaction estimand are exposed.
 Seven focused tests pass locally, including synthetic extinction and
 record-corruption checks. These are technical checks, not the 384-path pilot.
+
+
+## Execution completed
+
+PR #607 was merged as `418acd94d60249024ff5b0e554fb6140d5af1ac1` after all checks
+passed. The merged tree equalled reviewed head `eb785dc6865ca1842ec9d6c7d511778c74e03478`.
+Dispatch by merge SHA was rejected with HTTP 422 (no run). After checking an
+empty workflow history and the unchanged branch head, the reviewed branch was
+dispatched once: Actions **39233450099**, success, all 384 paths and endpoint
+audit complete. Do not dispatch again. See the [result and retained archive](CHAPTER2_BASELINE_POLLEN_384_RESULTS_20261019.md).
