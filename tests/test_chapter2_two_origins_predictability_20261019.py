@@ -18,8 +18,7 @@ def test_brier_law_of_total_variance_is_exact():
     assert x["sources"] == 4
     assert x["mean_fate_probability"] == mu
     assert abs(x["expected_brier_gain"] - float(np.var(p))) < 1e-14
-    assert abs(x["constant_expected_brier"] if "constant_expected_brier" in x else
-               x["baseline_expected_brier"] - mu * (1 - mu)) < 1e-14
+    assert abs(x["baseline_expected_brier"] - mu * (1 - mu)) < 1e-14
     assert abs(x["baseline_expected_brier"] - x["perfect_source_oracle_expected_brier"]
                - x["expected_brier_gain"]) < 1e-14
     assert x["expected_log_loss_gain"] >= -1e-14
