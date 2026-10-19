@@ -71,6 +71,25 @@ jobs:
           python-version: '3.11'
       - run: python -m pip install --upgrade pip
       - run: python -m pip install -e '.[dev]'
+
+      - name: Audit exposed two-origins source fate predictability (TECHNICAL ONLY)
+        run: |
+          python -m pytest -q tests/test_chapter2_two_origins_predictability_20261019.py
+          python - <<'PY'
+          from scripts.audit_two_origins_predictability_20261019 import analyze
+          data = analyze()
+          assert data['status'] == 'TECHNICAL_EXPECTED_SCORE_IDENTITY_NOT_REGISTERED'
+          assert not data['independent_heldout_validation']
+          for item in data['result']:
+              native = item['mode_results']['native']['candidate_to_establishment']
+              print('EXPOSED SOURCE ORACLE', item['island'],
+                    'Brier baseline', round(native['baseline_expected_brier'],8),
+                    'oracle', round(native['perfect_source_oracle_expected_brier'],8),
+                    'expected gain', round(native['expected_brier_gain'],8),
+                    'fraction', round(native['relative_brier_gain'],8))
+          print('TECHNICAL-ONLY EXPECTED SCORE IDENTITY; NOT HELD-OUT CONFIRMATION')
+          PY
+
       - name: Validate active Model 3 2026-10-05 ecological submission surface
         run: |
           pytest -q \
