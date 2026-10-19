@@ -34,6 +34,23 @@
 - After fixing all M/I/A expressions, conditional p is identical among all six founders at each synthetic island (**82.66%** at no-visitors B4.5, **97.45%** with visitors B8), an expected negative-control property of this deliberately standardized reproduction kernel.
 - Because actual arrival chance is .8 independent of source, the *candidate-to-establishment* probability in this fixture is `0.8 × p(establish|arrived)` for each source and mode. Even if p is high, individual lineage establishment remains stochastic. **A trait-state gradient in establishment probability is not near-certain lineage fate prediction**.
 
+## Descriptive source → establishment → persistence → within-lineage accounting (technical only)
+
+The completed [second v3 technical job](https://github.com/zuizui0223/izu-core/actions/runs/39271024143) (job `118123058991`, code SHA `a395df76d2496fe75ccc43a1f8358e0d07cb09b6`) independently prints **20 technical group summaries**: two artificial islands × two resets × five early filters, all under the *same later native A/I phenotype policy*. Four unmanipulated-early-filter examples are shown below; each includes the **same six original source genotypes** before the stochastic arrival event.
+
+| Technical island | Reset | Candidates | Arrived | Established | Present at T | A: arrival+establishment+persistence filtering | A: within survivors' changes | I: filtering | I: within survivors' changes |
+| --- | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: | ---: |
+| no_visitors_harsh | 0 | 6 | 4 | 4 | 2 | +0.1151 | +0.0537 | +0.1555 | -0.0191 |
+| no_visitors_harsh | 1 | 6 | 5 | 4 | 1 | +0.2799 | -0.0218 | -0.1851 | +0.0205 |
+| visitors_milder | 0 | 6 | 6 | 6 | 6 | +0.0000 | +0.0064 | +0.0000 | -0.0006 |
+| visitors_milder | 1 | 6 | 3 | 3 | 1 | +0.2369 | -0.0041 | +0.1349 | +0.0046 |
+
+These values are **species-weighted changes in model trait units**, computed by the exact conditional telescoping identity in `stage_accounting`. A positive filtering contribution means the **surviving pool's original source trait mean** exceeds that of the complete six-candidate source pool. It is **not** a causal main effect of selection, and it does not mean the lineage's allele was already fixed on a real mainland. The within-survivor term includes changes during the one initial establishment update as well as later finite inheritance; it is not synonymous with deterministic adaptive evolution.
+
+**What the two technical stochastic resets expose:** in the no-visitor artificial island, the original A-filtering contribution is positive in both resets (+0.1151, +0.2799) while I-filtering changes sign (+0.1555 vs −0.1851), but two resets of the SAME six genotypes cannot establish which trait is intrinsically more stochastic or which function explains global island floras. In the visitor-present artificial island, one reset retained all six sources (both filtering terms exactly zero), whereas the second retained one of the three arrivals and had nonzero positive filtering contributions for both traits. **Arrival and finite lineage survival remain integral sources of variability.** Other early A/I-expression modes cause distinct cohort fates; all source/census denominators are preserved in the original technical gate logs.
+
+**Provenance/limits:** This table is not a new independent biological confirmation, is not prospectively registered, has no uncertainty interval, and is neither six independent natural species nor multiple realized island communities. No interspecific competition, natural-colonization event, calibrated source self-compatibility score or measured floral phenotype enters the fixture. **These numbers cannot validate the proposed "A imported; I evolved" origin split**; they show that the code correctly records the stage-specific quantities that a *new independently designed study* would need.
+
 ## Analytical sanity check of the native no-visitor founding kernel (NOT a discovery of a new island law)
 
 At the single founding reproductive update with **no visitors**, delayed autonomous selfing, zero adult carryover, zero immigration and no mutation, the native [Model3 reproduction ledger](../scripts/model3_island/reproduction.py) yields no outcross births. For source adults \(j=1,\dots,n\) with expressed autonomous assurance \(A_j\) and floral investment \(I_j\), the **exact conditional expected number of viable selfed recruits** is
