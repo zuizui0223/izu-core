@@ -1,0 +1,734 @@
+{
+  "status": "EXPLORATORY_MATCHED_AI_ENDPOINT_READBACK_NO_NEW_SIMULATION",
+  "source_run": 37186196843,
+  "source_head": "92b90059e1039eb6cf62bc0b08924a56173c726e",
+  "sources": {
+    "pollen_discount": {
+      "artifact_id": 11297400823,
+      "archive_sha256": "a78735cc4aabeb154a4881b436ba66e1a070ef535f753873f8dee06e5df51ad2",
+      "json_member": "finite_pollen_discount.json",
+      "json_sha256": "b9f7f9c73a103281c6a488bcf918840435099115296da341a460c6ffb1b9075b"
+    },
+    "delayed_control": {
+      "artifact_id": 11297775655,
+      "archive_sha256": "51262c264d46a0ddab1f36749e274e89fc8cee58acd2fb289fc6095137378d16",
+      "json_member": "finite_delayed_control.json",
+      "json_sha256": "33683cfc7db4c64fee3a43d628ca9cb15d3da7c4483c21f294b19ab93fc596ea"
+    },
+    "assurance_cost": {
+      "artifact_id": 11298050071,
+      "archive_sha256": "265ce87e96804df1876036a970fd368625b4f79bd9c95932dd4397a297c20fc6",
+      "json_member": "finite_assurance_cost.json",
+      "json_sha256": "d12c3b72ffc20a2cceaf0ce00e8f75c298a6ed4c57d8051357a023d0f105b2f8"
+    },
+    "prior_selfing": {
+      "artifact_id": 11296974883,
+      "archive_sha256": "32478bd9b25da39e65b0b44449232f37556e226a41632cfc75d78804829deb36",
+      "json_member": "finite_prior_selfing.json",
+      "json_sha256": "21ade7c4dbf9ac9eb32da5c77073ac2b162d29cc00b4dce17884a046688e31cd"
+    }
+  },
+  "design_files_match_recorded_source_head": true,
+  "input_sha256": {
+    "data/results/model3_joint_syndrome_finite_frozen_20261004.json": "be9d0ea0497b2d47682093899faebf1abbf68d9037eb0d52110f9b7d4560e8c7",
+    "data/design/model3_joint_syndrome_finite_followup_20261004.json": "25532595d6e90c66b51ba4cbff2d27c6bc25c0b58cfa1755da139423172236de",
+    "data/design/model3_ch2_bridge_20260927.json": "0ca971aa9a453ab00a6e36fa9f2a99df3b36a8b13cda1cb48ea420556d3ff18a"
+  },
+  "original_arm_trajectories": 12288,
+  "new_biological_updates": 0,
+  "horizon": 200,
+  "repeats_per_context": 4,
+  "endpoint": "terminal trait and far-minus-near terminal contrast, not initial-to-final change",
+  "labels": "epsilon 0 and .05; equality at nonzero boundaries is directional; exact zero neutral",
+  "denominator": "trait statistics use contexts with all four paired near/far survivors; all-start counts retained",
+  "limitations": [
+    "post-outcome descriptive comparison, no confirmatory trait ranking",
+    "four repeats per context cannot certify deterministic evolution",
+    "coarse five-node I/A genetic grid; M fixed at .5; no mutation",
+    "endpoint dispersion depends on starting variation, boundaries and selection",
+    "no event timing or ancestral-change direction recovered from endpoint JSON",
+    "not a new independent biological replay"
+  ],
+  "settings": {
+    "pollen_discount": {
+      "outcross_like": {
+        "allocated_contexts": 128,
+        "allocated_arm_trajectories": 1024,
+        "occupied_arm_trajectories": 991,
+        "paired_eligible_contexts": 108,
+        "A": {
+          "near_mean_within_context_sample_variance": 0.012417781500168788,
+          "near_mean_endpoint": 0.5686306423611112,
+          "near_identical_endpoint_contexts": 34,
+          "far_mean_within_context_sample_variance": 0.01263503086419753,
+          "far_mean_endpoint": 0.5821759259259259,
+          "far_identical_endpoint_contexts": 31,
+          "contrast_mean_within_context_sample_variance": 0.006823645697699653,
+          "contrast_labels": {
+            "0.0": {
+              "unanimous_contexts": 69,
+              "all_neutral_contexts": 69,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 39
+            },
+            "0.05": {
+              "unanimous_contexts": 69,
+              "all_neutral_contexts": 69,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 39
+            }
+          }
+        },
+        "I": {
+          "near_mean_within_context_sample_variance": 0.01683647773229863,
+          "near_mean_endpoint": 0.5993742766203703,
+          "near_identical_endpoint_contexts": 19,
+          "far_mean_within_context_sample_variance": 0.014708719135802469,
+          "far_mean_endpoint": 0.5202546296296297,
+          "far_identical_endpoint_contexts": 33,
+          "contrast_mean_within_context_sample_variance": 0.02449124078528217,
+          "contrast_labels": {
+            "0.0": {
+              "unanimous_contexts": 25,
+              "all_neutral_contexts": 19,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 6,
+              "discordant_contexts": 83
+            },
+            "0.05": {
+              "unanimous_contexts": 25,
+              "all_neutral_contexts": 20,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 5,
+              "discordant_contexts": 83
+            }
+          }
+        }
+      },
+      "central": {
+        "allocated_contexts": 128,
+        "allocated_arm_trajectories": 1024,
+        "occupied_arm_trajectories": 1024,
+        "paired_eligible_contexts": 128,
+        "A": {
+          "near_mean_within_context_sample_variance": 0.0045166015625,
+          "near_mean_endpoint": 0.72900390625,
+          "near_identical_endpoint_contexts": 93,
+          "far_mean_within_context_sample_variance": 0.0021565755208333335,
+          "far_mean_endpoint": 0.73974609375,
+          "far_identical_endpoint_contexts": 111,
+          "contrast_mean_within_context_sample_variance": 0.004150390625,
+          "contrast_labels": {
+            "0.0": {
+              "unanimous_contexts": 100,
+              "all_neutral_contexts": 100,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 28
+            },
+            "0.05": {
+              "unanimous_contexts": 100,
+              "all_neutral_contexts": 100,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 28
+            }
+          }
+        },
+        "I": {
+          "near_mean_within_context_sample_variance": 0.022152728504604764,
+          "near_mean_endpoint": 0.3840281168619792,
+          "near_identical_endpoint_contexts": 14,
+          "far_mean_within_context_sample_variance": 0.025431315104166664,
+          "far_mean_endpoint": 0.31005859375,
+          "far_identical_endpoint_contexts": 16,
+          "contrast_mean_within_context_sample_variance": 0.031130830446879067,
+          "contrast_labels": {
+            "0.0": {
+              "unanimous_contexts": 26,
+              "all_neutral_contexts": 25,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 1,
+              "discordant_contexts": 102
+            },
+            "0.05": {
+              "unanimous_contexts": 27,
+              "all_neutral_contexts": 26,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 1,
+              "discordant_contexts": 101
+            }
+          }
+        }
+      },
+      "selfing_like": {
+        "allocated_contexts": 128,
+        "allocated_arm_trajectories": 1024,
+        "occupied_arm_trajectories": 1024,
+        "paired_eligible_contexts": 128,
+        "A": {
+          "near_mean_within_context_sample_variance": 0.008870442708333334,
+          "near_mean_endpoint": 0.95703125,
+          "near_identical_endpoint_contexts": 61,
+          "far_mean_within_context_sample_variance": 0.008138020833333334,
+          "far_mean_endpoint": 0.9599609375,
+          "far_identical_endpoint_contexts": 66,
+          "contrast_mean_within_context_sample_variance": 0.0029296875,
+          "contrast_labels": {
+            "0.0": {
+              "unanimous_contexts": 106,
+              "all_neutral_contexts": 106,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 22
+            },
+            "0.05": {
+              "unanimous_contexts": 106,
+              "all_neutral_contexts": 106,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 22
+            }
+          }
+        },
+        "I": {
+          "near_mean_within_context_sample_variance": 0.021354741520351835,
+          "near_mean_endpoint": 0.18308003743489584,
+          "near_identical_endpoint_contexts": 14,
+          "far_mean_within_context_sample_variance": 0.021922005547417533,
+          "far_mean_endpoint": 0.16261800130208334,
+          "far_identical_endpoint_contexts": 11,
+          "contrast_mean_within_context_sample_variance": 0.01827183034684923,
+          "contrast_labels": {
+            "0.0": {
+              "unanimous_contexts": 48,
+              "all_neutral_contexts": 48,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 80
+            },
+            "0.05": {
+              "unanimous_contexts": 48,
+              "all_neutral_contexts": 48,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 80
+            }
+          }
+        }
+      }
+    },
+    "delayed_control": {
+      "outcross_like": {
+        "allocated_contexts": 128,
+        "allocated_arm_trajectories": 1024,
+        "occupied_arm_trajectories": 1012,
+        "paired_eligible_contexts": 116,
+        "A": {
+          "near_mean_within_context_sample_variance": 0.010997684522606861,
+          "near_mean_endpoint": 0.5716426454741379,
+          "near_identical_endpoint_contexts": 43,
+          "far_mean_within_context_sample_variance": 0.010461566091954023,
+          "far_mean_endpoint": 0.5770474137931034,
+          "far_identical_endpoint_contexts": 45,
+          "contrast_mean_within_context_sample_variance": 0.00538806257576778,
+          "contrast_labels": {
+            "0.0": {
+              "unanimous_contexts": 82,
+              "all_neutral_contexts": 82,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 34
+            },
+            "0.05": {
+              "unanimous_contexts": 83,
+              "all_neutral_contexts": 83,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 33
+            }
+          }
+        },
+        "I": {
+          "near_mean_within_context_sample_variance": 0.01731145184006575,
+          "near_mean_endpoint": 0.6596342941810345,
+          "near_identical_endpoint_contexts": 20,
+          "far_mean_within_context_sample_variance": 0.018633261494252873,
+          "far_mean_endpoint": 0.5479525862068966,
+          "far_identical_endpoint_contexts": 24,
+          "contrast_mean_within_context_sample_variance": 0.0325772564377669,
+          "contrast_labels": {
+            "0.0": {
+              "unanimous_contexts": 19,
+              "all_neutral_contexts": 7,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 12,
+              "discordant_contexts": 97
+            },
+            "0.05": {
+              "unanimous_contexts": 19,
+              "all_neutral_contexts": 7,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 12,
+              "discordant_contexts": 97
+            }
+          }
+        }
+      },
+      "central": {
+        "allocated_contexts": 128,
+        "allocated_arm_trajectories": 1024,
+        "occupied_arm_trajectories": 1024,
+        "paired_eligible_contexts": 128,
+        "A": {
+          "near_mean_within_context_sample_variance": 0.0040283203125,
+          "near_mean_endpoint": 0.73193359375,
+          "near_identical_endpoint_contexts": 96,
+          "far_mean_within_context_sample_variance": 0.0026448567708333335,
+          "far_mean_endpoint": 0.73876953125,
+          "far_identical_endpoint_contexts": 107,
+          "contrast_mean_within_context_sample_variance": 0.004069010416666667,
+          "contrast_labels": {
+            "0.0": {
+              "unanimous_contexts": 103,
+              "all_neutral_contexts": 103,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 25
+            },
+            "0.05": {
+              "unanimous_contexts": 103,
+              "all_neutral_contexts": 103,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 25
+            }
+          }
+        },
+        "I": {
+          "near_mean_within_context_sample_variance": 0.023653626441955566,
+          "near_mean_endpoint": 0.4990895589192708,
+          "near_identical_endpoint_contexts": 15,
+          "far_mean_within_context_sample_variance": 0.023966471354166664,
+          "far_mean_endpoint": 0.35595703125,
+          "far_identical_endpoint_contexts": 17,
+          "contrast_mean_within_context_sample_variance": 0.034502625465393066,
+          "contrast_labels": {
+            "0.0": {
+              "unanimous_contexts": 32,
+              "all_neutral_contexts": 12,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 20,
+              "discordant_contexts": 96
+            },
+            "0.05": {
+              "unanimous_contexts": 32,
+              "all_neutral_contexts": 13,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 19,
+              "discordant_contexts": 96
+            }
+          }
+        }
+      },
+      "selfing_like": {
+        "allocated_contexts": 128,
+        "allocated_arm_trajectories": 1024,
+        "occupied_arm_trajectories": 1024,
+        "paired_eligible_contexts": 128,
+        "A": {
+          "near_mean_within_context_sample_variance": 0.009521484375,
+          "near_mean_endpoint": 0.9453125,
+          "near_identical_endpoint_contexts": 58,
+          "far_mean_within_context_sample_variance": 0.009724934895833334,
+          "far_mean_endpoint": 0.94775390625,
+          "far_identical_endpoint_contexts": 54,
+          "contrast_mean_within_context_sample_variance": 0.0054931640625,
+          "contrast_labels": {
+            "0.0": {
+              "unanimous_contexts": 92,
+              "all_neutral_contexts": 92,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 36
+            },
+            "0.05": {
+              "unanimous_contexts": 92,
+              "all_neutral_contexts": 92,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 36
+            }
+          }
+        },
+        "I": {
+          "near_mean_within_context_sample_variance": 0.022774338722229004,
+          "near_mean_endpoint": 0.2989247639973958,
+          "near_identical_endpoint_contexts": 14,
+          "far_mean_within_context_sample_variance": 0.025187174479166664,
+          "far_mean_endpoint": 0.21630859375,
+          "far_identical_endpoint_contexts": 22,
+          "contrast_mean_within_context_sample_variance": 0.02805303202735053,
+          "contrast_labels": {
+            "0.0": {
+              "unanimous_contexts": 31,
+              "all_neutral_contexts": 26,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 5,
+              "discordant_contexts": 97
+            },
+            "0.05": {
+              "unanimous_contexts": 31,
+              "all_neutral_contexts": 26,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 5,
+              "discordant_contexts": 97
+            }
+          }
+        }
+      }
+    },
+    "assurance_cost": {
+      "outcross_like": {
+        "allocated_contexts": 128,
+        "allocated_arm_trajectories": 1024,
+        "occupied_arm_trajectories": 987,
+        "paired_eligible_contexts": 101,
+        "A": {
+          "near_mean_within_context_sample_variance": 0.011466451508974683,
+          "near_mean_endpoint": 0.5387651265126513,
+          "near_identical_endpoint_contexts": 37,
+          "far_mean_within_context_sample_variance": 0.009952557755775577,
+          "far_mean_endpoint": 0.5587871287128713,
+          "far_identical_endpoint_contexts": 42,
+          "contrast_mean_within_context_sample_variance": 0.010128628924632914,
+          "contrast_labels": {
+            "0.0": {
+              "unanimous_contexts": 56,
+              "all_neutral_contexts": 56,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 45
+            },
+            "0.05": {
+              "unanimous_contexts": 56,
+              "all_neutral_contexts": 56,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 45
+            }
+          }
+        },
+        "I": {
+          "near_mean_within_context_sample_variance": 0.017229293526683398,
+          "near_mean_endpoint": 0.6748788160066007,
+          "near_identical_endpoint_contexts": 16,
+          "far_mean_within_context_sample_variance": 0.015212458745874588,
+          "far_mean_endpoint": 0.5451732673267327,
+          "far_identical_endpoint_contexts": 30,
+          "contrast_mean_within_context_sample_variance": 0.03144155459654038,
+          "contrast_labels": {
+            "0.0": {
+              "unanimous_contexts": 22,
+              "all_neutral_contexts": 5,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 17,
+              "discordant_contexts": 79
+            },
+            "0.05": {
+              "unanimous_contexts": 20,
+              "all_neutral_contexts": 5,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 15,
+              "discordant_contexts": 81
+            }
+          }
+        }
+      },
+      "central": {
+        "allocated_contexts": 128,
+        "allocated_arm_trajectories": 1024,
+        "occupied_arm_trajectories": 1024,
+        "paired_eligible_contexts": 128,
+        "A": {
+          "near_mean_within_context_sample_variance": 0.011066238085428873,
+          "near_mean_endpoint": 0.6770884195963541,
+          "near_identical_endpoint_contexts": 46,
+          "far_mean_within_context_sample_variance": 0.008544921875,
+          "far_mean_endpoint": 0.7041015625,
+          "far_identical_endpoint_contexts": 66,
+          "contrast_mean_within_context_sample_variance": 0.013043946690029567,
+          "contrast_labels": {
+            "0.0": {
+              "unanimous_contexts": 54,
+              "all_neutral_contexts": 52,
+              "all_positive_contexts": 2,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 74
+            },
+            "0.05": {
+              "unanimous_contexts": 54,
+              "all_neutral_contexts": 52,
+              "all_positive_contexts": 2,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 74
+            }
+          }
+        },
+        "I": {
+          "near_mean_within_context_sample_variance": 0.018303540017869737,
+          "near_mean_endpoint": 0.5428212483723959,
+          "near_identical_endpoint_contexts": 22,
+          "far_mean_within_context_sample_variance": 0.021601570977105033,
+          "far_mean_endpoint": 0.3887736002604167,
+          "far_identical_endpoint_contexts": 20,
+          "contrast_mean_within_context_sample_variance": 0.03490361902448866,
+          "contrast_labels": {
+            "0.0": {
+              "unanimous_contexts": 25,
+              "all_neutral_contexts": 12,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 13,
+              "discordant_contexts": 103
+            },
+            "0.05": {
+              "unanimous_contexts": 25,
+              "all_neutral_contexts": 12,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 13,
+              "discordant_contexts": 103
+            }
+          }
+        }
+      },
+      "selfing_like": {
+        "allocated_contexts": 128,
+        "allocated_arm_trajectories": 1024,
+        "occupied_arm_trajectories": 1024,
+        "paired_eligible_contexts": 128,
+        "A": {
+          "near_mean_within_context_sample_variance": 0.00969480143653022,
+          "near_mean_endpoint": 0.8029734293619791,
+          "near_identical_endpoint_contexts": 53,
+          "far_mean_within_context_sample_variance": 0.014188130696614582,
+          "far_mean_endpoint": 0.8354085286458334,
+          "far_identical_endpoint_contexts": 25,
+          "contrast_mean_within_context_sample_variance": 0.015994985898335774,
+          "contrast_labels": {
+            "0.0": {
+              "unanimous_contexts": 37,
+              "all_neutral_contexts": 37,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 91
+            },
+            "0.05": {
+              "unanimous_contexts": 37,
+              "all_neutral_contexts": 37,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 91
+            }
+          }
+        },
+        "I": {
+          "near_mean_within_context_sample_variance": 0.01987624168395996,
+          "near_mean_endpoint": 0.3470967610677083,
+          "near_identical_endpoint_contexts": 19,
+          "far_mean_within_context_sample_variance": 0.016178660922580294,
+          "far_mean_endpoint": 0.20011393229166666,
+          "far_identical_endpoint_contexts": 27,
+          "contrast_mean_within_context_sample_variance": 0.03481978840298123,
+          "contrast_labels": {
+            "0.0": {
+              "unanimous_contexts": 21,
+              "all_neutral_contexts": 7,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 14,
+              "discordant_contexts": 107
+            },
+            "0.05": {
+              "unanimous_contexts": 21,
+              "all_neutral_contexts": 7,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 14,
+              "discordant_contexts": 107
+            }
+          }
+        }
+      }
+    },
+    "prior_selfing": {
+      "outcross_like": {
+        "allocated_contexts": 128,
+        "allocated_arm_trajectories": 1024,
+        "occupied_arm_trajectories": 1013,
+        "paired_eligible_contexts": 118,
+        "A": {
+          "near_mean_within_context_sample_variance": 0.012756002824858757,
+          "near_mean_endpoint": 0.5778601694915254,
+          "near_identical_endpoint_contexts": 29,
+          "far_mean_within_context_sample_variance": 0.013329802259887006,
+          "far_mean_endpoint": 0.5836864406779662,
+          "far_identical_endpoint_contexts": 25,
+          "contrast_mean_within_context_sample_variance": 0.004722810734463277,
+          "contrast_labels": {
+            "0.0": {
+              "unanimous_contexts": 88,
+              "all_neutral_contexts": 88,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 30
+            },
+            "0.05": {
+              "unanimous_contexts": 88,
+              "all_neutral_contexts": 88,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 30
+            }
+          }
+        },
+        "I": {
+          "near_mean_within_context_sample_variance": 0.016907341736184675,
+          "near_mean_endpoint": 0.573633915960452,
+          "near_identical_endpoint_contexts": 20,
+          "far_mean_within_context_sample_variance": 0.01686087570621469,
+          "far_mean_endpoint": 0.513771186440678,
+          "far_identical_endpoint_contexts": 27,
+          "contrast_mean_within_context_sample_variance": 0.02659112675266302,
+          "contrast_labels": {
+            "0.0": {
+              "unanimous_contexts": 23,
+              "all_neutral_contexts": 23,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 95
+            },
+            "0.05": {
+              "unanimous_contexts": 23,
+              "all_neutral_contexts": 23,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 95
+            }
+          }
+        }
+      },
+      "central": {
+        "allocated_contexts": 128,
+        "allocated_arm_trajectories": 1024,
+        "occupied_arm_trajectories": 1024,
+        "paired_eligible_contexts": 128,
+        "A": {
+          "near_mean_within_context_sample_variance": 0.0028483072916666665,
+          "near_mean_endpoint": 0.7373046875,
+          "near_identical_endpoint_contexts": 106,
+          "far_mean_within_context_sample_variance": 0.0021158854166666665,
+          "far_mean_endpoint": 0.7412109375,
+          "far_identical_endpoint_contexts": 111,
+          "contrast_mean_within_context_sample_variance": 0.0013834635416666667,
+          "contrast_labels": {
+            "0.0": {
+              "unanimous_contexts": 117,
+              "all_neutral_contexts": 117,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 11
+            },
+            "0.05": {
+              "unanimous_contexts": 117,
+              "all_neutral_contexts": 117,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 11
+            }
+          }
+        },
+        "I": {
+          "near_mean_within_context_sample_variance": 0.023120310571458604,
+          "near_mean_endpoint": 0.3507537841796875,
+          "near_identical_endpoint_contexts": 15,
+          "far_mean_within_context_sample_variance": 0.0283203125,
+          "far_mean_endpoint": 0.31640625,
+          "far_identical_endpoint_contexts": 7,
+          "contrast_mean_within_context_sample_variance": 0.026126292016771104,
+          "contrast_labels": {
+            "0.0": {
+              "unanimous_contexts": 36,
+              "all_neutral_contexts": 36,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 92
+            },
+            "0.05": {
+              "unanimous_contexts": 36,
+              "all_neutral_contexts": 36,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 92
+            }
+          }
+        }
+      },
+      "selfing_like": {
+        "allocated_contexts": 128,
+        "allocated_arm_trajectories": 1024,
+        "occupied_arm_trajectories": 1024,
+        "paired_eligible_contexts": 128,
+        "A": {
+          "near_mean_within_context_sample_variance": 0.009440104166666666,
+          "near_mean_endpoint": 0.951171875,
+          "near_identical_endpoint_contexts": 56,
+          "far_mean_within_context_sample_variance": 0.00927734375,
+          "far_mean_endpoint": 0.955078125,
+          "far_identical_endpoint_contexts": 57,
+          "contrast_mean_within_context_sample_variance": 0.0027669270833333335,
+          "contrast_labels": {
+            "0.0": {
+              "unanimous_contexts": 107,
+              "all_neutral_contexts": 107,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 21
+            },
+            "0.05": {
+              "unanimous_contexts": 107,
+              "all_neutral_contexts": 107,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 21
+            }
+          }
+        },
+        "I": {
+          "near_mean_within_context_sample_variance": 0.024072912004258897,
+          "near_mean_endpoint": 0.18169148763020834,
+          "near_identical_endpoint_contexts": 13,
+          "far_mean_within_context_sample_variance": 0.0252585940890842,
+          "far_mean_endpoint": 0.17140706380208334,
+          "far_identical_endpoint_contexts": 9,
+          "contrast_mean_within_context_sample_variance": 0.017520321740044486,
+          "contrast_labels": {
+            "0.0": {
+              "unanimous_contexts": 44,
+              "all_neutral_contexts": 44,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 84
+            },
+            "0.05": {
+              "unanimous_contexts": 44,
+              "all_neutral_contexts": 44,
+              "all_positive_contexts": 0,
+              "all_negative_contexts": 0,
+              "discordant_contexts": 84
+            }
+          }
+        }
+      }
+    }
+  }
+}

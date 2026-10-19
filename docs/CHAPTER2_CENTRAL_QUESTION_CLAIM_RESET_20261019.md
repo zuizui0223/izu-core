@@ -69,6 +69,16 @@ proposing any new same-condition or capacity simulation. A formal claim about
 comparative predictability needs a prospective estimand or clearly labeled
 post-outcome analysis; no favorable reanalysis is promoted to confirmation.
 
+Readback completed: the bridge and its capacity comparison fixed expressed A=.5,
+so their apparent A invariance cannot be counted as evolved repeatability.
+A separate four-setting finite follow-up does store matched evolving A/I
+endpoints. The [matched endpoint audit](CHAPTER2_MATCHED_AI_REPEATABILITY_20261019.md)
+admits all four original ZIP hashes and finds lower far-endpoint A variance than
+I in all12 setting/start summaries. Most unanimous A near/far contrasts are
+exactly zero. Independent review reproduced every summary. This supplies a
+bounded descriptive attained-state comparison without new simulation; timing
+and initial-to-final directions remain unavailable in these endpoint JSONs.
+
 ## Priority and completion boundaries
 
 1. Audit existing matched A/I repetitions under pollinator reduction: direction,
