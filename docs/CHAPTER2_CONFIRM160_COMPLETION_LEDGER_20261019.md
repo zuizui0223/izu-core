@@ -32,7 +32,14 @@ source update therefore cannot silently trigger another160x160 campaign.
   this experiment contains zero such futures and cannot close that question.
 - Exact-head integration CI/scientific checks pass before merging approved work.
 
-Status: calculation and closeout in progress; full goal not complete.
+Status update2026-10-19: all32workers and collection succeeded. The independent
+full-raw audit passed and reproduced G/S and all epsilon inputs. The original
+integration candidate passed all three Python CI versions and scientific gate;
+PR601 was merged to main as `2a2b51a2b14975b51e4a0c4f69c08105c35e31a3`.
+The [admitted results](CHAPTER2_CONFIRM160_RESULTS_20261019.md) and their
+manuscript update are the subsequent documentation delivery. Actual
+new-environment readaptation is not completed by these endpoints; the full
+scientific goal must not be marked complete solely from this experiment.
 
 ## Independent raw admission command
 
