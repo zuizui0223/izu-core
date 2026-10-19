@@ -204,3 +204,25 @@ def test_original_four_question_contract_and_figure_03_synthesis():
     assert "+2.83 and +4.59" in active
     assert "selection → sequence → finite realization → persistence" in crosswalk
     assert "entire mediation chain" in crosswalk
+
+
+def test_q4_original_vs_new_cohorts_are_separate():
+    original = json.loads((ROOT / "data/results/chapter2_island_demographic_independent32_20261008.json").read_text(encoding="utf-8"))
+    latest = src("CHAPTER2_CONFIRM160_COMPACT_RESULTS_20261019.json")
+    manuscript = (ROOT / "docs/CHAPTER2_UNIFIED_NEE_ARTICLE_WORKING_20261017.md").read_text(encoding="utf8")
+    assert original["independent_histories"] == 32
+    assert original["predeclared_pooled_primary"]["pass"] is True
+    same(original["predeclared_pooled_primary"]["mean"], .1083984375)
+    assert original["predeclared_pooled_primary"]["bootstrap95"][0] > 0
+    prior = next(x for x in original["per_setting"] if x["setting"] == "prior_selfing")
+    assert prior["bootstrap95"][0] < 0 < prior["bootstrap95"][1]
+    assert latest["independent_axes"] == [160, 160] and latest["crossings"] == 25600
+    newest = next(x for x in latest["primary"]["endpoints"] if x["name"] == "survival_interaction")
+    same(newest["estimate"], .9270703125)
+    assert newest["interval"][0] > 0
+    assert "### Q4 — Persistence" in manuscript
+    assert "+0.1083984375" in manuscript
+    assert "+2.83 and +4.59" in manuscript
+    assert "policy-by-budget interaction" in manuscript
+    # The two studies are separate experiments and the Q4 result is not a genetic mediation estimate.
+    assert "not" in manuscript.split("### Q4 — Persistence", 1)[1].split("### Confirmed policy effects", 1)[0].lower()
