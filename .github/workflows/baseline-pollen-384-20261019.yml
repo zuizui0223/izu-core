@@ -1,0 +1,55 @@
+name: Baseline pollen 384 frozen pilot
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: baseline-pollen-384-20261019
+  cancel-in-progress: false
+jobs:
+  pilot:
+    if: github.event_name == 'workflow_dispatch' && github.run_attempt == 1
+    runs-on: ubuntu-24.04
+    timeout-minutes: 45
+    env:
+      PYTHONPATH: .
+      PYTHONUTF8: '1'
+      OPENBLAS_NUM_THREADS: '1'
+      OMP_NUM_THREADS: '1'
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.sha }}
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.10'
+      - run: python -m pip install numpy==2.2.6 scipy==1.15.3 pytest==8.4.2
+      - name: Validate frozen inputs and matched fork
+        run: python -m pytest tests/test_chapter2_pollen_baseline_remote_20261019.py -q
+      - name: Record execution source
+        run: |
+          mkdir -p pollen-384
+          git rev-parse HEAD > pollen-384/SOURCE_SHA.txt
+          python -m pip freeze > pollen-384/ENVIRONMENT.txt
+          cp docs/protocols/CHAPTER2_BASELINE_POLLEN_LIMIT_2X2_FROZEN_20261019.json pollen-384/PROTOCOL.json
+      - name: Run strong baseline limitation (192 trajectories)
+        run: python -m scripts.chapter2_pollen_baseline_factorial_20261019 run --level strong_baseline_limitation --out pollen-384/strong.json
+      - name: Run weak baseline limitation (192 trajectories)
+        run: python -m scripts.chapter2_pollen_baseline_factorial_20261019 run --level weak_baseline_limitation --out pollen-384/weak.json
+      - name: Aggregate complete allocation only
+        run: python -m scripts.chapter2_pollen_baseline_factorial_20261019 aggregate --input pollen-384/strong.json pollen-384/weak.json --out pollen-384/summary.json
+      - name: Independent endpoint audit and founder interaction
+        run: python -m scripts.audit_chapter2_pollen_baseline_factorial_20261019 --strong pollen-384/strong.json --weak pollen-384/weak.json --summary pollen-384/summary.json --out pollen-384/audit.json
+      - name: Hash retained files
+        if: always()
+        run: |
+          if [ -d pollen-384 ]; then
+            find pollen-384 -type f ! -name SHA256SUMS -print0 | sort -z | xargs -0 -r sha256sum > pollen-384/SHA256SUMS
+          fi
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: baseline-pollen-384-${{ github.run_id }}-${{ github.run_attempt }}
+          path: pollen-384/
+          if-no-files-found: warn
+          retention-days: 90
