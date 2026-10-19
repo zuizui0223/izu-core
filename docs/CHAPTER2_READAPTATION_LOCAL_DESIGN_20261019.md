@@ -52,6 +52,16 @@ entry by design; this isolates subsequent response and is not a dispersal or
 establishment-filtering experiment. Retain seedless donors and later extinctions
 in all-start denominators.
 
+The 32 preselected donor states have now been admitted read-only from the
+original B8 census-80 assets. Archive and member hashes, source provenance,
+founder state, prefix-to-fork identity, all recorded allele origins and terminal
+state digests were checked using the existing independent source auditor.
+All 32 have population 48; none was replaced based on its outcome. This read
+generated no offspring and performed no biological updates.
+[Donor admission receipt](audits/CHAPTER2_READAPTATION_DONOR_ADMISSION_20261019.json).
+The eventual cohort/manifest audit must still bind each generated cohort's
+parentage to these admitted donor digests.
+
 ## PC evidence and operational limits
 
 The inspected PC has an i9-13900H, 14 physical / 20 logical cores, approximately
