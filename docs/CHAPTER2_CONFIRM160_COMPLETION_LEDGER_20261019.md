@@ -5,9 +5,9 @@ GitHub run: https://github.com/zuizui0223/izu-core/actions/runs/39193074847
 Archive tag: `q3-confirm160-f7792629b35b07e93ac9c98f8feb4d3894da85eb`.
 
 The user-authorized source passed Linux admission tests and archive destination
-verification. Its32shard campaign is running. No scientific verdict is recorded
-before complete collection. No restart or source change is authorized by this
-ledger; partials resume the same contract/RNG through the original workflow.
+verification. Its32shard campaign and independent raw audit are complete.
+Scientific verdicts were admitted only after complete collection. No restart or
+source change is authorized by this ledger.
 
 The separate scientific-gate run39193074733 failed the repository's generic
 workflow-trigger allowlist, which did not yet name the newly authorized workflow.
@@ -40,6 +40,13 @@ The [admitted results](CHAPTER2_CONFIRM160_RESULTS_20261019.md) and their
 manuscript update are the subsequent documentation delivery. Actual
 new-environment readaptation is not completed by these endpoints; the full
 scientific goal must not be marked complete solely from this experiment.
+
+Result-delivery update: PR602 head `b79daac15241a6963d3e56c82a3692b80251d530`
+passed Python3.10/3.11/3.12 CI, scientific gate and both review-package checks.
+It was merged to main on2026-10-19 as
+`43418fa79a7599ba6dd9fa5c5acc7cbb0de8d83d`. The remaining readaptation work is
+bounded by the [local-PC design](CHAPTER2_READAPTATION_LOCAL_DESIGN_20261019.md);
+implementation/technical testing is authorized, production remains unlaunched.
 
 ## Independent raw admission command
 

@@ -86,8 +86,11 @@ Compare with each cohort's initial performance in that context; increased I or
 M change alone is not evidence of adaptation. Archive strict/epsilon allele
 support diagnostics without changing their original target meanings.
 
-The strict proposed contract and 14 tests now enforce the reduced allocation,
-source hashes and false production authorization. Full stream admission checks
-10,304 distinct cohort/future master seeds. Transfer, future telemetry, common
-assays, resource controls and independent raw audit still require implementation
-and review before launch. This document does not assert they are complete.
+The strict proposed contract and seed-transfer implementation have 22 passing
+focused tests, covering the reduced allocation, source hashes, false production
+authorization, native donor-policy seed production, parental orientation,
+Mendelian origins, capped seed supply and the five destination controls.
+Full stream admission checks 10,304 distinct cohort/future master seeds.
+Future telemetry, common assays, resource controls and independent raw audit
+still require implementation and review before launch. This document does not
+assert they are complete.

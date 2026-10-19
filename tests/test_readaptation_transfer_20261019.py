@@ -116,3 +116,11 @@ def test_changed_alleles_change_cohort_identity():
     donor=synthetic_donor()
     changed=replace(donor,alleles=donor.alleles+.01)
     assert cohort_digest(donor)!=cohort_digest(changed)
+
+
+def test_high_production_is_capped_after_the_source_draw():
+    cfg=replace(synthetic_config(),ovule_budget=1000)
+    cohort,receipt=make_cohort(synthetic_donor(),cfg,empty_visitors(),streams(),
+                              [0,0,'evolving',0])
+    assert receipt['source_production']>12
+    assert receipt['transferred']==len(cohort.ids)==12
