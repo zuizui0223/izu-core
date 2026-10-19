@@ -68,6 +68,20 @@ positive differences; no epsilon is selected as a new primary endpoint.
 
 ## Claim boundary
 
+A separate **post-outcome descriptive** reading of the admitted endpoint arrays
+addresses context heterogeneity, not another confirmatory test. For G, marginal
+effects averaged over all160 visitor contexts were positive for151 founders,
+zero for2 and negative for7; averaged over founders,147 visitor effects were
+positive,4 zero and9 negative. For S, all160 founder and all160 visitor marginal
+means were positive. At the individual paired-cell level, G closed in both
+policies in9,584 cells, neither in5,316, evolving only in6,416 and fixed only
+in4,284. [Exact arithmetic and source hash](audits/CHAPTER2_CONFIRM160_CONTEXT_HETEROGENEITY_20261019.json).
+These shared-cell averages are not independent sign-test observations or
+individually significant effects. Paired-policy discordance is not stochastic
+repeatability under an identical policy. Thus context robustness of the average
+survival contrast is evident in this design, but does not rank the intrinsic
+determinism of A and I evolution.
+
 G concerns genetic accessibility in a resource setting where every population
 survives. S concerns a survival contrast across two resource settings. Together
 they do not identify genetic-loss mediation of survival, a universal tradeoff,
