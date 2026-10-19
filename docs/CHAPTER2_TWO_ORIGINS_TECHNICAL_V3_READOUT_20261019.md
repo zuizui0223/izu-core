@@ -34,6 +34,24 @@
 - After fixing all M/I/A expressions, conditional p is identical among all six founders at each synthetic island (**82.66%** at no-visitors B4.5, **97.45%** with visitors B8), an expected negative-control property of this deliberately standardized reproduction kernel.
 - Because actual arrival chance is .8 independent of source, the *candidate-to-establishment* probability in this fixture is `0.8 × p(establish|arrived)` for each source and mode. Even if p is high, individual lineage establishment remains stochastic. **A trait-state gradient in establishment probability is not near-certain lineage fate prediction**.
 
+## Analytical sanity check of the native no-visitor founding kernel (NOT a discovery of a new island law)
+
+At the single founding reproductive update with **no visitors**, delayed autonomous selfing, zero adult carryover, zero immigration and no mutation, the native [Model3 reproduction ledger](../scripts/model3_island/reproduction.py) yields no outcross births. For source adults \(j=1,\dots,n\) with expressed autonomous assurance \(A_j\) and floral investment \(I_j\), the **exact conditional expected number of viable selfed recruits** is
+
+\[
+\Lambda=B(1-\delta)\sum_{j=1}^n A_j\exp(-c_I I_j^2-c_A A_j^2),
+\qquad P(\text{establish}\mid\text{arrived})=1-\exp(-\Lambda).
+\]
+
+For the narrower homogeneous-source illustration, \(\Lambda=nB(1-\delta)A\exp(-c_I I^2-c_A A^2)\). With the **technical** cost settings \(c_I=c_A=0.5\), its log sensitivities are
+
+\[
+\frac{\partial\log\Lambda}{\partial A}=\frac{1}{A}-A\geq0\quad(0<A\leq1),\qquad
+\frac{\partial\log\Lambda}{\partial I}=-I\leq0\quad(I\geq0).
+\]
+
+Thus at fixed source floral investment, increasing expressed A increases expected viable offspring in this no-visitor founding model. But **I ALSO contributes to the founding filter through allocation cost**, before any post-establishment evolution. The proposed absolute statement “only A is selected, I only evolves” is therefore false even in this basic Model3 regime. With visitors, I additionally affects maternal and paternal pollen transfer, so its founding effect can change with ecological context. Different assurance costs, mating timing, adult survival, propagule counts or source genetic distributions can change the formulas and results; the generality must be independently tested. A positive derivative of a conditional establishment *probability* does NOT make the discrete fate of an individual lineage certain. The separate arrival lottery and stochastic Poisson recruitment still apply.
+
 ## Tests and biological limitations
 
 The associated v3 [implementation](../scripts/chapter2_two_origins_technical_20261019.py), [technical tests](../tests/test_chapter2_two_origins_technical_20261019.py) and [source control and audit design](CHAPTER2_TWO_ORIGINS_ENGINEERING_GATE_20261019.md) were exercised through the successful Actions technical gate. Full fixture allocates **6 lineages × 2 technical islands × 2 arrival/demographic resets × 5 early establishment modes × 4 post-establishment expression policies = 480 path records**, with only 24 distinct source×island×reset candidate events; this table summarizes 12 source×island probability functions rather than 480 independent island taxa. The initial-probability table uses no outcome-selected survivor restriction. Subsequent demographic and genotype results do not identify a natural island-assembly mechanism.
