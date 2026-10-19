@@ -45,4 +45,19 @@ More repeatable A endpoints therefore do not establish a consistently positive A
 - Trait summaries are survivor-conditional; excluded contexts remain in the receipt's all-start occupancy counts.
 - Four repeats per context cannot establish near-certain outcomes.
 - Endpoint JSONs do not contain event order or genetic-closure timing, and do not test actual readaptation.
-- This comparison required no new simulation. Search original trajectory archives before proposing any new timing/direction run.
+- This comparison required no new simulation.
+
+## Time-series availability audit
+
+The artifact inventory of original Actions run 37186196843 contains exactly
+the four setting ZIPs used above, each with endpoint JSON and a log. Its
+workflow at source head 92b90059e1039eb6cf62bc0b08924a56173c726e uploaded only
+these files. Later commit 4b7d7bc7c0d6cd9b87e38150c55dfa99fd9b0556 added
+optional trajectory capture. The repository's
+`data/results/model3_repair_capture_20261004/receipt.json` records two captured
+arms for assurance_cost, history 74001, demographic seed 401, explicitly
+scoped to capture and endpoint replay. Those two trajectories cannot supply
+the matched four-repeat, twelve-cell timing comparison. This establishes
+the limits of the inspected archives, not the absence of any other archive.
+Retain endpoint repeatability as the current result; do not infer ordering
+or launch a full replay merely to fill this gap.

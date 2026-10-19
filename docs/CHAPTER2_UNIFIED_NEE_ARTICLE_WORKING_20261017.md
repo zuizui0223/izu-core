@@ -104,6 +104,27 @@ five target tolerances. Crossed cells are not independent islands, and a
 precise average effect does not establish predictable individual fates.
 [Complete results and audit](CHAPTER2_CONFIRM160_RESULTS_20261019.md).
 
+### Assurance endpoints were more repeatable under the sampled conditions
+
+A post-outcome readback of an existing finite experiment compared evolving A
+and I in the same surviving contexts: four mating settings, three initial
+states, 128 visitor histories and four demographic repeats, with paired
+near/far environments (12,288 arm trajectories). Within-context far-endpoint
+variance, averaged over eligible contexts, was lower for A in all twelve
+setting-by-start summaries. For central starts, all four repeats attained
+identical A in 66–111 of 128 histories, compared with 7–20 for I. Exact
+agreement did not rank A higher in every noncentral setting.
+
+This descriptive endpoint result does not establish deterministic evolution
+or a uniformly positive response to pollinator decline: most unanimous A
+far-minus-near contrasts were zero. The comparison conditions on survival
+in all four paired repeats, uses five allele nodes per trait, fixes M,
+and excludes mutation. Boundaries, inherited variation and convergence
+can therefore contribute to repeatability. Event order and loss timing
+cannot be reconstructed from these endpoint records. No new biological
+updates were run for this audit.
+[Matched records, metrics and limitations](CHAPTER2_MATCHED_AI_REPEATABILITY_20261019.md).
+
 ## Planned new decisive Results — PENDING, not observations
 
 ### Restoration of pollen service versus restoration of investment alleles
