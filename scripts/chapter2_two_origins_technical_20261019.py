@@ -27,10 +27,11 @@ from scripts.model3_island.randomness import STREAM_IDS, stream
 from scripts.model3_island.reproduction import reproduce
 from scripts.model3_island.types import Config, PlantState, VisitorState
 
-SOURCE_VERSION = "two-origins-technical-20261019-v2"
+SOURCE_VERSION = "two-origins-technical-20261019-v2"  # stable genotype/arrival RNG namespace
+PROTOCOL_VERSION = "two-origins-technical-20261019-v3"
 FIELDS = ("alleles", "allele_origin", "mutation_flags", "ids", "birth_years")
 POLICIES = ("native", "clamp_A", "clamp_I", "clamp_A_I")
-ESTABLISHMENT_MODES = ("native", "trait_neutral")
+ESTABLISHMENT_MODES = ("native", "neutral_A", "neutral_I", "neutral_A_I", "trait_neutral")
 TRAITS = ("A", "I")
 CAPACITY = 12
 HORIZON = 6
@@ -182,10 +183,12 @@ def attempt(lineage: SourceLineage, island: Island, reset_id: int, *,
     rng = np.random.default_rng(_seed("arrival", island.island_id, reset_id, lineage.lineage_id))
     arrived = bool(rng.random() < chance)
     observed = _visitors(island)
-    neutral = establishment_mode == "trait_neutral"
-    cfg = _config(island, assurance_mode="fixed" if neutral else "evolving",
-                  initial_a=.5 if neutral else src["A"])
-    expressed = _neutral_establishment_state(initial) if neutral else initial
+    freeze_a = establishment_mode in ("neutral_A", "neutral_A_I", "trait_neutral")
+    freeze_i = establishment_mode in ("neutral_I", "neutral_A_I", "trait_neutral")
+    cfg = _config(island, assurance_mode="fixed" if freeze_a else "evolving",
+                  initial_a=.5 if freeze_a else src["A"])
+    expressed = (_neutral_establishment_state(initial) if establishment_mode == "trait_neutral"
+                 else _expressed_state(initial, .5, freeze_i))
     # Evaluate every candidate even when the arrival lottery fails. Because
     # survival=0, immigration=0, and capacity>0, exactly one native first
     # reproduction update establishes iff Poisson(expected viable recruits)>0.
@@ -352,7 +355,7 @@ def technical_fixture() -> dict:
                                        I=stage_accounting(sub, "I")))
     return dict(
         status="TECHNICAL_SMOKE_ONLY_NOT_SCIENTIFIC_EVIDENCE",
-        protocol=SOURCE_VERSION,
+        protocol=PROTOCOL_VERSION, source_rng_namespace=SOURCE_VERSION,
         engine="scripts.model3_island reproduction+population (unaltered)",
         lineages=len(lineages), islands=len(islands), archipelago_resets=REPEATS,
         policies=list(POLICIES), establishment_modes=list(ESTABLISHMENT_MODES),
