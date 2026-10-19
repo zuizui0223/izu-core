@@ -92,11 +92,31 @@ Compare with each cohort's initial performance in that context; increased I or
 M change alone is not evidence of adaptation. Archive strict/epsilon allele
 support diagnostics without changing their original target meanings.
 
-The strict proposed contract and seed-transfer implementation have 22 passing
-focused tests, covering the reduced allocation, source hashes, false production
-authorization, native donor-policy seed production, parental orientation,
-Mendelian origins, capped seed supply and the five destination controls.
-Full stream admission checks 10,304 distinct cohort/future master seeds.
-Future telemetry, common assays, resource controls and independent raw audit
-still require implementation and review before launch. This document does not
-assert they are complete.
+The strict contract, seed transfer, future telemetry, common-context assay,
+single-future raw audit and conditional allocation summaries are implemented
+and covered by focused tests. Full stream admission checks 10,304 distinct
+cohort/future master seeds. Files are published without overwriting an existing
+checkpoint and read independently with SHA admission, exact member inventories
+and pickle disabled. Full archive admission binding allocations to source
+cohorts, resource controls, resume orchestration and independent branch review
+remain incomplete. The production gate remains closed.
+
+### Measured synthetic storage path
+
+Five synthetic futures (400 updates total, one per destination) each reached
+capacity 48. Native future computation took .068–.091 seconds per trajectory,
+compressed file publication .031–.043 seconds, and independent readback plus
+raw-state audit .072–.137 seconds. Files were 38,774–70,810 bytes, versus
+556,582–564,676 raw array bytes. All five passed the raw audit. These are five
+technical samples, not scientific outcomes or worst-case resource bounds.
+Keep the 8 GiB allocation and include source admission, full replay and full
+allocation auditing in the eventual production estimate.
+
+The synthetic recipe used 12 diploids with independent uniform [.3,.7) allele
+values from NumPy default_rng(20261019), distinct origins 0–71, entry IDs 0–11,
+birth year zero and no mutation flags. Use the pinned base configuration with
+the future-design overrides and zero seed/visitor arrival supply. Destinations
+were ordered none, a0_m0, a0_m1, a1_m0, a1_m1; future master seeds were
+2026101900 through 2026101904. Each file was saved, independently loaded and
+audited before deletion from the temporary technical directory.
+[Measurements and implementation hashes](audits/CHAPTER2_READAPTATION_STORAGE_PREFLIGHT_20261019.json).

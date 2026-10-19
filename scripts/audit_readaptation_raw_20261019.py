@@ -5,12 +5,47 @@ Reproductive probabilities and assay biology require native replay, not this aud
 """
 import hashlib
 import json
+from pathlib import Path
+import zipfile
 
 import numpy as np
 from scipy.stats import beta
 
 
 FIELDS=('alleles','allele_origin','mutation_flags','ids','birth_years')
+
+
+def load_future(path,expected_sha256,expected_key):
+    """Read one bounded NPZ independently of the writer; no pickle or extraction."""
+    path=Path(path)
+    require(path.stat().st_size<=16*1024**2,'compressed future size bound')
+    require(hashlib.sha256(path.read_bytes()).hexdigest()==expected_sha256,'future hash mismatch')
+    with zipfile.ZipFile(path) as archive:
+        infos=archive.infolist()
+        names=[info.filename for info in infos]
+        require(len(names)==len(set(names)),'duplicate archive member')
+        require(sum(info.file_size for info in infos)<=16*1024**2,'expanded future size bound')
+        require('__metadata__.npy' in names,'missing future metadata')
+    with np.load(path,allow_pickle=False) as archive:
+        raw=archive['__metadata__']
+        require(raw.ndim==1 and raw.dtype==np.dtype('uint8'),'metadata representation')
+        header=json.loads(raw.tobytes().decode('utf8'))
+        require(set(header)=={'format','key','metadata','arrays'} and
+                header['format']=='readaptation_npz_v1','archive format')
+        require(json.dumps(header['key'])==json.dumps(list(expected_key)),'future key mismatch')
+        keys=header['arrays']
+        require(isinstance(keys,list) and all(isinstance(k,str) for k in keys)
+                and len(keys)==len(set(keys)),'array inventory')
+        require(set(names)=={k+'.npy' for k in keys}|{'__metadata__.npy'},'archive inventory mismatch')
+        metadata=header['metadata']
+        require(isinstance(metadata,dict) and not set(keys)&set(metadata),'metadata inventory')
+        json.dumps(metadata,allow_nan=False)
+        result=dict(metadata)
+        for key in keys:
+            value=archive[key]
+            require(value.dtype.kind in 'biuf','non-numeric archive array')
+            result[key]=value
+    return result
 
 
 def require(condition,message):
