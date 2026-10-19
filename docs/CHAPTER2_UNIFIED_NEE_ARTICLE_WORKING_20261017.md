@@ -1,6 +1,6 @@
 # Reproductive assurance and the evolutionary recoverability of flowers
 
-**One-paper upgrade to Nature Ecology & Evolution Article — working scientific manuscript v0.1, 2026-10-17.** This replaces the **submission intention**, NOT any old bytes, signed primary outcome, original model or past experiment. The Ecology Letters-formatted manuscripts are **unsubmitted historical drafts** rather than a second paper. **NOT A SUBMISSION-READY ARTICLE: bounded readaptation outcomes are now admitted, but a full restoration-window mechanism and independent natural validation remain unresolved.** Sections explicitly marked PENDING contain no experimental findings. No high-I allele-loss count, pollinator-return response, assay result or field observation is invented here.
+**One-paper upgrade to Nature Ecology & Evolution Article — working scientific manuscript v0.2, revised 2026-10-19.** This replaces the **submission intention**, NOT any old bytes, signed primary outcome, original model or past experiment. The Ecology Letters-formatted manuscripts are **unsubmitted historical drafts** rather than a second paper. **NOT A SUBMISSION-READY ARTICLE: completed experiments support a bounded model paper; final figures, full methods, reference and author checks, and archival preparation remain. A full restoration-window mechanism and natural validation are outside its demonstrated scope.** Sections explicitly marked PENDING contain no experimental findings. No high-I allele-loss count, pollinator-return response, assay result or field observation is invented here.
 
 **One scientific article only:** Q1–Q4 selection, order, finite realization and persistence are the existing biological foundation. The completed 160x160 confirmation and bounded environmental-transfer experiment distinguish genetic accessibility, persistence and conditional readaptation; they do not establish that A evolution is necessary for every loss of recoverability. The old "Ch3" proposal becomes **Part II of this article**, not an independent manuscript or chapter. Original preregistration results remain unchanged.
 
@@ -10,40 +10,15 @@ Pollinator limitation can alter reproductive assurance, floral investment and pe
 
 ## Introduction
 
-**Conceptual clarification,2026-10-19.** Pollination syndromes, selfing syndromes
-and island floral patterns occupy different explanatory levels. The present
-model separates visitor matching and floral investment from assurance capacity;
-it does not represent every component of any natural syndrome. The central
-question is whether a selfing-like reduction of investment requires assurance
-evolution, or can arise directly from changed ecological returns, with assurance
-subsequently modifying inheritance and persistence. Island conditions motivate
-the scenarios but do not imply uniformly reduced visitation or smaller flowers.
-The source-backed [three-syndrome evidence map](CHAPTER2_THREE_SYNDROMES_FRAME_20261019.md)
-separates colonization filtering from evolution after establishment. Following
-the user's clarified biological question, subsequent readaptation in a different
-pollination environment is now observed in a bounded conditional experiment; restoration of the ancestral
-phenotype is only one possible assay, not the definition of adaptation. The
-completed 160x160 G/S experiment contains no such environmental-transfer futures.
+What happens to plants when pollinator service declines? Autonomous self-fertilization can compensate for failed outcross fertilization, while floral investment affects both pollen receipt and pollen export. These responses need not have the same cause, occur in the same order, or retain the same capacity for subsequent change. A population can continue reproducing while losing alleles needed for a later response. Conversely, survival maintained by reproductive assurance may preserve opportunities for evolution that would otherwise end in extinction.
 
-Separate local selection conditions for investment and assurance do not imply
-a fixed order of evolutionary change. Founder variation and finite transmission
-determine how those conditional advantages are realized and when genetic
-accessibility closes. The [selection and realization evidence map](CHAPTER2_SELECTION_REALIZATION_FRAME_20261019.md)
-also distinguishes individual genetic contribution from collective viable-seed
-output: their local signs can differ without establishing a persistence cost
-or a population optimum.
+This distinction matters when interpreting island floral patterns. Pollination syndromes concern trait associations with pollen vectors; selfing syndromes concern traits associated with mating systems; island patterns additionally reflect establishment, evolution and lineage loss. Their overlap does not make them interchangeable explanations. We address evolution within established populations under prescribed pollination environments. We do not infer natural colonization filtering, evolving deleterious load, or the causes of obligate outcrossing from this model.
 
-The collapse of a mutualism can precede the disappearance of either partner. When pollinators become unreliable, autonomous self-fertilization gives individual plants an alternative reproductive route, whereas floral structures retain maternal pollen-receipt and paternal pollen-export functions. An evolutionarily reduced flower need not indicate reduced current reproduction, and the persistence of plants does not prove the persistence of their historical evolutionary potential.
+Previous theory links selfing schedules with investment in attraction (Sakai, 1995), and field evidence shows that reproductive assurance can weaken pollinator-mediated selection on flower size (Teixido and Aizen, 2019). Mating systems also affect the maintenance of quantitative genetic variation (Lande and Porcher, 2015). The contribution sought here is therefore not the prediction that selfing and smaller flowers can coexist. It is the separation of immediate reproductive returns, finite inheritance, population persistence and subsequent response to a changed environment.
 
-The ecological-evolutionary problem spans two temporal stages. First, does selfing evolution need to occur before floral investment can decline? Second, **after that decline, how do inherited state and a new pollination environment constrain subsequent trait and reproductive responses?** These are not two separate questions requiring two papers: they are complementary questions in one mechanistic framework, addressed under different interventions and time horizons, not an already demonstrated causal chain. An observed order of response is not proof of necessity, nor is a failure to recover by a finite deadline proof of permanent genetic irreversibility.
+We use a finite diploid model with separate loci for floral investment I, visitor matching M and assurance capacity A. Prescribed visitor environments and paired assurance policies distinguish four questions: whether I can decline without A evolution; whether baseline pollen limitation changes the response to an additional visitor decline; whether A evolution changes genetic accessibility and survival; and whether populations with those histories respond after transfer to another pollination environment. A is a capacity, not the realized selfing rate, and fixing its expression does not prohibit selfing.
 
-Mating-system evolution, pollen limitation, selfing-associated floral allocation and demographic feedback are established ideas. Sakai (1995) examined selfing and attractive investment; Teixido and Aizen (2019) documented assurance-dependent floral selection; Lepers, Dufay and Billiard (2014) modeled coupled plant–pollinator demography and prior selfing, including evolutionary suicide. Existing theory also proposes a point after which restoring pollinators no longer restores outcrossing (Acoca-Pidolle 2025 preprint). Consequently neither "selfing reduces floral investment" nor "restoration may fail" is novel as a standalone prediction.
-
-The present article asks three primary questions: **Q1**, whether assurance evolution is necessary for floral decline; **Q2**, when a living population loses the ability to regain higher floral investment after functional pollination returns; and **Q3**, whether allowing assurance to evolve changes that recovery window. The old preregistered Q1–Q4 experiment names refer to distinct historical evidence cohorts and are not renumbered retrospectively.
-
-The broad Q2/Q3 recovery-window questions are only partly addressed: the confirmation measures genetic support and survival, and the transfer experiment samples one late donor census. Neither identifies a full recovery-probability clock.
-
-The distinct candidate contribution is an intervention-based separation of **onset, ecological selection, inheritance-constrained recovery, and population survival** in one finite diploid plant model. We examine whether a return to pollen availability can renew positive selection for floral investment while the required high-investment alleles are absent; whether any resulting threshold is reached before forced pollinator loss; and whether the ability to evolve reproductive assurance accelerates or postpones such closure. We keep the visitor population exogenous: this is a test of plant-side recovery under a prescribed ecological restoration, not proof that altered flowers prevent pollinators from returning.
+The experiments address complementary parts of this mechanism with different sampling designs. Registered contrasts, exploratory factorial estimates and retrospective readbacks remain distinct. In particular, an allele-support bound is not a measured recovery probability, and repeated futures from one transferred cohort are not independent founding populations. This framework tests how current pollen service and inherited state jointly constrain response without assuming a universal order or permanent irreversibility.
 
 ## Results — existing source-admitted evidence
 
@@ -55,65 +30,7 @@ The original matched evolving-versus-fixed A campaign follows 64 independent syn
 
 In source Model 3, cost-free delayed selfing acts as a buffer against failed outcross fertilization, not as a required replacement for outcrossing. For viable-self progeny factor v=1-delta, expressed assurance A, and outcross fertilization q, expected viable maternal seeds are Y=O[q+v*A*(1-q)]. At fixed inherited state, the fraction retained when q falls from one to zero is v*A, relative to that same state's original ovule budget. This is **functional pollen-failure tolerance**, not realized population persistence or long-term fitness. At fixed maternal ovule budget and assurance, the transmission of variation in annual outcross success to expected viable-seed production also follows Var(Y)=O²[1-(1-delta)A]² Var(q); insurance can attenuate the reproductive consequences of unreliable service. This is an algebraic source identity rather than an empirical estimate of stochastic extinction risk. With no direct assurance cost or pollen discount, an increase in A has nonnegative local return under delayed selfing; at perfect q=1 the return is neutral, not a genetic proof that A cannot decline.
 
-Attraction I changes pollen receipt and paternal export while paying allocation cost. The resulting capacity for high-I evolutionary recovery requires BOTH favorable genetic parental selection after the visitor environment returns and sufficient retained high-I allelic support, neither guaranteed by the mother's seed buffer. Prior selfing, pollen discount and assurance resource cost can also make lowering A favorable after visitor return. Hence higher reproductive buffering may coexist with restricted recovery of high I, but a negative relationship between these two properties remains to be tested with randomized historical A policies. The distinction is defined more precisely in the [source mechanism note](protocols/CHAPTER2_TWO_THRESHOLD_PRIVATE_SOCIAL_RECOVERY_SYNTHESIS_20261018.md).
-
-### Temporal precedence does not diagnose what is genetically necessary
-
-Under delayed selfing and a direct assurance cost, A crossed the registered sustained-response threshold before I in **51/64** visitor histories, with 13 nearly simultaneous. Under prior selfing at the same primary threshold, only **30/64** were A-first. A separate registered intervention changing standing I-locus allele carriers in 384 paths found order-score difference +0.109375 with adjusted interval [−0.125,+0.34375] and I-event difference +0.1875 [−0.0625,+0.421875]; **both were inconclusive**. A-first cannot be promoted to a universal evolutionary clock or a cause of later irreversible loss.
-
-### Inherited genetic accessibility can close before complete locus fixation
-
-In a distinct 2,304-path experiment with no I-locus mutation or seed immigration, **703 histories** lost standing support for an additional founder-relative 0.05 **decrease** in I **before** single-allele fixation; 535 first became excluded at fixation. In 315 of the 1,238 selected first-loss transitions, low-I alleles disappeared despite favorable prior conditional parental weighting. This shows that expected favorable directional return and transmission of the alleles needed for the next response are different. It does **NOT** show loss of the **high-I** alleles relevant to post-restoration recovery; a separately marked, retrospective **read-only reverse-direction audit** tests that distinct upper-support boundary below.
-
-A separate deterministic genotype-density comparator predicted A-first in two low-replenishment genetic contexts while finite ABM histories yielded only 3/32 and 2/32 A-first paths despite full occupancy. Density is **not** the finite-model stochastic expectation, and this discrepancy is not a measured proportion caused by drift.
-
-### Retrospective high-I support exclusion in the same source cohort
-
-A separate **source-only, post-outcome audit** re-read the archived 2,304 path × 201-census I-allele maximum arrays, with the original file SHA-256 values checked against their existing genomic-source verification receipt. Taking each case's **original founder mean I** as a predeclared-for-this-reanalysis target, **1,455/2,304 paths** lost all high-I alleles needed to reach it under the original zero-I-mutation/zero-seed-immigration law. Structural high-I exclusion arose **before** single-allele I fixation in **758 paths**, and at fixation in **697**. The first exclusion time ranged from census 7 to 199; both historical founder blocks retained distinct rates (main **714/1,152**, confirmation **741/1,152**). This is a necessary upper-allele support bound for reaching a synthetic target; it does not measure the realized probability of recovery with restored pollinators.
-
-This source analysis is **not an independent replication**, uses neither restored visitor histories nor independently assigned assurance-evolving versus fixed historical policies, and cannot establish whether loss preceded permanent pollinator disappearance. The original lower-support **703/2,304** count targets further **decline**, not the newly tested HIGH-I reversal, and the two counts are different direction-specific diagnostics from the **same** archive. Full computed evidence: [high-I source readout](audits/CHAPTER2_NEE_HIGH_I_SUPPORT_SOURCE_READOUT_20261017.json); [read-only original-source verification run](https://github.com/zuizui0223/izu-core/actions/runs/39016140787).
-
-### Exploratory genetic closure after artificially imposed visitor loss — not recovery confirmation
-
-A separate, **post-outcome exploratory eight-history synthetic Model 3 micro-pilot** crossed two founder seeds with two visitor histories and two historical assurance policies (fixed expressed A=0.5 versus evolving). All eight populations persisted through the final census t=45. Imposed complete visitor removal began at **t=35**. A same-seed source replay of all 46 historical censuses found **one** evolved-A history whose maximum retained investment allele first fell below its own founder mean at **t=39**, four updates after removal; none of four fixed-A histories reached this structural bound through t=45. This is one model-conditional occurrence in four crossed founder–visitor cells, not a statistically identified policy effect or a natural island-history clock. The original source replay matched all five saved state fields at t=10,30,45; identical compact clock summaries were independently retrieved from the Python 3.10, 3.11 and 3.12 runs of the **same implementation**, not three biological replications. [Audited time record](https://github.com/zuizui0223/izu-core/blob/analysis/chapter2-pollinator-recovery-pilot-20261018/docs/audits/CHAPTER2_RECOVERY_GENETIC_CLOCK_CI_READOUT_20261018.json).
-
-A post-outcome source-state assay at t=39 restored six functional visitor types,
-raising expected outcross output by 104.6554 without changing the 48 genotypes.
-The maximum retained I allele, 0.5000, was below the founder mean 0.51171875.
-A focal finite perturbation gave local relative gradients +0.26186 for I and
-−0.04571 for A. Thus a higher-I variant could have favorable immediate return
-while the founder target was inaccessible. The negative A gradient applies to
-delayed selfing with assurance cost 0.5, not costless delayed selfing. This
-single-state assay is neither rigorous polymorphic invasion fitness nor
-multi-generation recovery. Three runtimes reproduced signs and values within
-4.5e-14 using the same implementation, not an independent model.
-
-The associated 144 synthetic visitor-return/no-return continuations are **exploratory**: their original code used environment-specific demographic seeds, so they are not a matched-random-number restoration contrast. Under externally restored visitors at t=45, *unconditional high-I attainment* was **4/8 nested futures** for historically evolvable A and **3/8** for historically fixed A, while *regaining high I conditional on prior decline and survival* was **0/2** versus **1/6**, respectively. These opposite descriptive differences use **different post-treatment denominators** (two independent founder seeds × two visitor seeds, not independent sets of eight), not conflicting causal estimates. See the [read-only denominator audit](https://github.com/zuizui0223/izu-core/blob/analysis/chapter2-pollinator-recovery-pilot-20261018/docs/audits/CHAPTER2_RECOVERY_POLICY_DENOMINATORS_READOUT_20261018.json). Neither these finite-H observations nor allele-support loss identifies the probability-defined no-return time or whether evolving assurance helps or harms it. The original 2,304-case source cohort and the eight synthetic histories are scientifically distinct and must not be pooled.
-
-### Persistence and evolutionary recovery are not interchangeable
-
-In a separate, pilot-informed, independently randomized 32-visitor-history stress study, the registered pooled assurance-evolvability by historical-replenishment occupancy interaction was **+0.1083984375**, 95% interval [0.0654296875,0.1513671875], equal across four mating conditions. Its delayed-control-specific interaction was +0.15234375, not the four-setting pooled effect. During the shock, A remained evolvable and carrying capacity, fecundity and pollen availability changed together; the result is **not** genetic legacy mediation, natural A-first rescue, or proof that a protected floral allele remained available. Separately assigned A-first/I-first expression schedules mostly did not establish a general survival effect.
-
-The source reproductive ledger does contain a pollen-mediated benefit of one plant's floral investment to other conspecific mothers in selected states, but sustained individual-versus-group conflict sufficient to drive extinction was **not** established. "Private insurance versus public investment" is therefore a **testable mechanism framing**, not an already proven group-selection or tragedy-of-the-commons result.
-
-### Confirmed policy effects on genetic closure and resource-dependent survival
-
-An authorized confirmation crossed160 independent founders with160 visitor
-histories, pairing evolving and fixed expressed assurance initially equal to.5.
-Complete raw admission independently checked153,600 task files and6,553,600
-saved states. At resource budget B8, all populations survived to census80;
-high-I support closed before extinction in16,000/25,600 evolving-policy cells
-versus13,868/25,600 fixed-policy cells. The registered difference was
-**+8.33 percentage points [97.5% interval6.69,9.96]**. The registered survival
-policy-by-budget interaction was **+92.71 points [92.05,93.36]**: B4.5 survival
-was25,118/25,600 versus1,385/25,600, while B8 survival was complete in both arms.
-Both directional criteria passed under the fixed crossed-source t convention;
-the secondary10-point reference was not exceeded by the genetic-closure effect.
-These are distinct model-conditional contrasts, not mediation or a measured
-restoration response. Positive descriptive differences persisted across all
-five target tolerances. Crossed cells are not independent islands, and a
-precise average effect does not establish predictable individual fates.
-[Complete results and audit](CHAPTER2_CONFIRM160_RESULTS_20261019.md).
+Attraction I changes pollen receipt and paternal export while paying allocation cost. The resulting capacity for high-I evolutionary recovery requires BOTH favorable genetic parental selection after the visitor environment returns and sufficient retained high-I allelic support, neither guaranteed by the mother's seed buffer. Prior selfing, pollen discount and assurance resource cost can also make lowering A favorable after visitor return. Hence higher reproductive buffering may coexist with restricted recovery of high I, but the completed policy contrast below measures genetic support, not a causal tradeoff between buffering and realized recovery. The distinction is defined more precisely in the [source mechanism note](protocols/CHAPTER2_TWO_THRESHOLD_PRIVATE_SOCIAL_RECOVERY_SYNTHESIS_20261018.md).
 
 ### Baseline pollen limitation modifies the additional-decline response
 
@@ -137,17 +54,9 @@ under strong limitation (−0.0802/−0.0357), but positive under weak limitatio
 (+0.0207/+0.0246), excluding a universal directional response to activity loss.
 [Complete factorial results](CHAPTER2_BASELINE_POLLEN_384_RESULTS_20261019.md).
 
-### Assurance changes standing-variation duration conditionally
+### Temporal precedence does not diagnose what is genetically necessary
 
-Post-outcome readback of the 160-by-160 saved cohort found that evolving
-assurance shortened occupied I-polymorphic duration by 2.628 updates at B8
-(family-adjusted 95% interval [−3.447,−1.809]), where all populations survived.
-At B4.5 it extended duration by 12.684 [11.984,13.383] alongside lower extinction;
-this joint outcome does not isolate fixation rate. Evolving-history A usually
-fixed at 0.75; I fixed at 0.375, 0.5 or 0.625. Thus later absence of an I
-increase does not necessarily imply earlier reduction followed by failed
-recovery. Fixed-policy A records describe latent alleles, not variable expression.
-[Variation clocks and values](CHAPTER2_VARIATION_CLOCK_RESULTS_20261019.md).
+Under delayed selfing and a direct assurance cost, A crossed the registered sustained-response threshold before I in **51/64** visitor histories, with 13 nearly simultaneous. Under prior selfing at the same primary threshold, only **30/64** were A-first. A separate registered intervention changing standing I-locus allele carriers in 384 paths found order-score difference +0.109375 with adjusted interval [−0.125,+0.34375] and I-event difference +0.1875 [−0.0625,+0.421875]; **both were inconclusive**. A-first cannot be promoted to a universal evolutionary clock or a cause of later irreversible loss.
 
 ### Investment responses also retain reproducible environmental structure
 
@@ -185,6 +94,61 @@ can therefore contribute to repeatability. Event order and loss timing
 cannot be reconstructed from these endpoint records. No new biological
 updates were run for this audit.
 [Matched records, metrics and limitations](CHAPTER2_MATCHED_AI_REPEATABILITY_20261019.md).
+
+### Inherited genetic accessibility can close before complete locus fixation
+
+In a distinct 2,304-path experiment with no I-locus mutation or seed immigration, **703 histories** lost standing support for an additional founder-relative 0.05 **decrease** in I **before** single-allele fixation; 535 first became excluded at fixation. In 315 of the 1,238 selected first-loss transitions, low-I alleles disappeared despite favorable prior conditional parental weighting. This shows that expected favorable directional return and transmission of the alleles needed for the next response are different. It does **NOT** show loss of the **high-I** alleles relevant to post-restoration recovery; a separately marked, retrospective **read-only reverse-direction audit** tests that distinct upper-support boundary below.
+
+A separate deterministic genotype-density comparator predicted A-first in two low-replenishment genetic contexts while finite ABM histories yielded only 3/32 and 2/32 A-first paths despite full occupancy. Density is **not** the finite-model stochastic expectation, and this discrepancy is not a measured proportion caused by drift.
+
+### Retrospective high-I support exclusion in the same source cohort
+
+A separate **source-only, post-outcome audit** re-read the archived 2,304 path × 201-census I-allele maximum arrays, with the original file SHA-256 values checked against their existing genomic-source verification receipt. Taking each case's **original founder mean I** as a predeclared-for-this-reanalysis target, **1,455/2,304 paths** lost all high-I alleles needed to reach it under the original zero-I-mutation/zero-seed-immigration law. Structural high-I exclusion arose **before** single-allele I fixation in **758 paths**, and at fixation in **697**. The first exclusion time ranged from census 7 to 199; both historical founder blocks retained distinct rates (main **714/1,152**, confirmation **741/1,152**). This is a necessary upper-allele support bound for reaching a synthetic target; it does not measure the realized probability of recovery with restored pollinators.
+
+This source analysis is **not an independent replication**, uses neither restored visitor histories nor independently assigned assurance-evolving versus fixed historical policies, and cannot establish whether loss preceded permanent pollinator disappearance. The original lower-support **703/2,304** count targets further **decline**, not the newly tested HIGH-I reversal, and the two counts are different direction-specific diagnostics from the **same** archive. Full computed evidence: [high-I source readout](audits/CHAPTER2_NEE_HIGH_I_SUPPORT_SOURCE_READOUT_20261017.json); [read-only original-source verification run](https://github.com/zuizui0223/izu-core/actions/runs/39016140787).
+
+### Exploratory genetic closure after artificially imposed visitor loss — not recovery confirmation
+
+In an eight-history micro-pilot (two founders × two visitor histories × two A policies), all populations survived to census 45. One evolving-A history lost founder-relative high-I support at census 39, after imposed visitor removal at census 35. At that saved state, supplying functional visitors produced positive local return to increased I while the maximum retained allele, 0.5000, remained below the founder mean, 0.51171875. The local A return was negative under assurance cost 0.5. These are single-state perturbations, not polymorphic invasion fitness or a measured recovery window.
+
+The associated exploratory continuations used environment-specific demographic seeds. Unconditional high-I attainment was 4/8 versus 3/8 nested futures for evolving versus fixed histories; regaining high I among previously declined survivors was 0/2 versus 1/6. Different post-treatment denominators explain the differing descriptive comparisons. Neither supports a randomized recovery-policy effect. [Source and denominator audit](https://github.com/zuizui0223/izu-core/blob/analysis/chapter2-pollinator-recovery-pilot-20261018/docs/audits/CHAPTER2_RECOVERY_POLICY_DENOMINATORS_READOUT_20261018.json).
+
+### Persistence and evolutionary recovery are not interchangeable
+
+In a separate, pilot-informed, independently randomized 32-visitor-history stress study, the registered pooled assurance-evolvability by historical-replenishment occupancy interaction was **+0.1083984375**, 95% interval [0.0654296875,0.1513671875], equal across four mating conditions. Its delayed-control-specific interaction was +0.15234375, not the four-setting pooled effect. During the shock, A remained evolvable and carrying capacity, fecundity and pollen availability changed together; the result is **not** genetic legacy mediation, natural A-first rescue, or proof that a protected floral allele remained available. Separately assigned A-first/I-first expression schedules mostly did not establish a general survival effect.
+
+The source reproductive ledger does contain a pollen-mediated benefit of one plant's floral investment to other conspecific mothers in selected states, but sustained individual-versus-group conflict sufficient to drive extinction was **not** established. "Private insurance versus public investment" is therefore a **testable mechanism framing**, not an already proven group-selection or tragedy-of-the-commons result.
+
+### Confirmed policy effects on genetic closure and resource-dependent survival
+
+An authorized confirmation crossed160 independent founders with160 visitor
+histories, pairing evolving and fixed expressed assurance initially equal to.5.
+Complete raw admission independently checked153,600 task files and6,553,600
+saved states. At resource budget B8, all populations survived to census80;
+high-I support closed before extinction in16,000/25,600 evolving-policy cells
+versus13,868/25,600 fixed-policy cells. The registered difference was
+**+8.33 percentage points [97.5% interval6.69,9.96]**. The registered survival
+policy-by-budget interaction was **+92.71 points [92.05,93.36]**: B4.5 survival
+was25,118/25,600 versus1,385/25,600, while B8 survival was complete in both arms.
+Both directional criteria passed under the fixed crossed-source t convention;
+the secondary10-point reference was not exceeded by the genetic-closure effect.
+These are distinct model-conditional contrasts, not mediation or a measured
+restoration response. Positive descriptive differences persisted across all
+five target tolerances. Crossed cells are not independent islands, and a
+precise average effect does not establish predictable individual fates.
+[Complete results and audit](CHAPTER2_CONFIRM160_RESULTS_20261019.md).
+
+### Assurance changes standing-variation duration conditionally
+
+Post-outcome readback of the 160-by-160 saved cohort found that evolving
+assurance shortened occupied I-polymorphic duration by 2.628 updates at B8
+(family-adjusted 95% interval [−3.447,−1.809]), where all populations survived.
+At B4.5 it extended duration by 12.684 [11.984,13.383] alongside lower extinction;
+this joint outcome does not isolate fixation rate. Evolving-history A usually
+fixed at 0.75; I fixed at 0.375, 0.5 or 0.625. Thus later absence of an I
+increase does not necessarily imply earlier reduction followed by failed
+recovery. Fixed-policy A records describe latent alleles, not variable expression.
+[Variation clocks and values](CHAPTER2_VARIATION_CLOCK_RESULTS_20261019.md).
 
 ### Bounded environmental transfer exposes inherited limits on response
 
@@ -247,23 +211,27 @@ those missing measurements.
 
 ## Discussion — interpretation and boundaries
 
-The evidence separates pollen service, prior evolution, inherited variation
-and realized response. Strong initial limitation can produce substantial
-assurance evolution before further visitor loss, leaving a small incremental
-response. Investment is not uniformly stochastic or uniformly reduced: its
-response has environmental structure and can reverse across baseline regimes.
-Assurance evolution can shorten standing-variation duration where survival is
-complete, yet preserve living variation under harsher resources. The transfer
-experiment shows why survival or an attainable allele bound alone does not
-establish capacity for subsequent change. These conditional results replace a
-universal assurance-first, irreversible-decline narrative; they do not identify
-mediation or natural island filtering.
+Pollinator decline did not produce a single evolutionary sequence. Floral investment could decline while assurance expression remained fixed, demonstrating that assurance evolution was not necessary for this response. Yet the effect of a further decline depended on baseline pollen service and the history generated before that decline. These findings distinguish the mechanisms governing the returns to each trait from the sequence in which finite populations realize change.
 
-The direction of assurance's effect cannot be preselected. Autonomous selfing may preserve population size and allele carriers, enabling later adaptation; it may simultaneously reduce the fitness advantage of costly pollen-attracting investment and alter which investment alleles survive. A net advantage for survival and a net disadvantage for functional recovery could coexist. But neither the +10.84 percentage-point stress interaction nor the 703 *low-I* losses demonstrates that combined mechanism.
+### A small incremental response need not mean little evolutionary importance
 
-A finite no-mutation/no-immigration system can display structural loss of a specified ancestral investment target once its highest retained I allele is below the required expression. With I mutation or immigration, this absorbing-support argument no longer holds. A recovery probability close to zero over H updates must be reported as a finite-time estimate, not perpetual impossibility, unless a strict genetic theorem applies. Similarly, maintaining high-I allele support does not guarantee that restored pollen will select for increased investment; demographic and selection locks must be separately identified.
+The factorial provides a concrete interpretation of weak assurance responses to an additional reduction in visitation. Under strong baseline limitation, assurance had already increased, and some populations had lost its polymorphism before the intervention. Under weak baseline limitation, the subsequent decline produced a larger additional A response. A small incremental response therefore cannot be interpreted as evidence that pollen limitation was unimportant or that selection on assurance was absent. This experiment changes a baseline regime and its evolutionary history together. It does not identify instantaneous pollen deficit as the sole cause: the same proportional activity reduction also changes fertilization by different absolute amounts.
 
-Finally, recovery from a long period of pollen limitation is not the recovery of an entire plant–pollinator mutualism. Functional visitors are externally supplied in this model, so any claim about pollinator population collapse caused by changed flowers, natural extinction dates or geological island age would exceed its mechanisms. Current conclusions are restricted to the admitted model contrasts and explicitly exploratory repeatability analyses. The completed bounded follow-up documents conditional readaptation; natural island assembly and broader restoration-window mechanisms remain unresolved rather than mandatory new experiments.
+Investment responses likewise depend on context. Lower replenishment reduced I in the original four-setting comparison even with A fixed, whereas the additional activity decline increased I slightly in the weak-limitation factorial. These interventions differ and should not be treated as interchangeable doses of pollinator loss. The shared conclusion is that assurance and investment have separable responses, not that every decline necessarily produces smaller flowers.
+
+### Predictable structure and stochastic realization coexist
+
+Repeatability depends on the trait, environment, inherited variation and outcome being measured. Floral investment retained substantial history-conditioned structure, especially in larger populations. Assurance endpoints were often more repeatable in matched contexts, but agreement included zero environmental contrasts and depended on survival and allele boundaries. Neither result supports a binary division into deterministic assurance and random flowers. Direction, endpoint, order and timing are different predictions; an average policy effect can be precise while individual paired histories remain discordant.
+
+### Persistence, target accessibility and segregating variation are distinct
+
+The large crossed experiment separates a genetic-support effect where all populations survive from a strong demographic effect under lower resources. Evolving assurance increased high-I support closure under the former condition. Stored-genome readback also found shorter I-polymorphic duration there, but longer occupied-polymorphic duration under resource stress alongside improved survival. Assurance therefore does not universally deplete or preserve variation. Under stress, the duration measure includes time gained by avoiding extinction and cannot isolate a change in fixation rate.
+
+The transfer experiment exposes another distinction. Most cohorts retained an allele meeting the ancestral I target, but few retained I polymorphism. Absence of later I increase was therefore not generally evidence of failed recovery after an earlier decline: some cohorts already met their ancestral target. Nor did fixed assurance imply absence of adaptation in other traits. Common-context reproductive performance increased on average among survivors, including in new matching environments, although every destination included negative changes. These descriptive results do not establish a policy effect on adaptation because historical policies produced different inherited states and the performance comparison conditions on survival.
+
+### Scope of the mechanism
+
+With neither mutation nor immigration, loss of all alleles capable of reaching a specified target imposes a structural bound. Target support alone is insufficient for realized change; positive selection, segregating variation, transmission and time also matter. The bound does not establish irreversibility once new variation is allowed. Our model uses externally prescribed visitors and fixed inbreeding depression, so it does not establish feedback-driven pollinator collapse, purging of genetic load, or the evolutionary origin of obligate outcrossing. Island geological age is not time since pollination loss. Natural island assembly and a full recovery-probability clock remain separate questions. The supported conclusion is that pollen service changes trait returns, while prior evolution and population persistence alter the inherited possibilities for later response.
 
 ## Online Methods — admitted experiments and historical proposed extension
 
@@ -272,6 +240,12 @@ Finally, recovery from a long period of pollen limitation is not the recovery of
 The original Model 3 simulates finite diploid plants with separate additive visitor-matching, investment and autonomous-assurance loci. Exogenous functional visitors enter and disappear; encounter probabilities reflect floral affinity, matching optima, visitor effectiveness and pollen transfer. Maternal outcross, paternal export and viable autonomous-selfed offspring contribute to finite reproduction. Flowers incur allocation cost, and offspring alleles are inherited by Mendelian transmission with setting-specific mutation. The original Q1–Q4 and independent genotype-density experiments have separate registered inference units, horizons and source hashes; they are not pooled as one replicated island dataset. All original raw archives, readouts, negative/null outcomes and original EL-versioned figures remain unchanged.
 
 The Q1 assurance-fixed policy sets actual expressed A=0.5; selfing remains possible. The 2,304-history structural-support experiment sets I mutation and seed immigration to zero. Its source restriction on **further decrease** is proved from nondecreasing minimum surviving I allele. The complementary **HIGH-I genetic support** restriction, evaluated in the read-only reanalysis and independently in a tiny later synthetic history, is that the maximum surviving I allele cannot increase under the same closed transmission rule. Thus a target I_star that exceeds this maximum is structurally unreachable in occupied descendants. The converse is not guaranteed by the theorem; selection, finite time and allelic pairing still matter.
+
+### Crossed confirmation of support closure and persistence
+
+The confirmation crossed 160 independent founder seeds and 160 independent visitor-history seeds. Historical assurance policies began with equal expressed A=0.5; the evolving arm retained A variation, whereas the fixed arm constrained expression while transmitting latent alleles. Within each crossed cell, the paired policy histories generated futures at resource budgets B8 and B4.5 through census 80. The primary genetic endpoint was first founder-relative high-I support closure before extinction at B8. The primary demographic endpoint was the evolving-minus-fixed survival contrast at B4.5 minus that contrast at B8. All allocated cells contribute to these policy contrasts; extinction is not coded as a zero-valued trait.
+
+Registered inference used the fixed crossed-source pigeonhole variance convention and a t reference with 159 degrees of freedom. Two marginal 97.5% intervals implement the declared familywise alpha of 0.05; this convention has no universal finite-sample coverage guarantee. Target tolerances of 0, 0.005, 0.01, 0.02 and 0.05 are reported without selecting a replacement primary target. The 10-percentage-point reference is a secondary resolution comparison, not an endorsed biological equivalence margin. Full source identities, raw denominators and registered comparisons are retained in the [confirmation report](CHAPTER2_CONFIRM160_RESULTS_20261019.md).
 
 ### Completed pollen factorial and stored-variation readback
 
@@ -321,12 +295,14 @@ Use independently drawn founder genotype blocks × independently drawn visitor h
 
 ## Six proposed display items — no unsourced new figures
 
-1. **Figure 1, conceptual causal timeline** — pollen limitation, assurance, floral investment, imposed permanent visitor extirpation and the independently measured recovery window. Conceptual, not an observed effect.
-2. **Figure 2, existing source-supported starting conditions** — original fixed/evolvable assurance four-setting floral-investment effect and 51/64 order conditional on the original evidence cohorts. Include 3/4 fresh-founder transport and all nulls; these are not independent NEE results beyond the original registered experiment.
-3. **Figure 3, PENDING primary** — temporal, uncertainty-aware restored-environment high-I recovery curve and the imposed extinction clock; include separate unconditional success and survivor-conditioned descriptions.
-4. **Figure 4, PENDING primary** — assurance-evolvable versus capacity-fixed recovery-policy effect, survival and loss of high-I support; possibly time-varying/biphasic effects.
-5. **Figure 5, PENDING causal mechanism** — restored pollinators ± genetic-access intervention and standardized high-I return assay, plus replication across biological model settings.
-6. **Figure 6, PENDING independent external qualification** — only if independently matched natural island age/exposure, actual pollen service and floral traits exist and a prospectively frozen model-discriminating prediction can be tested. Do not substitute a geological-age-only effect or morphology-as-pollinator identity.
+These are caption and panel specifications for the completed-evidence manuscript, not rendered figures. Historical recovery-window and field-validation proposals are not displayed as findings. No additional simulations are needed to populate these panels from the cited readouts.
+
+1. **Figure 1, separable responses to pollination conditions.** Conceptual panel defines I, M, A and realized fertilization q; arrows denote model dependencies, not estimated mediation. Evidence panel shows the original four-setting fixed/evolving-A investment comparison and the fresh-founder transport result (three of four supported). Fixing A=0.5 permits selfing. Sources: [original Q1 readout](../data/results/chapter2_assurance_generality_20261006.json) and [fresh-founder transport](CHAPTER2_Q1_FRESH_FOUNDER_RESULTS_20261016.md); retain the inconclusive direct-cost interaction.
+2. **Figure 2, baseline pollen service modifies the additional-decline response.** Show baseline-specific A and I decline-minus-control contrasts at initial A=0.3 and 0.5, with a separate panel for the A weak-minus-strong interaction and its descriptive founder-bootstrap 95% intervals. Show actual pre-selfing q and prefix A change to distinguish visitation from fertilization. Twelve founders are the resampling units; four repeats are nested and initial-A strata share founders. Source: [factorial audit](audits/CHAPTER2_BASELINE_POLLEN_384_AUDIT_20261019.json). Do not invent intervals for contrasts not supplied by the audit.
+3. **Figure 3, order and repeatability depend on the estimand.** Separate panels show 51/64 versus 30/64 A-first histories, the two inconclusive registered I-carrier contrasts, and the exploratory floral reliability estimates 0.621/0.825 for eight-repeat averages. Matched A/I endpoint agreement is a separate panel with its survival conditioning. These cohorts are not pooled, and no cross-panel significance test or intrinsic-determinism ranking is implied. Sources: [original sequence readout](../data/results/chapter2_1005_confirmatory_replication_20261006.json), [registered Q2 result](CHAPTER2_Q2_I_SUPPORT_384_REGISTERED_RESULT_20261016.md) and [numeric readout](audits/CHAPTER2_Q2_I_SUPPORT_384_ORIGINAL_READOUT_20261016.json), [history decomposition](CHAPTER2_HISTORY_DEMOGRAPHY_REPEATABILITY_AUDIT_20261003.md) and [matched endpoints](CHAPTER2_MATCHED_AI_REPEATABILITY_20261019.md).
+4. **Figure 4, assurance changes genetic accessibility and survival under different resource conditions.** Show the registered B8 genetic-closure contrast (+8.328125 pp) and survival policy-by-budget contrast (+92.707031 pp), each with marginal 97.5% intervals, alongside all-start cell counts. Sources: [confirmation readout](audits/CHAPTER2_CONFIRM160_COMPACT_RESULTS_20261019.json) and target-tolerance table. There are 160 crossed founder and 160 visitor sources, not 25,600 independent islands. The genetic and survival endpoints do not establish mediation.
+5. **Figure 5, the duration and endpoint of standing variation.** Show I occupied-polymorphic duration contrasts at B8 and B4.5 with family-adjusted 95% intervals; separately display fixation values and extinction counts. Sources: [variation readback](CHAPTER2_VARIATION_CLOCK_RESULTS_20261019.md) and its linked audit JSON. Occupied duration ends at extinction, so the B4.5 contrast mixes persistence with polymorphism. Latent A variation in the fixed-expression arm is not phenotypic A variation.
+6. **Figure 6, transfer reveals inherited constraints and conditional response.** Show entry polymorphism and target support, occupancy across five destinations, and common-context performance change among survivors. Source: [transfer tables](audits/CHAPTER2_READAPTATION_DESCRIPTIVE_TABLES_20261019.json) and [seed-transfer audit](audits/CHAPTER2_VARIATION_CLOCK_SEED_TRANSFER_20261019.json). Label 64 cohorts nested in 32 donors from four founders × four histories × two policies, with 32 futures per destination. Use no pooled binomial intervals or causal adaptation-effect label. Extinct endpoints remain in occupancy denominators but have undefined trait/performance values.
 
 ## Data accessibility and study integrity
 

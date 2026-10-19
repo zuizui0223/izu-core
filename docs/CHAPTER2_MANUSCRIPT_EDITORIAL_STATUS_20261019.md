@@ -1,0 +1,38 @@
+# Completed-evidence manuscript: editorial status
+
+Revision: 2026-10-19. Evidence baseline: main `b0d907eabd5142f1d2d316d7a6a8b9374822618a`.
+
+## Central argument
+
+Pollinator decline changes the reproductive returns to assurance and investment through different mechanisms. The response to a further decline depends on baseline pollen service and prior evolution. Assurance changes both persistence and the duration of standing variation, with the direction depending on demographic conditions. Later response requires distinguishing survival, target accessibility and segregating variation.
+
+The paper does not claim that all flowers shrink, that assurance is intrinsically deterministic, that genetic closure equals measured recovery failure, or that island flora were assembled by the simulated process.
+
+## What was revised
+
+- Replaced the conversational introduction with the biological question, literature context, model traits and four empirical questions.
+- Ordered Results from immediate trait responses through baseline-history dependence and repeatability to genetic support, survival and bounded transfer.
+- Preserved the original inconclusive registered Q2 intervention, directional support counts and distinct inference units.
+- Expanded Discussion around the mechanisms supported by completed data and their limits.
+- Added the crossed confirmation estimands and inference convention to Methods.
+- Replaced unexecuted main-figure proposals with six source-linked caption/panel specifications. These are not rendered figures.
+- Updated active-route metadata: completed transfer, factorial and genome readback are admitted; broader recovery-window experiments remain historical proposals rather than required new simulations.
+
+## Remaining publication work
+
+1. Render the six display items from existing readouts, verify each panel against its source, and decide which detailed historical analyses belong in supplementary material.
+2. Complete the reproducible Methods and supplementary package, retaining cohort-specific parameters, inference units and raw-archive identities.
+3. Finish reference coverage, author information, contributions, declarations and journal-specific editorial checks. Nature Ecology & Evolution remains a candidate route, not a verified acceptance fit or a submitted paper.
+4. Complete the source-linked archival work tracked under issue #436. Hash-verified draft releases are retained storage, not immutable DOI deposits.
+
+No new biological simulation was run or scheduled for this editorial revision. The active manuscript remains a working draft, not submission-ready.
+
+## Reference spot-check
+
+The revised introductory statements were checked against the primary papers on 2026-10-19:
+
+- Sakai (1995), selfing schedules and allocation to attractive structures: https://doi.org/10.1111/j.1558-5646.1995.tb02287.x
+- Teixido and Aizen (2019), assurance and pollinator-mediated flower-size selection: https://academic.oup.com/aob/article/123/6/1067/5334676
+- Lande and Porcher (2015), quantitative genetic variance under partial selfing: https://pmc.ncbi.nlm.nih.gov/articles/PMC4512550/
+
+This spot-check is not a completed reference audit of the entire manuscript.
