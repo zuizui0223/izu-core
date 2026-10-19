@@ -1,0 +1,2613 @@
+{
+  "groups": [
+    {
+      "cohort_polymorphic": [
+        12,
+        4,
+        5
+      ],
+      "cohorts": 32,
+      "donor_polymorphic_cohort_sources": [
+        14,
+        4,
+        6
+      ],
+      "entry_I_at_or_above_founder": 24,
+      "new_monomorphism_at_transfer": [
+        2,
+        0,
+        1
+      ],
+      "policy": "fixed"
+    },
+    {
+      "cohort_polymorphic": [
+        17,
+        4,
+        0
+      ],
+      "cohorts": 32,
+      "donor_polymorphic_cohort_sources": [
+        18,
+        6,
+        0
+      ],
+      "entry_I_at_or_above_founder": 22,
+      "new_monomorphism_at_transfer": [
+        1,
+        2,
+        0
+      ],
+      "policy": "evolving"
+    }
+  ],
+  "rows": [
+    {
+      "cohort_mean": [
+        0.4779473465945578,
+        0.375,
+        0.25
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.4779473465945578,
+        0.375,
+        0.25
+      ],
+      "donor_richness": [
+        1,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": false,
+      "founder_mean": [
+        0.5070081611043529,
+        0.4908854166666667,
+        0.5
+      ],
+      "key": [
+        0,
+        0,
+        "fixed",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.4779473465945578,
+        0.375,
+        0.25
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.4779473465945578,
+        0.375,
+        0.25
+      ],
+      "donor_richness": [
+        1,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": false,
+      "founder_mean": [
+        0.5070081611043529,
+        0.4908854166666667,
+        0.5
+      ],
+      "key": [
+        0,
+        0,
+        "fixed",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.44075907682670495,
+        0.625,
+        0.75
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.44075907682670495,
+        0.625,
+        0.75
+      ],
+      "donor_richness": [
+        1,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5070081611043529,
+        0.4908854166666667,
+        0.5
+      ],
+      "key": [
+        0,
+        0,
+        "evolving",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.44075907682670495,
+        0.625,
+        0.75
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.44075907682670495,
+        0.625,
+        0.75
+      ],
+      "donor_richness": [
+        1,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5070081611043529,
+        0.4908854166666667,
+        0.5
+      ],
+      "key": [
+        0,
+        0,
+        "evolving",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.4842147683738687,
+        0.5,
+        0.75
+      ],
+      "cohort_richness": [
+        3,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.4669463162853289,
+        0.5,
+        0.75
+      ],
+      "donor_richness": [
+        3,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5012153270515323,
+        0.4817708333333333,
+        0.5
+      ],
+      "key": [
+        40,
+        0,
+        "fixed",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.4842147683738687,
+        0.5,
+        0.75
+      ],
+      "cohort_richness": [
+        3,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.4669463162853289,
+        0.5,
+        0.75
+      ],
+      "donor_richness": [
+        3,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5012153270515323,
+        0.4817708333333333,
+        0.5
+      ],
+      "key": [
+        40,
+        0,
+        "fixed",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5051176627187212,
+        0.5,
+        0.75
+      ],
+      "cohort_richness": [
+        2,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.497930653923595,
+        0.5052083333333334,
+        0.75
+      ],
+      "donor_richness": [
+        3,
+        2,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5012153270515323,
+        0.4817708333333333,
+        0.5
+      ],
+      "key": [
+        40,
+        0,
+        "evolving",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        true,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5007525279552246,
+        0.5,
+        0.75
+      ],
+      "cohort_richness": [
+        2,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.497930653923595,
+        0.5052083333333334,
+        0.75
+      ],
+      "donor_richness": [
+        3,
+        2,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5012153270515323,
+        0.4817708333333333,
+        0.5
+      ],
+      "key": [
+        40,
+        0,
+        "evolving",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        true,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5075740208067004,
+        0.5,
+        0.5
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.5075740208067004,
+        0.5,
+        0.5
+      ],
+      "donor_richness": [
+        1,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5062919872232904,
+        0.4973958333333333,
+        0.5
+      ],
+      "key": [
+        80,
+        0,
+        "fixed",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5075740208067004,
+        0.5,
+        0.5
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.5075740208067004,
+        0.5,
+        0.5
+      ],
+      "donor_richness": [
+        1,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5062919872232904,
+        0.4973958333333333,
+        0.5
+      ],
+      "key": [
+        80,
+        0,
+        "fixed",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5314232530378263,
+        0.375,
+        0.75
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.5314232530378259,
+        0.375,
+        0.75
+      ],
+      "donor_richness": [
+        1,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": false,
+      "founder_mean": [
+        0.5062919872232904,
+        0.4973958333333333,
+        0.5
+      ],
+      "key": [
+        80,
+        0,
+        "evolving",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5314232530378263,
+        0.375,
+        0.75
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.5314232530378259,
+        0.375,
+        0.75
+      ],
+      "donor_richness": [
+        1,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": false,
+      "founder_mean": [
+        0.5062919872232904,
+        0.4973958333333333,
+        0.5
+      ],
+      "key": [
+        80,
+        0,
+        "evolving",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.4635602476590887,
+        0.625,
+        0.5
+      ],
+      "cohort_richness": [
+        2,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.4594029105151405,
+        0.625,
+        0.5
+      ],
+      "donor_richness": [
+        2,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.49561524148204206,
+        0.4869791666666667,
+        0.5
+      ],
+      "key": [
+        120,
+        0,
+        "fixed",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.4635602476590886,
+        0.625,
+        0.5
+      ],
+      "cohort_richness": [
+        2,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.4594029105151405,
+        0.625,
+        0.5
+      ],
+      "donor_richness": [
+        2,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.49561524148204206,
+        0.4869791666666667,
+        0.5
+      ],
+      "key": [
+        120,
+        0,
+        "fixed",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5049213442103601,
+        0.375,
+        0.75
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.5049213442103596,
+        0.375,
+        0.75
+      ],
+      "donor_richness": [
+        1,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": false,
+      "founder_mean": [
+        0.49561524148204206,
+        0.4869791666666667,
+        0.5
+      ],
+      "key": [
+        120,
+        0,
+        "evolving",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5049213442103601,
+        0.375,
+        0.75
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.5049213442103596,
+        0.375,
+        0.75
+      ],
+      "donor_richness": [
+        1,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": false,
+      "founder_mean": [
+        0.49561524148204206,
+        0.4869791666666667,
+        0.5
+      ],
+      "key": [
+        120,
+        0,
+        "evolving",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5710342277953991,
+        0.6041666666666666,
+        0.75
+      ],
+      "cohort_richness": [
+        3,
+        2,
+        1
+      ],
+      "donor_mean": [
+        0.5748627022750942,
+        0.6067708333333334,
+        0.7239583333333334
+      ],
+      "donor_richness": [
+        3,
+        2,
+        2
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5070081611043529,
+        0.4908854166666667,
+        0.5
+      ],
+      "key": [
+        0,
+        40,
+        "fixed",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        true
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5845017284755439,
+        0.59375,
+        0.7291666666666666
+      ],
+      "cohort_richness": [
+        3,
+        2,
+        2
+      ],
+      "donor_mean": [
+        0.5748627022750942,
+        0.6067708333333334,
+        0.7239583333333334
+      ],
+      "donor_richness": [
+        3,
+        2,
+        2
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5070081611043529,
+        0.4908854166666667,
+        0.5
+      ],
+      "key": [
+        0,
+        40,
+        "fixed",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.6023185684308309,
+        0.6041666666666666,
+        0.75
+      ],
+      "cohort_richness": [
+        1,
+        2,
+        1
+      ],
+      "donor_mean": [
+        0.6023185684308314,
+        0.6067708333333334,
+        0.75
+      ],
+      "donor_richness": [
+        1,
+        2,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5070081611043529,
+        0.4908854166666667,
+        0.5
+      ],
+      "key": [
+        0,
+        40,
+        "evolving",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.6023185684308309,
+        0.5833333333333334,
+        0.75
+      ],
+      "cohort_richness": [
+        1,
+        2,
+        1
+      ],
+      "donor_mean": [
+        0.6023185684308314,
+        0.6067708333333334,
+        0.75
+      ],
+      "donor_richness": [
+        1,
+        2,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5070081611043529,
+        0.4908854166666667,
+        0.5
+      ],
+      "key": [
+        0,
+        40,
+        "evolving",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.589936619834394,
+        0.375,
+        0.5
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.5899366198343936,
+        0.375,
+        0.5
+      ],
+      "donor_richness": [
+        1,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": false,
+      "founder_mean": [
+        0.5012153270515323,
+        0.4817708333333333,
+        0.5
+      ],
+      "key": [
+        40,
+        40,
+        "fixed",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.589936619834394,
+        0.375,
+        0.5
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.5899366198343936,
+        0.375,
+        0.5
+      ],
+      "donor_richness": [
+        1,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": false,
+      "founder_mean": [
+        0.5012153270515323,
+        0.4817708333333333,
+        0.5
+      ],
+      "key": [
+        40,
+        40,
+        "fixed",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.4805567833258028,
+        0.5,
+        0.75
+      ],
+      "cohort_richness": [
+        2,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.46908494620684227,
+        0.5,
+        0.75
+      ],
+      "donor_richness": [
+        2,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5012153270515323,
+        0.4817708333333333,
+        0.5
+      ],
+      "key": [
+        40,
+        40,
+        "evolving",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.4882046747384435,
+        0.5,
+        0.75
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.46908494620684227,
+        0.5,
+        0.75
+      ],
+      "donor_richness": [
+        2,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5012153270515323,
+        0.4817708333333333,
+        0.5
+      ],
+      "key": [
+        40,
+        40,
+        "evolving",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        true,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5474671341210817,
+        0.5,
+        0.75
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.5461394025331695,
+        0.5,
+        0.75
+      ],
+      "donor_richness": [
+        2,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5062919872232904,
+        0.4973958333333333,
+        0.5
+      ],
+      "key": [
+        80,
+        40,
+        "fixed",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        true,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5474671341210817,
+        0.5,
+        0.75
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.5461394025331695,
+        0.5,
+        0.75
+      ],
+      "donor_richness": [
+        2,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5062919872232904,
+        0.4973958333333333,
+        0.5
+      ],
+      "key": [
+        80,
+        40,
+        "fixed",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        true,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.6438915396847577,
+        0.375,
+        0.75
+      ],
+      "cohort_richness": [
+        2,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.6510608731866807,
+        0.375,
+        0.75
+      ],
+      "donor_richness": [
+        2,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": false,
+      "founder_mean": [
+        0.5062919872232904,
+        0.4973958333333333,
+        0.5
+      ],
+      "key": [
+        80,
+        40,
+        "evolving",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.6553624732878348,
+        0.375,
+        0.75
+      ],
+      "cohort_richness": [
+        2,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.6510608731866807,
+        0.375,
+        0.75
+      ],
+      "donor_richness": [
+        2,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": false,
+      "founder_mean": [
+        0.5062919872232904,
+        0.4973958333333333,
+        0.5
+      ],
+      "key": [
+        80,
+        40,
+        "evolving",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5621618800646716,
+        0.375,
+        0.25
+      ],
+      "cohort_richness": [
+        2,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.558862279226872,
+        0.375,
+        0.25
+      ],
+      "donor_richness": [
+        2,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": false,
+      "founder_mean": [
+        0.49561524148204206,
+        0.4869791666666667,
+        0.5
+      ],
+      "key": [
+        120,
+        40,
+        "fixed",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5621618800646715,
+        0.375,
+        0.25
+      ],
+      "cohort_richness": [
+        2,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.558862279226872,
+        0.375,
+        0.25
+      ],
+      "donor_richness": [
+        2,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": false,
+      "founder_mean": [
+        0.49561524148204206,
+        0.4869791666666667,
+        0.5
+      ],
+      "key": [
+        120,
+        40,
+        "fixed",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.560727554331404,
+        0.5,
+        0.75
+      ],
+      "cohort_richness": [
+        2,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.5217379189867499,
+        0.5,
+        0.75
+      ],
+      "donor_richness": [
+        2,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.49561524148204206,
+        0.4869791666666667,
+        0.5
+      ],
+      "key": [
+        120,
+        40,
+        "evolving",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5384477627058875,
+        0.5,
+        0.75
+      ],
+      "cohort_richness": [
+        2,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.5217379189867499,
+        0.5,
+        0.75
+      ],
+      "donor_richness": [
+        2,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.49561524148204206,
+        0.4869791666666667,
+        0.5
+      ],
+      "key": [
+        120,
+        40,
+        "evolving",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.49142357121393215,
+        0.5,
+        0.5625
+      ],
+      "cohort_richness": [
+        3,
+        1,
+        3
+      ],
+      "donor_mean": [
+        0.48993938420781374,
+        0.5,
+        0.5572916666666666
+      ],
+      "donor_richness": [
+        3,
+        1,
+        3
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5070081611043529,
+        0.4908854166666667,
+        0.5
+      ],
+      "key": [
+        0,
+        80,
+        "fixed",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.48134946343315566,
+        0.5,
+        0.5208333333333334
+      ],
+      "cohort_richness": [
+        3,
+        1,
+        3
+      ],
+      "donor_mean": [
+        0.48993938420781374,
+        0.5,
+        0.5572916666666666
+      ],
+      "donor_richness": [
+        3,
+        1,
+        3
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5070081611043529,
+        0.4908854166666667,
+        0.5
+      ],
+      "key": [
+        0,
+        80,
+        "fixed",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.4721198976332485,
+        0.5,
+        0.75
+      ],
+      "cohort_richness": [
+        2,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.4898459080198356,
+        0.5,
+        0.75
+      ],
+      "donor_richness": [
+        2,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5070081611043529,
+        0.4908854166666667,
+        0.5
+      ],
+      "key": [
+        0,
+        80,
+        "evolving",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.4721198976332484,
+        0.5,
+        0.75
+      ],
+      "cohort_richness": [
+        2,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.4898459080198356,
+        0.5,
+        0.75
+      ],
+      "donor_richness": [
+        2,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5070081611043529,
+        0.4908854166666667,
+        0.5
+      ],
+      "key": [
+        0,
+        80,
+        "evolving",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5332262565941541,
+        0.5,
+        0.25
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.5332262565941546,
+        0.5,
+        0.25
+      ],
+      "donor_richness": [
+        1,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5012153270515323,
+        0.4817708333333333,
+        0.5
+      ],
+      "key": [
+        40,
+        80,
+        "fixed",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5332262565941541,
+        0.5,
+        0.25
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.5332262565941546,
+        0.5,
+        0.25
+      ],
+      "donor_richness": [
+        1,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5012153270515323,
+        0.4817708333333333,
+        0.5
+      ],
+      "key": [
+        40,
+        80,
+        "fixed",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.3769251452092888,
+        0.5,
+        0.75
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.3769251452092885,
+        0.5,
+        0.75
+      ],
+      "donor_richness": [
+        1,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5012153270515323,
+        0.4817708333333333,
+        0.5
+      ],
+      "key": [
+        40,
+        80,
+        "evolving",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.3769251452092888,
+        0.5,
+        0.75
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.3769251452092885,
+        0.5,
+        0.75
+      ],
+      "donor_richness": [
+        1,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5012153270515323,
+        0.4817708333333333,
+        0.5
+      ],
+      "key": [
+        40,
+        80,
+        "evolving",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5499350909845847,
+        0.5,
+        0.25
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.549935090984584,
+        0.5,
+        0.25
+      ],
+      "donor_richness": [
+        1,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5062919872232904,
+        0.4973958333333333,
+        0.5
+      ],
+      "key": [
+        80,
+        80,
+        "fixed",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5499350909845847,
+        0.5,
+        0.25
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.549935090984584,
+        0.5,
+        0.25
+      ],
+      "donor_richness": [
+        1,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5062919872232904,
+        0.4973958333333333,
+        0.5
+      ],
+      "key": [
+        80,
+        80,
+        "fixed",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5098954835943034,
+        0.46875,
+        0.75
+      ],
+      "cohort_richness": [
+        3,
+        2,
+        1
+      ],
+      "donor_mean": [
+        0.5127123375803998,
+        0.4401041666666667,
+        0.75
+      ],
+      "donor_richness": [
+        3,
+        2,
+        1
+      ],
+      "entry_I_at_or_above_founder": false,
+      "founder_mean": [
+        0.5062919872232904,
+        0.4973958333333333,
+        0.5
+      ],
+      "key": [
+        80,
+        80,
+        "evolving",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5330944049293965,
+        0.4583333333333333,
+        0.75
+      ],
+      "cohort_richness": [
+        2,
+        2,
+        1
+      ],
+      "donor_mean": [
+        0.5127123375803998,
+        0.4401041666666667,
+        0.75
+      ],
+      "donor_richness": [
+        3,
+        2,
+        1
+      ],
+      "entry_I_at_or_above_founder": false,
+      "founder_mean": [
+        0.5062919872232904,
+        0.4973958333333333,
+        0.5
+      ],
+      "key": [
+        80,
+        80,
+        "evolving",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.49406591314702913,
+        0.5,
+        0.5625
+      ],
+      "cohort_richness": [
+        3,
+        1,
+        2
+      ],
+      "donor_mean": [
+        0.49406786348036597,
+        0.5,
+        0.5572916666666666
+      ],
+      "donor_richness": [
+        3,
+        1,
+        2
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.49561524148204206,
+        0.4869791666666667,
+        0.5
+      ],
+      "key": [
+        120,
+        80,
+        "fixed",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.4928993522173208,
+        0.5,
+        0.625
+      ],
+      "cohort_richness": [
+        3,
+        1,
+        2
+      ],
+      "donor_mean": [
+        0.49406786348036597,
+        0.5,
+        0.5572916666666666
+      ],
+      "donor_richness": [
+        3,
+        1,
+        2
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.49561524148204206,
+        0.4869791666666667,
+        0.5
+      ],
+      "key": [
+        120,
+        80,
+        "fixed",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.46937592455183985,
+        0.625,
+        0.75
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.46937592455184035,
+        0.625,
+        0.75
+      ],
+      "donor_richness": [
+        1,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.49561524148204206,
+        0.4869791666666667,
+        0.5
+      ],
+      "key": [
+        120,
+        80,
+        "evolving",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.46937592455183985,
+        0.625,
+        0.75
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.46937592455184035,
+        0.625,
+        0.75
+      ],
+      "donor_richness": [
+        1,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.49561524148204206,
+        0.4869791666666667,
+        0.5
+      ],
+      "key": [
+        120,
+        80,
+        "evolving",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.6189308627923156,
+        0.375,
+        0.75
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.6189308627923149,
+        0.375,
+        0.75
+      ],
+      "donor_richness": [
+        1,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": false,
+      "founder_mean": [
+        0.5070081611043529,
+        0.4908854166666667,
+        0.5
+      ],
+      "key": [
+        0,
+        120,
+        "fixed",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.6189308627923156,
+        0.375,
+        0.75
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.6189308627923149,
+        0.375,
+        0.75
+      ],
+      "donor_richness": [
+        1,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": false,
+      "founder_mean": [
+        0.5070081611043529,
+        0.4908854166666667,
+        0.5
+      ],
+      "key": [
+        0,
+        120,
+        "fixed",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5387691875717792,
+        0.375,
+        0.75
+      ],
+      "cohort_richness": [
+        2,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.5387691875717787,
+        0.375,
+        0.75
+      ],
+      "donor_richness": [
+        2,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": false,
+      "founder_mean": [
+        0.5070081611043529,
+        0.4908854166666667,
+        0.5
+      ],
+      "key": [
+        0,
+        120,
+        "evolving",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5566043723742048,
+        0.375,
+        0.75
+      ],
+      "cohort_richness": [
+        2,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.5387691875717787,
+        0.375,
+        0.75
+      ],
+      "donor_richness": [
+        2,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": false,
+      "founder_mean": [
+        0.5070081611043529,
+        0.4908854166666667,
+        0.5
+      ],
+      "key": [
+        0,
+        120,
+        "evolving",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.6108082293275866,
+        0.5625,
+        0.25
+      ],
+      "cohort_richness": [
+        1,
+        2,
+        1
+      ],
+      "donor_mean": [
+        0.6108082293275859,
+        0.5520833333333334,
+        0.25
+      ],
+      "donor_richness": [
+        1,
+        2,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5012153270515323,
+        0.4817708333333333,
+        0.5
+      ],
+      "key": [
+        40,
+        120,
+        "fixed",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.6108082293275866,
+        0.5729166666666666,
+        0.25
+      ],
+      "cohort_richness": [
+        1,
+        2,
+        1
+      ],
+      "donor_mean": [
+        0.6108082293275859,
+        0.5520833333333334,
+        0.25
+      ],
+      "donor_richness": [
+        1,
+        2,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5012153270515323,
+        0.4817708333333333,
+        0.5
+      ],
+      "key": [
+        40,
+        120,
+        "fixed",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.6352839526567848,
+        0.5,
+        0.75
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.6352839526567848,
+        0.5,
+        0.75
+      ],
+      "donor_richness": [
+        1,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5012153270515323,
+        0.4817708333333333,
+        0.5
+      ],
+      "key": [
+        40,
+        120,
+        "evolving",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.6352839526567848,
+        0.5,
+        0.75
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.6352839526567848,
+        0.5,
+        0.75
+      ],
+      "donor_richness": [
+        1,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5012153270515323,
+        0.4817708333333333,
+        0.5
+      ],
+      "key": [
+        40,
+        120,
+        "evolving",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5849383566433504,
+        0.5,
+        0.5
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.5849383566433498,
+        0.5,
+        0.5
+      ],
+      "donor_richness": [
+        1,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5062919872232904,
+        0.4973958333333333,
+        0.5
+      ],
+      "key": [
+        80,
+        120,
+        "fixed",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5849383566433504,
+        0.5,
+        0.5
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.5849383566433498,
+        0.5,
+        0.5
+      ],
+      "donor_richness": [
+        1,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5062919872232904,
+        0.4973958333333333,
+        0.5
+      ],
+      "key": [
+        80,
+        120,
+        "fixed",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5225666115689998,
+        0.5,
+        0.75
+      ],
+      "cohort_richness": [
+        2,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.5012536554298791,
+        0.5,
+        0.75
+      ],
+      "donor_richness": [
+        2,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5062919872232904,
+        0.4973958333333333,
+        0.5
+      ],
+      "key": [
+        80,
+        120,
+        "evolving",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.4941493367168384,
+        0.5,
+        0.75
+      ],
+      "cohort_richness": [
+        2,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.5012536554298791,
+        0.5,
+        0.75
+      ],
+      "donor_richness": [
+        2,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.5062919872232904,
+        0.4973958333333333,
+        0.5
+      ],
+      "key": [
+        80,
+        120,
+        "evolving",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5323802118366003,
+        0.625,
+        0.5
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.5323802118365999,
+        0.625,
+        0.5
+      ],
+      "donor_richness": [
+        1,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.49561524148204206,
+        0.4869791666666667,
+        0.5
+      ],
+      "key": [
+        120,
+        120,
+        "fixed",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5323802118366003,
+        0.625,
+        0.5
+      ],
+      "cohort_richness": [
+        1,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.5323802118365999,
+        0.625,
+        0.5
+      ],
+      "donor_richness": [
+        1,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.49561524148204206,
+        0.4869791666666667,
+        0.5
+      ],
+      "key": [
+        120,
+        120,
+        "fixed",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5181253756648747,
+        0.5,
+        0.75
+      ],
+      "cohort_richness": [
+        2,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.5104479364535478,
+        0.5,
+        0.75
+      ],
+      "donor_richness": [
+        2,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.49561524148204206,
+        0.4869791666666667,
+        0.5
+      ],
+      "key": [
+        120,
+        120,
+        "evolving",
+        0
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    },
+    {
+      "cohort_mean": [
+        0.5181253756648747,
+        0.5,
+        0.75
+      ],
+      "cohort_richness": [
+        2,
+        1,
+        1
+      ],
+      "donor_mean": [
+        0.5104479364535478,
+        0.5,
+        0.75
+      ],
+      "donor_richness": [
+        2,
+        1,
+        1
+      ],
+      "entry_I_at_or_above_founder": true,
+      "founder_mean": [
+        0.49561524148204206,
+        0.4869791666666667,
+        0.5
+      ],
+      "key": [
+        120,
+        120,
+        "evolving",
+        1
+      ],
+      "new_monomorphism_at_transfer": [
+        false,
+        false,
+        false
+      ],
+      "size": 12
+    }
+  ],
+  "scope": "64 nested cohorts from32 donors; no additional independent founding evidence",
+  "source_archive_sha256": "3a8014a0706daec862a9dad46a1a211a4032e7872d2dbbc8022222de58cc1399",
+  "trait_order": [
+    "M",
+    "I",
+    "A"
+  ]
+}
