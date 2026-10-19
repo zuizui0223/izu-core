@@ -60,3 +60,19 @@ review or a biological replay certificate.
 
 Production authorization remains false. No production-ready or central-hypothesis
 completion claim follows from this review.
+
+## Subsequent technical replay checks
+
+Same-implementation replay primitives now cover historical fixed/evolving-A
+offspring generation, all future arrays and metadata, and common-context assay
+values. Four synthetic tests verify exact reproduction and rejection of altered
+production/assay values or a substituted stream. The related suite passes 101
+tests (96 readaptation, five matched-A/I). No scientific donor offspring or
+futures were executed. These checks were added after the review range above;
+they are not described as independently reviewed biological validation.
+
+The tested local runtime is Python 3.10.11, NumPy 2.2.6 and SciPy 1.15.3.
+At the post-test resource check, available RAM was 431,140,864 bytes, below the
+1 GiB start threshold; free disk was 57,963,253,760 bytes. This is a transient
+measurement, not permission to bypass the runtime resource gate. Full campaign
+orchestration, production approval and final scientific reporting remain pending.
