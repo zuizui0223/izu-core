@@ -1,6 +1,8 @@
 # Izu Core — Model 3 island reproductive economics
 
 > **論文の1本のストーリー（2026-10-19）:** [送粉者が減った後、何が残るか — 日本語・英語の統合科学ストーリー](docs/CHAPTER2_ONE_COHERENT_STORY_20261019.md)。送粉者減少が A（繁殖保障）と I（花投資）の利得を変え（Q1）、観察された進化順序は必然ではなく（Q2）、有限遺伝によって将来の高I到達可能性が失われる場合があり（Q3）、集団存続との関係は資源条件に依存する（Q4）。遅い時点からの環境移植は、支持範囲・多型・実際の反応の違いを示す。**四つの矢印の連続した因果媒介や不可逆的回復不能を証明したわけではない。** [単一NEE Article原稿](docs/CHAPTER2_UNIFIED_NEE_ARTICLE_WORKING_20261017.md)に同じ中心仮説を反映。投稿準備は未完了。
+> **投稿・新規性の判断（2026-10-19）:** [近接先行研究との新規性比較・投稿先・検証ゲート](docs/CHAPTER2_PUBLICATION_NOVELTY_DECISION_20261019.md)。自殖による短期救済と遺伝変異減少は既知のため、160×160登録済みの **高I到達可能性Gと存続Sの別々の効果**、および既存原票から導いた**探索的な3状態（生存かつ到達可能／生存かつ閉鎖／絶滅）**を中心にする。新しい複合評価の信頼区間や普遍性は未確認。NEE投稿可能との判断・新規実験実施を意味しない。
+
 > **現行の論文化方針（2026-10-19） — ELを独立のCh3へ分割せず、一つのNEE Article候補へ統合：** [最新の一論文ルート](docs/audits/CHAPTER2_NEE_ACTIVE_PUBLICATION_ROUTE_20261017.json) · [統合NEE作業原稿](docs/CHAPTER2_UNIFIED_NEE_ARTICLE_WORKING_20261017.md)。既存Q1〜Q4に、完了した160×160確認・花粉制限384経路・保存変異解析・限定的再適応を統合する。[現行の成果補足](docs/CHAPTER2_COMPLETED_EVIDENCE_SUPPLEMENT_20261019.md)と[S1〜S33・F1〜F8の配置表](docs/CHAPTER2_HISTORICAL_RESULTS_DISPOSITION_20261019.md)で陰性・未決も追跡する。全回復確率の時計は未検証であり、今回の統合に新規実験を追加しない。旧Ecology Letters原稿・レンダラー・登録結果は再現用の履歴であり、別投稿対象ではない。**NEE投稿準備は未完了。**
 
 > **論文の新規性と証拠の三層（Q1〜Q4）:** [Lepers全文・PR #569を反映した主張の採用／不採用表](docs/CHAPTER2_THREE_TIER_FOUR_QUESTION_NOVELTY_REVIEW_20261016.md)。既知の自殖・花縮小理論との差、新しい遺伝的実現の検証、Q4の独立した存続効果を区別。原稿・原本・登録結果は変更していません。
