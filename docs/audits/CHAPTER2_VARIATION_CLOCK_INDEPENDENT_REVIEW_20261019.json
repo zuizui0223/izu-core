@@ -1,0 +1,280 @@
+{
+  "status": "PASS_INDEPENDENT_READ_ONLY_REVIEW",
+  "analysis_sha256": "ae79060eb0bc0ac88f61a2bef05d576523163b1f797fbbfaa68019e1acd01bea",
+  "summary_sha256": "a2a70a8b351799a803348486cfd12870d1d898e1812854b7efaf12f7a9aa7272",
+  "seed_transfer_sha256": "7f31c637a973821a3996f9d5f8be086610e5d8df72ebb62cd94421f6376f4a05",
+  "seed_cohort_rows_independently_checked": 64,
+  "shard_receipts_verified": 32,
+  "crossings": 25600,
+  "contrasts": [
+    {
+      "budget": "B8",
+      "trait": "M",
+      "endpoint": "fixation_by80",
+      "estimate": 0.020546875,
+      "family95": [
+        -0.00183945263191191,
+        0.04293320263191191
+      ]
+    },
+    {
+      "budget": "B8",
+      "trait": "M",
+      "endpoint": "occupied_polymorphic_duration",
+      "estimate": -0.7925390625,
+      "family95": [
+        -1.407625681989697,
+        -0.17745244301030272
+      ]
+    },
+    {
+      "budget": "B8",
+      "trait": "I",
+      "endpoint": "fixation_by80",
+      "estimate": 0.0355078125,
+      "family95": [
+        0.01606128675943902,
+        0.05495433824056098
+      ]
+    },
+    {
+      "budget": "B8",
+      "trait": "I",
+      "endpoint": "occupied_polymorphic_duration",
+      "estimate": -2.628046875,
+      "family95": [
+        -3.4472022140545566,
+        -1.8088915359454432
+      ]
+    },
+    {
+      "budget": "B8",
+      "trait": "A",
+      "endpoint": "fixation_by80",
+      "estimate": 0.387421875,
+      "family95": [
+        0.3718801567013709,
+        0.40296359329862913
+      ]
+    },
+    {
+      "budget": "B8",
+      "trait": "A",
+      "endpoint": "occupied_polymorphic_duration",
+      "estimate": -29.653359375,
+      "family95": [
+        -30.467401059767212,
+        -28.83931769023279
+      ]
+    },
+    {
+      "budget": "B4p5",
+      "trait": "M",
+      "endpoint": "fixation_by80",
+      "estimate": -0.403125,
+      "family95": [
+        -0.421056953741952,
+        -0.385193046258048
+      ]
+    },
+    {
+      "budget": "B4p5",
+      "trait": "M",
+      "endpoint": "occupied_polymorphic_duration",
+      "estimate": 20.2021484375,
+      "family95": [
+        19.636917360405594,
+        20.767379514594406
+      ]
+    },
+    {
+      "budget": "B4p5",
+      "trait": "I",
+      "endpoint": "fixation_by80",
+      "estimate": -0.1741796875,
+      "family95": [
+        -0.18794479090584584,
+        -0.16041458409415418
+      ]
+    },
+    {
+      "budget": "B4p5",
+      "trait": "I",
+      "endpoint": "occupied_polymorphic_duration",
+      "estimate": 12.6837109375,
+      "family95": [
+        11.98407899014345,
+        13.383342884856551
+      ]
+    },
+    {
+      "budget": "B4p5",
+      "trait": "A",
+      "endpoint": "fixation_by80",
+      "estimate": 0.0321484375,
+      "family95": [
+        0.02656636513043068,
+        0.03773050986956932
+      ]
+    },
+    {
+      "budget": "B4p5",
+      "trait": "A",
+      "endpoint": "occupied_polymorphic_duration",
+      "estimate": -11.08171875,
+      "family95": [
+        -11.864065823364909,
+        -10.299371676635092
+      ]
+    }
+  ],
+  "raw_trajectories_independently_verified": [
+    {
+      "founder": 0,
+      "visitor": 0,
+      "policy": "fixed",
+      "budget": "B8",
+      "first_fix": [
+        69,
+        41,
+        69
+      ]
+    },
+    {
+      "founder": 0,
+      "visitor": 0,
+      "policy": "fixed",
+      "budget": "B4p5",
+      "first_fix": [
+        67,
+        43,
+        67
+      ]
+    },
+    {
+      "founder": 0,
+      "visitor": 0,
+      "policy": "evolving",
+      "budget": "B8",
+      "first_fix": [
+        57,
+        32,
+        42
+      ]
+    },
+    {
+      "founder": 0,
+      "visitor": 0,
+      "policy": "evolving",
+      "budget": "B4p5",
+      "first_fix": [
+        61,
+        32,
+        38
+      ]
+    },
+    {
+      "founder": 79,
+      "visitor": 81,
+      "policy": "fixed",
+      "budget": "B8",
+      "first_fix": [
+        -1,
+        61,
+        49
+      ]
+    },
+    {
+      "founder": 79,
+      "visitor": 81,
+      "policy": "fixed",
+      "budget": "B4p5",
+      "first_fix": [
+        41,
+        48,
+        40
+      ]
+    },
+    {
+      "founder": 79,
+      "visitor": 81,
+      "policy": "evolving",
+      "budget": "B8",
+      "first_fix": [
+        54,
+        -1,
+        13
+      ]
+    },
+    {
+      "founder": 79,
+      "visitor": 81,
+      "policy": "evolving",
+      "budget": "B4p5",
+      "first_fix": [
+        67,
+        67,
+        13
+      ]
+    },
+    {
+      "founder": 159,
+      "visitor": 159,
+      "policy": "fixed",
+      "budget": "B8",
+      "first_fix": [
+        -1,
+        54,
+        50
+      ]
+    },
+    {
+      "founder": 159,
+      "visitor": 159,
+      "policy": "fixed",
+      "budget": "B4p5",
+      "first_fix": [
+        58,
+        58,
+        42
+      ]
+    },
+    {
+      "founder": 159,
+      "visitor": 159,
+      "policy": "evolving",
+      "budget": "B8",
+      "first_fix": [
+        -1,
+        58,
+        28
+      ]
+    },
+    {
+      "founder": 159,
+      "visitor": 159,
+      "policy": "evolving",
+      "budget": "B4p5",
+      "first_fix": [
+        -1,
+        60,
+        28
+      ]
+    }
+  ],
+  "extinction_counts": {
+    "B8": {
+      "fixed": 0,
+      "evolving": 0
+    },
+    "B4p5": {
+      "fixed": 24215,
+      "evolving": 482
+    }
+  },
+  "limits": [
+    "Raw validation sampled three crossings, both policies and budgets; not full raw reanalysis",
+    "B4p5 occupied polymorphic duration mixes fixation and mortality",
+    "Post-outcome model-conditional comparison; fixed-policy A genotypes are latent"
+  ]
+}

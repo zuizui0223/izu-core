@@ -1,0 +1,10 @@
+{
+  "status": "RELEASE_DOWNLOAD_HASH_VERIFIED",
+  "sha256": "73654d571e2b93f29ab1aa8f2d7435f214bd78cfc16a2098d52120ef76625ad3",
+  "bytes": 107470327,
+  "run_id": 39226906489,
+  "artifact_id": 12174875191,
+  "release_tag": "variation-clock-386c035d-20261019",
+  "asset_id": 655813218,
+  "draft": true
+}
