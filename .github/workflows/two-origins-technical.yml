@@ -1,0 +1,65 @@
+name: Two origins technical gate
+
+on:
+  pull_request:
+    paths:
+      - 'scripts/chapter2_two_origins_technical_20261019.py'
+      - 'tests/test_chapter2_two_origins_technical_20261019.py'
+      - 'docs/CHAPTER2_TWO_ORIGINS_ENGINEERING_GATE_20261019.md'
+      - '.github/workflows/two-origins-technical.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  technical-only:
+    if: >-
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.number == 610 &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Install native Model3 numerical/test dependencies
+        run: python -m pip install numpy==2.2.6 scipy==1.15.3 pytest==8.4.2
+      - name: Run synthetic and native-stage contract tests
+        run: python -m pytest -q tests/test_chapter2_two_origins_technical_20261019.py
+      - name: Execute bounded technical smoke only
+        run: |
+          python -m scripts.chapter2_two_origins_technical_20261019 --technical-smoke --output "${RUNNER_TEMP}/two-origins-tech.json"
+          python - <<'PY'
+          import json, math, os
+          from pathlib import Path
+          p = Path(os.environ["RUNNER_TEMP"]) / "two-origins-tech.json"
+          d = json.loads(p.read_text())
+          assert d["status"] == "TECHNICAL_SMOKE_ONLY_NOT_SCIENTIFIC_EVIDENCE"
+          assert d["publication_claim_allowed"] is False
+          assert d["registered_scientific_endpoints"] is False
+          assert len(d["records"]) == 192
+          assert len(d["exact_stage_accounting"]) == 32
+          assert d["protocol"] == "two-origins-technical-20261019-v2"
+          for r in d["records"]:
+              lam = r["expected_recruits_if_arrived"]
+              assert lam >= 0 and math.isfinite(lam)
+              assert abs(r["establishment_probability_if_arrived"] + math.expm1(-lam)) < 1e-12
+          for group in d["exact_stage_accounting"]:
+              for trait in ("A","I"):
+                  x = group[trait]
+                  if x["contributions"] is not None:
+                      assert abs(math.fsum(x["contributions"].values()) - x["total_change"]) < 1e-12
+          print("PASS: bounded technical assembly, Poisson establishment, all-stage arithmetic; NO science inference.")
+          PY
+      - name: Publish clearly labeled technical-only run summary
+        if: always()
+        run: |
+          printf '## Technical-only Model3 assembly gate\nNo registered biological study; no proof of island trait sorting or predictability.\nScope: 6 source lineages × 2 artificial islands × 2 resets × 2 early filters × 4 later policies = 192 bounded paths.\n' >> "$GITHUB_STEP_SUMMARY"
