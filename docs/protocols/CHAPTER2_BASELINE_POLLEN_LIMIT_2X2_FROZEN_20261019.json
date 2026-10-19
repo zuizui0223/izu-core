@@ -1,0 +1,95 @@
+{
+  "schema": "chapter2_baseline_pollination_factorial_technical_exploratory_v1",
+  "frozen_before_new_finite_biological_outcomes": true,
+  "date": "2026-10-19",
+  "source_repo": "zuizui0223/izu-core",
+  "source_main_sha": "e0992141c860a77280b6f38e328ad3d448b50a3a",
+  "status": "FROZEN_EXPLORATORY_MECHANISM_PILOT_NOT_INDEPENDENT_CONFIRMATION",
+  "scientific_question": "Does baseline pollen limitation modify the incremental effect of imposed pollinator-activity decline on the evolution of assurance A versus investment I?",
+  "interpretation_exclusions": [
+    "Cannot infer responsiveness from zero terminal contrast alone; both arms can hit a common allele bound",
+    "Baseline effectiveness manipulates pollen delivery rather than just number of visitors",
+    "No automatic claim that pollinator decline has no influence on A, nor that A responds to the derivative of historical change",
+    "Homogeneous exogenous visitor assembly is not a stochastic visitor-history experiment",
+    "No natural island effect, genetic mediation, population-wide evolutionary law or restored-environment adaptation"
+  ],
+  "factorial": {
+    "effectiveness": {"strong_baseline_limitation": 0.03, "weak_baseline_limitation": 1.0},
+    "pollinator_activity": {"pre_decline": 0.4, "control_future": 0.4, "decline_future": 0.04},
+    "nominal_activity_drop_fraction": 0.9,
+    "freeze_prefix_updates": 30,
+    "future_updates": 50,
+    "total_updates_per_trajectory": 80,
+    "visitors": {"count": 6, "matching_optimum": 0.5, "breadth": 0.2},
+    "fixed_activity_mode": true,
+    "initial_A_means": [0.3, 0.5],
+    "initial_I_mean": 0.5,
+    "initial_M_mean": 0.5
+  },
+  "cohort": {
+    "independent_founder_seed_start": 810101,
+    "independent_founder_seed_count": 12,
+    "nested_demography_stream_ids": [1, 2, 3, 4],
+    "founder_population_count": 48,
+    "founder_allele_sd": 0.15,
+    "founder_projection_grid": [0.0, 0.25, 0.5, 0.75, 1.0],
+    "founder_allele_processing": "native reflect_unit then nearest grid node, ties to lower node",
+    "same_genotype_for_all_four_factorial_arms_within_each_initial_A_founder": true,
+    "pairing": "match control and decline by founder and demographic stream, using same prefix and stochastic RNG streams; followup streams inherit the matched RNG state and diverge only after different birth outcomes"
+  },
+  "model": {
+    "capacity": 48,
+    "adult_survival": 0.0,
+    "ovule_budget": 8.0,
+    "pollen_budget": 20.0,
+    "pollen_scale": 0.15,
+    "investment_cost": 0.5,
+    "assurance_cost": 0.5,
+    "inbreeding_depression": 0.5,
+    "assurance_mode": "evolving",
+    "assurance_timing": "delayed",
+    "pollen_discount": 0.0,
+    "mutation_rate": 0.0,
+    "seed_immigration": 0.0,
+    "visitor_immigration": 0.0,
+    "visitor_loss": 0.0,
+    "visitor_activity_mode": "fixed"
+  },
+  "native_preexecution_homogeneous_q_diagnostic": {
+    "resident_traits_M_I_A": [0.5, 0.5, 0.5],
+    "measured_from_source_reproduce_before_selfing": true,
+    "strong_baseline_limit_control_initial_outcross_fraction": 0.14504,
+    "strong_baseline_limit_after_decline_initial_outcross_fraction": 0.01726,
+    "weak_baseline_limit_control_initial_outcross_fraction": 0.99461,
+    "weak_baseline_limit_after_decline_initial_outcross_fraction": 0.44038,
+    "not_evolutionary_observations": true
+  },
+  "analysis": {
+    "unit_of_independent_resampling": "founder seed, not demographic replicate or paired arm",
+    "primary_descriptive_target": "initial-A-stratified interaction on post-prefix changes in assurance: [(A80-A30)_decline - (A80-A30)_control]_weak_limit - same_strong_limit",
+    "secondary_targets": [
+      "same interaction for investment I",
+      "A30-A0 and I30-I0 by baseline pollen-limitation level",
+      "A and I final differences between decline and control at each baseline level",
+      "within-founder variance, endpoint diversity, non-events, allele maximum and minimum",
+      "first/last census q, realized selfed and outcrossed production, and occupancy"
+    ],
+    "repeats": 4,
+    "founders": 12,
+    "alternative_start_sensitivity": "A0 0.3 compared with 0.5; never discard either starting state",
+    "survivor_rule": "Report unconditional all-start occupancy; A and I are undefined after extinction, and trait contrasts have explicit survivor-conditioned denominators",
+    "uncertainty": "founder cluster bootstrap interval descriptive only; no preregistered p-value or model-general claim",
+    "primary_effect_sign_not_fixed": true,
+    "readout_after_complete_allocation_only": true
+  },
+  "budget": {
+    "factorial_cells": 4,
+    "initial_A_states": 2,
+    "founders": 12,
+    "demographic_repeats": 4,
+    "complete_trajectories": 384,
+    "updates_including_duplicated_prefixes": 30720,
+    "technical_source_only": false,
+    "reserved_confirmation_seeds_consumed": 0
+  }
+}
