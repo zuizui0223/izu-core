@@ -104,6 +104,22 @@ five target tolerances. Crossed cells are not independent islands, and a
 precise average effect does not establish predictable individual fates.
 [Complete results and audit](CHAPTER2_CONFIRM160_RESULTS_20261019.md).
 
+### Investment responses also retain reproducible environmental structure
+
+A separate post-outcome analysis of the archived fixed-A bridge found
+history-conditioned structure in floral investment responses. Increasing
+capacity from 48 to 192 raised the estimated reliability of an eight-repeat
+mean from .621 to .825 (single-trajectory ICC .170 to .370), while pooling
+visitor histories reduced it to .103. Larger capacity reduced within-context
+dispersion and increased between-history variance; pooling instead weakened
+the environmental contrast. These are distinct routes to more uniform sign
+labels. Reliability of an averaged response is not individual-trajectory
+prediction accuracy. Because capacity also enters the pollen-allocation
+kernel, this intervention does not isolate genetic drift. Assurance was fixed
+at .5, so these findings cannot rank A against I. They nevertheless oppose
+treating floral responses as unstructured chance.
+[Exploratory decomposition](CHAPTER2_HISTORY_DEMOGRAPHY_REPEATABILITY_AUDIT_20261003.md).
+
 ### Assurance endpoints were more repeatable under the sampled conditions
 
 A post-outcome readback of an existing finite experiment compared evolving A
