@@ -58,7 +58,30 @@ def derive(source):
             }
         d = (arms["evolving"]["alive_and_target_accessible"]
              - arms["fixed"]["alive_and_target_accessible"]) * 100 / n
-        by_budget[budget] = {"arms": arms, "evolving_minus_fixed_accessible_alive_pp": d}
+        # Pure Kitagawa-type product identity J = P(alive) * P(access | alive).
+        # These symmetric arithmetic terms are NOT causal survival/genetic mediation.
+        surviving = {p: (arms[p]["alive_and_target_accessible"] +
+                         arms[p]["alive_but_target_closed"]) for p in arms}
+        if min(surviving.values()) == 0:
+            raise ValueError("undefined survivor-conditional descriptive decomposition")
+        p_fixed = surviving["fixed"] / n
+        p_evolving = surviving["evolving"] / n
+        c_fixed = arms["fixed"]["alive_and_target_accessible"] / surviving["fixed"]
+        c_evolving = arms["evolving"]["alive_and_target_accessible"] / surviving["evolving"]
+        survival_term = (p_evolving - p_fixed) * (c_evolving + c_fixed) / 2 * 100
+        conditional_term = (c_evolving - c_fixed) * (p_evolving + p_fixed) / 2 * 100
+        if abs(survival_term + conditional_term - d) > 1e-10:
+            raise ValueError("three-state product identity does not close")
+        by_budget[budget] = {
+            "arms": arms,
+            "evolving_minus_fixed_accessible_alive_pp": d,
+            "descriptive_product_identity_not_mediation": {
+                "survival_prevalence_term_pp": survival_term,
+                "survivor_conditional_composition_term_pp": conditional_term,
+                "sum_pp": survival_term + conditional_term,
+                "survivor_conditioning_selection_bias_possible": True,
+            },
+        }
     by_budget["B4p5"]["evolving_minus_fixed_accessible_alive_pp"]
     diff = (by_budget["B4p5"]["evolving_minus_fixed_accessible_alive_pp"]
             - by_budget["B8"]["evolving_minus_fixed_accessible_alive_pp"])
@@ -91,6 +114,7 @@ def derive(source):
         "limitations": [
             "Not a registered third primary endpoint; no new confidence interval, p value, or significance gate.",
             "B4p5 positive joint endpoint is largely shaped by differential extinction, not evidence that A directly preserves I alleles.",
+            "Symmetric decomposition of survival vs survivor-conditional access is a product identity only, not a causal mediator estimate.",
             "B8 loss and B4p5 survival occur in different environments; neither mediation nor a biological SESOI is identified.",
             "Founder and visitor are 160 crossed axes, not 25600 independent island systems.",
             "Genetic upper support is only necessary, not sufficient for attained floral adaptation or recovery."
