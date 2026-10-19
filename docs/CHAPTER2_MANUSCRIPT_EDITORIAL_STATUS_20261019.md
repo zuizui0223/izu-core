@@ -37,9 +37,15 @@ The revised introductory statements were checked against the primary papers on 2
 
 This spot-check is not a completed reference audit of the entire manuscript.
 
+## One-story integration — 2026-10-19
+
+The [single ecological storyline](CHAPTER2_ONE_COHERENT_STORY_20261019.md) now connects the original Q1–Q4 to the latest 384 pollen, 160×160 genetic/persistence and nested five-environment transfer evidence as one paper **without inventing four identified causal mediator links**. The working Article's Introduction and Discussion were rewritten around the central question: whether maintaining reproduction after pollinator decline preserves genetic options for subsequent floral evolution. The manuscript retains the registered Q2 practical-equivalence and inconclusive comparisons, original Q3 finite-model discrepancies, original Q4 independent32 and no-evolution demographic controls, and the new conditional G/S outcomes. The same Introduction/Discussion text is synchronized into the completed-evidence-only editorial extract.
+
+Latest internal whitespace counts: abstract 193 words; Introduction–Discussion body 3,457 words excluding Online Methods, legends and references. These are editable source counts, not final journal-certified submission counts. Completed evidence supports a model-conditional separation of reproductive buffering, genetic support, segregating variation and persistence; neither genetic mediation, a full recovery-probability window nor natural island validation has been demonstrated. No new simulation was performed.
+
 ## 2026-10-19 publication execution addendum
 
 - [Source-locked Figures 1–6](../figures/chapter2_nee/README.md) now exist as SVG files, with figure-mark/source regression tests included in Chapter 2 scientific CI. No underlying cohort or inference was changed.
-- The active manuscript links the four SVGs and removes Discussion subheadings to match the stated Article structure. The original undeployed restoration-window proposals remain marked non-results elsewhere in the working draft; they still need removal/movement before submission-ready typesetting.
-- [Nature Ecology & Evolution Article content requirements](https://www.nature.com/natecolevol/content) currently specify an unreferenced abstract up to 200 words, main text up to 3,500 words excluding Methods/abstract/references/figure legends, and six display items. As updated, the internal whitespace count is about 189 for the abstract section and 3,361 for the Introduction–Discussion source block. These are conservative internal checks, not final typeset counts.
+- The active manuscript links all six main SVGs and removes Discussion subheadings to match the stated Article structure. The original undeployed restoration-window proposals remain marked non-results elsewhere in the working draft; they still need removal/movement before submission-ready typesetting.
+- [Nature Ecology & Evolution Article content requirements](https://www.nature.com/natecolevol/content) currently specify an unreferenced abstract up to 200 words, main text up to 3,500 words excluding Methods/abstract/references/figure legends, and six display items. As updated, the internal whitespace count is 193 for the abstract section and 3,457 for the Introduction–Discussion source block. These are conservative internal checks, not final typeset counts.
 - Submission readiness remains false: Figure accessibility/visual verification, pending-results relocation, complete reference and author checks and the DOI-backed archive gate remain unfinished.
