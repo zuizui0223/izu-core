@@ -1,0 +1,12 @@
+{
+  "schema": "readaptation_actions_authorization_v1",
+  "execution_authorized": true,
+  "contract_sha256": "fcef67869b37c2ef4e9233eb63d794aab13fc4701f0716e05bb886e33c8be31a",
+  "future_paths": 10240,
+  "updates": 819200,
+  "output_bytes": 8589934592,
+  "minimum_memory_bytes": 1073741824,
+  "minimum_disk_bytes": 10737418240,
+  "platform": "github_actions",
+  "decision": "user_explicit_20261019"
+}

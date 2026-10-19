@@ -1,0 +1,649 @@
+{
+  "status": "PASS_32_DONOR_SOURCE_STATES",
+  "biological_updates": 0,
+  "cohorts_generated": 0,
+  "donors": [
+    {
+      "key": [
+        0,
+        0,
+        "fixed"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-0.zip",
+      "archive_sha256": "c48c71e52fab8432de2998e8ab2dccd285aacf22d55ac76b4c57d4dfd324f8d1",
+      "member": "states/501001_502001_fixed_B8.npz",
+      "member_sha256": "30075305490d899503a00bcc6affd8a365c7e48f895513ff4e33e49cb3204130",
+      "payload_sha256": "c0b3840ddf755cad3b54b5c8c055fbfdb13f9590e5e8488a60b0e8c5332c68e0",
+      "donor_sha256": "0af6cae25530a24b1d1d210c8dc4082067245bcb65b37a97f835afa50bb45baa",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4908854166666667,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        0,
+        0,
+        "evolving"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-0.zip",
+      "archive_sha256": "c48c71e52fab8432de2998e8ab2dccd285aacf22d55ac76b4c57d4dfd324f8d1",
+      "member": "states/501001_502001_evolving_B8.npz",
+      "member_sha256": "31b7dea70c7c298d2411a6daebe49ae38f38c04deebd2683bc2bc9e9813fd31a",
+      "payload_sha256": "15f8a4126c46d7ed423c9d2c79e78ee477de3272558522225bb3fc2efb841851",
+      "donor_sha256": "2c2b47e31819d581129c41e5f58d5396e15f1b6fcb324b5f8b968a9b58204271",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4908854166666667,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        40,
+        0,
+        "fixed"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-0.zip",
+      "archive_sha256": "c48c71e52fab8432de2998e8ab2dccd285aacf22d55ac76b4c57d4dfd324f8d1",
+      "member": "states/501041_502001_fixed_B8.npz",
+      "member_sha256": "e44c21e53a7d96cdc28f3cec4f4fac71d176fc615353229ce10a42d90b40ce0a",
+      "payload_sha256": "fbee09ca805ba07b3c64ccc7b0ea55fd487ad782ec56ddbc139cc2d7c0a86316",
+      "donor_sha256": "964c2197a2f3c1eb7b5c02deed666b88c5e1d4d96f919293ad3ca7a142ec1a0b",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4817708333333333,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        40,
+        0,
+        "evolving"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-0.zip",
+      "archive_sha256": "c48c71e52fab8432de2998e8ab2dccd285aacf22d55ac76b4c57d4dfd324f8d1",
+      "member": "states/501041_502001_evolving_B8.npz",
+      "member_sha256": "b7d85325d01be32260121fe878c90bd49a9569a126886143b1d50c90eed715d4",
+      "payload_sha256": "25ce648fd97ff1952fb4ecde79f85416eae17c08074323cfe42a4e1cd6ce9e8a",
+      "donor_sha256": "b423f8788d8d39dacdd4adc8790aaf906cbb325e31467e054f5e7f5b81f882a1",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4817708333333333,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        80,
+        0,
+        "fixed"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-0.zip",
+      "archive_sha256": "c48c71e52fab8432de2998e8ab2dccd285aacf22d55ac76b4c57d4dfd324f8d1",
+      "member": "states/501081_502001_fixed_B8.npz",
+      "member_sha256": "9d3d7402a6a533544fef9597fa7d14351084aa096ca516d33857e7e7ff9a537e",
+      "payload_sha256": "f8606d23a2b6ac2d2340235d8ca1a89353813c3ffcbb3816ecbeafef249b2357",
+      "donor_sha256": "64040265b02307d1106750a906e38528637b493d73e98d4f069af44624b69c5f",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4973958333333333,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        80,
+        0,
+        "evolving"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-0.zip",
+      "archive_sha256": "c48c71e52fab8432de2998e8ab2dccd285aacf22d55ac76b4c57d4dfd324f8d1",
+      "member": "states/501081_502001_evolving_B8.npz",
+      "member_sha256": "6afa47062936b21ef5534f19c8fcfd86f7ce24439ad135d9cc330a28136b8cc8",
+      "payload_sha256": "0201cdc236b5f81fad97f20d53d94e7bb544d4c47c044d0d181e9453478280f1",
+      "donor_sha256": "2198422367042e433395cec7c2324acb05c62b3beeee4ea58241037fe58453a4",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4973958333333333,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        120,
+        0,
+        "fixed"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-0.zip",
+      "archive_sha256": "c48c71e52fab8432de2998e8ab2dccd285aacf22d55ac76b4c57d4dfd324f8d1",
+      "member": "states/501121_502001_fixed_B8.npz",
+      "member_sha256": "5cb2bcfcfccfcac73b4fd8928bf483b890d4cd53964596d315ccee6a4313c7ff",
+      "payload_sha256": "57177ac5a14df5f26ccada587a2ca40c82b71684add59208716a8630b98c038b",
+      "donor_sha256": "4974edb4cda2c1f38f3bc8a38ae4b98fa3b9f6b506d1b2d9b5c13c4da65e7aad",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4869791666666667,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        120,
+        0,
+        "evolving"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-0.zip",
+      "archive_sha256": "c48c71e52fab8432de2998e8ab2dccd285aacf22d55ac76b4c57d4dfd324f8d1",
+      "member": "states/501121_502001_evolving_B8.npz",
+      "member_sha256": "1253aa16ecef2f8a24cab6f4dda8400289fdd78dadeb78d382a0aa8f97273af7",
+      "payload_sha256": "633f2d5a72bea1c1ca91c4194f9b34dcc387589ccc5886d0bf7058b3c58f500c",
+      "donor_sha256": "2c0ab54a8e015512c87dbd8a306e717f3430be63aa9e2e32c5175135691d3576",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4869791666666667,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        0,
+        40,
+        "fixed"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-8.zip",
+      "archive_sha256": "e9d65e4dfcbc71137b72af67102aa4cf7d8856eb50f9ab403c04a10188e27538",
+      "member": "states/501001_502041_fixed_B8.npz",
+      "member_sha256": "d7c0c42058e881244fc30639cf05246bbbaac897df71dcf9f91f15891cbdb804",
+      "payload_sha256": "d3301d2b65f3402dd5d9ce20f9424579b1401e663df180fb38745cb28a001c10",
+      "donor_sha256": "26e8c5423cbc95a6dd10d7536f7170f5a69fb7f54b2de24a831a81276db72a49",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4908854166666667,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        0,
+        40,
+        "evolving"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-8.zip",
+      "archive_sha256": "e9d65e4dfcbc71137b72af67102aa4cf7d8856eb50f9ab403c04a10188e27538",
+      "member": "states/501001_502041_evolving_B8.npz",
+      "member_sha256": "1cc92a1f70542c0c19274772a10045c793560a057f45278967965697d6aaf8bf",
+      "payload_sha256": "eb81235e5ce2311709463e12df99ff62a28cfcac8a64092b046b5938379cd451",
+      "donor_sha256": "77f60a605a05bd0d3a6b5c41818f8e589cd1a0aba1f57fddbfa3ab1cea79b2f6",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4908854166666667,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        40,
+        40,
+        "fixed"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-8.zip",
+      "archive_sha256": "e9d65e4dfcbc71137b72af67102aa4cf7d8856eb50f9ab403c04a10188e27538",
+      "member": "states/501041_502041_fixed_B8.npz",
+      "member_sha256": "a3818fe9a8f2024455f30b5b775e1c6e837e728166abc98b840b550e361db8f9",
+      "payload_sha256": "e490951f0a65b342ebd0f47c29a6efbb2321b8db5a291b9dba93f067ba886fc1",
+      "donor_sha256": "77036a2ec94bace9b01dce9b244e83ea7264eeaebebf75b66587e48eeb207682",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4817708333333333,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        40,
+        40,
+        "evolving"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-8.zip",
+      "archive_sha256": "e9d65e4dfcbc71137b72af67102aa4cf7d8856eb50f9ab403c04a10188e27538",
+      "member": "states/501041_502041_evolving_B8.npz",
+      "member_sha256": "51ebfe25410348e7762709f0e167c40e8f5b93a40e932dcae8315d6c6edc57c8",
+      "payload_sha256": "da52e0cadd4ea32463ba86cef1469df0d4bbd814593d91ea64a47c68f8f1d17a",
+      "donor_sha256": "c746d7c7d1d64118fddc3d90d1838c536ca808c38026b4cdd83c82b22e854835",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4817708333333333,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        80,
+        40,
+        "fixed"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-8.zip",
+      "archive_sha256": "e9d65e4dfcbc71137b72af67102aa4cf7d8856eb50f9ab403c04a10188e27538",
+      "member": "states/501081_502041_fixed_B8.npz",
+      "member_sha256": "45e89e59a0703f15de511d2cc939b8f5d873cb302e351911e0b7888ade9ff1d3",
+      "payload_sha256": "20955679f0ed440227132d22f3c0980590bd5c498494533652529603b9fda9ce",
+      "donor_sha256": "992c705a0441b307e68a509c63896f5c50dd93fa363d8eb90030e074628cfd7b",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4973958333333333,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        80,
+        40,
+        "evolving"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-8.zip",
+      "archive_sha256": "e9d65e4dfcbc71137b72af67102aa4cf7d8856eb50f9ab403c04a10188e27538",
+      "member": "states/501081_502041_evolving_B8.npz",
+      "member_sha256": "a7e79394ee32ce66030906ed49b00ffc2f812b231742a6e491780938b4535770",
+      "payload_sha256": "5f8b023a08369ac20469d7e77dad00e3d895af5a4582e18c2f02a2f74202dee7",
+      "donor_sha256": "196f651229f824d8144a210f1afcdba556f4945b17f65f4ac1751d39a96a1ee2",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4973958333333333,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        120,
+        40,
+        "fixed"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-8.zip",
+      "archive_sha256": "e9d65e4dfcbc71137b72af67102aa4cf7d8856eb50f9ab403c04a10188e27538",
+      "member": "states/501121_502041_fixed_B8.npz",
+      "member_sha256": "e74f0c498cb256e9122688e69b51300ebb24093c6d70b7df011dbb4654a1a009",
+      "payload_sha256": "27b08fb106d2a7c3aef35c99dcbcace0f65a82237502ce40cd5abb275025c8fe",
+      "donor_sha256": "e857dddb340c456a953e35ed0f3027a59f12fed6e5041b86a9b998d783ce58bf",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4869791666666667,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        120,
+        40,
+        "evolving"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-8.zip",
+      "archive_sha256": "e9d65e4dfcbc71137b72af67102aa4cf7d8856eb50f9ab403c04a10188e27538",
+      "member": "states/501121_502041_evolving_B8.npz",
+      "member_sha256": "644572120ad4c2b5812f03bb9b435ce226f6b44f31243c7f0ced777da7e4dd1b",
+      "payload_sha256": "c18af522786481af8d089ffabdf880ccc076bd3a5eb890906d754d9b1d85bac0",
+      "donor_sha256": "169be6b91b254eba5517b68fd8982d51ded8212f5d9e702cb2c9c9f1aada21aa",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4869791666666667,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        0,
+        80,
+        "fixed"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-16.zip",
+      "archive_sha256": "f18b1b23fc4ade53ba4e345e75bf853184e23350687ae2387c1ec6efb8f09006",
+      "member": "states/501001_502081_fixed_B8.npz",
+      "member_sha256": "e89ff25c0f992aa6395a2a34a35d3b73450dcc706e41086e2d99f5030d48863d",
+      "payload_sha256": "a539af64754d06f3f41937e3eb417d4f51a88e70cc50466307aae7132cfcf17f",
+      "donor_sha256": "4d65c3a7831aeacfc6e205e4b28ad4167aa10bb262c8a0ea961249a5707e2116",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4908854166666667,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        0,
+        80,
+        "evolving"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-16.zip",
+      "archive_sha256": "f18b1b23fc4ade53ba4e345e75bf853184e23350687ae2387c1ec6efb8f09006",
+      "member": "states/501001_502081_evolving_B8.npz",
+      "member_sha256": "dc48f7757174332e4c23ba6797ed006fb7b05356efebda58e5447043389c1d7d",
+      "payload_sha256": "f2be807e4ff83952ad48329816764fd0288eeea6226ac13a5c1c317bb59c9609",
+      "donor_sha256": "0809882f85a245464fa4758a479942f2b751fa8d34f44a0a17ae08bf0782b593",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4908854166666667,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        40,
+        80,
+        "fixed"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-16.zip",
+      "archive_sha256": "f18b1b23fc4ade53ba4e345e75bf853184e23350687ae2387c1ec6efb8f09006",
+      "member": "states/501041_502081_fixed_B8.npz",
+      "member_sha256": "c573587abe6cb77b4c133ee6d8ffb475546d8d7db41e70cfc500577d6da1d9ae",
+      "payload_sha256": "11f70a3d4dfbb4d2db3266635b08b28677098c32dd7e49a0262010b2e570fef6",
+      "donor_sha256": "bd62feab48e1143910dd65b588470fc1df137f633b7970566f55f0681092a59e",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4817708333333333,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        40,
+        80,
+        "evolving"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-16.zip",
+      "archive_sha256": "f18b1b23fc4ade53ba4e345e75bf853184e23350687ae2387c1ec6efb8f09006",
+      "member": "states/501041_502081_evolving_B8.npz",
+      "member_sha256": "addea835051c2c229b8412e0d16a00cc62c8739918f6dc66abac710b9498dea8",
+      "payload_sha256": "78f14ba588b8f94f61c1ad5deb841551e63ec0a704f564a3089c4252387494aa",
+      "donor_sha256": "90d10a212b858a19ec83ce990d4c0060e52eba116b0fba31be85301638ef4f7a",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4817708333333333,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        80,
+        80,
+        "fixed"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-16.zip",
+      "archive_sha256": "f18b1b23fc4ade53ba4e345e75bf853184e23350687ae2387c1ec6efb8f09006",
+      "member": "states/501081_502081_fixed_B8.npz",
+      "member_sha256": "6de4fecb655179bd6d54837894f70e713ed3f5bf2e4c6ac50f44c9de2afe68c7",
+      "payload_sha256": "017ce872583875c9258478f1ad2e10d12748c1ee4c8dbf7d9751774010ce774f",
+      "donor_sha256": "824f32d707d3e302eda1a621eb3ca6785bf8635e125f6e134d2eeaa9929c9214",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4973958333333333,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        80,
+        80,
+        "evolving"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-16.zip",
+      "archive_sha256": "f18b1b23fc4ade53ba4e345e75bf853184e23350687ae2387c1ec6efb8f09006",
+      "member": "states/501081_502081_evolving_B8.npz",
+      "member_sha256": "c2ae0587d677fbd77613381e05b6522389825fdb0a3b233a614cf777e90e0115",
+      "payload_sha256": "99ecfa9e2ac333de965a837a0b2d45cc7e88003f3e4e0f8921bdf6d2c97a00d7",
+      "donor_sha256": "bc947dfc1c76e952f5238fda7a993bc618b808b271a1de971cec5d55390a3492",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4973958333333333,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        120,
+        80,
+        "fixed"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-16.zip",
+      "archive_sha256": "f18b1b23fc4ade53ba4e345e75bf853184e23350687ae2387c1ec6efb8f09006",
+      "member": "states/501121_502081_fixed_B8.npz",
+      "member_sha256": "942bae8f1cde87da765be3b76660c0ae56692e277004f5ba4a253d96f3938d42",
+      "payload_sha256": "18fd6da8fec5841dbb0de5f2180447c732473452a6909e71f02f4c9dfcbb2bb5",
+      "donor_sha256": "15bf3494ddc156844da980a05141bce63bb00743abafd71f8cdbb8b88ae0a28d",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4869791666666667,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        120,
+        80,
+        "evolving"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-16.zip",
+      "archive_sha256": "f18b1b23fc4ade53ba4e345e75bf853184e23350687ae2387c1ec6efb8f09006",
+      "member": "states/501121_502081_evolving_B8.npz",
+      "member_sha256": "441e1c21a2fdd03bb2c2b2c4c9ed4f889b188f884800d47b2e04997b24bce07a",
+      "payload_sha256": "675b4478f19e36c665bda571b8421aa1e0eb578bbbf8c0547719553c3070e46b",
+      "donor_sha256": "f89b3de6377b590c1282602c0b15fcfb083ac8523e58a099a48d8546bbedd0db",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4869791666666667,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        0,
+        120,
+        "fixed"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-24.zip",
+      "archive_sha256": "98547c0537e77249f67c66523a990ea43f85995f2ae7c410323f0d3d9ecd903b",
+      "member": "states/501001_502121_fixed_B8.npz",
+      "member_sha256": "17db128a59a38323f9965594d36fd01649a46a150e3464f8282415f6f8b6b9b3",
+      "payload_sha256": "39d7ad4b17348aa9f61a5f936cb78d3f7f0630107d6d0eeb658077a03e483bba",
+      "donor_sha256": "77374a6d01a466c3f5e80e1ca4af4d6a6e16d88a6a01abbaadd526000a3ef9ad",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4908854166666667,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        0,
+        120,
+        "evolving"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-24.zip",
+      "archive_sha256": "98547c0537e77249f67c66523a990ea43f85995f2ae7c410323f0d3d9ecd903b",
+      "member": "states/501001_502121_evolving_B8.npz",
+      "member_sha256": "a27ac6af9b1608069c55048f6647db7a44cb80394aeda9b08aafadbfdb007c7b",
+      "payload_sha256": "f1ffbc333bb5a21e5972d811261093e578e519441d8e8c9e2cd2ce4151244a4c",
+      "donor_sha256": "91938211ba4d2927cc896717c9990633578df289572ee67a8bb090a41897adb6",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4908854166666667,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        40,
+        120,
+        "fixed"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-24.zip",
+      "archive_sha256": "98547c0537e77249f67c66523a990ea43f85995f2ae7c410323f0d3d9ecd903b",
+      "member": "states/501041_502121_fixed_B8.npz",
+      "member_sha256": "e0d2ab4f1d5a2a5b911956224524ffcaa1f392d45730dcb310863829a12eeb25",
+      "payload_sha256": "706a43283039180f55c53548bbf8e8a4c174c8189057a5e695f8363cf0196cf2",
+      "donor_sha256": "b558de9a783f7211d2d2072e60606ae843659b5f0983ec12c8a3286084c8ef22",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4817708333333333,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        40,
+        120,
+        "evolving"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-24.zip",
+      "archive_sha256": "98547c0537e77249f67c66523a990ea43f85995f2ae7c410323f0d3d9ecd903b",
+      "member": "states/501041_502121_evolving_B8.npz",
+      "member_sha256": "a9940b8252ed6d851599dfd4d8bb1f1360e127da5f75640d29618c16df4ef794",
+      "payload_sha256": "55f588dabf9aa66bcfc9c2da11c6f6b2f2d38880d9152691012c13e94fe54de2",
+      "donor_sha256": "25e44f89774a560ac47375805b92f528d8d34c3fbae32c3494b1e81240b7160e",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4817708333333333,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        80,
+        120,
+        "fixed"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-24.zip",
+      "archive_sha256": "98547c0537e77249f67c66523a990ea43f85995f2ae7c410323f0d3d9ecd903b",
+      "member": "states/501081_502121_fixed_B8.npz",
+      "member_sha256": "f6d15ab4382c391abd46c1dbf1c282a662578421cf50018bdba6b7671fce2bfe",
+      "payload_sha256": "9362810c3921c1952b25cdbb9e14f9784ad99ef800fe806bc59087f8f3f1ea72",
+      "donor_sha256": "86c8fb04174f356c271ca76d98cb378545950a9318a19357236beb9575173431",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4973958333333333,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        80,
+        120,
+        "evolving"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-24.zip",
+      "archive_sha256": "98547c0537e77249f67c66523a990ea43f85995f2ae7c410323f0d3d9ecd903b",
+      "member": "states/501081_502121_evolving_B8.npz",
+      "member_sha256": "8ba9a4f1b3cae009806b20a826750624d66562aa3c733b45c4fff3893784f4e7",
+      "payload_sha256": "7555b2a119ee9aa205c0c30b4870137fc1401e49a7adc5b4f28cb6365ffca258",
+      "donor_sha256": "2237e801da122c43afaa160d7527ed390bdfcad1767dfff3ea59564638c4cbe1",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4973958333333333,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        120,
+        120,
+        "fixed"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-24.zip",
+      "archive_sha256": "98547c0537e77249f67c66523a990ea43f85995f2ae7c410323f0d3d9ecd903b",
+      "member": "states/501121_502121_fixed_B8.npz",
+      "member_sha256": "7bdc406f6ac2102aeaf0d66bb7e50fc98a92a782e6edd7d4719cf609a8b17a79",
+      "payload_sha256": "f523517a4638654c1bcb6d03198c2495ef7391da62dfb840f6721bdf8ee4adc9",
+      "donor_sha256": "719c49fd75d74e7df382ee2f40fd79f494c1d25672f7515688df7716b7c46805",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4869791666666667,
+        "A": 0.5
+      }
+    },
+    {
+      "key": [
+        120,
+        120,
+        "evolving"
+      ],
+      "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "archive": "raw-shard-24.zip",
+      "archive_sha256": "98547c0537e77249f67c66523a990ea43f85995f2ae7c410323f0d3d9ecd903b",
+      "member": "states/501121_502121_evolving_B8.npz",
+      "member_sha256": "a4efb6cd37f9a492d6b4cbc18fcebb0555332b09b679164261d084bed79317a8",
+      "payload_sha256": "c6f80f551a109039cb2f2400b43d39d665292f2d0ecbbeba71b850e244170ae9",
+      "donor_sha256": "d598ac932cc26ed741e17b4b49bcb36c0e231b8faa5972bac1211d97944bb843",
+      "census": 80,
+      "population": 48,
+      "founder_targets": {
+        "I": 0.4869791666666667,
+        "A": 0.5
+      }
+    }
+  ],
+  "reader_sha256": "7bf92a8fc74900a66dda3e4c0a4d7b9a792eecd3b5f10c3febc2b1b1760a8ef3",
+  "scope": "Preselected B8 census80 donors admitted from immutable source assets; no offspring or futures generated"
+}

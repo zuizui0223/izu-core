@@ -1,0 +1,74 @@
+{
+  "scope": "five synthetic technical futures; no scientific donors; not a worst-case bound",
+  "source_pins_checked": true,
+  "production_authorized": false,
+  "updates": 400,
+  "rows": [
+    {
+      "destination": "none",
+      "updates": 80,
+      "censuses": 81,
+      "run_seconds": 0.06811480014584959,
+      "write_seconds": 0.030790899880230427,
+      "read_audit_seconds": 0.07243940001353621,
+      "archive_bytes": 38774,
+      "array_bytes": 563824,
+      "max_population": 48,
+      "status": "PASS_RAW_STATE_ARITHMETIC"
+    },
+    {
+      "destination": "a0_m0",
+      "updates": 80,
+      "censuses": 81,
+      "run_seconds": 0.07505890005268157,
+      "write_seconds": 0.03524619992822409,
+      "read_audit_seconds": 0.13736920012161136,
+      "archive_bytes": 65007,
+      "array_bytes": 563966,
+      "max_population": 48,
+      "status": "PASS_RAW_STATE_ARITHMETIC"
+    },
+    {
+      "destination": "a0_m1",
+      "updates": 80,
+      "censuses": 81,
+      "run_seconds": 0.09115059999749064,
+      "write_seconds": 0.043315700022503734,
+      "read_audit_seconds": 0.1225131000392139,
+      "archive_bytes": 48471,
+      "array_bytes": 556582,
+      "max_population": 48,
+      "status": "PASS_RAW_STATE_ARITHMETIC"
+    },
+    {
+      "destination": "a1_m0",
+      "updates": 80,
+      "censuses": 81,
+      "run_seconds": 0.08890650002285838,
+      "write_seconds": 0.03580220020376146,
+      "read_audit_seconds": 0.07804729999043047,
+      "archive_bytes": 70810,
+      "array_bytes": 564676,
+      "max_population": 48,
+      "status": "PASS_RAW_STATE_ARITHMETIC"
+    },
+    {
+      "destination": "a1_m1",
+      "updates": 80,
+      "censuses": 81,
+      "run_seconds": 0.06848090002313256,
+      "write_seconds": 0.030618900200352073,
+      "read_audit_seconds": 0.07402099994942546,
+      "archive_bytes": 61700,
+      "array_bytes": 559706,
+      "max_population": 48,
+      "status": "PASS_RAW_STATE_ARITHMETIC"
+    }
+  ],
+  "implementation_sha256": {
+    "scripts/readaptation_futures_20261019.py": "3d9e45edbf4a1a1f9d31cbd6b91c1db592ad580e50e9ba267df9457ec1eedd6b",
+    "scripts/readaptation_storage_20261019.py": "d142bc39a362a58183acf222a1ee797b61fb39f2d7d13eb127595d5e5fddbce5",
+    "scripts/audit_readaptation_raw_20261019.py": "47411eca9f536aa4352992b3945f3cdedd9402747982a7fb92ad818983193766"
+  },
+  "projection_warning": "Single sample per destination; excludes donor admission, full replay and allocation audit. Do not replace the 8 GiB budget with sampled compression."
+}

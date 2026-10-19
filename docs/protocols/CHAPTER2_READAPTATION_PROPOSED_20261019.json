@@ -1,0 +1,80 @@
+{
+  "schema": "readaptation_local_proposal_v1",
+  "execution_authorized": false,
+  "namespace": "izu-readaptation-local-20261019-v1",
+  "source_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+  "founder_indices": [
+    0,
+    40,
+    80,
+    120
+  ],
+  "visitor_indices": [
+    0,
+    40,
+    80,
+    120
+  ],
+  "donor_policies": [
+    "fixed",
+    "evolving"
+  ],
+  "donor_census": 80,
+  "donor_budget": 8,
+  "cohort_draws": 2,
+  "propagule_cap": 12,
+  "future_repeats": 32,
+  "horizon": 80,
+  "activity": [
+    0.25,
+    1
+  ],
+  "future_costs": [
+    0.5
+  ],
+  "optima": [
+    [
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5,
+      0.5
+    ],
+    [
+      0.7,
+      0.7,
+      0.7,
+      0.7,
+      0.7,
+      0.7
+    ]
+  ],
+  "breadth": 0.2,
+  "effectiveness": 1,
+  "activity_mode": "fixed",
+  "capacity": 48,
+  "future_budget": 8,
+  "future_assurance_mode": "evolving",
+  "assurance_timing": "delayed",
+  "pollen_discount": 0,
+  "depression": 0.5,
+  "survival": 0,
+  "mutation_rate": 0,
+  "immigration": 0,
+  "assay_censuses": [
+    0,
+    80
+  ],
+  "initial_establishment": 1,
+  "inference": "conditional_estimation_only_pointwise",
+  "source_sha256": {
+    "scripts/model3_island/types.py": "a572e1e7f4fded181585871a63582b16f40292bd07b13e8efc9d6b6234eb21c5",
+    "scripts/model3_island/history.py": "28d22c7fde81d9be6a604fa9dd4cb6b48d78d388d4db85f798a935cf81415488",
+    "scripts/model3_island/population.py": "c959d18816da6666dbfb4e91bd9582c94af5453b25498d033f5747305b05fe0f",
+    "scripts/model3_island/reproduction.py": "885957edb8a165ee8528781ed1d2574c44143c608496b505f9663cbfac2c4081",
+    "scripts/model3_island/randomness.py": "63522ae3c5ff8e11f114b5649a989945fa4ba2480fdca0f74857601b0e4b211f",
+    "data/design/model3_island_v2.json": "0dcf6190c27f5fc9c50b07a270826932691f8c21886ff4b148c6fe299bf3135e",
+    "docs/audits/CHAPTER2_CONFIRM160_ASSET_SHA256_20261019.json": "15b3386dc23bdda7a53c238fcb6ae4b97486ae7479aaffcb584c49265751b00f"
+  }
+}

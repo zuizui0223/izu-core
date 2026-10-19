@@ -1,0 +1,88 @@
+{
+  "status": "PROPOSED_NO_BIOLOGICAL_UPDATES",
+  "production_ready": false,
+  "contract_sha256": "fcef67869b37c2ef4e9233eb63d794aab13fc4701f0716e05bb886e33c8be31a",
+  "donors": 32,
+  "cohort_draws": 64,
+  "future_paths": 10240,
+  "future_updates": 819200,
+  "future_censuses": 829440,
+  "state_bytes_per_census": 5664,
+  "state_bytes_upper": 4697948160,
+  "parentage_bytes_upper": 943718400,
+  "assay_population_evaluations_upper": 20480,
+  "assay_focal_evaluations_upper": 983040,
+  "full_replay_additional_updates": 819200,
+  "zero_failure_upper_95": 0.0893681989862648,
+  "compression_measured": false,
+  "benchmark_completed": false,
+  "byte_bound_excludes": [
+    "telemetry",
+    "containers",
+    "assay_records",
+    "replay_storage"
+  ],
+  "unique_master_seeds_checked": 10304,
+  "synthetic_benchmark": {
+    "status": "SYNTHETIC_OPERATOR_BENCHMARK_NO_DONOR_FUTURES",
+    "method": "Each update starts from the same synthetic full-capacity state; not evolved trajectories. Compression is illustrative; repeated origins and fixture structure affect it.",
+    "results": [
+      {
+        "visitors": 0,
+        "activity": 0.25,
+        "optimum": 0.5,
+        "operator_updates": 256,
+        "operator_seconds": 0.34849490015767515,
+        "seconds_per_update": 0.0013613082037409185,
+        "compressed_fixture_bytes": 53353,
+        "compression_seconds": 0.018904699943959713
+      },
+      {
+        "visitors": 6,
+        "activity": 0.25,
+        "optimum": 0.5,
+        "operator_updates": 256,
+        "operator_seconds": 0.2673134000506252,
+        "seconds_per_update": 0.0010441929689477547,
+        "compressed_fixture_bytes": 89780,
+        "compression_seconds": 0.01757670007646084
+      },
+      {
+        "visitors": 6,
+        "activity": 1,
+        "optimum": 0.7,
+        "operator_updates": 256,
+        "operator_seconds": 0.14024290000088513,
+        "seconds_per_update": 0.0005478238281284575,
+        "compressed_fixture_bytes": 87771,
+        "compression_seconds": 0.01412860001437366
+      }
+    ],
+    "assay": {
+      "evaluations": 1000,
+      "seconds": 0.19628209993243217,
+      "seconds_per_focal_assay": 0.00019628209993243216
+    }
+  },
+  "host_snapshot": {
+    "processor": "Intel Core i9-13900H",
+    "physical_cores": 14,
+    "logical_processors": 20,
+    "total_memory_KiB": 16384752,
+    "free_physical_memory_KiB_at_query": 39792,
+    "disk_free_bytes_at_query": 57897660416
+  },
+  "linear_serial_projection_seconds": {
+    "operators_min": 448.7772800028324,
+    "operators_max": 1115.1836805045605,
+    "assay_upper_without_cache": 192.95315551757812,
+    "compression_fixture_projection": 193.58412742614746
+  },
+  "projection_limit": "Not a full-run runtime or compressed-size guarantee; excludes admission, audit, scheduler overhead and disk stalls. Current low free memory prevents launch.",
+  "source_admission": {
+    "final_assets_byte_verified": 97,
+    "model_and_base_files_matched_original_commit": 6,
+    "original_commit": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+    "biological_future_updates": 0
+  }
+}
