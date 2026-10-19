@@ -1,0 +1,24 @@
+{
+  "all_non_interval_fields_exact": true,
+  "allocated": 10240,
+  "biological_replay_is_independent": false,
+  "cohorts": 64,
+  "independent_summary_sha256": "5e221fc9765b3f35742466556a64d97b32b6b4d31d926b18984c77dc3059e9cc",
+  "interval_arithmetic_tolerance": 1e-12,
+  "interval_difference_count": 440,
+  "maximum_interval_absolute_difference": 1.6653345369377348e-16,
+  "numpy": "2.2.6",
+  "producer_replay": {
+    "cohorts": 64,
+    "futures": 10240,
+    "independent_biological_implementation": false
+  },
+  "producer_summary_sha256": "e6d2cef5cc8963a5debd37b9ad325181becabfefa6d05e43b6ffc0f2b2fe2b03",
+  "python": "3.10.11",
+  "raw_status": "PASS_ARCHIVE_AND_SOURCE_LINEAGE",
+  "scipy": "1.15.3",
+  "source_admission": true,
+  "status": "PASS_INDEPENDENT_RAW_READBACK",
+  "summary_equal": false,
+  "tolerance_scope": "Post-run technical reconciliation only; interior beta quantiles; scientific protocol unchanged"
+}

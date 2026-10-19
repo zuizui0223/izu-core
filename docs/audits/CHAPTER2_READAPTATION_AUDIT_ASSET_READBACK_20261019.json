@@ -1,0 +1,45 @@
+{
+  "status": "PASS_RELEASE_AUDIT_ASSET_READBACK",
+  "files": [
+    {
+      "name": "admitted-interval-differences.json",
+      "sha256": "bd041b0b82e3f41a1bb9289eb5403cc49d1fe93d66d2588cc4dce2731e1f64db",
+      "bytes": 85622
+    },
+    {
+      "name": "artifact-metadata.json",
+      "sha256": "c2ab2034b55314bf978668524cf748fd99d09880a1ad64b20d6c299c2369cedc",
+      "bytes": 767
+    },
+    {
+      "name": "independent-audit-receipt.json",
+      "sha256": "88f9d1493a6b0301afa7087772967b0c0dd631aeae1d8cc676a7566ab94f28d3",
+      "bytes": 922
+    },
+    {
+      "name": "independent-raw-audit.json",
+      "sha256": "5e221fc9765b3f35742466556a64d97b32b6b4d31d926b18984c77dc3059e9cc",
+      "bytes": 12114598
+    },
+    {
+      "name": "release-readback-receipt.json",
+      "sha256": "60211afc43051b82769d3fb3f57e5a9bedd13c93ba359b1c1deead9a0367d59e",
+      "bytes": 257
+    },
+    {
+      "name": "run-metadata.json",
+      "sha256": "97a7fee70ee3d9f0fa9c32be5893613a279440bd67f5b5aebbac0ee3a43b6a4c",
+      "bytes": 4245
+    },
+    {
+      "name": "strict-comparison-failure.json",
+      "sha256": "4ba4a0096f6915c700d66a81080931147205b37edd70f3058c5632fcb6f00737",
+      "bytes": 707
+    },
+    {
+      "name": "SUMMARY.json",
+      "sha256": "e6d2cef5cc8963a5debd37b9ad325181becabfefa6d05e43b6ffc0f2b2fe2b03",
+      "bytes": 12114729
+    }
+  ]
+}
