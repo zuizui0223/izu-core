@@ -1,0 +1,13 @@
+{
+  "audit_session": 12210,
+  "error": "AssertionError: independent raw audit differs from producer summary",
+  "event": "strict_canonical_comparison_failed_after_raw_audit_returned",
+  "first_output_persisted": false,
+  "followup_audit_session": 45008,
+  "followup_saves_output_before_comparison": true,
+  "known_interval_record_differences": 262,
+  "production_run": 39208955029,
+  "scientific_results_admitted": false,
+  "source": "e66178385e9f09e3f46d5285368aa88439b02811",
+  "technical_reconciliation": "Post-run rule: <=1e-12 absolute difference only for interior conditional beta-quantile fields; all other JSON values/types and exact 0/1 boundaries must agree. Pending full difference inventory."
+}

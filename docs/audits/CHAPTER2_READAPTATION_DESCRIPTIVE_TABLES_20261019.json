@@ -1,0 +1,4341 @@
+{
+  "cohort_allele_counts": [
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        0,
+        0,
+        "fixed",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        0,
+        0,
+        "fixed",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        0,
+        0,
+        "evolving",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        0,
+        0,
+        "evolving",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        3,
+        1,
+        1
+      ],
+      "key": [
+        40,
+        0,
+        "fixed",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        3,
+        1,
+        1
+      ],
+      "key": [
+        40,
+        0,
+        "fixed",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        2,
+        1,
+        1
+      ],
+      "key": [
+        40,
+        0,
+        "evolving",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        2,
+        1,
+        1
+      ],
+      "key": [
+        40,
+        0,
+        "evolving",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        80,
+        0,
+        "fixed",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        80,
+        0,
+        "fixed",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        80,
+        0,
+        "evolving",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        80,
+        0,
+        "evolving",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        2,
+        1,
+        1
+      ],
+      "key": [
+        120,
+        0,
+        "fixed",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        2,
+        1,
+        1
+      ],
+      "key": [
+        120,
+        0,
+        "fixed",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        120,
+        0,
+        "evolving",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        120,
+        0,
+        "evolving",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        3,
+        2,
+        1
+      ],
+      "key": [
+        0,
+        40,
+        "fixed",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        3,
+        2,
+        2
+      ],
+      "key": [
+        0,
+        40,
+        "fixed",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        2,
+        1
+      ],
+      "key": [
+        0,
+        40,
+        "evolving",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        2,
+        1
+      ],
+      "key": [
+        0,
+        40,
+        "evolving",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        40,
+        40,
+        "fixed",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        40,
+        40,
+        "fixed",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        2,
+        1,
+        1
+      ],
+      "key": [
+        40,
+        40,
+        "evolving",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        40,
+        40,
+        "evolving",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        80,
+        40,
+        "fixed",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        80,
+        40,
+        "fixed",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        2,
+        1,
+        1
+      ],
+      "key": [
+        80,
+        40,
+        "evolving",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        2,
+        1,
+        1
+      ],
+      "key": [
+        80,
+        40,
+        "evolving",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        2,
+        1,
+        1
+      ],
+      "key": [
+        120,
+        40,
+        "fixed",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        2,
+        1,
+        1
+      ],
+      "key": [
+        120,
+        40,
+        "fixed",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        2,
+        1,
+        1
+      ],
+      "key": [
+        120,
+        40,
+        "evolving",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        2,
+        1,
+        1
+      ],
+      "key": [
+        120,
+        40,
+        "evolving",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        3,
+        1,
+        3
+      ],
+      "key": [
+        0,
+        80,
+        "fixed",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        3,
+        1,
+        3
+      ],
+      "key": [
+        0,
+        80,
+        "fixed",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        2,
+        1,
+        1
+      ],
+      "key": [
+        0,
+        80,
+        "evolving",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        2,
+        1,
+        1
+      ],
+      "key": [
+        0,
+        80,
+        "evolving",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        40,
+        80,
+        "fixed",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        40,
+        80,
+        "fixed",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        40,
+        80,
+        "evolving",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        40,
+        80,
+        "evolving",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        80,
+        80,
+        "fixed",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        80,
+        80,
+        "fixed",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        3,
+        2,
+        1
+      ],
+      "key": [
+        80,
+        80,
+        "evolving",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        2,
+        2,
+        1
+      ],
+      "key": [
+        80,
+        80,
+        "evolving",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        3,
+        1,
+        2
+      ],
+      "key": [
+        120,
+        80,
+        "fixed",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        3,
+        1,
+        2
+      ],
+      "key": [
+        120,
+        80,
+        "fixed",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        120,
+        80,
+        "evolving",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        120,
+        80,
+        "evolving",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        0,
+        120,
+        "fixed",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        0,
+        120,
+        "fixed",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        2,
+        1,
+        1
+      ],
+      "key": [
+        0,
+        120,
+        "evolving",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        2,
+        1,
+        1
+      ],
+      "key": [
+        0,
+        120,
+        "evolving",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        2,
+        1
+      ],
+      "key": [
+        40,
+        120,
+        "fixed",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        2,
+        1
+      ],
+      "key": [
+        40,
+        120,
+        "fixed",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        40,
+        120,
+        "evolving",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        40,
+        120,
+        "evolving",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        80,
+        120,
+        "fixed",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        80,
+        120,
+        "fixed",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        2,
+        1,
+        1
+      ],
+      "key": [
+        80,
+        120,
+        "evolving",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        2,
+        1,
+        1
+      ],
+      "key": [
+        80,
+        120,
+        "evolving",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        120,
+        120,
+        "fixed",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        1,
+        1,
+        1
+      ],
+      "key": [
+        120,
+        120,
+        "fixed",
+        1
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        2,
+        1,
+        1
+      ],
+      "key": [
+        120,
+        120,
+        "evolving",
+        0
+      ]
+    },
+    {
+      "distinct_alleles_M_I_A": [
+        2,
+        1,
+        1
+      ],
+      "key": [
+        120,
+        120,
+        "evolving",
+        1
+      ]
+    }
+  ],
+  "full_distributions": "campaign/SUMMARY.json: all 320 conditional groups, pointwise intervals, endpoints, support/exclusion and extinction times",
+  "independent_summary_sha256": "5e221fc9765b3f35742466556a64d97b32b6b4d31d926b18984c77dc3059e9cc",
+  "interval_roundoff_differences": [
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/12/directions/A/zero/interval_95/0",
+      "producer": 0.09277153228471931,
+      "readback": 0.09277153228471932
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/12/directions/A/zero/interval_95/1",
+      "producer": 0.39972826371210757,
+      "readback": 0.39972826371210746
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/12/directions/I/zero/interval_95/0",
+      "producer": 0.09277153228471931,
+      "readback": 0.09277153228471932
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/12/directions/I/zero/interval_95/1",
+      "producer": 0.39972826371210757,
+      "readback": 0.39972826371210746
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/12/directions/M/negative/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/12/directions/M/zero/interval_95/0",
+      "producer": 0.07207616545849763,
+      "readback": 0.07207616545849764
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/12/directions/M/zero/interval_95/1",
+      "producer": 0.3643923098640901,
+      "readback": 0.36439230986409005
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/12/occupancy/interval_95/0",
+      "producer": 0.09277153228471931,
+      "readback": 0.09277153228471932
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/12/occupancy/interval_95/1",
+      "producer": 0.39972826371210757,
+      "readback": 0.39972826371210746
+    },
+    {
+      "absolute_difference": 2.6020852139652106e-18,
+      "path": "/groups/14/directions/A/extinct/interval_95/0",
+      "producer": 0.007660736346456386,
+      "readback": 0.007660736346456388
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/14/directions/A/extinct/interval_95/1",
+      "producer": 0.20806942989500743,
+      "readback": 0.20806942989500746
+    },
+    {
+      "absolute_difference": 2.6020852139652106e-18,
+      "path": "/groups/14/directions/I/extinct/interval_95/0",
+      "producer": 0.007660736346456386,
+      "readback": 0.007660736346456388
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/14/directions/I/extinct/interval_95/1",
+      "producer": 0.20806942989500743,
+      "readback": 0.20806942989500746
+    },
+    {
+      "absolute_difference": 2.6020852139652106e-18,
+      "path": "/groups/14/directions/M/extinct/interval_95/0",
+      "producer": 0.007660736346456386,
+      "readback": 0.007660736346456388
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/14/directions/M/extinct/interval_95/1",
+      "producer": 0.20806942989500743,
+      "readback": 0.20806942989500746
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/17/directions/A/extinct/interval_95/0",
+      "producer": 0.5659506250777572,
+      "readback": 0.5659506250777573
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/17/directions/A/zero/interval_95/1",
+      "producer": 0.43404937492224266,
+      "readback": 0.4340493749222426
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/17/directions/A/zero/one_sided_upper_95",
+      "producer": 0.40605695175650547,
+      "readback": 0.4060569517565054
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/17/directions/I/extinct/interval_95/0",
+      "producer": 0.5659506250777572,
+      "readback": 0.5659506250777573
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/17/directions/I/zero/interval_95/1",
+      "producer": 0.43404937492224266,
+      "readback": 0.4340493749222426
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/17/directions/I/zero/one_sided_upper_95",
+      "producer": 0.40605695175650547,
+      "readback": 0.4060569517565054
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/17/directions/M/extinct/interval_95/0",
+      "producer": 0.5659506250777572,
+      "readback": 0.5659506250777573
+    },
+    {
+      "absolute_difference": 2.6020852139652106e-18,
+      "path": "/groups/17/directions/M/negative/interval_95/0",
+      "producer": 0.007660736346456386,
+      "readback": 0.007660736346456388
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/17/directions/M/negative/interval_95/1",
+      "producer": 0.20806942989500743,
+      "readback": 0.20806942989500746
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/17/directions/M/zero/interval_95/0",
+      "producer": 0.07207616545849763,
+      "readback": 0.07207616545849764
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/17/directions/M/zero/interval_95/1",
+      "producer": 0.3643923098640901,
+      "readback": 0.36439230986409005
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/17/occupancy/interval_95/1",
+      "producer": 0.43404937492224266,
+      "readback": 0.4340493749222426
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/17/occupancy/one_sided_upper_95",
+      "producer": 0.40605695175650547,
+      "readback": 0.4060569517565054
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/19/directions/A/extinct/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/19/directions/A/zero/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/19/directions/I/extinct/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/19/directions/I/zero/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/19/directions/M/extinct/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/19/directions/M/zero/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/19/occupancy/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/21/directions/I/negative/interval_95/1",
+      "producer": 0.25022695068379464,
+      "readback": 0.2502269506837947
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/21/directions/I/negative/one_sided_upper_95",
+      "producer": 0.2248161085892257,
+      "readback": 0.22481610858922574
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/22/directions/I/negative/interval_95/0",
+      "producer": 0.07207616545849763,
+      "readback": 0.07207616545849764
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/22/directions/I/negative/interval_95/1",
+      "producer": 0.3643923098640901,
+      "readback": 0.36439230986409005
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/22/directions/I/zero/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/23/directions/I/negative/interval_95/0",
+      "producer": 0.05275056440213409,
+      "readback": 0.052750564402134104
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/23/directions/I/negative/interval_95/1",
+      "producer": 0.3278787656820417,
+      "readback": 0.3278787656820418
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/24/directions/I/negative/interval_95/0",
+      "producer": 0.05275056440213409,
+      "readback": 0.052750564402134104
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/24/directions/I/negative/interval_95/1",
+      "producer": 0.3278787656820417,
+      "readback": 0.3278787656820418
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/25/directions/I/positive/interval_95/1",
+      "producer": 0.25022695068379464,
+      "readback": 0.2502269506837947
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/25/directions/I/positive/one_sided_upper_95",
+      "producer": 0.2248161085892257,
+      "readback": 0.22481610858922574
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/27/directions/I/negative/interval_95/0",
+      "producer": 0.1374569032955017,
+      "readback": 0.13745690329550175
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/27/directions/I/negative/interval_95/1",
+      "producer": 0.46747109964293454,
+      "readback": 0.46747109964293465
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/27/directions/I/negative/one_sided_upper_95",
+      "producer": 0.4394466932609101,
+      "readback": 0.43944669326091
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/27/directions/I/positive/interval_95/0",
+      "producer": 0.5325289003570655,
+      "readback": 0.5325289003570653
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/27/directions/I/positive/interval_95/1",
+      "producer": 0.8625430967044982,
+      "readback": 0.8625430967044984
+    },
+    {
+      "absolute_difference": 6.938893903907228e-18,
+      "path": "/groups/28/directions/I/negative/interval_95/0",
+      "producer": 0.03513065310331141,
+      "readback": 0.035130653103311406
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/28/directions/I/negative/one_sided_upper_95",
+      "producer": 0.2635965976097443,
+      "readback": 0.26359659760974435
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/29/directions/I/negative/interval_95/0",
+      "producer": 0.09277153228471931,
+      "readback": 0.09277153228471932
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/29/directions/I/negative/interval_95/1",
+      "producer": 0.39972826371210757,
+      "readback": 0.39972826371210746
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/30/directions/I/negative/interval_95/0",
+      "producer": 0.3474368092863928,
+      "readback": 0.34743680928639276
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/30/directions/I/negative/interval_95/1",
+      "producer": 0.7090601770939847,
+      "readback": 0.7090601770939846
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/30/directions/I/positive/interval_95/0",
+      "producer": 0.2909398229060153,
+      "readback": 0.2909398229060152
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/30/directions/I/positive/one_sided_upper_95",
+      "producer": 0.626609107142292,
+      "readback": 0.6266091071422921
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/30/directions/M/negative/interval_95/0",
+      "producer": 0.16118472408820053,
+      "readback": 0.16118472408820056
+    },
+    {
+      "absolute_difference": 1.6653345369377348e-16,
+      "path": "/groups/30/directions/M/negative/one_sided_upper_95",
+      "producer": 0.47214043929769656,
+      "readback": 0.4721404392976964
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/31/directions/I/negative/interval_95/0",
+      "producer": 0.09277153228471931,
+      "readback": 0.09277153228471932
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/31/directions/I/negative/interval_95/1",
+      "producer": 0.39972826371210757,
+      "readback": 0.39972826371210746
+    },
+    {
+      "absolute_difference": 2.6020852139652106e-18,
+      "path": "/groups/31/directions/M/positive/interval_95/0",
+      "producer": 0.007660736346456386,
+      "readback": 0.007660736346456388
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/31/directions/M/positive/interval_95/1",
+      "producer": 0.20806942989500743,
+      "readback": 0.20806942989500746
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/32/directions/I/negative/interval_95/0",
+      "producer": 0.05275056440213409,
+      "readback": 0.052750564402134104
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/32/directions/I/negative/interval_95/1",
+      "producer": 0.3278787656820417,
+      "readback": 0.3278787656820418
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/32/directions/M/negative/interval_95/1",
+      "producer": 0.25022695068379464,
+      "readback": 0.2502269506837947
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/32/directions/M/negative/one_sided_upper_95",
+      "producer": 0.2248161085892257,
+      "readback": 0.22481610858922574
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/33/directions/I/negative/interval_95/0",
+      "producer": 0.16118472408820053,
+      "readback": 0.16118472408820056
+    },
+    {
+      "absolute_difference": 1.6653345369377348e-16,
+      "path": "/groups/33/directions/I/negative/one_sided_upper_95",
+      "producer": 0.47214043929769656,
+      "readback": 0.4721404392976964
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/34/directions/I/negative/interval_95/0",
+      "producer": 0.09277153228471931,
+      "readback": 0.09277153228471932
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/34/directions/I/negative/interval_95/1",
+      "producer": 0.39972826371210757,
+      "readback": 0.39972826371210746
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/35/directions/I/negative/interval_95/0",
+      "producer": 0.43692245509692657,
+      "readback": 0.4369224550969266
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/35/directions/I/positive/interval_95/0",
+      "producer": 0.21100031642399283,
+      "readback": 0.21100031642399286
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/35/directions/M/positive/interval_95/0",
+      "producer": 0.16118472408820053,
+      "readback": 0.16118472408820056
+    },
+    {
+      "absolute_difference": 1.6653345369377348e-16,
+      "path": "/groups/35/directions/M/positive/one_sided_upper_95",
+      "producer": 0.47214043929769656,
+      "readback": 0.4721404392976964
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/36/directions/A/negative/interval_95/0",
+      "producer": 0.05275056440213409,
+      "readback": 0.052750564402134104
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/36/directions/A/negative/interval_95/1",
+      "producer": 0.3278787656820417,
+      "readback": 0.3278787656820418
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/36/directions/I/negative/interval_95/0",
+      "producer": 0.09277153228471931,
+      "readback": 0.09277153228471932
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/36/directions/I/negative/interval_95/1",
+      "producer": 0.39972826371210757,
+      "readback": 0.39972826371210746
+    },
+    {
+      "absolute_difference": 2.6020852139652106e-18,
+      "path": "/groups/36/directions/M/positive/interval_95/0",
+      "producer": 0.007660736346456386,
+      "readback": 0.007660736346456388
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/36/directions/M/positive/interval_95/1",
+      "producer": 0.20806942989500743,
+      "readback": 0.20806942989500746
+    },
+    {
+      "absolute_difference": 2.6020852139652106e-18,
+      "path": "/groups/37/directions/A/negative/interval_95/0",
+      "producer": 0.007660736346456386,
+      "readback": 0.007660736346456388
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/37/directions/A/negative/interval_95/1",
+      "producer": 0.20806942989500743,
+      "readback": 0.20806942989500746
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/37/directions/I/negative/interval_95/0",
+      "producer": 0.21100031642399283,
+      "readback": 0.21100031642399286
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/37/directions/I/positive/interval_95/0",
+      "producer": 0.40644924657647635,
+      "readback": 0.4064492465764764
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/37/directions/I/positive/one_sided_upper_95",
+      "producer": 0.7403380350579852,
+      "readback": 0.7403380350579851
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/37/directions/I/zero/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/38/directions/A/negative/interval_95/0",
+      "producer": 0.23698410055174315,
+      "readback": 0.2369841005517431
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/38/directions/A/negative/one_sided_upper_95",
+      "producer": 0.5665126270105421,
+      "readback": 0.566512627010542
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/38/directions/A/positive/interval_95/0",
+      "producer": 0.40644924657647635,
+      "readback": 0.4064492465764764
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/38/directions/A/positive/one_sided_upper_95",
+      "producer": 0.7403380350579852,
+      "readback": 0.7403380350579851
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/38/directions/I/negative/interval_95/0",
+      "producer": 0.1374569032955017,
+      "readback": 0.13745690329550175
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/38/directions/I/negative/interval_95/1",
+      "producer": 0.46747109964293454,
+      "readback": 0.46747109964293465
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/38/directions/I/negative/one_sided_upper_95",
+      "producer": 0.4394466932609101,
+      "readback": 0.43944669326091
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/38/directions/I/positive/interval_95/0",
+      "producer": 0.5325289003570655,
+      "readback": 0.5325289003570653
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/38/directions/I/positive/interval_95/1",
+      "producer": 0.8625430967044982,
+      "readback": 0.8625430967044984
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/38/directions/M/negative/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/38/directions/M/positive/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/39/directions/A/negative/interval_95/0",
+      "producer": 0.21100031642399283,
+      "readback": 0.21100031642399286
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/39/directions/A/positive/interval_95/0",
+      "producer": 0.43692245509692657,
+      "readback": 0.4369224550969266
+    },
+    {
+      "absolute_difference": 6.938893903907228e-18,
+      "path": "/groups/39/directions/I/negative/interval_95/0",
+      "producer": 0.03513065310331141,
+      "readback": 0.035130653103311406
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/39/directions/I/negative/one_sided_upper_95",
+      "producer": 0.2635965976097443,
+      "readback": 0.26359659760974435
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/40/directions/M/negative/interval_95/0",
+      "producer": 0.43692245509692657,
+      "readback": 0.4369224550969266
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/40/directions/M/positive/interval_95/0",
+      "producer": 0.21100031642399283,
+      "readback": 0.21100031642399286
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/41/directions/M/negative/interval_95/0",
+      "producer": 0.318874964234164,
+      "readback": 0.31887496423416395
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/41/directions/M/negative/interval_95/1",
+      "producer": 0.681125035765836,
+      "readback": 0.6811250357658359
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/41/directions/M/positive/interval_95/0",
+      "producer": 0.318874964234164,
+      "readback": 0.31887496423416395
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/41/directions/M/positive/interval_95/1",
+      "producer": 0.681125035765836,
+      "readback": 0.6811250357658359
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/42/directions/M/negative/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/42/directions/M/positive/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/43/directions/M/negative/interval_95/0",
+      "producer": 0.09277153228471931,
+      "readback": 0.09277153228471932
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/43/directions/M/negative/interval_95/1",
+      "producer": 0.39972826371210757,
+      "readback": 0.39972826371210746
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/44/directions/M/negative/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/44/directions/M/positive/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/45/directions/M/negative/interval_95/0",
+      "producer": 0.318874964234164,
+      "readback": 0.31887496423416395
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/45/directions/M/negative/interval_95/1",
+      "producer": 0.681125035765836,
+      "readback": 0.6811250357658359
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/45/directions/M/positive/interval_95/0",
+      "producer": 0.318874964234164,
+      "readback": 0.31887496423416395
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/45/directions/M/positive/interval_95/1",
+      "producer": 0.681125035765836,
+      "readback": 0.6811250357658359
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/46/directions/M/negative/interval_95/0",
+      "producer": 0.21100031642399283,
+      "readback": 0.21100031642399286
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/46/directions/M/positive/interval_95/0",
+      "producer": 0.43692245509692657,
+      "readback": 0.4369224550969266
+    },
+    {
+      "absolute_difference": 6.938893903907228e-18,
+      "path": "/groups/47/directions/M/negative/interval_95/0",
+      "producer": 0.03513065310331141,
+      "readback": 0.035130653103311406
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/47/directions/M/negative/one_sided_upper_95",
+      "producer": 0.2635965976097443,
+      "readback": 0.26359659760974435
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/48/directions/M/negative/interval_95/0",
+      "producer": 0.16118472408820053,
+      "readback": 0.16118472408820056
+    },
+    {
+      "absolute_difference": 1.6653345369377348e-16,
+      "path": "/groups/48/directions/M/negative/one_sided_upper_95",
+      "producer": 0.47214043929769656,
+      "readback": 0.4721404392976964
+    },
+    {
+      "absolute_difference": 6.938893903907228e-18,
+      "path": "/groups/51/directions/A/negative/interval_95/0",
+      "producer": 0.03513065310331141,
+      "readback": 0.035130653103311406
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/51/directions/A/negative/one_sided_upper_95",
+      "producer": 0.2635965976097443,
+      "readback": 0.26359659760974435
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/51/directions/M/negative/interval_95/0",
+      "producer": 0.1374569032955017,
+      "readback": 0.13745690329550175
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/51/directions/M/negative/interval_95/1",
+      "producer": 0.46747109964293454,
+      "readback": 0.46747109964293465
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/51/directions/M/negative/one_sided_upper_95",
+      "producer": 0.4394466932609101,
+      "readback": 0.43944669326091
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/51/directions/M/positive/interval_95/0",
+      "producer": 0.5325289003570655,
+      "readback": 0.5325289003570653
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/51/directions/M/positive/interval_95/1",
+      "producer": 0.8625430967044982,
+      "readback": 0.8625430967044984
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/53/directions/A/positive/interval_95/0",
+      "producer": 0.05275056440213409,
+      "readback": 0.052750564402134104
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/53/directions/A/positive/interval_95/1",
+      "producer": 0.3278787656820417,
+      "readback": 0.3278787656820418
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/53/directions/M/negative/interval_95/0",
+      "producer": 0.1374569032955017,
+      "readback": 0.13745690329550175
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/53/directions/M/negative/interval_95/1",
+      "producer": 0.46747109964293454,
+      "readback": 0.46747109964293465
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/53/directions/M/negative/one_sided_upper_95",
+      "producer": 0.4394466932609101,
+      "readback": 0.43944669326091
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/53/directions/M/positive/interval_95/0",
+      "producer": 0.5325289003570655,
+      "readback": 0.5325289003570653
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/53/directions/M/positive/interval_95/1",
+      "producer": 0.8625430967044982,
+      "readback": 0.8625430967044984
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/54/directions/A/negative/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/54/directions/A/positive/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 6.938893903907228e-18,
+      "path": "/groups/56/directions/A/negative/interval_95/0",
+      "producer": 0.03513065310331141,
+      "readback": 0.035130653103311406
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/56/directions/A/negative/one_sided_upper_95",
+      "producer": 0.2635965976097443,
+      "readback": 0.26359659760974435
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/56/directions/M/negative/interval_95/0",
+      "producer": 0.23698410055174315,
+      "readback": 0.2369841005517431
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/56/directions/M/negative/one_sided_upper_95",
+      "producer": 0.5665126270105421,
+      "readback": 0.566512627010542
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/56/directions/M/positive/interval_95/0",
+      "producer": 0.40644924657647635,
+      "readback": 0.4064492465764764
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/56/directions/M/positive/one_sided_upper_95",
+      "producer": 0.7403380350579852,
+      "readback": 0.7403380350579851
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/58/directions/A/positive/interval_95/1",
+      "producer": 0.25022695068379464,
+      "readback": 0.2502269506837947
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/58/directions/A/positive/one_sided_upper_95",
+      "producer": 0.2248161085892257,
+      "readback": 0.22481610858922574
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/58/directions/M/negative/interval_95/0",
+      "producer": 0.318874964234164,
+      "readback": 0.31887496423416395
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/58/directions/M/negative/interval_95/1",
+      "producer": 0.681125035765836,
+      "readback": 0.6811250357658359
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/58/directions/M/positive/interval_95/0",
+      "producer": 0.318874964234164,
+      "readback": 0.31887496423416395
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/58/directions/M/positive/interval_95/1",
+      "producer": 0.681125035765836,
+      "readback": 0.6811250357658359
+    },
+    {
+      "absolute_difference": 2.6020852139652106e-18,
+      "path": "/groups/59/directions/A/negative/interval_95/0",
+      "producer": 0.007660736346456386,
+      "readback": 0.007660736346456388
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/59/directions/A/negative/interval_95/1",
+      "producer": 0.20806942989500743,
+      "readback": 0.20806942989500746
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/59/directions/M/negative/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/59/directions/M/positive/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/60/directions/M/negative/interval_95/0",
+      "producer": 0.37662573159009394,
+      "readback": 0.376625731590094
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/60/directions/M/negative/interval_95/1",
+      "producer": 0.7363618755890153,
+      "readback": 0.7363618755890152
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/60/directions/M/positive/interval_95/1",
+      "producer": 0.6233742684099061,
+      "readback": 0.623374268409906
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/60/directions/M/positive/one_sided_upper_95",
+      "producer": 0.5968316155208787,
+      "readback": 0.5968316155208788
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/61/directions/M/positive/interval_95/1",
+      "producer": 0.25022695068379464,
+      "readback": 0.2502269506837947
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/61/directions/M/positive/one_sided_upper_95",
+      "producer": 0.2248161085892257,
+      "readback": 0.22481610858922574
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/63/directions/M/negative/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/63/directions/M/positive/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/65/directions/M/negative/interval_95/0",
+      "producer": 0.37662573159009394,
+      "readback": 0.376625731590094
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/65/directions/M/negative/interval_95/1",
+      "producer": 0.7363618755890153,
+      "readback": 0.7363618755890152
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/65/directions/M/positive/interval_95/1",
+      "producer": 0.6233742684099061,
+      "readback": 0.623374268409906
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/65/directions/M/positive/one_sided_upper_95",
+      "producer": 0.5968316155208787,
+      "readback": 0.5968316155208788
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/66/directions/M/negative/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/66/directions/M/positive/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/81/directions/M/negative/interval_95/0",
+      "producer": 0.2909398229060153,
+      "readback": 0.2909398229060152
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/81/directions/M/negative/one_sided_upper_95",
+      "producer": 0.626609107142292,
+      "readback": 0.6266091071422921
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/81/directions/M/positive/interval_95/0",
+      "producer": 0.3474368092863928,
+      "readback": 0.34743680928639276
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/81/directions/M/positive/interval_95/1",
+      "producer": 0.7090601770939847,
+      "readback": 0.7090601770939846
+    },
+    {
+      "absolute_difference": 6.938893903907228e-18,
+      "path": "/groups/82/directions/M/negative/interval_95/0",
+      "producer": 0.03513065310331141,
+      "readback": 0.035130653103311406
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/82/directions/M/negative/one_sided_upper_95",
+      "producer": 0.2635965976097443,
+      "readback": 0.26359659760974435
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/83/directions/M/negative/interval_95/0",
+      "producer": 0.3474368092863928,
+      "readback": 0.34743680928639276
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/83/directions/M/negative/interval_95/1",
+      "producer": 0.7090601770939847,
+      "readback": 0.7090601770939846
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/83/directions/M/positive/interval_95/0",
+      "producer": 0.2909398229060153,
+      "readback": 0.2909398229060152
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/83/directions/M/positive/one_sided_upper_95",
+      "producer": 0.626609107142292,
+      "readback": 0.6266091071422921
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/85/directions/M/negative/interval_95/0",
+      "producer": 0.37662573159009394,
+      "readback": 0.376625731590094
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/85/directions/M/negative/interval_95/1",
+      "producer": 0.7363618755890153,
+      "readback": 0.7363618755890152
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/85/directions/M/positive/interval_95/1",
+      "producer": 0.6233742684099061,
+      "readback": 0.623374268409906
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/85/directions/M/positive/one_sided_upper_95",
+      "producer": 0.5968316155208787,
+      "readback": 0.5968316155208788
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/86/directions/M/negative/interval_95/0",
+      "producer": 0.40644924657647635,
+      "readback": 0.4064492465764764
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/86/directions/M/negative/one_sided_upper_95",
+      "producer": 0.7403380350579852,
+      "readback": 0.7403380350579851
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/86/directions/M/positive/interval_95/0",
+      "producer": 0.23698410055174315,
+      "readback": 0.2369841005517431
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/86/directions/M/positive/one_sided_upper_95",
+      "producer": 0.5665126270105421,
+      "readback": 0.566512627010542
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/87/directions/M/negative/interval_95/0",
+      "producer": 0.07207616545849763,
+      "readback": 0.07207616545849764
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/87/directions/M/negative/interval_95/1",
+      "producer": 0.3643923098640901,
+      "readback": 0.36439230986409005
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/88/directions/M/negative/interval_95/0",
+      "producer": 0.43692245509692657,
+      "readback": 0.4369224550969266
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/88/directions/M/positive/interval_95/0",
+      "producer": 0.21100031642399283,
+      "readback": 0.21100031642399286
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/90/directions/M/negative/interval_95/0",
+      "producer": 0.23698410055174315,
+      "readback": 0.2369841005517431
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/90/directions/M/negative/one_sided_upper_95",
+      "producer": 0.5665126270105421,
+      "readback": 0.566512627010542
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/90/directions/M/positive/interval_95/0",
+      "producer": 0.40644924657647635,
+      "readback": 0.4064492465764764
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/90/directions/M/positive/one_sided_upper_95",
+      "producer": 0.7403380350579852,
+      "readback": 0.7403380350579851
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/91/directions/M/negative/interval_95/0",
+      "producer": 0.16118472408820053,
+      "readback": 0.16118472408820056
+    },
+    {
+      "absolute_difference": 1.6653345369377348e-16,
+      "path": "/groups/91/directions/M/negative/one_sided_upper_95",
+      "producer": 0.47214043929769656,
+      "readback": 0.4721404392976964
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/92/directions/M/negative/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/92/directions/M/positive/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/93/directions/M/negative/interval_95/0",
+      "producer": 0.05275056440213409,
+      "readback": 0.052750564402134104
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/93/directions/M/negative/interval_95/1",
+      "producer": 0.3278787656820417,
+      "readback": 0.3278787656820418
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/95/directions/M/negative/interval_95/0",
+      "producer": 0.37662573159009394,
+      "readback": 0.376625731590094
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/95/directions/M/negative/interval_95/1",
+      "producer": 0.7363618755890153,
+      "readback": 0.7363618755890152
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/95/directions/M/positive/interval_95/1",
+      "producer": 0.6233742684099061,
+      "readback": 0.623374268409906
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/95/directions/M/positive/one_sided_upper_95",
+      "producer": 0.5968316155208787,
+      "readback": 0.5968316155208788
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/96/directions/M/negative/interval_95/0",
+      "producer": 0.1374569032955017,
+      "readback": 0.13745690329550175
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/96/directions/M/negative/interval_95/1",
+      "producer": 0.46747109964293454,
+      "readback": 0.46747109964293465
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/96/directions/M/negative/one_sided_upper_95",
+      "producer": 0.4394466932609101,
+      "readback": 0.43944669326091
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/96/directions/M/positive/interval_95/0",
+      "producer": 0.5325289003570655,
+      "readback": 0.5325289003570653
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/96/directions/M/positive/interval_95/1",
+      "producer": 0.8625430967044982,
+      "readback": 0.8625430967044984
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/98/directions/M/negative/interval_95/0",
+      "producer": 0.09277153228471931,
+      "readback": 0.09277153228471932
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/98/directions/M/negative/interval_95/1",
+      "producer": 0.39972826371210757,
+      "readback": 0.39972826371210746
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/100/directions/M/negative/interval_95/0",
+      "producer": 0.07207616545849763,
+      "readback": 0.07207616545849764
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/100/directions/M/negative/interval_95/1",
+      "producer": 0.3643923098640901,
+      "readback": 0.36439230986409005
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/101/directions/M/negative/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/101/directions/M/positive/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/132/directions/A/extinct/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/132/directions/A/zero/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/132/directions/I/extinct/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/132/directions/I/zero/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/132/directions/M/extinct/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/132/directions/M/positive/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/132/occupancy/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 6.938893903907228e-18,
+      "path": "/groups/137/directions/A/extinct/interval_95/0",
+      "producer": 0.03513065310331141,
+      "readback": 0.035130653103311406
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/137/directions/A/extinct/one_sided_upper_95",
+      "producer": 0.2635965976097443,
+      "readback": 0.26359659760974435
+    },
+    {
+      "absolute_difference": 6.938893903907228e-18,
+      "path": "/groups/137/directions/I/extinct/interval_95/0",
+      "producer": 0.03513065310331141,
+      "readback": 0.035130653103311406
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/137/directions/I/extinct/one_sided_upper_95",
+      "producer": 0.2635965976097443,
+      "readback": 0.26359659760974435
+    },
+    {
+      "absolute_difference": 6.938893903907228e-18,
+      "path": "/groups/137/directions/M/extinct/interval_95/0",
+      "producer": 0.03513065310331141,
+      "readback": 0.035130653103311406
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/137/directions/M/extinct/one_sided_upper_95",
+      "producer": 0.2635965976097443,
+      "readback": 0.26359659760974435
+    },
+    {
+      "absolute_difference": 2.6020852139652106e-18,
+      "path": "/groups/151/directions/I/negative/interval_95/0",
+      "producer": 0.007660736346456386,
+      "readback": 0.007660736346456388
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/151/directions/I/negative/interval_95/1",
+      "producer": 0.20806942989500743,
+      "readback": 0.20806942989500746
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/152/directions/I/negative/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/152/directions/I/positive/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/153/directions/I/positive/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/153/directions/I/zero/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/154/directions/I/negative/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/154/directions/I/positive/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/156/directions/I/negative/interval_95/1",
+      "producer": 0.25022695068379464,
+      "readback": 0.2502269506837947
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/156/directions/I/negative/one_sided_upper_95",
+      "producer": 0.2248161085892257,
+      "readback": 0.22481610858922574
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/157/directions/I/negative/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/157/directions/I/positive/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/158/directions/I/negative/interval_95/1",
+      "producer": 0.25022695068379464,
+      "readback": 0.2502269506837947
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/158/directions/I/negative/one_sided_upper_95",
+      "producer": 0.2248161085892257,
+      "readback": 0.22481610858922574
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/159/directions/I/negative/interval_95/1",
+      "producer": 0.25022695068379464,
+      "readback": 0.2502269506837947
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/159/directions/I/negative/one_sided_upper_95",
+      "producer": 0.2248161085892257,
+      "readback": 0.22481610858922574
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/180/directions/M/negative/interval_95/0",
+      "producer": 0.07207616545849763,
+      "readback": 0.07207616545849764
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/180/directions/M/negative/interval_95/1",
+      "producer": 0.3643923098640901,
+      "readback": 0.36439230986409005
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/181/directions/M/positive/interval_95/0",
+      "producer": 0.07207616545849763,
+      "readback": 0.07207616545849764
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/181/directions/M/positive/interval_95/1",
+      "producer": 0.3643923098640901,
+      "readback": 0.36439230986409005
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/182/directions/M/negative/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/182/directions/M/positive/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/183/directions/M/negative/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/183/directions/M/positive/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/184/directions/M/negative/interval_95/1",
+      "producer": 0.25022695068379464,
+      "readback": 0.2502269506837947
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/184/directions/M/negative/one_sided_upper_95",
+      "producer": 0.2248161085892257,
+      "readback": 0.22481610858922574
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/185/directions/M/negative/interval_95/0",
+      "producer": 0.09277153228471931,
+      "readback": 0.09277153228471932
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/185/directions/M/negative/interval_95/1",
+      "producer": 0.39972826371210757,
+      "readback": 0.39972826371210746
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/186/directions/M/negative/interval_95/0",
+      "producer": 0.3474368092863928,
+      "readback": 0.34743680928639276
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/186/directions/M/negative/interval_95/1",
+      "producer": 0.7090601770939847,
+      "readback": 0.7090601770939846
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/186/directions/M/positive/interval_95/0",
+      "producer": 0.2909398229060153,
+      "readback": 0.2909398229060152
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/186/directions/M/positive/one_sided_upper_95",
+      "producer": 0.626609107142292,
+      "readback": 0.6266091071422921
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/187/directions/M/negative/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/187/directions/M/positive/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/188/directions/M/negative/interval_95/0",
+      "producer": 0.5325289003570655,
+      "readback": 0.5325289003570653
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/188/directions/M/negative/interval_95/1",
+      "producer": 0.8625430967044982,
+      "readback": 0.8625430967044984
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/188/directions/M/positive/interval_95/0",
+      "producer": 0.1374569032955017,
+      "readback": 0.13745690329550175
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/188/directions/M/positive/interval_95/1",
+      "producer": 0.46747109964293454,
+      "readback": 0.46747109964293465
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/188/directions/M/positive/one_sided_upper_95",
+      "producer": 0.4394466932609101,
+      "readback": 0.43944669326091
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/200/directions/I/negative/interval_95/0",
+      "producer": 0.5659506250777572,
+      "readback": 0.5659506250777573
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/200/directions/I/positive/interval_95/1",
+      "producer": 0.43404937492224266,
+      "readback": 0.4340493749222426
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/200/directions/I/positive/one_sided_upper_95",
+      "producer": 0.40605695175650547,
+      "readback": 0.4060569517565054
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/200/directions/M/positive/interval_95/0",
+      "producer": 0.05275056440213409,
+      "readback": 0.052750564402134104
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/200/directions/M/positive/interval_95/1",
+      "producer": 0.3278787656820417,
+      "readback": 0.3278787656820418
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/201/directions/I/negative/interval_95/0",
+      "producer": 0.05275056440213409,
+      "readback": 0.052750564402134104
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/201/directions/I/negative/interval_95/1",
+      "producer": 0.3278787656820417,
+      "readback": 0.3278787656820418
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/201/directions/M/negative/interval_95/0",
+      "producer": 0.16118472408820053,
+      "readback": 0.16118472408820056
+    },
+    {
+      "absolute_difference": 1.6653345369377348e-16,
+      "path": "/groups/201/directions/M/negative/one_sided_upper_95",
+      "producer": 0.47214043929769656,
+      "readback": 0.4721404392976964
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/202/directions/I/negative/interval_95/0",
+      "producer": 0.1374569032955017,
+      "readback": 0.13745690329550175
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/202/directions/I/negative/interval_95/1",
+      "producer": 0.46747109964293454,
+      "readback": 0.46747109964293465
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/202/directions/I/negative/one_sided_upper_95",
+      "producer": 0.4394466932609101,
+      "readback": 0.43944669326091
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/202/directions/I/positive/interval_95/0",
+      "producer": 0.5325289003570655,
+      "readback": 0.5325289003570653
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/202/directions/I/positive/interval_95/1",
+      "producer": 0.8625430967044982,
+      "readback": 0.8625430967044984
+    },
+    {
+      "absolute_difference": 2.6020852139652106e-18,
+      "path": "/groups/202/directions/M/negative/interval_95/0",
+      "producer": 0.007660736346456386,
+      "readback": 0.007660736346456388
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/202/directions/M/negative/interval_95/1",
+      "producer": 0.20806942989500743,
+      "readback": 0.20806942989500746
+    },
+    {
+      "absolute_difference": 2.6020852139652106e-18,
+      "path": "/groups/203/directions/I/negative/interval_95/0",
+      "producer": 0.007660736346456386,
+      "readback": 0.007660736346456388
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/203/directions/I/negative/interval_95/1",
+      "producer": 0.20806942989500743,
+      "readback": 0.20806942989500746
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/203/directions/M/negative/interval_95/0",
+      "producer": 0.23698410055174315,
+      "readback": 0.2369841005517431
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/203/directions/M/negative/one_sided_upper_95",
+      "producer": 0.5665126270105421,
+      "readback": 0.566512627010542
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/203/directions/M/positive/interval_95/0",
+      "producer": 0.40644924657647635,
+      "readback": 0.4064492465764764
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/203/directions/M/positive/one_sided_upper_95",
+      "producer": 0.7403380350579852,
+      "readback": 0.7403380350579851
+    },
+    {
+      "absolute_difference": 2.6020852139652106e-18,
+      "path": "/groups/204/directions/I/negative/interval_95/0",
+      "producer": 0.007660736346456386,
+      "readback": 0.007660736346456388
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/204/directions/I/negative/interval_95/1",
+      "producer": 0.20806942989500743,
+      "readback": 0.20806942989500746
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/205/directions/I/positive/interval_95/0",
+      "producer": 0.09277153228471931,
+      "readback": 0.09277153228471932
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/205/directions/I/positive/interval_95/1",
+      "producer": 0.39972826371210757,
+      "readback": 0.39972826371210746
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/205/directions/M/positive/interval_95/0",
+      "producer": 0.09277153228471931,
+      "readback": 0.09277153228471932
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/205/directions/M/positive/interval_95/1",
+      "producer": 0.39972826371210757,
+      "readback": 0.39972826371210746
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/206/directions/I/negative/interval_95/1",
+      "producer": 0.43404937492224266,
+      "readback": 0.4340493749222426
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/206/directions/I/negative/one_sided_upper_95",
+      "producer": 0.40605695175650547,
+      "readback": 0.4060569517565054
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/206/directions/I/positive/interval_95/0",
+      "producer": 0.5659506250777572,
+      "readback": 0.5659506250777573
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/206/directions/M/positive/interval_95/0",
+      "producer": 0.09277153228471931,
+      "readback": 0.09277153228471932
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/206/directions/M/positive/interval_95/1",
+      "producer": 0.39972826371210757,
+      "readback": 0.39972826371210746
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/207/directions/I/negative/interval_95/1",
+      "producer": 0.43404937492224266,
+      "readback": 0.4340493749222426
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/207/directions/I/negative/one_sided_upper_95",
+      "producer": 0.40605695175650547,
+      "readback": 0.4060569517565054
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/207/directions/I/positive/interval_95/0",
+      "producer": 0.5659506250777572,
+      "readback": 0.5659506250777573
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/207/directions/M/negative/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/207/directions/M/positive/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 2.6020852139652106e-18,
+      "path": "/groups/208/directions/I/negative/interval_95/0",
+      "producer": 0.007660736346456386,
+      "readback": 0.007660736346456388
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/208/directions/I/negative/interval_95/1",
+      "producer": 0.20806942989500743,
+      "readback": 0.20806942989500746
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/208/directions/M/positive/interval_95/0",
+      "producer": 0.16118472408820053,
+      "readback": 0.16118472408820056
+    },
+    {
+      "absolute_difference": 1.6653345369377348e-16,
+      "path": "/groups/208/directions/M/positive/one_sided_upper_95",
+      "producer": 0.47214043929769656,
+      "readback": 0.4721404392976964
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/209/directions/I/negative/interval_95/0",
+      "producer": 0.07207616545849763,
+      "readback": 0.07207616545849764
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/209/directions/I/negative/interval_95/1",
+      "producer": 0.3643923098640901,
+      "readback": 0.36439230986409005
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/212/directions/A/extinct/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/212/directions/A/zero/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/212/directions/I/extinct/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/212/directions/I/zero/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/212/directions/M/extinct/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/212/directions/M/negative/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/212/occupancy/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 6.938893903907228e-18,
+      "path": "/groups/217/directions/A/extinct/interval_95/0",
+      "producer": 0.03513065310331141,
+      "readback": 0.035130653103311406
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/217/directions/A/extinct/one_sided_upper_95",
+      "producer": 0.2635965976097443,
+      "readback": 0.26359659760974435
+    },
+    {
+      "absolute_difference": 6.938893903907228e-18,
+      "path": "/groups/217/directions/I/extinct/interval_95/0",
+      "producer": 0.03513065310331141,
+      "readback": 0.035130653103311406
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/217/directions/I/extinct/one_sided_upper_95",
+      "producer": 0.2635965976097443,
+      "readback": 0.26359659760974435
+    },
+    {
+      "absolute_difference": 6.938893903907228e-18,
+      "path": "/groups/217/directions/M/extinct/interval_95/0",
+      "producer": 0.03513065310331141,
+      "readback": 0.035130653103311406
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/217/directions/M/extinct/one_sided_upper_95",
+      "producer": 0.2635965976097443,
+      "readback": 0.26359659760974435
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/220/directions/M/negative/interval_95/0",
+      "producer": 0.43692245509692657,
+      "readback": 0.4369224550969266
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/220/directions/M/positive/interval_95/0",
+      "producer": 0.21100031642399283,
+      "readback": 0.21100031642399286
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/225/directions/M/negative/interval_95/0",
+      "producer": 0.5325289003570655,
+      "readback": 0.5325289003570653
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/225/directions/M/negative/interval_95/1",
+      "producer": 0.8625430967044982,
+      "readback": 0.8625430967044984
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/225/directions/M/positive/interval_95/0",
+      "producer": 0.1374569032955017,
+      "readback": 0.13745690329550175
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/225/directions/M/positive/interval_95/1",
+      "producer": 0.46747109964293454,
+      "readback": 0.46747109964293465
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/225/directions/M/positive/one_sided_upper_95",
+      "producer": 0.4394466932609101,
+      "readback": 0.43944669326091
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/226/directions/M/negative/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/226/directions/M/positive/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/227/directions/M/negative/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/227/directions/M/positive/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/228/directions/M/positive/interval_95/1",
+      "producer": 0.25022695068379464,
+      "readback": 0.2502269506837947
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/228/directions/M/positive/one_sided_upper_95",
+      "producer": 0.2248161085892257,
+      "readback": 0.22481610858922574
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/250/directions/M/negative/interval_95/0",
+      "producer": 0.5659506250777572,
+      "readback": 0.5659506250777573
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/250/directions/M/positive/interval_95/1",
+      "producer": 0.43404937492224266,
+      "readback": 0.4340493749222426
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/250/directions/M/positive/one_sided_upper_95",
+      "producer": 0.40605695175650547,
+      "readback": 0.4060569517565054
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/251/directions/M/negative/interval_95/0",
+      "producer": 0.21100031642399283,
+      "readback": 0.21100031642399286
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/251/directions/M/positive/interval_95/0",
+      "producer": 0.43692245509692657,
+      "readback": 0.4369224550969266
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/252/directions/M/negative/interval_95/0",
+      "producer": 0.05275056440213409,
+      "readback": 0.052750564402134104
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/252/directions/M/negative/interval_95/1",
+      "producer": 0.3278787656820417,
+      "readback": 0.3278787656820418
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/253/directions/M/negative/interval_95/0",
+      "producer": 0.1374569032955017,
+      "readback": 0.13745690329550175
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/253/directions/M/negative/interval_95/1",
+      "producer": 0.46747109964293454,
+      "readback": 0.46747109964293465
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/253/directions/M/negative/one_sided_upper_95",
+      "producer": 0.4394466932609101,
+      "readback": 0.43944669326091
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/253/directions/M/positive/interval_95/0",
+      "producer": 0.5325289003570655,
+      "readback": 0.5325289003570653
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/253/directions/M/positive/interval_95/1",
+      "producer": 0.8625430967044982,
+      "readback": 0.8625430967044984
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/255/directions/M/negative/interval_95/0",
+      "producer": 0.23698410055174315,
+      "readback": 0.2369841005517431
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/255/directions/M/negative/one_sided_upper_95",
+      "producer": 0.5665126270105421,
+      "readback": 0.566512627010542
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/255/directions/M/positive/interval_95/0",
+      "producer": 0.40644924657647635,
+      "readback": 0.4064492465764764
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/255/directions/M/positive/one_sided_upper_95",
+      "producer": 0.7403380350579852,
+      "readback": 0.7403380350579851
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/256/directions/M/negative/interval_95/1",
+      "producer": 0.43404937492224266,
+      "readback": 0.4340493749222426
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/256/directions/M/negative/one_sided_upper_95",
+      "producer": 0.40605695175650547,
+      "readback": 0.4060569517565054
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/256/directions/M/positive/interval_95/0",
+      "producer": 0.5659506250777572,
+      "readback": 0.5659506250777573
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/257/directions/M/negative/interval_95/1",
+      "producer": 0.25022695068379464,
+      "readback": 0.2502269506837947
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/257/directions/M/negative/one_sided_upper_95",
+      "producer": 0.2248161085892257,
+      "readback": 0.22481610858922574
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/258/directions/M/negative/interval_95/0",
+      "producer": 0.23698410055174315,
+      "readback": 0.2369841005517431
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/258/directions/M/negative/one_sided_upper_95",
+      "producer": 0.5665126270105421,
+      "readback": 0.566512627010542
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/258/directions/M/positive/interval_95/0",
+      "producer": 0.40644924657647635,
+      "readback": 0.4064492465764764
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/258/directions/M/positive/one_sided_upper_95",
+      "producer": 0.7403380350579852,
+      "readback": 0.7403380350579851
+    },
+    {
+      "absolute_difference": 6.938893903907228e-18,
+      "path": "/groups/260/directions/M/negative/interval_95/0",
+      "producer": 0.03513065310331141,
+      "readback": 0.035130653103311406
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/260/directions/M/negative/one_sided_upper_95",
+      "producer": 0.2635965976097443,
+      "readback": 0.26359659760974435
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/261/directions/M/negative/interval_95/0",
+      "producer": 0.21100031642399283,
+      "readback": 0.21100031642399286
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/261/directions/M/positive/interval_95/0",
+      "producer": 0.43692245509692657,
+      "readback": 0.4369224550969266
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/263/directions/M/negative/interval_95/0",
+      "producer": 0.3474368092863928,
+      "readback": 0.34743680928639276
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/263/directions/M/negative/interval_95/1",
+      "producer": 0.7090601770939847,
+      "readback": 0.7090601770939846
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/263/directions/M/positive/interval_95/0",
+      "producer": 0.2909398229060153,
+      "readback": 0.2909398229060152
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/263/directions/M/positive/one_sided_upper_95",
+      "producer": 0.626609107142292,
+      "readback": 0.6266091071422921
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/265/directions/M/negative/interval_95/0",
+      "producer": 0.07207616545849763,
+      "readback": 0.07207616545849764
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/265/directions/M/negative/interval_95/1",
+      "producer": 0.3643923098640901,
+      "readback": 0.36439230986409005
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/266/directions/M/negative/interval_95/0",
+      "producer": 0.37662573159009394,
+      "readback": 0.376625731590094
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/266/directions/M/negative/interval_95/1",
+      "producer": 0.7363618755890153,
+      "readback": 0.7363618755890152
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/266/directions/M/positive/interval_95/1",
+      "producer": 0.6233742684099061,
+      "readback": 0.623374268409906
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/266/directions/M/positive/one_sided_upper_95",
+      "producer": 0.5968316155208787,
+      "readback": 0.5968316155208788
+    },
+    {
+      "absolute_difference": 6.938893903907228e-18,
+      "path": "/groups/272/directions/A/extinct/interval_95/0",
+      "producer": 0.03513065310331141,
+      "readback": 0.035130653103311406
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/272/directions/A/extinct/one_sided_upper_95",
+      "producer": 0.2635965976097443,
+      "readback": 0.26359659760974435
+    },
+    {
+      "absolute_difference": 6.938893903907228e-18,
+      "path": "/groups/272/directions/I/extinct/interval_95/0",
+      "producer": 0.03513065310331141,
+      "readback": 0.035130653103311406
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/272/directions/I/extinct/one_sided_upper_95",
+      "producer": 0.2635965976097443,
+      "readback": 0.26359659760974435
+    },
+    {
+      "absolute_difference": 6.938893903907228e-18,
+      "path": "/groups/272/directions/M/extinct/interval_95/0",
+      "producer": 0.03513065310331141,
+      "readback": 0.035130653103311406
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/272/directions/M/extinct/one_sided_upper_95",
+      "producer": 0.2635965976097443,
+      "readback": 0.26359659760974435
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/272/directions/M/negative/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/276/directions/M/negative/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/276/directions/M/positive/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/291/directions/M/negative/interval_95/0",
+      "producer": 0.23698410055174315,
+      "readback": 0.2369841005517431
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/291/directions/M/negative/one_sided_upper_95",
+      "producer": 0.5665126270105421,
+      "readback": 0.566512627010542
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/291/directions/M/positive/interval_95/0",
+      "producer": 0.40644924657647635,
+      "readback": 0.4064492465764764
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/291/directions/M/positive/one_sided_upper_95",
+      "producer": 0.7403380350579852,
+      "readback": 0.7403380350579851
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/292/directions/A/negative/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/292/directions/A/positive/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 2.6020852139652106e-18,
+      "path": "/groups/293/directions/A/positive/interval_95/0",
+      "producer": 0.007660736346456386,
+      "readback": 0.007660736346456388
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/293/directions/A/positive/interval_95/1",
+      "producer": 0.20806942989500743,
+      "readback": 0.20806942989500746
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/293/directions/M/negative/interval_95/1",
+      "producer": 0.6233742684099061,
+      "readback": 0.623374268409906
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/293/directions/M/negative/one_sided_upper_95",
+      "producer": 0.5968316155208787,
+      "readback": 0.5968316155208788
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/293/directions/M/positive/interval_95/0",
+      "producer": 0.37662573159009394,
+      "readback": 0.376625731590094
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/293/directions/M/positive/interval_95/1",
+      "producer": 0.7363618755890153,
+      "readback": 0.7363618755890152
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/294/directions/A/negative/interval_95/0",
+      "producer": 0.05275056440213409,
+      "readback": 0.052750564402134104
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/294/directions/A/negative/interval_95/1",
+      "producer": 0.3278787656820417,
+      "readback": 0.3278787656820418
+    },
+    {
+      "absolute_difference": 6.938893903907228e-18,
+      "path": "/groups/296/directions/A/negative/interval_95/0",
+      "producer": 0.03513065310331141,
+      "readback": 0.035130653103311406
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/296/directions/A/negative/one_sided_upper_95",
+      "producer": 0.2635965976097443,
+      "readback": 0.26359659760974435
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/296/directions/M/negative/interval_95/0",
+      "producer": 0.3474368092863928,
+      "readback": 0.34743680928639276
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/296/directions/M/negative/interval_95/1",
+      "producer": 0.7090601770939847,
+      "readback": 0.7090601770939846
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/296/directions/M/positive/interval_95/0",
+      "producer": 0.2909398229060153,
+      "readback": 0.2909398229060152
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/296/directions/M/positive/one_sided_upper_95",
+      "producer": 0.626609107142292,
+      "readback": 0.6266091071422921
+    },
+    {
+      "absolute_difference": 6.938893903907228e-18,
+      "path": "/groups/297/directions/M/positive/interval_95/0",
+      "producer": 0.03513065310331141,
+      "readback": 0.035130653103311406
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/297/directions/M/positive/one_sided_upper_95",
+      "producer": 0.2635965976097443,
+      "readback": 0.26359659760974435
+    },
+    {
+      "absolute_difference": 2.6020852139652106e-18,
+      "path": "/groups/298/directions/A/positive/interval_95/0",
+      "producer": 0.007660736346456386,
+      "readback": 0.007660736346456388
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/298/directions/A/positive/interval_95/1",
+      "producer": 0.20806942989500743,
+      "readback": 0.20806942989500746
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/298/directions/M/negative/interval_95/0",
+      "producer": 0.37662573159009394,
+      "readback": 0.376625731590094
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/298/directions/M/negative/interval_95/1",
+      "producer": 0.7363618755890153,
+      "readback": 0.7363618755890152
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/298/directions/M/positive/interval_95/1",
+      "producer": 0.6233742684099061,
+      "readback": 0.623374268409906
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/298/directions/M/positive/one_sided_upper_95",
+      "producer": 0.5968316155208787,
+      "readback": 0.5968316155208788
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/299/directions/M/negative/interval_95/0",
+      "producer": 0.3474368092863928,
+      "readback": 0.34743680928639276
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/299/directions/M/negative/interval_95/1",
+      "producer": 0.7090601770939847,
+      "readback": 0.7090601770939846
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/299/directions/M/positive/interval_95/0",
+      "producer": 0.2909398229060153,
+      "readback": 0.2909398229060152
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/299/directions/M/positive/one_sided_upper_95",
+      "producer": 0.626609107142292,
+      "readback": 0.6266091071422921
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/300/directions/M/negative/interval_95/0",
+      "producer": 0.5325289003570655,
+      "readback": 0.5325289003570653
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/300/directions/M/negative/interval_95/1",
+      "producer": 0.8625430967044982,
+      "readback": 0.8625430967044984
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/300/directions/M/positive/interval_95/0",
+      "producer": 0.1374569032955017,
+      "readback": 0.13745690329550175
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/300/directions/M/positive/interval_95/1",
+      "producer": 0.46747109964293454,
+      "readback": 0.46747109964293465
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/300/directions/M/positive/one_sided_upper_95",
+      "producer": 0.4394466932609101,
+      "readback": 0.43944669326091
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/301/directions/M/positive/interval_95/0",
+      "producer": 0.07207616545849763,
+      "readback": 0.07207616545849764
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/301/directions/M/positive/interval_95/1",
+      "producer": 0.3643923098640901,
+      "readback": 0.36439230986409005
+    },
+    {
+      "absolute_difference": 2.7755575615628914e-17,
+      "path": "/groups/302/directions/M/negative/interval_95/1",
+      "producer": 0.16217099418151154,
+      "readback": 0.1621709941815115
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/302/directions/M/positive/interval_95/0",
+      "producer": 0.8378290058184884,
+      "readback": 0.8378290058184885
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/303/directions/M/positive/interval_95/0",
+      "producer": 0.05275056440213409,
+      "readback": 0.052750564402134104
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/303/directions/M/positive/interval_95/1",
+      "producer": 0.3278787656820417,
+      "readback": 0.3278787656820418
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/305/directions/M/negative/interval_95/0",
+      "producer": 0.318874964234164,
+      "readback": 0.31887496423416395
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/305/directions/M/negative/interval_95/1",
+      "producer": 0.681125035765836,
+      "readback": 0.6811250357658359
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/305/directions/M/positive/interval_95/0",
+      "producer": 0.318874964234164,
+      "readback": 0.31887496423416395
+    },
+    {
+      "absolute_difference": 1.1102230246251565e-16,
+      "path": "/groups/305/directions/M/positive/interval_95/1",
+      "producer": 0.681125035765836,
+      "readback": 0.6811250357658359
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/306/directions/M/positive/interval_95/0",
+      "producer": 0.07207616545849763,
+      "readback": 0.07207616545849764
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/306/directions/M/positive/interval_95/1",
+      "producer": 0.3643923098640901,
+      "readback": 0.36439230986409005
+    },
+    {
+      "absolute_difference": 1.3877787807814457e-17,
+      "path": "/groups/308/directions/M/positive/interval_95/0",
+      "producer": 0.07207616545849763,
+      "readback": 0.07207616545849764
+    },
+    {
+      "absolute_difference": 5.551115123125783e-17,
+      "path": "/groups/308/directions/M/positive/interval_95/1",
+      "producer": 0.3643923098640901,
+      "readback": 0.36439230986409005
+    }
+  ],
+  "producer_replay": {
+    "cohorts": 64,
+    "futures": 10240,
+    "independent_biological_implementation": false
+  },
+  "schema": "readaptation_descriptive_paper_tables_v1",
+  "scope": "Descriptive pooled counts only; 32 future repeats per cohort/destination; no pooled confidence intervals",
+  "sign_note": "Exact numerical signs, not biological effect thresholds; see effect magnitudes",
+  "summary_sha256": "e6d2cef5cc8963a5debd37b9ad325181becabfefa6d05e43b6ffc0f2b2fe2b03",
+  "tables": [
+    {
+      "allocated": 1024,
+      "cohort_mean_assay_change_among_groups_with_survivors": {
+        "maximum": 0.46945023702061595,
+        "mean": 0.07112450620039307,
+        "median": 0.0,
+        "minimum": -6.661338147750939e-16,
+        "n": 22
+      },
+      "cohorts": 32,
+      "cohorts_with_any_I_change": 2,
+      "destination": 0,
+      "directions": {
+        "A": {
+          "extinct": 320,
+          "negative": 0,
+          "positive": 160,
+          "zero": 544
+        },
+        "I": {
+          "extinct": 320,
+          "negative": 37,
+          "positive": 27,
+          "zero": 640
+        },
+        "M": {
+          "extinct": 320,
+          "negative": 484,
+          "positive": 156,
+          "zero": 64
+        }
+      },
+      "extinct": 320,
+      "occupied": 704,
+      "policy": "fixed",
+      "support": [
+        {
+          "entry_A_supported_cohorts": 25,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0,
+          "terminal_A_supported_futures": 320,
+          "terminal_I_supported_futures": 576
+        },
+        {
+          "entry_A_supported_cohorts": 25,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.005,
+          "terminal_A_supported_futures": 320,
+          "terminal_I_supported_futures": 576
+        },
+        {
+          "entry_A_supported_cohorts": 25,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.01,
+          "terminal_A_supported_futures": 320,
+          "terminal_I_supported_futures": 576
+        },
+        {
+          "entry_A_supported_cohorts": 25,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.02,
+          "terminal_A_supported_futures": 320,
+          "terminal_I_supported_futures": 576
+        },
+        {
+          "entry_A_supported_cohorts": 25,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.05,
+          "terminal_A_supported_futures": 320,
+          "terminal_I_supported_futures": 576
+        }
+      ],
+      "survivor_assay_change": {
+        "maximum": 0.46945023702061595,
+        "mean": 0.07112450620039307,
+        "median": 0.0,
+        "minimum": -0.022614745448696016,
+        "n": 704
+      },
+      "survivor_assay_exact_sign_counts": {
+        "negative": 210,
+        "positive": 241,
+        "zero": 253
+      }
+    },
+    {
+      "allocated": 1024,
+      "cohort_mean_assay_change_among_groups_with_survivors": {
+        "maximum": 0.18344783892666708,
+        "mean": 0.04149374705219648,
+        "median": 4.440892098500626e-16,
+        "minimum": -8.881784197001252e-16,
+        "n": 32
+      },
+      "cohorts": 32,
+      "cohorts_with_any_I_change": 4,
+      "destination": 1,
+      "directions": {
+        "A": {
+          "extinct": 0,
+          "negative": 28,
+          "positive": 132,
+          "zero": 864
+        },
+        "I": {
+          "extinct": 0,
+          "negative": 19,
+          "positive": 109,
+          "zero": 896
+        },
+        "M": {
+          "extinct": 0,
+          "negative": 662,
+          "positive": 234,
+          "zero": 128
+        }
+      },
+      "extinct": 0,
+      "occupied": 1024,
+      "policy": "fixed",
+      "support": [
+        {
+          "entry_A_supported_cohorts": 25,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0,
+          "terminal_A_supported_futures": 718,
+          "terminal_I_supported_futures": 768
+        },
+        {
+          "entry_A_supported_cohorts": 25,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.005,
+          "terminal_A_supported_futures": 718,
+          "terminal_I_supported_futures": 768
+        },
+        {
+          "entry_A_supported_cohorts": 25,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.01,
+          "terminal_A_supported_futures": 718,
+          "terminal_I_supported_futures": 768
+        },
+        {
+          "entry_A_supported_cohorts": 25,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.02,
+          "terminal_A_supported_futures": 718,
+          "terminal_I_supported_futures": 768
+        },
+        {
+          "entry_A_supported_cohorts": 25,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.05,
+          "terminal_A_supported_futures": 718,
+          "terminal_I_supported_futures": 768
+        }
+      ],
+      "survivor_assay_change": {
+        "maximum": 0.2184772790261209,
+        "mean": 0.04149374705219648,
+        "median": 4.440892098500626e-16,
+        "minimum": -0.18517361446040015,
+        "n": 1024
+      },
+      "survivor_assay_exact_sign_counts": {
+        "negative": 175,
+        "positive": 529,
+        "zero": 320
+      }
+    },
+    {
+      "allocated": 1024,
+      "cohort_mean_assay_change_among_groups_with_survivors": {
+        "maximum": 0.544666800726151,
+        "mean": 0.08509170620437849,
+        "median": 1.1102230246251565e-16,
+        "minimum": -4.440892098500626e-16,
+        "n": 32
+      },
+      "cohorts": 32,
+      "cohorts_with_any_I_change": 4,
+      "destination": 2,
+      "directions": {
+        "A": {
+          "extinct": 63,
+          "negative": 3,
+          "positive": 157,
+          "zero": 801
+        },
+        "I": {
+          "extinct": 63,
+          "negative": 19,
+          "positive": 108,
+          "zero": 834
+        },
+        "M": {
+          "extinct": 63,
+          "negative": 508,
+          "positive": 377,
+          "zero": 76
+        }
+      },
+      "extinct": 63,
+      "occupied": 961,
+      "policy": "fixed",
+      "support": [
+        {
+          "entry_A_supported_cohorts": 25,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0,
+          "terminal_A_supported_futures": 581,
+          "terminal_I_supported_futures": 758
+        },
+        {
+          "entry_A_supported_cohorts": 25,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.005,
+          "terminal_A_supported_futures": 581,
+          "terminal_I_supported_futures": 758
+        },
+        {
+          "entry_A_supported_cohorts": 25,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.01,
+          "terminal_A_supported_futures": 581,
+          "terminal_I_supported_futures": 758
+        },
+        {
+          "entry_A_supported_cohorts": 25,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.02,
+          "terminal_A_supported_futures": 581,
+          "terminal_I_supported_futures": 758
+        },
+        {
+          "entry_A_supported_cohorts": 25,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.05,
+          "terminal_A_supported_futures": 581,
+          "terminal_I_supported_futures": 758
+        }
+      ],
+      "survivor_assay_change": {
+        "maximum": 0.5463229117840804,
+        "mean": 0.0899922723560636,
+        "median": 2.220446049250313e-16,
+        "minimum": -0.22950071779724013,
+        "n": 961
+      },
+      "survivor_assay_exact_sign_counts": {
+        "negative": 85,
+        "positive": 486,
+        "zero": 390
+      }
+    },
+    {
+      "allocated": 1024,
+      "cohort_mean_assay_change_among_groups_with_survivors": {
+        "maximum": 0.31390235091490515,
+        "mean": 0.06550702223709484,
+        "median": 0.0,
+        "minimum": 0.0,
+        "n": 32
+      },
+      "cohorts": 32,
+      "cohorts_with_any_I_change": 4,
+      "destination": 3,
+      "directions": {
+        "A": {
+          "extinct": 0,
+          "negative": 129,
+          "positive": 31,
+          "zero": 864
+        },
+        "I": {
+          "extinct": 0,
+          "negative": 22,
+          "positive": 105,
+          "zero": 897
+        },
+        "M": {
+          "extinct": 0,
+          "negative": 666,
+          "positive": 230,
+          "zero": 128
+        }
+      },
+      "extinct": 0,
+      "occupied": 1024,
+      "policy": "fixed",
+      "support": [
+        {
+          "entry_A_supported_cohorts": 25,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0,
+          "terminal_A_supported_futures": 779,
+          "terminal_I_supported_futures": 768
+        },
+        {
+          "entry_A_supported_cohorts": 25,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.005,
+          "terminal_A_supported_futures": 779,
+          "terminal_I_supported_futures": 768
+        },
+        {
+          "entry_A_supported_cohorts": 25,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.01,
+          "terminal_A_supported_futures": 779,
+          "terminal_I_supported_futures": 768
+        },
+        {
+          "entry_A_supported_cohorts": 25,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.02,
+          "terminal_A_supported_futures": 779,
+          "terminal_I_supported_futures": 768
+        },
+        {
+          "entry_A_supported_cohorts": 25,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.05,
+          "terminal_A_supported_futures": 779,
+          "terminal_I_supported_futures": 768
+        }
+      ],
+      "survivor_assay_change": {
+        "maximum": 0.6025893737523598,
+        "mean": 0.06550702223709486,
+        "median": 0.0,
+        "minimum": -0.28544878575481736,
+        "n": 1024
+      },
+      "survivor_assay_exact_sign_counts": {
+        "negative": 28,
+        "positive": 420,
+        "zero": 576
+      }
+    },
+    {
+      "allocated": 1024,
+      "cohort_mean_assay_change_among_groups_with_survivors": {
+        "maximum": 0.6321206844137575,
+        "mean": 0.1617921122421947,
+        "median": 4.440892098500626e-16,
+        "minimum": -4.440892098500626e-16,
+        "n": 32
+      },
+      "cohorts": 32,
+      "cohorts_with_any_I_change": 4,
+      "destination": 4,
+      "directions": {
+        "A": {
+          "extinct": 3,
+          "negative": 20,
+          "positive": 140,
+          "zero": 861
+        },
+        "I": {
+          "extinct": 3,
+          "negative": 15,
+          "positive": 113,
+          "zero": 893
+        },
+        "M": {
+          "extinct": 3,
+          "negative": 477,
+          "positive": 419,
+          "zero": 125
+        }
+      },
+      "extinct": 3,
+      "occupied": 1021,
+      "policy": "fixed",
+      "support": [
+        {
+          "entry_A_supported_cohorts": 25,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0,
+          "terminal_A_supported_futures": 689,
+          "terminal_I_supported_futures": 768
+        },
+        {
+          "entry_A_supported_cohorts": 25,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.005,
+          "terminal_A_supported_futures": 689,
+          "terminal_I_supported_futures": 768
+        },
+        {
+          "entry_A_supported_cohorts": 25,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.01,
+          "terminal_A_supported_futures": 689,
+          "terminal_I_supported_futures": 768
+        },
+        {
+          "entry_A_supported_cohorts": 25,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.02,
+          "terminal_A_supported_futures": 689,
+          "terminal_I_supported_futures": 768
+        },
+        {
+          "entry_A_supported_cohorts": 25,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.05,
+          "terminal_A_supported_futures": 689,
+          "terminal_I_supported_futures": 768
+        }
+      ],
+      "survivor_assay_change": {
+        "maximum": 0.6811871069836597,
+        "mean": 0.16226750532419917,
+        "median": 0.0,
+        "minimum": -0.16362074937195548,
+        "n": 1021
+      },
+      "survivor_assay_exact_sign_counts": {
+        "negative": 70,
+        "positive": 503,
+        "zero": 448
+      }
+    },
+    {
+      "allocated": 1024,
+      "cohort_mean_assay_change_among_groups_with_survivors": {
+        "maximum": 0.07376293925648858,
+        "mean": 0.007440480970814467,
+        "median": -3.3306690738754696e-16,
+        "minimum": -6.661338147750939e-16,
+        "n": 32
+      },
+      "cohorts": 32,
+      "cohorts_with_any_I_change": 4,
+      "destination": 0,
+      "directions": {
+        "A": {
+          "extinct": 0,
+          "negative": 0,
+          "positive": 0,
+          "zero": 1024
+        },
+        "I": {
+          "extinct": 0,
+          "negative": 99,
+          "positive": 29,
+          "zero": 896
+        },
+        "M": {
+          "extinct": 0,
+          "negative": 466,
+          "positive": 430,
+          "zero": 128
+        }
+      },
+      "extinct": 0,
+      "occupied": 1024,
+      "policy": "evolving",
+      "support": [
+        {
+          "entry_A_supported_cohorts": 0,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0,
+          "terminal_A_supported_futures": 0,
+          "terminal_I_supported_futures": 734
+        },
+        {
+          "entry_A_supported_cohorts": 0,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.005,
+          "terminal_A_supported_futures": 0,
+          "terminal_I_supported_futures": 734
+        },
+        {
+          "entry_A_supported_cohorts": 0,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.01,
+          "terminal_A_supported_futures": 0,
+          "terminal_I_supported_futures": 734
+        },
+        {
+          "entry_A_supported_cohorts": 0,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.02,
+          "terminal_A_supported_futures": 0,
+          "terminal_I_supported_futures": 734
+        },
+        {
+          "entry_A_supported_cohorts": 0,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.05,
+          "terminal_A_supported_futures": 0,
+          "terminal_I_supported_futures": 734
+        }
+      ],
+      "survivor_assay_change": {
+        "maximum": 0.11307372724347964,
+        "mean": 0.007440480970814467,
+        "median": -6.661338147750939e-16,
+        "minimum": -0.04522949089739203,
+        "n": 1024
+      },
+      "survivor_assay_exact_sign_counts": {
+        "negative": 541,
+        "positive": 355,
+        "zero": 128
+      }
+    },
+    {
+      "allocated": 1024,
+      "cohort_mean_assay_change_among_groups_with_survivors": {
+        "maximum": 0.18795326813201707,
+        "mean": 0.035322236977441246,
+        "median": 0.004951737976527766,
+        "minimum": -0.0007299777413669467,
+        "n": 32
+      },
+      "cohorts": 32,
+      "cohorts_with_any_I_change": 4,
+      "destination": 1,
+      "directions": {
+        "A": {
+          "extinct": 0,
+          "negative": 0,
+          "positive": 0,
+          "zero": 1024
+        },
+        "I": {
+          "extinct": 0,
+          "negative": 27,
+          "positive": 101,
+          "zero": 896
+        },
+        "M": {
+          "extinct": 0,
+          "negative": 538,
+          "positive": 358,
+          "zero": 128
+        }
+      },
+      "extinct": 0,
+      "occupied": 1024,
+      "policy": "evolving",
+      "support": [
+        {
+          "entry_A_supported_cohorts": 0,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0,
+          "terminal_A_supported_futures": 0,
+          "terminal_I_supported_futures": 766
+        },
+        {
+          "entry_A_supported_cohorts": 0,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.005,
+          "terminal_A_supported_futures": 0,
+          "terminal_I_supported_futures": 766
+        },
+        {
+          "entry_A_supported_cohorts": 0,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.01,
+          "terminal_A_supported_futures": 0,
+          "terminal_I_supported_futures": 766
+        },
+        {
+          "entry_A_supported_cohorts": 0,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.02,
+          "terminal_A_supported_futures": 0,
+          "terminal_I_supported_futures": 766
+        },
+        {
+          "entry_A_supported_cohorts": 0,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.05,
+          "terminal_A_supported_futures": 0,
+          "terminal_I_supported_futures": 766
+        }
+      ],
+      "survivor_assay_change": {
+        "maximum": 0.3139324896859921,
+        "mean": 0.035322236977441246,
+        "median": 4.440892098500626e-16,
+        "minimum": -0.10690406694765908,
+        "n": 1024
+      },
+      "survivor_assay_exact_sign_counts": {
+        "negative": 130,
+        "positive": 638,
+        "zero": 256
+      }
+    },
+    {
+      "allocated": 1024,
+      "cohort_mean_assay_change_among_groups_with_survivors": {
+        "maximum": 0.4040651774233703,
+        "mean": 0.06885689472701821,
+        "median": 0.014237461522873772,
+        "minimum": -0.001326342855407281,
+        "n": 32
+      },
+      "cohorts": 32,
+      "cohorts_with_any_I_change": 4,
+      "destination": 2,
+      "directions": {
+        "A": {
+          "extinct": 0,
+          "negative": 0,
+          "positive": 0,
+          "zero": 1024
+        },
+        "I": {
+          "extinct": 0,
+          "negative": 32,
+          "positive": 95,
+          "zero": 897
+        },
+        "M": {
+          "extinct": 0,
+          "negative": 214,
+          "positive": 682,
+          "zero": 128
+        }
+      },
+      "extinct": 0,
+      "occupied": 1024,
+      "policy": "evolving",
+      "support": [
+        {
+          "entry_A_supported_cohorts": 0,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0,
+          "terminal_A_supported_futures": 0,
+          "terminal_I_supported_futures": 762
+        },
+        {
+          "entry_A_supported_cohorts": 0,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.005,
+          "terminal_A_supported_futures": 0,
+          "terminal_I_supported_futures": 762
+        },
+        {
+          "entry_A_supported_cohorts": 0,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.01,
+          "terminal_A_supported_futures": 0,
+          "terminal_I_supported_futures": 762
+        },
+        {
+          "entry_A_supported_cohorts": 0,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.02,
+          "terminal_A_supported_futures": 0,
+          "terminal_I_supported_futures": 762
+        },
+        {
+          "entry_A_supported_cohorts": 0,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.05,
+          "terminal_A_supported_futures": 0,
+          "terminal_I_supported_futures": 762
+        }
+      ],
+      "survivor_assay_change": {
+        "maximum": 0.42163322861569075,
+        "mean": 0.06885689472701821,
+        "median": 0.012114671046898895,
+        "minimum": -0.35040464268522964,
+        "n": 1024
+      },
+      "survivor_assay_exact_sign_counts": {
+        "negative": 133,
+        "positive": 635,
+        "zero": 256
+      }
+    },
+    {
+      "allocated": 1024,
+      "cohort_mean_assay_change_among_groups_with_survivors": {
+        "maximum": 0.469011771729926,
+        "mean": 0.0766908608615673,
+        "median": 0.02635115883067618,
+        "minimum": 0.0,
+        "n": 32
+      },
+      "cohorts": 32,
+      "cohorts_with_any_I_change": 4,
+      "destination": 3,
+      "directions": {
+        "A": {
+          "extinct": 0,
+          "negative": 0,
+          "positive": 0,
+          "zero": 1024
+        },
+        "I": {
+          "extinct": 0,
+          "negative": 13,
+          "positive": 115,
+          "zero": 896
+        },
+        "M": {
+          "extinct": 0,
+          "negative": 550,
+          "positive": 346,
+          "zero": 128
+        }
+      },
+      "extinct": 0,
+      "occupied": 1024,
+      "policy": "evolving",
+      "support": [
+        {
+          "entry_A_supported_cohorts": 0,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0,
+          "terminal_A_supported_futures": 0,
+          "terminal_I_supported_futures": 768
+        },
+        {
+          "entry_A_supported_cohorts": 0,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.005,
+          "terminal_A_supported_futures": 0,
+          "terminal_I_supported_futures": 768
+        },
+        {
+          "entry_A_supported_cohorts": 0,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.01,
+          "terminal_A_supported_futures": 0,
+          "terminal_I_supported_futures": 768
+        },
+        {
+          "entry_A_supported_cohorts": 0,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.02,
+          "terminal_A_supported_futures": 0,
+          "terminal_I_supported_futures": 768
+        },
+        {
+          "entry_A_supported_cohorts": 0,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.05,
+          "terminal_A_supported_futures": 0,
+          "terminal_I_supported_futures": 768
+        }
+      ],
+      "survivor_assay_change": {
+        "maximum": 0.6065460025071934,
+        "mean": 0.0766908608615673,
+        "median": 0.016611600051399833,
+        "minimum": -0.16542163704741597,
+        "n": 1024
+      },
+      "survivor_assay_exact_sign_counts": {
+        "negative": 76,
+        "positive": 756,
+        "zero": 192
+      }
+    },
+    {
+      "allocated": 1024,
+      "cohort_mean_assay_change_among_groups_with_survivors": {
+        "maximum": 1.1596128615965555,
+        "mean": 0.2155638381846553,
+        "median": 0.04310007295070328,
+        "minimum": -8.881784197001252e-16,
+        "n": 32
+      },
+      "cohorts": 32,
+      "cohorts_with_any_I_change": 4,
+      "destination": 4,
+      "directions": {
+        "A": {
+          "extinct": 0,
+          "negative": 0,
+          "positive": 0,
+          "zero": 1024
+        },
+        "I": {
+          "extinct": 0,
+          "negative": 20,
+          "positive": 108,
+          "zero": 896
+        },
+        "M": {
+          "extinct": 0,
+          "negative": 196,
+          "positive": 700,
+          "zero": 128
+        }
+      },
+      "extinct": 0,
+      "occupied": 1024,
+      "policy": "evolving",
+      "support": [
+        {
+          "entry_A_supported_cohorts": 0,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0,
+          "terminal_A_supported_futures": 0,
+          "terminal_I_supported_futures": 767
+        },
+        {
+          "entry_A_supported_cohorts": 0,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.005,
+          "terminal_A_supported_futures": 0,
+          "terminal_I_supported_futures": 767
+        },
+        {
+          "entry_A_supported_cohorts": 0,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.01,
+          "terminal_A_supported_futures": 0,
+          "terminal_I_supported_futures": 767
+        },
+        {
+          "entry_A_supported_cohorts": 0,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.02,
+          "terminal_A_supported_futures": 0,
+          "terminal_I_supported_futures": 767
+        },
+        {
+          "entry_A_supported_cohorts": 0,
+          "entry_I_supported_cohorts": 24,
+          "epsilon": 0.05,
+          "terminal_A_supported_futures": 0,
+          "terminal_I_supported_futures": 767
+        }
+      ],
+      "survivor_assay_change": {
+        "maximum": 1.1596128615965555,
+        "mean": 0.2155638381846553,
+        "median": 0.04925948924551271,
+        "minimum": -0.2612541306329188,
+        "n": 1024
+      },
+      "survivor_assay_exact_sign_counts": {
+        "negative": 76,
+        "positive": 628,
+        "zero": 320
+      }
+    }
+  ]
+}
