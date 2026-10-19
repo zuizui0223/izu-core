@@ -1,17 +1,5 @@
 name: Ch3 original high-I support retrospective
 on:
-  push:
-    branches:
-      - "analysis/ch3-high-investment-recoverability-bound-*"
-    paths:
-      - "scripts/audit_ch3_high_i_access_20261017.py"
-      - "tests/test_ch3_high_i_access_20261017.py"
-      - ".github/workflows/ch3-high-i-support-retrospective-20261017.yml"
-  pull_request:
-    paths:
-      - "scripts/audit_ch3_high_i_access_20261017.py"
-      - "tests/test_ch3_high_i_access_20261017.py"
-      - ".github/workflows/ch3-high-i-support-retrospective-20261017.yml"
   workflow_dispatch:
 
 permissions:

@@ -8,6 +8,7 @@ from scripts.audit_repository_code_references_20261016 import audit
 
 
 def _fixture(root: Path):
+    (root / "docs").mkdir(parents=True, exist_ok=True)
     content = {
         "scripts/__init__.py": "",
         "scripts/foo.py": "from .bar import run\n",

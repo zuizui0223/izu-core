@@ -1,11 +1,6 @@
 name: Ch3 high-I source-only audit
 
 on:
-  pull_request:
-    paths:
-      - '.github/workflows/ch3-high-i-source-audit-20261017.yml'
-      - 'scripts/audit_ch3_high_i_support_20261017.py'
-      - 'tests/test_ch3_high_i_support_20261017.py'
   workflow_dispatch:
 
 permissions:
