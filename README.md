@@ -1,6 +1,8 @@
 # Izu Core — Model 3 island reproductive economics
 > **現行の論文化方針（2026-10-17） — ELを独立のCh3へ分割せず、一つのNEE Article候補へ統合：** [最新の一論文ルート](docs/audits/CHAPTER2_NEE_ACTIVE_PUBLICATION_ROUTE_20261017.json) · [統合NEE作業原稿](docs/CHAPTER2_UNIFIED_NEE_ARTICLE_WORKING_20261017.md)。既存Q1〜Q4を基盤とし、送粉者復元後の高Iアレルと回復可能性を**未実施の中心実験**とする。旧Ecology Letters原稿・レンダラー・登録結果は再現用の履歴であり、別投稿対象ではない。**NEE投稿準備は未完了。**
 
+> **論文の新規性と証拠の三層（Q1〜Q4）:** [Lepers全文・PR #569を反映した主張の採用／不採用表](docs/CHAPTER2_THREE_TIER_FOUR_QUESTION_NOVELTY_REVIEW_20261016.md)。既知の自殖・花縮小理論との差、新しい遺伝的実現の検証、Q4の独立した存続効果を区別。原稿・原本・登録結果は変更していません。
+
 > **将来の確認実験の検出力ゲート（2026-10-17）：** [Q2・384原本の事後精度監査と新規実験用の事前検出力規則](docs/CHAPTER2_Q2_RETROSPECTIVE_PRECISION_FUTURE_POWER_20261017.md)。次の試験は独立した創始者数・訪花履歴数、SESOI、交互作用を含む保守的な分散感度、2主評価量の同時パワー、予算を**新しい結果を見る前**に固定する。Q2の既存主判定`both_inconclusive`は変更しない。
 
 > **中心仮説の採否（2026-10-17）：** [主仮説の最終判定とQ1–Q4の3層対応](docs/CHAPTER2_MAIN_HYPOTHESIS_DECISION_20261017.md)。**「Aの進化がIの低下に先行しても必要条件ではない」**を、限定されたModel 3内で支持済みの論文中心命題として固定。原本384経路のI座保有者数介入については、事前登録した2つの主評価量がともに**未確定**であり、確認済みの効果や遺伝的浮動による単一媒介とは呼ばない。Q1〜Q4の事前登録判定・原本は変更していない。
