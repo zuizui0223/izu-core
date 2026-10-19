@@ -1,0 +1,161 @@
+{
+  "schema": "chapter2_q3_fault_tolerance_highI_crossed_variance_pilot_v1",
+  "status": "FROZEN_BEFORE_EXPLORATORY_PILOT_EXECUTION_NOT_CONFIRMATORY",
+  "date": "2026-10-18",
+  "single_paper_parent": "PR #590",
+  "objective": "Estimate two-axis crossed historical-A policy difference variability and examine selection sign vs ancestral allele support without simulating any restored evolutionary futures.",
+  "provenance": {
+    "repo": "zuizui0223/izu-core",
+    "parent_branch": "paper/chapter2-unified-nee-upgrade-20261017",
+    "parent_head_at_freeze": "bc769a69723d9acc0acf2f9964f50ff51f2034d8",
+    "source_model": "scripts/model3_island/",
+    "source_design": "data/design/model3_island_v2.json",
+    "prior_tiny_pilot": "PR #593",
+    "prior_pilot_founders": [
+      181001,
+      181002
+    ],
+    "prior_pilot_visitors": [
+      182001,
+      182002
+    ],
+    "pilot_namespace": "ch2-fault-recovery-crossed-variance-20261018-v1",
+    "pilot_master_seed_components": [
+      20261018,
+      88
+    ],
+    "confirmatory_namespace_must_differ": true,
+    "no_overlap_with_prior_pilot": true
+  },
+  "founder_seed_values": [
+    291001,
+    291002,
+    291003,
+    291004,
+    291005,
+    291006
+  ],
+  "visitor_seed_values": [
+    292001,
+    292002,
+    292003,
+    292004,
+    292005,
+    292006
+  ],
+  "demographic_repeats_per_founder_visitor_policy": 2,
+  "matched_policy_arms": [
+    "fixed",
+    "evolving"
+  ],
+  "declared_history_paths": 144,
+  "declared_reproductive_updates": 11520,
+  "declared_future_restoration_paths": 0,
+  "reproductive_years": 80,
+  "source_founders": {
+    "diploid_plant_count": 48,
+    "base_trait_means": [
+      0.5,
+      0.5,
+      0.5
+    ],
+    "sd": 0.08,
+    "I_allele_values": [
+      0.375,
+      0.5,
+      0.625
+    ],
+    "A_allele_values": [
+      0.25,
+      0.5,
+      0.75
+    ]
+  },
+  "environment_history": {
+    "full_visitor_count": 6,
+    "sparse_visitor_count": 1,
+    "full_visitor_updates": [
+      0,
+      5
+    ],
+    "sparse_updates": [
+      5,
+      35
+    ],
+    "no_visitor_updates": [
+      35,
+      80
+    ],
+    "forced_permanent_extirpation_TE": 35,
+    "optimum_range": [
+      0.3,
+      0.7
+    ],
+    "visitor_breadth": 0.2,
+    "effectiveness": 1
+  },
+  "biology_overrides": {
+    "capacity": 48,
+    "years": 80,
+    "assurance_timing": "delayed",
+    "assurance_cost": 0.5,
+    "fixed_assurance": 0.5,
+    "mutation_rate": 0,
+    "seed_arrival_supply": 0,
+    "visitor_arrival_supply": 0,
+    "adult_survival": 0,
+    "activity": 0.4,
+    "activity_mode": "count_scaled",
+    "mutation_traits": [
+      false,
+      false,
+      false
+    ],
+    "self_fertilization_in_fixed_arm_allowed": true
+  },
+  "matched_streams": {
+    "founder_and_visitor_initial_states_same_across_policy": true,
+    "demographic_master_seed_same_per_founder_visitor_repeat_across_A_policy": true,
+    "stochastic_eventwise_coupling_guaranteed": false
+  },
+  "snapshots_for_static_restoration_assay": [
+    0,
+    10,
+    20,
+    30,
+    35,
+    39,
+    45,
+    60,
+    80
+  ],
+  "preoutcome_endpoints": [
+    "unconditional_cumulative_incidence_HIGH_I_allele_support_loss_before_extinction_at_t80",
+    "unconditional_alive_and_highI_access_at_t80",
+    "unconditional_occupied_at_t80",
+    "restricted_alive_and_highI_access_time_t0_through_t80",
+    "source_A_ancestral_low_target_allele_support_loss_in_evolving_arm_only",
+    "native_restored_visitor_pollen_service_at_same_genotype",
+    "monomorphic_resident_analytic_betaI_betaA_signs_as_proxy_only",
+    "ovule_weighted_idealized_failure_buffer_ratio_in_delayed_selfing"
+  ],
+  "power_boundary": {
+    "only_a_pilot": true,
+    "does_not_register_or_test_confirmatory_Q3": true,
+    "no_confirmatory_SESOI_chosen": true,
+    "source_variance_components_are_exploratory": true,
+    "independent_crossed_nF": 6,
+    "independent_crossed_nV": 6,
+    "nested_demographic_nR": 2,
+    "minimum_confirmatory_joint_directional_power": 0.8,
+    "familywise_alpha": 0.05,
+    "required_next_gate": "merged PR #585 independent pilot SHA and independent prospective power/smallest meaningful effect review; GO_FOR_METHOD_REVIEW is not execute"
+  },
+  "claim_limits": [
+    "Pilot histories are model-synthetic, not 144 independent islands",
+    "Cannot prove direct genetic mediation or long-run ratchet",
+    "No automatic genetic rescue, pollen-service restoration futures or new registered test",
+    "Selection proxies do not prove positive invasion in polymorphic population",
+    "Any chosen new confirmation sample counts must be outside these same pilot seeds"
+  ]
+}
