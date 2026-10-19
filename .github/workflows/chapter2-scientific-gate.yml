@@ -27,6 +27,7 @@ on:
       - 'scripts/render_chapter2_unified_manuscript.py'
       - 'scripts/render_chapter2_capacity_companion_evidence_figure.py'
       - 'figures/chapter2_functional_loss_tempo_20261011/**'
+      - 'figures/chapter2_nee/**'
       - 'scripts/build_island_ecology_submission_bundle.py'
       - 'scripts/audit_chapter2_submission_closure.py'
       - 'docs/CHAPTER2_**'
@@ -76,6 +77,7 @@ jobs:
         run: |
           python scripts/validate_chapter2_completed_evidence_20261019.py
           pytest -q tests/test_chapter2_completed_evidence_20261019.py
+          pytest -q tests/test_chapter2_paper_figures_20261019.py
       - name: Validate active Model 3 2026-10-05 ecological submission surface
         run: |
           pytest -q \
