@@ -1,6 +1,6 @@
 # Reproductive assurance and the evolutionary recoverability of flowers
 
-**Editorial submission-text extraction from the same single Chapter 2 working Article (2026-10-19).** Not a second paper, not submitted, and not a new scientific result. Historical unexecuted full-recovery-window proposals are excluded rather than described as Results. Final artwork, Methods reproducibility, complete reference verification, author declarations and external source-data preservation remain outstanding.
+**Editorial extraction from the existing single Chapter 2 Article (2026-10-19).** Not a second manuscript, not submitted, and not a new experiment. Original Q1 selection, Q2 sequence, Q3 finite realization and Q4 persistence are shown explicitly; bounded transfer is a conditional extension, not a proof of a four-stage mediation chain. Historic unexecuted recovery proposals are excluded. Full figures still require visual and accessibility review; complete source references, archive deposit and journal declarations remain outstanding.
 
 ## Abstract
 
@@ -20,15 +20,13 @@ The experiments address complementary parts of this mechanism with different sam
 
 ## Results
 
-### Floral-investment decline does not require evolution of assurance
+The study follows the **four original questions** (Q1 selection or gain, Q2 observed sequence, Q3 finite realization, Q4 demographic persistence) preserved in the [original four-part manuscript](CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md). These are separate evidential stages, **not** four demonstrated links in one historical causal mediation chain. New baseline-regime, genetic-closure, variation and transfer experiments condition or extend these questions without retrospectively changing their registered hypotheses. The [original-four-part audit](CHAPTER2_Q1_Q4_ORIGINAL_FOUR_PARTS_AUDIT_20261019.md) documents which original findings were previously obscured and where cohorts cannot be pooled.
+
+### Q1 — Selection: floral investment can decline without evolving assurance
+
+Before plant evolution, a fixed-state delayed-selfing diagnostic gave an investment-contribution gradient **+0.579 under higher visitor replenishment versus −0.700 under lower replenishment**: attraction was locally favoured in one prescribed visitor regime but disfavoured in the other. This local derivative does not guarantee the next generation's mean genetic change. Its reproductive interpretation includes female outcross, paternal pollen export, viable selfing and floral allocation cost ([original Q1](CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md#q1--thresholds-reproductive-returns-and-genetic-access)).
 
 The original matched evolving-versus-fixed A campaign follows 64 independent synthetic visitor histories with eight nested demographic repeats in each of four reproductive settings. Floral investment is lower under low replenishment with expressed assurance A fixed at 0.5; this policy blocks capacity evolution **but does not prevent selfing**. Allowing assurance capacity to evolve compresses the near/far difference in four originally registered settings. When fresh founders are crossed with fresh visitor histories, compression transports in only **three of four** settings: the direct-A-cost interaction remains inconclusive. These counterfactuals reject a universal prerequisite of A evolution for the beginning of I decline **within the tested Model 3**. Both original near and far regimes were pollen limited; near is not a pollination-sufficient control. They do not identify natural island causes.
-
-### Fault tolerance and evolutionary recovery are different
-
-In source Model 3, cost-free delayed selfing acts as a buffer against failed outcross fertilization, not as a required replacement for outcrossing. For viable-self progeny factor v=1-delta, expressed assurance A, and outcross fertilization q, expected viable maternal seeds are Y=O[q+v*A*(1-q)]. At fixed inherited state, the fraction retained when q falls from one to zero is v*A, relative to that same state's original ovule budget. This is **functional pollen-failure tolerance**, not realized population persistence or long-term fitness. At fixed maternal ovule budget and assurance, the transmission of variation in annual outcross success to expected viable-seed production also follows Var(Y)=O²[1-(1-delta)A]² Var(q); insurance can attenuate the reproductive consequences of unreliable service. This is an algebraic source identity rather than an empirical estimate of stochastic extinction risk. With no direct assurance cost or pollen discount, an increase in A has nonnegative local return under delayed selfing; at perfect q=1 the return is neutral, not a genetic proof that A cannot decline.
-
-Attraction I changes pollen receipt and paternal export while paying allocation cost. The resulting capacity for high-I evolutionary recovery requires BOTH favorable genetic parental selection after the visitor environment returns and sufficient retained high-I allelic support, neither guaranteed by the mother's seed buffer. Prior selfing, pollen discount and assurance resource cost can also make lowering A favorable after visitor return. Hence higher reproductive buffering may coexist with restricted recovery of high I, but the completed policy contrast below measures genetic support, not a causal tradeoff between buffering and realized recovery. The distinction is defined more precisely in the [source mechanism note](protocols/CHAPTER2_TWO_THRESHOLD_PRIVATE_SOCIAL_RECOVERY_SYNTHESIS_20261018.md).
 
 ### Baseline pollen limitation modifies the additional-decline response
 
@@ -52,7 +50,7 @@ under strong limitation (−0.0802/−0.0357), but positive under weak limitatio
 (+0.0207/+0.0246), excluding a universal directional response to activity loss.
 [Complete factorial results](CHAPTER2_BASELINE_POLLEN_384_RESULTS_20261019.md).
 
-### Temporal precedence does not diagnose what is genetically necessary
+### Q2 — Sequence: precedence does not establish evolutionary necessity
 
 Under delayed selfing and a direct assurance cost, A crossed the registered sustained-response threshold before I in **51/64** visitor histories, with 13 nearly simultaneous. Under prior selfing at the same primary threshold, only **30/64** were A-first. A separate registered intervention changing standing I-locus allele carriers in 384 paths found order-score difference +0.109375 with adjusted interval [−0.125,+0.34375] and I-event difference +0.1875 [−0.0625,+0.421875]; **both were inconclusive**. A-first cannot be promoted to a universal evolutionary clock or a cause of later irreversible loss.
 
@@ -60,7 +58,9 @@ Under delayed selfing and a direct assurance cost, A crossed the registered sust
 
 At identical initial expressed phenotypes, widening initial A allele half-width from 0.046875 to 0.078125 changed the A-first minus I-first score by +0.669271 in 768 paired histories. This two-founder retrospective comparison changes support, variance and threshold geometry together; A mutation was enabled. Separately, abrupt versus gradual functional visitor change increased the probability of a sustained A increase by census 100 by 21.875–42.1875 percentage points in four assurance-cost settings. All populations survived; this 1,024-path study changes visitor composition chronology, not insect abundance, and pollen delivery is matched only in a reference clone. [Genetic comparison](CHAPTER2_GENETIC_ACCESS_PAIRED_CLOCK_20261014.md); [timing experiment](CHAPTER2_SEQUENCE_ABRUPT_GRADUAL_FUNCTIONAL_LOSS_RESULTS_20261011.md).
 
-### Investment responses also retain reproducible environmental structure
+### Q3 — Realization: functional visitor history and finite-population processes
+
+The original prospective **128-visitor-history** bridge is independent of the later allele-closure cohorts. Natural far-minus-near investment change averaged **−0.4510 in a genotype-density approximation versus −0.1446 in the finite diploid model**; zero-deadband mixed-sign history labels were **0/128 versus 12/128**. Count-matching reversed both mean responses to **+0.0338 and +0.0333**, yet yielded **16/128 versus 68/128** mixed labels. Increasing finite plant capacity from 48 to 192 reduced mixed labels from 12/128 to 1/128. Count matching changes visitor identities as well as counts; capacity changes demography, and deterministic density is not the ABM's exact stochastic mean. These results show conditional differences in realized response, **not a measured drift fraction** ([frozen bridge](MODEL3_CH2_BRIDGE_PROSPECTIVE_RESULTS_20260927.md)). In a separate ten-context mutation comparison, two density contexts predicted A-first while only **3/32 and 2/32** finite histories did so despite complete occupancy; the genetic-access study below does not establish why those two contexts differ ([Q3 source map](CHAPTER2_Q3_FINITE_GENETIC_ACCESS_AND_REALIZATION_20261015.md)).
 
 A separate post-outcome analysis of the archived fixed-A bridge found
 history-conditioned structure in floral investment responses. Increasing
@@ -111,7 +111,9 @@ A source-only retrospective audit of the same 2,304 paths found that **1,455/2,3
 
 An eight-history micro-pilot supplied a single-state example of positive local I return after visitor restoration despite absent founder-target support. Its 144 continuations had environment-specific seeds and differing post-treatment denominators, so they do not identify a randomized recovery effect. Details remain in the [current evidence supplement](CHAPTER2_COMPLETED_EVIDENCE_SUPPLEMENT_20261019.md), with the original source limitations.
 
-### Persistence and evolutionary recovery are not interchangeable
+### Q4 — Persistence: demographic effects do not prove a causal order-to-rescue path
+
+The original conditional preparation-policy experiments yielded **+2.83 and +4.59 percentage-point** occupancy contrasts under two stated future challenges, with floor effects and competing interval conventions; neither identifies a survival benefit of the **naturally evolved A-first label**. Likewise, previously assigned A-first versus I-first expression schedules were practically equivalent only within their registered ±0.05 domain and a subsequent restricted-window confirmation failed. These negative and bounded results remain part of Q4 rather than being replaced by the newer policy-by-resource-budget effects ([original Q4](CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md#q4--persistence-consequences-of-reproductive-preparation)).
 
 In a separate, pilot-informed, independently randomized 32-visitor-history stress study, the registered pooled assurance-evolvability by historical-replenishment occupancy interaction was **+0.1083984375**, 95% interval [0.0654296875,0.1513671875], averaged equally across four mating conditions; the prior-selfing interval included zero. Its delayed-control-specific interaction was +0.15234375, not the four-setting pooled effect. During the shock, A remained evolvable and carrying capacity, fecundity and pollen availability changed together; the result is **not** genetic legacy mediation, natural A-first rescue, or proof that a protected floral allele remained available. Separately assigned A-first/I-first expression schedules mostly did not establish a general survival effect.
 
@@ -202,13 +204,19 @@ The transfer experiment exposes another distinction. Most cohorts retained an al
 
 With neither mutation nor immigration, loss of all alleles capable of reaching a specified target imposes a structural bound. Target support alone is insufficient for realized change; positive selection, segregating variation, transmission and time also matter. The bound does not establish irreversibility once new variation is allowed. Our model uses externally prescribed visitors and fixed inbreeding depression, so it does not establish feedback-driven pollinator collapse, purging of genetic load, or the evolutionary origin of obligate outcrossing. Island geological age is not time since pollination loss. Natural island assembly and a full recovery-probability clock remain separate questions. The supported conclusion is that pollen service changes trait returns, while prior evolution and population persistence alter the inherited possibilities for later response.
 
-## Online Methods — completed study components
+## Online Methods — completed studies
 
 ### Historical model and inference ranks
 
 The original Model 3 simulates finite diploid plants with separate additive visitor-matching, investment and autonomous-assurance loci. Exogenous functional visitors enter and disappear; encounter probabilities reflect floral affinity, matching optima, visitor effectiveness and pollen transfer. Maternal outcross, paternal export and viable autonomous-selfed offspring contribute to finite reproduction. Flowers incur allocation cost, and offspring alleles are inherited by Mendelian transmission with setting-specific mutation. The original Q1–Q4 and independent genotype-density experiments have separate registered inference units, horizons and source hashes; they are not pooled as one replicated island dataset. All original raw archives, readouts, negative/null outcomes and original EL-versioned figures remain unchanged.
 
 The Q1 assurance-fixed policy sets actual expressed A=0.5; selfing remains possible. The 2,304-history structural-support experiment sets I mutation and seed immigration to zero. Its source restriction on **further decrease** is proved from nondecreasing minimum surviving I allele. The complementary **HIGH-I genetic support** restriction, evaluated in the read-only reanalysis and independently in a tiny later synthetic history, is that the maximum surviving I allele cannot increase under the same closed transmission rule. Thus a target I_star that exceeds this maximum is structurally unreachable in occupied descendants. The converse is not guaranteed by the theorem; selection, finite time and allelic pairing still matter.
+
+### Model-derived functional insurance and evolutionary access are distinct
+
+In source Model 3, cost-free delayed selfing acts as a buffer against failed outcross fertilization, not as a required replacement for outcrossing. For viable-self progeny factor v=1-delta, expressed assurance A, and outcross fertilization q, expected viable maternal seeds are Y=O[q+v*A*(1-q)]. At fixed inherited state, the fraction retained when q falls from one to zero is v*A, relative to that same state's original ovule budget. This is **functional pollen-failure tolerance**, not realized population persistence or long-term fitness. At fixed maternal ovule budget and assurance, the transmission of variation in annual outcross success to expected viable-seed production also follows Var(Y)=O²[1-(1-delta)A]² Var(q); insurance can attenuate the reproductive consequences of unreliable service. This is an algebraic source identity rather than an empirical estimate of stochastic extinction risk. With no direct assurance cost or pollen discount, an increase in A has nonnegative local return under delayed selfing; at perfect q=1 the return is neutral, not a genetic proof that A cannot decline.
+
+Attraction I changes pollen receipt and paternal export while paying allocation cost. The resulting capacity for high-I evolutionary recovery requires BOTH favorable genetic parental selection after the visitor environment returns and sufficient retained high-I allelic support, neither guaranteed by the mother's seed buffer. Prior selfing, pollen discount and assurance resource cost can also make lowering A favorable after visitor return. Hence higher reproductive buffering may coexist with restricted recovery of high I, but the completed policy contrast below measures genetic support, not a causal tradeoff between buffering and realized recovery. The distinction is defined more precisely in the [source mechanism note](protocols/CHAPTER2_TWO_THRESHOLD_PRIVATE_SOCIAL_RECOVERY_SYNTHESIS_20261018.md).
 
 ### Crossed confirmation of support closure and persistence
 
@@ -243,7 +251,7 @@ are descriptive, with exact intervals retained at each cohort/destination group.
 The prospective estimand and two-clock proposal below are historical, unexecuted
 broader questions, not retrospective definitions for this completed transfer.
 
-## Figure legends — six rendered source-locked vector drafts
+## Figure legends — source-linked vector drafts
 
 All six draft vector figures (1–6) have now been rendered from admitted summaries and documented source readouts, with numerical mark-to-source checks. They remain draft figures, not submission-ready artwork. Historical recovery-window and field-validation proposals are not displayed as findings; no new biological simulations were used.
 
@@ -254,7 +262,7 @@ All six draft vector figures (1–6) have now been rendered from admitted summar
 5. **Figure 5, the duration and endpoint of standing variation.** Show I occupied-polymorphic duration contrasts at B8 and B4.5 with family-adjusted 95% intervals; separately display fixation values and extinction counts. Sources: [variation readback](CHAPTER2_VARIATION_CLOCK_RESULTS_20261019.md) and its linked audit JSON. Occupied duration ends at extinction, so the B4.5 contrast mixes persistence with polymorphism. Latent A variation in the fixed-expression arm is not phenotypic A variation. [Rendered draft SVG](../figures/chapter2_nee/figure_05_variation_duration.svg).
 6. **Figure 6, transfer reveals inherited constraints and conditional response.** Show entry polymorphism and target support, occupancy across five destinations, and common-context performance change among survivors. Source: [transfer tables](audits/CHAPTER2_READAPTATION_DESCRIPTIVE_TABLES_20261019.json) and [seed-transfer audit](audits/CHAPTER2_VARIATION_CLOCK_SEED_TRANSFER_20261019.json). Label 64 cohorts nested in 32 donors from four founders × four histories × two policies, with 32 futures per destination. Use no pooled binomial intervals or causal adaptation-effect label. Extinct endpoints remain in occupancy denominators but have undefined trait/performance values. [Rendered draft SVG](../figures/chapter2_nee/figure_06_late_transfer.svg).
 
-## Data availability and limitations
+## Data availability
 
 The previously admitted model source and old results remain under their original GitHub source identities. This manuscript is a versioned **under-development** working file, not an Ecology Letters submission, Nature Ecology & Evolution submission, current empirical validation or a deposited raw-data DOI. The new readaptation raw archive is retained in a GitHub draft release with a verified download hash, as documented in the admission report. This is not an immutable DOI deposit; the external Chapter 2 source archive under issue #436 remains incomplete. New biological simulation (especially selected old-state restoration) and a new confirmation campaign require separate registered authorization and immutable source/seed/budget gates. Former EL-format manuscript, supplementary information and renderer are retained for historic replay; there is no second active submission intention.
 
