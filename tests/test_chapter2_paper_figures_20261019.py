@@ -115,13 +115,14 @@ def test_fig06_cohorts_and_survivor_means():
 
 def test_figure_links_in_single_manuscript():
     manuscript=(ROOT/"docs"/"CHAPTER2_UNIFIED_NEE_ARTICLE_WORKING_20261017.md").read_text(encoding="utf-8")
-    for name in ("figure_02_baseline_pollen.svg","figure_04_access_survival.svg",
+    for name in ("figure_01_q1_mechanism.svg","figure_02_baseline_pollen.svg",
+                 "figure_03_order_repeatability.svg","figure_04_access_survival.svg",
                  "figure_05_variation_duration.svg","figure_06_late_transfer.svg"):
         assert "figures/chapter2_nee/"+name in manuscript
 
 
 def test_figure_01_q1_fixed_and_fresh_founder_results():
-    r, meta = load_figure("figure_01_q1_mechanism.svg")
+    r, meta = load("figure_01_q1_mechanism.svg")
     original = json.loads((ROOT / "data/results/chapter2_assurance_generality_20261006.json").read_text(encoding="utf-8"))
     receipt = json.loads((ROOT / "docs/CHAPTER2_TWO_PROPOSITION_EVIDENCE_RECEIPT_20261016.json").read_text(encoding="utf-8"))
     assert len(marks(r, "fixed_I")) == len(marks(r, "fresh_D")) == 4
@@ -129,24 +130,24 @@ def test_figure_01_q1_fixed_and_fresh_founder_results():
         hits = [x for x in marks(r, "fixed_I") if x.get("data-setting") == row["setting"]]
         assert len(hits) == 1
         q = row["fixed_far_change_from_founders"]
-        close(hits[0].get("data-value"), q["mean"])
-        close(hits[0].get("data-low"), q["bootstrap95"][0])
-        close(hits[0].get("data-high"), q["bootstrap95"][1])
+        same(hits[0].get("data-value"), q["mean"])
+        same(hits[0].get("data-low"), q["bootstrap95"][0])
+        same(hits[0].get("data-high"), q["bootstrap95"][1])
     for row in receipt["fresh_founder_q1"]["settings"]:
         hits = [x for x in marks(r, "fresh_D") if x.get("data-setting") == row["setting"]]
         assert len(hits) == 1
-        close(hits[0].get("data-value"), row["original_D"])
+        same(hits[0].get("data-value"), row["original_D"])
         assert float(hits[0].get("data-low")) <= row["original_D"] <= float(hits[0].get("data-high"))
     assert meta["status"] == "ORIGINAL_ALL_4_SUPPORTED__FRESH_3_OF_4"
     assert receipt["fresh_founder_q1"]["global_support"].startswith("A genetic-capacity evolution not necessary")
 
 
 def test_figure_03_order_q2_and_posthoc_reliability():
-    r, meta = load_figure("figure_03_order_repeatability.svg")
+    r, meta = load("figure_03_order_repeatability.svg")
     sequence = json.loads((ROOT / "data/results/chapter2_1005_confirmatory_replication_20261006.json").read_text(encoding="utf-8"))
-    q2 = source("CHAPTER2_Q2_I_SUPPORT_384_ORIGINAL_READOUT_20261016.json")
+    q2 = src("CHAPTER2_Q2_I_SUPPORT_384_ORIGINAL_READOUT_20261016.json")
     repeat = json.loads((ROOT / "data/results/chapter2_history_demography_repeatability_audit_20261003.json").read_text(encoding="utf-8"))
-    matched = source("CHAPTER2_MATCHED_AI_REPEATABILITY_20261019.json")
+    matched = src("CHAPTER2_MATCHED_AI_REPEATABILITY_20261019.json")
     assert len(marks(r, "chronology")) == 2
     counts = {"assurance_cost": sequence["primary_sequence"]["counts"]["assurance_first"],
               "prior_selfing": next(x for x in sequence["threshold_sensitivity"]
@@ -159,15 +160,15 @@ def test_figure_03_order_q2_and_posthoc_reliability():
     assert len(marks(r, "q2")) == 2 and q2["registered_inference"]["result"] == "both_inconclusive"
     for mark in marks(r, "q2"):
         row = q2["coprimary"][mark.get("data-endpoint")]
-        close(mark.get("data-value"), row["estimate"])
-        close(mark.get("data-low"), row["simultaneous_familywise_CI"][0])
-        close(mark.get("data-high"), row["simultaneous_familywise_CI"][1])
+        same(mark.get("data-value"), row["estimate"])
+        same(mark.get("data-low"), row["simultaneous_familywise_CI"][0])
+        same(mark.get("data-high"), row["simultaneous_familywise_CI"][1])
         assert row["simultaneous_familywise_CI"][0] <= 0 <= row["simultaneous_familywise_CI"][1]
     assert len(marks(r, "reliability")) == 3
     for bar in marks(r, "reliability"):
         key = bar.get("data-treatment")
         assert key in ("natural", "large_capacity", "visitor_pooled")
-        close(bar.get("data-value"), repeat["reports"][key]["eight_repeat_mean_reliability"])
+        same(bar.get("data-value"), repeat["reports"][key]["eight_repeat_mean_reliability"])
     assert len(marks(r, "endpoint_agree")) == 8
     for bar in marks(r, "endpoint_agree"):
         row = matched["settings"][bar.get("data-setting")]["central"][bar.get("data-locus")]
