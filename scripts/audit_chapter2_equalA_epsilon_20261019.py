@@ -106,7 +106,7 @@ if __name__ == '__main__':
         parser.error('no overwrite')
     result = replay()
     args.out.parent.mkdir(parents=True, exist_ok=True)
-    with args.out.open('x', encoding='utf8') as handle:
+    with args.out.open('x', encoding='utf8', newline='\n') as handle:
         json.dump(result, handle, separators=(',', ':'), allow_nan=False)
         handle.write('\n')
     print(json.dumps(result['sensitivity'], indent=2))

@@ -20,3 +20,18 @@ def test_numerical_tolerance_is_not_biological_epsilon():
     assert first_loss([.5-1e-13], .5, 0, 'upper') is None
     with pytest.raises(ValueError):
         first_loss([.5], .5, -.01, 'upper')
+
+
+def test_cost_free_delayed_selfing_has_no_downward_local_A_gradient():
+    from dataclasses import replace
+    from scripts import chapter2_q3_equalA_crossed_variance_pilot_20261018 as pilot
+    from scripts.model3_island.selection import syndrome_thresholds
+    design, _ = pilot.load_design()
+    cfg = replace(pilot.config('evolving', design), assurance_cost=0., pollen_discount=0.)
+    assert cfg.assurance_timing == 'delayed'
+    for founder_seed in design['founder_seed_values']:
+        resident = pilot.founders(founder_seed).alleles.mean(axis=(0, 2))
+        for visitor_seed in design['visitor_seed_values']:
+            full, _, _ = pilot.visitor_community(visitor_seed)
+            beta = syndrome_thresholds(resident, full, cfg)['assurance_gradient']
+            assert beta > 0
