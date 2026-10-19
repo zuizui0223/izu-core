@@ -25,6 +25,20 @@ Neither an A-policy occupancy difference nor late A fixation in the current Mode
 
 The neutral-establishment counterfactual is **defined** rather than estimated post hoc. It permits a technical comparison of trait-dependent initial reproduction while protecting the original candidate genotype, but the fixture is too small and outcome-exposed to infer a general colonization law. A truly neutral *arrival* null is already provided by identical arrival probabilities, and an interaction-aware species community still needs a new contract.
 
+## Model-3-exact *conditional* establishment probability (technical v2)
+
+The native kernel used in this fixture has zero adult carryover, zero immigration and capacity 12. For **every source candidate**, even one that did not arrive, evaluate the initial expected number of successful resident recruits \(\Lambda=\sum_{m,f}\mathbb E[\text{outcross offspring}_{fm}]+\sum_m\mathbb E[\text{viable selfed offspring}_m]\) using the **unchanged** Model3 reproductive ledger. The subsequent native recruitment step draws a Poisson count with mean \(\Lambda\), so with a positive vacancy count, the one-update establishment probability conditional on arrival is exactly
+
+\[
+P(\mathrm{establish}\mid\mathrm{arrive},\mathrm{source\ genotype},\mathrm{island})=1-\exp(-\Lambda).
+\]
+
+It is not a fitted regression, new scientific result, guaranteed establishment or proof of determinism. Arrival remains a separate randomized event with a known trial probability. The output records both \(\Lambda\) and this **counterfactual probability** even for source candidates whose arrival lottery fails; it never imputes nonarrival as biological failure after establishment.
+
+**Matched descendant random numbers (v2 correction).** Source genotype, arrival event and initial establishment random streams were already paired. The first technical version gave later policies different demographic RNG masters, which added avoidable random-stream differences to comparisons. Technical v2 initializes each later policy from the **same master RNG seed** for a given source lineage/island/reset, also shared across the two initial filter arms. This is common-random-number coupling, **not** event-by-event synchronization after branch divergence. The RNG master's hex identifier is emitted for every arm and source tests verify that all eight assignments to a lineage-island-reset share it. The technical protocol token changed from `two-origins-technical-20261019-v1` to `two-origins-technical-20261019-v2`, so the old two-reset smoke cannot be compared as though it were a replication of the same random source streams.
+
+A [PR #610-only GitHub Actions gate](../.github/workflows/two-origins-technical.yml) now runs the single, bounded technical fixture and its tests on a pinned Python numerical environment; it explicitly rejects publication inference. No `island`/Chapter1 empirical data are reproduced or collected by this gate.
+
 ## Exact stage accounting
 
 For either trait z in {A,I}, under a nonempty chain define:
