@@ -59,10 +59,15 @@ def founders(d,seed,A0):
 
 def snap(s):
  n=len(s.ids)
- if not n:return dict(n=0,M=None,I=None,A=None,max_I=None,min_A=None)
+ support={}
+ for j,trait in enumerate(('M','I','A')):
+  values,counts=np.unique(s.alleles[:,j,:],return_counts=True)
+  support[trait]=dict(allele_values=values.tolist(),allele_counts=counts.tolist(),
+   genotype_mean_variance=float(np.var(s.alleles[:,j,:].mean(axis=1))) if n else None)
+ if not n:return dict(n=0,M=None,I=None,A=None,max_I=None,min_A=None,genetic_support=support)
  m=s.alleles.mean(axis=(0,2))
  return dict(n=n,M=float(m[0]),I=float(m[1]),A=float(m[2]),
-  max_I=float(s.alleles[:,1,:].max()),min_A=float(s.alleles[:,2,:].min()))
+  max_I=float(s.alleles[:,1,:].max()),min_A=float(s.alleles[:,2,:].min()),genetic_support=support)
 
 def fingerprint(s):
  h=hashlib.sha256()
@@ -88,11 +93,17 @@ def empty():
   np.empty((0,3,2),dtype=bool),np.empty(0,dtype=np.int64),
   np.empty(0,dtype=np.int64))
 
-def step(s,v,c,r,year):
+def step(s,v,c,r,year,records=None):
  ledger=reproduce(s,v,c)
  ov=float(ledger.ovules.sum())
  q=float(ledger.outcross.sum()/ov) if ov else None
- next_state,_=advance(s,ledger,empty(),c,r,year=year,mutation_traits=(False,False,False))
+ next_state,info=advance(s,ledger,empty(),c,r,year=year,mutation_traits=(False,False,False))
+ if records is not None:
+  records.append(dict(year=year,q=q,occupancy=len(s.ids),
+   ovules=ov,outcross_expected=float(ledger.outcross.sum()),
+   self_raw_expected=float(ledger.self_raw.sum()),self_viable_expected=float(ledger.self_viable.sum()),
+   resident_selfed_recruits=info['resident_selfed_recruits'],
+   resident_outcross_recruits=info['resident_outcross_recruits']))
  return next_state,q
 
 def calibration(d):
@@ -114,17 +125,18 @@ def run_pair(d,lev,A0,seed,rep):
  f=d['factorial'];prefix=f['freeze_prefix_updates'];future=f['future_updates']
  v=visitors(d,lev);c=config(d,lev,.4)
  s=founders(d,seed,A0);initial=snap(s);h0=fingerprint(s)
- r=streams(seed,rep);qs=[]
+ r=streams(seed,rep);qs=[];prefix_records=[];prefix_extinction=None
  for year in range(prefix):
-  s,q=step(s,v,c,r,year);qs.append(q)
+  s,q=step(s,v,c,r,year,records=prefix_records);qs.append(q)
+  if prefix_extinction is None and not len(s.ids):prefix_extinction=year+1
  pre=snap(s);hs=fingerprint(s)
  saved=clone(r)
  out=[]
  for arm,activity in [('control',.4),('decline',.04)]:
-  st=s; r2=clone(saved); cfg=config(d,lev,activity);future_q=[]
-  extinct_at=prefix if not len(st.ids) else None
+  st=s; r2=clone(saved); cfg=config(d,lev,activity);future_q=[];future_records=[]
+  extinct_at=prefix_extinction
   for year in range(prefix,prefix+future):
-   st,q=step(st,v,cfg,r2,year);future_q.append(q)
+   st,q=step(st,v,cfg,r2,year,records=future_records);future_q.append(q)
    if extinct_at is None and not len(st.ids):extinct_at=year+1
   out.append(dict(schema='chapter2_2x2_trajectory_v1',source_contract_sha256=HASH,
    founder_seed=seed,demography_repeat=rep,start_A=A0,baseline=lev,arm=arm,
@@ -132,6 +144,7 @@ def run_pair(d,lev,A0,seed,rep):
    t_end=snap(st),n_terminal=len(st.ids),alive_at_end=bool(len(st.ids)),
    first_extinction_census=extinct_at,q_first=qs[0],q_pre_last=qs[-1],
    q_future_first=future_q[0],q_future_last=future_q[-1],
+   reproduction_records=prefix_records+future_records,
    prefix_updates=prefix,updates=prefix+future,terminal_state_hash=fingerprint(st)))
  return out
 
@@ -173,8 +186,9 @@ def aggregate(d,packs):
    w=[ix[lev,A,f,r,'decline'] for f in range(810101,810113) for r in (1,2,3,4)]
    keep=[(a,b) for a,b in zip(q,w) if a['t_prefix']['n'] and a['t_end']['n'] and b['t_end']['n']]
    val=lambda t:float(np.mean([b['t_end'][t]-a['t_end'][t] for a,b in keep])) if keep else None
-   pr=lambda t:float(np.mean([a['t_prefix'][t]-a['t0'][t] for a in q if a['t_prefix']['n']]))
-   result.append(dict(start_A=A,baseline=lev,allocated_pairs=48,both_survived=len(keep),
+   prior=[a for a in q if a['t_prefix']['n']]
+   pr=lambda t:float(np.mean([a['t_prefix'][t]-a['t0'][t] for a in prior])) if prior else None
+   result.append(dict(start_A=A,baseline=lev,allocated_pairs=48,both_survived=len(keep),survived_to_prefix=len(prior),
     terminal_survival_count_control=sum(a['alive_at_end'] for a in q),
     terminal_survival_count_decline=sum(b['alive_at_end'] for b in w),
     pre_decline_A_change_mean=pr('A'),pre_decline_I_change_mean=pr('I'),

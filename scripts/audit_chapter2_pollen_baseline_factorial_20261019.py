@@ -1,5 +1,5 @@
 """Independent read-only factorial audit: no native reproduction/producer imports."""
-import argparse, hashlib, json, random
+import argparse, hashlib, json, random, math
 from pathlib import Path
 
 PROTO=Path('docs/protocols/CHAPTER2_BASELINE_POLLEN_LIMIT_2X2_FROZEN_20261019.json')
@@ -19,6 +19,35 @@ def quantile_ci_by_founder(xs,seed,n=10000):
  estimates=sorted(sum(xs[rng.randrange(k)] for _ in range(k))/k for _ in range(n))
  return [estimates[int(.025*n)],estimates[int(.975*n)-1]]
 
+def check_observations(x):
+ for stage in ('t0','t_prefix','t_end'):
+  snap=x[stage];n=snap['n']
+  for trait in ('M','I','A'):
+   a=snap['genetic_support'][trait];values=a['allele_values'];counts=a['allele_counts']
+   if (values!=sorted(set(values)) or len(values)!=len(counts) or
+       any(not 0<=v<=1 for v in values) or
+       any(type(c) is not int or c<=0 for c in counts) or sum(counts)!=2*n):
+    raise ValueError('invalid genetic support')
+   if n and abs(sum(v*c for v,c in zip(values,counts))/(2*n)-snap[trait])>1e-12:
+    raise ValueError('genetic support mean mismatch')
+   variance=a['genotype_mean_variance']
+   if (not n and variance is not None) or (n and (variance is None or not math.isfinite(variance) or variance<0)):
+    raise ValueError('invalid genetic variance')
+ records=x['reproduction_records']
+ if len(records)!=x['updates']:raise ValueError('missing reproduction updates')
+ for year,r in enumerate(records):
+  if r['year']!=year:raise ValueError('reproduction order mismatch')
+  for field in ('ovules','outcross_expected','self_raw_expected','self_viable_expected'):
+   if not math.isfinite(r[field]) or r[field]<0:raise ValueError('invalid reproduction ledger')
+  for field in ('occupancy','resident_selfed_recruits','resident_outcross_recruits'):
+   if type(r[field]) is not int or not 0<=r[field]<=48:raise ValueError('invalid realized counts')
+  expected_q=r['outcross_expected']/r['ovules'] if r['ovules'] else None
+  if (expected_q is None)!=(r['q'] is None) or (expected_q is not None and abs(expected_q-r['q'])>1e-12):
+   raise ValueError('q ledger mismatch')
+  next_n=records[year+1]['occupancy'] if year+1<len(records) else x['t_end']['n']
+  if r['resident_selfed_recruits']+r['resident_outcross_recruits']!=next_n:
+   raise ValueError('realized recruitment mismatch')
+
 def check(rows,summary):
  expected={(level,a,f,r,arm) for level in LEVELS for a in STARTS
            for f in FOUNDERS for r in REPS for arm in ARMS}
@@ -26,6 +55,7 @@ def check(rows,summary):
   raise ValueError('incomplete or duplicate full allocation')
  ix={key(x):x for x in rows}
  for k,x in ix.items():
+  check_observations(x)
   level,a,f,r,arm=k
   y=ix[level,a,f,r,'decline' if arm=='control' else 'control']
   z=ix[(LEVELS[1] if level==LEVELS[0] else LEVELS[0]),a,f,r,arm]
@@ -63,7 +93,7 @@ def check(rows,summary):
    prior=[s for s in ctrl if s['t_prefix']['n']]
    deltas=lambda trait:mean([t['t_end'][trait]-s['t_end'][trait] for s,t in keep])
    pre=lambda trait:mean([s['t_prefix'][trait]-s['t0'][trait] for s in prior])
-   row=dict(start_A=a,baseline=level,allocated_pairs=48,both_survived=len(keep),
+   row=dict(start_A=a,baseline=level,allocated_pairs=48,both_survived=len(keep),survived_to_prefix=len(prior),
             terminal_survival_count_control=sum(s['alive_at_end'] for s in ctrl),
             terminal_survival_count_decline=sum(s['alive_at_end'] for s in drop),
             pre_decline_A_change_mean=pre('A'),pre_decline_I_change_mean=pre('I'),
@@ -85,19 +115,22 @@ def check(rows,summary):
               post_q_control=mean([s['q_future_first'] for s in ctrl if s['q_future_first'] is not None]),
               post_q_decline=mean([s['q_future_first'] for s in drop if s['q_future_first'] is not None]))
    summaries.append(row)
-  per_founder_A=[];per_founder_I=[]
+  per_founder_A=[];per_founder_I=[];survival_counts=[]
   for f in FOUNDERS:
-   vals={}
+   vals={};counts={}
    for level in LEVELS:
     pairs=[(ix[level,a,f,r,'control'],ix[level,a,f,r,'decline']) for r in REPS]
+    counts[level]=sum(bool(x['t_end']['n'] and y['t_end']['n']) for x,y in pairs)
     vals[level]={trait:mean([y['t_end'][trait]-x['t_end'][trait] for x,y in pairs
         if x['t_end']['n'] and y['t_end']['n']]) for trait in ('A','I')}
+   survival_counts.append(dict(founder_seed=f,surviving_pairs=counts))
    if all(vals[lev]['A'] is not None for lev in LEVELS):
     per_founder_A.append(vals[LEVELS[1]]['A']-vals[LEVELS[0]]['A'])
     per_founder_I.append(vals[LEVELS[1]]['I']-vals[LEVELS[0]]['I'])
   interactions.append(dict(start_A=a,
    interaction_A=mean(per_founder_A),interaction_I=mean(per_founder_I),
-   n_founders=len(per_founder_A),bootstrap_95_A=quantile_ci_by_founder(per_founder_A,20261019+int(a*100)),
+   n_founders=len(per_founder_A),surviving_pairs_by_founder=survival_counts,
+   estimand='equal founder weight; baseline-specific surviving paired repeats',bootstrap_95_A=quantile_ci_by_founder(per_founder_A,20261019+int(a*100)),
    bootstrap_95_I=quantile_ci_by_founder(per_founder_I,20261119+int(a*100)),
    positive_founder_interactions_A=sum(v>0 for v in per_founder_A),
    interpretation='descriptive founder-bootstrap; not a registered confirmatory hypothesis test'))

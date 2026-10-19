@@ -47,3 +47,53 @@ def test_matched_fork_has_identical_initial_genomes_and_prefix_and_final_is_fini
   assert a['updates']==b['updates']==7
   assert a['alive_at_end']==(a['n_terminal']>0)
   assert b['alive_at_end']==(b['n_terminal']>0)
+  from scripts.audit_chapter2_pollen_baseline_factorial_20261019 import check_observations
+  check_observations(a);check_observations(b)
+  broken=deepcopy(a);broken['reproduction_records'].pop()
+  with pytest.raises(ValueError,match='missing reproduction'):check_observations(broken)
+
+
+def test_observation_records_preserve_native_transition_and_genetic_support():
+ from scripts.chapter2_pollen_baseline_factorial_20261019 import step, snap, empty
+ from scripts.model3_island.population import advance
+ from scripts.model3_island.reproduction import reproduce
+ d=admit(); lev='weak_baseline_limitation'
+ s=founders(d,810101,.3); v=visitors(d,lev); c=config(d,lev,.4)
+ r=streams(810101,1); r2=clone(r); records=[]
+ result,q=step(s,v,c,r,0,records=records)
+ direct,info=advance(s,reproduce(s,v,c),empty(),c,r2,year=0,mutation_traits=(False,False,False))
+ assert fingerprint(result)==fingerprint(direct)
+ row=records[0]
+ assert row['resident_selfed_recruits']+row['resident_outcross_recruits']==len(result.ids)
+ assert row['q']==q
+ for j,trait in enumerate(('M','I','A')):
+  assert snap(s)['genetic_support'][trait]['allele_values']==np.unique(s.alleles[:,j,:]).tolist()
+ assert snap(empty())['genetic_support']['A']['allele_values']==[]
+
+
+def test_fully_extinct_prefix_aggregate_is_json_serializable():
+ from scripts.chapter2_pollen_baseline_factorial_20261019 import aggregate, snap, empty, HASH
+ d=admit(); packs=[]
+ for lev in d['factorial']['effectiveness']:
+  rows=[]
+  for a in (.3,.5):
+   for seed in range(810101,810113):
+    for rep in (1,2,3,4):
+     for arm in ('control','decline'):
+      rows.append(dict(baseline=lev,start_A=a,founder_seed=seed,demography_repeat=rep,arm=arm,
+       prefix_state_hash='extinct',initial_state_hash='initial',t_prefix=snap(empty()),
+       t_end=snap(empty()),t0=snap(empty()),source_contract_sha256=HASH,updates=80,alive_at_end=False))
+  packs.append(dict(level=lev,rows=rows))
+ result=aggregate(d,packs)
+ json.dumps(result,allow_nan=False)
+ assert all(x['pre_decline_A_change_mean'] is None and x['survived_to_prefix']==0 for x in result['summary'])
+
+
+def test_extinction_in_prefix_records_actual_first_census(monkeypatch):
+ import scripts.chapter2_pollen_baseline_factorial_20261019 as m
+ d=deepcopy(admit())
+ d['factorial'].update(freeze_prefix_updates=3,future_updates=4,total_updates_per_trajectory=7)
+ def extinct_step(s,v,c,r,year,records=None):
+  return m.empty(),None
+ monkeypatch.setattr(m,'step',extinct_step)
+ assert all(x['first_extinction_census']==1 for x in run_pair(d,'weak_baseline_limitation',.3,810101,1))
