@@ -1,12 +1,13 @@
 name: Two origins technical gate
 
 on:
-  pull_request:
-    paths:
-      - 'scripts/chapter2_two_origins_technical_20261019.py'
-      - 'tests/test_chapter2_two_origins_technical_20261019.py'
-      - 'docs/CHAPTER2_TWO_ORIGINS_ENGINEERING_GATE_20261019.md'
-      - '.github/workflows/two-origins-technical.yml'
+  workflow_dispatch:
+    inputs:
+      technical_only:
+        description: 'Run bounded technical smoke; NOT scientific confirmation'
+        type: boolean
+        required: true
+        default: false
 
 permissions:
   contents: read
@@ -18,9 +19,9 @@ concurrency:
 jobs:
   technical-only:
     if: >-
-      github.event_name == 'pull_request' &&
-      github.event.pull_request.number == 610 &&
-      github.event.pull_request.head.repo.full_name == github.repository
+      github.event_name == 'workflow_dispatch' &&
+      inputs.technical_only == true &&
+      github.ref == 'refs/heads/research/two-origins-assembly-20261019'
     runs-on: ubuntu-latest
     timeout-minutes: 15
     steps:
