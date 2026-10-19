@@ -62,6 +62,23 @@ def test_pull_request_signal_is_limited_to_current_ci_surfaces() -> None:
             source = path.read_text(encoding="utf-8")
             assert "branches: [main]" in source
             assert "'data/design/chapter2_public_archive_manifest_20261006.json'" in source
+        elif path.name == "q3-confirm160-20261019.yml":
+            # User-authorized160x160, pinned to the already-running source.
+            # No future branch update may silently start a second campaign.
+            import yaml
+            assert [line for line in _trigger_block(path) if line.strip()] == [
+                "on:", "  pull_request:", "    types: [opened, synchronize, reopened]",
+            ]
+            jobs = yaml.safe_load(path.read_text(encoding="utf-8"))["jobs"]
+            assert set(jobs) == {"admit", "worker", "collect"}
+            assert jobs["admit"]["if"].strip() == (
+                "github.event.pull_request.head.ref == 'experiment/q3-confirm160-20261019' && "
+                "github.event.pull_request.head.repo.full_name == github.repository && "
+                "github.event.pull_request.head.sha == 'f7792629b35b07e93ac9c98f8feb4d3894da85eb'"
+            )
+            assert jobs["worker"]["needs"] == "admit"
+            assert jobs["collect"]["needs"] == ["admit", "worker"]
+            assert jobs["worker"]["strategy"]["matrix"]["shard"] == list(range(32))
         elif path.name == "q3-restoration-futures-20261014.yml":
             # Approved one-time activation on an isolated branch. The runner
             # additionally checks the immutable manifest and first run/attempt.

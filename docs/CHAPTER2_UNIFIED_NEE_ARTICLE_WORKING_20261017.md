@@ -10,9 +10,24 @@ Pollinator limitation can reduce investment in flowers while making autonomous s
 
 ## Introduction
 
+**Conceptual clarification,2026-10-19.** Pollination syndromes, selfing syndromes
+and island floral patterns occupy different explanatory levels. The present
+model separates visitor matching and floral investment from assurance capacity;
+it does not represent every component of any natural syndrome. The central
+question is whether a selfing-like reduction of investment requires assurance
+evolution, or can arise directly from changed ecological returns, with assurance
+subsequently modifying inheritance and persistence. Island conditions motivate
+the scenarios but do not imply uniformly reduced visitation or smaller flowers.
+The source-backed [three-syndrome evidence map](CHAPTER2_THREE_SYNDROMES_FRAME_20261019.md)
+separates colonization filtering from evolution after establishment. Following
+the user's clarified biological question, subsequent readaptation in a different
+pollination environment is a proposed extension; restoration of the ancestral
+phenotype is only one possible assay, not the definition of adaptation. The
+running160x160 G/S experiment contains no such environmental-transfer futures.
+
 The collapse of a mutualism can precede the disappearance of either partner. When pollinators become unreliable, autonomous self-fertilization gives individual plants an alternative reproductive route, whereas floral structures retain maternal pollen-receipt and paternal pollen-export functions. An evolutionarily reduced flower need not indicate reduced current reproduction, and the persistence of plants does not prove the persistence of their historical evolutionary potential.
 
-The ecological-evolutionary problem spans two temporal stages. First, does selfing evolution need to occur before floral investment can decline? Second, **after a population has experienced that decline, does selfing evolution determine whether higher floral investment can be re-evolved when pollinators return?** These are not two separate questions requiring two papers: they are stages in one causal chain, observed under different interventions and time horizons. An observed order of response is not proof of necessity, nor is a failure to recover by a finite deadline proof of permanent genetic irreversibility.
+The ecological-evolutionary problem spans two temporal stages. First, does selfing evolution need to occur before floral investment can decline? Second, **after a population has experienced that decline, does selfing evolution determine whether higher floral investment can be re-evolved when pollinators return?** These are not two separate questions requiring two papers: they are complementary questions in one mechanistic framework, addressed under different interventions and time horizons, not an already demonstrated causal chain. An observed order of response is not proof of necessity, nor is a failure to recover by a finite deadline proof of permanent genetic irreversibility.
 
 Mating-system evolution, pollen limitation, selfing-associated floral allocation and demographic feedback are established ideas. Sakai (1995) examined selfing and attractive investment; Teixido and Aizen (2019) documented assurance-dependent floral selection; Lepers, Dufay and Billiard (2014) modeled coupled plant–pollinator demography and prior selfing, including evolutionary suicide. Existing theory also proposes a point after which restoring pollinators no longer restores outcrossing (Acoca-Pidolle 2025 preprint). Consequently neither "selfing reduces floral investment" nor "restoration may fail" is novel as a standalone prediction.
 

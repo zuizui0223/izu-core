@@ -11,7 +11,8 @@ jobs:
   admit:
     if: >-
       github.event.pull_request.head.ref == 'experiment/q3-confirm160-20261019' &&
-      github.event.pull_request.head.repo.full_name == github.repository
+      github.event.pull_request.head.repo.full_name == github.repository &&
+      github.event.pull_request.head.sha == 'f7792629b35b07e93ac9c98f8feb4d3894da85eb'
     runs-on: ubuntu-24.04
     outputs:
       source: ${{ steps.identity.outputs.source }}
