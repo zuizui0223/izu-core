@@ -144,10 +144,9 @@ def test_transfer_allocation_and_no_unconditional_recovery_claim():
 def test_current_paper_names_all_four_parts_and_retains_negative_inference():
     path=ROOT/"docs/CHAPTER2_UNIFIED_NEE_ARTICLE_WORKING_20261017.md"
     article=path.read_text(encoding="utf-8")
-    assert all(v in article for v in ("Q1: selection", "Q2: sequence",
-                                      "Q3: realization", "Q4: persistence"))
-    assert "equivalent_within_predeclared_ROPE" in article
+    assert all(f"### Q{i} —" in article for i in (1, 2, 3, 4))
+    assert "−0.013589" in article and "±0.05" in article
     assert "3/32" in article and "2/32" in article
     assert "+8.33" in article and "+92.71" in article
     assert "not identified" in article.lower() or "not establish" in article.lower()
-    assert "CHAPTER2_FOUR_PART_EVIDENCE_LINKAGE_REVIEW_20261019.md" in article
+    assert "CHAPTER2_Q1_Q4_ORIGINAL_FOUR_PARTS_AUDIT_20261019.md" in article
