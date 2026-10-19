@@ -1,7 +1,6 @@
 name: Baseline pollen 384 frozen pilot
 on:
-  pull_request:
-    types: [labeled]
+  workflow_dispatch:
 permissions:
   contents: read
 concurrency:
@@ -9,10 +8,7 @@ concurrency:
   cancel-in-progress: false
 jobs:
   pilot:
-    if: >-
-      github.event.label.name == 'run-baseline-pollen-384' &&
-      github.event.pull_request.head.ref == 'execution/baseline-pollen-actions-20261019' &&
-      github.event.pull_request.head.repo.full_name == github.repository
+    if: github.event_name == 'workflow_dispatch' && github.run_attempt == 1
     runs-on: ubuntu-24.04
     timeout-minutes: 45
     env:
@@ -23,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event.pull_request.head.sha }}
+          ref: ${{ github.sha }}
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12.10'

@@ -21,17 +21,22 @@ The user identified the other task as
 [遐皮ｩｶ險育判縺ｮ荳譛ｬ蛹望(https://chatgpt.com/c/6ad38e91-6aac-83ec-a905-8018388e2b86).
 Its status was `systemError`; both the thread reader (rate limited) and browser
 (conversation could not be loaded) failed to expose its execution/results.
-Therefore the duplicate-run check is **unresolved**, and this PR does not
-launch the scientific pilot. Read the existing task or recover its saved
-results first. An existing completed run should be audited, not repeated.
+The user subsequently supplied the other-task status: the completed Q2 experiment
+is a different 384-path, 200-update investment-support intervention (Actions
+38918737325, 2026-10-16), while this 2026-10-19 baseline-pollen factorial has
+not started. Together with unchanged source branches and absent matching
+Actions runs, this resolves the launch hold for this factorial. It does not
+turn the Q2 results into evidence for the pollen-factorial hypothesis.
 
 ## Ready execution path
 
-After resolving the duplicate-run check, add `run-baseline-pollen-384` to this
-same-repository execution PR once. The workflow only responds to that label
-on `execution/baseline-pollen-actions-20261019`; ordinary pushes do not launch
-it. A global concurrency group prevents simultaneous workflow jobs. It does
-not prevent a later deliberate repeat; inspect prior runs before relabeling.
+The initial PR-label trigger failed repository workflow policy. It was replaced
+with the established `workflow_dispatch` trigger without weakening that policy.
+After CI and integration register the workflow on main, dispatch it once at the
+reviewed commit. Ordinary pushes do not launch it. A global concurrency group
+prevents simultaneous jobs and `run_attempt == 1` prevents rerunning an existing
+run; neither substitutes for checking prior run/result records before a new
+dispatch. The original no-prior-run check is documented above.
 
 The workflow checks frozen source hashes and tests, runs the two 192-path
 shards, requires the full 384 allocation, then runs the independent endpoint
