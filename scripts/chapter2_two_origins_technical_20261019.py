@@ -27,7 +27,7 @@ from scripts.model3_island.randomness import STREAM_IDS, stream
 from scripts.model3_island.reproduction import reproduce
 from scripts.model3_island.types import Config, PlantState, VisitorState
 
-SOURCE_VERSION = "two-origins-technical-20261019-v1"
+SOURCE_VERSION = "two-origins-technical-20261019-v2"
 FIELDS = ("alleles", "allele_origin", "mutation_flags", "ids", "birth_years")
 POLICIES = ("native", "clamp_A", "clamp_I", "clamp_A_I")
 ESTABLISHMENT_MODES = ("native", "trait_neutral")
@@ -182,19 +182,34 @@ def attempt(lineage: SourceLineage, island: Island, reset_id: int, *,
     rng = np.random.default_rng(_seed("arrival", island.island_id, reset_id, lineage.lineage_id))
     arrived = bool(rng.random() < chance)
     observed = _visitors(island)
+    neutral = establishment_mode == "trait_neutral"
+    cfg = _config(island, assurance_mode="fixed" if neutral else "evolving",
+                  initial_a=.5 if neutral else src["A"])
+    expressed = _neutral_establishment_state(initial) if neutral else initial
+    # Evaluate every candidate even when the arrival lottery fails. Because
+    # survival=0, immigration=0, and capacity>0, exactly one native first
+    # reproduction update establishes iff Poisson(expected viable recruits)>0.
+    # This is a probability identity, not evidence of deterministic colonization.
+    first_ledger = reproduce(expressed, observed, cfg)
+    expected_recruits = float(first_ledger.outcross.sum() +
+                              first_ledger.self_viable.sum())
+    if not math.isfinite(expected_recruits) or expected_recruits < 0:
+        raise ValueError("invalid nonnegative expected establishment fecundity")
+    conditional_establishment = -math.expm1(-expected_recruits)
     first = initial
     established = False
     if arrived:
-        neutral = establishment_mode == "trait_neutral"
-        cfg = _config(island, assurance_mode="fixed" if neutral else "evolving",
-                      initial_a=.5 if neutral else src["A"])
-        expressed = _neutral_establishment_state(initial) if neutral else initial
         first, _ = advance(
-            initial, reproduce(expressed, observed, cfg), _empty(initial), cfg,
+            initial, first_ledger, _empty(initial), cfg,
             _streams("establishment", island.island_id, reset_id, lineage.lineage_id),
             year=0, mutation_traits=(False, False, False),
         )
         established = bool(len(first.ids))
+    # Policy and neutral/native filter share the same master stream seed.
+    # The generators are instantiated separately for each arm; after histories
+    # diverge, consumption may differ, so events are NOT synchronized.
+    descendant_master = _seed("descendants", island.island_id, reset_id,
+                              lineage.lineage_id)
     rows = []
     for policy in policies:
         frozen_a = policy in ("clamp_A", "clamp_A_I")
@@ -204,7 +219,7 @@ def attempt(lineage: SourceLineage, island: Island, reset_id: int, *,
             cfg = _config(island, assurance_mode="fixed" if frozen_a else "evolving",
                           initial_a=src["A"])
             rngs = _streams("descendants", island.island_id, reset_id,
-                            lineage.lineage_id, establishment_mode, policy)
+                            lineage.lineage_id)
             for year in range(1, HORIZON):
                 parental = _expressed_state(state, src["I"], frozen_i)
                 state, _ = advance(
@@ -224,6 +239,9 @@ def attempt(lineage: SourceLineage, island: Island, reset_id: int, *,
             policy=policy,
             candidate=True, arrived=arrived, established=established, persisted=alive,
             arrival_probability=chance, source_traits=src,
+            expected_recruits_if_arrived=expected_recruits,
+            establishment_probability_if_arrived=conditional_establishment,
+            descendant_rng_master_hex=f"{descendant_master:032x}",
             final_expressed_traits=final_traits,
             terminal_abundance=len(state.ids) if alive else 0,
             technical_fixture_only=True,
