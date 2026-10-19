@@ -76,3 +76,26 @@ At the post-test resource check, available RAM was 431,140,864 bytes, below the
 1 GiB start threshold; free disk was 57,963,253,760 bytes. This is a transient
 measurement, not permission to bypass the runtime resource gate. Full campaign
 orchestration, production approval and final scientific reporting remain pending.
+
+## Actions production gate review after explicit authorization
+
+The user approved the fixed 10,240-future budget and requested GitHub Actions.
+A fresh, focused reviewer inspected the new campaign, authorization receipt,
+workflow and tests. This is the plan's separate pre-launch dispatch audit, not
+a re-review of the previous scientific implementation.
+
+Two Important findings were reproduced as failing regression tests and fixed:
+(1) production now fetches full Git history so source admission can read the
+immutable f7792629 commit; (2) a re-run attempt with no explicit resume_run
+restores the latest retained checkpoint from that same Actions run, failing
+closed when none exists. A new dispatch can explicitly select a prior run.
+The restored RUN identity must match the exact source, contract and runtime.
+The local combined suite passed 113 tests after this one fix pass.
+
+The reviewer verified local tests and inspected allocation, source/configuration,
+checkpoint and replay connections, but did not launch Actions or certify Linux
+runtime, release downloads, completed campaign audit or measured total costs.
+Those remain live execution gates. Proposal execution_authorized=false is
+preserved historically; the separate Actions authorization receipt admits the
+exact unchanged proposal hash. No scientific donor futures were executed during
+this review or its fixes.

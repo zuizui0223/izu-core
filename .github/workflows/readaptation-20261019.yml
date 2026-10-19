@@ -1,0 +1,98 @@
+name: Bounded readaptation
+on:
+  pull_request:
+    paths:
+      - 'scripts/*readaptation*'
+      - 'tests/test_readaptation*'
+      - 'docs/protocols/CHAPTER2_READAPTATION*'
+      - '.github/workflows/readaptation-20261019.yml'
+  workflow_dispatch:
+    inputs:
+      source_sha:
+        description: Exact reviewed source commit (40 hex characters)
+        required: true
+        type: string
+      resume_run:
+        description: Prior same-source run ID, or empty for first execution
+        required: false
+        type: string
+permissions:
+  contents: read
+  actions: read
+concurrency:
+  group: bounded-readaptation-production
+  cancel-in-progress: false
+jobs:
+  technical:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.source_sha || github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.10'
+      - run: python -m pip install numpy==2.2.6 scipy==1.15.3 psutil==7.0.0 pytest==8.4.2 PyYAML==6.0.2
+      - name: Technical integration, source pins and replay
+        env:
+          PYTHONPATH: 'src:.'
+        run: python -m pytest -q tests/test_readaptation*.py tests/test_matched_AI_repeatability_20261019.py
+  production:
+    if: github.event_name == 'workflow_dispatch'
+    needs: technical
+    runs-on: ubuntu-24.04
+    timeout-minutes: 180
+    env:
+      GH_TOKEN: ${{ github.token }}
+      SOURCE_SHA: ${{ inputs.source_sha }}
+      RESUME_RUN: ${{ inputs.resume_run }}
+      PYTHONPATH: 'src:.'
+    steps:
+      - name: Validate input syntax
+        run: |
+          [[ "$SOURCE_SHA" =~ ^[0-9a-f]{40}$ ]]
+          [[ -z "$RESUME_RUN" || "$RESUME_RUN" =~ ^[0-9]+$ ]]
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ inputs.source_sha }}
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12.10'
+      - run: python -m pip install numpy==2.2.6 scipy==1.15.3 psutil==7.0.0 pytest==8.4.2
+      - name: Fetch unchanged source archives
+        run: |
+          mkdir -p source-assets campaign
+          TAG=q3-confirm160-f7792629b35b07e93ac9c98f8feb4d3894da85eb
+          for SHARD in 0 8 16 24; do
+            gh release download "$TAG" --pattern "raw-shard-${SHARD}.zip" --pattern "seal-${SHARD}.json" --dir source-assets
+          done
+      - name: Restore explicitly selected prior checkpoint
+        if: inputs.resume_run != '' || github.run_attempt != '1'
+        run: |
+          if [ -z "$RESUME_RUN" ]; then RESUME_RUN="$GITHUB_RUN_ID"; fi
+          gh run view "$RESUME_RUN" --json workflowName > prior-run.json
+          python -c "import json; assert json.load(open('prior-run.json'))['workflowName']=='Bounded readaptation'"
+          gh api "repos/$GITHUB_REPOSITORY/actions/runs/$RESUME_RUN/artifacts?per_page=100" > prior-artifacts.json
+          python - <<'PY'
+          import json
+          rows=[r for r in json.load(open('prior-artifacts.json'))['artifacts'] if r['name'].startswith('readaptation-checkpoint-') and not r['expired']]
+          assert rows, 'No retained checkpoint; do not silently start over'
+          name=sorted(rows,key=lambda r:(r['created_at'],r['id']))[-1]['name']
+          open('restore-name','w').write(name)
+          PY
+          gh run download "$RESUME_RUN" --name "$(cat restore-name)" --dir campaign
+      - name: Execute or resume exact allocation; audit and replay saved results
+        run: timeout --signal=INT --kill-after=60s 100m python -m scripts.readaptation_campaign_20261019 --output campaign --source source-assets --expected-head "$SOURCE_SHA"
+      - name: Retain completed and partial checkpoints
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: readaptation-checkpoint-${{ github.run_attempt }}
+          path: campaign/
+          if-no-files-found: warn
+          retention-days: 90
+          compression-level: 0
