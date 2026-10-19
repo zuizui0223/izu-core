@@ -57,6 +57,22 @@ jobs:
                   x = group[trait]
                   if x["contributions"] is not None:
                       assert abs(math.fsum(x["contributions"].values()) - x["total_change"]) < 1e-12
+          # Inspect exact source genotype differences at establishment before
+          # any later evolutionary treatment, without fitting a classifier.
+          grid = {}
+          for rec in d["records"]:
+              if rec["reset_id"] == 0 and rec["policy"] == "native":
+                  k = (rec["island_id"], rec["lineage_id"])
+                  grid.setdefault(k, {})[rec["establishment_mode"]] = rec
+          assert len(grid) == 12
+          print("TECHNICAL first-establishment propensity, conditional on arrival (not field data):")
+          for (island, lineage), modes in sorted(grid.items()):
+              native, neutral = modes["native"], modes["trait_neutral"]
+              assert native["source_traits"] == neutral["source_traits"]
+              print(f"  {island} lineage={lineage} A0={native['source_traits']['A']:.3f} "
+                    f"I0={native['source_traits']['I']:.3f} "
+                    f"p_native={native['establishment_probability_if_arrived']:.4f} "
+                    f"p_neutral={neutral['establishment_probability_if_arrived']:.4f}")
           print("PASS: bounded technical assembly, Poisson establishment, all-stage arithmetic; NO science inference.")
           PY
       - name: Publish clearly labeled technical-only run summary
