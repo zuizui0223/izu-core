@@ -54,7 +54,7 @@ under strong limitation (−0.0802/−0.0357), but positive under weak limitatio
 
 ### Q2 — Sequence: precedence does not establish evolutionary necessity
 
-Under delayed selfing and a direct assurance cost, A crossed the registered sustained-response threshold before I in **51/64** visitor histories, with 13 nearly simultaneous. Under prior selfing at the same primary threshold, only **30/64** were A-first. A separate registered intervention changing standing I-locus allele carriers in 384 paths found order-score difference +0.109375 with adjusted interval [−0.125,+0.34375] and I-event difference +0.1875 [−0.0625,+0.421875]; **both were inconclusive**. A-first cannot be promoted to a universal evolutionary clock or a cause of later irreversible loss.
+Under delayed selfing and a direct assurance cost, A crossed the registered sustained-response threshold before I in **51/64** visitor histories, with 13 nearly simultaneous. Under prior selfing at the same primary threshold, only **30/64** were A-first. A separate registered intervention changing standing I-locus allele carriers in 384 paths found order-score difference +0.109375 with adjusted interval [−0.125,+0.34375] and I-event difference +0.1875 [−0.0625,+0.421875]; **both were inconclusive**. A-first cannot be promoted to a universal evolutionary clock or a cause of later irreversible loss. A separately registered **assigned phenotype-expression schedule**—not spontaneous inherited order—produced pooled far–near survival DID **−0.013589 [−0.022812, −0.004302]**, wholly within the predeclared ±0.05 practical-equivalence region ([original assigned-order readout](../results/chapter2/order_expression_full_cohort_20261009.json)).
 
 ### Hidden genetic state and environmental timing affect threshold events
 
@@ -102,8 +102,6 @@ updates were run for this audit.
 ### Inherited genetic accessibility can close before complete locus fixation
 
 In a distinct 2,304-path experiment with no I-locus mutation or seed immigration, **703 histories** lost standing support for an additional founder-relative 0.05 **decrease** in I **before** single-allele fixation; 535 first became excluded at fixation. In 315 of the 1,238 selected first-loss transitions, low-I alleles disappeared despite favorable prior conditional parental weighting. This shows that expected favorable directional return and transmission of the alleles needed for the next response are different. It does **NOT** show loss of the **high-I** alleles relevant to post-restoration recovery; a separately marked, retrospective **read-only reverse-direction audit** tests that distinct upper-support boundary below.
-
-A separate deterministic genotype-density comparator predicted A-first in two low-replenishment genetic contexts while finite ABM histories yielded only 3/32 and 2/32 A-first paths despite full occupancy. Density is **not** the finite-model stochastic expectation, and this discrepancy is not a measured proportion caused by drift.
 
 ### Retrospective high-I support exclusion in the same source cohort
 
