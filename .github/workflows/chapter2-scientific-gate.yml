@@ -78,6 +78,7 @@ jobs:
           python scripts/validate_chapter2_completed_evidence_20261019.py
           pytest -q tests/test_chapter2_completed_evidence_20261019.py
           pytest -q tests/test_chapter2_paper_figures_20261019.py
+          pytest -q tests/test_chapter2_four_part_linkage_20261019.py
       - name: Validate active Model 3 2026-10-05 ecological submission surface
         run: |
           pytest -q \
