@@ -62,6 +62,24 @@ def test_actual_kernel_preserves_diploid_origins_and_entry_clock():
     assert (donor.birth_years==80).all()
 
 
+def test_raw_cohort_audit_verifies_donor_parentage():
+    import copy
+    from scripts.audit_readaptation_raw_20261019 import audit_cohort
+    donor=synthetic_donor()
+    child,receipt=make_cohort(donor,synthetic_config(),empty_visitors(),streams(),[0,0,'evolving',0])
+    fields=('alleles','allele_origin','mutation_flags','ids','birth_years')
+    source={name:getattr(donor,name) for name in fields}
+    offspring={name:getattr(child,name) for name in fields}
+    assert audit_cohort(source,offspring,receipt)['transferred']==len(child.ids)
+    broken=copy.deepcopy(receipt)
+    broken['mother_source_ids'][0]=999999
+    with pytest.raises(ValueError):
+        audit_cohort(source,offspring,broken)
+    broken=copy.deepcopy(receipt); broken['source_production']=0
+    with pytest.raises(ValueError):
+        audit_cohort(source,offspring,broken)
+
+
 def test_parent_orientation_and_small_seed_supply(monkeypatch):
     # Independent fixture: only father 1 / mother 0 is possible.
     monkeypatch.setattr('scripts.readaptation_transfer_20261019.reproduce',

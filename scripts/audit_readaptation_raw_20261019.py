@@ -1,7 +1,7 @@
 """Raw arithmetic/inheritance audit. Imports neither model nor producer.
 
-Single-future admission only; full allocation/archive admission remains separate.
-Reproductive probabilities and assay biology require native replay, not this audit.
+Archive admission checks allocation, identities and arithmetic. Donor-source
+linkage, reproductive probabilities and assay biology require separate checks.
 """
 import hashlib
 import itertools
@@ -54,6 +54,48 @@ def admit_manifest(manifest,contract):
         seen.add(key); filenames.add(filename)
     require(seen==expected,'missing future allocation')
     return keys,admitted
+
+
+def audit_archive(path,contract):
+    """Audit complete future directory under the repository's exact proposal.
+
+    PASS here never admits donor provenance or authorizes a production run.
+    """
+    root=Path(__file__).resolve().parents[1]
+    frozen=json.loads((root/'docs/protocols/CHAPTER2_READAPTATION_PROPOSED_20261019.json').read_text())
+    require(_canonical(contract)==_canonical(frozen),'archive contract differs from proposal')
+    for name,digest in frozen['source_sha256'].items():
+        require(hashlib.sha256((root/name).read_bytes()).hexdigest()==digest,'pinned source hash mismatch')
+    base=json.loads((root/'data/design/model3_island_v2.json').read_text())['base_config']
+    path=Path(path)
+    manifest=json.loads((path/'manifest.json').read_text(encoding='utf8'))
+    return _audit_files(path,manifest,contract,base)
+
+
+def _audit_files(path,manifest,contract,base):
+    """Internal streaming reader; contract and base must already be admitted."""
+    path=Path(path)
+    keys,cohorts=admit_manifest(manifest,contract)
+    expected={row['file'] for row in manifest['futures']}
+    require({p.name for p in path.glob('*.npz')}==expected,'future file inventory mismatch')
+    summaries=[]
+    for receipt in manifest['futures']:
+        file=path/receipt['file']
+        require(not file.is_symlink() and file.is_file(),'future path must be a regular file')
+        require(file.stat().st_size==receipt['bytes'],'future file size mismatch')
+        key=receipt['key']; cohort_sha=cohorts[tuple(key[:4])]
+        record=load_future(file,receipt['sha256'],key)
+        audit_identity(record,key,contract,base,cohort_sha)
+        summary=audit_future(record)
+        summary.update(key=key,cohort_sha256=cohort_sha)
+        summaries.append(summary)
+        del record
+    result=summarize_allocations(summaries,keys)
+    result.update(status='PASS_FUTURE_ARCHIVE_INTERNAL',source_admission=False,
+                  biological_replay=False,
+                  contract_sha256=manifest['contract_sha256'],
+                  limitation='Cohort digests agree internally; donor source and native biological replay remain unverified')
+    return result
 
 
 def audit_identity(d,key,contract,base_config,cohort_sha256):
@@ -144,6 +186,55 @@ def raw_state_digest(d,t):
                           separators=(',',':'),allow_nan=False).encode()
         digest.update(header); digest.update(a.tobytes())
     return digest.hexdigest()
+
+
+def audit_cohort(donor,cohort,receipt):
+    """Check recorded offspring against recorded donor parents, without biology.
+
+    Donor linkage to the original archive and probability replay are external.
+    """
+    for state,field in ((donor,'donor_sha256'),(cohort,'cohort_sha256')):
+        n=len(state['ids'])
+        for name in FIELDS:
+            value=np.asarray(state[name])
+            shape=(n,3,2) if name in FIELDS[:3] else (n,)
+            require(value.shape==shape,'cohort state dimensions')
+        require(len(set(state['ids']))==n,'duplicate source/cohort IDs')
+        raw={'state_'+k:state[k] for k in FIELDS}
+        raw['state_offsets']=np.array([0,n])
+        require(raw_state_digest(raw,0)==receipt[field],'cohort/donor digest mismatch')
+    n=len(cohort['ids']); source_n=len(donor['ids'])
+    potential=receipt['source_production']
+    require(type(potential) is int and potential>=0 and receipt['propagule_cap']==12
+            and receipt['transferred']==n==min(potential,12),'source production/cap mismatch')
+    require(np.array_equal(cohort['ids'],np.arange(n)) and (cohort['birth_years']==0).all(),
+            'cohort entry identity/clock')
+    require(receipt['allocated'] is True and receipt['cohort_key'][2]==receipt['donor_assurance_mode'],
+            'cohort historical policy')
+    total=receipt['expected_viable_production']
+    require(np.isfinite(total) and total>=0,'expected source production')
+    probabilities=np.asarray(receipt['parent_probability_matrix'],dtype=float)
+    if source_n==0:
+        require(probabilities.size==0 and n==0 and total==0,'empty donor production')
+        probabilities=np.empty((0,0))
+    require(probabilities.shape==(source_n,source_n) and np.isfinite(probabilities).all()
+            and (probabilities>=0).all(),'parent matrix')
+    require(np.isclose(probabilities.sum(),1 if total>0 else 0,rtol=0,atol=1e-12),
+            'parent matrix normalization')
+    require(total>0 or potential==0,'zero production cannot produce offspring')
+    mothers=receipt['mother_source_ids']; fathers=receipt['father_source_ids']
+    require(len(mothers)==len(fathers)==n,'parent receipt length')
+    lookup={int(v):i for i,v in enumerate(donor['ids'])}
+    for i,(mother,father) in enumerate(zip(mothers,fathers)):
+        require(mother in lookup and father in lookup,'source parent missing')
+        require(probabilities[lookup[father],lookup[mother]]>0,'impossible parent pair')
+        for side,parent in enumerate((mother,father)):
+            for locus in range(3):
+                require(any(all(cohort[name][i,locus,side]==donor[name][lookup[parent],locus,k]
+                                for name in FIELDS[:3]) for k in range(2)),
+                        'source offspring inheritance mismatch')
+    return dict(status='PASS_COHORT_PARENTAGE',transferred=n,
+                donor_archive_admission=False,production_probability_replay=False)
 
 
 def _assay(a,n):
