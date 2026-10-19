@@ -1,11 +1,5 @@
 name: Bounded readaptation
 on:
-  pull_request:
-    paths:
-      - 'scripts/*readaptation*'
-      - 'tests/test_readaptation*'
-      - 'docs/protocols/CHAPTER2_READAPTATION*'
-      - '.github/workflows/readaptation-20261019.yml'
   workflow_dispatch:
     inputs:
       source_sha:
@@ -29,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event_name == 'workflow_dispatch' && inputs.source_sha || github.event.pull_request.head.sha }}
+          ref: ${{ inputs.source_sha }}
           persist-credentials: false
       - uses: actions/setup-python@v5
         with:

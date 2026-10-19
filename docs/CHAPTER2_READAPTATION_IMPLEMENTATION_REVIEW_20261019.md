@@ -99,3 +99,8 @@ Those remain live execution gates. Proposal execution_authorized=false is
 preserved historically; the separate Actions authorization receipt admits the
 exact unchanged proposal hash. No scientific donor futures were executed during
 this review or its fixes.
+
+The live scientific gate subsequently rejected an extra pull_request trigger
+under the repository trigger policy. Removed that trigger rather than relaxing
+the policy. The workflow is manual-only; ordinary CI still covers its tests,
+and manual production continues to depend on the dedicated technical job.

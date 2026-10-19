@@ -167,8 +167,8 @@ The 30-60 minute estimate remains provisional, especially including replay/I/O.
 A 100-minute execution timeout retains partial work rather than changing any
 horizon or denominator; later dispatch explicitly selects the prior run ID.
 
-The Bounded readaptation workflow runs technical tests on PR updates. Production
-requires workflow_dispatch with the exact reviewed source SHA, depends on a
+The ordinary CI covers technical tests on PR updates. The Bounded readaptation
+workflow is manual-only. Production uses the exact reviewed source SHA, depends on a
 successful technical job, and has concurrency cancellation disabled. Immutable
 per-task records and sidecar hashes are admitted on resume; mismatches and
 missing receipted files stop rather than rerun or replace scientific results.
