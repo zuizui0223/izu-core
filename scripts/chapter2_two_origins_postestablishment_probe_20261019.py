@@ -21,6 +21,8 @@ from scripts.chapter2_two_origins_disjoint_source_pilot_20261019 import (
 )
 
 STATUS = "TECHNICAL_NEW_SOURCE_POSTESTABLISHMENT_POLICY_PROBE_NOT_REGISTERED"
+EXTRA_PROFILE_POLICY = "center_A_mean"
+ALL_POLICIES = POLICIES + (EXTRA_PROFILE_POLICY,)
 SOURCE_SEED_START = 21030000
 SOURCE_ID_START = 30000
 
@@ -47,8 +49,8 @@ def technical_policy_probe():
         for repeat in range(DEMOGRAPHIC_RESETS):
             for source in registry:
                 assigned = attempt(source, island, repeat, establishment_mode="native",
-                                   policies=POLICIES)
-                if {row["policy"] for row in assigned}!=set(POLICIES):
+                                   policies=ALL_POLICIES)
+                if {row["policy"] for row in assigned}!=set(ALL_POLICIES):
                     raise ValueError("incomplete policy fork")
                 shared = {(r["arrived"],r["established"],r["source_traits"]["A"],
                            r["source_traits"]["I"],r["source_id"]
@@ -76,11 +78,11 @@ def technical_policy_probe():
         n=len(block)
         native=[row["arms"]["native"]["alive"] for row in block]
         arms={}
-        for policy in POLICIES:
+        for policy in ALL_POLICIES:
             outcomes=[row["arms"][policy]["alive"] for row in block]
             arms[policy]=dict(persisted=sum(outcomes), all_candidates=n)
         paired={}
-        for policy in ("clamp_A","clamp_I","clamp_A_I"):
+        for policy in ("clamp_A","clamp_I","clamp_A_I", EXTRA_PROFILE_POLICY):
             other=[row["arms"][policy]["alive"] for row in block]
             both=sum(n and o for n,o in zip(native,other))
             native_only=sum(n and not o for n,o in zip(native,other))
@@ -106,13 +108,13 @@ def technical_policy_probe():
                          for a in (0,1,2)}
         )
     for row in groups:
-        for name in ("clamp_A","clamp_I","clamp_A_I"):
+        for name in ("clamp_A","clamp_I","clamp_A_I", EXTRA_PROFILE_POLICY):
             arm=row["arms"][name]
             if not arm["alive"]:
                 if arm["final_traits"] is not None:
                     raise ValueError("extinct descendants have phenotype")
                 continue
-            if name in ("clamp_A","clamp_A_I"):
+            if name in ("clamp_A","clamp_A_I", EXTRA_PROFILE_POLICY):
                 if arm["final_traits"]["A"]!=row["source_A"]:
                     raise ValueError("fixed expression A escaped original source value")
             if name in ("clamp_I","clamp_A_I"):
@@ -126,16 +128,18 @@ def technical_policy_probe():
                 distinct_synthetic_island_factorial_contexts=4,
                 independent_demographic_resets_per_source_island=DEMOGRAPHIC_RESETS,
                 candidate_assignments=len(groups),
-                paired_policy_paths=len(groups)*len(POLICIES),
+                paired_policy_paths=len(groups)*len(ALL_POLICIES),
+                technical_policy_roster=list(ALL_POLICIES),
                 primary_inference_performed=False,
                 causal_mediation_identified=False,
                 observational_unit="source genotype; repeat streams nested",
-                protocol="postestablishment expression comparison technical-v1",
+                protocol="postestablishment expression comparison technical-v2",
                 summary=summaries,
                 groups=groups,
                 claim_limits=[
                     "Each set of four arms shares a common first establishment from the same original source.",
                     "A and I genotype segregation can occur under fixed-expression arms.",
+                    "center_A_mean is a source-mean reproductive expression intervention preserving the current within-population allelic deviations; it does NOT freeze Mendelian evolution.",
                     "Fixed assurance expression still permits autonomous selfing.",
                     "Within-branch random number consumption may diverge after treatment.",
                     "Six-year synthetic survival is not colonization or an in-nature evolutionary-rescue result.",
