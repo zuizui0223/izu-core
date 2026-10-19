@@ -1,0 +1,18 @@
+{
+  "schema": "q3_confirm160_execution_v1",
+  "authorization": "User 2026-10-19: 目標設定して進めて、160160も検定して、全体的中心仮説の検証終わらせたい",
+  "execution_authorized": true,
+  "candidate": "scripts/q3_release160_20261019.py:candidate",
+  "biology_and_seed_registry": "unchanged from proposed160 candidate; no production seeds consumed before reviewed runner admission",
+  "primary": "joint directional positivity of G and S using two97.5percent pigeonhole-t intervals, df159",
+  "secondary": "report .10 resolution margin without biological SESOI endorsement; report epsilon0,.005,.01,.02,.05 descriptively, never choose best threshold",
+  "scientific_claim": "independent source confirmation within fixed native model; no universal confidence coverage or actual recovery claim",
+  "storage": "32 isolated GitHub Actions shards; retain full native checkpoints in source-pinned draft-release assets and Actions artifacts; unique names, no replacement, verified SHA256; stream compact summaries for aggregation rather than duplicate all raw arrays on one host",
+  "minimum_worker_free_bytes": 5000000000,
+  "shards": 32,
+  "max_parallel": 8,
+  "complete_only": true,
+  "optional_stopping": false,
+  "failed_shards": "retain partial checkpoints, resume same source/contract/RNG only; no replacement seeds",
+  "remaining_scope": "Actual restored-visitor evolutionary recovery remains a separate prospective experiment."
+}

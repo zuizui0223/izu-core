@@ -1,0 +1,1580 @@
+{
+  "date": "2026-10-17",
+  "declared_interpretation": {
+    "absence_of_loss_is_not_recovery": true,
+    "allele_target": "Loss of each history's t0 maximum I allele, independent of a phenotypic threshold",
+    "assurance_context": "The source ecological-order cohort varies founder/context; cannot be used as a randomized fixed-vs-evolving-A recovery intervention",
+    "does_not_assay_restored_pollen_or_recovery_probability": true,
+    "does_not_identify_assurance_evolution_effect": true,
+    "does_not_measure_pollinator_extirpation_T_E": true,
+    "independent_original_genome_recheck_not_rerun_here": true,
+    "not_confirmatory_new_evolution": true,
+    "return_target": "The exact, path-specific realized founder I mean, not a universal ancestral island phenotype",
+    "statistical_inference": "Descriptive census counts, overlapping cells and reused replicate streams; no bootstrap CI or population-level claim",
+    "structural_rule": "With no I mutation and no seed immigration, all descendant I allele values derive from extant parents; if max I allele < high-I target, a future expressed mean >= target is impossible in this unchanged model",
+    "supplementary_target": "Path-specific founder I mean +0.05, not a registered recovery endpoint"
+  },
+  "high_i_loss": {
+    "founder_I_plus_0.05": {
+      "by_founder_block_and_visitor_context": [
+        {
+          "at_I_fixation": 55,
+          "before_I_fixation": 73,
+          "block": "main",
+          "context": 0,
+          "cumulative_by_census": {
+            "25": 84,
+            "50": 125,
+            "100": 128,
+            "150": 128,
+            "200": 128
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 128,
+          "first_loss_maximum": 56,
+          "first_loss_median_among_lost": 21.5,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 1
+        },
+        {
+          "at_I_fixation": 68,
+          "before_I_fixation": 60,
+          "block": "main",
+          "context": 1,
+          "cumulative_by_census": {
+            "25": 70,
+            "50": 110,
+            "100": 128,
+            "150": 128,
+            "200": 128
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 128,
+          "first_loss_maximum": 98,
+          "first_loss_median_among_lost": 24,
+          "first_loss_minimum": 8,
+          "fraction_original_histories": 1
+        },
+        {
+          "at_I_fixation": 67,
+          "before_I_fixation": 60,
+          "block": "main",
+          "context": 2,
+          "cumulative_by_census": {
+            "25": 81,
+            "50": 118,
+            "100": 126,
+            "150": 127,
+            "200": 127
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 127,
+          "first_loss_maximum": 111,
+          "first_loss_median_among_lost": 21,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.9921875
+        },
+        {
+          "at_I_fixation": 60,
+          "before_I_fixation": 49,
+          "block": "main",
+          "context": 3,
+          "cumulative_by_census": {
+            "25": 27,
+            "50": 68,
+            "100": 102,
+            "150": 107,
+            "200": 109
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 109,
+          "first_loss_maximum": 190,
+          "first_loss_median_among_lost": 41,
+          "first_loss_minimum": 10,
+          "fraction_original_histories": 0.8515625
+        },
+        {
+          "at_I_fixation": 71,
+          "before_I_fixation": 54,
+          "block": "main",
+          "context": 4,
+          "cumulative_by_census": {
+            "25": 44,
+            "50": 102,
+            "100": 123,
+            "150": 124,
+            "200": 125
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 125,
+          "first_loss_maximum": 185,
+          "first_loss_median_among_lost": 31,
+          "first_loss_minimum": 8,
+          "fraction_original_histories": 0.9765625
+        },
+        {
+          "at_I_fixation": 10,
+          "before_I_fixation": 1,
+          "block": "main",
+          "context": 5,
+          "cumulative_by_census": {
+            "25": 0,
+            "50": 3,
+            "100": 6,
+            "150": 11,
+            "200": 11
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 11,
+          "first_loss_maximum": 135,
+          "first_loss_median_among_lost": 89,
+          "first_loss_minimum": 34,
+          "fraction_original_histories": 0.0859375
+        },
+        {
+          "at_I_fixation": 38,
+          "before_I_fixation": 33,
+          "block": "main",
+          "context": 6,
+          "cumulative_by_census": {
+            "25": 14,
+            "50": 36,
+            "100": 58,
+            "150": 67,
+            "200": 71
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 71,
+          "first_loss_maximum": 199,
+          "first_loss_median_among_lost": 47,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.5546875
+        },
+        {
+          "at_I_fixation": 2,
+          "before_I_fixation": 3,
+          "block": "main",
+          "context": 7,
+          "cumulative_by_census": {
+            "25": 0,
+            "50": 1,
+            "100": 4,
+            "150": 4,
+            "200": 5
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 5,
+          "first_loss_maximum": 171,
+          "first_loss_median_among_lost": 64,
+          "first_loss_minimum": 36,
+          "fraction_original_histories": 0.0390625
+        },
+        {
+          "at_I_fixation": 6,
+          "before_I_fixation": 4,
+          "block": "main",
+          "context": 8,
+          "cumulative_by_census": {
+            "25": 1,
+            "50": 5,
+            "100": 10,
+            "150": 10,
+            "200": 10
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 10,
+          "first_loss_maximum": 95,
+          "first_loss_median_among_lost": 50.5,
+          "first_loss_minimum": 24,
+          "fraction_original_histories": 0.078125
+        },
+        {
+          "at_I_fixation": 41,
+          "before_I_fixation": 85,
+          "block": "confirmation",
+          "context": 0,
+          "cumulative_by_census": {
+            "25": 83,
+            "50": 119,
+            "100": 125,
+            "150": 126,
+            "200": 126
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 126,
+          "first_loss_maximum": 140,
+          "first_loss_median_among_lost": 19.5,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.984375
+        },
+        {
+          "at_I_fixation": 48,
+          "before_I_fixation": 75,
+          "block": "confirmation",
+          "context": 1,
+          "cumulative_by_census": {
+            "25": 65,
+            "50": 107,
+            "100": 122,
+            "150": 123,
+            "200": 123
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 123,
+          "first_loss_maximum": 105,
+          "first_loss_median_among_lost": 23,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.9609375
+        },
+        {
+          "at_I_fixation": 48,
+          "before_I_fixation": 76,
+          "block": "confirmation",
+          "context": 2,
+          "cumulative_by_census": {
+            "25": 75,
+            "50": 113,
+            "100": 124,
+            "150": 124,
+            "200": 124
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 124,
+          "first_loss_maximum": 99,
+          "first_loss_median_among_lost": 22,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.96875
+        },
+        {
+          "at_I_fixation": 56,
+          "before_I_fixation": 45,
+          "block": "confirmation",
+          "context": 3,
+          "cumulative_by_census": {
+            "25": 22,
+            "50": 58,
+            "100": 86,
+            "150": 99,
+            "200": 101
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 101,
+          "first_loss_maximum": 157,
+          "first_loss_median_among_lost": 43,
+          "first_loss_minimum": 9,
+          "fraction_original_histories": 0.7890625
+        },
+        {
+          "at_I_fixation": 51,
+          "before_I_fixation": 73,
+          "block": "confirmation",
+          "context": 4,
+          "cumulative_by_census": {
+            "25": 56,
+            "50": 97,
+            "100": 123,
+            "150": 124,
+            "200": 124
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 124,
+          "first_loss_maximum": 106,
+          "first_loss_median_among_lost": 28,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.96875
+        },
+        {
+          "at_I_fixation": 10,
+          "before_I_fixation": 8,
+          "block": "confirmation",
+          "context": 5,
+          "cumulative_by_census": {
+            "25": 3,
+            "50": 8,
+            "100": 13,
+            "150": 18,
+            "200": 18
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 18,
+          "first_loss_maximum": 141,
+          "first_loss_median_among_lost": 54,
+          "first_loss_minimum": 13,
+          "fraction_original_histories": 0.140625
+        },
+        {
+          "at_I_fixation": 36,
+          "before_I_fixation": 38,
+          "block": "confirmation",
+          "context": 6,
+          "cumulative_by_census": {
+            "25": 19,
+            "50": 45,
+            "100": 63,
+            "150": 72,
+            "200": 74
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 74,
+          "first_loss_maximum": 184,
+          "first_loss_median_among_lost": 39.5,
+          "first_loss_minimum": 8,
+          "fraction_original_histories": 0.578125
+        },
+        {
+          "at_I_fixation": 8,
+          "before_I_fixation": 1,
+          "block": "confirmation",
+          "context": 7,
+          "cumulative_by_census": {
+            "25": 1,
+            "50": 4,
+            "100": 8,
+            "150": 8,
+            "200": 9
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 9,
+          "first_loss_maximum": 161,
+          "first_loss_median_among_lost": 51,
+          "first_loss_minimum": 24,
+          "fraction_original_histories": 0.0703125
+        },
+        {
+          "at_I_fixation": 22,
+          "before_I_fixation": 20,
+          "block": "confirmation",
+          "context": 8,
+          "cumulative_by_census": {
+            "25": 10,
+            "50": 22,
+            "100": 34,
+            "150": 39,
+            "200": 42
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 42,
+          "first_loss_maximum": 196,
+          "first_loss_median_among_lost": 46.5,
+          "first_loss_minimum": 12,
+          "fraction_original_histories": 0.328125
+        }
+      ],
+      "by_original_order_class_descriptive": {
+        "assurance_first": {
+          "at_I_fixation": 160,
+          "before_I_fixation": 168,
+          "cumulative_by_census": {
+            "25": 61,
+            "50": 198,
+            "100": 300,
+            "150": 322,
+            "200": 328
+          },
+          "denominator_original_histories": 335,
+          "ever_by_200": 328,
+          "first_loss_maximum": 170,
+          "first_loss_median_among_lost": 43,
+          "first_loss_minimum": 8,
+          "fraction_original_histories": 0.9791044776119403
+        },
+        "assurance_only": {
+          "at_I_fixation": 199,
+          "before_I_fixation": 122,
+          "cumulative_by_census": {
+            "25": 93,
+            "50": 207,
+            "100": 292,
+            "150": 315,
+            "200": 321
+          },
+          "denominator_original_histories": 895,
+          "ever_by_200": 321,
+          "first_loss_maximum": 196,
+          "first_loss_median_among_lost": 38,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.358659217877095
+        },
+        "investment_first": {
+          "at_I_fixation": 172,
+          "before_I_fixation": 257,
+          "cumulative_by_census": {
+            "25": 289,
+            "50": 405,
+            "100": 427,
+            "150": 428,
+            "200": 429
+          },
+          "denominator_original_histories": 435,
+          "ever_by_200": 429,
+          "first_loss_maximum": 199,
+          "first_loss_median_among_lost": 20,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.9862068965517241
+        },
+        "investment_only": {
+          "at_I_fixation": 2,
+          "before_I_fixation": 4,
+          "cumulative_by_census": {
+            "25": 1,
+            "50": 3,
+            "100": 5,
+            "150": 6,
+            "200": 6
+          },
+          "denominator_original_histories": 10,
+          "ever_by_200": 6,
+          "first_loss_maximum": 102,
+          "first_loss_median_among_lost": 45,
+          "first_loss_minimum": 16,
+          "fraction_original_histories": 0.6
+        },
+        "near_simultaneous": {
+          "at_I_fixation": 151,
+          "before_I_fixation": 205,
+          "cumulative_by_census": {
+            "25": 208,
+            "50": 323,
+            "100": 351,
+            "150": 356,
+            "200": 356
+          },
+          "denominator_original_histories": 358,
+          "ever_by_200": 356,
+          "first_loss_maximum": 120,
+          "first_loss_median_among_lost": 23,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.994413407821229
+        },
+        "neither": {
+          "at_I_fixation": 13,
+          "before_I_fixation": 2,
+          "cumulative_by_census": {
+            "25": 3,
+            "50": 5,
+            "100": 8,
+            "150": 12,
+            "200": 15
+          },
+          "denominator_original_histories": 271,
+          "ever_by_200": 15,
+          "first_loss_maximum": 171,
+          "first_loss_median_among_lost": 88,
+          "first_loss_minimum": 16,
+          "fraction_original_histories": 0.055350553505535055
+        }
+      },
+      "by_source_founder_block": {
+        "confirmation": {
+          "at_I_fixation": 320,
+          "before_I_fixation": 421,
+          "cumulative_by_census": {
+            "25": 334,
+            "50": 573,
+            "100": 698,
+            "150": 733,
+            "200": 741
+          },
+          "denominator_original_histories": 1152,
+          "ever_by_200": 741,
+          "first_loss_maximum": 196,
+          "first_loss_median_among_lost": 28,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.6432291666666666
+        },
+        "main": {
+          "at_I_fixation": 377,
+          "before_I_fixation": 337,
+          "cumulative_by_census": {
+            "25": 321,
+            "50": 568,
+            "100": 685,
+            "150": 706,
+            "200": 714
+          },
+          "denominator_original_histories": 1152,
+          "ever_by_200": 714,
+          "first_loss_maximum": 199,
+          "first_loss_median_among_lost": 28,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.6197916666666666
+        }
+      },
+      "pooled_original_histories_descriptive": {
+        "at_I_fixation": 697,
+        "before_I_fixation": 758,
+        "cumulative_by_census": {
+          "25": 655,
+          "50": 1141,
+          "100": 1383,
+          "150": 1439,
+          "200": 1455
+        },
+        "denominator_original_histories": 2304,
+        "ever_by_200": 1455,
+        "first_loss_maximum": 199,
+        "first_loss_median_among_lost": 28,
+        "first_loss_minimum": 7,
+        "fraction_original_histories": 0.6315104166666666
+      }
+    },
+    "loss_of_original_uppermost_allele": {
+      "by_founder_block_and_visitor_context": [
+        {
+          "at_I_fixation": 55,
+          "before_I_fixation": 73,
+          "block": "main",
+          "context": 0,
+          "cumulative_by_census": {
+            "25": 84,
+            "50": 125,
+            "100": 128,
+            "150": 128,
+            "200": 128
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 128,
+          "first_loss_maximum": 56,
+          "first_loss_median_among_lost": 21.5,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 1
+        },
+        {
+          "at_I_fixation": 68,
+          "before_I_fixation": 60,
+          "block": "main",
+          "context": 1,
+          "cumulative_by_census": {
+            "25": 70,
+            "50": 110,
+            "100": 128,
+            "150": 128,
+            "200": 128
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 128,
+          "first_loss_maximum": 98,
+          "first_loss_median_among_lost": 24,
+          "first_loss_minimum": 8,
+          "fraction_original_histories": 1
+        },
+        {
+          "at_I_fixation": 67,
+          "before_I_fixation": 60,
+          "block": "main",
+          "context": 2,
+          "cumulative_by_census": {
+            "25": 81,
+            "50": 118,
+            "100": 126,
+            "150": 127,
+            "200": 127
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 127,
+          "first_loss_maximum": 111,
+          "first_loss_median_among_lost": 21,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.9921875
+        },
+        {
+          "at_I_fixation": 60,
+          "before_I_fixation": 49,
+          "block": "main",
+          "context": 3,
+          "cumulative_by_census": {
+            "25": 27,
+            "50": 68,
+            "100": 102,
+            "150": 107,
+            "200": 109
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 109,
+          "first_loss_maximum": 190,
+          "first_loss_median_among_lost": 41,
+          "first_loss_minimum": 10,
+          "fraction_original_histories": 0.8515625
+        },
+        {
+          "at_I_fixation": 71,
+          "before_I_fixation": 54,
+          "block": "main",
+          "context": 4,
+          "cumulative_by_census": {
+            "25": 44,
+            "50": 102,
+            "100": 123,
+            "150": 124,
+            "200": 125
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 125,
+          "first_loss_maximum": 185,
+          "first_loss_median_among_lost": 31,
+          "first_loss_minimum": 8,
+          "fraction_original_histories": 0.9765625
+        },
+        {
+          "at_I_fixation": 10,
+          "before_I_fixation": 1,
+          "block": "main",
+          "context": 5,
+          "cumulative_by_census": {
+            "25": 0,
+            "50": 3,
+            "100": 6,
+            "150": 11,
+            "200": 11
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 11,
+          "first_loss_maximum": 135,
+          "first_loss_median_among_lost": 89,
+          "first_loss_minimum": 34,
+          "fraction_original_histories": 0.0859375
+        },
+        {
+          "at_I_fixation": 38,
+          "before_I_fixation": 33,
+          "block": "main",
+          "context": 6,
+          "cumulative_by_census": {
+            "25": 14,
+            "50": 36,
+            "100": 58,
+            "150": 67,
+            "200": 71
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 71,
+          "first_loss_maximum": 199,
+          "first_loss_median_among_lost": 47,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.5546875
+        },
+        {
+          "at_I_fixation": 2,
+          "before_I_fixation": 3,
+          "block": "main",
+          "context": 7,
+          "cumulative_by_census": {
+            "25": 0,
+            "50": 1,
+            "100": 4,
+            "150": 4,
+            "200": 5
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 5,
+          "first_loss_maximum": 171,
+          "first_loss_median_among_lost": 64,
+          "first_loss_minimum": 36,
+          "fraction_original_histories": 0.0390625
+        },
+        {
+          "at_I_fixation": 6,
+          "before_I_fixation": 4,
+          "block": "main",
+          "context": 8,
+          "cumulative_by_census": {
+            "25": 1,
+            "50": 5,
+            "100": 10,
+            "150": 10,
+            "200": 10
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 10,
+          "first_loss_maximum": 95,
+          "first_loss_median_among_lost": 50.5,
+          "first_loss_minimum": 24,
+          "fraction_original_histories": 0.078125
+        },
+        {
+          "at_I_fixation": 41,
+          "before_I_fixation": 85,
+          "block": "confirmation",
+          "context": 0,
+          "cumulative_by_census": {
+            "25": 83,
+            "50": 119,
+            "100": 125,
+            "150": 126,
+            "200": 126
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 126,
+          "first_loss_maximum": 140,
+          "first_loss_median_among_lost": 19.5,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.984375
+        },
+        {
+          "at_I_fixation": 48,
+          "before_I_fixation": 75,
+          "block": "confirmation",
+          "context": 1,
+          "cumulative_by_census": {
+            "25": 65,
+            "50": 107,
+            "100": 122,
+            "150": 123,
+            "200": 123
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 123,
+          "first_loss_maximum": 105,
+          "first_loss_median_among_lost": 23,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.9609375
+        },
+        {
+          "at_I_fixation": 48,
+          "before_I_fixation": 76,
+          "block": "confirmation",
+          "context": 2,
+          "cumulative_by_census": {
+            "25": 75,
+            "50": 113,
+            "100": 124,
+            "150": 124,
+            "200": 124
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 124,
+          "first_loss_maximum": 99,
+          "first_loss_median_among_lost": 22,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.96875
+        },
+        {
+          "at_I_fixation": 56,
+          "before_I_fixation": 45,
+          "block": "confirmation",
+          "context": 3,
+          "cumulative_by_census": {
+            "25": 22,
+            "50": 58,
+            "100": 86,
+            "150": 99,
+            "200": 101
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 101,
+          "first_loss_maximum": 157,
+          "first_loss_median_among_lost": 43,
+          "first_loss_minimum": 9,
+          "fraction_original_histories": 0.7890625
+        },
+        {
+          "at_I_fixation": 51,
+          "before_I_fixation": 73,
+          "block": "confirmation",
+          "context": 4,
+          "cumulative_by_census": {
+            "25": 56,
+            "50": 97,
+            "100": 123,
+            "150": 124,
+            "200": 124
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 124,
+          "first_loss_maximum": 106,
+          "first_loss_median_among_lost": 28,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.96875
+        },
+        {
+          "at_I_fixation": 10,
+          "before_I_fixation": 8,
+          "block": "confirmation",
+          "context": 5,
+          "cumulative_by_census": {
+            "25": 3,
+            "50": 8,
+            "100": 13,
+            "150": 18,
+            "200": 18
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 18,
+          "first_loss_maximum": 141,
+          "first_loss_median_among_lost": 54,
+          "first_loss_minimum": 13,
+          "fraction_original_histories": 0.140625
+        },
+        {
+          "at_I_fixation": 36,
+          "before_I_fixation": 38,
+          "block": "confirmation",
+          "context": 6,
+          "cumulative_by_census": {
+            "25": 19,
+            "50": 45,
+            "100": 63,
+            "150": 72,
+            "200": 74
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 74,
+          "first_loss_maximum": 184,
+          "first_loss_median_among_lost": 39.5,
+          "first_loss_minimum": 8,
+          "fraction_original_histories": 0.578125
+        },
+        {
+          "at_I_fixation": 8,
+          "before_I_fixation": 1,
+          "block": "confirmation",
+          "context": 7,
+          "cumulative_by_census": {
+            "25": 1,
+            "50": 4,
+            "100": 8,
+            "150": 8,
+            "200": 9
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 9,
+          "first_loss_maximum": 161,
+          "first_loss_median_among_lost": 51,
+          "first_loss_minimum": 24,
+          "fraction_original_histories": 0.0703125
+        },
+        {
+          "at_I_fixation": 22,
+          "before_I_fixation": 20,
+          "block": "confirmation",
+          "context": 8,
+          "cumulative_by_census": {
+            "25": 10,
+            "50": 22,
+            "100": 34,
+            "150": 39,
+            "200": 42
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 42,
+          "first_loss_maximum": 196,
+          "first_loss_median_among_lost": 46.5,
+          "first_loss_minimum": 12,
+          "fraction_original_histories": 0.328125
+        }
+      ],
+      "by_original_order_class_descriptive": {
+        "assurance_first": {
+          "at_I_fixation": 160,
+          "before_I_fixation": 168,
+          "cumulative_by_census": {
+            "25": 61,
+            "50": 198,
+            "100": 300,
+            "150": 322,
+            "200": 328
+          },
+          "denominator_original_histories": 335,
+          "ever_by_200": 328,
+          "first_loss_maximum": 170,
+          "first_loss_median_among_lost": 43,
+          "first_loss_minimum": 8,
+          "fraction_original_histories": 0.9791044776119403
+        },
+        "assurance_only": {
+          "at_I_fixation": 199,
+          "before_I_fixation": 122,
+          "cumulative_by_census": {
+            "25": 93,
+            "50": 207,
+            "100": 292,
+            "150": 315,
+            "200": 321
+          },
+          "denominator_original_histories": 895,
+          "ever_by_200": 321,
+          "first_loss_maximum": 196,
+          "first_loss_median_among_lost": 38,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.358659217877095
+        },
+        "investment_first": {
+          "at_I_fixation": 172,
+          "before_I_fixation": 257,
+          "cumulative_by_census": {
+            "25": 289,
+            "50": 405,
+            "100": 427,
+            "150": 428,
+            "200": 429
+          },
+          "denominator_original_histories": 435,
+          "ever_by_200": 429,
+          "first_loss_maximum": 199,
+          "first_loss_median_among_lost": 20,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.9862068965517241
+        },
+        "investment_only": {
+          "at_I_fixation": 2,
+          "before_I_fixation": 4,
+          "cumulative_by_census": {
+            "25": 1,
+            "50": 3,
+            "100": 5,
+            "150": 6,
+            "200": 6
+          },
+          "denominator_original_histories": 10,
+          "ever_by_200": 6,
+          "first_loss_maximum": 102,
+          "first_loss_median_among_lost": 45,
+          "first_loss_minimum": 16,
+          "fraction_original_histories": 0.6
+        },
+        "near_simultaneous": {
+          "at_I_fixation": 151,
+          "before_I_fixation": 205,
+          "cumulative_by_census": {
+            "25": 208,
+            "50": 323,
+            "100": 351,
+            "150": 356,
+            "200": 356
+          },
+          "denominator_original_histories": 358,
+          "ever_by_200": 356,
+          "first_loss_maximum": 120,
+          "first_loss_median_among_lost": 23,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.994413407821229
+        },
+        "neither": {
+          "at_I_fixation": 13,
+          "before_I_fixation": 2,
+          "cumulative_by_census": {
+            "25": 3,
+            "50": 5,
+            "100": 8,
+            "150": 12,
+            "200": 15
+          },
+          "denominator_original_histories": 271,
+          "ever_by_200": 15,
+          "first_loss_maximum": 171,
+          "first_loss_median_among_lost": 88,
+          "first_loss_minimum": 16,
+          "fraction_original_histories": 0.055350553505535055
+        }
+      },
+      "by_source_founder_block": {
+        "confirmation": {
+          "at_I_fixation": 320,
+          "before_I_fixation": 421,
+          "cumulative_by_census": {
+            "25": 334,
+            "50": 573,
+            "100": 698,
+            "150": 733,
+            "200": 741
+          },
+          "denominator_original_histories": 1152,
+          "ever_by_200": 741,
+          "first_loss_maximum": 196,
+          "first_loss_median_among_lost": 28,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.6432291666666666
+        },
+        "main": {
+          "at_I_fixation": 377,
+          "before_I_fixation": 337,
+          "cumulative_by_census": {
+            "25": 321,
+            "50": 568,
+            "100": 685,
+            "150": 706,
+            "200": 714
+          },
+          "denominator_original_histories": 1152,
+          "ever_by_200": 714,
+          "first_loss_maximum": 199,
+          "first_loss_median_among_lost": 28,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.6197916666666666
+        }
+      },
+      "pooled_original_histories_descriptive": {
+        "at_I_fixation": 697,
+        "before_I_fixation": 758,
+        "cumulative_by_census": {
+          "25": 655,
+          "50": 1141,
+          "100": 1383,
+          "150": 1439,
+          "200": 1455
+        },
+        "denominator_original_histories": 2304,
+        "ever_by_200": 1455,
+        "first_loss_maximum": 199,
+        "first_loss_median_among_lost": 28,
+        "first_loss_minimum": 7,
+        "fraction_original_histories": 0.6315104166666666
+      }
+    },
+    "return_to_actual_founder_I": {
+      "by_founder_block_and_visitor_context": [
+        {
+          "at_I_fixation": 55,
+          "before_I_fixation": 73,
+          "block": "main",
+          "context": 0,
+          "cumulative_by_census": {
+            "25": 84,
+            "50": 125,
+            "100": 128,
+            "150": 128,
+            "200": 128
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 128,
+          "first_loss_maximum": 56,
+          "first_loss_median_among_lost": 21.5,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 1
+        },
+        {
+          "at_I_fixation": 68,
+          "before_I_fixation": 60,
+          "block": "main",
+          "context": 1,
+          "cumulative_by_census": {
+            "25": 70,
+            "50": 110,
+            "100": 128,
+            "150": 128,
+            "200": 128
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 128,
+          "first_loss_maximum": 98,
+          "first_loss_median_among_lost": 24,
+          "first_loss_minimum": 8,
+          "fraction_original_histories": 1
+        },
+        {
+          "at_I_fixation": 67,
+          "before_I_fixation": 60,
+          "block": "main",
+          "context": 2,
+          "cumulative_by_census": {
+            "25": 81,
+            "50": 118,
+            "100": 126,
+            "150": 127,
+            "200": 127
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 127,
+          "first_loss_maximum": 111,
+          "first_loss_median_among_lost": 21,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.9921875
+        },
+        {
+          "at_I_fixation": 60,
+          "before_I_fixation": 49,
+          "block": "main",
+          "context": 3,
+          "cumulative_by_census": {
+            "25": 27,
+            "50": 68,
+            "100": 102,
+            "150": 107,
+            "200": 109
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 109,
+          "first_loss_maximum": 190,
+          "first_loss_median_among_lost": 41,
+          "first_loss_minimum": 10,
+          "fraction_original_histories": 0.8515625
+        },
+        {
+          "at_I_fixation": 71,
+          "before_I_fixation": 54,
+          "block": "main",
+          "context": 4,
+          "cumulative_by_census": {
+            "25": 44,
+            "50": 102,
+            "100": 123,
+            "150": 124,
+            "200": 125
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 125,
+          "first_loss_maximum": 185,
+          "first_loss_median_among_lost": 31,
+          "first_loss_minimum": 8,
+          "fraction_original_histories": 0.9765625
+        },
+        {
+          "at_I_fixation": 10,
+          "before_I_fixation": 1,
+          "block": "main",
+          "context": 5,
+          "cumulative_by_census": {
+            "25": 0,
+            "50": 3,
+            "100": 6,
+            "150": 11,
+            "200": 11
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 11,
+          "first_loss_maximum": 135,
+          "first_loss_median_among_lost": 89,
+          "first_loss_minimum": 34,
+          "fraction_original_histories": 0.0859375
+        },
+        {
+          "at_I_fixation": 38,
+          "before_I_fixation": 33,
+          "block": "main",
+          "context": 6,
+          "cumulative_by_census": {
+            "25": 14,
+            "50": 36,
+            "100": 58,
+            "150": 67,
+            "200": 71
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 71,
+          "first_loss_maximum": 199,
+          "first_loss_median_among_lost": 47,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.5546875
+        },
+        {
+          "at_I_fixation": 2,
+          "before_I_fixation": 3,
+          "block": "main",
+          "context": 7,
+          "cumulative_by_census": {
+            "25": 0,
+            "50": 1,
+            "100": 4,
+            "150": 4,
+            "200": 5
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 5,
+          "first_loss_maximum": 171,
+          "first_loss_median_among_lost": 64,
+          "first_loss_minimum": 36,
+          "fraction_original_histories": 0.0390625
+        },
+        {
+          "at_I_fixation": 6,
+          "before_I_fixation": 4,
+          "block": "main",
+          "context": 8,
+          "cumulative_by_census": {
+            "25": 1,
+            "50": 5,
+            "100": 10,
+            "150": 10,
+            "200": 10
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 10,
+          "first_loss_maximum": 95,
+          "first_loss_median_among_lost": 50.5,
+          "first_loss_minimum": 24,
+          "fraction_original_histories": 0.078125
+        },
+        {
+          "at_I_fixation": 41,
+          "before_I_fixation": 85,
+          "block": "confirmation",
+          "context": 0,
+          "cumulative_by_census": {
+            "25": 83,
+            "50": 119,
+            "100": 125,
+            "150": 126,
+            "200": 126
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 126,
+          "first_loss_maximum": 140,
+          "first_loss_median_among_lost": 19.5,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.984375
+        },
+        {
+          "at_I_fixation": 48,
+          "before_I_fixation": 75,
+          "block": "confirmation",
+          "context": 1,
+          "cumulative_by_census": {
+            "25": 65,
+            "50": 107,
+            "100": 122,
+            "150": 123,
+            "200": 123
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 123,
+          "first_loss_maximum": 105,
+          "first_loss_median_among_lost": 23,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.9609375
+        },
+        {
+          "at_I_fixation": 48,
+          "before_I_fixation": 76,
+          "block": "confirmation",
+          "context": 2,
+          "cumulative_by_census": {
+            "25": 75,
+            "50": 113,
+            "100": 124,
+            "150": 124,
+            "200": 124
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 124,
+          "first_loss_maximum": 99,
+          "first_loss_median_among_lost": 22,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.96875
+        },
+        {
+          "at_I_fixation": 56,
+          "before_I_fixation": 45,
+          "block": "confirmation",
+          "context": 3,
+          "cumulative_by_census": {
+            "25": 22,
+            "50": 58,
+            "100": 86,
+            "150": 99,
+            "200": 101
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 101,
+          "first_loss_maximum": 157,
+          "first_loss_median_among_lost": 43,
+          "first_loss_minimum": 9,
+          "fraction_original_histories": 0.7890625
+        },
+        {
+          "at_I_fixation": 51,
+          "before_I_fixation": 73,
+          "block": "confirmation",
+          "context": 4,
+          "cumulative_by_census": {
+            "25": 56,
+            "50": 97,
+            "100": 123,
+            "150": 124,
+            "200": 124
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 124,
+          "first_loss_maximum": 106,
+          "first_loss_median_among_lost": 28,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.96875
+        },
+        {
+          "at_I_fixation": 10,
+          "before_I_fixation": 8,
+          "block": "confirmation",
+          "context": 5,
+          "cumulative_by_census": {
+            "25": 3,
+            "50": 8,
+            "100": 13,
+            "150": 18,
+            "200": 18
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 18,
+          "first_loss_maximum": 141,
+          "first_loss_median_among_lost": 54,
+          "first_loss_minimum": 13,
+          "fraction_original_histories": 0.140625
+        },
+        {
+          "at_I_fixation": 36,
+          "before_I_fixation": 38,
+          "block": "confirmation",
+          "context": 6,
+          "cumulative_by_census": {
+            "25": 19,
+            "50": 45,
+            "100": 63,
+            "150": 72,
+            "200": 74
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 74,
+          "first_loss_maximum": 184,
+          "first_loss_median_among_lost": 39.5,
+          "first_loss_minimum": 8,
+          "fraction_original_histories": 0.578125
+        },
+        {
+          "at_I_fixation": 8,
+          "before_I_fixation": 1,
+          "block": "confirmation",
+          "context": 7,
+          "cumulative_by_census": {
+            "25": 1,
+            "50": 4,
+            "100": 8,
+            "150": 8,
+            "200": 9
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 9,
+          "first_loss_maximum": 161,
+          "first_loss_median_among_lost": 51,
+          "first_loss_minimum": 24,
+          "fraction_original_histories": 0.0703125
+        },
+        {
+          "at_I_fixation": 22,
+          "before_I_fixation": 20,
+          "block": "confirmation",
+          "context": 8,
+          "cumulative_by_census": {
+            "25": 10,
+            "50": 22,
+            "100": 34,
+            "150": 39,
+            "200": 42
+          },
+          "denominator_original_histories": 128,
+          "ever_by_200": 42,
+          "first_loss_maximum": 196,
+          "first_loss_median_among_lost": 46.5,
+          "first_loss_minimum": 12,
+          "fraction_original_histories": 0.328125
+        }
+      ],
+      "by_original_order_class_descriptive": {
+        "assurance_first": {
+          "at_I_fixation": 160,
+          "before_I_fixation": 168,
+          "cumulative_by_census": {
+            "25": 61,
+            "50": 198,
+            "100": 300,
+            "150": 322,
+            "200": 328
+          },
+          "denominator_original_histories": 335,
+          "ever_by_200": 328,
+          "first_loss_maximum": 170,
+          "first_loss_median_among_lost": 43,
+          "first_loss_minimum": 8,
+          "fraction_original_histories": 0.9791044776119403
+        },
+        "assurance_only": {
+          "at_I_fixation": 199,
+          "before_I_fixation": 122,
+          "cumulative_by_census": {
+            "25": 93,
+            "50": 207,
+            "100": 292,
+            "150": 315,
+            "200": 321
+          },
+          "denominator_original_histories": 895,
+          "ever_by_200": 321,
+          "first_loss_maximum": 196,
+          "first_loss_median_among_lost": 38,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.358659217877095
+        },
+        "investment_first": {
+          "at_I_fixation": 172,
+          "before_I_fixation": 257,
+          "cumulative_by_census": {
+            "25": 289,
+            "50": 405,
+            "100": 427,
+            "150": 428,
+            "200": 429
+          },
+          "denominator_original_histories": 435,
+          "ever_by_200": 429,
+          "first_loss_maximum": 199,
+          "first_loss_median_among_lost": 20,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.9862068965517241
+        },
+        "investment_only": {
+          "at_I_fixation": 2,
+          "before_I_fixation": 4,
+          "cumulative_by_census": {
+            "25": 1,
+            "50": 3,
+            "100": 5,
+            "150": 6,
+            "200": 6
+          },
+          "denominator_original_histories": 10,
+          "ever_by_200": 6,
+          "first_loss_maximum": 102,
+          "first_loss_median_among_lost": 45,
+          "first_loss_minimum": 16,
+          "fraction_original_histories": 0.6
+        },
+        "near_simultaneous": {
+          "at_I_fixation": 151,
+          "before_I_fixation": 205,
+          "cumulative_by_census": {
+            "25": 208,
+            "50": 323,
+            "100": 351,
+            "150": 356,
+            "200": 356
+          },
+          "denominator_original_histories": 358,
+          "ever_by_200": 356,
+          "first_loss_maximum": 120,
+          "first_loss_median_among_lost": 23,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.994413407821229
+        },
+        "neither": {
+          "at_I_fixation": 13,
+          "before_I_fixation": 2,
+          "cumulative_by_census": {
+            "25": 3,
+            "50": 5,
+            "100": 8,
+            "150": 12,
+            "200": 15
+          },
+          "denominator_original_histories": 271,
+          "ever_by_200": 15,
+          "first_loss_maximum": 171,
+          "first_loss_median_among_lost": 88,
+          "first_loss_minimum": 16,
+          "fraction_original_histories": 0.055350553505535055
+        }
+      },
+      "by_source_founder_block": {
+        "confirmation": {
+          "at_I_fixation": 320,
+          "before_I_fixation": 421,
+          "cumulative_by_census": {
+            "25": 334,
+            "50": 573,
+            "100": 698,
+            "150": 733,
+            "200": 741
+          },
+          "denominator_original_histories": 1152,
+          "ever_by_200": 741,
+          "first_loss_maximum": 196,
+          "first_loss_median_among_lost": 28,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.6432291666666666
+        },
+        "main": {
+          "at_I_fixation": 377,
+          "before_I_fixation": 337,
+          "cumulative_by_census": {
+            "25": 321,
+            "50": 568,
+            "100": 685,
+            "150": 706,
+            "200": 714
+          },
+          "denominator_original_histories": 1152,
+          "ever_by_200": 714,
+          "first_loss_maximum": 199,
+          "first_loss_median_among_lost": 28,
+          "first_loss_minimum": 7,
+          "fraction_original_histories": 0.6197916666666666
+        }
+      },
+      "pooled_original_histories_descriptive": {
+        "at_I_fixation": 697,
+        "before_I_fixation": 758,
+        "cumulative_by_census": {
+          "25": 655,
+          "50": 1141,
+          "100": 1383,
+          "150": 1439,
+          "200": 1455
+        },
+        "denominator_original_histories": 2304,
+        "ever_by_200": 1455,
+        "first_loss_maximum": 199,
+        "first_loss_median_among_lost": 28,
+        "first_loss_minimum": 7,
+        "fraction_original_histories": 0.6315104166666666
+      }
+    }
+  },
+  "high_vs_low_loss_same_original_histories": {
+    "both_high_and_low": 404,
+    "both_high_first": 192,
+    "both_low_first": 208,
+    "both_same_census": 4,
+    "high_only": 1051,
+    "low_only": 834,
+    "neither": 15
+  },
+  "original_source": {
+    "arrays_sha256": "7096b864289e976f7eb443305bb42acdae78b0ea28f6f45b7237bc7c795981a4",
+    "cases_sha256": "5c8e3fe38d7f2953d2ba8b54e716261c7bdc9d4a92bf928182b5fcf621e5e665",
+    "distinct_independent_natural_islands": 0,
+    "founder_blocks": 2,
+    "founder_mean_I_ranges": {
+      "confirmation": [
+        0.515625,
+        0.515625
+      ],
+      "main": [
+        0.5078125,
+        0.5078125
+      ]
+    },
+    "n_censuses_each": 201,
+    "n_history_paths": 2304,
+    "original_low_i_loss_recalculated": {
+      "at_I_fixation": 535,
+      "before_I_fixation": 703,
+      "cumulative_by_census": {
+        "25": 371,
+        "50": 829,
+        "100": 1142,
+        "150": 1209,
+        "200": 1238
+      },
+      "denominator_original_histories": 2304,
+      "ever_by_200": 1238,
+      "first_loss_maximum": 198,
+      "first_loss_median_among_lost": 35,
+      "first_loss_minimum": 4,
+      "fraction_original_histories": 0.5373263888888888
+    },
+    "readout_git_blob": "36aa40f63506313cbdb9c110f91f760df344bd0c",
+    "replicate_streams_per_cell": 128,
+    "source_archive_sha256": "819741aa4a9f5bc1aaf2dadddbd56b79d158fc9295d07fc3bffe362693fc056a",
+    "source_population_sha256": "c03fc6fccdf4efb660ece8fa5ee016d4de14f84f3b234dfb6322666b89ec34c1",
+    "visitor_contexts_each": 9
+  },
+  "schema": "ch3_source_high_i_recoverability_preflight_v1",
+  "status": "PASS_RETROSPECTIVE_HIGH_I_SUPPORT_BOUNDS_ONLY",
+  "the_three_high_I_criteria_have_identical_first_loss_times": true
+}

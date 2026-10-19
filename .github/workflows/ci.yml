@@ -36,3 +36,186 @@ jobs:
             pytest-${{ matrix.python-version }}.xml
             pytest-${{ matrix.python-version }}.log
           if-no-files-found: error
+
+  # User-requested Actions deployment. Same original 3x3 engineering cohort;
+  # not 160x160 production and not new independent biological evidence.
+  q3-prepare:
+    if: >-
+      github.event_name == 'pull_request' &&
+      github.event.pull_request.number == 597 &&
+      github.event.pull_request.head.repo.full_name == github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      actions: read
+    outputs:
+      source: ${{ steps.identity.outputs.source }}
+      batch: ${{ steps.identity.outputs.batch }}
+      python: ${{ steps.python.outputs.python-version }}
+      plan_id: ${{ steps.upload.outputs.artifact-id }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        id: python
+        with:
+          python-version: '3.12'
+      - name: Identical numerical environment for all runners
+        run: python -m pip install numpy==2.2.6 scipy==1.15.3 pytest==8.4.2 PyYAML==6.0.2
+      - name: Record exact source and artifact batch
+        id: identity
+        run: |
+          echo "source=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          echo "batch=${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}" >> "$GITHUB_OUTPUT"
+      - name: Verify transfer rules and prepare bounded technical cohort
+        env:
+          SOURCE: ${{ steps.identity.outputs.source }}
+          BATCH: ${{ steps.identity.outputs.batch }}
+        run: |
+          python -m pytest -q tests/test_q3_actions_artifacts_20261019.py
+          mkdir -p q3-transfer
+          python -m scripts.q3_partitioned_runner_20261019 init --root q3-work --shards 3 > q3-transfer/PREPARE.json
+          python -m scripts.q3_actions_artifacts_20261019 pack --root q3-work --packet q3-transfer/plan.zip --source "$SOURCE" --batch "$BATCH" > q3-transfer/PACKET.json
+          python -m scripts.q3_release160_20261019 --out q3-plan160 --storage-parent . > q3-transfer/PLAN160.log
+          printf '## Q3 remote run\n3x3 technical cohort; 3 isolated workers. 160x160 manifest is planning only.\n' >> "$GITHUB_STEP_SUMMARY"
+      - uses: actions/upload-artifact@v4
+        id: upload
+        with:
+          name: q3-plan-${{ steps.identity.outputs.batch }}
+          path: q3-transfer/
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 0
+      - uses: actions/upload-artifact@v4
+        with:
+          name: q3-planning-only-160-${{ steps.identity.outputs.batch }}
+          path: q3-plan160/
+          if-no-files-found: error
+          retention-days: 14
+
+  q3-worker:
+    needs: q3-prepare
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      actions: read
+    strategy:
+      fail-fast: false
+      max-parallel: 3
+      matrix:
+        shard: [0, 1, 2]
+    env:
+      SOURCE: ${{ needs.q3-prepare.outputs.source }}
+      BATCH: ${{ needs.q3-prepare.outputs.batch }}
+      SHARD: ${{ matrix.shard }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.q3-prepare.outputs.source }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ needs.q3-prepare.outputs.python }}
+      - run: python -m pip install numpy==2.2.6 scipy==1.15.3
+      - uses: actions/download-artifact@v4
+        with:
+          artifact-ids: ${{ needs.q3-prepare.outputs.plan_id }}
+          path: q3-transfer
+          merge-multiple: true
+      - name: Restore exact cross-runner contract and run first 48 updates
+        run: |
+          mkdir -p q3-worker-logs q3-ready
+          python -m scripts.q3_actions_artifacts_20261019 restore --root q3-work --packet q3-transfer/plan.zip --source "$SOURCE" --batch "$BATCH" > q3-worker-logs/RESTORE.json
+          python -m scripts.q3_partitioned_runner_20261019 worker --root q3-work --shard "$SHARD" --max-updates 48 > q3-worker-logs/PARTIAL.json
+      - name: Resume without changing random streams and seal completed shard
+        run: |
+          python -m scripts.q3_partitioned_runner_20261019 worker --root q3-work --shard "$SHARD" > q3-worker-logs/COMPLETE.json
+          python -m scripts.q3_partitioned_runner_20261019 worker --root q3-work --shard "$SHARD" > q3-worker-logs/REPEAT.json
+          python -c "import json; d=json.load(open('q3-worker-logs/REPEAT.json')); assert d['new_updates']==0 and d['complete']"
+          python -m scripts.q3_actions_artifacts_20261019 pack --root q3-work --packet "q3-ready/shard-${SHARD}.zip" --source "$SOURCE" --batch "$BATCH" --shard "$SHARD" > q3-worker-logs/PACKET.json
+      - uses: actions/upload-artifact@v4
+        with:
+          name: q3-ready-${{ needs.q3-prepare.outputs.batch }}-${{ matrix.shard }}
+          path: q3-ready/
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 14
+      - name: Retain logs and partial native checkpoints even on failure
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: q3-diagnostic-${{ needs.q3-prepare.outputs.batch }}-${{ matrix.shard }}-attempt-${{ github.run_attempt }}
+          path: |
+            q3-worker-logs/
+            q3-work/
+          if-no-files-found: warn
+          retention-days: 14
+
+  q3-collect:
+    needs: [q3-prepare, q3-worker]
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    permissions:
+      contents: read
+      actions: read
+    env:
+      SOURCE: ${{ needs.q3-prepare.outputs.source }}
+      BATCH: ${{ needs.q3-prepare.outputs.batch }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ needs.q3-prepare.outputs.source }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ needs.q3-prepare.outputs.python }}
+      - run: python -m pip install numpy==2.2.6 scipy==1.15.3
+      - uses: actions/download-artifact@v4
+        with:
+          artifact-ids: ${{ needs.q3-prepare.outputs.plan_id }}
+          path: q3-transfer
+          merge-multiple: true
+      - uses: actions/download-artifact@v4
+        with:
+          pattern: q3-ready-${{ needs.q3-prepare.outputs.batch }}-*
+          path: q3-ready
+          merge-multiple: true
+      - name: Admit every sealed shard before aggregation
+        run: |
+          python -m scripts.q3_actions_artifacts_20261019 restore --root q3-work --packet q3-transfer/plan.zip --source "$SOURCE" --batch "$BATCH"
+          python -c "from pathlib import Path; assert {p.name for p in Path('q3-ready').iterdir()}=={'shard-0.zip','shard-1.zip','shard-2.zip'}"
+          for shard in 0 1 2; do
+            python -m scripts.q3_actions_artifacts_20261019 restore --root q3-work --packet "q3-ready/shard-${shard}.zip" --source "$SOURCE" --batch "$BATCH"
+          done
+          python -m scripts.q3_partitioned_runner_20261019 collect --root q3-work --destination q3-complete > Q3_COLLECTION.json
+          python -m scripts.audit_q3_native_pipeline_20261019 --root q3-complete --summary q3-complete/SUMMARY.json --out q3-complete/RAW_AUDIT.json
+          python -m scripts.q3_partitioned_runner_20261019 collect --root q3-work --destination q3-complete > Q3_RECOLLECTION.json
+          cmp Q3_COLLECTION.json Q3_RECOLLECTION.json
+      - name: Publish verified technical status, not a scientific conclusion
+        run: |
+          python - <<'PY'
+          import json,os
+          a=json.load(open('q3-complete/RAW_AUDIT.json'))
+          assert a['status']=='TECHNICAL_RAW_PIPELINE_AUDIT_PASS'
+          assert a['files']==54 and a['saved_states']==2304 and a['fork_start_matches']==36
+          assert a['confirmation_seeds_consumed']==0
+          with open(os.environ['GITHUB_STEP_SUMMARY'],'a') as out:
+              out.write('## Q3 Actions pipeline verified\n')
+              out.write(f"Source `{os.environ['SOURCE']}`; batch `{os.environ['BATCH']}`.\n\n")
+              out.write('3 remote worker jobs; 54 checked task files; 2,304 saved censuses; 36 exact fork matches.\n\n')
+              out.write('Completed technical replay only. Confirmation sources consumed: **0**. No 160x160 biological campaign ran.\n')
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: q3-verified-${{ needs.q3-prepare.outputs.batch }}
+          path: |
+            q3-complete/
+            Q3_COLLECTION.json
+            Q3_RECOLLECTION.json
+          if-no-files-found: error
+          compression-level: 0
+          retention-days: 14

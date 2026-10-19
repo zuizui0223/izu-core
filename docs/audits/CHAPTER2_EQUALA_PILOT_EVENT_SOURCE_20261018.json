@@ -1,0 +1,355 @@
+{
+  "schema": "chapter2_equalA_pilot_events_ci_v1",
+  "status": "EXPLORATORY_PILOT_EVENT_SUMMARY_NOT_RAW_GENOTYPE_AUDIT",
+  "source": {
+    "repo": "zuizui0223/izu-core",
+    "pr": 597,
+    "head_sha": "cc17c7355d27b907b71b124046990b914e4963dd",
+    "executed_merge_sha": "57d022dfd382eef4df2e63f9e0aebb451ae46605",
+    "ci_run_id": 39106340477,
+    "ci_run_url": "https://github.com/zuizui0223/izu-core/actions/runs/39106340477",
+    "jobs": {
+      "3.10": 117612886438,
+      "3.11": 117612886273,
+      "3.12": 117612886867
+    },
+    "design_sha256": "442e1340928406f26043d51cab6de30808b7707f4ff68df27af6f1b6f16812f5",
+    "runner_sha256": "19163679c00315f89239dc7563a8a4311298c7524d7d0f662b07186c8f19460a",
+    "founder_constructor_sha256": "e3522e629e3b94f49e0095fe5702e44a68f0b3e50e85c11cd2641a20d5625c08",
+    "retrieval": "Per-path event records transcribed from connector-fetched complete CI warning logs; checked against all three logged event tables, counts, paired variance and accessible-census sums. No independently read NPZ genomes.",
+    "three_runtime_event_records_agree": true,
+    "logged_access_time_float_difference": 3.552713678800501e-14
+  },
+  "design": {
+    "founders": [
+      301001,
+      301002,
+      301003,
+      301004,
+      301005,
+      301006
+    ],
+    "visitors": [
+      302001,
+      302002,
+      302003,
+      302004,
+      302005,
+      302006
+    ],
+    "nested_repeats": 2,
+    "policies": [
+      "fixed",
+      "evolving"
+    ],
+    "updates": 80,
+    "imposed_no_visitors_from_update": 35,
+    "initial_expressed_A_all_adults": 0.5,
+    "A_pairs": [
+      [
+        0.25,
+        0.75
+      ],
+      [
+        0.5,
+        0.5
+      ],
+      [
+        0.75,
+        0.25
+      ]
+    ],
+    "A_pair_counts": [
+      16,
+      16,
+      16
+    ],
+    "assurance_timing": "delayed",
+    "assurance_cost": 0.5,
+    "no_mutation_all_three_loci": true,
+    "no_seed_immigration": true,
+    "array_layout": "Each of 6 founder rows contains 12 entries ordered visitor0-rep0,visitor0-rep1,...,visitor5-rep1. null means no loss through t80; not zero."
+  },
+  "first_I_loss_fixed": [
+    [
+      69,
+      36,
+      null,
+      null,
+      null,
+      null,
+      60,
+      null,
+      null,
+      24,
+      51,
+      null
+    ],
+    [
+      null,
+      29,
+      null,
+      56,
+      47,
+      null,
+      72,
+      45,
+      46,
+      45,
+      77,
+      null
+    ],
+    [
+      null,
+      52,
+      70,
+      60,
+      44,
+      70,
+      44,
+      56,
+      44,
+      34,
+      null,
+      65
+    ],
+    [
+      null,
+      null,
+      null,
+      58,
+      null,
+      null,
+      null,
+      null,
+      null,
+      null,
+      63,
+      null
+    ],
+    [
+      46,
+      18,
+      69,
+      24,
+      null,
+      33,
+      31,
+      36,
+      43,
+      59,
+      67,
+      null
+    ],
+    [
+      42,
+      47,
+      null,
+      null,
+      73,
+      null,
+      null,
+      null,
+      78,
+      61,
+      65,
+      64
+    ]
+  ],
+  "first_I_loss_evolving": [
+    [
+      48,
+      41,
+      53,
+      71,
+      54,
+      74,
+      51,
+      29,
+      9,
+      47,
+      26,
+      66
+    ],
+    [
+      60,
+      26,
+      59,
+      63,
+      71,
+      31,
+      null,
+      73,
+      22,
+      17,
+      71,
+      null
+    ],
+    [
+      33,
+      17,
+      73,
+      77,
+      25,
+      39,
+      28,
+      16,
+      21,
+      49,
+      24,
+      57
+    ],
+    [
+      59,
+      57,
+      62,
+      null,
+      34,
+      null,
+      69,
+      null,
+      36,
+      43,
+      null,
+      null
+    ],
+    [
+      19,
+      42,
+      47,
+      74,
+      38,
+      72,
+      62,
+      43,
+      76,
+      50,
+      77,
+      null
+    ],
+    [
+      47,
+      null,
+      null,
+      null,
+      null,
+      null,
+      37,
+      32,
+      25,
+      58,
+      null,
+      43
+    ]
+  ],
+  "first_A_loss_evolving": [
+    [
+      24,
+      23,
+      39,
+      29,
+      44,
+      40,
+      35,
+      25,
+      21,
+      24,
+      45,
+      48
+    ],
+    [
+      36,
+      12,
+      48,
+      54,
+      28,
+      39,
+      72,
+      41,
+      25,
+      14,
+      38,
+      49
+    ],
+    [
+      25,
+      25,
+      39,
+      37,
+      32,
+      42,
+      23,
+      40,
+      22,
+      19,
+      27,
+      36
+    ],
+    [
+      28,
+      41,
+      47,
+      39,
+      23,
+      27,
+      39,
+      30,
+      20,
+      14,
+      37,
+      50
+    ],
+    [
+      12,
+      28,
+      48,
+      29,
+      44,
+      27,
+      25,
+      35,
+      17,
+      18,
+      52,
+      33
+    ],
+    [
+      47,
+      15,
+      32,
+      52,
+      38,
+      40,
+      28,
+      19,
+      27,
+      18,
+      42,
+      19
+    ]
+  ],
+  "all_144_paths_alive_at_80": true,
+  "logged_summary": {
+    "I_losses": {
+      "fixed": 42,
+      "evolving": 58
+    },
+    "n_per_policy": 72,
+    "alive": {
+      "fixed": 72,
+      "evolving": 72
+    },
+    "accessible_census_time_inclusive_0_80": {
+      "fixed": 63.93055555555552,
+      "evolving": 53.56944444444444
+    },
+    "paired_I_loss_components": {
+      "founder": 0.023333333333333345,
+      "visitor": 0.0,
+      "interaction": 0.06555555555555553,
+      "within_cell": 0.2777777777777778
+    },
+    "occupied_service_assays": 1296,
+    "positive_service_assays": 1296
+  }
+}

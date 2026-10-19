@@ -1,0 +1,137 @@
+{
+  "schema": "chapter2_t39_fixed_source_visitor_return_fitness_audit_v1",
+  "status": "POST_OUTCOME_SOURCE_ONLY_LOCAL_FITNESS_NOT_LONGITUDINAL_EVOLUTION_CONFIRMATION",
+  "source": {
+    "repository": "zuizui0223/izu-core",
+    "branch": "analysis/chapter2-pollinator-recovery-pilot-20261018",
+    "biological_source_head": "abcd89962d8ca13322f6b369e6be1fe5d3603542",
+    "ci_run": 39097938360,
+    "url": "https://github.com/zuizui0223/izu-core/actions/runs/39097938360",
+    "jobs": [
+      {
+        "python_version": "3.10",
+        "job_id": 117588306835
+      },
+      {
+        "python_version": "3.11",
+        "job_id": 117588306751
+      },
+      {
+        "python_version": "3.12",
+        "job_id": 117588306851
+      }
+    ],
+    "auditor_sha256": "b1ad53595a3be016abf8787cc9d4defecd10b9a87588435d90259d137f649107",
+    "model_source_sha256": {
+      "data/design/model3_island_v2.json": "0dcf6190c27f5fc9c50b07a270826932691f8c21886ff4b148c6fe299bf3135e",
+      "docs/protocols/CHAPTER2_ISLAND_BRANCH_RECOVERY_PILOT_20261018.md": "6a9906a8ef9b8809a9ea37d3111760df1e2b866959820b69d6900715bfcf74f3",
+      "scripts/explore_chapter2_pollinator_recovery_20261018.py": "25a9e0646636abc6624d05effd8e5c4c0c285fb854462102b7b90f876a2a441c",
+      "scripts/model3_island/history.py": "28d22c7fde81d9be6a604fa9dd4cb6b48d78d388d4db85f798a935cf81415488",
+      "scripts/model3_island/population.py": "c959d18816da6666dbfb4e91bd9582c94af5453b25498d033f5747305b05fe0f",
+      "scripts/model3_island/randomness.py": "63522ae3c5ff8e11f114b5649a989945fa4ba2480fdca0f74857601b0e4b211f",
+      "scripts/model3_island/reproduction.py": "885957edb8a165ee8528781ed1d2574c44143c608496b505f9663cbfac2c4081",
+      "scripts/model3_island/types.py": "a572e1e7f4fded181585871a63582b16f40292bd07b13e8efc9d6b6234eb21c5"
+    }
+  },
+  "design": {
+    "historical_founder_seeds": 2,
+    "historical_visitor_history_seeds": 2,
+    "historical_A_policies": 2,
+    "original_historical_paths": 8,
+    "existing_assayed_genotype_time_cells": 40,
+    "artificial_permanent_visitor_loss_TE": 35,
+    "source_time_t": 39,
+    "source_policy": "evolving",
+    "source_founder_index": 0,
+    "source_visitor_index": 0,
+    "source_capacity": 48,
+    "return_visitor_types": 6,
+    "assurance_timing": "delayed",
+    "assurance_direct_cost": 0.5,
+    "pollen_discount": 0,
+    "delta_inbreeding_depression": 0.5,
+    "I_mutation_rate": 0,
+    "seed_immigration": 0
+  },
+  "results": {
+    "founder_I_mean_target": 0.51171875,
+    "highest_retained_I_allele": 0.5,
+    "upper_allele_shortfall": 0.01171875,
+    "occupied_population": 48,
+    "necessary_founder_high_I_access_closed": true,
+    "source_native_fixed_genotype_restored_minus_no_visitors_expected_outcross": 104.65538985971435,
+    "maternal_no_service_fraction_relative_to_ideal_q1": 0.37361131208405235,
+    "focal_log_relative_genetic_return_slopes": {
+      "I": [
+        0.2618680950035547,
+        0.2618626959594604
+      ],
+      "A": [
+        -0.045708161170711185,
+        -0.04570957271258502
+      ]
+    },
+    "stable_directions": {
+      "I": "positive",
+      "A": "negative"
+    }
+  },
+  "runtime_replay": {
+    "all_three_finished_green": true,
+    "same_source_and_code_sha": true,
+    "mathematically_same_direction_all_three": true,
+    "not_bitwise_identical_float": true,
+    "max_absolute_float_difference": 4.40619762898109e-14,
+    "individual_runtime_values": [
+      {
+        "python_version": "3.10",
+        "job_id": 117588306835,
+        "expected_outcross_gain": 104.65538985971435,
+        "A_focal_slopes": [
+          -0.045708161170711185,
+          -0.04570957271258502
+        ],
+        "I_focal_slopes": [
+          0.2618680950035547,
+          0.2618626959594604
+        ]
+      },
+      {
+        "python_version": "3.11",
+        "job_id": 117588306751,
+        "expected_outcross_gain": 104.65538985971435,
+        "A_focal_slopes": [
+          -0.045708161170711185,
+          -0.04570957271258502
+        ],
+        "I_focal_slopes": [
+          0.2618680950035547,
+          0.2618626959594604
+        ]
+      },
+      {
+        "python_version": "3.12",
+        "job_id": 117588306851,
+        "expected_outcross_gain": 104.65538985971436,
+        "A_focal_slopes": [
+          -0.045708161170733216,
+          -0.045709572712629085
+        ],
+        "I_focal_slopes": [
+          0.2618680950035547,
+          0.2618626959594604
+        ]
+      }
+    ]
+  },
+  "restrictions": [
+    "The original finite-history survivor genotype at t39 is first inaccessible to its founder mean because max I allele 0.5 < 0.51171875. No I mutation or seed immigration permitted; this is target-relative structural closure, NOT a general no-mutation biological law.",
+    "The focal-I-positive derivative is computed using a hypothetical infinitesimal perturbation of a current individual's I alleles, above/beyond existing support if necessary. Such a new allele is NOT supplied to the evolutionary future. A positive slope therefore coexists with strictly inaccessible ancestral target.",
+    "The selected one-adult log-relative fitness derivative averages maternal+paternal and self-viable sources. This is finite N=48 and not a full polymorphic invasion gradient, distribution average, equilibrium or ecological universal sign.",
+    "Restored visitor set consists of six synthetic types in a static one-census reproductive ledger, not a stochastic visitor-return history. Expected outcross gain is not a realized birth or persistence effect.",
+    "Decline of A locally favored in this particular delayed-selfing setting with direct cost 0.5; it is NOT evidence against the source zero-cost neutrality condition.",
+    "Selfing functional fault fraction is a maternal output ratio relative to same-genotype full fertilization, not long-term population survival or total genetic fitness.",
+    "Replaying the same source algorithm in three Python versions with <=1e-10 numerical agreement does not provide independent genetic model verification or 3 biological replicates.",
+    "Only 2 by 2 crossed founder/visitor synthetic backgrounds; no powered Q3 causal effect, stochastic t-star, field island generalization or natural pollinator extirpation timing established."
+  ]
+}

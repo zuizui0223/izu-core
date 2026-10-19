@@ -1,0 +1,124 @@
+{
+  "fixed_arm_ceiling": {
+    "maximum_possible_positive_survival_policy_effect": 1.6075032057658345e-15,
+    "minimum_mean_recruits_at_n48": 69.68852649143119,
+    "minimum_viable_seeds_per_adult": 1.4518443019048164,
+    "probability_type": "analytic stochastic-comparison bound evaluated numerically, NOT fitted from zero deaths",
+    "single_step_zero_recruits_probability_at_n48": 5.428220649490788e-31,
+    "upper_probability_extinction_by_t80": 1.6075032057658345e-15
+  },
+  "fixed_trait_45_update_reference_chains": [
+    {
+      "assurance": 0.5,
+      "budget": 8.0,
+      "extinction_by_45": 5.924504505747099e-22,
+      "fixed_trait_per_capita_seed_rate": 1.6451551247973293,
+      "investment": 0.375,
+      "not_evolved_arm_effect_estimate": true,
+      "survival_by_45": 1.0
+    },
+    {
+      "assurance": 0.5,
+      "budget": 8.0,
+      "extinction_by_45": 8.21829274174391e-16,
+      "fixed_trait_per_capita_seed_rate": 1.4518443019048164,
+      "investment": 0.625,
+      "not_evolved_arm_effect_estimate": true,
+      "survival_by_45": 0.9999999999999992
+    },
+    {
+      "assurance": 0.75,
+      "budget": 8.0,
+      "extinction_by_45": 2.1582016096499377e-35,
+      "fixed_trait_per_capita_seed_rate": 2.1107636230368825,
+      "investment": 0.375,
+      "not_evolved_arm_effect_estimate": true,
+      "survival_by_45": 1.0
+    },
+    {
+      "assurance": 0.75,
+      "budget": 8.0,
+      "extinction_by_45": 1.948940782639465e-28,
+      "fixed_trait_per_capita_seed_rate": 1.8627423594182875,
+      "investment": 0.625,
+      "not_evolved_arm_effect_estimate": true,
+      "survival_by_45": 1.0
+    },
+    {
+      "assurance": 0.5,
+      "budget": 4.5,
+      "extinction_by_45": 0.8297987641144696,
+      "fixed_trait_per_capita_seed_rate": 0.9253997576984977,
+      "investment": 0.375,
+      "not_evolved_arm_effect_estimate": true,
+      "survival_by_45": 0.17020123588553038
+    },
+    {
+      "assurance": 0.5,
+      "budget": 4.5,
+      "extinction_by_45": 0.998433164475303,
+      "fixed_trait_per_capita_seed_rate": 0.8166624198214593,
+      "investment": 0.625,
+      "not_evolved_arm_effect_estimate": true,
+      "survival_by_45": 0.0015668355246970522
+    },
+    {
+      "assurance": 0.75,
+      "budget": 4.5,
+      "extinction_by_45": 8.926068945520881e-07,
+      "fixed_trait_per_capita_seed_rate": 1.1873045379582465,
+      "investment": 0.375,
+      "not_evolved_arm_effect_estimate": true,
+      "survival_by_45": 0.9999991073931055
+    },
+    {
+      "assurance": 0.75,
+      "budget": 4.5,
+      "extinction_by_45": 0.022403334104870554,
+      "fixed_trait_per_capita_seed_rate": 1.0477925771727867,
+      "investment": 0.625,
+      "not_evolved_arm_effect_estimate": true,
+      "survival_by_45": 0.9775966658951294
+    }
+  ],
+  "future_confirmation_authorized": false,
+  "gate_decision": "DO_NOT_POWER_A_POSITIVE_SURVIVAL_RESCUE_EFFECT_WITH_THE_B8_FIXED_A_COMPARATOR",
+  "new_biological_histories": 0,
+  "new_descendant_restoration_paths": 0,
+  "post_pilot_resource_proposal": {
+    "budget_as_fraction_of_original": 0.5625,
+    "illustrative_budget": 4.5,
+    "lower_budget_strict": 4.29474315626682,
+    "property": "r(A=.5)<1<r(A=.75) for all allowed I; states are diagnostic contrasts, not arm means",
+    "scaling_identity": "at fixed genomes and visitors, multiplying ovule_budget by s multiplies the complete viable-parentage matrix by s; conditional parental probabilities are unchanged",
+    "status": "PROPOSED_MECHANISTIC_COMPANION_NOT_REGISTERED_OR_EXECUTED",
+    "upper_budget_strict": 4.8627633220821895,
+    "warning": "s scales absolute recruitment, not just A; population changes can indirectly change later selection; no inference that evolving A will always reach .75"
+  },
+  "restrictions": [
+    "Upper bound applies to the FIXED-A arm under specified source parameters; no corresponding uniform survival guarantee for an arbitrary evolving-A population.",
+    "I allele support must remain <=.625, expression must be the diploid mean, delayed selfing applies, and there is no adult carryover or seed immigration.",
+    "Proof uses a monotone Poisson coupling over all population sizes. Single-step exp(-lambda) alone is not a finite-horizon extinction bound.",
+    "With finite K and stochastic reproduction eventual extinction remains possible; supercritical per-capita reproduction is not permanent persistence.",
+    "B4.5 curves are exactly integrated fixed-trait comparison chains; they are not new empirical outcomes or evolved-policy effect estimates.",
+    "The post-pilot resource window is a proposal for a separate prospective companion, not retroactive alteration of the registered history or approval under #585.",
+    "No guarantee of trait recovery follows from survival; no survival difference establishes genetic mediation."
+  ],
+  "schema": "chapter2_source_demographic_ceiling_diagnostic_v1",
+  "source": {
+    "event_source_canonical_sha256": "0caeed0e2494f617a362d7ca11dc49e145953a013dcb59be6b23c01a572ff726",
+    "head": "cc17c7355d27b907b71b124046990b914e4963dd",
+    "native_git_blobs": {
+      "docs/protocols/CHAPTER2_Q3_EQUALA_CROSSED_VARIANCE_PILOT_FROZEN_20261018.json": "ac99b70766103b2cb8b7cc45b23185229d6a21c8",
+      "scripts/model3_island/population.py": "20e90f249f63e9f37e8801d19d9b75cade2fe193",
+      "scripts/model3_island/reproduction.py": "95314698a3296b6f13b8c053c36f2df0b7b744ca"
+    },
+    "parameter_source": "base_config ovule_budget=8,investment_cost=depression=.5; frozen pilot assurance_cost=.5,capacity=48,adult_survival=0; I support [.375,.625]"
+  },
+  "source_counts": {
+    "evolving_high_I_loss": 58,
+    "fixed_high_I_loss": 42,
+    "living_at_t80": 144
+  },
+  "status": "SOURCE_DERIVED_COMPARISON_BOUND_NOT_NEW_BIOLOGICAL_EVIDENCE"
+}

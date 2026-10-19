@@ -1,0 +1,88 @@
+{
+  "actual_new_biological_histories": 0,
+  "adverse_is_sensitivity_assumption_not_empirical_upper_bound": true,
+  "adverse_scenario": {
+    "founder": 0.05,
+    "interaction": 0.2,
+    "visitor": 0.05,
+    "within_cell": 0.65
+  },
+  "caution": "Envelope is conservative relative to the recorded component estimates, not a confidence envelope for population variances.",
+  "component_envelopes": {
+    "genetic_loss": {
+      "founder": 0.02833333333333334,
+      "interaction": 0.06555555555555553,
+      "visitor": 0.03333333333333333,
+      "within_cell": 0.5138888888888888
+    },
+    "survival_interaction": {
+      "founder": 0.0,
+      "interaction": 0.0005555555555555609,
+      "visitor": 0.002222222222222224,
+      "within_cell": 0.08333333333333333
+    }
+  },
+  "descriptive_source_point_estimates": {
+    "104": {
+      "genetic_control_risk_difference": 0.125,
+      "survival_interaction": 0.9166666666666666
+    },
+    "90": {
+      "genetic_control_risk_difference": 0.06944444444444445,
+      "survival_interaction": 0.9722222222222222
+    }
+  },
+  "genetic_loss_component_sources": {
+    "104": {
+      "founder": 0.02833333333333334,
+      "interaction": 0.0,
+      "visitor": 0.022777777777777775,
+      "within_cell": 0.5138888888888888
+    },
+    "90": {
+      "founder": 0.0,
+      "interaction": 0.00833333333333336,
+      "visitor": 0.03333333333333333,
+      "within_cell": 0.4305555555555556
+    },
+    "original": {
+      "founder": 0.023333333333333345,
+      "interaction": 0.06555555555555553,
+      "visitor": 0.0,
+      "within_cell": 0.2777777777777778
+    }
+  },
+  "genetic_original_point_estimate": 0.2222222222222222,
+  "independent_source_counts": {
+    "founders": 6,
+    "historical_repeats": 2,
+    "visitors": 6
+  },
+  "schema": "chapter2_joint_method_review_pilot_inputs_v1",
+  "source_blobs": {
+    "CHAPTER2_BUDGET_COMPANION_STREAM_RECONCILIATION_20261018.json": "31ea7fc3c652909461c878c4e9e102c99df183e1",
+    "CHAPTER2_EQUALA_PILOT_EVENT_SOURCE_20261018.json": "e007ac785be7264ebb9040c9ff8bfd1a2d504279"
+  },
+  "source_commit": "98a0f2de98a6572bc4789c0431f44c45f283400e",
+  "source_hash_encoding": "SHA256 of canonical decoded JSON; git blob pins cover original bytes",
+  "source_seed_families_are_nested_not_pooled": true,
+  "source_sha256": {
+    "CHAPTER2_BUDGET_COMPANION_STREAM_RECONCILIATION_20261018.json": "ef0abcccd0fd5aa1501fd7178d4e2764177a9a82e650d3baf8bd1964913237a3",
+    "CHAPTER2_EQUALA_PILOT_EVENT_SOURCE_20261018.json": "a25969c6cf835b2b25882762d917c2ae76c8b956205ba05876c816ff93697295"
+  },
+  "status": "PILOT_COMPONENT_ENVELOPE_FOR_METHOD_REVIEW_NOT_CONFIRMATION",
+  "survival_component_sources": {
+    "104": {
+      "founder": 0.0,
+      "interaction": 0.0,
+      "visitor": 0.002222222222222224,
+      "within_cell": 0.08333333333333333
+    },
+    "90": {
+      "founder": 0.0,
+      "interaction": 0.0005555555555555609,
+      "visitor": 0.0,
+      "within_cell": 0.027777777777777776
+    }
+  }
+}

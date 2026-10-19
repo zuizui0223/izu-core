@@ -1,0 +1,41 @@
+name: Ch3 original high-I support retrospective
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ch3-source-high-i-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  read-only-source-audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install source-only readback requirements
+        run: python -m pip install "numpy>=1.24,<3" "pytest>=8,<10"
+      - name: Audit preserved high-I access without biological simulation
+        run: |
+          python -m scripts.audit_ch3_high_i_access_20261017 \
+            --output "$RUNNER_TEMP/ch3-high-i-readout.json" \
+            > "$RUNNER_TEMP/ch3-high-i-headline.log"
+          cat "$RUNNER_TEMP/ch3-high-i-headline.log"
+          echo CH3_SOURCE_FULL_RESULT_BEGIN
+          cat "$RUNNER_TEMP/ch3-high-i-readout.json"
+          echo CH3_SOURCE_FULL_RESULT_END
+      - name: Run source-integrity and adversarial tests
+        run: python -m pytest -q tests/test_ch3_high_i_access_20261017.py
+      - name: Preserve new read-only science receipt
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ch3-high-I-original-2304-source-readout
+          path: ${{ runner.temp }}/ch3-high-i-readout.json
+          if-no-files-found: error
+          retention-days: 30

@@ -1,0 +1,71 @@
+{
+  "biological_runs_started": false,
+  "budget": {
+    "founders": 136,
+    "future_branch_updates": 3329280,
+    "historical_prefix_paths": 36992,
+    "legacy_rectangular_update_ceiling": 5918720,
+    "nested_repeats": 1,
+    "new_pollinator_return_futures": 0,
+    "rectangular_ceiling_deliberately_double_counts_shared_prefix": true,
+    "shared_prefix_updates": 1294720,
+    "terminal_branch_paths": 73984,
+    "unique_update_ceiling": 4624000,
+    "visitors": 136
+  },
+  "conditional_gaussian_check": {
+    "FWER_at_global_null_union_bound": 0.04999999999999982,
+    "biological_histories_generated": 0,
+    "guarantees_power_for_Model3": false,
+    "known_variance_assumed": true,
+    "normal_model_only": true,
+    "note": "Checks #585 approximation algebra only. Does not validate fitted variance, binary boundary distributions, cluster bootstrap coverage or biological operating characteristics.",
+    "per_endpoint_correct_direction_probability_at_design_effect": {
+      "genetic_loss": 0.9092753678505674,
+      "survival_interaction": 0.9092753678505674
+    },
+    "union_bound_joint_correct_direction_at_design_effect": 0.8185507357011348
+  },
+  "execution_authorized": false,
+  "legacy_gate": {
+    "all_endpoints_all_scenarios_adequate_proxy": true,
+    "checks": {
+      "adverse": {
+        "genetic_loss": {
+          "MDE_proxy": 0.09846956601383887,
+          "SESOI": 0.1,
+          "adequate_proxy": true
+        },
+        "survival_interaction": {
+          "MDE_proxy": 0.09846956601383887,
+          "SESOI": 0.1,
+          "adequate_proxy": true
+        }
+      },
+      "baseline": {
+        "genetic_loss": {
+          "MDE_proxy": 0.07756577900759516,
+          "SESOI": 0.1,
+          "adequate_proxy": true
+        },
+        "survival_interaction": {
+          "MDE_proxy": 0.016096233000952385,
+          "SESOI": 0.1,
+          "adequate_proxy": true
+        }
+      }
+    },
+    "design_cases": 73984,
+    "design_updates": 5918720,
+    "execution_authorized": false,
+    "method": "Two-axis variance proxy and Bonferroni/union-bound joint >=80% directional probability; not exact power. Simulate operating characteristics separately if outcome distributions invalidate Normal approximation.",
+    "source_pilot_sha256": "39173ea4a5841413800da9d01b4328f5cd9767a85f862d61583483c9f8e1c61f",
+    "status": "GO_FOR_METHOD_REVIEW_NOT_EXECUTION"
+  },
+  "method_reviewer_approved": false,
+  "overall_scientific_gate": "HOLD_PENDING_INDEPENDENT_METHOD_AND_OPERATING_CHARACTERISTIC_REVIEW",
+  "prospective_master_collisions": 0,
+  "prospective_master_count": 36992,
+  "registered": false,
+  "status": "METHOD_REVIEW_SUBMISSION_READY_EXECUTION_NOT_AUTHORIZED"
+}

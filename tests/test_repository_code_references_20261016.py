@@ -2,11 +2,13 @@
 from __future__ import annotations
 
 from pathlib import Path
+import hashlib
 
 from scripts.audit_repository_code_references_20261016 import audit
 
 
 def _fixture(root: Path):
+    (root / "docs").mkdir(parents=True, exist_ok=True)
     content = {
         "scripts/__init__.py": "",
         "scripts/foo.py": "from .bar import run\n",
@@ -72,3 +74,54 @@ def test_full_repository_reports_research_provenance_and_legacy_without_deleting
     assert "scripts/run_chapter2_assurance_generality.py" in protected
     assert "scripts/run_chapter2_q1_fresh_founders_20261016.py" in protected
     assert "scripts/run_chapter2_island_demographic_independent32.py" in protected
+
+
+def _fingerprints(path: Path):
+    raw = path.read_bytes()
+    return (
+        hashlib.sha256(raw).hexdigest(),
+        hashlib.sha1(b"blob " + str(len(raw)).encode("ascii") + b"\0" + raw).hexdigest(),
+    )
+
+
+def test_hash_only_references_preserve_unimported_research_source(tmp_path):
+    _fixture(tmp_path)
+    sha256, blob = _fingerprints(tmp_path / "scripts/unreferenced.py")
+    (tmp_path / "docs/source-receipts.md").write_text(
+        f"approved_sha256: {sha256}\nsource_git_blob: {blob}\n", encoding="utf-8"
+    )
+    report = audit(tmp_path)
+    record = next(row for row in report["scripts"]
+                  if row["path"] == "scripts/unreferenced.py")
+    assert record["category"] == "source_fingerprint_reference_protect"
+    assert record["sha256"] == sha256
+    assert record["git_blob_sha1"] == blob
+    assert record["fingerprint_references_count"] == 1
+    assert record["fingerprint_references_examples"] == ["docs/source-receipts.md"]
+
+
+def test_partial_or_wrapped_sha_is_not_a_source_reference(tmp_path):
+    _fixture(tmp_path)
+    sha256, blob = _fingerprints(tmp_path / "scripts/unreferenced.py")
+    (tmp_path / "docs/source-receipts.md").write_text(
+        f"not_digest: 9{sha256}9\nnot_git_blob: 9{blob}9\n", encoding="utf-8"
+    )
+    report = audit(tmp_path)
+    record = next(row for row in report["scripts"]
+                  if row["path"] == "scripts/unreferenced.py")
+    assert record["category"] == "unresolved_do_not_delete"
+    assert record["fingerprint_references_count"] == 0
+
+
+def test_same_bytes_in_two_archived_sources_are_both_protected(tmp_path):
+    _fixture(tmp_path)
+    sha256, _ = _fingerprints(tmp_path / "scripts/bar.py")
+    (tmp_path / "docs/source-receipts.md").write_text(
+        f"original_sha256: {sha256}\n", encoding="utf-8"
+    )
+    report = audit(tmp_path)
+    records = {row["path"]: row for row in report["scripts"]}
+    for p in ("scripts/bar.py", "scripts/duplicate.py"):
+        assert records[p]["category"] == "source_fingerprint_reference_protect"
+        assert "docs/source-receipts.md" in records[p]["fingerprint_references_examples"]
+    assert ["scripts/bar.py", "scripts/duplicate.py"] in report["duplicate_byte_identical_groups"]

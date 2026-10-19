@@ -1,0 +1,174 @@
+{
+  "status": "EXPLORATORY_COMPANION_DESCRIPTIVE_NOT_CONFIRMATION",
+  "source_head": "be0445b9720af62f358299d6aabfa0cdf519f965",
+  "pre_outcome_design_commit": "0c5b549888b130b086c171fc2be2ed5924dfe66b",
+  "design_sha256": "d23a4b39921f6509fc6976941005536e14669c352b7989465c036a1fc4bfeb64",
+  "runner_sha256": "847fdf5fafba62fc38942ccf1c83d77ebbd02de2fbb9ff766c47365edf17ebf0",
+  "cohort": {
+    "independent_founder_levels": 6,
+    "independent_visitor_levels": 6,
+    "historical_repeats": 2,
+    "historical_policies": 2,
+    "source_histories": 144,
+    "checkpoint": 35,
+    "future_budgets": [
+      8.0,
+      4.5
+    ],
+    "future_updates": 45,
+    "new_future_paths": 288,
+    "max_future_updates": 12960,
+    "new_founder_draws": 0,
+    "pollinator_restoration_paths": 0
+  },
+  "arms": {
+    "fixed_B8.0": {
+      "n": 72,
+      "alive": 72,
+      "alive_accessible": 27,
+      "alive_closed": 45,
+      "extinct": 0,
+      "genetic_loss_first": 45,
+      "extinction_first": 0,
+      "mean_alive_accessible_censuses": 28.47222222222222
+    },
+    "fixed_B4.5": {
+      "n": 72,
+      "alive": 1,
+      "alive_accessible": 0,
+      "alive_closed": 1,
+      "extinct": 71,
+      "genetic_loss_first": 39,
+      "extinction_first": 33,
+      "mean_alive_accessible_censuses": 12.5
+    },
+    "evolving_B8.0": {
+      "n": 72,
+      "alive": 72,
+      "alive_accessible": 22,
+      "alive_closed": 50,
+      "extinct": 0,
+      "genetic_loss_first": 50,
+      "extinction_first": 0,
+      "mean_alive_accessible_censuses": 23.583333333333332
+    },
+    "evolving_B4.5": {
+      "n": 72,
+      "alive": 71,
+      "alive_accessible": 20,
+      "alive_closed": 51,
+      "extinct": 1,
+      "genetic_loss_first": 52,
+      "extinction_first": 0,
+      "mean_alive_accessible_censuses": 21.88888888888889
+    }
+  },
+  "interaction": {
+    "survival": {
+      "estimate": 0.9722222222222222,
+      "exploratory_crossed_interval": {
+        "mean": 0.9722222222222222,
+        "lower95": 0.9027777777777778,
+        "upper95": 1.0,
+        "lower975": 0.8888888888888888,
+        "upper975": 1.0,
+        "ordered_resample_weight": 2176782336,
+        "count_vector_pairs": 213444,
+        "scope": "Exact empirical bootstrap weights; nominal percentile coverage NOT exact; post-outcome sensitivity only."
+      },
+      "variance_components": {
+        "founder": 0.0,
+        "visitor": 0.0,
+        "interaction": 0.0005555555555555609,
+        "within_cell": 0.027777777777777776
+      },
+      "by_founder": [
+        0.9166666666666666,
+        0.9166666666666666,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    },
+    "alive_accessible": {
+      "estimate": 0.3472222222222222,
+      "exploratory_crossed_interval": {
+        "mean": 0.3472222222222222,
+        "lower95": 0.06944444444444445,
+        "upper95": 0.6111111111111112,
+        "lower975": 0.027777777777777776,
+        "upper975": 0.6527777777777778,
+        "ordered_resample_weight": 2176782336,
+        "count_vector_pairs": 213444,
+        "scope": "Exact empirical bootstrap weights; nominal percentile coverage NOT exact; post-outcome sensitivity only."
+      },
+      "variance_components": {
+        "founder": 0.027777777777777773,
+        "visitor": 0.0,
+        "interaction": 0.03611111111111115,
+        "within_cell": 0.375
+      },
+      "by_founder": [
+        0.4166666666666667,
+        0.0,
+        0.16666666666666666,
+        0.6666666666666666,
+        0.25,
+        0.5833333333333334
+      ]
+    },
+    "accessible_census_count": {
+      "estimate": 14.277777777777779,
+      "exploratory_crossed_interval": {
+        "mean": 14.277777777777779,
+        "lower95": 5.069444444444445,
+        "upper95": 22.47222222222222,
+        "lower975": 3.388888888888889,
+        "upper975": 23.76388888888889,
+        "ordered_resample_weight": 2176782336,
+        "count_vector_pairs": 213444,
+        "scope": "Exact empirical bootstrap weights; nominal percentile coverage NOT exact; post-outcome sensitivity only."
+      },
+      "variance_components": {
+        "founder": 17.998333333333353,
+        "visitor": 36.02611111111113,
+        "interaction": 40.74333333333328,
+        "within_cell": 269.05555555555554
+      },
+      "by_founder": [
+        13.416666666666666,
+        7.0,
+        11.333333333333334,
+        23.166666666666668,
+        8.583333333333334,
+        22.166666666666668
+      ]
+    }
+  },
+  "raw_verification": {
+    "status": "RAW_GENOTYPE_AND_DENOMINATOR_AUDIT_PASS",
+    "cases": 288,
+    "genotype_censuses_verified": 13248,
+    "matched_source_checkpoints": 288,
+    "future_seed_blocks": 72,
+    "fields_per_state": 5,
+    "future_summary_sha256": "bbbcb968bd3e803acd863272bca89c77f6df977da1b7d919717957463ec26458",
+    "scope": "Arithmetic/source identity check from raw arrays, not independent biological operator validation."
+  },
+  "full_summary_sha256": "e9d65f5059fb18928f6c597a3cdb91c4d79c78cc89bcfe768c56a6455c92aea2",
+  "source_replay_sha256": "b3a3aeae0bbae572c3738a38ed44d8a3bd8cbf04fb1a032ea0bf84a519d28aea",
+  "local_tests": 16,
+  "python": "3.13.5",
+  "limits": [
+    "Same source histories; not independent confirmation or 288 independent islands.",
+    "Only budget manipulated in companion; no returning-pollinator evolution or genetic rescue.",
+    "Positive survival interaction is whole historical-policy effect; no direct A-only mediation identified.",
+    "Genetic access necessary bound, not realized recovery probability. Extinction kept separate.",
+    "Bootstrap percentile intervals are exploratory; six independent levels per axis do not guarantee coverage.",
+    "No #585-approved SESOI or prospective joint-power claim.",
+    "Checkpoint states were re-created with the original streams and all 144 old event records matched; no independently archived original checkpoint NPZ was available.",
+    "This companion used new future RNG streams; its B8 event counts are not the old 42/72 and 58/72 pilot outcomes.",
+    "No raw individual genotype archives were added to the tracked data tree; complete NPZ data are delivered with the conversation ZIP."
+  ]
+}

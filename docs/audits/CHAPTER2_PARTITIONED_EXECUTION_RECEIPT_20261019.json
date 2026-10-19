@@ -1,0 +1,52 @@
+{
+  "all_metadata_equal": true,
+  "completed_native_updates": 2250,
+  "confirmation_seeds_consumed": 0,
+  "date": "2026-10-19",
+  "earlier_paused_updates": 48,
+  "full_candidate_layout_arithmetic_only": {
+    "crossings_per_shard": 800,
+    "execution_authorized": false,
+    "raw_array_bytes_per_shard": 1161625600,
+    "shards": 32,
+    "total_raw_array_bytes": 37172019200,
+    "total_unique_updates": 6400000,
+    "updates_per_shard": 200000,
+    "worker_plus_copied_merge_raw_arrays": 74344038400
+  },
+  "genotype_censuses_equal": 2304,
+  "independent_raw_audit": {
+    "candidate_inference_matched": true,
+    "confirmation_seeds_consumed": 0,
+    "fields_per_state": 5,
+    "files": 54,
+    "fork_start_matches": 36,
+    "saved_states": 2304,
+    "scope": "Independent raw-array and endpoint arithmetic; not independently coded biology or effect confirmation",
+    "status": "TECHNICAL_RAW_PIPELINE_AUDIT_PASS"
+  },
+  "independent_worker_processes": 3,
+  "inference_scope": "TECHNICAL REPLAY ONLY; no new scientific claim or production seed draw",
+  "local_numpy": "2.3.5",
+  "local_python": "3.13.5",
+  "local_scipy": "1.17.0",
+  "local_tests": 30,
+  "named_RNG_states_per_task_equal": 13,
+  "new_tests": 11,
+  "remote_ci_for_this_addition": "NOT_YET_RUN_AT_RECEIPT_CREATION",
+  "resumed_after_complete_updates": 0,
+  "resumed_updates": 2202,
+  "shard_count": 3,
+  "snapshot_payloads_equal": 54,
+  "source_parent": "b65df91c48d89df9753853027bcb4a5d0ad6483f",
+  "source_sha256": {
+    "scripts/audit_q3_native_pipeline_20261019.py": "5a1f5914a83803cdff1c8146633ad45167b985576f15abae3c63ed020cd7ccbc",
+    "scripts/q3_native_runner_20261019.py": "f31b0b9baa8762135bc41ed6e636edf998ba413012de0eb2278b559f488cbe92",
+    "scripts/q3_partitioned_runner_20261019.py": "b0c9a134e839c5992d5216e7c360ff7c135dd9a40020bd12af7ba0bfa4911953",
+    "tests/test_q3_partitioned_runner_20261019.py": "a87a11f8b57ebf153345f4c5e2fd45f1f4e3ed6a3bd6e4f71946bd3cf86b4230"
+  },
+  "status": "TECHNICAL_PARTITION_VALIDATION_PASS_NOT_BIOLOGICAL_CONFIRMATION",
+  "technical_F": 3,
+  "technical_V": 3,
+  "technical_stream_replayed_not_added_to_scientific_n": true
+}

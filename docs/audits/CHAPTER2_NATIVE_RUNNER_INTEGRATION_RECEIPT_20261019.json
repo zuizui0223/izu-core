@@ -1,0 +1,54 @@
+{
+  "base_commit": "e131da0376a615bceca8770d5d7236a30a5a36fe",
+  "candidate_dry_budget": {
+    "crossed_cells": 25600,
+    "execution_authorized": false,
+    "prefix_paths": 51200,
+    "saved_state_slots": 6553600,
+    "terminal_branches": 102400,
+    "uncompressed_padded_array_bytes": 37172019200,
+    "unique_updates": 6400000
+  },
+  "confirmation_seeds_consumed": 0,
+  "date": "2026-10-19",
+  "limits": [
+    "This is native-model engineering execution, not scientific confirmation.",
+    "Separate reviewer validates raw arrays and arithmetic, not a second biology implementation.",
+    "Candidate budget excludes metadata, compression effects and filesystem overhead.",
+    "Production archive, distributed scheduling and independent method approval remain unresolved."
+  ],
+  "native_dependency_files_verified": 8,
+  "production_execution_authorized": false,
+  "raw_audit": {
+    "candidate_inference_matched": true,
+    "confirmation_seeds_consumed": 0,
+    "fields_per_state": 5,
+    "files": 54,
+    "fork_start_matches": 36,
+    "saved_states": 2304,
+    "scope": "Independent raw-array and endpoint arithmetic; not independently coded biology or effect confirmation",
+    "status": "TECHNICAL_RAW_PIPELINE_AUDIT_PASS"
+  },
+  "repository_CI": "not yet observed for this new commit",
+  "resume_and_order_checks": "All five state arrays and all 13 RNG states equal to continuous execution; reversed cell order also equal.",
+  "schema": "q3_native_integration_technical_receipt_v1",
+  "status": "LOCAL_TECHNICAL_PIPELINE_VALIDATED_NOT_CONFIRMATORY",
+  "technical_source_axes": [
+    3,
+    3
+  ],
+  "tests": {
+    "new": 13,
+    "total_passed": 19,
+    "unchanged_inference": 6
+  },
+  "unique_technical_branches": 36,
+  "unique_technical_prefixes": 18,
+  "unique_technical_updates": 2250,
+  "verified_git_blobs": {
+    "docs/CHAPTER2_NATIVE_RUNNER_INTEGRATION_20261019.md": "2850b172dcaa6a779e94ff7836389d1487fd4f7b",
+    "scripts/audit_q3_native_pipeline_20261019.py": "4c92801603709cc9608920c989fa51a53c971b12",
+    "scripts/q3_native_runner_20261019.py": "9c8ba3297df8c5a7655e0c5d1590af84de6858bd",
+    "tests/test_q3_native_runner_20261019.py": "ce47bf8de0cec0b2a2e3619493f6f6e3292bea97"
+  }
+}

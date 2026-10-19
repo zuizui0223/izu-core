@@ -1,0 +1,91 @@
+{
+  "schema": "open_pr_integration_20261019_v1",
+  "integration_before_receipt": "6cc70068af775f35870f58097d37a62cd323e79f",
+  "prs": [
+    {
+      "pr": 571,
+      "head": "5b2eef916286784c3fc99a4c19b60b684e87d527",
+      "ancestor_of_integration": true
+    },
+    {
+      "pr": 574,
+      "head": "1ab42489b9f1483098476c63c40d3cadb8531db5",
+      "ancestor_of_integration": true
+    },
+    {
+      "pr": 575,
+      "head": "4f6c94c0fa50bf218d2d3a0a35fcaf5662fc58d7",
+      "ancestor_of_integration": true
+    },
+    {
+      "pr": 586,
+      "head": "bae70962c3d53bb3d07e3c01ea16b67813fdb5b9",
+      "ancestor_of_integration": true
+    },
+    {
+      "pr": 588,
+      "head": "ee8dc4fb50211defcc53efe4a9859fa22e2e79c7",
+      "ancestor_of_integration": true
+    },
+    {
+      "pr": 590,
+      "head": "bf811de7c7ca0d08a479a06bd8bfd2ba85cccb6d",
+      "ancestor_of_integration": true
+    },
+    {
+      "pr": 591,
+      "head": "0040b2b22de519f636a99493c615ae3588ee788d",
+      "ancestor_of_integration": true
+    },
+    {
+      "pr": 592,
+      "head": "ac76e63adc6b47668bbf831180ded35c94851c43",
+      "ancestor_of_integration": true
+    },
+    {
+      "pr": 593,
+      "head": "e0c190a58569fae5fb6b47b00c45158ad1ff4160",
+      "ancestor_of_integration": true
+    },
+    {
+      "pr": 594,
+      "head": "3b8ab57ae356bfd38ab29352c24ea43d2a662a1d",
+      "ancestor_of_integration": true
+    },
+    {
+      "pr": 595,
+      "head": "9c09e9c76e0f02d9b8ab26099cdda1710e8bcd3b",
+      "ancestor_of_integration": true
+    },
+    {
+      "pr": 596,
+      "head": "e0e742c3805e8626db1129e543de175d7e2a1083",
+      "ancestor_of_integration": true
+    },
+    {
+      "pr": 597,
+      "head": "0bb0fddd1450ee0bf7ac7bd44ec14d010e2f8ea2",
+      "ancestor_of_integration": true
+    },
+    {
+      "pr": 598,
+      "head": "9c4622c0148cea04b151e9c26a691d9bc7fdc103",
+      "ancestor_of_integration": true
+    },
+    {
+      "pr": 599,
+      "head": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+      "ancestor_of_integration": true
+    },
+    {
+      "pr": 600,
+      "head": "03532548a453a553833cb6b836a7ed36398903e6",
+      "ancestor_of_integration": true
+    }
+  ],
+  "scope": "Git ancestry preservation, not scientific approval or independent replication",
+  "production_source": "f7792629b35b07e93ac9c98f8feb4d3894da85eb",
+  "production_run": 39193074847,
+  "merge_resolution": "README retains current publication and decision entries, adds novelty link and prospective cost link; no biological conflict resolution",
+  "main_merge_status": "pending full CI, source validation and production audit"
+}
