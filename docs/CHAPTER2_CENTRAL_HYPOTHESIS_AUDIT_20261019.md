@@ -1,5 +1,16 @@
 # Central hypothesis after auditing PR #597
 
+**Update2026-10-19:** The later authorized160x160 confirmation and complete raw
+audit have now finished. Its registered B8 genetic-closure contrast is+8.33pp
+[97.5% interval6.69,9.96], and survival policy-by-budget interaction is+92.71pp
+[92.05,93.36]. Both directional criteria pass, under the stated model and
+crossed-source inference assumptions. See the [admitted result](CHAPTER2_CONFIRM160_RESULTS_20261019.md).
+The pilot interpretation below is retained as historical exploratory evidence;
+its outstanding-confirmation language is superseded only for those G/S
+endpoints. Actual readaptation, a universal closure clock, load evolution and
+island-flora assembly remain untested. The secondary10pp reference does not
+jointly pass and is not a biologically endorsed equivalence threshold.
+
 Source reviewed: `0bb0fddd1450ee0bf7ac7bd44ec14d010e2f8ea2`; known merge-base
 `bf811de7c7ca0d08a479a06bd8bfd2ba85cccb6d`. This is a separate audit lane,
 stacked on #597, not a replacement for the #590 manuscript or the production

@@ -1,0 +1,143 @@
+{
+  "actual_restoration_tested": false,
+  "arms": {
+    "evolving_B4p5": {
+      "alive": 25118,
+      "alive_accessible": 9245,
+      "extinction_first": 337,
+      "genetic_first": 16018
+    },
+    "evolving_B8": {
+      "alive": 25600,
+      "alive_accessible": 9600,
+      "extinction_first": 0,
+      "genetic_first": 16000
+    },
+    "fixed_B4p5": {
+      "alive": 1385,
+      "alive_accessible": 140,
+      "extinction_first": 12564,
+      "genetic_first": 12896
+    },
+    "fixed_B8": {
+      "alive": 25600,
+      "alive_accessible": 11732,
+      "extinction_first": 0,
+      "genetic_first": 13868
+    }
+  },
+  "biological_SESOI_endorsed": false,
+  "crossings": 25600,
+  "epsilon_descriptive": [
+    {
+      "epsilon": 0.0,
+      "evolving": 16000,
+      "fixed": 13868
+    },
+    {
+      "epsilon": 0.005,
+      "evolving": 14662,
+      "fixed": 12461
+    },
+    {
+      "epsilon": 0.01,
+      "evolving": 13047,
+      "fixed": 10877
+    },
+    {
+      "epsilon": 0.02,
+      "evolving": 11589,
+      "fixed": 9457
+    },
+    {
+      "epsilon": 0.05,
+      "evolving": 11393,
+      "fixed": 9257
+    }
+  ],
+  "files": 153600,
+  "independent_axes": [
+    160,
+    160
+  ],
+  "primary": {
+    "both_exceed_margin": false,
+    "df": 159,
+    "endpoints": [
+      {
+        "classification": "positive",
+        "estimate": 0.08328125,
+        "exceeds_positive_margin": false,
+        "interval": [
+          0.06693910160566963,
+          0.09962339839433038
+        ],
+        "name": "genetic_loss",
+        "variance": 5.215735340118409e-05,
+        "within_equivalence_band": true
+      },
+      {
+        "classification": "positive",
+        "estimate": 0.9270703125,
+        "exceeds_positive_margin": true,
+        "interval": [
+          0.9204959170569139,
+          0.9336447079430862
+        ],
+        "name": "survival_interaction",
+        "variance": 8.44129139184952e-06,
+        "within_equivalence_band": false
+      }
+    ],
+    "execution_authorized": false,
+    "familywise_alpha": 0.05,
+    "independent_axes": [
+      160,
+      160
+    ],
+    "joint_positive": true,
+    "marginal_confidence": 0.975,
+    "method": "pigeonhole_variance_t_candidate",
+    "proposed_margin": 0.1,
+    "scope": "Conditional empirical variance; t intervals have no universal finite-sample guarantee."
+  },
+  "saved_states": 6553600,
+  "shard_seals": [
+    "8a79c71351adc1d448d3b6c9f6c0bb76dc6a5edb8cd33ea480c0fed6c806c7bd",
+    "1cf2c3dfdb6e970313ae8d89084ef3dadce519afaf18ba5ca0fee4e4c7b143e5",
+    "219470e9d1feb335e6735b2b070eafa212566cd19f95ec4342c790616ca83455",
+    "e19eba3b3c147a25b44055262be66f50dfcf0701ff48601991c403515083684b",
+    "2cf19181284397337039d42edd3aef2df7b0ee204ab55346c45b1446555a5c94",
+    "73a61cc4bf02d85c91cf57b6ec3bd616c911b4669b38835af8ef2d80e96aeea2",
+    "2b0dfc24783244f90155b1ebfb3dab2db325e5a47d32e991e9dd99e875174d41",
+    "8bf427204ab5a0551b7c3a1925938fd82de1c52e317391779098e7e47cc47f38",
+    "de08e27440f50257ac92dffe6e7c8cc6b786c95ac266bfc080a0a1e17b98c672",
+    "56b0171fba2056ef69919be38cd824e29100cc9a121b70a722fc32605d5fa468",
+    "00a99729c0dc54a93946568d5bd1c1d3e4ddbb511fb70d5a8939d5cd0550fd38",
+    "59ea3923f8a81c96ef8b52b4c150c26d612c4acb423c373abe941a642fa5741b",
+    "b44ab3eec86da69ddb6b6a44ce2b911648a430afe1fcaf864189aa0e25bb7fe0",
+    "f379cf51f9b4e7ddc4ffda087e1859c9c065d8e5d7a9e72c8a774d35806edef3",
+    "5f4e6551adc82ecb1c46e0b9063b4707847594c52ad3455bfbbfad8f899d54a1",
+    "1369d750bfb17216df7451e3623cba30eb630cae175d167aa4396dff6f799d35",
+    "438b085edfa0feae1e448a408e1f4ee18da197d4f464c016e4fd6d3b8f80c876",
+    "2a45cfd321ee29e1113a31143104b6b7d08570017862da7bd9240ea0480507e8",
+    "8f52d2965a4a5ea61b443756480e98e0f51b0a52295aa8c3f34e74a3c74ab686",
+    "dfaba3203f964d94381d491709b1c25766d29005c71a454820c471f469545c8f",
+    "c1eb1490b52592071b1f9a97bf45c82ea34e9edd5658269c8822b6105f35d982",
+    "84a815a8c5abc1d13bffc680986b75d0066d1036c22e37d01ac8489174fb63a7",
+    "aab5fc857b355f06f695d510914e4b77d20b830915eb0d3116d21cb543f6c403",
+    "4fe4ffdf76c210dd1b29b1b78b4f3f2803448e9003f00cd6e7c1431e047cfe0d",
+    "fc1d56e34db35dba1d15e5c613fe43e0077db6263e73579bb2f50c5399710d81",
+    "3ed4531d2bf224bcae8457ec22b202b126c128851cfb62189011fd7687a41fca",
+    "74974c45590b11b2773c7c86b107e7cb6d8add66dbdc30c0926d7a6efd5d47c5",
+    "30b9719d9ca0cae5a3e8b692d988ef677eadb8b3e7056e9e692200cb26d50897",
+    "9d2898e38fd57353b9c82b4a05e0fe11d15a17f87ddf8fdaa9cca793824e004d",
+    "87e2a18dce76431003eac818597ce04c3ab37ca5e42741c32b40cf5955db8449",
+    "25a41ac56bc92f43c01a113b25c8b84c7b8fb2d62cc0b80fbfffb40f01667262",
+    "ebcddee4186ed4dc145993265d1a5b99df786b221469ba1aa311c470dbca1642"
+  ],
+  "status": "COMPLETE_MODEL_CONDITIONAL_CONFIRMATION",
+  "unique_updates": 6400000,
+  "retained_source_summary_sha256": "6a1ede3caa62a13f1c3be8b38c66d5d6985000f2f0a4369a6f1f89c7c8bb91c6",
+  "omitted_arrays": "Full registered input arrays remain in the source release SUMMARY160.json; independently rederived from all raw files."
+}

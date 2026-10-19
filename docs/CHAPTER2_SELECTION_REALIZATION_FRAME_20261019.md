@@ -59,6 +59,30 @@ finite realization identifies a numerical fraction of evolution caused by
 drift. Recombination can reorganize retained alleles but cannot escape their
 trait bounds in this additive model without replenishment.
 
+### Which outcomes repeat more consistently than expected?
+
+The biological question is comparative predictability, rather than assigning
+assurance to determinism and floral investment to chance in advance. Separate
+repeatability of direction, order, attained phenotype and demographic/genetic
+fate. Consistent decline of investment does not imply a consistent A-first
+sequence, identical final investment, or identical future accessibility.
+
+Two levels of repetition must be distinguished: repeated random realizations
+from the same founder and visitor context, and repeated outcomes across new
+founders and visitor contexts. The 160 x 160 design primarily addresses the
+second level. Each crossed cell has one paired stochastic realization, so a
+founder-by-visitor interaction cannot be separated from within-context
+stochastic variability using those endpoints alone. Residual variation must
+not be relabeled as measured drift. A narrow interval on an average policy
+effect does not imply an individual population's fate is predictable.
+
+An exploratory comparison of predictability must use comparable endpoints and
+time horizons, retain extinction among original starts, and distinguish
+out-of-context prediction from descriptive fit to the same cells. No new
+confirmatory claim about which trait is "more deterministic" follows from the
+registered G/S tests. A claim that an outcome is *more* repeatable than expected
+also needs an explicit comparator; the phrase cannot substitute for one.
+
 ## What the running confirmation can resolve
 
 The fixed 160 founder x 160 visitor design estimates assurance-policy effects

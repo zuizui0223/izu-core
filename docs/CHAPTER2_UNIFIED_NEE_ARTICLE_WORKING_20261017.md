@@ -85,6 +85,25 @@ In a separate, pilot-informed, independently randomized 32-visitor-history stres
 
 The source reproductive ledger does contain a pollen-mediated benefit of one plant's floral investment to other conspecific mothers in selected states, but sustained individual-versus-group conflict sufficient to drive extinction was **not** established. "Private insurance versus public investment" is therefore a **testable mechanism framing**, not an already proven group-selection or tragedy-of-the-commons result.
 
+### Confirmed policy effects on genetic closure and resource-dependent survival
+
+An authorized confirmation crossed160 independent founders with160 visitor
+histories, pairing evolving and fixed expressed assurance initially equal to.5.
+Complete raw admission independently checked153,600 task files and6,553,600
+saved states. At resource budget B8, all populations survived to census80;
+high-I support closed before extinction in16,000/25,600 evolving-policy cells
+versus13,868/25,600 fixed-policy cells. The registered difference was
+**+8.33 percentage points [97.5% interval6.69,9.96]**. The registered survival
+policy-by-budget interaction was **+92.71 points [92.05,93.36]**: B4.5 survival
+was25,118/25,600 versus1,385/25,600, while B8 survival was complete in both arms.
+Both directional criteria passed under the fixed crossed-source t convention;
+the secondary10-point reference was not exceeded by the genetic-closure effect.
+These are distinct model-conditional contrasts, not mediation or a measured
+restoration response. Positive descriptive differences persisted across all
+five target tolerances. Crossed cells are not independent islands, and a
+precise average effect does not establish predictable individual fates.
+[Complete results and audit](CHAPTER2_CONFIRM160_RESULTS_20261019.md).
+
 ## Planned new decisive Results — PENDING, not observations
 
 ### Restoration of pollen service versus restoration of investment alleles
