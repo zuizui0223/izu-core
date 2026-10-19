@@ -194,6 +194,24 @@ def test_invalid_establishment_policy_fails_closed():
                 Island("x", 4.5, 0), 0, establishment_mode="unregistered")
 
 
+def test_source_establishment_probability_is_exact_and_rng_is_paired():
+    groups = defaultdict(list)
+    for row in fixture()['records']:
+        lam = row['expected_recruits_if_arrived']
+        prob = row['establishment_probability_if_arrived']
+        assert lam >= 0 and 0 <= prob <= 1
+        assert abs(prob + math.expm1(-lam)) < 1e-12
+        key = (row['island_id'], row['reset_id'], row['lineage_id'])
+        groups[key].append(row)
+    assert len(groups) == 24
+    for entries in groups.values():
+        assert len(entries) == 8
+        assert len({r['descendant_rng_master_hex'] for r in entries}) == 1
+        for mode in ESTABLISHMENT_MODES:
+            subset = [r for r in entries if r['establishment_mode'] == mode]
+            assert len(subset) == 4
+            assert len({r['establishment_probability_if_arrived'] for r in subset}) == 1
+
 def test_proper_scores_available_only_with_predicted_outcomes():
     d = score_binary([0, 1], [.2, .8])
     assert d["n"] == 2 and abs(d["brier"] - .04) < 1e-12
