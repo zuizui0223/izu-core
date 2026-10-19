@@ -123,7 +123,7 @@ def technical_policy_probe():
                 source_ids=[x.lineage_id for x in registry],
                 no_reused_prior_exposed_train_or_heldout_genotypes=True,
                 four_island_resource_visitor_factorial=True,
-                source_independent_islands=4,
+                distinct_synthetic_island_factorial_contexts=4,
                 independent_demographic_resets_per_source_island=DEMOGRAPHIC_RESETS,
                 candidate_assignments=len(groups),
                 paired_policy_paths=len(groups)*len(POLICIES),
