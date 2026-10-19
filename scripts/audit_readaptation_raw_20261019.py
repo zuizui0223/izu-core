@@ -56,10 +56,11 @@ def admit_manifest(manifest,contract):
     return keys,admitted
 
 
-def audit_archive(path,contract):
+def audit_archive(path,contract,*,source_directory=None):
     """Audit complete future directory under the repository's exact proposal.
 
-    PASS here never admits donor provenance or authorizes a production run.
+    Source linkage is checked only when original source_directory is supplied.
+    This audit never authorizes a production run or confirms biological replay.
     """
     root=Path(__file__).resolve().parents[1]
     frozen=json.loads((root/'docs/protocols/CHAPTER2_READAPTATION_PROPOSED_20261019.json').read_text())
@@ -69,7 +70,61 @@ def audit_archive(path,contract):
     base=json.loads((root/'data/design/model3_island_v2.json').read_text())['base_config']
     path=Path(path)
     manifest=json.loads((path/'manifest.json').read_text(encoding='utf8'))
-    return _audit_files(path,manifest,contract,base)
+    result=_audit_files(path,manifest,contract,base)
+    if source_directory is not None:
+        from scripts.readaptation_sources_20261019 import iter_donors
+        _,digests=admit_manifest(manifest,contract)
+        result['cohort_source_audit']=_audit_cohort_files(
+            path/'cohorts',contract,digests,iter_donors(source_directory,contract))
+        result['source_admission']=True
+        result['status']='PASS_ARCHIVE_AND_SOURCE_LINEAGE'
+        result['limitation']='Source lineage and raw arithmetic checked; biological probability replay remains unverified'
+    return result
+
+
+def _audit_cohort_files(path,contract,digests,admitted_donors):
+    """Bind all cohort files to externally admitted original donor arrays."""
+    path=Path(path)
+    manifest=json.loads((path/'manifest.json').read_text(encoding='utf8'))
+    require(set(manifest)=={'format','contract_sha256','files'} and
+            manifest['format']=='readaptation_cohorts_v1' and
+            manifest['contract_sha256']==hashlib.sha256(_canonical(contract)).hexdigest(),
+            'cohort manifest contract')
+    expected=set(itertools.product(contract['founder_indices'],contract['visitor_indices'],
+                                   contract['donor_policies'],range(contract['cohort_draws'])))
+    require(set(digests)==expected,'cohort/future digest inventory')
+    files={}; names=set()
+    for entry in manifest['files']:
+        require(set(entry)=={'key','file','sha256','bytes'},'cohort file receipt schema')
+        key=tuple(entry['key']); name=entry['file']
+        require(key in expected and key not in files,'unknown/duplicate cohort allocation')
+        require(isinstance(name,str) and re.fullmatch('[a-z0-9_-]+[.]npz',name)
+                and name not in names,'cohort filename')
+        files[key]=entry; names.add(name)
+    require(set(files)==expected and {p.name for p in path.glob('*.npz')}==names,
+            'cohort file inventory')
+    seen=set(); cohorts=0
+    for donor,source in admitted_donors:
+        donor_key=tuple(source['key'])
+        require(donor_key not in seen and donor_key in {k[:3] for k in expected},'unexpected/duplicate donor')
+        seen.add(donor_key)
+        for draw in range(contract['cohort_draws']):
+            key=(*donor_key,draw); entry=files[key]; file=path/entry['file']
+            require(not file.is_symlink() and file.is_file() and file.stat().st_size==entry['bytes'],
+                    'cohort file type/size')
+            raw=load_future(file,entry['sha256'],key)
+            require(set(raw)==set(FIELDS)|{'receipt','stream_key'},'cohort record inventory')
+            seed=int.from_bytes(hashlib.sha256(_canonical([contract['namespace'],'cohort',list(key)])).digest()[:16],'big')
+            require(type(raw['stream_key']) is int and raw['stream_key']==seed,'cohort random stream')
+            receipt=raw['receipt']
+            require(receipt['cohort_key']==list(key) and receipt['donor_sha256']==source['donor_sha256']
+                    and receipt['cohort_sha256']==digests[key] and receipt['donor_fixed_assurance']==.5,
+                    'cohort source/destination binding')
+            audit_cohort(donor,{k:raw[k] for k in FIELDS},receipt)
+            cohorts+=1
+    require(seen=={k[:3] for k in expected},'missing admitted donor')
+    return dict(status='PASS_COHORT_SOURCE_LINEAGE',cohorts=cohorts,donors=len(seen),
+                production_probability_replay=False)
 
 
 def _audit_files(path,manifest,contract,base):
