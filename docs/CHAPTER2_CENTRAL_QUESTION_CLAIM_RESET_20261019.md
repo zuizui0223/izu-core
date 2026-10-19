@@ -88,10 +88,10 @@ and initial-to-final directions remain unavailable in these endpoint JSONs.
    sampling; do not label its full effect pure genetic drift.
 3. Return to the already scoped new-environment readaptation component after
    resolving what the existing records can answer. Preserve its implemented
-   contract and seed-transfer tests without launching futures.
+   contract and seed-transfer tests. The subsequently authorized GitHub Actions run has now completed all10,240 futures; see the [admitted results](CHAPTER2_READAPTATION_RESULTS_20261019.md).
 
 The proposed new32x32 confirmation in the user's pasted historical summary is
 outdated: the authorized160x160 G/S experiment is complete, independently audited
 and merged in PR602. Its G/S results do not formally rank A/I repeatability or
 test actual readaptation. Lineage-level assembly/selection remains untested and
-is not silently added to this local follow-up. The full goal remains incomplete.
+is not silently added to this local follow-up. The bounded experimental component is complete; manuscript integration and repository verification are separate delivery gates. Universal determinism, permanent irreversibility and natural lineage filtering remain unidentified, rather than silently treated as confirmed.

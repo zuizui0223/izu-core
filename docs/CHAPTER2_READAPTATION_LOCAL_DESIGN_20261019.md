@@ -180,3 +180,12 @@ Each attempt retains its campaign directory as an Actions artifact for 90 days,
 including partial checkpoints on failure. Artifact retention is not permanent
 archival; final scientific delivery still requires a retained release archive
 and readback. No production result is claimed by this implementation note.
+
+### Completed execution update, 2026-10-19
+
+The authorized [Actions run39208955029](https://github.com/zuizui0223/izu-core/actions/runs/39208955029)
+completed all64 cohorts and10,240 futures, including admission and same-source
+replay, in49m44s of production. The [results and independent raw readback](CHAPTER2_READAPTATION_RESULTS_20261019.md)
+supersede earlier pending-execution statements in this historical design record.
+The retained original archive was downloaded from the draft release and its
+SHA-256 verified. No allocation, seed, horizon or scientific threshold was changed.
