@@ -77,6 +77,25 @@ jobs:
                     f"p_Ifixed={modes['neutral_I']['establishment_probability_if_arrived']:.4f} "
                     f"p_bothfixed={modes['neutral_A_I']['establishment_probability_if_arrived']:.4f} "
                     f"p_allneutral={neutral['establishment_probability_if_arrived']:.4f}")
+          print("TECHNICAL origin decomposition by reset and early filter (native descendants only):")
+          for f in d["exact_stage_accounting"]:
+              if f["policy"] != "native":
+                  continue
+              aa, ii = f["A"], f["I"]
+              cnt = aa["counts"]
+              assert cnt == ii["counts"]
+              def two_terms(z):
+                  c = z["contributions"]
+                  if c is None:
+                      return "NA", "NA"
+                  selection = (c["arrival"] + c["establishment"] + c["persistence_filter"])
+                  return f"{selection:+.4f}", f"{c['within_retained_lineage']:+.4f}"
+              av, ae = two_terms(aa)
+              iv, ie = two_terms(ii)
+              print(f"  {f['island']} reset={f['reset_id']} filter={f['establishment_mode']} "
+                    f"candidate={cnt['candidate']} arrived={cnt['arrived']} "
+                    f"established={cnt['established']} persisted={cnt['persisted']} "
+                    f"A_filter={av} A_within={ae} I_filter={iv} I_within={ie}")
           print("PASS: bounded technical assembly, Poisson establishment, all-stage arithmetic; NO science inference.")
           PY
       - name: Publish clearly labeled technical-only run summary
