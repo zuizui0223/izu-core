@@ -83,3 +83,10 @@ def test_actions_rerun_cannot_skip_checkpoint_restore():
     restore=next(s for s in w['jobs']['production']['steps'] if s.get('name')=='Restore explicitly selected prior checkpoint')
     assert 'github.run_attempt' in restore['if']
     assert 'GITHUB_RUN_ID' in restore['run']
+
+def test_draft_source_access_is_scoped_to_production_job():
+    import yaml
+    from scripts.readaptation_contract_20261019 import ROOT
+    w=yaml.safe_load((ROOT/'.github/workflows/readaptation-20261019.yml').read_text())
+    assert w['permissions']['contents']=='read'
+    assert w['jobs']['production']['permissions']==dict(contents='write',actions='read')
