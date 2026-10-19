@@ -30,6 +30,7 @@ from scripts.model3_island.types import Config, PlantState, VisitorState
 SOURCE_VERSION = "two-origins-technical-20261019-v1"
 FIELDS = ("alleles", "allele_origin", "mutation_flags", "ids", "birth_years")
 POLICIES = ("native", "clamp_A", "clamp_I", "clamp_A_I")
+ESTABLISHMENT_MODES = ("native", "trait_neutral")
 TRAITS = ("A", "I")
 CAPACITY = 12
 HORIZON = 6
@@ -145,6 +146,20 @@ def _expressed_state(state: PlantState, source_i: float, freeze_i: bool) -> Plan
     return replace(state, alleles=values)
 
 
+def _neutral_establishment_state(state: PlantState) -> PlantState:
+    """Stage-1 trait-neutral phenotype only; true alleles transmit unchanged.
+
+    All initial M/I expressed means and expressed A are set to .5 solely for
+    reproduction. Mother/father sampling and the offspring genotype remain
+    those of the source state. This excludes establishment fitness contrasts
+    attributable to Model3 M/I/A traits; it does not equal pure geographic
+    arrival randomization or a natural neutral community.
+    """
+    x = state.alleles.copy()
+    x[:, :, :] = .5
+    return replace(state, alleles=x)
+
+
 def source_traits(state: PlantState) -> dict:
     if not len(state.ids):
         raise ValueError("source genotype must not be empty")
@@ -152,12 +167,15 @@ def source_traits(state: PlantState) -> dict:
                 I=float(state.alleles[:, 1, :].mean()))
 
 
-def attempt(lineage: SourceLineage, island: Island, reset_id: int, *, policies=POLICIES) -> list[dict]:
+def attempt(lineage: SourceLineage, island: Island, reset_id: int, *,
+            establishment_mode="native", policies=POLICIES) -> list[dict]:
     """Identical candidate, arrival draw and establishment fork in all policies."""
     if type(reset_id) is not int or reset_id < 0:
         raise ValueError("reset ID must be a nonnegative integer")
     if len(set(policies)) != len(policies) or not set(policies) <= set(POLICIES):
         raise ValueError("unknown/duplicate policy")
+    if establishment_mode not in ESTABLISHMENT_MODES:
+        raise ValueError("unknown establishment intervention")
     initial = source_genotype(lineage)
     src = source_traits(initial)
     chance = lineage.arrival_probability * island.arrival_multiplier
@@ -167,9 +185,12 @@ def attempt(lineage: SourceLineage, island: Island, reset_id: int, *, policies=P
     first = initial
     established = False
     if arrived:
-        cfg = _config(island, assurance_mode="evolving", initial_a=src["A"])
+        neutral = establishment_mode == "trait_neutral"
+        cfg = _config(island, assurance_mode="fixed" if neutral else "evolving",
+                      initial_a=.5 if neutral else src["A"])
+        expressed = _neutral_establishment_state(initial) if neutral else initial
         first, _ = advance(
-            initial, reproduce(initial, observed, cfg), _empty(initial), cfg,
+            initial, reproduce(expressed, observed, cfg), _empty(initial), cfg,
             _streams("establishment", island.island_id, reset_id, lineage.lineage_id),
             year=0, mutation_traits=(False, False, False),
         )
@@ -182,7 +203,8 @@ def attempt(lineage: SourceLineage, island: Island, reset_id: int, *, policies=P
         if established:
             cfg = _config(island, assurance_mode="fixed" if frozen_a else "evolving",
                           initial_a=src["A"])
-            rngs = _streams("descendants", island.island_id, reset_id, lineage.lineage_id, policy)
+            rngs = _streams("descendants", island.island_id, reset_id,
+                            lineage.lineage_id, establishment_mode, policy)
             for year in range(1, HORIZON):
                 parental = _expressed_state(state, src["I"], frozen_i)
                 state, _ = advance(
@@ -198,7 +220,8 @@ def attempt(lineage: SourceLineage, island: Island, reset_id: int, *, policies=P
         }
         rows.append(dict(
             island_id=island.island_id, reset_id=reset_id,
-            lineage_id=lineage.lineage_id, policy=policy,
+            lineage_id=lineage.lineage_id, establishment_mode=establishment_mode,
+            policy=policy,
             candidate=True, arrived=arrived, established=established, persisted=alive,
             arrival_probability=chance, source_traits=src,
             final_expressed_traits=final_traits,
@@ -220,8 +243,9 @@ def stage_accounting(rows: list[dict], trait: str) -> dict:
         raise ValueError("one supported trait and nonempty single-policy rows required")
     if len({r["lineage_id"] for r in rows}) != len(rows):
         raise ValueError("one record per source lineage required")
-    if len({(r["island_id"], r["reset_id"], r["policy"]) for r in rows}) != 1:
-        raise ValueError("crossed island, reset or policy records")
+    if len({(r["island_id"], r["reset_id"], r["establishment_mode"], r["policy"])
+            for r in rows}) != 1:
+        raise ValueError("crossed island, reset, establishment or policy records")
     current = list(rows)
     arrived = [r for r in current if r["arrived"]]
     established = [r for r in arrived if r["established"]]
@@ -291,23 +315,30 @@ def technical_fixture() -> dict:
     for island in islands:
         for reset in range(REPEATS):
             for lineage in lineages:
-                records.extend(attempt(lineage, island, reset))
+                for establishment_mode in ESTABLISHMENT_MODES:
+                    records.extend(attempt(lineage, island, reset,
+                                           establishment_mode=establishment_mode))
     frames = []
     for island in islands:
         for reset in range(REPEATS):
-            for policy in POLICIES:
-                sub = [r for r in records if r["island_id"] == island.island_id
-                       and r["reset_id"] == reset and r["policy"] == policy]
-                frames.append(dict(island=island.island_id, reset_id=reset,
-                                   policy=policy,
-                                   A=stage_accounting(sub, "A"),
-                                   I=stage_accounting(sub, "I")))
+            for establishment_mode in ESTABLISHMENT_MODES:
+                for policy in POLICIES:
+                    sub = [r for r in records if r["island_id"] == island.island_id
+                           and r["reset_id"] == reset
+                           and r["establishment_mode"] == establishment_mode
+                           and r["policy"] == policy]
+                    frames.append(dict(island=island.island_id, reset_id=reset,
+                                       establishment_mode=establishment_mode,
+                                       policy=policy,
+                                       A=stage_accounting(sub, "A"),
+                                       I=stage_accounting(sub, "I")))
     return dict(
         status="TECHNICAL_SMOKE_ONLY_NOT_SCIENTIFIC_EVIDENCE",
         protocol=SOURCE_VERSION,
         engine="scripts.model3_island reproduction+population (unaltered)",
         lineages=len(lineages), islands=len(islands), archipelago_resets=REPEATS,
-        policies=list(POLICIES), horizon=HORIZON, mutation=False, immigration=False,
+        policies=list(POLICIES), establishment_modes=list(ESTABLISHMENT_MODES),
+        horizon=HORIZON, mutation=False, immigration=False,
         competition=False, dispersal_species_independent=True,
         definition="one native reproductive update defines establishment; continued occupancy defines persistence",
         source_genotypes_are_not_measured_mainland_taxa=True,
