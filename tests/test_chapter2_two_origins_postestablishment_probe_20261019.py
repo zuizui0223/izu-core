@@ -115,3 +115,35 @@ def test_emit_bounded_nonconfirmatory_fork_differences():
                   "I_fixed",z["survival"]["clamp_I"]["persisted"],
                   "original_sources=8,nested_trials=64")
     print("THIS IS NOT A REGISTERED, INDEPENDENT ISLAND, NATURAL SC OR CAUSAL MEDIATION STUDY")
+
+
+
+def test_emit_paired_discordances_and_successor_trait_differences():
+    """Audit terminal policy pairs; shared initial source does not imply identical fates."""
+    d=readout()
+    for island,z in sorted(d["summary"].items()):
+        q=z["all_source_strata"]
+        print("TECHNICAL POSTESTABLISHMENT PAIR AUDIT", island,
+              f"n={q['n_candidates']}", f"arrived={q['n_arrived']}",
+              f"established={q['n_established']}",
+              "native_survival",q["survival"]["native"]["persisted"])
+        for policy in ("clamp_A","clamp_I","clamp_A_I"):
+            p=q["paired"][policy]
+            assert p["both"]+p["native_only"]+p["policy_only"]+p["neither"] == 192
+            pair=[g for g in d["groups"] if g["island"]==island and
+                  g["arms"]["native"]["alive"] and g["arms"][policy]["alive"]]
+            assert len(pair)==p["both"]
+            signed_deltaA=[g["arms"]["native"]["final_traits"]["A"] -
+                           g["arms"][policy]["final_traits"]["A"] for g in pair]
+            signed_deltaI=[g["arms"]["native"]["final_traits"]["I"] -
+                           g["arms"][policy]["final_traits"]["I"] for g in pair]
+            meanA=sum(signed_deltaA)/len(pair) if pair else None
+            meanI=sum(signed_deltaI)/len(pair) if pair else None
+            print("TECHNICAL PAIRED POLICY",island,policy,
+                  f"both={p['both']}",f"native_only={p['native_only']}",
+                  f"fixed_only={p['policy_only']}",f"neither={p['neither']}",
+                  f"net_pp={p['native_minus_clamped_pp']:+.6f}",
+                  f"survivors_pair_delta_A={meanA!r}",
+                  f"survivors_pair_delta_I={meanI!r}")
+    print("TECHNICAL ONLY: paired same-source comparison with expression clamp;"
+          " this cannot isolate genetic evolution or its mediation.")
