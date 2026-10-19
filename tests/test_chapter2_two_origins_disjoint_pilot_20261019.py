@@ -140,3 +140,37 @@ def test_emit_scoped_source_disjoint_technical_scores():
     print("NO SCIENTIFIC CONFIRMATION; NO HELD-OUT ISLAND-CLASS CLAIM;"
           " 24 new train + 24 new heldout artificial genotypes."
           " Four factorial synthetic island environments, eight nested repeats.")
+
+
+
+def test_emit_scope_limited_heldout_stage_origin_terms():
+    """These six-year descriptive means are NOT separate genetic causal mediators."""
+    d = readout()
+    frames = d["stage_summary_by_split"]["heldout"]
+    by_island = {}
+    for frame in frames:
+        by_island.setdefault(frame["island"], []).append(frame)
+    assert len(by_island) == 4
+    for island, contexts in sorted(by_island.items()):
+        assert len(contexts) == 8
+        fates = d["all_start_category_counts"]["heldout"][island]
+        print("SOURCE-DISJOINT STAGE SCREEN TECHNICAL ONLY",island,
+              "candidate",fates["total"],
+              "six_fates",fates["fates"])
+        for trait in ("A","I"):
+            valid = [x[trait]["contributions"] for x in contexts
+                     if x[trait]["contributions"] is not None]
+            if valid:
+                selection = [
+                    z["arrival"]+z["establishment"]+z["persistence_filter"]
+                    for z in valid
+                ]
+                within = [z["within_retained_lineage"] for z in valid]
+                print("TECHNICAL TRAIT ORIGIN",island,trait,
+                      f"nonempty_resets={len(valid)}",
+                      f"mean_filter={float(np.mean(selection)):+.6f}",
+                      f"mean_within={float(np.mean(within)):+.6f}",
+                      f"mean_absolute_filter={float(np.mean(np.abs(selection))):.6f}",
+                      f"mean_absolute_within={float(np.mean(np.abs(within))):.6f}")
+            else:
+                print("TECHNICAL TRAIT ORIGIN",island,trait,"all_eight_resets_empty=True")
