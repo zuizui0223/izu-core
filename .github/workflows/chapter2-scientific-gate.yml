@@ -93,6 +93,9 @@ jobs:
       - name: Screen source-disjoint two-origins technical pilot (NOT CONFIRMATORY)
         run: |
           python -m pytest -q -s tests/test_chapter2_two_origins_disjoint_pilot_20261019.py
+      - name: Diagnose source-disjoint A/I postestablishment expression (TECHNICAL ONLY)
+        run: |
+          python -m pytest -q -s tests/test_chapter2_two_origins_postestablishment_probe_20261019.py
       - name: Validate active Model 3 2026-10-05 ecological submission surface
         run: |
           pytest -q \
