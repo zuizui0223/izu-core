@@ -495,6 +495,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
+      - name: Install technical test dependency only
+        run: python -m pip install pytest==8.4.2
       - name: Validate source-locked current-article packet (read-only)
         run: |
           python -m pytest -q tests/test_chapter2_current_author_review_20261020.py
