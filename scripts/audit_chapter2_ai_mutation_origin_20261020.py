@@ -114,7 +114,7 @@ def step_with_mutation_births(state, ledger, empty_seed_candidates, cfg,
     _state_match(result,dict(alleles=model_alleles,
                             allele_origin=inherited_origin,
                             mutation_flags=model_flags,
-                            ids=np.arange(year*cfg.capacity,year*cfg.capacity+n_children,
+                            ids=np.arange((year+1)*cfg.capacity,(year+1)*cfg.capacity+n_children,
                                           dtype=np.int64),
                             birth_years=np.full(n_children,year+1,dtype=np.int64)),
                  year=year)
