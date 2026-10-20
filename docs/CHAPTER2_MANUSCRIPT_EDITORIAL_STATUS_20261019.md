@@ -2,6 +2,14 @@
 
 Latest editorial revision: 2026-10-20. Integrated evidence baseline: main `dd76ec6f0d2bf330375a69fdb76b06925ee4c32c`. Earlier dated entries below are historical revision records.
 
+## Three-conclusion revision — 2026-10-20
+
+The title, abstract, opening question and Discussion now follow three results: investment decline without assurance evolution; improved persistence under harsh resources; and increased high-I support loss under complete survival in a different resource setting. The completed-evidence extract remains the editing master; the corresponding sections of the historical working file are synchronized without promoting its pending proposals.
+
+The Discussion separates (1) the intervention-based contribution relative to Lepers, Busch, Cheptou, Xu and Tusuubira/Kelly, (2) implications for island ecology, and (3) exploratory hitchhiking/secondary-colonization results and unresolved mechanisms. The island implication concerns retained floral options after persistence; natural assembly, mainland return and speciation are not claimed as demonstrated. Persistence benefits and support loss are not described as one identified causal trade-off. Results, raw data, protocols and biological code are unchanged. The title-specific editorial validator is updated to the new title without changing its numerical, word-count or scientific-boundary checks.
+
+日本語での位置づけ：保証の進化は花投資低下の必須条件ではないが、指定条件で存続と高い花投資の材料保持を変える。島で生き残れることと、その後に花を変えられる材料が残ることを区別して問う。便乗・再移入は主要三結論の因果機構として採用しない。
+
 ## Conclusion and code review — 2026-10-20
 
 A [two-axis code/spec review](CHAPTER2_CONCLUSION_CODE_REVIEW_20261020.md) maps23 current conclusion families. No new result-changing code defect was found in the inspected scripts. One substantive Methods interpretation was corrected: retained target support is necessary under closed inheritance, but favorable selection is not necessary for every realized finite-population return. A dangling reference now points explicitly to the historical working draft; the historical mechanism synthesis is preserved with a dated erratum. Results, registered endpoints and biological code are unchanged. The supplement explicitly maps hitchhiking, secondary colonization and source sorting. A read-only receipt reproduces G/S and40 archived hitchhiking panel records, keeping the two different shuffle implementations separate. All49 selected evidence/figure/route/three-state checks pass. No new simulation or biological replay was run; previous source audits are not represented as fresh all-archive verification. Earlier scope statements below describe their respective revisions.
