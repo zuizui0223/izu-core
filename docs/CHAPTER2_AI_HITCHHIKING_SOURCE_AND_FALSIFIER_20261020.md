@@ -37,6 +37,18 @@ To verify the ORIGINAL reproductive operator, the [source-only auditor](../scrip
 
 **This is a deliberately constructed algebraic sanity check, not evidence that real Q1 mutation-origin hitchhiking occurred.** Any source-only positive result must remain technical-only.
 
+## Source-locked numerical readout — TECHNICAL ONLY
+
+The corrected source-only auditor and focused tests passed [GitHub Actions scientific gate **39352321694**](https://github.com/zuizui0223/izu-core/actions/runs/39352321694), `scientific-gate` job `118399112896`, original head `9e3617963f865b2bc634b373f4138a7307660471`, **success**. The initial run of the new test failed a literal float-equality assertion comparing positive and negative diploid covariances (0.03750000000000001 versus 0.037500000000000006), not a biological mismatch. The test was changed to an absolute `1e-14` arithmetic tolerance; the native reproduction, source genotypes, result definitions and historic original Q1 material were not modified.
+
+- **Eight exact original PR569 founder inputs:** all initial A alleles=0.5; `Cov_N(A,I)=0` for every founder; I and M were polymorphic. This is a **direct input constraint**, not a statistical nonsignificant test.
+- **All 12-plant artificially constructed founders have identical per-locus A and I allele and diploid genotype marginals**, independent loci and no visitors. I expression for the source reproduction ledger alone is fixed at 0.5; its *true* alleles are still those of each edited parent, with normal Mendelian conditional inheritance in the exact expectation.
+- Under both B4.5 and B8, **positive A–I individual-dosage association** `Cov_N(A,I)=+0.0375` yields expected immediate `ΔI=+0.0600827872`; reversing the exact same I diplotypes gives `Cov_N(A,I)=−0.0375` and `ΔI=−0.0600827872`. Balanced A/I combinations have `Cov_N=0` and `ΔI≈0` to floating roundoff.
+- **All 924 distinct placements** of six high-I homozygote diplotypes among twelve fixed A-genotype parents have an exact permutation-average immediate I response `≈0` (numerical residual ~`1e−16`).
+- Equal expected I shifts between B4.5 and B8 arise because no-visitor resource budget is a common positive reproductive-rate multiplier, which cancels in conditional inheritance probabilities; this **does not** imply equal viability, demography, fixation probability or long-term phenotype.
+
+This sanity check demonstrates that an A-associated **indirect I transmission mechanism is present mathematically in the original reproductive source operator**, even with direct I payoff disabled; but the constructed sign is a **known selection covariance identity**, so it is not novel, unexpected, or evidence that any archived PR569 evolving-A mutation rode an I allele to fixation. No new stochastic biological trajectory or historical-parent mutation-origin record was produced by this audit.
+
 ## Nearest existing original Model3 genomic assays
 
 - The retrospective [original-far t200/t400 checkpoint Price audit](CHAPTER2_FAR_ASSURANCE_ORIGINAL_GENOME_PRICE_AUDIT_20261015.md) read **4096 source genome snapshots**, of which 2048 are candidate one-step Price cells. At far t400, 50/64 visitor histories have zero visitors. The zero-visitor **A-alignment term was tiny and sign-inconsistent** across four mating conditions (one negative, three positive). Thus the available late-state original evidence does **not** identify A–I association as the explanation of the far-positive A-evolving−fixed I endpoint. In particular at far t400, the mean *one-step Price E−F* contrast is negative in all four conditions despite a positive terminal E−F I comparison: different estimands and time scales.
