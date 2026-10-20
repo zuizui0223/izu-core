@@ -5,6 +5,10 @@ from functools import lru_cache
 import math
 import numpy as np
 
+from scripts.audit_two_origins_heldout_source_blocks_20261020 import (
+    STATUS as SOURCE_BLOCK_STATUS, source_block_bootstrap,
+)
+
 from scripts.chapter2_two_origins_disjoint_source_pilot_20261019 import (
     TECHNICAL_ONLY, PROTOCOL, DEMOGRAPHIC_RESETS, source_registry,
     island_registry, technical_screen, PREDICTORS,
@@ -174,3 +178,63 @@ def test_emit_scope_limited_heldout_stage_origin_terms():
                       f"mean_absolute_within={float(np.mean(np.abs(within))):.6f}")
             else:
                 print("TECHNICAL TRAIT ORIGIN",island,trait,"all_eight_resets_empty=True")
+
+
+
+def test_source_blocked_Brier_uncertainty_keeps_all_32_paths_together():
+    """All 8 stochastic resets × 4 environments per genotype stay clustered."""
+    d = readout()
+    src = d["heldout_persistence_source_losses"]
+    assert d["source_blocked_inference_exploratory_and_fixed_training_models"] is True
+    assert len(src)==24 and len({z["source_id"] for z in src})==24
+    assert len({z["source_seed"] for z in src})==24
+    assert sum(z["paths"] for z in src)==768
+    assert {z["paths"] for z in src}=={32}
+    records = {x["model"]:x for x in d["heldout_prediction_scores"]
+               if x["endpoint"]=="persistence_from_candidate"}
+    assert set(records)==set(PREDICTORS)
+    for model in PREDICTORS:
+        clustered=float(np.mean([z["brier_by_model"][model] for z in src]))
+        aggregate=records[model]["result"]["brier"]
+        assert abs(clustered-aggregate)<1e-13
+
+    q = source_block_bootstrap(src)
+    assert q["status"]==SOURCE_BLOCK_STATUS
+    assert q["heldout_source_groups"]==24
+    assert q["bootstrap_draws"]==4000
+    assert q["source_groups_per_stratum"]==4
+    assert q["bootstrap_refits_models"] is False
+    assert q["iid_path_or_island_interpretation"] is False
+    assert q["inferential_rank"].startswith("postoutcome exploratory")
+    expected={
+        "A_vs_ecology":records["ecology_A"]["delta_brier_vs_ecology_only"],
+        "I_vs_ecology":records["ecology_I"]["delta_brier_vs_ecology_only"],
+        "A_I_vs_ecology":records["ecology_A_I"]["delta_brier_vs_ecology_only"],
+        "A_minus_I":records["ecology_A"]["result"]["brier"] -
+                    records["ecology_I"]["result"]["brier"],
+    }
+    for name,truth in expected.items():
+        est=q["comparisons"][name]
+        assert abs(est["observed_mean_difference"]-truth)<1e-13
+        low,high=est["conditional_source_bootstrap_percentile_95"]
+        assert low<=high and np.isfinite([low,high]).all()
+        assert 0<=est["fraction_resamples_improving_score"]<=1
+        print("SOURCE-BLOCKED EXPLORATORY BRIER",name,
+              f"delta={est['observed_mean_difference']:+.8f}",
+              f"conditional_95=[{low:+.8f},{high:+.8f}]",
+              f"bootstrap_improve_fraction={est['fraction_resamples_improving_score']:.4f}",
+              "groups=24 source genotypes, within-stratum resample, TRAIN predictions fixed")
+    # Determinism of this purely source-level bootstrap audit is enforceable.
+    assert source_block_bootstrap(src) == q
+
+
+def test_source_blocked_uncertainty_invalid_source_duplication_fails_closed():
+    import pytest
+    src = readout()["heldout_persistence_source_losses"]
+    duplicate=[*src[:-1],src[0]]
+    with pytest.raises(ValueError,match="duplicated"):
+        source_block_bootstrap(duplicate)
+    with pytest.raises(ValueError,match="source groups"):
+        source_block_bootstrap(src[:23])
+    with pytest.raises(ValueError,match="bootstrap replicate"):
+        source_block_bootstrap(src,n_boot=2)
