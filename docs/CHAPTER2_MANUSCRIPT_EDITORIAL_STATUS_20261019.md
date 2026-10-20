@@ -1,6 +1,20 @@
 # Completed-evidence manuscript: editorial status
 
-Revision: 2026-10-19. Evidence baseline: main `b0d907eabd5142f1d2d316d7a6a8b9374822618a`.
+Latest editorial revision: 2026-10-20. Integrated evidence baseline: main `dd76ec6f0d2bf330375a69fdb76b06925ee4c32c`. Earlier dated entries below are historical revision records.
+
+## Title, abstract and Discussion after evidence integration
+
+**Title:** Reproductive assurance differentially affects floral genetic accessibility and persistence under pollinator limitation.
+
+The working manuscript and completed-evidence extract share exactly the same title, abstract and Discussion. The title names the measured genetic-access and persistence outcomes without implying that actual recovery probability was established. The abstract leads with the biological question, then the fixed-A counterexample and registered G/S estimates, and ends with the unresolved mediation and secondary-adaptation questions. The Discussion explains novelty, conditional baseline responses, sequence and finite realization, resource-dependent persistence, bounded transfer, exploratory extensions and remaining causal/generalization limits in that order.
+
+Current whitespace counts: abstract **180** words; Discussion **670**; Introduction through Discussion **3,489** in the working document and **3,330** in the completed-only extract. The difference reflects the historical PENDING material retained only in the working document, not additional observed results. Earlier counts below are superseded for this revision. These are internal source counts, not final typeset counts.
+
+**日本語での主張：** 送粉者減少下で繁殖を維持することは、将来の花の進化に必要な遺伝的選択肢を保持することと同じではない。最も強い新規性は、全集団が存続する条件で保証進化による高I支持範囲の喪失を確認し、資源条件を変えた存続効果と別々に評価した点にある。保証固有の便乗、回復確率、二次的分布拡大後の適応、自然の島での進化と選別の寄与は未解決として残す。
+
+Scope: editorial changes only. Introduction, Results, Methods, figures, frozen protocols, raw data and all inferential ranks are unchanged. No experiment or biological replay is run for this revision.
+
+Verification: exact comparison confirms that only title/abstract/Discussion changed in both manuscript files, and those three sections match across versions. Selected completed-evidence numerical validation and 34 existing manuscript/figure checks passed. Independent editorial review found no remaining issue with the registered estimates, novelty boundaries or exploratory labels.
 
 ## Central argument
 
