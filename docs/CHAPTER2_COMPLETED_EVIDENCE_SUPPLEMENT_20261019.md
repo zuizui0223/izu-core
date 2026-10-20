@@ -50,6 +50,14 @@ This is distinct from the later equal-initial-A pilot. The eight-history pilot c
 | Matched A/I repeatability | [result](CHAPTER2_MATCHED_AI_REPEATABILITY_20261019.md) | Endpoint readback, conditioned on paired survival; no universal trait ranking |
 | Three-syndrome and selection/realization framing | [syndromes](CHAPTER2_THREE_SYNDROMES_FRAME_20261019.md), [mechanisms](CHAPTER2_SELECTION_REALIZATION_FRAME_20261019.md) | Interpretation, not another biological sample |
 
+## Exploratory mechanism and colonization extensions
+
+| Evidence unit | Source | Conclusion retained |
+|---|---|---|
+| A-mutation permission × I reassignment, with I-only and M/I-neutral payoffs | [six-policy tracer](CHAPTER2_AI_MUTATION_PAYOFF_PAIRING_TECHNICAL_READOUT_20261020.md), [ten-policy control](CHAPTER2_AI_HITCHHIKING_M_I_NEUTRAL_READOUT_20261020.md) | Association-sensitive endpoint differences exist in these finite paths. Their sign does not establish A-specific hitchhiking or its absence. The two scripts use different shuffle streams: +0.054321 and +0.058492 are distinct I-neutral descriptive contrasts, not independent replications to pool. |
+| Secondary colonization and pedigree readback | [review and completed pedigree receipt](CHAPTER2_HITCHHIKING_SECONDARY_EXPANSION_REVIEW_20261020.md) | Selected-marker retention, descendants and recipient occupancy differ. Two founders × two visitor histories; no established A-specific adaptive advantage. |
+| Source sorting versus within-survivor change | [source-disjoint technical pilot](CHAPTER2_TWO_ORIGINS_SOURCE_DISJOINT_TECHNICAL_PILOT_20261019.md), [centered-A control](CHAPTER2_TWO_ORIGINS_CENTERED_A_OBSERVED_READOUT_20261020.md) | Limited synthetic source prediction and within-population change do not identify natural island assembly or an exclusive imported-A/evolved-I division. |
+
 ## What coverage does not establish
 
 No natural island filtering, evolving deleterious-load mechanism, full probability-defined recovery window or permanent irreversibility has been demonstrated by this synthesis. Retained historical unexecuted proposals remain unexecuted. A file inventory, source link, passing test or editorial gate alone is not independent scientific reproduction. Original source reports retain their denominators, stop records, hashes and exact uncertainty definitions.

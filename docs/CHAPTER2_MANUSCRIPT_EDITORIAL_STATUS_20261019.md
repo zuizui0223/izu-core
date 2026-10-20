@@ -2,6 +2,10 @@
 
 Latest editorial revision: 2026-10-20. Integrated evidence baseline: main `dd76ec6f0d2bf330375a69fdb76b06925ee4c32c`. Earlier dated entries below are historical revision records.
 
+## Conclusion and code review — 2026-10-20
+
+A [two-axis code/spec review](CHAPTER2_CONCLUSION_CODE_REVIEW_20261020.md) maps23 current conclusion families. No new result-changing code defect was found in the inspected scripts. One substantive Methods interpretation was corrected: retained target support is necessary under closed inheritance, but favorable selection is not necessary for every realized finite-population return. A dangling reference now points explicitly to the historical working draft; the historical mechanism synthesis is preserved with a dated erratum. Results, registered endpoints and biological code are unchanged. The supplement explicitly maps hitchhiking, secondary colonization and source sorting. A read-only receipt reproduces G/S and40 archived hitchhiking panel records, keeping the two different shuffle implementations separate. All49 selected evidence/figure/route/three-state checks pass. No new simulation or biological replay was run; previous source audits are not represented as fresh all-archive verification. Earlier scope statements below describe their respective revisions.
+
 ## Primary-literature and narrative-closure revision — 2026-10-20
 
 The completed-evidence article remains the editing master. A [primary-literature comparison](CHAPTER2_CLOSEST_PRIOR_ART_PRIMARY_AUDIT_20261020.md) sharpens the novelty against explicit selfing–allocation models, genomic erosion in large experimental populations, selection-based irreversibility, and conditional adaptation under selfing. Introduction and Discussion now identify the matched initial-expression A-policy intervention and target-specific allele-support endpoint as the contribution, rather than claiming priority for genetic erosion during persistence. Tusuubira & Kelly (2024) is added because experimental crosses distinguish floral-size changes due to inbreeding depression from adaptation; modeled I allocation must not be equated to observed flower dimensions.

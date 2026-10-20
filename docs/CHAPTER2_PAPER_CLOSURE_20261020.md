@@ -92,3 +92,7 @@ The subsequent literature audit and copyedit retain this document's one-paper de
 **Japanese author-facing conclusion:** 生殖保証の進化は、存続と特定の花形質への遺伝的選択肢を一緒に守るとは限らない。初期の保証発現をそろえた比較では、全個体群が存続する条件でも高い花投資を可能にするアレル支持範囲の喪失が増えた。一方、厳しい資源条件では存続が改善した。この二つを別の評価量として示した点が本論文の核であり、存続が将来の適応を保証することも、自殖が普遍的な進化の袋小路を作ることも示していない。
 
 No new experiment is required to close this restricted question. Existing artwork, Methods/manifests, reference completeness, declarations and archival finishing gates in section 6 remain; the paper is not declared submission-ready.
+
+## 8. Subsequent conclusion/code audit
+
+The [2026-10-20 two-axis audit](CHAPTER2_CONCLUSION_CODE_REVIEW_20261020.md) retains the principal registered conclusions while correcting the claim that favorable selection is necessary for every realized high-I return. It covers23 current conclusion families and separates the two hitchhiking shuffle implementations. The source-mapped23-family review is not fresh raw reproduction of all historical41 units. No new biological campaign was added.

@@ -1,0 +1,88 @@
+{
+  "status": "READ_ONLY_CONCLUSION_SOURCE_ARITHMETIC_NOT_NEW_INFERENCE",
+  "reviewed_head": "4f0dbafc1ee4d25e7fcb7821504f0f62f6f8d434",
+  "confirm_source_sha256": "7dbfbf819b1b03ce50b09c688e00dd07d8bcfe4036aeb7380392127a69f3596f",
+  "registered_G": 0.08328125,
+  "registered_S": 0.9270703125,
+  "hitchhiking_source_run": 39366397170,
+  "source_job": 118444292590,
+  "source_head": "89762a8ecee1419420f016647d94d966b039e4f9",
+  "source_log_decoded_sha256": "3d87acbb47e3908252e8574b01dee4a3abb1c813c579092b497e6290bd0c93e9",
+  "parsed_policy_groups": 40,
+  "contrasts": [
+    {
+      "context": "assurance_cost|far",
+      "mode": "Ineutral",
+      "Aon_minus_Aoff": 0.04734373714582954,
+      "shuffled_Aon_minus_Aoff": 0.04425571011041682,
+      "association_difference": 0.0030880270354127215
+    },
+    {
+      "context": "assurance_cost|far",
+      "mode": "IMneutral",
+      "Aon_minus_Aoff": -0.033798785182610244,
+      "shuffled_Aon_minus_Aoff": 0.03940924232181847,
+      "association_difference": -0.07320802750442872
+    },
+    {
+      "context": "assurance_cost|near",
+      "mode": "Ineutral",
+      "Aon_minus_Aoff": 0.0568839645605021,
+      "shuffled_Aon_minus_Aoff": -0.05676348072813678,
+      "association_difference": 0.11364744528863888
+    },
+    {
+      "context": "assurance_cost|near",
+      "mode": "IMneutral",
+      "Aon_minus_Aoff": 0.01834347472814274,
+      "shuffled_Aon_minus_Aoff": 0.04566952151235733,
+      "association_difference": -0.02732604678421459
+    },
+    {
+      "context": "delayed_control|far",
+      "mode": "Ineutral",
+      "Aon_minus_Aoff": 0.12114016439084019,
+      "shuffled_Aon_minus_Aoff": 0.029402303905267005,
+      "association_difference": 0.09173786048557318
+    },
+    {
+      "context": "delayed_control|far",
+      "mode": "IMneutral",
+      "Aon_minus_Aoff": 0.003350085944732767,
+      "shuffled_Aon_minus_Aoff": 0.02702642987713219,
+      "association_difference": -0.023676343932399424
+    },
+    {
+      "context": "delayed_control|near",
+      "mode": "Ineutral",
+      "Aon_minus_Aoff": 0.05035606748795245,
+      "shuffled_Aon_minus_Aoff": 0.024859524793774984,
+      "association_difference": 0.025496542694177463
+    },
+    {
+      "context": "delayed_control|near",
+      "mode": "IMneutral",
+      "Aon_minus_Aoff": 0.02172109471391656,
+      "shuffled_Aon_minus_Aoff": 0.08588292665003175,
+      "association_difference": -0.06416183193611519
+    }
+  ],
+  "means": {
+    "Ineutral": {
+      "Aon_minus_Aoff": 0.06893098339628106,
+      "shuffled_Aon_minus_Aoff": 0.010438514520330507,
+      "association_difference": 0.058492468875950554
+    },
+    "IMneutral": {
+      "Aon_minus_Aoff": 0.0024039675510454557,
+      "shuffled_Aon_minus_Aoff": 0.04949703009033493,
+      "association_difference": -0.04709306253928948
+    }
+  },
+  "limitations": [
+    "Group means only; no new confidence interval or equivalence test",
+    "Two founder and two visitor levels reused; 160 paths not independent source units",
+    "Separate six-policy tracer uses a different shuffle RNG and its +0.054321 contrast must not be pooled with this +0.058492 contrast",
+    "No biological simulations or raw-path replays run"
+  ]
+}
