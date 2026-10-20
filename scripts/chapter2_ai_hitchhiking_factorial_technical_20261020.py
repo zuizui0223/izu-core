@@ -53,6 +53,10 @@ POLICIES = (
     "Aoff_Ineutral",
     "Aon_Ineutral_scramble",
     "Aoff_Ineutral_scramble",
+    "Aon_IMneutral",
+    "Aoff_IMneutral",
+    "Aon_IMneutral_scramble",
+    "Aoff_IMneutral_scramble",
 )
 CHECKPOINTS = (0, 1, 6, 12, 24)
 LOCUS_I = 1
@@ -63,11 +67,12 @@ def factors(policy):
     if policy not in POLICIES:
         raise ValueError("unregistered technical factor policy")
     a_on = policy.startswith("Aon_")
-    payoff_neutral = "Ineutral" in policy
+    payoff_neutral = "Ineutral" in policy or "IMneutral" in policy
+    matching_neutral = "IMneutral" in policy
     scramble = policy.endswith("_scramble")
     if scramble and not payoff_neutral:
         raise AssertionError("genotype reassignment only under I-neutral payoff")
-    return a_on, payoff_neutral, scramble
+    return a_on, payoff_neutral, matching_neutral, scramble
 
 
 def neutralize_I_for_payoff(state):
@@ -80,6 +85,20 @@ def neutralize_I_for_payoff(state):
     """
     alleles=state.alleles.copy()
     alleles[:,LOCUS_I,:]=.5
+    return replace(state,alleles=alleles)
+
+
+def neutralize_M_and_I_for_payoff(state):
+    """Remove direct M/I phenotype fitness effects, retaining their inheritance.
+
+    Force expressed M and I to .5 in the native reproductive ledger only.
+    Genetically separate M/I/A loci continue to segregate and mutate under
+    the original diploid source law. This is artificial, not a natural gene
+    knockout, and does not itself prove a mutation-origin I hitchhiking path.
+    """
+    alleles=state.alleles.copy()
+    alleles[:,0,:]=.5
+    alleles[:,1,:]=.5
     return replace(state,alleles=alleles)
 
 
@@ -140,7 +159,7 @@ def technical_path(*, founder_seed, visitor_seed, visitor_arm, setting,
             visitor_arm not in ARMS or setting not in MATING or
             type(periods) is not int or not 1<=periods<=HORIZON):
         raise ValueError("outside frozen old-source technical factorial envelope")
-    a_on, payoff_neutral, scramble=factors(policy)
+    a_on, payoff_neutral, matching_neutral, scramble=factors(policy)
     design, biological=load_frozen()
     cfg=original_Q1_config(biological,setting,.01,"evolving")
     if cfg.mutation_rate!=.01 or cfg.mutation_sd!=.05 or cfg.capacity!=48:
@@ -174,7 +193,9 @@ def technical_path(*, founder_seed, visitor_seed, visitor_arm, setting,
         if scramble:
             parents=permute_whole_I_diplotypes(state,i_permutation_rng)
             movements+=1
-        payoff=neutralize_I_for_payoff(parents) if payoff_neutral else parents
+        payoff=(neutralize_M_and_I_for_payoff(parents) if matching_neutral
+                else neutralize_I_for_payoff(parents) if payoff_neutral
+                else parents)
         ledger=reproduce(payoff,env.visitors[t],cfg)
         state,info=advance(parents,ledger,env.seed_candidates[t],cfg,rngs,
                            year=t,mutation_traits=(True,True,a_on))
@@ -207,6 +228,7 @@ def technical_path(*, founder_seed, visitor_seed, visitor_arm, setting,
         policy=policy,original_founding_A=.5,original_I=original_I_mean,
         technical_periods=periods,a_mutation_enabled=a_on,
         I_direct_payoff_enabled=not payoff_neutral,
+        M_direct_matching_payoff_enabled=not matching_neutral,
         I_whole_diplotype_permuted_each_generation=scramble,
         I_permutation_generations=movements,
         all_original_Q1_biology_unmodified=True,
@@ -240,20 +262,22 @@ def run_bounded_technical():
                     # Under neutral I payoff, locus reallocation only changes I,
                     # and MUST keep A/M genotype trajectories exactly identical.
                     for a_label in ("Aon","Aoff"):
-                        native=paths[a_label+"_Ineutral"]
-                        shuffled=paths[a_label+"_Ineutral_scramble"]
-                        if native["end"]["N"]!=shuffled["end"]["N"]:
-                            raise AssertionError("scrambling I altered A/M population census")
-                        for t in CHECKPOINTS:
-                            x=native["checkpoint"][str(t)]
-                            y=shuffled["checkpoint"][str(t)]
-                            if (x["N"]!=y["N"] or
-                                    x["M_A_sha256"]!=y["M_A_sha256"]):
+                        for payoff_mode in ("Ineutral","IMneutral"):
+                            native=paths[a_label+"_"+payoff_mode]
+                            shuffled=paths[a_label+"_"+payoff_mode+"_scramble"]
+                            if native["end"]["N"]!=shuffled["end"]["N"]:
+                                raise AssertionError("scrambling I altered A/M population census")
+                            for t in CHECKPOINTS:
+                                x=native["checkpoint"][str(t)]
+                                y=shuffled["checkpoint"][str(t)]
+                                if (x["N"]!=y["N"] or
+                                        x["M_A_sha256"]!=y["M_A_sha256"]):
+                                    raise AssertionError(
+                                        "I genotype shuffle altered A/M genotype history")
+                            if (native["total_selfed_recruits"]!=shuffled["total_selfed_recruits"]
+                                    or native["total_outcrossed_recruits"]!=shuffled["total_outcrossed_recruits"]):
                                 raise AssertionError(
-                                    "I genotype shuffle altered A/M genotype history")
-                        if native["total_selfed_recruits"]!=shuffled["total_selfed_recruits"] \
-                                or native["total_outcrossed_recruits"]!=shuffled["total_outcrossed_recruits"]:
-                            raise AssertionError("I-neutral shuffle changed original parentage counts")
+                                    "M/I-neutral I scramble altered reproduction counts")
                     groups.append(dict(
                         setting=mating,founder_seed=founder_seed,
                         visitor_seed=visitor_seed,visitor_arm=visitor_arm,
@@ -295,6 +319,7 @@ def run_bounded_technical():
         source_visitor_history_ids=list(VISITORS),
         matched_contexts=len(groups),
         matched_paths=len(groups)*len(POLICIES),
+        added_direct_M_and_I_payoff_neutral_controls=True,
         original_source_parity_verified=True,
         A_M_trajectories_invariant_to_I_scramble_when_I_payoff_neutral=True,
         original_zero_A_mutant_Q1_fixed_A_control_replayed=True,
