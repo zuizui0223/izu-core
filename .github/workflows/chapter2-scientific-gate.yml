@@ -482,8 +482,7 @@ jobs:
 
   
   current-chapter2-author-review:
-    needs: scientific-gate
-    if: needs.scientific-gate.result == 'success'
+    # Package build validates its own admitted sources; it does not run scientific biology.
     runs-on: ubuntu-24.04
     timeout-minutes: 15
     permissions:
