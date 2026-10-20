@@ -7,7 +7,8 @@ import pytest
 
 from scripts.chapter2_ai_hitchhiking_factorial_technical_20261020 import (
     ARMS,HORIZON,CHECKPOINTS,FOUNDERS,MATING,POLICIES,STATUS,VISITORS,
-    factors,neutralize_I_for_payoff,permute_whole_I_diplotypes,
+    factors,neutralize_I_for_payoff,neutralize_M_and_I_for_payoff,
+    permute_whole_I_diplotypes,
     run_bounded_technical,technical_path,
 )
 from scripts.run_chapter2_q1_fresh_founders_20261016 import load_frozen,founder
@@ -22,7 +23,8 @@ def test_the_source_envelope_and_all_six_policies_are_bounded():
     d=run()
     assert d["status"]==STATUS
     assert d["matched_contexts"]==16
-    assert d["matched_paths"]==96
+    assert d["matched_paths"]==160
+    assert d["added_direct_M_and_I_payoff_neutral_controls"] is True
     assert d["technical_horizon"]==HORIZON==24
     assert d["registered_Q1_full_1000_updates_unmodified"] is True
     assert d["biological_operator_modified"] is False
@@ -33,7 +35,7 @@ def test_the_source_envelope_and_all_six_policies_are_bounded():
     assert d["I_scrambling_is_artificial_gene_reassignment_not_natural_recombination"] is True
     assert len(d["matched_blocks"])==16
     assert len(d["endpoint_summary"])==4
-    assert len(set(POLICIES))==len(POLICIES)==6
+    assert len(set(POLICIES))==len(POLICIES)==10
     assert set(d["source_founder_ids"])==set(FOUNDERS)
     assert set(d["source_visitor_history_ids"])==set(VISITORS)
     assert set(MATING)=={"delayed_control","assurance_cost"}
@@ -106,30 +108,48 @@ def test_I_reassignment_under_neutral_I_payoff_keeps_A_M_and_recruitment_identic
     moved=0
     for group in d["matched_blocks"]:
         for a in ("Aon","Aoff"):
-            plain=group["paths"][a+"_Ineutral"]
-            edited=group["paths"][a+"_Ineutral_scramble"]
-            assert plain["I_direct_payoff_enabled"] is False
-            assert edited["I_direct_payoff_enabled"] is False
-            assert edited["I_whole_diplotype_permuted_each_generation"] is True
-            assert edited["I_permutation_generations"] == HORIZON
-            assert plain["I_permutation_generations"] == 0
-            assert plain["end"]["N"]==edited["end"]["N"]
-            assert plain["total_selfed_recruits"]==edited["total_selfed_recruits"]
-            assert plain["total_outcrossed_recruits"]==edited["total_outcrossed_recruits"]
-            for t in CHECKPOINTS:
-                u=plain["checkpoint"][str(t)]
-                v=edited["checkpoint"][str(t)]
-                assert u["M_A_sha256"]==v["M_A_sha256"]
-                assert u["N"]==v["N"]
-                assert u["A_mean"]==v["A_mean"]
-            moved+=1
-    assert moved==32
+            for payoff_mode in ("Ineutral","IMneutral"):
+                plain=group["paths"][a+"_"+payoff_mode]
+                edited=group["paths"][a+"_"+payoff_mode+"_scramble"]
+                assert plain["I_direct_payoff_enabled"] is False
+                assert edited["I_direct_payoff_enabled"] is False
+                assert edited["M_direct_matching_payoff_enabled"] == (
+                    payoff_mode!="IMneutral")
+                assert edited["I_whole_diplotype_permuted_each_generation"] is True
+                assert edited["I_permutation_generations"] == HORIZON
+                assert plain["I_permutation_generations"] == 0
+                assert plain["end"]["N"]==edited["end"]["N"]
+                assert plain["total_selfed_recruits"]==edited["total_selfed_recruits"]
+                assert plain["total_outcrossed_recruits"]==edited["total_outcrossed_recruits"]
+                for t in CHECKPOINTS:
+                    u=plain["checkpoint"][str(t)]
+                    v=edited["checkpoint"][str(t)]
+                    assert u["M_A_sha256"]==v["M_A_sha256"]
+                    assert u["N"]==v["N"]
+                    assert u["A_mean"]==v["A_mean"]
+                moved+=1
+    assert moved==64
+
+
+def test_M_I_expression_neutralization_does_not_erase_ancestral_genotypes():
+    design,_=load_frozen()
+    original=founder(design,560201)
+    before=original.alleles.copy()
+    phenotypic=neutralize_M_and_I_for_payoff(original)
+    assert np.array_equal(phenotypic.alleles[:,0,:],np.full((48,2),.5))
+    assert np.array_equal(phenotypic.alleles[:,1,:],np.full((48,2),.5))
+    assert np.array_equal(phenotypic.alleles[:,2,:],before[:,2,:])
+    assert np.array_equal(phenotypic.allele_origin,original.allele_origin)
+    assert np.array_equal(phenotypic.mutation_flags,original.mutation_flags)
+    assert np.array_equal(original.alleles,before)
+    assert not np.array_equal(original.alleles[:,0,:],phenotypic.alleles[:,0,:])
+    assert not np.array_equal(original.alleles[:,1,:],phenotypic.alleles[:,1,:])
 
 
 def test_all_start_and_conditional_trait_summary_are_not_misidentified():
     d=run()
     for label,policy_map in d["endpoint_summary"].items():
-        assert len(policy_map)==6
+        assert len(policy_map)==10
         for policy,z in policy_map.items():
             assert z["all_start_contexts"]==4
             assert 0<=z["occupied"]<=4
