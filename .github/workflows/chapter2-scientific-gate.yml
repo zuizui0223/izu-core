@@ -117,6 +117,23 @@ jobs:
                         "expected_delta_I",row["expected_one_generation_delta_I"])
           print("THIS IS A TECHNICAL PRICE/COVARIANCE DEMONSTRATION; NO HITCHHIKING CONFIRMATION")
           PY
+      - name: Audit bounded de novo A mutation origin with source-parity Q1 replay
+        run: |
+          python -m pytest -q -s tests/test_chapter2_ai_mutation_origin_20261020.py
+          python - <<'PY'
+          from scripts.audit_chapter2_ai_mutation_origin_20261020 import audit_bounded
+          d=audit_bounded()
+          assert d['status']=='TECHNICAL_Q1_A_MUTATION_BIRTH_TRACE_NOT_CONFIRMATORY'
+          assert d['trace_cohort_cases']==16 and d['technical_steps']==12
+          assert d['original_case_traces_replayed_byte_identically']
+          assert d['no_sweep_or_longterm_hitchhiking_confirmation']
+          print('A MUTATION BIRTH TRACE TECHNICAL ONLY',
+                'Q1-replayed_paths',d['trace_cohort_cases'],
+                'updates_per_path',d['technical_steps'],
+                'new_A_births',d['source_mutation_births_total'])
+          print('EVENTS HAVE MOTHER/FATHER, I GENETIC BACKGROUND, UNIQUE A BIRTH ID')
+          print('NO HISTORICAL PR569 CAUSAL MECHANISM OR LONG TERM SWEEP CONFIRMED')
+          PY
       - name: Validate active Model 3 2026-10-05 ecological submission surface
         run: |
           pytest -q \
