@@ -1,12 +1,7 @@
 name: Secondary colonisation (exploratory)
 
 on:
-  pull_request:
-    paths:
-      - scripts/secondary_colonization_pilot_20261020.py
-      - tests/test_secondary_colonization_pilot_20261020.py
-      - docs/CHAPTER2_SECONDARY_COLONIZATION_PILOT_20261020.md
-      - .github/workflows/secondary-colonization-pilot.yml
+  workflow_dispatch:
 
 permissions:
   contents: read
