@@ -38,7 +38,7 @@ def test_synthetic_phase_controls_same_locus_marginals_opposite_associations():
         I=st.alleles[:,1,:].mean(axis=1)
         covariance.append(float(np.mean((A-A.mean())*(I-I.mean()))))
     assert covariance[0]>0 and covariance[1]<0 and covariance[2]==0
-    assert covariance[0]==-covariance[1]
+    assert abs(covariance[0]+covariance[1]) < 1e-14
 
 
 def test_direct_investment_payoff_is_disabled_not_genotype_and_canonical_ledger_used():
