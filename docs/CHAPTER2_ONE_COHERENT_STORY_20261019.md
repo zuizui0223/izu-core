@@ -55,3 +55,8 @@ Finally, a bounded transfer of saved seeds into five novel visitor regimes found
 - [Bounded 64-cohort transfer](CHAPTER2_READAPTATION_RESULTS_20261019.md), [four-stage original/new claim crosswalk](CHAPTER2_Q1_Q4_ORIGINAL_FOUR_PARTS_AUDIT_20261019.md), [S1–S33/F1–F8 disposition](CHAPTER2_HISTORICAL_RESULTS_DISPOSITION_20261019.md).
 
 **Publication stance:** this is one model-based Article candidate, not a natural-island macro-analysis, not an independent Chapter 3 manuscript and not submission-ready. The original numeric sources and unresolved/null results remain the definitive record.
+
+
+## Executed exploratory extensions reviewed on 2026-10-20
+
+[Hitchhiking and secondary expansion review](CHAPTER2_HITCHHIKING_SECONDARY_EXPANSION_REVIEW_20261020.md) admits the executed short factorial controls and the 240-path secondary-colonization archive as exploratory supplementary context. Removing matching as well as investment payoffs reverses the four hitchhiking panel contrasts; no A-specific causal hitchhiking claim is supported. Full pedigree replay distinguishes migrant genealogical descendants from selected M/I/A marker retention and total recipient occupancy. Neither genealogical retention nor survivor-conditioned reproductive return demonstrates adaptation. These findings refine the single Article's mechanism limits without replacing registered Q1–Q4, baseline-pollen, genetic-access/persistence, variation-clock and bounded-transfer results.
