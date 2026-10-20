@@ -170,3 +170,42 @@ def test_emit_paired_discordances_and_successor_trait_differences():
                   f"survivors_pair_delta_I={meanI!r}")
     print("TECHNICAL ONLY: paired same-source comparison with expression clamp;"
           " this cannot isolate genetic evolution or its mediation.")
+
+
+def test_source_locked_centered_A_fates_and_flat_comparison():
+    """Protect the exposed original 2026-10-19 technical cohort, NOT new inference.
+
+    Source: scientific-gate job 118156720195 at bd262063fb0b...
+    Matching 2x2 marginal counts cannot establish exact individual overlap.
+    """
+    d = readout()
+    frozen = {
+        "pilot_budget_4p5_visitors_0": (50, 49, 1, 1, 141),
+        "pilot_budget_4p5_visitors_4": (67, 67, 0, 0, 125),
+        "pilot_budget_8p0_visitors_0": (91, 90, 1, 1, 100),
+        "pilot_budget_8p0_visitors_4": (118, 118, 0, 0, 74),
+    }
+    for island,(n_alive,both,native_only,center_only,neither) in frozen.items():
+        s=d["summary"][island]["all_source_strata"]
+        assert s["n_candidates"]==192
+        assert s["survival"]["native"]["persisted"]==n_alive
+        for policy in ("clamp_A","center_A_mean"):
+            assert s["survival"][policy]["persisted"]==n_alive
+            q=s["paired"][policy]
+            assert (q["both"],q["native_only"],q["policy_only"],q["neither"]) == (
+                both,native_only,center_only,neither)
+        x=[z for z in d["groups"] if z["island"]==island]
+        assert len(x)==192
+        flat_only = sum(z["arms"]["clamp_A"]["alive"] and
+                        not z["arms"]["center_A_mean"]["alive"] for z in x)
+        centered_only = sum(z["arms"]["center_A_mean"]["alive"] and
+                            not z["arms"]["clamp_A"]["alive"] for z in x)
+        overlap = sum(z["arms"]["clamp_A"]["alive"] and
+                      z["arms"]["center_A_mean"]["alive"] for z in x)
+        assert flat_only==centered_only
+        assert flat_only+overlap==n_alive
+        print("SOURCE-LOCKED TECHNICAL FLAT-vs-CENTERED",island,
+              "flat_only",flat_only,"centered_only",centered_only,
+              "both",overlap,"neither",192-flat_only-centered_only-overlap)
+    assert sum(q["survival"]["native"]["persisted"]
+               for q in (s["all_source_strata"] for s in d["summary"].values())) == 326
