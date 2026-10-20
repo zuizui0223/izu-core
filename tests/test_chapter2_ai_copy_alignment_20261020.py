@@ -35,7 +35,7 @@ def test_initial_Q1_founders_have_no_A_mutant_tags():
     assert z["n_A_copies_with_mutation_token"]==0
     assert z["n_A_copies_without_mutation_token"]==96
     assert z["mean_I_in_mutation_tagged_A_copies"] is None
-    assert z["mean_I_in_untagged_A_copies"]==z["mean_I_in_population"]
+    assert abs(z["mean_I_in_untagged_A_copies"]-z["mean_I_in_population"])<1e-14
     assert z["tagged_minus_untagged_I"] is None
     assert z["per_token_current_copy_I_mean"]=={}
 
