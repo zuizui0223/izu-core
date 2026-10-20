@@ -80,6 +80,94 @@ jobs:
           pytest -q tests/test_chapter2_paper_figures_20261019.py
           pytest -q tests/test_chapter2_four_part_linkage_20261019.py
           pytest -q tests/test_chapter2_three_state_publication_20261019.py
+
+      - name: Audit exposed two-origins source fate predictability (TECHNICAL ONLY)
+        run: |
+          python -m pytest -q tests/test_chapter2_two_origins_predictability_20261019.py
+          python - <<'PY'
+          from scripts.audit_two_origins_predictability_20261019 import analyze
+          data = analyze()
+          assert data['status'] == 'TECHNICAL_EXPECTED_SCORE_IDENTITY_NOT_REGISTERED'
+          assert not data['independent_heldout_validation']
+          for item in data['result']:
+              native = item['mode_results']['native']['candidate_to_establishment']
+              print('EXPOSED SOURCE ORACLE', item['island'],
+                    'Brier baseline', round(native['baseline_expected_brier'],8),
+                    'oracle', round(native['perfect_source_oracle_expected_brier'],8),
+                    'expected gain', round(native['expected_brier_gain'],8),
+                    'fraction', round(native['relative_brier_gain'],8))
+          print('TECHNICAL-ONLY EXPECTED SCORE IDENTITY; NOT HELD-OUT CONFIRMATION')
+          PY
+
+      - name: Screen source-disjoint two-origins technical pilot (NOT CONFIRMATORY)
+        run: |
+          python -m pytest -q -s tests/test_chapter2_two_origins_disjoint_pilot_20261019.py
+      - name: Diagnose source-disjoint A/I postestablishment expression (TECHNICAL ONLY)
+        run: |
+          python -m pytest -q -s tests/test_chapter2_two_origins_postestablishment_probe_20261019.py
+      - name: Source-only Q1 A-I founder null and genetic background test
+        run: |
+          python -m pytest -q tests/test_chapter2_ai_background_20261020.py
+          python - <<'PY'
+          from scripts.audit_chapter2_ai_background_20261020 import audit
+          d=audit()
+          assert d["all_original_eight_q1_A_loci_start_monomorphic"]
+          assert d["all_original_eight_q1_founder_A_I_covariances_zero"]
+          assert d["no_new_population_trajectory_advanced"]
+          print("ORIGINAL Q1 PR569: eight founders all A=.5; founding A-I covariance identically zero")
+          for b in d["synthetic_source_only_one_step"]:
+              print("SYNTHETIC ONE STEP:", "budget", b["budget"],
+                    "I_direct_payoff_disabled", b["I_direct_effect_in_payoff_disabled"],
+                    "shuffles", b["permutation_assignments"],
+                    "exact mean shuffle delta", b["exact_924_permutation_null_mean_I_shift"])
+              for row in b["phase_results"]:
+                  print("pairing",row["pairing"],
+                        "cov_A_I",row["unphased_A_I_individual_covariance"],
+                        "expected_delta_I",row["expected_one_generation_delta_I"])
+          print("THIS IS A TECHNICAL PRICE/COVARIANCE DEMONSTRATION; NO HITCHHIKING CONFIRMATION")
+          PY
+      - name: Audit bounded de novo A mutation origin with source-parity Q1 replay
+        run: |
+          python -m pytest -q -s tests/test_chapter2_ai_mutation_origin_20261020.py
+          python - <<'PY'
+          from scripts.audit_chapter2_ai_mutation_origin_20261020 import audit_bounded
+          d=audit_bounded()
+          assert d['status']=='TECHNICAL_Q1_A_MUTATION_BIRTH_TRACE_NOT_CONFIRMATORY'
+          assert d['trace_cohort_cases']==16 and d['technical_steps']==12
+          assert d['original_case_traces_replayed_byte_identically']
+          assert d['no_sweep_or_longterm_hitchhiking_confirmation']
+          print('A MUTATION BIRTH TRACE TECHNICAL ONLY',
+                'Q1-replayed_paths',d['trace_cohort_cases'],
+                'updates_per_path',d['technical_steps'],
+                'new_A_births',d['source_mutation_births_total'])
+          print('EVENTS HAVE MOTHER/FATHER, I GENETIC BACKGROUND, UNIQUE A BIRTH ID')
+          print('NO HISTORICAL PR569 CAUSAL MECHANISM OR LONG TERM SWEEP CONFIRMED')
+          PY
+      - name: Read birth I background and A mutation retention conditional on origin
+        run: |
+          python -m pytest -q -s tests/test_chapter2_ai_mutation_birth_retention_20261020.py
+      - name: Check A-mutant allele carrier I dynamics (TECHNICAL ONLY)
+        run: |
+          python -m pytest -q -s tests/test_chapter2_ai_copy_alignment_20261020.py
+      - name: Compare source A mutation tokens at equal followup age (TECHNICAL ONLY)
+        run: |
+          python -m pytest -q -s tests/test_chapter2_ai_retention_age_20261020.py
+      - name: Check short A-mutation x I-payoff x artificial I diplotype factorial
+        run: |
+          python -m pytest -q -s tests/test_chapter2_ai_hitchhiking_factorial_technical_20261020.py
+          python - <<'PY'
+          from scripts.chapter2_ai_hitchhiking_factorial_technical_20261020 import run_bounded_technical
+          x=run_bounded_technical()
+          assert x["status"] == "TECHNICAL_AI_MUTATION_PAYOFF_PERMUTATION_FACTORIAL_NOT_REGISTERED"
+          assert x["matched_contexts"]==16 and x["matched_paths"]==160
+          assert x["added_direct_M_and_I_payoff_neutral_controls"]
+          assert x["original_source_parity_verified"]
+          assert x["A_M_trajectories_invariant_to_I_scramble_when_I_payoff_neutral"]
+          print("MODEL3 TEN-POLICY FACTORIAL TECHNICAL ONLY; 160 short paths; NOT registered biology")
+          PY
+      - name: Verify Q1 A-mutation × I-payoff × diplotype pairing six-arm technical factorial
+        run: |
+          python -m pytest -q -s tests/test_chapter2_ai_mutation_payoff_pairing_20261020.py
       - name: Validate active Model 3 2026-10-05 ecological submission surface
         run: |
           pytest -q \
