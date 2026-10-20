@@ -96,6 +96,27 @@ jobs:
       - name: Diagnose source-disjoint A/I postestablishment expression (TECHNICAL ONLY)
         run: |
           python -m pytest -q -s tests/test_chapter2_two_origins_postestablishment_probe_20261019.py
+      - name: Source-only Q1 A-I founder null and genetic background test
+        run: |
+          python -m pytest -q tests/test_chapter2_ai_background_20261020.py
+          python - <<'PY'
+          from scripts.audit_chapter2_ai_background_20261020 import audit
+          d=audit()
+          assert d["all_original_eight_q1_A_loci_start_monomorphic"]
+          assert d["all_original_eight_q1_founder_A_I_covariances_zero"]
+          assert d["no_new_population_trajectory_advanced"]
+          print("ORIGINAL Q1 PR569: eight founders all A=.5; founding A-I covariance identically zero")
+          for b in d["synthetic_source_only_one_step"]:
+              print("SYNTHETIC ONE STEP:", "budget", b["budget"],
+                    "I_direct_payoff_disabled", b["I_direct_effect_in_payoff_disabled"],
+                    "shuffles", b["permutation_assignments"],
+                    "exact mean shuffle delta", b["exact_924_permutation_null_mean_I_shift"])
+              for row in b["phase_results"]:
+                  print("pairing",row["pairing"],
+                        "cov_A_I",row["unphased_A_I_individual_covariance"],
+                        "expected_delta_I",row["expected_one_generation_delta_I"])
+          print("THIS IS A TECHNICAL PRICE/COVARIANCE DEMONSTRATION; NO HITCHHIKING CONFIRMATION")
+          PY
       - name: Validate active Model 3 2026-10-05 ecological submission surface
         run: |
           pytest -q \
