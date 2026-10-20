@@ -47,6 +47,14 @@ def check_observations(x):
   next_n=records[year+1]['occupancy'] if year+1<len(records) else x['t_end']['n']
   if r['resident_selfed_recruits']+r['resident_outcross_recruits']!=next_n:
    raise ValueError('realized recruitment mismatch')
+ # These endpoints describe reproductive updates, not the following census.
+ for field,index in (('q_first',0),('q_pre_last',x['prefix_updates']-1),
+                     ('q_future_first',x['prefix_updates']),('q_future_last',len(records)-1)):
+  observed=x[field];expected=records[index]['q']
+  if (observed is None)!=(expected is None) or (observed is not None and
+      (not math.isfinite(observed) or not math.isfinite(expected) or
+       abs(observed-expected)>1e-12)):
+   raise ValueError('q endpoint ledger mismatch: '+field)
 
 def check(rows,summary):
  expected={(level,a,f,r,arm) for level in LEVELS for a in STARTS

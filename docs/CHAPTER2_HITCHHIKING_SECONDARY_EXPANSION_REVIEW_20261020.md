@@ -1,0 +1,45 @@
+# Hitchhiking and secondary expansion: review and manuscript disposition
+
+2026-10-20. Read-only evidence integration into the single PR #609 Article. No new biological trajectories or preregistration changes. Review snapshots: PR #609 `69ba69e2`, PR #610 `1c6c142a`, PR #611 `9127faba`. Branch evidence below is exploratory and does not replace registered Q1–Q4 outcomes.
+
+## Evidence admitted and interpretation
+
+**Hitchhiking.** The six-policy, 24-update experiment comprises 96 arm trajectories nested in 16 reused source cells, not 96 independent populations. Its mean I-neutral pairing-intervention contrast is +0.054321, but source-specific contrasts are positive in 10 cells and negative in 6. More decisively, additionally neutralizing matching M reverses all four panel-average association-sensitive contrasts: −0.064162, −0.023676, −0.027326, −0.073208. Artificial I reassignment changes multiple genotype associations; this is not physical recombination or an isolated A-mediated effect. These controls make indirect transmission a plausible model mechanism but do not establish positive A–I-specific hitchhiking or explain the original long-run founder sign reversals. The stronger-control report explicitly records a successful focused step within an otherwise cancelled historical workflow; later green CI is not a new biological replication.
+
+Sources at reviewed head: [six-policy readout](https://github.com/zuizui0223/izu-core/blob/1c6c142a3d33963bc12310ece3b3049bba2a0327/docs/CHAPTER2_AI_MUTATION_PAYOFF_PAIRING_TECHNICAL_READOUT_20261020.md), [M/I-neutral readout](https://github.com/zuizui0223/izu-core/blob/1c6c142a3d33963bc12310ece3b3049bba2a0327/docs/CHAPTER2_AI_HITCHHIKING_M_I_NEUTRAL_READOUT_20261020.md).
+
+**Secondary distribution expansion.** This is now an executed experiment, distinct from the older 10,240-path transfer and from the two-origins establishment harness. PR #611 compares ancestral and t10/t25 fixed/evolving-A donor histories in vacant island-like, vacant mainland-like and resident mainland-like recipients at two dimensionless reach distances. The 240 futures are nested in two founders crossed with two visitor histories, not 240 independent source replicates. Original [Actions 39366132489](https://github.com/zuizui0223/izu-core/actions/runs/39366132489) archive EXPLORATORY.json was downloaded and independently passed its published SHA-256 `44664beef561ff30a0bddd0a9bd06950302b60c90477aa2ccb0698bb9542c223`. Both pinned read-only checkers passed all 240 allocations and 30 summary groups; the [machine-readable receipt](audits/CHAPTER2_SECONDARY_EXPANSION_READBACK_20261020.json) retains their complete outputs. All 20 donors supplied eight seeds and all 48 destination/distance/repeat contexts had matched settlement counts across donor histories.
+
+At distance1.5 in the resident mainland-like recipient, t25 fixed-A versus evolving-A histories retained selected source loci in 2/8 versus 4/8 futures; the recipient community remained occupied in 8/8 for both. The corresponding survivor-conditioned return changes were positive in 2/2 versus 1/4 retained cases (the other three evolving-history cases decreased). Matched selected-locus persistence was both1/evolving-only3/fixed-only1/neither3. Neither greater retention nor greater conditional return establishes an A-specific adaptive benefit. The histories differ in inherited M/I/A and demographic history; the source supplies only two founder and two visitor levels. No natural mainland re-entry, neutral ancestry, genetic rescue or independently replicated adaptation has been demonstrated.
+
+Source: [establishment versus return](https://github.com/zuizui0223/izu-core/blob/9127faba74c4daf92a79542c80ed66e02d5b0623/docs/CHAPTER2_SECONDARY_COLONIZATION_ESTABLISHMENT_VS_RETURN_20261020.md).
+
+## Standards review
+
+One actionable correctness finding, P2: `secondary_colonization_pilot_20261020.py:276` fingerprints relative paths using platform-dependent `str(Path)`. The pedigree auditor compares the full fingerprint dictionary at line82, so the Ubuntu archive can be rejected on Windows despite identical source bytes. Canonical POSIX keys are needed with original archive preservation. Review used source inspection and a path-format reproduction, not a biological replay. No other concrete defect was established in the inspected native dynamics; this is not an exhaustive proof of correctness.
+
+## Specification review
+
+Two actionable findings, both P2:
+
+1. `secondary_colonization_pedigree_audit_20261020.py:82–86` derives its required number of paths from input-provided founder/visitor arrays rather than enforcing frozen identities and the exact 240 allocations. An empty or coherent reduced input can satisfy that gate, contrary to the accompanying document's full-source admission promise. Require the original byte digest and exact allocation before replay. The full pedigree replay remains unexecuted and is not admitted here.
+2. The frozen pilot protocol lines117–119 treats loss of all tracked source alleles as absence of migrant-lineage persistence. **Interpretive erratum:** genealogical descendants can remain after the three selected markers disappear. Preserve the pre-run protocol; interpret its endpoint as selected-locus retention, not lineage extinction. The later pedigree document already distinguishes these endpoints.
+
+Standards: one finding (cross-platform provenance). Specification: two findings (incomplete-source admission; endpoint terminology). These are integration gates for pedigree claims, not evidence that the original 240-path archive is incomplete: that original archive passed both separate read-only checks above.
+
+## Manuscript disposition
+
+Keep original Q1–Q4, the registered genetic-access/survival contrasts, and the existing bounded transfer as the main evidential spine. Include these newer experiments as explicitly exploratory supplementary context and a Discussion limitation. Do not replace the paper's center with a confirmed hitchhiking mechanism, natural island assembly, or successful secondary adaptation. The defensible synthesis remains: maintaining reproduction after pollinator decline does not guarantee preservation of subsequent floral evolutionary options. Secondary expansion additionally motivates separating arrival, selected-locus retention, genealogical persistence and adaptation.
+
+PR #610 and #611 had successful ordinary CI across Python3.10–3.12 and scientific gates at the reviewed snapshots, but green engineering checks do not resolve the above inferential or pedigree-admission limitations. PR #609 had three reproducible failures: two anonymous-archive checks from an identifying external link, and a forbidden direct-script workflow invocation. The integration change removes that identifying link from the anonymous bridge while retaining source navigation, and invokes the same validator as a module. Registered numbers and original archives are unchanged. Main merge and submission readiness are not asserted.
+
+Validation: both frozen-archive read-only checkers passed; selected completed-evidence manuscript validation passed; 42 focused workflow, anonymous-package, evidence, original-four-part and figure checks passed locally after the two CI repairs. This is not a full-suite or final remote-CI assertion.
+
+
+## Review disposition and completed pedigree verification
+
+All three review findings above are resolved by PR #611 revision `3c09e97c`: the auditor admits the exact original byte digest, enforces the frozen seed identities and all240 unique allocation keys before replay, and canonicalizes fingerprint path separators while retaining source hashes. An explicit protocol erratum distinguishes selected-marker loss from genealogical extinction without altering the frozen protocol. Independent review exercised incomplete, duplicate, out-of-range and wrong-founder inputs; 19 focused tests passed.
+
+The full original240 paths were replayed on Windows with exact native biological census parity (21 censuses each, 4,800 original updates; no new independent samples). [Verified pedigree receipt](audits/CHAPTER2_SECONDARY_COLONIZATION_PEDIGREE_VERIFIED_20261020.json) records all30 groups. For the distant resident recipient at t25, fixed/evolving histories retained selected markers2/8 versus4/8, but genealogical descendants4/8 versus6/8. This empirically demonstrates in the saved pilot that selected-marker disappearance can coexist with genealogical persistence. It remains a nested exploratory comparison, not a confirmed adaptive or A-mediated advantage. Earlier unexecuted/blocker statements in this review describe the pinned pre-repair snapshot and are superseded by this disposition.
+
+The manuscript now includes these executed extensions in its supplementary evidence map and Discussion boundary. All source results, including negative stronger hitchhiking controls, are retained. Repository integration does not upgrade their inferential rank.

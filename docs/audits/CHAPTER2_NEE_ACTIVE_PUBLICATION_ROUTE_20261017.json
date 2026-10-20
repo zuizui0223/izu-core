@@ -5,9 +5,9 @@
   "target_journal": "Nature Ecology & Evolution",
   "article_type": "Article",
   "effective_active_paper_count": 1,
-  "scope": "ONE combined Chapter 2 paper: old Q1-Q4 initiation/order/genetic access/demography PLUS genuinely new prospective restoration-recoverability core; NO separate Chapter 3 / NEE paper",
+  "scope": "ONE combined Chapter 2 paper: trait responses to pollen service, baseline-history interaction, genetic accessibility, persistence and bounded readaptation. Historical Chapter 3 / full restoration-window proposal remains unexecuted and outside the current claims.",
   "active_manuscript": "docs/CHAPTER2_UNIFIED_NEE_ARTICLE_WORKING_20261017.md",
-  "active_manuscript_readiness": "SOURCE_BACKED_FOUNDATION_ONLY_RESTORATION_CORE_UNRUN",
+  "active_manuscript_readiness": "COMPLETED_EVIDENCE_NARRATIVE_DRAFT_FIGURES_AND_SUBMISSION_PREPARATION_PENDING",
   "source_commit": "439099ca6e3b8137f7884132f143d56d5e72e8be",
   "previous_el_surfaces_retained_for_reproduction_not_current_submissions": [
     "data/design/chapter2_one_paper_route_20261010.json",
@@ -52,7 +52,7 @@
         "distinct_from_original_low_I_703": true,
         "title_scope": "retrospective founder-mean target under zero I mutation/immigration; not visitor-restored recovery, no A-evolvability contrast or time to permanent pollinator extinction"
       },
-      "high_I_restored_pollination_recovery_outcome": "NOT_EXECUTED"
+      "high_I_restored_pollination_recovery_outcome": "BOUNDED_LATE_TRANSFER_COMPLETED; full recovery-probability clock NOT_EXECUTED"
     },
     "q4": {
       "registered_pooled_interaction": 0.1083984375,
@@ -60,7 +60,21 @@
       "not_a_natural_order_effect": true
     }
   },
-  "required_new_evidence": [
+  "current_submission_blockers": [
+    "Six final rendered display figures and source-to-panel verification pending",
+    "Complete reproducible methods and supplementary evidence package pending",
+    "Full reference, authorship, declarations and journal-format review pending",
+    "Original raw data externally deposited DOI pending issue #436; draft releases are not immutable deposits"
+  ],
+  "data_and_statistics_policy": "Keep ALL old predeclared negative and null results unchanged; no selective rebranding, no cross-cohort pooling, no new confirmatory run before approval",
+  "no_current_submission": true,
+  "no_near_term_external_DOI_claim": true,
+  "no_new_biological_run_from_this_route": true,
+  "old_el_renderer_scope": "historical full-fidelity recreation only; not the NEE manuscript routing selector",
+  "ready_for_nee_submission": false,
+  "current_evidence_commit": "b0d907eabd5142f1d2d316d7a6a8b9374822618a",
+  "revision_date": "2026-10-19",
+  "historical_required_new_evidence": [
     "predeclared fixed-restoration-state high-I return sign and target feasibility",
     "HIGH-I support-loss timing under correct no-I-mutation/immigration conditions",
     "randomized A-evolvable vs expressed A-fixed=0.5 unconditional population recovery probability",
@@ -70,17 +84,21 @@
     "separate inbreeding depression, cost, capacity/background, mutation access and alternate minimal model sensitivity",
     "optional source-qualified independent world-island empirical contrast: no invented geologic-age proxy"
   ],
-  "current_submission_blockers": [
-    "No new historical-restoration intervention run (read-only high-I source audit is not the new recovery experiment)",
-    "No confirmed recoverability/no-return timing or sign",
-    "No external island-data matching proof or independent validation",
-    "Original raw data externally deposited DOI pending issue #436",
-    "NEE exact figure/render/author/full journal editorial preparation missing"
+  "historical_required_new_evidence_scope": "Requirements of the former broader restoration-window proposal, not mandatory new simulations for the narrowed completed-evidence article.",
+  "completed_followups": {
+    "confirmation": "docs/CHAPTER2_CONFIRM160_RESULTS_20261019.md",
+    "pollen_factorial": "docs/CHAPTER2_BASELINE_POLLEN_384_RESULTS_20261019.md",
+    "variation_readback": "docs/CHAPTER2_VARIATION_CLOCK_RESULTS_20261019.md",
+    "bounded_transfer": "docs/CHAPTER2_READAPTATION_RESULTS_20261019.md"
+  },
+  "claim_exclusions": [
+    "No full recovery-probability or no-return clock",
+    "No causal genetic mediation",
+    "No natural island assembly or independently validated island prediction",
+    "No universal trait direction or timing order"
   ],
-  "data_and_statistics_policy": "Keep ALL old predeclared negative and null results unchanged; no selective rebranding, no cross-cohort pooling, no new confirmatory run before approval",
-  "no_current_submission": true,
-  "no_near_term_external_DOI_claim": true,
-  "no_new_biological_run_from_this_route": true,
-  "old_el_renderer_scope": "historical full-fidelity recreation only; not the NEE manuscript routing selector",
-  "ready_for_nee_submission": false
+  "active_supplement": "docs/CHAPTER2_COMPLETED_EVIDENCE_SUPPLEMENT_20261019.md",
+  "historical_results_disposition": "docs/CHAPTER2_HISTORICAL_RESULTS_DISPOSITION_20261019.md",
+  "repository_coverage": "docs/CHAPTER2_REPOSITORY_SYNTHESIS_COVERAGE_20261019.md",
+  "selected_completed_evidence_validator": "scripts/validate_chapter2_completed_evidence_20261019.py"
 }
