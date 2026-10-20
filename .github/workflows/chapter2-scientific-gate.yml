@@ -150,10 +150,11 @@ jobs:
           from scripts.chapter2_ai_hitchhiking_factorial_technical_20261020 import run_bounded_technical
           x=run_bounded_technical()
           assert x["status"] == "TECHNICAL_AI_MUTATION_PAYOFF_PERMUTATION_FACTORIAL_NOT_REGISTERED"
-          assert x["matched_contexts"]==16 and x["matched_paths"]==96
+          assert x["matched_contexts"]==16 and x["matched_paths"]==160
+          assert x["added_direct_M_and_I_payoff_neutral_controls"]
           assert x["original_source_parity_verified"]
           assert x["A_M_trajectories_invariant_to_I_scramble_when_I_payoff_neutral"]
-          print("MODEL3 SIX-POLICY FACTORIAL TECHNICAL ONLY; 96 short paths; NOT registered biology")
+          print("MODEL3 TEN-POLICY FACTORIAL TECHNICAL ONLY; 160 short paths; NOT registered biology")
           PY
       - name: Validate active Model 3 2026-10-05 ecological submission surface
         run: |
