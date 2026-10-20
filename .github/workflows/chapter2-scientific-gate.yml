@@ -499,7 +499,7 @@ jobs:
         run: python -m pip install pytest==8.4.2
       - name: Validate source-locked current-article packet (read-only)
         run: |
-          python -m pytest -q tests/test_chapter2_current_author_review_20261020.py
+          python -m pytest -q tests/test_chapter2_current_author_review_20261020.py tests/test_chapter2_figure_visual_readability_20261021.py
           mkdir -p outputs/chapter2_current_author_review
           python -m scripts.build_chapter2_current_author_review_20261020 \
             --root . \
