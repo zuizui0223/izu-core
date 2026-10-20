@@ -25,9 +25,23 @@ None of these is a selective suppression of **A mutation, A Mendelian genetic ev
 | B8 | 4 | **118** | **118** | **118** | 118 | 0 | 0 | 74 |
 | **Totals** | — | **326/768** | **326/768** | **326/768** | **324** | **2** | **2** | **440** |
 
-All five columns' event counts were read from the original source Actions technical-run log. The paired-survivor overlap sums to 324; four original candidate assignments have discordant survival outcomes for native versus centered-A expression, **despite** equal aggregate survival. For **native versus the original flat-A clamp**, the gate printed *identical four sets of marginal and paired 2×2 counts* (49/1/1/141, 67/0/0/125, 90/1/1/100, 118/0/0/74). Equality of these contingency **counts does NOT itself prove that flat and centered clamps selected the exact same individual lineage–reset identities**; this needs a direct paired policy-to-policy test, not an inference from matching aggregate cells.
+All five columns' event counts were read from the original source Actions technical-run log. The paired-survivor overlap sums to 324; four original candidate assignments have discordant survival outcomes for native versus centered-A expression, **despite** equal aggregate survival. For **native versus the original flat-A clamp**, the gate printed *identical four sets of marginal and paired 2×2 counts* (49/1/1/141, 67/0/0/125, 90/1/1/100, 118/0/0/74). Equality of these contingency counts alone would not prove identical lineage–reset fates, so a subsequent direct policy-to-policy identity comparison was executed (see source-verification below).
 
 In the 324 **native/centered co-survivor** branches the native−centered mean A displayed in the original job was +0.003161, −0.004024, +0.003262, +0.000198 across the four contexts respectively (unweighted within each context's matched survivor set; these are **survivor-conditioned, post-treatment-selected trait contrasts**, not mean treatment causal effects). Small values can reflect both short horizon and limited original founder variation. At B8/no visitors the flat policy had one extra survivor relative to native in the low-A hint stratum but one fewer in the middle stratum, cancelling aggregate effects. The source ranks shown elsewhere are conditional on these 24 artificial genotypes, not an independent replicated mainland dataset.
+
+## Additional case-by-case flat-A versus centered-A audit — 2026-10-20
+
+**Independently of comparing each against native**, a new explicit source-locked [case-identity regression](../tests/test_chapter2_two_origins_postestablishment_probe_20261019.py) inspected **every one of the same 768 original artificial candidate×environment×repeat assignments** under the two different A-expression controls. The source-identified [Chapter 2 scientific-gate run #39346653903](https://github.com/zuizui0223/izu-core/actions/runs/39346653903), job `118380860791`, HEAD `1d572c5940a2bbaf427d9c6c352290c2f25a0103`, completed **success** and printed:
+
+| Environment | Flat-A only survives | Centered-A only survives | Both survive | Neither survives |
+| --- | ---: | ---: | ---: | ---: |
+| B4.5 / 0 visitors | **0** | **0** | 50 | 142 |
+| B4.5 / 4 visitors | **0** | **0** | 67 | 125 |
+| B8 / 0 visitors | **0** | **0** | 91 | 101 |
+| B8 / 4 visitors | **0** | **0** | 118 | 74 |
+| **All four exposed artificial conditions** | **0** | **0** | **326** | **442** |
+
+This establishes **case-identical binary occupancy outcomes** between flat-A and source-mean-centered-A interventions in this exposed cohort and six-update horizon, **not merely matched marginal counts**. The two arms do **not** share identical I-related reproductive trajectories in all cases: the original gate separately printed different conditional mean native-minus-flat and native-minus-centered I changes among the matched co-survivors. No other phenotypic/genomic endpoint was prospectively equated here. The comparison is a re-read/technical source regression of the **same** original artificial cohort; it is **not** an independent validation or a biological equivalence test (no prespecified noninferiority margin, power, longer temporal follow-up or island-group test). This aligns with the short-time, state-filtering interpretation but cannot prove that later evolution of A is irrelevant.
 
 ## What can and cannot be concluded
 
