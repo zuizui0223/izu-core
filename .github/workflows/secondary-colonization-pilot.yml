@@ -30,6 +30,7 @@ jobs:
         run: |
           mkdir -p secondary-colonisation
           python -m scripts.secondary_colonization_pilot_20261020 --exploratory-pilot --output secondary-colonisation/EXPLORATORY.json > secondary-colonisation/READOUT.json
+          cat secondary-colonisation/READOUT.json
           python -c "import json; x=json.load(open('secondary-colonisation/EXPLORATORY.json')); assert x['status']=='EXPLORATORY_SECONDARY_COLONISATION_NO_CONFIRMATORY_CLAIM' and x['future_paths']==240 and len(x['sources'])==20 and len(x['summary'])==30"
           sha256sum secondary-colonisation/EXPLORATORY.json secondary-colonisation/READOUT.json > secondary-colonisation/SHA256SUMS.txt
           git rev-parse HEAD > secondary-colonisation/SOURCE_HEAD.txt
