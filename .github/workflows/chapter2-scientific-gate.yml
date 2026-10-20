@@ -134,6 +134,9 @@ jobs:
           print('EVENTS HAVE MOTHER/FATHER, I GENETIC BACKGROUND, UNIQUE A BIRTH ID')
           print('NO HISTORICAL PR569 CAUSAL MECHANISM OR LONG TERM SWEEP CONFIRMED')
           PY
+      - name: Read birth I background and A mutation retention conditional on origin
+        run: |
+          python -m pytest -q -s tests/test_chapter2_ai_mutation_birth_retention_20261020.py
       - name: Validate active Model 3 2026-10-05 ecological submission surface
         run: |
           pytest -q \
