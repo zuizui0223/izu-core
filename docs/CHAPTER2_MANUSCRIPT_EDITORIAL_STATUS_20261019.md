@@ -2,6 +2,12 @@
 
 Latest editorial revision: 2026-10-20. Integrated evidence baseline: main `dd76ec6f0d2bf330375a69fdb76b06925ee4c32c`. Earlier dated entries below are historical revision records.
 
+## Density versus finite-population placement — PR #614 follow-up
+
+A dedicated Discussion subsection now connects the numerically admitted genotype-density comparison to all three conclusions. It concerns realized sequence: discrete-update density is neither a complete three-locus PDE nor the exact finite-population expectation. The 3/32 and 2/32 assurance-first outcomes, full survival, grid admission and threshold sensitivity remain explicit. The discrepancy does not isolate drift; structured floral repeatability prevents a deterministic-A/random-I dichotomy.
+
+For conclusion 1, the comparison distinguishes non-necessity of A evolution from realized order. For conclusion 2, saturated survival cannot establish a persistence benefit; the separate demographic intervention is required. For conclusion 3, genetic-support losses are measured in a separate experiment and are not an identified mediator of the density–finite difference. Main and working manuscripts remain synchronized; no simulation or original result is changed.
+
 ## Three-conclusion revision — 2026-10-20
 
 The title, abstract, opening question and Discussion now follow three results: investment decline without assurance evolution; improved persistence under harsh resources; and increased high-I support loss under complete survival in a different resource setting. The completed-evidence extract remains the editing master; the corresponding sections of the historical working file are synchronized without promoting its pending proposals.
