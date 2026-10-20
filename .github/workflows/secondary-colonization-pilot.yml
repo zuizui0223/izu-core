@@ -1,0 +1,42 @@
+name: Secondary colonisation (exploratory)
+
+on:
+  pull_request:
+    paths:
+      - scripts/secondary_colonization_pilot_20261020.py
+      - tests/test_secondary_colonization_pilot_20261020.py
+      - docs/CHAPTER2_SECONDARY_COLONIZATION_PILOT_20261020.md
+      - .github/workflows/secondary-colonization-pilot.yml
+
+permissions:
+  contents: read
+
+jobs:
+  bounded-pilot:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install pinned scientific environment
+        run: python -m pip install numpy==2.2.6 scipy==1.15.3 pytest==8.4.2
+      - name: Validate scientific and numerical invariants
+        run: python -m pytest -q tests/test_secondary_colonization_pilot_20261020.py
+      - name: Produce pre-scoped four-block exploratory cohort
+        run: |
+          mkdir -p secondary-colonisation
+          python -m scripts.secondary_colonization_pilot_20261020 --exploratory-pilot --output secondary-colonisation/EXPLORATORY.json > secondary-colonisation/READOUT.json
+          python -c "import json; x=json.load(open('secondary-colonisation/EXPLORATORY.json')); assert x['status']=='EXPLORATORY_SECONDARY_COLONISATION_NO_CONFIRMATORY_CLAIM' and x['future_paths']==240 and len(x['sources'])==20 and len(x['summary'])==30"
+          sha256sum secondary-colonisation/EXPLORATORY.json secondary-colonisation/READOUT.json > secondary-colonisation/SHA256SUMS.txt
+          git rev-parse HEAD > secondary-colonisation/SOURCE_HEAD.txt
+      - name: Preserve raw trajectories and source identities
+        uses: actions/upload-artifact@v4
+        with:
+          name: secondary-colonisation-exploratory
+          path: secondary-colonisation/
+          if-no-files-found: error
+          retention-days: 90
