@@ -140,6 +140,9 @@ jobs:
       - name: Check A-mutant allele carrier I dynamics (TECHNICAL ONLY)
         run: |
           python -m pytest -q -s tests/test_chapter2_ai_copy_alignment_20261020.py
+      - name: Compare source A mutation tokens at equal followup age (TECHNICAL ONLY)
+        run: |
+          python -m pytest -q -s tests/test_chapter2_ai_retention_age_20261020.py
       - name: Validate active Model 3 2026-10-05 ecological submission surface
         run: |
           pytest -q \
