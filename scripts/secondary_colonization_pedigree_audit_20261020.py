@@ -18,11 +18,13 @@ from scripts.model3_island.randomness import stream
 from scripts.model3_island.reproduction import reproduce
 from scripts.secondary_colonization_pilot_20261020 import (
     ANCESTRY_LIMIT, CHECKPOINTS, DESTINATIONS, DISTANCES, ESTABLISHMENT,
-    FOUNDER_SEEDS, FUTURE_HORIZON, FUTURE_REPEATS, HISTORY_HORIZON,
+    FOUNDER_SEEDS, VISITOR_SEEDS, FUTURE_HORIZON, FUTURE_REPEATS, HISTORY_HORIZON,
     STATUS, configuration, historical_donors, make_founders, master_seed,
     reference_residents, seed_cohort, source_fingerprint, streams,
     visitors_for, destination_visitors, ancestry_summary,
 )
+
+from scripts.audit_secondary_colonization_archive_20261020 import audit as audit_archive
 
 AUDIT_STATUS = 'DESCRIPTIVE_PEDIGREE_REPLAY_NOT_NEW_BIOLOGICAL_EVIDENCE'
 
@@ -77,13 +79,40 @@ def replay_pedigree(cohort, full, sparse, destination, distance,
                 final=records[-1], censuses=records)
 
 
+def canonical_fingerprint(fingerprint: dict) -> dict:
+    """Normalize only path separators, preserving archived source-byte hashes."""
+    result = {}
+    for path, digest in fingerprint.items():
+        key = path.replace(chr(92), '/')
+        if key in result:
+            raise ValueError('duplicate canonical source fingerprint path')
+        result[key] = digest
+    return result
+
+
+def load_archived_source(raw: bytes) -> dict:
+    """Admit the exact original bytes and complete frozen archive before replay."""
+    audit_archive(raw)
+    return json.loads(raw)
+
+
 def readback(original: dict) -> dict:
     """Verify native source hashes and replay every allocated original path."""
-    if original.get('status') != STATUS or original.get('source_sha256') != source_fingerprint():
+    if original.get('status') != STATUS or canonical_fingerprint(original.get('source_sha256', {})) != canonical_fingerprint(source_fingerprint()):
         raise ValueError('original archived status or source fingerprint disagrees')
-    fs, vs = original['founders'], original['visitor_histories']
-    if len(original['paths']) != len(fs) * len(vs) * 5 * len(DESTINATIONS) * len(DISTANCES) * FUTURE_REPEATS:
+    fs, vs = original.get('founders'), original.get('visitor_histories')
+    paths = original.get('paths', [])
+    if (fs != list(FOUNDER_SEEDS) or vs != list(VISITOR_SEEDS)
+            or original.get('future_paths') != 240 or len(paths) != 240):
         raise ValueError('expected full original frozen allocation')
+    expected = {(fi, vi, si, dest, distance, rep)
+                for fi in range(2) for vi in range(2) for si in range(5)
+                for dest in DESTINATIONS for distance in DISTANCES
+                for rep in range(FUTURE_REPEATS)}
+    keys = [(p.get('founder'), p.get('visitor_history'), p.get('source_index'),
+             p.get('destination'), p.get('distance'), p.get('replicate')) for p in paths]
+    if len(set(keys)) != 240 or set(keys) != expected:
+        raise ValueError('expected exact unique original frozen allocation keys')
     source_states = {}
     for fi, fseed in enumerate(fs):
         founders = make_founders(fseed, fi)
@@ -148,7 +177,7 @@ def main() -> None:
         ap.error('explicit --read-only-replay acknowledgement required')
     if args.out.exists():
         ap.error('refusing to replace existing readout')
-    original = json.loads(args.original.read_text(encoding='utf-8'))
+    original = load_archived_source(args.original.read_bytes())
     result = readback(original)
     args.out.parent.mkdir(parents=True, exist_ok=True)
     with args.out.open('x', encoding='utf-8') as out:

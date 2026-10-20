@@ -60,3 +60,46 @@ def test_producer_contract_requires_original_source_hashes_and_complete_paths():
     with pytest.raises(ValueError, match='source fingerprint'):
         readback({'status': 'EXPLORATORY_SECONDARY_COLONISATION_NO_CONFIRMATORY_CLAIM',
                   'source_sha256': {}})
+
+
+@pytest.mark.parametrize("founders,visitors", [([], []), ([202610201], [202610211])])
+def test_reject_partial_allocation_before_replaying(founders, visitors, monkeypatch):
+    import scripts.secondary_colonization_pedigree_audit_20261020 as audit
+    monkeypatch.setattr(audit, "historical_donors", lambda *a: pytest.fail("replay before admission"))
+    original = dict(status=audit.STATUS, source_sha256=audit.source_fingerprint(),
+                    founders=founders, visitor_histories=visitors, paths=[])
+    with pytest.raises(ValueError, match="frozen allocation"):
+        audit.readback(original)
+
+
+def test_archive_loader_rejects_changed_bytes():
+    import scripts.secondary_colonization_pedigree_audit_20261020 as audit
+    with pytest.raises(ValueError, match="SHA-256"):
+        audit.load_archived_source(b'{}')
+
+
+def test_fingerprint_keys_are_platform_independent():
+    import scripts.secondary_colonization_pedigree_audit_20261020 as audit
+    assert audit.canonical_fingerprint({"scripts\\model.py": "abc"}) == {"scripts/model.py": "abc"}
+    with pytest.raises(ValueError, match="duplicate"):
+        audit.canonical_fingerprint({"scripts/model.py": "abc", "scripts\\model.py": "abc"})
+
+
+@pytest.mark.parametrize("mutation", ["duplicate", "out_of_range"])
+def test_rejects_invalid_keys_before_native_replay(mutation, monkeypatch):
+    import scripts.secondary_colonization_pedigree_audit_20261020 as audit
+    paths = [dict(founder=f, visitor_history=v, source_index=s,
+                  destination=d, distance=l, replicate=r)
+             for f in range(2) for v in range(2) for s in range(5)
+             for d in audit.DESTINATIONS for l in audit.DISTANCES
+             for r in range(audit.FUTURE_REPEATS)]
+    if mutation == "duplicate":
+        paths[-1] = dict(paths[0])
+    else:
+        paths[-1]['replicate'] = 999
+    original = dict(status=audit.STATUS, source_sha256=audit.source_fingerprint(),
+                    founders=list(audit.FOUNDER_SEEDS), visitor_histories=list(audit.VISITOR_SEEDS),
+                    future_paths=240, paths=paths)
+    monkeypatch.setattr(audit, "historical_donors", lambda *a: pytest.fail("replay before admission"))
+    with pytest.raises(ValueError, match="allocation keys"):
+        audit.readback(original)

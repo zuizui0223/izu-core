@@ -25,3 +25,17 @@ Command from repository root:
       --out NEW_PATH_TO_PEDIGREE_READBACK_JSON
 
 This script is an **engineering and descriptive separation of endpoints**. Do not call the outcome a neutral-marker experiment, a true geographic mainland reinvasion, self-sustaining migrant establishment, or a significant advantage of evolved assurance. The pilot has only four founder × visitor blocks and nested stochastic futures. Independently randomized genetic-background swaps and matched propagule interventions are still necessary for isolating a causal A mechanism, while an independently sampled destination population study is required before biological generalisation. The existing selected-locus results remain unchanged.
+
+
+## Review correction and archive-admission repair (2026-10-20)
+
+The original pilot protocol is retained byte-for-byte for provenance. **Erratum to protocol lines117–119:** loss of all tracked M/I/A source alleles means selected-locus marker loss, not migrant genealogical extinction. Descendants can persist without retaining those selected markers. This correction also governs interpretation of the original `source_lineage_present_at_horizon` field.
+
+The replay now requires the original archive byte SHA-256 through the independent archive checker before CLI execution. Both the direct dictionary entry point and CLI reject anything other than the frozen two-founder/two-visitor identities and all240 distinct allocated keys, before biological replay begins. Fingerprint comparison canonicalizes only path separators, rejects duplicate canonical keys and retains exact source-byte hashes. The original producer and frozen protocol bytes are unchanged, preserving compatibility with the Ubuntu archive on Windows. Full replay status is recorded separately below; passing technical tests is not evidence of a completed full replay.
+
+
+## Completed full-source replay (2026-10-20)
+
+The repaired auditor completed **240/240 original futures**, with exact native census-readout parity at all21 censuses per path (4,800 original updates replayed; **zero new independent scientific samples**) on Windows. The original archive SHA-256 was admitted before any replay. [Verified summary and provenance](audits/CHAPTER2_SECONDARY_COLONIZATION_PEDIGREE_VERIFIED_20261020.json) records all30 groups and the full replay-output digest; this supersedes earlier statements that the full replay was unexecuted.
+
+In the resident mainland-like recipient at distance1.5, t25 fixed/evolving histories retained selected loci in **2/8 versus4/8**, but genealogical descendants in **4/8 versus6/8**. In each arm two futures retained descendants after losing every selected source marker. All recipient communities remained occupied8/8. These nested descriptive counts demonstrate the endpoint distinction, not a significant A-policy advantage, independent establishment, genome-wide ancestry or adaptation. The original frozen source results and protocol bytes remain unchanged.
