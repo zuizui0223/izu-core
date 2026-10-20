@@ -50,6 +50,58 @@ def _state_match(actual, expected, *, year):
             raise AssertionError(f"native/sidecar {name} mismatch at year {year}")
 
 
+def census_mutation_tag_I_alignment(state, tags):
+    """Read unmodified diploid I phenotype in A-token carriers at a census.
+
+    Each *A allele copy* contributes one observation carrying the I mean of
+    the individual in which that copy resides. The tag denotes the latest
+    de-novo A mutation on that exact A homolog, not physical A–I linkage.
+    Comparisons with untagged copies are descriptive and selected on survival;
+    they are NOT causal gene associations or an independent sample of plants.
+    """
+    n=len(state.ids)
+    if tags.shape!=(n,2):
+        raise ValueError("A tag array does not align to native diploid state")
+    I=np.asarray(state.alleles[:,1,:].mean(axis=1),float)
+    token_rows={}
+    tagged_I=[]
+    untagged_I=[]
+    for idx in range(n):
+        for h in (0,1):
+            token=tags[idx,h]
+            if token is None:
+                untagged_I.append(float(I[idx]))
+            else:
+                if not isinstance(token,str) or not token:
+                    raise ValueError("A mutation token must be a nonempty ID or None")
+                tagged_I.append(float(I[idx]))
+                token_rows.setdefault(token,[]).append(float(I[idx]))
+    if len(tagged_I)+len(untagged_I)!=2*n:
+        raise ArithmeticError("gene copy-weighted I ledger is incomplete")
+    mean_I=float(I.mean()) if n else None
+    if n:
+        reconstructed=(sum(tagged_I)+sum(untagged_I))/(2*n)
+        if abs(reconstructed-mean_I)>1e-12:
+            raise ArithmeticError("allele-copy-weighted phenotype mean mismatch")
+    if sum(len(v) for v in token_rows.values())!=len(tagged_I):
+        raise ArithmeticError("mutant token copy partition mismatch")
+    tagged=float(np.mean(tagged_I)) if tagged_I else None
+    non=float(np.mean(untagged_I)) if untagged_I else None
+    return dict(
+        n_A_copies_with_mutation_token=len(tagged_I),
+        n_A_copies_without_mutation_token=len(untagged_I),
+        mean_I_in_mutation_tagged_A_copies=tagged,
+        mean_I_in_untagged_A_copies=non,
+        tagged_minus_untagged_I=tagged-non if tagged is not None
+                               and non is not None else None,
+        per_token_current_copy_I_mean={
+            t:float(np.mean(values)) for t,values in token_rows.items()
+        },
+        mean_I_in_population=mean_I,
+        interpretation="A homolog tag × carrier diploid I; not phased A-I haplotype",
+    )
+
+
 def step_with_mutation_births(state, ledger, empty_seed_candidates, cfg,
                               streams, *, year: int, case_id: str,
                               previous_A_tags):
@@ -164,6 +216,9 @@ def step_with_mutation_births(state, ledger, empty_seed_candidates, cfg,
         if value is not None:
             present[value]=present.get(value,0)+1
     mean_I=float(result.alleles[:,1,:].mean()) if n_children else None
+    alignment=census_mutation_tag_I_alignment(result,next_tags)
+    if alignment["n_A_copies_with_mutation_token"]!=sum(present.values()):
+        raise ArithmeticError("token-to-current I ledger disagreement")
     return result, info, next_tags, events, dict(
         census=year+1,N=n_children,mean_I=mean_I,
         mean_A=float(result.alleles[:,2,:].mean()) if n_children else None,
@@ -171,6 +226,7 @@ def step_with_mutation_births(state, ledger, empty_seed_candidates, cfg,
         A_mutation_token_copies_present=present,
         n_A_copies_with_token=sum(present.values()),
         n_A_allele_copies=2*n_children,
+        A_token_I_alignment=alignment,
     )
 
 
@@ -191,7 +247,8 @@ def technical_case(*, setting="delayed_control",fs=560201,vs=560301,
     case_id=f"q1_tech_{setting}_f{fs}_v{vs}_{arm}"
     census=[dict(census=0,N=len(state.ids),mean_I=float(state.alleles[:,1,:].mean()),
                  mean_A=.5,novel_A_mutation_births=0,A_mutation_token_copies_present={},
-                 n_A_copies_with_token=0,n_A_allele_copies=2*len(state.ids))]
+                 n_A_copies_with_token=0,n_A_allele_copies=2*len(state.ids),
+                 A_token_I_alignment=census_mutation_tag_I_alignment(state,tags))]
     trace=np.full((nsteps+1,10),np.nan)
     events=[]
     for year in range(nsteps+1):
