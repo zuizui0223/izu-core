@@ -44,3 +44,18 @@ def test_figure_four_note_clears_bottom_bar_and_next_panel():
     assert baseline >= max(bars) + 25  # text top clears the bar
     assert baseline <= 1036 - 20       # enough space before panel D
     assert "\u2212" not in " ".join(t for _, t in lines)
+
+
+def test_figure_four_distinguishes_target_closure_from_phenotypic_recovery():
+    _, lines = drawing(4, "access_survival")
+    note = " ".join(t for _, t in lines)
+    assert "orange = alive but target closed" in note
+    assert "gray = extinct" in note
+    assert "not recovered populations" not in note
+
+
+def test_figure_six_does_not_claim_adaptation_was_measured():
+    _, lines = drawing(6, "late_transfer")
+    titles = " ".join(t for _, t in lines)
+    assert "distinguishes inherited support and response" in titles
+    assert "limits to adaptation" not in titles
