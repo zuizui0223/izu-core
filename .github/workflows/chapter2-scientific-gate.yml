@@ -156,6 +156,9 @@ jobs:
           assert x["A_M_trajectories_invariant_to_I_scramble_when_I_payoff_neutral"]
           print("MODEL3 TEN-POLICY FACTORIAL TECHNICAL ONLY; 160 short paths; NOT registered biology")
           PY
+      - name: Verify Q1 A-mutation × I-payoff × diplotype pairing six-arm technical factorial
+        run: |
+          python -m pytest -q -s tests/test_chapter2_ai_mutation_payoff_pairing_20261020.py
       - name: Validate active Model 3 2026-10-05 ecological submission surface
         run: |
           pytest -q \
