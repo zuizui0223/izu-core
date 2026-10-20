@@ -127,3 +127,50 @@ def test_emit_scoped_factorial_and_three_Q1_history_contrasts():
               "all_occupied",x["complete_terminal_occupancy"],
               "I_effect",x["difference_of_far_near_A_mutation_I_endpoints"])
     print("NO INDEPENDENT SOURCE CONFIRMATION OR PHYSICAL LINKAGE/CAUSAL HITCHHIKING")
+
+
+
+def test_emit_paired_source_level_mutation_and_shuffling_interaction():
+    """Diagnostic sign distribution across 16 EXPOSED crossed source cells."""
+    d=run()
+    compared={
+        "I_native":("Aon_Inative","Aoff_Inative"),
+        "I_payoff_neutral":("Aon_Ineutral","Aoff_Ineutral"),
+        "I_payoff_neutral_shuffle":("Aon_Ineutral_shuffle","Aoff_Ineutral_shuffle"),
+    }
+    samples={k:[] for k in compared}
+    for q in d["original_case_fork_trajectories"]:
+        all_=q["arm_results"]
+        effects={}
+        for k,(a_on,a_off) in compared.items():
+            u,v=all_[a_on],all_[a_off]
+            assert u["occupied"] and v["occupied"]
+            effect=u["final_I"]-v["final_I"]
+            effects[k]=effect
+            samples[k].append(effect)
+        print("TECHNICAL SOURCE-PAIRED AI EFFECT",
+              q["mating_setting"],q["source_founder_seed"],
+              q["source_visitor_seed"],q["visitor_arm"],
+              "I_native",f"{effects['I_native']:+.8f}",
+              "I_neutral",f"{effects['I_payoff_neutral']:+.8f}",
+              "I_neutral_shuffled",f"{effects['I_payoff_neutral_shuffle']:+.8f}",
+              "diff_of_diffs",f"{(effects['I_payoff_neutral']-effects['I_payoff_neutral_shuffle']):+.8f}")
+    assert len(samples)==3 and all(len(v)==16 for v in samples.values())
+    means={}
+    for k,vals in samples.items():
+        pos=sum(x>0 for x in vals)
+        neg=sum(x<0 for x in vals)
+        zero=16-pos-neg
+        assert pos+neg+zero==16
+        means[k]=float(np.mean(vals))
+        print("TECHNICAL SOURCE-PAIRED SUMMARY",k,
+              "mean",f"{means[k]:+.8f}",
+              "positive",pos,"negative",neg,"zero",zero,
+              "min",f"{min(vals):+.8f}","max",f"{max(vals):+.8f}")
+    for k,(a_on,a_off) in compared.items():
+        rows={x["arm"]:x for x in d["outcomes"]}
+        expected=rows[a_on]["final_mean_I_conditional_on_survival"]-rows[
+            a_off]["final_mean_I_conditional_on_survival"]
+        assert abs(means[k]-expected)<1e-14
+    print("TECHNICAL EXPOSED SOURCE, NOT CROSS-FOUNDER CONFIRMATION;"
+          " forced I reassignment changes genomic pairing, not just recombination")
