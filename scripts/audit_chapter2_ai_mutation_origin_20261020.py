@@ -188,6 +188,11 @@ def step_with_mutation_births(state, ledger, empty_seed_candidates, cfg,
             mutation_id=f"{case_id}/t{year+1}/child{int(result.ids[k])}/A_copy{side}"
             inherited_I=(float(inherited_alleles[k,1,0]),
                          float(inherited_alleles[k,1,1]))
+            actual_birth_I=(float(result.alleles[k,1,0]),
+                            float(result.alleles[k,1,1]))
+            both_loci_mutated_at_birth=bool(mask[k,1,:].any())
+            if not both_loci_mutated_at_birth and actual_birth_I != inherited_I:
+                raise ArithmeticError("unmutated I background mismatched at A birth")
             events.append(dict(
                 event_id=mutation_id,mutation_census=year+1,
                 child_id=int(result.ids[k]), homolog=side,
@@ -198,8 +203,11 @@ def step_with_mutation_births(state, ledger, empty_seed_candidates, cfg,
                 mutation_effect=float(result.alleles[k,2,side]-
                                       inherited_alleles[k,2,side]),
                 parent_A_mutation_token_id=old_tag,
-                child_born_with_I_copies=list(inherited_I),
-                child_born_with_I_mean=float(np.mean(inherited_I)),
+                I_inherited_before_same_birth_mutation_copies=list(inherited_I),
+                I_inherited_before_same_birth_mutation_mean=float(np.mean(inherited_I)),
+                same_birth_I_mutation=both_loci_mutated_at_birth,
+                child_born_with_I_copies=list(actual_birth_I),
+                child_born_with_I_mean=float(np.mean(actual_birth_I)),
                 mother_I_mean=float(state.alleles[mothers[k],1,:].mean()),
                 father_I_mean=float(state.alleles[fathers[k],1,:].mean()),
                 initially_inherited_A_original_founder_gene_copy=int(
