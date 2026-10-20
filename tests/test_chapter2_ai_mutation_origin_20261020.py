@@ -113,6 +113,32 @@ def test_fail_closed_scope_and_original_pre_founder_not_prelinked():
                                   year=0,case_id="bad",previous_A_tags=good_tags)
 
 
+
+def test_actual_newborn_I_genome_is_distinguished_from_prebirth_I_inheritance():
+    """Simultaneous mutation at I must not be mislabeled original inherited I."""
+    data=cohort()
+    all_events=[e for c in data["cases"]
+                for e in c["raw_A_mutation_event_births"]]
+    assert len(all_events)==216
+    simultaneous=0
+    for e in all_events:
+        assert "same_birth_I_mutation" in e
+        inherited=e["I_inherited_before_same_birth_mutation_copies"]
+        actual=e["child_born_with_I_copies"]
+        assert len(inherited)==len(actual)==2
+        assert abs(sum(inherited)/2 -
+                   e["I_inherited_before_same_birth_mutation_mean"])<1e-14
+        assert abs(sum(actual)/2 -
+                   e["child_born_with_I_mean"])<1e-14
+        if e["same_birth_I_mutation"]:
+            simultaneous+=1
+        else:
+            assert actual == inherited
+    print("TECHNICAL simultaneous A/I mutation birth cases", simultaneous,
+          "among original A mutation births",len(all_events))
+    print("NOT independent mutations/alleles across shared Q1 histories")
+
+
 def test_print_source_stated_technical_mutation_origin_coverage():
     d=cohort()
     print("SOURCE-LOCKED SHORT Q1 PEDIGREE TRACE, TECHNICAL ONLY:",
