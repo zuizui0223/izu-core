@@ -37,6 +37,33 @@ This is an informative **synthetic mechanism screen** because I's *current direc
 
 For the original 8 crossed founder×visitor×mating-setting cells, the near–far **difference of the A-mutation-induced I terminal contrast** already appeared heterogeneous in the first source log; e.g., delayed-control source 560201×560302 had native **−0.148721** but neutral-I **+0.190038**, while delayed-control 560202×560301 had native **+0.077901**, neutral-I **+0.206528** and shuffled neutral-I **−0.246807**. Thus **the sign is not uniformly predicted across contexts**. A new [case-level source regression](../tests/test_chapter2_ai_mutation_payoff_pairing_20261020.py) was added after the first experiment to preserve all 16 × 3 original individual source contrasts and print their signs. Those results are a readback of the SAME finite 96 paths, not fresh confirmation; their new CI should be checked before additional numerical claims.
 
+## Source-specific signs — exposed technical panel (not iid)
+
+The follow-up **case-level source regression** completed successfully in [scientific gate **39367112484**](https://github.com/zuizui0223/izu-core/actions/runs/39367112484), job `118446400955`. It reads the **same 16 source cells and the same six technical policies**, with no independent simulation sample or new biological replication. Each value below is the effect of enabling rather than disabling *de-novo A mutation* on final I within the specified `setting × founder × visitor × near/far` cell. The last column is **(I-neutral mutation contrast) minus (I-neutral-with-I-reassignment mutation contrast)**.
+
+| Setting | Founder | Visitor | Near/far | I native: Aon−Aoff | I-neutral: Aon−Aoff | I-neutral + shuffle: Aon−Aoff | Pairing-intervention contrast |
+| --- | ---: | ---: | --- | ---: | ---: | ---: | ---: |
+| delayed_control | 560201 | 560301 | near | -0.157973 | -0.012771 | -0.007281 | -0.005489 |
+| delayed_control | 560201 | 560301 | far | -0.157396 | +0.012460 | +0.035697 | -0.023236 |
+| delayed_control | 560201 | 560302 | near | +0.024071 | -0.042325 | +0.005109 | -0.047434 |
+| delayed_control | 560201 | 560302 | far | -0.124650 | +0.147713 | -0.027695 | +0.175408 |
+| delayed_control | 560202 | 560301 | near | -0.075054 | +0.112374 | +0.072325 | +0.040050 |
+| delayed_control | 560202 | 560301 | far | +0.002846 | +0.318902 | -0.174482 | +0.493384 |
+| delayed_control | 560202 | 560302 | near | -0.028587 | +0.144146 | +0.070052 | +0.074094 |
+| delayed_control | 560202 | 560302 | far | +0.002573 | +0.005485 | -0.033145 | +0.038629 |
+| assurance_cost | 560201 | 560301 | near | +0.048897 | -0.037680 | +0.180852 | -0.218532 |
+| assurance_cost | 560201 | 560301 | far | -0.077860 | +0.040332 | +0.089009 | -0.048677 |
+| assurance_cost | 560201 | 560302 | near | +0.028017 | +0.073230 | +0.058937 | +0.014293 |
+| assurance_cost | 560201 | 560302 | far | -0.128995 | +0.036245 | -0.009741 | +0.045986 |
+| assurance_cost | 560202 | 560301 | near | -0.051304 | +0.151849 | -0.014619 | +0.166468 |
+| assurance_cost | 560202 | 560301 | far | +0.115145 | +0.190578 | +0.075557 | +0.115020 |
+| assurance_cost | 560202 | 560302 | near | -0.107099 | +0.040137 | -0.164789 | +0.204926 |
+| assurance_cost | 560202 | 560302 | far | +0.111620 | -0.077779 | +0.077975 | -0.155754 |
+
+**Source-group heterogeneity is pronounced.** With I payoffs neutralized but native genotype associations intact, the source-specific A-mutation effect is **positive in 12/16 cells** and negative in 4/16. After artificial I-diplotype reallocation it is **positive in 9/16 cells** and negative in 7/16. The pairing-intervention contrast itself is positive in **10/16**, negative in **6/16**, with mean **+0.054321**, median **+0.039339**, and a highly heterogeneous range **[-0.218532, +0.493384]**. The biggest positive case is `delayed_control / founder 560202 / visitor 560301 / far`: I-neutral Aon−Aoff **+0.318902**, after reshuffling **−0.174482**. The counterexample `assurance_cost / founder 560201 / visitor 560301 / near` goes from **−0.037680** without shuffling to **+0.180852** with shuffling.
+
+For a **single fixed artificial source-regime group**, an indirect genetic association mechanism is visibly possible under I-neutral payoffs. But the size and even **sign** of that effect are strongly contingent on the original founder/visitor/near-far history. The data cannot justify a universal statement that I-diplotype reassignment *always reduces* mutation-induced I response, nor can 16 crossed cells be analyzed as independent islands. The original near and far states share founder and visitor seeds; the same two founders and visitor seeds recur across both mating regimes. The mean interaction is driven partly by large positive cases. No preregistered across-source interval or independent held-out founder/visitor ensemble was run.
+
 ## Specific reason novelty is still not established
 
 - The one-step I-neutral, A–I correlated-parent sign change previously demonstrated is the existing Price selection covariance identity; neither it nor the current 24-update extension proves a new population-genetic law.
