@@ -156,6 +156,7 @@ def technical_screen():
                 for k,(n_yes,n_all) in fit.items()}
 
     diagnostics = []
+    heldout_persistence_source_losses = []
     for outcome, conditional in (("established",False), ("established",True),
                                   ("persisted",False)):
         target = [r for r in heldout if r["arrived"]] if conditional else heldout
@@ -163,6 +164,7 @@ def technical_screen():
             raise ValueError("empty heldout outcome denominator")
         y = [int(bool(r[outcome])) for r in target]
         ref = None
+        predicted_by_model = {}
         for predictor in PREDICTORS:
             learned = train_groups(train, outcome, predictor, conditional)
             unknown = [key(r,predictor) for r in target if key(r,predictor) not in learned]
@@ -170,6 +172,8 @@ def technical_screen():
                 raise ValueError("no training category for heldout source stratum")
             p = [learned[key(r,predictor)] for r in target]
             score = score_binary(y,p)
+            if outcome == "persisted" and not conditional:
+                predicted_by_model[predictor] = np.asarray(p, dtype=np.float64)
             if predictor == "ecology_only":
                 ref = score
             diagnostics.append(dict(
@@ -184,6 +188,31 @@ def technical_screen():
                 source_validation_groups=len({r["source_id"] for r in target}),
                 fitted_only_on_new_train_source_groups=True,
             ))
+        if outcome == "persisted" and not conditional:
+            # Preserve *only* all-start losses grouped by entirely new HELDOUT
+            # source identity. These 24 source groups, not the 768 within-group
+            # stochastic trajectories, are the uncertainty resampling units.
+            y_values = np.asarray(y, dtype=np.float64)
+            if set(predicted_by_model) != set(PREDICTORS):
+                raise ValueError("incomplete frozen source-trained models")
+            if len(y_values) != 24 * 4 * DEMOGRAPHIC_RESETS:
+                raise ValueError("unexpected all-start candidate ledger")
+            for source in source_registry("heldout"):
+                idx = np.asarray([k for k,row in enumerate(target)
+                                  if row["source_id"] == source.lineage_id], dtype=int)
+                if len(idx) != 4 * DEMOGRAPHIC_RESETS:
+                    raise ValueError("invalid source-cluster resampling membership")
+                losses = {model: float(np.mean(
+                    (predicted_by_model[model][idx] - y_values[idx]) ** 2))
+                    for model in PREDICTORS}
+                heldout_persistence_source_losses.append(dict(
+                    source_id=source.lineage_id,
+                    source_seed=source.source_seed,
+                    a_source_hint=source.a_hint,
+                    i_source_hint=source.i_hint,
+                    paths=int(len(idx)),
+                    brier_by_model=losses,
+                ))
         if outcome == "established":
             # Full-genotype native oracle is fixed from the reproductive
             # mechanism, requires NO labels from the training set and is NOT
@@ -241,6 +270,8 @@ def technical_screen():
         all_start_category_counts=categories,
         stage_summary_by_split=stage,
         heldout_prediction_scores=diagnostics,
+        heldout_persistence_source_losses=heldout_persistence_source_losses,
+        source_blocked_inference_exploratory_and_fixed_training_models=True,
         official_scientific_confirmation=False,
         biological_SESOI_or_power_not_predeclared=True,
         statistical_significance_tested=False,
