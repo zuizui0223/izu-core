@@ -2,7 +2,15 @@
 
 Latest editorial revision: 2026-10-20. Integrated evidence baseline: main `dd76ec6f0d2bf330375a69fdb76b06925ee4c32c`. Earlier dated entries below are historical revision records.
 
-## Title, abstract and Discussion after evidence integration
+## Primary-literature and narrative-closure revision — 2026-10-20
+
+The completed-evidence article remains the editing master. A [primary-literature comparison](CHAPTER2_CLOSEST_PRIOR_ART_PRIMARY_AUDIT_20261020.md) sharpens the novelty against explicit selfing–allocation models, genomic erosion in large experimental populations, selection-based irreversibility, and conditional adaptation under selfing. Introduction and Discussion now identify the matched initial-expression A-policy intervention and target-specific allele-support endpoint as the contribution, rather than claiming priority for genetic erosion during persistence. Tusuubira & Kelly (2024) is added because experimental crosses distinguish floral-size changes due to inbreeding depression from adaptation; modeled I allocation must not be equated to observed flower dimensions.
+
+The Introduction asks a question answered by the registered G/S contrasts. Colonization into another pollination environment supplies biological motivation and a bounded exploratory test; its adaptive success is not promised as a conclusion. The title and 180-word abstract are retained because they already name the measured outcomes. Discussion is now 693 words. Source main-text counts are 3,329 words for the completed master and 3,484 for the historical working copy, excluding the Introduction heading but retaining internal section labels. Both share the revised Introduction and Discussion. Earlier counts and edit-scope statements below describe the earlier revision.
+
+Results, Methods, figures, registered endpoints and original outcome labels are unchanged. No biological simulation or raw-path replay is added. The existing route validator now expects the revised title; its scientific guards and 3,500-word limit are unchanged. Selected numerical validation and all 40 related evidence, figure and route checks pass. The initial local fixture failures were Windows long-path errors, resolved with a shorter temporary path. The previous remote head failed four route tests because of the stale title; final remote CI must be checked on the new commit. [Question-to-answer closure map](CHAPTER2_PAPER_CLOSURE_20261020.md#7-primary-literature-revision-and-narrative-closure) records which claims the paper answers and which it explicitly leaves open. This refinement strengthens a bounded evolutionary-model paper; it does not certify global priority, natural-island causation or readiness for submission.
+
+## Earlier title, abstract and Discussion revision
 
 **Title:** Reproductive assurance differentially affects floral genetic accessibility and persistence under pollinator limitation.
 

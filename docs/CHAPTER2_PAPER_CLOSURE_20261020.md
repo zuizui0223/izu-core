@@ -74,3 +74,21 @@ This is a valid retained **legacy review export**, not proof that the current PR
 Four finishing gates remain: final visual inspection of the six current figure panels; complete executable Methods and supplementary/source manifests; reference/author/contribution/declaration checks; and a durable source/data deposit with verified identifiers. References spot-checked during this review include Busch et al. (2022, doi:10.1111/evo.14572), Acoca-Pidolle et al. (2024, doi:10.1111/nph.19422) and Teixido & Aizen (2019, doi:10.1093/aob/mcz014). This is not a complete bibliography audit.
 
 No simulation, new inference, altered primary endpoint, extra founding population or biological replay was run for this closure note. The source-count arithmetic and legacy-package hashes were checked locally. The full repository test suite was not run locally in this review. Remote CI must be reported for its exact head; an earlier green scientific gate does not certify a later commit. The paper remains unsubmitted and not yet submission-ready.
+
+## 7. Primary-literature revision and narrative closure
+
+The subsequent literature audit and copyedit retain this document's one-paper decision. The main contribution is a **matched initial-expression assurance-policy effect on a specified floral genetic option, evaluated separately from resource-dependent persistence**. Large-population genetic erosion itself is already demonstrated by Busch et al. (2022); selfing–allocation models, adaptation under selfing and selection-based irreversibility also precede this paper. See the [primary-source audit](CHAPTER2_CLOSEST_PRIOR_ART_PRIMARY_AUDIT_20261020.md). Full B8 survival excludes differential extinction, not all within-population demographic or effective-size explanations.
+
+| Opening question or expectation | Answer delivered within this paper | Status / location |
+| --- | --- | --- |
+| Must assurance evolve before investment can decline? | No: fixed expressed A permits I decline, although selfing remains possible. | Model counterexample; Q1 / Figure 1. |
+| Does permitting A evolution alter a defined floral genetic option when every population persists? | Yes: the registered B8 contrast increases founder-relative high-I support loss by 8.33 points. | Principal genetic result; Figure 4. The initial A phenotype is matched; downstream mediation is not identified. |
+| Does that policy have the same demographic consequence under harsher resources? | No: persistence is complete at B8, but strongly improved by A evolution at B4.5. | Registered survival interaction, Figure 4. This does not prove that lost I alleles cause survival. |
+| Does retaining a target-compatible allele establish later response? | No such inference is justified: support, segregating variation, target already attained and realized response differ. | Bounded exploratory transfer, Figures 5–6. No unconditional recovery probability or general adaptational advantage. |
+| Is a universal selfing trap or natural island-assembly history established? | No. Mutation, immigration, evolving load and actual natural assembly are not jointly tested. | Explicit scope boundary, not a promised result or a reason to add experiments to this article. |
+
+**Editorial emphasis:** make the registered genetic comparison the centerpiece, with resource-dependent survival as the contrasting outcome. Treat order tests, structured repeatability and transfer as tests of tempting but invalid shortcuts between selection, sequence, persistence and response. Keep hitchhiking and secondary-colonization controls visible in the supplementary map and short Discussion passage. Their unresolved mechanisms should prevent overinterpretation, not replace the principal result with a second unfinished narrative.
+
+**Japanese author-facing conclusion:** 生殖保証の進化は、存続と特定の花形質への遺伝的選択肢を一緒に守るとは限らない。初期の保証発現をそろえた比較では、全個体群が存続する条件でも高い花投資を可能にするアレル支持範囲の喪失が増えた。一方、厳しい資源条件では存続が改善した。この二つを別の評価量として示した点が本論文の核であり、存続が将来の適応を保証することも、自殖が普遍的な進化の袋小路を作ることも示していない。
+
+No new experiment is required to close this restricted question. Existing artwork, Methods/manifests, reference completeness, declarations and archival finishing gates in section 6 remain; the paper is not declared submission-ready.
