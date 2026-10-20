@@ -1,6 +1,32 @@
 # Completed-evidence manuscript: editorial status
 
-Revision: 2026-10-19. Evidence baseline: main `b0d907eabd5142f1d2d316d7a6a8b9374822618a`.
+Latest editorial revision: 2026-10-20. Integrated evidence baseline: main `dd76ec6f0d2bf330375a69fdb76b06925ee4c32c`. Earlier dated entries below are historical revision records.
+
+## Conclusion and code review — 2026-10-20
+
+A [two-axis code/spec review](CHAPTER2_CONCLUSION_CODE_REVIEW_20261020.md) maps23 current conclusion families. No new result-changing code defect was found in the inspected scripts. One substantive Methods interpretation was corrected: retained target support is necessary under closed inheritance, but favorable selection is not necessary for every realized finite-population return. A dangling reference now points explicitly to the historical working draft; the historical mechanism synthesis is preserved with a dated erratum. Results, registered endpoints and biological code are unchanged. The supplement explicitly maps hitchhiking, secondary colonization and source sorting. A read-only receipt reproduces G/S and40 archived hitchhiking panel records, keeping the two different shuffle implementations separate. All49 selected evidence/figure/route/three-state checks pass. No new simulation or biological replay was run; previous source audits are not represented as fresh all-archive verification. Earlier scope statements below describe their respective revisions.
+
+## Primary-literature and narrative-closure revision — 2026-10-20
+
+The completed-evidence article remains the editing master. A [primary-literature comparison](CHAPTER2_CLOSEST_PRIOR_ART_PRIMARY_AUDIT_20261020.md) sharpens the novelty against explicit selfing–allocation models, genomic erosion in large experimental populations, selection-based irreversibility, and conditional adaptation under selfing. Introduction and Discussion now identify the matched initial-expression A-policy intervention and target-specific allele-support endpoint as the contribution, rather than claiming priority for genetic erosion during persistence. Tusuubira & Kelly (2024) is added because experimental crosses distinguish floral-size changes due to inbreeding depression from adaptation; modeled I allocation must not be equated to observed flower dimensions.
+
+The Introduction asks a question answered by the registered G/S contrasts. Colonization into another pollination environment supplies biological motivation and a bounded exploratory test; its adaptive success is not promised as a conclusion. The title and 180-word abstract are retained because they already name the measured outcomes. Discussion is now 693 words. Source main-text counts are 3,329 words for the completed master and 3,484 for the historical working copy, excluding the Introduction heading but retaining internal section labels. Both share the revised Introduction and Discussion. Earlier counts and edit-scope statements below describe the earlier revision.
+
+Results, Methods, figures, registered endpoints and original outcome labels are unchanged. No biological simulation or raw-path replay is added. The existing route validator now expects the revised title; its scientific guards and 3,500-word limit are unchanged. Selected numerical validation and all 40 related evidence, figure and route checks pass. The initial local fixture failures were Windows long-path errors, resolved with a shorter temporary path. The previous remote head failed four route tests because of the stale title; final remote CI must be checked on the new commit. [Question-to-answer closure map](CHAPTER2_PAPER_CLOSURE_20261020.md#7-primary-literature-revision-and-narrative-closure) records which claims the paper answers and which it explicitly leaves open. This refinement strengthens a bounded evolutionary-model paper; it does not certify global priority, natural-island causation or readiness for submission.
+
+## Earlier title, abstract and Discussion revision
+
+**Title:** Reproductive assurance differentially affects floral genetic accessibility and persistence under pollinator limitation.
+
+The working manuscript and completed-evidence extract share exactly the same title, abstract and Discussion. The title names the measured genetic-access and persistence outcomes without implying that actual recovery probability was established. The abstract leads with the biological question, then the fixed-A counterexample and registered G/S estimates, and ends with the unresolved mediation and secondary-adaptation questions. The Discussion explains novelty, conditional baseline responses, sequence and finite realization, resource-dependent persistence, bounded transfer, exploratory extensions and remaining causal/generalization limits in that order.
+
+Current whitespace counts: abstract **180** words; Discussion **670**; Introduction through Discussion **3,489** in the working document and **3,330** in the completed-only extract. The difference reflects the historical PENDING material retained only in the working document, not additional observed results. Earlier counts below are superseded for this revision. These are internal source counts, not final typeset counts.
+
+**日本語での主張：** 送粉者減少下で繁殖を維持することは、将来の花の進化に必要な遺伝的選択肢を保持することと同じではない。最も強い新規性は、全集団が存続する条件で保証進化による高I支持範囲の喪失を確認し、資源条件を変えた存続効果と別々に評価した点にある。保証固有の便乗、回復確率、二次的分布拡大後の適応、自然の島での進化と選別の寄与は未解決として残す。
+
+Scope: editorial changes only. Introduction, Results, Methods, figures, frozen protocols, raw data and all inferential ranks are unchanged. No experiment or biological replay is run for this revision.
+
+Verification: exact comparison confirms that only title/abstract/Discussion changed in both manuscript files, and those three sections match across versions. Selected completed-evidence numerical validation and 34 existing manuscript/figure checks passed. Independent editorial review found no remaining issue with the registered estimates, novelty boundaries or exploratory labels.
 
 ## Central argument
 
