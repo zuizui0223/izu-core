@@ -39,7 +39,7 @@ def main():
     for j,(head,a,b) in enumerate(labels):
         x=40+j*390
         content+=f'<rect x="{x}" y="140" width="360" height="155" rx="12" fill="{["#f8e9d7","#dceee7","#dce8f3"][j]}"/>'+text(x+18,180,head,25)+text(x+18,222,a,18)+text(x+18,258,b,18)
-    for y,line in [(350,'Founding variation sets available alleles; it does not determine every trajectory.'),(400,'R1窶迭2: separate responses interact through reproductive and genetic processes.'),(450,'R3: selection direction and finite realization have different predictability.'),(500,'R4窶迭5: persistence, ancestral recovery and new-environment response differ.'),(575,'Conceptual framework; links are not estimated causal mediation.' )]:content+=text(40,y,line,21 if y<575 else 18)
+    for y,line in [(350,'ARRIVAL: inherited alleles bound accessible responses.'),(400,'AFTER ARRIVAL (R1-R3): separate responses interact and differ in repeatability.'),(450,'LATER (R4-R5): persistence, ancestral recovery and new responses differ.'),(500,'Read the five results as interventions and bounded extensions, not one causal chain.'),(575,'Conceptual framework; links are not estimated causal mediation.' )]:content+=text(40,y,line,21 if y<575 else 18)
     write('figure_01_framework.svg','Figure 1. From founding state to future floral options',content,dict(kind='conceptual',source='scripts/model3_island/reproduction.py'))
     crop('figure_02_independent_decline.svg','Figure 2. Investment declines with fixed assurance',45,675)
     crop('figure_03_assurance_interaction.svg','Figure 3. Assurance changes environmental investment contrasts',725,730)
