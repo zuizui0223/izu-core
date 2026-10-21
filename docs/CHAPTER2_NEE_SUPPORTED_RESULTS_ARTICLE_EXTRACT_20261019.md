@@ -64,6 +64,8 @@ The original prospective **128-visitor-history** bridge is independent of the la
 
 Archived fixed-A analyses show history-dependent floral structure: eight-repeat reliability increased from .621 to .825 with capacity, while single-trajectory ICC increased from .170 to .370. These are not natural-island chance fractions or isolated drift effects; the detailed qualifications are retained in Online Methods.
 
+An exploratory held-out analysis of the B8 crossed cohort found that founder-only prediction did not improve I-change error (skill −0.46%); visitor-history skill was +0.36%. Secondary M-change history skill was +40.15%. These predict held-out pairings of known sources, not unseen founders. The shared visitor-count schedule varies matching optima, and residuals combine interaction and stochastic realization. [Analysis and source receipts](CHAPTER2_FOUNDER_PREDICTABILITY_RESULTS_20261021.md).
+
 ### Assurance endpoints were more repeatable under the sampled conditions
 
 A post-outcome readback of an existing finite experiment compared evolving A

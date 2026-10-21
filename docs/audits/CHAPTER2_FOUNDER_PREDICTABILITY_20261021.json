@@ -1,0 +1,170 @@
+{
+  "scope": "post-outcome B8 existing-source pairing prediction; not causal variance attribution",
+  "primary": "evolving_I_change founder-only leave-cell-out skill",
+  "unresolved": "residual combines interaction and stochastic realization; no novel-founder generalization",
+  "matrix_sha256": "4cb3593750349dc45ec1d1e46bbe81dda31e0f1ddd3798b55df6f5b5747ff85d",
+  "results": {
+    "fixed_I_change": {
+      "mean": -0.040032157483951065,
+      "total_ss": 181.00301280091162,
+      "ss": {
+        "founder": 1.1331963976728527,
+        "history": 2.979831871352976,
+        "interaction_plus_stochastic": 176.8899845318858
+      },
+      "ss_fraction": {
+        "founder": 0.006260649367860386,
+        "history": 0.016462885480423163,
+        "interaction_plus_stochastic": 0.9772764651517165
+      },
+      "loo_sse": {
+        "intercept": 181.0171544898959,
+        "founder": 182.1394446391722,
+        "history": 180.2695080019264,
+        "additive": 181.38220505832572
+      },
+      "loo_skill": {
+        "founder": -0.006199910458425384,
+        "history": 0.004130252130392531,
+        "additive": -0.0020166628376108164
+      },
+      "n_founders": 160,
+      "n_histories": 160
+    },
+    "fixed_I_endpoint": {
+      "mean": 0.45869017324521555,
+      "total_ss": 183.48219667767862,
+      "ss": {
+        "founder": 3.612380274439876,
+        "history": 2.9798318713529826,
+        "interaction_plus_stochastic": 176.8899845318858
+      },
+      "ss_fraction": {
+        "founder": 0.01968790618299447,
+        "history": 0.016240441445049974,
+        "interaction_plus_stochastic": 0.9640716523719558
+      },
+      "loo_sse": {
+        "intercept": 183.49653206425265,
+        "founder": 182.1394446391722,
+        "history": 182.77997464664915,
+        "additive": 181.3822050583257
+      },
+      "loo_skill": {
+        "founder": 0.007395711569117003,
+        "history": 0.0039050188553568788,
+        "additive": 0.011522435776533446
+      },
+      "n_founders": 160,
+      "n_histories": 160
+    },
+    "evolving_I_change": {
+      "mean": -0.05476959228515625,
+      "total_ss": 162.93941623661254,
+      "ss": {
+        "founder": 1.279143214490679,
+        "history": 2.59561071157455,
+        "interaction_plus_stochastic": 159.0646623105473
+      },
+      "ss_fraction": {
+        "founder": 0.007850422224621024,
+        "history": 0.01592991291809548,
+        "interaction_plus_stochastic": 0.9762196648572834
+      },
+      "loo_sse": {
+        "intercept": 162.9521466244223,
+        "founder": 163.70013011219174,
+        "history": 162.36705120212702,
+        "additive": 163.1041987656702
+      },
+      "loo_skill": {
+        "founder": -0.004590203340453236,
+        "history": 0.003590596591794837,
+        "additive": -0.0009331091636266553
+      },
+      "n_founders": 160,
+      "n_histories": 160
+    },
+    "evolving_I_endpoint": {
+      "mean": 0.4439527384440104,
+      "total_ss": 165.23894206974242,
+      "ss": {
+        "founder": 3.578669047620559,
+        "history": 2.5956107115745586,
+        "interaction_plus_stochastic": 159.0646623105473
+      },
+      "ss_fraction": {
+        "founder": 0.021657540303726405,
+        "history": 0.01570822639665067,
+        "interaction_plus_stochastic": 0.9626342332996229
+      },
+      "loo_sse": {
+        "intercept": 165.25185211853494,
+        "founder": 163.70013011219174,
+        "history": 164.69559284716178,
+        "additive": 163.1041987656702
+      },
+      "loo_skill": {
+        "founder": 0.009390043055191644,
+        "history": 0.0033661303292029654,
+        "additive": 0.012996243765693083
+      },
+      "n_founders": 160,
+      "n_histories": 160
+    },
+    "evolving_M_change": {
+      "mean": 0.0032989498862279077,
+      "total_ss": 135.78425490578886,
+      "ss": {
+        "founder": 0.82073498914468,
+        "history": 55.51871971184441,
+        "interaction_plus_stochastic": 79.44480020479975
+      },
+      "ss_fraction": {
+        "founder": 0.006044404704463933,
+        "history": 0.40887450279389864,
+        "interaction_plus_stochastic": 0.5850810925016373
+      },
+      "loo_sse": {
+        "intercept": 135.7948636723067,
+        "founder": 136.6665127908742,
+        "history": 81.27833950258997,
+        "additive": 81.46234553470275
+      },
+      "loo_skill": {
+        "founder": -0.0064188666271718375,
+        "history": 0.4014623432390878,
+        "additive": 0.4001073138430068
+      },
+      "n_founders": 160,
+      "n_histories": 160
+    },
+    "evolving_A_change": {
+      "mean": 0.24729654947916668,
+      "total_ss": 17.028936021592887,
+      "ss": {
+        "founder": 0.1128817409939239,
+        "history": 0.12777635362413214,
+        "interaction_plus_stochastic": 16.78827792697483
+      },
+      "ss_fraction": {
+        "founder": 0.006628819372554371,
+        "history": 0.007503484273010965,
+        "interaction_plus_stochastic": 0.9858676963544345
+      },
+      "loo_sse": {
+        "intercept": 17.030266485175922,
+        "founder": 17.12950395883602,
+        "history": 17.114421403425496,
+        "additive": 17.214625675869225
+      },
+      "loo_skill": {
+        "founder": -0.005827123947031554,
+        "history": -0.004941491568721368,
+        "additive": -0.010825384961167916
+      },
+      "n_founders": 160,
+      "n_histories": 160
+    }
+  }
+}
