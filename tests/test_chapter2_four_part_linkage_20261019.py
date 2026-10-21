@@ -144,6 +144,9 @@ def test_transfer_allocation_and_no_unconditional_recovery_claim():
 def test_current_paper_names_all_four_parts_and_retains_negative_inference():
     path=ROOT/"docs/CHAPTER2_UNIFIED_NEE_ARTICLE_WORKING_20261017.md"
     article=path.read_text(encoding="utf-8")
+    assert all(f"### R{i} —" in article for i in (1, 2, 3, 4, 5))
+    assert "CHAPTER2_FIVE_RESULTS_EXTENDED_EVIDENCE_20261021.md" in article
+    article += (ROOT/"docs/CHAPTER2_FIVE_RESULTS_EXTENDED_EVIDENCE_20261021.md").read_text(encoding="utf-8")
     assert all(f"### Q{i} —" in article for i in (1, 2, 3, 4))
     assert "−0.013589" in article and "±0.05" in article
     assert "3/32" in article and "2/32" in article

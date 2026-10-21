@@ -14,6 +14,7 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 MANUSCRIPT = 'docs/CHAPTER2_UNIFIED_NEE_ARTICLE_WORKING_20261017.md'
+EXTENDED = 'docs/CHAPTER2_FIVE_RESULTS_EXTENDED_EVIDENCE_20261021.md'
 SOURCES = {name: 'docs/audits/' + filename for name, filename in {
     'pollen': 'CHAPTER2_BASELINE_POLLEN_384_AUDIT_20261019.json',
     'confirm': 'CHAPTER2_CONFIRM160_COMPACT_RESULTS_20261019.json',
@@ -53,6 +54,10 @@ def validate(root=ROOT):
     # Limit checks to Results so a repeated figure caption cannot rescue a bad claim.
     text = text.split('## Results — existing source-admitted evidence', 1)[1].split(
         '## Planned new decisive Results', 1)[0]
+    main_results = text
+    require(Path(EXTENDED).name in manuscript.decode('utf8'), 'missing extended evidence link')
+    extended = (root / EXTENDED).read_bytes()
+    text = re.sub(r'\s+', ' ', extended.decode('utf8').replace('−', '-').replace('**', ''))
     p, c, v, t, tables = (sources[k] for k in SOURCES)
     statuses = {'pollen': 'EXPLORATORY_RAW_ENDPOINT_AUDIT_PASS',
                 'confirm': 'COMPLETE_MODEL_CONDITIONAL_CONFIRMATION',
@@ -82,6 +87,10 @@ def validate(root=ROOT):
                   [100 * endpoints[0]['estimate'], *[100 * x for x in endpoints[0]['interval']]], 2, 'genetic closure')
     numeric_claim(text, r'policy-by-budget interaction was ' + NUMBER + r' points \[' + NUMBER + ',' + NUMBER + r'\]',
                   [100 * endpoints[1]['estimate'], *[100 * x for x in endpoints[1]['interval']]], 2, 'survival interaction')
+    numeric_claim(main_results, r'difference was ' + NUMBER + r' percentage points \(adjusted 97\.5% interval ' + NUMBER + r'[–-]' + NUMBER + r'\)',
+                  [100 * endpoints[0]['estimate'], *[100 * x for x in endpoints[0]['interval']]], 2, 'main genetic closure')
+    numeric_claim(main_results, r'policy-by-resource survival interaction was ' + NUMBER + r' points \(' + NUMBER + r'[–-]' + NUMBER + r';',
+                  [100 * endpoints[1]['estimate'], *[100 * x for x in endpoints[1]['interval']]], 2, 'main survival interaction')
     require(v['crossings'] == 25600 and len(v['contrasts']) == 12, 'variation allocation/family')
     for budget, wording in [('B8', r'shortened occupied I-polymorphic duration by '),
                             ('B4p5', r'At B4\.5 it extended duration by ')]:
@@ -108,6 +117,7 @@ def validate(root=ROOT):
     numeric_claim(text, r'transferred ' + NUMBER + r' seed-derived cohorts from ' + NUMBER + r' donors',
                   [t['cohorts'], t['cohorts'] / 2], 0, 'nested transfer cohorts')
     numeric_claim(text.replace(',', ''), r'\(' + NUMBER + r' futures\)', [t['allocated']], 0, 'transfer futures')
+    numeric_claim(main_results, r'used ' + NUMBER + r' seed cohorts nested within ' + NUMBER + r' donors', [t['cohorts'], t['cohorts']/2], 0, 'main nested transfer cohorts')
     occupancy = [one(tables['tables'], policy='fixed', destination=d)['occupied'] for d in range(5)]
     # Commas serve both as thousands separators and list delimiters in this
     # manuscript: generate the declared ordered list from source, not token sets.
@@ -120,6 +130,7 @@ def validate(root=ROOT):
     return dict(status='PASS_SELECTED_COMPLETED_EVIDENCE_CLAIMS', raw_archive_reaudited=False,
                 source_sha256={k: hashlib.sha256(b).hexdigest() for k, b in raw.items()},
                 manuscript_sha256=hashlib.sha256(manuscript).hexdigest(),
+                extended_evidence_sha256=hashlib.sha256(extended).hexdigest(),
                 checked=['pollen A interactions and descriptive intervals', 'confirm160 G/S counts, estimates and intervals',
                          'I duration contrasts and family intervals at both budgets', 'transfer receipt/table binding, nested allocation and destination occupancy'],
                 limits=['Only selected Results claims, not every sentence or figure',

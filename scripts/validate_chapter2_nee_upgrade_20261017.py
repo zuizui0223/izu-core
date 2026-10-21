@@ -79,7 +79,7 @@ def validate(root: Path = ROOT):
     target = root / route["active_manuscript"]
     manuscript_raw = target.read_bytes()
     text = manuscript_raw.decode("utf-8")
-    require(text.startswith("# Reproductive assurance differentially affects floral genetic accessibility and persistence under pollinator limitation"),
+    require(text.startswith("# Founding constraints and the predictability of reproductive evolution in an island plant model"),
             "NEE manuscript wrong title")
     for boundary in (NEE_ABSTRACT_HEAD, NEE_INTRO_HEAD, NEE_RESULTS_HEAD,
                      NEE_PENDING_HEAD, NEE_METHODS_HEAD, NEE_FIGURES_HEAD):

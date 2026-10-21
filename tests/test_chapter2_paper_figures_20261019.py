@@ -115,11 +115,14 @@ def test_fig06_cohorts_and_survivor_means():
 
 def test_figure_links_in_single_manuscript():
     manuscript=(ROOT/"docs"/"CHAPTER2_UNIFIED_NEE_ARTICLE_WORKING_20261017.md").read_text(encoding="utf-8")
-    for name in ("figure_01_q1_mechanism.svg","figure_02_baseline_pollen.svg",
-                 "figure_03_sequence_realization.svg",
-                 "figure_03_order_repeatability.svg","figure_04_access_survival.svg",
-                 "figure_05_variation_duration.svg","figure_06_late_transfer.svg"):
-        assert "figures/chapter2_nee/"+name in manuscript
+    for name in ("figure_01_framework.svg", "figure_02_independent_decline.svg",
+                 "figure_03_assurance_interaction.svg", "figure_04_predictability.svg",
+                 "figure_05_persistence_options.svg", "figure_06_transfer.svg"):
+        assert "figures/chapter2_nee_five_results/"+name in manuscript
+        assert (ROOT/"figures/chapter2_nee_five_results"/name).exists()
+    results=manuscript.split("## Results — existing source-admitted evidence",1)[1].split("## Planned new decisive",1)[0]
+    assert [line.split(' — ')[0] for line in results.splitlines() if line.startswith('### ')] == [f'### R{i}' for i in range(1,6)]
+
 
 
 def test_figure_01_q1_fixed_and_fresh_founder_results():
@@ -197,6 +200,8 @@ def test_figure_03_order_q2_and_source_separated_finite_realization():
 def test_original_four_question_contract_and_figure_03_synthesis():
     original = (ROOT / "docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md").read_text(encoding="utf8")
     active = (ROOT / "docs/CHAPTER2_UNIFIED_NEE_ARTICLE_WORKING_20261017.md").read_text(encoding="utf8")
+    assert "CHAPTER2_FIVE_RESULTS_EXTENDED_EVIDENCE_20261021.md" in active
+    active += (ROOT / "docs/CHAPTER2_FIVE_RESULTS_EXTENDED_EVIDENCE_20261021.md").read_text(encoding="utf8")
     crosswalk = (ROOT / "docs/CHAPTER2_Q1_Q4_ORIGINAL_FOUR_PARTS_AUDIT_20261019.md").read_text(encoding="utf8")
     assert all(("## Q" + str(i) + " —") in original for i in range(1, 5))
     assert all(("### Q" + str(i) + " —") in active for i in range(1, 5))
@@ -211,6 +216,8 @@ def test_q4_original_vs_new_cohorts_are_separate():
     original = json.loads((ROOT / "data/results/chapter2_island_demographic_independent32_20261008.json").read_text(encoding="utf-8"))
     latest = src("CHAPTER2_CONFIRM160_COMPACT_RESULTS_20261019.json")
     manuscript = (ROOT / "docs/CHAPTER2_UNIFIED_NEE_ARTICLE_WORKING_20261017.md").read_text(encoding="utf8")
+    assert "CHAPTER2_FIVE_RESULTS_EXTENDED_EVIDENCE_20261021.md" in manuscript
+    manuscript += (ROOT / "docs/CHAPTER2_FIVE_RESULTS_EXTENDED_EVIDENCE_20261021.md").read_text(encoding="utf8")
     assert original["independent_histories"] == 32
     assert original["predeclared_pooled_primary"]["pass"] is True
     same(original["predeclared_pooled_primary"]["mean"], .1083984375)
@@ -341,3 +348,14 @@ def test_figure_04_three_state_panel_preserves_registered_contrasts_and_denomina
     assert "not a third preregistered test" in desc
     assert original["primary"]["joint_positive"] is True
     assert original["actual_restoration_tested"] is False
+
+
+def test_five_result_prediction_marks_preserve_existing_scores():
+    r=ET.parse(ROOT/"figures/chapter2_nee_five_results/figure_04_predictability.svg").getroot()
+    metadata=json.loads(r.find("s:metadata",NS).text)
+    original=src("CHAPTER2_FOUNDER_PREDICTABILITY_20261021.json")["results"]
+    for trait in ("I","M"):
+        same(metadata["history_skills"][trait],original[f"evolving_{trait}_change"]["loo_skill"]["history"])
+    endpoint=src("CHAPTER2_MATCHED_AI_REPEATABILITY_20261019.json")["settings"]
+    for row in metadata["endpoint_counts"]:
+        assert row["value"]==endpoint[row["setting"]]["central"][row["trait"]]["far_identical_endpoint_contexts"]
