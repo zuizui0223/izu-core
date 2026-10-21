@@ -1,21 +1,42 @@
-# Founding history, predictability and island divergence: interpretation boundary
+# 島への到着から、その後の進化可能性まで：論文のストーリー
 
-Editorial synthesis of existing evidence only; no new simulations or variance decomposition. This note supports the active manuscript and does not replace its registered conclusions.
+2026-10-21。既存結果を統合する編集上の整理。新しいシミュレーション、四成分の分散分解、確認実験は実施していない。主原稿の要旨・導入・考察と対応する。
 
-### Founding state, selection and stochastic realization
+## 中心質問
 
-The explanatory sequence is arrival with a genetic state, selection in a pollination environment, finite realization, and retention or loss of future options. A founding event can sample alleles stochastically, yet subsequent responses can be predictable conditional on the inherited state. Founder effects therefore do not belong exclusively to either determinism or chance. The existing genetic-access comparisons demonstrate sensitivity to initial genetic configuration under stated conditions; they do not estimate the fraction of natural island divergence attributable to founding events.
+島へ持ち込まれた遺伝的状態と送粉環境は、繁殖保証と花投資の進化をどこまで方向づけるのか。その進化は、存続と、新しい環境で再び変化できる能力をどう変えるのか。
 
-Two kinds of predictability must be distinguished. Directional selection concerns expected reproductive returns at a specified state; repeatability concerns the distribution of realized changes, sequences and endpoints across independent repetitions. Cost-free delayed selfing without pollen discount has nonnegative local maternal return when outcross fertilization is incomplete, but nonnegative return is not proof of strong selection or a guaranteed inherited response. Prior selfing still benefits the individual, while also pre-empting opportunities for outcross fertilization. The 51/64 versus 30/64 A-first counts concern threshold order, not an isolated causal test of private benefit or endpoint repeatability. Selection and fixation are potentially successive mechanisms, not mutually exclusive explanations.
+## 一本の流れと証拠の境界
 
-The crossed confirmation cannot separate founder-by-history interaction from stochastic residual; separate repeatability experiments do not resolve that confounding. Online Methods specifies these identification limits.
+| 段階 | 問いと示せたこと | 未検証・読み替えてはいけないこと |
+|---|---|---|
+| 1 創始者 | 到着は偶然でも、持ち込んだ変異が可能な応答を制約する。閉じた継承では、必要なアレルのない目標は到達不能。初期変異の比較で順序も変わる | 初期状態だけで全軌跡が決まるわけではない。自然の創始者効果の大きさや完全な分散寄与は未推定 |
+| 2 選択 | 費用・花粉割引のない遅延自殖ではAの局所的母性利益は非負。Iの見返りは送粉環境と費用に依存する | 非負は強い選択ではない。先行自殖でも利益は個体に届く。51/64対30/64は順序の比較 |
+| 3 相互作用 | Aの進化なしでもIは下がるが、Aの進化は環境間のI差を縮めうる。二つの応答は分離可能でも無関係ではない | 繁殖上の見返りの変化と遺伝的関連による便乗を混同しない。A固有の便乗の有無は未確定 |
+| 4 有限集団 | A終点は比較的揃い、Iには履歴に対応する構造と同履歴内のばらつきがある。密度計算の順序は有限集団で一様には実現しない | 差の全てが浮動ではない。Aの選択と固定の寄与は未分離。Iの遺伝的変化は同一遺伝子型の表現型可塑性ではない |
+| 5 存続 | 登録比較で、厳しい資源下の存続が改善し、別の全生存条件では特定の高I目標への支持アレル喪失が増える | 救済が遺伝的喪失を起こした、または喪失を代価として生存したという媒介は未証明 |
+| 6 可逆性と再進出 | 生存・祖先形質への復帰・別形質による新環境適応を区別する。Iの制約とMを介した成績改善は共存しうる | 祖先に戻れないことは全適応不能ではない。マーカー残存は独立集団の定着ではなく、一般的な本土再進出優位性も未確定 |
+| 7 種分化 | 島で生き残る系統と、そこに残る進化の選択肢を別々に考える根拠となる | 生殖的隔離、種分化率、適応放散、自然の島から本土への移動史は測っていない |
 
-### Implications for island ecology and speciation
+## 決定と偶然をどう語るか
 
-The island connection is that successful establishment and persistence do not guarantee retention of the same options for subsequent floral evolution. Pollination links current reproductive output with mating and transmission, while founding state determines which variants enter that process. The three principal results concern investment decline without assurance evolution, a resource-dependent persistence benefit, and increased loss of a specified floral option even when all populations survive. They do not establish a causal sequence from rescue to genetic erosion to reduced speciation.
+創始時に何を持つかは偶然でも、与えられた遺伝的状態には構造的な制約がある。その範囲で選択が方向を与え、有限の繁殖と継承が実際の順序・程度を変える。保証の終点が揃う原因には、一貫した選択と固定が連続して関わりうる。両者を排他的な説明にしない。
 
-Floral investment I is allocation, not flower size or reproductive isolation; matching M is a separate trait. Restricted I response can coexist with M-mediated performance improvement in the bounded transfer. Loss of a founder-relative I target therefore does not demonstrate loss of all routes to pollinator adaptation. Likewise, self-compatibility, autonomous assurance capacity and realized selfing are distinct. Comparisons with natural island trait patterns motivate the model but are not empirical validation of a universal function-versus-form contrast.
+花のばらつきは、環境に規則的に応答する部分、出発点の違い、同条件反復でも残る変動を含みうる。これは可塑性の証明ではない。160×160は同一セル反復を欠くため、環境×創始者と確率的残差は分けられない。別コホートの反復解析と合わせて完全な分散予算を作らない。「一つの島の8割が偶然」とは書かない。
 
-Goldberg et al. (2010) reported higher net diversification in self-incompatible than self-compatible Solanaceae. Our within-population results suggest a candidate connection between persistence and retained variation, not an explanation of those macroevolutionary rates. The model does not measure reproductive isolation, lineage splitting or long-term extinction, and the focal closed-inheritance studies exclude new mutation and immigration. Differences among flowers alone are not evidence of speciation. Secondary-colonization marker persistence also differs from independent population establishment and species formation; the small exploratory comparisons establish no general advantage of island-derived lineages in mainland recolonization.
+## 再進出と種分化への回収
 
-The resulting hypothesis is that founding history and mating-system evolution can affect which floral responses remain available to persisting island populations. Whether those responses promote or restrict pollinator-mediated isolation, adaptive radiation or mainland return remains untested. These are implications for future research, not additional simulation commitments or conclusions of the present study.
+本土のような新環境に入るとき、祖先形質の復元だけを適応成功としない。残ったI、M、Aの変異と新環境の選択によって、祖先とは違う応答も可能である。閉じた継承の到達不能性を、突然変異・移入を含む永続的な不可逆性へ拡張しない。
+
+島は隔離の場所であるだけでなく、存続した系統の遺伝的状態を変える場所かもしれない。本研究が示すのは、その後の分化に先立つ人口学的・遺伝的条件の一部である。花の差が交配隔離につながるか、放散や再進出を促すかは次の仮説として残す。Goldbergらのナス科の多様化結果を説明したとは主張しない。
+
+## 原稿と主要な証拠
+
+- [主原稿](CHAPTER2_NEE_SUPPORTED_RESULTS_ARTICLE_EXTRACT_20261019.md)：要旨、導入、考察の七段階。
+- [初期変異と順序](CHAPTER2_GENETIC_ACCESS_PAIRED_CLOCK_20261014.md)：特定の初期状態介入。
+- [A/I再現性の原本監査](https://github.com/zuizui0223/izu-core/blob/dc7d342a96cc507ddfa337969e981ac66661eb52/docs/CHAPTER2_AI_REPEATABILITY_CAUSES_20261021.md)：選択・固定と分散分解の識別限界。
+- [密度・有限個体群比較](atom_comparison_20261011/ATOM_ABM_NUMERICAL_VERDICT_20261011.md)：数値確認と実現順序。
+- [登録済み存続・遺伝的支持比較](CHAPTER2_CONFIRM160_RESULTS_20261019.md)。
+- [再適応結果](CHAPTER2_READAPTATION_RESULTS_20261019.md)。
+- [便乗・二次的分布拡大の監査](CHAPTER2_HITCHHIKING_SECONDARY_EXPANSION_REVIEW_20261020.md)。
+- [Goldberg et al. 2010](https://doi.org/10.1126/science.1194513)：大進化への動機であり本モデルの検証対象ではない。
