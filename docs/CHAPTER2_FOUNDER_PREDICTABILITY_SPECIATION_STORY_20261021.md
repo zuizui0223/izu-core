@@ -1,0 +1,22 @@
+# Founding history, predictability and island divergence: interpretation boundary
+
+Editorial synthesis of existing evidence only; no new simulations or variance decomposition. This note supports the active manuscript and does not replace its registered conclusions.
+
+### Founding state, selection and stochastic realization
+
+The explanatory sequence is arrival with a genetic state, selection in a pollination environment, finite realization, and retention or loss of future options. A founding event can sample alleles stochastically, yet subsequent responses can be predictable conditional on the inherited state. Founder effects therefore do not belong exclusively to either determinism or chance. The existing genetic-access comparisons demonstrate sensitivity to initial genetic configuration under stated conditions; they do not estimate the fraction of natural island divergence attributable to founding events.
+
+Two kinds of predictability must be distinguished. Directional selection concerns expected reproductive returns at a specified state; repeatability concerns the distribution of realized changes, sequences and endpoints across independent repetitions. Cost-free delayed selfing without pollen discount has nonnegative local maternal return when outcross fertilization is incomplete, but nonnegative return is not proof of strong selection or a guaranteed inherited response. Prior selfing still benefits the individual, while also pre-empting opportunities for outcross fertilization. The 51/64 versus 30/64 A-first counts concern threshold order, not an isolated causal test of private benefit or endpoint repeatability. Selection and fixation are potentially successive mechanisms, not mutually exclusive explanations.
+
+The crossed confirmation cannot separate founder-by-history interaction from stochastic residual; separate repeatability experiments do not resolve that confounding. Online Methods specifies these identification limits.
+
+### Implications for island ecology and speciation
+
+The island connection is that successful establishment and persistence do not guarantee retention of the same options for subsequent floral evolution. Pollination links current reproductive output with mating and transmission, while founding state determines which variants enter that process. The three principal results concern investment decline without assurance evolution, a resource-dependent persistence benefit, and increased loss of a specified floral option even when all populations survive. They do not establish a causal sequence from rescue to genetic erosion to reduced speciation.
+
+Floral investment I is allocation, not flower size or reproductive isolation; matching M is a separate trait. Restricted I response can coexist with M-mediated performance improvement in the bounded transfer. Loss of a founder-relative I target therefore does not demonstrate loss of all routes to pollinator adaptation. Likewise, self-compatibility, autonomous assurance capacity and realized selfing are distinct. Comparisons with natural island trait patterns motivate the model but are not empirical validation of a universal function-versus-form contrast.
+
+Goldberg et al. (2010) reported higher net diversification in self-incompatible than self-compatible Solanaceae. Our within-population results suggest a candidate connection between persistence and retained variation, not an explanation of those macroevolutionary rates. The model does not measure reproductive isolation, lineage splitting or long-term extinction, and the focal closed-inheritance studies exclude new mutation and immigration. Differences among flowers alone are not evidence of speciation. Secondary-colonization marker persistence also differs from independent population establishment and species formation; the small exploratory comparisons establish no general advantage of island-derived lineages in mainland recolonization.
+
+The resulting hypothesis is that founding history and mating-system evolution can affect which floral responses remain available to persisting island populations. Whether those responses promote or restrict pollinator-mediated isolation, adaptive radiation or mainland return remains untested. These are implications for future research, not additional simulation commitments or conclusions of the present study.
+

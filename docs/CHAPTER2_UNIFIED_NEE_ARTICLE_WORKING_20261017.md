@@ -8,7 +8,7 @@
 
 ## Abstract — provisional, existing evidence only; NOT for submission
 
-Pollinator limitation can favour reproductive assurance and reduce floral investment, but these responses need not form an obligatory evolutionary sequence. We used a finite diploid model with separately inherited assurance, investment and visitor matching to distinguish floral change, population persistence and retained genetic options. First, investment declined even when assurance expression was fixed, showing that evolving assurance was not required for this response. Second, in a preregistered comparison crossing 160 founders with 160 visitor histories and matching initial expressed assurance, allowing assurance evolution increased persistence under harsh resources; the policy-by-resource survival interaction was 92.71 percentage points (adjusted 97.5% interval 92.05–93.36). Third, under a resource condition where every population survived, the same policy increased loss of alleles compatible with a founder-relative high-investment target by 8.33 points (6.69–9.96). These separate outcomes do not establish a survival–genetic erosion trade-off. Assurance evolution was not required for investment decline, but nevertheless changed persistence and retention of a specified floral genetic option. For island ecology, the results motivate distinguishing successful persistence under pollination limitation from retention of options for subsequent floral change. Assurance-specific hitchhiking, adaptation after secondary colonization and natural island diversification remain unresolved.
+Pollinator limitation can favour reproductive assurance and reduce floral investment, but these responses need not form an obligatory sequence. We used a finite diploid model to distinguish floral change, persistence and retained genetic options. Investment declined even when assurance expression was fixed. In a preregistered comparison crossing 160 founders with 160 visitor histories and matching initial expressed assurance, allowing assurance evolution increased persistence under harsh resources; the policy-by-resource survival interaction was 92.71 percentage points (adjusted 97.5% interval 92.05–93.36). Under a resource condition where every population survived, the policy increased loss of alleles compatible with a founder-relative high-investment target by 8.33 points (6.69–9.96). Separate exploratory archives showed structured floral responses and more repeatable assurance endpoints, without identifying whether selection or fixation explains that difference. These findings distinguish persistence from retention of a specified floral option, rather than establishing a survival–genetic erosion trade-off. Founding state and finite realization connect these population processes to hypotheses about island divergence; their separate variance contributions, reproductive isolation and natural diversification remain untested.
 
 ## Introduction
 
@@ -60,25 +60,13 @@ Under delayed selfing and a direct assurance cost, A crossed the registered sust
 
 ### Hidden genetic state and environmental timing affect threshold events
 
-At identical initial expressed phenotypes, widening initial A allele half-width from 0.046875 to 0.078125 changed the A-first minus I-first score by +0.669271 in 768 paired histories. This two-founder retrospective comparison changes support, variance and threshold geometry together; A mutation was enabled. Separately, abrupt versus gradual functional visitor change increased the probability of a sustained A increase by census 100 by 21.875–42.1875 percentage points in four assurance-cost settings. All populations survived; this 1,024-path study changes visitor composition chronology, not insect abundance, and pollen delivery is matched only in a reference clone. [Genetic comparison](CHAPTER2_GENETIC_ACCESS_PAIRED_CLOCK_20261014.md); [timing experiment](CHAPTER2_SEQUENCE_ABRUPT_GRADUAL_FUNCTIONAL_LOSS_RESULTS_20261011.md).
+Separate exploratory interventions on initial allelic variation and visitor chronology changed threshold events. They establish sensitivity to inherited state and environmental timing, not independent founder variance components or a universal clock; their original conditions are retained in Online Methods.
 
 ### Q3 — Realization: functional visitor history and finite-population processes
 
 The original prospective **128-visitor-history** bridge is independent of the later allele-closure cohorts. Natural far-minus-near investment change averaged **−0.4510 in a genotype-density approximation versus −0.1446 in the finite diploid model**; zero-deadband mixed-sign history labels were **0/128 versus 12/128**. Count-matching reversed both mean responses to **+0.0338 and +0.0333**, yet yielded **16/128 versus 68/128** mixed labels. Increasing finite plant capacity from 48 to 192 reduced mixed labels from 12/128 to 1/128. Count matching changes visitor identities as well as counts; capacity changes demography, and deterministic density is not the ABM's exact stochastic mean. These results show conditional differences in realized response, **not a measured drift fraction** ([frozen bridge](MODEL3_CH2_BRIDGE_PROSPECTIVE_RESULTS_20260927.md)). In a separate ten-context mutation comparison, two density contexts predicted A-first while only **3/32 and 2/32** finite histories did so despite complete occupancy; the genetic-access study below does not establish why those two contexts differ ([Q3 source map](CHAPTER2_Q3_FINITE_GENETIC_ACCESS_AND_REALIZATION_20261015.md)).
 
-A separate post-outcome analysis of the archived fixed-A bridge found
-history-conditioned structure in floral investment responses. Increasing
-capacity from 48 to 192 raised the estimated reliability of an eight-repeat
-mean from .621 to .825 (single-trajectory ICC .170 to .370), while pooling
-visitor histories reduced it to .103. Larger capacity reduced within-context
-dispersion and increased between-history variance; pooling instead weakened
-the environmental contrast. These are distinct routes to more uniform sign
-labels. Reliability of an averaged response is not individual-trajectory
-prediction accuracy. Because capacity also enters the pollen-allocation
-kernel, this intervention does not isolate genetic drift. Assurance was fixed
-at .5, so these findings cannot rank A against I. They nevertheless oppose
-treating floral responses as unstructured chance.
-[Exploratory decomposition](CHAPTER2_HISTORY_DEMOGRAPHY_REPEATABILITY_AUDIT_20261003.md).
+Archived fixed-A analyses show history-dependent floral structure: eight-repeat reliability increased from .621 to .825 with capacity, while single-trajectory ICC increased from .170 to .370. These are not natural-island chance fractions or isolated drift effects; the detailed qualifications are retained in Online Methods.
 
 ### Assurance endpoints were more repeatable under the sampled conditions
 
@@ -239,9 +227,13 @@ The [numerical comparison](atom_comparison_20261011/ATOM_ABM_NUMERICAL_VERDICT_2
 
 This comparison qualifies how the three conclusions are connected. Investment decline without evolving assurance establishes non-necessity, not a universal realized sequence. Persistence benefits require the separate demographic experiment: saturated survival here cannot demonstrate them. The separate allele-support experiment measures which floral options remain, but its losses are not an identified cause of the density–finite discrepancy. Thus selection, finite realization, genetic support and persistence must be distinguished rather than inferred from a single deterministic trajectory.
 
-### Implications for island ecology
+### Founding history, predictability and island divergence
 
-For island plants, persistence and retained floral options are distinct questions. Pollination connects reproductive output, floral returns and outcross transmission, so reproductive buffering need not preserve the same genetic state. The original visitor regimes were both pollen limited, not mainland versus island treatments. Colonization models already link mating systems, persistence and adaptation (Peterson and Kay, 2015); our addition is the assurance-policy comparison of persistence and a defined floral option. Natural assembly, speciation and historical mainland return remain untested.
+The island interpretation follows arrival with genetic variation, selection and finite realization, then persistence with retained or lost options. Founding can be stochastic while subsequent responses remain predictable conditional on inherited state. Existing genetic-access contrasts demonstrate sensitivity to starting configuration, not the natural magnitude of founder effects.
+
+Selection direction differs from realized repeatability. Nonnegative local returns under cost-free delayed selfing do not establish strong selection; prior selfing still delivers individual benefits but pre-empts outcrossing. The 51/64 versus 30/64 counts measure order, not its causal explanation. Selection and fixation may act successively. Neither the crossed confirmation nor separate repeatability cohorts identify a complete founder/environment/interaction/stochastic variance partition.
+
+The three principal results distinguish investment decline, persistence and a specified floral option. They do not establish rescue causing erosion or reduced speciation. Restricted I response can coexist with M-mediated improvement; investment is not flower size or reproductive isolation. Self-compatibility, assurance and realized selfing are also distinct. Goldberg et al. (2010) reported higher net diversification in self-incompatible Solanaceae, but our model does not explain those rates. Speciation, radiation and an assurance-mediated mainland-return advantage remain untested. Marker persistence after secondary colonization is not species formation. The [expanded interpretation](CHAPTER2_FOUNDER_PREDICTABILITY_SPECIATION_STORY_20261021.md) and Methods evidence table preserve these boundaries.
 
 ### Exploratory extensions and unresolved mechanisms
 
@@ -250,6 +242,43 @@ The [hitchhiking and secondary-colonization extensions](CHAPTER2_HITCHHIKING_SEC
 The focal support and transfer studies exclude mutation and immigration, so target loss is not permanent irreversibility. Selection-based nonreturn and mutation-enabled polygenic adaptation address different mechanisms (Acoca-Pidolle, 2025; Hartfield and Glémin, 2024). The supported conclusion is narrower: assurance evolution is unnecessary for investment decline, yet changes persistence and retention of a specified floral genetic option under the tested conditions.
 
 ## Online Methods — admitted experiments and historical proposed extension
+
+### Archived starting-state and repeatability diagnostics
+
+At identical initial expressed phenotypes, widening initial A allele half-width from 0.046875 to 0.078125 changed the A-first minus I-first score by +0.669271 in 768 paired histories. This two-founder retrospective comparison changes support, variance and threshold geometry together; A mutation was enabled. Separately, abrupt versus gradual functional visitor change increased the probability of a sustained A increase by census 100 by 21.875–42.1875 percentage points in four assurance-cost settings. All populations survived; this 1,024-path study changes visitor composition chronology, not insect abundance, and pollen delivery is matched only in a reference clone. [Genetic comparison](CHAPTER2_GENETIC_ACCESS_PAIRED_CLOCK_20261014.md); [timing experiment](CHAPTER2_SEQUENCE_ABRUPT_GRADUAL_FUNCTIONAL_LOSS_RESULTS_20261011.md).
+
+A separate post-outcome analysis of the archived fixed-A bridge found
+history-conditioned structure in floral investment responses. Increasing
+capacity from 48 to 192 raised the estimated reliability of an eight-repeat
+mean from .621 to .825 (single-trajectory ICC .170 to .370), while pooling
+visitor histories reduced it to .103. Larger capacity reduced within-context
+dispersion and increased between-history variance; pooling instead weakened
+the environmental contrast. These are distinct routes to more uniform sign
+labels. Reliability of an averaged response is not individual-trajectory
+prediction accuracy. Because capacity also enters the pollen-allocation
+kernel, this intervention does not isolate genetic drift. Assurance was fixed
+at .5, so these findings cannot rank A against I. They nevertheless oppose
+treating floral responses as unstructured chance.
+[Exploratory decomposition](CHAPTER2_HISTORY_DEMOGRAPHY_REPEATABILITY_AUDIT_20261003.md).
+
+### Endpoint concentration does not identify the cause of repeatability
+
+A source-verified exploratory readback of the four original matched archives found central-start far-arm A=0.75 in 418–494 of 512 endpoints per setting, with no endpoints at the model-wide bounds 0 or 1. Thus saturation at the global upper bound alone cannot explain this concentration. The value 0.75 may nevertheless be the upper limit of realized standing variation; endpoint means cannot establish allele fixation. Two separately archived genotype captures did show A becoming single-allelic at censuses 27 and 52, before I at 53 and 147, respectively. These two paths establish examples, not a population-wide frequency or a mediation effect.
+
+For central-start far-arm I, within-history sums of squares comprised approximately 56–74% of total sums of squares across the four settings. This is a descriptive partition among sampled surviving contexts, not a causal drift fraction or the fraction of variation among natural islands due to chance. A had lower absolute within-history variance, but this did not imply a larger environment-explained proportion. The four archives retain endpoints and logs, not the trajectories needed to separate selection before fixation from convergence after fixation. A separate 48-cell Price receipt stores a nominal founder-generating mean rather than the realized initial mean; subtracting it from the expected next mean would not recover valid response signs. [Reproducible cause audit](https://github.com/zuizui0223/izu-core/blob/dc7d342a96cc507ddfa337969e981ac66661eb52/docs/CHAPTER2_AI_REPEATABILITY_CAUSES_20261021.md).
+
+### Identifiability of founder and environmental contributions
+
+The 160-by-160 confirmation crosses founder and visitor sources but has one realization per founder-by-history-by-policy-by-budget cell. It cannot separately identify founder-by-history interaction and stochastic residual. Policy or resource treatments are not within-cell replicates. Its crossed inference for registered policy contrasts remains valid under its declared convention; a four-component variance attribution does not follow from that design. Separate repeated-history experiments quantify conditional repeatability, but their estimates cannot be pooled with this confirmation into one variance budget. No such new decomposition was performed. Freezing a reanalysis after inspecting outcomes would not make it prospective confirmation.
+
+### Evidence boundary for the integrated story
+
+| Stage | Established within the tested model or observed in archived analyses | Not established |
+|---|---|---|
+| Arrival and inherited state | Specified initial genetic configurations change accessibility and some threshold outcomes | Natural founder-effect magnitude; founder variance separated from all other causes |
+| Selection and realization | I can decline with fixed A; floral history structure and within-history dispersion coexist; A endpoints are often more repeatable | Private benefit causes stronger selection and thereby explains A repeatability; a pure drift fraction |
+| Persistence and genetic options | Registered policy effects on survival interaction and high-I support loss under their respective resource conditions | Survival causes genetic erosion; loss of general evolvability |
+| Subsequent divergence | Transfer distinguishes I support, polymorphism, M response and occupancy | Reproductive isolation, speciation, radiation or an assurance-mediated mainland-return advantage |
 
 ### Historical model and inference ranks
 
@@ -361,3 +390,5 @@ Acoca-Pidolle, S., Gauthier, P., Devresse, L., Deverge Merdrignac, A., Pons, V. 
 Tusuubira, S.K. & Kelly, J.K. (2024). Experimental evolution suggests rapid assembly of the ‘selfing syndrome’ from standing variation in Mimulus guttatus. *Frontiers in Plant Science*, 15, 1378568. https://doi.org/10.3389/fpls.2024.1378568
 
 Peterson, M.L. & Kay, K.M. (2015). Mating system plasticity promotes persistence and adaptation of colonizing populations of hermaphroditic angiosperms. *The American Naturalist*, 185, 28–43. https://doi.org/10.1086/679107
+
+Goldberg, E.E., Kohn, J.R., Lande, R., Robertson, K.A., Smith, S.A. & Igić, B. (2010). Species selection maintains self-incompatibility. *Science*, 330, 493–495. https://doi.org/10.1126/science.1194513
