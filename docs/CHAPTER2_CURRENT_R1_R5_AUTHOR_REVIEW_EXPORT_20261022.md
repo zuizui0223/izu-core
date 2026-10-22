@@ -49,6 +49,8 @@ Visual inspection of the source-vector author-review proof identified corrupted 
 
 ## Scientific and submission limits
 
+The [current computational Reporting Summary](CHAPTER2_R1_R5_COMPUTATIONAL_REPORTING_SUMMARY_20261022.md) is a source-bound Methods supplement, *not a completed journal form*. It is bundled with this latest author-review export and its hash in the source manifest. Full outside-GitHub archive coverage and approved authorship/licences remain open.
+
 The included G (+8.328125 percentage points) and S (+92.70703125 pp) remain **separate preregistered comparisons**. R1 independent founder fixed-A readback, R2 interaction qualification, R3 retrospective repeatability and prediction, R4 post-outcome joint-state analysis and R5 transfer/pedigree evidence retain their original evidence levels. These experiments are not jointly one natural island colonization lineage, and do not identify causal genetic mediation, permanent ancestral irreversibility, speciation rates, or a general mainland recolonization advantage.
 
 The main figures remain **draft** vector artwork. Final print-size checks, complete Methods/SI, author declarations, journal-specific references and external source archive/DOI readback still require confirmation. No submissions or deposits have been made by this package.
