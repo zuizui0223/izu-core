@@ -11,6 +11,10 @@ Editorial rearrangement only. The five R sections replace the previous main-text
 | Figure 5 | R4 | Admitted G/S and exploratory joint-state artwork, renumbered |
 | Figure 6 | R5 | Admitted bounded-transfer artwork |
 
+## Recovered source boundaries (2026-10-22)
+
+The [R1–R5 independent-cohort evidence audit](CHAPTER2_R1_R5_SOURCE_RECOVERY_AUDIT_20261022.md) recovers fresh-founder fixed-A counterexamples (R1), fresh-setting far-side reversals and baseline-pollen I sign reversal (R2), the many zero A contrasts and fixation versus selection bounds (R3), registered G/S plus **exploratory** resource-conditional joint-state signs (R4), and the distinct target-support, standing-polymorphism, no-visitor change and immigrant-pedigree outcomes (R5). Existing six main vector panels and numerical source marks are unchanged by this editorial recovery. Original null and inconclusive S1–S33/F1–F8 findings retain their historical source records.
+
 ## Extended evidence disposition
 
 - Baseline pollen factorial: original figure_02_baseline_pollen.svg and CHAPTER2_BASELINE_POLLEN_384_RESULTS_20261019.md; referenced by R2.
