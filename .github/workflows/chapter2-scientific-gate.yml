@@ -494,8 +494,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install independent editorial-test dependency
-        run: python -m pip install pytest==8.4.2
+      - name: Install read-only numerical and editorial-test dependencies
+        run: python -m pip install pytest==8.4.2 numpy==2.2.6 scipy==1.15.3
       - name: Verify current five-result manuscript, figures and source endpoints
         run: |
           python -m pytest -q \
