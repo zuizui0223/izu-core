@@ -64,7 +64,7 @@ def test_reject_changed_scientific_boundaries():
     with pytest.raises(ValueError, match="title"):
         render(m.replace("Founding constraints and the predictability",
                          "Irreversible floral evolution",1))
-    with pytest.raises(ValueError, match="inferential-rank labels"):
+    with pytest.raises(ValueError, match="post-outcome result not visibly qualified"):
         render(m.replace("post-outcome", "POSTHOC", 1).replace(
             "post-outcome", "POSTHOC"))
     with pytest.raises(ValueError, match="seven Discussion"):
