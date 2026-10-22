@@ -14,7 +14,7 @@ import pytest
 
 from scripts.audit_chapter2_crossed_access_sign_20261023 import (
     F, V, ORIGINAL_ACTIONS_ARTIFACT_SHA256, RUN_ID, STATUS, SUMMARY_SHA256,
-    crossed_bootstrap, derive, ph_summary,
+    crossed_bootstrap, derive, ph_summary, write_original_occupancy,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -125,3 +125,16 @@ def test_accepts_source_indicators_not_claims_of_general_reversibility():
                    "not a third registered endpoint"):
         assert phrase.lower() in note.lower()
     assert "source run" in note.lower() or "Actions #39193074847" in note
+
+
+def test_original_summary_occupancy_policy_then_budget_axis_order():
+    """Frozen Q3 source: F,V,policy[F/E],budget[B8/B4.5], not reverse."""
+    source = np.full((F,V,2,2),-1,dtype=np.int8)
+    # Representative original f=501001,v=502033 pattern.
+    # Fixed survives B8 but not B4.5; evolving survives both.
+    for bi, pi, alive in [(0,0,True),(1,0,False),
+                          (0,1,True),(1,1,True)]:
+        write_original_occupancy(source,0,32,bi,pi,alive)
+    assert source[0,32,:,:].tolist() == [[1,0],[1,1]]
+    assert source[0,32,0,1] == 0  # fixed under B4.5
+    assert source[0,32,1,0] == 1  # evolving under B8
