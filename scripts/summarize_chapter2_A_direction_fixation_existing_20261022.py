@@ -186,7 +186,6 @@ def run(root: Path = ROOT) -> dict:
             "Mean-matched control is retrospectively calibrated and does not prove what produced source variance.",
             "No unique causal percentages for directional selection, fixation ceiling, and stochastic history.",
             "No confirmation about natural island colonization, recovery probabilities or speciation."])
-    )
 
 
 def main():
