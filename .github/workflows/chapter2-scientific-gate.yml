@@ -479,6 +479,62 @@ jobs:
             outputs/chapter2_je_delivery/isolated_redraw.json
 
 
+
+  current-r1-r5-author-review:
+    # Read-only author export independent of the long scientific-checks runtime.
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install independent editorial-test dependency
+        run: python -m pip install pytest==8.4.2
+      - name: Verify current five-result manuscript, figures and source endpoints
+        run: |
+          python -m pytest -q \
+            tests/test_chapter2_five_result_author_review_20261022.py \
+            tests/test_chapter2_r1_r5_source_recovery_20261022.py \
+            tests/test_chapter2_paper_figures_20261019.py
+      - name: Build and independently verify current R1-R5 author-review ZIP
+        run: |
+          mkdir -p outputs/chapter2_r1_r5_author_review
+          python -m scripts.build_chapter2_five_result_author_review_20261022 \
+            --root . \
+            --source-commit "$(git rev-parse HEAD)" \
+            --out outputs/chapter2_r1_r5_author_review/R1_R5_CURRENT_AUTHOR_REVIEW.zip
+          cd outputs/chapter2_r1_r5_author_review
+          sha256sum -c R1_R5_CURRENT_AUTHOR_REVIEW.zip.sha256
+          cd ../..
+          python - <<'PY'
+          import hashlib,json,zipfile
+          path="outputs/chapter2_r1_r5_author_review/R1_R5_CURRENT_AUTHOR_REVIEW.zip"
+          with zipfile.ZipFile(path) as f:
+              d=json.loads(f.read("MANIFEST.json"))
+              assert d["schema"]=="izu_core_chapter2_r1_r5_author_review_v2"
+              assert d["status"]=="AUTHOR_REVIEW_ONLY_NOT_SUBMISSION_READY"
+              assert len(d["figures"])==6
+              assert all("/chapter2_nee_five_results/" in x for x in d["figures"])
+              for name,info in d["source_files"].items():
+                  assert hashlib.sha256(f.read(name)).hexdigest()==info["sha256"],name
+              assert f.testzip() is None
+              print("VERIFIED",d["source_commit"],len(d["source_files"]),"source files")
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-r1-r5-author-review-${{ github.run_id }}
+          retention-days: 90
+          if-no-files-found: error
+          path: |
+            outputs/chapter2_r1_r5_author_review/R1_R5_CURRENT_AUTHOR_REVIEW.zip
+            outputs/chapter2_r1_r5_author_review/R1_R5_CURRENT_AUTHOR_REVIEW.zip.sha256
+
   process-confirmation-plan:
     if: github.event_name == 'pull_request' && github.head_ref == 'codex/model3-full-mutation-closeout-20261004'
     runs-on: ubuntu-latest
