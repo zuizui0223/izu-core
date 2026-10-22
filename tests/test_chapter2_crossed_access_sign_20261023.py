@@ -7,6 +7,7 @@ reusable analysis methods; it does NOT claim re-download of the large archive.
 from __future__ import annotations
 
 import json
+import hashlib
 from pathlib import Path
 
 import numpy as np
@@ -138,3 +139,21 @@ def test_original_summary_occupancy_policy_then_budget_axis_order():
     assert source[0,32,:,:].tolist() == [[1,0],[1,1]]
     assert source[0,32,0,1] == 0  # fixed under B4.5
     assert source[0,32,1,0] == 1  # evolving under B8
+
+
+def test_independent_original_archive_replay_provenance_receipt():
+    record = json.loads((ROOT / "docs/audits/CHAPTER2_CROSSED_ACCESS_ARCHIVE_REPLAY_20261023.json")
+                        .read_text(encoding="utf8"))
+    assert record["status"] == "PASS_SOURCE_SEALED_ENDPOINT_ARCHIVE_REPLAY_NO_NEW_BIOLOGY"
+    assert record["original_summary160_sha256"] == SUMMARY_SHA256
+    assert record["original_actions_zip_sha256"] == ORIGINAL_ACTIONS_ARTIFACT_SHA256
+    assert record["count_source_seals_canonical_sha_verified"] == 32
+    assert record["original_paired_cells_reconstructed"] == 25600
+    assert record["original_summary_g_and_occupancy_matrices_verified_cell_for_cell"]
+    assert record["replay_and_frozen_json_semantically_equal"]
+    assert record["new_biological_simulations"] == 0
+    assert record["new_confirmatory_tests"] == 0
+    assert not record["original_genotype_npz_replayed_again"]
+    sha = lambda p: hashlib.sha256((ROOT / p).read_bytes()).hexdigest()
+    assert sha(record["script_path"]) == record["audit_script_sha256"]
+    assert sha(record["frozen_result_path"]) == record["frozen_result_sha256"]
