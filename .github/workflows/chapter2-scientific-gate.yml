@@ -502,7 +502,14 @@ jobs:
             tests/test_chapter2_five_result_author_review_20261022.py \
             tests/test_chapter2_r1_r5_source_recovery_20261022.py \
             tests/test_chapter2_paper_figures_20261019.py \
-            tests/test_chapter2_current_figure5_note_20261022.py
+            tests/test_chapter2_current_figure5_note_20261022.py \
+            tests/test_chapter2_reporting_summary_source_bound_20261022.py
+      - name: Verify computational Methods source receipts without rerunning biology
+        run: |
+          mkdir -p outputs/chapter2_r1_r5_author_review
+          python -m scripts.verify_chapter2_computational_reporting_20261022 \
+            --root . \
+            --out outputs/chapter2_r1_r5_author_review/REPORTING_SOURCE_RECEIPT.json
       - name: Build and independently verify current R1-R5 author-review ZIP
         run: |
           mkdir -p outputs/chapter2_r1_r5_author_review
@@ -535,6 +542,7 @@ jobs:
           path: |
             outputs/chapter2_r1_r5_author_review/R1_R5_CURRENT_AUTHOR_REVIEW.zip
             outputs/chapter2_r1_r5_author_review/R1_R5_CURRENT_AUTHOR_REVIEW.zip.sha256
+            outputs/chapter2_r1_r5_author_review/REPORTING_SOURCE_RECEIPT.json
 
   process-confirmation-plan:
     if: github.event_name == 'pull_request' && github.head_ref == 'codex/model3-full-mutation-closeout-20261004'
