@@ -97,7 +97,7 @@ def test_pigeonhole_two_way_formula_matches_additive_and_interaction_examples():
     assert result["estimate_pp"] == 50.
     assert result["pigeonhole_conditional_variance"] == pytest.approx(
         40./(F*F), abs=1e-15)
-    assert result["founder_marginal_signs"] == {"positive":160,"zero":0,"negative":0}
+    assert result["founder_marginal_signs"] == {"positive":80,"zero":80,"negative":0}
     matrix = np.outer(np.tile([1.,-1.], F//2), np.tile([1.,-1.], V//2))
     out = ph_summary(matrix)
     assert out["estimate_pp"] == pytest.approx(0.)
