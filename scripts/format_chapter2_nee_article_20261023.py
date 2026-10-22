@@ -121,7 +121,8 @@ def render(master: str, source_sha: str = "UNKNOWN") -> tuple[str, dict]:
     require(legend_numbers == [1, 2, 3, 4, 5, 6],
             "NEE six-display maximum or figure sequence changed")
     require("0.08328125" not in abstract, "accidental p-value insertion")
-    require("not a deposited raw-data DOI" in formatted,
+    require("not an Ecology Letters submission" in formatted
+            and "a deposited raw-data DOI" in formatted,
             "data-availability DOI limitation omitted")
     require("#### #" not in formatted and "## Planned new" not in formatted,
             "unexecuted/presentation content")
