@@ -40,6 +40,9 @@ Sincerely,
 
 ## Delivery checklist
 
+- Computational Methods and reporting-source crosswalk: [current source-grounded R1–R5 Reporting Summary](CHAPTER2_R1_R5_COMPUTATIONAL_REPORTING_SUMMARY_20261022.md). The corresponding [source verifier](../scripts/verify_chapter2_computational_reporting_20261022.py) checks 13 pinned-design/readout families and explicitly refuses to claim journal approval or external DOI completion. This closes internal sample-unit and exclusion accounting, **not the author-approved journal form**.
+
+
 - Article source: [current extract](CHAPTER2_NEE_SUPPORTED_RESULTS_ARTICLE_EXTRACT_20261019.md); keep its title and abstract authoritative across all submission fields.
 - Five Results and six displays: [figure map](CHAPTER2_FIVE_RESULTS_FIGURE_MAP_20261021.md); detailed null and exploratory outcomes: [extended evidence](CHAPTER2_FIVE_RESULTS_EXTENDED_EVIDENCE_20261021.md).
 - The current internal limits are 3,500 main-text words and 200 abstract words. Recheck the journal's live Article requirements and artwork specifications when uploading; passing repository checks is not a journal readiness decision.

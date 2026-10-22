@@ -29,6 +29,9 @@ EXTRA = (
     "docs/CHAPTER2_FIVE_RESULTS_FIGURE_MAP_20261021.md",
     "docs/CHAPTER2_R1_R5_SOURCE_RECOVERY_AUDIT_20261022.md",
     "docs/CHAPTER2_A_DIRECTION_VS_FIXATION_EVIDENCE_20261022.md",
+    "docs/CHAPTER2_R1_R5_COMPUTATIONAL_REPORTING_SUMMARY_20261022.md",
+    "docs/deposit/CHAPTER2_FIVE_RESULTS_DOI_HANDOFF_20261021.md",
+    "scripts/verify_chapter2_computational_reporting_20261022.py",
     "docs/CHAPTER2_NEE_SUBMISSION_PREPARATION_20261021.md",
     "docs/CHAPTER2_FOUNDER_PREDICTABILITY_RESULTS_20261021.md",
     "docs/CHAPTER2_CLOSEST_PRIOR_ART_PRIMARY_AUDIT_20261020.md",
@@ -61,6 +64,8 @@ def check_manuscript(raw: bytes) -> dict:
         raise ValueError("missing or duplicated completed-only manuscript boundary")
     if starts != sorted(starts):
         raise ValueError("manuscript sections out of order")
+    if "CHAPTER2_R1_R5_COMPUTATIONAL_REPORTING_SUMMARY_20261022.md" not in t:
+        raise ValueError("current Methods reporting-source crosswalk is missing")
     if "## Planned new decisive Results" in t or "## Planned new" in t:
         raise ValueError("historic unexecuted results entered current export")
     abstract = t[starts[0] + len(headings[0]):starts[1]]

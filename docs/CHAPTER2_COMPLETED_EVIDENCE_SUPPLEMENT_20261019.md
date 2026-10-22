@@ -4,6 +4,8 @@ This is the current supplement entry point for one developing article. It incorp
 
 ## Coverage and interpretation
 
+For the five current main Results, see the [source-checked computational Reporting Summary](CHAPTER2_R1_R5_COMPUTATIONAL_REPORTING_SUMMARY_20261022.md). It enumerates original population/visitor identities, paired and nested repeats, exclusion/occupancy handling, registered versus exploratory endpoints and external archiving blockers. This does **not** add independent biological replications or a journal-approved data availability statement.
+
 The [historical disposition map](CHAPTER2_HISTORICAL_RESULTS_DISPOSITION_20261019.md) accounts for all S1–S33 units in the [preserved full supplement](CHAPTER2_UNIFIED_EL_SUPPORTING_INFORMATION_20261010.md), plus F1–F8 in the [findings index](CHAPTER2_EIGHT_FINDINGS_INDEX_20261016.md). That map states placement, outcome and limits for every unit. The repository inventory is structural coverage of tracked files, not an independent reanalysis of every result. Model 2, historical routes and empirical motivation cannot be relabelled Model 3 replication.
 
 ## Trait returns, environmental contrasts and order

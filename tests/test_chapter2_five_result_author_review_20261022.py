@@ -48,6 +48,10 @@ def test_packet_deterministic_source_exact_and_never_relabels_el(tmp_path):
         assert manifest["schema"] == "izu_core_chapter2_r1_r5_author_review_v2"
         assert "docs/CHAPTER2_R1_R5_SOURCE_RECOVERY_AUDIT_20261022.md" in archive.namelist()
         assert "docs/CHAPTER2_A_DIRECTION_VS_FIXATION_EVIDENCE_20261022.md" in archive.namelist()
+        assert "docs/CHAPTER2_R1_R5_COMPUTATIONAL_REPORTING_SUMMARY_20261022.md" in archive.namelist()
+        assert "docs/deposit/CHAPTER2_FIVE_RESULTS_DOI_HANDOFF_20261021.md" in archive.namelist()
+        assert "scripts/verify_chapter2_computational_reporting_20261022.py" in archive.namelist()
+        assert "CHAPTER2_R1_R5_COMPUTATIONAL_REPORTING_SUMMARY_20261022.md" in archive.read(MAIN).decode("utf8")
         assert "NOT" in archive.read("README_AUTHOR_REVIEW.md").decode()
     with pytest.raises(ValueError, match="refusing to overwrite"):
         publish(ROOT, target, ref)

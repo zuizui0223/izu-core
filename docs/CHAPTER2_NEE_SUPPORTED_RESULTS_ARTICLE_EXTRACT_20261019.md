@@ -106,6 +106,8 @@ Two questions organize these findings: which reproductive responses recur, and w
 
 ## Online Methods — completed studies
 
+A source-bound [computational Reporting Summary and Methods crosswalk](CHAPTER2_R1_R5_COMPUTATIONAL_REPORTING_SUMMARY_20261022.md) records each R1–R5 study's genotype/visitor source counts, paired random-stream design, horizons, original raw archives, survivor-conditional exclusions and evidence rank. The associated [read-only verification script](../scripts/verify_chapter2_computational_reporting_20261022.py) compares the reported sample units and G/S numerators to their original archived source receipts, but is neither a new biological replicate nor an independent reimplementation of the simulator. Missing external archive rights, author metadata and journal-specific Reporting Summary approval remain unresolved and must not be inferred from automated test success.
+
 ### Retained original evidence and null outcomes
 
 The [extended evidence](CHAPTER2_FIVE_RESULTS_EXTENDED_EVIDENCE_20261021.md) preserves all prior detailed result sections and source links. Original chronology was 51/64 A-first versus 30/64 under prior selfing. For the registered Q2 carrier endpoints, both were inconclusive. In the separate LOW-I study, 703 histories lost support before fixation with no I-locus mutation or seed immigration; HIGH-I reverse-direction readback was retrospective. The separate stress-study pooled effect was +0.1083984375, while +0.15234375 was delayed-control-specific. These remain distinct from the present G/S comparison and from density-versus-finite 3/32 and 2/32 counts. No historical null or negative result is replaced by a newer positive result.

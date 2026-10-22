@@ -14,6 +14,8 @@ Prepared 21 October 2026. Status: metadata and source crosswalk prepared; no ext
 
 ## Source crosswalk
 
+The [R1–R5 computational Methods and Reporting Summary crosswalk](../CHAPTER2_R1_R5_COMPUTATIONAL_REPORTING_SUMMARY_20261022.md) now inventories 13 machine-readable original design/admission/analysis receipts and the distinct cohort source units. Its passing read-only check does **not** establish that the 521 historical original Actions ZIPs or all R1–R5 raw records have been externally deposited, that deposit permissions exist, or that licence/author fields are settled.
+
 | Manuscript component | Authoritative inventory / receipt | Deposit requirement |
 |---|---|---|
 | R1–R2 original and fresh-founder intervention comparisons | [original manuscript](../CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md), [fresh-founder results](../CHAPTER2_Q1_FRESH_FOUNDER_RESULTS_20261016.md), [historical archive inventory](../CHAPTER2_INDEPENDENT_RAW_ARCHIVES_20261009.md) | Preserve source campaigns and fresh-founder outputs separately, plus protocols and code revisions |
