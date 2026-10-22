@@ -39,6 +39,10 @@ python -m scripts.build_chapter2_five_result_author_review_20261022 \
 
 The independent Actions job `current-r1-r5-author-review` checks all current numbered figures, all source manifest members, registered G/S endpoints, and the absence of old title or unexecuted Results. It uploads `chapter2-r1-r5-author-review-<run ID>` only upon success; the job never runs a biological population update. Original source assets are read and copied verbatim, never overwritten.
 
+## Figure 5 editorial repair (no biological change)
+
+The current `figure_05_persistence_options.svg` had inherited an obsolete caption treating orange/gray first-event states as “not recovered populations”, even though no restored-pollinator experiment is part of this registered G/S comparison. The source-linked note is corrected to **green = alive with high-I support; orange = alive but support closed; gray = extinct**, and its baseline is moved below the last bar. No heights, data attributes, counts, source metadata, registered intervals, survival states or genetic endpoint definitions were changed. The [technical Figure 5 regression test](../tests/test_chapter2_current_figure5_note_20261022.py) checks the note, layout and source marks before the author-review ZIP is released.
+
 ## Scientific and submission limits
 
 The included G (+8.328125 percentage points) and S (+92.70703125 pp) remain **separate preregistered comparisons**. R1 independent founder fixed-A readback, R2 interaction qualification, R3 retrospective repeatability and prediction, R4 post-outcome joint-state analysis and R5 transfer/pedigree evidence retain their original evidence levels. These experiments are not jointly one natural island colonization lineage, and do not identify causal genetic mediation, permanent ancestral irreversibility, speciation rates, or a general mainland recolonization advantage.
