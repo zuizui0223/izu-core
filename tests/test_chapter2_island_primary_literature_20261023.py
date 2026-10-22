@@ -58,7 +58,7 @@ def test_the_two_archival_manuscripts_share_same_current_island_context():
 def test_primary_study_scope_is_explicit():
     t=AUDIT.read_text(encoding="utf8")
     for phrase in ("556 species", "136 phylogenetically", "establishment filtering",
-                   "leaf size and stature", "not a new preregistered",
+                   "leaf size and stature", "no new preregistered",
                    "10.1002/oik.11782", "10.1086/709018", "10.3732/ajb.91.5.672"):
         assert phrase.lower() in t.lower()
     assert "not the raw data" in t
