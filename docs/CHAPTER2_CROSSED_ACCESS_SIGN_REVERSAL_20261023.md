@@ -1,6 +1,6 @@
 # Resource-dependent joint survival and high-I accessibility: complete crossed-source audit
 
-**2026-10-23 — source-sealed, post-outcome descriptive readback; zero new biological simulations.** This is a more informative interpretation of the already completed 160 × 160 Model 3 confirmation, **not** a third registered endpoint, a new cohort, proof of causal mediation, an empirical natural-island result, or a universal budget threshold. The original registered G/S outcomes and the null/negative results remain unchanged.
+**2026-10-23 — source-sealed, post-outcome descriptive readback; zero new biological simulations.** This is a more informative interpretation of the already completed 160 × 160 Model 3 confirmation, not a third registered endpoint, a new cohort, proof of causal mediation, an empirical natural-island result, or a universal budget threshold. The original registered G/S outcomes and the null/negative results remain unchanged.
 
 ## Source integrity and exact denominators
 
