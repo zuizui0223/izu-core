@@ -504,13 +504,39 @@ jobs:
             tests/test_chapter2_paper_figures_20261019.py \
             tests/test_chapter2_current_figure5_note_20261022.py \
             tests/test_chapter2_reporting_summary_source_bound_20261022.py \
-            tests/test_chapter2_crossed_access_sign_20261023.py
+            tests/test_chapter2_crossed_access_sign_20261023.py \
+            tests/test_chapter2_nee_article_format_20261023.py
       - name: Verify computational Methods source receipts without rerunning biology
         run: |
           mkdir -p outputs/chapter2_r1_r5_author_review
           python -m scripts.verify_chapter2_computational_reporting_20261022 \
             --root . \
             --out outputs/chapter2_r1_r5_author_review/REPORTING_SOURCE_RECEIPT.json
+      - name: Build and validate NEE Article layout author preview
+        run: |
+          mkdir -p outputs/chapter2_nee_format
+          python -m scripts.format_chapter2_nee_article_20261023 \
+            --root . \
+            --source-commit "$(git rev-parse HEAD)" \
+            --out outputs/chapter2_nee_format/NEE_ARTICLE_AUTHOR_PREVIEW.md \
+            --report outputs/chapter2_nee_format/FORMAT_PROOF.json
+          python - <<'PY'
+          import hashlib,json,pathlib,subprocess
+          root=pathlib.Path(".")
+          proof=json.loads((root/"outputs/chapter2_nee_format/FORMAT_PROOF.json").read_text(encoding="utf8"))
+          source=(root/proof["original_article_master"]).read_bytes()
+          rendered=(root/"outputs/chapter2_nee_format/NEE_ARTICLE_AUTHOR_PREVIEW.md").read_bytes()
+          assert hashlib.sha256(source).hexdigest()==proof["master_sha256"]
+          assert hashlib.sha256(rendered).hexdigest()==proof["formatted_sha256"]
+          assert proof["source_commit"]==subprocess.check_output(["git","rev-parse","HEAD"], text=True).strip()
+          assert proof["status"]=="NEE_ARTICLE_FORMAT_PREVIEW_NOT_AUTHOR_APPROVED_NOT_SUBMITTED"
+          assert proof["abstract_words"]<=200 and proof["main_words"]<=3500
+          assert proof["figure_legends"]==6 and proof["discussion_subheadings"]==0
+          assert proof["registered_G_S_unchanged"] and not proof["new_scientific_inference"]
+          assert proof["article_formally_submitted"] is False
+          assert proof["data_code_external_deposit_doi_verified"] is False
+          print("VERIFIED_NEE_ARTICLE_PREVIEW",proof["source_commit"],proof["main_words"])
+          PY
       - name: Build and independently verify current R1-R5 author-review ZIP
         run: |
           mkdir -p outputs/chapter2_r1_r5_author_review
@@ -544,6 +570,8 @@ jobs:
             outputs/chapter2_r1_r5_author_review/R1_R5_CURRENT_AUTHOR_REVIEW.zip
             outputs/chapter2_r1_r5_author_review/R1_R5_CURRENT_AUTHOR_REVIEW.zip.sha256
             outputs/chapter2_r1_r5_author_review/REPORTING_SOURCE_RECEIPT.json
+            outputs/chapter2_nee_format/NEE_ARTICLE_AUTHOR_PREVIEW.md
+            outputs/chapter2_nee_format/FORMAT_PROOF.json
 
   process-confirmation-plan:
     if: github.event_name == 'pull_request' && github.head_ref == 'codex/model3-full-mutation-closeout-20261004'
