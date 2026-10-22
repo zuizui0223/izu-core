@@ -84,6 +84,14 @@ def frozen_report(source: dict, compact: dict) -> bool:
     return True
 
 
+def write_original_occupancy(dest: np.ndarray, f: int, v: int,
+                             bi: int, pi: int, alive: bool) -> None:
+    """The Q3 native source uses policy then budget, NOT budget then policy."""
+    require(dest.ndim == 4 and dest.shape[2:] == (2, 2),
+            "source occupancy tensor shape")
+    dest[f, v, pi, bi] = int(alive)
+
+
 def read_original(archive: Path, compact_path: Path = COMPACT):
     """Return crossed F×V×budget×policy current alive-and-accessible indicators.
 
@@ -176,7 +184,7 @@ def read_original(archive: Path, compact_path: Path = COMPACT):
                         grid[f, v, bi, pi] = int(available)
                         # SOURCE SUMMARY160 occupancy axes: founder,visitor,policy,budget.
                         # Derived endpoint grid intentionally uses founder,visitor,budget,policy.
-                        occupancy[f, v, pi, bi] = int(x["alive"])
+                        write_original_occupancy(occupancy, f, v, bi, pi, x["alive"])
                         if budget == "B8":
                             g[f, v, pi] = int(genetic)
                         for field, observed in (
