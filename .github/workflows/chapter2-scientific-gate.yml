@@ -503,7 +503,8 @@ jobs:
             tests/test_chapter2_r1_r5_source_recovery_20261022.py \
             tests/test_chapter2_paper_figures_20261019.py \
             tests/test_chapter2_current_figure5_note_20261022.py \
-            tests/test_chapter2_reporting_summary_source_bound_20261022.py
+            tests/test_chapter2_reporting_summary_source_bound_20261022.py \
+            tests/test_chapter2_crossed_access_sign_20261023.py
       - name: Verify computational Methods source receipts without rerunning biology
         run: |
           mkdir -p outputs/chapter2_r1_r5_author_review
