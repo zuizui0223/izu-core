@@ -1,0 +1,214 @@
+{
+  "status": "POST_OUTCOME_CROSSED_DESCRIPTIVE_NOT_REGISTERED",
+  "original_provenance": {
+    "original_summary_sha256": "6a1ede3caa62a13f1c3be8b38c66d5d6985000f2f0a4369a6f1f89c7c8bb91c6",
+    "original_actions_artifact_sha256": "a83e5aae7c067b27f2b0c6320fcf4157764e70efd7dfc5bdd251e94209e82075",
+    "source_run": 39193074847,
+    "source_artifact_id": 12161199381,
+    "sealed_source_shards": 32,
+    "original_cell_count": 25600,
+    "complete_arm_totals": {
+      "fixed_B8": {
+        "alive": 25600,
+        "alive_accessible": 11732,
+        "genetic_first": 13868,
+        "extinction_first": 0
+      },
+      "fixed_B4p5": {
+        "alive": 1385,
+        "alive_accessible": 140,
+        "genetic_first": 12896,
+        "extinction_first": 12564
+      },
+      "evolving_B8": {
+        "alive": 25600,
+        "alive_accessible": 9600,
+        "genetic_first": 16000,
+        "extinction_first": 0
+      },
+      "evolving_B4p5": {
+        "alive": 25118,
+        "alive_accessible": 9245,
+        "genetic_first": 16018,
+        "extinction_first": 337
+      }
+    }
+  },
+  "endpoint": "P(alive AND founder-relative high-I allele support at census80)",
+  "paired_effect": "(evolving minus fixed) within each original founder/visitor cell",
+  "independent_sampling_axes": [
+    "160 synthetic founder sources",
+    "160 synthetic visitor-history sources"
+  ],
+  "n_crossed_cells_not_independent_islands": 25600,
+  "source_bound_post_outcome": true,
+  "new_biological_simulations": 0,
+  "new_preregistered_endpoints": 0,
+  "independent_biological_reimplementation": false,
+  "new_confirmatory_test": false,
+  "no_causal_mediation_identified": true,
+  "source_marginal_signs_not_independent_sign_tests": true,
+  "pointwise": {
+    "B8": {
+      "estimate_pp": -8.328125,
+      "pigeonhole_conditional_variance": 0.00005215735340118408,
+      "pigeonhole_se_pp": 0.7222004804843603,
+      "nominal_97p5_t_interval_pp": [
+        -9.96233983944994,
+        -6.693910160550059
+      ],
+      "founder_marginal_signs": {
+        "positive": 7,
+        "zero": 2,
+        "negative": 151
+      },
+      "visitor_marginal_signs": {
+        "positive": 9,
+        "zero": 4,
+        "negative": 147
+      },
+      "founder_marginal_range_pp": [
+        -26.875,
+        6.25
+      ],
+      "visitor_marginal_range_pp": [
+        -23.125,
+        4.375
+      ],
+      "paired_cell_effect_counts": {
+        "0": 14900,
+        "1": 4284,
+        "-1": 6416
+      }
+    },
+    "B4p5": {
+      "estimate_pp": 35.56640625,
+      "pigeonhole_conditional_variance": 0.00017398761183023455,
+      "pigeonhole_se_pp": 1.3190436377551522,
+      "nominal_97p5_t_interval_pp": [
+        32.581638522822914,
+        38.551173977177086
+      ],
+      "founder_marginal_signs": {
+        "positive": 160,
+        "zero": 0,
+        "negative": 0
+      },
+      "visitor_marginal_signs": {
+        "positive": 160,
+        "zero": 0,
+        "negative": 0
+      },
+      "founder_marginal_range_pp": [
+        12.5,
+        63.125
+      ],
+      "visitor_marginal_range_pp": [
+        22.5,
+        50
+      ],
+      "paired_cell_effect_counts": {
+        "0": 16353,
+        "1": 9176,
+        "-1": 71
+      }
+    },
+    "interaction": {
+      "estimate_pp": 43.89453125,
+      "pigeonhole_conditional_variance": 0.00021335867458581922,
+      "pigeonhole_se_pp": 1.4606802339520422,
+      "nominal_97p5_t_interval_pp": [
+        40.58926439056133,
+        47.19979810943867
+      ],
+      "founder_marginal_signs": {
+        "positive": 160,
+        "zero": 0,
+        "negative": 0
+      },
+      "visitor_marginal_signs": {
+        "positive": 160,
+        "zero": 0,
+        "negative": 0
+      },
+      "founder_marginal_range_pp": [
+        16.875,
+        73.125
+      ],
+      "visitor_marginal_range_pp": [
+        25,
+        62.5
+      ],
+      "paired_cell_effect_counts": {
+        "0": 12748,
+        "1": 10555,
+        "2": 995,
+        "-2": 6,
+        "-1": 1296
+      }
+    }
+  },
+  "paired_budget_effects": {
+    "-1_-1": 30,
+    "-1_0": 5391,
+    "-1_1": 995,
+    "0_-1": 35,
+    "0_0": 9701,
+    "0_1": 5164,
+    "1_-1": 6,
+    "1_0": 1261,
+    "1_1": 3017
+  },
+  "crossed_bootstrap": {
+    "B8": {
+      "seed": 20261023,
+      "crossed_resamples": 10000,
+      "percentile95_pp": [
+        -9.75,
+        -6.929687499999999
+      ],
+      "percentile97p5_pp": [
+        -9.9453125,
+        -6.73828125
+      ],
+      "bootstrap_sd_pp": 0.7199599932839811,
+      "interval_is_exploratory_post_outcome": true
+    },
+    "B4p5": {
+      "seed": 20261023,
+      "crossed_resamples": 10000,
+      "percentile95_pp": [
+        32.9765625,
+        38.0859375
+      ],
+      "percentile97p5_pp": [
+        32.617138671875,
+        38.4453125
+      ],
+      "bootstrap_sd_pp": 1.3120866041751045,
+      "interval_is_exploratory_post_outcome": true
+    },
+    "interaction": {
+      "seed": 20261023,
+      "crossed_resamples": 10000,
+      "percentile95_pp": [
+        41.01171875,
+        46.6796875
+      ],
+      "percentile97p5_pp": [
+        40.617138671875,
+        47.105566406250006
+      ],
+      "bootstrap_sd_pp": 1.4589278287812009,
+      "interval_is_exploratory_post_outcome": true
+    }
+  },
+  "limitations": [
+    "Same synthetic model and source cohort; resource conditions B8 and B4.5 only.",
+    "One stochastic realization per crossed founder/visitor/policy/budget cell.",
+    "Post-outcome composite; intervals are conditional sensitivity conventions, not confirmatory coverage guarantees.",
+    "Positive net accessible-and-alive effect under B4.5 largely reflects reduced extinction.",
+    "Neither first-event CIF difference nor survivor access measures a direct genetic mediator.",
+    "Allelic support is necessary but not sufficient for actual ancestral recovery or new-environment adaptation."
+  ]
+}

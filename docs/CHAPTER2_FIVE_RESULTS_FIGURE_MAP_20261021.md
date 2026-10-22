@@ -15,6 +15,10 @@ Editorial rearrangement only. The five R sections replace the previous main-text
 
 The [R1–R5 independent-cohort evidence audit](CHAPTER2_R1_R5_SOURCE_RECOVERY_AUDIT_20261022.md) recovers fresh-founder fixed-A counterexamples (R1), fresh-setting far-side reversals and baseline-pollen I sign reversal (R2), the many zero A contrasts and fixation versus selection bounds (R3), registered G/S plus **exploratory** resource-conditional joint-state signs (R4), and the distinct target-support, standing-polymorphism, no-visitor change and immigrant-pedigree outcomes (R5). Existing six main vector panels and numerical source marks are unchanged by this editorial recovery. Original null and inconclusive S1–S33/F1–F8 findings retain their historical source records.
 
+## R4 Figure 5 post-outcome sign reversal audit (2026-10-23)
+
+A complete source-sealed readback of the original 25,600 founder–visitor crossing cells ([audited receipt](audits/CHAPTER2_CROSSED_ACCESS_SIGN_REVERSAL_20261023.json), [explanation](CHAPTER2_CROSSED_ACCESS_SIGN_REVERSAL_20261023.md)) now supports the **descriptive** resource-dependent policy sign change displayed in the existing Figure 5 three-state panel. The figure's original numeric marks and two registered G/S comparisons are unchanged; source-marginal counts and crossed-axis sensitivity intervals are supplementary post-outcome findings, not new registered Figure 5 hypothesis tests.
+
 ## Extended evidence disposition
 
 - Baseline pollen factorial: original figure_02_baseline_pollen.svg and CHAPTER2_BASELINE_POLLEN_384_RESULTS_20261019.md; referenced by R2.

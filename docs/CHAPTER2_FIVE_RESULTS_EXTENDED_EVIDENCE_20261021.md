@@ -95,6 +95,10 @@ In a separate, pilot-informed, independently randomized 32-visitor-history stres
 
 The source reproductive ledger does contain a pollen-mediated benefit of one plant's floral investment to other conspecific mothers in selected states, but sustained individual-versus-group conflict sufficient to drive extinction was **not** established. "Private insurance versus public investment" is therefore a **testable mechanism framing**, not an already proven group-selection or tragedy-of-the-commons result.
 
+### Post-outcome crossed-source variation in the net alive-and-accessible endpoint
+
+The [complete original 32-seal source readback](CHAPTER2_CROSSED_ACCESS_SIGN_REVERSAL_20261023.md) separately evaluated the **all-start probability of being alive and retaining founder-relative high-I allelic support** for both policies under B8/B4.5. The source-conditional policy effect changed from −8.328125 pp at B8 to +35.56640625 pp at B4.5, a **descriptive** +43.89453125 pp contrast. All 160 founder-marginal and all 160 visitor-marginal contrasts were positive under B4.5, while 995 of the 25,600 individual paired source cells had negative-to-positive policy effects across the two resource conditions (six had the reverse pattern). These are source-averaged **conditional descriptions**, not 320 independent significance tests, a third preregistered endpoint, direct genetic mediation or a demonstrated continuous budget tipping point. The original registered G and S are unchanged. The [machine-readable receipt](audits/CHAPTER2_CROSSED_ACCESS_SIGN_REVERSAL_20261023.json) contains source-seal identity, full paired sign accounting and exploratory crossed-source resampling intervals.
+
 ### Confirmed policy effects on genetic closure and resource-dependent survival
 
 An authorized confirmation crossed160 independent founders with160 visitor

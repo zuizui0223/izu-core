@@ -494,8 +494,8 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.12'
-      - name: Install independent editorial-test dependency
-        run: python -m pip install pytest==8.4.2
+      - name: Install read-only numerical and editorial-test dependencies
+        run: python -m pip install pytest==8.4.2 numpy==2.2.6 scipy==1.15.3
       - name: Verify current five-result manuscript, figures and source endpoints
         run: |
           python -m pytest -q \
@@ -503,7 +503,8 @@ jobs:
             tests/test_chapter2_r1_r5_source_recovery_20261022.py \
             tests/test_chapter2_paper_figures_20261019.py \
             tests/test_chapter2_current_figure5_note_20261022.py \
-            tests/test_chapter2_reporting_summary_source_bound_20261022.py
+            tests/test_chapter2_reporting_summary_source_bound_20261022.py \
+            tests/test_chapter2_crossed_access_sign_20261023.py
       - name: Verify computational Methods source receipts without rerunning biology
         run: |
           mkdir -p outputs/chapter2_r1_r5_author_review
