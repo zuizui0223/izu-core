@@ -501,7 +501,8 @@ jobs:
           python -m pytest -q \
             tests/test_chapter2_five_result_author_review_20261022.py \
             tests/test_chapter2_r1_r5_source_recovery_20261022.py \
-            tests/test_chapter2_paper_figures_20261019.py
+            tests/test_chapter2_paper_figures_20261019.py \
+            tests/test_chapter2_current_figure5_note_20261022.py
       - name: Build and independently verify current R1-R5 author-review ZIP
         run: |
           mkdir -p outputs/chapter2_r1_r5_author_review
