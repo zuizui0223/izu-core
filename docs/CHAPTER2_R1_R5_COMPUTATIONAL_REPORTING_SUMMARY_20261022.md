@@ -1,6 +1,6 @@
 # Chapter 2 — computational Methods and reporting-source crosswalk (2026-10-22)
 
-**Status:** author-review-ready *source crosswalk*, not a journal-approved Reporting Summary, completed external data deposit or a new biological experiment. This document records completed studies as distinct sources. The [current five-result Article](CHAPTER2_NEE_SUPPORTED_RESULTS_ARTICLE_EXTRACT_20261019.md), [main/extended figure map](CHAPTER2_FIVE_RESULTS_FIGURE_MAP_20261021.md), [negative and incomplete outcomes](CHAPTER2_R1_R5_SOURCE_RECOVERY_AUDIT_20261022.md), and [historical S1–S33/F1–F8 disposition](CHAPTER2_HISTORICAL_RESULTS_DISPOSITION_20261019.md) remain authoritative. No effect, interval, outcome, or original biological code was changed to produce this crosswalk.
+**Status:** author-review-ready *source crosswalk*, not a journal-approved Reporting Summary, completed external data deposit or a new biological experiment. This document records completed studies as distinct sources. The [current five-result Article](CHAPTER2_NEE_SUPPORTED_RESULTS_ARTICLE_EXTRACT_20261019.md), [main/extended figure map](CHAPTER2_FIVE_RESULTS_FIGURE_MAP_20261021.md), [negative and incomplete outcomes](CHAPTER2_R1_R5_SOURCE_RECOVERY_AUDIT_20261022.md), and [historical S1–S33/F1–F8 disposition](CHAPTER2_HISTORICAL_RESULTS_DISPOSITION_20261019.md) remain authoritative. No effect, interval, outcome, or original biological code was changed to produce this crosswalk. This is not a new biological experiment.
 
 ## Study type and simulated units
 
