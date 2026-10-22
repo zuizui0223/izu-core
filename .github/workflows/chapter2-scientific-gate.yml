@@ -479,6 +479,52 @@ jobs:
             outputs/chapter2_je_delivery/isolated_redraw.json
 
 
+
+  
+  current-chapter2-author-review:
+    # Package build validates its own admitted sources; it does not run scientific biology.
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.head.sha || github.sha }}
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install technical test dependency only
+        run: python -m pip install pytest==8.4.2
+      - name: Validate source-locked current-article packet (read-only)
+        run: |
+          python -m pytest -q tests/test_chapter2_current_author_review_20261020.py tests/test_chapter2_figure_visual_readability_20261021.py
+          mkdir -p outputs/chapter2_current_author_review
+          python -m scripts.build_chapter2_current_author_review_20261020 \
+            --root . \
+            --source-commit "$(git rev-parse HEAD)" \
+            --out outputs/chapter2_current_author_review/CURRENT_CHAPTER2_AUTHOR_REVIEW.zip
+          python - <<'PY'
+          import json,zipfile,pathlib,hashlib
+          p=pathlib.Path("outputs/chapter2_current_author_review/CURRENT_CHAPTER2_AUTHOR_REVIEW.zip")
+          z=zipfile.ZipFile(p)
+          d=json.loads(z.read("MANIFEST.json"))
+          assert d["status"]=="AUTHOR_REVIEW_ONLY_NOT_SUBMISSION_READY"
+          assert len(d["figures"])==6 and d["manuscript_counts"]["abstract_whitespace_words"]<=200
+          for name,info in d["source_files"].items():
+              assert hashlib.sha256(z.read(name)).hexdigest()==info["sha256"]
+          print("CURRENT AUTHOR REVIEW ONLY:",d["source_commit"],"verified members",len(d["source_files"]))
+          PY
+      - uses: actions/upload-artifact@v4
+        with:
+          name: chapter2-current-author-review-${{ github.run_id }}
+          retention-days: 90
+          if-no-files-found: error
+          path: |
+            outputs/chapter2_current_author_review/CURRENT_CHAPTER2_AUTHOR_REVIEW.zip
+            outputs/chapter2_current_author_review/CURRENT_CHAPTER2_AUTHOR_REVIEW.zip.sha256
+
   process-confirmation-plan:
     if: github.event_name == 'pull_request' && github.head_ref == 'codex/model3-full-mutation-closeout-20261004'
     runs-on: ubuntu-latest
