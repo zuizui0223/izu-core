@@ -25,3 +25,27 @@ def test_current_figure_five_note_clears_last_row_and_does_not_claim_restoration
     # checked numerically by tests/test_chapter2_paper_figures_20261019.py.
     assert len([n for n in root.findall(".//s:rect", NS)
                 if n.get("data-kind") in ("survival", "closure")]) == 6
+
+ 
+def test_current_figure_four_rejects_corrupted_symbols_and_unidentified_variance_claim():
+    p = ROOT / "figures/chapter2_nee_five_results/figure_04_predictability.svg"
+    t = p.read_text(encoding="utf-8")
+    assert "竕" not in t and "\uf8f0" not in t
+    assert "endpoint agreement is not selection strength" in t
+    assert "prediction skill is not a causal variance share" in t
+    root = ET.parse(p).getroot()
+    assert root.find("s:metadata", NS) is not None
+
+
+def test_current_figure_six_retains_conditional_not_adaptation_claim():
+    p = ROOT / "figures/chapter2_nee_five_results/figure_06_transfer.svg"
+    t = p.read_text(encoding="utf-8")
+    assert "Late transfer separates inherited support and response" in t
+    assert "limits to adaptation" not in t
+    assert "survivors" in t.lower()
+
+
+def test_current_figure_five_caveat_has_no_unsupported_not_equal_glyph():
+    t = SVG.read_text(encoding="utf-8")
+    assert "G/S registered inference is not the descriptive joint endpoint" in t
+    assert "≠" not in t
