@@ -21,7 +21,6 @@ def test_empirical_island_results_are_correctly_separated_from_model_evidence():
     assert "556 plant species and 136 phylogenetically independent" in intro
     assert "not smaller on average" in intro
     assert "*Nicotiana glauca*" in intro
-    assert "without" not in intro or "without" in intro  # no inferred probability test
     assert "not accompanied by reduced pollinator service" in intro
     assert "examined leaf size and stature, not mating systems" in intro
     assert "can sometimes distinguish filtering" in intro
