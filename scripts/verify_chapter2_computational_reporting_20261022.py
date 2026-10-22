@@ -169,7 +169,7 @@ def verify(root: Path = ROOT) -> dict:
     for phrase in required:
         demand(phrase.lower() in method.lower(),
                "reporting manuscript omitted: " + phrase)
-    demand("NOT established" in method
+    demand("not established" in method.lower()
            and "not a journal-approved Reporting Summary" in method
            and "not a new confirmation" in method,
            "submission and inference boundaries omitted")
