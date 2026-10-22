@@ -174,7 +174,9 @@ def read_original(archive: Path, compact_path: Path = COMPACT):
                                 "declared epsilon sensitivity monotonicity")
                         require(budget != "B8" or x["alive"], "B8 survival premise")
                         grid[f, v, bi, pi] = int(available)
-                        occupancy[f, v, bi, pi] = int(x["alive"])
+                        # SOURCE SUMMARY160 occupancy axes: founder,visitor,policy,budget.
+                        # Derived endpoint grid intentionally uses founder,visitor,budget,policy.
+                        occupancy[f, v, pi, bi] = int(x["alive"])
                         if budget == "B8":
                             g[f, v, pi] = int(genetic)
                         for field, observed in (
