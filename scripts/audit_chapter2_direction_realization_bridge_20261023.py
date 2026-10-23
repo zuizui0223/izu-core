@@ -7,7 +7,7 @@ archived exploratory R5 sign counts; R4 is a first-event arithmetic readback.
 from __future__ import annotations
 
 import json
-from math import exp, log
+from math import log
 from pathlib import Path
 from types import SimpleNamespace
 
@@ -21,6 +21,9 @@ from scripts.model3_island.types import PlantState, VisitorState
 ROOT = Path(__file__).resolve().parents[1]
 TRANSFER = ROOT / "docs/audits/CHAPTER2_READAPTATION_DESCRIPTIVE_TABLES_20261019.json"
 CROSSED = ROOT / "docs/audits/CHAPTER2_CROSSED_ACCESS_SIGN_REVERSAL_20261023.json"
+ORIGINAL = ROOT / "data/results/chapter2_assurance_generality_20261006.json"
+BASELINE = ROOT / "docs/audits/CHAPTER2_BASELINE_POLLEN_384_AUDIT_20261019.json"
+PREDICTION = ROOT / "docs/audits/CHAPTER2_FOUNDER_PREDICTABILITY_20261021.json"
 
 
 def source_no_visitor_payoff(*, timing: str, mode: str, investment_cost: float = 0.4) -> dict:
@@ -150,9 +153,104 @@ def crossed_competing_event_identity() -> dict:
     return summary
 
 
+
+def original_R1_R2_readback() -> dict:
+    """R1/R2: preserve the registered original 4/4 and exploratory 384 contrast.
+
+    Do not promote original shared-founder agreement to the later fresh-founder
+    registered four-setting generality decision, which remains INCONCLUSIVE.
+    """
+    original = json.loads(ORIGINAL.read_text(encoding="utf-8"))
+    if original["status"] != "complete_generality_readout":
+        raise AssertionError("not the original completed R1/R2 result")
+    if original["adjudication"]["status"] != "all_four_confirmed":
+        raise AssertionError("original source's frozen four-setting decision changed")
+    settings = original["settings"]
+    if len(settings) != 4 or len({row["setting"] for row in settings}) != 4:
+        raise AssertionError("expected all four original reproductive settings")
+    fixed_and_attenuation = []
+    for row in settings:
+        fixed = row["fixed_far_change_from_founders"]
+        contrast = row["fixed_far_minus_near"]
+        interaction = row["attenuation_evolving_minus_fixed"]
+        if not (row["admissible"] and row["passes_frozen_rule"] and
+                fixed["mean"] < 0 and contrast["bootstrap95"][1] < 0 and
+                interaction["bootstrap95"][0] > 0):
+            raise AssertionError("one of the original R1/R2 frozen gates failed")
+        fixed_and_attenuation.append({
+            "setting": row["setting"],
+            "fixed_A_far_I_change_from_founder": fixed["mean"],
+            "A_evolution_attenuation_near_far": interaction["mean"],
+        })
+    baseline = json.loads(BASELINE.read_text(encoding="utf-8"))
+    if baseline["status"] != "EXPLORATORY_RAW_ENDPOINT_AUDIT_PASS":
+        raise AssertionError("384-path source is not admitted")
+    if baseline["raw_rows"] != 384 or baseline["founders"] != 12:
+        raise AssertionError("not the archived 384-path experiment")
+    grouped = {(float(row["start_A"]), row["baseline"]): row
+               for row in baseline["summaries"]}
+    if len(grouped) != 4:
+        raise AssertionError("expected four archived baseline x initial A contrasts")
+    reversals = []
+    for starting_a in (0.3, 0.5):
+        strong = grouped[starting_a, "strong_baseline_limitation"]
+        weak = grouped[starting_a, "weak_baseline_limitation"]
+        if not (strong["both_survived"] == weak["both_survived"] == 48
+                and strong["terminal_decline_minus_control_I"] < 0
+                and weak["terminal_decline_minus_control_I"] > 0):
+            raise AssertionError("archived baseline-dependent I contrast changed")
+        reversals.append({
+            "starting_A": starting_a,
+            "strong_baseline_I_decline_minus_control":
+                strong["terminal_decline_minus_control_I"],
+            "weak_baseline_I_decline_minus_control":
+                weak["terminal_decline_minus_control_I"],
+            "absolute_pollen_delivery_was_not_matched": True,
+        })
+    return {
+        "original_registered_four_setting": fixed_and_attenuation,
+        "independent_fresh_founder_four_setting_overall": "INCONCLUSIVE",
+        "exploratory_384_baseline_regime_sign_reversal": reversals,
+        "not_identified": "A-only genetic mediation or history-only effect",
+    }
+
+
+def R3_known_source_predictability_readback() -> dict:
+    """Audit held-out score identity for known source IDs; do not infer drift."""
+    d = json.loads(PREDICTION.read_text(encoding="utf-8"))
+    if d["primary"] != "evolving_I_change founder-only leave-cell-out skill":
+        raise AssertionError("primary predictive estimand changed")
+    x = d["results"]
+    out = {}
+    for name in ("evolving_I_change", "evolving_M_change", "evolving_A_change"):
+        r = x[name]
+        if (r["n_founders"], r["n_histories"]) != (160, 160):
+            raise AssertionError("not the archived 160x160 cross")
+        for component in ("founder", "history", "additive"):
+            expected = 1 - r["loo_sse"][component] / r["loo_sse"]["intercept"]
+            if not np.isclose(expected, r["loo_skill"][component], atol=1e-12, rtol=0):
+                raise AssertionError("R3 held-out PRESS score no longer agrees")
+        out[name] = {
+            "founder_only_loo_skill": r["loo_skill"]["founder"],
+            "history_only_loo_skill": r["loo_skill"]["history"],
+            "interaction_plus_realization_ss_fraction":
+                r["ss_fraction"]["interaction_plus_stochastic"],
+        }
+    if not (out["evolving_M_change"]["history_only_loo_skill"] >
+            out["evolving_I_change"]["history_only_loo_skill"]):
+        raise AssertionError("archived M/I known-history prediction contrast changed")
+    return {
+        "known_source_prediction_not_unseen_founders": out,
+        "interaction_plus_realization_not_pure_drift": True,
+        "endpoint_repeatability_cohort_is_separate": True,
+    }
+
+
 def read_only_audit() -> dict:
     return {
         "status": "EXPLORATORY_READ_ONLY_NO_NEW_BIOLOGY",
+        "R1_R2_original_and_baseline": original_R1_R2_readback(),
+        "R3_known_source_predictability": R3_known_source_predictability_readback(),
         "source_payoffs": [
             source_no_visitor_payoff(timing=t, mode=m)
             for t in ("delayed", "prior") for m in ("fixed", "evolving")
