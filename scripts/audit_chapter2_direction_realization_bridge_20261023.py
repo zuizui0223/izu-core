@@ -64,6 +64,7 @@ def source_no_visitor_payoff(*, timing: str, mode: str, investment_cost: float =
         fixed_assurance=a,
         assurance_timing=timing,
         ovule_budget=8.0,
+        pollen_scale=1.0,  # required even when zero-visitor receipt is identically zero
         investment_cost=investment_cost,
         assurance_cost=0.25,
         depression=0.5,
