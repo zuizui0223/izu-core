@@ -40,6 +40,8 @@ Sincerely,
 
 ## Delivery checklist
 
+- [Current NEE Article formatting handoff](CHAPTER2_NEE_ARTICLE_FORMATTING_HANDOFF_20261023.md): run the source-locked preview builder to omit the Introduction header and seven Discussion navigation subheadings while preserving all original prose, R1–R5 registered/exploratory labels and six figure legends. This technical preview is **not an approved or submitted manuscript**. References and external data deposit are still preliminary.
+
 - Computational Methods and reporting-source crosswalk: [current source-grounded R1–R5 Reporting Summary](CHAPTER2_R1_R5_COMPUTATIONAL_REPORTING_SUMMARY_20261022.md). The corresponding [source verifier](../scripts/verify_chapter2_computational_reporting_20261022.py) checks 13 pinned-design/readout families and explicitly refuses to claim journal approval or external DOI completion. This closes internal sample-unit and exclusion accounting, **not the author-approved journal form**.
 
 
