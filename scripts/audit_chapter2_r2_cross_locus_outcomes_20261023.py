@@ -46,7 +46,7 @@ def classify_cross_locus(c: dict, d: dict) -> dict:
     prefix_A_fixed = len(prefix["A"]["allele_values"]) == 1
     prefix_M_fixed = len(prefix["M"]["allele_values"]) == 1
     prefix_I_polymorphic = len(prefix["I"]["allele_values"]) > 1
-    if prefix_A_fixed != (not a["A_prefix_polymorphic"] if "A_prefix_polymorphic" in a else a["prefix_fixed"]):
+    if prefix_A_fixed != a["prefix_fixed"]:
         raise AssertionError("A prefix fixation contradicts source parent audit")
     if prefix_M_fixed:
         m0 = prefix["M"]["allele_values"][0]
