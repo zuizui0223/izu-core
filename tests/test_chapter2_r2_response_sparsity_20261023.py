@@ -56,6 +56,28 @@ def test_conditional_results_are_descriptive_not_fixation_mediation():
     assert all(row["weak_minus_strong_nonzero_fraction"] > 0 for row in r["comparisons"])
     assert any("Pure causal" in s for s in r["not_identified"])
     assert any("matched" in s.lower() for s in r["not_identified"])
+    comparisons = {v["initial_A"]: v for v in r["comparisons"]}
+    for a in (0.3, 0.5):
+        z = comparisons[a]
+        assert z["decomposition_is_not_causal_mediation"]
+        assert z["nonzero_frequency_arithmetic_component"] + z[
+            "nonzero_conditional_magnitude_arithmetic_component"
+        ] == pytest.approx(z["weak_minus_strong_A"], abs=1e-12)
+        assert z["prefix_polymorphic_frequency_arithmetic_component"] + z[
+            "prefix_polymorphic_conditional_arithmetic_component"
+        ] == pytest.approx(z["weak_minus_strong_A"], abs=1e-12)
+    assert comparisons[0.3]["nonzero_frequency_arithmetic_component"] == pytest.approx(
+        0.10585575810185184, abs=1e-12
+    )
+    assert comparisons[0.3]["nonzero_conditional_magnitude_arithmetic_component"] == pytest.approx(
+        -0.00217737268518519, abs=1e-12
+    )
+    assert comparisons[0.5]["nonzero_frequency_arithmetic_component"] == pytest.approx(
+        0.05053484881365739, abs=1e-12
+    )
+    assert comparisons[0.5]["nonzero_conditional_magnitude_arithmetic_component"] == pytest.approx(
+        0.033015498408564825, abs=1e-12
+    )
 
 
 def test_changed_archival_zero_count_is_rejected(tmp_path, monkeypatch):
