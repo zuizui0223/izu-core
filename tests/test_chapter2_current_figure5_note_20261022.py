@@ -49,3 +49,6 @@ def test_current_figure_five_caveat_has_no_unsupported_not_equal_glyph():
     t = SVG.read_text(encoding="utf-8")
     assert "G/S registered inference is not the descriptive joint endpoint" in t
     assert "≠" not in t
+    assert "D · POST-HOC contrast; crossed-source intervals in source audit" in t
+    assert "no newly estimated uncertainty" not in t
+
