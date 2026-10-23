@@ -10,7 +10,7 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 INDEPENDENT = ROOT / "docs/audits/CHAPTER2_BASELINE_POLLEN_384_INDEPENDENT_REVIEW_20261019.json"
-REGISTERED_SOURCE = ROOT / "docs/audits/CHAPTER2_BASELINE_POLLEN_384_AUDIT_20261019.json"
+FROZEN_EXPLORATORY_AUDIT = ROOT / "docs/audits/CHAPTER2_BASELINE_POLLEN_384_AUDIT_20261019.json"
 SOURCE_SHA = "eb785dc6865ca1842ec9d6c7d511778c74e03478"
 PROTOCOL_SHA = "87af92484af9988181b4f3bed6760d39325de70cca8c0b4e1cec19c47b8c9849"
 # Original independently inspected counts (12 founders x four nested repeats).
@@ -24,7 +24,7 @@ EXPECTED = {
 
 def analyze() -> dict:
     review = json.loads(INDEPENDENT.read_text(encoding="utf-8"))
-    source = json.loads(REGISTERED_SOURCE.read_text(encoding="utf-8"))
+    source = json.loads(FROZEN_EXPLORATORY_AUDIT.read_text(encoding="utf-8"))
     if (review["status"] != "INDEPENDENT_SAVED_DATA_RECOMPUTATION_PASS"
             or review["source_sha"] != SOURCE_SHA
             or review["protocol_sha256"] != PROTOCOL_SHA
