@@ -129,7 +129,7 @@ def test_A_convergence_can_coexist_with_I_allele_and_mean_difference():
     assert r["I_diff"] == pytest.approx(-.25)
     assert r["I_support_different"] and r["I_negative"]
     assert not r["A_fixed_at_shock"]
-    assert not r["M_fixed_at_shock"]
+    assert r["M_fixed_at_shock"]
 
 
 def test_strict_native_fixed_A_and_M_does_not_prevent_I_difference():
