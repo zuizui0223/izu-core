@@ -28,6 +28,21 @@ The key constraint is more specific than "fixation explains memory": in strong b
 
 These 23/32 nonfixed-at-shock pairs with zero terminal policy contrast are an explicit reason **not to attribute all baseline-response attenuation to prefix fixation**. Shared endpoints after alternative trajectories, source-specific pollen availability and selection responses, later fixation or low observable effect are all candidates; their relative contributions have not been identified. In particular, a zero **paired difference** need not mean that neither arm's A changed.
 
+## Exact descriptive two-factor partition (not causal mediation)
+
+Because `mean(D) = p_nonzero × mean(D | D!=0)`, the observed weak-minus-strong difference can be split **symmetrically and arithmetically** into a term associated with nonzero-response frequency and a term associated with mean signed size among nonzero responses. This is the two-order average of a product identity, **not** an intervention on incidence, a fixed threshold or a biological mediation fraction.
+
+| Initial A | Weak−strong overall D | Nonzero-frequency component | Conditional signed-magnitude component |
+| ---: | ---: | ---: | ---: |
+| **0.3** | **+0.103678** | **+0.105856** | −0.002177 |
+| **0.5** | **+0.083550** | **+0.050535** | **+0.033015** |
+
+The terms sum exactly to the original corresponding 384-path contrasts. A decomposition can have a component larger than the total when the other contribution opposes it, as for A=0.3. The fraction of initial A variation lost before the shock can be included in a separate *arithmetic composition identity*, but that identity still does **not** identify the causal effect of fixation: strong/weak source groups have different A distributions, recipient pollen q and histories.
+
+Using the *prefix polymorphic proportion* rather than the exact-nonzero fraction in the same symmetric identity, the two parts are respectively **+0.028641 and +0.075037** (starting A=0.3), and **+0.008987 and +0.074563** (starting A=0.5). This second partition underscores that differences in how many sources were already fixed **cannot numerically exhaust** the whole observed strong-versus-weak contrast. The remaining conditional difference is not uniquely assigned to any alternative biological mediator.
+
+Both identities are retrospective transformations of **the same original 48 pairs within each stratum**. Neither provides new confidence intervals, independent experimental replications or a test of a population-level ecological threshold.
+
 ## What remains supported, and what must not be promoted
 
 - **R1 retains its supported statement:** investment I can decline without evolving A, even in an independent 8×8 fresh-founder comparison. Holding A fixed is **not** removing all selfing.
