@@ -15,10 +15,10 @@ SOURCE_SHA = "eb785dc6865ca1842ec9d6c7d511778c74e03478"
 PROTOCOL_SHA = "87af92484af9988181b4f3bed6760d39325de70cca8c0b4e1cec19c47b8c9849"
 # Original independently inspected counts (12 founders x four nested repeats).
 EXPECTED = {
-    (0.3, "strong_baseline_limitation"): (45, 22),
-    (0.3, "weak_baseline_limitation"): (8, 1),
-    (0.5, "strong_baseline_limitation"): (42, 10),
-    (0.5, "weak_baseline_limitation"): (8, 1),
+    (0.3, "strong_baseline_limitation"): (45, 22, 46, 48),
+    (0.3, "weak_baseline_limitation"): (8, 1, 18, 16),
+    (0.5, "strong_baseline_limitation"): (42, 10, 42, 47),
+    (0.5, "weak_baseline_limitation"): (8, 1, 22, 13),
 }
 
 
@@ -63,16 +63,28 @@ def analyze() -> dict:
                 raise AssertionError("no-mutation absorbing fixation not verified")
             fixed = readback["prefix_fixed_A_pairs"]
             zero = readback["zero_A_contrast_pairs"]
-            if (zero, fixed) != EXPECTED[k]:
+            if (zero, fixed) != EXPECTED[k][:2]:
                 raise AssertionError("original independent zero/fixation counts changed")
             nonzero = n - zero
             polymorphic_at_shock = n - fixed
             if not (0 <= fixed <= zero < n and polymorphic_at_shock > 0):
                 raise AssertionError("zero/nonzero counts violate prefix-fixation constraint")
+            end_fixed = {}
             for arm in ("control", "decline"):
                 row = strata[(starting_a, baseline, arm)]
                 if row["n"] != n or row["A"]["t_prefix"]["fixed"] != fixed:
                     raise AssertionError("independent stratum contradicts paired prefix-fixed A")
+                end_fixed[arm] = row["A"]["t_end"]["fixed"]
+                if not (fixed <= end_fixed[arm] <= n):
+                    raise AssertionError("no-mutation absorbing prefix fixation violated")
+            if (end_fixed["control"], end_fixed["decline"]) != EXPECTED[k][2:]:
+                raise AssertionError("original terminal A fixation counts changed")
+            # Pure inclusion-exclusion bound for three sets: zero terminal
+            # contrast, final control-A fixed, final decline-A fixed. This
+            # does not reconstruct identities of the paired source histories.
+            triple_minimum = max(
+                0, zero + end_fixed["control"] + end_fixed["decline"] - 2 * n
+            )
             mean = summary["terminal_decline_minus_control_A"]
             if abs(mean - readback["A_decline_minus_control"]) >= 1e-12:
                 raise AssertionError("source and independent reader mean A response disagree")
@@ -87,6 +99,12 @@ def analyze() -> dict:
                 "nonzero_fraction": nonzero / n,
                 "prefix_fixed_A_pairs": fixed,
                 "prefix_polymorphic_A_pairs": polymorphic_at_shock,
+                "terminal_fixed_A_control": end_fixed["control"],
+                "terminal_fixed_A_decline": end_fixed["decline"],
+                "newly_fixed_A_control_since_prefix": end_fixed["control"] - fixed,
+                "newly_fixed_A_decline_since_prefix": end_fixed["decline"] - fixed,
+                "at_least_zero_and_both_terminal_fixed": triple_minimum,
+                "lower_bound_only_no_joint_path_identity_reconstructed": True,
                 "zero_among_prefix_polymorphic_pairs": zero - fixed,
                 "unconditional_signed_mean_A_contrast": mean,
                 "mean_signed_contrast_given_exact_nonzero": nonzero_conditional_mean,
@@ -154,7 +172,9 @@ def analyze() -> dict:
             "The much smaller unconditional additional-A response after strong baseline "
             "limitation reflects fewer exact nonzero paired responses. Prefix A fixation "
             "forces some zeros but cannot explain all zeros: many pairs still had A "
-            "variation at shock yet ended with zero treatment difference."
+            "variation at shock yet ended with zero treatment difference. "
+            "An inclusion-exclusion lower bound also establishes substantial "
+            "joint zero-and-final-fixation overlap under strong baseline history."
         ),
         "not_identified": [
             "Pure causal contribution of prior A fixation",
