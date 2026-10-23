@@ -1,0 +1,97 @@
+{
+  "schema": "chapter2_r2_independent_history_service_identification_design_proposal_v1",
+  "date": "2026-10-23",
+  "status": "DESIGN_ONLY_NOT_AUTHORIZED_NOT_PREREGISTERED",
+  "scientific_question": "Distinguish prior-visitor-history effects on subsequent assurance A change arising from retained diploid genotype accessibility, current per-mother pollen delivery, and finite realized reproduction, without claiming unique natural causal mediation.",
+  "existing_evidence": {
+    "r1_r5_manuscript_claims_unchanged": true,
+    "old_exploratory_baseline_384_source_commit": "eb785dc6865ca1842ec9d6c7d511778c74e03478",
+    "old_pollen_protocol_sha256": "87af92484af9988181b4f3bed6760d39325de70cca8c0b4e1cec19c47b8c9849",
+    "old_founders_exposed_count": 12,
+    "old_384_outcomes_will_not_be_reused_for_new_confirmation": true,
+    "fresh_founder_r2_four_setting_status": "INCONCLUSIVE",
+    "registered_confirm160_G_S_unchanged": true
+  },
+  "independent_sampling": {
+    "future_founder_source_count": null,
+    "future_visitor_history_source_count": null,
+    "paired_demography_repeats": null,
+    "source_axes_disjoint_from_older_exposed_campaigns": true,
+    "founder_visitors_crossed": true,
+    "future_pairing": "within each independent founder×history×prefix state, control and visitor-decline arms start from byte-identical full PlantState, same RNG streams; no survivor-only implicit selection",
+    "sample_size_power_and_precision_contract": null,
+    "registered_minimum_biologically_meaningful_A_change": null,
+    "random_seed_plan": null
+  },
+  "design": {
+    "prefix_visitor_history": [
+      "strong baseline limitation",
+      "weak baseline limitation"
+    ],
+    "prefix_length_updates": 30,
+    "future_length_updates": 50,
+    "common_future_source_schedule_required": true,
+    "native_futures": {
+      "treatment_arms": [
+        "maintained visitor activity",
+        "declining visitor activity"
+      ],
+      "identical_initial_genotype_per_paired_treatment": true,
+      "actual_per_mother_q_measured_not_assumed_matched": true,
+      "record_maternal_and_paternal_fitness_contributions": true
+    },
+    "static_counterfactual": {
+      "purpose": "isolate immediate viable maternal accounting at externally specified per-mother q, O, A",
+      "separate_from_native_evolutionary_futures": true,
+      "never_impute_total_export_or_activity_match_as_per_mother_q_equality": true,
+      "no_allele_transmission_or_population_updates": true,
+      "admit_only_feasible_positive_finite_q": true
+    },
+    "optional_A_state_intervention": {
+      "status": "NOT_SPECIFIED_NOT_AUTHORIZED",
+      "if_future_defined": "declare donor swap/monomorphic-versus-polymorphic A variation operations, preserve target A mean when possible and quantify induced covariance and mean changes, with separate inferential scope",
+      "not_a_pure_causal_fixation_medation_estimator": true
+    }
+  },
+  "required_start_and_each_update_capture": [
+    "full N x 3 x 2 diploid alleles and allele origins",
+    "all individual identifiers, birth years, genotype counts, population size",
+    "expressed M I A and A allelic support and fixation at census30",
+    "genotypic and allelic A by I M covariance",
+    "visitor optima breadth effectiveness and activity by update",
+    "donor-by-recipient pollen transfer and per-recipient q",
+    "ovule allocation, delayed self viability and inbreeding depression",
+    "maternal outcross and paternal exported reproductive contributions",
+    "per-generation extinction and trait support including undefined values on extinction",
+    "random stream pairing, source commit and source hash receipts"
+  ],
+  "estimands_proposed_not_frozen": [
+    "all-start occupancy and competing first-genetic-support-loss and extinction events",
+    "future decline-minus-maintained A response from matched census30 population",
+    "frequency of meaningful signed A response under a predeclared nonzero biological threshold",
+    "positive and negative conditional A response magnitudes; report exact-zero separately",
+    "history by current visitor condition interaction using independently crossed founders and visitor histories",
+    "read-only counterfactual maternal Y at the same declared per-recipient q (NOT full evolutionary genetic mediation)",
+    "changes in A-locus variation and endpoint fixation conditional on source genotype, without treating fixation as random independent exposure",
+    "parallel I and M contrasts and paternal return"
+  ],
+  "failure_and_interpretation_boundaries": [
+    "Reject incomplete source archive, any unmatched recipient q under a claimed q-matched static arm, or any unpaired founding state",
+    "Do not infer pure independent history effect from a changing contemporary genotype distribution",
+    "Do not call source history coefficients genetic mediation or species-level natural island adaptations",
+    "Do not call exact zero terminal contrast lack of selection or lack of parental fitness gradient",
+    "Do not call finite cohort paths independent island systems",
+    "Do not treat censored extinct I/A means as zero",
+    "Do not launch future biology without approved independent-source power, thresholds, source SHA, full pre-specified analysis and author signoff"
+  ],
+  "run_gate": {
+    "new_biological_experiments_authorized": false,
+    "prospective_registration_approved": false,
+    "independent_power_verified": false,
+    "source_commit_pinned_for_future_run": false,
+    "sample_size_finalized": false,
+    "scientific_endpoints_frozen": false,
+    "author_approval_recorded": false,
+    "should_dispatch_actions": false
+  }
+}
