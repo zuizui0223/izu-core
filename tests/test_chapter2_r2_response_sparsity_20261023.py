@@ -32,7 +32,7 @@ def test_zero_response_counts_and_prefix_fixation_are_not_confused():
     }
     for key, (zero, nonzero, fixed, zero_nonfixed) in expected.items():
         x = got[key]
-        assert x["paired_histories_n"] == 48
+        assert x["paired_nested_future_pairs_n"] == 48
         assert x["zero_exact_A_contrast_pairs"] == zero
         assert x["nonzero_exact_A_contrast_pairs"] == nonzero
         assert x["prefix_fixed_A_pairs"] == fixed
