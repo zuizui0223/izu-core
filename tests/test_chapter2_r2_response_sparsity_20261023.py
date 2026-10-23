@@ -63,6 +63,7 @@ def test_joint_terminal_fixed_and_zero_bounds_from_three_sets():
         assert r["newly_fixed_A_control_since_prefix"] == new_control
         assert r["newly_fixed_A_decline_since_prefix"] == new_decline
         assert r["at_least_zero_and_both_terminal_fixed"] == lower
+        assert r["at_least_prefix_polymorphic_then_both_fixed_and_zero"] == max(0, lower - r["prefix_fixed_A_pairs"])
         assert lower <= r["zero_exact_A_contrast_pairs"]
 
 
