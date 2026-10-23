@@ -17,7 +17,7 @@ The original [GitHub Actions run 39233450099](https://github.com/zuizui0223/izu-
 
 Define **zero A response** as the *exact numerical* terminal treatment contrast `A80_decline − A80_control = 0` for one paired source, not absence of within-arm evolutionary change or a prespecified biologically meaningful effect size.
 
-| Initial A | Prior pollen limitation | Exact-zero A treatment pairs /48 | A locus already fixed at shock /48 | **Shock-polymorphic → both futures fixed to same A allele** /48 | Exact-zero pairs with **different full terminal state hash** |
+| Initial A | Prior pollen limitation | Exact-zero A treatment pairs /48 | A locus already fixed at shock /48 | **Shock-polymorphic → both futures fixed to same A allele value** /48 | Exact-zero pairs with **different full terminal state hash** |
 |---:|---|---:|---:|---:|---:|
 | **0.3** | Strong | **45** | 22 | **23** | 42 |
 | 0.3 | Weak | 8 | 1 | **7** | 8 |
@@ -25,7 +25,9 @@ Define **zero A response** as the *exact numerical* terminal treatment contrast 
 | 0.5 | Weak | 8 | 1 | **7** | 8 |
 | **Total** | | **103 / 192** | **34** | **69** | **96 / 103** |
 
-**All 103 zero-contrast source pairs have the same fixed A allele at BOTH future endpoints.** This is a direct pair-level observation, stronger than the earlier conservative inclusion–exclusion lower bounds of 43/48 and 35/48 for strong-limitation final cofixation, and 21/48 and 25/48 for its shock-polymorphic subset. The exact corresponding strong-baseline numbers are **45/48, 42/48**, and **23/48, 32/48**.
+**All 103 zero-contrast source pairs have the same fixed A allele value at BOTH future endpoints.** This is a direct pair-level observation, stronger than the earlier conservative inclusion–exclusion lower bounds of 43/48 and 35/48 for strong-limitation final cofixation, and 21/48 and 25/48 for its shock-polymorphic subset. The exact corresponding strong-baseline numbers are **45/48, 42/48**, and **23/48, 32/48**.
+
+**Identity qualification:** the original endpoint summaries retain numerical A `allele_values` and counts, not the complete allele-origin arrays. Here *same fixed A allele value* means the same encoded value on the frozen 0/.25/.5/.75/1 grid, **not** proven identity-by-descent, identical original allele copies or an identical genome. Full terminal-state hashes provide inequality checks but cannot reconstruct the precise ancestral identity difference from these summaries.
 
 Crucially, the **69** pairs with standing A polymorphism at the shock nevertheless reached the same A fixed state after different visitor-activity futures. In these 69 pairs both A means *changed from census 30*: a zero **paired treatment difference** is not a zero evolutionary response in both arms.
 
