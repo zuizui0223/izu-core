@@ -83,3 +83,24 @@ def test_old_el_original_route_is_not_removed(tmp_path):
     (root / OLD).unlink()
     with pytest.raises(FileNotFoundError):
         validate(root)
+
+
+def test_historical_pending_proposals_are_retained_but_not_counted_as_article_text():
+    """Archived nonexecuted Results are not part of completed NEE Article length."""
+    route = json.loads((ROOT / ROUTE).read_text(encoding="utf-8"))
+    source = (ROOT / route["active_manuscript"]).read_text(encoding="utf-8")
+    intro = "## Introduction"
+    pending = "## Planned new decisive Results — PENDING, not observations"
+    discussion = "## Discussion"
+    methods = "## Online Methods"
+    assert source.count(pending) == 1
+    preserved = source.split(pending, 1)[1].split(discussion, 1)[0]
+    assert "NOT EXECUTED" in preserved
+    completed = (source.split(intro, 1)[1].split(pending, 1)[0]
+                 + source.split(discussion, 1)[1].split(methods, 1)[0])
+    expected = len(completed.split())
+    result = validate()
+    assert result["source_main_whitespace_words_excluding_online_methods"] == expected
+    assert expected <= route["article_guidelines"][
+        "main_text_max_words_excluding_abstract_methods_references_figure_legends"]
+    assert len(preserved.split()) > 0
