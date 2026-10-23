@@ -15,12 +15,12 @@ Define `D=A80_decline−A80_maintained`. For each 48-pair stratum:
 - `mean(D | D != 0) = 48 * mean(D)/count(D != 0)` is an arithmetic signed mean **conditional on an observed nonzero**; it can include positive and negative contrasts and is not a causal subgroup effect.
 - Since every census-30 monomorphic A cohort remained unchanged in both no-mutation/no-immigration futures, `mean(D | A polymorphic at 30) = 48 * mean(D)/(48−count(prefix fixed))`. This is also descriptive selection on a source-defined state, not proof that polymorphism causes the contrast.
 
-| Starting A | Pollen-limitation prehistory | D exactly zero /48 | D nonzero /48 | Census-30 A fixed /48 | Nonzero among A-polymorphic pairs /48 | Full 48-pair mean D | Mean signed D among exact-nonzero |
+| Starting A | Pollen-limitation prehistory | D exactly zero /48 | D nonzero /48 | Census-30 A fixed /48 | Zero despite A-polymorphic at shock /48 | Full 48-pair mean D | Mean signed D among exact-nonzero |
 | ---: | --- | ---: | ---: | ---: | ---: | ---: | ---: |
-| **0.3** | Strong | **45** | **3** | **22** | 3 | +0.008735 | **+0.139757** |
-| 0.3 | Weak | 8 | 40 | 1 | 40 | +0.112413 | +0.134896 |
-| **0.5** | Strong | **42** | **6** | **10** | 6 | +0.004612 | +0.036892 |
-| 0.5 | Weak | 8 | 40 | 1 | 40 | +0.088162 | +0.105794 |
+| **0.3** | Strong | **45** | **3** | **22** | **23** | +0.008735 | **+0.139757** |
+| 0.3 | Weak | 8 | 40 | 1 | 7 | +0.112413 | +0.134896 |
+| **0.5** | Strong | **42** | **6** | **10** | **32** | +0.004612 | +0.036892 |
+| 0.5 | Weak | 8 | 40 | 1 | 7 | +0.088162 | +0.105794 |
 
 For A=0.3, the **unconditional** signed effect differs greatly, while **nonzero conditional signed means are similar** (strong +0.1398 versus weak +0.1349). The descriptive contrast is largely one of how often nonzero trajectories occur. For A=0.5, both the incidence of nonzero contrasts and their conditional means differ.
 
