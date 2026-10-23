@@ -13,6 +13,13 @@ INDEPENDENT = ROOT / "docs/audits/CHAPTER2_BASELINE_POLLEN_384_INDEPENDENT_REVIE
 REGISTERED_SOURCE = ROOT / "docs/audits/CHAPTER2_BASELINE_POLLEN_384_AUDIT_20261019.json"
 SOURCE_SHA = "eb785dc6865ca1842ec9d6c7d511778c74e03478"
 PROTOCOL_SHA = "87af92484af9988181b4f3bed6760d39325de70cca8c0b4e1cec19c47b8c9849"
+# Original independently inspected counts (12 founders x four nested repeats).
+EXPECTED = {
+    (0.3, "strong_baseline_limitation"): (45, 22),
+    (0.3, "weak_baseline_limitation"): (8, 1),
+    (0.5, "strong_baseline_limitation"): (42, 10),
+    (0.5, "weak_baseline_limitation"): (8, 1),
+}
 
 
 def analyze() -> dict:
@@ -29,7 +36,7 @@ def analyze() -> dict:
             or source["raw_rows"] != 384
             or source["founders"] != 12):
         raise AssertionError("R2 original independently audited source identity changed")
-    if len(review["pair_contrasts"]) != len(source["summaries"]) != 4:
+    if len(review["pair_contrasts"]) != 4 or len(source["summaries"]) != 4:
         raise AssertionError("four initial-A by baseline strata required")
     if len(review["strata"]) != 8:
         raise AssertionError("two arms for every source stratum required")
@@ -38,7 +45,7 @@ def analyze() -> dict:
         raise AssertionError("duplicated 384-source baseline or initial-A strata")
     pair_contrasts = {(row["start_A"], row["baseline"]): row
                       for row in review["pair_contrasts"]}
-    if set(pair_contrasts) != set(summaries):
+    if set(pair_contrasts) != set(summaries) or set(pair_contrasts) != set(EXPECTED):
         raise AssertionError("independent-reader/source stratum mismatch")
     strata = {(row["start_A"], row["baseline"], row["arm"]): row
               for row in review["strata"]}
@@ -56,6 +63,8 @@ def analyze() -> dict:
                 raise AssertionError("no-mutation absorbing fixation not verified")
             fixed = readback["prefix_fixed_A_pairs"]
             zero = readback["zero_A_contrast_pairs"]
+            if (zero, fixed) != EXPECTED[k]:
+                raise AssertionError("original independent zero/fixation counts changed")
             nonzero = n - zero
             polymorphic_at_shock = n - fixed
             if not (0 <= fixed <= zero < n and polymorphic_at_shock > 0):
@@ -72,7 +81,7 @@ def analyze() -> dict:
             results.append({
                 "initial_A": starting_a,
                 "baseline": baseline,
-                "paired_histories_n": n,
+                "paired_nested_future_pairs_n": n,
                 "zero_exact_A_contrast_pairs": zero,
                 "nonzero_exact_A_contrast_pairs": nonzero,
                 "nonzero_fraction": nonzero / n,
