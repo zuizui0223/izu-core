@@ -114,11 +114,11 @@ def test_changed_archival_zero_count_is_rejected(tmp_path, monkeypatch):
 
 
 def test_changed_source_mean_is_rejected(tmp_path, monkeypatch):
-    d = json.loads(audit.REGISTERED_SOURCE.read_text(encoding="utf-8"))
+    d = json.loads(audit.FROZEN_EXPLORATORY_AUDIT.read_text(encoding="utf-8"))
     d["summaries"][0]["terminal_decline_minus_control_A"] += 0.01
     p = tmp_path / "fake-summary.json"
     p.write_text(json.dumps(d), encoding="utf-8")
-    monkeypatch.setattr(audit, "REGISTERED_SOURCE", p)
+    monkeypatch.setattr(audit, "FROZEN_EXPLORATORY_AUDIT", p)
     with pytest.raises(AssertionError, match="disagree"):
         audit.analyze()
 
