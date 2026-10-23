@@ -1,0 +1,122 @@
+{
+  "status": "PASS_ORIGINAL_384_SHA_VERIFIED_EXACT_PAIR_R2_CONVERGENCE",
+  "source_actions_run_id": 39233450099,
+  "source_artifact_id": 12178257738,
+  "source_artifact_zip_sha256": "10bb8bdd52b53b32429e350c2f392ed2aeaa791683ede1d563ae6627c5ecb35e",
+  "source_commit": "eb785dc6865ca1842ec9d6c7d511778c74e03478",
+  "protocol_sha256": "87af92484af9988181b4f3bed6760d39325de70cca8c0b4e1cec19c47b8c9849",
+  "source_manifest_verified": true,
+  "n_paths": 384,
+  "n_paired_futures": 192,
+  "n_independent_founders": 12,
+  "n_demographic_repeats_nested_in_founders": 4,
+  "strata": [
+    {
+      "initial_A": 0.3,
+      "baseline": "strong_baseline_limitation",
+      "n_paired_futures": 48,
+      "n_exact_zero": 45,
+      "n_positive": 3,
+      "n_negative": 0,
+      "n_prefix_A_fixed": 22,
+      "n_terminal_fixed_control": 46,
+      "n_terminal_fixed_decline": 48,
+      "n_zero_both_fixed_same_allele": 45,
+      "n_zero_started_polymorphic": 23,
+      "n_zero_started_polymorphic_then_both_fixed_same": 23,
+      "n_zero_with_different_full_terminal_hashes": 42,
+      "n_zero_with_both_A_arms_changed_from_prefix": 23,
+      "n_zero_with_same_A_allele_distribution": 45,
+      "n_postshock_converged_A_up": 23,
+      "n_postshock_converged_A_down": 0,
+      "final_zero_fixed_allele_counts": {
+        "0.5": 29,
+        "0.75": 16
+      },
+      "mean_A_decline_minus_control": 0.008734809027777778
+    },
+    {
+      "initial_A": 0.3,
+      "baseline": "weak_baseline_limitation",
+      "n_paired_futures": 48,
+      "n_exact_zero": 8,
+      "n_positive": 35,
+      "n_negative": 5,
+      "n_prefix_A_fixed": 1,
+      "n_terminal_fixed_control": 18,
+      "n_terminal_fixed_decline": 16,
+      "n_zero_both_fixed_same_allele": 8,
+      "n_zero_started_polymorphic": 7,
+      "n_zero_started_polymorphic_then_both_fixed_same": 7,
+      "n_zero_with_different_full_terminal_hashes": 8,
+      "n_zero_with_both_A_arms_changed_from_prefix": 7,
+      "n_zero_with_same_A_allele_distribution": 8,
+      "n_postshock_converged_A_up": 3,
+      "n_postshock_converged_A_down": 4,
+      "final_zero_fixed_allele_counts": {
+        "0.25": 8
+      },
+      "mean_A_decline_minus_control": 0.11241319444444446
+    },
+    {
+      "initial_A": 0.5,
+      "baseline": "strong_baseline_limitation",
+      "n_paired_futures": 48,
+      "n_exact_zero": 42,
+      "n_positive": 6,
+      "n_negative": 0,
+      "n_prefix_A_fixed": 10,
+      "n_terminal_fixed_control": 42,
+      "n_terminal_fixed_decline": 47,
+      "n_zero_both_fixed_same_allele": 42,
+      "n_zero_started_polymorphic": 32,
+      "n_zero_started_polymorphic_then_both_fixed_same": 32,
+      "n_zero_with_different_full_terminal_hashes": 38,
+      "n_zero_with_both_A_arms_changed_from_prefix": 32,
+      "n_zero_with_same_A_allele_distribution": 42,
+      "n_postshock_converged_A_up": 31,
+      "n_postshock_converged_A_down": 1,
+      "final_zero_fixed_allele_counts": {
+        "0.5": 2,
+        "0.75": 40
+      },
+      "mean_A_decline_minus_control": 0.0046115451388888855
+    },
+    {
+      "initial_A": 0.5,
+      "baseline": "weak_baseline_limitation",
+      "n_paired_futures": 48,
+      "n_exact_zero": 8,
+      "n_positive": 31,
+      "n_negative": 9,
+      "n_prefix_A_fixed": 1,
+      "n_terminal_fixed_control": 22,
+      "n_terminal_fixed_decline": 13,
+      "n_zero_both_fixed_same_allele": 8,
+      "n_zero_started_polymorphic": 7,
+      "n_zero_started_polymorphic_then_both_fixed_same": 7,
+      "n_zero_with_different_full_terminal_hashes": 8,
+      "n_zero_with_both_A_arms_changed_from_prefix": 7,
+      "n_zero_with_same_A_allele_distribution": 8,
+      "n_postshock_converged_A_up": 1,
+      "n_postshock_converged_A_down": 6,
+      "final_zero_fixed_allele_counts": {
+        "0.25": 1,
+        "0.5": 7
+      },
+      "mean_A_decline_minus_control": 0.0881618923611111
+    }
+  ],
+  "total_zero": 103,
+  "total_zero_both_fixed_same_allele": 103,
+  "total_zero_polymorphic_at_shock": 69,
+  "total_zero_with_different_full_terminal_hashes": 96,
+  "claim_rank": "POST_OUTCOME_DESCRIPTIVE_MODEL_SOURCE_NOT_INDEPENDENT_CONFIRMATION",
+  "new_population_updates": 0,
+  "new_statistical_tests": 0,
+  "not_identified": [
+    "Selection versus drift contributions to A convergence",
+    "Independent historical-memory causality at matched current pollen",
+    "Natural-island generality or a continuous evolutionary threshold"
+  ]
+}
