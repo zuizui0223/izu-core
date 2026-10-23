@@ -4,7 +4,7 @@
 
 ## Decision and evidence firewall
 
-Deepen the existing five-result Chapter 2 without rewriting or relabelling any established result. The primary causal interventions and completed sources remain unchanged; original null and negative controls stay visible. This extension reads only the existing model payoff kernels, the original conditional R5 transfer table and the independently sealed R4 composite audit.
+Deepen the existing five-result Chapter 2 without rewriting or relabelling any established result. The primary causal interventions and completed sources remain unchanged; original null and negative controls stay visible. This extension reads the original four-setting R1/R2 source, the independently audited baseline-384 summaries, the R3 held-out known-source prediction receipt, the existing model payoff kernels, the original conditional R5 transfer table, and the independently sealed R4 composite audit.
 
 | Current result | What remains supported | What is still unidentified |
 | --- | --- | --- |
@@ -29,7 +29,7 @@ For c_I > 0 and I > 0, holding A and M fixed:
 
 This is a conditional identity, not a universal claim where A=0, depression=1, c_I=0 or mutation/immigration changes inheritance. Both the actual source reproduction kernel and source local rare-mutant gradient are evaluated independently by the new **read-only diagnostic script**, under prior/delayed selfing and fixed/evolving expression. It constructs artificial states and **never advances a population or creates offspring**. The same source-zero-pollen gradient was previously identified in the assurance-coupling scope audit; it is **not a newly discovered selection law**.
 
-The archived R5 **no-visitor destination** nevertheless records positive exact signs of I change in 27/1,024 futures after fixed-A history and 29/1,024 after evolving-A history. The same archived tables show 704/1,024 and 1,024/1,024 occupied, respectively. These are 32 cohorts per history with 32 nested futures, not 1,024 independent founding genomes. The source labels are exact numerical signs; some may have tiny magnitudes, and we have **not** estimated a biologically meaningful positive-response frequency.
+The archived R5 **no-visitor destination** nevertheless records positive exact signs of I change in 27/1,024 futures after fixed-A history and 29/1,024 after evolving-A history. The same archived tables show 704/1,024 and 1,024/1,024 occupied, respectively. Fixed-history I signs are **27 positive / 37 negative / 640 zero / 320 extinct**; evolving-history signs are **29 positive / 99 negative / 896 zero / 0 extinct**. The 32 nested cohorts per historical arm include only 2 and 4 cohorts, respectively, with any I-change signs. These are 32 cohorts per history with 32 nested futures, not 1,024 independent founding genomes. The source labels are exact numerical signs; some may have tiny magnitudes, and we have **not** estimated a biologically meaningful positive-response frequency.
 
 **Inference:** a negative instantaneous local I-payoff gradient does not logically guarantee that every finite, inherited, stochastic I trajectory is nonincreasing. An observed positive numerical I change is not proof of positive selection by returning visitors (there are no visitors in this destination). Finite parent sampling, inherited correlations and initial states are possible influences, but their shares are **not** identified by this comparison. This is a direct evidence-level connection among the R1 payoff, R3 realization/predictability distinction and R5 transfer, **not** a new replicated mechanism test.
 
@@ -57,6 +57,21 @@ With the **same 25,600 crossed coordinates in each policy/budget arm**:
 The original registered B8 genetic-first G contrast and the resource-by-policy survival S interaction retain their own registrations and crossed-axis uncertainty. These first-event totals explain the **arithmetic** sign reversal in X: under B4.5 the decrease in extinction-first events exceeds the increase in genetic-first closure. They are not cause-specific genetic-loss hazards, a unique causal mediation decomposition, an independently rerun model, or a threshold estimate. Survivor-only conditional genetic support is post-treatment selected.
 
 The new read-only diagnostic checks this partition against the stored, original-source-replayed [R4 compact audit](audits/CHAPTER2_CROSSED_ACCESS_SIGN_REVERSAL_20261023.json); it does **not** repeat the original 153,600 raw genotype files.
+
+
+## Additional original-source checks: R1–R3 without changing inference ranks
+
+The same read-only audit now checks **all five current R results** rather than treating R1–R3 as background text.
+
+**R1/R2 original registered source.** All four original fixed-A far-from-founder I changes remain negative (delayed −0.31935, prior −0.33163, pollen-discount −0.33473, direct-cost −0.31457), and all four old within-setting attenuation estimates remain positive (respectively +0.16054, +0.22002, +0.19150, +0.10075). The audit also verifies the source's original frozen interval gates. This is a *shared-founder* model result; it does not override the fresh 8-founder × 8-visitor **overall inconclusive** interaction test, for which direct-A-cost crosses zero. R1 fresh-founder fixed-A decline was verified in the prior PR #618 source recovery, not rerun here.
+
+**R2 baseline-specific counterexample.** The archived 384-path, 12-founder exploratory experiment's original sign arithmetic is checked for both nominal starting-A strata. The strong-baseline I decline-minus-maintained contrasts are **−0.080241** (start A=.3) and **−0.035699** (start A=.5); the weak-baseline contrasts are **+0.020725** and **+0.024631**. The paired initial genetic design does **not** match realized absolute pollen across baseline environments: the source explicitly preserves this confound. These numbers do not prove historical memory mediation or contradict fixed-A non-necessity.
+
+**R3 trait-specific prediction.** Archived leave-cell-out squared errors are recomputed as \`skill=1−SSE_model/SSE_intercept\`; the source-matched results for evolving A at B8 are **−0.459% founder-only I change**, **+0.359% visitor-history-only I change** and **+40.146% visitor-history-only M change**. The **97.622%** I source interaction-plus-realization residual remains deliberately *unpartitioned*: one stochastic realization per founder×visitor pairing cannot estimate pure drift. This is not held-out prediction for unseen founders.
+
+These checks are regression guards against accidentally **strengthening** an original claim through editorial synthesis. They do not create a second independent simulation, a larger preregistered study, or new inferential intervals.
+
+Source anchors: [original four-setting data](../data/results/chapter2_assurance_generality_20261006.json); [fresh-founder registered qualification](CHAPTER2_Q1_FRESH_FOUNDER_RESULTS_20261016.md); [baseline-384 admitted summary](audits/CHAPTER2_BASELINE_POLLEN_384_AUDIT_20261019.json); [R3 held-out source prediction](audits/CHAPTER2_FOUNDER_PREDICTABILITY_20261021.json).
 
 ## Concrete deeper questions with discriminating tests
 
