@@ -39,6 +39,23 @@ The fixed-state treatment contrast is `S_I(decline) − S_I(control)`. The sourc
 
 At census30, the original source-paired external pollen treatment differs, but resident **A, M, I, genotypes and full ancestry are all byte-identical**. Thus the contrast in S_I is a genuine native Model 3 **one-generation expectation difference** for each originally archived source state.
 
+## Verified GitHub original-genome replay and source-exact static result
+
+**Source-executed 2026-10-23**: the complete R2 census30 full-genotype replay succeeded in [GitHub Actions run 39929844856](https://github.com/zuizui0223/izu-core/actions/runs/39929844856), with author-review artifact ID **12491490791**. The archived `R2_CENSUS30_EXPECTED_I_SORTING.json` is 35,248 bytes, SHA256 `c53ae7220d5eb4bde3cef84bb73f2f890692edae29ec8f013636f7bdd6500c06`. **All 24 original complete census30 genotype fingerprints matched the authentic original source ZIP**. See the compact [readback receipt](audits/CHAPTER2_R2_CENSUS30_EXPECTED_I_SOURCE_RECEIPT_20261023.json), preserving provenance, all conditional counts and explicit inference limits.
+
+| Original prior pollen limitation | Source genomes (distinct founders) | Mean immediate S_I at maintained activity | Mean immediate S_I at visitor decline | Mean decline-minus-control S_I | Negative / positive source contrasts |
+|---|---:|---:|---:|---:|---:|
+| **Strong** | **22 (11 founders)** | −0.000251 | **−0.003109** | **−0.002858** | **22 / 0** |
+| Weak | 2 (2 founders) | +0.002324 | +0.004140 | +0.001816 | 0 / 2 |
+
+Each number is in *mean I trait units per expected one-generation reproductive replacement*, **not** a 50-year fitness coefficient or a proportion of evolutionary variance. At the original census30 source states, q before selfing averaged **0.139210 vs 0.016895** (strong history, maintained/decline) and **0.998304 vs 0.541484** (weak history).
+
+In all **22 strong-history original source genotypes**, the **one-generation expected I sorting** under visitor decline was more negative than under maintained activity, and its absolute value under decline was negative. This was tested on exactly the same 48 source diploid plants; no hypothetical reconstructed genotype distribution or fresh source was substituted. Among the original *realized* 50-generation paired trajectories, however, I ended lower under decline in **12/22** and reached the same numerical endpoint in **10/22**. These two statements are not contradictory: finite reproduction, loss of variation, genotype and pollen feedback, and chance sampling intervene after the initial static selection expectation.
+
+The two weak-history source cells have **positive** static decline-minus-maintained differences and heterogeneous realized I signs. Their sample is only 2, so the 22/2 contrast is not a cross-environment generalization. The 24 cells originate from **11 source founder seeds**, with nested demographic replicates and retrospectively identified A/M fixation; 22/22 is not a 22-independent-founder confirmatory result.
+
+These scientific comparisons were conducted **after exposure to the original 384 outcomes** and their source genotype subset. The known source result was audited against full original hashes before the additional readback; the numerical confidence comes from **source exactness and algebraic checks**, not a new independent experimental allocation.
+
 ## Limits: not yet a 50-generation selection-versus-drift decomposition
 
 A future stochastic 50-update trajectory has path-dependent mating environments, allele frequencies and reproduction. One initial conditional expected shift is **not** its long-run selection coefficient, selection/drift fraction, realized fixation probability or genetic causal mediation. A complete 50-generation pathwise decomposition would require reproducing the actual full sequence of genotypes and computing expected offspring I for **each visited state**, plus a residual for sampling/segregation. That can be attempted now that source genome reconstruction is possible, but such a pathwise identity would still not uniquely isolate a causal "drift share" without a well-defined counterfactual.
