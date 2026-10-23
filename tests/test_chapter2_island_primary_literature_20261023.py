@@ -46,7 +46,8 @@ def test_the_two_archival_manuscripts_share_same_current_island_context():
     end2="Repeated populations within comparable founding"
     assert a.split(start2,1)[1].split(end2,1)[0] == b.split(start2,1)[1].split(end2,1)[0]
     assert a.split("## Abstract\n",1)[1].split("## Introduction\n",1)[0] == (
-        b.split("## Abstract\n",1)[1].split("## Introduction\n",1)[0])
+        b.split("## Abstract — provisional, existing evidence only; NOT for submission\n",1)[1]
+         .split("## Introduction\n",1)[0])
     # Authoritative completed article, not the archival PENDING research proposals:
     main=a.split("## Introduction\n",1)[1].split("## Online Methods",1)[0]
     assert len(main.split())<=3500
