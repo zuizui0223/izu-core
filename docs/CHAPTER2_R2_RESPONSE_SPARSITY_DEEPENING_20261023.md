@@ -43,6 +43,8 @@ Even without the original matched-pair labels, inclusion–exclusion gives a low
 | 0.5 | **Strong** | 42 | 47 | **≥35** |
 | 0.5 | Weak | 22 | 13 | ≥0 |
 
+Since no more than **22** (A=.3) or **10** (A=.5) pairs were *already fixed* at census 30, these set bounds additionally imply **at least 21/48 and 25/48 pairs, respectively, were still A-polymorphic at the shock yet ended with zero A contrast and both future arms A-fixed at census 80**. This stronger lower bound establishes **post-shock endpoint convergence is present** among initially segregating cohorts. It does not show which underlying selection/sampling route produced it, or identify the exact individual trajectories from the summary alone.
+
 The two high lower bounds support *terminal fixation/convergence as a prominent compatible explanation* for many zero contrasts under strong prehistory, **while the source aggregate counts cannot attribute how much was caused by selection, neutral sampling, common genetic endpoints or direct visitor effects**. With no new mutation/immigration, a fixed locus remains fixed, but a previously polymorphic source may fix later in both futures. The bound is a property of three marginal event sets, not a reconstructed list of individual matching paths.
 
 ## Exact descriptive two-factor partition (not causal mediation)
