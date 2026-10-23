@@ -510,7 +510,8 @@ jobs:
             tests/test_chapter2_r2_response_sparsity_20261023.py \
             tests/test_chapter2_r2_static_maternal_pollen_boundary_20261023.py \
             tests/test_chapter2_r2_next_study_proposal_20261023.py \
-            tests/test_chapter2_r2_parental_return_boundary_20261023.py
+            tests/test_chapter2_r2_parental_return_boundary_20261023.py \
+            tests/test_chapter2_r2_original_384_pair_convergence_20261023.py
       - name: Read source-only R1-R5 direction/realization bridge (NOT new biology)
         run: python -m scripts.audit_chapter2_direction_realization_bridge_20261023 > /dev/null
       - name: Verify R2 source-384 response sparsity without biological rerun
