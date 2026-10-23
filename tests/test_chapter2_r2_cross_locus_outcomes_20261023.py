@@ -101,8 +101,8 @@ def _fake_state(A, I):
             "allele_counts": [96//len(vals)] * len(vals),
             "genotype_mean_variance": 0.0 if len(vals) == 1 else 0.012,
         }
-    return {"A": sum(A)/len(A), "I": sum(I)/len(I), "n": 48,
-            "genetic_support": {"A": locus(A), "I": locus(I)}}
+    return {"A": sum(A)/len(A), "I": sum(I)/len(I), "M": .5, "n": 48,
+            "genetic_support": {"A": locus(A), "I": locus(I), "M": locus((.5,))}}
 
 
 def _fake_pair(cA=(.75,),dA=(.75,),cI=(.5,),dI=(.25,)):
