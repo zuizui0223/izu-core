@@ -1,0 +1,125 @@
+{
+  "status": "PASS_ARCHIVED_384_PAIR_CROSS_LOCUS_DESCRIPTIVE_READBACK",
+  "source_zip_sha256": "10bb8bdd52b53b32429e350c2f392ed2aeaa791683ede1d563ae6627c5ecb35e",
+  "source_commit": "eb785dc6865ca1842ec9d6c7d511778c74e03478",
+  "protocol_sha256": "87af92484af9988181b4f3bed6760d39325de70cca8c0b4e1cec19c47b8c9849",
+  "source_actions_run_id": 39233450099,
+  "n_independent_founders": 12,
+  "n_nested_demographic_repeats": 4,
+  "n_original_paths": 384,
+  "n_original_paired_futures": 192,
+  "n_A_zero_pairs": 103,
+  "n_A_nonzero_pairs": 89,
+  "totals": {
+    "A_zero_I_nonzero": 54,
+    "A_zero_I_allele_support_differs": 54,
+    "A_zero_I_zero": 49,
+    "A_prefix_polymorphic_A_zero_I_nonzero": 36,
+    "A_nonzero_both_fixed_to_distinct_values": 1,
+    "A_nonzero_only_one_future_fixed": 44,
+    "A_nonzero_both_futures_polymorphic": 44,
+    "A_fixed_at_shock_A_zero_I_nonzero": 18,
+    "A_and_M_fixed_I_polymorphic_at_shock_I_nonzero": 14,
+    "strict_A_M_frozen_I_negative": 13,
+    "strict_A_M_frozen_I_positive": 1
+  },
+  "strata": [
+    {
+      "initial_A": 0.3,
+      "baseline": "strong_baseline_limitation",
+      "n_matched_futures": 48,
+      "n_A_treatment_contrast_exact_zero": 45,
+      "n_A_zero_but_I_negative": 23,
+      "n_A_zero_but_I_exact_zero": 19,
+      "n_A_zero_but_I_positive": 3,
+      "n_A_zero_but_I_allele_support_differs": 26,
+      "n_A_prefix_polymorphic_then_A_zero_and_I_nonzero": 14,
+      "mean_signed_I_contrast_within_A_zero": -0.0697337962962963,
+      "n_A_treatment_contrast_nonzero": 3,
+      "A_nonzero_terminal_fixation_phases": {
+        "both_fixed_to_distinct_values": 1,
+        "only_decline_fixed": 2
+      },
+      "n_A_already_fixed_at_shock_but_I_nonzero": 12,
+      "n_A_M_already_fixed_I_polymorphic_at_shock_but_I_nonzero": 10,
+      "strict_A_M_frozen_I_negative": 10,
+      "strict_A_M_frozen_I_positive": 0
+    },
+    {
+      "initial_A": 0.3,
+      "baseline": "weak_baseline_limitation",
+      "n_matched_futures": 48,
+      "n_A_treatment_contrast_exact_zero": 8,
+      "n_A_zero_but_I_negative": 2,
+      "n_A_zero_but_I_exact_zero": 0,
+      "n_A_zero_but_I_positive": 6,
+      "n_A_zero_but_I_allele_support_differs": 8,
+      "n_A_prefix_polymorphic_then_A_zero_and_I_nonzero": 7,
+      "mean_signed_I_contrast_within_A_zero": 0.037109374999999986,
+      "n_A_treatment_contrast_nonzero": 40,
+      "A_nonzero_terminal_fixation_phases": {
+        "both_polymorphic": 22,
+        "only_control_fixed": 10,
+        "only_decline_fixed": 8
+      },
+      "n_A_already_fixed_at_shock_but_I_nonzero": 1,
+      "n_A_M_already_fixed_I_polymorphic_at_shock_but_I_nonzero": 1,
+      "strict_A_M_frozen_I_negative": 1,
+      "strict_A_M_frozen_I_positive": 0
+    },
+    {
+      "initial_A": 0.5,
+      "baseline": "strong_baseline_limitation",
+      "n_matched_futures": 48,
+      "n_A_treatment_contrast_exact_zero": 42,
+      "n_A_zero_but_I_negative": 14,
+      "n_A_zero_but_I_exact_zero": 27,
+      "n_A_zero_but_I_positive": 1,
+      "n_A_zero_but_I_allele_support_differs": 15,
+      "n_A_prefix_polymorphic_then_A_zero_and_I_nonzero": 11,
+      "mean_signed_I_contrast_within_A_zero": -0.033420138888888895,
+      "n_A_treatment_contrast_nonzero": 6,
+      "A_nonzero_terminal_fixation_phases": {
+        "both_polymorphic": 1,
+        "only_decline_fixed": 5
+      },
+      "n_A_already_fixed_at_shock_but_I_nonzero": 4,
+      "n_A_M_already_fixed_I_polymorphic_at_shock_but_I_nonzero": 2,
+      "strict_A_M_frozen_I_negative": 2,
+      "strict_A_M_frozen_I_positive": 0
+    },
+    {
+      "initial_A": 0.5,
+      "baseline": "weak_baseline_limitation",
+      "n_matched_futures": 48,
+      "n_A_treatment_contrast_exact_zero": 8,
+      "n_A_zero_but_I_negative": 1,
+      "n_A_zero_but_I_exact_zero": 3,
+      "n_A_zero_but_I_positive": 4,
+      "n_A_zero_but_I_allele_support_differs": 5,
+      "n_A_prefix_polymorphic_then_A_zero_and_I_nonzero": 4,
+      "mean_signed_I_contrast_within_A_zero": 0.01790364583333333,
+      "n_A_treatment_contrast_nonzero": 40,
+      "A_nonzero_terminal_fixation_phases": {
+        "both_polymorphic": 21,
+        "only_control_fixed": 14,
+        "only_decline_fixed": 5
+      },
+      "n_A_already_fixed_at_shock_but_I_nonzero": 1,
+      "n_A_M_already_fixed_I_polymorphic_at_shock_but_I_nonzero": 1,
+      "strict_A_M_frozen_I_negative": 0,
+      "strict_A_M_frozen_I_positive": 1
+    }
+  ],
+  "evidence_grade": "POST_OUTCOME_SOURCE_DESCRIPTIVE_NO_NEW_EVOLUTION",
+  "new_population_updates": 0,
+  "new_statistical_tests": 0,
+  "limitations": [
+    "Conditioning on observed terminal A contrast is post-outcome, not an intervention fixing A",
+    "12 founders rather than 192 independently sampled biological systems",
+    "Equal A allele value is not demonstrated common identity by descent",
+    "Does not prove that A and I evolve causally independently or that there is no A effect",
+    "Does not establish population extinction, source-colonization histories or natural-island generality"
+  ],
+  "strict_criterion": "A and M monomorphic at census30; I polymorphic at census30; no mutation or immigration; terminal I treatment difference nonzero"
+}
