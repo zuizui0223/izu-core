@@ -1,4 +1,4 @@
-"""Read-only R1/R3/R4/R5 source bridge: no visitors and competing outcomes.
+"""Read-only R1–R5 source bridge: no visitors and competing outcomes.
 
 No biological simulation, population update, new inferential endpoint or statistical
 test. An instantaneous analytical payoff identity is compared with previously
@@ -24,6 +24,8 @@ CROSSED = ROOT / "docs/audits/CHAPTER2_CROSSED_ACCESS_SIGN_REVERSAL_20261023.jso
 ORIGINAL = ROOT / "data/results/chapter2_assurance_generality_20261006.json"
 BASELINE = ROOT / "docs/audits/CHAPTER2_BASELINE_POLLEN_384_AUDIT_20261019.json"
 PREDICTION = ROOT / "docs/audits/CHAPTER2_FOUNDER_PREDICTABILITY_20261021.json"
+FRESH = ROOT / "docs/CHAPTER2_TWO_PROPOSITION_EVIDENCE_RECEIPT_20261016.json"
+FRESH_REPORT = ROOT / "docs/CHAPTER2_Q1_FRESH_FOUNDER_RESULTS_20261016.md"
 
 
 def source_no_visitor_payoff(*, timing: str, mode: str, investment_cost: float = 0.4) -> dict:
@@ -182,6 +184,28 @@ def original_R1_R2_readback() -> dict:
             "fixed_A_far_I_change_from_founder": fixed["mean"],
             "A_evolution_attenuation_near_far": interaction["mean"],
         })
+    fresh = json.loads(FRESH.read_text(encoding="utf-8"))["fresh_founder_q1"]
+    if not (fresh["independent_founder_draws"] == 8 and
+            fresh["independent_exogenous_visitor_histories"] == 8 and
+            fresh["original_32_shard_case_count"] == 1088):
+        raise AssertionError("not the originally admitted independent-fresh-founder cohort")
+    if "fresh_founder_4setting_inconclusive" not in FRESH_REPORT.read_text(encoding="utf-8"):
+        raise AssertionError("missing the original registered inconclusive decision")
+    fresh_rows = fresh["settings"]
+    if len(fresh_rows) != 4 or len({row["setting"] for row in fresh_rows}) != 4:
+        raise AssertionError("fresh-founder four-setting scope changed")
+    fresh_nonnecessity = []
+    for row in fresh_rows:
+        if not (row["negative_fixed_founder_means"] == 8 and
+                row["fixed_far_change_from_actual_founder_mean"] < 0 and
+                row["fixed_far_change_bootstrap95"][1] < 0):
+            raise AssertionError("fresh-founder fixed-A R1 support was not preserved")
+        fresh_nonnecessity.append({
+            "setting": row["setting"],
+            "fixed_A_far_I_change_from_actual_founder":
+                row["fixed_far_change_from_actual_founder_mean"],
+            "negative_fixed_founder_marginals": row["negative_fixed_founder_means"],
+        })
     baseline = json.loads(BASELINE.read_text(encoding="utf-8"))
     if baseline["status"] != "EXPLORATORY_RAW_ENDPOINT_AUDIT_PASS":
         raise AssertionError("384-path source is not admitted")
@@ -209,6 +233,7 @@ def original_R1_R2_readback() -> dict:
         })
     return {
         "original_registered_four_setting": fixed_and_attenuation,
+        "independent_fresh_founder_fixed_A_readback": fresh_nonnecessity,
         "independent_fresh_founder_four_setting_overall": "INCONCLUSIVE",
         "exploratory_384_baseline_regime_sign_reversal": reversals,
         "not_identified": "A-only genetic mediation or history-only effect",
