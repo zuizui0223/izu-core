@@ -104,8 +104,31 @@ def analyze() -> dict:
                 and weak["mean_signed_contrast_given_prefix_polymorphic"] >
                     strong["mean_signed_contrast_given_prefix_polymorphic"]):
             raise AssertionError("observed R2 sparse-response direction changed")
+        # Symmetric two-factor algebra (Shapley/Oaxaca identity), NOT a
+        # biological intervention on response incidence or allele fixation.
+        p_s, p_w = strong["nonzero_fraction"], weak["nonzero_fraction"]
+        m_s = strong["mean_signed_contrast_given_exact_nonzero"]
+        m_w = weak["mean_signed_contrast_given_exact_nonzero"]
+        frequency_component = (p_w-p_s)*(m_w+m_s)/2
+        conditional_component = (m_w-m_s)*(p_w+p_s)/2
+        pfix_s = strong["prefix_polymorphic_A_pairs"] / 48
+        pfix_w = weak["prefix_polymorphic_A_pairs"] / 48
+        mfix_s = strong["mean_signed_contrast_given_prefix_polymorphic"]
+        mfix_w = weak["mean_signed_contrast_given_prefix_polymorphic"]
+        prefix_composition_component = (pfix_w-pfix_s)*(mfix_w+mfix_s)/2
+        prefix_conditional_component = (mfix_w-mfix_s)*(pfix_w+pfix_s)/2
+        overall = weak["unconditional_signed_mean_A_contrast"] - strong["unconditional_signed_mean_A_contrast"]
+        if not (abs(frequency_component + conditional_component - overall) < 1e-12
+                and abs(prefix_composition_component + prefix_conditional_component - overall) < 1e-12):
+            raise AssertionError("symmetric descriptive decomposition did not add to original contrast")
         comparisons.append({
             "initial_A": a,
+            "weak_minus_strong_A": overall,
+            "nonzero_frequency_arithmetic_component": frequency_component,
+            "nonzero_conditional_magnitude_arithmetic_component": conditional_component,
+            "prefix_polymorphic_frequency_arithmetic_component": prefix_composition_component,
+            "prefix_polymorphic_conditional_arithmetic_component": prefix_conditional_component,
+            "decomposition_is_not_causal_mediation": True,
             "weak_minus_strong_nonzero_fraction": weak["nonzero_fraction"] - strong["nonzero_fraction"],
             "weak_minus_strong_unconditional_A": (
                 weak["unconditional_signed_mean_A_contrast"] -
