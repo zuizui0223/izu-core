@@ -506,9 +506,16 @@ jobs:
             tests/test_chapter2_reporting_summary_source_bound_20261022.py \
             tests/test_chapter2_crossed_access_sign_20261023.py \
             tests/test_chapter2_nee_article_format_20261023.py \
-            tests/test_chapter2_direction_realization_bridge_20261023.py
+            tests/test_chapter2_direction_realization_bridge_20261023.py \
+            tests/test_chapter2_r2_response_sparsity_20261023.py \
+            tests/test_chapter2_r2_static_maternal_pollen_boundary_20261023.py \
+            tests/test_chapter2_r2_next_study_proposal_20261023.py
       - name: Read source-only R1-R5 direction/realization bridge (NOT new biology)
         run: python -m scripts.audit_chapter2_direction_realization_bridge_20261023 > /dev/null
+      - name: Verify R2 source-384 response sparsity without biological rerun
+        run: python -m scripts.audit_chapter2_r2_response_sparsity_20261023 > /dev/null
+      - name: Verify R2 static maternal pollen payoff only (NO biological simulation)
+        run: python -m scripts.audit_chapter2_r2_static_maternal_pollen_boundary_20261023 > /dev/null
       - name: Verify computational Methods source receipts without rerunning biology
         run: |
           mkdir -p outputs/chapter2_r1_r5_author_review
