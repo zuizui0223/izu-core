@@ -42,6 +42,18 @@ def classify_cross_locus(c: dict, d: dict) -> dict:
                 or any(not 0 <= x <= 1 for x in support["allele_values"])):
             raise AssertionError("source terminal I allele support invalid")
     i_difference = d["t_end"]["I"] - c["t_end"]["I"]
+    prefix = c["t_prefix"]["genetic_support"]
+    prefix_A_fixed = len(prefix["A"]["allele_values"]) == 1
+    prefix_M_fixed = len(prefix["M"]["allele_values"]) == 1
+    prefix_I_polymorphic = len(prefix["I"]["allele_values"]) > 1
+    if prefix_A_fixed != (not a["A_prefix_polymorphic"] if "A_prefix_polymorphic" in a else a["prefix_fixed"]):
+        raise AssertionError("A prefix fixation contradicts source parent audit")
+    if prefix_M_fixed:
+        m0 = prefix["M"]["allele_values"][0]
+        if (c["t_end"]["M"] != m0 or d["t_end"]["M"] != m0
+                or c["t_end"]["genetic_support"]["M"]["allele_values"] != [m0]
+                or d["t_end"]["genetic_support"]["M"]["allele_values"] != [m0]):
+            raise AssertionError("M numeric fixation not absorbed under no mutation")
     A1 = c["t_end"]["genetic_support"]["A"]["allele_values"]
     A2 = d["t_end"]["genetic_support"]["A"]["allele_values"]
     if a["zero"] and not a["same_fixed_A"]:
@@ -62,6 +74,10 @@ def classify_cross_locus(c: dict, d: dict) -> dict:
         "A_zero": a["zero"],
         "A_prefix_polymorphic": not a["prefix_fixed"],
         "A_terminal_stage": stage,
+        "A_fixed_at_shock": prefix_A_fixed,
+        "M_fixed_at_shock": prefix_M_fixed,
+        "I_polymorphic_at_shock": prefix_I_polymorphic,
+        "M_same_numeric_endpoint": c["t_end"]["M"] == d["t_end"]["M"],
         "I_diff": i_difference,
         "I_support_different": I1 != I2,
         "I_nonzero": i_difference != 0,
@@ -111,6 +127,14 @@ def analyze(original_zip: Path) -> dict:
         count_changed_support = sum(r["I_support_different"] for r in zeros)
         poly_and_investment = sum(r["A_prefix_polymorphic"] and r["I_nonzero"]
                                   for r in zeros)
+        fixed_A_and_I = sum(r["A_fixed_at_shock"] and r["I_nonzero"] for r in zeros)
+        strict_only_I_seg = [
+            r for r in zeros
+            if r["A_fixed_at_shock"] and r["M_fixed_at_shock"]
+            and r["I_polymorphic_at_shock"] and r["I_nonzero"]
+        ]
+        if any(not r["M_same_numeric_endpoint"] for r in strict_only_I_seg):
+            raise AssertionError("strict A/M-frozen source has M expression divergence")
         mean_zero = sum(r["I_diff"] for r in zeros) / len(zeros)
         expected = EXPECTED[key]
         if ((len(zeros), neg, izero, pos, poly_and_investment) !=
@@ -130,6 +154,10 @@ def analyze(original_zip: Path) -> dict:
             "n_A_zero_but_I_positive": pos,
             "n_A_zero_but_I_allele_support_differs": count_changed_support,
             "n_A_prefix_polymorphic_then_A_zero_and_I_nonzero": poly_and_investment,
+            "n_A_already_fixed_at_shock_but_I_nonzero": fixed_A_and_I,
+            "n_A_M_already_fixed_I_polymorphic_at_shock_but_I_nonzero": len(strict_only_I_seg),
+            "strict_A_M_frozen_I_negative": sum(r["I_negative"] for r in strict_only_I_seg),
+            "strict_A_M_frozen_I_positive": sum(r["I_positive"] for r in strict_only_I_seg),
             "mean_signed_I_contrast_within_A_zero": mean_zero,
             "n_A_treatment_contrast_nonzero": len(others),
             "A_nonzero_terminal_fixation_phases": phases,
@@ -140,6 +168,10 @@ def analyze(original_zip: Path) -> dict:
         "A_zero_I_allele_support_differs": sum(r["n_A_zero_but_I_allele_support_differs"] for r in results),
         "A_zero_I_zero": sum(r["n_A_zero_but_I_exact_zero"] for r in results),
         "A_prefix_polymorphic_A_zero_I_nonzero": sum(r["n_A_prefix_polymorphic_then_A_zero_and_I_nonzero"] for r in results),
+        "A_fixed_at_shock_A_zero_I_nonzero": sum(r["n_A_already_fixed_at_shock_but_I_nonzero"] for r in results),
+        "A_and_M_fixed_I_polymorphic_at_shock_I_nonzero": sum(r["n_A_M_already_fixed_I_polymorphic_at_shock_but_I_nonzero"] for r in results),
+        "strict_A_M_frozen_I_negative": sum(r["strict_A_M_frozen_I_negative"] for r in results),
+        "strict_A_M_frozen_I_positive": sum(r["strict_A_M_frozen_I_positive"] for r in results),
         "A_nonzero_both_fixed_to_distinct_values": sum(
             r["A_nonzero_terminal_fixation_phases"].get("both_fixed_to_distinct_values", 0) for r in results),
         "A_nonzero_only_one_future_fixed": sum(
@@ -151,6 +183,10 @@ def analyze(original_zip: Path) -> dict:
     if totals != {
         "A_zero_I_nonzero": 54, "A_zero_I_allele_support_differs": 54,
         "A_zero_I_zero": 49, "A_prefix_polymorphic_A_zero_I_nonzero": 36,
+        "A_fixed_at_shock_A_zero_I_nonzero": 18,
+        "A_and_M_fixed_I_polymorphic_at_shock_I_nonzero": 14,
+        "strict_A_M_frozen_I_negative": 13,
+        "strict_A_M_frozen_I_positive": 1,
         "A_nonzero_both_fixed_to_distinct_values": 1,
         "A_nonzero_only_one_future_fixed": 44,
         "A_nonzero_both_futures_polymorphic": 44,
@@ -166,6 +202,7 @@ def analyze(original_zip: Path) -> dict:
         "n_nested_demographic_repeats": 4,
         "n_original_paths": 384, "n_original_paired_futures": 192,
         "n_A_zero_pairs": 103, "n_A_nonzero_pairs": 89,
+        "strict_criterion": "A and M monomorphic at census30; I polymorphic at census30; no mutation or immigration; terminal I treatment difference nonzero",
         "totals": totals, "strata": results,
         "evidence_grade": "POST_OUTCOME_SOURCE_DESCRIPTIVE_NO_NEW_EVOLUTION",
         "new_population_updates": 0, "new_statistical_tests": 0,
