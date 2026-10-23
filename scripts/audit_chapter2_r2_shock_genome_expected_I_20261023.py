@@ -30,7 +30,7 @@ ROOT = Path(__file__).resolve().parents[1]
 ROSTER = ROOT / "data/design/chapter2_r2_original_384_strict_AM_prefixes_20261023.csv"
 # This is the exact immutable Git blob SHA of the roster derived from the
 # original 2026-10-19 Actions ZIP (original ZIP SHA-256 listed below).
-ROSTER_BLOB_SHA = "REPLACE_WITH_VERIFIED_GIT_BLOB_SHA"
+ROSTER_BLOB_SHA = "6b04ee9a5cd6c2342e397c6c69539688474b391f"
 SOURCE_COMMIT = "eb785dc6865ca1842ec9d6c7d511778c74e03478"
 SOURCE_ZIP_SHA256 = "10bb8bdd52b53b32429e350c2f392ed2aeaa791683ede1d563ae6627c5ecb35e"
 ORIGINAL_PROTOCOL_SHA256 = "87af92484af9988181b4f3bed6760d39325de70cca8c0b4e1cec19c47b8c9849"
