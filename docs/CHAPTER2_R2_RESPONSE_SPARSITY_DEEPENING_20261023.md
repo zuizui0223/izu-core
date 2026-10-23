@@ -28,6 +28,23 @@ The key constraint is more specific than "fixation explains memory": in strong b
 
 These 23/32 nonfixed-at-shock pairs with zero terminal policy contrast are an explicit reason **not to attribute all baseline-response attenuation to prefix fixation**. Shared endpoints after alternative trajectories, source-specific pollen availability and selection responses, later fixation or low observable effect are all candidates; their relative contributions have not been identified. In particular, a zero **paired difference** need not mean that neither arm's A changed.
 
+## A further rigorous bound: final fixation overlaps with zero treatment effects
+
+The *independent reviewer* saved the fraction of A-locus monomorphism separately in both future arms. Under strong prehistory A=.3, the 48 controls include **46** A-fixed endpoints and the 48 decline futures include **48**; the corresponding counts for A=.5 are **42** and **47**. Since census-30 A was fixed in only 22/48 and 10/48 source pairs, respectively, the additional fixed endpoints amount to 24/26 and 32/37 across control/decline arms. This is a count change within already executed histories, **not** a new test of fixation causality.
+
+Even without the original matched-pair labels, inclusion–exclusion gives a lower bound on the number of pairs that (i) show exactly zero A decline-minus-control terminal contrast and (ii) are monomorphic for A at **both** endpoints:
+
+`N(joint) >= max(0, N(zero contrast)+N(control A fixed)+N(decline A fixed)−2×48)`.
+
+| Initial A | Prehistory | Fixed A: control /48 | Fixed A: decline /48 | Lower bound: zero A contrast **and both terminal states fixed** /48 |
+| ---: | --- | ---: | ---: | ---: |
+| 0.3 | **Strong** | 46 | 48 | **≥43** |
+| 0.3 | Weak | 18 | 16 | ≥0 |
+| 0.5 | **Strong** | 42 | 47 | **≥35** |
+| 0.5 | Weak | 22 | 13 | ≥0 |
+
+The two high lower bounds support *terminal fixation/convergence as a prominent compatible explanation* for many zero contrasts under strong prehistory, **while the source aggregate counts cannot attribute how much was caused by selection, neutral sampling, common genetic endpoints or direct visitor effects**. With no new mutation/immigration, a fixed locus remains fixed, but a previously polymorphic source may fix later in both futures. The bound is a property of three marginal event sets, not a reconstructed list of individual matching paths.
+
 ## Exact descriptive two-factor partition (not causal mediation)
 
 Because `mean(D) = p_nonzero × mean(D | D!=0)`, the observed weak-minus-strong difference can be split **symmetrically and arithmetically** into a term associated with nonzero-response frequency and a term associated with mean signed size among nonzero responses. This is the two-order average of a product identity, **not** an intervention on incidence, a fixed threshold or a biological mediation fraction.
