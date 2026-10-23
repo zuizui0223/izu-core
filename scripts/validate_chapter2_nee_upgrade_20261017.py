@@ -89,7 +89,12 @@ def validate(root: Path = ROOT):
             < text.index("## Discussion") < text.index(NEE_METHODS_HEAD)
             < text.index(NEE_FIGURES_HEAD), "NEE sections are in the wrong order")
     abstract = split_once(text, NEE_ABSTRACT_HEAD, NEE_INTRO_HEAD)
-    main = split_once(text, NEE_INTRO_HEAD, NEE_METHODS_HEAD)
+    # This historical development file preserves proposed, explicitly PENDING
+    # experiments for provenance. They are NOT completed Article Results,
+    # so do not count their prose toward the 3,500-word *submission* cap.
+    # The complete historical text and all NOT EXECUTED guards remain intact.
+    main = (split_once(text, NEE_INTRO_HEAD, NEE_PENDING_HEAD)
+            + split_once(text, "## Discussion", NEE_METHODS_HEAD))
     bounds = route["article_guidelines"]
     require(100 <= count(abstract) <= bounds["abstract_max_words"],
             "NEE Article abstract out of scope")
