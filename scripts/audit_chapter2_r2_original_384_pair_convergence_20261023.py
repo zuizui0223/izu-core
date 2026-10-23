@@ -51,8 +51,8 @@ def classify_pair(control: dict, decline: dict) -> dict:
             raise AssertionError("unmatched source treatment future: " + field)
     if (control["arm"] != "control" or decline["arm"] != "decline"
             or control["reproduction_records"][:30] != decline["reproduction_records"][:30]
-            or control["updates"] != decline["updates"] != 80
-            or control["prefix_updates"] != decline["prefix_updates"] != 30
+            or not (control["updates"] == decline["updates"] == 80)
+            or not (control["prefix_updates"] == decline["prefix_updates"] == 30)
             or not control["alive_at_end"] or not decline["alive_at_end"]):
         raise AssertionError("invalid original paired living futures")
     a0, c, d = [_alleles(row, point) for row, point in
