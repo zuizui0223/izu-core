@@ -60,11 +60,34 @@ def test_each_old_A_cofixed_stratum_retains_independent_I_responses():
         "A_zero_I_allele_support_differs": 54,
         "A_zero_I_zero": 49,
         "A_prefix_polymorphic_A_zero_I_nonzero": 36,
+        "A_fixed_at_shock_A_zero_I_nonzero": 18,
+        "A_and_M_fixed_I_polymorphic_at_shock_I_nonzero": 14,
+        "strict_A_M_frozen_I_negative": 13,
+        "strict_A_M_frozen_I_positive": 1,
         "A_nonzero_both_fixed_to_distinct_values": 1,
         "A_nonzero_only_one_future_fixed": 44,
         "A_nonzero_both_futures_polymorphic": 44,
     }
     assert total["A_zero_I_nonzero"] + total["A_zero_I_zero"] == 103
+    assert (total["A_prefix_polymorphic_A_zero_I_nonzero"]
+            + total["A_fixed_at_shock_A_zero_I_nonzero"]) == 54
+    assert total["A_and_M_fixed_I_polymorphic_at_shock_I_nonzero"] == (
+        total["strict_A_M_frozen_I_negative"] + total["strict_A_M_frozen_I_positive"]
+    ) == 14
+    strict = {
+        (0.3, "strong_baseline_limitation"): (12, 10, 10, 0),
+        (0.3, "weak_baseline_limitation"): (1, 1, 1, 0),
+        (0.5, "strong_baseline_limitation"): (4, 2, 2, 0),
+        (0.5, "weak_baseline_limitation"): (1, 1, 0, 1),
+    }
+    for row in x["strata"]:
+        expected = strict[(row["initial_A"], row["baseline"])]
+        assert (
+            row["n_A_already_fixed_at_shock_but_I_nonzero"],
+            row["n_A_M_already_fixed_I_polymorphic_at_shock_but_I_nonzero"],
+            row["strict_A_M_frozen_I_negative"],
+            row["strict_A_M_frozen_I_positive"],
+        ) == expected
     assert (total["A_nonzero_both_fixed_to_distinct_values"]
             + total["A_nonzero_only_one_future_fixed"]
             + total["A_nonzero_both_futures_polymorphic"]) == 89
@@ -105,6 +128,25 @@ def test_A_convergence_can_coexist_with_I_allele_and_mean_difference():
     assert r["A_terminal_stage"] == "both_fixed_same_A_value"
     assert r["I_diff"] == pytest.approx(-.25)
     assert r["I_support_different"] and r["I_negative"]
+    assert not r["A_fixed_at_shock"]
+    assert not r["M_fixed_at_shock"]
+
+
+def test_strict_native_fixed_A_and_M_does_not_prevent_I_difference():
+    c, d = _fake_pair()
+    for row in (c, d):
+        row["t_prefix"] = _fake_state((.75,), (.25, .5))
+        row["t_prefix"]["genetic_support"]["M"] = {
+            "allele_values": [.5], "allele_counts": [96], "genotype_mean_variance": 0.0
+        }
+        row["t_prefix"]["M"] = .5
+    r = classify_cross_locus(c, d)
+    assert r["A_zero"] and r["A_fixed_at_shock"] and r["M_fixed_at_shock"]
+    assert r["I_polymorphic_at_shock"] and r["I_negative"]
+    assert r["M_same_numeric_endpoint"]
+    d["t_end"]["genetic_support"]["M"]["allele_values"] = [.75]
+    with pytest.raises(AssertionError, match="M numeric fixation"):
+        classify_cross_locus(c, d)
 
 
 def test_mean_A_same_does_not_imply_identical_A_support():
