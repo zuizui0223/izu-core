@@ -104,6 +104,7 @@ def analyze() -> dict:
                 "newly_fixed_A_control_since_prefix": end_fixed["control"] - fixed,
                 "newly_fixed_A_decline_since_prefix": end_fixed["decline"] - fixed,
                 "at_least_zero_and_both_terminal_fixed": triple_minimum,
+                "at_least_prefix_polymorphic_then_both_fixed_and_zero": max(0, triple_minimum - fixed),
                 "lower_bound_only_no_joint_path_identity_reconstructed": True,
                 "zero_among_prefix_polymorphic_pairs": zero - fixed,
                 "unconditional_signed_mean_A_contrast": mean,
