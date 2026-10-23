@@ -37,6 +37,7 @@ def test_zero_response_counts_and_prefix_fixation_are_not_confused():
         assert x["nonzero_exact_A_contrast_pairs"] == nonzero
         assert x["prefix_fixed_A_pairs"] == fixed
         assert x["zero_among_prefix_polymorphic_pairs"] == zero_nonfixed
+        assert x["lower_bound_only_no_joint_path_identity_reconstructed"]
         assert x["nonzero_fraction"] == pytest.approx(nonzero / 48)
         assert x["mean_signed_contrast_given_exact_nonzero"] * nonzero / 48 == pytest.approx(
             x["unconditional_signed_mean_A_contrast"], abs=1e-14
@@ -44,6 +45,25 @@ def test_zero_response_counts_and_prefix_fixation_are_not_confused():
         assert x["mean_signed_contrast_given_prefix_polymorphic"] * (48-fixed)/48 == pytest.approx(
             x["unconditional_signed_mean_A_contrast"], abs=1e-14
         )
+
+
+def test_joint_terminal_fixed_and_zero_bounds_from_three_sets():
+    rows = {(x["initial_A"], x["baseline"].startswith("strong")): x
+            for x in audit.analyze()["strata"]}
+    expected = {
+        (0.3, True): (46, 48, 24, 26, 43),
+        (0.3, False): (18, 16, 17, 15, 0),
+        (0.5, True): (42, 47, 32, 37, 35),
+        (0.5, False): (22, 13, 21, 12, 0),
+    }
+    for key, (fixed_control, fixed_decline, new_control, new_decline, lower) in expected.items():
+        r = rows[key]
+        assert r["terminal_fixed_A_control"] == fixed_control
+        assert r["terminal_fixed_A_decline"] == fixed_decline
+        assert r["newly_fixed_A_control_since_prefix"] == new_control
+        assert r["newly_fixed_A_decline_since_prefix"] == new_decline
+        assert r["at_least_zero_and_both_terminal_fixed"] == lower
+        assert lower <= r["zero_exact_A_contrast_pairs"]
 
 
 def test_conditional_results_are_descriptive_not_fixation_mediation():
