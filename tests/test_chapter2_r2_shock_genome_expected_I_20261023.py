@@ -6,6 +6,8 @@ or causal attribution to selection-versus-drift over 50 generations.
 from __future__ import annotations
 
 from types import SimpleNamespace
+import json
+from pathlib import Path
 
 import numpy as np
 import pytest
@@ -99,3 +101,32 @@ def test_source_recovery_is_exact_but_no_new_futures():
         assert len(r["I_allele_values_at_shock"])>1
         assert r["native_one_generation"]["decline"]["source_outcross_fraction_q"]<r[
             "native_one_generation"]["control"]["source_outcross_fraction_q"]
+
+    root = Path(__file__).resolve().parents[1]
+    receipt=json.loads((root/"docs/audits/CHAPTER2_R2_CENSUS30_EXPECTED_I_SOURCE_RECEIPT_20261023.json").read_text())
+    source=json.loads((root/"docs/audits/CHAPTER2_R2_FROZEN_AM_I_SORTING_20261023.json").read_text())
+    assert receipt["status"]=="PASS_ORIGINAL_24_CENSUS30_GENOMES_STATIC_EXPECTED_I_SOURCE_READBACK"
+    assert receipt["verified_original_GitHub_replay_workflow_run_id"]==39929844856
+    assert receipt["verified_original_replay_actions_artifact_id"]==12491490791
+    assert receipt["verified_full_replay_JSON_sha256"]=="c53ae7220d5eb4bde3cef84bb73f2f890692edae29ec8f013636f7bdd6500c06"
+    assert receipt["reconstructed_full_prefix_genomes_verified_by_SHA256"]==24
+    assert receipt["new_independent_future_model_updates"]==0
+    assert receipt["new_statistical_tests"]==0
+    for z in report["summaries"]:
+        s=receipt["one_generation_native_parentage_expected_I"][z["baseline"]]
+        rows=[r for r in report["rows"] if r["baseline"]==z["baseline"]]
+        assert len(rows)==s["n"]==z["n_original_source_genomes"]
+        control=np.mean([r["native_one_generation"]["control"]["expected_one_generation_I_shift"] for r in rows])
+        decline=np.mean([r["native_one_generation"]["decline"]["expected_one_generation_I_shift"] for r in rows])
+        diff=np.mean([r["decline_minus_control_expected_I_sorting"] for r in rows])
+        assert control==pytest.approx(s["mean_expected_shift_control"],abs=1e-12)
+        assert decline==pytest.approx(s["mean_expected_shift_decline"],abs=1e-12)
+        assert diff==pytest.approx(s["mean_decline_minus_control_expected_shift"],abs=1e-12)
+        assert z["n_static_expected_treatment_negative"]==s["n_expected_treatment_difference_negative"]
+        assert z["n_static_expected_treatment_positive"]==s["n_expected_treatment_difference_positive"]
+    # The known finite-horizon outcome is deliberately NOT overwritten with
+    # the new one-generation expectation: 10/22 had exactly zero I contrast.
+    assert source["totals"]["strong_I_treatment_negative"]==12
+    assert source["totals"]["strong_I_treatment_zero"]==10
+    assert source["totals"]["strong_I_treatment_positive"]==0
+    assert report["summaries"][0]["n_static_expected_treatment_negative"]==22
