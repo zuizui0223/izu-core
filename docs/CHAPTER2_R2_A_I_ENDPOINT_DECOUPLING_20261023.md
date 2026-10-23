@@ -26,6 +26,24 @@ For historically strong limitation, **41 of 87** dA-zero pairs have nonzero I, m
 
 This is a **trait-specific finite-source endpoint pattern**, not proof that I evolved without any influence of A or that the A and I loci are mechanistically independent. The pairs can have different **intermediate A histories**, matching traits M, population genetic covariance and offspring sampling even when terminal A is the same. Conditioning on terminal dA=0 is post-treatment conditioning and can itself select particular histories.
 
+## Strict no-A/no-M-evolution negative control within the same paired futures
+
+We additionally inspected the **source state at the moment of imposed pollinator decline (census 30)**, not just terminal A equality. Of 192 paired source futures, **34** already had A fixed at that point (strong-limit A0=.3: 22; weak-limit A0=.3: 1; strong-limit A0=.5: 10; weak-limit A0=.5: 1). The native 384 design has **zero mutation and no immigration**, so these sources retain a constant numerical A allele/phenotype during *both* subsequent futures.
+
+**18 of those 34 already-A-fixed pairs still developed nonzero I treatment differences**, all from sources with I segregating at census 30. Of those 18, **14 pairs also had numerically fixed matching trait M at census 30**, while I remained polymorphic. Both A and M therefore stayed numerically invariant during their paired 50-update futures; yet the I endpoints diverged.
+
+| Initial A | Prior pollen limitation | A fixed before shock /48 | Of these, I differs at t80 | Strict subset: A and M fixed but I segregating at t30, I differs at t80 | Strict I sign |
+|---:|---|---:|---:|---:|---|
+| 0.3 | Strong | 22 | **12** | **10** | 10 negative |
+| 0.3 | Weak | 1 | **1** | **1** | 1 negative |
+| 0.5 | Strong | 10 | **4** | **2** | 2 negative |
+| 0.5 | Weak | 1 | **1** | **1** | 1 positive |
+| **Total** | | **34** | **18** | **14** | **13 negative, 1 positive** |
+
+The 14 strict pairs come from **9 of the original 12 founder IDs**, with demographic repeats still nested within founders. The distinction establishes **existence**, under one frozen native model, of a florally differentiated response when the *expressed A and M traits cannot evolve during the shock period*. It is a stronger structural negative control for necessity than conditioning only on identical terminal A. It is **not** 14 independent evolutionary replications, nor a measurement of a general selective coefficient. Within-pair future stochastic streams are shared initially but realized offspring can diverge after treatment changes reproduction; whether the I contrast arises from selective sorting versus finite demographic/genetic randomness remains unresolved. The result complements, without upgrading, the separate original R1 four-setting fixed-A non-necessity result.
+
+This is a **retrospective source-stratified analysis**: selecting sources with shock-time fixation is conditioning on genetic states produced during the earlier 30 updates, and the 14 pairs were chosen after observing I endpoints. Neither proportion should be described as a prospective ecological treatment effect or a general law for natural islands.
+
 ## Second original-source discriminator: A nonzero does not mostly mean alternative fixed A alleles
 
 The other **89/192** source pairs have nonzero final A treatment contrasts. Their *direct endpoint A genetic-support states* divide as follows:
