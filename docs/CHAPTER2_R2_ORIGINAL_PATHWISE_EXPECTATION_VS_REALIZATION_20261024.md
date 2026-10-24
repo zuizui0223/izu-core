@@ -49,6 +49,25 @@ In the original source model, adult survival, mutation and incoming seeds are ze
 
 It retains full **50-update trajectories and conditioning information** in the source artifact and compact summary-level readout for strong and weak prior pollen-limitation groups. No raw ZIP is recommitted: authenticated original [Actions artifact 12178257738](https://github.com/zuizui0223/izu-core/actions/runs/39233450099) remains the source of truth.
 
+## Source-executed original-genome pathwise results (2026-10-24)
+
+**Actual verification, not a proposed future simulation:** GitHub Actions [run 40057254260](https://github.com/zuizui0223/izu-core/actions/runs/40057254260) generated the full 50-update source readback (artifact **12546400082**, original output **1,381,522 bytes**, SHA256 `794a23aca8e56f8e74f4d5497fa221cbba9432a20170917163fe117dd7fddccc`). Source replay matched **all 24 census30 and 48 terminal full-genome fingerprints** from the original October 19 experimental ZIP. All 2,400 original future updates were source-replayed; **0 new seeded futures** were allocated. The permanent [compact receipt](audits/CHAPTER2_R2_ORIGINAL_PATHWISE_RECEIPT_20261024.json) preserves the result, artifact provenance and limits. Cross-run last-bit floating differences are allowed only under explicit numeric tolerance: do not promote the first output's raw SHA to an invariant of other platforms.
+
+For the same archived 24 source cells, the pairwise observed **terminal** I contrast is the sum of the *two realized-path conditional expectation differences* and the *two realized-path stochastic residual differences*:
+
+| Original historical pollen limitation | Paired source cells (independent founders) | Mean accumulated expected-I contrast | Mean accumulated realization-residual contrast | Mean original final I contrast |
+| --- | ---: | ---: | ---: | ---: |
+| **Strong** | **22 (11)** | **−0.056857** | **−0.032277** | **−0.089134** |
+| Weak | 2 (2) | +0.044878 | +0.050174 | +0.095052 |
+
+These three columns add up **by construction and by independent source-state replay**, not as separate experimental causal effects. Under strong historical pollen limitation, accumulated conditional expected sorting differences were **negative in 19/22**, positive in **3/22**; the realization residual differences were **negative in 11/22** and positive in **11/22**; final I treatment differences were **negative in 12/22** and exactly zero in **10/22**.
+
+Among the **10 original strong-history pairs with identical final I**, the mean cumulative expected component was **−0.026543** and the mean realized residual component **+0.026543**, exactly cancelling at the endpoint. For the **12 original strong-history pairs with lower final I under decline**, the respective means were **−0.082118** and **−0.081293**, both contributing negatively to the observed difference. Thus the 10 zero contrasts are not evidence that the entire dynamic conditional expected sorting contrast was numerically zero.
+
+**Contrast with the census30 static result:** at the initial same-genotype shock state, the instantaneous first-generation expected-I treatment differential was negative in **22/22** strong-history source cells. Over the full finite 50-step *realized genotype paths* only **19/22** have a negative accumulated expected-I contrast. This is an important state-dependence result: the initially evaluated local expectation does not uniquely determine the full moving-genotype expected contribution or final genetic endpoint. Three positive accumulated conditional sums are model-bound and post-outcome; they are not a claim of reversals in all contexts or an independent test.
+
+A source step can occasionally drop below the 48-adult capacity without extinction (**1 future step across the 22 strong-history pairs**). The source replay includes that state exactly. These 22 histories belong to **11 unique founders** with nested demographic repeats and were selected after examining archived outcomes. No independent significance level or natural-island inference is attached.
+
 ## Source-bound interpretive ceilings
 
 - No **new biological population futures**: recomputing the original stored genotypes is a technical replay, not a new experimental allocation.
