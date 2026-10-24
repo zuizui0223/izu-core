@@ -1,0 +1,57 @@
+{
+  "status": "PASS_ORIGINAL_24_CENSUS30_GENOMES_STATIC_EXPECTED_I_SOURCE_READBACK",
+  "evidence_rank": "POST_OUTCOME_CONDITIONAL_SOURCE_DIAGNOSTIC_NO_INDEPENDENT_CONFIRMATION",
+  "original_baseline_pollen_run_id": 39233450099,
+  "original_baseline_pollen_source_artifact_id": 12178257738,
+  "original_source_commit": "eb785dc6865ca1842ec9d6c7d511778c74e03478",
+  "original_source_ZIP_sha256": "10bb8bdd52b53b32429e350c2f392ed2aeaa791683ede1d563ae6627c5ecb35e",
+  "original_protocol_sha256": "87af92484af9988181b4f3bed6760d39325de70cca8c0b4e1cec19c47b8c9849",
+  "verified_original_GitHub_replay_workflow_run_id": 39929844856,
+  "verified_original_replay_actions_artifact_id": 12491490791,
+  "verified_full_replay_JSON_sha256": "c53ae7220d5eb4bde3cef84bb73f2f890692edae29ec8f013636f7bdd6500c06",
+  "reconstructed_full_prefix_genomes_verified_by_SHA256": 24,
+  "reproduced_old_prefix_model_updates": 720,
+  "new_independent_future_model_updates": 0,
+  "new_statistical_tests": 0,
+  "source_units": {
+    "founder_seeds": 11,
+    "source_genotype_cells": 24,
+    "nested_repeats_original": 4
+  },
+  "one_generation_native_parentage_expected_I": {
+    "strong_baseline_limitation": {
+      "n": 22,
+      "founders": 11,
+      "mean_expected_shift_control": -0.0002512421695320021,
+      "mean_expected_shift_decline": -0.0031087635353850385,
+      "mean_decline_minus_control_expected_shift": -0.0028575213658530367,
+      "n_expected_treatment_difference_negative": 22,
+      "n_expected_treatment_difference_exact_zero": 0,
+      "n_expected_treatment_difference_positive": 0,
+      "n_expected_shift_under_decline_negative": 22,
+      "mean_control_outcross_q": 0.13920994216147997,
+      "mean_decline_outcross_q": 0.01689527391924731
+    },
+    "weak_baseline_limitation": {
+      "n": 2,
+      "founders": 2,
+      "mean_expected_shift_control": 0.0023235896330149886,
+      "mean_expected_shift_decline": 0.004139738618407662,
+      "mean_decline_minus_control_expected_shift": 0.0018161489853926738,
+      "n_expected_treatment_difference_negative": 0,
+      "n_expected_treatment_difference_exact_zero": 0,
+      "n_expected_treatment_difference_positive": 2,
+      "n_expected_shift_under_decline_negative": 0,
+      "mean_control_outcross_q": 0.9983041245545652,
+      "mean_decline_outcross_q": 0.5414844450360173
+    }
+  },
+  "treatment_comparison": "same original full source state; original model reproduction operator at external activity 0.4 versus 0.04; includes 0.5 maternal outcross + 0.5 paternal outcross + viable selfed gene returns",
+  "not_identified": [
+    "50-generation causal selection-versus-drift decomposition",
+    "counterfactual allele fixation probabilities under unobserved RNG continuations",
+    "independent founder or visitor-history replication",
+    "genetic identity-by-descent from equal allele values",
+    "generalized ecological effects in wild island systems"
+  ]
+}
