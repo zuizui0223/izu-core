@@ -40,6 +40,25 @@ This is a *within-model numerical identity* using already source-verified expect
 
 In all 20 biallelic original source states, a negative mean-I treatment difference implies a positive minimum-I allele expected-frequency treatment difference by the same algebra. **The other two triallelic states require explicit allele-level source accounting**: one cannot apply the biallelic identity to them.
 
+## Actual original source-native result (verified 2026-10-24)
+
+The native replay executed successfully in [GitHub Actions run 40074418159](https://github.com/zuizui0223/izu-core/actions/runs/40074418159), with full source readback artifact **12552901125**. Source JSON `R2_ORIGINAL_LOW_I_PARENTAGE.json` is 76,425 bytes, SHA-256 `7e9840f24de0f3c1a415b37e891c321fafc497c32051eb90b481fb7ecfa0212a`. Its machine-readable summary, original source IDs and inference ceiling are preserved in the [compact source receipt](audits/CHAPTER2_R2_LOWEST_I_PARENTAGE_RECEIPT_20261024.json). All **22 original census30** diploid genomes and **44 original t80** terminal fingerprints were checked against the authenticated earlier source, with **zero new independent biological futures**.
+
+| Source group | Original source cells (distinct founders) | Positive absolute next-generation change in lowest-I expected frequency under decline | Positive decline-minus-maintained lowest-I expected frequency contrast |
+| --- | ---: | ---: | ---: |
+| Strong prior pollen limitation | **22 (11)** | **22/22** | **22/22** |
+
+Across these 22 source genotypes, the mean *immediate* lowest-I allele expected fraction increased relative to the original census30 state by **+0.001007** under maintained visitors and **+0.011691** under visitor decline, giving a mean between-treatment contrast of **+0.010684**. These are expected **offspring allele frequencies**, not percentage changes in adult survival or chances of future fixation. Of the 22, **20 originally fixed the lowest available I allele in the visitor-decline t80 endpoint**, while **2 did not**.
+
+For the two rare-lower-allele exceptions:
+
+- Founder **810102**, repeat4: lowest I=.5, **6/96** starting copies. Decline **absolute one-generation expected increase +0.005251**, paired extra increase over maintained **+0.004577**. The actual terminal fixed value in both source arms was **I=.75**.
+- Founder **810110**, repeat3: lowest I=.25, **4/96** starting copies. Decline **absolute one-generation expected increase +0.003364**, paired extra increase over maintained **+0.003082**. The actual terminal fixed value in both source arms was **I=.5**.
+
+The **two triallelic original census30 populations** cannot be treated via the two-allele mean-I identity. Direct native parentage calculations nevertheless give positive lowest-I expected frequency differences **+0.014679** and **+0.012936** for these two source cells, respectively. Their lowest allele fixed in the original decline futures. Thus the original **22/22** directional result is verified at the *allele-specific transmission level*, rather than inferred solely from mean I.
+
+**Interpretation:** in the original source experiment, a currently higher-than-maintained and positive absolute expected low-I transmission is **not sufficient** to ensure retention or fixation of a low-copy I allele over 50 stochastic updates. This does not imply the two alleles were selectively advantageous at every later census, a measurable causal neutral-drift fraction, or a frequency threshold separating success from failure. All 22 source cells are still correlated descendants of 11 founders and were selected retrospectively.
+
 ## Scope boundaries
 
 These 22 original state/treatment pairs are nested within **11 founder seeds** and were selected after examination of original exploratory outcomes, not through new independent sampling. No original source breeding parameter, native inheritance rule, mutational kernel or pollen histories are changed.
@@ -59,4 +78,4 @@ These 22 original state/treatment pairs are nested within **11 founder seeds** a
     python -m scripts.audit_chapter2_r2_low_I_allele_transmission_20261024
     python -m pytest -q tests/test_chapter2_r2_low_I_allele_transmission_20261024.py
 
-The final source gate output will record whether the **triallelic 2 original sources** have positive or negative lowest-I expected transmission under the extra visitor decline, and whether the exceptions also have positive absolute expected low-I shifts. These questions will **not** be decided merely by the negative mean-I contrast.
+The final native source gate verified the exact original genotype hashes and both the biallelic and triallelic allele-specific transmission signs. The compact receipt records results without changing any registered experimental claim.
