@@ -8,6 +8,7 @@ from __future__ import annotations
 
 from types import SimpleNamespace
 import json
+from pathlib import Path
 
 import numpy as np
 import pytest
@@ -86,6 +87,45 @@ def test_original_exact_terminal_source_replay_and_pathwise_identity():
     assert strong["n_terminal_I_zero"]==10
     assert strong["n_terminal_I_positive"]==0
     assert strong["mean_terminal_paired_I"]==pytest.approx(-.08913352272727272,abs=1e-12)
+    receipt_path=Path(__file__).resolve().parents[1]/"docs/audits/CHAPTER2_R2_ORIGINAL_PATHWISE_RECEIPT_20261024.json"
+    receipt=json.loads(receipt_path.read_text(encoding="utf-8"))
+    assert receipt["status"]=="SOURCE_VERIFIED_POST_OUTCOME_PATHWISE_I_ACCOUNTING_NO_CAUSAL_DRIFT_SHARE"
+    assert receipt["source_regression_actions_run_id"]==40057254260
+    assert receipt["source_regression_actions_artifact_id"]==12546400082
+    assert receipt["first_audited_full_JSON_bytes"]==1381522
+    assert receipt["full_JSON_digest_is_provenance_not_required_cross_runtime_byte_identity"]
+    assert receipt["new_independent_biological_futures"]==0
+    assert receipt["source_genomes_with_verified_original_census30_and_terminal_hashes"]==24
+    for summary in d["summaries"]:
+        r=next(x for x in receipt["summaries"] if x["baseline"]==summary["baseline"])
+        assert summary["n_original_shock_genomes"]==r["n_source_cells"]
+        assert summary["n_distinct_founders"]==r["n_founders"]
+        assert summary["mean_terminal_paired_I"]==pytest.approx(
+            r["mean_terminal_decline_minus_control_I"],abs=1e-12)
+        assert summary["mean_path_conditional_expected_I"]==pytest.approx(
+            r["mean_path_conditional_expected_I_contrast"],abs=1e-12)
+        assert summary["mean_path_realization_residual_I"]==pytest.approx(
+            r["mean_path_realization_residual_contrast"],abs=1e-12)
+        for original,rec in [
+            ("n_path_expected_I_difference_negative","n_path_expected_negative"),
+            ("n_path_expected_I_difference_positive","n_path_expected_positive"),
+            ("n_path_realization_difference_negative","n_path_residual_negative"),
+            ("n_path_realization_difference_positive","n_path_residual_positive"),
+            ("n_terminal_I_negative","n_terminal_negative"),
+            ("n_terminal_I_zero","n_terminal_zero"),
+            ("n_terminal_I_positive","n_terminal_positive"),
+        ]:
+            assert summary[original]==r[rec]
+    subset=[r for r in d["rows"] if r["baseline"]=="strong_baseline_limitation"]
+    for zero,count,label in ((True,10,"terminal_zero_subset"),
+                              (False,12,"terminal_negative_subset")):
+        chosen=[r for r in subset if (r["paired_terminal_I_decline_minus_control"]==0)==zero]
+        rec=receipt["summaries"][0]
+        assert len(chosen)==count==rec[label+"_n"]
+        assert np.mean([r["paired_accumulated_conditional_expectation_difference"] for r in chosen])==pytest.approx(
+            rec[label+"_mean_path_expected"],abs=1e-12)
+        assert np.mean([r["paired_accumulated_realization_residual_difference"] for r in chosen])==pytest.approx(
+            rec[label+"_mean_path_residual"],abs=1e-12)
     assert (strong["mean_path_conditional_expected_I"]+
             strong["mean_path_realization_residual_I"])==pytest.approx(
                 strong["mean_terminal_paired_I"],abs=1e-10
