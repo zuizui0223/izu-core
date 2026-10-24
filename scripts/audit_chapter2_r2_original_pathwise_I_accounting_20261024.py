@@ -222,9 +222,9 @@ def replay_source_pathwise() -> dict[str,Any]:
             "n_path_realization_difference_negative":int(np.sum(dR<0)),
             "n_path_realization_difference_zero":int(np.sum(dR==0)),
             "n_path_realization_difference_positive":int(np.sum(dR>0)),
-            "n_founders_negative_terminal_mean":sum(np.mean(v)<0 for v in founder.values()),
-            "n_founders_zero_terminal_mean":sum(np.mean(v)==0 for v in founder.values()),
-            "n_founders_positive_terminal_mean":sum(np.mean(v)>0 for v in founder.values()),
+            "n_founders_negative_terminal_mean":int(sum(bool(np.mean(v)<0) for v in founder.values())), 
+            "n_founders_zero_terminal_mean":int(sum(bool(np.mean(v)==0) for v in founder.values())), 
+            "n_founders_positive_terminal_mean":int(sum(bool(np.mean(v)>0) for v in founder.values())), 
             "n_reproduced_future_generations":100*len(grp),
             "n_future_states_below_capacity":sum(
                 arm["N_below_K_at_beginning_of_steps"] for row in grp
