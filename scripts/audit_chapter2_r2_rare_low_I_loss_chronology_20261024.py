@@ -150,8 +150,8 @@ def audit_original() -> dict:
             segregating=[t for t in trace if t["low_I_copies_before"]>0]
             if (first_fixed!=spec["fixed_census"][arm]
                     or len(segregating)!=spec["n_segregating_source_generations"][arm]
-                    or any(t["low_I_copies_after"]==0 for t in trace
-                           if t["low_I_copies_before"]==0 and t["low_I_copies_after"]!=0)):
+                    or any(t["low_I_copies_after"]!=0 for t in trace
+                           if t["low_I_copies_before"]==0)):
                 raise AssertionError("original allele loss/fixation timing changed")
             if not all(t["conditional_expected_low_I_fraction_shift"]>1e-12
                        for t in segregating):
