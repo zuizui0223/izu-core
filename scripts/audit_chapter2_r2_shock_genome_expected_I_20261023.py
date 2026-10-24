@@ -27,7 +27,7 @@ from scripts.chapter2_pollen_baseline_factorial_20261019 import (
 from scripts.model3_island.reproduction import reproduce
 
 ROOT = Path(__file__).resolve().parents[1]
-ROSTER = ROOT / "data/design/chapter2_r2_original_384_strict_AM_prefixes_20261023.csv"
+ROSTER = ROOT / "docs/audits/CHAPTER2_R2_ORIGINAL_384_STRICT_AM_PREFIXES_20261023.csv"
 # This is the exact immutable Git blob SHA of the roster derived from the
 # original 2026-10-19 Actions ZIP (original ZIP SHA-256 listed below).
 ROSTER_BLOB_SHA = "6b04ee9a5cd6c2342e397c6c69539688474b391f"
