@@ -7,6 +7,7 @@ biological histories, derive drift fractions, or promote preregistration.
 from __future__ import annotations
 
 from types import SimpleNamespace
+import json
 
 import numpy as np
 import pytest
@@ -64,6 +65,9 @@ def test_invalid_source_ledger_is_rejected():
 def test_original_exact_terminal_source_replay_and_pathwise_identity():
     d=replay_source_pathwise()
     assert d["status"]==STATUS
+    # Explicitly validate that the actual result artifact is JSON portable;
+    # NumPy int64 founder sign counters previously broke the source gate.
+    assert json.loads(json.dumps(d,allow_nan=False))["status"]==STATUS
     assert d["original_actions_run_id"]==39233450099
     assert d["source_genomes_exactly_recovered_and_terminal_hashes_matched"]==24
     assert d["source_original_biological_cases"]==24
