@@ -94,6 +94,10 @@ def analyze_original_zip(path: Path) -> dict:
             "decline_minus_control_terminal_I":contrast,
             "terminal_I_treatment_contrast_exact_zero":contrast==0,
         })
+    return _finalize(rows)
+
+
+def _finalize(rows: list[dict]) -> dict:
     if len(rows)!=22 or len({x["original_founder_seed"] for x in rows})!=11:
         raise AssertionError("not the exact 22 selected original source pairs")
     successes=[x for x in rows if x["decline_fixed_to_lowest_accessible_I_value"]]
@@ -161,9 +165,98 @@ def analyze_original_zip(path: Path) -> dict:
     }
 
 
+def replay_original_native() -> dict:
+    """Independent readback using only original seeds and original source kernels.
+
+    Genotype fingerprints at census30 and BOTH t80 endpoints must exactly
+    match the immutable 24-state original source ZIP-derived manifest already
+    verified in PRs #633/#634. This reexecutes the SAME source trajectories,
+    never samples a new founder or a new independently planned future.
+    """
+    from scripts.audit_chapter2_r2_shock_genome_expected_I_20261023 import load_roster
+    from scripts.chapter2_pollen_baseline_factorial_20261019 import (
+        admit, founders, visitors, config, streams, step, clone, fingerprint, snap,
+    )
+    original=admit()
+    if (original["status"] != "FROZEN_EXPLORATORY_MECHANISM_PILOT_NOT_INDEPENDENT_CONFIRMATION"
+            or original["model"]["mutation_rate"] != 0
+            or original["model"]["seed_immigration"] != 0
+            or original["factorial"]["freeze_prefix_updates"] != 30
+            or original["factorial"]["future_updates"] != 50):
+        raise AssertionError("native original source changed since archiving")
+    original_cells=[c for c in load_roster() if c["baseline"]==STRONG]
+    if len(original_cells)!=22:
+        raise AssertionError("original strong-history 22-state source roster missing")
+    rows=[]
+    for cell in original_cells:
+        seed,repeat,a=cell["founder_seed"],cell["demographic_repeat"],cell["initial_A"]
+        baseline=cell["baseline"]
+        v=visitors(original,baseline)
+        cfg=config(original,baseline,0.4)
+        st=founders(original,seed,a)
+        rng=streams(seed,repeat)
+        for year in range(30):
+            st,_=step(st,v,cfg,rng,year)
+        if fingerprint(st)!=cell["prefix_sha"]:
+            raise AssertionError("original full diploid shock-time genotype fingerprint changed")
+        initial=snap(st)
+        pre=initial["genetic_support"]["I"]
+        vals,counts=pre["allele_values"],pre["allele_counts"]
+        if (initial["n"] != 48 or len(vals)<2 or len(vals)!=len(counts)
+                or sum(counts)!=96 or vals!=sorted(vals)
+                or len(initial["genetic_support"]["A"]["allele_values"])!=1
+                or len(initial["genetic_support"]["M"]["allele_values"])!=1):
+            raise AssertionError("source initial A/M-fixed, I-segregating genetic state changed")
+        saved=clone(rng)
+        terminals={}
+        for arm,activity in (("control",0.4),("decline",0.04)):
+            st2=st
+            rr=clone(saved)
+            cc=config(original,baseline,activity)
+            for year in range(30,80):
+                st2,_=step(st2,v,cc,rr,year)
+            end_sha=cell["control_sha"] if arm=="control" else cell["decline_sha"]
+            if fingerprint(st2)!=end_sha:
+                raise AssertionError("original archived terminal complete-genome SHA256 mismatch")
+            terminals[arm]=snap(st2)
+        c=terminals["control"]
+        d=terminals["decline"]
+        cval=c["genetic_support"]["I"]["allele_values"]
+        dval=d["genetic_support"]["I"]["allele_values"]
+        if len(dval)!=1:
+            raise AssertionError("decline treatment I must be monomorphic in original selected cells")
+        fixed=dval[0]
+        contrast=d["I"]-c["I"]
+        rows.append({
+            "initial_A":a,
+            "original_founder_seed":seed,
+            "nested_demographic_repeat":repeat,
+            "original_prefix_state_sha256":cell["prefix_sha"],
+            "I_allele_values_at_shock":vals,
+            "I_allele_counts_at_shock":counts,
+            "original_number_I_allele_values_at_shock":len(vals),
+            "lowest_I_allele_value_present_at_shock":vals[0],
+            "lowest_I_allele_count_out_of_96":int(counts[0]),
+            "lowest_I_allele_fraction":int(counts[0])/96,
+            "decline_terminal_fixed_I_value":fixed,
+            "decline_fixed_to_lowest_accessible_I_value":fixed==vals[0],
+            "control_terminal_I_allele_values":cval,
+            "control_terminal_mean_I":c["I"],
+            "decline_terminal_mean_I":d["I"],
+            "decline_minus_control_terminal_I":contrast,
+            "terminal_I_treatment_contrast_exact_zero":contrast==0,
+        })
+    return _finalize(rows)
+
+
+
 if __name__=="__main__":
     p=argparse.ArgumentParser()
-    p.add_argument("--zip",type=Path,required=True,
+    source=p.add_mutually_exclusive_group(required=True)
+    source.add_argument("--zip",type=Path,
                    help="Original external SHA256-verified 384-path Actions ZIP; NOT bundled")
+    source.add_argument("--native",action="store_true",
+                   help="Replay the SAME original t30/t80 genomes, verifying saved ZIP SHA fingerprints")
     args=p.parse_args()
-    print(json.dumps(analyze_original_zip(args.zip),ensure_ascii=False,sort_keys=True,indent=2))
+    out=replay_original_native() if args.native else analyze_original_zip(args.zip)
+    print(json.dumps(out,ensure_ascii=False,sort_keys=True,indent=2))
