@@ -3,6 +3,7 @@ from __future__ import annotations
 
 import json
 from types import SimpleNamespace
+from pathlib import Path
 
 import numpy as np
 import pytest
@@ -123,3 +124,48 @@ def test_do_not_promote_selection_drift_or_population_frequency_threshold(origin
     assert "Independent selective allele frequency advantage" in original["not_identified"][0]
     assert original["new_biological_population_futures"]==0
     assert original["new_preregistered_experiments"]==0
+
+
+def test_authenticated_source_receipt_reconciles_actual_22_genome_allele_expectations(original):
+    root=Path(__file__).resolve().parents[1]
+    receipt=json.loads((root/"docs/audits/CHAPTER2_R2_LOWEST_I_PARENTAGE_RECEIPT_20261024.json").read_text(encoding="utf-8"))
+    assert receipt["status"]=="SOURCE_SHA_VERIFIED_ORIGINAL_LOW_I_PARENTAGE_22_CELLS_NOT_NEW_BIOLOGY"
+    assert receipt["original_source_actions_run"]==39233450099
+    assert receipt["native_replay_source_actions_run"]==40074418159
+    assert receipt["native_replay_source_artifact_id"]==12552901125
+    assert receipt["native_replay_full_output_bytes"]==76425
+    assert receipt["native_replay_full_output_sha256"]=="7e9840f24de0f3c1a415b37e891c321fafc497c32051eb90b481fb7ecfa0212a"
+    assert receipt["source_sha_lock_full_census30_genomes"]==22
+    assert receipt["full_census80_terminal_source_genomes_reconfirmed"]==44
+    assert receipt["distinct_original_founders"]==11
+    assert receipt["no_new_biological_futures"] and receipt["no_new_preregistered_experiment"]
+    data=receipt["native_one_year_parental_expected_low_I"]
+    for key,val in [
+        ("n_absolute_source_frequency_shift_positive_decline",original["n_lowest_I_absolute_expectation_decline_positive"]),
+        ("n_absolute_source_frequency_shift_negative_decline",original["n_lowest_I_absolute_expectation_decline_negative"]),
+        ("n_between_treatment_frequency_contrast_positive",original["n_lowest_I_parentage_treatment_positive"]),
+        ("n_between_treatment_frequency_contrast_negative",original["n_lowest_I_parentage_treatment_negative"]),
+    ]:
+        assert data[key]==val
+    for key,source in [
+        ("mean_absolute_source_frequency_shift_control","mean_lowest_I_frequency_absolute_shift_control"),
+        ("mean_absolute_source_frequency_shift_decline","mean_lowest_I_frequency_absolute_shift_decline"),
+        ("mean_decline_minus_control_expected_low_I_frequency","mean_lowest_I_frequency_expected_treatment_contrast"),
+    ]:
+        assert data[key]==pytest.approx(original[source],rel=0,abs=1e-12)
+    assert original["n_lowest_I_parentage_treatment_positive"]==22
+    assert original["n_lowest_I_absolute_expectation_decline_positive"]==22
+    assert sum(r["original_decline_fixed_to_lowest_I"] for r in original["rows"])==20
+    for row in receipt["rare_low_I_lost_exceptions"]:
+        matched=next(z for z in original["special_low_copy_exceptions"]
+            if (z["initial_A"],z["original_founder_seed"],z["nested_demographic_repeat"])
+                ==(row["initial_A"],row["original_founder_seed"],row["original_demographic_repeat"]))
+        assert matched["lowest_I_count_at_shock"]==row["starting_copy_count"]
+        assert matched["source_lowest_I_allele_absolute_expected_shift_decline"]==pytest.approx(
+            row["one_generation_expected_low_I_absolute_shift_decline"],abs=1e-12)
+        assert matched["decline_minus_control_expected_lowest_I_fraction"]==pytest.approx(
+            row["one_generation_expected_low_I_treatment_contrast"],abs=1e-12)
+    triallelic=[x for x in original["rows"] if len(x["original_I_numerical_allele_values"])==3]
+    assert len(triallelic)==len(receipt["triallelic_original_cells"])==2
+    assert all(x["decline_minus_control_expected_lowest_I_fraction"]>0 for x in triallelic)
+    assert all(x["source_lowest_I_allele_absolute_expected_shift_decline"]>0 for x in triallelic)
