@@ -65,7 +65,7 @@ The audited original 24 cells derive from only **11 founder seeds**, selected af
 ## Reproduce and verifiable output
 
 - Original producer: `scripts/chapter2_pollen_baseline_factorial_20261019.py`
-- Exact source-checkpoint roster: `data/design/chapter2_r2_original_384_strict_AM_prefixes_20261023.csv`
+- Exact source-checkpoint roster: `docs/audits/CHAPTER2_R2_ORIGINAL_384_STRICT_AM_PREFIXES_20261023.csv`
 - New expected-genetic-sorting reader: `scripts/audit_chapter2_r2_shock_genome_expected_I_20261023.py`
 - Dedicated tests: `tests/test_chapter2_r2_shock_genome_expected_I_20261023.py`
 - The PR scientific author-review CI runs the source-exact replay and archives `R2_CENSUS30_EXPECTED_I_SORTING.json` with source and immutable protocol IDs.
