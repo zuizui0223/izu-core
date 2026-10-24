@@ -108,7 +108,7 @@ def test_corrupt_source_access_copy_count_fails_closed(source_native):
     rows=copy.deepcopy(source_native["rows"])
     bad=next(r for r in rows if not r["decline_fixed_to_lowest_accessible_I_value"])
     bad["lowest_I_allele_count_out_of_96"]=12
-    with pytest.raises(AssertionError,match="source low-allele input accessibility range"):
+    with pytest.raises(AssertionError,match="two original high-I fixed exceptions changed"):
         _finalize(rows)
 
 
