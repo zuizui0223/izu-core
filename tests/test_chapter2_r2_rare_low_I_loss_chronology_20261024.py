@@ -113,7 +113,9 @@ def test_summary_matches_original_verified_archive_and_rare_allele_identities(au
     assert receipt["evidence_rank"]=="RETROSPECTIVE_EXACT_ORIGINAL_GENOME_PATHWISE_NO_CAUSAL_SELECTION_DRIFT_SHARE"
     assert receipt["n_original_founder_ids_in_exceptions"]==2
     assert receipt["n_original_source_pairs_in_exceptions"]==2
-    assert receipt["new_independent_biological_futures"]==0
+    assert receipt["no_new_biological_futures"] is True
+    assert receipt["new_independent_population_updates"]==0
+    assert receipt["new_preregistered_tests"]==0
     for x in audit["episodes"]:
         key=(x["initial_A"],x["original_founder_seed"],x["demographic_repeat"])
         old=next(y for y in receipt["exceptions"]
