@@ -1,0 +1,100 @@
+{
+  "schema": "izu_core_chapter2_r2_standing_I_access_retrospective_v1",
+  "status": "PASS_ORIGINAL_R2_STANDING_I_ALLELES_EXPLORATORY_NOT_FREQUENCY_THRESHOLD",
+  "source_actions_run_id": 39233450099,
+  "source_artifact_id": 12178257738,
+  "source_zip_sha256": "10bb8bdd52b53b32429e350c2f392ed2aeaa791683ede1d563ae6627c5ecb35e",
+  "source_commit": "eb785dc6865ca1842ec9d6c7d511778c74e03478",
+  "source_protocol_sha256": "87af92484af9988181b4f3bed6760d39325de70cca8c0b4e1cec19c47b8c9849",
+  "authenticated_source_roster_blob_sha": "6b04ee9a5cd6c2342e397c6c69539688474b391f",
+  "independent_founders_in_original_experiment": 12,
+  "founders_in_this_retro_selected_subset": 11,
+  "original_384_biological_trajectories": 384,
+  "original_matched_futures": 192,
+  "strata": {
+    "strong_prior_pollen_limitation_AM_fixed_I_polymorphic_at_t30": {
+      "n_original_matched_source_pairs": 22,
+      "n_decline_terminal_I_monomorphic": 22,
+      "n_decline_fixed_to_lowest_I_allele_value_present_at_shock": 20,
+      "n_decline_fixed_to_other_original_I_allele_value": 2,
+      "decline_fixed_numerical_I_value_counts": {
+        "0.25": 9,
+        "0.5": 12,
+        "0.75": 1
+      },
+      "t30_lowest_I_allele_copy_count_min_among_low_fixations": 16,
+      "t30_lowest_I_allele_copy_count_max_among_nonlow_fixations": 6,
+      "diploid_I_allele_copy_denominator_per_source": 96,
+      "by_initial_A": [
+        {
+          "initial_A": 0.3,
+          "n_source_pairs": 16,
+          "n_fix_to_lowest": 15,
+          "n_fix_above_lowest": 1
+        },
+        {
+          "initial_A": 0.5,
+          "n_source_pairs": 6,
+          "n_fix_to_lowest": 5,
+          "n_fix_above_lowest": 1
+        }
+      ],
+      "n_initial_negative_native_expected_I_difference": 22,
+      "existing_static_source_result_Actions_run_id": 39929844856,
+      "existing_pathwise_source_result_Actions_run_id": 40057254260
+    }
+  },
+  "exceptions": [
+    {
+      "initial_A": 0.3,
+      "original_founder_seed": 810102,
+      "nested_demographic_repeat": 4,
+      "source_original_prefix_genome_sha256": "2286da6eb42e60831cc61c790a191af67f082a3a3f99a9c50a2af025bf811b17",
+      "original_I_allele_values_at_shock": [
+        0.5,
+        0.75
+      ],
+      "original_I_allele_counts_at_shock": [
+        6,
+        90
+      ],
+      "lowest_I_allele_fraction_at_shock": 0.0625,
+      "decline_terminal_fixed_I_value": 0.75,
+      "control_terminal_fixed_I_value": 0.75,
+      "decline_minus_control_I_endpoint": 0,
+      "first_generation_expected_I_decline_minus_control": -0.0011443702993481075
+    },
+    {
+      "initial_A": 0.5,
+      "original_founder_seed": 810110,
+      "nested_demographic_repeat": 3,
+      "source_original_prefix_genome_sha256": "3f5a9895a8c11772783c76fa6ecfd024a7e4f888f8df23f90246e7d72b6f9e96",
+      "original_I_allele_values_at_shock": [
+        0.25,
+        0.5
+      ],
+      "original_I_allele_counts_at_shock": [
+        4,
+        92
+      ],
+      "lowest_I_allele_fraction_at_shock": 0.041666666666666664,
+      "decline_terminal_fixed_I_value": 0.5,
+      "control_terminal_fixed_I_value": 0.5,
+      "decline_minus_control_I_endpoint": 0,
+      "first_generation_expected_I_decline_minus_control": -0.0007706194516954867
+    }
+  ],
+  "note_on_expected_I_exception_values": "From separately source-exact 24-genome one-generation native replay (Actions run 39929844856), not deduced from the raw ZIP terminal contrast.",
+  "source_sample_selected_after_original_outcomes": true,
+  "new_population_updates": 0,
+  "new_independent_biological_experiments": 0,
+  "new_significance_tests": 0,
+  "evidence_rank": "POST_OUTCOME_ORIGINAL_MODEL_GENETIC_ACCESS_NOT_A_VALIDATED_THRESHOLD",
+  "limitations": [
+    "No universal or prospectively selected low-I copy fraction cutoff established",
+    "Lowest accessible I allele numerical value is not an identity-by-descent haplotype",
+    "Observed fixation involves parental reproductive sorting, stochastic sampling and segregation; not a causal drift/selection partition",
+    "22 trajectories originate from 11 founders, with nested demographic repeats",
+    "Strong source restriction and post hoc analysis do not prove a general natural-island evolutionary rule"
+  ]
+}
