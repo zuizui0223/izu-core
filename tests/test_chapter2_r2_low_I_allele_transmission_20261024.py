@@ -37,13 +37,13 @@ def test_ordered_parentage_genome_expected_low_I_counts_and_selfing():
     lo=x["numerical_I_allele_frequencies"]["0.25"]
     assert lo["count_at_original_census30"]==3
     assert lo["frequency_at_original_census30"]==pytest.approx(3/96)
-    assert lo["expected_frequency_in_resident_offspring"]==pytest.approx(.125)
-    assert x["expected_mean_offspring_I"]==pytest.approx(.25*.125+.5*.875)
+    assert lo["expected_frequency_in_resident_offspring"]==pytest.approx(.25)
+    assert x["expected_mean_offspring_I"]==pytest.approx(.25*.25+.5*.75)
     assert x["original_native_outcross_fraction"]==pytest.approx(8/96)
     selfed[1]=8
     y=expected_alleles(s,ledger)
-    assert y["numerical_I_allele_frequencies"]["0.25"]["expected_frequency_in_resident_offspring"]==pytest.approx(.5625)
-    assert y["expected_mean_offspring_I"]==pytest.approx(.25*.5625+.5*.4375)
+    assert y["numerical_I_allele_frequencies"]["0.25"]["expected_frequency_in_resident_offspring"]==pytest.approx(.625)
+    assert y["expected_mean_offspring_I"]==pytest.approx(.25*.625+.5*.375)
     assert json.loads(json.dumps(y,allow_nan=False))==y
 
 
