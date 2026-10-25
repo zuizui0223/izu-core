@@ -1,0 +1,78 @@
+{
+  "schema": "izu_core_r2_original_low_I_source_expected_parentage_20261024_v1",
+  "status": "SOURCE_SHA_VERIFIED_ORIGINAL_LOW_I_PARENTAGE_22_CELLS_NOT_NEW_BIOLOGY",
+  "original_source_actions_run": 39233450099,
+  "original_source_ZIP_sha256": "10bb8bdd52b53b32429e350c2f392ed2aeaa791683ede1d563ae6627c5ecb35e",
+  "original_producer_commit": "eb785dc6865ca1842ec9d6c7d511778c74e03478",
+  "original_protocol_sha256": "87af92484af9988181b4f3bed6760d39325de70cca8c0b4e1cec19c47b8c9849",
+  "native_replay_source_actions_run": 40074418159,
+  "native_replay_source_artifact_id": 12552901125,
+  "native_replay_full_output_bytes": 76425,
+  "native_replay_full_output_sha256": "7e9840f24de0f3c1a415b37e891c321fafc497c32051eb90b481fb7ecfa0212a",
+  "source_sha_lock_full_census30_genomes": 22,
+  "full_census80_terminal_source_genomes_reconfirmed": 44,
+  "distinct_original_founders": 11,
+  "original_selected_source_cells": 22,
+  "allele_state_num_values": {
+    "two": 20,
+    "three": 2
+  },
+  "native_one_year_parental_expected_low_I": {
+    "n_absolute_source_frequency_shift_positive_decline": 22,
+    "n_absolute_source_frequency_shift_negative_decline": 0,
+    "n_between_treatment_frequency_contrast_positive": 22,
+    "n_between_treatment_frequency_contrast_negative": 0,
+    "mean_absolute_source_frequency_shift_control": 0.001007106916806539,
+    "mean_absolute_source_frequency_shift_decline": 0.011691121637799602,
+    "mean_decline_minus_control_expected_low_I_frequency": 0.010684014720993062,
+    "original_source_lowest_I_fixed_in_decline_futures": 20,
+    "original_source_lower_I_lost_in_decline_futures": 2
+  },
+  "rare_low_I_lost_exceptions": [
+    {
+      "initial_A": 0.3,
+      "original_founder_seed": 810102,
+      "original_demographic_repeat": 4,
+      "lowest_I_allele_value": 0.5,
+      "starting_copy_count": 6,
+      "starting_total_homolog_count": 96,
+      "one_generation_expected_low_I_absolute_shift_decline": 0.005250673836876871,
+      "one_generation_expected_low_I_treatment_contrast": 0.0045774811973934015,
+      "original_decline_terminal_fixed_I": 0.75
+    },
+    {
+      "initial_A": 0.5,
+      "original_founder_seed": 810110,
+      "original_demographic_repeat": 3,
+      "lowest_I_allele_value": 0.25,
+      "starting_copy_count": 4,
+      "starting_total_homolog_count": 96,
+      "one_generation_expected_low_I_absolute_shift_decline": 0.003363756003202663,
+      "one_generation_expected_low_I_treatment_contrast": 0.003082477806782072,
+      "original_decline_terminal_fixed_I": 0.5
+    }
+  ],
+  "triallelic_original_cells": [
+    {
+      "initial_A": 0.3,
+      "original_founder_seed": 810104,
+      "repeat": 3,
+      "lowest_I_count_out_of_96": 19,
+      "expected_low_I_treatment_contrast": 0.014678906955525262,
+      "absolute_expected_low_I_shift_decline": 0.010313493613221064
+    },
+    {
+      "initial_A": 0.3,
+      "original_founder_seed": 810108,
+      "repeat": 2,
+      "lowest_I_count_out_of_96": 16,
+      "expected_low_I_treatment_contrast": 0.012935780852374207,
+      "absolute_expected_low_I_shift_decline": 0.00979146535140843
+    }
+  ],
+  "evidence_rank": "RETROSPECTIVE_ORIGINAL_MODEL_CONDITIONAL_PARENTAL_GENETIC_EXPECTATION",
+  "no_new_biological_futures": true,
+  "no_new_preregistered_experiment": true,
+  "interpretation_boundary": "One-year expected numerical low-I allele fraction among viable resident offspring, given original source genomes and native pollen/selfing ledger. Not realized allele dynamics, selection/drift causal fraction or independent sample of island populations.",
+  "cross_runtime_byte_identical_JSON_not_required": true
+}
