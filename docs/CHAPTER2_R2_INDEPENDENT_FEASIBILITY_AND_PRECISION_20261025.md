@@ -41,6 +41,8 @@ A mathematical 48-plant template illustrates this without generating any Model 3
 | 16 | 16 / 16 / 64 | Yes | **0.625** | **0.015625** | 0.036458 |
 | 24 | 24 / 0 / 72 | Yes | **0.625** | **0.015625** | 0.046875 |
 
+The dedicated negative-control test also compares the **actual source Model 3 static `reproduce()` ledger** on the hypothetical 48-diploid template before/after recoding, at **both strong/weak historical pollen effectiveness and both 0.4/0.04 activity levels**. It requires exact equality of all source-operator expected ovules, parental outcross matrix, viable selfing, pollen exported/delivered/lost, and maternal/paternal genetic contributions. This is a **static, per-year reproduction-only diagnostic**, with zero offspring draws, no original source-genotype reinterpretation and no newly evolved populations. It would establish identical *current reproductive opportunities* for the recoded states, not identical inherited futures.
+
 This is a more discriminating **genetically latent versus currently expressed variation** experiment than simply forcing populations to have equal I means. It would preserve *all current individual expressed I values* and therefore the instant phenotypic source fitness input, not merely one average. But it **still manipulates genomic allelic variance and heterozygosity together** and requires authentic declaration of origin labels, linkage/covariances, genotype placement and exact new-source cohort randomization. No t30 genomes or t80 futures have been constructed under this method. It is **not** a proof of a pure allele-frequency causal coefficient.
 
 ## 3. Two genuinely independent crossed sources, with nested realization
