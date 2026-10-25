@@ -1,0 +1,92 @@
+{
+  "status": "PASS_ORIGINAL_R2_RARE_LOW_I_LOSS_WHILE_EXPECTED_TO_INCREASE_SOURCE_ONLY",
+  "schema": "izu_core_r2_original_rare_lowI_loss_pathwise_source_receipt_v1",
+  "original_exploratory_actions_run_id": 39233450099,
+  "original_source_artifact_id": 12178257738,
+  "original_source_ZIP_sha256": "10bb8bdd52b53b32429e350c2f392ed2aeaa791683ede1d563ae6627c5ecb35e",
+  "original_full_pathwise_source_actions_run_id": 40057254260,
+  "original_full_pathwise_source_artifact_id": 12546400082,
+  "original_full_pathwise_JSON_sha256": "794a23aca8e56f8e74f4d5497fa221cbba9432a20170917163fe117dd7fddccc",
+  "source_checkpoint_sha_verified_parent_cells": 24,
+  "source_checkpoint_sha_verified_parent_futures": 48,
+  "n_original_founder_ids_in_exceptions": 2,
+  "n_original_source_pairs_in_exceptions": 2,
+  "evidence_rank": "RETROSPECTIVE_EXACT_ORIGINAL_GENOME_PATHWISE_NO_CAUSAL_SELECTION_DRIFT_SHARE",
+  "note": "One-generation conditional expected low-I allele frequency was positive in every original segregating annual state of these four original futures. Original realized allele copy changes sometimes opposed it and both treatments reached the higher originally present I value.",
+  "exceptions": [
+    {
+      "initial_A": 0.3,
+      "founder_seed": 810102,
+      "demographic_repeat": 4,
+      "source_census30_genotype_sha256": "2286da6eb42e60831cc61c790a191af67f082a3a3f99a9c50a2af025bf811b17",
+      "starting_I_allele_values": [
+        0.5,
+        0.75
+      ],
+      "starting_copies_out_of_96": 6,
+      "terminal_fixed_I_value": 0.75,
+      "arms": {
+        "control": {
+          "first_census_allele_absent": 45,
+          "n_source_generations_with_I_segregation": 15,
+          "expected_positive_in_every_segregating_generation": true,
+          "last_count_before_loss": 1,
+          "cumulative_expected_low_I_frequency": 0.006402198659706926,
+          "cumulative_realization_low_I_residual": -0.06890219865970693,
+          "observed_total_low_I_frequency_change": -0.0625
+        },
+        "decline": {
+          "first_census_allele_absent": 35,
+          "n_source_generations_with_I_segregation": 5,
+          "expected_positive_in_every_segregating_generation": true,
+          "last_count_before_loss": 2,
+          "cumulative_expected_low_I_frequency": 0.03167544147471579,
+          "cumulative_realization_low_I_residual": -0.0941754414747158,
+          "observed_total_low_I_frequency_change": -0.0625
+        }
+      }
+    },
+    {
+      "initial_A": 0.5,
+      "founder_seed": 810110,
+      "demographic_repeat": 3,
+      "source_census30_genotype_sha256": "3f5a9895a8c11772783c76fa6ecfd024a7e4f888f8df23f90246e7d72b6f9e96",
+      "starting_I_allele_values": [
+        0.25,
+        0.5
+      ],
+      "starting_copies_out_of_96": 4,
+      "terminal_fixed_I_value": 0.5,
+      "arms": {
+        "control": {
+          "first_census_allele_absent": 42,
+          "n_source_generations_with_I_segregation": 12,
+          "expected_positive_in_every_segregating_generation": true,
+          "last_count_before_loss": 3,
+          "cumulative_expected_low_I_frequency": 0.004053188011446274,
+          "cumulative_realization_low_I_residual": -0.045719854678113014,
+          "observed_total_low_I_frequency_change": -0.041666666666666664
+        },
+        "decline": {
+          "first_census_allele_absent": 51,
+          "n_source_generations_with_I_segregation": 21,
+          "expected_positive_in_every_segregating_generation": true,
+          "last_count_before_loss": 4,
+          "cumulative_expected_low_I_frequency": 0.10083914506154934,
+          "cumulative_realization_low_I_residual": -0.14250581172821608,
+          "observed_total_low_I_frequency_change": -0.041666666666666664
+        }
+      }
+    }
+  ],
+  "original_model_immutable_zero_mutation_and_seed_immigration": true,
+  "no_new_biological_futures": true,
+  "new_independent_population_updates": 0,
+  "new_preregistered_tests": 0,
+  "not_established": [
+    "A general low-I allele-frequency threshold or fixation probability",
+    "A causal selection-versus-neutral-drift percentage",
+    "Independently replicated experimental or wild-island system generality",
+    "An allele remains favored or selected after it is lost and I is fixed"
+  ]
+}
