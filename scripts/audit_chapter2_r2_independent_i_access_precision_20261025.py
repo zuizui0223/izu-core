@@ -200,7 +200,7 @@ def audit(design_path:Path=DESIGN,parent_path:Path=PARENT) -> dict:
         "would_dispatch_actions":False,
         "candidate_designs_not_chosen":rows,
         "scientific_inference_ceiling":
-            "Even with independent two-axis sampling, confidence radii are worst-case bounds, not expected CI widths or achieved power. All numerical grids are hypothetical; founder and visitor effects cannot be treated as F×V independent island replicates.",
+            "Even with independent two-axis sampling, confidence radii are worst-case bounds, not expected CI widths or achieved power. All numerical grids are hypothetical; crossed founder × visitor × nested-demographic observations are not F×V×R independent island replicates.",
     }
 
 
