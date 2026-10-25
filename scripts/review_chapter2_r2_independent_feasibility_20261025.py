@@ -135,6 +135,58 @@ def compensated_triallelic_counts(low_copy_count:int)->dict:
                 genetic_allocation_status="FREQUENCY_ONLY_NOT_A_DIPLOID_GENOTYPE_INTERVENTION")
 
 
+
+def diploid_phenotype_preserving_I_recode(n_heterozygotes:int)->dict:
+    """Exact artificial copy recoding at t30, with NO model population run.
+
+    For 24 labeled plants with I=(.5,.5) and 24 with I=(.75,.75),
+    exchange exactly k of the first 24 I pairs from (.5,.5) to
+    (.25,.75). Their individual expressed I=(allele1+allele2)/2
+    remains .5; all other original M/A loci and visitor environments
+    are assumed held fixed. Only a mathematical artificial-allele
+    specification is produced, not a valid reconstructed PlantState
+    with independently authenticated inherited allele origins.
+    """
+    if type(n_heterozygotes) is not int or not 0<=n_heterozygotes<=24:
+        raise ValueError("invalid number of artificial I heterozygotes among 24 recodable plants")
+    original=[(.5,.5)]*24+[(.75,.75)]*24
+    candidate=[(.25,.75) if i<n_heterozygotes else genotype
+               for i,genotype in enumerate(original)]
+    before=[sum(g)/2 for g in original]
+    after=[sum(g)/2 for g in candidate]
+    if before!=after or len(candidate)!=N_PLANTS:
+        raise AssertionError("hypothetical genotype-access recode changed plant I expression")
+    population_mean=sum(after)/N_PLANTS
+    phenotype_var=sum((x-population_mean)**2 for x in after)/N_PLANTS
+    copies={str(float(v)):sum(sum(x==v for x in genotype)
+                              for genotype in candidate)
+            for v in I_LEVELS}
+    if (copies!={"0.25":n_heterozygotes,
+                 "0.5":48-2*n_heterozygotes,
+                 "0.75":48+n_heterozygotes}
+        or sum(copies.values())!=N_DIPLOID
+        or population_mean!=.625
+        or phenotype_var!=.015625):
+        raise AssertionError("t30 phenotype-preserving latent allele support invalid")
+    a_var=sum(n*(float(allele)-population_mean)**2
+              for allele,n in copies.items())/N_DIPLOID
+    return {
+       "artificial_I_heterozygous_recodes":n_heterozygotes,
+       "N_mathematical_plants_not_simulated":N_PLANTS,
+       "source_genotype_template_pairs":"24 I=(0.5,0.5) and 24 I=(0.75,0.75)",
+       "recode_each_eligible_pair":"(0.5,0.5) -> (0.25,0.75)",
+       "original_and_candidate_expressed_I_equal_for_every_plant":True,
+       "original_and_candidate_phenotype_mean":population_mean,
+       "original_and_candidate_phenotype_variance":phenotype_var,
+       "changed_I_numeric_allele_copy_counts":copies,
+       "changed_I_numeric_allele_value_variance":a_var,
+       "full_genotype_origin_pairing_and_future_Mendelian_outcomes_not_identified":True,
+       "current_native_phenotype_dependent_reproductive_ledger_would_match_if_M_A_visitors_unchanged":True,
+       "changed_existing_original_R2_population":False,
+       "new_population_or_offspring_updates":0,
+    }
+
+
 def scenario_variance(comps:dict,founders:int,visitors:int,repeats:int,
                       endpoint:str)->float:
     if (endpoint not in ENDPOINT_RANGES or
@@ -216,6 +268,10 @@ def review()->dict:
       "genotype_source_alleles_per_population":N_DIPLOID,
       "two_allele_confounding_demonstration":binary,
       "three_allele_constant_mean_illustrative_design":access,
+      "diploid_per_plant_phenotype_preserving_access_illustration":[
+          diploid_phenotype_preserving_I_recode(k) for k in (8,16,24)
+      ],
+      "initial_phenotypic_mean_and_variance_can_be_held_fixed_under_artificial_I_recode":True,
       "mean_invariant_I_access_requires_unassessed_genotype_reallocation":True,
       "three_allele_copy_compensation_changes_allelic_variance":True,
       "other_M_A_genotype_covariance_or_ancestry_preserved":False,
@@ -243,7 +299,7 @@ def review()->dict:
       "blocking_reasons":[
         "Original exploratory source outcome counts may motivate hypotheses but cannot calibrate prospective power/SESOI as if independent",
         "Unknown actual crossed founder and visitor variance components for planned contrast and genetic access construction",
-        "Tri-allelic copy compensation can keep mean I but necessarily changes allele variance and unspecified diploid genotype covariances",
+        "Tri-allelic copy compensation can keep mean I but necessarily changes allele variance and unspecified diploid genotype covariances; a separate artificial per-plant phenotype-preserving I recode also changes latent heterozygosity and allele origins",
         "Low I initial access and past visitor history must be independently varied or explicitly treated as non-identifiable",
         "Unspecified prospective founder/visitor seed pools, compute budget authorization, SESOI, power/precision, reviewer signoff",
         "Original source proposal all run gates false; never dispatch Actions or silently overwrite it",
