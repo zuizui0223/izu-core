@@ -86,6 +86,9 @@ def test_budget_counts_crossed_sources_not_as_independent_outcomes():
     for invalid in (True,0,1,1.5,None):
         with pytest.raises(ValueError):
             static_cost(invalid,8,2)
+    # R=1 is a valid *single nested realization*, not an invalid source size.
+    assert static_cost(8,8,1)["nested_demographic_repeats_per_cell"]==1
+    for invalid in (True,0,-1,1.5,None):
         with pytest.raises(ValueError):
             static_cost(8,8,invalid)
 
