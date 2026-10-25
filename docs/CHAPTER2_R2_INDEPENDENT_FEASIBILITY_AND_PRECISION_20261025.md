@@ -29,6 +29,20 @@ A possible *algebraic* compensation uses three numerical I values `(.25,.50,.75)
 
 This preserves the **allele-level mean but necessarily changes variance**. It does not specify the 48 complete diploid plant genomes, heterozygosity, A/M covariances, maternal/paternal phenotype-genotype associations, ancestry or history. No such populations were generated here, and these illustrative levels **are not original 4/96, 6/96, 16/96 post-hoc critical-frequency candidates**. Genotype realization and the scientific interpretation of this multivariate intervention require independent method review before authorizing a new cohort.
 
+### A stronger artificial control: preserve **every plant's expressed I**, not only its mean
+
+The additive diploid expression rule in the source Model 3 is `I_i=(I_{i,1}+I_{i,2})/2`. Thus a latent-genetic-access test can replace a pair `(.50,.50)` with `(.25,.75)` **in the same plant**, preserving that plant's I exactly. If the same plant's A/M genotypes and the visitor state are also held fixed, the source's **phenotype-dependent same-census maternal/paternal/selfing ledger** is unchanged. Segregating alleles and descendant Mendelian combinations can nevertheless differ *after* a future reproductive step. This is the controlled contrast that the old 384 retrospective data **did not randomly allocate**.
+
+A mathematical 48-plant template illustrates this without generating any Model 3 population futures: 24 plants have `I=(.50,.50)`, 24 have `I=(.75,.75)`; in k of the first 24 plants, rewrite only the I homolog pair as `(.25,.75)`.
+
+| Recoded I pairs k | Copies I=.25/.50/.75 | **Every individual I unchanged?** | Mean expressed I | Variance across individual expressed I | Allelic value variance |
+|---:|---|---|---:|---:|---:|
+| 8 | 8 / 32 / 56 | Yes | **0.625** | **0.015625** | 0.026042 |
+| 16 | 16 / 16 / 64 | Yes | **0.625** | **0.015625** | 0.036458 |
+| 24 | 24 / 0 / 72 | Yes | **0.625** | **0.015625** | 0.046875 |
+
+This is a more discriminating **genetically latent versus currently expressed variation** experiment than simply forcing populations to have equal I means. It would preserve *all current individual expressed I values* and therefore the instant phenotypic source fitness input, not merely one average. But it **still manipulates genomic allelic variance and heterozygosity together** and requires authentic declaration of origin labels, linkage/covariances, genotype placement and exact new-source cohort randomization. No t30 genomes or t80 futures have been constructed under this method. It is **not** a proof of a pure allele-frequency causal coefficient.
+
 ## 3. Two genuinely independent crossed sources, with nested realization
 
 A future study would cross **independently drawn founder genomes** with **independently drawn visitor-history identities**. Demographic replicates are nested inside each founder×visitor cell; two current visitor-activity arms share the exact same census30 genome at each assignment. At every census retain the full `N×3×2` alleles, genetic origins, A/M/I values and support, population N, visitor matching and per-mother outcross fertilization `q`, as well as maternal viable selfing, paternal pollen contribution, and extinction. Nominal visitor activity or aggregate pollen export must **not** be treated as equivalent to matched actual per-mother q.
