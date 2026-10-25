@@ -17,7 +17,8 @@ from scripts.review_chapter2_r2_independent_feasibility_20261025 import (
     ROOT,STATUS,SOURCE_BLOBS,VARIANCE_SCENARIOS,
     PROTOCOL,PARENT,CHRONOLOGY,
     git_blob_sha,checked_sources,biallelic_population_mean,
-    compensated_triallelic_counts,scenario_variance,static_cost,review,
+    compensated_triallelic_counts,diploid_phenotype_preserving_I_recode,
+    scenario_variance,static_cost,review,
 )
 
 
@@ -66,6 +67,30 @@ def test_three_allele_mean_matched_copy_support_not_constant_variance():
     for invalid in (True,0,-1,49,1.5,None):
         with pytest.raises(ValueError):
             compensated_triallelic_counts(invalid)
+
+
+
+def test_per_plant_diploid_recode_is_phenotypically_identical_but_genetically_distinct():
+    # This is a mathematical 48-diploid source TEMPLATE, not a Model3 evolution.
+    results=[diploid_phenotype_preserving_I_recode(k) for k in (8,16,24)]
+    assert [r["artificial_I_heterozygous_recodes"] for r in results]==[8,16,24]
+    assert all(r["N_mathematical_plants_not_simulated"]==48 for r in results)
+    assert all(r["original_and_candidate_expressed_I_equal_for_every_plant"] for r in results)
+    assert all(r["original_and_candidate_phenotype_mean"]==.625 for r in results)
+    assert all(r["original_and_candidate_phenotype_variance"]==.015625 for r in results)
+    assert [r["changed_I_numeric_allele_copy_counts"] for r in results]==[
+        {"0.25":8,"0.5":32,"0.75":56},
+        {"0.25":16,"0.5":16,"0.75":64},
+        {"0.25":24,"0.5":0,"0.75":72},
+    ]
+    assert [r["changed_I_numeric_allele_value_variance"] for r in results]==pytest.approx(
+        [2.5/96,3.5/96,4.5/96],abs=1e-15)
+    assert all(r["new_population_or_offspring_updates"]==0 for r in results)
+    assert all(r["current_native_phenotype_dependent_reproductive_ledger_would_match_if_M_A_visitors_unchanged"] for r in results)
+    assert all(r["full_genotype_origin_pairing_and_future_Mendelian_outcomes_not_identified"] for r in results)
+    for invalid in (True,-1,25,1.5,None):
+        with pytest.raises(ValueError):
+            diploid_phenotype_preserving_I_recode(invalid)
 
 
 def test_budget_counts_crossed_sources_not_as_independent_outcomes():
@@ -135,6 +160,10 @@ def test_review_is_complete_math_only_and_never_authorizes_actions():
     assert d["source_genotype_construction_method_approved"] is False
     assert d["mean_invariant_I_access_requires_unassessed_genotype_reallocation"]
     assert d["three_allele_copy_compensation_changes_allelic_variance"]
+    assert d["initial_phenotypic_mean_and_variance_can_be_held_fixed_under_artificial_I_recode"] is True
+    assert len(d["diploid_per_plant_phenotype_preserving_access_illustration"])==3
+    assert all(z["new_population_or_offspring_updates"]==0 for z in
+               d["diploid_per_plant_phenotype_preserving_access_illustration"])
     assert d["hypothetical_co_primary_count"]==CO_PRIMARY_COUNT==2
     assert d["nominal_familywise_alpha_sensitivity_only"]==ALPHA==.05
     assert len(d["candidate_allocation_grid"])==len(FUTURE_AXES)*len(REPEATS)==12
