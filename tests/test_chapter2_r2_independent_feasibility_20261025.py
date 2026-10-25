@@ -93,6 +93,58 @@ def test_per_plant_diploid_recode_is_phenotypically_identical_but_genetically_di
             diploid_phenotype_preserving_I_recode(invalid)
 
 
+
+def test_native_reproductive_ledger_identical_under_phenotype_preserving_I_recode():
+    """STATIC native Model3 source operator, zero offspring/population updates.
+
+    Every plant's M,I,A phenotype and original source visitor state are
+    identical; only its latent I homolog support is artificially rearranged.
+    We do not claim valid ancestral origins, a biologically evolved I carrier,
+    or an experimental future. No population.advance() is ever called here.
+    """
+    import numpy as np
+    from scripts.chapter2_pollen_baseline_factorial_20261019 import (
+        admit, config, visitors
+    )
+    from scripts.model3_island.reproduction import reproduce
+    from scripts.model3_island.types import PlantState
+    d=admit()  # pinned original frozen protocol and model source SHA
+    n=48
+    alleles=np.full((n,3,2),.5,dtype=float)
+    alleles[24:,1,:]=.75
+    def state(a):
+        return PlantState(
+            alleles=a,
+            allele_origin=np.arange(n*6,dtype=np.int64).reshape(n,3,2),
+            mutation_flags=np.zeros((n,3,2),dtype=bool),
+            ids=np.arange(n,dtype=np.int64),
+            birth_years=np.zeros(n,dtype=np.int64)
+        )
+    original=state(alleles)
+    fields=("outcross","self_raw","self_viable","ovules","exported",
+            "delivered","lost","maternal","paternal")
+    for k in (8,16,24):
+        new=alleles.copy()
+        new[:k,1,:]=[.25,.75]
+        changed=state(new)
+        assert np.array_equal(original.alleles.mean(axis=2),
+                              changed.alleles.mean(axis=2))
+        assert not np.array_equal(original.alleles[:,1,:],
+                                  changed.alleles[:,1,:])
+        for baseline in ("strong_baseline_limitation",
+                         "weak_baseline_limitation"):
+            visit=visitors(d,baseline)
+            for activity in (.4,.04):
+                cfg=config(d,baseline,activity)
+                old_ledger=reproduce(original,visit,cfg)
+                new_ledger=reproduce(changed,visit,cfg)
+                for name in fields:
+                    assert np.array_equal(getattr(old_ledger,name),
+                                          getattr(new_ledger,name)), (
+                                              k,baseline,activity,name
+                                          )
+
+
 def test_budget_counts_crossed_sources_not_as_independent_outcomes():
     eight=static_cost(8,8,1)
     assert eight["independent_founder_labels"]==8
