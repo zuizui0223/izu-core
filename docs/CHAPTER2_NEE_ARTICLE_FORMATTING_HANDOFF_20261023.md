@@ -1,5 +1,7 @@
 # NEE Article source-locked formatting preview (2026-10-23)
 
+> **2026-10-26 current-form update:** This document records the October 23 renderer handoff. Merged [PR #643](https://github.com/zuizui0223/izu-core/pull/643) changed the current R1–R5 Article's title to **“Recurrent reproductive assurance and contingent floral evolution in an island plant model,”** and its 182-word abstract and A/M/I prose were source-checked. The [current formatter](../scripts/format_chapter2_nee_article_20261023.py) still strips seven source-only Discussion headings and the Introduction heading while preserving all prose. On the merged source, the editing master has **3,411 whitespace-delimited body words including editorial navigation headings**; the expected journal-formatted body has **3,351**. Older counts/phrasing below are dated snapshots, not a second active journal draft. External DOI, approved bibliography and final layout remain open.
+
 **Status: technical author-review preview only. Not journal-approved, not an actual submission, and not a deposited DOI.** This is a formatting derivative of the single [completed-evidence Article master](CHAPTER2_NEE_SUPPORTED_RESULTS_ARTICLE_EXTRACT_20261019.md) as merged through [PR #622](https://github.com/zuizui0223/izu-core/pull/622). The master stays canonical and the source-registered G/S, exploratory joint-access and original figure values are unchanged.
 
 ## Official Article requirements verified

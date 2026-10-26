@@ -1,11 +1,11 @@
 # Izu Core — Model 3 island reproductive economics
 
-> **2026-10-26 Ch1↔Ch2の中心線（既存証拠の整理）：** [「繁殖機能は反復し、花形態は条件依存で多様化する」の証拠階層と反証条件](docs/CHAPTER2_CENTRAL_QUESTION_CLAIM_RESET_20261019.md#2026-10-26-cross-chapter-framing-functional-recurrence-versus-floral-contingency)。Ch1では島嶼隔離と自家和合性の反復的な関連、花色・構造の地域差を記述し、Ch2ではAの方向性のある高値固定と反復性、Mの送粉者履歴に対応した予測可能性、Iの選択・履歴・有限集団に依存する実現を別々に扱い、登録済みの遺伝的到達可能性と存続の結果につなぐ。**「自殖は決定論・花投資は偶然」とは未確証**。既存の[完了済みR1–R5 Article](docs/CHAPTER2_NEE_SUPPORTED_RESULTS_ARTICLE_EXTRACT_20261019.md)の序論・R3・考察をDraft PRで修正（主張範囲は不変）。新規実験や登録判定の変更なし。
+> **2026-10-26 Ch1↔Ch2の中心線（既存証拠の整理）：** [「繁殖機能は反復し、花形態は条件依存で多様化する」の証拠階層と反証条件](docs/CHAPTER2_CENTRAL_QUESTION_CLAIM_RESET_20261019.md#2026-10-26-cross-chapter-framing-functional-recurrence-versus-floral-contingency)。Ch1では島嶼隔離と自家和合性の反復的な関連、花色・構造の地域差を記述し、Ch2ではAの方向性のある高値固定と反復性、Mの送粉者履歴に対応した予測可能性、Iの選択・履歴・有限集団に依存する実現を別々に扱い、登録済みの遺伝的到達可能性と存続の結果につなぐ。**「自殖は決定論・花投資は偶然」とは未確証**。既存の[完了済みR1–R5 Article](docs/CHAPTER2_NEE_SUPPORTED_RESULTS_ARTICLE_EXTRACT_20261019.md)の序論・R3・考察の編集をPR #642・#643でmainへ統合済み（登録済み推論の主張範囲は不変）。新規実験や登録判定の変更なし。
 
-> **論文の1本のストーリー（2026-10-19）:** [送粉者が減った後、何が残るか — 日本語・英語の統合科学ストーリー](docs/CHAPTER2_ONE_COHERENT_STORY_20261019.md)。送粉者減少が A（繁殖保障）と I（花投資）の利得を変え（Q1）、観察された進化順序は必然ではなく（Q2）、有限遺伝によって将来の高I到達可能性が失われる場合があり（Q3）、集団存続との関係は資源条件に依存する（Q4）。遅い時点からの環境移植は、支持範囲・多型・実際の反応の違いを示す。**四つの矢印の連続した因果媒介や不可逆的回復不能を証明したわけではない。** [単一NEE Article原稿](docs/CHAPTER2_UNIFIED_NEE_ARTICLE_WORKING_20261017.md)に同じ中心仮説を反映。投稿準備は未完了。
+> **論文の1本のストーリー（2026-10-19）:** [送粉者が減った後、何が残るか — 日本語・英語の統合科学ストーリー](docs/CHAPTER2_ONE_COHERENT_STORY_20261019.md)。送粉者減少が A（繁殖保障）と I（花投資）の利得を変え（Q1）、観察された進化順序は必然ではなく（Q2）、有限遺伝によって将来の高I到達可能性が失われる場合があり（Q3）、集団存続との関係は資源条件に依存する（Q4）。遅い時点からの環境移植は、支持範囲・多型・実際の反応の違いを示す。**四つの矢印の連続した因果媒介や不可逆的回復不能を証明したわけではない。** [現行の単一R1–R5 Article原稿](docs/CHAPTER2_NEE_SUPPORTED_RESULTS_ARTICLE_EXTRACT_20261019.md)に結果を統合。旧NEE作業版は未実施案を含む履歴として保持。投稿準備は未完了。
 > **投稿・新規性の判断（2026-10-19）:** [近接先行研究との新規性比較・投稿先・検証ゲート](docs/CHAPTER2_PUBLICATION_NOVELTY_DECISION_20261019.md)。自殖による短期救済と遺伝変異減少は既知のため、160×160登録済みの **高I到達可能性Gと存続Sの別々の効果**、および既存原票から導いた**探索的な3状態（生存かつ到達可能／生存かつ閉鎖／絶滅）**を中心にする。新しい複合評価の信頼区間や普遍性は未確認。NEE投稿可能との判断・新規実験実施を意味しない。
 
-> **現行の論文化方針（2026-10-19） — ELを独立のCh3へ分割せず、一つのNEE Article候補へ統合：** [最新の一論文ルート](docs/audits/CHAPTER2_NEE_ACTIVE_PUBLICATION_ROUTE_20261017.json) · [統合NEE作業原稿](docs/CHAPTER2_UNIFIED_NEE_ARTICLE_WORKING_20261017.md)。既存Q1〜Q4に、完了した160×160確認・花粉制限384経路・保存変異解析・限定的再適応を統合する。[現行の成果補足](docs/CHAPTER2_COMPLETED_EVIDENCE_SUPPLEMENT_20261019.md)と[S1〜S33・F1〜F8の配置表](docs/CHAPTER2_HISTORICAL_RESULTS_DISPOSITION_20261019.md)で陰性・未決も追跡する。全回復確率の時計は未検証であり、今回の統合に新規実験を追加しない。旧Ecology Letters原稿・レンダラー・登録結果は再現用の履歴であり、別投稿対象ではない。**NEE投稿準備は未完了。**
+> **2026-10-19時点の論文化方針（履歴） — ELを独立のCh3へ分割せず、一つのNEE Article候補へ統合：** [最新の一論文ルート](docs/audits/CHAPTER2_NEE_ACTIVE_PUBLICATION_ROUTE_20261017.json) · [統合NEE作業原稿](docs/CHAPTER2_UNIFIED_NEE_ARTICLE_WORKING_20261017.md)。既存Q1〜Q4に、完了した160×160確認・花粉制限384経路・保存変異解析・限定的再適応を統合する。[現行の成果補足](docs/CHAPTER2_COMPLETED_EVIDENCE_SUPPLEMENT_20261019.md)と[S1〜S33・F1〜F8の配置表](docs/CHAPTER2_HISTORICAL_RESULTS_DISPOSITION_20261019.md)で陰性・未決も追跡する。全回復確率の時計は未検証であり、今回の統合に新規実験を追加しない。旧Ecology Letters原稿・レンダラー・登録結果は再現用の履歴であり、別投稿対象ではない。**NEE投稿準備は未完了。**
 
 > **論文の新規性と証拠の三層（Q1〜Q4）:** [Lepers全文・PR #569を反映した主張の採用／不採用表](docs/CHAPTER2_THREE_TIER_FOUR_QUESTION_NOVELTY_REVIEW_20261016.md)。既知の自殖・花縮小理論との差、新しい遺伝的実現の検証、Q4の独立した存続効果を区別。原稿・原本・登録結果は変更していません。
 
@@ -212,97 +212,29 @@ That earlier bridge cohort's **24,576 computational cases** are (not the current
 
 The independent ecological denominator is therefore **128 visitor histories**, not 24,576 cases. Synthetic time, distance and trait coordinates are mechanistic coordinates rather than calibrated natural units.
 
-## Current scientific result
+## Current scientific result — one completed-evidence Chapter 2 Article
 
-The active process paper separates four biological objects that should not be
-collapsed:
+**Question:** Why can reproductive functions recur under pollination limitation without a single predictable floral phenotype, and does successful reproductive assurance preserve the genetic possibilities for later floral change?
 
-1. **current reproductive return** — what additional floral investment yields at
-   a fixed plant state;
-2. **realized evolutionary order** — which inherited trait reaches a declared
-   change threshold first;
-3. **causal necessity** — whether evolution of the first-changing trait is
-   required for the second response;
-4. **reproductive consequence** — whether pollen-deficit metrics track absolute
-   viable offspring.
+The three Model 3 traits are **A** (inherited autonomous reproductive-assurance capacity), **M** (functional matching to the imposed visitors) and **I** (abstract floral-investment allocation). Chapter 1's **self-compatibility** in observed island floras is not literally A; Model 3 M is not measured flower colour/architecture and I is not measured flower size. Island-flora occurrence associations cannot identify in situ evolution or colonization filtering.
 
-The primary process result is now independently confirmed. In the preregistered
-delayed-selfing, assurance-cost 0.5, positive-mutation cell, 64 new visitor histories
-again produced **51/64 assurance-first histories** at the primary 0.05
-threshold (95% history-bootstrap **0.6875–0.8906**). A separate new-history
-fixed-assurance replication retained a negative far investment change
-(**−0.3060 [−0.3181, −0.2941]**) and negative far-minus-near effect
-(**−0.4354 [−0.4533, −0.4172]**).
+**Supported Model 3 results, in manuscript order:**
 
-The supported synthesis is:
+1. **R1 — independent investment response:** under tested lower visitor replenishment, I declined even with A expression fixed at 0.5, which still permits selfing. Original four reproductive settings and independently sampled eight-founder × eight-visitor contrasts support this bounded non-necessity. [Five-result Article](docs/CHAPTER2_NEE_SUPPORTED_RESULTS_ARTICLE_EXTRACT_20261019.md).
+2. **R2 — conditional assurance modification:** evolving A compressed the environmental I contrast in original 4/4 settings, but the independent-founder four-setting decision was not fully confirmed: the direct-cost setting interval includes zero (**3/4** supported). The registered historical 384 I-carrier test remains **both_inconclusive**, not overridden by later retrospective or design-only analyses. [Fresh-founder evidence](docs/CHAPTER2_Q1_FRESH_FOUNDER_RESULTS_20261016.md) · [R2 original evidence](docs/CHAPTER2_Q2_I_SUPPORT_384_REGISTERED_RESULT_20261016.md).
+3. **R3 — trait-specific prediction (exploratory):** A final within-context variance was lower than I in all **12** compared setting × initial-state summaries. For the four central starts, four-repeat exact A endpoints were **66–111/128** history contexts versus **7–20/128** for I. A is *not* deterministically ordered or guaranteed to increase under any visitor decline; many near/far A contrasts are exactly zero. In a separate known-source held-out prediction, visitor-history skill was **+40.146%** for M change versus **+0.359%** for I change (error improvement, not explained flower morphology or a drift fraction). [Matched repeats](docs/CHAPTER2_MATCHED_AI_REPEATABILITY_20261019.md) · [prediction experiment](docs/CHAPTER2_FOUNDER_PREDICTABILITY_RESULTS_20261021.md).
+4. **R4 — registered genetic/persistence outcomes:** at B8, both A policies had complete population survival, but permitting A evolution increased loss of founder-relative high-I target-compatible allele support by **+8.328125 percentage points**. Across B8 and harsher B4.5, the *separate* registered A-policy × resource survival interaction was **+92.707031 pp**. These are **distinct endpoints**, not a measured mediation or permanent inability to adapt. [160 × 160 confirmation](docs/CHAPTER2_CONFIRM160_RESULTS_20261019.md).
+5. **R5 — conditional future response (exploratory):** among the bounded transferred seed cohorts, only **4/32 per historical policy** retained I polymorphism but **24/32** retained high-I target support. Retained support, standing polymorphism, performance and realized change differ; no full restoration-time window or universal island-to-mainland recolonization result was established. [Transfer readout](docs/CHAPTER2_READAPTATION_RESULTS_20261019.md).
 
-- visitor limitation can lower the marginal reproductive return to attraction
-  before plant traits evolve;
-- reproductive assurance can reach a realized change threshold before floral
-  investment in the confirmed delayed/costly regime;
-- **temporal precedence is not causal necessity**: investment still declines
-  when assurance capacity cannot evolve;
-- assurance evolution can narrow the observed near-far investment contrast even
-  when both environments undergo substantial within-population evolution;
-- a smaller fractional pollen deficit can coexist with fewer viable offspring;
-- the assurance-first sequence is **not universal** across reproductive
-  settings: prior selfing with positive mutation gave 30/64 assurance-first
-  histories at the same primary threshold;
-- the effective ecological sample size is 64 visitor histories; eight
-  demographic repeats are nested and are not independent ecological replicates.
+**Interpretive boundary:** The stochastic finite ABM and deterministic genotype-density equations differ, but density is not the exact ABM expectation; changing K affects ecological/demographic inputs beyond drift. The independent Q1–Q4/R1–R5 cohorts do not form one observed natural-island causal chain. The confirmatory centre is **registered R4 G/S**; the A/M/I predictability contrast is a mechanistic, **exploratory** explanatory layer. The old <code>R2</code> prospective carrier-placement experiment remains **HOLD / NO DISPATCH**.
 
-The 13-rate extension, mutation/history experiments, finite-versus-deterministic
-bridge and unresolved high-resolution positive-mutation numerical comparison are
-supporting evidence rather than confirmatory substitutes for this process claim.
-Stable latent branch prevalence, calibrated natural rates, named historical
-causes and region-to-model-cell assignments remain unidentified.
+## Active paper surface — verified current source of truth
 
-## Active paper surface
-
-Scientific narrative:
-
-- `docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md` — one active Ecology Letters manuscript, including the descriptive tempo supplement.
-- `docs/CHAPTER2_UNIFIED_EL_SUPPORTING_INFORMATION_20261010.md` — current Supporting Information, all eight tempo contrasts and their inferential limits.
-- `docs/CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md` — historical evolutionary source manuscript.
-- `docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md` — long-form process/provenance manuscript.
-- `docs/CHAPTER2_PROCESS_MAINLINE_20261005.md` — current claim spine and parallel-model structure.
-- `docs/CHAPTER2_CANONICAL_STORY_20260927.md` — historical bridge narrative.
-- `docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md` — why Model 3 is the only active mechanistic model.
-- `docs/CHAPTER2_SUBMISSION_ROUTE_FIREWALL_20260927.md` — current/legacy boundary.
-- `docs/MODEL3_Q1_MECHANISM_MAP_20261005.md` — current independent H1–H4 correspondence.
-- `docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20260927.md` — historical Chapter 1 → Chapter 2 handoff.
-
-Model 3 evidence:
-
-- `docs/MODEL3_ISLAND_ECOLOGICAL_RESULTS_20260927.md`
-- `docs/MODEL3_ISLAND_NUMERICAL_REVIEW_20260927.md`
-- `docs/MODEL3_CH2_BRIDGE_PROSPECTIVE_RESULTS_20260927.md`
-- `docs/MODEL3_CH2_BRIDGE_ECOLOGICAL_RESULTS_20260928.md`
-- `data/results/model3_ch2_bridge_prospective_frozen_20260927.json`
-- `data/results/model3_island_v2_summary/`
-
-Historical bridge-submission control (not the newer process manuscript):
-
-- `data/design/chapter2_unified_model3_lock_20260927.json`
-- `data/design/chapter2_oikos_submission_manifest_20260927.json`
-- `data/results/chapter2_submission_closure_audit_20260928.json`
-
-Implementation:
-
-- `scripts/model3_island/` — finite-population and deterministic Model 3 implementation.
-- `scripts/model3_island_bridge_ops.py` — prospective bridge interventions.
-- `scripts/render_chapter2_unified_manuscript.py` — active one-paper renderer and word-limit checks.
-- `scripts/build_chapter2_unified_el_submission_bundle.py` — current reviewer ZIP, evidence hashes and separate internal provenance receipt.
-- `scripts/render_chapter2_process_manuscript.py` — historical process manuscript renderer.
-- `scripts/figure_model3_return_components.py`, `scripts/figure_model3_assurance_compression.py`, `scripts/figure_model3_trait_pollen.py` — main Figures 1–3.
-- `scripts/render_chapter2_capacity_companion_evidence_figure.py` — current main Figure 4.
-- `scripts/figure_model3_genetic_realization.py` — supplemental Figure S1; the admitted tempo SVG is supplemental Figure S2.
-- `scripts/figure_model3_replenishment_evolution.py` — complete replenishment-gradient panels.
-- `scripts/generate_chapter2_unified_model3_figures.py` — historical bridge Figures 1–4.
-- `scripts/render_chapter2_oikos_generality_overlay.py` — historical snapshot renderer.
-- `scripts/render_chapter2_supporting_information.py` — historical bridge Supporting Information.
-- `scripts/build_island_ecology_submission_bundle.py` — historical Oikos bundle.
-- `scripts/build_island_ecology_review_archive.py` — historical anonymous reviewer archive.
+- **Editing master / single current Article:** [Recurrent reproductive assurance and contingent floral evolution in an island plant model](docs/CHAPTER2_NEE_SUPPORTED_RESULTS_ARTICLE_EXTRACT_20261019.md). This is a model-conditioned, **unsubmitted** completed-evidence manuscript. The first-line title and 182-word abstract were integrated by merged [PR #642](https://github.com/zuizui0223/izu-core/pull/642) and [PR #643](https://github.com/zuizui0223/izu-core/pull/643).
+- **Journal-formatted technical preview:** [NEE renderer](scripts/format_chapter2_nee_article_20261023.py) strips the author's Introduction heading and seven Discussion navigation headings **in the export**, preserving all original prose, and checks the 200-word abstract, 3,500-word body and six-display-item limits. The current master has **3,411 whitespace-delimited body words including its seven editorial headings**, whereas the formatted body has **3,351**. Passing layout tests does **not** certify journal submission readiness.
+- **Main displays and source crosswalk:** [six current R1–R5 figures](docs/CHAPTER2_FIVE_RESULTS_FIGURE_MAP_20261021.md), [five-result source recovery](docs/CHAPTER2_R1_R5_SOURCE_RECOVERY_AUDIT_20261022.md), [computational Methods and independent units](docs/CHAPTER2_R1_R5_COMPUTATIONAL_REPORTING_SUMMARY_20261022.md), [historical negative/inconclusive results](docs/CHAPTER2_FIVE_RESULTS_EXTENDED_EVIDENCE_20261021.md).
+- **Submission state and remaining gates:** [NEE submission/DOI checkpoint](docs/CHAPTER2_NEE_SUBMISSION_GATE_20261026.md) · [five-result raw-data DOI handoff](docs/deposit/CHAPTER2_FIVE_RESULTS_DOI_HANDOFF_20261021.md) · [external archive Issue #436](https://github.com/zuizui0223/izu-core/issues/436). **No verified external DOI and no journal submission.** Complete DOI raw archive, licence/access approval, figure/Methods review, bibliography, author declarations and final author-approved package remain open.
+- **Historical development / not the current manuscript:** [2026-10-17 NEE working copy](docs/CHAPTER2_UNIFIED_NEE_ARTICLE_WORKING_20261017.md) contains explicitly unexecuted proposals and must **not** be exported as submitted Results. [2026-10-10 Ecology Letters manuscript](docs/CHAPTER2_UNIFIED_EVOLUTION_PERSISTENCE_MANUSCRIPT_20261010.md), its old EL reviewer ZIP and legacy figure renderers are preserved for provenance/reproduction, **not** an active second paper.
 
 ## Natural evidence boundary
 
@@ -343,6 +275,26 @@ Full 24,576-case regeneration is manual-only through `.github/workflows/model3_c
 ## Legacy archive
 
 Historical work remains recoverable but is not part of the current paper or automatic scientific gate:
+
+### Prior Model 3 process and older-submission provenance (not active submissions)
+
+The **2026-10-05 ecological process mainline** supplied independently confirmed, bounded evidence from **64 new visitor histories**: a delayed/costly selfing condition gave 51/64 A-first histories, while the prior-selfing positive-mutation cell did not show an assurance-first majority (30/64). The scientific distinction is **temporal precedence is not causal necessity**: I could decline with fixed A expression. Original selection/chronology controls remain independently confirmed for their dated conditions, not proof that the presently active R1–R5 manuscript is a separate Ecology Letters submission. Its exploratory **13 rates at fixed plant capacity 48**, original **all 13,312 cases**, and the distinct 24,576 computational cases bridge are historical study inventories. The **positive-mutation long comparison remains** a bounded or unresolved numerical diagnostic wherever its source-specific audit states so, never a blanket density/ABM validation.
+
+Other historically important limitations remain: **stable latent branch prevalence** is not identified from threshold-sensitive mixed-history labels. The **principal natural-data gap** is an identifiable same-system sequence from pollen conditions through inherited trait change to persistence. The historical natural-data inventory covered **42 research entries / 37 exact geographic labels** with **0/25 complete A → B → C contracts**. These are audit-coverage descriptors from that dated work, not new independent confirmations. Chapter 3 phenotype values are **not** used to tune, rescue, validate or retroactively prove the biological claims or PR #642/#643 R1–R5 primary results.
+
+Historical source pointers (preserved for reproducibility, **not current manuscript selectors**):
+
+- docs/CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md — old October-05/06 process paper, **not submitted**.
+- docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md — superseded long-form source/provenance paper.
+- docs/CHAPTER2_PROCESS_MAINLINE_20261005.md — source-locked process-stage conclusions.
+- docs/CHAPTER2_CANONICAL_STORY_20260927.md — early island bridge narrative.
+- docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md — rationale for retiring Model 2.
+- docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20260927.md — historical empirical/mechanistic transition.
+- data/design/chapter2_unified_model3_lock_20260927.json — old bridge registration.
+- data/design/chapter2_oikos_submission_manifest_20260927.json — **historical Oikos bundle** metadata, never a current submission.
+- scripts/model3_island/ — frozen finite/deterministic biological source used by archived campaigns.
+- scripts/render_chapter2_oikos_generality_overlay.py — historical overlay.
+- scripts/render_chapter2_process_manuscript.py — historical process renderer.
 
 - `legacy/model2/` — retired Model 2 response geometry, synthetic-`k`, S/C/I and former SI controls.
 - `legacy/routes/nee/` — retired NEE route.
