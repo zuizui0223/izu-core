@@ -128,3 +128,35 @@ def test_phenotype_changing_recode_does_change_ovule_allocation_negative_control
     weights=expected_gene_weight(source)
     assert weights.shape==(N,)
     assert float(weights.min())<float(weights.max())
+
+
+def test_actions_verified_source_static_carrier_readback_is_bounded(report):
+    receipt=json.loads((Path(__file__).resolve().parents[1]/
+        "docs/audits/CHAPTER2_R2_STATIC_CARRIER_PLACEMENT_20261026.json").read_text(encoding="utf8"))
+    assert receipt["status"]=="SOURCE_NATIVE_STATIC_MATCHED_LEDGER_ALLELE_PLACEMENT_COUNTEREXAMPLE_HOLD"
+    assert receipt["verified_actions_run_id"]==40255080484
+    assert receipt["verified_actions_artifact_id"]==12621963266
+    assert receipt["verified_artifact_json_length_bytes"]==8573
+    assert receipt["verified_artifact_json_sha256"]=="4fe0474778ef6bbcf6a0b47c3f208fea11778df2021621cb2132c4924cae8b35"
+    assert receipt["new_biological_population_updates"]==0
+    assert receipt["new_offspring_draws"]==0
+    assert receipt["future_random_seeds_reserved"]==0
+    assert receipt["should_dispatch_actions"] is False
+    assert receipt["preregistration_approved"] is False
+    assert receipt["author_signoff"] is False
+    assert receipt["legacy_r2_fresh_founder_four_setting_overall"]=="INCONCLUSIVE"
+    assert receipt["claim_rank"]=="CONSTRUCTED_IDENTIFIABILITY_COUNTEREXAMPLE_ONLY_NOT_INDEPENDENT_BIOLOGICAL_EVIDENCE"
+    assert receipt["artificial_recode"]["all_nine_native_reproduction_ledger_components_exactly_identical"]
+    assert receipt["artificial_recode"]["I_numeric_allele_counts"]=={"0.25":8,"0.5":32,"0.75":56}
+    assert len(receipt["settings"])==len(report["native_static_reproduction_settings_checked"])==4
+    by_key={(r["baseline"],r["original_model_external_activity"]):r
+        for r in report["native_static_reproduction_settings_checked"]}
+    for recorded in receipt["settings"]:
+        current=by_key[(recorded["baseline"],recorded["activity"])]
+        x=current["recode_allocations"]
+        assert recorded["expected_lowest_I_frequency_newborn_high_return_carriers"]==pytest.approx(
+            x["high_current_parental_return"]["expected_low_I_fraction_in_newborns"],abs=1e-12)
+        assert recorded["expected_lowest_I_frequency_newborn_low_return_carriers"]==pytest.approx(
+            x["low_current_parental_return"]["expected_low_I_fraction_in_newborns"],abs=1e-12)
+        assert recorded["high_minus_low_expected_frequency"]==pytest.approx(
+            current["difference_in_low_I_newborn_fraction_from_carrier_placement"],abs=1e-12)
