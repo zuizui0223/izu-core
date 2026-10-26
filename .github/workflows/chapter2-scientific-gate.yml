@@ -519,7 +519,8 @@ jobs:
             tests/test_chapter2_r2_original_I_accessibility_20261024.py \
             tests/test_chapter2_r2_low_I_allele_transmission_20261024.py \
             tests/test_chapter2_r2_rare_low_I_loss_chronology_20261024.py \
-            tests/test_chapter2_r2_independent_i_access_precision_20261025.py
+            tests/test_chapter2_r2_independent_i_access_precision_20261025.py \
+            tests/test_chapter2_r2_independent_feasibility_20261025.py
       - name: Read source-only R1-R5 direction/realization bridge (NOT new biology)
         run: python -m scripts.audit_chapter2_direction_realization_bridge_20261023 > /dev/null
       - name: Verify R2 source-384 response sparsity without biological rerun
@@ -600,6 +601,25 @@ jobs:
                   z['sum_original_path_expected_low_I_frequency_shift'],
                   z['sum_original_path_realization_low_I_fraction_residual'])
                   for arm,z in episode['arms'].items()])
+          PY
+      - name: Audit proposed independent R2 genetic accessibility and crossed-source precision (NO new biology)
+        run: |
+          mkdir -p outputs/chapter2_r1_r5_author_review
+          python -m scripts.review_chapter2_r2_independent_feasibility_20261025 > outputs/chapter2_r1_r5_author_review/R2_INDEPENDENT_DESIGN_FEASIBILITY_20261025.json
+          python - <<'PY'
+          import json
+          path='outputs/chapter2_r1_r5_author_review/R2_INDEPENDENT_DESIGN_FEASIBILITY_20261025.json'
+          d=json.load(open(path))
+          assert d['status']=='R2_DESIGN_PRECISION_AND_GENETIC_ACCESS_FEASIBILITY_REVIEW_HOLD'
+          assert d['new_biological_simulation_updates']==0
+          assert d['dispatched_actions']==0
+          assert d['prospectively_registered'] is False
+          assert d['author_signoff'] is False
+          assert d['may_dispatch_biological_futures'] is False
+          assert d['SESOI_minimum_important_I_or_loss_risk_contrast'] is None
+          assert len(d['candidate_allocation_grid'])==12
+          assert all(z['candidate']['biological_population_updates_executed']==0 for z in d['candidate_allocation_grid'])
+          print('SOURCE_BOUND_R2_DESIGN_REVIEW_HOLD',len(d['candidate_allocation_grid']),'candidate workloads',d['sources']['original_384_source_run_id'])
           PY
       - name: Verify independent R2 I-access planning precision ONLY (no dispatch)
         run: |
@@ -682,6 +702,7 @@ jobs:
             outputs/chapter2_r1_r5_author_review/R2_ORIGINAL_LOW_I_PARENTAGE.json
             outputs/chapter2_r1_r5_author_review/R2_ORIGINAL_RARE_LOW_I_LOSS_CHRONOLOGY.json
             outputs/chapter2_r1_r5_author_review/R2_INDEPENDENT_I_ACCESS_PRECISION_DRAFT.json
+            outputs/chapter2_r1_r5_author_review/R2_INDEPENDENT_DESIGN_FEASIBILITY_20261025.json
             outputs/chapter2_nee_format/NEE_ARTICLE_AUTHOR_PREVIEW.md
             outputs/chapter2_nee_format/FORMAT_PROOF.json
 
