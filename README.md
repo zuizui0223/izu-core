@@ -276,6 +276,26 @@ Full 24,576-case regeneration is manual-only through `.github/workflows/model3_c
 
 Historical work remains recoverable but is not part of the current paper or automatic scientific gate:
 
+### Prior Model 3 process and older-submission provenance (not active submissions)
+
+The **2026-10-05 ecological process mainline** supplied independently confirmed, bounded evidence from **64 new visitor histories**: a delayed/costly selfing condition gave 51/64 A-first histories, while the prior-selfing positive-mutation cell did not show an assurance-first majority (30/64). The scientific distinction is **temporal precedence is not causal necessity**: I could decline with fixed A expression. Original selection/chronology controls remain independently confirmed for their dated conditions, not proof that the presently active R1–R5 manuscript is a separate Ecology Letters submission. Its exploratory **13 rates at fixed plant capacity 48**, original **all 13,312 cases**, and the distinct 24,576 computational cases bridge are historical study inventories. The **positive-mutation long comparison remains** a bounded or unresolved numerical diagnostic wherever its source-specific audit states so, never a blanket density/ABM validation.
+
+Other historically important limitations remain: **stable latent branch prevalence** is not identified from threshold-sensitive mixed-history labels. The **principal natural-data gap** is an identifiable same-system sequence from pollen conditions through inherited trait change to persistence. The historical natural-data inventory covered **42 research entries / 37 exact geographic labels** with **0/25 complete A → B → C contracts**. These are audit-coverage descriptors from that dated work, not new independent confirmations. Chapter 3 phenotype values are **not** used to tune, rescue, validate or retroactively prove the biological claims or PR #642/#643 R1–R5 primary results.
+
+Historical source pointers (preserved for reproducibility, **not current manuscript selectors**):
+
+- docs/CHAPTER2_MANUSCRIPT_ECOLOGY_LETTERS_20261006.md — old October-05/06 process paper, **not submitted**.
+- docs/CHAPTER2_MANUSCRIPT_ACTIVE_20260831.md — superseded long-form source/provenance paper.
+- docs/CHAPTER2_PROCESS_MAINLINE_20261005.md — source-locked process-stage conclusions.
+- docs/CHAPTER2_CANONICAL_STORY_20260927.md — early island bridge narrative.
+- docs/CHAPTER2_MODEL_UNIFICATION_DECISION_20260927.md — rationale for retiring Model 2.
+- docs/CHAPTER1_CHAPTER2_CANONICAL_BRIDGE_20260927.md — historical empirical/mechanistic transition.
+- data/design/chapter2_unified_model3_lock_20260927.json — old bridge registration.
+- data/design/chapter2_oikos_submission_manifest_20260927.json — **historical Oikos bundle** metadata, never a current submission.
+- scripts/model3_island/ — frozen finite/deterministic biological source used by archived campaigns.
+- scripts/render_chapter2_oikos_generality_overlay.py — historical overlay.
+- scripts/render_chapter2_process_manuscript.py — historical process renderer.
+
 - `legacy/model2/` — retired Model 2 response geometry, synthetic-`k`, S/C/I and former SI controls.
 - `legacy/routes/nee/` — retired NEE route.
 - `legacy/routes/ecology-letters/` — retired Ecology Letters analytical route.
