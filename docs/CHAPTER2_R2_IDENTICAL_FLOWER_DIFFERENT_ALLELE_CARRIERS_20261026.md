@@ -37,7 +37,22 @@ The higher-return and lower-return carrier assignments therefore differ by
 
 If native parentage weights are nonuniform, this difference is strictly positive under the **reference setting by deliberate ranking**, even though all current phenotype/allele-frequency summaries and reproductive ledger arrays are exactly identical. The observed contrast is a **constructed identifiability counterexample**, not an unbiased treatment estimate or newly found ecological adaptation.
 
-The native code independently recomputes each per-allele Mendelian expected frequency and verifies it against this parental-return algebra. After the scientific gate runs, the actual numerical conditional differences for the four model settings will be captured in an Actions-only design readback. **Do not invent or extrapolate these numbers before the readback.**
+The native code independently recomputes each per-allele Mendelian expected frequency and verifies it against this parental-return algebra. The four executed static readbacks, independently checked by the source-genetic-parentage formula, are documented below with actual Actions provenance.
+
+## Verified static Model 3 native ledger readback (2026-10-26)
+
+The original native `reproduce()`-only author-review verification passed in [GitHub Actions run 40255080484](https://github.com/zuizui0223/izu-core/actions/runs/40255080484), artifact **12621963266**. The 8,573-byte `R2_STATIC_CARRIER_PLACEMENT_HOLD.json` has SHA256 `4fe0474778ef6bbcf6a0b47c3f208fea11778df2021621cb2132c4924cae8b35`. The compact machine [source receipt](audits/CHAPTER2_R2_STATIC_CARRIER_PLACEMENT_20261026.json) preserves the exact values and explicitly denies prospective approval.
+
+| Native original baseline | Activity | Expected I=.25 fraction in offspring, high-return carriers | Low-return carriers | Difference |
+|---|---:|---:|---:|---:|
+| Strong prior pollen limitation | .40 | .098285 | .047855 | **+.050430** |
+| Strong prior pollen limitation | .04 | .111436 | .053816 | **+.057619** |
+| Weak prior pollen limitation | .40 | .073724 | .044087 | **+.029637** |
+| Weak prior pollen limitation | .04 | .082019 | .041015 | **+.041004** |
+
+In every row, **both artificial allocations began with 8/96 low-I copies**, identical individual M/I/A expression, exactly the same ovule and pollen-transfer matrices and maternal/paternal/self expected parentage. The table contrasts *two deliberately chosen parental-carrier assignments*, not a treatment randomized over independent founders. The parental ranking was chosen from the first row and retained for all other rows.
+
+The result verifies a **constructive failure of identification by allele copy counts alone**. It does not quantify a causal island effect, estimate allele fixation odds, demonstrate a naturally arising genealogy or establish that the best/worst parental placements differ by these amounts in a newly sampled population. **New biological population updates and offspring draws: zero.**
 
 ## Meaning for independent study design
 
