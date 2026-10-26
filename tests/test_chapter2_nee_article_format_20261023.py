@@ -25,7 +25,7 @@ def test_current_nee_article_format_source_locked_and_science_unchanged():
     assert report["results_topical_headings"] == 5
     assert report["figure_legends"] == 6
     assert report["discussion_subheadings"] == 0
-    assert out.startswith("# Founding constraints and the predictability")
+    assert out.startswith("# Recurrent reproductive assurance and contingent floral evolution")
     assert "Completed-evidence editorial extract" not in out.split("## Abstract",1)[0]
     assert not any(line.strip() == "## Introduction" for line in out.splitlines())
     assert "## Discussion\n" in out
@@ -51,7 +51,7 @@ def test_preserves_discussion_prose_without_reordering():
     original = master.split("## Discussion\n",1)[1].split("## Online Methods",1)[0]
     original_paragraphs = [
         s.strip() for s in original.split("\n\n")
-        if s.strip() and not s.startswith("### ")]
+        if s.strip() and not s.strip().startswith("### ")]
     formatted, _ = render(master)
     d = formatted.split("## Discussion\n",1)[1].split("## Online Methods\n",1)[0]
     new_paragraphs = [s.strip() for s in d.split("\n\n") if s.strip()]
@@ -62,7 +62,7 @@ def test_preserves_discussion_prose_without_reordering():
 def test_reject_changed_scientific_boundaries():
     m = source()
     with pytest.raises(ValueError, match="title"):
-        render(m.replace("Founding constraints and the predictability",
+        render(m.replace("Recurrent reproductive assurance and contingent floral evolution",
                          "Irreversible floral evolution",1))
     with pytest.raises(ValueError, match="post-outcome result not visibly qualified"):
         render(m.replace("post-outcome", "POSTHOC", 1).replace(

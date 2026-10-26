@@ -14,7 +14,7 @@ import re
 
 ROOT = Path(__file__).resolve().parents[1]
 MASTER = "docs/CHAPTER2_NEE_SUPPORTED_RESULTS_ARTICLE_EXTRACT_20261019.md"
-TITLE = "Founding constraints and the predictability of reproductive evolution in an island plant model"
+TITLE = "Recurrent reproductive assurance and contingent floral evolution in an island plant model"
 STATUS = "NEE_ARTICLE_FORMAT_PREVIEW_NOT_AUTHOR_APPROVED_NOT_SUBMITTED"
 HEADINGS = (
     "## Abstract\n",
