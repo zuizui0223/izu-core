@@ -1,0 +1,79 @@
+{
+  "schema": "izu_core_r2_design_only_static_carrier_placement_v1",
+  "status": "SOURCE_NATIVE_STATIC_MATCHED_LEDGER_ALLELE_PLACEMENT_COUNTEREXAMPLE_HOLD",
+  "verified_actions_run_id": 40255080484,
+  "verified_actions_artifact_id": 12621963266,
+  "verified_artifact_json_name": "R2_STATIC_CARRIER_PLACEMENT_HOLD.json",
+  "verified_artifact_json_length_bytes": 8573,
+  "verified_artifact_json_sha256": "4fe0474778ef6bbcf6a0b47c3f208fea11778df2021621cb2132c4924cae8b35",
+  "original_model_contract_sha256": "87af92484af9988181b4f3bed6760d39325de70cca8c0b4e1cec19c47b8c9849",
+  "original_source_actions_run_id": 39233450099,
+  "source_identity": "ORIGINAL_MODEL3_REPRODUCE_OPERATOR_ON_SYNTHETIC_ARTIFICIAL_ADULTS",
+  "source_units": "48 ARTIFICIAL LABELLED diploid plants, NOT new original/independent founded populations",
+  "artificial_recode": {
+    "eligible_adults_with_I_0_5": 24,
+    "changed_adults_per_allocation": 8,
+    "control_I_homologs": [
+      0.5,
+      0.5
+    ],
+    "recoded_I_homologs": [
+      0.25,
+      0.75
+    ],
+    "I_numeric_allele_counts": {
+      "0.25": 8,
+      "0.5": 32,
+      "0.75": 56
+    },
+    "current_adult_phenotypic_I_mean": 0.625,
+    "current_adult_phenotypic_I_variance": 0.015625,
+    "all_adult_expressed_M_I_A_per_individual_identical": true,
+    "I_heterozygote_count_identical": 8,
+    "all_nine_native_reproduction_ledger_components_exactly_identical": true,
+    "current_parental_return_placement_selected_deliberately_from": "strong_baseline_limitation activity 0.4, highest-vs-lowest parental genetic return"
+  },
+  "settings": [
+    {
+      "baseline": "strong_baseline_limitation",
+      "activity": 0.4,
+      "expected_lowest_I_frequency_newborn_high_return_carriers": 0.09828480218155575,
+      "expected_lowest_I_frequency_newborn_low_return_carriers": 0.04785456665294966,
+      "high_minus_low_expected_frequency": 0.050430235528606086
+    },
+    {
+      "baseline": "strong_baseline_limitation",
+      "activity": 0.04,
+      "expected_lowest_I_frequency_newborn_high_return_carriers": 0.11143556055792882,
+      "expected_lowest_I_frequency_newborn_low_return_carriers": 0.05381630231944342,
+      "high_minus_low_expected_frequency": 0.0576192582384854
+    },
+    {
+      "baseline": "weak_baseline_limitation",
+      "activity": 0.4,
+      "expected_lowest_I_frequency_newborn_high_return_carriers": 0.07372353845775637,
+      "expected_lowest_I_frequency_newborn_low_return_carriers": 0.044086832021235936,
+      "high_minus_low_expected_frequency": 0.02963670643652043
+    },
+    {
+      "baseline": "weak_baseline_limitation",
+      "activity": 0.04,
+      "expected_lowest_I_frequency_newborn_high_return_carriers": 0.08201853603483215,
+      "expected_lowest_I_frequency_newborn_low_return_carriers": 0.0410145169350215,
+      "high_minus_low_expected_frequency": 0.041004019099810655
+    }
+  ],
+  "claim_rank": "CONSTRUCTED_IDENTIFIABILITY_COUNTEREXAMPLE_ONLY_NOT_INDEPENDENT_BIOLOGICAL_EVIDENCE",
+  "note": "High-return vs low-return carrier placement was deliberately chosen by original static reproductive weights; the reference positive difference is built into the construction, not an unbiased estimate or a confidence interval.",
+  "inference_boundary": "Same adult phenotypes and total allele counts cannot identify allele-specific newborn expectation unless carrier-to-parent background placement is defined; neither later fixation or natural-island effects are established.",
+  "preregistration_approved": false,
+  "new_independent_biological_source_samples": 0,
+  "new_biological_population_updates": 0,
+  "new_offspring_draws": 0,
+  "future_random_seeds_reserved": 0,
+  "model3_genetic_source_modified": false,
+  "author_signoff": false,
+  "should_dispatch_actions": false,
+  "legacy_r2_fresh_founder_four_setting_overall": "INCONCLUSIVE",
+  "registered_R1_to_R5_and_R4_G_S_unchanged": true
+}
