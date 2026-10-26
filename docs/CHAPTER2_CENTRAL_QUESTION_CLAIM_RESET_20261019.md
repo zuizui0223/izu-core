@@ -1,5 +1,71 @@
 # Central question and repeatability: evidence boundaries
 
+## 2026-10-26 cross-chapter framing: functional recurrence versus floral contingency
+
+**Status:** Evidence-ranked framing of existing Chapter 1 and Chapter 2, not a new experiment, hypothesis registration, journal submission, or replacement Article. The single active editing master remains [the completed-evidence R1–R5 Article](CHAPTER2_NEE_SUPPORTED_RESULTS_ARTICLE_EXTRACT_20261019.md), under [the one-paper closure decision](CHAPTER2_PAPER_CLOSURE_20261020.md). No registered results, frozen kernel, primary endpoints or contrary/null findings are changed by this framing.
+
+### The question and carefully bounded answer
+
+**中心質問：島嶼で繁殖上の機能的な応答が反復する一方、花形態はなぜ一方向に収束しないのか。送粉者に対する決定論的な選択と、有限集団での確率的な遺伝的実現が、そのずれをどこまで説明できるのか。**
+
+**Working thesis (not a demonstrated natural-island causal law):** *A recurrent reproductive constraint can be associated with recurrent reproductive functions without imposing one floral phenotype; environmentally structured selection, inherited genetic access and stochastic population realization can produce different levels of predictability for assurance and floral investment.*
+
+There are two nested questions, not two competing manuscripts:
+
+1. **Chapter 1 / macrophenomenon:** Which contemporary island-flora reproductive functions show recurring isolation associations, and which colour/architectural traits vary among regions? This is **observed assemblage association**, not necessarily within-lineage evolution.
+2. **Chapter 2 / conditional mechanism:** Given the specified finite diploid Model 3, how do local selection, standing alleles, visitor histories and finite offspring recruitment separate the **repeatability of A and I endpoints**, the **realized order/trajectory**, and subsequent **genetic target access versus survival**? These are model experiments, not a fit of Model 3 parameter values to the Chapter 1 regions.
+
+### The supported chain of observations (each link has its own evidence level)
+
+| Link in the storyline | Source-grounded result | What it does **not** establish |
+| --- | --- | --- |
+| **Repeated reproductive problem and function (Ch1)** | In the [corrected Chapter 1 manuscript](https://github.com/zuizui0223/island/blob/main/submission/chapter1_current/MANUSCRIPT.md), self-compatibility increases with isolation in all four geographic regions in the broad and WCVP regional-native-compatible analyses; independent pollen-limitation analysis reports a positive association with isolation (β = +0.0919, P = 0.0159). Colour and architecture vary by region; accessibility has only partial conditional support. | Contemporary floristic association is not the rate or cause of independent SC evolution; approximately 83.65% of island–species origin labels are unresolved. SC is neither Model 3 A nor realized selfing. |
+| **Selection before stochastic realization (Ch2, Q1)** | At one specified plant state, local I return gradients shift from +0.579 at higher visitor replenishment to −0.700 at lower replenishment; I can decline with A expression fixed at 0.5. In the original four conditions A evolution compresses I contrasts, but independent-founder transport supports that compression in three of four conditions. [Single Article](CHAPTER2_NEE_SUPPORTED_RESULTS_ARTICLE_EXTRACT_20261019.md) and [original-versus-fresh contrast](CHAPTER2_Q1_FRESH_FOUNDER_RESULTS_20261016.md). | Negative I selection is not universal to every flower, history or visitor decline; fixed A expression is not zero selfing. Local expected gradient is not a guaranteed allele trajectory. |
+| **A/I endpoint repeatability (exploratory)** | A has smaller far-endpoint within-context variance than I in **all 12** setting × starting-state summaries. For the central pollen-discount case, four-repeat endpoint agreement is **111/128** histories for A versus **16/128** for I. [Original matched endpoint audit](CHAPTER2_MATCHED_AI_REPEATABILITY_20261019.md). | Neither an intrinsic “A is deterministic, I is random” theorem nor consistent **positive** A response. Many unanimous A far–near contrasts are **exactly zero**. These are survivor-conditional, four-repeat, post-outcome endpoint comparisons; different support limits/fixation may contribute. |
+| **Environmental structure versus finite realization (exploratory)** | In the original isolation bridge, mixed-direction history labels are **0/128** under genotype density versus **12/128** under finite ABM (ε = 0). Increasing plant capacity from 48 to 192 reduces finite mixed labels **12 → 1**, with eight-repeat history-mean reliability **0.621 → 0.825**. Visitor pooling separately removes mixed labels **12 → 0** but reduces history-mean reliability **0.621 → 0.103**. [Bridge](CHAPTER2_CANONICAL_STORY_20260927.md) and [variance/reliability audit](CHAPTER2_HISTORY_DEMOGRAPHY_REPEATABILITY_AUDIT_20261003.md). | The deterministic density map is **not** the finite ABM's exact stochastic expectation. Capacity also affects pollen background; neither the model difference nor the capacity intervention identifies a pure genetic-drift contribution. Pooling visitor histories can erase the history signal rather than make reproduction less stochastic. |
+| **Finite genetic realization versus its expected direction** | Conditional density predicts A-first in two source-matched low-service conditions, while the finite ABM realizes that class in **3/32 and 2/32** fully occupied histories. Both mean I responses remain negative, and event classes depend on thresholds. [Core claims audit](CHAPTER2_CORE_CLAIMS_SYNTHESIS_20261015.md). Separately, closed-I inheritance permits allele-support loss before full fixation. | Neither “A deterministically precedes I” nor “I does not evolve”; disagreement does not quantify drift and cannot be fused causally with separate support-loss experiments. |
+| **Present persistence versus future I options (registered R4)** | At B8, all registered 160 × 160 founder–visitor cells survive under both policies, yet allowing A evolution increases loss of founder-target-compatible high-I allele support by **+8.328125 percentage points**. The separately registered survival policy × resource interaction across B4.5 and B8 is **+92.707031 points**. [Admitted confirmation](CHAPTER2_CONFIRM160_RESULTS_20261019.md). | Genetic support loss is not demonstrated irreversible failure to readapt; survival is not causally mediated by that loss. The 160 × 160 cells are **crossed** founder/visitor sources, not independent islands or within-cell repeatability replicates. |
+
+Additional **prediction limitation**, not a direct A-versus-I determinism test: the Article's held-out **known-source** forecast at B8 has only **+0.36%** visitor-history-only prediction skill for I change under evolving A, versus **+40.15%** for M change. The initial founders and visitor histories are reused in unseen pairings; extrapolation to **new** sources and independent within-cell variation are not estimated by those values. [Active Article R3](CHAPTER2_NEE_SUPPORTED_RESULTS_ARTICLE_EXTRACT_20261019.md).
+
+### Causal and conceptual sequence for exposition — NOT a proven serial mediation
+
+1. **Ecological constraint:** island isolation and pollen shortage are associated in the empirical flora layer; the Model 3 manipulates synthetic visitor availability and function.
+2. **Selection filter:** pollinator function and trait matching alter maternal/paternal genetic returns and the conditional expected advantages of A and I. Selection for floral investment can have **different signs without genetic drift**.
+3. **Realization filter:** genetic support, founder genotypes, visitor history, finite parentage and demographic draws determine which favoured changes and orders are actually realized. Different realized endpoints are **not necessarily unstructured luck**.
+4. **Persistence/access filter:** assurance-policy effects on reproductive persistence and on retention of a specified future I target need not have the same direction across resources.
+
+The arrows organize *separately supported* evidence families; they are not demonstrated historical transitions among natural islands, and they do not identify one causal selection → drift → allele-loss → survival pathway.
+
+### Distinct terms that must remain distinct
+
+- Chapter 1 **SC/self-compatibility**: capacity for self-fertilization; not necessarily autonomous selfing or realized selfing fraction.
+- Model 3 **A**: inherited capacity for reproductive assurance; fixed expression 0.5 still allows selfing. Neither synonymous with SC nor guaranteed to rise.
+- Model 3 **I**: abstract floral reproductive investment, not observed flower size, flower colour or nectar-guide expression.
+- Model 3 **M**: functional matching to visitors, separate from the amount invested in flowers. The 40.15% M predictability estimate is not an observed floral-colour predictability estimate.
+- **Conditional selection direction**, **within-context stochastic endpoint spread**, **across-source prediction**, **allelic target support**, and **survival** are different estimands. Never collapse them into a single “determinism score.”
+- **Floristic filtering** (which species are present) differs from **within-lineage evolution** (how a persisting species' inherited trait changes). Chapter 1 does not currently identify their separate historical contributions.
+
+### How to use this in the one existing paper
+
+Use the **recurrent function / contingent form tension** as the ecological opening and concluding implication, but do not retrospectively declare “selfing deterministic, investment stochastic” as a confirmed main effect. The Article already contains R1–R5 and the relevant exploratory R3 repeatability evidence:
+
+- **Introduction:** Lead with the distinction between shared reproductive constraint, repeatable functional response and variable floral phenotype. Define SC, A, I and M separately before invoking a common syndrome.
+- **R1–R2:** Keep the strongest causal contrasts on investment decline with fixed A and conditional compression when A evolves.
+- **R3:** Present A/I endpoint concentration **as exploratory**, beside independently sourced predictability estimates and finite ABM/density disagreement. Report zero contrasts and differing starting support; do not elevate these to a prospective A-versus-I determinism ranking.
+- **R4–R5:** Make the **registered genetic access and persistence** comparison the inferential centerpiece, then distinguish later target support, standing polymorphism and realized destination response.
+- **Discussion:** Connect the model to Chapter 1 as **mechanistic compatibility**, not attribution of world-region flora patterns to Model 3; preserve environmental, source and finite-process alternatives.
+
+**No extra manuscript, title replacement, biological worker dispatch, R1–R5 endpoint change, or new main-figure commitment is authorized by this synthesis.** The [paper closure plan](CHAPTER2_PAPER_CLOSURE_20261020.md) still governs final artwork, Methods, source manifests and archival finishing.
+
+### Next falsifiable test (HOLD; use existing sources first)
+
+The focused unresolved hypothesis is that A is **more predictable than I under matched starting genetic access, visitor history, reproductive setting, horizon and demographic context**. A proper independent test would predefine separate and comparable quantities for **direction (+/0/−), magnitude, endpoint dispersion, event time and held-out prediction skill**, preserve all assigned populations (including extinction and non-events), and normalize by each locus's initially attainable phenotypic support instead of inferring determinism from raw variances.
+
+Start with a provenance check of existing matched genotype and trajectory archives. The current 12-condition endpoint files do not contain sufficient time series to rank event time or evolutionary order. A new crossed independent-source × nested-repeat design would need a frozen sample/precision rule, independent review and explicit execution authorization before any biological run. The registered R2 carrier 384 result remains **both inconclusive**; recent static carrier-placement constructions are design-identifiability demonstrations, not new prospective genetic-access effects. See [claim decision](CHAPTER2_MAIN_HYPOTHESIS_DECISION_20261017.md) and [repeatability readback](CHAPTER2_MATCHED_AI_REPEATABILITY_20261019.md).
+
+---
+
 User priority,2026-10-19: explain **what pollinator reduction does to plants**.
 Variation among islands is a possible consequence, not the primary explanandum.
 First audit repeatability under pollination reduction; new-environment transfer
