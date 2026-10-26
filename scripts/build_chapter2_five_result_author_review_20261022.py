@@ -14,7 +14,7 @@ import re
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-TITLE = "Founding constraints and the predictability of reproductive evolution in an island plant model"
+TITLE = "Recurrent reproductive assurance and contingent floral evolution in an island plant model"
 MAIN = "docs/CHAPTER2_NEE_SUPPORTED_RESULTS_ARTICLE_EXTRACT_20261019.md"
 SUPPLEMENT = "docs/CHAPTER2_COMPLETED_EVIDENCE_SUPPLEMENT_20261019.md"
 FOLDER = "figures/chapter2_nee_five_results"
