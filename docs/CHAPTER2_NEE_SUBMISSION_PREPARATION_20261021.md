@@ -10,7 +10,7 @@ Nature Ecology & Evolution's [presubmission instructions](https://www.nature.com
 
 Dear Editors,
 
-We would welcome your advice on the suitability of a modelling study entitled “Founding constraints and the predictability of reproductive evolution in an island plant model”. The study asks how inherited variation and pollinator limitation shape reproductive assurance, floral investment and subsequent evolutionary options after colonization.
+We would welcome your advice on the suitability of a modelling study entitled “Recurrent reproductive assurance and contingent floral evolution in an island plant model”. The study asks how inherited variation and pollinator limitation shape reproductive assurance, floral investment and subsequent evolutionary options after colonization.
 
 The contribution is a set of interventions connecting questions usually considered separately: whether floral investment can decline without assurance evolution, how assurance changes environmental investment contrasts, which trait responses are predictable, and whether demographic persistence coincides with retention of a specified floral option. Across archived finite-population experiments, investment declined with assurance expression fixed. In separate registered comparisons, assurance evolution strongly improved persistence under harsh resources and increased loss of alleles compatible with a founder-relative investment target where all populations survived. Exploratory prediction and transfer analyses distinguish these intervention results from hypotheses about their mechanisms and future colonization.
 
@@ -25,7 +25,7 @@ Sincerely,
 
 Dear Editors,
 
-Please consider “Founding constraints and the predictability of reproductive evolution in an island plant model” for publication as an Article in Nature Ecology & Evolution.
+Please consider “Recurrent reproductive assurance and contingent floral evolution in an island plant model” for publication as an Article in Nature Ecology & Evolution.
 
 Island colonists face both an immediate reproductive challenge and a subsequent evolutionary one: successful reproduction need not preserve the variation needed for a later floral response. We use a finite diploid model to connect those outcomes while separating reproductive assurance, investment in attraction and visitor matching. The study combines intervention comparisons, registered demographic and genetic endpoints, and explicitly exploratory analyses of predictability and transfer.
 
