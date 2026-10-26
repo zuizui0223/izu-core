@@ -261,6 +261,10 @@ The previously admitted model source and old results remain under their original
 
 ## References (selective, from source-backed antecedent papers)
 
+Ciarle, R. (2026). Disentangling the relative roles of biased colonization and in situ evolution in driving the island syndrome in *Coprosma* (Rubiaceae). *Oikos*, 2026, e11782. https://doi.org/10.1002/oik.11782
+
+Hetherington-Rauth, M. C. & Johnson, M. T. J. (2020). Floral trait evolution of angiosperms on Pacific Islands. *The American Naturalist*, 196, 87–100. https://doi.org/10.1086/709018
+
 Acoca-Pidolle, S. (2025). Irreversible evolution of plant mating system easily triggered by pollinator declines. *EcoEvoRxiv* preprint. https://doi.org/10.32942/X2R93P
 
 Bodbyl Roels, S.A. & Kelly, J.K. (2011). Rapid evolution caused by pollinator loss in *Mimulus guttatus*. *Evolution*, 65, 2541–2552. https://doi.org/10.1111/j.1558-5646.2011.01326.x
