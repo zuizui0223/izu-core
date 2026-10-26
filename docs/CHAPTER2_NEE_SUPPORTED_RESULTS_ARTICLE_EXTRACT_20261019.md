@@ -69,21 +69,33 @@ The study connects inherited starting conditions, selection on assurance and inv
 This changes how a syndrome can be interpreted mechanistically. Assurance evolution, reduced investment and loss of a future floral option need not measure progress along one evolutionary trajectory. Earlier work already recognizes multiple causes of floral reduction; our contribution is to separate necessity, modification and retained options through interventions. Holding assurance expression fixed tests whether its evolution is required for investment decline. Allowing assurance evolution tests how it modifies the response. Measuring survival and target-allele retention separately then tests whether demographic success preserves that option. Trait association or temporal order alone cannot substitute for these comparisons.
 
 
+### Arrival: founders constrain the possible before selection determines the favourable
+
 Arrival can sample alleles stochastically, yet the inherited state constrains subsequent evolution. Under closed transmission, missing alleles can make a target unreachable; available alleles do not guarantee its realization. Starting-state comparisons therefore reveal a conditional deterministic role for founder history: it restricts possible responses and changes threshold outcomes, without uniquely determining trajectories. This distinguishes a structural constraint on what can evolve from prediction of how much evolution occurs. The weak founder-only prediction of I change illustrates that distinction within the sampled founding distribution.
 
 
 
+### After arrival: why assurance and investment differ in predictability
+
 Common pollen shortage need not produce one floral trajectory. Assurance A can increase viable selfed seed production from unfertilized ovules, although mating order, costs and inbreeding depression modify the benefit. A endpoints concentrate, and a separate policy experiment frequently fixes the highest available A allele, without implying deterministic timing or order (A-first: 51/64 versus 30/64 across mating rules). Matching M responds to visitor optima, so histories predict M change better than I change in this design, where M has no separate allocation cost. I instead balances pollen receipt and export against allocation costs; its response combines selection, visitor history, inherited alleles and finite recruitment. Low predictive skill does not measure drift or chance, and M is not literal flower colour or architecture. These distinct mechanisms could link recurrent reproductive function with heterogeneous island floral traits, without establishing their historical causes.
 
+
+### Assurance changes floral evolution through potentially different routes
 
 Fixing expressed A still permits selfing. Investment decline under that policy demonstrates that evolving assurance is unnecessary, while the narrowing of environmental investment differences shows that assurance can nevertheless modify the response. Compression transported in three of four independently founded settings. Reproductive compensation can change the marginal return on investment; genetic associations can also transmit correlated changes. These are distinct candidate routes. The [association-disruption experiments](CHAPTER2_HITCHHIKING_SECONDARY_EXPANSION_REVIEW_20261020.md) establish neither assurance-specific hitchhiking nor its absence. Baseline-pollen interactions likewise include inherited history rather than isolating instantaneous deficit.
 
 
+### Finite populations need not realize the deterministic sequence
+
 The [numerical comparison](atom_comparison_20261011/ATOM_ABM_NUMERICAL_VERDICT_20261011.md) uses discrete-update genotype density, not a full three-locus PDE or the finite model's exact stochastic expectation. All ten contexts passed adjacent-grid checks. In two contexts density predicted A-first, but only 3/32 and 2/32 finite histories realized that category despite complete survival; a smaller threshold changed the density classification. Thus favourable direction does not determine realized order. Starting variation, reproductive sampling and threshold crossing help define the distinction between a favourable direction and its finite realization; the comparison establishes that these levels of description can yield different sequences.
 
 
+### Persistence and retained options are separate consequences
+
 Selfing, allocation and demography are already linked theoretically (Lepers et al., 2014); reproductive rescue and genetic erosion also have precedents (Cheptou, 2019; Busch et al., 2022; Xu, 2023). Our initially expression-matched policy comparison separates demographic effects from retention of a directional floral option. At B8, complete survival excludes differential extinction as the explanation for increased support loss. At B4.5, assurance strongly improved survival. A post-outcome joint analysis shows opposite net effects on being alive with a specified high-I option between these two resource conditions; competing genetic-first closure and extinction-first are the relevant measured events. This does not establish a universal resource threshold, survival purchased through genetic loss, or genetic loss causing survival. Retained target support is not general evolvability.
 
+
+### Subsequent environments: reversibility, mainland return and island diversification
 
 A future mainland-like environment raises three questions: can descendants persist, regain ancestral traits, or adapt through different traits? These are separate outcomes. Late transfers distinguish support, polymorphism and realized response; some cohorts already met the ancestral target, and restricted I response can coexist with M-mediated improvement. Survivor-conditioned gains are not unconditional adaptation. Marker retention in small secondary-colonization experiments establishes no general assurance-mediated recolonization advantage. Closed-inheritance restrictions are not permanent irreversibility once mutation or immigration is allowed.
 
@@ -91,6 +103,8 @@ Islands may consequently change both which lineages persist and which responses 
 
 For empirical island comparisons, this interpretation suggests measuring investment allocation alongside floral dimensions, distinguishing visitor matching from total investment, and quantifying pollen limitation in both island and source populations. Repeated populations within comparable founding and visitor contexts would help distinguish environmental structure from within-context dispersion. Genetic variation for a specified floral response should be measured alongside persistence and realized selfing. These measurements would test whether the separations identified by the model also organize natural reproductive syndromes.
 
+
+### Scope and limitations
 
 The model isolates processes relevant to island colonization using imposed visitor communities, fixed inbreeding depression and separately inherited traits. Its focal support, prediction and transfer cohorts exclude mutation and immigration, while some historical comparison experiments include mutation; I is allocation rather than flower size, and no expression plasticity is modelled. Founders come from restricted synthetic distributions. Prediction varies visitor identity under a common count schedule, with no independent repeat within each founder–history cell; interaction and stochastic residual remain confounded. M has no separate allocation cost, so the M/I skill contrast is design-dependent. Endpoint convergence does not separate selection from fixation, and assurance-specific hitchhiking remains unresolved. Original near/far regimes were both pollen limited. Transfer performance is survivor-conditioned, and natural recolonization, reproductive isolation and speciation were not measured. These boundaries preserve the distinction between observed policy effects and their candidate mechanisms.
 
