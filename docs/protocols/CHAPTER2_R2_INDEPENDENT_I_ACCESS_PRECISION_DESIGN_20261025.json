@@ -1,0 +1,159 @@
+{
+  "schema": "izu_core_chapter2_r2_independent_i_access_precision_v1",
+  "date": "2026-10-25",
+  "status": "DESIGN_ONLY_NOT_AUTHORIZED_NOT_PREREGISTERED",
+  "purpose": "Evaluate whether inherited low-I allele access changes future allele-loss and fixation outcomes under altered pollinator service, holding the original R1–R5 evidence grades unchanged.",
+  "provenance": {
+    "canonical_unapproved_R2_proposal": "docs/protocols/CHAPTER2_R2_HISTORY_POLLEN_STATE_NEXT_STUDY_PROPOSAL_20261023.json",
+    "canonical_proposal_expected_status": "DESIGN_ONLY_NOT_AUTHORIZED_NOT_PREREGISTERED",
+    "original_R2_exploratory_actions_run_id": 39233450099,
+    "original_R2_exploratory_zip_sha256": "10bb8bdd52b53b32429e350c2f392ed2aeaa791683ede1d563ae6627c5ecb35e",
+    "source_observed_384_trajectories_excluded_from_confirmation": true,
+    "parent_R2_registered_four_setting_decision": "INCONCLUSIVE",
+    "registered_R4_G_S_unchanged": true,
+    "independent_future_source_commit_sha": null,
+    "independent_future_protocol_sha256": null,
+    "candidate_seed_ranges_declared_and_nonoverlapping": null
+  },
+  "experimental_allocation": {
+    "founder_genome_sources": "independent freshly generated source axis; count and IDs unchosen",
+    "visitor_history_sources": "independent freshly generated crossed source axis; count and IDs unchosen",
+    "crossed_independent_founder_visitor_axes": true,
+    "paired_demographic_streams_nested_within_each_crossed_cell": true,
+    "independent_founder_count": null,
+    "independent_visitor_count": null,
+    "nested_demographic_repeats_per_cell": null,
+    "prefix_updates": 30,
+    "future_updates": 50,
+    "initial_A_M_treatment": "A/M source state must be recorded; genetic fixation is a planned stratum or intervention, not a collider-conditioned automatic exclusion",
+    "genetic_access_levels": [
+      {
+        "name": "lower_start_I_access",
+        "low_I_numerical_allele_copies": null,
+        "allele_value_support": null,
+        "source_genome_intervention": null
+      },
+      {
+        "name": "higher_start_I_access",
+        "low_I_numerical_allele_copies": null,
+        "allele_value_support": null,
+        "source_genome_intervention": null
+      }
+    ],
+    "genetic_access_levels_selected_prior_to_new_outcomes": false,
+    "genetic_access_intervention_feasibility_verified": false,
+    "native_activity_arms": [
+      "maintained_visitor_activity",
+      "declining_visitor_activity"
+    ],
+    "activity_config_values_not_frozen": true,
+    "source_state_fork_rule": "For each independent founder×visitor×nested demographic source prefix, branch into both predeclared I-access policies; within each policy the two future activity arms start from byte-identical full source PlantState and paired common random streams.",
+    "access_comparison_caveat": "Changing the frequency of a low-I numerical allele usually also changes trait mean, standing heterozygosity and genotype covariances. If using three I alleles to match the mean, variance/support/covariance still change. Declare which are co-manipulated and audit full genomes before inference.",
+    "independent_rng_stream_plan_approved": false
+  },
+  "proposed_outcome_contract": {
+    "unit": "founder × visitor-history × nested demographic prefix with matched I-access and activity arms; source axes are crossed, not independent F×V×R islands",
+    "genealogical_support": "At each census retain all N×3×2 diploid alleles and origin identifiers, numerical allele support, population N and ancestry.",
+    "before_shock_population": "Census30 standing low-I numerical allele copies must be positive and below 2N for conditional at-risk estimands; fully fixed/absent source genotypes remain in all-enrolled accounting.",
+    "first_event_states": [
+      "low_I_allele_lost",
+      "low_I_allele_fixed",
+      "population_extinct",
+      "still_polymorphic_at_horizon"
+    ],
+    "first_event_rule": "First postfork census at which low-I numerical copies=0; alternatively copies=2N; if N=0 classify extinction with traits undefined; unresolved paths retain polymorphic label at horizon.",
+    "horizon_update": 80,
+    "intention_to_treat_denominator": "All allocated crossed-source cells and nested repeats, with initial genotype inaccessibility and extinction explicitly counted.",
+    "paired_loss_indicators": "For proposed conditional at-risk source only, L=1 if low-I is lost by update80 before population extinction; L=0 if it fixes or remains segregating; extinction is a separate competing event, never imputed as no genetic response.",
+    "proposed_primary_interaction": "H=[L(decline, higher-access)−L(maintained,higher-access)]−[L(decline,lower-access)−L(maintained,lower-access)]",
+    "proposed_primary_interaction_range": [
+      -2,
+      2
+    ],
+    "paired_activity_contrast_range": [
+      -1,
+      1
+    ],
+    "zero_terminal_mean_contrast_not_no_selection": true,
+    "secondary_readouts": [
+      "time_to_low_I_loss_or_fixation_with_extinction_competing",
+      "first_30_update_low_I_parental_expected_frequency_change",
+      "within_source_paired_terminal_I_mean_difference",
+      "per_mother_q_maternal_and_paternal_returns",
+      "initial_A_I_M_diploid_covariance",
+      "founder×visitor and nested demographic heterogeneity"
+    ]
+  },
+  "design_only_precision": {
+    "method": "Two-way crossed-source bounded-difference (McDiarmid) confidence-radius illustration, assuming independently sampled founders, independently sampled visitor histories, and conditional independent per-cell demographic streams.",
+    "alpha_illustrative": 0.05,
+    "candidate_cells_not_chosen": [
+      {
+        "founders": 16,
+        "visitors": 16,
+        "repeats": 1
+      },
+      {
+        "founders": 32,
+        "visitors": 32,
+        "repeats": 2
+      },
+      {
+        "founders": 64,
+        "visitors": 64,
+        "repeats": 4
+      },
+      {
+        "founders": 128,
+        "visitors": 128,
+        "repeats": 4
+      },
+      {
+        "founders": 256,
+        "visitors": 256,
+        "repeats": 4
+      },
+      {
+        "founders": 512,
+        "visitors": 512,
+        "repeats": 4
+      }
+    ],
+    "method_formula": "For Y in [−B/2,B/2], two-sided radius h=B*sqrt(log(2/alpha)/2 * (1/F+1/V+1/(F*V*R))). For paired loss risk differences B=2; for access×activity interaction B=4.",
+    "total_model_update_equivalents_formula": "F*V*R*(30+2 access levels*2 activity arms*50 future updates). This is a count of proposed state updates, NOT CPU/runtime cost.",
+    "precision_bound_is_conditional_on_design_independence": true,
+    "not_power_without_effect_and_variance": true,
+    "minimum_biologically_meaningful_interaction": null,
+    "target_precision_half_width": null,
+    "empirical_crossed_source_variance_components": null,
+    "independent_two_axis_power_or_precision_approved": false,
+    "candidate_count_not_committed": true
+  },
+  "unresolved_review_requirements": {
+    "independent_source_and_rng_seed_namespace": null,
+    "fixed_target_I_allele_values_and_genetic_access_intervention": null,
+    "matched_population_I_mean_variance_and_A_M_covariance_protocol": null,
+    "genotype_and_pollen_q_feasibility_negative_controls": null,
+    "founder_and_visitor_axis_sample_sizes": null,
+    "nested_repeats": null,
+    "minimum_biologically_important_effect": null,
+    "multiplicity_and_estimand_hierarchy": null,
+    "precision_and_power_approval": null,
+    "compute_budget_approval": null,
+    "frozen_source_sha": null,
+    "frozen_protocol_sha": null,
+    "author_signoff": null
+  },
+  "run_gate": {
+    "source_pinning_approved": false,
+    "independent_sample_plan_frozen": false,
+    "genetic_intervention_feasibility_passed": false,
+    "primary_endpoints_and_thresholds_registered": false,
+    "sample_size_precision_power_signed_off": false,
+    "biological_execution_authorized": false,
+    "author_approval_recorded": false,
+    "should_dispatch_actions": false
+  },
+  "new_biological_population_updates": 0,
+  "new_independent_confirmation_cases": 0
+}

@@ -519,6 +519,7 @@ jobs:
             tests/test_chapter2_r2_original_I_accessibility_20261024.py \
             tests/test_chapter2_r2_low_I_allele_transmission_20261024.py \
             tests/test_chapter2_r2_rare_low_I_loss_chronology_20261024.py \
+            tests/test_chapter2_r2_independent_i_access_precision_20261025.py \
             tests/test_chapter2_r2_independent_feasibility_20261025.py
       - name: Read source-only R1-R5 direction/realization bridge (NOT new biology)
         run: python -m scripts.audit_chapter2_direction_realization_bridge_20261023 > /dev/null
@@ -620,6 +621,24 @@ jobs:
           assert all(z['candidate']['biological_population_updates_executed']==0 for z in d['candidate_allocation_grid'])
           print('SOURCE_BOUND_R2_DESIGN_REVIEW_HOLD',len(d['candidate_allocation_grid']),'candidate workloads',d['sources']['original_384_source_run_id'])
           PY
+      - name: Verify independent R2 I-access planning precision ONLY (no dispatch)
+        run: |
+          mkdir -p outputs/chapter2_r1_r5_author_review
+          python -m scripts.audit_chapter2_r2_independent_i_access_precision_20261025 \
+            --out outputs/chapter2_r1_r5_author_review/R2_INDEPENDENT_I_ACCESS_PRECISION_DRAFT.json
+          python - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path("outputs/chapter2_r1_r5_author_review/R2_INDEPENDENT_I_ACCESS_PRECISION_DRAFT.json")
+          d=json.loads(p.read_text(encoding="utf8"))
+          assert d["status"]=="PASS_ANALYTIC_DESIGN_PRECISION_NO_NEW_BIOLOGY_NO_DISPATCH"
+          assert d["new_biological_population_updates"]==0
+          assert d["would_dispatch_actions"] is False
+          assert d["primary_effect_size_or_minimum_important_difference_authorized"] is False
+          assert d["independent_source_and_power_approved"] is False
+          assert len(d["candidate_designs_not_chosen"])==6
+          print("PASS_DESIGN_NOT_APPROVED",len(d["candidate_designs_not_chosen"]))
+          PY
       - name: Build and validate NEE Article layout author preview
         run: |
           mkdir -p outputs/chapter2_nee_format
@@ -682,6 +701,7 @@ jobs:
             outputs/chapter2_r1_r5_author_review/R2_ORIGINAL_PATHWISE_ACCOUNTING.json
             outputs/chapter2_r1_r5_author_review/R2_ORIGINAL_LOW_I_PARENTAGE.json
             outputs/chapter2_r1_r5_author_review/R2_ORIGINAL_RARE_LOW_I_LOSS_CHRONOLOGY.json
+            outputs/chapter2_r1_r5_author_review/R2_INDEPENDENT_I_ACCESS_PRECISION_DRAFT.json
             outputs/chapter2_r1_r5_author_review/R2_INDEPENDENT_DESIGN_FEASIBILITY_20261025.json
             outputs/chapter2_nee_format/NEE_ARTICLE_AUTHOR_PREVIEW.md
             outputs/chapter2_nee_format/FORMAT_PROOF.json
