@@ -51,7 +51,7 @@ def test_preserves_discussion_prose_without_reordering():
     original = master.split("## Discussion\n",1)[1].split("## Online Methods",1)[0]
     original_paragraphs = [
         s.strip() for s in original.split("\n\n")
-        if s.strip() and not s.startswith("### ")]
+        if s.strip() and not s.strip().startswith("### ")]
     formatted, _ = render(master)
     d = formatted.split("## Discussion\n",1)[1].split("## Online Methods\n",1)[0]
     new_paragraphs = [s.strip() for s in d.split("\n\n") if s.strip()]
