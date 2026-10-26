@@ -1,5 +1,7 @@
 # Chapter 2 Nature Ecology & Evolution submission gate (2026-10-26)
 
+**Merged-source checkpoint (2026-10-26):** [PR #642](https://github.com/zuizui0223/izu-core/pull/642) and [PR #643](https://github.com/zuizui0223/izu-core/pull/643) have been merged into main at commits \`62e21fc6081aef99c45db45781eda0a1ef6d0e07\` and \`b82e529ecb9bc0dfebfd73e1b73bf164b2bb4b4c\`, respectively, after their exact PR-head CI and Chapter 2 scientific gates reported success. This verifies the review branches, not an independent NEE editorial assessment. The current master title, paper abstract and R1–R5 Results were merged without modifying any frozen biological producer, registered G/S values or original R2 \`both_inconclusive\` adjudication. The **journal-ready / submission / DOI** status stays **false / none / none**.
+
 **Scope:** editorial/repository verification only. This file records completed and blocked submission prerequisites; no submitted manuscript, Nature Ecology & Evolution (NEE) editorial decision, raw archive upload, author approval, or DOI is claimed. The single scientific Article remains the [completed-evidence editing master](CHAPTER2_NEE_SUPPORTED_RESULTS_ARTICLE_EXTRACT_20261019.md), with [five-result evidence / original nulls](CHAPTER2_FIVE_RESULTS_EXTENDED_EVIDENCE_20261021.md).
 
 ## 1. Current paper and boundary of the new front-facing storyline
