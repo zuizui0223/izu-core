@@ -20,7 +20,7 @@ These processes have strong precedents. Models link selfing to floral allocation
 
 Our central question follows a colonist through three stages: how does founding variation bound accessible change, which responses recur under island-like pollinator limitation, and which options remain in a subsequent environment? Our finite diploid model separates assurance A, investment I and visitor matching M. This permits interventions that hold assurance expression constant while allowing investment to evolve, or allow assurance evolution from the same initial expressed value. These comparisons distinguish whether assurance is required for investment decline from whether it modifies the decline. Archived repeated-history and crossed-source experiments then address realized variation, while registered policy comparisons measure persistence and retention of alleles compatible with a specified investment target.
 
-Finally, we examine bounded transfers into new pollination environments. Establishment in such an environment need not require ancestral flowers: adaptation may involve a different matching trait or allocation. We therefore distinguish continued occupancy, ancestral-target accessibility and realized change. The resulting framework connects island establishment to later evolutionary opportunities through measurable population processes. Figure 1 summarizes the three traits and the five questions tested.
+We finally distinguish population persistence, founder-target allele support and realized responses in bounded transfers to new visitor environments; none alone establishes restoration of ancestral flowers.
 
 ## Results — existing source-admitted evidence
 
