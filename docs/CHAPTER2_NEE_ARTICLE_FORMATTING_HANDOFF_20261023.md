@@ -16,7 +16,7 @@
 - References guideline around 50, not a scientific reference-validation result.
 - Article content-type page does **not** specify the 10-word title limit found under the separate Brief Communication category.
 
-The current scientific master has a 182-word abstract, approximately 503-word Introduction, five R1–R5 Results and six main figure legends; the source master retained seven Discussion **editorial navigation** subheadings and an explicit Introduction heading, both unsuitable for a direct Article upload. Its bibliography remains labelled **preliminary**. Neither a passing word-count test nor this derivative means the paper is scientifically accepted or ready to submit.
+At the original October 23 formatting checkpoint, the scientific master had a 182-word abstract (now 174 words), approximately 503-word Introduction, five R1–R5 Results and six main figure legends; the source master retained seven Discussion **editorial navigation** subheadings and an explicit Introduction heading, both unsuitable for a direct Article upload. Its bibliography remains labelled **preliminary**. Neither a passing word-count test nor this derivative means the paper is scientifically accepted or ready to submit.
 
 ## Exact production and falsifiable conditions
 
