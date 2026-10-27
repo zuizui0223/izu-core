@@ -12,7 +12,7 @@ MASTER = ROOT / "docs/CHAPTER2_NEE_SUPPORTED_RESULTS_ARTICLE_EXTRACT_20261019.md
 WORKING = ROOT / "docs/CHAPTER2_UNIFIED_NEE_ARTICLE_WORKING_20261017.md"
 BIB_HEADER = "## References — preliminary\n"
 DOI = re.compile(r"https://doi\.org/([^\s)]+)", re.IGNORECASE)
-YEAR = re.compile(r"\(((?:19|20)\d{2})\)")
+YEAR = re.compile(r"\(((?:19|20)\d{2})(?=[;)])")
 
 
 def source_and_references():
