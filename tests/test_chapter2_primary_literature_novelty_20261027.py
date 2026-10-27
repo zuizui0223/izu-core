@@ -24,6 +24,10 @@ def test_current_article_includes_new_primary_context_and_citable_dois():
         "10.1093/evolut/qpag030", # Torres-Vanegas et al. 2026
         "10.1111/nph.71605",      # Acoca-Pidolle et al. 2026
         "10.1093/evlett/qrag026", # Bishop et al. 2026
+        "10.1016/j.tree.2026.04.015", # Balstad et al 2026 rescue review
+        "10.1016/j.tree.2026.08.010", # Christie et al 2026 rescue types review
+        "10.1093/evolut/qpag095", # Deraje and Uecker 2026 stochastic Allee
+        "10.1111/nph.70880", # Schoen and Toczydlowski 2026 recovery/genetic diversity
     ):
         assert refs.count(doi) == 1, doi
     intro = s.split("## Introduction\n", 1)[1].split("## Results\n", 1)[0]
@@ -76,6 +80,8 @@ def test_novelty_review_records_contrary_primary_papers_and_limits():
         "Busch et al. (2022)",
         "Bishop, Stinchcombe & Baucom (2026)",
         "Hartfield & Glémin (2024)",
+        "Christie, Fitzpatrick & Searle (2026)",
+        "Schoen & Toczydlowski (2026)",
         "MODEL-SPECIFIC DISTINCTIVE REGISTERED RESULT",
         "NOT SHOWN",
         "not a registered systematic review",
