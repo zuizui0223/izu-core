@@ -82,6 +82,8 @@ def test_novelty_review_records_contrary_primary_papers_and_limits():
         "Hartfield & Glémin (2024)",
         "Christie, Fitzpatrick & Searle (2026)",
         "Schoen & Toczydlowski (2026)",
+        "Schrader, Coleman, Zelený, Kreft & Westoby (2025)",
+        "Song et al. (2026)",
         "MODEL-SPECIFIC DISTINCTIVE REGISTERED RESULT",
         "NOT SHOWN",
         "not a registered systematic review",
