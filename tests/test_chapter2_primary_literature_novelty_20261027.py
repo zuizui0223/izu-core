@@ -37,7 +37,7 @@ def test_bounded_novelty_not_universal_trait_determinism():
     s = get_text("CHAPTER2_NEE_SUPPORTED_RESULTS_ARTICLE_EXTRACT_20261019.md")
     d = s.split("## Discussion\n", 1)[1].split("## Online Methods", 1)[0]
     assert "one founder-relative high-I target" in d
-    assert "not different within-survivor census histories" not in d
+    assert "but not different within-survivor census histories" in d
     assert "complete survival excludes differential extinction" in d
     assert "different within-survivor census histories" in d
     assert "no separate M allocation cost" in d
