@@ -24,6 +24,11 @@
 | **Ciarle (2026)**, *Oikos*, e11782, online 2025-12-24. https://doi.org/10.1002/oik.11782 (P) | Pacific *Coprosma* study distinguishes biased colonization of large-leaved ancestors and subsequent in situ evolution of leaf size/stature. | **Not a flower or pollinator experiment**; appropriate precedent for separating assembly from within-lineage evolution only. |
 | **Goldberg et al. (2010)**, *Science*. https://doi.org/10.1126/science.1194513 (P) | Phylogenetic species-selection / long-run mating-system extinction implications existed long before this Model3. | Do not claim new species-level extinction or speciation estimates from a finite population ABM. |
 
+### Additional island assemblage/turnover controls (not flower-trait evolution)
+
+- **Schrader, Coleman, Zelený, Kreft & Westoby (2025)**, *Ecology Letters* 28:e70223. https://doi.org/10.1111/ele.70223 (**published primary, 132 repeatedly surveyed Australian islands**). Over six decades, trait-dependent colonization/extinction operated despite broadly stable mean community traits. This is direct evidence that **community trait structure and lineage-level trait evolution are not interchangeable**. It does not measure floral A/M/I adaptation or a genetic-target policy comparison.
+- **Song et al. (2026)**, *New Phytologist*. https://doi.org/10.1111/nph.71040 (**published primary**). Thirteen tree carbon/water functional traits and associations were compared among 37 tree species on 35 Chinese islands and nearby mainland plots; several size-related hydraulic and anatomical island shifts were reported even when trait–trait associations remained relatively stable. This is **not a flower/pollination study** and is included to guard against turning one qualitative island-trait comparison into a universal ecological claim.
+
 **Decision:** The island-level puzzle is *recurrent SC/assurance-associated establishment patterns versus context-dependent, sometimes predictable floral trajectories*. “Function deterministic, morphology random” is incorrect both for external studies and for present Model3 identifiability.
 
 ## 3. Reproductive assurance, allocation, selection and empirical selfing syndrome
