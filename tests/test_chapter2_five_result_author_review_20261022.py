@@ -64,10 +64,10 @@ def test_fails_closed_if_one_figure_or_manuscript_head_disagrees(tmp_path):
         shutil.copyfile(ROOT / rel, dest)
     replacement = (tmp_path / MAIN).read_text(encoding="utf-8")
     (tmp_path / MAIN).write_text(replacement.replace(
-        "## Abstract", "## Proposed results", 1), encoding="utf-8")
+        "## Abstract", "## Proposed results", 1), encoding="utf-8", newline="\n")
     with pytest.raises(ValueError, match="boundary"):
         collect(tmp_path)
-    (tmp_path / MAIN).write_text(replacement, encoding="utf-8")
+    (tmp_path / MAIN).write_text(replacement, encoding="utf-8", newline="\n")
     (tmp_path / FIGURES[0]).write_text("<svg/>", encoding="utf-8")
     with pytest.raises(ValueError, match="source-marked SVG"):
         collect(tmp_path)
