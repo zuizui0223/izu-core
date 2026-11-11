@@ -39,7 +39,7 @@ def test_all_29_doi_refs_are_unique_and_cited_in_current_manuscript():
         # Permits et al., & coauthors and "Cheptou (2019; online 2018)"
         # but not a surname in another distant section and an unrelated year.
         cite = re.compile(
-            re.escape(first_surname) + r"[^\n\)]{0,100}\b" + year.group(1) + r"\b",
+            re.escape(first_surname) + r"[^;\n\)]{0,100}\b" + year.group(1) + r"\b",
             re.IGNORECASE,
         )
         assert cite.search(body), f"Uncited bibliography entry: {first_surname} {year.group(1)}"
@@ -57,10 +57,10 @@ def test_five_freshly_cited_primary_sources_and_preprint_status():
         ("Acoca-Pidolle", "2025", "10.32942/X2R93P"),
     ):
         assert doi in source
-        assert re.search(re.escape(name) + r"[^\n\)]{0,100}\b" + year + r"\b", body)
+        assert re.search(re.escape(name) + r"[^;\n\)]{0,100}\b" + year + r"\b", body)
     preprint_entry = next(part for part in entries if "10.32942/X2R93P" in part)
     assert "preprint" in preprint_entry.lower()
-    assert "preprint" in body.lower() and "irreversibility" in body.lower()
+    assert re.search(r"restoration-trap preprint[^.]*Acoca-Pidolle, 2025[^.]*irreversibility", body, re.I)
 
 
 def test_article_word_figures_and_results_remain_source_admitted():
