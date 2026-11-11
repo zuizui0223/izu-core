@@ -36,6 +36,10 @@ Official [Nature Ecology & Evolution Article requirements](https://www.nature.co
 
 **Still open beyond raw DOI:** final integrated Figure 1–6 visual QA and print/export layout; executable Methods and associated source manifest accuracy; references and declarations, author order/approval, affiliations, contributions, funding, conflicts; reviewer-accessible reproducibility; data and code availability URLs; final journal-specific package and author signoff. These are required checks, not grounds to mislabel the work submission-ready.
 
+### 2026-10-27 citation-source audit — completed editorial preflight, not final references
+
+The [bibliography/source readiness audit](CHAPTER2_NEE_BIBLIOGRAPHY_READINESS_20261027.md) reconciles all **29** retained DOI-bearing manuscript bibliography entries with an author–year citation preceding References. Five previously unused published sources and a 2025 **preprint** were cited without changing the R1–R5 Results or numerical figures. The current editing master remains **174 abstract / 3,498 main source words including seven editorial Discussion headings**. The [new source-only check](../tests/test_chapter2_nee_citation_integrity_20261027.py) covers unique DOI tokens, citation presence and unchanged five-result evidence. Full DOI metadata and NEE reference-format review still require journal production QA and author approval; this does not resolve the raw-data/archive and permission gates.
+
 ## 4. DOI deposit is a real remaining blocker (not a fictitious link)
 
 For a Nature Portfolio empirical/model Article, a transparent minimum-dataset **Data availability** statement and reviewers' access are required; code-central research needs **Code availability** details and a citable version when possible. [Nature Portfolio reporting policy](https://www.nature.com/ncomms/editorial-policies/reporting-standards).
