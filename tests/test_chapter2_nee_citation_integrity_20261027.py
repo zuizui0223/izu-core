@@ -25,7 +25,7 @@ def source_and_references():
 
 def test_all_current_doi_refs_are_unique_and_cited_in_current_manuscript():
     source, body, entries = source_and_references()
-    assert len(entries) == 30
+    assert len(entries) == 37
     seen = set()
     for entry in entries:
         matches = DOI.findall(entry)
