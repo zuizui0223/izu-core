@@ -23,9 +23,9 @@ def source_and_references():
     return source, body, entries
 
 
-def test_all_29_doi_refs_are_unique_and_cited_in_current_manuscript():
+def test_all_current_doi_refs_are_unique_and_cited_in_current_manuscript():
     source, body, entries = source_and_references()
-    assert len(entries) == 29
+    assert len(entries) == 30
     seen = set()
     for entry in entries:
         matches = DOI.findall(entry)
@@ -46,7 +46,7 @@ def test_all_29_doi_refs_are_unique_and_cited_in_current_manuscript():
     assert source.count("## Results\n") == 1
 
 
-def test_five_freshly_cited_primary_sources_and_preprint_status():
+def test_freshly_cited_primary_sources_and_preprint_status():
     source, body, entries = source_and_references()
     for name, year, doi in (
         ("Bodbyl Roels", "2011", "10.1111/j.1558-5646.2011.01326.x"),
@@ -54,6 +54,7 @@ def test_five_freshly_cited_primary_sources_and_preprint_status():
         ("Lande", "2015", "10.1534/genetics.115.176693"),
         ("Teixido", "2019", "10.1093/aob/mcz014"),
         ("Opedal", "2019", "10.1111/nph.15403"),
+        ("Karron", "2012", "10.1093/aob/mcr193"),
         ("Acoca-Pidolle", "2025", "10.32942/X2R93P"),
     ):
         assert doi in source
