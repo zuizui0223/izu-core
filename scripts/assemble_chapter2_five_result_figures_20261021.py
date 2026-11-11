@@ -22,7 +22,7 @@ def write(name,title,content,meta,height=650):
     s=f'<svg xmlns="{NS}" width="1200" height="{height}" viewBox="0 0 1200 {height}" role="img"><title>{escape(title)}</title><desc>Source-linked editorial display; evidence ranks and cohorts remain separate.</desc><metadata>{escape(json.dumps(meta))}</metadata><rect width="1200" height="{height}" fill="white"/>'+text(40,45,title,27)+content+'</svg>'
     (OUT/name).write_bytes(s.encode())
 
-def crop(name,title,x,width):
+def crop(name,title,x,width,axis_note):
     p=OLD/'figure_01_q1_mechanism.svg';root=E.parse(p).getroot()
     nested=E.Element(f'{{{NS}}}svg',dict(x='0',y='85',width='1200',height='580',viewBox=f'{x} 340 {width} 380',preserveAspectRatio='none',overflow='hidden'))
     for el in root:
@@ -30,7 +30,7 @@ def crop(name,title,x,width):
             child=copy.deepcopy(el)
             if child.text and child.text.startswith(('B ﾂｷ Fixed A','C ﾂｷ A-evolution')):child.text=child.text[4:]
             nested.append(child)
-    write(name,title,E.tostring(nested,encoding='unicode')+text(40,690,'Change in I; vertical line = zero. Points and intervals retained from source Q1 figure.',17),dict(source=str(p.relative_to(ROOT)),sha256=hashlib.sha256(p.read_bytes()).hexdigest(),operation='crop existing admitted panel; no recalculation'),height=700)
+    write(name,title,E.tostring(nested,encoding='unicode')+text(40,690,axis_note,17),dict(source=str(p.relative_to(ROOT)),sha256=hashlib.sha256(p.read_bytes()).hexdigest(),operation='crop existing admitted panel; no recalculation'),height=700)
 
 def main():
     OUT.mkdir(exist_ok=True)
@@ -41,8 +41,8 @@ def main():
         content+=f'<rect x="{x}" y="140" width="360" height="155" rx="12" fill="{["#f8e9d7","#dceee7","#dce8f3"][j]}"/>'+text(x+18,180,head,25)+text(x+18,222,a,18)+text(x+18,258,b,18)
     for y,line in [(350,'ARRIVAL: inherited alleles bound accessible responses.'),(400,'AFTER ARRIVAL (R1-R3): separate responses interact and differ in repeatability.'),(450,'LATER (R4-R5): persistence, ancestral recovery and new responses differ.'),(500,'Read the five results as interventions and bounded extensions, not one causal chain.'),(575,'Conceptual framework; links are not estimated causal mediation.' )]:content+=text(40,y,line,21 if y<575 else 18)
     write('figure_01_framework.svg','Figure 1. From founding state to future floral options',content,dict(kind='conceptual',source='scripts/model3_island/reproduction.py'))
-    crop('figure_02_independent_decline.svg','Figure 2. Investment declines with fixed assurance',45,675)
-    crop('figure_03_assurance_interaction.svg','Figure 3. Assurance changes environmental investment contrasts',725,730)
+    crop('figure_02_independent_decline.svg','Figure 2. Investment declines with fixed assurance',45,675,'Change in I; vertical line = zero. Points and intervals retained from source Q1 figure.')
+    crop('figure_03_assurance_interaction.svg','Figure 3. Evolving assurance can narrow the investment gap between environments',725,730,'Positive values: the near/far investment gap is smaller with evolving assurance. Vertical line = no difference.')
     matched_path='docs/audits/CHAPTER2_MATCHED_AI_REPEATABILITY_20261019.json';pred_path='docs/audits/CHAPTER2_FOUNDER_PREDICTABILITY_20261021.json'
     d=source(matched_path);p=source(pred_path)['results'];content=text(40,95,'A  Repeated-history cohort',21)
     content+=text(40,125,'Identical far endpoints across four repeats / 128 histories',17)
@@ -58,7 +58,7 @@ def main():
         content+=text(650,y,f'{trait}: {val:.2f}%',24)+f'<rect x="650" y="{y+18}" width="{val*10}" height="28" fill="#386d9c" data-trait="{trait}" data-skill="{val}"/>'
     content+=text(650,440,'M is secondary; not a common-cohort A/I/M ranking.',17)+text(650,475,'Founder-only I skill: -0.46%; additive: -0.09%.',17)
     content+=text(40,560,'Panel A: endpoint agreement 竕 selection strength. Panel B: skill 竕 causal variance share.',19)+text(40,600,'Known-source pairing prediction; shared visitor-count schedule. Residual includes interaction and chance.',18)
-    write('figure_04_predictability.svg','Figure 4. Trait-specific predictability in two separate cohorts',content,dict(sources=[matched_path,pred_path],endpoint_counts=vals,history_skills={t:p[f'evolving_{t}_change']['loo_skill']['history'] for t in ('I','M')}))
+    write('figure_04_predictability.svg','Figure 4. Assurance endpoints recur; visitor history predicts matching better than investment',content,dict(sources=[matched_path,pred_path],endpoint_counts=vals,history_skills={t:p[f'evolving_{t}_change']['loo_skill']['history'] for t in ('I','M')}))
     for old,new,num in [('figure_04_access_survival.svg','figure_05_persistence_options.svg',5),('figure_06_late_transfer.svg','figure_06_transfer.svg',6)]:
         s=(OLD/old).read_text(encoding='utf-8')
         if num==5:s=s.replace('Figure 4','Figure 5')
