@@ -14,7 +14,7 @@ import re
 import zipfile
 
 ROOT = Path(__file__).resolve().parents[1]
-TITLE = "Reproductive assurance reshapes floral investment and future genetic options in an island plant model"
+TITLE = "Repeatable benefits of selfing and variable paths of floral evolution in an island plant model"
 MAIN = "docs/CHAPTER2_NEE_SUPPORTED_RESULTS_ARTICLE_EXTRACT_20261019.md"
 SUPPLEMENT = "docs/CHAPTER2_COMPLETED_EVIDENCE_SUPPLEMENT_20261019.md"
 FOLDER = "figures/chapter2_nee_five_results"

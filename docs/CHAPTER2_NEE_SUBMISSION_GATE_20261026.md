@@ -7,7 +7,7 @@
 ## 1. Current paper and boundary of the new front-facing storyline
 
 Working title (model-bounded, not guaranteed final):
-**Reproductive assurance reshapes floral investment and future genetic options in an island plant model**
+**Repeatable benefits of selfing and variable paths of floral evolution in an island plant model**
 
 This is a **finite diploid simulation study**, not a direct historical estimate of island-floral evolution. It distinguishes reproductive assurance capacity A, visitor functional matching M, and allocation investment I. The central inference remains the *registered* separation of genetic target access and resource-dependent persistence; distinct A/M/I repeatability and prediction estimates are **exploratory, separate cohorts**. A is not equivalent to SC/realized selfing; M is not literal flower colour/architecture, and I is not physical flower size. No demonstrated four-stage causal mediation, quantified pure drift share, or irreversible genetic evolutionary trap.
 
