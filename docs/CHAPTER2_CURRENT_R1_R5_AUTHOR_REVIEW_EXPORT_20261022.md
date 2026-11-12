@@ -1,6 +1,6 @@
 # Chapter 2 current R1–R5 author-review source package (2026-10-22)
 
-**11 November 2026.** The [current Article](CHAPTER2_NEE_SUPPORTED_RESULTS_ARTICLE_EXTRACT_20261019.md) is titled *Repeatable benefits of selfing and variable paths of floral evolution in an island plant model*. The dated titles and counts below identify earlier exports.
+**11 November 2026.** The [current Article](CHAPTER2_NEE_SUPPORTED_RESULTS_ARTICLE_EXTRACT_20261019.md) is titled *Reproductive assurance can evolve first while floral investment varies in an island plant model*. The dated titles and counts below identify earlier exports.
 
 > **2026-10-26 source-of-truth update:** This page records the **October 22 author-review export checkpoint**, not the latest manuscript title. Following merged [PR #642](https://github.com/zuizui0223/izu-core/pull/642) and [PR #643](https://github.com/zuizui0223/izu-core/pull/643), the current editing master is still [the completed-evidence R1–R5 Article](CHAPTER2_NEE_SUPPORTED_RESULTS_ARTICLE_EXTRACT_20261019.md), now titled **“Recurrent reproductive assurance and contingent floral evolution in an island plant model.”** The old title quoted below identifies the original packet's historical state. The [updated author-review builder](../scripts/build_chapter2_five_result_author_review_20261022.py) now verifies the new title and still requires all six source-linked figures and original registered G/S outcomes. A historical ZIP is not a valid replacement for the latest source-committed review packet.
 

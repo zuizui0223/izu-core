@@ -53,14 +53,13 @@ def test_exact_source_parity_and_174_word_nee_abstract():
 def test_abstract_preserves_registered_vs_exploratory_evidence_ceiling():
     master, _, _ = _abstracts()
     for expected in (
-        "Exploratory matched-history analyses",
-        "twelve model conditions",
-        "40.15% versus 0.36%",
-        "these differences do not isolate stochastic drift",
+        "finite diploid model",
+        "17/32 populations, compared with 1/32",
+        "only assurance crossed the sustained response threshold",
+        "three of four fresh-founder settings",
+        "widened them at both resource budgets with a persistent visitor",
         "Registered experiments showed",
-        "8.33 percentage points",
-        "92.71-point policy-by-resource interaction",
-        "population persistence does not guarantee genetic options",
+        "where all populations survived",
     ):
         assert expected in master, expected
     assert "neither value quantifies stochastic drift" not in master

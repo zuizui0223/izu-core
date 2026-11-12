@@ -14,7 +14,7 @@
 
 | Item | Gate | Meaning |
 |---|---|---|
-| Title | *Repeatable benefits of selfing and variable paths of floral evolution in an island plant model* | Explicit synthetic-model scope |
+| Title | *Reproductive assurance can evolve first while floral investment varies in an island plant model* | Explicit synthetic-model scope |
 | Abstract | **174** whitespace-delimited words | Same abstract as the updated original review and editor enquiry |
 | Main source | **3,498** whitespace-delimited words including source-only Discussion subheads | Below the repo's 3,500-word NEE Article limit; journal-composed output strips seven Discussion headings |
 | Main figures | Exactly **6** Figure 1–6 legends, unchanged | Existing figures remain draft, not final print-certified artwork |
