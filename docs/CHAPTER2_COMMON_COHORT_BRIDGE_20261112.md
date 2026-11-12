@@ -40,4 +40,4 @@ For R4 every source survived; at low activity fewer evolving histories retained 
 
 Across policies, similar allocation sometimes accompanied different assurance capacities; a ten-point difference in realized selfed recruitment was less frequent among those close-I pairs. These are comparisons at the same service level. They do not demonstrate that compression between environments hides a mating difference: compression was absent here. No floral size, shape or gene flow was measured.
 
-[Full endpoints](../data/results/chapter2_common_cohort_bridge_20261112.csv), [native bridge runner](../scripts/chapter2_common_cohort_bridge.py), [table reproduction](../scripts/report_chapter2_common_cohort_bridge.py). Design frozen at 9cfd38dd before execution.
+[Full endpoints](../data/results/chapter2_common_cohort_bridge_20261112.csv.gz), [native bridge runner](../scripts/chapter2_common_cohort_bridge.py), [table reproduction](../scripts/report_chapter2_common_cohort_bridge.py). Design frozen at 9cfd38dd before execution.

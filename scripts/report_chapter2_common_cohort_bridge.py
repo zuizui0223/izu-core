@@ -4,7 +4,7 @@ from pathlib import Path
 import pandas as pd
 
 ROOT = Path(__file__).resolve().parents[1]
-DATA = ROOT / "data/results/chapter2_common_cohort_bridge_20261112.csv"
+DATA = ROOT / "data/results/chapter2_common_cohort_bridge_20261112.csv.gz"
 
 
 def report():

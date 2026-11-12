@@ -4,7 +4,7 @@
   "baseline_commit": "8d145da1e312e9767b056fd81f3c4b6c3448d552",
   "rationale": "Prevent further repository growth while preserving frozen legacy provenance until a permanent external archive is fixed.",
   "thresholds_bytes": {
-    "max_tracked_data_tree": 183094142,
+    "max_tracked_data_tree": 183107202,
     "max_unlisted_design_file": 1048576,
     "max_unlisted_result_file": 2097152,
     "max_unlisted_generated_svg": 1048576
@@ -28,6 +28,7 @@
     "data/results/model3_island_v2_summary/production-scale_per_capita_192.svg": 1167859,
     "data/results/model3_island_v2_summary/production-scale_per_capita_768.svg": 1215017
   },
+  "private_return_bridge_20261112": {"previous_cap_bytes": 183094142, "scope": "Two lossless gzip endpoint tables, 64 order paths and 256 common-cohort histories, plus this policy entry. No other allowance."},
   "rules": [
     "New design declarations must remain compact; exhaustive enumerations belong in workflow artifacts or the permanent archive.",
     "New result files above the unlisted result threshold are rejected unless the policy is explicitly revised.",
