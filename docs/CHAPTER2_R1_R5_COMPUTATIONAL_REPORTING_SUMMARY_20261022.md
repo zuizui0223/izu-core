@@ -10,6 +10,10 @@ For main R3/R4/R5 source models, a synthetic reproductive time step is treated a
 
 ## Which model comparisons share a measurement scale?
 
+R1-R5 are experiments or readouts in the Model 3 family. R1 and R2 manipulate assurance expression in finite diploid populations; R3 reads repeated trajectories and archived endpoint means; R4 pairs evolving and fixed expression across resources; R5 transfers seeds drawn from archived R4 donors. The [R4 runner](../scripts/q3_native_runner_20261019.py) and [R5 futures](../scripts/readaptation_futures_20261019.py) both call the Model 3 reproduction and population-update code. A deterministic genotype-density representation supplies the auxiliary order comparison. The seed equation follows from the reproductive rule, while the cited field studies supply external evidence about particular components. These sources do not constitute independent corroboration by multiple ecological models.
+
+A shared scale is necessary to rank traits or quantify a difference between model predictions: match the observable, event definition, horizon, starting state and conditioning. The finite and density trajectories below match the event scale; only the finite model supplies a distribution of realized histories. A common scale is unnecessary for the narrower biological question: whether a positive seed return, repeated trait endpoints, and transmission into actual offspring can diverge. Each has its own comparison and denominator. Taken together these studies distinguish those steps; they do not estimate a shared causal effect, or the fraction of floral change attributable to drift.
+
 The delayed-selfing seed equation evaluates expected viable maternal seeds at a fixed reproductive state. Its positive marginal gain requires unfilled ovules, viable selfed progeny and cost-free delayed selfing. It has no time-to-evolution or survival endpoint.
 
 | Question | Matched quantity | Interpretation |
