@@ -34,7 +34,7 @@ def crop(name,title,x,width,axis_note):
 
 def main():
     OUT.mkdir(exist_ok=True)
-    content=text(40,90,'What does another visit contribute once a plant can set seed autonomously?',23)
+    content=text(40,90,'Why does reproductive assurance recur while floral investment varies?',23)
     labels=[('Assurance A','Autonomous selfing capacity','Fertilizes otherwise unfilled ovules'),('Matching M','Fit to visitor optima','History-specific matching'),('Investment I','Allocation to attraction','Reproductive return versus cost')]
     for j,(head,a,b) in enumerate(labels):
         x=40+j*390
