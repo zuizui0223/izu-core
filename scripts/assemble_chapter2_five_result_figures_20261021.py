@@ -34,12 +34,12 @@ def crop(name,title,x,width,axis_note):
 
 def main():
     OUT.mkdir(exist_ok=True)
-    content=text(40,90,'Which responses are predictable, and which options remain?',23)
-    labels=[('Assurance A','Autonomous selfing capacity','Buffers unfilled ovules'),('Matching M','Fit to visitor optima','History-specific matching'),('Investment I','Allocation to attraction','Reproductive return versus cost')]
+    content=text(40,90,'What does another visit contribute once a plant can set seed autonomously?',23)
+    labels=[('Assurance A','Autonomous selfing capacity','Fertilizes otherwise unfilled ovules'),('Matching M','Fit to visitor optima','History-specific matching'),('Investment I','Allocation to attraction','Reproductive return versus cost')]
     for j,(head,a,b) in enumerate(labels):
         x=40+j*390
         content+=f'<rect x="{x}" y="140" width="360" height="155" rx="12" fill="{["#f8e9d7","#dceee7","#dce8f3"][j]}"/>'+text(x+18,180,head,25)+text(x+18,222,a,18)+text(x+18,258,b,18)
-    for y,line in [(350,'ARRIVAL: inherited alleles bound accessible responses.'),(400,'AFTER ARRIVAL (R1-R3): separate responses interact and differ in repeatability.'),(450,'LATER (R4-R5): persistence, ancestral recovery and new responses differ.'),(500,'Read the five results as interventions and bounded extensions, not one causal chain.'),(575,'Conceptual framework; links are not estimated causal mediation.' )]:content+=text(40,y,line,21 if y<575 else 18)
+    for y,line in [(350,'ARRIVAL: inherited alleles bound accessible responses.'),(400,'AFTER ARRIVAL (R1-R3): assurance can narrow the investment gap between visitor environments.'),(450,'LATER (R4-R5): which populations survive, and which retain alleles for higher investment?'),(500,'Read the five results as interventions and bounded extensions, not one causal chain.'),(575,'Conceptual framework; links are not estimated causal mediation.' )]:content+=text(40,y,line,21 if y<575 else 18)
     write('figure_01_framework.svg','Figure 1. From founding state to future floral options',content,dict(kind='conceptual',source='scripts/model3_island/reproduction.py'))
     crop('figure_02_independent_decline.svg','Figure 2. Investment declines with fixed assurance',45,675,'Change in I; vertical line = zero. Points and intervals retained from source Q1 figure.')
     crop('figure_03_assurance_interaction.svg','Figure 3. Evolving assurance can narrow the investment gap between environments',725,730,'Positive values: the near/far investment gap is smaller with evolving assurance. Vertical line = no difference.')
