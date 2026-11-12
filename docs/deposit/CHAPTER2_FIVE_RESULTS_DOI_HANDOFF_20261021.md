@@ -4,7 +4,7 @@ Prepared 21 October 2026. Status: metadata and source crosswalk prepared; no ext
 
 ## Proposed metadata
 
-**Title:** Code and source data for “Repeatable benefits of selfing and variable paths of floral evolution in an island plant model”
+**Title:** Code and source data for “Reproductive assurance can evolve first while floral investment varies in an island plant model”
 
 **Description:** Model-generated outputs, analysis code and provenance for a finite diploid study of reproductive assurance, floral investment and visitor matching under pollinator limitation. Separate experiments address fixed-assurance investment responses, assurance-by-environment contrasts, trait-specific predictability, registered persistence and target-allele retention, and exploratory transfers. Cohorts have different designs and inference units and must not be pooled as independently sampled natural islands. Negative and inconclusive results, frozen protocols, raw audit records and figure-source mappings accompany the manuscript. No new statistical analysis was performed for this editorial revision.
 

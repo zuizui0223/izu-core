@@ -88,7 +88,7 @@ def test_previous_narrative_or_unregistered_GS_change_is_rejected(tmp_path):
         shutil.copyfile(ROOT / rel, target)
     manuscript = tmp_path / MAIN
     t = manuscript.read_text(encoding="utf-8")
-    t = t.replace("Repeatable benefits of selfing and variable paths of floral evolution in an island plant model",
+    t = t.replace("Reproductive assurance can evolve first while floral investment varies in an island plant model",
                   "Reproductive assurance differentially affects floral genetic accessibility and persistence under pollinator limitation", 1)
     manuscript.write_text(t, encoding="utf-8")
     with pytest.raises(ValueError, match="title mismatch"):
