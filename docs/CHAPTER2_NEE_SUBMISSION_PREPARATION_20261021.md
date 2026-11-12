@@ -10,7 +10,7 @@ Nature Ecology & Evolution's [presubmission instructions](https://www.nature.com
 
 Dear Editors,
 
-Would a modelling Article entitled “Reproductive assurance reshapes floral investment and future genetic options in an island plant model” be of interest to Nature Ecology & Evolution?
+Would a modelling Article entitled “Repeatable benefits of selfing and variable paths of floral evolution in an island plant model” be of interest to Nature Ecology & Evolution?
 
 Self-compatible plants are common on islands, yet comparisons with mainland relatives yield no uniform reduction in flower size. Why is reproductive assurance repeatedly realized while selection on investment in attraction yields variable outcomes? In a finite diploid model, autonomous selfing fills ovules missed by outcross pollen. This reduces the maternal seed gain from an additional visit, while the visit can still carry pollen to another plant.
 
@@ -18,7 +18,7 @@ Deterministic genotype densities predicted both traits changing, assurance first
 
 The manuscript uses five Results sections and six main figures. Its abstract follows below.
 
-Why does reproductive assurance recur under pollen limitation while the floral response varies? In a finite diploid island plant model, cost-free delayed selfing secured seeds whenever viable selfed offspring could fill an outcross shortfall. Investment in attraction traded pollen receipt and export against ovule production. Exploratory matched-history analyses across twelve model conditions found more repeatable assurance endpoints than investment endpoints. Deterministic density calculations predicted assurance-first responses that few finite populations realized even under matched conditions. Some lower-investment alleles left no copies despite an expected frequency increase. Visitor histories reduced prediction error for matching and investment change by 40.15% versus 0.36%; these differences do not isolate stochastic drift. Investment declined with assurance fixed, while evolving assurance often narrowed differences between visitor environments. Registered experiments showed increased loss of alleles supporting a founder-relative high-investment target by 8.33 percentage points where all populations survived. Under harsher resources assurance improved survival, yielding a 92.71-point policy-by-resource interaction. A recurring reproductive benefit can coexist with variable evolutionary sequences, and population persistence does not guarantee genetic options for future floral change.
+Why does reproductive assurance recur under pollen limitation while the floral response varies? In a finite diploid island plant model, cost-free delayed selfing secured seeds whenever viable selfed offspring could fill an outcross shortfall. Investment in attraction traded pollen receipt and export against ovule production. Exploratory matched-history analyses across twelve model conditions found more repeatable assurance endpoints than investment endpoints. At low visitor supply, densities predicted assurance first; few finite populations completed that same sequence. Some lower-investment alleles left no copies despite an expected frequency increase. Visitor histories reduced prediction error for matching and investment change by 40.15% versus 0.36%; these differences do not isolate stochastic drift. Investment declined with assurance fixed, while evolving assurance often narrowed differences between visitor environments. Registered experiments showed increased loss of alleles supporting a founder-relative high-investment target by 8.33 percentage points where all populations survived. Under harsher resources assurance improved survival, yielding a 92.71-point policy-by-resource interaction. A recurring reproductive benefit can coexist with variable evolutionary sequences, and population persistence does not guarantee genetic options for future floral change.
 
 Sincerely,
 [Corresponding author, affiliation and contact — to be supplied]
@@ -27,7 +27,7 @@ Sincerely,
 
 Dear Editors,
 
-Please consider “Reproductive assurance reshapes floral investment and future genetic options in an island plant model” for publication as an Article in Nature Ecology & Evolution.
+Please consider “Repeatable benefits of selfing and variable paths of floral evolution in an island plant model” for publication as an Article in Nature Ecology & Evolution.
 
 Island colonists face both an immediate reproductive challenge and a subsequent evolutionary one: successful reproduction need not preserve the variation needed for a later floral response. We use a finite diploid model to connect those outcomes while separating reproductive assurance, investment in attraction and visitor matching. The study combines intervention comparisons, registered demographic and genetic endpoints, and explicitly exploratory analyses of predictability and transfer.
 
