@@ -520,7 +520,8 @@ jobs:
             tests/test_chapter2_r2_low_I_allele_transmission_20261024.py \
             tests/test_chapter2_r2_rare_low_I_loss_chronology_20261024.py \
             tests/test_chapter2_r2_independent_i_access_precision_20261025.py \
-            tests/test_chapter2_r2_independent_feasibility_20261025.py
+            tests/test_chapter2_r2_independent_feasibility_20261025.py \
+            tests/test_chapter2_r2_carrier_placement_20261026.py
       - name: Read source-only R1-R5 direction/realization bridge (NOT new biology)
         run: python -m scripts.audit_chapter2_direction_realization_bridge_20261023 > /dev/null
       - name: Verify R2 source-384 response sparsity without biological rerun
@@ -639,6 +640,26 @@ jobs:
           assert len(d["candidate_designs_not_chosen"])==6
           print("PASS_DESIGN_NOT_APPROVED",len(d["candidate_designs_not_chosen"]))
           PY
+      - name: Verify original Model 3 static carrier-placement confounding (NO biological futures)
+        run: |
+          mkdir -p outputs/chapter2_r1_r5_author_review
+          python -m scripts.review_chapter2_r2_carrier_placement_20261026 > outputs/chapter2_r1_r5_author_review/R2_STATIC_CARRIER_PLACEMENT_HOLD.json
+          python - <<'PY'
+          import json
+          d=json.load(open("outputs/chapter2_r1_r5_author_review/R2_STATIC_CARRIER_PLACEMENT_HOLD.json"))
+          assert d["status"]=="R2_DESIGN_ONLY_SAME_PHENOTYPE_SAME_LEDGER_DIFFERENT_LOW_I_CARRIER_RETURN"
+          assert d["new_biological_population_updates"]==0
+          assert d["new_offspring_draws"]==0 and d["new_random_seed_reservations"]==0
+          assert d["not_registered_not_authorized"] and not d["should_dispatch_actions"]
+          assert d["all_adult_current_expressed_M_I_A_identical"]
+          assert d["same_low_I_copy_count_and_allelic_value_variance"]
+          assert len(d["native_static_reproduction_settings_checked"])==4
+          print("R2_CARRIER_PLACEMENT_STATIC_ONLY",[
+            (r["baseline"],r["original_model_external_activity"],
+             r["difference_in_low_I_newborn_fraction_from_carrier_placement"])
+            for r in d["native_static_reproduction_settings_checked"]
+          ])
+          PY
       - name: Build and validate NEE Article layout author preview
         run: |
           mkdir -p outputs/chapter2_nee_format
@@ -703,6 +724,7 @@ jobs:
             outputs/chapter2_r1_r5_author_review/R2_ORIGINAL_RARE_LOW_I_LOSS_CHRONOLOGY.json
             outputs/chapter2_r1_r5_author_review/R2_INDEPENDENT_I_ACCESS_PRECISION_DRAFT.json
             outputs/chapter2_r1_r5_author_review/R2_INDEPENDENT_DESIGN_FEASIBILITY_20261025.json
+            outputs/chapter2_r1_r5_author_review/R2_STATIC_CARRIER_PLACEMENT_HOLD.json
             outputs/chapter2_nee_format/NEE_ARTICLE_AUTHOR_PREVIEW.md
             outputs/chapter2_nee_format/FORMAT_PROOF.json
 
