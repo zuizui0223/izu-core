@@ -101,7 +101,7 @@ def test_blinded_supplement_preserves_cohort_units_and_no_repository_owner():
     article, _, supplement, route = contents()
     assert "## Supplementary Table S1." in supplement
     assert "Supplementary Table S1" in article
-    assert "25,600 crossed source cells" in supplement
+    assert "25,600 crossed cells" in supplement
     assert "private maternal-return" in supplement.lower()
     assert "no new" not in supplement.lower() or "not new analyses" in supplement.lower()
     assert "zuizui0223" not in supplement
