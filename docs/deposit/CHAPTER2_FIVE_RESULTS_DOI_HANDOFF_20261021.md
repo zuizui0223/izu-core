@@ -1,5 +1,7 @@
 # DOI handoff for the five-result Article
 
+> **2026-11-17 target-journal update:** [AmNat first / JEB sequential fallback](../CHAPTER2_AMNAT_JEB_PUBLICATION_ROUTE_20261117.md). AmNat requires a comprehensive code/raw-data archive and an **anonymous reviewer-accessible link from initial submission**; the permanent public DOI is a publication-stage requirement. This handoff remains an *unpublished inventory*, not a completed upload. The four independent 521 ZIP archives and current Article-related source/readout families still need independent external verification and author-approved rights/licences.
+
 Prepared 21 October 2026. Status: metadata and source crosswalk prepared; no external deposit, reserved DOI or publication is asserted. This handoff extends the historical [unpublished preflight](chapter2_zenodo_unpublished_preflight_20261015.json), whose six core packages do not cover every result in the current manuscript.
 
 ## Proposed metadata
