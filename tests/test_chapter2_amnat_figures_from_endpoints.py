@@ -1,6 +1,7 @@
 """Check figure artists against archived endpoints without running the biological model."""
 import csv
 import gzip
+import re
 from collections import Counter
 
 import matplotlib.pyplot as plt
@@ -61,6 +62,16 @@ def test_gap_diamonds_from_all_matched_endpoints(monkeypatch):
 
     def check(fig, name):
         ax = fig.axes[0]
+        report = (renderer.DOCS / "CHAPTER2_Q1_FRESH_FOUNDER_RESULTS_20261016.md").read_text(encoding="utf8")
+        cases = ("delayed_control", "prior_selfing", "pollen_discount", "assurance_cost")
+        assert len(ax.containers) == len(cases)
+        for bars, case in zip(ax.containers, cases, strict=True):
+            row = next(line for line in report.splitlines() if line.startswith("| " + case + " |"))
+            cells = row.replace("*", "").replace("\u2212", "-").split("|")
+            expected = [float(cells[3]), *map(float, re.findall(r"[+-]?\d+\.\d+", cells[4]))]
+            marker, _, whiskers = bars.lines
+            ends = whiskers[0].get_segments()[0][:, 0]
+            assert np.allclose([marker.get_xdata()[0], *ends], expected, rtol=0, atol=.00000051)
         points = [line for line in ax.lines if line.get_marker() == "D"]
         assert len(points) == 2
         for pt in points:
