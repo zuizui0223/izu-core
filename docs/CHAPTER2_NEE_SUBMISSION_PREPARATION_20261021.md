@@ -1,5 +1,7 @@
 # NEE submission preparation — five-result manuscript
 
+> **Historical, not to send (2026-11-17):** The current first target is [The American Naturalist Major Article](CHAPTER2_AMNAT_MAJOR_ARTICLE_DRAFT_20261117.md), with [JEB Research Article as sequential fallback](CHAPTER2_AMNAT_JEB_PUBLICATION_ROUTE_20261117.md). The NEE enquiry and cover-letter examples below were never sent and should not be mistaken for active correspondence; AmNat generally does not expect a cover letter. External raw reviewer access and author approval remain unresolved.
+
 Editorial draft updated 12 November 2026. Draft correspondence only; nothing has been sent. No new simulations or statistical analyses accompany this revision.
 
 ## Submission route
