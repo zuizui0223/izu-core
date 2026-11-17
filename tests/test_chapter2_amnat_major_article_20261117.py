@@ -80,7 +80,7 @@ def test_critical_policy_and_negative_endpoints_are_explicit():
     for token in pilot:
         assert token in article, token
     for token in (
-        "all-four-settings generality decision",
+        "all four settings",
         "inconclusive",
         "−0.0219",
         "−0.0367",
